@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac agG;
-    private static final BdUniqueId agH = BdUniqueId.gen();
+    private static ac agJ;
+    private static final BdUniqueId agK = BdUniqueId.gen();
 
     public static synchronized ac uZ() {
         ac acVar;
         synchronized (ac.class) {
-            if (agG == null) {
-                agG = new ac();
+            if (agJ == null) {
+                agJ = new ac();
             }
-            acVar = agG;
+            acVar = agJ;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String agI;
-        private final boolean agJ;
-        private final boolean agK;
-        private final boolean agL;
+        private final String agL;
+        private final boolean agM;
+        private final boolean agN;
+        private final boolean agO;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.agI = str2;
-            this.agJ = z;
-            this.agK = z2;
-            this.agL = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.agH));
+            this.agL = str2;
+            this.agM = z;
+            this.agN = z2;
+            this.agO = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.agK));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class ac {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             try {
-                ac.this.a(this.imageUrl, this.agI, this.agJ, this.agK, this.agL);
+                ac.this.a(this.imageUrl, this.agL, this.agM, this.agN, this.agO);
             } finally {
                 return null;
             }

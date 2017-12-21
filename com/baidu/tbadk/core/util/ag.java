@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String ahf;
-    private boolean ahg;
+    private String ahi;
+    private boolean ahj;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.ahf = null;
+        this.ahi = null;
         this.mObjTp = null;
-        this.ahg = false;
+        this.ahj = false;
         this.mType = str;
-        this.ahg = z;
+        this.ahj = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.ahf = null;
+        this.ahi = null;
         this.mObjTp = null;
-        this.ahg = false;
+        this.ahj = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -37,7 +37,7 @@ public class ag extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.ahg) {
+        if (this.ahj) {
             str = TbConfig.IN_PV_ADDRESS;
         } else {
             str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -47,8 +47,8 @@ public class ag extends Thread {
         if (this.mParam != null) {
             xVar.n("st_param", this.mParam);
         }
-        if (this.ahf != null) {
-            xVar.n("obj", this.ahf);
+        if (this.ahi != null) {
+            xVar.n("obj", this.ahi);
         }
         if (this.mObjTp != null) {
             xVar.n("obj_tp", this.mObjTp);

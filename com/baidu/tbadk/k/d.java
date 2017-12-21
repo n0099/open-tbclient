@@ -12,47 +12,47 @@ import com.baidu.tbadk.k.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends k {
-    private static CustomMessageTask aJS = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
+    private static CustomMessageTask aJV = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<a> customMessage) {
             if (customMessage == null) {
                 return null;
             }
             a data = customMessage.getData();
-            data.aJU = r.GB().GD();
-            data.aJV = r.GB().GF();
+            data.aJX = r.GB().GD();
+            data.aJY = r.GB().GF();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
         }
     });
-    private ArrayList<String> aJH;
-    private ArrayList<String> aJI;
-    private ArrayList<String> aJJ;
-    private e aJN;
-    private com.baidu.tbadk.k.a aJO;
-    private int aJP;
-    private int aJK = 0;
-    private int aJL = 3;
-    private int aJM = 0;
-    private int aJQ = 0;
-    private e.a aJR = new e.a() { // from class: com.baidu.tbadk.k.d.1
+    private ArrayList<String> aJK;
+    private ArrayList<String> aJL;
+    private ArrayList<String> aJM;
+    private e aJQ;
+    private com.baidu.tbadk.k.a aJR;
+    private int aJS;
+    private int aJN = 0;
+    private int aJO = 3;
+    private int aJP = 0;
+    private int aJT = 0;
+    private e.a aJU = new e.a() { // from class: com.baidu.tbadk.k.d.1
         @Override // com.baidu.tbadk.k.e.a
         public void fo(int i) {
-            d.this.aJN.a((e.a) null);
-            d.this.aJN.stop();
-            d.this.aJP = i;
+            d.this.aJQ.a((e.a) null);
+            d.this.aJQ.stop();
+            d.this.aJS = i;
             t tVar = (t) r.GB().ft(d.this.mSubType);
             if (tVar != null) {
                 tVar.h(d.this);
             }
         }
     };
-    private a.InterfaceC0075a aJw = new a.InterfaceC0075a() { // from class: com.baidu.tbadk.k.d.2
-        @Override // com.baidu.tbadk.k.a.InterfaceC0075a
+    private a.InterfaceC0074a aJz = new a.InterfaceC0074a() { // from class: com.baidu.tbadk.k.d.2
+        @Override // com.baidu.tbadk.k.a.InterfaceC0074a
         public void fo(int i) {
-            d.this.aJQ++;
-            if (d.this.aJL == d.this.aJQ) {
-                d.this.aJO.a((a.InterfaceC0075a) null);
-                d.this.aJO.stop();
+            d.this.aJT++;
+            if (d.this.aJO == d.this.aJT) {
+                d.this.aJR.a((a.InterfaceC0074a) null);
+                d.this.aJR.stop();
                 d.this.Gp();
             }
             d.this.fp(i);
@@ -64,9 +64,9 @@ public class d extends k {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
-                d.this.aJM++;
-                d.this.gH(aVar.aJU);
-                d.this.fq(aVar.aJV);
+                d.this.aJP++;
+                d.this.gH(aVar.aJX);
+                d.this.fq(aVar.aJY);
                 d.this.Gp();
             }
         }
@@ -77,28 +77,28 @@ public class d extends k {
     }
 
     public void onDestroy() {
-        if (this.aJN != null) {
-            this.aJN.a((e.a) null);
+        if (this.aJQ != null) {
+            this.aJQ.a((e.a) null);
         }
-        if (this.aJO != null) {
-            this.aJO.a((a.InterfaceC0075a) null);
+        if (this.aJR != null) {
+            this.aJR.a((a.InterfaceC0074a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
     public void Gi() {
-        if (this.aJK < this.aJL) {
-            this.aJK++;
+        if (this.aJN < this.aJO) {
+            this.aJN++;
             Gk();
-            if (this.aJN == null) {
-                this.aJN = new e();
-                this.aJN.a(this.aJR);
-                this.aJN.start();
+            if (this.aJQ == null) {
+                this.aJQ = new e();
+                this.aJQ.a(this.aJU);
+                this.aJQ.start();
             }
-            if (this.aJO == null) {
-                this.aJO = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
-                this.aJO.a(this.aJw);
-                this.aJO.start();
+            if (this.aJR == null) {
+                this.aJR = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
+                this.aJR.a(this.aJz);
+                this.aJR.start();
             }
         }
     }
@@ -118,45 +118,45 @@ public class d extends k {
     /* JADX INFO: Access modifiers changed from: private */
     public void fp(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJH == null) {
-            this.aJH = new ArrayList<>();
+        if (this.aJK == null) {
+            this.aJK = new ArrayList<>();
         }
-        this.aJH.add(valueOf);
+        this.aJK.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gH(String str) {
-        if (this.aJI == null) {
-            this.aJI = new ArrayList<>();
+        if (this.aJL == null) {
+            this.aJL = new ArrayList<>();
         }
         if (str != null) {
-            this.aJI.add(str);
+            this.aJL.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fq(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aJJ == null) {
-            this.aJJ = new ArrayList<>();
+        if (this.aJM == null) {
+            this.aJM = new ArrayList<>();
         }
-        this.aJJ.add(valueOf);
+        this.aJM.add(valueOf);
     }
 
     public String Gl() {
-        return r(this.aJH);
+        return r(this.aJK);
     }
 
     public String Gm() {
-        return String.valueOf(this.aJP);
+        return String.valueOf(this.aJS);
     }
 
     public String Gn() {
-        return r(this.aJI);
+        return r(this.aJL);
     }
 
     public String Go() {
-        return r(this.aJJ);
+        return r(this.aJM);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -181,20 +181,20 @@ public class d extends k {
     /* JADX INFO: Access modifiers changed from: private */
     public void Gp() {
         t tVar;
-        if (this.aJM == this.aJL && this.aJL == this.aJQ && (tVar = (t) r.GB().ft(this.mSubType)) != null) {
+        if (this.aJP == this.aJO && this.aJO == this.aJT && (tVar = (t) r.GB().ft(this.mSubType)) != null) {
             tVar.g(this);
         }
     }
 
     static {
-        aJS.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aJS);
+        aJV.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aJV);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String aJU;
-        public int aJV;
+        public String aJX;
+        public int aJY;
 
         public a() {
         }

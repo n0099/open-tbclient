@@ -13,35 +13,35 @@ import java.util.Random;
 /* loaded from: classes2.dex */
 public class j {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final int[] gVC;
-    private static final int[] gVD;
-    private static final int[] gVE;
-    private static final double[][] gVF;
-    private static final double[] gVR;
-    private double gVA;
-    private int gVB;
-    private double[][] gVG;
-    private int gVH;
-    private int gVI;
-    private int gVJ;
-    private int gVK;
-    private double[] gVL;
+    private static final int[] gVH;
+    private static final int[] gVI;
+    private static final int[] gVJ;
+    private static final double[][] gVK;
+    private static final double[] gVW;
+    private ByteOrder gVC;
+    private k gVD;
+    private double gVE;
+    private double gVF;
+    private int gVG;
+    private double[][] gVL;
     private int gVM;
-    private boolean gVN;
+    private int gVN;
     private int gVO;
-    private long gVP;
-    private long gVQ;
-    private ByteOrder gVx;
-    private k gVy;
-    private double gVz;
+    private int gVP;
+    private double[] gVQ;
+    private int gVR;
+    private boolean gVS;
+    private int gVT;
+    private long gVU;
+    private long gVV;
 
     static {
         $assertionsDisabled = !j.class.desiredAssertionStatus();
-        gVC = new int[]{0, 48000, 44100, 37800, 32000, 22050, 48000, 44100};
-        gVD = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
-        gVE = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
-        gVF = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
-        gVR = new double[]{0.7d, 0.9d, 0.18d};
+        gVH = new int[]{0, 48000, 44100, 37800, 32000, 22050, 48000, 44100};
+        gVI = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
+        gVJ = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
+        gVK = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
+        gVW = new double[]{0.7d, 0.9d, 0.18d};
     }
 
     private int h(double d) {
@@ -51,7 +51,7 @@ public class j {
     public int a(int i, int i2, int i3, int i4, int i5, int i6, double d) {
         int[] iArr = new int[97];
         int i7 = 1;
-        while (i7 < 6 && i != gVC[i7]) {
+        while (i7 < 6 && i != gVH[i7]) {
             i7++;
         }
         if ((i5 == 3 || i5 == 4) && i7 == 6) {
@@ -61,15 +61,15 @@ public class j {
         if (i5 == 4 && (i7 == 1 || i7 == 2)) {
             i7 += 5;
         }
-        this.gVH = i7;
-        this.gVG = new double[i2];
-        this.gVI = gVD[this.gVH];
+        this.gVM = i7;
+        this.gVL = new double[i2];
+        this.gVN = gVI[this.gVM];
         for (int i8 = 0; i8 < i2; i8++) {
-            this.gVG[i8] = new double[this.gVI];
+            this.gVL[i8] = new double[this.gVN];
         }
-        this.gVJ = i3;
-        this.gVK = i4;
-        this.gVL = new double[65536];
+        this.gVO = i3;
+        this.gVP = i4;
+        this.gVQ = new double[65536];
         Random random = new Random(System.currentTimeMillis());
         for (int i9 = 0; i9 < 97; i9++) {
             iArr[i9] = random.nextInt();
@@ -80,7 +80,7 @@ public class j {
                     int nextInt = random.nextInt() % 97;
                     int i11 = iArr[nextInt];
                     iArr[nextInt] = random.nextInt();
-                    this.gVL[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
+                    this.gVQ[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
                 }
                 break;
             case 1:
@@ -91,7 +91,7 @@ public class j {
                     int nextInt3 = random.nextInt() % 97;
                     int i14 = iArr[nextInt3];
                     iArr[nextInt3] = random.nextInt();
-                    this.gVL[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
+                    this.gVQ[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
                 }
                 break;
             case 2:
@@ -111,89 +111,89 @@ public class j {
                         int nextInt5 = random.nextInt() % 97;
                         iArr[nextInt5] = random.nextInt();
                         d3 = 6.283185307179586d * (iArr[nextInt5] / 2.147483647E9d);
-                        this.gVL[i15] = d * d2 * Math.cos(d3);
+                        this.gVQ[i15] = d * d2 * Math.cos(d3);
                     } else {
                         z = false;
-                        this.gVL[i15] = d * d2 * Math.sin(d3);
+                        this.gVQ[i15] = d * d2 * Math.sin(d3);
                     }
                 }
                 break;
         }
-        this.gVM = 0;
+        this.gVR = 0;
         if (i5 == 0 || i5 == 1) {
             return 1;
         }
-        return gVE[this.gVH];
+        return gVJ[this.gVM];
     }
 
     public int a(double d, double[] dArr, int i, int i2) {
         double h;
         if (i == 1) {
-            double[] dArr2 = this.gVL;
-            int i3 = this.gVM;
-            this.gVM = i3 + 1;
+            double[] dArr2 = this.gVQ;
+            int i3 = this.gVR;
+            this.gVR = i3 + 1;
             double d2 = dArr2[i3 & SupportMenu.USER_MASK] + d;
-            if (d2 < this.gVJ) {
-                double d3 = d2 / this.gVJ;
+            if (d2 < this.gVO) {
+                double d3 = d2 / this.gVO;
                 if (dArr[0] >= d3) {
                     d3 = dArr[0];
                 }
                 dArr[0] = d3;
-                d2 = this.gVJ;
+                d2 = this.gVO;
             }
-            if (d2 > this.gVK) {
-                double d4 = d2 / this.gVK;
+            if (d2 > this.gVP) {
+                double d4 = d2 / this.gVP;
                 if (dArr[0] >= d4) {
                     d4 = dArr[0];
                 }
                 dArr[0] = d4;
-                d2 = this.gVK;
+                d2 = this.gVP;
             }
             return h(d2);
         }
         double d5 = 0.0d;
-        for (int i4 = 0; i4 < this.gVI; i4++) {
-            d5 += gVF[this.gVH][i4] * this.gVG[i2][i4];
+        for (int i4 = 0; i4 < this.gVN; i4++) {
+            d5 += gVK[this.gVM][i4] * this.gVL[i2][i4];
         }
         double d6 = d5 + d;
-        double[] dArr3 = this.gVL;
-        int i5 = this.gVM;
-        this.gVM = i5 + 1;
+        double[] dArr3 = this.gVQ;
+        int i5 = this.gVR;
+        this.gVR = i5 + 1;
         double d7 = d6 + dArr3[i5 & SupportMenu.USER_MASK];
-        for (int i6 = this.gVI - 2; i6 >= 0; i6--) {
-            this.gVG[i2][i6 + 1] = this.gVG[i2][i6];
+        for (int i6 = this.gVN - 2; i6 >= 0; i6--) {
+            this.gVL[i2][i6 + 1] = this.gVL[i2][i6];
         }
-        if (d7 < this.gVJ) {
-            double d8 = d7 / this.gVJ;
+        if (d7 < this.gVO) {
+            double d8 = d7 / this.gVO;
             if (dArr[0] >= d8) {
                 d8 = dArr[0];
             }
             dArr[0] = d8;
-            h = this.gVJ;
-            this.gVG[i2][0] = h - d6;
-            if (this.gVG[i2][0] > 1.0d) {
-                this.gVG[i2][0] = 1.0d;
+            h = this.gVO;
+            this.gVL[i2][0] = h - d6;
+            if (this.gVL[i2][0] > 1.0d) {
+                this.gVL[i2][0] = 1.0d;
             }
-            if (this.gVG[i2][0] < -1.0d) {
-                this.gVG[i2][0] = -1.0d;
+            if (this.gVL[i2][0] < -1.0d) {
+                this.gVL[i2][0] = -1.0d;
             }
-        } else if (d7 > this.gVK) {
-            double d9 = d7 / this.gVK;
+        } else if (d7 > this.gVP) {
+            double d9 = d7 / this.gVP;
             if (dArr[0] >= d9) {
                 d9 = dArr[0];
             }
             dArr[0] = d9;
-            h = this.gVK;
-            this.gVG[i2][0] = h - d6;
-            if (this.gVG[i2][0] > 1.0d) {
-                this.gVG[i2][0] = 1.0d;
+            h = this.gVP;
+            this.gVL[i2][0] = h - d6;
+            if (this.gVL[i2][0] > 1.0d) {
+                this.gVL[i2][0] = 1.0d;
             }
-            if (this.gVG[i2][0] < -1.0d) {
-                this.gVG[i2][0] = -1.0d;
+            if (this.gVL[i2][0] < -1.0d) {
+                this.gVL[i2][0] = -1.0d;
             }
         } else {
             h = h(d7);
-            this.gVG[i2][0] = h - d6;
+            this.gVL[i2][0] = h - d6;
         }
         return (int) h;
     }
@@ -227,24 +227,24 @@ public class j {
         return j(d3 * 6.283185307179586d * d * i) * 2.0d * d * d3;
     }
 
-    private void bDb() {
-        this.gVP = System.currentTimeMillis();
-        this.gVQ = 0L;
-        this.gVO = -1;
+    private void bDc() {
+        this.gVU = System.currentTimeMillis();
+        this.gVV = 0L;
+        this.gVT = -1;
     }
 
     private void k(double d) {
-        if (!this.gVN) {
-            long currentTimeMillis = System.currentTimeMillis() - this.gVP;
+        if (!this.gVS) {
+            long currentTimeMillis = System.currentTimeMillis() - this.gVU;
             int i = d == 0.0d ? 0 : (int) ((currentTimeMillis * (1.0d - d)) / d);
             int i2 = (int) (100.0d * d);
-            if (i2 != this.gVO || currentTimeMillis != this.gVQ) {
+            if (i2 != this.gVT || currentTimeMillis != this.gVV) {
                 System.err.printf(" %3d%% processed", Integer.valueOf(i2));
-                this.gVO = i2;
+                this.gVT = i2;
             }
-            if (currentTimeMillis != this.gVQ) {
+            if (currentTimeMillis != this.gVV) {
                 System.err.printf(", ETA =%4dmsec", Integer.valueOf(i));
-                this.gVQ = currentTimeMillis;
+                this.gVV = currentTimeMillis;
             }
             System.err.printf("\r", new Object[0]);
             System.err.flush();
@@ -283,8 +283,8 @@ public class j {
         int i15;
         double[] dArr = {0.0d};
         int i16 = 0;
-        int i17 = this.gVB;
-        double d5 = this.gVz;
+        int i17 = this.gVG;
+        double d5 = this.gVE;
         int gcd = gcd(i4, i5);
         int i18 = (i4 / gcd) * i5;
         if (i18 / i5 == 1) {
@@ -335,7 +335,7 @@ public class j {
         for (int i26 = -(i19 / 2); i26 <= i19 / 2; i26++) {
             dArr2[((i19 / 2) + i26) % i21][((i19 / 2) + i26) / i21] = ((a(i26, i19, i20, g) * c(i26, d7, i18)) * i18) / i4;
         }
-        double d8 = this.gVz;
+        double d8 = this.gVE;
         if (d8 <= 21.0d) {
             d3 = 0.9222d;
         } else {
@@ -349,7 +349,7 @@ public class j {
                 i9--;
             }
             d4 = i4 / 2;
-            if ((i27 * d3) / (i9 - 1) < this.gVA) {
+            if ((i27 * d3) / (i9 - 1) < this.gVF) {
                 break;
             }
             i28 *= 2;
@@ -370,8 +370,8 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i31))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i31 / 2];
-        this.gVy.a(i31, 1, dArr3, iArr3, dArr4);
-        bDb();
+        this.gVD.a(i31, 1, dArr3, iArr3, dArr4);
+        bDc();
         int i33 = i31 / 2;
         double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, i, (i33 / i8) + 1);
         double[][] dArr6 = (double[][]) Array.newInstance(Double.TYPE, i, i31);
@@ -419,7 +419,7 @@ public class j {
                 case 2:
                     i10 = 0;
                     while (i10 < i44 * i) {
-                        dArr7[(i * i37) + i10] = 3.051850947599719E-5d * wrap.order(this.gVx).asShortBuffer().get(i10);
+                        dArr7[(i * i37) + i10] = 3.051850947599719E-5d * wrap.order(this.gVC).asShortBuffer().get(i10);
                         i10++;
                     }
                     break;
@@ -433,7 +433,7 @@ public class j {
                 case 4:
                     i10 = 0;
                     while (i10 < i44 * i) {
-                        dArr7[(i * i37) + i10] = 4.656612875245797E-10d * wrap.order(this.gVx).asIntBuffer().get(i10);
+                        dArr7[(i * i37) + i10] = 4.656612875245797E-10d * wrap.order(this.gVC).asIntBuffer().get(i10);
                         i10++;
                     }
                     break;
@@ -505,14 +505,14 @@ public class j {
                 for (int i63 = i33; i63 < i31; i63++) {
                     dArr6[i48][i63] = 0.0d;
                 }
-                this.gVy.a(i31, 1, dArr6[i48], iArr3, dArr4);
+                this.gVD.a(i31, 1, dArr6[i48], iArr3, dArr4);
                 dArr6[i48][0] = dArr3[0] * dArr6[i48][0];
                 dArr6[i48][1] = dArr3[1] * dArr6[i48][1];
                 for (int i64 = 1; i64 < i31 / 2; i64++) {
                     dArr6[i48][i64 * 2] = (dArr3[i64 * 2] * dArr6[i48][i64 * 2]) - (dArr3[(i64 * 2) + 1] * dArr6[i48][(i64 * 2) + 1]);
                     dArr6[i48][(i64 * 2) + 1] = (dArr3[(i64 * 2) + 1] * dArr6[i48][i64 * 2]) + (dArr3[i64 * 2] * dArr6[i48][(i64 * 2) + 1]);
                 }
-                this.gVy.a(i31, -1, dArr6[i48], iArr3, dArr4);
+                this.gVD.a(i31, -1, dArr6[i48], iArr3, dArr4);
                 int i65 = 0;
                 int i66 = i39;
                 while (i66 < i33) {
@@ -610,7 +610,7 @@ public class j {
                                     h2 = 32767;
                                 }
                             }
-                            allocate2.order(this.gVx).asShortBuffer().put(i74, (short) h2);
+                            allocate2.order(this.gVC).asShortBuffer().put(i74, (short) h2);
                             int i75 = i73 + 1;
                             if (i75 == i) {
                                 i75 = 0;
@@ -803,8 +803,8 @@ public class j {
         int i18;
         int i19;
         double[] dArr2 = {0.0d};
-        int i20 = this.gVB;
-        double d5 = this.gVz;
+        int i20 = this.gVG;
+        double d5 = this.gVE;
         int gcd = gcd(i4, i5);
         if (i5 / gcd == 1) {
             i8 = 1;
@@ -829,7 +829,7 @@ public class j {
             }
             double d6 = (i21 * d2) / (i9 - 1);
             d3 = (i5 - d6) / 2.0d;
-            if (d6 < this.gVA) {
+            if (d6 < this.gVF) {
                 break;
             }
             i22 *= 2;
@@ -850,7 +850,7 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i25))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i25 / 2];
-        this.gVy.a(i25, 1, dArr3, iArr3, dArr4);
+        this.gVD.a(i25, 1, dArr3, iArr3, dArr4);
         if (i8 == 1) {
             int i27 = (i4 / gcd) * i5;
             double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, 1, 1);
@@ -863,7 +863,7 @@ public class j {
             i11 = i27;
             i13 = 1;
         } else {
-            double d7 = this.gVz;
+            double d7 = this.gVE;
             int i28 = (i4 / gcd) * i5;
             double d8 = (((i21 / 2) - (i4 / 2)) * 2) / 2.0d;
             double d9 = (i4 / 2) + (((i21 / 2) - (i4 / 2)) / 2.0d);
@@ -915,7 +915,7 @@ public class j {
             i12 = i31;
             i13 = i29;
         }
-        bDb();
+        bDc();
         int i37 = i25 / 2;
         double[][] dArr7 = (double[][]) Array.newInstance(Double.TYPE, i, i25);
         double[][] dArr8 = (double[][]) Array.newInstance(Double.TYPE, i, i10 + 1 + i37);
@@ -966,7 +966,7 @@ public class j {
                 case 2:
                     i45 = 0;
                     while (i45 < i49 * i) {
-                        dArr9[(i * 0) + i45] = 3.051850947599719E-5d * wrap.order(this.gVx).asShortBuffer().get(i45);
+                        dArr9[(i * 0) + i45] = 3.051850947599719E-5d * wrap.order(this.gVC).asShortBuffer().get(i45);
                         i45++;
                     }
                     break;
@@ -980,7 +980,7 @@ public class j {
                 case 4:
                     i45 = 0;
                     while (i45 < i49 * i) {
-                        dArr9[(i * 0) + i45] = 4.656612875245797E-10d * wrap.order(this.gVx).getInt(i45);
+                        dArr9[(i * 0) + i45] = 4.656612875245797E-10d * wrap.order(this.gVC).getInt(i45);
                         i45++;
                     }
                     break;
@@ -1019,7 +1019,7 @@ public class j {
                     }
                     int i60 = i57 - i37;
                     int i61 = i54 + i56;
-                    this.gVy.a(i25, 1, dArr7[i51], iArr3, dArr4);
+                    this.gVD.a(i25, 1, dArr7[i51], iArr3, dArr4);
                     dArr7[i51][0] = dArr3[0] * dArr7[i51][0];
                     dArr7[i51][1] = dArr3[1] * dArr7[i51][1];
                     for (int i62 = 1; i62 < i37; i62++) {
@@ -1028,7 +1028,7 @@ public class j {
                         dArr7[i51][i62 * 2] = d10;
                         dArr7[i51][(i62 * 2) + 1] = d11;
                     }
-                    this.gVy.a(i25, -1, dArr7[i51], iArr3, dArr4);
+                    this.gVD.a(i25, -1, dArr7[i51], iArr3, dArr4);
                     int i63 = 0;
                     while (i63 < i37) {
                         double[] dArr11 = dArr8[i51];
@@ -1150,7 +1150,7 @@ public class j {
                                             h2 = 32767;
                                         }
                                     }
-                                    allocate2.order(this.gVx).asShortBuffer().put(i78, (short) h2);
+                                    allocate2.order(this.gVC).asShortBuffer().put(i78, (short) h2);
                                     int i79 = i77 + 1;
                                     if (i79 == i) {
                                         i79 = 0;
@@ -1315,7 +1315,7 @@ public class j {
         ByteBuffer byteBuffer;
         double[] dArr = {0.0d};
         int i6 = 0;
-        bDb();
+        bDc();
         ByteBuffer byteBuffer2 = null;
         if (z) {
             byteBuffer2 = ByteBuffer.allocate(8);
@@ -1344,7 +1344,7 @@ public class j {
                     ByteBuffer wrap2 = ByteBuffer.wrap(bArr2);
                     wrap2.position(wrap2.limit());
                     wrap2.flip();
-                    d2 = wrap2.order(this.gVx).asShortBuffer().get(0) * 3.051850947599719E-5d;
+                    d2 = wrap2.order(this.gVC).asShortBuffer().get(0) * 3.051850947599719E-5d;
                     byteBuffer = wrap2;
                     break;
                 case 3:
@@ -1366,7 +1366,7 @@ public class j {
                     ByteBuffer wrap4 = ByteBuffer.wrap(bArr4);
                     wrap4.position(wrap4.limit());
                     wrap4.flip();
-                    d2 = wrap4.order(this.gVx).asIntBuffer().get(0) * 4.656612875245797E-10d;
+                    d2 = wrap4.order(this.gVC).asIntBuffer().get(0) * 4.656612875245797E-10d;
                     byteBuffer = wrap4;
                     break;
                 default:
@@ -1440,29 +1440,29 @@ public class j {
     }
 
     public j() {
-        this.gVx = ByteOrder.LITTLE_ENDIAN;
-        this.gVy = new k();
-        this.gVz = 150.0d;
-        this.gVA = 200.0d;
-        this.gVB = 1;
-        this.gVN = false;
+        this.gVC = ByteOrder.LITTLE_ENDIAN;
+        this.gVD = new k();
+        this.gVE = 150.0d;
+        this.gVF = 200.0d;
+        this.gVG = 1;
+        this.gVS = false;
     }
 
     public j(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, int i6, double d, int i7, boolean z) throws Exception {
         int i8;
         int i9;
-        this.gVx = ByteOrder.LITTLE_ENDIAN;
-        this.gVy = new k();
-        this.gVz = 150.0d;
-        this.gVA = 200.0d;
-        this.gVB = 1;
-        this.gVN = false;
+        this.gVC = ByteOrder.LITTLE_ENDIAN;
+        this.gVD = new k();
+        this.gVE = 150.0d;
+        this.gVF = 200.0d;
+        this.gVG = 1;
+        this.gVS = false;
         double[] dArr = {0.0d};
         if (i7 < 0 || i7 > 4) {
             throw new IllegalArgumentException("unrecognized dither type : " + i7);
         }
-        this.gVN = z;
-        if (!this.gVN) {
+        this.gVS = z;
+        if (!this.gVS) {
             System.err.printf("Shibatch sampling rate converter version 1.30(high precision/nio)\n\n", new Object[0]);
         }
         if (i3 != 1 && i3 != 2 && i3 != 3 && i3 != 4) {
@@ -1488,7 +1488,7 @@ public class j {
         } else {
             i9 = 1;
         }
-        if (!this.gVN) {
+        if (!this.gVS) {
             String[] strArr = {"none", "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
             String[] strArr2 = {"rectangular", "triangular", "gaussian"};
             System.err.printf("frequency : %d -> %d\n", Integer.valueOf(i), Integer.valueOf(i10));
@@ -1531,13 +1531,13 @@ public class j {
         } else {
             dArr[0] = a(inputStream, outputStream, i5, i3, i8, Math.pow(10.0d, (-d) / 20.0d), (i6 / i3) / i5, false, i9);
         }
-        if (!this.gVN) {
+        if (!this.gVS) {
             System.err.printf("\n", new Object[0]);
         }
         if (i9 != 0) {
             vy(i5);
         }
-        if (dArr[0] > 1.0d && !this.gVN) {
+        if (dArr[0] > 1.0d && !this.gVS) {
             System.err.printf("clipping detected : %gdB\n", Double.valueOf(20.0d * Math.log10(dArr[0])));
         }
     }

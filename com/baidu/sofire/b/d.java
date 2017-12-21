@@ -29,7 +29,7 @@ public final class d {
     public static String b;
     public static String c;
     public static boolean a = false;
-    public static MyReceiver Ql = null;
+    public static MyReceiver Qm = null;
 
     public static void a(Throwable th) {
         com.baidu.sofire.b.b(th);
@@ -447,10 +447,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (Ql == null) {
-                    Ql = new MyReceiver().a();
+                if (Qm == null) {
+                    Qm = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(Ql, intentFilter);
+                context.getApplicationContext().registerReceiver(Qm, intentFilter);
                 a = true;
                 return false;
             }

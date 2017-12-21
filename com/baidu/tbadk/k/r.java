@@ -4,38 +4,37 @@ import android.os.Debug;
 import android.os.Process;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.activity.BaseActivity;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKV = "tb_perfor_samllflow_time";
-    private static volatile r aKY;
-    private long aKX;
-    private boolean aKT = false;
-    private long aKW = 86400;
-    private long aKU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKV, 0);
+    private static String aKY = "tb_perfor_samllflow_time";
+    private static volatile r aLb;
+    private long aLa;
+    private boolean aKW = false;
+    private long aKZ = 86400;
+    private long aKX = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKY, 0);
 
     public static r GB() {
-        if (aKY == null) {
+        if (aLb == null) {
             synchronized (r.class) {
-                if (aKY == null) {
-                    aKY = new r();
+                if (aLb == null) {
+                    aLb = new r();
                 }
             }
         }
-        return aKY;
+        return aLb;
     }
 
     private r() {
-        this.aKX = 0L;
-        this.aKX = this.aKW;
+        this.aLa = 0L;
+        this.aLa = this.aKZ;
     }
 
     public boolean GC() {
-        if (!this.aKT || (System.currentTimeMillis() - this.aKU) / 1000 <= this.aKX) {
-            return this.aKT;
+        if (!this.aKW || (System.currentTimeMillis() - this.aKX) / 1000 <= this.aLa) {
+            return this.aKW;
         }
         return false;
     }
@@ -43,15 +42,15 @@ public class r {
     public void bU(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKU || currentTimeMillis - this.aKU >= this.aKX) {
-                this.aKU = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKV, this.aKU);
+            if (0 == this.aKX || currentTimeMillis - this.aKX >= this.aLa) {
+                this.aKX = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKY, this.aKX);
             }
         } else {
-            this.aKU = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKV, this.aKU);
+            this.aKX = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKY, this.aKX);
         }
-        this.aKT = z;
+        this.aKW = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             s.GH().GI();
         }
@@ -137,11 +136,11 @@ public class r {
                     p pVar = new p();
                     pVar.subType = "native_live";
                     return pVar;
-                case BaseActivity.FILECHOOSER_RESULTCODE /* 1004 */:
+                case 1004:
                     t tVar3 = new t();
                     tVar3.subType = "photo_live";
                     return tVar3;
-                case BaseActivity.FILECHOOSER_RESULTCODE_FOR_ANDROID_5 /* 1005 */:
+                case 1005:
                     h hVar = new h();
                     hVar.subType = "home_page";
                     return hVar;
@@ -154,7 +153,7 @@ public class r {
 
     public void V(long j) {
         if (j > 0) {
-            this.aKX = j;
+            this.aLa = j;
         }
     }
 

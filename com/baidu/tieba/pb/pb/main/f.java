@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends as {
-    private TextView eSL;
+    private TextView eSQ;
 
     public f(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.eSL = null;
+        this.eSQ = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.eSL = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.eSL.setVisibility(8);
+        this.eSQ = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.eSQ.setVisibility(8);
     }
 
     public void jd(boolean z) {
-        if (this.eSL != null) {
+        if (this.eSQ != null) {
             if (z) {
-                this.eSL.setText(d.j.push);
-                com.baidu.tbadk.core.util.aj.i(this.eSL, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.aj.j(this.eSL, d.f.push_bg_selector);
-                this.eSL.setClickable(true);
+                this.eSQ.setText(d.j.push);
+                com.baidu.tbadk.core.util.aj.i(this.eSQ, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.aj.j(this.eSQ, d.f.push_bg_selector);
+                this.eSQ.setClickable(true);
             } else {
-                this.eSL.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.aj.j(this.eSL, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.aj.i(this.eSL, d.C0096d.cp_cont_d);
-                this.eSL.setClickable(false);
+                this.eSQ.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.aj.j(this.eSQ, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.aj.i(this.eSQ, d.C0095d.cp_cont_d);
+                this.eSQ.setClickable(false);
             }
-            this.eSL.setVisibility(0);
+            this.eSQ.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class f extends as {
         }
     }
 
-    public TextView aSK() {
-        return this.eSL;
+    public TextView aSL() {
+        return this.eSQ;
     }
 }

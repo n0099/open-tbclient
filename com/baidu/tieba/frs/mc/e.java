@@ -21,47 +21,47 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private j cIw;
-    private CustomMessageListener cYq = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.2
+    private j cIA;
+    private CustomMessageListener cYu = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.e(customResponsedMessage);
         }
     };
-    private CustomMessageListener cYr = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.frs.mc.e.3
+    private CustomMessageListener cYv = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.frs.mc.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.ly(e.this.d(customResponsedMessage));
-            e.this.cIw.aln().amd().notifyDataSetChanged();
+            e.this.cIA.aln().ame().notifyDataSetChanged();
         }
     };
-    private CustomMessageListener cYs = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.5
+    private CustomMessageListener cYw = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.mc.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.cIw != null && e.this.cIw.ali() != null && e.this.cIw.ali().aoH() != null) {
+            if (customResponsedMessage != null && e.this.cIA != null && e.this.cIA.ali() != null && e.this.cIA.ali().aoI() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.e(str, e.this.cIw.ali().aoH().aRn().getBannerListData().getAllAdvertList());
-                e.this.f(str, e.this.cIw.aln().getListView().getData());
-                e.this.f(str, e.this.cIw.alj().apO().getDataList());
-                e.this.cIw.ali().lx(str);
-                if (e.this.cIw.aln() != null && e.this.cIw.aln().amd() != null) {
-                    e.this.cIw.aln().amd().notifyDataSetChanged();
+                e.this.e(str, e.this.cIA.ali().aoI().aRo().getBannerListData().getAllAdvertList());
+                e.this.f(str, e.this.cIA.aln().getListView().getData());
+                e.this.f(str, e.this.cIA.alj().apP().getDataList());
+                e.this.cIA.ali().lx(str);
+                if (e.this.cIA.aln() != null && e.this.cIA.aln().ame() != null) {
+                    e.this.cIA.aln().ame().notifyDataSetChanged();
                 }
             }
         }
     };
 
     public e(j jVar, BdUniqueId bdUniqueId) {
-        this.cIw = jVar;
-        this.cYq.setTag(bdUniqueId);
-        this.cYs.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cYq);
-        MessageManager.getInstance().registerListener(this.cYs);
-        this.cYr.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cYr);
+        this.cIA = jVar;
+        this.cYu.setTag(bdUniqueId);
+        this.cYw.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cYu);
+        MessageManager.getInstance().registerListener(this.cYw);
+        this.cYv.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cYv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,10 +74,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.cIw != null && this.cIw.ali() != null && this.cIw.ali().aoH() != null) {
+        if (this.cIA != null && this.cIA.ali() != null && this.cIA.ali().aoI() != null) {
             final String d = d(customResponsedMessage);
-            if (!StringUtils.isNull(d) && this.cIw.aln() != null && this.cIw.aln().amd() != null) {
-                final View childAt = this.cIw.aln().getListView().getChildAt(a(d, this.cIw.aln().getListView()));
+            if (!StringUtils.isNull(d) && this.cIA.aln() != null && this.cIA.aln().ame() != null) {
+                final View childAt = this.cIA.aln().getListView().getChildAt(a(d, this.cIA.aln().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -92,15 +92,15 @@ public class e {
                         public void onAnimationEnd(Animation animation) {
                             e.this.ly(d);
                             childAt.setVisibility(8);
-                            if (e.this.cIw.aln() != null && e.this.cIw.aln().amd() != null) {
-                                e.this.cIw.aln().amd().notifyDataSetChanged();
+                            if (e.this.cIA.aln() != null && e.this.cIA.aln().ame() != null) {
+                                e.this.cIA.aln().ame().notifyDataSetChanged();
                             }
                         }
                     });
                     return;
                 }
                 ly(d);
-                this.cIw.aln().amd().notifyDataSetChanged();
+                this.cIA.aln().ame().notifyDataSetChanged();
             }
         }
     }
@@ -108,12 +108,12 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void ly(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<com.baidu.adp.widget.ListView.f> threadList = this.cIw.ali().aoH().getThreadList();
+            ArrayList<com.baidu.adp.widget.ListView.f> threadList = this.cIA.ali().aoI().getThreadList();
             d(str, threadList);
-            d(str, this.cIw.aln().getListView().getData());
-            this.cIw.ali().lw(str);
+            d(str, this.cIA.aln().getListView().getData());
+            this.cIA.ali().lw(str);
             if (threadList != null && threadList.size() < 5) {
-                this.cIw.OI();
+                this.cIA.OI();
             }
         }
     }
@@ -178,7 +178,7 @@ public class e {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                if (next != null && str.equals(next.UK)) {
+                if (next != null && str.equals(next.UN)) {
                     it.remove();
                 }
             }
@@ -193,7 +193,7 @@ public class e {
                 com.baidu.adp.widget.ListView.f next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     Object Ku = ((com.baidu.tieba.InjectPlugin.a) next).Ku();
-                    if ((Ku instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Ku).UK)) {
+                    if ((Ku instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Ku).UN)) {
                         it.remove();
                     }
                 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes.dex */
 public class d extends c {
-    public boolean csS;
+    public boolean csW;
     public String mTitle;
 
     public d(String str, boolean z) {
         this.mTitle = str;
-        this.csS = z;
+        this.csW = z;
         setType(0);
     }
 }

@@ -8,22 +8,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class r implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId cJN = BdUniqueId.gen();
-    private List<MetaData> cJK;
-    private int cJJ = 0;
-    private String cJL = "本吧都在关注";
-    private boolean cJM = false;
+    public static final BdUniqueId cJR = BdUniqueId.gen();
+    private List<MetaData> cJO;
+    private int cJN = 0;
+    private String cJP = "本吧都在关注";
+    private boolean cJQ = false;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return cJN;
+        return cJR;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.w(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.cJJ = frsPageUserExtend.user_extend_storey.intValue();
-            this.cJK = new ArrayList(list.size());
+            this.cJN = frsPageUserExtend.user_extend_storey.intValue();
+            this.cJO = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -32,11 +32,11 @@ public class r implements com.baidu.adp.widget.ListView.f {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.cJK.add(metaData);
+                        this.cJO.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.cJL = frsPageUserExtend.tips;
+                    this.cJP = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -44,22 +44,22 @@ public class r implements com.baidu.adp.widget.ListView.f {
     }
 
     public int sx() {
-        return this.cJJ;
+        return this.cJN;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.cJK;
+        return this.cJO;
     }
 
-    public String amu() {
-        return this.cJL;
+    public String amv() {
+        return this.cJP;
     }
 
-    public boolean amv() {
-        return this.cJM;
+    public boolean amw() {
+        return this.cJQ;
     }
 
     public void fb(boolean z) {
-        this.cJM = z;
+        this.cJQ = z;
     }
 }

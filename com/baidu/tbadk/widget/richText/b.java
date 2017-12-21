@@ -13,10 +13,10 @@ public class b extends BitmapDrawable {
     private Context mContext;
     private int mId;
     private String mKey;
-    private Rect rt = null;
+    private Rect ru = null;
     private Matrix mMatrix = null;
-    private int aVd = 0;
-    private int aVe = 0;
+    private int aVg = 0;
+    private int aVh = 0;
 
     public b(Context context, int i) {
         this.mId = 0;
@@ -29,14 +29,14 @@ public class b extends BitmapDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.rt = new Rect(i, i2, i3, i4);
+        this.ru = new Rect(i, i2, i3, i4);
         this.mMatrix = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.rt = new Rect(rect);
+        this.ru = new Rect(rect);
         this.mMatrix = null;
         super.setBounds(rect);
     }
@@ -62,15 +62,15 @@ public class b extends BitmapDrawable {
             if (aVar != null) {
                 int width = aVar.getWidth();
                 int height = aVar.getHeight();
-                if (width > 0 && height > 0 && this.rt != null) {
+                if (width > 0 && height > 0 && this.ru != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > 0 || width > 0 || this.aVd != 0 || this.aVe != 0) {
+                    if (height > 0 || width > 0 || this.aVg != 0 || this.aVh != 0) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(this.aVd, this.aVe);
-                            float f = (this.rt.right - this.rt.left) / width;
-                            float f2 = (this.rt.bottom - this.rt.top) / height;
+                            this.mMatrix.postTranslate(this.aVg, this.aVh);
+                            float f = (this.ru.right - this.ru.left) / width;
+                            float f2 = (this.ru.bottom - this.ru.top) / height;
                             if (f >= f2) {
                                 f = f2;
                             }

@@ -14,27 +14,27 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.v;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a.a<t>> {
-    public BdUniqueId aSy;
-    private c.a aYP;
-    private l bZi;
-    private t cOe;
-    private v dof;
+    public BdUniqueId aSB;
+    private c.a aYT;
+    private l bZm;
+    private t cOi;
+    private v doj;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aYP = null;
-        this.dof = new v<be>() { // from class: com.baidu.tieba.homepage.personalize.a.h.1
+        this.aYT = null;
+        this.doj = new v<be>() { // from class: com.baidu.tieba.homepage.personalize.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, be beVar) {
-                l lVar = h.this.bZi;
+                l lVar = h.this.bZm;
                 s.abW().cC(true);
-                if (view != null && h.this.cOe != null && h.this.cOe.getView() != null && lVar != null && lVar.Ox() != null && !StringUtils.isNull(lVar.Ox().getTid())) {
-                    if (view.getId() != h.this.cOe.getView().getId()) {
-                        if (h.this.cOe.getHeaderImg() == null || view.getId() != h.this.cOe.getHeaderImg().getId()) {
-                            if (h.this.cOe.abw() != null && view.getId() == h.this.cOe.abw().getId()) {
+                if (view != null && h.this.cOi != null && h.this.cOi.getView() != null && lVar != null && lVar.Ox() != null && !StringUtils.isNull(lVar.Ox().getTid())) {
+                    if (view.getId() != h.this.cOi.getView().getId()) {
+                        if (h.this.cOi.getHeaderImg() == null || view.getId() != h.this.cOi.getHeaderImg().getId()) {
+                            if (h.this.cOi.abw() != null && view.getId() == h.this.cOi.abw().getId()) {
                                 TiebaStatic.log(lVar.acq());
                                 return;
                             }
@@ -48,7 +48,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             }
         };
         this.mPageContext = tbPageContext;
-        aut();
+        auu();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,17 +56,17 @@ public class h extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public com.baidu.tieba.card.a.a<t> onCreateViewHolder(ViewGroup viewGroup) {
-        this.cOe = new t(this.mPageContext);
-        this.cOe.currentPageType = 2;
-        if (this.cOe.bvI != null) {
-            this.cOe.bvI.anO = 2;
+        this.cOi = new t(this.mPageContext);
+        this.cOi.currentPageType = 2;
+        if (this.cOi.bvM != null) {
+            this.cOi.bvM.anR = 2;
         }
-        if (this.cOe.ccm != null) {
-            this.cOe.ccm.ccQ = 2;
+        if (this.cOi.ccq != null) {
+            this.cOi.ccq.ccU = 2;
         }
-        this.cOe.k(this.aSy);
-        this.cOe.b(this.dof);
-        return new com.baidu.tieba.card.a.a<>(this.cOe);
+        this.cOi.k(this.aSB);
+        this.cOi.b(this.doj);
+        return new com.baidu.tieba.card.a.a<>(this.cOi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,36 +77,36 @@ public class h extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
         if (lVar == null || lVar.Ox() == null || aVar == null || aVar.acB() == null) {
             return null;
         }
-        this.bZi = lVar;
+        this.bZm = lVar;
         lVar.iG(i + 1);
         s.abW().a(lVar.ka("c12641"));
-        if (lVar.Xy != null && lVar.Xy.size() > 0) {
-            lVar.Ox().a(lVar.Xy);
+        if (lVar.XB != null && lVar.XB.size() > 0) {
+            lVar.Ox().a(lVar.XB);
         }
         be beVar = new be(lVar.Ox());
         beVar.stType = "personalize_page";
-        beVar.aaF = 1;
-        beVar.aaG = 3;
-        aVar.acB().a(this.aYP);
+        beVar.aaI = 1;
+        beVar.aaJ = 3;
+        aVar.acB().a(this.aYT);
         aVar.acB().a(beVar);
         return aVar.getView();
     }
 
-    private void aut() {
-        l.cdG = "c10705";
-        l.cdH = "c10730";
-        l.cdI = "c10731";
-        l.cdJ = "c10704";
-        l.cdK = "c10755";
-        l.cdL = "c10710";
-        l.cdM = "c10736";
-        l.cdN = "c10737";
-        l.cdO = "c10711";
-        l.cdP = "c10758";
-        l.cdQ = "c10757";
+    private void auu() {
+        l.cdK = "c10705";
+        l.cdL = "c10730";
+        l.cdM = "c10731";
+        l.cdN = "c10704";
+        l.cdO = "c10755";
+        l.cdP = "c10710";
+        l.cdQ = "c10736";
+        l.cdR = "c10737";
+        l.cdS = "c10711";
+        l.cdT = "c10758";
+        l.cdU = "c10757";
     }
 
     public void setEventCallback(c.a aVar) {
-        this.aYP = aVar;
+        this.aYT = aVar;
     }
 }

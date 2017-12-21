@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
-    private boolean ajh = true;
+    private boolean ajk = true;
 
     @Override // com.baidu.adp.lib.f.e
     public boolean fM() {
@@ -41,7 +41,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(cVar);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (com.baidu.adp.lib.Disk.d.dH().c(cVar)) {
             int i = 2000;
@@ -71,7 +71,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.vC = dVar;
+                aVar.vD = dVar;
             }
         }
         return aVar2;
@@ -106,10 +106,10 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         String str3 = (!(TbadkCoreApplication.getInst().getCapabilityOfWebp() && com.baidu.adp.lib.b.d.eV().af("webp_enable") == 1) || str.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str.lastIndexOf(".jpg")) <= 0) ? str : str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4, str.length());
         com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
-            aVar.vC = iVar;
+            aVar.vD = iVar;
         }
-        byte[] j = iVar.j(str3, !this.ajh);
-        if (j == null && !iVar.fz().vl) {
+        byte[] j = iVar.j(str3, !this.ajk);
+        if (j == null && !iVar.fz().vm) {
             return null;
         }
         com.baidu.tbadk.imageManager.c.EA().fg(TbConfig.getPbImageSize() + j.length);

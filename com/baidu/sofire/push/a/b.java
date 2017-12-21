@@ -27,7 +27,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C0052a(iBinder);
+            return new C0051a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -71,10 +71,10 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.sofire.push.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0052a implements b {
+        private static class C0051a implements b {
             private IBinder a;
 
-            C0052a(IBinder iBinder) {
+            C0051a(IBinder iBinder) {
                 this.a = iBinder;
             }
 

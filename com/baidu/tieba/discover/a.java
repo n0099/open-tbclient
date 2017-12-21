@@ -20,22 +20,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements aj {
-    private b cpT;
-    private boolean cpU;
+    private b cpX;
+    private boolean cpY;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean btL = true;
+    private boolean btP = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpT != null && a.this.cpT.QA() != null && a.this.cpT.QA().getUrl() != null) {
-                if (a.this.cpT.QA().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.cpT.NO();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpX != null && a.this.cpX.QA() != null && a.this.cpX.QA().getUrl() != null) {
+                if (a.this.cpX.QA().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.cpX.NO();
                 }
             }
         }
     };
-    private CustomMessageListener cpV = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener cpZ = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,29 +51,29 @@ public class a extends BaseFragment implements aj {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.cpT = new b();
-        return this.cpT.a(layoutInflater, viewGroup);
+        this.cpX = new b();
+        return this.cpX.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.cpT.j(getPageContext());
+        this.cpX.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.cpV);
-        z.a(this.cpT.QA(), getUniqueId());
+        registerListener(this.cpZ);
+        z.a(this.cpX.QA(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.btL || StringUtils.isNull(this.cpT.QA().getUrl())) {
+        if (this.btP || StringUtils.isNull(this.cpX.QA().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.cpT.loadUrl(iz(this.mUrl));
+                this.cpX.loadUrl(iz(this.mUrl));
             } else {
-                this.cpT.loadUrl(this.mUrl);
+                this.cpX.loadUrl(this.mUrl);
             }
-            this.btL = false;
+            this.btP = false;
         }
     }
 
@@ -97,8 +97,8 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.cpT != null) {
-            this.cpT.onDestroy();
+        if (this.cpX != null) {
+            this.cpX.onDestroy();
         }
     }
 
@@ -124,11 +124,11 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.btL) {
+        if (!this.btP) {
             if (i == 1) {
-                this.cpT.loadUrl(iz(this.mUrl));
+                this.cpX.loadUrl(iz(this.mUrl));
             } else {
-                this.cpT.loadUrl(this.mUrl);
+                this.cpX.loadUrl(this.mUrl);
             }
         }
     }
@@ -139,17 +139,17 @@ public class a extends BaseFragment implements aj {
 
     @Override // com.baidu.tieba.frs.aj
     public void Pk() {
-        if (this.cpT != null && !this.cpU) {
-            this.cpU = true;
-            this.cpT.afS();
+        if (this.cpX != null && !this.cpY) {
+            this.cpY = true;
+            this.cpX.afS();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Pl() {
-        if (this.cpT != null && this.cpU) {
-            this.cpU = false;
-            this.cpT.afT();
+        if (this.cpX != null && this.cpY) {
+            this.cpY = false;
+            this.cpX.afT();
         }
     }
 

@@ -22,8 +22,8 @@ public class g {
     public static void a(j jVar, k kVar, String str, boolean z, bd bdVar) {
         com.baidu.tbadk.coreExtra.data.c adAdSense;
         if (jVar != null && kVar != null && !TextUtils.isEmpty(str) && (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) != null && adAdSense.xH()) {
-            u amd = jVar == null ? null : jVar.amd();
-            List<com.baidu.adp.widget.ListView.f> datas = amd != null ? amd.getDatas() : null;
+            u ame = jVar == null ? null : jVar.ame();
+            List<com.baidu.adp.widget.ListView.f> datas = ame != null ? ame.getDatas() : null;
             List<com.baidu.adp.widget.ListView.f> singletonList = bdVar != null ? Collections.singletonList(bdVar) : datas;
             if (singletonList != null && datas != null) {
                 ArrayList arrayList = new ArrayList();
@@ -34,8 +34,8 @@ public class g {
                         for (com.baidu.adp.widget.ListView.f fVar2 : singletonList) {
                             if (fVar == fVar2 && (fVar2 instanceof bd)) {
                                 a.b bVar = new a.b();
-                                bVar.aMU = ((bd) fVar2).getTid();
-                                bVar.cdx = i2;
+                                bVar.aMX = ((bd) fVar2).getTid();
+                                bVar.cdB = i2;
                                 arrayList.add(bVar);
                             }
                         }
@@ -47,11 +47,11 @@ public class g {
                         if (fVar3 instanceof bd) {
                             bd bdVar2 = (bd) fVar3;
                             i3++;
-                            if (bdVar2.Zu == 1 && !TextUtils.isEmpty(bdVar2.getTid())) {
-                                bdVar2.Zu = 2;
+                            if (bdVar2.Zx == 1 && !TextUtils.isEmpty(bdVar2.getTid())) {
+                                bdVar2.Zx = 2;
                                 a.b bVar2 = new a.b();
-                                bVar2.aMU = bdVar2.getTid();
-                                bVar2.cdx = i3;
+                                bVar2.aMX = bdVar2.getTid();
+                                bVar2.cdB = i3;
                                 arrayList.add(bVar2);
                             }
                         }
@@ -59,7 +59,7 @@ public class g {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    r.sendFRS(z, kVar.aRn().getFirst_class(), kVar.aRn().getSecond_class(), str, arrayList, adAdSense.xK());
+                    r.sendFRS(z, kVar.aRo().getFirst_class(), kVar.aRo().getSecond_class(), str, arrayList, adAdSense.xK());
                 }
             }
         }
@@ -80,12 +80,12 @@ public class g {
                 if (bdVar.rv() != null && bdVar.rv().getGodInfo() != null) {
                     TiebaStatic.log(new ak("c10806").r("obj_locate", 3).ac("tid", bdVar.getId()));
                 }
-                if (kVar != null && kVar.aRn() != null) {
+                if (kVar != null && kVar.aRo() != null) {
                     com.baidu.tieba.frs.e.a aVar = new com.baidu.tieba.frs.e.a();
-                    aVar.cYO = kVar.gzl == 1;
-                    aVar.cYQ = kVar.aRn().getId();
-                    aVar.cYP = ali.aqa();
-                    com.baidu.tieba.frs.e.b.aqv().a(aVar, bdVar, 1);
+                    aVar.cYS = kVar.gzq == 1;
+                    aVar.cYU = kVar.aRo().getId();
+                    aVar.cYT = ali.aqb();
+                    com.baidu.tieba.frs.e.b.aqw().a(aVar, bdVar, 1);
                 }
                 a(aln, kVar, gVar.getForumId(), true, bdVar);
             }
@@ -103,9 +103,9 @@ public class g {
     }
 
     public static void a(com.baidu.tieba.frs.e.a aVar, String str) {
-        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.cYQ)) {
+        if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.cYU)) {
             ak akVar = new ak("c11942");
-            akVar.ac(ImageViewerConfig.FORUM_ID, aVar.cYQ);
+            akVar.ac(ImageViewerConfig.FORUM_ID, aVar.cYU);
             akVar.ac("obj_name", str);
             TiebaStatic.log(akVar);
         }

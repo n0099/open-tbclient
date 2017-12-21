@@ -6,7 +6,7 @@ public class f {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean arj = false;
+    private boolean arm = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -25,10 +25,10 @@ public class f {
     }
 
     public boolean xQ() {
-        return this.arj;
+        return this.arm;
     }
 
     public void aR(boolean z) {
-        this.arj = z;
+        this.arm = z;
     }
 }

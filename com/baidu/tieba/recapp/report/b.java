@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gbD;
-    private CustomMessageListener gbF = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gbI;
+    private CustomMessageListener gbK = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.gbE != null) {
-                b.this.gbE.bmC();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.hh() && b.this.gbJ != null) {
+                b.this.gbJ.bmD();
             }
         }
     };
-    private c gbE = new f();
+    private c gbJ = new f();
 
-    public static b bmA() {
-        if (gbD == null) {
+    public static b bmB() {
+        if (gbI == null) {
             synchronized (b.class) {
-                if (gbD == null) {
-                    gbD = new b();
+                if (gbI == null) {
+                    gbI = new b();
                 }
             }
         }
-        return gbD;
+        return gbI;
     }
 
-    private boolean bmB() {
+    private boolean bmC() {
         return com.baidu.adp.lib.b.d.eV().af("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gbF);
+        MessageManager.getInstance().registerListener(this.gbK);
     }
 
     public void a(a aVar) {
-        if (bmB() && aVar != null && this.gbE != null) {
+        if (bmC() && aVar != null && this.gbJ != null) {
             if (j.hh()) {
-                this.gbE.b(aVar);
+                this.gbJ.b(aVar);
             } else {
-                this.gbE.c(aVar);
+                this.gbJ.c(aVar);
             }
         }
     }

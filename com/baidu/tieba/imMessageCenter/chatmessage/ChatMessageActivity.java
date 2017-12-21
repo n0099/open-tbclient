@@ -22,20 +22,20 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 /* loaded from: classes2.dex */
 public class ChatMessageActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private CustomMessageListener TF = new CustomMessageListener(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT) { // from class: com.baidu.tieba.imMessageCenter.chatmessage.ChatMessageActivity.1
+    private CustomMessageListener TG = new CustomMessageListener(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT) { // from class: com.baidu.tieba.imMessageCenter.chatmessage.ChatMessageActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
-            if (ChatMessageActivity.this.dWC == null) {
+            if (ChatMessageActivity.this.dWG == null) {
                 if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof Fragment)) {
-                    ChatMessageActivity.this.dWC = (Fragment) data;
+                    ChatMessageActivity.this.dWG = (Fragment) data;
                 }
-                if (ChatMessageActivity.this.dWC != null) {
+                if (ChatMessageActivity.this.dWG != null) {
                     ChatMessageActivity.this.mFragmentManager = ChatMessageActivity.this.getSupportFragmentManager();
-                    ChatMessageActivity.this.dWB = ChatMessageActivity.this.mFragmentManager.beginTransaction();
-                    ChatMessageActivity.this.dWB.add(d.g.content, ChatMessageActivity.this.dWC);
-                    ChatMessageActivity.this.dWB.commitAllowingStateLoss();
+                    ChatMessageActivity.this.dWF = ChatMessageActivity.this.mFragmentManager.beginTransaction();
+                    ChatMessageActivity.this.dWF.add(d.g.content, ChatMessageActivity.this.dWG);
+                    ChatMessageActivity.this.dWF.commitAllowingStateLoss();
                 }
                 if (ChatMessageActivity.this.getIntent() != null) {
                     int intExtra = ChatMessageActivity.this.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
@@ -47,10 +47,10 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
             }
         }
     };
-    private VoiceManager cHh;
-    private ImageView dWA;
-    private FragmentTransaction dWB;
-    private Fragment dWC;
+    private VoiceManager cHl;
+    private ImageView dWE;
+    private FragmentTransaction dWF;
+    private Fragment dWG;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -59,9 +59,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onDestory(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onDestory(getPageContext());
         }
     }
 
@@ -69,9 +69,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onResume(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onResume(getPageContext());
         }
     }
 
@@ -79,9 +79,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onPause(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onPause(getPageContext());
         }
     }
 
@@ -89,9 +89,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onStop(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onStop(getPageContext());
         }
     }
 
@@ -99,9 +99,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onSaveInstanceState(getPageContext().getPageActivity());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
@@ -109,9 +109,9 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onStart(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onStart(getPageContext());
         }
     }
 
@@ -120,13 +120,13 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.TF);
+        registerListener(this.TG);
         InvokeNewImMessageCenterFragmentConfig.currentPageType = 2;
         sendMessage(new CustomMessage(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 1));
-        this.cHh = getVoiceManager();
-        if (this.cHh != null) {
-            this.cHh.onCreate(getPageContext());
+        this.cHl = getVoiceManager();
+        if (this.cHl != null) {
+            this.cHl.onCreate(getPageContext());
         }
         adjustResizeForSoftInput();
     }
@@ -135,8 +135,8 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        aj.j(this.mRootView, d.C0096d.cp_bg_line_d);
-        aj.a(this.dWA, d.f.icon_write_news_bg_s, d.f.icon_write_news_bg);
+        aj.j(this.mRootView, d.C0095d.cp_bg_line_d);
+        aj.a(this.dWE, d.f.icon_write_news_bg_s, d.f.icon_write_news_bg);
     }
 
     private void initUI() {
@@ -154,18 +154,18 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.cHh == null) {
-            this.cHh = VoiceManager.instance();
+        if (this.cHl == null) {
+            this.cHl = VoiceManager.instance();
         }
-        return this.cHh;
+        return this.cHl;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.dWC != null) {
-            this.dWC.onActivityResult(i, i2, intent);
+        if (this.dWG != null) {
+            this.dWG.onActivityResult(i, i2, intent);
         }
     }
 }

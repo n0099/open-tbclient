@@ -22,7 +22,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<bd> hko;
+    private ArrayList<bd> hkt;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -34,7 +34,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.hko = null;
+        this.hkt = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -50,14 +50,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.hko = new ArrayList<>(arrayList.subList(0, 3));
+            this.hkt = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.hko = arrayList;
+            this.hkt = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.hko.size()) {
-                addView(d(this.hko.get(i2), i2));
+            if (i2 < this.hkt.size()) {
+                addView(d(this.hkt.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;

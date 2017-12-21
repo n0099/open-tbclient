@@ -10,41 +10,41 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c.a {
-    private final int fRA;
-    private final int fRz;
-    private final long fSa;
-    private com.baidu.tieba.i.a.e[] fSb;
+    private final int fRE;
+    private final int fRF;
+    private final long fSf;
+    private com.baidu.tieba.i.a.e[] fSg;
     private final int what;
 
     public b(int i, int i2, int i3, long j, com.baidu.tieba.i.a.e... eVarArr) {
         super(300);
-        this.fRz = i;
+        this.fRE = i;
         this.what = i2;
-        this.fRA = i3;
-        this.fSa = j;
-        this.fSb = eVarArr;
+        this.fRF = i3;
+        this.fSf = j;
+        this.fSg = eVarArr;
     }
 
     @Override // com.baidu.tieba.l.c.a, com.baidu.tieba.l.c
-    public JSONObject bjP() {
-        JSONObject bjP = super.bjP();
+    public JSONObject bjQ() {
+        JSONObject bjQ = super.bjQ();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.fRz, this.what, this.fRA, this.fSa).toString()));
-            if (this.fSb != null) {
-                int length = this.fSb.length;
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.fRE, this.what, this.fRF, this.fSf).toString()));
+            if (this.fSg != null) {
+                int length = this.fSg.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.i.a.e eVar = this.fSb[i];
+                    com.baidu.tieba.i.a.e eVar = this.fSg[i];
                     if (eVar != null) {
                         jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.oQ(eVar.url).toString()));
                     }
                 }
             }
-            bjP.put("ext", jSONArray);
+            bjQ.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bjP;
+        return bjQ;
     }
 
     public static JSONObject b(int i, int i2, int i3, long j) {

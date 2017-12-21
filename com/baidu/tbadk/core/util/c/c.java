@@ -97,7 +97,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         }
         com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
-            aVar.vC = iVar;
+            aVar.vD = iVar;
         }
         byte[] j = iVar.j(str3, !booleanValue);
         if (iVar.vT() && iVar.errorCode == -11) {
@@ -130,7 +130,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.ajd) {
+        if (!iVar.ajg) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.a.a(bitmap, com.baidu.adp.lib.util.l.j(bArr), str, bArr);
@@ -160,7 +160,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(cVar);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         com.baidu.adp.lib.Disk.d.dH().c(cVar);
     }
@@ -176,7 +176,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(cVar);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (com.baidu.adp.lib.Disk.d.dH().c(cVar)) {
             int i = 2000;

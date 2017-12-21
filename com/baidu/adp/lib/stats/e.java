@@ -8,9 +8,9 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e wv;
-    private HashMap<String, a> wt = new HashMap<>();
-    private HashMap<String, b> wu = new HashMap<>();
+    private static e ww;
+    private HashMap<String, a> wu = new HashMap<>();
+    private HashMap<String, b> wv = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -32,14 +32,14 @@ public class e {
     };
 
     public static e fV() {
-        if (wv == null) {
+        if (ww == null) {
             synchronized (e.class) {
-                if (wv == null) {
-                    wv = new e();
+                if (ww == null) {
+                    ww = new e();
                 }
             }
         }
-        return wv;
+        return ww;
     }
 
     public e() {
@@ -47,42 +47,42 @@ public class e {
         bVar.ap(3000);
         bVar.aq(120000);
         bVar.ar(500);
-        this.wu.put("net", bVar);
-        this.wu.put("op", bVar);
-        this.wu.put("stat", bVar);
-        this.wu.put("crash", bVar);
-        this.wu.put("pfmonitor", bVar);
+        this.wv.put("net", bVar);
+        this.wv.put("op", bVar);
+        this.wv.put("stat", bVar);
+        this.wv.put("crash", bVar);
+        this.wv.put("pfmonitor", bVar);
         b bVar2 = new b();
         bVar2.ap(3000);
         bVar2.aq(120000);
         bVar2.ar(TbConfig.POST_IMAGE_SMALL);
-        this.wu.put("file", bVar2);
-        this.wu.put("db", bVar2);
-        this.wu.put("img", bVar2);
-        this.wu.put("voice", bVar2);
-        this.wu.put("error", bVar2);
+        this.wv.put("file", bVar2);
+        this.wv.put("db", bVar2);
+        this.wv.put("img", bVar2);
+        this.wv.put("voice", bVar2);
+        this.wv.put("error", bVar2);
         b bVar3 = new b();
         bVar3.ap(3000);
         bVar3.aq(120000);
         bVar3.ar(TbConfig.POST_IMAGE_SMALL);
-        this.wu.put("dbg", bVar3);
+        this.wv.put("dbg", bVar3);
     }
 
     public synchronized boolean ao(String str) {
         a aVar;
         boolean z;
-        b bVar = this.wu.get(str);
+        b bVar = this.wv.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.wt.get(str);
+            a aVar2 = this.wu.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.H(false);
                 aVar3.G(false);
                 aVar3.g(currentTimeMillis);
-                this.wt.put(str, aVar3);
+                this.wu.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -128,31 +128,31 @@ public class e {
     /* loaded from: classes.dex */
     public class a {
         private int mCount;
-        private boolean wA;
-        private long wx;
-        private boolean wy;
-        private long wz;
+        private long wA;
+        private boolean wB;
+        private long wy;
+        private boolean wz;
 
         private a() {
-            this.wy = false;
+            this.wz = false;
             this.mCount = 0;
-            this.wA = false;
+            this.wB = false;
         }
 
         public boolean fW() {
-            return this.wA;
+            return this.wB;
         }
 
         public void G(boolean z) {
-            this.wA = z;
+            this.wB = z;
         }
 
         public long fX() {
-            return this.wz;
+            return this.wA;
         }
 
         public void f(long j) {
-            this.wz = j;
+            this.wA = j;
         }
 
         public int fY() {
@@ -164,54 +164,54 @@ public class e {
         }
 
         public long fZ() {
-            return this.wx;
-        }
-
-        public void g(long j) {
-            this.wx = j;
-        }
-
-        public boolean ga() {
             return this.wy;
         }
 
+        public void g(long j) {
+            this.wy = j;
+        }
+
+        public boolean ga() {
+            return this.wz;
+        }
+
         public void H(boolean z) {
-            this.wy = z;
+            this.wz = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int wB;
         private int wC;
         private int wD;
+        private int wE;
 
         private b() {
         }
 
         public int gb() {
-            return this.wB;
-        }
-
-        public void ap(int i) {
-            this.wB = i;
-        }
-
-        public int gd() {
             return this.wC;
         }
 
-        public void aq(int i) {
+        public void ap(int i) {
             this.wC = i;
         }
 
-        public int ge() {
+        public int gd() {
             return this.wD;
         }
 
-        public void ar(int i) {
+        public void aq(int i) {
             this.wD = i;
+        }
+
+        public int ge() {
+            return this.wE;
+        }
+
+        public void ar(int i) {
+            this.wE = i;
         }
     }
 }

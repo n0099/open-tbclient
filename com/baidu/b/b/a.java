@@ -1,4 +1,4 @@
-package com.baidu.c.b;
+package com.baidu.b.b;
 
 import android.content.Context;
 import android.os.Process;

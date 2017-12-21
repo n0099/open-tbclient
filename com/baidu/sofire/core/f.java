@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public final class f {
-    public IntentFilter QC;
+    public IntentFilter QD;
     public String a;
     public String b;
     public String c;
 
     public f(String str, IntentFilter intentFilter, String str2, String str3) {
         this.a = str;
-        this.QC = intentFilter;
+        this.QD = intentFilter;
         this.b = str2;
         this.c = str3;
     }
@@ -22,10 +22,10 @@ public final class f {
             try {
                 if (!TextUtils.isEmpty(fVar.a) && !TextUtils.isEmpty(fVar.b) && !TextUtils.isEmpty(fVar.c)) {
                     if (fVar.a.equals(this.a) && fVar.b.equals(this.b) && fVar.c.equals(this.c)) {
-                        if (fVar.QC == null || this.QC == null) {
+                        if (fVar.QD == null || this.QD == null) {
                             return true;
                         }
-                        return this.QC == fVar.QC;
+                        return this.QD == fVar.QD;
                     }
                     return false;
                 }
@@ -39,7 +39,7 @@ public final class f {
 
     public final String toString() {
         try {
-            return "PluginloaderIntentFilter:" + this.a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.QC;
+            return "PluginloaderIntentFilter:" + this.a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.QD;
         } catch (Throwable th) {
             return "";
         }

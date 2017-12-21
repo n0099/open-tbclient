@@ -50,7 +50,7 @@ public class ai {
                     return;
                 }
             }
-            String str2 = k.xQ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
             if (k.dh(str2)) {
                 File file = new File(str2 + "/" + str);

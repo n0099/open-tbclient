@@ -16,10 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager aFZ = null;
-    public static String aGb = "#[\\(][\\w?~！]+[\\)]";
+    private static TbFaceManager aGc = null;
+    public static String aGe = "#[\\(][\\w?~！]+[\\)]";
     private Context mContext = null;
-    private com.baidu.tbadk.imageManager.a aGa = null;
+    private com.baidu.tbadk.imageManager.a aGd = null;
 
     /* loaded from: classes.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -35,10 +35,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager Ez() {
-        if (aFZ == null) {
-            aFZ = new TbFaceManager();
+        if (aGc == null) {
+            aGc = new TbFaceManager();
         }
-        return aFZ;
+        return aGc;
     }
 
     private TbFaceManager() {
@@ -49,7 +49,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.aGa = aVar;
+        this.aGd = aVar;
     }
 
     public com.baidu.adp.widget.a.a gj(String str) {
@@ -68,28 +68,28 @@ public class TbFaceManager {
     }
 
     public int fL(String str) {
-        return this.aGa.fL(str);
+        return this.aGd.fL(str);
     }
 
-    public a.C0072a gk(String str) {
+    public a.C0071a gk(String str) {
         com.baidu.adp.widget.a.a gj;
-        a.C0072a S = this.aGa.S(this.mContext, str);
+        a.C0071a S = this.aGd.S(this.mContext, str);
         if (S == null && (gj = gj(str)) != null) {
-            return new a.C0072a(gj.getWidth(), gj.getHeight());
+            return new a.C0071a(gj.getWidth(), gj.getHeight());
         }
         return S;
     }
 
     public int fM(String str) {
-        return this.aGa.fM(str);
+        return this.aGd.fM(str);
     }
 
     public int Dr() {
-        return this.aGa.Dr();
+        return this.aGd.Dr();
     }
 
     public String fN(String str) {
-        return this.aGa.fN(str);
+        return this.aGd.fN(str);
     }
 
     public SpannableString T(Context context, String str) {
@@ -102,10 +102,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(aGb).matcher(str);
+        Matcher matcher = Pattern.compile(aGe).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int fM = this.aGa.fM(group);
+            int fM = this.aGd.fM(group);
             if (fM > 0 && (m = m(fM, String.valueOf(fM))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -124,10 +124,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(aGb).matcher(str);
+        Matcher matcher = Pattern.compile(aGe).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int fM = this.aGa.fM(group);
+            int fM = this.aGd.fM(group);
             if (fM > 0) {
                 com.baidu.adp.widget.a.a m = m(fM, String.valueOf(fM));
                 if (m != null) {

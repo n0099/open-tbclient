@@ -6,14 +6,11 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class s extends q {
-    private static s aLz = null;
-    private boolean aKZ = false;
-    private boolean aLa = false;
-    private boolean aLb = false;
+    private static s aLC = null;
     private boolean aLc = false;
-    private long aLd = -1;
-    private long aLe = -1;
-    private long aLf = -1;
+    private boolean aLd = false;
+    private boolean aLe = false;
+    private boolean aLf = false;
     private long aLg = -1;
     private long aLh = -1;
     private long aLi = -1;
@@ -33,117 +30,120 @@ public class s extends q {
     private long aLw = -1;
     private long aLx = -1;
     private long aLy = -1;
+    private long aLz = -1;
+    private long aLA = -1;
+    private long aLB = -1;
 
     public boolean GG() {
-        return this.aLa;
+        return this.aLd;
     }
 
     public void bV(boolean z) {
-        this.aKZ = z;
-    }
-
-    public void W(long j) {
-        this.aLd = j;
-    }
-
-    public void bW(boolean z) {
         this.aLc = z;
     }
 
-    public void X(long j) {
-        this.aLe = j;
-    }
-
-    public void Y(long j) {
-        this.aLf = j;
-    }
-
-    public void Z(long j) {
+    public void W(long j) {
         this.aLg = j;
     }
 
-    public void aa(long j) {
-        this.aLk = j;
+    public void bW(boolean z) {
+        this.aLf = z;
     }
 
-    public void ab(long j) {
-        this.aLj = j;
-    }
-
-    public void ac(long j) {
+    public void X(long j) {
         this.aLh = j;
     }
 
-    public void ad(long j) {
+    public void Y(long j) {
         this.aLi = j;
     }
 
-    public void ae(long j) {
-        this.aLw = j;
+    public void Z(long j) {
+        this.aLj = j;
     }
 
-    public void af(long j) {
-        this.aLt = j;
-    }
-
-    public void ag(long j) {
-        this.aLu = j;
-    }
-
-    public void ah(long j) {
-        this.aLv = j;
-    }
-
-    public void ai(long j) {
-        this.aLx = j;
-    }
-
-    public void aj(long j) {
-        this.aLy = j;
-        this.aLa = true;
-    }
-
-    public void ak(long j) {
-        this.aLl = j;
-    }
-
-    public void al(long j) {
-        this.aLm = j;
-    }
-
-    public void am(long j) {
-        this.aLo = j;
-    }
-
-    public void an(long j) {
+    public void aa(long j) {
         this.aLn = j;
     }
 
-    public void ao(long j) {
+    public void ab(long j) {
+        this.aLm = j;
+    }
+
+    public void ac(long j) {
+        this.aLk = j;
+    }
+
+    public void ad(long j) {
+        this.aLl = j;
+    }
+
+    public void ae(long j) {
+        this.aLz = j;
+    }
+
+    public void af(long j) {
+        this.aLw = j;
+    }
+
+    public void ag(long j) {
+        this.aLx = j;
+    }
+
+    public void ah(long j) {
+        this.aLy = j;
+    }
+
+    public void ai(long j) {
+        this.aLA = j;
+    }
+
+    public void aj(long j) {
+        this.aLB = j;
+        this.aLd = true;
+    }
+
+    public void ak(long j) {
+        this.aLo = j;
+    }
+
+    public void al(long j) {
         this.aLp = j;
     }
 
-    public void ap(long j) {
-        this.aLq = j;
-    }
-
-    public void aq(long j) {
+    public void am(long j) {
         this.aLr = j;
     }
 
-    public void ar(long j) {
+    public void an(long j) {
+        this.aLq = j;
+    }
+
+    public void ao(long j) {
         this.aLs = j;
     }
 
+    public void ap(long j) {
+        this.aLt = j;
+    }
+
+    public void aq(long j) {
+        this.aLu = j;
+    }
+
+    public void ar(long j) {
+        this.aLv = j;
+    }
+
     public static s GH() {
-        if (aLz == null) {
+        if (aLC == null) {
             synchronized (s.class) {
-                if (aLz == null) {
-                    aLz = new s();
+                if (aLC == null) {
+                    aLC = new s();
                 }
             }
         }
-        return aLz;
+        return aLC;
     }
 
     public void GI() {
@@ -154,36 +154,36 @@ public class s extends q {
         } else {
             j = ((Long) runTask.getData()).longValue();
         }
-        long j2 = (this.aLy - this.aLd) - j;
-        if (j2 > 0 && !this.aLb && r.GB().GC()) {
-            this.aLb = true;
-            long j3 = this.aLe - this.aLd;
-            long j4 = this.aLw - this.aLd;
+        long j2 = (this.aLB - this.aLg) - j;
+        if (j2 > 0 && !this.aLe && r.GB().GC()) {
+            this.aLe = true;
+            long j3 = this.aLh - this.aLg;
+            long j4 = this.aLz - this.aLg;
             long j5 = -1;
-            if (this.aLu > 0) {
-                j5 = this.aLv - this.aLu;
+            if (this.aLx > 0) {
+                j5 = this.aLy - this.aLx;
             }
-            long j6 = this.aLy - this.aLx;
+            long j6 = this.aLB - this.aLA;
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("procname", "main");
             fK.p("appc", String.valueOf(j3));
-            fK.p("loadclass", String.valueOf(this.aLf));
-            fK.p("sapiinit", String.valueOf(this.aLg));
-            fK.p("acctinit", String.valueOf(this.aLh));
-            fK.p("iminit", String.valueOf(this.aLi));
-            fK.p("plugininit", String.valueOf(this.aLj));
-            fK.p("patchloaded", String.valueOf(this.aLk));
-            fK.p("naslibinit", String.valueOf(this.aLl));
-            fK.p("websocketinit", String.valueOf(this.aLm));
-            fK.p("settinginit", String.valueOf(this.aLn));
-            fK.p("toastinit", String.valueOf(this.aLo));
-            fK.p("tiebastaticinit", String.valueOf(this.aLp));
-            fK.p("locationinit", String.valueOf(this.aLq));
-            fK.p("cdninit", String.valueOf(this.aLr));
-            fK.p("messagesetinit", String.valueOf(this.aLs));
+            fK.p("loadclass", String.valueOf(this.aLi));
+            fK.p("sapiinit", String.valueOf(this.aLj));
+            fK.p("acctinit", String.valueOf(this.aLk));
+            fK.p("iminit", String.valueOf(this.aLl));
+            fK.p("plugininit", String.valueOf(this.aLm));
+            fK.p("patchloaded", String.valueOf(this.aLn));
+            fK.p("naslibinit", String.valueOf(this.aLo));
+            fK.p("websocketinit", String.valueOf(this.aLp));
+            fK.p("settinginit", String.valueOf(this.aLq));
+            fK.p("toastinit", String.valueOf(this.aLr));
+            fK.p("tiebastaticinit", String.valueOf(this.aLs));
+            fK.p("locationinit", String.valueOf(this.aLt));
+            fK.p("cdninit", String.valueOf(this.aLu));
+            fK.p("messagesetinit", String.valueOf(this.aLv));
             fK.p("logores", String.valueOf(j4));
-            if (this.aLt > 0 && this.aLu > 0 && j5 > 0) {
-                fK.p("adc", String.valueOf(this.aLt));
+            if (this.aLw > 0 && this.aLx > 0 && j5 > 0) {
+                fK.p("adc", String.valueOf(this.aLw));
                 fK.p("adshow", String.valueOf(j5));
                 fK.p("hasad", "1");
             } else {
@@ -191,8 +191,8 @@ public class s extends q {
             }
             fK.p("tabc", String.valueOf(j6));
             fK.p("costt", String.valueOf(j2));
-            fK.p("newinst", this.aKZ ? "1" : "0");
-            fK.c("pluginloadsync", Boolean.valueOf(this.aLc));
+            fK.p("newinst", this.aLc ? "1" : "0");
+            fK.c("pluginloadsync", Boolean.valueOf(this.aLf));
             BdStatisticsManager.getInstance().performance("startt", fK);
             nY();
         }
@@ -208,29 +208,29 @@ public class s extends q {
     }
 
     private void nY() {
-        this.aKZ = false;
-        this.aLa = false;
-        this.aLd = -1L;
-        this.aLe = -1L;
-        this.aLf = -1L;
+        this.aLc = false;
+        this.aLd = false;
         this.aLg = -1L;
         this.aLh = -1L;
         this.aLi = -1L;
         this.aLj = -1L;
         this.aLk = -1L;
-        this.aLw = -1L;
-        this.aLu = -1L;
-        this.aLv = -1L;
-        this.aLt = -1L;
-        this.aLx = -1L;
-        this.aLy = -1L;
         this.aLl = -1L;
         this.aLm = -1L;
         this.aLn = -1L;
+        this.aLz = -1L;
+        this.aLx = -1L;
+        this.aLy = -1L;
+        this.aLw = -1L;
+        this.aLA = -1L;
+        this.aLB = -1L;
         this.aLo = -1L;
         this.aLp = -1L;
         this.aLq = -1L;
         this.aLr = -1L;
         this.aLs = -1L;
+        this.aLt = -1L;
+        this.aLu = -1L;
+        this.aLv = -1L;
     }
 }

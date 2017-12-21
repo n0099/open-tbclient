@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    private final g aim = new g();
+    private final g aip = new g();
     public boolean mIsNeedTbs = false;
-    public boolean ain = true;
+    public boolean aiq = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean aio = false;
-    public int aip = 0;
+    public boolean air = false;
+    public int ais = 0;
 
     public g vN() {
-        return this.aim;
+        return this.aip;
     }
 
     public void a(q qVar) {
@@ -98,17 +98,17 @@ public class b {
     }
 
     public String vO() {
-        if (this.aim.mUrl == null) {
+        if (this.aip.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aim.mUrl.startsWith(str)) {
-            int indexOf = this.aim.mUrl.indexOf(63);
+        if (this.aip.mUrl.startsWith(str)) {
+            int indexOf = this.aip.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aim.mUrl.length();
+                indexOf = this.aip.mUrl.length();
             }
-            return this.aim.mUrl.substring(str.length(), indexOf);
+            return this.aip.mUrl.substring(str.length(), indexOf);
         }
-        return this.aim.mUrl;
+        return this.aip.mUrl;
     }
 }

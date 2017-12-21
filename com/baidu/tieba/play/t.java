@@ -5,19 +5,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String bbq = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bbr = bbq + "/.tieba_video_cache";
-    public static final String bbs = bbr + "/v2";
-    public static final String bbt = bbs + "/";
-    public static final String bbu = bbs + "/files";
-    public static final String bbv = bbu + "/";
+    public static final String bbu = Environment.getExternalStorageDirectory() + "/tieba";
+    public static final String bbv = bbu + "/.tieba_video_cache";
+    public static final String bbw = bbv + "/v2";
+    public static final String bbx = bbw + "/";
+    public static final String bby = bbw + "/files";
+    public static final String bbz = bby + "/";
 
     private static long hz(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bbv + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(bbz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();

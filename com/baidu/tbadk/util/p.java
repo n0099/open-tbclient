@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p {
-    private static final byte[] aNb = new byte[1];
-    private static p aNc = null;
+    private static final byte[] aNe = new byte[1];
+    private static p aNf = null;
     private CustomMessageListener mNetworkChangedListener;
 
     public static p Hk() {
-        if (aNc == null) {
-            synchronized (aNb) {
-                if (aNc == null) {
-                    aNc = new p();
+        if (aNf == null) {
+            synchronized (aNe) {
+                if (aNf == null) {
+                    aNf = new p();
                 }
             }
         }
-        return aNc;
+        return aNf;
     }
 
     private p() {
@@ -62,7 +62,7 @@ public class p {
             if (hh) {
                 if (com.baidu.adp.lib.util.j.hi()) {
                     an.vs().aB(true);
-                    com.baidu.tieba.recapp.e.a.bmv().rZ(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.e.a.bmw().rZ(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.hj()) {
                     an.vs().aB(false);
                 }

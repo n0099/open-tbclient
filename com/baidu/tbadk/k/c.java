@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.a.a implements Runnable {
-    public static String aJC = "logcat ";
-    private static Map<String, b> aJE = new HashMap();
-    private InputStream aJA;
-    private OutputStream aJB;
-    private a aJD;
-    private Process aJz;
+    public static String aJF = "logcat ";
+    private static Map<String, b> aJH = new HashMap();
+    private Process aJC;
+    private InputStream aJD;
+    private OutputStream aJE;
+    private a aJG;
 
     public static void a(String str, b bVar) {
-        aJE.put(str, bVar);
-        aJC += " -s " + str;
+        aJH.put(str, bVar);
+        aJF += " -s " + str;
     }
 
     public void gG(String str) {
@@ -27,7 +27,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, b>> it = aJE.entrySet().iterator();
+                Iterator<Map.Entry<String, b>> it = aJH.entrySet().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         Map.Entry<String, b> next = it.next();
@@ -49,11 +49,11 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.aJz = Runtime.getRuntime().exec(aJC);
-            this.aJB = this.aJz.getOutputStream();
-            this.aJA = this.aJz.getInputStream();
+            this.aJC = Runtime.getRuntime().exec(aJF);
+            this.aJE = this.aJC.getOutputStream();
+            this.aJD = this.aJC.getInputStream();
             Gh();
-            this.aJB.flush();
+            this.aJE.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -62,25 +62,25 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
     }
 
     private void Gh() throws FileNotFoundException {
-        this.aJD = new a(this.aJA);
-        this.aJD.start();
+        this.aJG = new a(this.aJD);
+        this.aJG.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.aJz != null) {
-                this.aJz.destroy();
+            if (this.aJC != null) {
+                this.aJC.destroy();
+            }
+            if (this.aJG != null) {
+                this.aJG.finish();
             }
             if (this.aJD != null) {
-                this.aJD.finish();
+                this.aJD.close();
             }
-            if (this.aJA != null) {
-                this.aJA.close();
-            }
-            if (this.aJB != null) {
-                this.aJB.close();
+            if (this.aJE != null) {
+                this.aJE.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean aJF = false;
+        private boolean aJI = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -101,7 +101,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.aJF && (read = this.in.read(bArr)) != -1) {
+            while (!this.aJI && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
@@ -115,7 +115,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.aJF = true;
+            this.aJI = true;
         }
     }
 }

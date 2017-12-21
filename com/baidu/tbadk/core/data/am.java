@@ -5,12 +5,12 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class am {
-    private int XF;
-    private ArrayList<a> XG;
+    private int XI;
+    private ArrayList<a> XJ;
 
     /* loaded from: classes.dex */
     public static class a {
-        public String WS;
+        public String WV;
         public int giftId;
         public String giftName;
         public int num;
@@ -18,17 +18,17 @@ public class am {
 
     public void a(PbPresent pbPresent) {
         if (pbPresent != null) {
-            this.XF = pbPresent.total.intValue();
+            this.XI = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.XG = new ArrayList<>();
+                this.XJ = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
                         aVar.giftId = pbPresentList.gift_id.intValue();
                         aVar.giftName = pbPresentList.gift_name;
-                        aVar.WS = pbPresentList.thumbnail_url;
+                        aVar.WV = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.XG.add(aVar);
+                        this.XJ.add(aVar);
                     }
                 }
             }
@@ -36,18 +36,18 @@ public class am {
     }
 
     public int qw() {
-        return this.XF;
+        return this.XI;
     }
 
     public void bM(int i) {
-        this.XF = i;
+        this.XI = i;
     }
 
     public ArrayList<a> qx() {
-        return this.XG;
+        return this.XJ;
     }
 
     public void g(ArrayList<a> arrayList) {
-        this.XG = arrayList;
+        this.XJ = arrayList;
     }
 }

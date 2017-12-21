@@ -16,13 +16,13 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends ViewGroup {
     private final Paint mPaint;
-    private final RectF ue;
     private final RectF uf;
     private final RectF ug;
-    private final Paint uh;
-    private final Path ui;
-    private boolean uj;
-    private final Paint uk;
+    private final RectF uh;
+    private final Paint ui;
+    private final Path uj;
+    private boolean uk;
+    private final Paint ul;
 
     public e(Context context) {
         this(context, null, 0);
@@ -30,21 +30,21 @@ public class e extends ViewGroup {
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ue = new RectF();
         this.uf = new RectF();
         this.ug = new RectF();
-        this.uh = new Paint();
-        this.ui = new Path();
-        this.uk = new Paint();
+        this.uh = new RectF();
+        this.ui = new Paint();
+        this.uj = new Path();
+        this.ul = new Paint();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.uk.setColor(SupportMenu.CATEGORY_MASK);
-        this.uk.setStrokeWidth(10.0f);
+        this.ul.setColor(SupportMenu.CATEGORY_MASK);
+        this.ul.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.ui.setFillType(Path.FillType.EVEN_ODD);
+        this.uj.setFillType(Path.FillType.EVEN_ODD);
         fa();
     }
 
@@ -63,8 +63,8 @@ public class e extends ViewGroup {
         int i3 = i & 1073741823;
         int i4 = i2 & 1073741823;
         setMeasuredDimension(i3, i4);
-        if (!this.uj) {
-            this.uf.set(0.0f, 0.0f, i3, i4);
+        if (!this.uk) {
+            this.ug.set(0.0f, 0.0f, i3, i4);
             fa();
         }
         int childCount = getChildCount();
@@ -88,37 +88,37 @@ public class e extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (aVar = (a) childAt.getLayoutParams()) != null) {
-                switch (aVar.ul) {
+                switch (aVar.um) {
                     case 1:
-                        this.ug.right = this.ue.left;
-                        this.ug.left = this.ug.right - childAt.getMeasuredWidth();
-                        b(childAt, this.ug, aVar.um);
+                        this.uh.right = this.uf.left;
+                        this.uh.left = this.uh.right - childAt.getMeasuredWidth();
+                        b(childAt, this.uh, aVar.uo);
                         break;
                     case 2:
-                        this.ug.bottom = this.ue.top;
-                        this.ug.top = this.ug.bottom - childAt.getMeasuredHeight();
-                        a(childAt, this.ug, aVar.um);
+                        this.uh.bottom = this.uf.top;
+                        this.uh.top = this.uh.bottom - childAt.getMeasuredHeight();
+                        a(childAt, this.uh, aVar.uo);
                         break;
                     case 3:
-                        this.ug.left = this.ue.right;
-                        this.ug.right = this.ug.left + childAt.getMeasuredWidth();
-                        b(childAt, this.ug, aVar.um);
+                        this.uh.left = this.uf.right;
+                        this.uh.right = this.uh.left + childAt.getMeasuredWidth();
+                        b(childAt, this.uh, aVar.uo);
                         break;
                     case 4:
-                        this.ug.top = this.ue.bottom;
-                        this.ug.bottom = this.ug.top + childAt.getMeasuredHeight();
-                        a(childAt, this.ug, aVar.um);
+                        this.uh.top = this.uf.bottom;
+                        this.uh.bottom = this.uh.top + childAt.getMeasuredHeight();
+                        a(childAt, this.uh, aVar.uo);
                         break;
                     case 5:
-                        this.ug.left = (((int) this.ue.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.ug.top = (((int) this.ue.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.ug.right = (((int) this.ue.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.ug.bottom = (((int) this.ue.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.ug.offset(this.ue.left, this.ue.top);
+                        this.uh.left = (((int) this.uf.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.uh.top = (((int) this.uf.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.uh.right = (((int) this.uf.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.uh.bottom = (((int) this.uf.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.uh.offset(this.uf.left, this.uf.top);
                         break;
                 }
-                this.ug.offset((int) ((aVar.uo * f) + 0.5f), (int) ((aVar.up * f) + 0.5f));
-                childAt.layout((int) this.ug.left, (int) this.ug.top, (int) this.ug.right, (int) this.ug.bottom);
+                this.uh.offset((int) ((aVar.up * f) + 0.5f), (int) ((aVar.uq * f) + 0.5f));
+                childAt.layout((int) this.uh.left, (int) this.uh.top, (int) this.uh.right, (int) this.uh.bottom);
             }
         }
     }
@@ -126,16 +126,16 @@ public class e extends ViewGroup {
     private void a(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.ue.left;
+                rectF.left = this.uf.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.ue.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.ue.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.ue.left, 0.0f);
+                rectF.left = (this.uf.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.uf.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.uf.left, 0.0f);
                 return;
             case d.l.View_onClick /* 48 */:
-                rectF.right = this.ue.right;
+                rectF.right = this.uf.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -146,17 +146,17 @@ public class e extends ViewGroup {
     private void b(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.ue.top;
+                rectF.top = this.uf.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.ue.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.ue.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.ue.top);
+                rectF.top = (this.uf.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.uf.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.uf.top);
                 return;
             case d.l.View_onClick /* 48 */:
-                rectF.bottom = this.ue.bottom;
-                rectF.top = this.ue.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.uf.bottom;
+                rectF.top = this.uf.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
@@ -164,31 +164,31 @@ public class e extends ViewGroup {
     }
 
     private void fa() {
-        this.ui.reset();
-        this.ui.addRect(this.ue, Path.Direction.CW);
-        this.ui.addRect(this.uf, Path.Direction.CW);
+        this.uj.reset();
+        this.uj.addRect(this.uf, Path.Direction.CW);
+        this.uj.addRect(this.ug, Path.Direction.CW);
     }
 
     public void a(Rect rect) {
-        this.ue.set(rect);
+        this.uf.set(rect);
         fa();
         invalidate();
     }
 
     public void b(Rect rect) {
-        this.uf.set(rect);
+        this.ug.set(rect);
         fa();
-        this.uj = true;
+        this.uk = true;
         invalidate();
     }
 
     public void ae(int i) {
-        this.uh.setAlpha(i);
+        this.ui.setAlpha(i);
         invalidate();
     }
 
     public void af(int i) {
-        this.uh.setColor(i);
+        this.ui.setColor(i);
         invalidate();
     }
 
@@ -207,7 +207,7 @@ public class e extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
         canvas.save();
-        canvas.drawRect(this.uf, this.uh);
+        canvas.drawRect(this.ug, this.ui);
         canvas.restore();
         for (int i = 0; i < getChildCount(); i++) {
             try {
@@ -221,17 +221,17 @@ public class e extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a extends ViewGroup.LayoutParams {
-        public int ul;
         public int um;
         public int uo;
         public int up;
+        public int uq;
 
         public a(int i, int i2) {
             super(i, i2);
-            this.ul = 4;
-            this.um = 32;
-            this.uo = 0;
+            this.um = 4;
+            this.uo = 32;
             this.up = 0;
+            this.uq = 0;
         }
     }
 }

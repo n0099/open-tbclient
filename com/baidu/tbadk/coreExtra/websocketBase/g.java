@@ -23,23 +23,23 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static g azV = null;
-    private int azS;
-    private com.baidu.adp.framework.client.socket.link.a azT = null;
-    private UpdateClientInfoMessage azU = null;
-    private int azW = 0;
-    private final com.baidu.adp.framework.client.socket.link.a ol = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.g.1
+    private static g azY = null;
+    private int azV;
+    private com.baidu.adp.framework.client.socket.link.a azW = null;
+    private UpdateClientInfoMessage azX = null;
+    private int azZ = 0;
+    private final com.baidu.adp.framework.client.socket.link.a om = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.g.1
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(k.a aVar) {
-            if (g.this.azT != null) {
-                g.this.azT.a(aVar);
+            if (g.this.azW != null) {
+                g.this.azW.a(aVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean d(int i, String str) {
-            if (g.this.azT != null) {
-                g.this.azT.d(i, str);
+            if (g.this.azW != null) {
+                g.this.azW.d(i, str);
                 return false;
             }
             return false;
@@ -47,49 +47,49 @@ public class g {
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void d(Map<String, String> map) {
-            if (g.this.azT != null) {
-                g.this.azT.d(map);
+            if (g.this.azW != null) {
+                g.this.azW.d(map);
             }
             i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
             if (r.GB().GC() && g.b(g.this) < 10) {
                 i.db();
             }
-            g.this.azU = g.this.Cp();
-            MessageManager.getInstance().sendMessage(g.this.azU);
+            g.this.azX = g.this.Cp();
+            MessageManager.getInstance().sendMessage(g.this.azX);
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(com.baidu.adp.lib.webSocket.c cVar) {
-            if (g.this.azT != null) {
-                g.this.azT.a(cVar);
+            if (g.this.azW != null) {
+                g.this.azW.a(cVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void C(String str) {
-            if (g.this.azT != null) {
-                g.this.azT.C(str);
+            if (g.this.azW != null) {
+                g.this.azW.C(str);
             }
         }
     };
 
     static /* synthetic */ int b(g gVar) {
-        int i = gVar.azW + 1;
-        gVar.azW = i;
+        int i = gVar.azZ + 1;
+        gVar.azZ = i;
         return i;
     }
 
     public static synchronized g Co() {
         g gVar;
         synchronized (g.class) {
-            if (azV == null) {
+            if (azY == null) {
                 synchronized (g.class) {
-                    if (azV == null) {
-                        azV = new g();
+                    if (azY == null) {
+                        azY = new g();
                     }
                 }
             }
-            gVar = azV;
+            gVar = azY;
         }
         return gVar;
     }
@@ -115,18 +115,18 @@ public class g {
                 }
                 if (responseOnlineMessage.getError() != 0) {
                     g.this.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + g.this.azS);
+                    i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + g.this.azV);
                     return null;
                 }
                 g.this.Cs();
-                i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + g.this.azS);
+                i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + g.this.azV);
                 return socketResponsedMessage;
             }
         });
     }
 
     public void init() {
-        MessageManager.getInstance().getSocketClient().a(this.ol);
+        MessageManager.getInstance().getSocketClient().a(this.om);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -181,7 +181,7 @@ public class g {
                 a.b ct = com.baidu.tbadk.core.a.a.pf().ct(TbadkCoreApplication.getCurrentBduss());
                 String d = com.baidu.tbadk.core.a.e.d(TbadkCoreApplication.getCurrentAccountInfo());
                 if (ct != null) {
-                    updateClientInfoMessage.setBduss(ct.wq, d);
+                    updateClientInfoMessage.setBduss(ct.wr, d);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), d);
                 }
@@ -204,11 +204,11 @@ public class g {
     }
 
     public boolean Cq() {
-        return this.azS >= 5;
+        return this.azV >= 5;
     }
 
     public void Cr() {
-        this.azS++;
+        this.azV++;
         if (Cq()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.wp();
@@ -217,7 +217,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Cs() {
-        this.azS = 0;
+        this.azV = 0;
         MessageManager.getInstance().getSocketClient().cT();
         NoNetworkView.wp();
         BdSocketLinkService.stopReConnStrategy("online succ");
@@ -230,6 +230,6 @@ public class g {
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.a aVar) {
-        this.azT = aVar;
+        this.azW = aVar;
     }
 }

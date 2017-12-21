@@ -17,12 +17,12 @@ import com.baidu.tieba.account.appeal.b;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private String bcA;
-    private TextView bcv;
-    private TextView bcw;
-    private TextView bcx;
-    private TextView bcy;
-    private String bcz;
+    private TextView bcA;
+    private TextView bcB;
+    private TextView bcC;
+    private String bcD;
+    private String bcE;
+    private TextView bcz;
     private NavigationBar mNavigationBar;
     private String mUserName;
     private final TextWatcher mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.account.appeal.AppealActivity.1
@@ -36,23 +36,23 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            int length = 150 - AppealActivity.this.bcx.getText().toString().length();
-            AppealActivity.this.bcy.setText(String.valueOf(length));
+            int length = 150 - AppealActivity.this.bcB.getText().toString().length();
+            AppealActivity.this.bcC.setText(String.valueOf(length));
             if (length < 0) {
-                AppealActivity.this.bcy.setTextColor(AppealActivity.this.getResources().getColor(d.C0096d.common_color_10253));
+                AppealActivity.this.bcC.setTextColor(AppealActivity.this.getResources().getColor(d.C0095d.common_color_10253));
             } else {
-                aj.c(AppealActivity.this.bcy, d.C0096d.common_color_10005, 1);
+                aj.c(AppealActivity.this.bcC, d.C0095d.common_color_10005, 1);
             }
         }
     };
-    private final View.OnClickListener bcB = new View.OnClickListener() { // from class: com.baidu.tieba.account.appeal.AppealActivity.3
+    private final View.OnClickListener bcF = new View.OnClickListener() { // from class: com.baidu.tieba.account.appeal.AppealActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String charSequence = AppealActivity.this.bcx.getText().toString();
+            String charSequence = AppealActivity.this.bcB.getText().toString();
             if (charSequence.length() < 20) {
                 AppealActivity.this.showToast(d.j.appeal_min_size);
             } else if (charSequence.length() <= 150) {
-                a.a(AppealActivity.this.bcz, AppealActivity.this.bcA, AppealActivity.this.mUserName, charSequence, new a.b() { // from class: com.baidu.tieba.account.appeal.AppealActivity.3.1
+                a.a(AppealActivity.this.bcD, AppealActivity.this.bcE, AppealActivity.this.mUserName, charSequence, new a.b() { // from class: com.baidu.tieba.account.appeal.AppealActivity.3.1
                     @Override // com.baidu.tieba.account.appeal.a.b
                     public void a(AppealData appealData) {
                         AppealActivity.this.t(AppealActivity.this.getPageContext().getString(d.j.appeal_post_success), true);
@@ -77,33 +77,33 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(d.j.push_commit), this.bcB);
-        this.bcv = (TextView) findViewById(d.g.forbid_id);
-        this.bcw = (TextView) findViewById(d.g.forbid_reason);
-        this.bcx = (TextView) findViewById(d.g.appeal_reason);
-        this.bcy = (TextView) findViewById(d.g.remain_text_count);
-        this.bcy.setText(String.valueOf((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY));
-        this.bcx.setFocusable(true);
-        this.bcx.setFocusableInTouchMode(true);
-        this.bcx.requestFocus();
-        l.b(getPageContext().getPageActivity(), this.bcx);
-        this.bcx.addTextChangedListener(this.mTextWatcher);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(d.j.push_commit), this.bcF);
+        this.bcz = (TextView) findViewById(d.g.forbid_id);
+        this.bcA = (TextView) findViewById(d.g.forbid_reason);
+        this.bcB = (TextView) findViewById(d.g.appeal_reason);
+        this.bcC = (TextView) findViewById(d.g.remain_text_count);
+        this.bcC.setText(String.valueOf((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY));
+        this.bcB.setFocusable(true);
+        this.bcB.setFocusableInTouchMode(true);
+        this.bcB.requestFocus();
+        l.b(getPageContext().getPageActivity(), this.bcB);
+        this.bcB.addTextChangedListener(this.mTextWatcher);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.bcz = intent.getStringExtra("forum_id");
-        this.bcA = intent.getStringExtra("user_id");
+        this.bcD = intent.getStringExtra("forum_id");
+        this.bcE = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        b.a(this.bcz, this.bcA, new b.InterfaceC0088b() { // from class: com.baidu.tieba.account.appeal.AppealActivity.2
-            @Override // com.baidu.tieba.account.appeal.b.InterfaceC0088b
+        b.a(this.bcD, this.bcE, new b.InterfaceC0087b() { // from class: com.baidu.tieba.account.appeal.AppealActivity.2
+            @Override // com.baidu.tieba.account.appeal.b.InterfaceC0087b
             public void a(ForbidReasonData forbidReasonData) {
-                AppealActivity.this.bcv.setText(AppealActivity.this.mUserName);
-                AppealActivity.this.bcw.setText(!am.isEmpty(forbidReasonData.reason) ? forbidReasonData.reason : AppealActivity.this.getPageContext().getString(d.j.default_forbid_reason));
+                AppealActivity.this.bcz.setText(AppealActivity.this.mUserName);
+                AppealActivity.this.bcA.setText(!am.isEmpty(forbidReasonData.reason) ? forbidReasonData.reason : AppealActivity.this.getPageContext().getString(d.j.default_forbid_reason));
             }
 
-            @Override // com.baidu.tieba.account.appeal.b.InterfaceC0088b
+            @Override // com.baidu.tieba.account.appeal.b.InterfaceC0087b
             public void b(ForbidReasonData forbidReasonData) {
                 AppealActivity.this.showToast(forbidReasonData.error.errMsg);
             }
@@ -134,6 +134,6 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         getLayoutMode().ag(i == 1);
         getLayoutMode().t(findViewById(d.g.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bcx.setHintTextColor(aj.getColor(d.C0096d.common_color_10005));
+        this.bcB.setHintTextColor(aj.getColor(d.C0095d.common_color_10005));
     }
 }

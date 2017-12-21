@@ -10,26 +10,26 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout aMt;
+    private LinearLayout aMw;
     private Context context;
-    private float frq;
+    private float frw;
     private View mContentView;
 
     public e(Context context) {
         super(context, 16973835);
-        this.frq = 0.3f;
+        this.frw = 0.3f;
         this.context = context;
     }
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.frq = 0.3f;
+        this.frw = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
     public void ah(float f) {
-        this.frq = f;
+        this.frw = f;
     }
 
     @Override // android.app.Dialog
@@ -46,18 +46,18 @@ public class e extends Dialog {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(d.C0096d.transparent);
-        getWindow().setDimAmount(this.frq);
+        getWindow().setBackgroundDrawableResource(d.C0095d.transparent);
+        getWindow().setDimAmount(this.frw);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.aMt = (LinearLayout) findViewById(d.g.root_view);
+        this.aMw = (LinearLayout) findViewById(d.g.root_view);
         if (this.mContentView != null) {
-            this.aMt.removeAllViews();
-            this.aMt.addView(this.mContentView);
+            this.aMw.removeAllViews();
+            this.aMw.addView(this.mContentView);
         }
-        this.aMt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.aMw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();

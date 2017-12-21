@@ -11,25 +11,25 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gbj;
-    private String gbh;
-    private String gbi = b.getInstance().getString("asp_shown_info", "");
+    private static a gbo;
+    private String gbm;
+    private String gbn = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
-    private long sO;
+    private long sP;
 
     private a() {
     }
 
-    public static a bmv() {
-        if (gbj == null) {
+    public static a bmw() {
+        if (gbo == null) {
             synchronized (c.class) {
-                if (gbj == null) {
-                    gbj = new a();
+                if (gbo == null) {
+                    gbo = new a();
                 }
             }
         }
-        return gbj;
+        return gbo;
     }
 
     public void mt(String str) {
@@ -41,42 +41,42 @@ public class a {
     }
 
     public void cK(long j) {
-        this.sO = j;
+        this.sP = j;
     }
 
-    private String bmw() {
-        if (TextUtils.isEmpty(this.gbh)) {
+    private String bmx() {
+        if (TextUtils.isEmpty(this.gbm)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gbh = connectionInfo.getBSSID();
+                this.gbm = connectionInfo.getBSSID();
             } else {
-                this.gbh = "";
+                this.gbm = "";
             }
         }
-        return this.gbh;
+        return this.gbm;
     }
 
     public void rZ(String str) {
-        this.gbh = str;
+        this.gbm = str;
     }
 
     public void sa(String str) {
-        this.gbi = str;
+        this.gbn = str;
     }
 
-    public void bmx() {
-        b.getInstance().putString("asp_shown_info", this.gbi);
+    public void bmy() {
+        b.getInstance().putString("asp_shown_info", this.gbn);
     }
 
-    public AppPosInfo bmy() {
+    public AppPosInfo bmz() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bmw();
+        builder.ap_mac = bmx();
         builder.ap_connected = Boolean.valueOf(j.hi());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
-        builder.addr_timestamp = Long.valueOf(this.sO);
+        builder.addr_timestamp = Long.valueOf(this.sP);
         builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
-        builder.asp_shown_info = this.gbi;
+        builder.asp_shown_info = this.gbn;
         return builder.build(false);
     }
 }

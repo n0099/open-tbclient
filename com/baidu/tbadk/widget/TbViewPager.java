@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aOQ;
-    private boolean apz;
+    private float aOT;
+    private boolean apC;
     private int mDuration;
     private int mTouchSlop;
 
@@ -54,14 +54,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.apz = false;
+        this.apC = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apz = false;
+        this.apC = false;
         this.mDuration = 600;
         init();
     }
@@ -72,7 +72,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.apz = z;
+        this.apC = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -81,7 +81,7 @@ public class TbViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.apz) {
+        if (motionEvent.getPointerCount() > 1 && this.apC) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -109,15 +109,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aP(true);
-                this.aOQ = motionEvent.getX();
+                this.aOT = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aP(false);
-                this.aOQ = 0.0f;
+                this.aOT = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aOQ;
+                float x = motionEvent.getX() - this.aOT;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aP(false);

@@ -6,23 +6,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class q extends a {
-    private boolean ajh;
-    private boolean aji;
-    private boolean ajj;
+    private boolean ajk;
+    private boolean ajl;
+    private boolean ajm;
     private int height;
     private int procType;
     private int width;
 
     public q(boolean z, boolean z2, boolean z3, int i) {
-        this.ajh = true;
-        this.aji = false;
-        this.ajj = false;
+        this.ajk = true;
+        this.ajl = false;
+        this.ajm = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.ajh = z;
-        this.aji = z2;
-        this.ajj = z3;
+        this.ajk = z;
+        this.ajl = z2;
+        this.ajm = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
         this.height = (int) (this.width * 1.6f);
@@ -40,17 +40,17 @@ public class q extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajh;
+        return this.ajk;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vX() {
-        return this.ajj;
+        return this.ajm;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vY() {
-        return this.aji;
+        return this.ajl;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends b {
-    private b.InterfaceC0061b abE;
-    private g cIy;
-    private int cOP;
+    private b.InterfaceC0060b abH;
+    private g cIC;
+    private int cOT;
     private List<z> mDatas;
 
-    public a(g gVar, b.InterfaceC0061b interfaceC0061b) {
+    public a(g gVar, b.InterfaceC0060b interfaceC0060b) {
         super(gVar.getActivity());
-        this.cOP = 0;
-        if (gVar != null && interfaceC0061b != null) {
-            this.cIy = gVar;
-            this.abE = interfaceC0061b;
+        this.cOT = 0;
+        if (gVar != null && interfaceC0060b != null) {
+            this.cIC = gVar;
+            this.abH = interfaceC0060b;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 z zVar = new z();
-                zVar.name = this.cIy.getResources().getString(d.j.attention_users_thread);
-                zVar.cKd = 6;
+                zVar.name = this.cIC.getResources().getString(d.j.attention_users_thread);
+                zVar.cKh = 6;
                 this.mDatas.add(zVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,11 +44,11 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.abE);
+            a(arrayList, this.abH);
         }
     }
 
-    public List<z> aob() {
+    public List<z> aoc() {
         return this.mDatas;
     }
 
@@ -57,7 +57,7 @@ public class a extends b {
         View cl;
         super.tl();
         if (this.mDatas != null && (cl = cl(this.mDatas.size())) != null && (cl.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            aj.i((TextView) cl.findViewById(d.g.dialog_item_btn), d.C0096d.cp_link_tip_a);
+            aj.i((TextView) cl.findViewById(d.g.dialog_item_btn), d.C0095d.cp_link_tip_a);
         }
         return this;
     }

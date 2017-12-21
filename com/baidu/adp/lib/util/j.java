@@ -15,19 +15,19 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean yh = true;
-    private static j yk;
-    private long yi;
-    private NetworkInfo xZ = null;
+    private static boolean yi = true;
+    private static j yl;
+    private long yj;
+    private NetworkInfo ya = null;
     private boolean isWifi = true;
-    private boolean ya = false;
-    private boolean yb = true;
-    private int yc = 0;
+    private boolean yb = false;
+    private boolean yc = true;
     private int yd = 0;
-    private int ye = -1;
-    private String yf = null;
-    private int yg = -1;
-    private boolean yj = true;
+    private int ye = 0;
+    private int yf = -1;
+    private String yg = null;
+    private int yh = -1;
+    private boolean yk = true;
 
     static {
         try {
@@ -39,41 +39,41 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        yk = null;
+        yl = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gU() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        this.xZ = activeNetworkInfo;
+        this.ya = activeNetworkInfo;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
-                this.ya = false;
+                this.yb = false;
             } else if (activeNetworkInfo.getType() == 0) {
                 this.isWifi = false;
-                this.ya = true;
+                this.yb = true;
             } else {
                 this.isWifi = false;
-                this.ya = false;
+                this.yb = false;
             }
-            this.yb = true;
-            this.yc = activeNetworkInfo.getSubtype();
-            if (this.ya) {
-                this.yd = av(this.yc);
+            this.yc = true;
+            this.yd = activeNetworkInfo.getSubtype();
+            if (this.yb) {
+                this.ye = av(this.yd);
             } else {
-                this.yd = 0;
+                this.ye = 0;
             }
         } else {
             this.isWifi = false;
-            this.ya = false;
             this.yb = false;
-            this.yc = 0;
-            this.yc = 0;
+            this.yc = false;
+            this.yd = 0;
+            this.yd = 0;
         }
-        this.ye = hd();
-        this.yf = Proxy.getDefaultHost();
-        this.yg = Proxy.getDefaultPort();
+        this.yf = hd();
+        this.yg = Proxy.getDefaultHost();
+        this.yh = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
@@ -103,58 +103,58 @@ public class j {
     }
 
     public boolean gW() {
-        if (this.xZ == null) {
+        if (this.ya == null) {
             gU();
         }
-        return this.yb;
+        return this.yc;
     }
 
     public boolean gX() {
-        if (this.xZ == null) {
+        if (this.ya == null) {
             gU();
         }
         return this.isWifi;
     }
 
     public boolean gY() {
-        if (this.xZ == null) {
+        if (this.ya == null) {
             gU();
         }
-        return this.ya;
+        return this.yb;
     }
 
     public int gZ() {
-        if (this.xZ == null) {
+        if (this.ya == null) {
             gU();
-        }
-        return this.yd;
-    }
-
-    public int ha() {
-        if (this.ye == -1) {
-            try {
-                this.ye = hd();
-            } catch (Exception e) {
-                this.ye = 0;
-            }
         }
         return this.ye;
     }
 
-    public String hb() {
-        if (this.yf == null) {
-            this.yf = Proxy.getDefaultHost();
+    public int ha() {
+        if (this.yf == -1) {
+            try {
+                this.yf = hd();
+            } catch (Exception e) {
+                this.yf = 0;
+            }
         }
         return this.yf;
     }
 
+    public String hb() {
+        if (this.yg == null) {
+            this.yg = Proxy.getDefaultHost();
+        }
+        return this.yg;
+    }
+
     private long hc() {
-        return this.yi;
+        return this.yj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(long j) {
-        this.yi = j;
+        this.yj = j;
     }
 
     private static int hd() {
@@ -215,28 +215,28 @@ public class j {
     }
 
     public int he() {
-        if (-1 == this.yg) {
-            this.yg = Proxy.getDefaultPort();
+        if (-1 == this.yh) {
+            this.yh = Proxy.getDefaultPort();
         }
-        return this.yg;
+        return this.yh;
     }
 
     public boolean hf() {
-        return this.yj;
+        return this.yk;
     }
 
     public void K(boolean z) {
-        this.yj = z;
+        this.yk = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized j hg() {
         j jVar;
         synchronized (j.class) {
-            if (yk == null) {
-                yk = new j();
+            if (yl == null) {
+                yl = new j();
             }
-            jVar = yk;
+            jVar = yl;
         }
         return jVar;
     }
@@ -350,7 +350,7 @@ public class j {
     }
 
     public static boolean ht() {
-        return yh;
+        return yi;
     }
 
     public static boolean aK(String str) {

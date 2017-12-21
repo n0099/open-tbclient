@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a {
-    private static final String bcF = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
+    private static final String bcJ = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -19,24 +19,24 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, b bVar) {
-        new C0087a(str, str2, str3, str4, bVar).execute(new String[0]);
+        new C0086a(str, str2, str3, str4, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.account.appeal.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0087a extends BdAsyncTask<String, Object, AppealData> {
-        private String bcG;
-        private String bcH;
-        private String bcI;
-        private String bcJ;
-        private WeakReference<b> bcK;
+    private static class C0086a extends BdAsyncTask<String, Object, AppealData> {
+        private String bcK;
+        private String bcL;
+        private String bcM;
+        private String bcN;
+        private WeakReference<b> bcO;
 
-        public C0087a(String str, String str2, String str3, String str4, b bVar) {
-            this.bcG = str;
-            this.bcH = str2;
-            this.bcI = str3;
-            this.bcJ = str4;
-            this.bcK = new WeakReference<>(bVar);
+        public C0086a(String str, String str2, String str3, String str4, b bVar) {
+            this.bcK = str;
+            this.bcL = str2;
+            this.bcM = str3;
+            this.bcN = str4;
+            this.bcO = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,11 +45,11 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public AppealData doInBackground(String... strArr) {
-            x xVar = new x(a.bcF);
-            xVar.n("forum_id", this.bcG);
-            xVar.n("user_id", this.bcH);
-            xVar.n("user_name", this.bcI);
-            xVar.n("content", this.bcJ);
+            x xVar = new x(a.bcJ);
+            xVar.n("forum_id", this.bcK);
+            xVar.n("user_id", this.bcL);
+            xVar.n("user_name", this.bcM);
+            xVar.n("content", this.bcN);
             String up = xVar.up();
             if (xVar.uN().vL().isRequestSuccess()) {
                 try {
@@ -73,7 +73,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.bcK.get();
+            b bVar = this.bcO.get();
             if (bVar != null) {
                 if (appealData.errNo == 0 && am.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);

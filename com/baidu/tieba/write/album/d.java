@@ -17,21 +17,21 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends BaseAdapter {
-    private String cAH;
-    private int cAI;
-    private AlbumActivity hfk;
-    private LayoutInflater hfu;
+    private String cAL;
+    private int cAM;
+    private AlbumActivity hfp;
+    private LayoutInflater hfz;
     private List<com.baidu.tbadk.album.a> mList;
 
     public d(AlbumActivity albumActivity) {
-        this.hfk = albumActivity;
-        this.hfu = LayoutInflater.from(this.hfk.getPageContext().getPageActivity());
-        this.cAI = com.baidu.adp.lib.util.l.ac(this.hfk.getPageContext().getPageActivity()) / 2;
+        this.hfp = albumActivity;
+        this.hfz = LayoutInflater.from(this.hfp.getPageContext().getPageActivity());
+        this.cAM = com.baidu.adp.lib.util.l.ac(this.hfp.getPageContext().getPageActivity()) / 2;
     }
 
     public void d(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.cAH = str;
+        this.cAL = str;
     }
 
     @Override // android.widget.Adapter
@@ -57,13 +57,13 @@ public class d extends BaseAdapter {
         if (view != null && (view.getTag() instanceof a)) {
             aVar = (a) view.getTag();
         } else {
-            view = this.hfu.inflate(d.h.album_list_item, viewGroup, false);
+            view = this.hfz.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hfw = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.cAL = (TextView) view.findViewById(d.g.item_name);
-            aVar.cAM = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.hfw.setGifIconSupport(false);
-            aVar.hfw.setLongIconSupport(false);
+            aVar.hfB = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.cAP = (TextView) view.findViewById(d.g.item_name);
+            aVar.cAQ = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.hfB.setGifIconSupport(false);
+            aVar.hfB.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -72,24 +72,24 @@ public class d extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.cAL.setText(com.baidu.adp.lib.util.l.a(aVar.cAL.getPaint(), item.getName(), this.cAI) + "(" + item.getCount() + ")");
+                aVar.cAP.setText(com.baidu.adp.lib.util.l.a(aVar.cAP.getPaint(), item.getName(), this.cAM) + "(" + item.getCount() + ")");
             } else {
-                aVar.cAL.setText("");
+                aVar.cAP.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.cAH)) {
-                aj.c(aVar.cAM, d.f.icon_list_select_ok_n);
-                aVar.cAM.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.cAL)) {
+                aj.c(aVar.cAQ, d.f.icon_list_select_ok_n);
+                aVar.cAQ.setVisibility(0);
             } else {
-                aVar.cAM.setVisibility(8);
+                aVar.cAQ.setVisibility(8);
             }
             MediaFileInfo ny = item.ny();
             if (ny instanceof VideoFileInfo) {
-                aVar.hfw.startLoad(((VideoFileInfo) ny).videoPath, 37, false);
+                aVar.hfB.startLoad(((VideoFileInfo) ny).videoPath, 37, false);
             } else if (ny instanceof ImageFileInfo) {
-                aVar.hfw.startLoad(((ImageFileInfo) ny).getFilePath(), 35, false);
+                aVar.hfB.startLoad(((ImageFileInfo) ny).getFilePath(), 35, false);
             }
-            aj.i(aVar.cAL, d.C0096d.cp_cont_b);
+            aj.i(aVar.cAP, d.C0095d.cp_cont_b);
             aj.j(view, d.f.addresslist_item_bg);
         }
         return view;
@@ -97,9 +97,9 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     private class a {
-        TextView cAL;
-        ImageView cAM;
-        TbImageView hfw;
+        TextView cAP;
+        ImageView cAQ;
+        TbImageView hfB;
 
         private a() {
         }

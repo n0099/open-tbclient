@@ -9,10 +9,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.af;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
-    private b cXe = new b();
+    private b cXi = new b();
 
     public c() {
-        Fa().aHG = this.cXe;
+        Fa().aHJ = this.cXi;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -24,8 +24,8 @@ public class c extends com.baidu.tbadk.mainTab.b {
     public com.baidu.tbadk.mainTab.c EZ() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.aHH = d.j.ala_live;
-        cVar.aHO = com.baidu.tbadk.mainTab.c.aHM;
+        cVar.aHK = d.j.ala_live;
+        cVar.aHR = com.baidu.tbadk.mainTab.c.aHP;
         return cVar;
     }
 
@@ -37,26 +37,26 @@ public class c extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public e ba(Context context) {
-        this.aHx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aHx.setTextSize(2.0f);
-        return this.aHx;
+        this.aHA = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.aHA.setTextSize(2.0f);
+        return this.aHA;
     }
 
     public void setForumId(String str) {
-        if (this.cXe != null) {
-            this.cXe.setForumId(str);
+        if (this.cXi != null) {
+            this.cXi.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.cXe != null) {
-            this.cXe.setForumName(str);
+        if (this.cXi != null) {
+            this.cXi.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.cXe != null) {
-            this.cXe.setForumGameLabel(str);
+        if (this.cXi != null) {
+            this.cXi.setForumGameLabel(str);
         }
     }
 }

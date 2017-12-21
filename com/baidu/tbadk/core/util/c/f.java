@@ -6,55 +6,55 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class f extends a {
-    private boolean ajh;
-    private boolean aji;
-    private boolean ajj;
-    private int ajn;
+    private boolean ajk;
+    private boolean ajl;
+    private boolean ajm;
+    private int ajq;
     private int procType;
 
     public f(boolean z, boolean z2, boolean z3, int i) {
-        this.ajh = true;
-        this.aji = false;
-        this.ajj = false;
+        this.ajk = true;
+        this.ajl = false;
+        this.ajm = false;
         this.procType = 0;
-        this.ajn = 0;
-        this.ajh = z;
-        this.aji = z2;
-        this.ajj = z3;
+        this.ajq = 0;
+        this.ajk = z;
+        this.ajl = z2;
+        this.ajm = z3;
         this.procType = i;
         int ac = com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst());
-        this.ajn = ac <= 0 ? 200 : ac;
-        if (this.ajn > 480) {
-            this.ajn = 480;
+        this.ajq = ac <= 0 ? 200 : ac;
+        if (this.ajq > 480) {
+            this.ajq = 480;
         }
-        if (this.ajn > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.ajn = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.ajq > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.ajq = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return this.ajn;
+        return this.ajq;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getHeight() {
-        return this.ajn;
+        return this.ajq;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajh;
+        return this.ajk;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vX() {
-        return this.ajj;
+        return this.ajm;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vY() {
-        return this.aji;
+        return this.ajl;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

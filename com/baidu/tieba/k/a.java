@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String acV = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> eFn = new HashSet();
-    private static final boolean eFo = ph(System.getProperty("java.vm.version"));
+    private static final String acY = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> eFr = new HashSet();
+    private static final boolean eFs = ph(System.getProperty("java.vm.version"));
 
     public static void bJ(Context context) {
         Log.i("MultiDex", "install");
-        if (eFo) {
+        if (eFs) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = eFn;
-                    synchronized (eFn) {
+                    Set<String> set = eFr;
+                    synchronized (eFr) {
                         String str = applicationInfo.sourceDir;
-                        if (!eFn.contains(str)) {
-                            eFn.add(str);
+                        if (!eFr.contains(str)) {
+                            eFr.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -53,7 +53,7 @@ public final class a {
                                     return;
                                 }
                                 bK(context);
-                                File file = new File(applicationInfo.dataDir, acV);
+                                File file = new File(applicationInfo.dataDir, acY);
                                 List<File> a = com.baidu.tieba.k.b.a(context, applicationInfo, file, false);
                                 if (cy(a)) {
                                     a(classLoader, file, a);
@@ -119,7 +119,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0119a.a(classLoader, list, file);
+                    C0118a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -235,7 +235,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0119a {
+    public static final class C0118a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.g(classLoader, "pathList").get(classLoader);

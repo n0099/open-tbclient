@@ -135,11 +135,11 @@ public class t {
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a gAR;
+        private final a gAW;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.gAR = aVar;
+            this.gAW = aVar;
             this.cacheKey = str;
         }
 
@@ -163,8 +163,8 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.gAR != null) {
-                this.gAR.a(writeData);
+            if (this.gAW != null) {
+                this.gAW.a(writeData);
             }
         }
     }
@@ -172,11 +172,11 @@ public class t {
     /* loaded from: classes.dex */
     private static class c extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a gAR;
+        private final a gAW;
 
         public c(String str, a aVar) {
             setPriority(3);
-            this.gAR = aVar;
+            this.gAW = aVar;
             this.cacheKey = str;
         }
 
@@ -200,8 +200,8 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.gAR != null) {
-                this.gAR.a(writeData);
+            if (this.gAW != null) {
+                this.gAW.a(writeData);
             }
         }
     }

@@ -19,14 +19,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v cNJ;
+    private v cNN;
     private String mForumName;
 
     public static void bp(long j) {
-        if (j > 0 && cYY != null && !TextUtils.isEmpty(cYY.cYQ)) {
+        if (j > 0 && cZc != null && !TextUtils.isEmpty(cZc.cYU)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ac(ImageViewerConfig.FORUM_ID, cYY.cYQ);
+            akVar.ac(ImageViewerConfig.FORUM_ID, cZc.cYU);
             TiebaStatic.log(akVar);
         }
     }
@@ -34,7 +34,7 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cNJ = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.cNN = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -75,7 +75,7 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
             return null;
         }
         aVar.acB().a(cardHListViewData);
-        aVar.acB().b(this.cNJ);
+        aVar.acB().b(this.cNN);
         return aVar.getView();
     }
 

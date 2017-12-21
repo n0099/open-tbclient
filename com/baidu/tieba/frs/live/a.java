@@ -36,111 +36,111 @@ import com.baidu.tieba.frs.j;
 import com.baidu.tieba.frs.live.c;
 /* loaded from: classes.dex */
 public class a {
-    private at bmJ;
-    private g cIy;
-    private TextView cUT;
-    private FrameLayout cXj;
-    private ImageView cXk;
-    private int cXm;
-    private String cXn;
-    private AlaLiveInfoCoreData cXo;
-    private AlaLiveInfoListCoreData cXp;
-    private c cXq;
+    private at bmN;
+    private g cIC;
+    private TextView cUX;
+    private FrameLayout cXn;
+    private ImageView cXo;
+    private int cXq;
+    private String cXr;
+    private AlaLiveInfoCoreData cXs;
+    private AlaLiveInfoListCoreData cXt;
+    private c cXu;
     private int mForumId;
     private boolean isFirst = true;
-    private c.a cXr = new c.a() { // from class: com.baidu.tieba.frs.live.a.1
+    private c.a cXv = new c.a() { // from class: com.baidu.tieba.frs.live.a.1
         @Override // com.baidu.tieba.frs.live.c.a
         public void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage) {
             if (frsLiveTipResponseMessage != null) {
-                a.this.cXm = frsLiveTipResponseMessage.remindType;
-                a.this.cXn = frsLiveTipResponseMessage.remindText;
-                a.this.cXo = frsLiveTipResponseMessage.infoCoreData;
-                a.this.cXp = frsLiveTipResponseMessage.listCoreData;
-                if (a.this.bmJ != null) {
-                    a.this.bmJ.amI();
+                a.this.cXq = frsLiveTipResponseMessage.remindType;
+                a.this.cXr = frsLiveTipResponseMessage.remindText;
+                a.this.cXs = frsLiveTipResponseMessage.infoCoreData;
+                a.this.cXt = frsLiveTipResponseMessage.listCoreData;
+                if (a.this.bmN != null) {
+                    a.this.bmN.amJ();
                 }
-                if (a.this.cXm != 0) {
-                    a.this.apD();
+                if (a.this.cXq != 0) {
+                    a.this.apE();
                 }
             }
         }
     };
-    private Runnable cXs = new Runnable() { // from class: com.baidu.tieba.frs.live.a.2
+    private Runnable cXw = new Runnable() { // from class: com.baidu.tieba.frs.live.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.cXq != null) {
-                a.this.cXq.kF(a.this.mForumId);
+            if (a.this.cXu != null) {
+                a.this.cXu.kF(a.this.mForumId);
             }
         }
     };
-    private int cXl = apI();
+    private int cXp = apJ();
 
     public a(g gVar, int i) {
-        this.cIy = gVar;
+        this.cIC = gVar;
         this.mForumId = i;
     }
 
-    public void apC() {
-        if (this.cIy != null && this.cIy.isAdded()) {
-            if (System.currentTimeMillis() - apL() >= 1800000) {
-                if (this.cIy.alv() && isFirst()) {
+    public void apD() {
+        if (this.cIC != null && this.cIC.isAdded()) {
+            if (System.currentTimeMillis() - apM() >= 1800000) {
+                if (this.cIC.alv() && isFirst()) {
                     this.isFirst = false;
                     return;
                 }
-                if (this.cXq == null) {
-                    this.cXq = new c(this.cXr);
+                if (this.cXu == null) {
+                    this.cXu = new c(this.cXv);
                 }
-                e.fP().removeCallbacks(this.cXs);
-                e.fP().postDelayed(this.cXs, TbConfig.NOTIFY_SOUND_INTERVAL);
-            }
-        }
-    }
-
-    public void apD() {
-        if (!StringUtils.isNull(this.cXn) && this.cXo != null) {
-            if (this.cXm != 2 || apI() < 3) {
-                bs(this.cIy.getPageContext().getPageActivity());
-                if (this.cUT != null) {
-                    this.cUT.setText(this.cXn);
-                }
-                onChangeSkinType();
-                PL();
-                apK();
+                e.fP().removeCallbacks(this.cXw);
+                e.fP().postDelayed(this.cXw, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }
     }
 
     public void apE() {
-        if (this.cIy != null) {
-            d all = this.cIy.all();
-            if ((all instanceof com.baidu.tieba.frs.entelechy.c.a) && ((com.baidu.tieba.frs.entelechy.c.a) all).anX() != null) {
-                ((com.baidu.tieba.frs.entelechy.c.a) all).anX().kQ(49);
+        if (!StringUtils.isNull(this.cXr) && this.cXs != null) {
+            if (this.cXq != 2 || apJ() < 3) {
+                bs(this.cIC.getPageContext().getPageActivity());
+                if (this.cUX != null) {
+                    this.cUX.setText(this.cXr);
+                }
+                onChangeSkinType();
+                PL();
+                apL();
+            }
+        }
+    }
+
+    public void apF() {
+        if (this.cIC != null) {
+            d all = this.cIC.all();
+            if ((all instanceof com.baidu.tieba.frs.entelechy.c.a) && ((com.baidu.tieba.frs.entelechy.c.a) all).anY() != null) {
+                ((com.baidu.tieba.frs.entelechy.c.a) all).anY().kQ(49);
             }
         }
     }
 
     private void onChangeSkinType() {
-        aj.j(this.cXj, d.f.bg_frs_hot_live_tip_selector);
-        aj.i(this.cUT, d.C0096d.cp_cont_i);
-        aj.c(this.cXk, d.f.icon_home_card_close_white);
-        this.cUT.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
+        aj.j(this.cXn, d.f.bg_frs_hot_live_tip_selector);
+        aj.i(this.cUX, d.C0095d.cp_cont_i);
+        aj.c(this.cXo, d.f.icon_home_card_close_white);
+        this.cUX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
     }
 
     private void bs(Context context) {
-        if (context != null && this.cXj == null) {
-            this.cXj = (FrameLayout) LayoutInflater.from(context).inflate(d.h.frs_hot_live_tip, (ViewGroup) null);
-            this.cXj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    a.this.apF();
-                }
-            });
-            this.cUT = (TextView) this.cXj.findViewById(d.g.frs_hot_live_tip_content);
-            this.cXk = (ImageView) this.cXj.findViewById(d.g.frs_hot_live_tip_close);
-            this.cXk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.4
+        if (context != null && this.cXn == null) {
+            this.cXn = (FrameLayout) LayoutInflater.from(context).inflate(d.h.frs_hot_live_tip, (ViewGroup) null);
+            this.cXn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.apG();
+                }
+            });
+            this.cUX = (TextView) this.cXn.findViewById(d.g.frs_hot_live_tip_content);
+            this.cXo = (ImageView) this.cXn.findViewById(d.g.frs_hot_live_tip_close);
+            this.cXo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.4
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    a.this.apH();
                 }
             });
             onChangeSkinType();
@@ -148,28 +148,28 @@ public class a {
     }
 
     private void PL() {
-        if (this.cIy != null) {
-            com.baidu.tieba.frs.entelechy.b.d all = this.cIy.all();
-            j aln = this.cIy.aln();
-            if (aln != null && all != null && all.anS() != null && (aln.WQ() instanceof NoPressedRelativeLayout)) {
-                View anS = all.anS();
+        if (this.cIC != null) {
+            com.baidu.tieba.frs.entelechy.b.d all = this.cIC.all();
+            j aln = this.cIC.aln();
+            if (aln != null && all != null && all.anT() != null && (aln.WQ() instanceof NoPressedRelativeLayout)) {
+                View anT = all.anT();
                 BdTypeListView listView = aln.getListView();
-                if (anS != null && listView != null) {
+                if (anT != null && listView != null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
                     layoutParams.addRule(6, d.g.frs_list_content);
-                    if (aln.alK() != null && aln.alK().getLayoutParams() != null) {
-                        layoutParams.topMargin = aln.alK().getLayoutParams().height;
+                    if (aln.alL() != null && aln.alL().getLayoutParams() != null) {
+                        layoutParams.topMargin = aln.alL().getLayoutParams().height;
                     } else {
                         layoutParams.topMargin = 0;
                     }
-                    if (this.bmJ == null) {
-                        this.bmJ = new at();
+                    if (this.bmN == null) {
+                        this.bmN = new at();
                     }
                     NoPressedRelativeLayout noPressedRelativeLayout = (NoPressedRelativeLayout) aln.WQ();
-                    if (this.cXm == 2) {
-                        this.bmJ.a(this.cXj, noPressedRelativeLayout, layoutParams, 5000);
-                    } else if (this.cXm == 1) {
-                        this.bmJ.a(this.cXj, noPressedRelativeLayout, layoutParams);
+                    if (this.cXq == 2) {
+                        this.bmN.a(this.cXn, noPressedRelativeLayout, layoutParams, 5000);
+                    } else if (this.cXq == 1) {
+                        this.bmN.a(this.cXn, noPressedRelativeLayout, layoutParams);
                         TiebaStatic.log(new ak("c12539"));
                     }
                 }
@@ -178,25 +178,25 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apF() {
-        apJ();
-        if (this.cXo != null && this.cIy != null && this.cIy.isAdded()) {
-            boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.cXo.userID));
+    public void apG() {
+        apK();
+        if (this.cXs != null && this.cIC != null && this.cIC.isAdded()) {
+            boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.cXs.userID));
             String str = "";
-            if (this.cXm == 1) {
+            if (this.cXq == 1) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP;
                 TiebaStatic.log(new ak("c12540"));
-                if (this.bmJ != null) {
-                    this.bmJ.hideTip();
+                if (this.bmN != null) {
+                    this.bmN.hideTip();
                 }
-            } else if (this.cXm == 2) {
+            } else if (this.cXq == 2) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP;
                 TiebaStatic.log(new ak("c12331"));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.cIy.getPageContext().getPageActivity(), this.cXo, this.cXp, str, getUserId(), equals, null, null)));
-            if (this.cIy.alE().aRn().isGameForumType()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.cIC.getPageContext().getPageActivity(), this.cXs, this.cXt, str, getUserId(), equals, null, null)));
+            if (this.cIC.alE().aRo().isGameForumType()) {
                 CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
-                customMessage.setTag(this.cIy.getBaseFragmentActivity().getUniqueId());
+                customMessage.setTag(this.cIC.getBaseFragmentActivity().getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_JUMP_TO_LIVE_TAB);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -205,41 +205,41 @@ public class a {
             e.fP().post(new Runnable() { // from class: com.baidu.tieba.frs.live.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.apE();
+                    a.this.apF();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apG() {
-        if (this.cXm == 2) {
-            apH();
+    public void apH() {
+        if (this.cXq == 2) {
+            apI();
         }
-        if (this.bmJ != null) {
-            this.bmJ.hideTip();
+        if (this.bmN != null) {
+            this.bmN.hideTip();
         }
     }
 
-    private void apH() {
-        this.cXl++;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXl);
+    private void apI() {
+        this.cXp++;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXp);
     }
 
-    private int apI() {
+    private int apJ() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), 0);
     }
 
-    private void apJ() {
-        this.cXl = 0;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXl);
+    private void apK() {
+        this.cXp = 0;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.cXp);
     }
 
-    private void apK() {
+    private void apL() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + getUserId(), System.currentTimeMillis());
     }
 
-    private long apL() {
+    private long apM() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + getUserId(), 0L);
     }
 
@@ -259,12 +259,12 @@ public class a {
     }
 
     public void onDestory() {
-        if (this.bmJ != null) {
-            this.bmJ.amI();
+        if (this.bmN != null) {
+            this.bmN.amJ();
         }
-        e.fP().removeCallbacks(this.cXs);
-        if (this.cXq != null) {
-            this.cXq.onDestory();
+        e.fP().removeCallbacks(this.cXw);
+        if (this.cXu != null) {
+            this.cXu.onDestory();
         }
     }
 }

@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h hNs = new h();
-    static h hNt;
-    static h hNu;
-    boolean hNj = true;
-    boolean hNk = true;
-    boolean hNl = false;
-    boolean hNm = false;
-    boolean hNn = false;
+    static h hNx = new h();
+    static h hNy;
+    static h hNz;
     boolean hNo = true;
     boolean hNp = true;
-    boolean hNq = true;
-    int hNr;
+    boolean hNq = false;
+    boolean hNr = false;
+    boolean hNs = false;
+    boolean hNt = true;
+    boolean hNu = true;
+    boolean hNv = true;
+    int hNw;
 
     h() {
     }
 
     static {
-        hNs.hNj = true;
-        hNs.hNk = false;
-        hNs.hNl = false;
-        hNs.hNm = false;
-        hNs.hNn = true;
-        hNs.hNo = false;
-        hNs.hNp = false;
-        hNs.hNr = 0;
-        hNt = new h();
-        hNt.hNj = true;
-        hNt.hNk = true;
-        hNt.hNl = false;
-        hNt.hNm = false;
-        hNt.hNn = false;
-        hNs.hNr = 1;
-        hNu = new h();
-        hNu.hNj = false;
-        hNu.hNk = true;
-        hNu.hNl = false;
-        hNu.hNm = true;
-        hNu.hNn = false;
-        hNu.hNq = false;
-        hNu.hNr = 2;
+        hNx.hNo = true;
+        hNx.hNp = false;
+        hNx.hNq = false;
+        hNx.hNr = false;
+        hNx.hNs = true;
+        hNx.hNt = false;
+        hNx.hNu = false;
+        hNx.hNw = 0;
+        hNy = new h();
+        hNy.hNo = true;
+        hNy.hNp = true;
+        hNy.hNq = false;
+        hNy.hNr = false;
+        hNy.hNs = false;
+        hNx.hNw = 1;
+        hNz = new h();
+        hNz.hNo = false;
+        hNz.hNp = true;
+        hNz.hNq = false;
+        hNz.hNr = true;
+        hNz.hNs = false;
+        hNz.hNv = false;
+        hNz.hNw = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String ye(int i) {
-        if (this.hNm) {
+        if (this.hNr) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String o(Class cls) {
-        return b(cls, cls.getName(), this.hNj);
+        return b(cls, cls.getName(), this.hNo);
     }
 
     public String e(Class cls, String str) {
-        return b(cls, str, this.hNn);
+        return b(cls, str, this.hNs);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.hNk) {
+            if (!this.hNp) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.hNl && clsArr != null && clsArr.length != 0) {
+        if (this.hNq && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

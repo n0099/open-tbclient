@@ -29,7 +29,7 @@ public class f extends h {
         byte[] a = c().a();
         if (a != null) {
             try {
-                jVar.a(b.C0180b.b(a));
+                jVar.a(b.C0179b.b(a));
             } catch (com.google.protobuf.micro.d e) {
             }
         }
@@ -91,8 +91,8 @@ public class f extends h {
                 c(13, null);
             }
         }
-        for (a.C0183a c0183a : this.g.values()) {
-            c0183a.a(bVar);
+        for (a.C0182a c0182a : this.g.values()) {
+            c0182a.a(bVar);
         }
     }
 
@@ -154,8 +154,8 @@ public class f extends h {
             if (!TextUtils.isEmpty(i)) {
                 com.xiaomi.smack.util.g.a(this.n, i, a, false, System.currentTimeMillis());
             }
-            for (a.C0183a c0183a : this.h.values()) {
-                c0183a.a(bVar);
+            for (a.C0182a c0182a : this.h.values()) {
+                c0182a.a(bVar);
             }
         } catch (Exception e) {
             throw new l(e);
@@ -167,8 +167,8 @@ public class f extends h {
         if (dVar == null) {
             return;
         }
-        for (a.C0183a c0183a : this.g.values()) {
-            c0183a.a(dVar);
+        for (a.C0182a c0182a : this.g.values()) {
+            c0182a.a(dVar);
         }
     }
 }

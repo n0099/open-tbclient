@@ -18,13 +18,13 @@ import java.util.regex.Pattern;
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gBJ = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern gBO = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gBH = null;
-    private SpannableStringBuilder gBI = null;
-    private boolean gBG = false;
+    private String gBM = null;
+    private SpannableStringBuilder gBN = null;
+    private boolean gBL = false;
 
     public static boolean bW(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -42,20 +42,20 @@ public class k {
         return this.text;
     }
 
-    public String bwF() {
+    public String bwG() {
         return this.c;
     }
 
-    public SpannableStringBuilder bwG() {
-        return this.gBI;
+    public SpannableStringBuilder bwH() {
+        return this.gBN;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gBI == null) {
-            this.gBI = new SpannableStringBuilder();
+        if (this.gBN == null) {
+            this.gBN = new SpannableStringBuilder();
         }
-        this.gBI.append((CharSequence) spannableString);
-        return this.gBI;
+        this.gBN.append((CharSequence) spannableString);
+        return this.gBN;
     }
 
     public SpannableString cb(Context context) {
@@ -81,7 +81,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gBJ.matcher(k.this.link);
+                        Matcher matcher2 = k.gBO.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

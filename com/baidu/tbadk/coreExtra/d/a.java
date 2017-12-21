@@ -44,13 +44,13 @@ public class a {
         return a(tbPageContext, i, bVar, bVar2, false);
     }
 
-    public static b a(Context context, b.InterfaceC0061b interfaceC0061b) {
+    public static b a(Context context, b.InterfaceC0060b interfaceC0060b) {
         if (i.Y(context) == null) {
             return null;
         }
         b bVar = new b(i.Y(context).getPageActivity());
         bVar.cT(TbadkCoreApplication.getInst().getString(d.j.operation));
-        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.j.delete_user_chat)}, interfaceC0061b);
+        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.j.delete_user_chat)}, interfaceC0060b);
         bVar.d(i.Y(context));
         if (context instanceof Activity) {
             bVar.tl();
@@ -93,13 +93,13 @@ public class a {
         return aVar;
     }
 
-    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0061b interfaceC0061b) {
+    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0060b interfaceC0060b) {
         if (tbPageContext == null) {
             return null;
         }
         b bVar = new b(tbPageContext.getPageActivity());
         bVar.cg(i);
-        bVar.a(charSequenceArr, interfaceC0061b);
+        bVar.a(charSequenceArr, interfaceC0060b);
         bVar.d(tbPageContext);
         return bVar;
     }

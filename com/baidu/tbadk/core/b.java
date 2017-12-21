@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String SQ;
-    private int SR;
+    private String SR;
     private int SS;
     private int ST;
     private int SU;
@@ -22,63 +21,64 @@ public class b {
     private int Ti;
     private int Tj;
     private int Tk;
-    private StringBuffer Tl = new StringBuffer();
+    private int Tl;
+    private StringBuffer Tm = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.Tl.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.Tm.toString() + "]";
     }
 
     public void cp(String str) {
-        this.Tl.append(str).append(" || ");
+        this.Tm.append(str).append(" || ");
     }
 
     public int oA() {
-        return this.Tf;
-    }
-
-    public void bd(int i) {
-        this.Tf = i;
-    }
-
-    public int oB() {
         return this.Tg;
     }
 
-    public void be(int i) {
+    public void bd(int i) {
         this.Tg = i;
     }
 
+    public int oB() {
+        return this.Th;
+    }
+
+    public void be(int i) {
+        this.Th = i;
+    }
+
     public int oC() {
-        return this.Td;
-    }
-
-    public void bf(int i) {
-        this.Td = i;
-    }
-
-    public int oD() {
         return this.Te;
     }
 
-    public void bg(int i) {
+    public void bf(int i) {
         this.Te = i;
     }
 
+    public int oD() {
+        return this.Tf;
+    }
+
+    public void bg(int i) {
+        this.Tf = i;
+    }
+
     public int oE() {
-        return this.Tb;
-    }
-
-    public void bh(int i) {
-        this.Tb = i;
-    }
-
-    public int oF() {
         return this.Tc;
     }
 
-    public void bi(int i) {
+    public void bh(int i) {
         this.Tc = i;
+    }
+
+    public int oF() {
+        return this.Td;
+    }
+
+    public void bi(int i) {
+        this.Td = i;
     }
 
     public String getId() {
@@ -86,19 +86,19 @@ public class b {
     }
 
     public int oG() {
-        return this.Th;
-    }
-
-    public void bj(int i) {
-        this.Th = i;
-    }
-
-    public int oH() {
         return this.Ti;
     }
 
-    public void bk(int i) {
+    public void bj(int i) {
         this.Ti = i;
+    }
+
+    public int oH() {
+        return this.Tj;
+    }
+
+    public void bk(int i) {
+        this.Tj = i;
     }
 
     public void setId(String str) {
@@ -106,102 +106,102 @@ public class b {
     }
 
     public void cq(String str) {
-        this.SQ = str;
+        this.SR = str;
     }
 
     public int oI() {
-        return this.SR;
-    }
-
-    public void bl(int i) {
-        this.SR = i;
-    }
-
-    public int oJ() {
         return this.SS;
     }
 
-    public void bm(int i) {
+    public void bl(int i) {
         this.SS = i;
     }
 
-    public int oK() {
-        return this.SV;
-    }
-
-    public void bn(int i) {
-        this.SV = i;
-    }
-
-    public int oL() {
-        return this.SW;
-    }
-
-    public void bo(int i) {
-        this.SW = i;
-    }
-
-    public int oM() {
+    public int oJ() {
         return this.ST;
     }
 
-    public void bp(int i) {
+    public void bm(int i) {
         this.ST = i;
     }
 
-    public int oN() {
-        return this.SU;
+    public int oK() {
+        return this.SW;
     }
 
-    public void bq(int i) {
-        this.SU = i;
+    public void bn(int i) {
+        this.SW = i;
     }
 
-    public int oO() {
-        return this.SY;
-    }
-
-    public int oP() {
+    public int oL() {
         return this.SX;
     }
 
-    public void br(int i) {
+    public void bo(int i) {
         this.SX = i;
     }
 
-    public void bs(int i) {
-        this.SY = i;
+    public int oM() {
+        return this.SU;
     }
 
-    public int oQ() {
-        return this.Ta;
+    public void bp(int i) {
+        this.SU = i;
     }
 
-    public void bt(int i) {
-        this.Ta = i;
+    public int oN() {
+        return this.SV;
     }
 
-    public int oR() {
+    public void bq(int i) {
+        this.SV = i;
+    }
+
+    public int oO() {
         return this.SZ;
     }
 
-    public void bu(int i) {
+    public int oP() {
+        return this.SY;
+    }
+
+    public void br(int i) {
+        this.SY = i;
+    }
+
+    public void bs(int i) {
         this.SZ = i;
     }
 
+    public int oQ() {
+        return this.Tb;
+    }
+
+    public void bt(int i) {
+        this.Tb = i;
+    }
+
+    public int oR() {
+        return this.Ta;
+    }
+
+    public void bu(int i) {
+        this.Ta = i;
+    }
+
     public int oS() {
-        return this.Tj;
-    }
-
-    public void bv(int i) {
-        this.Tj = i;
-    }
-
-    public int oT() {
         return this.Tk;
     }
 
-    public void bw(int i) {
+    public void bv(int i) {
         this.Tk = i;
+    }
+
+    public int oT() {
+        return this.Tl;
+    }
+
+    public void bw(int i) {
+        this.Tl = i;
     }
 }

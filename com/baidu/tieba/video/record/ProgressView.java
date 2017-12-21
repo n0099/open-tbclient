@@ -13,25 +13,25 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class ProgressView extends View {
-    private boolean anB;
-    private long ctu;
-    private float gXA;
-    private float gXB;
-    private LinkedList<Integer> gXC;
-    private float gXD;
-    private volatile State gXE;
+    private boolean anE;
+    private long ctz;
+    private Paint gXA;
+    private Paint gXB;
+    private Paint gXC;
+    private Paint gXD;
+    private Paint gXE;
     private float gXF;
     private float gXG;
-    private float gXH;
-    private long gXI;
-    private long gXJ;
-    private long gXK;
-    private a gXu;
-    private Paint gXv;
-    private Paint gXw;
-    private Paint gXx;
-    private Paint gXy;
-    private Paint gXz;
+    private LinkedList<Integer> gXH;
+    private float gXI;
+    private volatile State gXJ;
+    private float gXK;
+    private float gXL;
+    private float gXM;
+    private long gXN;
+    private long gXO;
+    private long gXP;
+    private a gXz;
     private long lastStartTime;
     private int mProgress;
 
@@ -42,77 +42,77 @@ public class ProgressView extends View {
 
     public ProgressView(Context context) {
         super(context);
-        this.gXC = new LinkedList<>();
-        this.gXD = 0.0f;
-        this.gXE = State.PAUSE;
-        this.anB = true;
-        this.gXF = 0.0f;
-        this.gXG = 0.0f;
-        this.gXH = 0.0f;
-        this.gXI = 0L;
+        this.gXH = new LinkedList<>();
+        this.gXI = 0.0f;
+        this.gXJ = State.PAUSE;
+        this.anE = true;
+        this.gXK = 0.0f;
+        this.gXL = 0.0f;
+        this.gXM = 0.0f;
+        this.gXN = 0L;
         this.lastStartTime = 0L;
-        this.gXJ = 0L;
-        this.gXK = 0L;
+        this.gXO = 0L;
+        this.gXP = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gXC = new LinkedList<>();
-        this.gXD = 0.0f;
-        this.gXE = State.PAUSE;
-        this.anB = true;
-        this.gXF = 0.0f;
-        this.gXG = 0.0f;
-        this.gXH = 0.0f;
-        this.gXI = 0L;
+        this.gXH = new LinkedList<>();
+        this.gXI = 0.0f;
+        this.gXJ = State.PAUSE;
+        this.anE = true;
+        this.gXK = 0.0f;
+        this.gXL = 0.0f;
+        this.gXM = 0.0f;
+        this.gXN = 0L;
         this.lastStartTime = 0L;
-        this.gXJ = 0L;
-        this.gXK = 0L;
+        this.gXO = 0L;
+        this.gXP = 0L;
         init(context);
     }
 
     public ProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gXC = new LinkedList<>();
-        this.gXD = 0.0f;
-        this.gXE = State.PAUSE;
-        this.anB = true;
-        this.gXF = 0.0f;
-        this.gXG = 0.0f;
-        this.gXH = 0.0f;
-        this.gXI = 0L;
+        this.gXH = new LinkedList<>();
+        this.gXI = 0.0f;
+        this.gXJ = State.PAUSE;
+        this.anE = true;
+        this.gXK = 0.0f;
+        this.gXL = 0.0f;
+        this.gXM = 0.0f;
+        this.gXN = 0L;
         this.lastStartTime = 0L;
-        this.gXJ = 0L;
-        this.gXK = 0L;
+        this.gXO = 0L;
+        this.gXP = 0L;
         init(context);
     }
 
     private void init(Context context) {
-        this.gXv = new Paint();
-        this.gXw = new Paint();
-        this.gXx = new Paint();
-        this.gXz = new Paint();
-        this.gXy = new Paint();
+        this.gXA = new Paint();
+        this.gXB = new Paint();
+        this.gXC = new Paint();
+        this.gXE = new Paint();
+        this.gXD = new Paint();
         setBackgroundColor(Color.parseColor("#FFFFFF"));
-        this.gXv.setStyle(Paint.Style.FILL);
-        this.gXv.setColor(Color.parseColor("#33aaff"));
-        this.gXw.setStyle(Paint.Style.FILL);
-        this.gXw.setColor(Color.rgb(51, 170, (int) MotionEventCompat.ACTION_MASK));
-        this.gXx.setStyle(Paint.Style.FILL);
-        this.gXx.setColor(Color.parseColor("#FFFFFF"));
-        this.gXz.setStyle(Paint.Style.FILL);
-        this.gXz.setColor(Color.parseColor("#e53917"));
-        this.gXy.setStyle(Paint.Style.FILL);
-        this.gXy.setColor(Color.parseColor("#33aaff"));
+        this.gXA.setStyle(Paint.Style.FILL);
+        this.gXA.setColor(Color.parseColor("#33aaff"));
+        this.gXB.setStyle(Paint.Style.FILL);
+        this.gXB.setColor(Color.rgb(51, 170, (int) MotionEventCompat.ACTION_MASK));
+        this.gXC.setStyle(Paint.Style.FILL);
+        this.gXC.setColor(Color.parseColor("#FFFFFF"));
+        this.gXE.setStyle(Paint.Style.FILL);
+        this.gXE.setColor(Color.parseColor("#e53917"));
+        this.gXD.setStyle(Paint.Style.FILL);
+        this.gXD.setColor(Color.parseColor("#33aaff"));
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.gXD = displayMetrics.widthPixels / 15000.0f;
-        this.gXH = this.gXD;
+        this.gXI = displayMetrics.widthPixels / 15000.0f;
+        this.gXM = this.gXI;
     }
 
     public void setListener(a aVar) {
-        this.gXu = aVar;
+        this.gXz = aVar;
     }
 
     /* loaded from: classes2.dex */
@@ -146,136 +146,136 @@ public class ProgressView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.ctu == 0) {
-            this.ctu = System.currentTimeMillis();
+        if (this.ctz == 0) {
+            this.ctz = System.currentTimeMillis();
         }
-        if (this.gXK == 0) {
-            this.gXK = getHeight();
+        if (this.gXP == 0) {
+            this.gXP = getHeight();
         }
-        this.gXA = (float) this.gXK;
-        this.gXB = (float) ((this.gXK * 1) / 3);
+        this.gXF = (float) this.gXP;
+        this.gXG = (float) ((this.gXP * 1) / 3);
         long currentTimeMillis = System.currentTimeMillis();
-        this.gXF = 0.0f;
-        if (!this.gXC.isEmpty()) {
-            Iterator<Integer> it = this.gXC.iterator();
+        this.gXK = 0.0f;
+        if (!this.gXH.isEmpty()) {
+            Iterator<Integer> it = this.gXH.iterator();
             long j = 0;
             while (it.hasNext()) {
                 this.lastStartTime = j;
                 long intValue = it.next().intValue();
-                this.gXJ = intValue;
-                float f = this.gXF;
-                this.gXF += ((float) (intValue - j)) * this.gXD;
-                float f2 = this.gXF - this.gXB;
+                this.gXO = intValue;
+                float f = this.gXK;
+                this.gXK += ((float) (intValue - j)) * this.gXI;
+                float f2 = this.gXK - this.gXG;
                 if (f2 < 1.0f) {
                     f2 = 1.0f;
                 }
-                canvas.drawRect(f, 0.0f, f2, (float) (this.gXK - 1), this.gXv);
-                canvas.drawRect(f2, 0.0f, this.gXF, (float) (this.gXK - 1), this.gXx);
+                canvas.drawRect(f, 0.0f, f2, (float) (this.gXP - 1), this.gXA);
+                canvas.drawRect(f2, 0.0f, this.gXK, (float) (this.gXP - 1), this.gXC);
                 j = intValue;
             }
-            if (this.gXC.getLast().intValue() <= 3000.0f) {
-                canvas.drawRect(3000.0f * this.gXD, 0.0f, this.gXA + (this.gXD * 3000.0f), (float) (this.gXK - 1), this.gXw);
+            if (this.gXH.getLast().intValue() <= 3000.0f) {
+                canvas.drawRect(3000.0f * this.gXI, 0.0f, this.gXF + (this.gXI * 3000.0f), (float) (this.gXP - 1), this.gXB);
             }
         } else {
-            canvas.drawRect(3000.0f * this.gXD, 0.0f, this.gXA + (this.gXD * 3000.0f), (float) (this.gXK - 1), this.gXw);
+            canvas.drawRect(3000.0f * this.gXI, 0.0f, this.gXF + (this.gXI * 3000.0f), (float) (this.gXP - 1), this.gXB);
         }
-        if (this.gXE == State.ROLLBACK) {
-            canvas.drawRect(this.gXF - (((float) (this.gXJ - this.lastStartTime)) * this.gXD), 0.0f, this.gXF, (float) this.gXK, this.gXz);
+        if (this.gXJ == State.ROLLBACK) {
+            canvas.drawRect(this.gXK - (((float) (this.gXO - this.lastStartTime)) * this.gXI), 0.0f, this.gXK, (float) this.gXP, this.gXE);
         }
-        if (this.gXE == State.START) {
-            this.gXG += this.gXH * ((float) (currentTimeMillis - this.ctu));
-            float f3 = this.gXF + this.gXG;
+        if (this.gXJ == State.START) {
+            this.gXL += this.gXM * ((float) (currentTimeMillis - this.ctz));
+            float f3 = this.gXK + this.gXL;
             if (f3 <= getMeasuredWidth()) {
-                canvas.drawRect(this.gXF, 0.0f, this.gXG + this.gXF, (float) (this.gXK - 1), this.gXv);
+                canvas.drawRect(this.gXK, 0.0f, this.gXL + this.gXK, (float) (this.gXP - 1), this.gXA);
             } else {
-                canvas.drawRect(this.gXF, 0.0f, getMeasuredWidth(), (float) (this.gXK - 1), this.gXv);
+                canvas.drawRect(this.gXK, 0.0f, getMeasuredWidth(), (float) (this.gXP - 1), this.gXA);
             }
-            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.gXK) + (f3 - 5.0f), (float) (this.gXK - 1), this.gXy);
-            if (this.gXu != null) {
+            canvas.drawRect(f3 - 5.0f, 0.0f, ((float) this.gXP) + (f3 - 5.0f), (float) (this.gXP - 1), this.gXD);
+            if (this.gXz != null) {
                 int measuredWidth = (int) ((f3 / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth > 100) {
                     measuredWidth = 100;
                 }
                 if (measuredWidth != this.mProgress) {
                     this.mProgress = measuredWidth;
-                    this.gXu.vC(this.mProgress);
+                    this.gXz.vC(this.mProgress);
                 }
             }
         } else {
-            if (this.gXu != null) {
-                int measuredWidth2 = (int) ((this.gXF / getMeasuredWidth()) * 100.0f);
+            if (this.gXz != null) {
+                int measuredWidth2 = (int) ((this.gXK / getMeasuredWidth()) * 100.0f);
                 if (measuredWidth2 > 100) {
                     measuredWidth2 = 100;
                 }
                 if (measuredWidth2 != this.mProgress) {
                     this.mProgress = measuredWidth2;
-                    this.gXu.vC(this.mProgress);
+                    this.gXz.vC(this.mProgress);
                 }
             }
-            if (this.gXI == 0 || currentTimeMillis - this.gXI >= 800) {
-                this.anB = !this.anB;
-                this.gXI = System.currentTimeMillis();
+            if (this.gXN == 0 || currentTimeMillis - this.gXN >= 800) {
+                this.anE = !this.anE;
+                this.gXN = System.currentTimeMillis();
             }
-            if (this.anB) {
-                canvas.drawRect(this.gXF - 5.0f, 0.0f, ((float) this.gXK) + (this.gXF - 5.0f), (float) (this.gXK - 1), this.gXy);
+            if (this.anE) {
+                canvas.drawRect(this.gXK - 5.0f, 0.0f, ((float) this.gXP) + (this.gXK - 5.0f), (float) (this.gXP - 1), this.gXD);
             }
         }
-        this.ctu = System.currentTimeMillis();
+        this.ctz = System.currentTimeMillis();
         invalidate();
     }
 
     public void setCurrentState(State state) {
-        this.gXE = state;
+        this.gXJ = state;
         if (state != State.START) {
-            this.gXG = this.gXH;
+            this.gXL = this.gXM;
         }
-        if (state == State.DELETE && this.gXC != null && !this.gXC.isEmpty()) {
-            this.gXC.removeLast();
+        if (state == State.DELETE && this.gXH != null && !this.gXH.isEmpty()) {
+            this.gXH.removeLast();
         }
     }
 
     public State getCurrentState() {
-        return this.gXE;
+        return this.gXJ;
     }
 
     public void vB(int i) {
-        this.gXC.add(Integer.valueOf(i));
+        this.gXH.add(Integer.valueOf(i));
     }
 
     public int getLastProgress() {
-        if (this.gXC == null || this.gXC.isEmpty()) {
+        if (this.gXH == null || this.gXH.isEmpty()) {
             return 0;
         }
-        return this.gXC.getLast().intValue();
+        return this.gXH.getLast().intValue();
     }
 
-    public boolean bDQ() {
-        return this.gXC.isEmpty();
+    public boolean bDR() {
+        return this.gXH.isEmpty();
     }
 
     public LinkedList<Integer> getTimeList() {
-        return this.gXC;
+        return this.gXH;
     }
 
     public void setTimeList(LinkedList<Integer> linkedList) {
         if (linkedList != null && linkedList.size() > 0) {
-            this.gXC = linkedList;
+            this.gXH = linkedList;
         }
     }
 
     public void setPaintHeight(int i) {
-        this.gXK = i;
+        this.gXP = i;
     }
 
     public void reset() {
-        this.gXC.clear();
-        this.gXE = State.PAUSE;
-        this.gXC.clear();
-        this.gXF = 0.0f;
-        this.ctu = 0L;
+        this.gXH.clear();
+        this.gXJ = State.PAUSE;
+        this.gXH.clear();
+        this.gXK = 0.0f;
+        this.ctz = 0L;
         this.lastStartTime = 0L;
-        this.gXJ = 0L;
+        this.gXO = 0L;
         this.mProgress = 0;
-        this.gXI = 0L;
+        this.gXN = 0L;
     }
 }

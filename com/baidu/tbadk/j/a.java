@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aHi;
-    private boolean aHj;
+    protected View aHl;
+    private boolean aHm;
 
     public a(View view) {
-        this.aHi = view;
+        this.aHl = view;
     }
 
     public boolean EO() {
-        return this.aHj;
+        return this.aHm;
     }
 
     public void c(View view, boolean z) {
-        if (view != null && this.aHi != null && this.aHi.getParent() == null) {
-            this.aHj = true;
-            d.R(view).a(view, this.aHi, z);
+        if (view != null && this.aHl != null && this.aHl.getParent() == null) {
+            this.aHm = true;
+            d.R(view).a(view, this.aHl, z);
             EP();
         }
     }
 
     public void P(View view) {
-        if (view != null && this.aHi != null && this.aHi.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.aHl != null && this.aHl.getParent() != null && (view instanceof ViewGroup)) {
             try {
                 EQ();
-                ((ViewGroup) view).removeView(this.aHi);
-                this.aHj = false;
+                ((ViewGroup) view).removeView(this.aHl);
+                this.aHm = false;
             } catch (Exception e) {
             }
         }

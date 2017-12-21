@@ -13,8 +13,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class d {
     public static String c = null;
-    public com.baidu.location.f.i KW = null;
-    public com.baidu.location.f.a KX = null;
+    public com.baidu.location.f.i KX = null;
+    public com.baidu.location.f.a KY = null;
     private boolean e = true;
     private boolean f = false;
     final Handler d = new a();
@@ -128,14 +128,14 @@ public abstract class d {
     }
 
     public String a(String str) {
-        if (this.KX == null || !this.KX.a()) {
-            this.KX = com.baidu.location.f.c.mN().mJ();
+        if (this.KY == null || !this.KY.a()) {
+            this.KY = com.baidu.location.f.c.mN().mJ();
         }
-        if (this.KW == null || !this.KW.f()) {
-            this.KW = com.baidu.location.f.k.mW().mU();
+        if (this.KX == null || !this.KX.f()) {
+            this.KX = com.baidu.location.f.k.mW().mU();
         }
         Location mP = com.baidu.location.f.f.mQ().i() ? com.baidu.location.f.f.mQ().mP() : null;
-        if ((this.KX == null || this.KX.c()) && ((this.KW == null || this.KW.a() == 0) && mP == null)) {
+        if ((this.KY == null || this.KY.c()) && ((this.KX == null || this.KX.a() == 0) && mP == null)) {
             return null;
         }
         String c2 = com.baidu.location.a.a.lV().c();
@@ -160,7 +160,7 @@ public abstract class d {
         if (str != null) {
             str2 = str + str2;
         }
-        return com.baidu.location.h.i.a(this.KX, this.KW, mP, str2, 0);
+        return com.baidu.location.h.i.a(this.KY, this.KX, mP, str2, 0);
     }
 
     public abstract void a();

@@ -3,24 +3,24 @@ package com.baidu.tieba.pb.data;
 import tbclient.Lottery.DataRes;
 /* loaded from: classes.dex */
 public class c {
-    private String ePh;
-    private final LotteryUserChanceInfo ePi;
-    private final b ePj;
+    private String ePm;
+    private final LotteryUserChanceInfo ePn;
+    private final b ePo;
     private int mStatus;
 
     private c(DataRes dataRes) {
-        this.ePi = LotteryUserChanceInfo.createFromProtobuf(dataRes.chance);
-        this.ePj = b.a(dataRes.award_info);
+        this.ePn = LotteryUserChanceInfo.createFromProtobuf(dataRes.chance);
+        this.ePo = b.a(dataRes.award_info);
         this.mStatus = dataRes.status.intValue();
-        this.ePh = dataRes.status_msg;
+        this.ePm = dataRes.status_msg;
     }
 
-    public b aRj() {
-        return this.ePj;
+    public b aRk() {
+        return this.ePo;
     }
 
-    public LotteryUserChanceInfo aRk() {
-        return this.ePi;
+    public LotteryUserChanceInfo aRl() {
+        return this.ePn;
     }
 
     public int getStatus() {
@@ -28,7 +28,7 @@ public class c {
     }
 
     public String getStatusMsg() {
-        return this.ePh;
+        return this.ePm;
     }
 
     public static c a(DataRes dataRes) {

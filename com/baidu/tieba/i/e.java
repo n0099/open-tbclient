@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void aNO();
-
     void aNP();
 
     void aNQ();
+
+    void aNR();
 }

@@ -7,19 +7,19 @@ import com.baidu.tieba.i.f;
 import com.baidu.tieba.p.b;
 /* loaded from: classes2.dex */
 public class k implements f {
-    private String eEu;
-    private m fSN;
+    private String eEy;
+    private m fSS;
 
     public k(String str) {
-        this.eEu = str;
-        this.fSN = new m(str);
+        this.eEy = str;
+        this.fSS = new m(str);
     }
 
     @Override // com.baidu.tieba.i.f
     public void i(String str, int i, String str2) {
         if (rz(str)) {
-            this.fSN.bko();
-            this.fSN.a(new com.baidu.tieba.l.d(i, "record", i, str2));
+            this.fSS.bkp();
+            this.fSS.a(new com.baidu.tieba.l.d(i, "record", i, str2));
         }
     }
 
@@ -27,94 +27,94 @@ public class k implements f {
     public void j(String str, int i, String str2) {
         if (rz(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.fSN.bko();
-                this.fSN.a(new com.baidu.tieba.l.d(i, str2, i, VideoPlatformStatic.gw(i)));
+                this.fSS.bkp();
+                this.fSS.a(new com.baidu.tieba.l.d(i, str2, i, VideoPlatformStatic.gw(i)));
                 return;
             }
-            this.fSN.a(new com.baidu.tieba.l.d(i, str2, -4399, ""));
+            this.fSS.a(new com.baidu.tieba.l.d(i, str2, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void k(String str, int i, String str2) {
         if (rz(str)) {
-            this.fSN.bko();
-            this.fSN.a(new com.baidu.tieba.l.d(i, "edit", i, str2));
+            this.fSS.bkp();
+            this.fSS.a(new com.baidu.tieba.l.d(i, "edit", i, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void c(String str, int i, int i2, String str2) {
         if (rz(str)) {
-            this.fSN.bko();
-            this.fSN.bkm();
-            this.fSN.bkq();
-            this.fSN.a(new com.baidu.tieba.l.d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+            this.fSS.bkp();
+            this.fSS.bkn();
+            this.fSS.bkr();
+            this.fSS.a(new com.baidu.tieba.l.d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void oS(String str) {
         if (rz(str)) {
-            this.fSN.bkq();
-            this.fSN.a(new com.baidu.tieba.l.d(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+            this.fSS.bkr();
+            this.fSS.a(new com.baidu.tieba.l.d(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void oT(String str) {
         if (rz(str)) {
-            this.fSN.bkq();
-            this.fSN.bkn();
-            this.fSN.a(new com.baidu.tieba.l.d(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+            this.fSS.bkr();
+            this.fSS.bko();
+            this.fSS.a(new com.baidu.tieba.l.d(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void l(String str, int i, String str2) {
         if (rz(str)) {
-            this.fSN.bko();
-            this.fSN.bkm();
-            this.fSN.bkq();
-            this.fSN.a(new com.baidu.tieba.l.d(402, AlbumActivityConfig.FROM_WRITE, i, str2));
+            this.fSS.bkp();
+            this.fSS.bkn();
+            this.fSS.bkr();
+            this.fSS.a(new com.baidu.tieba.l.d(402, AlbumActivityConfig.FROM_WRITE, i, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void oU(String str) {
         if (rz(str)) {
-            b.bAT().d(this.eEu, b.a(VideoPlatformStatic.Mh(), this.fSN.aOg(), this.fSN.aOh()));
+            b.bAU().d(this.eEy, b.a(VideoPlatformStatic.Mh(), this.fSS.aOh(), this.fSS.aOi()));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public boolean oV(String str) {
         if (rz(str)) {
-            return this.fSN.bkp();
+            return this.fSS.bkq();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.i.f
     public boolean oW(String str) {
-        return this.fSN.bkr();
+        return this.fSS.bks();
     }
 
     @Override // com.baidu.tieba.i.f
     public void bA(String str, String str2) {
         if (rz(str)) {
-            this.fSN.a(new com.baidu.tieba.l.d(503, str2, -4399, ""));
+            this.fSS.a(new com.baidu.tieba.l.d(503, str2, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void bB(String str, String str2) {
         if (rz(str)) {
-            this.fSN.a(new com.baidu.tieba.l.d(501, str2, -4399, ""));
+            this.fSS.a(new com.baidu.tieba.l.d(501, str2, -4399, ""));
         }
     }
 
     private boolean rz(String str) {
-        return (!TextUtils.equals(this.eEu, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.eEu)) ? false : true;
+        return (!TextUtils.equals(this.eEy, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.eEy)) ? false : true;
     }
 }

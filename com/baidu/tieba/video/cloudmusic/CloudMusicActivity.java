@@ -31,20 +31,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
-    private NoNetworkView blu;
-    private BdBaseViewPager cAV;
-    private CommonPagerSlidingTabStrip cAY;
-    private List<String> cBc;
-    private d.a gQb;
-    private List<BaseFragment> gQc;
-    private a gQd;
+    private NoNetworkView bly;
+    private BdBaseViewPager cAZ;
+    private CommonPagerSlidingTabStrip cBc;
+    private List<String> cBg;
+    private d.a gQg;
+    private List<BaseFragment> gQh;
+    private a gQi;
     private NavigationBar mNavigationBar;
     final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.cloudmusic.CloudMusicActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.hh() && CloudMusicActivity.this.gQb != null) {
-                CloudMusicActivity.this.gQb.bBn();
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.hh() && CloudMusicActivity.this.gQg != null) {
+                CloudMusicActivity.this.gQg.bBo();
             }
         }
     };
@@ -60,9 +60,9 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
         new c(new CloudMusicModel(getPageContext()), this);
         this.mRootView = findViewById(d.g.cloud_music_activity_root_view);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.blu = (NoNetworkView) findViewById(d.g.no_network_view);
-        this.blu.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        aj.i(this.mNavigationBar.setCenterTextTitle(getString(d.j.music_cloud)), d.C0096d.cp_cont_b);
+        this.bly = (NoNetworkView) findViewById(d.g.no_network_view);
+        this.bly.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        aj.i(this.mNavigationBar.setCenterTextTitle(getString(d.j.music_cloud)), d.C0095d.cp_cont_b);
         this.mNavigationBar.setmBackImageViewBg(d.f.icon_nav_close, d.f.icon_nav_close_w);
         aj.c(this.mNavigationBar.getBackImageView(), d.f.icon_nav_close);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.video.cloudmusic.CloudMusicActivity.2
@@ -72,22 +72,22 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
             }
         });
         if (j.gV()) {
-            this.blu.setVisibility(8);
+            this.bly.setVisibility(8);
         } else {
-            this.blu.setVisibility(0);
+            this.bly.setVisibility(0);
         }
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.f(getPageContext().getPageActivity(), d.e.ds200)), NoDataViewFactory.d.dq(d.j.no_data_text), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.cAY = (CommonPagerSlidingTabStrip) findViewById(d.g.cloud_music_nav);
-        this.cAY.a(l.f(getPageContext().getPageActivity(), d.e.ds30), l.f(getPageContext().getPageActivity(), d.e.ds24), l.f(getPageContext().getPageActivity(), d.e.ds16), l.f(getPageContext().getPageActivity(), d.e.ds24), l.f(getPageContext().getPageActivity(), d.e.ds20), l.f(getPageContext().getPageActivity(), d.e.ds4), l.f(getPageContext().getPageActivity(), d.e.ds64), d.C0096d.cp_cont_j, d.C0096d.cp_cont_b);
-        this.cAV = (BdBaseViewPager) findViewById(d.g.cloud_music_view_pager);
-        this.cAV.setOffscreenPageLimit(2);
-        this.gQd = new a(getSupportFragmentManager());
-        this.cAV.setAdapter(this.gQd);
-        this.cAY.setViewPager(this.cAV);
+        this.cBc = (CommonPagerSlidingTabStrip) findViewById(d.g.cloud_music_nav);
+        this.cBc.a(l.f(getPageContext().getPageActivity(), d.e.ds30), l.f(getPageContext().getPageActivity(), d.e.ds24), l.f(getPageContext().getPageActivity(), d.e.ds16), l.f(getPageContext().getPageActivity(), d.e.ds24), l.f(getPageContext().getPageActivity(), d.e.ds20), l.f(getPageContext().getPageActivity(), d.e.ds4), l.f(getPageContext().getPageActivity(), d.e.ds64), d.C0095d.cp_cont_j, d.C0095d.cp_cont_b);
+        this.cAZ = (BdBaseViewPager) findViewById(d.g.cloud_music_view_pager);
+        this.cAZ.setOffscreenPageLimit(2);
+        this.gQi = new a(getSupportFragmentManager());
+        this.cAZ.setAdapter(this.gQi);
+        this.cBc.setViewPager(this.cAZ);
         registerListener(this.mNetworkChangedMessageListener);
-        if (this.gQb != null) {
-            this.gQb.bBn();
+        if (this.gQg != null) {
+            this.gQg.bBo();
         }
     }
 
@@ -95,10 +95,10 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
     protected void onChangeSkinType(int i) {
         this.mSkinType = i;
         getLayoutMode().ag(i == 1);
-        if (this.cAY != null) {
-            this.cAY.onChangeSkinType(i);
+        if (this.cBc != null) {
+            this.cBc.onChangeSkinType(i);
         }
-        aj.k(this.mRootView, d.C0096d.cp_bg_line_d);
+        aj.k(this.mRootView, d.C0095d.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -113,7 +113,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void a(d.a aVar) {
-        this.gQb = aVar;
+        this.gQg = aVar;
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
@@ -127,18 +127,18 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void a(CloudMusicData cloudMusicData) {
-        this.gQc = new ArrayList(cloudMusicData.tag_list.size());
-        this.cBc = new ArrayList(cloudMusicData.tag_list.size());
+        this.gQh = new ArrayList(cloudMusicData.tag_list.size());
+        this.cBg = new ArrayList(cloudMusicData.tag_list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < cloudMusicData.tag_list.size()) {
-                this.cBc.add(cloudMusicData.tag_list.get(i2).name);
-                this.gQc.add(com.baidu.tieba.video.cloudmusic.a.a(cloudMusicData.music_tag_list.get(i2)));
+                this.cBg.add(cloudMusicData.tag_list.get(i2).name);
+                this.gQh.add(com.baidu.tieba.video.cloudmusic.a.a(cloudMusicData.music_tag_list.get(i2)));
                 i = i2 + 1;
             } else {
-                this.gQd.notifyDataSetChanged();
-                this.cAY.notifyDataSetChanged();
+                this.gQi.notifyDataSetChanged();
+                this.cBc.notifyDataSetChanged();
                 return;
             }
         }
@@ -156,19 +156,19 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        com.baidu.tieba.video.editvideo.model.a.bBY().bBZ();
+        com.baidu.tieba.video.editvideo.model.a.bBZ().bCa();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MusicPlayer.bBo().bBp();
+        MusicPlayer.bBp().bBq();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        MusicPlayer.bBo().bBq();
+        MusicPlayer.bBp().bBr();
     }
 
     /* loaded from: classes2.dex */
@@ -179,16 +179,16 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (!v.w(CloudMusicActivity.this.gQc)) {
-                return CloudMusicActivity.this.gQc.size();
+            if (!v.w(CloudMusicActivity.this.gQh)) {
+                return CloudMusicActivity.this.gQh.size();
             }
             return 0;
         }
 
         @Override // android.support.v4.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            if (!v.w(CloudMusicActivity.this.gQc) && CloudMusicActivity.this.gQc.size() > i) {
-                com.baidu.tieba.video.cloudmusic.a aVar = (com.baidu.tieba.video.cloudmusic.a) CloudMusicActivity.this.gQc.get(i);
+            if (!v.w(CloudMusicActivity.this.gQh) && CloudMusicActivity.this.gQh.size() > i) {
+                com.baidu.tieba.video.cloudmusic.a aVar = (com.baidu.tieba.video.cloudmusic.a) CloudMusicActivity.this.gQh.get(i);
                 new b(new CloudMusicListModel(CloudMusicActivity.this.getPageContext()), aVar);
                 return aVar;
             }
@@ -197,8 +197,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
 
         @Override // android.support.v4.view.PagerAdapter
         public CharSequence getPageTitle(int i) {
-            if (!v.w(CloudMusicActivity.this.cBc)) {
-                return (CharSequence) CloudMusicActivity.this.cBc.get(i);
+            if (!v.w(CloudMusicActivity.this.cBg)) {
+                return (CharSequence) CloudMusicActivity.this.cBg.get(i);
             }
             return "";
         }
@@ -207,8 +207,8 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gQb.anc();
-        MusicPlayer.bBo().bjn();
-        com.baidu.tieba.video.editvideo.model.a.bBY().bCa();
+        this.gQg.and();
+        MusicPlayer.bBp().bjo();
+        com.baidu.tieba.video.editvideo.model.a.bBZ().bCb();
     }
 }

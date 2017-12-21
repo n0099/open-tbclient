@@ -20,10 +20,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ax {
-    private static int aid = -1;
-    private static int aie = -1;
-    private static boolean aif = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aig = new com.baidu.adp.lib.e.a<>(500);
+    private static int aig = -1;
+    private static int aih = -1;
+    private static boolean aii = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aij = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -33,13 +33,13 @@ public class ax {
 
     public static void aP(Context context) {
         mAppContext = context;
-        aif = true;
+        aii = true;
     }
 
     private static void vJ() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aie = mAppContext.getResources().getColor(d.C0096d.common_color_10097);
-            aid = mAppContext.getResources().getColor(d.C0096d.common_color_10004);
+            aih = mAppContext.getResources().getColor(d.C0095d.common_color_10097);
+            aig = mAppContext.getResources().getColor(d.C0095d.common_color_10004);
         }
     }
 
@@ -49,11 +49,11 @@ public class ax {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int aC(boolean z) {
-        if (aif) {
-            aif = false;
+        if (aii) {
+            aii = false;
             vJ();
         }
-        return z ? aid : aie;
+        return z ? aig : aih;
     }
 
     public static void y(View view) {
@@ -64,16 +64,16 @@ public class ax {
 
     public static void z(View view) {
         if (view != null) {
-            aig.remove(Integer.valueOf(System.identityHashCode(view)));
+            aij.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void a(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aig.get(Integer.valueOf(identityHashCode));
+        Integer num = aij.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             b(viewGroup, i);
-            aig.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aij.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -182,7 +182,7 @@ public class ax {
     public static void aR(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aqE != null && com.baidu.tbadk.coreExtra.a.a.aqE == Domain.DOMAIN_QA) {
+            if (com.baidu.tbadk.coreExtra.a.a.aqH != null && com.baidu.tbadk.coreExtra.a.a.aqH == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));

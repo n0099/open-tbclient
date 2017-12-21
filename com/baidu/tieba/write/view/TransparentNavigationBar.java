@@ -22,7 +22,7 @@ public class TransparentNavigationBar extends NavigationBar {
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
     public void onChangeSkinType(e<?> eVar, int i) {
-        aj.k(this, d.C0096d.common_color_10094);
+        aj.k(this, d.C0095d.common_color_10094);
         initPadding();
     }
 }

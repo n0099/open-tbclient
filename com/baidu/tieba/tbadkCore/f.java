@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class f implements com.baidu.adp.widget.ListView.f {
-    private int ePR;
-    private String eug;
+    private int ePW;
+    private String euk;
     private String icon;
     private String obj_id;
     private int time;
@@ -14,12 +14,12 @@ public class f implements com.baidu.adp.widget.ListView.f {
     private String url;
     private int weight;
 
-    public int aRS() {
-        return this.ePR;
+    public int aRT() {
+        return this.ePW;
     }
 
     public void ug(int i) {
-        this.ePR = i;
+        this.ePW = i;
     }
 
     public String getIcon() {
@@ -58,12 +58,12 @@ public class f implements com.baidu.adp.widget.ListView.f {
         this.time = i;
     }
 
-    public String buL() {
+    public String buM() {
         return this.obj_id;
     }
 
-    public String aKY() {
-        return this.eug;
+    public String aKZ() {
+        return this.euk;
     }
 
     public void a(StarEnter starEnter) {
@@ -75,7 +75,7 @@ public class f implements com.baidu.adp.widget.ListView.f {
         uh(starEnter.weight.intValue());
         ug(starEnter.rank_num.intValue());
         this.obj_id = starEnter.obj_id;
-        this.eug = starEnter.text;
+        this.euk = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.f

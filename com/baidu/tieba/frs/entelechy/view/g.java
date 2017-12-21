@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class g extends i {
-    private VoteView cPm;
+    private VoteView cPq;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,14 +29,14 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cPm = (VoteView) findViewById;
-            this.cPm.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds560));
-            this.cPm.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds20));
-            this.cPm.setDescTextColorResId(d.C0096d.cp_cont_b);
-            this.cPm.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds8));
-            this.cPm.setDescTopMargin(0);
+            this.cPq = (VoteView) findViewById;
+            this.cPq.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds560));
+            this.cPq.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds20));
+            this.cPq.setDescTextColorResId(d.C0095d.cp_cont_b);
+            this.cPq.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds8));
+            this.cPq.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cPC.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds38);
+                ((ViewGroup.MarginLayoutParams) this.cPG.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds38);
             } catch (ClassCastException e) {
             }
         }
@@ -44,8 +44,8 @@ public class g extends i {
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void kn(int i) {
-        if (this.cPm != null) {
-            this.cPm.onChangeSkinType(i);
+        if (this.cPq != null) {
+            this.cPq.onChangeSkinType(i);
         }
     }
 
@@ -71,12 +71,12 @@ public class g extends i {
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cPm.setBoallotsForListView(linkedList);
-                    this.cPm.onChangeSkinType(getSkinType());
-                    this.cPm.setVisibility(0);
+                    this.cPq.setBoallotsForListView(linkedList);
+                    this.cPq.onChangeSkinType(getSkinType());
+                    this.cPq.setVisibility(0);
                     return;
                 }
-                this.cPm.setVisibility(8);
+                this.cPq.setVisibility(8);
             }
         }
     }

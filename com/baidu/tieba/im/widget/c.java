@@ -14,7 +14,7 @@ import com.baidu.tieba.im.db.k;
 import com.baidu.tieba.im.db.l;
 /* loaded from: classes.dex */
 public class c {
-    public static void aDC() {
+    public static void aDD() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tieba.im.widget.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -30,8 +30,8 @@ public class c {
                         com.baidu.tbadk.coreExtra.messageCenter.a.yN().setMsgLiveVip(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.yN().zf();
                         v.Hv();
-                        l.azF().azn();
-                        k.azE().azn();
+                        l.azG().azo();
+                        k.azF().azo();
                     }
                     v.b(new u<Integer>() { // from class: com.baidu.tieba.im.widget.c.1.1
                         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class c {
                         @Override // com.baidu.tbadk.util.u
                         public Integer doInBackground() {
                             if (!isNull) {
-                                com.baidu.tieba.im.db.b.azo().azp();
+                                com.baidu.tieba.im.db.b.azp().azq();
                             }
                             return 0;
                         }

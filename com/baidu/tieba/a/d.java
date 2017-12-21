@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.g, com.baidu.tbadk.i.e> {
-    private com.baidu.tieba.story.c bed;
+    private com.baidu.tieba.story.c beh;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.g.aAt, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.g.aAw, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.tieba.story.c cVar) {
-        this.bed = cVar;
+        this.beh = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,12 +44,12 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.g, c
 
     private void a(com.baidu.tbadk.i.e eVar, final com.baidu.tbadk.data.g gVar, View view, final int i) {
         if (eVar != null && gVar != null) {
-            eVar.aFY.getInnerImg().setIsRound(true);
-            eVar.aFY.getInnerImg().startLoad(gVar.portrait, 25, false);
-            eVar.aFY.setOuterColor(d.C0096d.cp_link_tip_g);
-            if (gVar.aAp == i) {
-                if (gVar.aAq == 1) {
-                    eVar.aFY.a(null, i);
+            eVar.aGb.getInnerImg().setIsRound(true);
+            eVar.aGb.getInnerImg().startLoad(gVar.portrait, 25, false);
+            eVar.aGb.setOuterColor(d.C0095d.cp_link_tip_g);
+            if (gVar.aAs == i) {
+                if (gVar.aAt == 1) {
+                    eVar.aGb.a(null, i);
                     if (TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(gVar.user_id))) {
                         eVar.setStatus(gVar.has_read != 1 ? 0 : 2);
                         eVar.mName.setText(1 == gVar.mStatus ? this.mContext.getString(d.j.sending_type) : this.mContext.getString(d.j.my_story));
@@ -57,64 +57,64 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.g, c
                         eVar.mName.setText(gVar.user_name);
                     }
                 } else {
-                    eVar.aFY.wg();
+                    eVar.aGb.wg();
                     if (TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(gVar.user_id))) {
                         if (gVar.mStatus == 3) {
-                            eVar.aFY.aH(false);
+                            eVar.aGb.aH(false);
                             eVar.mName.setText(this.mContext.getString(d.j.post_story_fail));
                             eVar.setStatus(3);
                         } else {
                             if (gVar.has_read == 1) {
                                 eVar.setStatus(2);
-                                eVar.aFY.aG(true);
+                                eVar.aGb.aG(true);
                             } else {
                                 eVar.setStatus(0);
-                                eVar.aFY.aG(false);
+                                eVar.aGb.aG(false);
                             }
-                            eVar.aFY.aH(true);
+                            eVar.aGb.aH(true);
                             eVar.mName.setText(this.mContext.getString(d.j.my_story));
                         }
                     } else {
                         if (gVar.has_read == 1) {
                             eVar.setStatus(2);
-                            eVar.aFY.aG(true);
+                            eVar.aGb.aG(true);
                         } else {
                             eVar.setStatus(0);
-                            eVar.aFY.aG(false);
+                            eVar.aGb.aG(false);
                         }
                         eVar.mName.setText(gVar.user_name);
                     }
-                    gVar.aAp = -1;
+                    gVar.aAs = -1;
                 }
             } else {
-                eVar.aFY.wg();
+                eVar.aGb.wg();
                 if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(gVar.user_id))) {
                     if (gVar.mStatus == 3) {
-                        eVar.aFY.aH(false);
+                        eVar.aGb.aH(false);
                         eVar.mName.setText(this.mContext.getString(d.j.post_story_fail));
                         eVar.setStatus(3);
                     } else {
                         if (gVar.has_read == 1) {
                             eVar.setStatus(2);
-                            eVar.aFY.aG(true);
+                            eVar.aGb.aG(true);
                         } else {
                             eVar.setStatus(0);
-                            eVar.aFY.aG(false);
+                            eVar.aGb.aG(false);
                         }
                         eVar.mName.setText(this.mContext.getString(d.j.my_story));
                     }
                 } else {
                     if (gVar.has_read == 1) {
                         eVar.setStatus(2);
-                        eVar.aFY.aG(true);
+                        eVar.aGb.aG(true);
                     } else {
                         eVar.setStatus(0);
-                        eVar.aFY.aG(false);
+                        eVar.aGb.aG(false);
                     }
                     eVar.mName.setText(gVar.user_name);
                 }
             }
-            eVar.aFY.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.d.1
+            eVar.aGb.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.d.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 0) {
@@ -127,10 +127,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.g, c
                     return view2.onTouchEvent(motionEvent);
                 }
             });
-            eVar.aFY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.d.2
+            eVar.aGb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    d.this.bed.a(gVar, i);
+                    d.this.beh.a(gVar, i);
                 }
             });
             eVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

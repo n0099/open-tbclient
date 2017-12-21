@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType csp;
-    private int csq;
-    private int csr;
-    private com.baidu.tbadk.editortools.emotiontool.c css;
-    private int cst;
+    private EmotionGroupType cst;
     private int csu;
+    private int csv;
+    private com.baidu.tbadk.editortools.emotiontool.c csw;
+    private int csx;
+    private int csy;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.css = cVar;
+        this.csw = cVar;
     }
 
     public com.baidu.tbadk.editortools.emotiontool.c agx() {
-        return this.css;
+        return this.csw;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.csp = emotionGroupType;
+        this.cst = emotionGroupType;
     }
 
     public EmotionGroupType agy() {
-        return this.csp;
+        return this.cst;
     }
 
     public void fa(int i) {
@@ -48,27 +48,27 @@ public class d {
     }
 
     public void jh(int i) {
-        this.csu = i;
+        this.csy = i;
     }
 
     public int agA() {
-        return this.csu;
+        return this.csy;
     }
 
     public void ji(int i) {
-        this.cst = i;
+        this.csx = i;
     }
 
     public int agB() {
-        return this.cst;
+        return this.csx;
     }
 
     public void jj(int i) {
-        this.csq = i;
+        this.csu = i;
     }
 
     public int agC() {
-        return this.csq;
+        return this.csu;
     }
 
     public void jk(int i) {
@@ -92,10 +92,10 @@ public class d {
     }
 
     public void jl(int i) {
-        this.csr = i;
+        this.csv = i;
     }
 
     public int agE() {
-        return this.csr;
+        return this.csv;
     }
 }

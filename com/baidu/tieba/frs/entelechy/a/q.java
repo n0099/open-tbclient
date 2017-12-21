@@ -21,15 +21,15 @@ import com.baidu.tieba.frs.e;
 import com.baidu.tieba.frs.view.UserRecommendLayout;
 /* loaded from: classes.dex */
 public class q extends e<com.baidu.tieba.frs.r, a> {
-    private com.baidu.adp.lib.e.b<com.baidu.tieba.frs.view.h> cOg;
+    private com.baidu.adp.lib.e.b<com.baidu.tieba.frs.view.h> cOk;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public q(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.cOg = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tieba.frs.view.h>() { // from class: com.baidu.tieba.frs.entelechy.a.q.1
+        this.cOk = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<com.baidu.tieba.frs.view.h>() { // from class: com.baidu.tieba.frs.entelechy.a.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: anM */
+            /* renamed from: anN */
             public com.baidu.tieba.frs.view.h fI() {
                 return new com.baidu.tieba.frs.view.h(q.this.mContext);
             }
@@ -62,7 +62,7 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
     /* renamed from: aq */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(d.h.card_user_recommend_layout, (ViewGroup) null, true));
-        aVar.cOj.setViewPool(this.cOg);
+        aVar.cOn.setViewPool(this.cOk);
         return aVar;
     }
 
@@ -73,13 +73,13 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.r rVar, a aVar) {
         if (rVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.cOk.setText(rVar.amu());
-            aVar.cOj.setPageContext(this.mPageContext);
-            aVar.cOj.setData(rVar.getUserInfo());
-            aVar.cOi.setMaxOverScrollDistance(aVar.cOj.getChildItemWidth());
-            aVar.cOk.setTextColor(aj.getColor(skinType, d.C0096d.cp_cont_b));
-            aVar.aMt.setBackgroundColor(aj.getColor(skinType, d.C0096d.cp_bg_line_e));
-            if (!rVar.amv()) {
+            aVar.cOo.setText(rVar.amv());
+            aVar.cOn.setPageContext(this.mPageContext);
+            aVar.cOn.setData(rVar.getUserInfo());
+            aVar.cOm.setMaxOverScrollDistance(aVar.cOn.getChildItemWidth());
+            aVar.cOo.setTextColor(aj.getColor(skinType, d.C0095d.cp_cont_b));
+            aVar.aMw.setBackgroundColor(aj.getColor(skinType, d.C0095d.cp_bg_line_e));
+            if (!rVar.amw()) {
                 for (MetaData metaData : rVar.getUserInfo()) {
                     if (metaData != null && !am.isEmpty(metaData.getUserId())) {
                         com.baidu.tieba.card.s.abW().a(new ak("c12530").ac("obj_id", metaData.getUserId()));
@@ -93,28 +93,28 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
 
     /* loaded from: classes.dex */
     public static class a extends j.a {
-        LinearLayout aMt;
-        FlexibleHorizontalScrollView cOi;
-        UserRecommendLayout cOj;
-        TextView cOk;
-        View.OnClickListener cOl;
-        View.OnClickListener cOm;
+        LinearLayout aMw;
+        FlexibleHorizontalScrollView cOm;
+        UserRecommendLayout cOn;
+        TextView cOo;
+        View.OnClickListener cOp;
+        View.OnClickListener cOq;
 
         public a(View view) {
             super(view);
-            this.cOl = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.q.a.1
+            this.cOp = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.q.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     com.baidu.tbadk.core.view.userLike.a wR;
-                    if (a.this.cOi != null && a.this.cOj != null) {
-                        a.this.cOi.smoothScrollBy(a.this.cOj.getChildItemWidth(), 0);
+                    if (a.this.cOm != null && a.this.cOn != null) {
+                        a.this.cOm.smoothScrollBy(a.this.cOn.getChildItemWidth(), 0);
                         if ((view2.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) && (wR = ((com.baidu.tbadk.core.view.userLike.c) view2.getTag()).wR()) != null) {
                             a.this.U(wR.getUserId(), 2);
                         }
                     }
                 }
             };
-            this.cOm = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.q.a.2
+            this.cOq = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.q.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (view2 instanceof ClickableHeaderImageView) {
@@ -122,13 +122,13 @@ public class q extends e<com.baidu.tieba.frs.r, a> {
                     }
                 }
             };
-            this.cOi = (FlexibleHorizontalScrollView) view.findViewById(d.g.user_recommend_scroll_container);
-            this.cOj = (UserRecommendLayout) view.findViewById(d.g.user_recommend_container);
-            this.cOj.setItemSpace(com.baidu.adp.lib.util.l.f(view.getContext(), d.e.ds16));
-            this.cOj.setAfterLikeBtnClickListener(this.cOl);
-            this.cOj.setAfterHeaderLickListener(this.cOm);
-            this.cOk = (TextView) view.findViewById(d.g.user_recommend_document);
-            this.aMt = (LinearLayout) view.findViewById(d.g.user_recommend_root);
+            this.cOm = (FlexibleHorizontalScrollView) view.findViewById(d.g.user_recommend_scroll_container);
+            this.cOn = (UserRecommendLayout) view.findViewById(d.g.user_recommend_container);
+            this.cOn.setItemSpace(com.baidu.adp.lib.util.l.f(view.getContext(), d.e.ds16));
+            this.cOn.setAfterLikeBtnClickListener(this.cOp);
+            this.cOn.setAfterHeaderLickListener(this.cOq);
+            this.cOo = (TextView) view.findViewById(d.g.user_recommend_document);
+            this.aMw = (LinearLayout) view.findViewById(d.g.user_recommend_root);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

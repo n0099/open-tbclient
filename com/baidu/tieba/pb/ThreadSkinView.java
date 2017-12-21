@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eNt;
-    private a.C0143a eNu;
+    private SkinInfo eNy;
+    private a.C0142a eNz;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -39,22 +39,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0143a c0143a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0142a c0142a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eNt != skinInfo && c0143a != null) {
-            this.eNu = c0143a;
-            this.eNu.dO("action_type");
-            this.eNu.cg("obj_id", skinInfo.obj_id);
-            this.eNu.cg("obj_url", skinInfo.url);
-            this.eNu.cg("obj_name", skinInfo.monitor_id);
-            this.eNu.cg("action_type", "VIEW_TRUE");
-            this.eNu.save();
+        if (this.eNy != skinInfo && c0142a != null) {
+            this.eNz = c0142a;
+            this.eNz.dO("action_type");
+            this.eNz.cg("obj_id", skinInfo.obj_id);
+            this.eNz.cg("obj_url", skinInfo.url);
+            this.eNz.cg("obj_name", skinInfo.monitor_id);
+            this.eNz.cg("action_type", "VIEW_TRUE");
+            this.eNz.save();
         }
-        this.eNt = skinInfo;
+        this.eNy = skinInfo;
         int ac = l.ac(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ac;
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eNt != null && !StringUtils.isNull(this.eNt.url)) {
-            if (this.eNu != null) {
-                this.eNu.dO("action_type");
-                this.eNu.cg("action_type", "CLICK");
-                this.eNu.save();
+        if (this.eNy != null && !StringUtils.isNull(this.eNy.url)) {
+            if (this.eNz != null) {
+                this.eNz.dO("action_type");
+                this.eNz.cg("action_type", "CLICK");
+                this.eNz.save();
             }
-            av.vI().c(this.mTbPageContext, new String[]{this.eNt.url});
+            av.vI().c(this.mTbPageContext, new String[]{this.eNy.url});
         }
     }
 }

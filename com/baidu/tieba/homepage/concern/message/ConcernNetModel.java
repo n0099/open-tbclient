@@ -15,9 +15,9 @@ import com.baidu.tieba.story.l;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
-    private b doI;
-    private a doJ;
-    private com.baidu.adp.framework.listener.a doK;
+    private b doM;
+    private a doN;
+    private com.baidu.adp.framework.listener.a doO;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             */
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 boolean z;
-                if (responsedMessage != null && ConcernNetModel.this.doI != null) {
+                if (responsedMessage != null && ConcernNetModel.this.doM != null) {
                     if (responsedMessage.getOrginalMessage() != null) {
                         Object extra = responsedMessage.getOrginalMessage().getExtra();
                         if (extra instanceof ConcernPageRequestMessage) {
                             z = am.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
                             if (responsedMessage.getError() == 0) {
-                                ConcernNetModel.this.doI.s(responsedMessage.getError(), responsedMessage.getErrorString());
+                                ConcernNetModel.this.doM.s(responsedMessage.getError(), responsedMessage.getErrorString());
                                 return;
                             }
                             DataRes dataRes = null;
@@ -58,8 +58,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
-                            ConcernNetModel.this.doI.b(dataRes, z);
-                            l.bsu().bsx();
+                            ConcernNetModel.this.doM.b(dataRes, z);
+                            l.bsv().bsy();
                             return;
                         }
                     }
@@ -69,12 +69,12 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.doK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
+        this.doO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
                 boolean z;
-                if (responsedMessage != null && ConcernNetModel.this.doJ != null && responsedMessage.getError() == 0) {
+                if (responsedMessage != null && ConcernNetModel.this.doN != null && responsedMessage.getError() == 0) {
                     boolean z2 = false;
                     if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
                         CheckRedNotifyHttpResMessage checkRedNotifyHttpResMessage = (CheckRedNotifyHttpResMessage) responsedMessage;
@@ -87,7 +87,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                     } else if ((responsedMessage instanceof CheckRedNotifySocketResMessage) && (checkRedNotifySocketResMessage = (CheckRedNotifySocketResMessage) responsedMessage) != null) {
                         z2 = checkRedNotifySocketResMessage.isShowRedNotify();
                     }
-                    ConcernNetModel.this.doJ.fW(z2);
+                    ConcernNetModel.this.doN.fW(z2);
                     if (z2 && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                         ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
                     }
@@ -98,15 +98,15 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         aac();
         ado();
         registerListener(this.mNetMessageListener);
-        registerListener(this.doK);
+        registerListener(this.doO);
     }
 
     public void a(b bVar) {
-        this.doI = bVar;
+        this.doM = bVar;
     }
 
     public void a(a aVar) {
-        this.doJ = aVar;
+        this.doN = aVar;
     }
 
     public void lY(String str) {

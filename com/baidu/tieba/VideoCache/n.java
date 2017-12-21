@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes2.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket bbE;
+    private ServerSocket bbI;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ public class n {
             j.av(n.TAG, "run ...");
             n.this.LV();
             int i = 9000;
-            while (n.this.bbE == null && i < 10000) {
+            while (n.this.bbI == null && i < 10000) {
                 try {
-                    n.this.bbE = new ServerSocket(i);
+                    n.this.bbI = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.bbE = null;
+                    n.this.bbI = null;
                     i++;
                 }
             }
@@ -33,10 +33,10 @@ public class n {
             n.this.gt(i);
             e.LJ();
             k.LS();
-            while (!n.this.bbE.isClosed()) {
+            while (!n.this.bbI.isClosed()) {
                 try {
                     j.av(n.TAG, "accept start");
-                    Socket accept = n.this.bbE.accept();
+                    Socket accept = n.this.bbI.accept();
                     j.av(n.TAG, "accept end");
                     if (accept != null) {
                         j.av(n.TAG, "连接视频服务的client:" + accept);
@@ -54,7 +54,7 @@ public class n {
                             try {
                                 int indexOf = LN.indexOf("?segment_postion=", 0);
                                 b.hw(LN.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.c(LN.substring(indexOf + i.bbx), 0L);
+                                j = com.baidu.adp.lib.g.b.c(LN.substring(indexOf + i.bbB), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
@@ -85,11 +85,11 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LV() {
-        File file = new File(i.bbq);
+        File file = new File(i.bbu);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.bbr);
+        File file2 = new File(i.bbv);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.bbs);
+        File file4 = new File(i.bbw);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.bbu);
+        File file5 = new File(i.bby);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -128,7 +128,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void gt(int i) {
-        BufferedWriter bufferedWriter = i.bbw;
+        BufferedWriter bufferedWriter = i.bbA;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.bbE != null) {
-                this.bbE.close();
+            if (this.bbI != null) {
+                this.bbI.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

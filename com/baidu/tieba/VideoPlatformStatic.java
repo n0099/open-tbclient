@@ -27,18 +27,18 @@ import com.baidu.tieba.i.l;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener bbP = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener bbT = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.p.e.bAZ().bAU();
-            com.baidu.tieba.p.b.bAT().bAU();
+            com.baidu.tieba.p.e.bBa().bAV();
+            com.baidu.tieba.p.b.bAU().bAV();
         }
     };
 
     static {
         Mf();
-        MessageManager.getInstance().registerListener(bbP);
+        MessageManager.getInstance().registerListener(bbT);
         Mg();
     }
 

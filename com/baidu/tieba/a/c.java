@@ -24,19 +24,19 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, com.baidu.tbadk.i.c> {
-    private int bdU;
-    private String bdV;
+    private int bdY;
+    private String bdZ;
     private TbPageContext<?> mPageContext;
 
     static /* synthetic */ int b(c cVar) {
-        int i = cVar.bdU;
-        cVar.bdU = i + 1;
+        int i = cVar.bdY;
+        cVar.bdY = i + 1;
         return i;
     }
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.e.aAl, bdUniqueId);
-        this.bdU = 0;
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.e.aAo, bdUniqueId);
+        this.bdY = 0;
         this.mPageContext = tbPageContext;
     }
 
@@ -64,10 +64,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, c
         if (cVar != null && eVar != null && !v.w(eVar.getList())) {
             final List<AlaLiveInfoCoreData> list = eVar.getList();
             cVar.mName.setText(this.mPageContext.getString(d.j.frs_game_gather_title));
-            final HeadImageView frontImg = cVar.aFV.getFrontImg();
-            final HeadImageView backImg = cVar.aFV.getBackImg();
-            cVar.aFV.setLiveIngImgVisible(true);
-            cVar.aFV.setOuterColor(d.C0096d.cp_link_tip_g);
+            final HeadImageView frontImg = cVar.aFY.getFrontImg();
+            final HeadImageView backImg = cVar.aFY.getBackImg();
+            cVar.aFY.setLiveIngImgVisible(true);
+            cVar.aFY.setOuterColor(d.C0095d.cp_link_tip_g);
             if (list.size() == 1) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = list.get(0);
                 if (alaLiveInfoCoreData != null && alaLiveInfoCoreData.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData.userInfo.portrait)) {
@@ -92,13 +92,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, c
                 scaleAnimation2.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.a.c.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
-                        if (c.this.bdU >= list.size()) {
-                            c.this.bdU = 0;
+                        if (c.this.bdY >= list.size()) {
+                            c.this.bdY = 0;
                         }
                         AlaLiveInfoCoreData alaLiveInfoCoreData2 = (AlaLiveInfoCoreData) list.get(c.b(c.this));
                         if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
-                            c.this.bdV = alaLiveInfoCoreData2.userInfo.portrait;
-                            backImg.startLoad(c.this.bdV, 25, false);
+                            c.this.bdZ = alaLiveInfoCoreData2.userInfo.portrait;
+                            backImg.startLoad(c.this.bdZ, 25, false);
                         }
                     }
 
@@ -118,10 +118,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, c
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        if (!StringUtils.isNull(c.this.bdV)) {
+                        if (!StringUtils.isNull(c.this.bdZ)) {
                             frontImg.setScaleX(1.0f);
                             frontImg.setScaleY(1.0f);
-                            frontImg.startLoad(c.this.bdV, 25, false);
+                            frontImg.startLoad(c.this.bdZ, 25, false);
                             frontImg.setAlpha(1);
                             frontImg.startAnimation(scaleAnimation2);
                         }
@@ -131,16 +131,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, c
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.bdU = 0;
-                int i = this.bdU;
-                this.bdU = i + 1;
+                this.bdY = 0;
+                int i = this.bdY;
+                this.bdY = i + 1;
                 AlaLiveInfoCoreData alaLiveInfoCoreData2 = list.get(i);
                 if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
                     frontImg.startLoad(alaLiveInfoCoreData2.userInfo.portrait, 25, false);
                 }
                 frontImg.startAnimation(scaleAnimation2);
             }
-            cVar.aFV.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.3
+            cVar.aFY.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.3
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 0) {
@@ -153,7 +153,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, c
                     return view.onTouchEvent(motionEvent);
                 }
             });
-            cVar.aFV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.4
+            cVar.aFY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (eVar != null && !StringUtils.isNull(eVar.getFid())) {

@@ -49,7 +49,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (readCacheMessage.getRequestData() == null) {
                         try {
                             if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                                List<l.b<byte[]>> c = r.c(com.baidu.tbadk.core.c.a.td().M(this.sB, str));
+                                List<l.b<byte[]>> c = r.c(com.baidu.tbadk.core.c.a.td().M(this.sC, str));
                                 if (c != null) {
                                     ArrayList arrayList5 = new ArrayList(c.size());
                                     for (l.b<byte[]> bVar : c) {
@@ -63,7 +63,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                     arrayList3 = null;
                                 }
                                 arrayList4 = arrayList3;
-                            } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.td().N(this.sB, str))) != null) {
+                            } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.td().N(this.sC, str))) != null) {
                                 ArrayList arrayList6 = new ArrayList(b.size());
                                 for (l.b<String> bVar2 : b) {
                                     if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) FL()) != null) {

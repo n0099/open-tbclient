@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class i {
-    private long arn;
-    private int aro;
+    private long arq;
+    private int arr;
     private String mMd5;
 
     public String xV() {
@@ -14,18 +14,18 @@ public class i {
     }
 
     public long getTotalLength() {
-        return this.arn;
+        return this.arq;
     }
 
     public void Q(long j) {
-        this.arn = j;
+        this.arq = j;
     }
 
     public int xW() {
-        return this.aro;
+        return this.arr;
     }
 
     public void dS(int i) {
-        this.aro = i;
+        this.arr = i;
     }
 }

@@ -81,7 +81,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             String dX = ao.dX(str2);
             com.baidu.tbadk.imageManager.c.EA().fg(TbConfig.getPbImageSize() + j.length);
             if (valueOf3.booleanValue()) {
-                if (!NSGif.qK) {
+                if (!NSGif.qL) {
                     nSGif = null;
                 } else {
                     nSGif = NSGif.h(j, 0, j.length);
@@ -103,7 +103,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(aVar3);
-                    aVar.vC = dVar;
+                    aVar.vD = dVar;
                 }
                 if (aVar2 == null) {
                     return null;
@@ -123,7 +123,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
                 if (aVar != null) {
                     d dVar2 = new d();
                     dVar2.f(cVar);
-                    aVar.vC = dVar2;
+                    aVar.vD = dVar2;
                 }
             }
             return aVar2;
@@ -147,7 +147,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(aVar2);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (com.baidu.adp.lib.Disk.d.dH().c(aVar2)) {
             int i = 2000;
@@ -188,7 +188,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(cVar);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (com.baidu.adp.lib.Disk.d.dH().c(cVar)) {
             int i = 2000;

@@ -3,22 +3,22 @@ package com.baidu.tbadk.core.util.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean ajh;
-    private boolean aji;
-    private boolean ajj;
+    private boolean ajk;
+    private boolean ajl;
+    private boolean ajm;
     private int procType;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3, int i) {
         this.width = 0;
-        this.ajh = true;
-        this.aji = false;
-        this.ajj = false;
+        this.ajk = true;
+        this.ajl = false;
+        this.ajm = false;
         this.procType = 0;
-        this.ajh = z;
-        this.aji = z2;
-        this.ajj = z3;
+        this.ajk = z;
+        this.ajl = z2;
+        this.ajm = z3;
         this.procType = i;
         this.width = com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
@@ -41,17 +41,17 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajh;
+        return this.ajk;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vX() {
-        return this.ajj;
+        return this.ajm;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean vY() {
-        return this.aji;
+        return this.ajl;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

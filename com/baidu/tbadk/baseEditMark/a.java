@@ -9,13 +9,13 @@ public abstract class a {
 
     /* renamed from: com.baidu.tbadk.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0057a {
+    public interface InterfaceC0056a {
         void a(boolean z, boolean z2, String str);
     }
 
     public abstract void a(MarkData markData);
 
-    public abstract void a(InterfaceC0057a interfaceC0057a);
+    public abstract void a(InterfaceC0056a interfaceC0056a);
 
     public abstract void ab(boolean z);
 

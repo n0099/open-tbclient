@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String aVo;
-    private int aVp;
+    private String aVr;
+    private int aVs;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -45,7 +45,7 @@ public class c extends ClickableSpan {
     }
 
     public void gd(int i) {
-        this.aVp = i;
+        this.aVs = i;
     }
 
     public void setColor(int i) {
@@ -61,7 +61,7 @@ public class c extends ClickableSpan {
     }
 
     public void hf(String str) {
-        this.aVo = str;
+        this.aVr = str;
     }
 
     public String getLink() {
@@ -78,14 +78,14 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aVp == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aVs == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.C0096d.cp_bg_line_c);
+                textPaint.bgColor = aj.getColor(d.C0095d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aj.getColor(d.C0096d.cp_bg_line_z);
+                textPaint.bgColor = aj.getColor(d.C0095d.cp_bg_line_z);
             }
-        } else if (this.aVp == 2) {
-            textPaint.bgColor = aj.getColor(d.C0096d.transparent);
+        } else if (this.aVs == 2) {
+            textPaint.bgColor = aj.getColor(d.C0095d.transparent);
         }
     }
 
@@ -93,7 +93,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aVo));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aVr));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

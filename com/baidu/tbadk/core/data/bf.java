@@ -5,12 +5,12 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class bf {
-    private String aaH;
-    private String aaI;
-    private int aaJ;
     private String aaK;
-    private long aaL;
-    private String aaM;
+    private String aaL;
+    private int aaM;
+    private String aaN;
+    private long aaO;
+    private String aaP;
     private String imgUrl;
     private String subTitle;
     private String summary;
@@ -24,35 +24,35 @@ public class bf {
     }
 
     public String sP() {
-        return this.aaI;
+        return this.aaL;
     }
 
     public int sQ() {
-        return this.aaJ;
+        return this.aaM;
     }
 
     public String sR() {
-        return this.aaK;
+        return this.aaN;
     }
 
     public long sS() {
-        return this.aaL;
+        return this.aaO;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
             this.imgUrl = topCode.img_url;
-            this.aaH = topCode.game_link;
+            this.aaK = topCode.game_link;
             this.summary = topCode.summary;
-            this.aaI = topCode.code_link;
-            this.aaJ = topCode.get_type.intValue();
-            this.aaK = topCode.surplusgift;
+            this.aaL = topCode.code_link;
+            this.aaM = topCode.get_type.intValue();
+            this.aaN = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.aaL = 0L;
+                this.aaO = 0L;
             } else {
-                this.aaL = topCode.giftworth.longValue();
+                this.aaO = topCode.giftworth.longValue();
             }
-            this.aaM = topCode.type_text;
+            this.aaP = topCode.type_text;
             this.subTitle = topCode.subtitle;
         }
     }
@@ -61,13 +61,13 @@ public class bf {
         if (jSONObject != null) {
             try {
                 this.imgUrl = jSONObject.optString("img_url");
-                this.aaH = jSONObject.optString("game_link");
+                this.aaK = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.aaI = jSONObject.optString("code_link");
-                this.aaJ = jSONObject.optInt("get_type", 1);
-                this.aaK = jSONObject.optString("surplusgift");
-                this.aaL = jSONObject.optLong("giftworth", 0L);
-                this.aaM = jSONObject.optString("type_text");
+                this.aaL = jSONObject.optString("code_link");
+                this.aaM = jSONObject.optInt("get_type", 1);
+                this.aaN = jSONObject.optString("surplusgift");
+                this.aaO = jSONObject.optLong("giftworth", 0L);
+                this.aaP = jSONObject.optString("type_text");
                 this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -76,7 +76,7 @@ public class bf {
     }
 
     public String sT() {
-        return this.aaM;
+        return this.aaP;
     }
 
     public String getSubTitle() {

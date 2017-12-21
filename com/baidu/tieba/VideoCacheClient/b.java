@@ -13,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b bbJ;
-    private int bbK = 0;
+    private static b bbN;
+    private int bbO = 0;
 
     private b() {
         a.LW();
     }
 
     public static b LZ() {
-        if (bbJ == null) {
+        if (bbN == null) {
             synchronized (b.class) {
-                if (bbJ == null) {
-                    bbJ = new b();
+                if (bbN == null) {
+                    bbN = new b();
                 }
             }
         }
-        return bbJ;
+        return bbN;
     }
 
     private static long LU() {
@@ -62,7 +62,7 @@ public class b implements i {
             String hD = hD(str);
             if (hD == null) {
                 String hA = hA(str);
-                if (hA != null && new File(c.bbv + hA + "/header_downloaded").exists()) {
+                if (hA != null && new File(c.bbz + hA + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -82,7 +82,7 @@ public class b implements i {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.bbv + hA + "/header_downloaded").exists()) {
+                    if (new File(c.bbz + hA + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
@@ -98,7 +98,7 @@ public class b implements i {
     public String hD(String str) {
         String hA;
         File file;
-        if (str == null || !str.contains("/") || (hA = hA(str)) == null || (file = new File(c.bbv + hA + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hA = hA(str)) == null || (file = new File(c.bbz + hA + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -151,8 +151,8 @@ public class b implements i {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.bbK == 0) {
-            File file = new File(c.bbw);
+        if (this.bbO == 0) {
+            File file = new File(c.bbA);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -196,7 +196,7 @@ public class b implements i {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.bbK;
+                                return this.bbO;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -242,10 +242,10 @@ public class b implements i {
                 }
             }
         }
-        return this.bbK;
+        return this.bbO;
     }
 
     public void Mb() {
-        this.bbK = 0;
+        this.bbO = 0;
     }
 }

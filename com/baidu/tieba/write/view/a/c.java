@@ -11,10 +11,10 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends a {
     private static int mPadding;
-    private TextView hiU;
-    private TextView hiV;
-    private TextView hiW;
-    private TextView hiX;
+    private TextView hiZ;
+    private TextView hja;
+    private TextView hjb;
+    private TextView hjc;
 
     public c(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class c extends a {
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.hiU.setTag(0);
-        this.hiV.setTag(1);
-        this.hiW.setTag(2);
-        this.hiX.setTag(3);
-        this.hiU.setOnClickListener(onClickListener);
-        this.hiV.setOnClickListener(onClickListener);
-        this.hiW.setOnClickListener(onClickListener);
-        this.hiX.setOnClickListener(onClickListener);
+        this.hiZ.setTag(0);
+        this.hja.setTag(1);
+        this.hjb.setTag(2);
+        this.hjc.setTag(3);
+        this.hiZ.setOnClickListener(onClickListener);
+        this.hja.setOnClickListener(onClickListener);
+        this.hjb.setOnClickListener(onClickListener);
+        this.hjc.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.bkK.getPageActivity()).inflate(d.h.pic_rorate_view, (ViewGroup) null);
-        this.hiU = (TextView) this.mRootView.findViewById(d.g.rotate_left);
-        this.hiV = (TextView) this.mRootView.findViewById(d.g.rotate_right);
-        this.hiW = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
-        this.hiX = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
+        this.mRootView = LayoutInflater.from(this.bkO.getPageActivity()).inflate(d.h.pic_rorate_view, (ViewGroup) null);
+        this.hiZ = (TextView) this.mRootView.findViewById(d.g.rotate_left);
+        this.hja = (TextView) this.mRootView.findViewById(d.g.rotate_right);
+        this.hjb = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
+        this.hjc = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        aj.i(this.hiU, d.C0096d.cp_cont_j);
-        aj.i(this.hiV, d.C0096d.cp_cont_j);
-        aj.i(this.hiW, d.C0096d.cp_cont_j);
-        aj.i(this.hiX, d.C0096d.cp_cont_j);
-        this.hiU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.hiV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.hiX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.hiW.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.hiU.setCompoundDrawablePadding(mPadding);
-        this.hiV.setCompoundDrawablePadding(mPadding);
-        this.hiX.setCompoundDrawablePadding(mPadding);
-        this.hiW.setCompoundDrawablePadding(mPadding);
+        aj.i(this.hiZ, d.C0095d.cp_cont_j);
+        aj.i(this.hja, d.C0095d.cp_cont_j);
+        aj.i(this.hjb, d.C0095d.cp_cont_j);
+        aj.i(this.hjc, d.C0095d.cp_cont_j);
+        this.hiZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.hja.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.hjc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.hjb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.hiZ.setCompoundDrawablePadding(mPadding);
+        this.hja.setCompoundDrawablePadding(mPadding);
+        this.hjc.setCompoundDrawablePadding(mPadding);
+        this.hjb.setCompoundDrawablePadding(mPadding);
     }
 }

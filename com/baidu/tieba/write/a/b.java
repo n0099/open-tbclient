@@ -10,15 +10,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> hgP = new ArrayList<>();
-    private HashMap<String, String> hgQ = null;
+    private final ArrayList<MetaData> hgU = new ArrayList<>();
+    private HashMap<String, String> hgV = null;
 
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.hgQ == null) {
-                        this.hgQ = new HashMap<>();
+                    if (this.hgV == null) {
+                        this.hgV = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -31,9 +31,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.hgP.add(metaData);
+                        this.hgU.add(metaData);
                         if (z) {
-                            this.hgQ.put(metaData.getName_show(), metaData.getPortrait());
+                            this.hgV.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -49,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bGE() {
-        return this.hgP;
+    public ArrayList<MetaData> bGF() {
+        return this.hgU;
     }
 
-    public HashMap<String, String> bGF() {
-        return this.hgQ;
+    public HashMap<String, String> bGG() {
+        return this.hgV;
     }
 }

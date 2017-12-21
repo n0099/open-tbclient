@@ -21,48 +21,48 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends e {
-    private int aHA;
     private int aHB;
-    private TextView aHC;
+    public int aHC;
     private int aHD;
     private int aHE;
-    private HashMap<String, e.a> aHF;
-    private int aHy;
-    public int aHz;
-    private ImageView acd;
+    private TextView aHF;
+    private int aHG;
+    private int aHH;
+    private HashMap<String, e.a> aHI;
+    private ImageView acg;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.aHy = 0;
-        this.aHF = new HashMap<>();
+        this.aHB = 0;
+        this.aHI = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHy = 0;
-        this.aHF = new HashMap<>();
+        this.aHB = 0;
+        this.aHI = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.aHD = getResources().getDimensionPixelSize(d.e.ds2);
-        this.aHE = getResources().getDimensionPixelSize(d.e.ds12);
-        this.aHC = new TextView(getContext());
+        this.aHG = getResources().getDimensionPixelSize(d.e.ds2);
+        this.aHH = getResources().getDimensionPixelSize(d.e.ds12);
+        this.aHF = new TextView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.aHC.setLayoutParams(layoutParams);
-        this.aHC.setGravity(17);
-        this.aHC.setDuplicateParentStateEnabled(true);
-        addView(this.aHC);
+        this.aHF.setLayoutParams(layoutParams);
+        this.aHF.setGravity(17);
+        this.aHF.setDuplicateParentStateEnabled(true);
+        addView(this.aHF);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setContentTvTopMargin(int i) {
-        if (this.aHC.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHC.getLayoutParams();
+        if (this.aHF.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHF.getLayoutParams();
             layoutParams.topMargin = i;
-            this.aHC.setLayoutParams(layoutParams);
+            this.aHF.setLayoutParams(layoutParams);
         }
     }
 
@@ -71,7 +71,7 @@ public class FragmentTabIndicator extends e {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, e.a> entry : this.aHF.entrySet()) {
+        for (Map.Entry<String, e.a> entry : this.aHI.entrySet()) {
             e.a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -88,20 +88,20 @@ public class FragmentTabIndicator extends e {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, e.a>> it = this.aHF.entrySet().iterator();
-        while (it.hasNext() && this.aHC.getText() != null) {
+        Iterator<Map.Entry<String, e.a>> it = this.aHI.entrySet().iterator();
+        while (it.hasNext() && this.aHF.getText() != null) {
             e.a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.aHC.getPaint().measureText(this.aHC.getText().toString());
-            if (value.aHY) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uo;
+            int measureText = (int) this.aHF.getPaint().measureText(this.aHF.getText().toString());
+            if (value.aIb) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.up;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.uo) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.up) - (measureText / 2);
             }
-            if (this.aHy == 1) {
-                i5 = measuredWidth - this.aHE;
-                measuredHeight = this.aHD;
+            if (this.aHB == 1) {
+                i5 = measuredWidth - this.aHH;
+                measuredHeight = this.aHG;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -111,84 +111,84 @@ public class FragmentTabIndicator extends e {
     }
 
     public void setTipTopMargin(int i) {
-        this.aHD = i;
+        this.aHG = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTipPosType(int i) {
-        this.aHy = i;
+        this.aHB = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void a(String str, e.a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.aHF.put(str, aVar);
+            this.aHI.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public e.a gC(String str) {
-        return this.aHF.get(str);
+        return this.aHI.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setText(int i) {
-        this.aHC.setText(i);
+        this.aHF.setText(i);
     }
 
     public void setWidth(int i) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, -2);
         layoutParams.gravity = 17;
-        this.aHC.setLayoutParams(layoutParams);
+        this.aHF.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setText(String str) {
-        this.aHC.setText(str);
-        this.aHC.setContentDescription(str);
+        this.aHF.setText(str);
+        this.aHF.setContentDescription(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.aHC.getText().toString();
+        String charSequence = this.aHF.getText().toString();
         if (z) {
             charSequence = getContext().getString(d.j.talk_checked_tip) + charSequence;
         }
-        this.aHC.setContentDescription(charSequence);
+        this.aHF.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.aHC.setText(spannableString);
+        this.aHF.setText(spannableString);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCompoundDrawablesTopResId(int i) {
-        this.aHA = i;
+        this.aHD = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.aHB = i;
+        this.aHE = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCompoundDrawablePadding(int i) {
-        this.aHC.setCompoundDrawablePadding(i);
+        this.aHF.setCompoundDrawablePadding(i);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextSize(float f) {
-        this.aHC.setTextSize(f);
+        this.aHF.setTextSize(f);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextSize(int i, float f) {
-        this.aHC.setTextSize(i, f);
+        this.aHF.setTextSize(i, f);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextColorResId(int i) {
-        this.aHz = i;
+        this.aHC = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -199,61 +199,61 @@ public class FragmentTabIndicator extends e {
 
     @Override // com.baidu.tbadk.mainTab.e
     public void dE(int i) {
-        aj.c(this.aHC, this.aHz, 1);
-        if (this.aHC != null) {
-            if (this.aHC.getText() != null && am.isEmpty(this.aHC.getText().toString())) {
-                this.acd.setImageDrawable(aj.c((Resources) null, this.aHA));
+        aj.c(this.aHF, this.aHC, 1);
+        if (this.aHF != null) {
+            if (this.aHF.getText() != null && am.isEmpty(this.aHF.getText().toString())) {
+                this.acg.setImageDrawable(aj.c((Resources) null, this.aHD));
             } else {
-                this.aHC.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.c((Resources) null, this.aHA), aj.getDrawable(this.aHB), (Drawable) null);
+                this.aHF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.c((Resources) null, this.aHD), aj.getDrawable(this.aHE), (Drawable) null);
             }
         }
-        for (Map.Entry<String, e.a> entry : this.aHF.entrySet()) {
+        for (Map.Entry<String, e.a> entry : this.aHI.entrySet()) {
             entry.getValue().dE(i);
         }
     }
 
     public void Fb() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHC.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHF.getLayoutParams();
         layoutParams.width = -2;
-        this.aHC.setLayoutParams(layoutParams);
+        this.aHF.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public View getContentTv() {
-        return this.aHC;
+        return this.aHF;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void K(int i, int i2) {
-        if (this.aHC != null) {
-            this.aHC.setVisibility(8);
+        if (this.aHF != null) {
+            this.aHF.setVisibility(8);
         }
-        this.acd = new ImageView(getContext());
+        this.acg = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -1);
         layoutParams.gravity = 17;
         if (i == 9) {
-            this.acd.setTranslationY(i2);
+            this.acg.setTranslationY(i2);
             setClipToPadding(false);
             setClipChildren(false);
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.e.ds96);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        this.acd.setLayoutParams(layoutParams);
-        addView(this.acd);
-        this.acd.setImageDrawable(aj.c((Resources) null, this.aHA));
+        this.acg.setLayoutParams(layoutParams);
+        addView(this.acg);
+        this.acg.setImageDrawable(aj.c((Resources) null, this.aHD));
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setIsContentSelectBold(boolean z) {
-        this.aHX = z;
+        this.aIa = z;
     }
 
     @Override // android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.aHX) {
-            this.aHC.getPaint().setFakeBoldText(z);
+        if (this.aIa) {
+            this.aHF.getPaint().setFakeBoldText(z);
         }
     }
 }

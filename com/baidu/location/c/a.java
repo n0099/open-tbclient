@@ -13,26 +13,26 @@ public class a {
     private static a a = null;
     private boolean b = false;
     private Handler c = null;
-    private AlarmManager LN = null;
-    private C0026a LO = null;
-    private PendingIntent LP = null;
+    private AlarmManager LO = null;
+    private C0025a LP = null;
+    private PendingIntent LQ = null;
     private long g = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0026a extends BroadcastReceiver {
-        private C0026a() {
+    public class C0025a extends BroadcastReceiver {
+        private C0025a() {
         }
 
-        /* synthetic */ C0026a(a aVar, i iVar) {
+        /* synthetic */ C0025a(a aVar, i iVar) {
             this();
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (a.this.b && intent.getAction().equals("com.baidu.location.autonotifyloc_6.2.3") && a.this.c != null) {
-                a.this.LP = null;
+                a.this.LQ = null;
                 a.this.c.sendEmptyMessage(1);
             }
         }
@@ -46,13 +46,13 @@ public class a {
         if (System.currentTimeMillis() - this.g < 1000) {
             return;
         }
-        if (this.LP != null) {
-            this.LN.cancel(this.LP);
-            this.LP = null;
+        if (this.LQ != null) {
+            this.LO.cancel(this.LQ);
+            this.LQ = null;
         }
-        if (this.LP == null) {
-            this.LP = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.LN.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LP);
+        if (this.LQ == null) {
+            this.LQ = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
+            this.LO.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LQ);
         }
         Message message = new Message();
         message.what = 22;
@@ -69,15 +69,15 @@ public class a {
     public void g() {
         if (this.b) {
             try {
-                if (this.LP != null) {
-                    this.LN.cancel(this.LP);
-                    this.LP = null;
+                if (this.LQ != null) {
+                    this.LO.cancel(this.LQ);
+                    this.LQ = null;
                 }
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LO);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LP);
             } catch (Exception e) {
             }
-            this.LN = null;
             this.LO = null;
+            this.LP = null;
             this.c = null;
             this.b = false;
         }
@@ -99,11 +99,11 @@ public class a {
             if (this.c == null) {
                 this.c = new i(this);
             }
-            this.LN = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
-            this.LO = new C0026a(this, null);
-            com.baidu.location.f.getServiceContext().registerReceiver(this.LO, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
-            this.LP = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.LN.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LP);
+            this.LO = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
+            this.LP = new C0025a(this, null);
+            com.baidu.location.f.getServiceContext().registerReceiver(this.LP, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
+            this.LQ = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
+            this.LO.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.LQ);
             this.b = true;
             this.g = System.currentTimeMillis();
         }

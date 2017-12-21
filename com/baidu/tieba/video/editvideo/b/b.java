@@ -6,18 +6,18 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class b {
-    private String gPR;
-    private a gRB;
-    private String gRC;
-    private f gRD;
-    private d gRE;
-    private e gRF;
-    private volatile boolean gRG;
-    private volatile boolean gRH;
-    private volatile boolean gRI;
+    private String gPW;
+    private a gRG;
+    private String gRH;
+    private f gRI;
+    private d gRJ;
+    private e gRK;
+    private volatile boolean gRL;
+    private volatile boolean gRM;
+    private volatile boolean gRN;
     private Context mContext;
     private String mFilterName;
-    private boolean wy = false;
+    private boolean wz = false;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -30,88 +30,88 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.gRC = str;
-        this.gPR = str2;
+        this.gRH = str;
+        this.gPW = str2;
         this.mFilterName = str3;
     }
 
-    public void bBK() {
-        if (!this.wy) {
-            this.wy = true;
-            this.gRG = false;
-            this.gRH = false;
-            this.gRI = false;
+    public void bBL() {
+        if (!this.wz) {
+            this.wz = true;
+            this.gRL = false;
+            this.gRM = false;
+            this.gRN = false;
             try {
-                File file = new File(new File(this.gPR).getParent());
+                File file = new File(new File(this.gPW).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.gRB != null) {
-                    this.gRB.aj(222, com.baidu.tieba.i.a.g(e));
+                if (this.gRG != null) {
+                    this.gRG.aj(222, com.baidu.tieba.i.a.g(e));
                 }
             }
             try {
-                this.gRF = new e(this.gPR);
-                this.gRD = new f(this.mContext, this.gRC, this.mFilterName, this.gRF, this.gRB) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.gRK = new e(this.gPW);
+                this.gRI = new f(this.mContext, this.gRH, this.mFilterName, this.gRK, this.gRG) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
-                    public void bBO() {
-                        b.this.gRG = true;
-                        b.this.bBM();
+                    public void bBP() {
+                        b.this.gRL = true;
+                        b.this.bBN();
                     }
                 };
-                this.gRD.start();
-                this.gRE = new d(this.mContext, this.gRC, this.gRF, this.gRB) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.gRI.start();
+                this.gRJ = new d(this.mContext, this.gRH, this.gRK, this.gRG) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
-                    public void bBO() {
-                        b.this.gRH = true;
-                        b.this.bBM();
+                    public void bBP() {
+                        b.this.gRM = true;
+                        b.this.bBN();
                     }
                 };
-                this.gRE.start();
+                this.gRJ.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void bBL() {
-        if (this.gRD != null) {
-            this.gRD.interrupt();
-            this.gRD = null;
+    public void bBM() {
+        if (this.gRI != null) {
+            this.gRI.interrupt();
+            this.gRI = null;
         }
-        if (this.gRE != null) {
-            this.gRE.interrupt();
-            this.gRE = null;
+        if (this.gRJ != null) {
+            this.gRJ.interrupt();
+            this.gRJ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bBM() {
-        if (this.gRG && this.gRH && !this.gRI) {
-            this.gRF.stop();
-            this.gRI = true;
-            bBN();
+    public void bBN() {
+        if (this.gRL && this.gRM && !this.gRN) {
+            this.gRK.stop();
+            this.gRN = true;
+            bBO();
         }
     }
 
-    private void bBN() {
-        if (this.gRB != null) {
-            File file = new File(this.gPR);
+    private void bBO() {
+        if (this.gRG != null) {
+            File file = new File(this.gPW);
             if (file.exists() && file.length() > 0) {
-                this.gRB.tY(this.gPR);
+                this.gRG.tY(this.gPW);
             } else {
-                this.gRB.aj(223, "Err empty outputFile");
+                this.gRG.aj(223, "Err empty outputFile");
             }
         }
-        this.wy = false;
+        this.wz = false;
     }
 
     public boolean isRunning() {
-        return this.wy;
+        return this.wz;
     }
 
     public void a(a aVar) {
-        this.gRB = aVar;
+        this.gRG = aVar;
     }
 }

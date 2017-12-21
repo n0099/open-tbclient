@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class an {
-    private static an ahE = null;
-    private boolean ahF = false;
-    private boolean ahG = false;
-    private int ahH = TbConfig.POST_IMAGE_SMALL;
-    private String ahI = String.valueOf(45);
+    private static an ahH = null;
+    private boolean ahI = false;
+    private boolean ahJ = false;
+    private int ahK = TbConfig.POST_IMAGE_SMALL;
+    private String ahL = String.valueOf(45);
 
     public static an vs() {
-        if (ahE == null) {
+        if (ahH == null) {
             synchronized (an.class) {
-                ahE = new an();
+                ahH = new an();
             }
         }
-        return ahE;
+        return ahH;
     }
 
     public an() {
@@ -30,33 +30,33 @@ public class an {
     }
 
     public void aA(boolean z) {
-        this.ahG = z;
+        this.ahJ = z;
     }
 
     public boolean vu() {
-        return this.ahG;
+        return this.ahJ;
     }
 
     public void aB(boolean z) {
-        this.ahF = z;
+        this.ahI = z;
         vt();
     }
 
     private void vv() {
-        this.ahF = com.baidu.adp.lib.util.j.hi();
+        this.ahI = com.baidu.adp.lib.util.j.hi();
     }
 
     public boolean vw() {
-        return this.ahF;
+        return this.ahI;
     }
 
     public String vx() {
-        return this.ahI;
+        return this.ahL;
     }
 
     public int vy() {
         vC();
-        return this.ahH;
+        return this.ahK;
     }
 
     public int vz() {
@@ -65,7 +65,7 @@ public class an {
 
     public void vA() {
         boolean z = true;
-        if (com.baidu.tbadk.core.h.oY().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oY().getViewImageQuality() != 1 : !this.ahF) {
+        if (com.baidu.tbadk.core.h.oY().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oY().getViewImageQuality() != 1 : !this.ahI) {
             z = false;
         }
         aA(z);
@@ -80,7 +80,7 @@ public class an {
         } else if (com.baidu.tbadk.core.h.oY().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.ahI = valueOf;
+        this.ahL = valueOf;
     }
 
     public void vC() {
@@ -104,7 +104,7 @@ public class an {
                 i = 1800;
                 break;
         }
-        this.ahH = i;
+        this.ahK = i;
     }
 
     public static boolean vD() {

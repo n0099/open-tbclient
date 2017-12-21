@@ -10,8 +10,8 @@ import java.util.List;
 @SuppressLint({"InlinedApi"})
 /* loaded from: classes.dex */
 public final class a {
-    private SharedPreferences QF;
-    private SharedPreferences.Editor QG;
+    private SharedPreferences QG;
+    private SharedPreferences.Editor QH;
     public SharedPreferences a;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
@@ -23,8 +23,8 @@ public final class a {
             this.a = context.getSharedPreferences("re_po_rt", 0);
             this.c = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.QF = context.getSharedPreferences("leroadcfg", 0);
-            this.QG = this.QF.edit();
+            this.QG = context.getSharedPreferences("leroadcfg", 0);
+            this.QH = this.QG.edit();
         } catch (Throwable th) {
             d.a(th);
         }

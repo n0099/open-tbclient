@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aGW = new c();
-    private final HashMap<String, Class<? extends b>> aGX = new HashMap<>();
+    private static c aGZ = new c();
+    private final HashMap<String, Class<? extends b>> aHa = new HashMap<>();
 
     public static c EM() {
-        return aGW;
+        return aGZ;
     }
 
     private c() {
@@ -128,7 +128,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b k;
-        Class<? extends b> cls = this.aGX.get(imageOperation.actionName);
+        Class<? extends b> cls = this.aHa.get(imageOperation.actionName);
         if (cls != null && (k = k(cls)) != null) {
             k.setParams(imageOperation.actionParam);
             return k;
@@ -139,7 +139,7 @@ public class c {
     private void j(Class<? extends b> cls) {
         b k = k(cls);
         if (k != null) {
-            this.aGX.put(k.getActionName(), cls);
+            this.aHa.put(k.getActionName(), cls);
         }
     }
 

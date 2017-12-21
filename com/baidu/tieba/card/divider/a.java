@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a.a<c>> {
-    private c ceR;
+    private c ceV;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
@@ -18,8 +18,8 @@ public class a extends com.baidu.adp.widget.ListView.a<b, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.ceR = new c(this.mPageContext);
-        return new com.baidu.tieba.card.a.a(this.ceR);
+        this.ceV = new c(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.ceV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

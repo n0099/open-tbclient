@@ -20,7 +20,7 @@ public interface h {
 
     void j(Camera camera);
 
-    void setOnEncoderStatusUpdateListener(c.InterfaceC0167c interfaceC0167c);
+    void setOnEncoderStatusUpdateListener(c.InterfaceC0166c interfaceC0166c);
 
     void setPreviewSize(int i, int i2);
 }

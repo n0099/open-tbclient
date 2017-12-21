@@ -16,16 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private a apZ;
-    private j aqa;
-    private String aqb;
-    private String aqc;
-    private List<C0063b> aqd = new ArrayList();
+    private a aqc;
+    private j aqd;
+    private String aqe;
+    private String aqf;
+    private List<C0062b> aqg = new ArrayList();
     private x mNetwork;
 
     public b(String str, String str2) {
-        this.aqb = str;
-        this.aqc = str2;
+        this.aqe = str;
+        this.aqf = str2;
     }
 
     public j eD(String str) {
@@ -34,7 +34,7 @@ public class b {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.aqb);
+            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.aqe);
             return c(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -55,30 +55,30 @@ public class b {
             df.dS(0);
             df.Q(file.length());
         }
-        this.apZ = new a(str, df, TbConfig.SERVER_ADDRESS + this.aqb, e);
-        this.aqa = this.apZ.xg();
-        if (this.aqa.isSuccess() && (a2 = a(e, df)) != null && !a2.equals("")) {
+        this.aqc = new a(str, df, TbConfig.SERVER_ADDRESS + this.aqe, e);
+        this.aqd = this.aqc.xg();
+        if (this.aqd.isSuccess() && (a2 = a(e, df)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
                 df.eG(audioInfoData.getVoiceId());
-                this.aqa.b(df);
+                this.aqd.b(df);
             } else {
-                this.aqa.setErrorCode(audioInfoData.getErrorCode());
-                this.aqa.setErrorString(audioInfoData.getErrorUserMsg());
-                this.aqa.av(false);
+                this.aqd.setErrorCode(audioInfoData.getErrorCode());
+                this.aqd.setErrorString(audioInfoData.getErrorUserMsg());
+                this.aqd.av(false);
             }
         }
-        return this.aqa;
+        return this.aqd;
     }
 
     private String a(String str, i iVar) {
-        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.aqc);
+        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.aqf);
         this.mNetwork.n("voice_md5", iVar.xV());
-        if (v.v(this.aqd) != 0) {
-            for (C0063b c0063b : this.aqd) {
-                if (c0063b != null) {
-                    this.mNetwork.n(c0063b.getKey(), c0063b.getValue());
+        if (v.v(this.aqg) != 0) {
+            for (C0062b c0062b : this.aqg) {
+                if (c0062b != null) {
+                    this.mNetwork.n(c0062b.getKey(), c0062b.getValue());
                 }
             }
         }
@@ -86,9 +86,9 @@ public class b {
         if (up == null || !this.mNetwork.uN().vL().isRequestSuccess()) {
             iVar.dS((int) P(iVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(iVar);
-            this.aqa.setErrorCode(this.mNetwork.uR());
-            this.aqa.setErrorString(this.mNetwork.getErrorString());
-            this.aqa.av(false);
+            this.aqd.setErrorCode(this.mNetwork.uR());
+            this.aqd.setErrorString(this.mNetwork.getErrorString());
+            this.aqd.av(false);
             return null;
         }
         com.baidu.tbadk.core.util.c.de(str);
@@ -102,8 +102,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private i aqe;
-        private boolean aqf = false;
+        private i aqh;
+        private boolean aqi = false;
         private String mFileName;
         private x mNetWork;
         private String mUrl;
@@ -112,19 +112,19 @@ public class b {
         public a(String str, i iVar, String str2, String str3) {
             this.mFileName = null;
             this.mUrl = null;
-            this.aqe = null;
+            this.aqh = null;
             this.mVoiceMd5 = null;
             this.mFileName = str;
-            this.aqe = iVar;
+            this.aqh = iVar;
             this.mUrl = str2;
             this.mVoiceMd5 = str3;
         }
 
         public j xg() throws IOException {
             j jVar = new j();
-            long totalLength = this.aqe.getTotalLength();
+            long totalLength = this.aqh.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int xW = this.aqe.xW();
+            int xW = this.aqh.xW();
             if (xW < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
                 if (randomAccessFile.skipBytes(xW * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) >= xW * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
@@ -140,7 +140,7 @@ public class b {
                             if (read != -1) {
                                 this.mNetWork = new x(this.mUrl);
                                 this.mNetWork.d("voice_chunk", bArr);
-                                this.mNetWork.n("chunk_md5", this.aqe.xV());
+                                this.mNetWork.n("chunk_md5", this.aqh.xV());
                                 this.mNetWork.n("length", String.valueOf(read));
                                 this.mNetWork.n("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
                                 this.mNetWork.n("total_length", String.valueOf(totalLength));
@@ -148,18 +148,18 @@ public class b {
                                 this.mNetWork.n("total_num", String.valueOf(j));
                                 this.mNetWork.n("voice_md5", this.mVoiceMd5);
                                 boolean z = false;
-                                if (this.aqf) {
+                                if (this.aqi) {
                                     z = true;
                                 } else if (this.mNetWork.us() == null || !this.mNetWork.uN().vL().isRequestSuccess()) {
-                                    this.aqe.dS(i);
-                                    com.baidu.tbadk.core.util.c.a(this.aqe);
+                                    this.aqh.dS(i);
+                                    com.baidu.tbadk.core.util.c.a(this.aqh);
                                     randomAccessFile.close();
                                     z = true;
                                 }
                                 if (z) {
                                     jVar.setErrorCode(this.mNetWork.uR());
                                     jVar.setErrorString(this.mNetWork.getErrorString());
-                                    jVar.b(this.aqe);
+                                    jVar.b(this.aqh);
                                     jVar.av(false);
                                     return jVar;
                                 }
@@ -183,7 +183,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.voice.service.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0063b {
+    public class C0062b {
         private String key;
         private String value;
 
@@ -195,13 +195,13 @@ public class b {
             return this.key;
         }
 
-        public C0063b(String str, String str2) {
+        public C0062b(String str, String str2) {
             this.key = str;
             this.value = str2;
         }
     }
 
     public void x(String str, int i) {
-        this.aqd.add(new C0063b(str, String.valueOf(i)));
+        this.aqg.add(new C0062b(str, String.valueOf(i)));
     }
 }

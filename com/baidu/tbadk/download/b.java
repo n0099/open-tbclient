@@ -21,22 +21,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aBj = null;
-    private static DownloadData aBm = null;
+    private static b aBm = null;
+    private static DownloadData aBp = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int aBk = 5;
-    private a aBl = null;
+    private final int aBn = 5;
+    private a aBo = null;
 
     private b() {
     }
 
     public static b CT() {
         synchronized (b.class) {
-            if (aBj == null) {
-                aBj = new b();
+            if (aBm == null) {
+                aBm = new b();
             }
         }
-        return aBj;
+        return aBm;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -79,12 +79,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void CU() {
-        if (aBm == null) {
-            aBm = (DownloadData) v.c(mTaskList, 0);
-            if (aBm != null) {
-                this.aBl = new a();
-                this.aBl.setPriority(3);
-                this.aBl.execute(aBm);
+        if (aBp == null) {
+            aBp = (DownloadData) v.c(mTaskList, 0);
+            if (aBp != null) {
+                this.aBo = new a();
+                this.aBo.setPriority(3);
+                this.aBo.execute(aBp);
             }
         }
     }
@@ -112,18 +112,18 @@ public class b {
 
     public void o(ArrayList<AdvertAppInfo> arrayList) {
         try {
-            new C0068b().execute(arrayList);
+            new C0067b().execute(arrayList);
         } catch (Exception e) {
         }
     }
 
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0068b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> aBo;
+    private class C0067b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+        ArrayList<AdvertAppInfo> aBr;
 
-        private C0068b() {
-            this.aBo = null;
+        private C0067b() {
+            this.aBr = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,12 +136,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.aBo = arrayList;
+            this.aBr = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.UQ;
-                if (k.dk(b.this.getFileOfUrl(next.UO)) != null) {
+                String str = next.UT;
+                if (k.dk(b.this.getFileOfUrl(next.US)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -160,15 +160,15 @@ public class b {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : e.CW().jL()) {
-                Iterator<AdvertAppInfo> it = this.aBo.iterator();
+                Iterator<AdvertAppInfo> it = this.aBr.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().UQ, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().UT, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.A(list);
-            this.aBo = null;
+            this.aBr = null;
         }
     }
 
@@ -229,7 +229,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.aBl = null;
+            b.this.aBo = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -246,7 +246,7 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.aBm = null;
+                DownloadData unused = b.aBp = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
                     b.this.CU();

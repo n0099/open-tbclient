@@ -9,17 +9,17 @@ import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    private static Object yY = new Object();
+    private static Object yZ = new Object();
     private AudioTrack mAudioTrack;
     private final Handler mHandler;
-    private String yV;
-    private Amrnb yX;
-    private int za;
-    private volatile int yS = 0;
-    private final short[] yW = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+    private String yW;
+    private Amrnb yY;
+    private int zb;
+    private volatile int yT = 0;
+    private final short[] yX = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
     private final int mCurBeginSecond = 0;
     private int mElapsedTime = 0;
-    private final Handler yZ = new Handler();
+    private final Handler za = new Handler();
     private final Runnable mPlayTimeThread = new Runnable() { // from class: com.baidu.adp.lib.voice.b.1
         @Override // java.lang.Runnable
         public void run() {
@@ -37,11 +37,11 @@ public class b implements Runnable {
                     obtainMessage.arg1 = b.this.mElapsedTime;
                     b.this.mHandler.sendMessage(obtainMessage);
                 }
-                b.this.yZ.postDelayed(b.this.mPlayTimeThread, 100L);
+                b.this.za.postDelayed(b.this.mPlayTimeThread, 100L);
             }
         }
     };
-    private final Runnable zb = new Runnable() { // from class: com.baidu.adp.lib.voice.b.2
+    private final Runnable zc = new Runnable() { // from class: com.baidu.adp.lib.voice.b.2
         @Override // java.lang.Runnable
         public void run() {
             b.this.release();
@@ -68,12 +68,12 @@ public class b implements Runnable {
     }
 
     public b(Handler handler, int i) {
-        this.za = 0;
-        this.za = i;
+        this.zb = 0;
+        this.zb = i;
         this.mHandler = handler;
         try {
-            this.yX = new Amrnb();
-            if (this.yX == null && this.mHandler != null) {
+            this.yY = new Amrnb();
+            if (this.yY == null && this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
             }
         } catch (Exception e) {
@@ -84,25 +84,25 @@ public class b implements Runnable {
     }
 
     public void ay(int i) {
-        this.za = i;
+        this.zb = i;
     }
 
     private void init() {
         try {
-            this.mAudioTrack = new AudioTrack(h.zf, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            this.mAudioTrack = new AudioTrack(h.zg, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
         } catch (IllegalArgumentException e) {
             this.mAudioTrack = null;
             BdLog.e(e.getMessage());
         }
-        this.yS = 1;
+        this.yT = 1;
     }
 
     public void release() {
         int i;
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.zb);
+            this.mHandler.removeCallbacks(this.zc);
         }
-        synchronized (yY) {
+        synchronized (yZ) {
             if (this.mAudioTrack != null) {
                 try {
                     i = this.mAudioTrack.getPlaybackHeadPosition();
@@ -114,13 +114,13 @@ public class b implements Runnable {
                 } catch (Exception e2) {
                     i = 0;
                 }
-                this.za = 0;
+                this.zb = 0;
                 this.mAudioTrack = null;
             } else {
                 i = 0;
             }
-            if (this.yZ != null) {
-                this.yZ.removeCallbacks(this.mPlayTimeThread);
+            if (this.za != null) {
+                this.za.removeCallbacks(this.mPlayTimeThread);
             }
             if (this.mHandler != null) {
                 Message obtainMessage = this.mHandler.obtainMessage(0);
@@ -128,7 +128,7 @@ public class b implements Runnable {
                 this.mHandler.sendMessage(obtainMessage);
             }
         }
-        this.yS = 0;
+        this.yT = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x00c7  */
@@ -141,16 +141,16 @@ public class b implements Runnable {
         FileInputStream fileInputStream;
         boolean z;
         Process.setThreadPriority(-19);
-        if (this.yX == null) {
+        if (this.yY == null) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
             }
-        } else if (this.yV == null) {
+        } else if (this.yW == null) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
         } else {
-            File file = new File(this.yV);
+            File file = new File(this.yW);
             if (file == null || !file.exists()) {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
@@ -166,21 +166,21 @@ public class b implements Runnable {
                 }
                 return;
             }
-            if (this.za > 0) {
+            if (this.zb > 0) {
                 this.mAudioTrack.reloadStaticData();
-                this.mAudioTrack.setPlaybackHeadPosition(this.za);
+                this.mAudioTrack.setPlaybackHeadPosition(this.zb);
             }
             try {
                 this.mAudioTrack.play();
-                this.yS = 2;
-                this.yZ.post(this.mPlayTimeThread);
+                this.yT = 2;
+                this.za.post(this.mPlayTimeThread);
                 FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
                     Boolean bool = true;
                     byte[] bArr = new byte[32];
-                    this.yX.decoderInit();
+                    this.yY.decoderInit();
                     short[] sArr = new short[160];
-                    while (this.yS == 2) {
+                    while (this.yT == 2) {
                         if (bool.booleanValue()) {
                             if (fileInputStream2.read(bArr, 0, 6) == 6) {
                                 if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
@@ -200,14 +200,14 @@ public class b implements Runnable {
                             z = true;
                             break;
                         }
-                        short s = this.yW[(bArr[0] >> 3) & 15];
+                        short s = this.yX[(bArr[0] >> 3) & 15];
                         if (fileInputStream2.read(bArr, 1, s) != s) {
                             z = true;
                             break;
                         }
-                        synchronized (yY) {
+                        synchronized (yZ) {
                             if (this.mAudioTrack != null && this.mAudioTrack.getPlayState() == 3) {
-                                this.yX.decoderDecode(bArr, sArr);
+                                this.yY.decoderDecode(bArr, sArr);
                                 this.mAudioTrack.write(sArr, 0, sArr.length);
                             }
                         }
@@ -215,7 +215,7 @@ public class b implements Runnable {
                     z = false;
                     try {
                         fileInputStream2.close();
-                        this.yX.decoderDeinit();
+                        this.yY.decoderDeinit();
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         if (this.mHandler != null) {
@@ -228,7 +228,7 @@ public class b implements Runnable {
                                 BdLog.e(e2.getMessage());
                             }
                         }
-                        this.yS = 3;
+                        this.yT = 3;
                         if (!z) {
                         }
                     }
@@ -240,9 +240,9 @@ public class b implements Runnable {
                 fileInputStream = null;
                 z = false;
             }
-            this.yS = 3;
+            this.yT = 3;
             if (!z) {
-                this.mHandler.postDelayed(this.zb, 500L);
+                this.mHandler.postDelayed(this.zc, 500L);
             } else {
                 release();
             }
@@ -250,11 +250,11 @@ public class b implements Runnable {
     }
 
     public void aU(String str) {
-        this.yV = str;
+        this.yW = str;
     }
 
     public void stop() {
-        this.yS = 3;
+        this.yT = 3;
         release();
     }
 }

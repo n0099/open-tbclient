@@ -24,29 +24,29 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a alW;
-        final a alX;
-        final int alY;
+        final a alZ;
+        final a ama;
+        final int amb;
 
         private b(a aVar) {
-            this.alW = aVar.alW;
-            this.alX = aVar.alX;
-            this.alY = aVar.alY;
+            this.alZ = aVar.alZ;
+            this.ama = aVar.ama;
+            this.amb = aVar.amb;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a alW = null;
-            private a alX = null;
-            private int alY = -1;
+            private a alZ = null;
+            private a ama = null;
+            private int amb = -1;
 
             public a b(a aVar) {
-                this.alW = aVar;
+                this.alZ = aVar;
                 return this;
             }
 
             public a dl(int i) {
-                this.alY = i;
+                this.amb = i;
                 return this;
             }
 
@@ -71,51 +71,51 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class a {
-        String afc;
-        View.OnClickListener alV;
+        String aff;
+        View.OnClickListener alY;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.afc = str;
-            this.alV = onClickListener;
+            this.aff = str;
+            this.alY = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int alT;
-        final ImgType alZ;
-        final int ama;
+        final int alW;
+        final ImgType amc;
+        final int amd;
         final int mHeight;
         final int mWidth;
 
         private c(a aVar) {
-            this.alZ = aVar.alZ;
-            this.ama = aVar.ama;
-            this.alT = aVar.alT;
+            this.amc = aVar.amc;
+            this.amd = aVar.amd;
+            this.alW = aVar.alW;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType alZ = ImgType.NONE;
-            private int ama = -1;
-            private int alT = -1;
+            private ImgType amc = ImgType.NONE;
+            private int amd = -1;
+            private int alW = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.alZ = imgType;
+                this.amc = imgType;
                 return this;
             }
 
             public a dm(int i) {
-                this.ama = i;
+                this.amd = i;
                 return this;
             }
 
             public a dn(int i) {
-                this.alT = i;
+                this.alW = i;
                 return this;
             }
 
@@ -161,27 +161,27 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class d {
-        final String Wp;
-        final String amc;
-        final int amd;
-        final int ame;
+        final String Ws;
+        final String amf;
+        final int amg;
+        final int amh;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.Wp = aVar.Wp;
-            this.amc = aVar.amc;
-            this.amd = aVar.amf;
-            this.ame = aVar.ame;
+            this.Ws = aVar.Ws;
+            this.amf = aVar.amf;
+            this.amg = aVar.ami;
+            this.amh = aVar.amh;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String Wp = null;
-            private String amc = null;
-            private int amf = -1;
-            private int ame = 0;
+            private String Ws = null;
+            private String amf = null;
+            private int ami = -1;
+            private int amh = 0;
 
             public a eu(String str) {
                 this.mTitle = str;
@@ -189,17 +189,17 @@ public class NoDataViewFactory {
             }
 
             public a ev(String str) {
-                this.Wp = str;
+                this.Ws = str;
                 return this;
             }
 
             public a dr(int i) {
-                this.amf = i;
+                this.ami = i;
                 return this;
             }
 
             public a ds(int i) {
-                this.ame = i;
+                this.amh = i;
                 return this;
             }
 

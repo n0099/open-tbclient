@@ -12,26 +12,26 @@ import com.baidu.tieba.frs.entelechy.view.CardFrsGodAutoVideoView;
 import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
 public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v<bd> buW;
+    private v<bd> bva;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.buW = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        this.bva = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 4);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 4);
                     } else if (view.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 1);
                     } else if (view.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cYY, bdVar.rU());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cZc, bdVar.rU());
                     }
                 }
             }
@@ -56,11 +56,11 @@ public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.ti
         }
         y yVar = new y();
         yVar.mLocate = bdVar.sq() ? "3" : "2";
-        yVar.aAs = cYY.cYQ;
-        yVar.aMU = bdVar.getTid();
-        yVar.fRl = bdVar.aaf;
+        yVar.aAv = cZc.cYU;
+        yVar.aMX = bdVar.getTid();
+        yVar.fRq = bdVar.aai;
         if (bdVar.rN() != null) {
-            yVar.fRm = bdVar.rN().video_md5;
+            yVar.fRr = bdVar.rN().video_md5;
         }
         bdVar.su();
         return yVar;
@@ -74,11 +74,11 @@ public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.ti
         if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGS);
         aVar.acB().setVideoStatsData(I(bdVar));
         aVar.acB().a(bdVar);
-        aVar.acB().b(this.buW);
-        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
+        aVar.acB().b(this.bva);
+        com.baidu.tieba.frs.e.b.aqw().a(cZc, bdVar);
         return aVar.getView();
     }
 

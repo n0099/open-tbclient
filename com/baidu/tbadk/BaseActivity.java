@@ -460,9 +460,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             com.baidu.adp.lib.g.g.a(this.mWaitingDialog, getPageContext().getPageActivity());
             Window window = this.mWaitingDialog.getWindow();
             if (window != null) {
-                window.setBackgroundDrawableResource(d.C0096d.common_color_10022);
+                window.setBackgroundDrawableResource(d.C0095d.common_color_10022);
                 if (window.getDecorView() != null) {
-                    window.getDecorView().setBackgroundResource(d.C0096d.common_color_10022);
+                    window.getDecorView().setBackgroundResource(d.C0095d.common_color_10022);
                 }
             }
         }
@@ -574,17 +574,17 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         ShowSoftKeyPadDelay(view, SHOW_SOFT_KEYBOARD_DELAY);
     }
 
-    protected b newListMenu(String[] strArr, b.InterfaceC0061b interfaceC0061b) {
+    protected b newListMenu(String[] strArr, b.InterfaceC0060b interfaceC0060b) {
         this.mListMenu = new b(getPageContext().getPageActivity());
         this.mListMenu.cT(TbadkCoreApplication.getInst().getResources().getString(d.j.operation));
-        this.mListMenu.a(strArr, interfaceC0061b);
+        this.mListMenu.a(strArr, interfaceC0060b);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public b createListMenu(String[] strArr, b.InterfaceC0061b interfaceC0061b) {
-        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0061b);
+    public b createListMenu(String[] strArr, b.InterfaceC0060b interfaceC0060b) {
+        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0060b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

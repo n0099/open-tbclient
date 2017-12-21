@@ -14,12 +14,12 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.v;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private v<c> buW;
+    private v<c> bva;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.buW = new v<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.bva = new v<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, c cVar) {
@@ -36,7 +36,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* renamed from: aN */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.personalize.b.a aVar = new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext);
-        aVar.b(this.buW);
+        aVar.b(this.bva);
         return new a(aVar);
     }
 
@@ -46,17 +46,17 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
         s.abW().a(new ak("c11272"));
-        aVar.dsL.a(cVar);
+        aVar.dsP.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public com.baidu.tieba.homepage.personalize.b.a dsL;
+        public com.baidu.tieba.homepage.personalize.b.a dsP;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.dsL = aVar;
+            this.dsP = aVar;
         }
     }
 }

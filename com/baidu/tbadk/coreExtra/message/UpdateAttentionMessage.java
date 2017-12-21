@@ -13,41 +13,41 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean BI;
-        public c aik;
-        public JSONObject asn;
-        public boolean aso;
-        public BlockPopInfoData asp;
+        public boolean BJ;
+        public c ain;
+        public JSONObject asq;
+        public boolean asr;
+        public BlockPopInfoData ass;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean asm = false;
+        public boolean asp = false;
 
         public void l(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.asn = jSONObject;
+                    this.asq = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
                     if (optJSONObject != null) {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.asm = z2;
+                        this.asp = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
                         String optString = optJSONObject.optString("block_content");
                         String optString2 = optJSONObject.optString("block_dealurl");
                         String optString3 = optJSONObject.optString("block_confirm");
                         String optString4 = optJSONObject.optString("block_cancel");
                         if (!am.isEmpty(optString) && !am.isEmpty(optString2) && !am.isEmpty(optString3) && !am.isEmpty(optString4)) {
-                            this.asp = new BlockPopInfoData();
-                            this.asp.block_info = optString;
-                            this.asp.ahead_url = optString2;
-                            this.asp.ahead_info = optString3;
-                            this.asp.ok_info = optString4;
+                            this.ass = new BlockPopInfoData();
+                            this.ass.block_info = optString;
+                            this.ass.ahead_url = optString2;
+                            this.ass.ahead_info = optString3;
+                            this.ass.ok_info = optString4;
                         }
                     }
                 } catch (Exception e) {
@@ -65,7 +65,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().BI;
+        return getData().BJ;
     }
 
     public boolean isAttention() {

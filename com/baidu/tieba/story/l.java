@@ -8,43 +8,43 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l grB;
-    private MetaData grA;
-    private final Map<Long, UserStoryData> grz = new HashMap();
+    private static volatile l grG;
+    private final Map<Long, UserStoryData> grE = new HashMap();
+    private MetaData grF;
 
     private l() {
     }
 
-    public static l bsu() {
-        if (grB == null) {
+    public static l bsv() {
+        if (grG == null) {
             synchronized (l.class) {
-                if (grB == null) {
-                    grB = new l();
+                if (grG == null) {
+                    grG = new l();
                 }
             }
         }
-        return grB;
+        return grG;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.grz.put(Long.valueOf(j), userStoryData);
+        this.grE.put(Long.valueOf(j), userStoryData);
     }
 
     public void d(MetaData metaData) {
-        this.grA = metaData;
+        this.grF = metaData;
     }
 
-    public MetaData bsv() {
-        return this.grA;
+    public MetaData bsw() {
+        return this.grF;
     }
 
     public UserStoryData cQ(long j) {
-        return this.grz.get(Long.valueOf(j));
+        return this.grE.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.grz.clear();
-        this.grA = null;
+        this.grE.clear();
+        this.grF = null;
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
@@ -69,11 +69,11 @@ public class l {
         return true;
     }
 
-    public int bsw() {
+    public int bsx() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void bsx() {
+    public void bsy() {
         tV(0);
     }
 

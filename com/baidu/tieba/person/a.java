@@ -14,20 +14,20 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0134a c0134a = new C0134a();
-            c0134a.frn = str;
-            c0134a.fro = bVar;
-            c0134a.execute("");
+            C0133a c0133a = new C0133a();
+            c0133a.frt = str;
+            c0133a.fru = bVar;
+            c0133a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0134a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String frn;
-        public b fro;
+    private static class C0133a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String frt;
+        public b fru;
 
-        private C0134a() {
+        private C0133a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").q(k.dj(this.frn), false);
+            return new com.baidu.tbadk.img.f("user_pics").q(k.dj(this.frt), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.fro != null) {
+            if (this.fru != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.fro.a(i, str, imageUploadResult);
+                this.fru.a(i, str, imageUploadResult);
             }
         }
     }

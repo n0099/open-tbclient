@@ -18,11 +18,11 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e bbL;
+    private static e bbP;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aZe = false;
+    private boolean aZi = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -50,27 +50,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.aZe = true;
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aZl);
+            e.this.aZi = true;
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(e.this.aZp);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.bbw);
+            File file = new File(c.bbA);
             if (file.exists()) {
                 file.delete();
             }
             b.LZ().Mb();
-            e.this.aZe = false;
-            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZl, 1000L);
+            e.this.aZi = false;
+            com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZp, 1000L);
         }
     };
-    private Runnable aZl = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable aZp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.aZe) {
+            if (!e.this.aZi) {
                 e.this.Lj();
-                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZl, 1000L);
+                com.baidu.adp.lib.g.e.fP().postDelayed(e.this.aZp, 1000L);
             }
         }
     };
@@ -86,14 +86,14 @@ public class e {
     }
 
     public static e bh(Context context) {
-        if (bbL == null) {
+        if (bbP == null) {
             synchronized (e.class) {
-                if (bbL == null) {
-                    bbL = new e(context);
+                if (bbP == null) {
+                    bbP = new e(context);
                 }
             }
         }
-        return bbL;
+        return bbP;
     }
 
     public void I(String str, int i) {

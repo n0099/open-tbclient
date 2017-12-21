@@ -14,16 +14,16 @@ import com.baidu.tieba.tbadkCore.k;
 public class d {
     private static ShareFromFrsMsgData f(k kVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(kVar.aRn().getImage_url());
-        shareFromFrsMsgData.setName(kVar.aRn().getName());
-        shareFromFrsMsgData.setMemberNum(kVar.aRn().getMember_num());
-        shareFromFrsMsgData.setPostNum(kVar.aRn().getPost_num());
-        shareFromFrsMsgData.setContent(kVar.aRn().getSlogan());
+        shareFromFrsMsgData.setImageUrl(kVar.aRo().getImage_url());
+        shareFromFrsMsgData.setName(kVar.aRo().getName());
+        shareFromFrsMsgData.setMemberNum(kVar.aRo().getMember_num());
+        shareFromFrsMsgData.setPostNum(kVar.aRo().getPost_num());
+        shareFromFrsMsgData.setContent(kVar.aRo().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final com.baidu.tieba.frs.g gVar, k kVar, final int i, final String str, final long j) {
-        if (kVar != null && kVar.aRn() != null) {
+        if (kVar != null && kVar.aRo() != null) {
             final ShareFromFrsMsgData f = f(kVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(gVar.getPageContext().getPageActivity());
             final com.baidu.tieba.frs.view.e eVar = new com.baidu.tieba.frs.view.e(gVar.getPageContext().getPageActivity());

@@ -15,22 +15,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends LinearLayout {
-    private LinearLayout aMt;
-    private TextView aWS;
+    private LinearLayout aMw;
+    private TextView aWW;
     private Context context;
-    private EditText ddQ;
-    private HeadImageView ddR;
-    private TextView ddS;
-    private TextView ddT;
-    private ShareFromFrsMsgData ddU;
+    private EditText ddU;
+    private HeadImageView ddV;
+    private TextView ddW;
+    private TextView ddX;
+    private ShareFromFrsMsgData ddY;
 
     public EditText getChatMsgView() {
-        return this.ddQ;
+        return this.ddU;
     }
 
     public void I(String str, boolean z) {
-        if (this.ddR != null) {
-            this.ddR.startLoad(str, 15, false);
+        if (this.ddV != null) {
+            this.ddV.startLoad(str, 15, false);
         }
     }
 
@@ -41,34 +41,34 @@ public class e extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.ddR.setPageId(bdUniqueId);
+        this.ddV.setPageId(bdUniqueId);
     }
 
     private void bt(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_share_card_view, this);
         setOrientation(1);
-        this.aMt = (LinearLayout) findViewById(d.g.share_content);
-        this.aWS = (TextView) findViewById(d.g.frs_card_name);
-        this.ddQ = (EditText) findViewById(d.g.chat_msg);
-        this.ddR = (HeadImageView) findViewById(d.g.frs_card_img);
-        this.ddT = (TextView) findViewById(d.g.frs_card_member_num);
-        this.ddS = (TextView) findViewById(d.g.frs_card_post_num);
-        aj.c(this.aWS, d.C0096d.cp_cont_b, 1);
-        aj.c(this.ddQ, d.C0096d.cp_cont_b, 2);
-        this.ddQ.setHintTextColor(aj.getColor(d.C0096d.cp_cont_e));
-        this.ddQ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        arm();
+        this.aMw = (LinearLayout) findViewById(d.g.share_content);
+        this.aWW = (TextView) findViewById(d.g.frs_card_name);
+        this.ddU = (EditText) findViewById(d.g.chat_msg);
+        this.ddV = (HeadImageView) findViewById(d.g.frs_card_img);
+        this.ddX = (TextView) findViewById(d.g.frs_card_member_num);
+        this.ddW = (TextView) findViewById(d.g.frs_card_post_num);
+        aj.c(this.aWW, d.C0095d.cp_cont_b, 1);
+        aj.c(this.ddU, d.C0095d.cp_cont_b, 2);
+        this.ddU.setHintTextColor(aj.getColor(d.C0095d.cp_cont_e));
+        this.ddU.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        arn();
     }
 
-    public void arm() {
-        this.aMt.setFocusable(true);
-        this.aMt.setFocusableInTouchMode(true);
-        this.aMt.requestFocus();
+    public void arn() {
+        this.aMw.setFocusable(true);
+        this.aMw.setFocusableInTouchMode(true);
+        this.aMw.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.ddQ != null) {
-            return k.a(this.ddQ.getText(), null);
+        if (this.ddU != null) {
+            return k.a(this.ddU.getText(), null);
         }
         return null;
     }
@@ -81,16 +81,16 @@ public class e extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.ddU = shareFromFrsMsgData;
+        this.ddY = shareFromFrsMsgData;
         wp();
     }
 
     private void wp() {
-        this.aWS.setText(dZ(this.ddU.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.ddU.getImageUrl());
-        this.ddR.startLoad(this.ddU.getImageUrl(), 15, false);
-        this.ddT.setText(am.y(this.ddU.getMemberNum()));
-        this.ddS.setText(am.y(this.ddU.getPostNum()));
+        this.aWW.setText(dZ(this.ddY.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.ddY.getImageUrl());
+        this.ddV.startLoad(this.ddY.getImageUrl(), 15, false);
+        this.ddX.setText(am.y(this.ddY.getMemberNum()));
+        this.ddW.setText(am.y(this.ddY.getPostNum()));
     }
 
     private String dZ(String str) {

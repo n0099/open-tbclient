@@ -6,7 +6,7 @@ import com.baidu.tieba.card.divider.CardGroupDividerView;
 public class b {
     public static void a(bd bdVar, CardGroupDividerView cardGroupDividerView) {
         if (cardGroupDividerView != null && bdVar != null) {
-            if (bdVar.needTopMargin && com.baidu.tieba.tbadkCore.util.f.bxU()) {
+            if (bdVar.needTopMargin && com.baidu.tieba.tbadkCore.util.f.bxV()) {
                 String rU = bdVar.rU();
                 cardGroupDividerView.setTitleText(rU);
                 cardGroupDividerView.z(rU, !bdVar.isFirstFloor);

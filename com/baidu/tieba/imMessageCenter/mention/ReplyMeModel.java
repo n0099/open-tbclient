@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId eaQ;
-    private ReplyMessageActivity eaR;
-    private a eaS;
+    private BdUniqueId eaU;
+    private ReplyMessageActivity eaV;
+    private a eaW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -23,9 +23,9 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
         super(com.baidu.adp.base.i.Y(replyMessageActivity.getPageContext().getPageActivity()));
-        this.eaQ = BdUniqueId.gen();
-        this.eaR = replyMessageActivity;
-        aEQ();
+        this.eaU = BdUniqueId.gen();
+        this.eaV = replyMessageActivity;
+        aER();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -34,26 +34,26 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
         checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.c(str2, 0L));
-        checkPostRequestMessage.setTag(this.eaR.getUniqueId());
+        checkPostRequestMessage.setTag(this.eaV.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aEQ() {
+    public void aER() {
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.eaR.showToast(d.j.neterror);
+                    ReplyMeModel.this.eaV.showToast(d.j.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
                 if (checkPostResponseMessage.hasError()) {
                     if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                        ReplyMeModel.this.eaR.showToast(checkPostResponseMessage.getErrorString());
+                        ReplyMeModel.this.eaV.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.eaR.showToast(d.j.neterror);
+                        ReplyMeModel.this.eaV.showToast(d.j.neterror);
                         return;
                     }
                 }
@@ -63,17 +63,17 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    ReplyMeModel.this.eaS.a(forumId, quoteId, repostId, forumName);
+                    ReplyMeModel.this.eaW.a(forumId, quoteId, repostId, forumName);
                 } else if (postState == 0) {
-                    ReplyMeModel.this.eaR.showToast(d.j.thread_delete_tip);
+                    ReplyMeModel.this.eaV.showToast(d.j.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.eaR.showToast(d.j.thread_shield_tip);
+                    ReplyMeModel.this.eaV.showToast(d.j.thread_shield_tip);
                 }
             }
         };
-        cVar.setTag(this.eaR.getUniqueId());
+        cVar.setTag(this.eaV.getUniqueId());
         cVar.setSelfListener(true);
-        this.eaR.registerListener(cVar);
+        this.eaV.registerListener(cVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -87,6 +87,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.eaS = aVar;
+        this.eaW = aVar;
     }
 }

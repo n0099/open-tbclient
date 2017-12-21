@@ -7,5 +7,5 @@ import java.util.concurrent.Executors;
 @TargetApi(21)
 /* loaded from: classes.dex */
 public class a extends JobService {
-    private static final ExecutorService Qe = Executors.newCachedThreadPool();
+    private static final ExecutorService Qf = Executors.newCachedThreadPool();
 }

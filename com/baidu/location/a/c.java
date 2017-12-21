@@ -10,10 +10,10 @@ import java.util.Locale;
 public class c {
     private String p;
     private boolean q = true;
-    private static c KU = null;
+    private static c KV = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.h.h.a, b);
-    private static StringBuffer KV = null;
+    private static StringBuffer KW = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
@@ -80,10 +80,10 @@ public class c {
 
     private boolean a(Location location, int i2, int i3) {
         if (location != null && com.baidu.location.h.i.X && this.q) {
-            if (com.baidu.location.h.i.Oz < 5) {
-                com.baidu.location.h.i.Oz = 5;
-            } else if (com.baidu.location.h.i.Oz > 1000) {
-                com.baidu.location.h.i.Oz = 1000;
+            if (com.baidu.location.h.i.OA < 5) {
+                com.baidu.location.h.i.OA = 5;
+            } else if (com.baidu.location.h.i.OA > 1000) {
+                com.baidu.location.h.i.OA = 1000;
             }
             if (com.baidu.location.h.i.aa < 5) {
                 com.baidu.location.h.i.aa = 5;
@@ -95,9 +95,9 @@ public class c {
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                KV = new StringBuffer("");
-                KV.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = KV.length();
+                KW = new StringBuffer("");
+                KW.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = KW.length();
                 h = time;
                 k = longitude;
                 l = latitude;
@@ -109,13 +109,13 @@ public class c {
             float[] fArr = new float[1];
             Location.distanceBetween(latitude, longitude, l, k, fArr);
             long j2 = time - h;
-            if (fArr[0] >= com.baidu.location.h.i.Oz || j2 >= com.baidu.location.h.i.aa) {
-                if (KV == null) {
+            if (fArr[0] >= com.baidu.location.h.i.OA || j2 >= com.baidu.location.h.i.aa) {
+                if (KW == null) {
                     f++;
                     g = 0;
-                    KV = new StringBuffer("");
-                    KV.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = KV.length();
+                    KW = new StringBuffer("");
+                    KW.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = KW.length();
                     h = time;
                     k = longitude;
                     l = latitude;
@@ -129,15 +129,15 @@ public class c {
                     m = (int) (time - h);
                     n = (int) (floor - i);
                     o = (int) (floor2 - j);
-                    KV.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = KV.length();
+                    KW.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = KW.length();
                     h = time;
                     i = floor;
                     j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(KV.toString());
-                    KV = null;
+                    a(KW.toString());
+                    KW = null;
                 }
                 if (f >= com.baidu.location.h.i.ab) {
                     this.q = false;
@@ -272,7 +272,7 @@ public class c {
 
     private static void c() {
         e = true;
-        KV = null;
+        KW = null;
         f = 0;
         g = 0;
         h = 0L;
@@ -308,13 +308,13 @@ public class c {
     }
 
     public static c lW() {
-        if (KU == null) {
-            KU = new c(com.baidu.location.h.c.mX().c());
+        if (KV == null) {
+            KV = new c(com.baidu.location.h.c.mX().c());
         }
-        return KU;
+        return KV;
     }
 
     public boolean a(Location location) {
-        return a(location, com.baidu.location.h.i.Oz, com.baidu.location.h.i.aa);
+        return a(location, com.baidu.location.h.i.OA, com.baidu.location.h.i.aa);
     }
 }

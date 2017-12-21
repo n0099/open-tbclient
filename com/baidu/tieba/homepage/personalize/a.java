@@ -18,24 +18,24 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
 import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext abX;
-    private ScrollFragmentTabHost dqB;
-    private d dqC;
-    private com.baidu.tieba.homepage.personalize.view.a dqD;
-    private int dqE;
-    private Runnable dqF = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.a.1
+    private TbPageContext aca;
+    private ScrollFragmentTabHost dqF;
+    private d dqG;
+    private com.baidu.tieba.homepage.personalize.view.a dqH;
+    private int dqI;
+    private Runnable dqJ = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.dqC != null) {
-                if (a.this.dqD != null) {
-                    a.this.dqC.removeView(a.this.dqD);
+            if (a.this.dqG != null) {
+                if (a.this.dqH != null) {
+                    a.this.dqG.removeView(a.this.dqH);
                     TiebaStatic.log(new ak("c12632").r("obj_locate", 3));
                 }
-                a.this.dqC.setIsUnreadTipShow(false);
+                a.this.dqG.setIsUnreadTipShow(false);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a dqG = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541) { // from class: com.baidu.tieba.homepage.personalize.a.2
+    private com.baidu.adp.framework.listener.a dqK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541) { // from class: com.baidu.tieba.homepage.personalize.a.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
@@ -45,7 +45,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener dqH = new CustomMessageListener(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB) { // from class: com.baidu.tieba.homepage.personalize.a.3
+    private CustomMessageListener dqL = new CustomMessageListener(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB) { // from class: com.baidu.tieba.homepage.personalize.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,9 +55,9 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
-            this.abX = tbPageContext;
-            tbPageContext.registerListener(this.dqG);
-            tbPageContext.registerListener(this.dqH);
+            this.aca = tbPageContext;
+            tbPageContext.registerListener(this.dqK);
+            tbPageContext.registerListener(this.dqL);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, com.baidu.tieba.tbadkCore.a.a.aG(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
@@ -71,71 +71,71 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (eVar != null && eVar.auu()) {
+        if (eVar != null && eVar.auv()) {
             b(eVar);
         }
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.dqB = scrollFragmentTabHost;
+        this.dqF = scrollFragmentTabHost;
     }
 
     public void a(d dVar) {
-        this.dqC = dVar;
+        this.dqG = dVar;
     }
 
     public void b(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (this.dqC != null) {
-            this.dqD = new com.baidu.tieba.homepage.personalize.view.a(this.abX.getContext());
-            this.dqD.setBdUniqueId(this.abX.getUniqueId());
+        if (this.dqG != null) {
+            this.dqH = new com.baidu.tieba.homepage.personalize.view.a(this.aca.getContext());
+            this.dqH.setBdUniqueId(this.aca.getUniqueId());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 49;
-            layoutParams.topMargin = this.dqE;
-            this.dqD.setLayoutParams(layoutParams);
-            this.dqD.setData(eVar);
-            this.dqD.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.4
+            layoutParams.topMargin = this.dqI;
+            this.dqH.setLayoutParams(layoutParams);
+            this.dqH.setData(eVar);
+            this.dqH.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (view.getId() != a.this.dqD.dsQ.getId()) {
-                        a.this.dqB.setCurrentTab(0);
+                    if (view.getId() != a.this.dqH.dsU.getId()) {
+                        a.this.dqF.setCurrentTab(0);
                         return;
                     }
                     a.this.fY(false);
                     TiebaStatic.log(new ak("c12632").r("obj_locate", 1));
                 }
             });
-            this.dqC.setIsUnreadTipShow(true);
-            this.dqC.addView(this.dqD);
+            this.dqG.setIsUnreadTipShow(true);
+            this.dqG.addView(this.dqH);
             if (eVar != null) {
-                TiebaStatic.log(new ak("c12631").r("obj_param1", eVar.dss).r("obj_param2", eVar.dsw));
+                TiebaStatic.log(new ak("c12631").r("obj_param1", eVar.dsw).r("obj_param2", eVar.dsA));
             }
-            com.baidu.adp.lib.g.e.fP().postDelayed(this.dqF, TbConfig.NOTIFY_SOUND_INTERVAL);
+            com.baidu.adp.lib.g.e.fP().postDelayed(this.dqJ, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
     public void fY(boolean z) {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dqF);
-        if (this.dqC != null) {
-            if (this.dqD != null) {
-                this.dqC.removeView(this.dqD);
-                if (z && this.dqC.getIsUnreadTipShow()) {
+        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dqJ);
+        if (this.dqG != null) {
+            if (this.dqH != null) {
+                this.dqG.removeView(this.dqH);
+                if (z && this.dqG.getIsUnreadTipShow()) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), 0L);
                     TiebaStatic.log(new ak("c12632").r("obj_locate", 2));
                 }
             }
-            this.dqC.setIsUnreadTipShow(false);
+            this.dqG.setIsUnreadTipShow(false);
         }
     }
 
     public void setHeaderViewHeight(int i) {
-        this.dqE = i;
+        this.dqI = i;
     }
 
     public void onDestroy() {
-        this.dqC = null;
-        this.dqB = null;
-        if (this.dqF != null) {
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dqF);
+        this.dqG = null;
+        this.dqF = null;
+        if (this.dqJ != null) {
+            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.dqJ);
         }
     }
 }

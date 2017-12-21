@@ -14,22 +14,22 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView aoX;
-    private HeadImageView cJr;
-    private TextView cyM;
-    private ImageView dZS;
-    private TextView dZT;
+    private TextView apa;
+    private HeadImageView cJv;
+    private TextView cyQ;
+    private ImageView dZW;
+    private TextView dZX;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cJr = (HeadImageView) view.findViewById(d.g.photo);
-        this.aoX = (TextView) view.findViewById(d.g.user_name);
-        this.dZS = (ImageView) view.findViewById(d.g.fans_reply);
-        this.cyM = (TextView) view.findViewById(d.g.time);
-        this.dZT = (TextView) view.findViewById(d.g.content);
+        this.cJv = (HeadImageView) view.findViewById(d.g.photo);
+        this.apa = (TextView) view.findViewById(d.g.user_name);
+        this.dZW = (ImageView) view.findViewById(d.g.fans_reply);
+        this.cyQ = (TextView) view.findViewById(d.g.time);
+        this.dZX = (TextView) view.findViewById(d.g.content);
         this.mLine = view.findViewById(d.g.line);
-        this.cJr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.cJv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.FQ().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
@@ -56,40 +56,40 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void D(FeedData feedData) {
         super.D(feedData);
         if (feedData.getReplyer() != null) {
-            this.aoX.setText(feedData.getReplyer().getName_show());
+            this.apa.setText(feedData.getReplyer().getName_show());
             if (feedData.getReplyer().isBigV()) {
-                aj.i(this.aoX, d.C0096d.cp_cont_r);
+                aj.i(this.apa, d.C0095d.cp_cont_r);
             } else {
-                aj.i(this.aoX, d.C0096d.cp_cont_c);
+                aj.i(this.apa, d.C0095d.cp_cont_c);
             }
-            this.cJr.setShowV(feedData.getReplyer().isBigV());
-            this.cJr.setIsRound(true);
-            this.cJr.setVisibility(0);
+            this.cJv.setShowV(feedData.getReplyer().isBigV());
+            this.cJv.setIsRound(true);
+            this.cJv.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.cJr.setTag(null);
+            this.cJv.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.cJr.startLoad(portrait, 12, false);
+                this.cJv.startLoad(portrait, 12, false);
             } else {
-                this.cJr.setImageResource(d.f.photo);
+                this.cJv.setImageResource(d.f.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.dZS.setVisibility(0);
+                this.dZW.setVisibility(0);
             } else {
-                this.dZS.setVisibility(8);
+                this.dZW.setVisibility(8);
             }
         }
-        this.cyM.setText(am.r(feedData.getTime()));
-        this.dZT.setText(feedData.getContent());
+        this.cyQ.setText(am.r(feedData.getTime()));
+        this.dZX.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.n
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         aj.j(getRootView(), d.f.list_selector);
-        aj.k(this.mLine, d.C0096d.cp_bg_line_b);
-        aj.i(this.cyM, d.C0096d.cp_cont_d);
-        aj.j(this.dZS, d.f.icon_pb_fans);
-        aj.i(this.dZT, d.C0096d.cp_cont_b);
-        this.cyM.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        aj.k(this.mLine, d.C0095d.cp_bg_line_b);
+        aj.i(this.cyQ, d.C0095d.cp_cont_d);
+        aj.j(this.dZW, d.f.icon_pb_fans);
+        aj.i(this.dZX, d.C0095d.cp_cont_b);
+        this.cyQ.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

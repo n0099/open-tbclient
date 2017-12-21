@@ -14,21 +14,21 @@ import com.baidu.tieba.NEGFeedBack.c;
 import com.baidu.tieba.card.v;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, a> {
-    public BdUniqueId aSy;
-    private c.a aYP;
-    v<com.baidu.tieba.card.data.k> dof;
-    private com.baidu.tieba.card.i drI;
+    public BdUniqueId aSB;
+    private c.a aYT;
+    v<com.baidu.tieba.card.data.k> doj;
+    private com.baidu.tieba.card.i drM;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aYP = null;
-        this.dof = new v<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.c.1
+        this.aYT = null;
+        this.doj = new v<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (c.this.drI.bZZ == view) {
+                if (c.this.drM.cad == view) {
                     int i = 0;
                     String str = "";
                     long j = 0;
@@ -56,15 +56,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.drI = new com.baidu.tieba.card.i(this.mPageContext);
-        this.drI.currentPageType = 2;
-        if (this.drI.bvI != null) {
-            this.drI.bvI.anO = 2;
+        this.drM = new com.baidu.tieba.card.i(this.mPageContext);
+        this.drM.currentPageType = 2;
+        if (this.drM.bvM != null) {
+            this.drM.bvM.anR = 2;
         }
-        if (this.aSy != null) {
-            this.drI.k(this.aSy);
+        if (this.aSB != null) {
+            this.drM.k(this.aSB);
         }
-        return new a(this.drI);
+        return new a(this.drM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,9 +75,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (kVar != null) {
             kVar.iG(i + 1);
         }
-        aVar.drK.a(kVar);
-        aVar.drK.b(this.dof);
-        aVar.drK.a(this.aYP);
+        aVar.drO.a(kVar);
+        aVar.drO.b(this.doj);
+        aVar.drO.a(this.aYT);
         long j = 0;
         String str = "";
         if (kVar != null && kVar.Ox() != null) {
@@ -102,16 +102,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void setEventCallback(c.a aVar) {
-        this.aYP = aVar;
+        this.aYT = aVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public com.baidu.tieba.card.i drK;
+        public com.baidu.tieba.card.i drO;
 
         public a(com.baidu.tieba.card.i iVar) {
             super(iVar.getView());
-            this.drK = iVar;
+            this.drO = iVar;
         }
     }
 }

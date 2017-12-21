@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ImageView implements l {
-    private int aBC;
-    private boolean aBD;
+    private int aBF;
+    private boolean aBG;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements l {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aBD = false;
+        this.aBG = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements l {
     }
 
     public void setIcon(int i) {
-        this.aBC = i;
-        aj.b((ImageView) this, this.aBC, this.mSkinType);
+        this.aBF = i;
+        aj.b((ImageView) this, this.aBF, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -67,7 +67,7 @@ public class c extends ImageView implements l {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            aj.b(this.mTip, d.C0096d.cp_cont_g, 1, this.mSkinType);
+            aj.b(this.mTip, d.C0095d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
@@ -108,9 +108,9 @@ public class c extends ImageView implements l {
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        aj.b((ImageView) this, this.aBC, i);
+        aj.b((ImageView) this, this.aBF, i);
         if (this.mTip != null) {
-            aj.b(this.mTip, d.C0096d.cp_cont_g, 1, i);
+            aj.b(this.mTip, d.C0095d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
                 aj.d(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {
@@ -120,11 +120,11 @@ public class c extends ImageView implements l {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aBD;
+        return this.aBG;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aBD = z;
+        this.aBG = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

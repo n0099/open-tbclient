@@ -8,7 +8,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double eSH = 0.5d;
+    private static double eSM = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
@@ -54,18 +54,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.aUx || aUh <= 1.0f) {
+        if (!this.aUA || aUk <= 1.0f) {
             i3 = i;
         } else {
-            if (i * aUh <= i3 * eSH) {
-                i3 = (int) (i * aUh);
+            if (i * aUk <= i3 * eSM) {
+                i3 = (int) (i * aUk);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.aUv = ImageView.ScaleType.MATRIX;
+                this.aUy = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.aUv = ImageView.ScaleType.CENTER_CROP;
+                this.aUy = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

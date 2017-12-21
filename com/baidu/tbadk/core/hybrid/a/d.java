@@ -10,11 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends o {
-    private TbPageContext<?> abX;
+    private TbPageContext<?> aca;
 
     public d(m mVar, TbPageContext<?> tbPageContext) {
         super(mVar);
-        this.abX = tbPageContext;
+        this.aca = tbPageContext;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +28,7 @@ public class d extends o {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                av.vI().c(this.abX, new String[]{optString});
+                av.vI().c(this.aca, new String[]{optString});
             }
         }
     }

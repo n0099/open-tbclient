@@ -17,13 +17,13 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.push.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static abstract class AbstractBinderC0050a extends Binder implements a {
+    public static abstract class AbstractBinderC0049a extends Binder implements a {
         private static final String a = "com.baidu.sofire.push.remote.ISocketService";
         static final int b = 1;
         static final int c = 2;
         static final int d = 3;
 
-        public AbstractBinderC0050a() {
+        public AbstractBinderC0049a() {
             attachInterface(this, a);
         }
 
@@ -35,7 +35,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0051a(iBinder);
+            return new C0050a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -99,10 +99,10 @@ public interface a extends IInterface {
 
         /* renamed from: com.baidu.sofire.push.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0051a implements a {
+        private static class C0050a implements a {
             private IBinder a;
 
-            C0051a(IBinder iBinder) {
+            C0050a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -116,7 +116,7 @@ public interface a extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(AbstractBinderC0050a.a);
+                    obtain.writeInterfaceToken(AbstractBinderC0049a.a);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
@@ -140,7 +140,7 @@ public interface a extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(AbstractBinderC0050a.a);
+                    obtain.writeInterfaceToken(AbstractBinderC0049a.a);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
@@ -164,7 +164,7 @@ public interface a extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(AbstractBinderC0050a.a);
+                    obtain.writeInterfaceToken(AbstractBinderC0049a.a);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);

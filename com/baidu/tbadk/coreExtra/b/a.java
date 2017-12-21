@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aqI = null;
-    private boolean aqH;
-    private int aqJ;
+    private static volatile a aqL = null;
+    private boolean aqK;
+    private int aqM;
 
     private a() {
-        this.aqH = false;
-        this.aqJ = 0;
+        this.aqK = false;
+        this.aqM = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.v(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.dI()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.aqJ = Integer.parseInt(content);
+                    this.aqM = Integer.parseInt(content);
                 }
-                if (this.aqJ == 1 || this.aqJ == 2) {
-                    this.aqH = true;
+                if (this.aqM == 1 || this.aqM == 2) {
+                    this.aqK = true;
                 }
             }
         } catch (Throwable th) {
@@ -32,25 +32,25 @@ public class a {
     }
 
     public static a xr() {
-        if (aqI == null) {
+        if (aqL == null) {
             synchronized (a.class) {
-                if (aqI == null) {
-                    aqI = new a();
+                if (aqL == null) {
+                    aqL = new a();
                 }
             }
         }
-        return aqI;
+        return aqL;
     }
 
     public boolean xs() {
-        return this.aqH;
+        return this.aqK;
     }
 
     public int xt() {
-        return this.aqJ;
+        return this.aqM;
     }
 
     public String xu() {
-        return this.aqH ? "pub_env=" + this.aqJ + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+        return this.aqK ? "pub_env=" + this.aqM + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

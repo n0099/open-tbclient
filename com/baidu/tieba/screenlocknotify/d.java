@@ -6,33 +6,20 @@ import android.os.PowerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class d {
-    private KeyguardManager gek;
-    private PowerManager gel;
-    private PowerManager.WakeLock gem;
-    private KeyguardManager.KeyguardLock gen;
+    private KeyguardManager geq;
+    private PowerManager ger;
+    private PowerManager.WakeLock ges;
+    private KeyguardManager.KeyguardLock get;
     private Context mContext;
 
     public d() {
         try {
             this.mContext = TbadkCoreApplication.getInst().getApp();
-            this.gel = (PowerManager) this.mContext.getSystemService("power");
-            this.gem = this.gel.newWakeLock(268435462, "ScreenLockNotify");
-            this.gem.setReferenceCounted(false);
-            this.gek = (KeyguardManager) this.mContext.getSystemService("keyguard");
-            this.gen = this.gek.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public void bne() {
-        try {
-            this.gen.reenableKeyguard();
-            a.bmZ().gdZ++;
-            if (this.gem != null) {
-                this.gem.release();
-                this.gem = null;
-            }
+            this.ger = (PowerManager) this.mContext.getSystemService("power");
+            this.ges = this.ger.newWakeLock(268435462, "ScreenLockNotify");
+            this.ges.setReferenceCounted(false);
+            this.geq = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.get = this.geq.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -40,24 +27,37 @@ public class d {
 
     public void bnf() {
         try {
-            if (this.gem == null) {
-                this.gem = this.gel.newWakeLock(268435462, "ScreenLockNotify");
-                this.gem.setReferenceCounted(false);
-            }
-            if (this.gem != null) {
-                this.gem.acquire(10000L);
-                this.gen.disableKeyguard();
-                a.bmZ().gdW = 0;
-                a.bmZ().gea++;
+            this.get.reenableKeyguard();
+            a.bna().gee++;
+            if (this.ges != null) {
+                this.ges.release();
+                this.ges = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean bng() {
+    public void bng() {
         try {
-            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.gek, new Object[0])).booleanValue();
+            if (this.ges == null) {
+                this.ges = this.ger.newWakeLock(268435462, "ScreenLockNotify");
+                this.ges.setReferenceCounted(false);
+            }
+            if (this.ges != null) {
+                this.ges.acquire(10000L);
+                this.get.disableKeyguard();
+                a.bna().geb = 0;
+                a.bna().gef++;
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean bnh() {
+        try {
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.geq, new Object[0])).booleanValue();
         } catch (Throwable th) {
             th.printStackTrace();
             return false;
@@ -65,6 +65,6 @@ public class d {
     }
 
     public boolean isScreenOn() {
-        return this.gel.isScreenOn();
+        return this.ger.isScreenOn();
     }
 }

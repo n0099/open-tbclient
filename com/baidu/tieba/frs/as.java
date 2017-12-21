@@ -5,6 +5,6 @@ public class as extends ap {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean cKz = true;
-    public boolean cKA = true;
+    public boolean cKD = true;
+    public boolean cKE = true;
 }

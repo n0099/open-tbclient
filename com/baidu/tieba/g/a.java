@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String die;
-    private String dif;
-    private String dig;
-    private String dih;
     private String dii;
     private String dij;
+    private String dik;
+    private String dil;
+    private String dim;
+    private String din;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.die = String.valueOf(esportRank.rank);
-            this.dif = esportRank.text;
-            this.dij = esportRank.url;
+            this.dii = String.valueOf(esportRank.rank);
+            this.dij = esportRank.text;
+            this.din = esportRank.url;
             if (esportRank.user != null) {
-                this.dig = esportRank.user.steam_name;
-                this.dih = esportRank.user.steam_portrait;
+                this.dik = esportRank.user.steam_name;
+                this.dil = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String asq() {
+    public String asr() {
         return this.mTitle;
     }
 
-    public String asr() {
-        return this.die;
-    }
-
     public String ass() {
-        return this.dif;
-    }
-
-    public String ast() {
-        return this.dig;
-    }
-
-    public String asu() {
-        return this.dih;
-    }
-
-    public String asv() {
         return this.dii;
     }
 
-    public void lO(String str) {
-        this.dii = str;
-    }
-
-    public String asw() {
+    public String ast() {
         return this.dij;
     }
 
+    public String asu() {
+        return this.dik;
+    }
+
+    public String asv() {
+        return this.dil;
+    }
+
+    public String asw() {
+        return this.dim;
+    }
+
+    public void lO(String str) {
+        this.dim = str;
+    }
+
+    public String asx() {
+        return this.din;
+    }
+
     public void lP(String str) {
-        this.dij = str;
+        this.din = str;
     }
 }

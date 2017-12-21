@@ -12,15 +12,15 @@ public class a implements ISapiBaseService {
 
     /* renamed from: com.baidu.sapi2.passhost.framework.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0042a {
+    private static class C0041a {
         public static a a = new a();
 
-        private C0042a() {
+        private C0041a() {
         }
     }
 
     public static a a() {
-        return C0042a.a;
+        return C0041a.a;
     }
 
     public void a(Context context) {

@@ -18,9 +18,9 @@ import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String gAB;
-    private a gAC;
-    private String gAD;
+    private String gAG;
+    private a gAH;
+    private String gAI;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
     private String mForumName;
@@ -29,8 +29,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.gAB = null;
-        this.gAC = null;
+        this.gAG = null;
+        this.gAH = null;
     }
 
     public void setFrom(String str) {
@@ -51,30 +51,30 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void bwh() {
-        if (this.gAC != null) {
-            this.gAC.cancel();
-            this.gAC = null;
+    public void bwi() {
+        if (this.gAH != null) {
+            this.gAH.cancel();
+            this.gAH = null;
         }
     }
 
     public void H(String str, String str2, String str3) {
         ce(str, str2);
-        this.gAB = str3;
+        this.gAG = str3;
     }
 
     public void ce(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gAC == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gAH == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.gAC = new a();
-            this.gAC.setPriority(2);
-            this.gAC.execute(new Object[0]);
+            this.gAH = new a();
+            this.gAH.setPriority(2);
+            this.gAH.execute(new Object[0]);
         }
     }
 
-    public boolean bwi() {
-        return this.gAC != null;
+    public boolean bwj() {
+        return this.gAH != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,11 +96,11 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.n("kw", LikeModel.this.mForumName);
                 this.mNetwork.n(ImageViewerConfig.FORUM_ID, LikeModel.this.mForumId);
                 this.mNetwork.n("st_type", LikeModel.this.from);
-                if (!StringUtils.isNull(LikeModel.this.gAD)) {
-                    this.mNetwork.n("dev_id", LikeModel.this.gAD);
+                if (!StringUtils.isNull(LikeModel.this.gAI)) {
+                    this.mNetwork.n("dev_id", LikeModel.this.gAI);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.gAB)) {
-                    this.mNetwork.n("pagefrom", LikeModel.this.gAB);
+                if (!TextUtils.isEmpty(LikeModel.this.gAG)) {
+                    this.mNetwork.n("pagefrom", LikeModel.this.gAG);
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -153,7 +153,7 @@ public class LikeModel extends BdBaseModel {
                     LikeModel.this.mLoadDataCallBack.f(qVar);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, aVar));
-                LikeModel.this.gAC = null;
+                LikeModel.this.gAH = null;
             }
         }
 
@@ -163,7 +163,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.fo();
                 this.mNetwork = null;
             }
-            LikeModel.this.gAC = null;
+            LikeModel.this.gAH = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.f(null);

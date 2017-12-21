@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.util;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class b {
-    private static String fhl = "tbgametype";
+    private static String fhq = "tbgametype";
 
     public static String tl(String str) {
         String[] split;

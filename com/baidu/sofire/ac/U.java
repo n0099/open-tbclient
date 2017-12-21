@@ -189,10 +189,10 @@ public class U extends Thread {
                         if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                             sMonitorNetworkWhenUpgradeNoNet = true;
                             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                            if (d.Ql == null) {
-                                d.Ql = new MyReceiver().a();
+                            if (d.Qm == null) {
+                                d.Qm = new MyReceiver().a();
                             }
-                            this.context.getApplicationContext().registerReceiver(d.Ql, intentFilter);
+                            this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter);
                         }
                         if (this.mEndReason == 0) {
                             this.mEndReason = 3;
@@ -200,8 +200,8 @@ public class U extends Thread {
                         throw new NetworkErrorException("no internet");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (d.Ql != null && (sMonitorNetworkWhenUpgradeNoNet || d.a)) {
-                        this.context.getApplicationContext().unregisterReceiver(d.Ql);
+                    if (d.Qm != null && (sMonitorNetworkWhenUpgradeNoNet || d.a)) {
+                        this.context.getApplicationContext().unregisterReceiver(d.Qm);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
                     d.a = false;
@@ -213,12 +213,12 @@ public class U extends Thread {
                             sRetryPingTimesCount++;
                         }
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (d.Ql == null) {
-                            d.Ql = new MyReceiver().a();
+                        if (d.Qm == null) {
+                            d.Qm = new MyReceiver().a();
                         } else {
-                            d.Ql.a();
+                            d.Qm.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(d.Ql, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                         if (this.mEndReason == 0) {
                             this.mEndReason = 4;
@@ -821,12 +821,12 @@ public class U extends Thread {
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.Ql == null) {
-                        d.Ql = new MyReceiver().a();
+                    if (d.Qm == null) {
+                        d.Qm = new MyReceiver().a();
                     } else {
-                        d.Ql.a();
+                        d.Qm.a();
                     }
-                    this.context.getApplicationContext().registerReceiver(d.Ql, intentFilter);
+                    this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             }
@@ -886,12 +886,12 @@ public class U extends Thread {
                     }
                     if (!sMonitorNetworkWhenUpgradeNoNet) {
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (d.Ql == null) {
-                            d.Ql = new MyReceiver().a();
+                        if (d.Qm == null) {
+                            d.Qm = new MyReceiver().a();
                         } else {
-                            d.Ql.a();
+                            d.Qm.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(d.Ql, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                     }
                 }

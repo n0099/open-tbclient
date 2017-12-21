@@ -16,29 +16,29 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class b {
-    private static b asG = new b();
-    public int asH = 300;
-    public boolean asI = true;
-    public boolean asJ = false;
-    public boolean asK = true;
+    private static b asJ = new b();
+    public int asK = 300;
     public boolean asL = true;
-    public boolean asM = true;
-    public boolean asN = false;
+    public boolean asM = false;
+    public boolean asN = true;
     public boolean asO = true;
     public boolean asP = true;
     public boolean asQ = false;
-    public String asR = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String asS = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean asR = true;
+    public boolean asS = true;
+    public boolean asT = false;
+    public String asU = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String asV = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private b() {
     }
 
     public static b zk() {
-        return asG;
+        return asJ;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bxQ();
+        com.baidu.tieba.tbadkCore.util.a.bxR();
     }
 
     public void zl() {
@@ -46,68 +46,68 @@ public class b {
     }
 
     public boolean zm() {
-        return this.asH > 0;
+        return this.asK > 0;
     }
 
     public int zn() {
-        return this.asH;
-    }
-
-    public boolean zo() {
-        return this.asJ;
-    }
-
-    public boolean zp() {
         return this.asK;
     }
 
-    public boolean zq() {
+    public boolean zo() {
         return this.asM;
     }
 
-    public boolean zr() {
-        return this.asL;
-    }
-
-    public boolean zs() {
-        return this.asI;
-    }
-
-    public boolean zt() {
-        return this.asO;
-    }
-
-    public boolean zu() {
-        return this.asP;
-    }
-
-    public boolean zv() {
-        return this.asQ;
-    }
-
-    public boolean zw() {
+    public boolean zp() {
         return this.asN;
     }
 
-    public String zx() {
+    public boolean zq() {
+        return this.asP;
+    }
+
+    public boolean zr() {
+        return this.asO;
+    }
+
+    public boolean zs() {
+        return this.asL;
+    }
+
+    public boolean zt() {
         return this.asR;
     }
 
-    public String zy() {
+    public boolean zu() {
         return this.asS;
     }
 
+    public boolean zv() {
+        return this.asT;
+    }
+
+    public boolean zw() {
+        return this.asQ;
+    }
+
+    public String zx() {
+        return this.asU;
+    }
+
+    public String zy() {
+        return this.asV;
+    }
+
     public void aT(boolean z) {
-        this.asI = z;
+        this.asL = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
     public void dY(int i) {
         if (i == 0) {
-            this.asH = i;
+            this.asK = i;
             a.yN().aS(true);
         } else {
-            this.asH = 300;
+            this.asK = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
@@ -130,31 +130,31 @@ public class b {
     }
 
     public void aW(boolean z) {
-        this.asJ = z;
+        this.asM = z;
     }
 
     public void aX(boolean z) {
-        this.asQ = z;
+        this.asT = z;
     }
 
     public void eQ(String str) {
-        this.asR = str;
+        this.asU = str;
     }
 
     public void eR(String str) {
-        this.asS = str;
+        this.asV = str;
     }
 
     public void aY(boolean z) {
-        this.asN = z;
+        this.asQ = z;
     }
 
     public void aZ(boolean z) {
-        this.asP = z;
+        this.asS = z;
     }
 
     public void ba(boolean z) {
-        this.asO = z;
+        this.asR = z;
     }
 
     public void bb(boolean z) {
@@ -166,15 +166,15 @@ public class b {
     }
 
     public void bc(boolean z) {
-        this.asL = z;
+        this.asO = z;
     }
 
     public void bd(boolean z) {
-        this.asK = z;
+        this.asN = z;
     }
 
     public void be(boolean z) {
-        this.asM = z;
+        this.asP = z;
     }
 
     public boolean isSignAlertOn() {
@@ -268,11 +268,11 @@ public class b {
     }
 
     public int zC() {
-        if (!this.asO && !this.asN) {
+        if (!this.asR && !this.asQ) {
             return 0;
         }
-        if (!this.asO || this.asN) {
-            if (!this.asO && this.asN) {
+        if (!this.asR || this.asQ) {
+            if (!this.asR && this.asQ) {
                 return 2;
             }
             return 3;

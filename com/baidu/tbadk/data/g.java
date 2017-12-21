@@ -4,16 +4,16 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.UserStory;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aAt = BdUniqueId.gen();
-    public int aAq;
-    public com.baidu.tieba.story.process.b aAr;
-    public String aAs;
+    public static final BdUniqueId aAw = BdUniqueId.gen();
+    public int aAt;
+    public com.baidu.tieba.story.process.b aAu;
+    public String aAv;
     public int has_read;
     private boolean isStop;
     public String portrait;
     public long user_id;
     public String user_name;
-    public int aAp = -1;
+    public int aAs = -1;
     public int mStatus = 0;
 
     public void bq(boolean z) {
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return aAt;
+        return aAw;
     }
 
     public void a(UserStory userStory) {
