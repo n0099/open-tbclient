@@ -6,53 +6,53 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator hao;
-    private boolean hap;
+    private ObjectAnimator hat;
+    private boolean hau;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.hap = false;
+        this.hau = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hap = false;
+        this.hau = false;
         init();
     }
 
     private void init() {
-        this.hao = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.hao.setRepeatMode(1);
-        this.hao.setRepeatCount(-1);
-        this.hao.setDuration(700L);
+        this.hat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.hat.setRepeatMode(1);
+        this.hat.setRepeatCount(-1);
+        this.hat.setDuration(700L);
         setVisibility(8);
-        this.hap = false;
+        this.hau = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bEF();
+        bEG();
     }
 
     public void startPlayAnimation() {
-        if (!this.hap) {
-            this.hap = true;
-            if (this.hao != null) {
+        if (!this.hau) {
+            this.hau = true;
+            if (this.hat != null) {
                 setVisibility(0);
-                this.hao.start();
+                this.hat.start();
             }
         }
     }
 
-    public void bEF() {
-        if (this.hao != null) {
-            this.hao.setRepeatCount(-1);
-            this.hao.cancel();
+    public void bEG() {
+        if (this.hat != null) {
+            this.hat.setRepeatCount(-1);
+            this.hat.cancel();
             clearAnimation();
         }
-        this.hap = false;
+        this.hau = false;
         setVisibility(8);
     }
 }

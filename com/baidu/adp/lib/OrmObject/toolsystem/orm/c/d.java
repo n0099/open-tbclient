@@ -3,47 +3,47 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class d implements h {
-    private Byte rS;
+    private Byte rT;
 
     public d(byte b) {
-        this.rS = Byte.valueOf(b);
+        this.rT = Byte.valueOf(b);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Class<?> eg = cVar.eg();
         if (eg == Byte.class || eg == Byte.TYPE) {
-            return Byte.valueOf(this.rS.byteValue());
+            return Byte.valueOf(this.rT.byteValue());
         }
         if (eg == Short.class || eg == Short.TYPE) {
-            return Short.valueOf(this.rS.shortValue());
+            return Short.valueOf(this.rT.shortValue());
         }
         if (eg == Integer.class || eg == Integer.TYPE) {
-            return Integer.valueOf(this.rS.intValue());
+            return Integer.valueOf(this.rT.intValue());
         }
         if (eg == Long.class || eg == Long.TYPE) {
-            return Long.valueOf(this.rS.longValue());
+            return Long.valueOf(this.rT.longValue());
         }
         if (eg == Float.class || eg == Float.TYPE) {
-            return Float.valueOf(this.rS.floatValue());
+            return Float.valueOf(this.rT.floatValue());
         }
         if (eg == Double.class || eg == Double.TYPE) {
-            return Double.valueOf(this.rS.doubleValue());
+            return Double.valueOf(this.rT.doubleValue());
         }
         if (eg == Character.class || eg == Character.TYPE) {
-            return Character.valueOf((char) this.rS.intValue());
+            return Character.valueOf((char) this.rT.intValue());
         }
         if (eg == Boolean.class || eg == Boolean.TYPE) {
-            return Boolean.valueOf(this.rS.byteValue() == 0);
+            return Boolean.valueOf(this.rT.byteValue() == 0);
         } else if (eg == String.class) {
-            return String.valueOf(this.rS);
+            return String.valueOf(this.rT);
         } else {
             if (eg == char[].class) {
-                return String.valueOf(this.rS).toCharArray();
+                return String.valueOf(this.rT).toCharArray();
             }
             if (eg == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.rS), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.rT), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

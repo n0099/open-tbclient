@@ -22,44 +22,44 @@ import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
-    private byte[] bbi;
-    private h bbj;
+    private byte[] bbm;
+    private h bbn;
     private Context mContext;
-    private Socket zq;
+    private Socket zr;
 
     public f(Context context) {
-        this.bbi = null;
+        this.bbm = null;
         this.mContext = context;
         try {
-            this.bbi = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+            this.bbm = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public void a(Socket socket) {
-        this.zq = socket;
+        this.zr = socket;
     }
 
     public void a(h hVar) {
-        this.bbj = hVar;
+        this.bbn = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j.av(TAG, "test run in " + this);
-        if (this.bbj == null) {
+        if (this.bbn == null) {
             j.av(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.bbj);
-            if (this.bbj.LM().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.bbj, this.zq, true);
+            b(this.bbn);
+            if (this.bbn.LM().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.bbn, this.zr, true);
             } else {
-                a(this.bbj, this.zq, false);
+                a(this.bbn, this.zr, false);
             }
-            c(this.zq);
+            c(this.zr);
         } catch (Exception e) {
             j.av(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
         }
@@ -167,7 +167,7 @@ class f implements Runnable {
         if (hA == null || hA.isEmpty()) {
             return 0;
         }
-        File file = new File(i.bbv + hA);
+        File file = new File(i.bbz + hA);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -314,7 +314,7 @@ class f implements Runnable {
         if (hVar == null || socket == null) {
             return;
         }
-        File file = new File(i.bbs);
+        File file = new File(i.bbw);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -357,11 +357,11 @@ class f implements Runnable {
                         e.LJ().v(cVar);
                     }
                     cVar.b(hVar.LP(), hVar.LQ());
-                    if (this.bbi != null) {
+                    if (this.bbm != null) {
                         while (cVar.canRead()) {
-                            int read = cVar.read(this.bbi, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                            int read = cVar.read(this.bbm, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                             if (read > 0) {
-                                printStream.write(this.bbi, 0, read);
+                                printStream.write(this.bbm, 0, read);
                                 if (printStream.checkError()) {
                                     break;
                                 }

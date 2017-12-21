@@ -169,9 +169,10 @@ public final class a {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    class AnonymousClass2 implements Runnable {
+    public class AnonymousClass2 implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;

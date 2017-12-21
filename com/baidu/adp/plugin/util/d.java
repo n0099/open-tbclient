@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Ey = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Ez = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        Ey.put(Boolean.class, Boolean.TYPE);
-        Ey.put(Byte.class, Byte.TYPE);
-        Ey.put(Character.class, Character.TYPE);
-        Ey.put(Short.class, Short.TYPE);
-        Ey.put(Integer.class, Integer.TYPE);
-        Ey.put(Float.class, Float.TYPE);
-        Ey.put(Long.class, Long.TYPE);
-        Ey.put(Double.class, Double.TYPE);
-        Ey.put(Boolean.TYPE, Boolean.TYPE);
-        Ey.put(Byte.TYPE, Byte.TYPE);
-        Ey.put(Character.TYPE, Character.TYPE);
-        Ey.put(Short.TYPE, Short.TYPE);
-        Ey.put(Integer.TYPE, Integer.TYPE);
-        Ey.put(Float.TYPE, Float.TYPE);
-        Ey.put(Long.TYPE, Long.TYPE);
-        Ey.put(Double.TYPE, Double.TYPE);
+        Ez.put(Boolean.class, Boolean.TYPE);
+        Ez.put(Byte.class, Byte.TYPE);
+        Ez.put(Character.class, Character.TYPE);
+        Ez.put(Short.class, Short.TYPE);
+        Ez.put(Integer.class, Integer.TYPE);
+        Ez.put(Float.class, Float.TYPE);
+        Ez.put(Long.class, Long.TYPE);
+        Ez.put(Double.class, Double.TYPE);
+        Ez.put(Boolean.TYPE, Boolean.TYPE);
+        Ez.put(Byte.TYPE, Byte.TYPE);
+        Ez.put(Character.TYPE, Character.TYPE);
+        Ez.put(Short.TYPE, Short.TYPE);
+        Ez.put(Integer.TYPE, Integer.TYPE);
+        Ez.put(Float.TYPE, Float.TYPE);
+        Ez.put(Long.TYPE, Long.TYPE);
+        Ez.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Ey.containsKey(clsArr[i]) && Ey.get(clsArr[i]).equals(Ey.get(clsArr2[i]))) {
+                if (Ez.containsKey(clsArr[i]) && Ez.get(clsArr[i]).equals(Ez.get(clsArr2[i]))) {
                     return true;
                 }
             }

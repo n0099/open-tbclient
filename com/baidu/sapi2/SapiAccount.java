@@ -85,7 +85,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (str.equals("displayname")) {
             return this.displayname;
         }
-        if (str.equals("username")) {
+        if (str.equals(ISapiAccount.SAPI_ACCOUNT_USERNAME)) {
             return this.username;
         }
         if (str.equals(ISapiAccount.SAPI_ACCOUNT_EMAIL)) {
@@ -117,7 +117,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("displayname", this.displayname);
-            jSONObject.put("username", this.username);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, this.username);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_EMAIL, this.email);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, this.phone);
             jSONObject.put("bduss", this.bduss);
@@ -153,7 +153,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         SapiAccount sapiAccount = new SapiAccount();
         sapiAccount.uid = jSONObject.optString("uid");
         sapiAccount.displayname = jSONObject.optString("displayname");
-        sapiAccount.username = jSONObject.optString("username");
+        sapiAccount.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
         sapiAccount.email = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_EMAIL);
         sapiAccount.phone = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
         sapiAccount.bduss = jSONObject.optString("bduss");

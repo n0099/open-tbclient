@@ -18,65 +18,65 @@ import com.baidu.tieba.play.g;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private c fRv;
-    private int fRw = 0;
-    private int fRx = 0;
+    private c fRA;
+    private int fRB = 0;
+    private int fRC = 0;
     private Handler mHandler = new Handler();
 
     public a(c cVar) {
-        this.fRv = cVar;
+        this.fRA = cVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.fRv == null) {
+        if (this.fRA == null) {
             return false;
         }
         if (i == -300) {
-            if (this.fRx == 0) {
-                this.fRx++;
-                this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 0, this.fRx), 200L);
-            } else if (this.fRx == 1) {
-                this.fRx++;
-                this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 1, this.fRx), 200L);
+            if (this.fRC == 0) {
+                this.fRC++;
+                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRC), 200L);
+            } else if (this.fRC == 1) {
+                this.fRC++;
+                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRC), 200L);
             } else {
                 return false;
             }
             return true;
         } else if (i3 == -4399) {
-            if (this.fRw < 4 && i == -200) {
-                if (!a(gVar, i, i2, i3, uri, this.fRw)) {
-                    this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 0, this.fRw), 200L);
+            if (this.fRB < 4 && i == -200) {
+                if (!a(gVar, i, i2, i3, uri, this.fRB)) {
+                    this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
                 }
-                this.fRw = 4;
+                this.fRB = 4;
                 return true;
             } else if (i == -100) {
-                this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 1, this.fRw), 200L);
+                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
                 return true;
             } else {
                 return false;
             }
         } else {
-            this.fRw++;
-            if (this.fRw <= 2) {
-                if (!a(gVar, i, i2, i3, uri, this.fRw)) {
+            this.fRB++;
+            if (this.fRB <= 2) {
+                if (!a(gVar, i, i2, i3, uri, this.fRB)) {
                     if (i == -200) {
-                        this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 0, this.fRw), 200L);
-                        this.fRw = 2;
+                        this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
+                        this.fRB = 2;
                     } else {
-                        this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 1, this.fRw), 200L);
-                        this.fRw = 4;
+                        this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
+                        this.fRB = 4;
                         return false;
                     }
                 }
                 return true;
-            } else if (this.fRw <= 4) {
+            } else if (this.fRB <= 4) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 0, this.fRw), 200L);
+                    this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
                     return true;
                 }
                 return false;
-            } else if (this.fRw <= 6 && i == -200) {
-                this.mHandler.postDelayed(new b(this.fRv, gVar, i, i2, i3, 1, this.fRw), 200L);
+            } else if (this.fRB <= 6 && i == -200) {
+                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
                 return true;
             } else {
                 return false;
@@ -85,64 +85,64 @@ public class a {
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!bjN() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
+        if (!bjO() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
             return false;
         }
-        com.baidu.tieba.play.a.b.bjM().a(new C0136a(this.mHandler, this.fRv, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.a.b.bjM().ru(uri.getHost());
+        com.baidu.tieba.play.a.b.bjN().a(new C0135a(this.mHandler, this.fRA, i, uri, gVar, i2, i3, i4));
+        return com.baidu.tieba.play.a.b.bjN().ru(uri.getHost());
     }
 
-    private boolean bjN() {
-        return (com.baidu.adp.lib.b.d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.biP() == 0) ? false : true;
+    private boolean bjO() {
+        return (com.baidu.adp.lib.b.d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.biQ() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.play.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0136a implements b.InterfaceC0135b {
-        private int afo;
-        private int fRA;
-        private c fRv;
-        private g fRy;
-        private int fRz;
+    public static class C0135a implements b.InterfaceC0134b {
+        private int afr;
+        private c fRA;
+        private g fRD;
+        private int fRE;
+        private int fRF;
         private Handler mHandler;
         private Uri mUri;
         private int what;
 
-        public C0136a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
+        public C0135a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
-            this.fRv = cVar;
+            this.fRA = cVar;
             this.mUri = uri;
-            this.fRy = gVar;
-            this.fRz = i;
+            this.fRD = gVar;
+            this.fRE = i;
             this.what = i2;
-            this.fRA = i3;
-            this.afo = i4;
+            this.fRF = i3;
+            this.afr = i4;
         }
 
-        @Override // com.baidu.tieba.play.a.b.InterfaceC0135b
+        @Override // com.baidu.tieba.play.a.b.InterfaceC0134b
         public void bS(String str, String str2) {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
                     if (this.mHandler != null) {
-                        this.mHandler.postDelayed(new b(this.fRv, this.fRy, this.fRz, this.what, this.fRA, 0, this.afo), 200L);
+                        this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, 0, this.afr), 200L);
                     }
                 } else if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRv, this.fRy, this.fRz, this.what, this.fRA, str, 2, this.afo), 200L);
+                    this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, str, 2, this.afr), 200L);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
                 if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRv, this.fRy, this.fRz, this.what, this.fRA, 0, this.afo), 200L);
+                    this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, 0, this.afr), 200L);
                 }
             }
         }
     }
 
-    public boolean bjO() {
-        boolean z = this.fRw > 0 || this.fRx > 0;
-        this.fRw = 0;
-        this.fRx = 0;
+    public boolean bjP() {
+        boolean z = this.fRB > 0 || this.fRC > 0;
+        this.fRB = 0;
+        this.fRC = 0;
         return z;
     }
 
@@ -285,46 +285,46 @@ public class a {
 
     /* loaded from: classes.dex */
     private static class b implements Runnable {
-        private final int afo;
-        private final int fRA;
-        private c fRv;
-        private final g fRy;
-        private final int fRz;
+        private final int afr;
+        private c fRA;
+        private final g fRD;
+        private final int fRE;
+        private final int fRF;
         private final String ip;
         private final int type;
         private final int what;
 
         public b(c cVar, g gVar, int i, int i2, int i3, int i4, int i5) {
-            this.fRv = cVar;
-            this.fRy = gVar;
-            this.fRz = i;
+            this.fRA = cVar;
+            this.fRD = gVar;
+            this.fRE = i;
             this.what = i2;
-            this.fRA = i3;
+            this.fRF = i3;
             this.type = i4;
-            this.afo = i5;
+            this.afr = i5;
             this.ip = "";
         }
 
         public b(c cVar, g gVar, int i, int i2, int i3, String str, int i4, int i5) {
-            this.fRv = cVar;
-            this.fRy = gVar;
-            this.fRz = i;
+            this.fRA = cVar;
+            this.fRD = gVar;
+            this.fRE = i;
             this.what = i2;
-            this.fRA = i3;
+            this.fRF = i3;
             this.ip = str;
             this.type = i4;
-            this.afo = i5;
+            this.afr = i5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.fRv != null) {
+            if (this.fRA != null) {
                 if (this.type == 0) {
-                    this.fRv.a(this.fRy, this.fRz, this.what, this.fRA, this.afo);
+                    this.fRA.a(this.fRD, this.fRE, this.what, this.fRF, this.afr);
                 } else if (this.type == 1) {
-                    this.fRv.b(this.fRy, this.fRz, this.what, this.fRA, this.afo);
+                    this.fRA.b(this.fRD, this.fRE, this.what, this.fRF, this.afr);
                 } else if (this.type == 2) {
-                    this.fRv.a(this.fRy, this.fRz, this.what, this.fRA, this.ip, this.afo);
+                    this.fRA.a(this.fRD, this.fRE, this.what, this.fRF, this.ip, this.afr);
                 }
             }
         }

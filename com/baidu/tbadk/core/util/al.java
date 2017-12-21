@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class al {
-    private static al aho;
+    private static al ahr;
 
     public static synchronized al vm() {
         al alVar;
         synchronized (al.class) {
-            if (aho == null) {
-                aho = new al();
+            if (ahr == null) {
+                ahr = new al();
             }
-            alVar = aho;
+            alVar = ahr;
         }
         return alVar;
     }
@@ -52,7 +52,7 @@ public class al {
     }
 
     public boolean Z(String str, String str2) {
-        String str3 = k.xQ + "/" + TbConfig.getTempDirName() + "/";
+        String str3 = k.xR + "/" + TbConfig.getTempDirName() + "/";
         if (!k.dh(str3)) {
             k.dy(str3);
         }
@@ -87,12 +87,12 @@ public class al {
     }
 
     public void vn() {
-        u(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        u(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+        u(new File(k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        u(new File(k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
     public void vo() {
-        v(new File(k.xQ + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
+        v(new File(k.xR + "/" + TbConfig.getTempDirName() + "/" + k.cD(3)));
     }
 
     private void v(File file) {

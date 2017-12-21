@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends e<l, m> {
-    private final int cJf;
+    private final int cJj;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cJf = (com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.cJj = (com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class k extends e<l, m> {
     /* renamed from: ag */
     public m onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.cJf));
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.cJj));
         return new m(inflate);
     }
 
@@ -33,12 +33,12 @@ public class k extends e<l, m> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, m mVar) {
         super.onFillViewHolder(i, view, viewGroup, lVar, mVar);
-        if (lVar.amq() == 6) {
-            mVar.cJi.setText(d.j.attention_no_post_tip);
+        if (lVar.amr() == 6) {
+            mVar.cJm.setText(d.j.attention_no_post_tip);
         } else {
-            mVar.cJi.setText(d.j.no_data_text);
+            mVar.cJm.setText(d.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.aj.c(mVar.cJi, d.C0096d.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.aj.c(mVar.cJm, d.C0095d.cp_cont_d, 1);
         return view;
     }
 }

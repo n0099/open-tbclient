@@ -131,11 +131,11 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
     public TbImageView(Context context) {
         super(context);
         this.mEvent = null;
-        this.mDefaultId = d.C0096d.transparent;
+        this.mDefaultId = d.C0095d.transparent;
         this.mDefaultErrorId = d.f.img_default_100;
         this.mDefaultIdInUse = this.mDefaultId;
         this.mLoadingDefaultId = d.f.img_loading;
-        this.mDefaultBgId = d.C0096d.cp_bg_line_e;
+        this.mDefaultBgId = d.C0095d.cp_bg_line_e;
         this.mIsGif = false;
         this.isLongPic = false;
         this.mType = 10;
@@ -201,15 +201,15 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
                     TbImageView.this.mEvent.r(str, aVar != null);
                 }
                 if (aVar != null) {
-                    if (aVar.Gk != null) {
-                        TbImageView.this.mPerfLog.Gm = aVar.Gk.Gm;
-                        TbImageView.this.mPerfLog.isSuccess = aVar.Gk.Go;
-                        TbImageView.this.mPerfLog.Gn = aVar.Gk.Gn;
+                    if (aVar.Gl != null) {
+                        TbImageView.this.mPerfLog.Gn = aVar.Gl.Gn;
+                        TbImageView.this.mPerfLog.isSuccess = aVar.Gl.Gp;
+                        TbImageView.this.mPerfLog.Go = aVar.Gl.Go;
                     }
                 } else {
-                    TbImageView.this.mPerfLog.Gm = "net";
+                    TbImageView.this.mPerfLog.Gn = "net";
                     TbImageView.this.mPerfLog.isSuccess = false;
-                    TbImageView.this.mPerfLog.Gn = System.currentTimeMillis() - TbImageView.this.requestTime;
+                    TbImageView.this.mPerfLog.Go = System.currentTimeMillis() - TbImageView.this.requestTime;
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -270,11 +270,11 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mEvent = null;
-        this.mDefaultId = d.C0096d.transparent;
+        this.mDefaultId = d.C0095d.transparent;
         this.mDefaultErrorId = d.f.img_default_100;
         this.mDefaultIdInUse = this.mDefaultId;
         this.mLoadingDefaultId = d.f.img_loading;
-        this.mDefaultBgId = d.C0096d.cp_bg_line_e;
+        this.mDefaultBgId = d.C0095d.cp_bg_line_e;
         this.mIsGif = false;
         this.isLongPic = false;
         this.mType = 10;
@@ -340,15 +340,15 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
                     TbImageView.this.mEvent.r(str, aVar != null);
                 }
                 if (aVar != null) {
-                    if (aVar.Gk != null) {
-                        TbImageView.this.mPerfLog.Gm = aVar.Gk.Gm;
-                        TbImageView.this.mPerfLog.isSuccess = aVar.Gk.Go;
-                        TbImageView.this.mPerfLog.Gn = aVar.Gk.Gn;
+                    if (aVar.Gl != null) {
+                        TbImageView.this.mPerfLog.Gn = aVar.Gl.Gn;
+                        TbImageView.this.mPerfLog.isSuccess = aVar.Gl.Gp;
+                        TbImageView.this.mPerfLog.Go = aVar.Gl.Go;
                     }
                 } else {
-                    TbImageView.this.mPerfLog.Gm = "net";
+                    TbImageView.this.mPerfLog.Gn = "net";
                     TbImageView.this.mPerfLog.isSuccess = false;
-                    TbImageView.this.mPerfLog.Gn = System.currentTimeMillis() - TbImageView.this.requestTime;
+                    TbImageView.this.mPerfLog.Go = System.currentTimeMillis() - TbImageView.this.requestTime;
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -547,9 +547,9 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
             this.mIsGif = false;
             requestLayout();
         } else if (getBdImage() != null) {
-            this.mPerfLog.Gm = "memory";
+            this.mPerfLog.Gn = "memory";
             this.mPerfLog.isSuccess = true;
-            this.mPerfLog.Gn = 0L;
+            this.mPerfLog.Go = 0L;
             invalidate();
             if (this.mEvent != null) {
                 this.mEvent.r(str, true);
@@ -568,9 +568,9 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
         } else if (!com.baidu.adp.lib.f.c.fJ().an(this.mType) && this.mSupportNoImage) {
             invalidate();
         } else if (z3 && !j.hh()) {
-            this.mPerfLog.Gm = "memory";
+            this.mPerfLog.Gn = "memory";
             this.mPerfLog.isSuccess = false;
-            this.mPerfLog.Gn = 0L;
+            this.mPerfLog.Go = 0L;
             this.mDefaultIdInUse = this.mDefaultErrorId;
             invalidate();
             if (this.mEvent != null) {
@@ -653,9 +653,9 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
     public void drawContentTag(Canvas canvas, ImageView imageView) {
         super.drawContentTag(canvas, imageView);
         if (this.mTagDrawer != null && this.mArgs != null) {
-            if (this.mArgs.Bp && isGif()) {
+            if (this.mArgs.Bq && isGif()) {
                 this.mTagDrawer.c(canvas, getContext().getString(d.j.icon_tag_gif));
-            } else if (this.mArgs.Bo && isLongPic()) {
+            } else if (this.mArgs.Bp && isLongPic()) {
                 this.mTagDrawer.c(canvas, getContext().getString(d.j.icon_tag_long));
             } else if (this.mTagStr != null) {
                 this.mTagDrawer.c(canvas, this.mTagStr);
@@ -717,9 +717,9 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
 
     private void updateNight() {
         if (this.mAutoChangeStyle) {
-            this.mArgs.Bm = TbadkCoreApplication.getInst().getSkinType() == 1;
+            this.mArgs.Bn = TbadkCoreApplication.getInst().getSkinType() == 1;
         } else {
-            this.mArgs.Bm = false;
+            this.mArgs.Bn = false;
         }
         int i = this.mCurrentDefaultId;
         int i2 = this.mShowLoading ? this.mLoadingDefaultId : this.mDefaultId;
@@ -846,7 +846,7 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.aKn) {
+        } else if (this.mPerfLog != null && this.mPerfLog.aKq) {
             this.mPerfLog.Gv();
         }
     }

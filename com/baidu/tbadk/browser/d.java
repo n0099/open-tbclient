@@ -35,7 +35,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean RV = true;
+    public static boolean RW = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -214,7 +214,7 @@ public class d {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String cf = cf(str);
-        if (!ci(cf) && oj() && ck("com.baidu.searchbox") && cj(cf) && RV) {
+        if (!ci(cf) && oj() && ck("com.baidu.searchbox") && cj(cf) && RW) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;

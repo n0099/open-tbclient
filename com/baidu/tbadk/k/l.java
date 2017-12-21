@@ -1,9 +1,9 @@
 package com.baidu.tbadk.k;
 /* loaded from: classes.dex */
 public class l extends k {
-    public String Gm;
-    public long Gn;
-    public boolean aKn;
+    public String Gn;
+    public long Go;
+    public boolean aKq;
     public boolean isSuccess;
 
     public void Gu() {

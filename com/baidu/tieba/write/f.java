@@ -22,7 +22,7 @@ public class f {
         String str2;
         String str3;
         if (forumWriteData != null) {
-            if (bFN()) {
+            if (bFO()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str)));
             } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -71,52 +71,52 @@ public class f {
 
     /* loaded from: classes.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private TbPageContext daf;
-        private ForumWriteData heN;
-        private com.baidu.tbadk.core.dialog.c heO;
+        private TbPageContext daj;
+        private ForumWriteData heS;
+        private com.baidu.tbadk.core.dialog.c heT;
 
         public a(TbPageContext tbPageContext, ForumWriteData forumWriteData, com.baidu.tbadk.core.dialog.c cVar) {
-            this.daf = null;
-            this.daf = tbPageContext;
-            this.heN = forumWriteData;
-            this.heO = cVar;
+            this.daj = null;
+            this.daj = tbPageContext;
+            this.heS = forumWriteData;
+            this.heT = cVar;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.heO != null) {
-                this.heO.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.heT != null) {
+                this.heT.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (this.heO != null) {
-                g.b(this.heO, this.daf);
+            if (this.heT != null) {
+                g.b(this.heT, this.daj);
             }
-            this.daf.showToast(d.j.plugin_video_installing);
+            this.daj.showToast(d.j.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (this.heO != null) {
-                g.b(this.heO, this.daf);
+            if (this.heT != null) {
+                g.b(this.heT, this.daj);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.daf != null) {
-                this.daf.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.daj != null) {
+                this.daj.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.js().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (this.heO != null) {
-                g.b(this.heO, this.daf);
+            if (this.heT != null) {
+                g.b(this.heT, this.daj);
             }
             if (i == 0) {
-                f.a(this.daf, "", this.heN);
+                f.a(this.daj, "", this.heS);
             } else {
-                this.daf.showToast(this.daf.getString(d.j.install_failed) + str);
+                this.daj.showToast(this.daj.getString(d.j.install_failed) + str);
             }
             PluginPackageManager.js().a((com.baidu.adp.plugin.packageManager.d) null);
         }
@@ -138,7 +138,7 @@ public class f {
         return cVar;
     }
 
-    public static boolean bFN() {
+    public static boolean bFO() {
         return com.baidu.adp.lib.b.d.eV().af("add_video_thread_switch") != 1;
     }
 }

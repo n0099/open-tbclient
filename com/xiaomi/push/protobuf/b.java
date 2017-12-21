@@ -328,7 +328,7 @@ public final class b {
 
     /* renamed from: com.xiaomi.push.protobuf.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0180b extends com.google.protobuf.micro.e {
+    public static final class C0179b extends com.google.protobuf.micro.e {
         private boolean a;
         private boolean c;
         private boolean e;
@@ -339,8 +339,8 @@ public final class b {
         private int h = 0;
         private int i = -1;
 
-        public static C0180b b(byte[] bArr) {
-            return (C0180b) new C0180b().a(bArr);
+        public static C0179b b(byte[] bArr) {
+            return (C0179b) new C0179b().a(bArr);
         }
 
         @Override // com.google.protobuf.micro.e
@@ -351,13 +351,13 @@ public final class b {
             return this.i;
         }
 
-        public C0180b a(int i) {
+        public C0179b a(int i) {
             this.c = true;
             this.d = i;
             return this;
         }
 
-        public C0180b a(boolean z) {
+        public C0179b a(boolean z) {
             this.a = true;
             this.b = z;
             return this;
@@ -395,7 +395,7 @@ public final class b {
             return L;
         }
 
-        public C0180b b(int i) {
+        public C0179b b(int i) {
             this.e = true;
             this.f = i;
             return this;
@@ -404,7 +404,7 @@ public final class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.micro.e
         /* renamed from: b */
-        public C0180b a(com.google.protobuf.micro.b bVar) {
+        public C0179b a(com.google.protobuf.micro.b bVar) {
             while (true) {
                 int a = bVar.a();
                 switch (a) {
@@ -433,7 +433,7 @@ public final class b {
             return this;
         }
 
-        public C0180b c(int i) {
+        public C0179b c(int i) {
             this.g = true;
             this.h = i;
             return this;
@@ -828,7 +828,7 @@ public final class b {
         private String l = "";
         private String n = "";
         private String p = "";
-        private C0180b r = null;
+        private C0179b r = null;
         private int t = 0;
         private int u = -1;
 
@@ -846,12 +846,12 @@ public final class b {
             return this;
         }
 
-        public e a(C0180b c0180b) {
-            if (c0180b == null) {
+        public e a(C0179b c0179b) {
+            if (c0179b == null) {
                 throw new NullPointerException();
             }
             this.q = true;
-            this.r = c0180b;
+            this.r = c0179b;
             return this;
         }
 
@@ -969,9 +969,9 @@ public final class b {
                         f(bVar.g());
                         break;
                     case 74:
-                        C0180b c0180b = new C0180b();
-                        bVar.a(c0180b);
-                        a(c0180b);
+                        C0179b c0179b = new C0179b();
+                        bVar.a(c0179b);
+                        a(c0179b);
                         break;
                     case 80:
                         c(bVar.e());
@@ -1091,7 +1091,7 @@ public final class b {
             return this.q;
         }
 
-        public C0180b u() {
+        public C0179b u() {
             return this.r;
         }
 
@@ -1111,7 +1111,7 @@ public final class b {
         private boolean e;
         private String b = "";
         private String d = "";
-        private C0180b f = null;
+        private C0179b f = null;
         private int g = -1;
 
         public static f b(byte[] bArr) {
@@ -1126,12 +1126,12 @@ public final class b {
             return this.g;
         }
 
-        public f a(C0180b c0180b) {
-            if (c0180b == null) {
+        public f a(C0179b c0179b) {
+            if (c0179b == null) {
                 throw new NullPointerException();
             }
             this.e = true;
-            this.f = c0180b;
+            this.f = c0179b;
             return this;
         }
 
@@ -1183,9 +1183,9 @@ public final class b {
                         b(bVar.g());
                         break;
                     case 26:
-                        C0180b c0180b = new C0180b();
-                        bVar.a(c0180b);
-                        a(c0180b);
+                        C0179b c0179b = new C0179b();
+                        bVar.a(c0179b);
+                        a(c0179b);
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1224,7 +1224,7 @@ public final class b {
             return this.e;
         }
 
-        public C0180b i() {
+        public C0179b i() {
             return this.f;
         }
     }
@@ -1447,7 +1447,7 @@ public final class b {
     /* loaded from: classes2.dex */
     public static final class i extends com.google.protobuf.micro.e {
         private boolean a;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.hym;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.hyr;
         private int c = -1;
 
         public static i b(byte[] bArr) {
@@ -1492,7 +1492,7 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.bMJ());
+                        a(bVar.bMK());
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1518,8 +1518,8 @@ public final class b {
     public static final class j extends com.google.protobuf.micro.e {
         private boolean a;
         private boolean c;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.hym;
-        private C0180b d = null;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.hyr;
+        private C0179b d = null;
         private int e = -1;
 
         public static j b(byte[] bArr) {
@@ -1540,12 +1540,12 @@ public final class b {
             return this;
         }
 
-        public j a(C0180b c0180b) {
-            if (c0180b == null) {
+        public j a(C0179b c0179b) {
+            if (c0179b == null) {
                 throw new NullPointerException();
             }
             this.c = true;
-            this.d = c0180b;
+            this.d = c0179b;
             return this;
         }
 
@@ -1579,12 +1579,12 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.bMJ());
+                        a(bVar.bMK());
                         break;
                     case 18:
-                        C0180b c0180b = new C0180b();
-                        bVar.a(c0180b);
-                        a(c0180b);
+                        C0179b c0179b = new C0179b();
+                        bVar.a(c0179b);
+                        a(c0179b);
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1609,7 +1609,7 @@ public final class b {
             return this.c;
         }
 
-        public C0180b g() {
+        public C0179b g() {
             return this.d;
         }
     }

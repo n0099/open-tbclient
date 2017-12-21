@@ -3,8 +3,8 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c aHw = EZ();
-    protected e aHx;
+    protected e aHA;
+    protected c aHz = EZ();
 
     public abstract c EZ();
 
@@ -19,6 +19,6 @@ public abstract class b {
     }
 
     public c Fa() {
-        return this.aHw;
+        return this.aHz;
     }
 }

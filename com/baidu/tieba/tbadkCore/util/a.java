@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean gEq = true;
-    private static Boolean gEr = true;
+    private static Boolean gEv = true;
+    private static Boolean gEw = true;
 
     public static void th(String str) {
         ag(13, str);
     }
 
-    public static void bxK() {
+    public static void bxL() {
         uC(2);
     }
 
@@ -33,11 +33,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> bxL() {
+    public static ArrayList<String> bxM() {
         return uD(0);
     }
 
-    public static ArrayList<String> bxM() {
+    public static ArrayList<String> bxN() {
         return uD(1);
     }
 
@@ -114,11 +114,11 @@ public class a {
         }
     }
 
-    public static void bxN() {
+    public static void bxO() {
         uE(0);
     }
 
-    public static void bxO() {
+    public static void bxP() {
         uE(1);
     }
 
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> bxP() {
+    public static ArrayList<MarkData> bxQ() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -193,7 +193,7 @@ public class a {
     }
 
     public static void g(Boolean bool) {
-        gEq = bool;
+        gEv = bool;
     }
 
     public static void zl() {
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static void bxQ() {
+    public static void bxR() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

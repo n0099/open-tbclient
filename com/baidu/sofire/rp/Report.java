@@ -7,7 +7,7 @@ import com.baidu.sofire.rp.f.a;
 import com.baidu.sofire.rp.f.b;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report QE;
+    private static Report QF;
     private Context b;
 
     private Report(Context context) {
@@ -17,10 +17,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (QE == null) {
-                QE = new Report(context);
+            if (QF == null) {
+                QF = new Report(context);
             }
-            report = QE;
+            report = QF;
         }
         return report;
     }
@@ -47,7 +47,7 @@ public class Report {
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            at.QO.QK.sendMessage(message);
+            at.QP.QL.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -74,7 +74,7 @@ public class Report {
             b at = b.at(this.b);
             Message message = new Message();
             message.what = 6;
-            at.QO.QK.sendMessage(message);
+            at.QP.QL.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -85,7 +85,7 @@ public class Report {
             b at = b.at(this.b);
             Message message = new Message();
             message.what = 9;
-            at.QO.QK.sendMessage(message);
+            at.QP.QL.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }

@@ -21,14 +21,14 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private a Rw;
+    private a Rx;
     private final Context mContext;
-    private final String Rk = TbConfig.getTempDirName();
-    private int Rx = 0;
-    private String[] Ry = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] Rz = {"_id", "_data", VrPlayerActivityConfig.TITLE, "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-    private String[] RA = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> RB = new HashMap<>();
+    private final String Rl = TbConfig.getTempDirName();
+    private int Ry = 0;
+    private String[] Rz = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] RA = {"_id", "_data", VrPlayerActivityConfig.TITLE, "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    private String[] RB = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> RC = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
@@ -36,11 +36,11 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public g nD() {
-        this.RB.clear();
+        this.RC.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.Rx != 2) {
+        if (this.Ry != 2) {
             list = nE();
         }
         ArrayList arrayList = new ArrayList();
@@ -64,17 +64,17 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.RB.values());
+        ArrayList arrayList2 = new ArrayList(this.RC.values());
         if (!v.w(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.Rk.equals(aVar.getName())) {
+                    if (f.this.Rl.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.Rk.equals(aVar2.getName())) {
+                    if (f.this.Rl.equals(aVar2.getName())) {
                         return 1;
                     }
                     long sortTime = aVar2.nx().getSortTime() - aVar.nx().getSortTime();
@@ -85,9 +85,9 @@ public class f {
                 }
             });
         }
-        gVar.RE = arrayList2;
-        gVar.RG = list;
-        gVar.RF = arrayList;
+        gVar.RF = arrayList2;
+        gVar.RH = list;
+        gVar.RG = arrayList;
         return gVar;
     }
 
@@ -112,7 +112,7 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.Ry, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.Rz, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -138,10 +138,10 @@ public class f {
                 imageFileInfo.setModifyTime(am.J(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.RB.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.RC.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.RB.put(string, aVar3);
+                    this.RC.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
@@ -173,7 +173,7 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.Rz, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.RA, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -228,20 +228,20 @@ public class f {
             return false;
         }
         nF();
-        this.Rx = i;
-        this.Rw = new a(eVar);
-        this.Rw.setPriority(3);
-        this.Rw.execute(new Object[0]);
+        this.Ry = i;
+        this.Rx = new a(eVar);
+        this.Rx.setPriority(3);
+        this.Rx.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e RD;
+        private final e RE;
 
         public a(e eVar) {
-            this.RD = eVar;
+            this.RE = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,8 +256,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.RD != null) {
-                this.RD.onPreLoad();
+            if (this.RE != null) {
+                this.RE.onPreLoad();
             }
         }
 
@@ -267,16 +267,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.RD != null) {
-                this.RD.a(gVar);
+            if (this.RE != null) {
+                this.RE.a(gVar);
             }
         }
     }
 
     public void nF() {
-        if (this.Rw != null) {
-            this.Rw.cancel();
-            this.Rw = null;
+        if (this.Rx != null) {
+            this.Rx.cancel();
+            this.Rx = null;
         }
     }
 }

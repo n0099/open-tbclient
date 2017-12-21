@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class r {
-    private View aNi;
-    private int aNj;
-    private boolean aNk;
+    private View aNl;
+    private int aNm;
+    private boolean aNn;
     private final Handler mHandler;
 
     public void Ho() {
@@ -29,41 +29,41 @@ public class r {
     }
 
     public void bZ(boolean z) {
-        if (this.aNi != null) {
-            if (z || this.aNi.getVisibility() != 8) {
+        if (this.aNl != null) {
+            if (z || this.aNl.getVisibility() != 8) {
                 Hp();
             }
         }
     }
 
     public void ca(boolean z) {
-        if (this.aNi != null) {
-            if (z || this.aNi.getVisibility() != 0) {
+        if (this.aNl != null) {
+            if (z || this.aNl.getVisibility() != 0) {
                 Ho();
             }
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
-        if (this.aNi != null) {
-            if (i != 0 && i2 > i && this.aNi.getVisibility() != 8) {
+        if (this.aNl != null) {
+            if (i != 0 && i2 > i && this.aNl.getVisibility() != 8) {
                 bZ(false);
-            } else if ((i == 0 || i2 < i) && this.aNi.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aNl.getVisibility() != 0) {
                 ca(false);
             }
-            this.aNj = i;
+            this.aNm = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
-            if (firstVisiblePosition > this.aNj) {
+            if (firstVisiblePosition > this.aNm) {
                 bZ(true);
-            } else if (firstVisiblePosition < this.aNj) {
+            } else if (firstVisiblePosition < this.aNm) {
                 ca(true);
-            } else if (firstVisiblePosition == this.aNj) {
-                if (firstVisiblePosition == 0 || !this.aNk) {
+            } else if (firstVisiblePosition == this.aNm) {
+                if (firstVisiblePosition == 0 || !this.aNn) {
                     ca(true);
                 } else {
                     bZ(true);

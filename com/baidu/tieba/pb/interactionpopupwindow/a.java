@@ -18,44 +18,44 @@ import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    private DialogInterface.OnCancelListener abo;
-    private DialogInterface.OnKeyListener abp;
-    private AlertDialog abq;
-    protected V eQB;
-    protected D eQC;
+    private DialogInterface.OnCancelListener abr;
+    private DialogInterface.OnKeyListener abt;
+    private AlertDialog abu;
+    protected V eQG;
+    protected D eQH;
     protected Context mContext;
     protected TbPageContext mPageContext;
-    private int abf = -1;
-    private boolean eQA = true;
+    private int abi = -1;
+    private boolean eQF = true;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.eQB = v;
-        this.eQC = d;
+        this.eQG = v;
+        this.eQH = d;
         a(d);
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
     public void show() {
-        if (this.abq != null) {
-            com.baidu.adp.lib.g.g.a(this.abq, this.mPageContext.getPageActivity());
+        if (this.abu != null) {
+            com.baidu.adp.lib.g.g.a(this.abu, this.mPageContext.getPageActivity());
             return;
         }
-        this.abq = new AlertDialog.Builder(this.mContext).create();
-        this.abq.setCanceledOnTouchOutside(aSn());
-        this.abq.setCancelable(aSo());
-        this.abq.setOnKeyListener(this.abp);
-        if (this.abo != null) {
-            this.abq.setOnCancelListener(this.abo);
+        this.abu = new AlertDialog.Builder(this.mContext).create();
+        this.abu.setCanceledOnTouchOutside(aSo());
+        this.abu.setCancelable(aSp());
+        this.abu.setOnKeyListener(this.abt);
+        if (this.abr != null) {
+            this.abu.setOnCancelListener(this.abr);
         }
-        com.baidu.adp.lib.g.g.a(this.abq, this.mPageContext.getPageActivity());
-        if (this.abq.getWindow().getDecorView().getParent() != null) {
-            Window window = this.abq.getWindow();
-            if (this.abf == -1) {
-                this.abf = 17;
+        com.baidu.adp.lib.g.g.a(this.abu, this.mPageContext.getPageActivity());
+        if (this.abu.getWindow().getDecorView().getParent() != null) {
+            Window window = this.abu.getWindow();
+            if (this.abi == -1) {
+                this.abi = 17;
             }
-            window.setGravity(this.abf);
+            window.setGravity(this.abi);
             window.setBackgroundDrawableResource(d.f.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
@@ -71,9 +71,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.eQB.getViewGroup());
+            window.setContentView(this.eQG.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ax.a(this.eQB.getViewGroup(), false, new ax.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+            ax.a(this.eQG.getViewGroup(), false, new ax.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.tbadk.core.util.ax.a
                 public boolean w(View view) {
                     if (view instanceof EditText) {
@@ -91,14 +91,14 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
     public void dismiss() {
-        if (this.abq != null) {
-            com.baidu.adp.lib.g.g.b(this.abq, this.mPageContext.getPageActivity());
+        if (this.abu != null) {
+            com.baidu.adp.lib.g.g.b(this.abu, this.mPageContext.getPageActivity());
         }
     }
 
     public void a(D d) {
-        if (this.eQB != null) {
-            this.eQB.a(d);
+        if (this.eQG != null) {
+            this.eQG.a(d);
         }
     }
 }

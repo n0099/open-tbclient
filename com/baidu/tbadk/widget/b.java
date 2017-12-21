@@ -8,13 +8,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class b extends TbImageView {
-    private static Method aOD;
-    private boolean aOE;
+    private static Method aOG;
+    private boolean aOH;
 
     static {
-        aOD = null;
+        aOG = null;
         try {
-            aOD = b.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            aOG = b.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException e) {
         }
     }
@@ -25,7 +25,7 @@ public class b extends TbImageView {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aOE = false;
+        this.aOH = false;
         b(context, attributeSet, i);
     }
 
@@ -76,16 +76,16 @@ public class b extends TbImageView {
         if (Build.VERSION.SDK_INT >= 11) {
             CompatibleUtile.getInstance().closeViewGpu(this);
             try {
-                if (aOD != null) {
-                    aOD.invoke(this, 1, null);
+                if (aOG != null) {
+                    aOG.invoke(this, 1, null);
                 }
             } catch (Exception e) {
             }
         }
         if (z2 || z) {
-            this.aOE = false;
+            this.aOH = false;
         } else {
-            this.aOE = true;
+            this.aOH = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class b extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.aOE ? 4 : 5);
+            super.setDrawerType(this.aOH ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }

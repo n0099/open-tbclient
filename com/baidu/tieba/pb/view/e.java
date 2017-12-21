@@ -21,54 +21,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends ViewGroup {
-    private int flN;
-    private int flO;
-    private int flP;
-    private int flQ;
-    private int flR;
-    private float flS;
-    private float flT;
+    private int flS;
+    private int flT;
     private int flU;
-    private boolean flV;
-    private ImageView flW;
-    private List<ImageView> flX;
-    private TextView flY;
-    private List<TextView> flZ;
+    private int flV;
+    private int flW;
+    private float flX;
+    private float flY;
+    private int flZ;
     private boolean fma;
-    private int fmb;
-    private int fmc;
-    private AnimatorSet fmd;
-    private AnimatorSet fme;
-    private AnimatorSet fmf;
-    private Interpolator fmg;
-    private Interpolator fmh;
+    private ImageView fmb;
+    private List<ImageView> fmc;
+    private TextView fmd;
+    private List<TextView> fme;
+    private boolean fmf;
+    private int fmg;
+    private int fmh;
+    private AnimatorSet fmi;
+    private AnimatorSet fmj;
+    private AnimatorSet fmk;
+    private Interpolator fml;
+    private Interpolator fmm;
     private int mRadius;
     private int mScreenWidth;
 
     public e(Context context) {
         super(context);
-        this.flQ = 30;
-        this.flR = l.f(getContext(), d.e.ds112);
-        this.flS = 160.0f;
-        this.flT = 20.0f;
-        this.flV = false;
-        this.fmg = new OvershootInterpolator();
-        this.fmh = new DecelerateInterpolator();
+        this.flV = 30;
+        this.flW = l.f(getContext(), d.e.ds112);
+        this.flX = 160.0f;
+        this.flY = 20.0f;
+        this.fma = false;
+        this.fml = new OvershootInterpolator();
+        this.fmm = new DecelerateInterpolator();
         init();
     }
 
     private void init() {
-        this.flO = getResources().getDimensionPixelSize(d.e.ds84);
-        this.flP = getResources().getDimensionPixelSize(d.e.ds120);
-        this.flN = getResources().getDimensionPixelSize(d.e.ds36);
-        this.flX = new ArrayList();
+        this.flT = getResources().getDimensionPixelSize(d.e.ds84);
+        this.flU = getResources().getDimensionPixelSize(d.e.ds120);
+        this.flS = getResources().getDimensionPixelSize(d.e.ds36);
+        this.fmc = new ArrayList();
         for (int i = 0; i < 4; i++) {
             ImageView imageView = new ImageView(getContext());
             imageView.setVisibility(4);
-            this.flX.add(imageView);
+            this.fmc.add(imageView);
             addView(imageView);
         }
-        this.flZ = new ArrayList();
+        this.fme = new ArrayList();
         for (int i2 = 0; i2 < 4; i2++) {
             TextView textView = new TextView(getContext());
             switch (i2) {
@@ -90,12 +90,12 @@ public class e extends ViewGroup {
             textView.setTextColor(-1);
             textView.setGravity(17);
             textView.setVisibility(4);
-            this.flZ.add(textView);
+            this.fme.add(textView);
             addView(textView);
         }
         this.mScreenWidth = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth();
-        this.fmb = l.f(getContext(), d.e.ds70);
-        this.fmc = l.f(getContext(), d.e.ds52);
+        this.fmg = l.f(getContext(), d.e.ds70);
+        this.fmh = l.f(getContext(), d.e.ds52);
     }
 
     private static Rect a(int i, int i2, int i3, float f, int i4) {
@@ -107,9 +107,9 @@ public class e extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.mRadius = l.f(getContext(), d.e.ds156);
-        this.flU = this.mRadius + ((this.flP - this.flO) / 2);
-        int i3 = (this.flU * 2) + this.flP + this.flQ;
-        int i4 = this.flU + (this.flP / 2) + this.fmc + this.flR;
+        this.flZ = this.mRadius + ((this.flU - this.flT) / 2);
+        int i3 = (this.flZ * 2) + this.flU + this.flV;
+        int i4 = this.flZ + (this.flU / 2) + this.fmh + this.flW;
         if (i3 > this.mScreenWidth) {
             i3 = this.mScreenWidth;
         }
@@ -117,14 +117,14 @@ public class e extends ViewGroup {
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.flX.size()) {
-                int i7 = this.flO;
-                if (this.flW != null && i6 == this.flX.indexOf(this.flW)) {
-                    i7 = this.flP;
+            if (i6 < this.fmc.size()) {
+                int i7 = this.flT;
+                if (this.fmb != null && i6 == this.fmc.indexOf(this.fmb)) {
+                    i7 = this.flU;
                 }
                 int i8 = i7;
-                this.flX.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
-                this.flZ.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fmb, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fmc, 1073741824));
+                this.fmc.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
+                this.fme.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.fmg, 1073741824), View.MeasureSpec.makeMeasureSpec(this.fmh, 1073741824));
                 i5 = i6 + 1;
             } else {
                 return;
@@ -135,20 +135,20 @@ public class e extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth() / 2;
-        int height = getHeight() - this.flR;
-        int i5 = this.flV ? this.mRadius : 0;
+        int height = getHeight() - this.flW;
+        int i5 = this.fma ? this.mRadius : 0;
         int f = l.f(getContext(), d.e.ds90);
         int i6 = 0;
         while (true) {
             int i7 = i6;
-            if (i7 < this.flX.size()) {
+            if (i7 < this.fmc.size()) {
                 float qC = qC(i7);
-                Rect a = a(width, height, i5, qC, this.flO);
-                this.flX.get(i7).layout(a.left, a.top, a.right, a.bottom);
-                Rect a2 = a(width, height, this.flU, qC, this.flP);
+                Rect a = a(width, height, i5, qC, this.flT);
+                this.fmc.get(i7).layout(a.left, a.top, a.right, a.bottom);
+                Rect a2 = a(width, height, this.flZ, qC, this.flU);
                 float width2 = a2.left + (a2.width() / 2);
                 float height2 = ((a2.height() / 2) + a2.top) - f;
-                this.flZ.get(i7).layout((int) (width2 - (this.fmb / 2)), (int) (height2 - (this.fmc / 2)), (int) (width2 + (this.fmb / 2)), (int) (height2 + (this.fmc / 2)));
+                this.fme.get(i7).layout((int) (width2 - (this.fmg / 2)), (int) (height2 - (this.fmh / 2)), (int) (width2 + (this.fmg / 2)), (int) (height2 + (this.fmh / 2)));
                 i6 = i7 + 1;
             } else {
                 return;
@@ -161,7 +161,7 @@ public class e extends ViewGroup {
     }
 
     private float aa(float f) {
-        return (float) (Math.cos(Math.toRadians(f)) * (this.flU - this.mRadius));
+        return (float) (Math.cos(Math.toRadians(f)) * (this.flZ - this.mRadius));
     }
 
     private float ab(float f) {
@@ -177,7 +177,7 @@ public class e extends ViewGroup {
     }
 
     private float ae(float f) {
-        return -((float) (Math.sin(Math.toRadians(f)) * (this.flU - this.mRadius)));
+        return -((float) (Math.sin(Math.toRadians(f)) * (this.flZ - this.mRadius)));
     }
 
     private float af(float f) {
@@ -198,34 +198,34 @@ public class e extends ViewGroup {
         float ad = ad(qC);
         float ab = ab(qC);
         float af = af(qC);
-        this.fmd = new AnimatorSet();
-        float f = this.flV ? 1.0f : 0.0f;
-        float f2 = this.flV ? ab : ac;
-        if (!this.flV) {
+        this.fmi = new AnimatorSet();
+        float f = this.fma ? 1.0f : 0.0f;
+        float f2 = this.fma ? ab : ac;
+        if (!this.fma) {
             ac = ab;
         }
-        float f3 = this.flV ? af : ag;
-        if (!this.flV) {
+        float f3 = this.fma ? af : ag;
+        if (!this.fma) {
             ag = af;
         }
-        float zoomOutScale = this.flV ? 1.0f : getZoomOutScale();
-        float zoomOutScale2 = this.flV ? getZoomOutScale() : 1.0f;
+        float zoomOutScale = this.fma ? 1.0f : getZoomOutScale();
+        float zoomOutScale2 = this.fma ? getZoomOutScale() : 1.0f;
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("translationX", f2, ac), PropertyValuesHolder.ofFloat("translationY", f3, ag), PropertyValuesHolder.ofFloat("scaleX", zoomOutScale, zoomOutScale2), PropertyValuesHolder.ofFloat("scaleY", zoomOutScale, zoomOutScale2));
         ofPropertyValuesHolder.setDuration(j);
-        this.fmd.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
+        this.fmi.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!e.this.flV) {
+                if (!e.this.fma) {
                     e.this.setVisibility(8);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < e.this.flX.size()) {
-                            ImageView imageView = (ImageView) e.this.flX.get(i3);
+                        if (i3 < e.this.fmc.size()) {
+                            ImageView imageView = (ImageView) e.this.fmc.get(i3);
                             if (imageView.getTag() != null) {
                                 ((com.baidu.tbadk.core.util.l) imageView.getTag()).stop();
                             }
@@ -240,7 +240,7 @@ public class e extends ViewGroup {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (!e.this.flV) {
+                if (!e.this.fma) {
                     e.this.setVisibility(8);
                 }
             }
@@ -253,37 +253,37 @@ public class e extends ViewGroup {
         ofPropertyValuesHolder2.setDuration(2L);
         ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", Z, aa), PropertyValuesHolder.ofFloat("translationY", ad, ae));
         ofPropertyValuesHolder3.setDuration(2L);
-        if (!this.flV) {
-            this.fmd.play(ofPropertyValuesHolder);
-            this.fmd.setInterpolator(this.fmg);
+        if (!this.fma) {
+            this.fmi.play(ofPropertyValuesHolder);
+            this.fmi.setInterpolator(this.fml);
         } else {
-            this.fmd.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
-            this.fmd.setInterpolator(this.fmh);
-            this.fmd.setDuration(4 + j);
+            this.fmi.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
+            this.fmi.setInterpolator(this.fmm);
+            this.fmi.setDuration(4 + j);
         }
-        this.fmd.start();
+        this.fmi.start();
     }
 
-    public boolean auK() {
-        return this.flV;
+    public boolean auL() {
+        return this.fma;
     }
 
     private float getZoomInScale() {
-        return this.flP / this.flO;
+        return this.flU / this.flT;
     }
 
     private float getZoomOutScale() {
-        return this.flN / this.flO;
+        return this.flS / this.flT;
     }
 
-    public void aYH() {
+    public void aYI() {
         int i;
         int i2;
         int i3 = 0;
-        while (i3 < this.flX.size()) {
-            ImageView imageView = this.flX.get(i3);
+        while (i3 < this.fmc.size()) {
+            ImageView imageView = this.fmc.get(i3);
             imageView.setVisibility(0);
-            if (!this.flV) {
+            if (!this.fma) {
                 if (i3 == 0) {
                     i = d.b.big_praise;
                 } else if (i3 == 1) {
@@ -310,69 +310,69 @@ public class e extends ViewGroup {
             c(imageView, i3, 200L);
             i3++;
         }
-        this.flV = this.flV ? false : true;
+        this.fma = this.fma ? false : true;
         invalidate();
     }
 
     public void bx(int i, int i2) {
-        if (!this.flV) {
-            aYJ();
+        if (!this.fma) {
+            aYK();
             return;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aYI();
+            aYJ();
             return;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 < this.flX.size()) {
-                ImageView imageView = this.flX.get(i4);
+            if (i4 < this.fmc.size()) {
+                ImageView imageView = this.fmc.get(i4);
                 imageView.getGlobalVisibleRect(rect);
-                if (!rect.contains(i, i2) || this.fma) {
+                if (!rect.contains(i, i2) || this.fmf) {
                     i3 = i4 + 1;
                 } else {
                     f(imageView);
                     return;
                 }
             } else {
-                aYI();
+                aYJ();
                 return;
             }
         }
     }
 
     public void f(ImageView imageView) {
-        if (imageView != null && this.flW != imageView && !this.fma) {
-            aYJ();
-            this.flW = imageView;
-            float size = (((this.flT - this.flS) / (this.flX.size() - 1)) * this.flX.indexOf(imageView)) + this.flS;
+        if (imageView != null && this.fmb != imageView && !this.fmf) {
+            aYK();
+            this.fmb = imageView;
+            float size = (((this.flY - this.flX) / (this.fmc.size() - 1)) * this.fmc.indexOf(imageView)) + this.flX;
             float zoomInScale = getZoomInScale();
-            this.fme = new AnimatorSet();
+            this.fmj = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", 1.0f, zoomInScale);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", 1.0f, zoomInScale);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), aa(size));
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), ae(size));
-            if (this.flX.indexOf(this.flW) > -1) {
-                this.flY = this.flZ.get(this.flX.indexOf(this.flW));
-                this.flY.setVisibility(0);
-                this.flY.setAlpha(0.0f);
+            if (this.fmc.indexOf(this.fmb) > -1) {
+                this.fmd = this.fme.get(this.fmc.indexOf(this.fmb));
+                this.fmd.setVisibility(0);
+                this.fmd.setAlpha(0.0f);
             }
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.flY, "alpha", 0.0f, 1.0f);
-            this.fme.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.flY, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.flY, "scaleY", 0.0f, 1.0f));
-            this.fme.setInterpolator(this.fmh);
-            this.fme.setDuration(100L);
-            this.fme.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fmd, "alpha", 0.0f, 1.0f);
+            this.fmj.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fmd, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fmd, "scaleY", 0.0f, 1.0f));
+            this.fmj.setInterpolator(this.fmm);
+            this.fmj.setDuration(100L);
+            this.fmj.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.fma = true;
+                    e.this.fmf = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.fma = false;
+                    e.this.fmf = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -383,37 +383,37 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fma = true;
-            this.fme.start();
+            this.fmf = true;
+            this.fmj.start();
         }
     }
 
-    public void aYI() {
-        if (this.flW != null && !this.fma) {
-            ImageView imageView = this.flW;
+    public void aYJ() {
+        if (this.fmb != null && !this.fmf) {
+            ImageView imageView = this.fmb;
             float zoomInScale = getZoomInScale();
-            this.fmf = new AnimatorSet();
+            this.fmk = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", zoomInScale, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", zoomInScale, 1.0f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), 0.0f);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), 0.0f);
-            if (this.flY != null) {
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.flY, "alpha", 1.0f, 0.0f);
-                this.fmf.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.flY, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.flY, "scaleY", 0.0f, 1.0f));
+            if (this.fmd != null) {
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.fmd, "alpha", 1.0f, 0.0f);
+                this.fmk.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.fmd, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.fmd, "scaleY", 0.0f, 1.0f));
             } else {
-                this.fmf.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
+                this.fmk.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
             }
-            this.fmf.setInterpolator(this.fmh);
-            this.fmf.setDuration(100L);
-            this.fmf.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
+            this.fmk.setInterpolator(this.fmm);
+            this.fmk.setDuration(100L);
+            this.fmk.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.fma = true;
+                    e.this.fmf = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.fma = false;
+                    e.this.fmf = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -424,68 +424,68 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.fma = true;
-            this.fmf.start();
-            if (this.flY != null) {
-                this.flY.setVisibility(4);
+            this.fmf = true;
+            this.fmk.start();
+            if (this.fmd != null) {
+                this.fmd.setVisibility(4);
             }
-            this.flW = null;
-            this.flY = null;
+            this.fmb = null;
+            this.fmd = null;
         }
     }
 
     public int by(int i, int i2) {
-        if (!this.flV) {
-            aYJ();
+        if (!this.fma) {
+            aYK();
             return -1;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            aYI();
+            aYJ();
             return -1;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 >= this.flX.size()) {
+            if (i4 >= this.fmc.size()) {
                 return -1;
             }
-            this.flX.get(i4).getGlobalVisibleRect(rect);
+            this.fmc.get(i4).getGlobalVisibleRect(rect);
             if (!rect.contains(i, i2)) {
                 i3 = i4 + 1;
             } else {
-                aYI();
+                aYJ();
                 return i4 + 1;
             }
         }
     }
 
-    public void aYJ() {
-        if (this.fmd != null && this.fmd.isStarted()) {
-            this.fmd.cancel();
-            this.fmd = null;
+    public void aYK() {
+        if (this.fmi != null && this.fmi.isStarted()) {
+            this.fmi.cancel();
+            this.fmi = null;
         }
-        if (this.fme != null && this.fme.isStarted()) {
-            this.fme.cancel();
-            this.fme = null;
+        if (this.fmj != null && this.fmj.isStarted()) {
+            this.fmj.cancel();
+            this.fmj = null;
         }
-        if (this.fmf != null && this.fmf.isStarted()) {
-            this.fmf.cancel();
-            this.fmf = null;
+        if (this.fmk != null && this.fmk.isStarted()) {
+            this.fmk.cancel();
+            this.fmk = null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.flX.size()) {
-                ImageView imageView = this.flX.get(i2);
+            if (i2 < this.fmc.size()) {
+                ImageView imageView = this.fmc.get(i2);
                 float qC = qC(i2);
                 imageView.setTranslationX(ab(qC));
                 imageView.setTranslationY(af(qC));
                 imageView.setScaleX(1.0f);
                 imageView.setScaleY(1.0f);
                 imageView.invalidate();
-                TextView textView = this.flZ.get(i2);
+                TextView textView = this.fme.get(i2);
                 textView.setAlpha(0.0f);
                 textView.setScaleX(1.0f);
                 textView.setScaleY(1.0f);
@@ -498,6 +498,6 @@ public class e extends ViewGroup {
     }
 
     private float qC(int i) {
-        return (((this.flT - this.flS) / (this.flX.size() - 1)) * i) + this.flS;
+        return (((this.flY - this.flX) / (this.fmc.size() - 1)) * i) + this.flX;
     }
 }

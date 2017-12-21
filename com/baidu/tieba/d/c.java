@@ -20,9 +20,9 @@ import com.baidu.tieba.d.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0094a {
-    private a ckd;
-    private ShareDialogConfig cke;
+public class c implements a.InterfaceC0093a {
+    private a ckh;
+    private ShareDialogConfig cki;
     private ArrayList<TransmitForumData> mForumList;
     private TbPageContext mPageContext;
     private int mPrivateThread;
@@ -44,29 +44,29 @@ public class c implements a.InterfaceC0094a {
     private void adK() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, this.mPageContext), a.class);
         if (runTask != null) {
-            this.ckd = (a) runTask.getData();
+            this.ckh = (a) runTask.getData();
         }
-        if (this.ckd != null) {
-            this.ckd.setUseCache(false);
-            this.ckd.a(this);
+        if (this.ckh != null) {
+            this.ckh.setUseCache(false);
+            this.ckh.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
-            this.cke = shareDialogConfig;
+            this.cki = shareDialogConfig;
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.auF = adL();
+                shareDialogConfig.shareItem.auI = adL();
             }
-            if (TbadkCoreApplication.isLogin() && this.ckd != null && !shareDialogConfig.mIsAlaLive) {
-                this.ckd.aK(null, null);
+            if (TbadkCoreApplication.isLogin() && this.ckh != null && !shareDialogConfig.mIsAlaLive) {
+                this.ckh.aK(null, null);
             } else {
                 wH();
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0094a
+    @Override // com.baidu.tieba.d.a.InterfaceC0093a
     public void b(List<TransmitForumData> list, boolean z, int i) {
         if (list instanceof ArrayList) {
             this.mForumList = (ArrayList) list;
@@ -76,11 +76,11 @@ public class c implements a.InterfaceC0094a {
     }
 
     private void wH() {
-        if (this.cke != null && this.cke.shareItem != null) {
-            this.cke.setIsShowTransmitShare(true);
-            this.cke.setTransmitForumList(this.mForumList);
-            this.cke.setPrivateThread(this.mPrivateThread);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cke));
+        if (this.cki != null && this.cki.shareItem != null) {
+            this.cki.setIsShowTransmitShare(true);
+            this.cki.setTransmitForumList(this.mForumList);
+            this.cki.setPrivateThread(this.mPrivateThread);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cki));
         }
     }
 

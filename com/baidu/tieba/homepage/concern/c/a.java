@@ -14,8 +14,8 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private final c doM = new c();
-    private final int bmR = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final c doQ = new c();
+    private final int bmV = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -69,8 +69,8 @@ public class a {
                 }
             }
         }
-        this.doM.aXE = linkedList;
-        return this.doM;
+        this.doQ.aXI = linkedList;
+        return this.doQ;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -97,7 +97,7 @@ public class a {
                     }
                 }
             }
-            this.doM.dsB = v.v(list) - v;
+            this.doQ.dsF = v.v(list) - v;
         }
     }
 

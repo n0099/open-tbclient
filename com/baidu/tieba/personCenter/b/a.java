@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c fsl;
-    private d fsw;
-    private com.baidu.tieba.personCenter.a.a fsx;
-    private com.baidu.tieba.personCenter.a.b fsy;
+    private d fsB;
+    private com.baidu.tieba.personCenter.a.a fsC;
+    private com.baidu.tieba.personCenter.a.b fsD;
+    private com.baidu.tieba.personCenter.a.c fsq;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -22,14 +22,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fsw = new d(tbPageContext, e.fsZ);
-        this.fsx = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.a.fsL);
-        this.fsy = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.b.fsM);
-        this.fsl = new com.baidu.tieba.personCenter.a.c(tbPageContext, com.baidu.tieba.personCenter.data.d.fsY);
-        this.mAdapters.add(this.fsw);
-        this.mAdapters.add(this.fsx);
-        this.mAdapters.add(this.fsy);
-        this.mAdapters.add(this.fsl);
+        this.fsB = new d(tbPageContext, e.fte);
+        this.fsC = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.a.fsQ);
+        this.fsD = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.b.fsR);
+        this.fsq = new com.baidu.tieba.personCenter.a.c(tbPageContext, com.baidu.tieba.personCenter.data.d.ftd);
+        this.mAdapters.add(this.fsB);
+        this.mAdapters.add(this.fsC);
+        this.mAdapters.add(this.fsD);
+        this.mAdapters.add(this.fsq);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -39,11 +39,11 @@ public class a {
         }
     }
 
-    public void bac() {
-        this.fsx.bac();
+    public void bad() {
+        this.fsC.bad();
     }
 
-    public void bad() {
-        this.fsx.destroy();
+    public void bae() {
+        this.fsC.destroy();
     }
 }

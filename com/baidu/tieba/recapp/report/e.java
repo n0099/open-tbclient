@@ -15,10 +15,10 @@ public class e {
         aVar.sd(advertAppInfo.price);
         aVar.sb(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sf(advertAppInfo.UZ);
-        aVar.sg(advertAppInfo.Va);
-        aVar.sh(advertAppInfo.Vb);
-        aVar.si(advertAppInfo.Un);
+        aVar.sf(advertAppInfo.Vc);
+        aVar.sg(advertAppInfo.Vd);
+        aVar.sh(advertAppInfo.Ve);
+        aVar.si(advertAppInfo.Uq);
         return aVar;
     }
 
@@ -27,15 +27,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.sV(advertAppInfo.UR);
+        aVar.sV(advertAppInfo.UU);
         aVar.sU(i);
         aVar.sd(advertAppInfo.price);
         aVar.sb(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sf(advertAppInfo.UZ);
-        aVar.sg(advertAppInfo.Va);
-        aVar.sh(advertAppInfo.Vb);
-        aVar.si(advertAppInfo.Un);
+        aVar.sf(advertAppInfo.Vc);
+        aVar.sg(advertAppInfo.Vd);
+        aVar.sh(advertAppInfo.Ve);
+        aVar.si(advertAppInfo.Uq);
         return aVar;
     }
 
@@ -59,18 +59,18 @@ public class e {
     }
 
     public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bwJ() == null) {
+        if (lVar == null || lVar.bwK() == null) {
             return null;
         }
-        AppData bwJ = lVar.bwJ();
+        AppData bwK = lVar.bwK();
         a aVar = new a();
-        aVar.sV(com.baidu.adp.lib.g.b.g(bwJ.pos_name, 0));
-        aVar.sb(bwJ.ext_info);
+        aVar.sV(com.baidu.adp.lib.g.b.g(bwK.pos_name, 0));
+        aVar.sb(bwK.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
         aVar.sU(i);
-        aVar.sd(bwJ.price);
-        aVar.sf(lVar.UZ);
-        aVar.sg(lVar.Va);
+        aVar.sd(bwK.price);
+        aVar.sf(lVar.Vc);
+        aVar.sg(lVar.Vd);
         aVar.sh(lVar.forumId);
         aVar.si("PB");
         return aVar;
@@ -84,7 +84,7 @@ public class e {
         if (i6 != -1 && i == 32) {
             c.sZ(i6);
         }
-        c.si(advertAppInfo.Un);
+        c.si(advertAppInfo.Uq);
         if (i == 2) {
             c.se("video");
         }

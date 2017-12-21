@@ -8,7 +8,7 @@ public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hyn;
+    private final OutputStream hys;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -18,14 +18,14 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hyn = outputStream;
+        this.hys = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hyn = null;
+        this.hys = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
@@ -89,10 +89,10 @@ public final class c {
     }
 
     private void d() {
-        if (this.hyn == null) {
+        if (this.hys == null) {
             throw new a();
         }
-        this.hyn.write(this.a, 0, this.c);
+        this.hys.write(this.a, 0, this.c);
         this.c = 0;
     }
 
@@ -170,7 +170,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.hyn != null) {
+        if (this.hys != null) {
             d();
         }
     }
@@ -242,7 +242,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hyn == null) {
+        if (this.hys == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -285,7 +285,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hyn.write(bArr, i4, i5);
+            this.hys.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);

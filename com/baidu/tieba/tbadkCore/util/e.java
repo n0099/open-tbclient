@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    protected volatile int gEv;
-    protected volatile HashMap<Long, Integer> gEw = new HashMap<>();
-    private volatile int gEu = 0;
+    protected volatile int gEA;
+    protected volatile HashMap<Long, Integer> gEB = new HashMap<>();
+    private volatile int gEz = 0;
 
     public e(int i) {
-        this.gEv = i;
+        this.gEA = i;
     }
 
     public void tn(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.gEw.size() >= this.gEv) {
-                    bfQ();
+                if (this.gEB.size() >= this.gEA) {
+                    bfR();
                 }
-                this.gEu++;
-                this.gEw.put(valueOf, Integer.valueOf(this.gEu));
+                this.gEz++;
+                this.gEB.put(valueOf, Integer.valueOf(this.gEz));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bfQ() {
+    public void bfR() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gEw.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gEB.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class e {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gEw.remove(l2);
+                this.gEB.remove(l2);
             } else {
-                this.gEw.clear();
+                this.gEB.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class e {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.gEw.get(valueOf) != null;
+                z = this.gEB.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class e {
 
     public boolean tp(String str) {
         try {
-            return this.gEw.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gEB.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bxR() {
+    public void bxS() {
         synchronized (this) {
-            this.gEw.clear();
+            this.gEB.clear();
         }
     }
 }

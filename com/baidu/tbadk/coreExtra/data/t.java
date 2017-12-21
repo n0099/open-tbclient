@@ -5,69 +5,69 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
     private a activityPrizeData;
-    private String arO;
-    private String arP;
-    private String arQ;
     private String arR;
     private String arS;
     private String arT;
     private String arU;
     private String arV;
-    private long arW;
-    private int arX;
-    private int arY;
+    private String arW;
+    private String arX;
+    private String arY;
     private long arZ;
     private int asa;
-    private String asc;
-    private String asd;
-    private String ase;
-    public int asg;
-    private String asi;
-    private String asj;
-    private int ask;
-    private long asl;
+    private int asb;
+    private long asc;
+    private int asd;
+    private String asf;
+    private String asg;
+    private String ash;
+    public int asj;
+    private String asl;
+    private String asm;
+    private int asn;
+    private long aso;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
     private String uegVoiceWarning;
-    private int asb = 0;
-    private int asf = 2;
-    private String ash = "";
+    private int ase = 0;
+    private int asi = 2;
+    private String ask = "";
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.arO = jSONObject.optString("drop_pic");
-                this.arP = jSONObject.optString("drop_pic_md5");
-                this.arQ = jSONObject.optString("drop_pic_num");
-                this.arR = jSONObject.optString("drop_bg_color_day");
-                this.arS = jSONObject.optString("drop_bg_color_night");
-                this.arT = jSONObject.optString("apply_vip_live_room_pid");
-                this.asc = jSONObject.optString("max_cache");
-                this.asd = jSONObject.optString("frs_max_cache");
-                this.ase = jSONObject.optString("frs_pn");
-                this.arU = jSONObject.optString("tail_link");
-                this.arV = jSONObject.optString("bubble_link");
-                this.arW = jSONObject.optLong("use_duration");
-                this.arX = jSONObject.optInt("xiaoying_time");
+                this.arR = jSONObject.optString("drop_pic");
+                this.arS = jSONObject.optString("drop_pic_md5");
+                this.arT = jSONObject.optString("drop_pic_num");
+                this.arU = jSONObject.optString("drop_bg_color_day");
+                this.arV = jSONObject.optString("drop_bg_color_night");
+                this.arW = jSONObject.optString("apply_vip_live_room_pid");
+                this.asf = jSONObject.optString("max_cache");
+                this.asg = jSONObject.optString("frs_max_cache");
+                this.ash = jSONObject.optString("frs_pn");
+                this.arX = jSONObject.optString("tail_link");
+                this.arY = jSONObject.optString("bubble_link");
+                this.arZ = jSONObject.optLong("use_duration");
+                this.asa = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.asj = jSONObject.optString("url_analyze_text");
-                this.arY = jSONObject.optInt("new_resign", 0);
-                this.arZ = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.asa = jSONObject.optInt("personalized_max_count", 300);
+                this.asm = jSONObject.optString("url_analyze_text");
+                this.asb = jSONObject.optInt("new_resign", 0);
+                this.asc = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.asd = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.asf = jSONObject.optInt("localvideo_open", 2);
-                this.asg = jSONObject.optInt("card_show_statistic", 200);
-                this.ash = jSONObject.optString("clean_smart_frs_cookie");
+                this.asi = jSONObject.optInt("localvideo_open", 2);
+                this.asj = jSONObject.optInt("card_show_statistic", 200);
+                this.ask = jSONObject.optString("clean_smart_frs_cookie");
                 com.baidu.tbadk.pageStayDuration.e.FW().fn(jSONObject.optInt("statlog_path_max", 3));
-                this.asb = jSONObject.optInt("photo_cache_num", 30);
+                this.ase = jSONObject.optInt("photo_cache_num", 30);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.asi = jSONObject.optString("nickname_activity_link");
-                this.ask = jSONObject.optInt("android_tab_show", 7);
-                this.asl = jSONObject.optLong("android_new_log_upload_interval", 0L);
+                this.asl = jSONObject.optString("nickname_activity_link");
+                this.asn = jSONObject.optInt("android_tab_show", 7);
+                this.aso = jSONObject.optLong("android_new_log_upload_interval", 0L);
                 JSONObject optJSONObject = jSONObject.optJSONObject("laxin_config");
                 if (optJSONObject != null) {
                     this.activityPrizeData = new a();
@@ -82,55 +82,55 @@ public class t {
     }
 
     public String ym() {
-        return this.arT;
-    }
-
-    public String yn() {
-        return this.arO;
-    }
-
-    public String yo() {
-        return this.arP;
-    }
-
-    public String yp() {
-        return this.arQ;
-    }
-
-    public String yq() {
-        return this.arR;
-    }
-
-    public String yr() {
-        return this.arS;
-    }
-
-    public String ys() {
-        return this.asc;
-    }
-
-    public String yt() {
-        return this.asd;
-    }
-
-    public String yu() {
-        return this.ase;
-    }
-
-    public String yv() {
-        return this.arU;
-    }
-
-    public String yw() {
-        return this.arV;
-    }
-
-    public long yx() {
         return this.arW;
     }
 
-    public int yy() {
+    public String yn() {
+        return this.arR;
+    }
+
+    public String yo() {
+        return this.arS;
+    }
+
+    public String yp() {
+        return this.arT;
+    }
+
+    public String yq() {
+        return this.arU;
+    }
+
+    public String yr() {
+        return this.arV;
+    }
+
+    public String ys() {
+        return this.asf;
+    }
+
+    public String yt() {
+        return this.asg;
+    }
+
+    public String yu() {
+        return this.ash;
+    }
+
+    public String yv() {
         return this.arX;
+    }
+
+    public String yw() {
+        return this.arY;
+    }
+
+    public long yx() {
+        return this.arZ;
+    }
+
+    public int yy() {
+        return this.asa;
     }
 
     public long yz() {
@@ -138,19 +138,19 @@ public class t {
     }
 
     public int yA() {
-        return this.ask;
+        return this.asn;
     }
 
     public long yB() {
-        return this.arZ;
+        return this.asc;
     }
 
     public int yC() {
-        return this.asa;
+        return this.asd;
     }
 
     public int yD() {
-        return this.arY;
+        return this.asb;
     }
 
     public String yE() {
@@ -166,15 +166,15 @@ public class t {
     }
 
     public String yH() {
-        return this.ash;
+        return this.ask;
     }
 
     public boolean yI() {
-        return this.asf == 1;
+        return this.asi == 1;
     }
 
     public int yJ() {
-        return this.asb;
+        return this.ase;
     }
 
     public String getUegVoiceWarning() {
@@ -182,15 +182,15 @@ public class t {
     }
 
     public String yK() {
-        return this.asi;
+        return this.asl;
     }
 
     public String yL() {
-        return this.asj;
+        return this.asm;
     }
 
     public long yM() {
-        return this.asl;
+        return this.aso;
     }
 
     public a getActivityPrizeData() {

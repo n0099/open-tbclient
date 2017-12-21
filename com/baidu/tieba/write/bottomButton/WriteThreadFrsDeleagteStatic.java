@@ -24,10 +24,10 @@ public class WriteThreadFrsDeleagteStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c EZ() {
         c cVar = new c();
-        cVar.aHG = new a();
+        cVar.aHJ = new a();
         cVar.type = 99;
-        cVar.aHH = d.j.send;
-        cVar.aHO = c.aHL;
+        cVar.aHK = d.j.send;
+        cVar.aHR = c.aHO;
         return cVar;
     }
 
@@ -41,7 +41,7 @@ public class WriteThreadFrsDeleagteStatic extends b {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((af) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
                     if (((af) customResponsedMessage.getData()).getContext() != null && (Fa = writeThreadFrsDeleagteStatic.Fa()) != null) {
-                        Fa.aHG.setArguments(new Bundle());
+                        Fa.aHJ.setArguments(new Bundle());
                     }
                 }
             }
@@ -50,8 +50,8 @@ public class WriteThreadFrsDeleagteStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public e ba(Context context) {
-        this.aHx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aHx.setTextSize(2.0f);
-        return this.aHx;
+        this.aHA = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.aHA.setTextSize(2.0f);
+        return this.aHA;
     }
 }

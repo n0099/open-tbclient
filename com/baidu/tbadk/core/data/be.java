@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class be extends com.baidu.tieba.card.data.b {
-    public int aaF;
-    public int aaG;
+    public int aaI;
+    public int aaJ;
     public String stType;
     public bd threadData;
 

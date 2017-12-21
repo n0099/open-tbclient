@@ -3,12 +3,12 @@ package com.baidu.tieba.video.editvideo.scale;
 import android.graphics.Matrix;
 /* loaded from: classes2.dex */
 public class a {
-    private b gSv;
-    private b gSw;
+    private b gSA;
+    private b gSB;
 
     public a(b bVar, b bVar2) {
-        this.gSv = bVar;
-        this.gSw = bVar2;
+        this.gSA = bVar;
+        this.gSB = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
@@ -81,33 +81,33 @@ public class a {
             case LEFT_TOP:
                 return f(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return f(f, f2, 0.0f, this.gSv.getHeight() / 2.0f);
+                return f(f, f2, 0.0f, this.gSA.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return f(f, f2, 0.0f, this.gSv.getHeight());
+                return f(f, f2, 0.0f, this.gSA.getHeight());
             case CENTER_TOP:
-                return f(f, f2, this.gSv.getWidth() / 2.0f, 0.0f);
+                return f(f, f2, this.gSA.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return f(f, f2, this.gSv.getWidth() / 2.0f, this.gSv.getHeight() / 2.0f);
+                return f(f, f2, this.gSA.getWidth() / 2.0f, this.gSA.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return f(f, f2, this.gSv.getWidth() / 2.0f, this.gSv.getHeight());
+                return f(f, f2, this.gSA.getWidth() / 2.0f, this.gSA.getHeight());
             case RIGHT_TOP:
-                return f(f, f2, this.gSv.getWidth(), 0.0f);
+                return f(f, f2, this.gSA.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return f(f, f2, this.gSv.getWidth(), this.gSv.getHeight() / 2.0f);
+                return f(f, f2, this.gSA.getWidth(), this.gSA.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return f(f, f2, this.gSv.getWidth(), this.gSv.getHeight());
+                return f(f, f2, this.gSA.getWidth(), this.gSA.getHeight());
             default:
                 return null;
         }
     }
 
     private Matrix NH() {
-        return a(this.gSw.getWidth() / this.gSv.getWidth(), this.gSw.getHeight() / this.gSv.getHeight(), PivotPoint.LEFT_TOP);
+        return a(this.gSB.getWidth() / this.gSA.getWidth(), this.gSB.getHeight() / this.gSA.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.gSv.getWidth() / this.gSw.getWidth();
-        float height = this.gSv.getHeight() / this.gSw.getHeight();
+        float width = this.gSA.getWidth() / this.gSB.getWidth();
+        float height = this.gSA.getHeight() / this.gSB.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
@@ -129,25 +129,25 @@ public class a {
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.gSw.getWidth() / this.gSv.getWidth(), this.gSw.getHeight() / this.gSv.getHeight(), pivotPoint);
+        return a(this.gSB.getWidth() / this.gSA.getWidth(), this.gSB.getHeight() / this.gSA.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.gSv.getWidth() / this.gSw.getWidth();
-        float height = this.gSv.getHeight() / this.gSw.getHeight();
+        float width = this.gSA.getWidth() / this.gSB.getWidth();
+        float height = this.gSA.getHeight() / this.gSB.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
     private Matrix NE() {
-        return (this.gSw.getHeight() > this.gSv.getWidth() || this.gSw.getHeight() > this.gSv.getHeight()) ? NB() : b(PivotPoint.LEFT_TOP);
+        return (this.gSB.getHeight() > this.gSA.getWidth() || this.gSB.getHeight() > this.gSA.getHeight()) ? NB() : b(PivotPoint.LEFT_TOP);
     }
 
     private Matrix NF() {
-        return (this.gSw.getHeight() > this.gSv.getWidth() || this.gSw.getHeight() > this.gSv.getHeight()) ? NC() : b(PivotPoint.CENTER);
+        return (this.gSB.getHeight() > this.gSA.getWidth() || this.gSB.getHeight() > this.gSA.getHeight()) ? NC() : b(PivotPoint.CENTER);
     }
 
     private Matrix NG() {
-        return (this.gSw.getHeight() > this.gSv.getWidth() || this.gSw.getHeight() > this.gSv.getHeight()) ? ND() : b(PivotPoint.RIGHT_BOTTOM);
+        return (this.gSB.getHeight() > this.gSA.getWidth() || this.gSB.getHeight() > this.gSA.getHeight()) ? ND() : b(PivotPoint.RIGHT_BOTTOM);
     }
 }

@@ -1,4 +1,4 @@
-package com.baidu.c;
+package com.baidu.b;
 
 import android.os.Build;
 /* loaded from: classes.dex */

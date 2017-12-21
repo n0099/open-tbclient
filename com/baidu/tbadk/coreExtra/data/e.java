@@ -10,8 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private List<f> arh = new ArrayList();
-    private String ari;
+    private List<f> ark = new ArrayList();
+    private String arl;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -21,17 +21,17 @@ public class e {
                 if (jSONObject2 != null) {
                     f fVar = new f();
                     fVar.parserJson(jSONObject2);
-                    this.arh.add(fVar);
+                    this.ark.add(fVar);
                 }
             }
         }
     }
 
     public String xO() {
-        if (TextUtils.isEmpty(this.ari)) {
+        if (TextUtils.isEmpty(this.arl)) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            Iterator<f> it = this.arh.iterator();
+            Iterator<f> it = this.ark.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -50,12 +50,12 @@ public class e {
                     i = i2;
                 }
             }
-            this.ari = sb.toString();
+            this.arl = sb.toString();
         }
-        return this.ari;
+        return this.arl;
     }
 
     public List<f> xP() {
-        return this.arh;
+        return this.ark;
     }
 }

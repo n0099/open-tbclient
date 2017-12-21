@@ -3,16 +3,16 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
-    private final TbPageContext<?> abX;
-    private final int ark;
-    private final int arl;
-    private final boolean arm;
+    private final TbPageContext<?> aca;
+    private final int arn;
+    private final int aro;
+    private final boolean arp;
 
     public g(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.abX = tbPageContext;
-        this.ark = i;
-        this.arl = i2;
-        this.arm = z;
+        this.aca = tbPageContext;
+        this.arn = i;
+        this.aro = i2;
+        this.arp = z;
     }
 
     public g(TbPageContext<?> tbPageContext, int i, int i2) {
@@ -20,18 +20,18 @@ public class g {
     }
 
     public TbPageContext<?> xR() {
-        return this.abX;
+        return this.aca;
     }
 
     public int xS() {
-        return this.ark;
+        return this.arn;
     }
 
     public int xT() {
-        return this.arl;
+        return this.aro;
     }
 
     public boolean isAvailable() {
-        return this.abX != null && this.ark > 0 && this.arl > 0;
+        return this.aca != null && this.arn > 0 && this.aro > 0;
     }
 }

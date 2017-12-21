@@ -16,13 +16,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int dsy = 0;
-    private com.baidu.tieba.homepage.personalize.b.d dsz = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c doM = new c();
-    private final int bmR = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int dsC = 0;
+    private com.baidu.tieba.homepage.personalize.b.d dsD = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c doQ = new c();
+    private final int bmV = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int auv() {
-        return this.bmR;
+    public int auw() {
+        return this.bmV;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -38,15 +38,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.bmR);
+        a(builder, i, this.bmV);
         d.e(builder);
         List<r> b = d.b(builder);
         bH(b);
         List<f> m = m(builder.thread_list, b);
-        this.dsz.bJ(m);
+        this.dsD.bJ(m);
         b.a(builder, m);
-        this.doM.aXE = m;
-        return this.doM;
+        this.doQ.aXI = m;
+        return this.doQ;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,7 +64,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.dsy);
+        d.a(z, builder, builder2, i, this.dsC);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -96,7 +96,7 @@ public class a {
                 int v2 = v.v(list2) - 1;
                 i2 = 0;
                 while (v2 >= 0) {
-                    this.dsz.a(z, v2, list, list2);
+                    this.dsD.a(z, v2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, v2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -118,8 +118,8 @@ public class a {
                 }
             }
             int v3 = v.v(list);
-            this.doM.dsB = (v3 - v) - i2;
-            this.dsy = v3 - v;
+            this.doQ.dsF = (v3 - v) - i2;
+            this.dsC = v3 - v;
         }
     }
 

@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
-    private AlbumActivity hfk;
-    private LayoutInflater hfu;
-    private Map<Integer, Boolean> hfv = new HashMap();
+    private Map<Integer, Boolean> hfA = new HashMap();
+    private AlbumActivity hfp;
+    private LayoutInflater hfz;
     private List<ImageFileInfo> mList;
 
     public c(AlbumActivity albumActivity) {
-        this.hfk = albumActivity;
-        this.hfu = LayoutInflater.from(this.hfk.getPageContext().getPageActivity());
+        this.hfp = albumActivity;
+        this.hfz = LayoutInflater.from(this.hfp.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,15 +49,15 @@ public class c extends PagerAdapter {
     }
 
     public boolean vT(int i) {
-        if (this.hfv.get(Integer.valueOf(i)) == null) {
+        if (this.hfA.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hfv.get(Integer.valueOf(i)).booleanValue();
+        return this.hfA.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = this.hfu.inflate(d.h.album_big_image_item, (ViewGroup) null);
+        View inflate = this.hfz.inflate(d.h.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(d.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
@@ -68,10 +68,10 @@ public class c extends PagerAdapter {
         ImageFileInfo pC = pC(i);
         if (pC != null) {
             tbImageView.startLoad(pC.getFilePath(), 36, false);
-            this.hfv.put(Integer.valueOf(i), true);
+            this.hfA.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        aj.k(inflate, d.C0096d.cp_bg_line_d);
+        aj.k(inflate, d.C0095d.cp_bg_line_d);
         return inflate;
     }
 }

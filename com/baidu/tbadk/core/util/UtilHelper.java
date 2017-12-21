@@ -129,7 +129,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType aib = NativePageType.NONE;
+        public NativePageType aie = NativePageType.NONE;
         public String id;
     }
 
@@ -407,7 +407,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.aib = NativePageType.PB;
+                    aVar.aie = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -442,7 +442,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.aib = NativePageType.PB;
+                aVar.aie = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -474,7 +474,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.aib = NativePageType.FRS;
+                aVar.aie = NativePageType.FRS;
             }
         }
         return aVar;
@@ -971,14 +971,14 @@ public class UtilHelper {
                         view.setBackgroundDrawable(new BitmapDrawable(resizeBitmap));
                         return;
                     } else {
-                        aj.k(view, d.C0096d.common_color_10274);
+                        aj.k(view, d.C0095d.common_color_10274);
                         return;
                     }
                 }
-                aj.k(view, d.C0096d.common_color_10274);
+                aj.k(view, d.C0095d.common_color_10274);
                 return;
             }
-            aj.k(view, d.C0096d.common_color_10274);
+            aj.k(view, d.C0095d.common_color_10274);
         }
     }
 
@@ -1022,7 +1022,7 @@ public class UtilHelper {
                 window.addFlags(ExploreByTouchHelper.INVALID_ID);
                 Method declaredMethod = Window.class.getDeclaredMethod("setStatusBarColor", Integer.TYPE);
                 declaredMethod.setAccessible(true);
-                declaredMethod.invoke(window, Integer.valueOf(TbadkCoreApplication.getInst().getSkinType() == 2 ? aj.getColor(d.C0096d.black_alpha60) : aj.getColor(d.C0096d.common_color_10274)));
+                declaredMethod.invoke(window, Integer.valueOf(TbadkCoreApplication.getInst().getSkinType() == 2 ? aj.getColor(d.C0095d.black_alpha60) : aj.getColor(d.C0095d.common_color_10274)));
             } catch (IllegalAccessException e) {
             } catch (NoSuchMethodException e2) {
             } catch (InvocationTargetException e3) {

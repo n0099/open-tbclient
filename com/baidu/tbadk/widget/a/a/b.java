@@ -10,32 +10,32 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int aRJ;
-    private final RectF aRN;
-    private final int aRO;
-    private final int aRP;
-    private a aRS;
-    private final Rect aRT;
-    private final RectF aRL = new RectF();
-    private final Rect aRM = new Rect();
-    private float aRQ = 1.0f;
-    private final List<a> aRR = new ArrayList();
+    private final int aRM;
+    private final RectF aRQ;
+    private final int aRR;
+    private final int aRS;
+    private a aRV;
+    private final Rect aRW;
+    private final RectF aRO = new RectF();
+    private final Rect aRP = new Rect();
+    private float aRT = 1.0f;
+    private final List<a> aRU = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.aRP = i2;
-        this.aRO = i;
-        this.aRN = new RectF(0.0f, 0.0f, i, i2);
-        this.aRT = new Rect(0, 0, iArr[0], iArr[1]);
-        this.aRJ = i / 2;
+        this.aRS = i2;
+        this.aRR = i;
+        this.aRQ = new RectF(0.0f, 0.0f, i, i2);
+        this.aRW = new Rect(0, 0, iArr[0], iArr[1]);
+        this.aRM = i / 2;
     }
 
     public int getBlockSize() {
-        return this.aRJ;
+        return this.aRM;
     }
 
     public Rect Iw() {
-        return this.aRT;
+        return this.aRW;
     }
 
     public Rect a(a aVar) {
@@ -48,25 +48,25 @@ public class b {
     public Point[] Ix() {
         Iz();
         int Iv = Iv();
-        int i = (this.aRM.top / Iv) / this.aRJ;
-        int i2 = (this.aRM.left / Iv) / this.aRJ;
+        int i = (this.aRP.top / Iv) / this.aRM;
+        int i2 = (this.aRP.left / Iv) / this.aRM;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.aRM.bottom / Iv) / this.aRJ) * Iv) + 1;
-        point2.x = (Iv * ((this.aRM.right / Iv) / this.aRJ)) + 1;
+        point2.y = (((this.aRP.bottom / Iv) / this.aRM) * Iv) + 1;
+        point2.x = (Iv * ((this.aRP.right / Iv) / this.aRM)) + 1;
         return new Point[]{point, point2};
     }
 
     public a Iy() {
-        return new a(this.aRJ);
+        return new a(this.aRM);
     }
 
     public Rect Iz() {
-        this.mMatrix.mapRect(this.aRL, this.aRN);
-        a(this.aRM, this.aRL);
-        return this.aRM;
+        this.mMatrix.mapRect(this.aRO, this.aRQ);
+        a(this.aRP, this.aRO);
+        return this.aRP;
     }
 
     private void a(Rect rect, RectF rectF) {
@@ -74,28 +74,28 @@ public class b {
     }
 
     public int IA() {
-        return this.aRO;
-    }
-
-    public int IB() {
-        return this.aRP;
-    }
-
-    public List<a> IC() {
         return this.aRR;
     }
 
+    public int IB() {
+        return this.aRS;
+    }
+
+    public List<a> IC() {
+        return this.aRU;
+    }
+
     public void G(float f) {
-        this.aRQ = f;
+        this.aRT = f;
     }
 
     public float ID() {
-        return this.aRQ;
+        return this.aRT;
     }
 
     public int Iv() {
         int i = 1;
-        while (i < Math.round(this.aRQ)) {
+        while (i < Math.round(this.aRT)) {
             i *= 2;
         }
         return i;
@@ -103,13 +103,13 @@ public class b {
 
     public void i(Bitmap bitmap) {
         if (bitmap != null) {
-            this.aRS = new a(bitmap);
-            this.aRS.j(0, 0, this.aRO, this.aRP);
+            this.aRV = new a(bitmap);
+            this.aRV.j(0, 0, this.aRR, this.aRS);
         }
     }
 
     public a IE() {
-        return this.aRS;
+        return this.aRV;
     }
 
     public void g(float f, float f2) {
@@ -126,15 +126,15 @@ public class b {
 
     public boolean q(int i, int i2, int i3) {
         if (i3 == Iv()) {
-            return r(i, i2, i3).intersect(this.aRM);
+            return r(i, i2, i3).intersect(this.aRP);
         }
         return false;
     }
 
     public Rect r(int i, int i2, int i3) {
-        int i4 = this.aRJ * i3 * i2;
-        int i5 = this.aRJ * i3 * i;
-        return new Rect(i4, i5, (this.aRJ * i3) + i4, (this.aRJ * i3) + i5);
+        int i4 = this.aRM * i3 * i2;
+        int i5 = this.aRM * i3 * i;
+        return new Rect(i4, i5, (this.aRM * i3) + i4, (this.aRM * i3) + i5);
     }
 
     public void e(Rect rect) {
@@ -144,11 +144,11 @@ public class b {
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.aRT.right) {
-            rect.right = this.aRT.right;
+        if (rect.right > this.aRW.right) {
+            rect.right = this.aRW.right;
         }
-        if (rect.bottom > this.aRT.bottom) {
-            rect.bottom = this.aRT.bottom;
+        if (rect.bottom > this.aRW.bottom) {
+            rect.bottom = this.aRW.bottom;
         }
     }
 }

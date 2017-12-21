@@ -11,13 +11,13 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    public static void addCustomView(Context context, SapiWebView sapiWebView) {
-        setProgressBar(context, sapiWebView);
-        setNoNetworkView(context, sapiWebView);
-        setTimeoutView(context, sapiWebView);
+    public static void c(Context context, SapiWebView sapiWebView) {
+        f(context, sapiWebView);
+        d(context, sapiWebView);
+        e(context, sapiWebView);
     }
 
-    public static void setNoNetworkView(final Context context, SapiWebView sapiWebView) {
+    public static void d(final Context context, SapiWebView sapiWebView) {
         View inflate = LayoutInflater.from(context).inflate(d.h.layout_sapi_network_unavailable, (ViewGroup) null);
         inflate.findViewById(d.g.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.1
             @Override // android.view.View.OnClickListener
@@ -30,7 +30,7 @@ public class d {
         sapiWebView.setNoNetworkView(inflate);
     }
 
-    public static void setTimeoutView(Context context, final SapiWebView sapiWebView) {
+    public static void e(Context context, final SapiWebView sapiWebView) {
         final View inflate = LayoutInflater.from(context).inflate(d.h.layout_sapi_loading_timeout, (ViewGroup) null);
         inflate.findViewById(d.g.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.2
             @Override // android.view.View.OnClickListener
@@ -47,7 +47,7 @@ public class d {
         sapiWebView.setTimeoutView(inflate);
     }
 
-    public static void setProgressBar(Context context, SapiWebView sapiWebView) {
+    public static void f(Context context, SapiWebView sapiWebView) {
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds8);
         ProgressBar progressBar = new ProgressBar(context, null, 16842872);
         progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));

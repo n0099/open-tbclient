@@ -16,41 +16,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private LinearLayout aYA;
-    private CompoundButton.OnCheckedChangeListener aYB;
-    private int aYC;
-    private boolean aYx = false;
-    private SparseArray<String> aYy = null;
-    private String[] aYz;
+    private boolean aYB = false;
+    private SparseArray<String> aYC = null;
+    private String[] aYD;
+    private LinearLayout aYE;
+    private CompoundButton.OnCheckedChangeListener aYF;
+    private int aYG;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.aYC = l.f(this.mPageContext.getPageActivity(), d.e.ds16);
+        this.aYG = l.f(this.mPageContext.getPageActivity(), d.e.ds16);
     }
 
     public void setData(ah ahVar) {
         if (ahVar != null) {
-            this.aYy = ahVar.ql();
+            this.aYC = ahVar.ql();
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.aYz = strArr;
+        this.aYD = strArr;
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.aYx = z;
+        this.aYB = z;
     }
 
     public void a(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        this.aYB = onCheckedChangeListener;
+        this.aYF = onCheckedChangeListener;
     }
 
     public View getView() {
-        if (this.aYA == null) {
-            this.aYA = new LinearLayout(this.mPageContext.getPageActivity());
-            this.aYA.setOrientation(1);
+        if (this.aYE == null) {
+            this.aYE = new LinearLayout(this.mPageContext.getPageActivity());
+            this.aYE.setOrientation(1);
         }
         List<List<a>> La = La();
         if (v.w(La)) {
@@ -59,28 +59,28 @@ public class b {
         int size = La.size();
         int i = 0;
         while (i < size) {
-            View a2 = a(La.get(i), i == size + (-1), this.aYA.getChildAt(i));
+            View a2 = a(La.get(i), i == size + (-1), this.aYE.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
-                this.aYA.addView(a2);
+                this.aYE.addView(a2);
             }
             i++;
         }
-        if (this.aYA.getChildCount() > size) {
-            this.aYA.removeViews(size, this.aYA.getChildCount() - size);
+        if (this.aYE.getChildCount() > size) {
+            this.aYE.removeViews(size, this.aYE.getChildCount() - size);
         }
-        return this.aYA;
+        return this.aYE;
     }
 
     private List<List<a>> La() {
         int i;
         int i2;
         int i3 = -1;
-        if (this.aYy == null || this.aYy.size() == 0) {
+        if (this.aYC == null || this.aYC.size() == 0) {
             return Lb();
         }
-        int size = this.aYy.size();
-        int i4 = this.aYx ? 0 : -1;
-        int i5 = this.aYx ? size - 1 : size;
+        int size = this.aYC.size();
+        int i4 = this.aYB ? 0 : -1;
+        int i5 = this.aYB ? size - 1 : size;
         if (i5 > 1 && i5 % 2 == 1) {
             i3 = i4 + 1;
         }
@@ -95,9 +95,9 @@ public class b {
                 i = i6 + 1;
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(new a(i6, this.aYy.keyAt(i6), this.aYy.valueAt(i6)));
+            arrayList2.add(new a(i6, this.aYC.keyAt(i6), this.aYC.valueAt(i6)));
             if (i > i6 && i < size) {
-                arrayList2.add(new a(i, this.aYy.keyAt(i), this.aYy.valueAt(i)));
+                arrayList2.add(new a(i, this.aYC.keyAt(i), this.aYC.valueAt(i)));
             }
             arrayList.add(arrayList2);
             i6 = i2;
@@ -106,17 +106,17 @@ public class b {
     }
 
     private List<List<a>> Lb() {
-        if (this.aYz == null || this.aYz.length <= 0) {
+        if (this.aYD == null || this.aYD.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < this.aYz.length; i += 2) {
+        for (int i = 0; i < this.aYD.length; i += 2) {
             ArrayList arrayList2 = new ArrayList();
-            if (!StringUtils.isNull(this.aYz[i])) {
-                arrayList2.add(new a(i, 0, this.aYz[i]));
+            if (!StringUtils.isNull(this.aYD[i])) {
+                arrayList2.add(new a(i, 0, this.aYD[i]));
             }
-            if (i + 1 < this.aYz.length && !StringUtils.isNull(this.aYz[i + 1])) {
-                arrayList2.add(new a(i + 1, 0, this.aYz[i + 1]));
+            if (i + 1 < this.aYD.length && !StringUtils.isNull(this.aYD[i + 1])) {
+                arrayList2.add(new a(i + 1, 0, this.aYD[i + 1]));
             }
             if (arrayList2.size() > 0) {
                 arrayList.add(arrayList2);
@@ -133,7 +133,7 @@ public class b {
         if (view instanceof LinearLayout) {
             linearLayout = (LinearLayout) view;
         } else {
-            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.neg_feedback_reason_item, (ViewGroup) this.aYA, false);
+            linearLayout = (LinearLayout) LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.neg_feedback_reason_item, (ViewGroup) this.aYE, false);
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.g.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(d.g.right_reason);
@@ -154,9 +154,9 @@ public class b {
         } else {
             nEGFeedBackReasonCheckBox2.setVisibility(8);
         }
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.aYB);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.aYB);
-        int i = z ? 0 : this.aYC;
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.aYF);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.aYF);
+        int i = z ? 0 : this.aYG;
         if (linearLayout.getLayoutParams() != null) {
             ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
             return linearLayout;

@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 abstract class f implements org.aspectj.lang.c {
-    ClassLoader hMR = null;
-    int hNb;
-    String hNc;
-    Class hNd;
-    a hNe;
-    private String hNf;
+    ClassLoader hMW = null;
+    int hNg;
+    String hNh;
+    Class hNi;
+    a hNj;
+    private String hNk;
     String name;
-    private static boolean cqh = true;
+    private static boolean cql = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] hNg = new Class[0];
+    static Class[] hNl = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.hNb = -1;
-        this.hNb = i;
+        this.hNg = -1;
+        this.hNg = i;
         this.name = str;
-        this.hNd = cls;
+        this.hNi = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (cqh) {
-            if (this.hNe == null) {
+        if (cql) {
+            if (this.hNj == null) {
                 try {
-                    this.hNe = new b();
+                    this.hNj = new b();
                 } catch (Throwable th) {
-                    cqh = false;
+                    cql = false;
                 }
             } else {
-                str = this.hNe.yd(hVar.hNr);
+                str = this.hNj.yd(hVar.hNw);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (cqh) {
-            this.hNe.ar(hVar.hNr, str);
+        if (cql) {
+            this.hNj.ar(hVar.hNw, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.hNt);
+        return a(h.hNy);
     }
 
     public int getModifiers() {
-        if (this.hNb == -1) {
-            this.hNb = ya(0);
+        if (this.hNg == -1) {
+            this.hNg = ya(0);
         }
-        return this.hNb;
+        return this.hNg;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class bSM() {
-        if (this.hNd == null) {
-            this.hNd = yb(2);
+    public Class bSN() {
+        if (this.hNi == null) {
+            this.hNi = yb(2);
         }
-        return this.hNd;
+        return this.hNi;
     }
 
-    public String bSN() {
-        if (this.hNc == null) {
-            this.hNc = bSM().getName();
+    public String bSO() {
+        if (this.hNh == null) {
+            this.hNh = bSN().getName();
         }
-        return this.hNc;
+        return this.hNh;
     }
 
-    private ClassLoader bSO() {
-        if (this.hMR == null) {
-            this.hMR = getClass().getClassLoader();
+    private ClassLoader bSP() {
+        if (this.hMW == null) {
+            this.hMW = getClass().getClassLoader();
         }
-        return this.hMR;
+        return this.hMW;
     }
 
     String xZ(int i) {
         int i2 = 0;
-        int indexOf = this.hNf.indexOf(45);
+        int indexOf = this.hNk.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.hNf.indexOf(45, i2);
+            indexOf = this.hNk.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.hNf.length();
+            indexOf = this.hNk.length();
         }
-        return this.hNf.substring(i2, indexOf);
+        return this.hNk.substring(i2, indexOf);
     }
 
     int ya(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class yb(int i) {
-        return org.aspectj.a.b.b.b(xZ(i), bSO());
+        return org.aspectj.a.b.b.b(xZ(i), bSP());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bSO());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bSP());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b implements a {
-        private SoftReference hNh;
+        private SoftReference hNm;
 
         public b() {
-            bSQ();
+            bSR();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String yd(int i) {
-            String[] bSP = bSP();
-            if (bSP == null) {
+            String[] bSQ = bSQ();
+            if (bSQ == null) {
                 return null;
             }
-            return bSP[i];
+            return bSQ[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void ar(int i, String str) {
-            String[] bSP = bSP();
-            if (bSP == null) {
-                bSP = bSQ();
+            String[] bSQ = bSQ();
+            if (bSQ == null) {
+                bSQ = bSR();
             }
-            bSP[i] = str;
-        }
-
-        private String[] bSP() {
-            return (String[]) this.hNh.get();
+            bSQ[i] = str;
         }
 
         private String[] bSQ() {
+            return (String[]) this.hNm.get();
+        }
+
+        private String[] bSR() {
             String[] strArr = new String[3];
-            this.hNh = new SoftReference(strArr);
+            this.hNm = new SoftReference(strArr);
             return strArr;
         }
     }

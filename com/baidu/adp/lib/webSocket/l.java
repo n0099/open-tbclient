@@ -1,32 +1,31 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int Al;
     private int Am;
-    private boolean An;
+    private int An;
     private boolean Ao;
-    private int Ap;
+    private boolean Ap;
     private int Aq;
-    private boolean Ar;
+    private int Ar;
     private boolean As;
-    private String zx;
+    private boolean At;
+    private String zy;
 
     public l() {
-        this.zx = null;
-        this.Al = 32768;
-        this.Am = 131072;
-        this.An = false;
-        this.Ao = true;
-        this.Ap = 30000;
+        this.zy = null;
+        this.Am = 32768;
+        this.An = 131072;
+        this.Ao = false;
+        this.Ap = true;
         this.Aq = 30000;
-        this.Ar = true;
+        this.Ar = 30000;
         this.As = true;
-        this.zx = null;
+        this.At = true;
+        this.zy = null;
     }
 
     public l(l lVar) {
-        this.zx = null;
-        this.Al = lVar.Al;
+        this.zy = null;
         this.Am = lVar.Am;
         this.An = lVar.An;
         this.Ao = lVar.Ao;
@@ -34,46 +33,47 @@ public class l {
         this.Aq = lVar.Aq;
         this.Ar = lVar.Ar;
         this.As = lVar.As;
-        this.zx = lVar.zx;
+        this.At = lVar.At;
+        this.zy = lVar.zy;
     }
 
     public boolean ik() {
-        return this.An;
-    }
-
-    public int il() {
-        return this.Al;
-    }
-
-    public int im() {
-        return this.Am;
-    }
-
-    public boolean getTcpNoDelay() {
         return this.Ao;
     }
 
-    public int in() {
+    public int il() {
+        return this.Am;
+    }
+
+    public int im() {
+        return this.An;
+    }
+
+    public boolean getTcpNoDelay() {
         return this.Ap;
     }
 
-    public int io() {
+    public int in() {
         return this.Aq;
     }
 
-    public boolean ip() {
+    public int io() {
         return this.Ar;
     }
 
-    public boolean iq() {
+    public boolean ip() {
         return this.As;
     }
 
+    public boolean iq() {
+        return this.At;
+    }
+
     public String ir() {
-        return this.zx;
+        return this.zy;
     }
 
     public void aV(String str) {
-        this.zx = str;
+        this.zy = str;
     }
 }

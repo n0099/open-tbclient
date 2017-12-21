@@ -23,7 +23,7 @@ public class Receiver extends BroadcastReceiver {
                         b at = b.at(context);
                         Message message = new Message();
                         message.what = 2;
-                        at.QO.QK.sendMessage(message);
+                        at.QP.QL.sendMessage(message);
                     }
                 }
             } catch (Throwable th) {

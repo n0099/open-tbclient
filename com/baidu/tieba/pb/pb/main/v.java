@@ -29,7 +29,7 @@ public class v extends m<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if (wVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (wVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.eVp.getPageContext(), wVar.getView());
+                com.baidu.tbadk.n.a.a(this.eVu.getPageContext(), wVar.getView());
             }
             wVar.mSkinType = skinType;
         }
@@ -42,17 +42,17 @@ public class v extends m<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, w wVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, wVar);
         a(wVar);
-        wVar.eXJ.setOnClickListener(this);
-        wVar.eXI.setOnClickListener(this);
-        wVar.eXJ.setTag(aVar);
-        wVar.eXI.setTag(aVar);
+        wVar.eXO.setOnClickListener(this);
+        wVar.eXN.setOnClickListener(this);
+        wVar.eXO.setTag(aVar);
+        wVar.eXN.setTag(aVar);
         if (aVar != null) {
-            wVar.cTm.startLoad(aVar.getPortrait(), 28, false);
-            wVar.bWB.setText(aVar.getUserName());
-            wVar.dFj.setText(aVar.aRc());
+            wVar.cTq.startLoad(aVar.getPortrait(), 28, false);
+            wVar.bWF.setText(aVar.getUserName());
+            wVar.dFn.setText(aVar.aRd());
             wVar.text.setText(aVar.getText());
-            wVar.eXI.startLoad(aVar.getPicUrl(), 10, false);
-            wVar.eXJ.setText(aVar.aRd());
+            wVar.eXN.startLoad(aVar.getPicUrl(), 10, false);
+            wVar.eXO.setText(aVar.aRe());
         }
         return view;
     }
@@ -62,9 +62,9 @@ public class v extends m<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ax.aS(this.mContext)) {
-            String aRe = ((com.baidu.tieba.pb.data.a) view.getTag()).aRe();
-            if (!StringUtils.isNull(aRe)) {
-                com.baidu.tbadk.core.util.av.vI().c(this.eVp.getPageContext(), new String[]{aRe});
+            String aRf = ((com.baidu.tieba.pb.data.a) view.getTag()).aRf();
+            if (!StringUtils.isNull(aRf)) {
+                com.baidu.tbadk.core.util.av.vI().c(this.eVu.getPageContext(), new String[]{aRf});
             }
         }
     }

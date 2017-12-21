@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class l {
-    private int[] afi;
-    private SoftReference<ImageView> afk;
-    private int afl;
-    private a afm;
-    private int afn;
-    private BitmapFactory.Options afp;
+    private int[] afl;
+    private SoftReference<ImageView> afn;
+    private int afo;
+    private a afp;
+    private int afq;
+    private BitmapFactory.Options afs;
     private Bitmap mBitmap;
-    private int afo = 1;
+    private int afr = 1;
     private Handler mHandler = new Handler();
     private int mIndex = -1;
-    private boolean afj = false;
-    private boolean wy = false;
+    private boolean afm = false;
+    private boolean wz = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -36,19 +36,19 @@ public class l {
 
     public l(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.afi = cE(i);
-        this.afk = new SoftReference<>(imageView);
-        this.afl = 1000 / i2;
-        this.afn = i3;
-        imageView.setImageResource(this.afi[0]);
+        this.afl = cE(i);
+        this.afn = new SoftReference<>(imageView);
+        this.afo = 1000 / i2;
+        this.afq = i3;
+        imageView.setImageResource(this.afl[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
                 this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                this.afp = new BitmapFactory.Options();
-                this.afp.inBitmap = this.mBitmap;
-                this.afp.inMutable = true;
-                this.afp.inSampleSize = 1;
+                this.afs = new BitmapFactory.Options();
+                this.afs.inBitmap = this.mBitmap;
+                this.afs.inMutable = true;
+                this.afs.inSampleSize = 1;
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -58,30 +58,30 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public int um() {
         this.mIndex++;
-        if (this.mIndex + 1 >= this.afi.length) {
-            this.afo++;
+        if (this.mIndex + 1 >= this.afl.length) {
+            this.afr++;
         }
-        if (this.mIndex >= this.afi.length) {
+        if (this.mIndex >= this.afl.length) {
             this.mIndex = 0;
         }
-        return this.afi[this.mIndex];
+        return this.afl[this.mIndex];
     }
 
     public synchronized void b(ImageView imageView) {
-        this.afj = true;
-        if (!this.wy) {
-            if (this.afk.get() == null) {
-                this.afk = new SoftReference<>(imageView);
+        this.afm = true;
+        if (!this.wz) {
+            if (this.afn.get() == null) {
+                this.afn = new SoftReference<>(imageView);
             }
             this.mHandler.post(new Runnable() { // from class: com.baidu.tbadk.core.util.l.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap bitmap;
-                    ImageView imageView2 = (ImageView) l.this.afk.get();
-                    if (!l.this.afj || imageView2 == null || l.this.afo > l.this.afn) {
-                        l.this.wy = false;
-                        if (l.this.afm != null) {
-                            l.this.afm.un();
+                    ImageView imageView2 = (ImageView) l.this.afn.get();
+                    if (!l.this.afm || imageView2 == null || l.this.afr > l.this.afq) {
+                        l.this.wz = false;
+                        if (l.this.afp != null) {
+                            l.this.afp.un();
                         }
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             l.this.mBitmap.recycle();
@@ -90,13 +90,13 @@ public class l {
                         }
                         return;
                     }
-                    l.this.wy = true;
-                    l.this.mHandler.postDelayed(this, l.this.afl);
+                    l.this.wz = true;
+                    l.this.mHandler.postDelayed(this, l.this.afo);
                     if (imageView2.isShown()) {
                         int um = l.this.um();
                         if (l.this.mBitmap != null && !l.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), um, l.this.afp);
+                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), um, l.this.afs);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -118,15 +118,15 @@ public class l {
     }
 
     public synchronized void stop() {
-        this.afj = false;
-        this.afk.clear();
-        this.wy = false;
+        this.afm = false;
+        this.afn.clear();
+        this.wz = false;
         this.mIndex = -1;
-        this.afo = 1;
+        this.afr = 1;
     }
 
     public void a(a aVar) {
-        this.afm = aVar;
+        this.afp = aVar;
     }
 
     private int[] cE(int i) {

@@ -67,7 +67,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (g.agG().ko(valueOf2) && valueOf3.booleanValue()) {
             String F = g.agG().F(valueOf2, true);
             valueOf = g.agG().kn(valueOf2);
-            if (!new File(k.xQ + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + F).exists()) {
+            if (!new File(k.xR + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + F).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
                 if (!valueOf3.booleanValue()) {
@@ -158,7 +158,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
                     dVar.f(aVar3);
-                    aVar.vC = dVar;
+                    aVar.vD = dVar;
                 }
                 Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = g.agG().agI().iterator();
                 while (true) {
@@ -194,7 +194,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.d dVar2 = new com.baidu.tbadk.core.util.c.d();
                     dVar2.f(cVar);
-                    aVar.vC = dVar2;
+                    aVar.vD = dVar2;
                 }
             }
             return aVar2;
@@ -226,7 +226,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
             dVar.f(aVar2);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (d.dH().c(aVar2)) {
             int i = 2000;
@@ -264,7 +264,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.c.d dVar = new com.baidu.tbadk.core.util.c.d();
             dVar.f(gVar);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         if (d.dH().c(gVar)) {
             int i = 2000;

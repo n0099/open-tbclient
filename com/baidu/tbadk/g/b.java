@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class b extends BaseFragment {
-    protected boolean SL = false;
+    protected boolean SM = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.g.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 b.this.bc(b.this.getType());
-                if (!b.this.SL) {
+                if (!b.this.SM) {
                     b.this.c(false, b.this.getType());
                 }
             }
@@ -29,7 +29,7 @@ public abstract class b extends BaseFragment {
     public abstract boolean oz();
 
     public boolean oy() {
-        return this.SL;
+        return this.SM;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -46,8 +46,8 @@ public abstract class b extends BaseFragment {
 
     protected void bc(int i) {
         Bundle bundle = new Bundle();
-        this.SL = !oz() && j.hh();
-        bundle.putBoolean("is_enable_edit", this.SL);
+        this.SM = !oz() && j.hh();
+        bundle.putBoolean("is_enable_edit", this.SM);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

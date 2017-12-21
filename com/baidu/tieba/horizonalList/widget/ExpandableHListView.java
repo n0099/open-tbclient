@@ -18,33 +18,33 @@ import com.baidu.tieba.horizonalList.widget.a;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ExpandableHListView extends HListView {
-    private static final int[] EMPTY_STATE_SET = new int[0];
-    private static final int[] dus = {16842920};
-    private static final int[] dut = {16842921};
-    private static final int[] duu = {16842920, 16842921};
-    private static final int[][] duv = {EMPTY_STATE_SET, dus, dut, duu};
-    private static final int[] duw = {16842918};
-    private int duA;
-    private int duB;
-    private int duC;
-    private d duD;
-    private e duE;
-    private c duF;
-    private b duG;
-    private ExpandableHListConnector dui;
-    private ExpandableListAdapter duj;
-    private int duk;
-    private int dul;
-    private int dum;
-    private int dun;
+    private Drawable duB;
+    private final Rect duC;
+    private int duD;
+    private int duE;
+    private int duF;
+    private int duG;
+    private d duH;
+    private e duI;
+    private c duJ;
+    private b duK;
+    private ExpandableHListConnector dum;
+    private ExpandableListAdapter dun;
     private int duo;
     private int dup;
-    private Drawable duq;
-    private Drawable dur;
-    private Drawable dux;
-    private final Rect duy;
-    private int duz;
+    private int duq;
+    private int dur;
+    private int dus;
+    private int dut;
+    private Drawable duu;
+    private Drawable duv;
     private final Rect mTempRect;
+    private static final int[] EMPTY_STATE_SET = new int[0];
+    private static final int[] duw = {16842920};
+    private static final int[] dux = {16842921};
+    private static final int[] duy = {16842920, 16842921};
+    private static final int[][] duz = {EMPTY_STATE_SET, duw, dux, duy};
+    private static final int[] duA = {16842918};
 
     /* loaded from: classes.dex */
     public interface b {
@@ -66,35 +66,35 @@ public class ExpandableHListView extends HListView {
         void onGroupExpand(int i);
     }
 
-    private void auN() {
-        if (this.duq != null) {
-            this.duz = this.duq.getIntrinsicWidth();
-            this.duA = this.duq.getIntrinsicHeight();
+    private void auO() {
+        if (this.duu != null) {
+            this.duD = this.duu.getIntrinsicWidth();
+            this.duE = this.duu.getIntrinsicHeight();
             return;
         }
-        this.duz = 0;
-        this.duA = 0;
+        this.duD = 0;
+        this.duE = 0;
     }
 
-    private void auO() {
-        if (this.dur != null) {
-            this.duB = this.dur.getIntrinsicWidth();
-            this.duC = this.dur.getIntrinsicHeight();
+    private void auP() {
+        if (this.duv != null) {
+            this.duF = this.duv.getIntrinsicWidth();
+            this.duG = this.duv.getIntrinsicHeight();
             return;
         }
-        this.duB = 0;
-        this.duC = 0;
+        this.duF = 0;
+        this.duG = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.horizonalList.widget.HListView, com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.dur != null || this.duq != null) {
+        if (this.duv != null || this.duu != null) {
             int headerViewsCount = getHeaderViewsCount();
             int footerViewsCount = ((this.mItemCount - getFooterViewsCount()) - headerViewsCount) - 1;
             int right = getRight();
-            Rect rect = this.duy;
+            Rect rect = this.duC;
             int childCount = getChildCount();
             int i = this.mFirstPosition - headerViewsCount;
             int i2 = -4;
@@ -107,31 +107,31 @@ public class ExpandableHListView extends HListView {
                         int left = childAt.getLeft();
                         int right2 = childAt.getRight();
                         if (right2 >= 0 && left <= right) {
-                            ExpandableHListConnector.b mn = this.dui.mn(i4);
-                            if (mn.duc.type != i2) {
-                                if (mn.duc.type == 1) {
+                            ExpandableHListConnector.b mn = this.dum.mn(i4);
+                            if (mn.dug.type != i2) {
+                                if (mn.dug.type == 1) {
+                                    rect.top = childAt.getTop() + this.dus;
+                                    rect.bottom = childAt.getBottom() + this.dus;
+                                } else {
                                     rect.top = childAt.getTop() + this.duo;
                                     rect.bottom = childAt.getBottom() + this.duo;
-                                } else {
-                                    rect.top = childAt.getTop() + this.duk;
-                                    rect.bottom = childAt.getBottom() + this.duk;
                                 }
-                                i2 = mn.duc.type;
+                                i2 = mn.dug.type;
                             }
                             if (rect.top != rect.bottom) {
-                                if (mn.duc.type == 1) {
+                                if (mn.dug.type == 1) {
+                                    rect.left = this.dut + left;
+                                    rect.right = this.dut + right2;
+                                } else {
                                     rect.left = this.dup + left;
                                     rect.right = this.dup + right2;
-                                } else {
-                                    rect.left = this.dul + left;
-                                    rect.right = this.dul + right2;
                                 }
                                 Drawable c2 = c(mn);
                                 if (c2 != null) {
-                                    if (mn.duc.type == 1) {
-                                        Gravity.apply(this.dun, this.duB, this.duC, rect, this.mTempRect);
+                                    if (mn.dug.type == 1) {
+                                        Gravity.apply(this.dur, this.duF, this.duG, rect, this.mTempRect);
                                     } else {
-                                        Gravity.apply(this.dum, this.duz, this.duA, rect, this.mTempRect);
+                                        Gravity.apply(this.duq, this.duD, this.duE, rect, this.mTempRect);
                                     }
                                     c2.setBounds(this.mTempRect);
                                     c2.draw(canvas);
@@ -150,23 +150,23 @@ public class ExpandableHListView extends HListView {
     }
 
     private Drawable c(ExpandableHListConnector.b bVar) {
-        if (bVar.duc.type == 2) {
-            Drawable drawable = this.duq;
+        if (bVar.dug.type == 2) {
+            Drawable drawable = this.duu;
             if (drawable == null || !drawable.isStateful()) {
                 return drawable;
             }
-            drawable.setState(duv[(bVar.auK() ? (char) 1 : (char) 0) | (bVar.dud == null || bVar.dud.dtX == bVar.dud.dtW ? (char) 2 : (char) 0)]);
+            drawable.setState(duz[(bVar.auL() ? (char) 1 : (char) 0) | (bVar.duh == null || bVar.duh.dub == bVar.duh.dua ? (char) 2 : (char) 0)]);
             return drawable;
         }
-        Drawable drawable2 = this.dur;
+        Drawable drawable2 = this.duv;
         if (drawable2 != null && drawable2.isStateful()) {
-            drawable2.setState(bVar.duc.duh == bVar.dud.dtX ? duw : EMPTY_STATE_SET);
+            drawable2.setState(bVar.dug.dul == bVar.duh.dub ? duA : EMPTY_STATE_SET);
         }
         return drawable2;
     }
 
     public void setChildDivider(Drawable drawable) {
-        this.dux = drawable;
+        this.duB = drawable;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -174,9 +174,9 @@ public class ExpandableHListView extends HListView {
     public void drawDivider(Canvas canvas, Rect rect, int i) {
         int i2 = this.mFirstPosition + i;
         if (i2 >= 0) {
-            ExpandableHListConnector.b mn = this.dui.mn(mq(i2));
-            if (mn.duc.type == 1 || (mn.auK() && mn.dud.dtX != mn.dud.dtW)) {
-                Drawable drawable = this.dux;
+            ExpandableHListConnector.b mn = this.dum.mn(mq(i2));
+            if (mn.dug.type == 1 || (mn.auL() && mn.duh.dub != mn.duh.dua)) {
+                Drawable drawable = this.duB;
                 drawable.setBounds(rect);
                 drawable.draw(canvas);
                 mn.recycle();
@@ -205,17 +205,17 @@ public class ExpandableHListView extends HListView {
     }
 
     public void setAdapter(ExpandableListAdapter expandableListAdapter) {
-        this.duj = expandableListAdapter;
+        this.dun = expandableListAdapter;
         if (expandableListAdapter != null) {
-            this.dui = new ExpandableHListConnector(expandableListAdapter);
+            this.dum = new ExpandableHListConnector(expandableListAdapter);
         } else {
-            this.dui = null;
+            this.dum = null;
         }
-        super.setAdapter((ListAdapter) this.dui);
+        super.setAdapter((ListAdapter) this.dum);
     }
 
     public ExpandableListAdapter getExpandableListAdapter() {
-        return this.duj;
+        return this.dun;
     }
 
     private boolean isHeaderOrFooterPosition(int i) {
@@ -240,33 +240,33 @@ public class ExpandableHListView extends HListView {
 
     boolean b(View view, int i, long j) {
         boolean z;
-        ExpandableHListConnector.b mn = this.dui.mn(i);
-        long b2 = b(mn.duc);
-        if (mn.duc.type == 2) {
-            if (this.duF != null && this.duF.a(this, view, mn.duc.duf, b2)) {
+        ExpandableHListConnector.b mn = this.dum.mn(i);
+        long b2 = b(mn.dug);
+        if (mn.dug.type == 2) {
+            if (this.duJ != null && this.duJ.a(this, view, mn.dug.duj, b2)) {
                 mn.recycle();
                 return true;
             }
-            if (mn.auK()) {
-                this.dui.a(mn);
+            if (mn.auL()) {
+                this.dum.a(mn);
                 playSoundEffect(0);
-                if (this.duD != null) {
-                    this.duD.onGroupCollapse(mn.duc.duf);
+                if (this.duH != null) {
+                    this.duH.onGroupCollapse(mn.dug.duj);
                 }
             } else {
-                this.dui.b(mn);
+                this.dum.b(mn);
                 playSoundEffect(0);
-                if (this.duE != null) {
-                    this.duE.onGroupExpand(mn.duc.duf);
+                if (this.duI != null) {
+                    this.duI.onGroupExpand(mn.dug.duj);
                 }
-                int i2 = mn.duc.duf;
-                int headerViewsCount = mn.duc.duh + getHeaderViewsCount();
-                smoothScrollToPosition(this.duj.getChildrenCount(i2) + headerViewsCount, headerViewsCount);
+                int i2 = mn.dug.duj;
+                int headerViewsCount = mn.dug.dul + getHeaderViewsCount();
+                smoothScrollToPosition(this.dun.getChildrenCount(i2) + headerViewsCount, headerViewsCount);
             }
             z = true;
-        } else if (this.duG != null) {
+        } else if (this.duK != null) {
             playSoundEffect(0);
-            return this.duG.a(this, view, mn.duc.duf, mn.duc.dug, b2);
+            return this.duK.a(this, view, mn.dug.duj, mn.dug.duk, b2);
         } else {
             z = false;
         }
@@ -275,29 +275,29 @@ public class ExpandableHListView extends HListView {
     }
 
     public void setOnGroupCollapseListener(d dVar) {
-        this.duD = dVar;
+        this.duH = dVar;
     }
 
     public void setOnGroupExpandListener(e eVar) {
-        this.duE = eVar;
+        this.duI = eVar;
     }
 
     public void setOnGroupClickListener(c cVar) {
-        this.duF = cVar;
+        this.duJ = cVar;
     }
 
     public void setOnChildClickListener(b bVar) {
-        this.duG = bVar;
+        this.duK = bVar;
     }
 
     public long getExpandableListPosition(int i) {
         if (isHeaderOrFooterPosition(i)) {
             return 4294967295L;
         }
-        ExpandableHListConnector.b mn = this.dui.mn(mq(i));
-        long auL = mn.duc.auL();
+        ExpandableHListConnector.b mn = this.dum.mn(mq(i));
+        long auM = mn.dug.auM();
         mn.recycle();
-        return auL;
+        return auM;
     }
 
     public long getSelectedPosition() {
@@ -311,16 +311,16 @@ public class ExpandableHListView extends HListView {
         }
         int packedPositionGroup = getPackedPositionGroup(selectedPosition);
         if (getPackedPositionType(selectedPosition) == 0) {
-            return this.duj.getGroupId(packedPositionGroup);
+            return this.dun.getGroupId(packedPositionGroup);
         }
-        return this.duj.getChildId(packedPositionGroup, getPackedPositionChild(selectedPosition));
+        return this.dun.getChildId(packedPositionGroup, getPackedPositionChild(selectedPosition));
     }
 
     public void setSelectedGroup(int i) {
         com.baidu.tieba.horizonalList.widget.b mp = com.baidu.tieba.horizonalList.widget.b.mp(i);
-        ExpandableHListConnector.b a2 = this.dui.a(mp);
+        ExpandableHListConnector.b a2 = this.dum.a(mp);
         mp.recycle();
-        super.setSelection(mr(a2.duc.duh));
+        super.setSelection(mr(a2.dug.dul));
         a2.recycle();
     }
 
@@ -348,28 +348,28 @@ public class ExpandableHListView extends HListView {
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView
     ContextMenu.ContextMenuInfo createContextMenuInfo(View view, int i, long j) {
         if (isHeaderOrFooterPosition(i)) {
-            return new a.ContextMenu$ContextMenuInfoC0106a(view, i, j);
+            return new a.ContextMenu$ContextMenuInfoC0105a(view, i, j);
         }
-        ExpandableHListConnector.b mn = this.dui.mn(mq(i));
-        com.baidu.tieba.horizonalList.widget.b bVar = mn.duc;
+        ExpandableHListConnector.b mn = this.dum.mn(mq(i));
+        com.baidu.tieba.horizonalList.widget.b bVar = mn.dug;
         long b2 = b(bVar);
-        long auL = bVar.auL();
+        long auM = bVar.auM();
         mn.recycle();
-        return new a(view, auL, b2);
+        return new a(view, auM, b2);
     }
 
     private long b(com.baidu.tieba.horizonalList.widget.b bVar) {
-        return bVar.type == 1 ? this.duj.getChildId(bVar.duf, bVar.dug) : this.duj.getGroupId(bVar.duf);
+        return bVar.type == 1 ? this.dun.getChildId(bVar.duj, bVar.duk) : this.dun.getGroupId(bVar.duj);
     }
 
     public void setChildIndicator(Drawable drawable) {
-        this.dur = drawable;
-        auO();
+        this.duv = drawable;
+        auP();
     }
 
     public void setGroupIndicator(Drawable drawable) {
-        this.duq = drawable;
-        auN();
+        this.duu = drawable;
+        auO();
     }
 
     /* loaded from: classes.dex */
@@ -403,29 +403,29 @@ public class ExpandableHListView extends HListView {
                 return new SavedState[i];
             }
         };
-        ArrayList<ExpandableHListConnector.GroupMetadata> duH;
+        ArrayList<ExpandableHListConnector.GroupMetadata> duL;
 
         SavedState(Parcelable parcelable, ArrayList<ExpandableHListConnector.GroupMetadata> arrayList) {
             super(parcelable);
-            this.duH = arrayList;
+            this.duL = arrayList;
         }
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.duH = new ArrayList<>();
-            parcel.readList(this.duH, ExpandableHListConnector.class.getClassLoader());
+            this.duL = new ArrayList<>();
+            parcel.readList(this.duL, ExpandableHListConnector.class.getClassLoader());
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeList(this.duH);
+            parcel.writeList(this.duL);
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
     public Parcelable onSaveInstanceState() {
-        return new SavedState(super.onSaveInstanceState(), this.dui != null ? this.dui.auI() : null);
+        return new SavedState(super.onSaveInstanceState(), this.dum != null ? this.dum.auJ() : null);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
@@ -436,8 +436,8 @@ public class ExpandableHListView extends HListView {
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        if (this.dui != null && savedState.duH != null) {
-            this.dui.R(savedState.duH);
+        if (this.dum != null && savedState.duL != null) {
+            this.dum.R(savedState.duL);
         }
     }
 

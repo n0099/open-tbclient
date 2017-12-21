@@ -8,42 +8,42 @@ public class t extends q {
         if (r.GB().GC()) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            fK.p("ishttp", mVar.aKC ? "1" : "0");
+            fK.p("ishttp", mVar.aKF ? "1" : "0");
             fK.p("issuccess", mVar.isSuccess ? "1" : "0");
             fK.p("nettype", r.GB().getNetType());
-            fK.p("wt", String.valueOf(mVar.aKx));
-            fK.p("qt", String.valueOf(mVar.aKq));
-            fK.p("connt", String.valueOf(mVar.aKr));
-            fK.p("rwt", String.valueOf(mVar.aKs));
-            fK.p("fbt", String.valueOf(mVar.oc));
-            fK.p("abt", String.valueOf(mVar.od));
-            fK.p("dect", String.valueOf(mVar.aKt));
-            fK.p("parset", String.valueOf(mVar.aKu));
-            fK.p("tqt", String.valueOf(mVar.aKv));
-            fK.p("rendert", String.valueOf(mVar.aKw));
-            fK.p("ss", String.valueOf(mVar.aKA));
-            fK.p("hs", String.valueOf(mVar.aKB));
-            if (mVar.aKC && mVar.socketErrNo != 0) {
+            fK.p("wt", String.valueOf(mVar.aKA));
+            fK.p("qt", String.valueOf(mVar.aKt));
+            fK.p("connt", String.valueOf(mVar.aKu));
+            fK.p("rwt", String.valueOf(mVar.aKv));
+            fK.p("fbt", String.valueOf(mVar.od));
+            fK.p("abt", String.valueOf(mVar.oe));
+            fK.p("dect", String.valueOf(mVar.aKw));
+            fK.p("parset", String.valueOf(mVar.aKx));
+            fK.p("tqt", String.valueOf(mVar.aKy));
+            fK.p("rendert", String.valueOf(mVar.aKz));
+            fK.p("ss", String.valueOf(mVar.aKD));
+            fK.p("hs", String.valueOf(mVar.aKE));
+            if (mVar.aKF && mVar.socketErrNo != 0) {
                 fK.p("salno", String.valueOf(mVar.socketErrNo));
                 if (mVar.socketCostTime != 0) {
                     fK.p("scosttime", String.valueOf(mVar.socketCostTime));
                 }
             }
-            if (mVar.aKC) {
-                fK.p("hrtn", String.valueOf(mVar.aKD));
-                fK.p("hrtt", String.valueOf(mVar.aKE));
+            if (mVar.aKF) {
+                fK.p("hrtn", String.valueOf(mVar.aKG));
+                fK.p("hrtt", String.valueOf(mVar.aKH));
             }
             if (mVar.errCode != 0) {
                 fK.c("errcode", Integer.valueOf(mVar.errCode));
             }
-            if (mVar.aKF) {
+            if (mVar.aKI) {
                 fK.p("pt", "1");
             } else {
-                fK.p("sysct", String.valueOf(mVar.aKo));
-                fK.p("ct", String.valueOf(mVar.aKp));
+                fK.p("sysct", String.valueOf(mVar.aKr));
+                fK.p("ct", String.valueOf(mVar.aKs));
             }
-            if (mVar.aKC) {
-                fK.p("c_logid", String.valueOf(mVar.aKG));
+            if (mVar.aKF) {
+                fK.p("c_logid", String.valueOf(mVar.aKJ));
                 if (mVar.sequenceID != 0) {
                     fK.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
                 }
@@ -55,19 +55,19 @@ public class t extends q {
     }
 
     public void b(m mVar) {
-        if (r.GB().GC() && mVar.aKy > 0) {
+        if (r.GB().GC() && mVar.aKB > 0) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("action", "readCache");
-            fK.p("rct", String.valueOf(mVar.aKy));
+            fK.p("rct", String.valueOf(mVar.aKB));
             BdStatisticsManager.getInstance().performance(this.subType, fK);
         }
     }
 
     public void c(m mVar) {
-        if (r.GB().GC() && mVar.aKz > 0) {
+        if (r.GB().GC() && mVar.aKC > 0) {
             com.baidu.adp.lib.stats.a fK = fK();
             fK.p("action", "writeCache");
-            fK.p("wct", String.valueOf(mVar.aKz));
+            fK.p("wct", String.valueOf(mVar.aKC));
             BdStatisticsManager.getInstance().performance(this.subType, fK);
         }
     }
@@ -78,9 +78,9 @@ public class t extends q {
             fK.p("action", "resource");
             fK.p("actype", str);
             fK.p("issuccess", lVar.isSuccess ? "1" : "0");
-            fK.p("isfs", lVar.aKn ? "1" : "0");
-            fK.p("ct", String.valueOf(lVar.Gn));
-            fK.p("from", String.valueOf(lVar.Gm));
+            fK.p("isfs", lVar.aKq ? "1" : "0");
+            fK.p("ct", String.valueOf(lVar.Go));
+            fK.p("from", String.valueOf(lVar.Gn));
             BdStatisticsManager.getInstance().performance(this.subType, fK);
         }
     }

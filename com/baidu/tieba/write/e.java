@@ -12,11 +12,11 @@ import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class e extends PopupWindow {
-    private int aES;
-    private LinearLayout axX;
+    private int aEV;
+    private LinearLayout aya;
     private Context context;
     private int count;
-    private a heK;
+    private a heP;
     private int maxHeight;
 
     /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class e extends PopupWindow {
 
     public e(Context context) {
         super(context);
-        this.aES = -1;
+        this.aEV = -1;
         this.context = context;
         init(context);
     }
@@ -34,10 +34,10 @@ public class e extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.axX = new LinearLayout(context);
-        this.axX.setOrientation(1);
-        this.axX.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.axX);
+        this.aya = new LinearLayout(context);
+        this.aya.setOrientation(1);
+        this.aya.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.aya);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -68,8 +68,8 @@ public class e extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.heK));
-        this.axX.addView(view);
+        view.setOnClickListener(new b(this.count, this.heP));
+        this.aya.addView(view);
         this.count++;
     }
 
@@ -78,31 +78,31 @@ public class e extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aES != -1) {
-            this.axX.getChildAt(this.aES).setSelected(false);
+        if (this.aEV != -1) {
+            this.aya.getChildAt(this.aEV).setSelected(false);
         }
-        this.aES = i;
-        this.axX.getChildAt(this.aES).setSelected(true);
+        this.aEV = i;
+        this.aya.getChildAt(this.aEV).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.heK = aVar;
+        this.heP = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a heL;
+        private a heQ;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.heL = aVar;
+            this.heQ = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.heL != null) {
-                this.heL.tN(this.position);
+            if (this.heQ != null) {
+                this.heQ.tN(this.position);
             }
         }
     }

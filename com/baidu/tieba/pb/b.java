@@ -10,8 +10,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static String eNp = "c12585";
-        public static String eNq = "c12586";
+        public static String eNu = "c12585";
+        public static String eNv = "c12586";
     }
 
     public static CustomDialogData J(JSONObject jSONObject) {

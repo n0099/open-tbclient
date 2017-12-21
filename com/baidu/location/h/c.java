@@ -7,7 +7,7 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c Oe = null;
+    private static c Of = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -23,10 +23,10 @@ public class c {
     }
 
     public static c mX() {
-        if (Oe == null) {
-            Oe = new c();
+        if (Of == null) {
+            Of = new c();
         }
-        return Oe;
+        return Of;
     }
 
     public String a(boolean z) {

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class d {
-    static d Of;
+    static d Og;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -92,10 +92,10 @@ public class d {
     }
 
     public static d mY() {
-        if (Of == null) {
-            Of = new d();
+        if (Og == null) {
+            Og = new d();
         }
-        return Of;
+        return Og;
     }
 
     public void a(long j) {

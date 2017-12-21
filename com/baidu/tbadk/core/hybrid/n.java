@@ -9,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private static final AtomicLong ady = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> adA;
-    final String adB;
-    final long adC;
-    final Map<String, Object> adz;
+    private static final AtomicLong adB = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> adC;
+    final Map<String, Object> adD;
+    final String adE;
+    final long adF;
     final String cmd;
     final String method;
     final long start;
@@ -22,11 +22,11 @@ public class n {
     private n(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.adz = map;
-        this.adA = map2;
+        this.adC = map;
+        this.adD = map2;
         this.type = i;
-        this.adB = str3;
-        this.adC = j;
+        this.adE = str3;
+        this.adF = j;
         this.start = System.currentTimeMillis();
     }
 
@@ -75,19 +75,19 @@ public class n {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put(PushConstants.EXTRA_METHOD, this.method);
         }
-        if (this.adz != null && !this.adz.isEmpty()) {
+        if (this.adC != null && !this.adC.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.adz, jSONObject2);
+            b(this.adC, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.adA != null && !this.adA.isEmpty()) {
+        if (this.adD != null && !this.adD.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.adA, jSONObject3);
+            b(this.adD, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
         jSONObject.put("messageType", tN());
-        if (!TextUtils.isEmpty(this.adB)) {
-            jSONObject.put("callbackId", this.adB);
+        if (!TextUtils.isEmpty(this.adE)) {
+            jSONObject.put("callbackId", this.adE);
         }
         return encode(jSONObject.toString());
     }
@@ -97,7 +97,7 @@ public class n {
     }
 
     private static String tP() {
-        return "TBCWebViewJsBridge_callback_ID_" + ady.getAndIncrement();
+        return "TBCWebViewJsBridge_callback_ID_" + adB.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -116,21 +116,21 @@ public class n {
 
     /* loaded from: classes.dex */
     private static final class a extends n {
-        private final l adD;
+        private final l adG;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, l lVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.adD = lVar;
+            this.adG = lVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.n
         protected void f(JSONObject jSONObject) {
-            this.adD.a(this, jSONObject);
+            this.adG.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.n
         void b(int i, Throwable th) {
-            this.adD.b(i, th);
+            this.adG.b(i, th);
         }
     }
 }

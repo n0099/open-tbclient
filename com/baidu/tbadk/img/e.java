@@ -8,21 +8,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b aGL;
-    private d aGM = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b aGO;
+    private d aGP = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String str = null;
             if (imageFileInfo != null) {
-                if (e.this.aGL == null) {
-                    e.this.aGL = new b();
+                if (e.this.aGO == null) {
+                    e.this.aGO = new b();
                 }
                 String filePath = imageFileInfo.getFilePath();
                 LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                 imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.a.a a = e.this.aGL.a(imageFileInfo, true);
+                com.baidu.adp.widget.a.a a = e.this.aGO.a(imageFileInfo, true);
                 if (a == null) {
-                    Bitmap b = e.this.aGL.b(imageFileInfo, true);
+                    Bitmap b = e.this.aGO.b(imageFileInfo, true);
                     int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
                     if (readPictureDegree != 0 && b != null) {
                         b = BitmapHelper.rotateBitmapBydegree(b, readPictureDegree);
@@ -36,7 +36,7 @@ public class e {
             return str;
         }
     };
-    private d aGN = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d aGQ = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -45,8 +45,8 @@ public class e {
             return e.this.gu(imageFileInfo.getFilePath());
         }
     };
-    private d aGO = this.aGN;
-    private d aGP = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d aGR = this.aGQ;
+    private d aGS = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -64,14 +64,14 @@ public class e {
         boolean dr = k.dr(imageFileInfo.getFilePath());
         if (z && !imageFileInfo.hasActionsWithoutResize()) {
             if (dr) {
-                dVar = this.aGO;
+                dVar = this.aGR;
             } else {
-                dVar = this.aGN;
+                dVar = this.aGQ;
             }
         } else if (dr) {
-            dVar = this.aGP;
+            dVar = this.aGS;
         } else {
-            dVar = this.aGM;
+            dVar = this.aGP;
         }
         return dVar.a(imageFileInfo);
     }

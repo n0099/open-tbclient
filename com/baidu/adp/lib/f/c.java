@@ -14,35 +14,35 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static c vF;
-    private static BdAsyncTaskParallel vG = null;
+    private static c vG;
     private static BdAsyncTaskParallel vH = null;
-    private final BdUniqueId vD = BdUniqueId.gen();
-    private SparseArray<e<?>> vE;
+    private static BdAsyncTaskParallel vI = null;
+    private final BdUniqueId vE = BdUniqueId.gen();
+    private SparseArray<e<?>> vF;
 
     public static c fJ() {
-        if (vF == null) {
+        if (vG == null) {
             synchronized (c.class) {
-                if (vF == null) {
-                    vF = new c();
+                if (vG == null) {
+                    vG = new c();
                 }
             }
         }
-        return vF;
+        return vG;
     }
 
     private c() {
-        this.vE = null;
+        this.vF = null;
         BdUniqueId gen = BdUniqueId.gen();
-        vG = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        vH = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.vE = new SparseArray<>();
+        vH = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        vI = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.vF = new SparseArray<>();
     }
 
     public synchronized <T> void a(int i, e<T> eVar) {
         if (eVar != null) {
-            if (this.vE.get(i) == null) {
-                this.vE.put(i, eVar);
+            if (this.vF.get(i) == null) {
+                this.vF.put(i, eVar);
             } else {
                 throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
             }
@@ -64,7 +64,7 @@ public class c {
     }
 
     public void d(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.vD);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.vE);
         if (searchAllTask != null && searchAllTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
@@ -77,7 +77,7 @@ public class c {
     }
 
     public <T> void a(BdUniqueId bdUniqueId, b<T> bVar) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.vD);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.vE);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -90,7 +90,7 @@ public class c {
     }
 
     public void e(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.vD);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.vE);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -103,7 +103,7 @@ public class c {
     }
 
     public boolean an(int i) {
-        e<?> eVar = this.vE.get(i);
+        e<?> eVar = this.vF.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
@@ -115,7 +115,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("resKey can not be null");
         }
-        e<?> eVar = this.vE.get(i);
+        e<?> eVar = this.vF.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
@@ -138,7 +138,7 @@ public class c {
             BdLog.e("resKey can not be null");
             return null;
         }
-        e<?> eVar = this.vE.get(i);
+        e<?> eVar = this.vF.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
@@ -169,7 +169,7 @@ public class c {
             }
             a aVar2 = new a(str, i, i2, i3, bdUniqueId, bVar, z, aVar, objArr);
             aVar2.setKey(f);
-            aVar2.setTag(this.vD);
+            aVar2.setTag(this.vE);
             int fO = eVar.fO();
             if (fO == 0) {
                 fO = 1;
@@ -177,12 +177,12 @@ public class c {
             aVar2.setPriority(fO);
             if (hi || hk) {
                 if (eVar.fN() == null) {
-                    aVar2.setParallel(vH);
+                    aVar2.setParallel(vI);
                 } else {
                     aVar2.setParallel(eVar.fN());
                 }
             } else {
-                aVar2.setParallel(vG);
+                aVar2.setParallel(vH);
             }
             aVar2.execute(new String[0]);
         }
@@ -193,56 +193,56 @@ public class c {
     public class a<T> extends BdAsyncTask<String, Object, T> {
         private Object[] args;
         private int height;
-        private final String vI;
-        private final int vJ;
-        private boolean vK;
-        private com.baidu.adp.lib.stats.a vL;
-        private int vM = 2;
-        private final Map<b<T>, BdUniqueId> vN = new HashMap();
-        private final com.baidu.adp.lib.f.a vO = new com.baidu.adp.lib.f.a();
+        private final String vJ;
+        private final int vK;
+        private boolean vL;
+        private com.baidu.adp.lib.stats.a vM;
+        private int vN = 2;
+        private final Map<b<T>, BdUniqueId> vO = new HashMap();
+        private final com.baidu.adp.lib.f.a vP = new com.baidu.adp.lib.f.a();
         private int width;
 
         public a(String str, int i, int i2, int i3, BdUniqueId bdUniqueId, b<T> bVar, boolean z, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
             this.width = 0;
             this.height = 0;
-            this.vK = false;
+            this.vL = false;
             this.args = null;
-            this.vL = null;
-            this.vI = str;
-            this.vJ = i;
+            this.vM = null;
+            this.vJ = str;
+            this.vK = i;
             this.width = i2;
             this.height = i3;
-            this.vK = z;
-            this.vL = aVar;
+            this.vL = z;
+            this.vM = aVar;
             this.args = objArr;
             a(bVar, bdUniqueId);
         }
 
         public void a(b<T> bVar, BdUniqueId bdUniqueId) {
             l.hw();
-            if (!this.vN.containsKey(bVar)) {
-                this.vN.put(bVar, bdUniqueId);
+            if (!this.vO.containsKey(bVar)) {
+                this.vO.put(bVar, bdUniqueId);
             }
         }
 
         public void a(b<T> bVar) {
             l.hw();
-            this.vN.remove(bVar);
+            this.vO.remove(bVar);
             if (bVar != null) {
-                bVar.onCancelled(this.vI);
+                bVar.onCancelled(this.vJ);
             }
-            if (this.vN.size() == 0) {
+            if (this.vO.size() == 0) {
                 cancel();
             }
         }
 
         public void b(BdUniqueId bdUniqueId, b<T> bVar) {
             l.hw();
-            if (this.vN.size() == 0) {
+            if (this.vO.size() == 0) {
                 cancel();
                 return;
             }
-            Iterator<Map.Entry<b<T>, BdUniqueId>> it = this.vN.entrySet().iterator();
+            Iterator<Map.Entry<b<T>, BdUniqueId>> it = this.vO.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<b<T>, BdUniqueId> next = it.next();
                 b<T> key = next.getKey();
@@ -251,25 +251,25 @@ public class c {
                     it.remove();
                 }
             }
-            if (this.vN.size() == 0) {
+            if (this.vO.size() == 0) {
                 cancel();
             }
         }
 
         public void f(BdUniqueId bdUniqueId) {
             l.hw();
-            if (this.vN.size() == 0) {
+            if (this.vO.size() == 0) {
                 cancel();
                 return;
             }
-            Iterator<Map.Entry<b<T>, BdUniqueId>> it = this.vN.entrySet().iterator();
+            Iterator<Map.Entry<b<T>, BdUniqueId>> it = this.vO.entrySet().iterator();
             while (it.hasNext()) {
                 BdUniqueId value = it.next().getValue();
                 if (value != null && value == bdUniqueId) {
                     it.remove();
                 }
             }
-            if (this.vN.size() == 0) {
+            if (this.vO.size() == 0) {
                 cancel();
             }
         }
@@ -285,14 +285,14 @@ public class c {
             T t2;
             Exception e2;
             Object obj;
-            if (this.vL != null) {
+            if (this.vM != null) {
                 com.baidu.adp.lib.stats.a fK = d.fK();
                 fK.fT();
                 aVar = fK;
             } else {
                 aVar = null;
             }
-            e eVar = (e) c.this.vE.get(this.vJ);
+            e eVar = (e) c.this.vF.get(this.vK);
             if (eVar == null) {
                 return null;
             }
@@ -305,11 +305,11 @@ public class c {
             if (isCancelled()) {
                 return null;
             }
-            t = (T) eVar.a(this.vI, key, this.vO, this.args);
+            t = (T) eVar.a(this.vJ, key, this.vP, this.args);
             if (t != null) {
                 try {
                     if (!isCancelled()) {
-                        d.a(this.vL, aVar);
+                        d.a(this.vM, aVar);
                     }
                     return t;
                 } catch (Exception e4) {
@@ -320,17 +320,17 @@ public class c {
                 }
             }
             t2 = t;
-            if (isCancelled() && !this.vK) {
-                this.vM = 3;
+            if (isCancelled() && !this.vL) {
+                this.vN = 3;
                 try {
-                    obj = eVar.a(this.vI, key, this.width, this.height, this, this.vO, this.args);
+                    obj = eVar.a(this.vJ, key, this.width, this.height, this, this.vP, this.args);
                 } catch (Exception e5) {
                     e2 = e5;
                     obj = t2;
                 }
                 try {
                     if (!isCancelled()) {
-                        d.b(this.vL, aVar);
+                        d.b(this.vM, aVar);
                     }
                 } catch (Exception e6) {
                     e2 = e6;
@@ -345,13 +345,13 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
             e eVar;
-            if (t != null && (eVar = (e) c.this.vE.get(this.vJ)) != null) {
-                eVar.a(c.this.f(this.vI, this.vJ), t, this.args);
+            if (t != null && (eVar = (e) c.this.vF.get(this.vK)) != null) {
+                eVar.a(c.this.f(this.vJ, this.vK), t, this.args);
             }
-            for (Map.Entry<b<T>, BdUniqueId> entry : this.vN.entrySet()) {
+            for (Map.Entry<b<T>, BdUniqueId> entry : this.vO.entrySet()) {
                 b<T> key = entry.getKey();
                 if (key != null) {
-                    key.onLoaded(t, this.vI, this.vM);
+                    key.onLoaded(t, this.vJ, this.vN);
                 }
             }
         }
@@ -359,7 +359,7 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Object... objArr) {
-            for (Map.Entry<b<T>, BdUniqueId> entry : this.vN.entrySet()) {
+            for (Map.Entry<b<T>, BdUniqueId> entry : this.vO.entrySet()) {
                 b<T> key = entry.getKey();
                 if (key != null) {
                     key.onProgressUpdate(objArr);
@@ -370,17 +370,17 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.vO != null && this.vO.vC != null) {
-                this.vO.vC.cancel();
+            if (this.vP != null && this.vP.vD != null) {
+                this.vP.vD.cancel();
             }
-            if (this.vN.size() != 0) {
-                for (Map.Entry<b<T>, BdUniqueId> entry : this.vN.entrySet()) {
+            if (this.vO.size() != 0) {
+                for (Map.Entry<b<T>, BdUniqueId> entry : this.vO.entrySet()) {
                     b<T> key = entry.getKey();
                     if (key != null) {
-                        key.onCancelled(this.vI);
+                        key.onCancelled(this.vJ);
                     }
                 }
-                this.vN.clear();
+                this.vO.clear();
             }
         }
     }

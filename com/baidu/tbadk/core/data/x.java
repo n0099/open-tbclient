@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class x {
-    public long WR;
-    public String WS;
-    public long WT;
-    public int WU;
+    public long WU;
     public String WV;
     public long WW;
-    public long WX;
-    public int WY;
-    public int WZ;
-    public int Xa;
+    public int WX;
+    public String WY;
+    public long WZ;
+    public long Xa;
     public int Xb;
+    public int Xc;
+    public int Xd;
+    public int Xe;
     public int accountType;
     public long beginTime;
     public String desc;

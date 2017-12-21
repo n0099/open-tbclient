@@ -11,12 +11,12 @@ import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Callable<BDLocation> {
-    final /* synthetic */ d Nq;
+    final /* synthetic */ d Nr;
     final /* synthetic */ String[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar, String[] strArr) {
-        this.Nq = dVar;
+        this.Nr = dVar;
         this.a = strArr;
     }
 
@@ -40,7 +40,7 @@ public class i implements Callable<BDLocation> {
             context = d.c;
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(d.b, 0);
             if (resolveContentProvider == null) {
-                hVar = this.Nq.MP;
+                hVar = this.Nr.MQ;
                 String[] mF = hVar.mF();
                 providerInfo = resolveContentProvider;
                 for (String str : mF) {
@@ -104,7 +104,7 @@ public class i implements Callable<BDLocation> {
             } else {
                 j.a aVar = new j.a(this.a);
                 try {
-                    eVar = this.Nq.MN;
+                    eVar = this.Nr.MO;
                     cursor2 = eVar.a(aVar);
                     bDLocation2 = j.f(cursor2);
                     if (cursor2 != null) {

@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eQy;
-    private View eQz;
+    private a eQD;
+    private View eQE;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.eQy = aVar;
+        this.eQD = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eQz = view;
+        this.eQE = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eQy != null) {
-            return this.eQy.a(this.eQz, motionEvent);
+        if (this.eQD != null) {
+            return this.eQD.a(this.eQE, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eQy != null) {
-            return this.eQy.b(this.eQz, motionEvent);
+        if (this.eQD != null) {
+            return this.eQD.b(this.eQE, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eQy != null) {
-            return this.eQy.c(this.eQz, motionEvent);
+        if (this.eQD != null) {
+            return this.eQD.c(this.eQE, motionEvent);
         }
         return false;
     }
 
     public void bb(View view) {
-        this.eQz = view;
+        this.eQE = view;
     }
 }

@@ -4,16 +4,16 @@ import android.content.Context;
 import com.baidu.tieba.b.a.b;
 /* loaded from: classes.dex */
 public class b extends a {
-    public int apD;
-    private boolean bXB;
-    private float bXC;
+    public int apG;
+    private boolean bXF;
+    private float bXG;
 
     public b(Context context) {
         super(context);
-        this.apD = 3;
-        this.bXB = false;
-        this.bXC = -8.0f;
-        L(this.bXC);
+        this.apG = 3;
+        this.bXF = false;
+        this.bXG = -8.0f;
+        L(this.bXG);
     }
 
     public void aaP() {
@@ -36,7 +36,7 @@ public class b extends a {
         a(new b.c() { // from class: com.baidu.tieba.b.b.b.2
             @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
             public boolean c(float f, float f2, float f3, int i) {
-                return b.this.bXB && f % 360.0f == 0.0f;
+                return b.this.bXF && f % 360.0f == 0.0f;
             }
 
             @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
@@ -51,8 +51,8 @@ public class b extends a {
                 b.this.aaO();
             }
         });
-        a(new b.C0089b() { // from class: com.baidu.tieba.b.b.b.4
-            @Override // com.baidu.tieba.b.a.b.C0089b, com.baidu.tieba.b.a.a
+        a(new b.C0088b() { // from class: com.baidu.tieba.b.b.b.4
+            @Override // com.baidu.tieba.b.a.b.C0088b, com.baidu.tieba.b.a.a
             public void e(float f, float f2, float f3, int i) {
                 b.this.aaN();
                 b.this.aaO();
@@ -61,12 +61,12 @@ public class b extends a {
     }
 
     public void aaR() {
-        this.bXB = true;
+        this.bXF = true;
     }
 
     @Override // com.baidu.tieba.b.b.a
     public void vU() {
         super.vU();
-        this.bXB = false;
+        this.bXF = false;
     }
 }

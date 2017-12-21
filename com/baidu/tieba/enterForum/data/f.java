@@ -5,8 +5,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class f extends e implements com.baidu.tbadk.mvc.b.a {
-    private int csV;
-    private String csW;
+    private int csZ;
+    private String cta;
     private String mId;
     private int mLevel;
     private String mName;
@@ -20,11 +20,11 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
     }
 
     public void jn(int i) {
-        this.csV = i;
+        this.csZ = i;
     }
 
     public int agQ() {
-        return this.csV;
+        return this.csZ;
     }
 
     public void setLevel(int i) {
@@ -36,7 +36,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
     }
 
     public String getAvatar() {
-        return this.csW;
+        return this.cta;
     }
 
     public void a(LikeForum likeForum) {
@@ -50,9 +50,9 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.csV = likeForum.is_sign.intValue();
+                this.csZ = likeForum.is_sign.intValue();
                 this.mLevel = likeForum.level_id.intValue();
-                this.csW = likeForum.avatar;
+                this.cta = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

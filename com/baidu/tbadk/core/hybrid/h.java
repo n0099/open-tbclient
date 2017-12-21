@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a adj = null;
+    private a adm = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h adv = new h();
+        private static final h ady = new h();
     }
 
     public static h tG() {
-        return c.adv;
+        return c.ady;
     }
 
     public void a(int i, k kVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.adj = new a(i, kVar);
-                this.adj.tI();
+                this.adm = new a(i, kVar);
+                this.adm.tI();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a adj;
-        private final List<Long> adt = new ArrayList(240);
-        private final List<Integer> adu = new ArrayList(15);
+        protected a adm;
+        private final List<Long> adw = new ArrayList(240);
+        private final List<Integer> adx = new ArrayList(15);
 
         public b(a aVar) {
-            this.adj = aVar;
+            this.adm = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class h {
         }
 
         private void o(long j) {
-            this.adt.add(Long.valueOf(j));
-            this.adj.tI();
+            this.adw.add(Long.valueOf(j));
+            this.adm.tI();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.adj = null;
-            this.adt.clear();
-            this.adu.clear();
+            this.adm = null;
+            this.adw.clear();
+            this.adx.clear();
         }
     }
 
@@ -79,31 +79,31 @@ public class h {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> adk;
-        private final Object adl;
-        private final Class<?> adm;
-        private final Method adn;
+        private final Class<?> adn;
         private final Object ado;
-        private final Method adp;
-        private final b adq;
-        private final k adr;
+        private final Class<?> adp;
+        private final Method adq;
+        private final Object adr;
+        private final Method ads;
+        private final b adt;
+        private final k adu;
         private int index;
 
         private a(int i, k kVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.adm = Class.forName("android.view.Choreographer");
-            this.adk = Class.forName("android.view.Choreographer$FrameCallback");
-            this.adq = new b(this);
-            this.adl = Proxy.newProxyInstance(this.adk.getClassLoader(), new Class[]{this.adk}, this.adq);
-            this.adn = this.adm.getMethod("getInstance", new Class[0]);
-            this.ado = this.adn.invoke(null, new Object[0]);
-            this.adp = this.adm.getMethod("postFrameCallback", this.adk);
+            this.adp = Class.forName("android.view.Choreographer");
+            this.adn = Class.forName("android.view.Choreographer$FrameCallback");
+            this.adt = new b(this);
+            this.ado = Proxy.newProxyInstance(this.adn.getClassLoader(), new Class[]{this.adn}, this.adt);
+            this.adq = this.adp.getMethod("getInstance", new Class[0]);
+            this.adr = this.adq.invoke(null, new Object[0]);
+            this.ads = this.adp.getMethod("postFrameCallback", this.adn);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.adr = kVar;
+            this.adu = kVar;
         }
 
         private void tH() throws InvocationTargetException, IllegalAccessException {
-            this.adp.invoke(this.ado, this.adl);
+            this.ads.invoke(this.adr, this.ado);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -112,8 +112,8 @@ public class h {
                 com.baidu.adp.lib.g.e.fP().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.h.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.adr.p(a.this.tK());
-                        a.this.adq.destroy();
+                        a.this.adu.p(a.this.tK());
+                        a.this.adt.destroy();
                         a.this.destroy();
                     }
                 });
@@ -128,12 +128,12 @@ public class h {
         }
 
         private List<Long> tJ() {
-            return this.adq.adt;
+            return this.adt.adw;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.adq.destroy();
+            this.adt.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */

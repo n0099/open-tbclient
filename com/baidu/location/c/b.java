@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 /* loaded from: classes.dex */
 public class b {
-    private static b LR = null;
+    private static b LS = null;
     private boolean a = false;
     private String b = null;
-    private a LQ = null;
+    private a LR = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -68,27 +68,27 @@ public class b {
     public static synchronized b mn() {
         b bVar;
         synchronized (b.class) {
-            if (LR == null) {
-                LR = new b();
+            if (LS == null) {
+                LS = new b();
             }
-            bVar = LR;
+            bVar = LS;
         }
         return bVar;
     }
 
     public void b() {
-        this.LQ = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.LQ, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.LR = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.LR, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.LQ != null) {
+        if (this.LR != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LQ);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.LR);
             } catch (Exception e) {
             }
         }
-        this.LQ = null;
+        this.LR = null;
     }
 
     public String d() {

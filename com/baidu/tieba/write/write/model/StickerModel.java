@@ -12,12 +12,12 @@ import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class StickerModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a gvx;
-    private a hnB;
+    private com.baidu.adp.framework.listener.a gvC;
+    private a hnG;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gvx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.gvC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,21 +28,21 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.hnB != null) {
-                            StickerModel.this.hnB.dp(list);
+                        if (StickerModel.this.hnG != null) {
+                            StickerModel.this.hnG.dp(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.gvx);
+        registerListener(this.gvC);
     }
 
     public void a(a aVar) {
-        this.hnB = aVar;
+        this.hnG = aVar;
     }
 
-    public void btX() {
+    public void btY() {
         if (j.gV()) {
             com.baidu.tieba.tbadkCore.a.a.a(309475, ResponseSocketGetStickerMessage.class, false, false);
             com.baidu.tieba.tbadkCore.a.a.a(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);

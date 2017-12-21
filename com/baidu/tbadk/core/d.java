@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    protected NewErrorData Tw = null;
+    protected NewErrorData Tx = null;
     protected x mNetWork;
 
     public d() {
@@ -28,8 +28,8 @@ public class d {
 
     protected String getResult() {
         String up = this.mNetWork.up();
-        this.Tw = new NewErrorData();
-        this.Tw.parserJson(up);
+        this.Tx = new NewErrorData();
+        this.Tx.parserJson(up);
         return up;
     }
 

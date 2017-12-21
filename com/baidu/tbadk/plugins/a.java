@@ -20,7 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aLW = Pattern.compile("#.+?#", 2);
+    private static final Pattern aLZ = Pattern.compile("#.+?#", 2);
 
     public static boolean bX(boolean z) {
         boolean appResponseToIntentClass;
@@ -107,7 +107,7 @@ public class a {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aLW.matcher(str);
+        Matcher matcher = aLZ.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new c(18, "") { // from class: com.baidu.tbadk.plugins.a.4

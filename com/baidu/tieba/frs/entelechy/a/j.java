@@ -13,24 +13,24 @@ import com.baidu.tieba.frs.e;
 import com.baidu.tieba.frs.entelechy.view.k;
 /* loaded from: classes.dex */
 public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v<bd> buT;
-    private k cNP;
-    private boolean cNQ;
+    private v<bd> buX;
+    private k cNT;
+    private boolean cNU;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.cNQ = false;
-        this.buT = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
+        this.cNU = false;
+        this.buX = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
                     if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 2);
                     } else {
-                        com.baidu.tieba.frs.e.b.aqv().a(com.baidu.tieba.frs.e.c.cYY, bdVar, 7);
+                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 7);
                     }
                 }
             }
@@ -44,12 +44,12 @@ public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.t
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public com.baidu.tieba.card.a.a<k> onCreateViewHolder(ViewGroup viewGroup) {
-        this.cNP = new k(this.mPageContext, this.mPageId);
-        if (this.cNQ) {
-            this.cNP.fn(true);
+        this.cNT = new k(this.mPageContext, this.mPageId);
+        if (this.cNU) {
+            this.cNT.fn(true);
         }
-        this.cNP.k(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(this.cNP);
+        this.cNT.k(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.cNT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,11 +60,11 @@ public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.t
         if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGS);
         aVar.acB().a(bdVar);
         aVar.acB().setForumName(this.mForumName);
-        aVar.acB().b(this.buT);
-        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
+        aVar.acB().b(this.buX);
+        com.baidu.tieba.frs.e.b.aqw().a(cZc, bdVar);
         if (bdVar != null) {
             bdVar.su();
         }
@@ -77,6 +77,6 @@ public class j extends e<bd, com.baidu.tieba.card.a.a<k>> implements com.baidu.t
     }
 
     public void fk(boolean z) {
-        this.cNQ = z;
+        this.cNU = z;
     }
 }

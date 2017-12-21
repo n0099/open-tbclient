@@ -27,7 +27,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) FL();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> M = com.baidu.tbadk.core.c.a.td().M(this.sB, str);
+                l<byte[]> M = com.baidu.tbadk.core.c.a.td().M(this.sC, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
@@ -45,7 +45,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> N = com.baidu.tbadk.core.c.a.td().N(this.sB, str);
+                l<String> N = com.baidu.tbadk.core.c.a.td().N(this.sC, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {

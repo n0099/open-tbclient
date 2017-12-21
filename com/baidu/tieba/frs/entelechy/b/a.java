@@ -10,7 +10,7 @@ public interface a {
 
     com.baidu.tieba.frs.view.c a(String str, g gVar, int i);
 
-    b anh();
+    b ani();
 
     c b(g gVar, NoPressedRelativeLayout noPressedRelativeLayout);
 

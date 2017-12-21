@@ -6,25 +6,25 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> dQt = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> dQx = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0111a {
+    public interface InterfaceC0110a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0111a interfaceC0111a) {
-        interfaceC0111a.a(this.dQt.values().iterator());
+    public void a(InterfaceC0110a interfaceC0110a) {
+        interfaceC0110a.a(this.dQx.values().iterator());
     }
 
-    public void aBM() {
-        this.dQt.clear();
+    public void aBN() {
+        this.dQx.clear();
     }
 
     public void d(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.dQt.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.dQx.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
@@ -32,10 +32,10 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.dQt.get(str);
+        return this.dQx.get(str);
     }
 
     public boolean nd(String str) {
-        return (TextUtils.isEmpty(str) || this.dQt.remove(str) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || this.dQx.remove(str) == null) ? false : true;
     }
 }

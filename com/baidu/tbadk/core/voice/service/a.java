@@ -7,50 +7,50 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int apP = 8000;
-    public static int apQ = 2;
-    public static int apR = 2;
-    public static int apS = 1;
-    private RandomAccessFile apU;
-    private int apV;
-    private short apW;
-    private short apX;
+    public static int apS = 8000;
+    public static int apT = 2;
+    public static int apU = 2;
+    public static int apV = 1;
+    private RandomAccessFile apX;
+    private int apY;
+    private short apZ;
+    private short aqa;
     private int channelConfiguration;
     private int dataSize;
     private String filePath;
     private int frequency;
-    private int apT = 0;
-    private boolean IT = false;
+    private int apW = 0;
+    private boolean IU = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
-        this.apT = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
+        this.apW = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.frequency = i2;
         this.channelConfiguration = i3;
-        this.apV = i4;
+        this.apY = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.apV, this.apT);
-        this.apW = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.apX = (short) (this.apV == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.apY, this.apW);
+        this.apZ = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.aqa = (short) (this.apY == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.apU != null) {
+            if (this.apX != null) {
                 try {
-                    this.apU.close();
+                    this.apX.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.apU = new RandomAccessFile(this.file, "rw");
+                this.apX = new RandomAccessFile(this.file, "rw");
                 xf();
                 setFilePath(this.file.getParent());
                 return true;
@@ -66,29 +66,29 @@ public class a implements d {
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean eC(String str) {
-        return a(apS, apP, apQ, apR, str);
+        return a(apV, apS, apT, apU, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xc() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.IT = true;
-                byte[] bArr = new byte[this.apT];
+                this.IU = true;
+                byte[] bArr = new byte[this.apW];
                 this.mAudioRecord.startRecording();
-                while (this.IT) {
+                while (this.IU) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.apU.write(bArr);
+                    this.apX.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.apU.seek(4L);
-                this.apU.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.apU.seek(40L);
-                this.apU.writeInt(Integer.reverseBytes(this.dataSize));
-                this.apU.close();
+                this.apX.seek(4L);
+                this.apX.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.apX.seek(40L);
+                this.apX.writeInt(Integer.reverseBytes(this.dataSize));
+                this.apX.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.IT = false;
+                this.IU = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -113,30 +113,30 @@ public class a implements d {
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public void xe() {
-        this.IT = false;
+        this.IU = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean isRecording() {
-        return this.IT;
+        return this.IU;
     }
 
     private void xf() {
         try {
-            this.apU.setLength(0L);
-            this.apU.writeBytes("RIFF");
-            this.apU.writeInt(0);
-            this.apU.writeBytes("WAVE");
-            this.apU.writeBytes("fmt ");
-            this.apU.writeInt(Integer.reverseBytes(16));
-            this.apU.writeShort(Short.reverseBytes((short) 1));
-            this.apU.writeShort(Short.reverseBytes(this.apW));
-            this.apU.writeInt(Integer.reverseBytes(this.frequency));
-            this.apU.writeInt(Integer.reverseBytes(((this.frequency * this.apW) * this.apX) / 8));
-            this.apU.writeShort(Short.reverseBytes((short) ((this.apW * this.apX) / 8)));
-            this.apU.writeShort(Short.reverseBytes(this.apX));
-            this.apU.writeBytes("data");
-            this.apU.writeInt(0);
+            this.apX.setLength(0L);
+            this.apX.writeBytes("RIFF");
+            this.apX.writeInt(0);
+            this.apX.writeBytes("WAVE");
+            this.apX.writeBytes("fmt ");
+            this.apX.writeInt(Integer.reverseBytes(16));
+            this.apX.writeShort(Short.reverseBytes((short) 1));
+            this.apX.writeShort(Short.reverseBytes(this.apZ));
+            this.apX.writeInt(Integer.reverseBytes(this.frequency));
+            this.apX.writeInt(Integer.reverseBytes(((this.frequency * this.apZ) * this.aqa) / 8));
+            this.apX.writeShort(Short.reverseBytes((short) ((this.apZ * this.aqa) / 8)));
+            this.apX.writeShort(Short.reverseBytes(this.aqa));
+            this.apX.writeBytes("data");
+            this.apX.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

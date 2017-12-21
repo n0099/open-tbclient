@@ -1,21 +1,21 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bjc();
-
-    boolean bjd();
+    String bjd();
 
     boolean bje();
 
     boolean bjf();
 
-    int bjg();
+    boolean bjg();
 
-    void bjh();
+    int bjh();
 
     void bji();
 
     void bjj();
+
+    void bjk();
 
     void cI(long j);
 

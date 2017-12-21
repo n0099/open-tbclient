@@ -100,15 +100,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String asW;
-        private final String asX;
+        private final String asZ;
+        private final String ata;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.asW = str;
+            this.asZ = str;
             this.mFile = str2;
-            this.asX = str3;
+            this.ata = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.asW);
+                this.mNetWork = new x(this.asZ);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.f(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.asW) && !this.asW.equals(this.asX)) {
-                        k.dv(ao.dX(this.asX));
+                    if (!StringUtils.isNull(k.f(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.asZ) && !this.asZ.equals(this.ata)) {
+                        k.dv(ao.dX(this.ata));
                     }
                 } else {
                     k.dv(this.mFile + ".tmp");

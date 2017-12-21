@@ -61,7 +61,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<h, 
         if (C != null && C.error != null) {
             if (C.error.errorno != null) {
                 setError(C.error.errorno.intValue());
-                this.responseData.gAi = C.error.errorno.intValue();
+                this.responseData.gAn = C.error.errorno.intValue();
             }
             setErrorString(C.error.usermsg);
         }
@@ -74,7 +74,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<h, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bvp() != null && !StringUtils.isNull(this.responseData.bvp().pK(), true) && !this.responseData.bvp().pK().equals("0") && this.responseData.bvp().pL() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bvp().pK(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bvq() != null && !StringUtils.isNull(this.responseData.bvq().pK(), true) && !this.responseData.bvq().pK().equals("0") && this.responseData.bvq().pL() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bvq().pK(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.k(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -84,8 +84,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<h, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.v.v(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aRn() != null && z) {
-                c.buJ().c(c.buJ().d(this.responseData.aRn().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            if (this.needCache && this.responseData.aRo() != null && z) {
+                c.buK().c(c.buK().d(this.responseData.aRo().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

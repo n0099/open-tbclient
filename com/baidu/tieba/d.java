@@ -624,7 +624,7 @@ public final class d {
 
     /* renamed from: com.baidu.tieba.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0096d {
+    public static final class C0095d {
         public static final int ad_operate_bar_background = 2131427328;
         public static final int ad_operate_bar_background_1 = 2131427329;
         public static final int ala_charm_game_live_header_end = 2131427330;

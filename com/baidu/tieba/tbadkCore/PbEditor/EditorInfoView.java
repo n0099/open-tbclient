@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int apD;
-    protected int gAN;
-    protected int gAO;
+    private int apG;
+    protected int gAS;
+    protected int gAT;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.apD = 3;
-        this.gAN = (int) context.getResources().getDimension(d.e.ds18);
-        this.gAO = (int) context.getResources().getDimension(d.e.ds6);
-        setPadding(this.gAN, this.gAO, this.gAN, this.gAO);
+        this.apG = 3;
+        this.gAS = (int) context.getResources().getDimension(d.e.ds18);
+        this.gAT = (int) context.getResources().getDimension(d.e.ds6);
+        setPadding(this.gAS, this.gAT, this.gAS, this.gAT);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(d.e.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.apD) {
-            aj.i(this, d.C0096d.cp_cont_f);
-            this.apD = i;
+        if (i != this.apG) {
+            aj.i(this, d.C0095d.cp_cont_f);
+            this.apG = i;
         }
     }
 }

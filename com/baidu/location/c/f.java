@@ -12,8 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g Mq;
-    private static volatile f Mp = null;
+    private g Mr;
+    private static volatile f Mq = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
@@ -21,8 +21,8 @@ public class f {
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
     private SimpleDateFormat h = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g Mr = null;
-    private a Ms = null;
+    private g Ms = null;
+    private a Mt = null;
     private long l = 0;
 
     /* loaded from: classes.dex */
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.Mq = null;
-        if (this.Mq == null) {
-            this.Mq = new g();
+        this.Mr = null;
+        if (this.Mr == null) {
+            this.Mr = new g();
         }
     }
 
@@ -191,14 +191,14 @@ public class f {
     }
 
     public static f mr() {
-        if (Mp == null) {
+        if (Mq == null) {
             synchronized (f.class) {
-                if (Mp == null) {
-                    Mp = new f();
+                if (Mq == null) {
+                    Mq = new f();
                 }
             }
         }
-        return Mp;
+        return Mq;
     }
 
     public void a(g gVar) {
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.Mq != null) {
-            a(f, Jni.encode(this.Mq.b()));
-            this.Mq.a();
+        if (this.Mr != null) {
+            a(f, Jni.encode(this.Mr.b()));
+            this.Mr.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.Ms == null) {
-            this.Ms = new a();
+        if (this.Mt == null) {
+            this.Mt = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Ms.b()) {
+        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Mt.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,7 +269,7 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.Ms.a(jSONObject.toString());
+                    this.Mt.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
@@ -277,6 +277,6 @@ public class f {
     }
 
     public g ms() {
-        return this.Mq;
+        return this.Mr;
     }
 }

@@ -12,45 +12,45 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static e gPn = new e();
-    private String gPk;
-    private List<String> gPl = new ArrayList();
-    private List<String> gPm = new ArrayList();
+    private static e gPs = new e();
+    private String gPp;
+    private List<String> gPq = new ArrayList();
+    private List<String> gPr = new ArrayList();
 
     private e() {
         if (f.dG()) {
-            bAY();
+            bAZ();
         }
     }
 
-    private void bAY() {
+    private void bAZ() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.p.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.i.d.oP(c.a.bbq);
-                com.baidu.tieba.i.d.oP(c.a.eEl);
-                com.baidu.tieba.i.d.oP(c.a.eEm);
-                com.baidu.tieba.i.d.oP(c.a.eEo);
+                com.baidu.tieba.i.d.oP(c.a.bbu);
                 com.baidu.tieba.i.d.oP(c.a.eEp);
+                com.baidu.tieba.i.d.oP(c.a.eEq);
+                com.baidu.tieba.i.d.oP(c.a.eEs);
+                com.baidu.tieba.i.d.oP(c.a.eEt);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e bAZ() {
-        return gPn;
+    public static e bBa() {
+        return gPs;
     }
 
-    public void bAU() {
+    public void bAV() {
         if (f.dG()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.p.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List tQ = e.tQ(c.a.eEn);
+                    List tQ = e.tQ(c.a.eEr);
                     if (tQ != null) {
                         int size = tQ.size();
                         for (int i = 0; i < size; i++) {
@@ -97,28 +97,28 @@ public class e {
 
     public synchronized void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.gPl.add(jSONObject.toString());
-            String aOk = aOk();
+            this.gPq.add(jSONObject.toString());
+            String aOl = aOl();
             if (f.dG()) {
-                b(jSONObject, aOk);
+                b(jSONObject, aOl);
             }
-            if (this.gPl.size() >= com.baidu.tbadk.coreExtra.model.f.AE() || z) {
-                a(new d(this.gPl, aOk));
-                this.gPl.clear();
-                this.gPk = null;
+            if (this.gPq.size() >= com.baidu.tbadk.coreExtra.model.f.AE() || z) {
+                a(new d(this.gPq, aOl));
+                this.gPq.clear();
+                this.gPp = null;
             }
         }
     }
 
-    private String aOk() {
-        if (StringUtils.isNull(this.gPk)) {
+    private String aOl() {
+        if (StringUtils.isNull(this.gPp)) {
             if (f.dG()) {
-                this.gPk = String.valueOf(System.currentTimeMillis());
+                this.gPp = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.eEn + this.gPk;
+        return c.a.eEr + this.gPp;
     }
 
     private void b(JSONObject jSONObject, String str) {
@@ -140,7 +140,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean cl(String str, String str2) {
         boolean e;
-        if (this.gPm.contains(str)) {
+        if (this.gPr.contains(str)) {
             e = false;
         } else {
             File file = new File(str);
@@ -170,9 +170,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.e(c.dL(dVar.gPi), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.gPj)) {
-                k.deleteFile(new File(dVar.gPj));
-                this.gPm.add(dVar.gPj);
+            if (c.e(c.dL(dVar.gPn), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.gPo)) {
+                k.deleteFile(new File(dVar.gPo));
+                this.gPr.add(dVar.gPo);
             }
         } catch (Exception e) {
             e.printStackTrace();

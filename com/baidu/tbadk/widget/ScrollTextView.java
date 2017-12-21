@@ -6,26 +6,26 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller aOA;
-    private float aOB;
-    private boolean aOC;
+    private Scroller aOD;
+    private float aOE;
+    private boolean aOF;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.aOB = 15.0f;
-        this.aOC = true;
+        this.aOE = 15.0f;
+        this.aOF = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.aOA = new Scroller(context, new LinearInterpolator());
-        setScroller(this.aOA);
+        this.aOD = new Scroller(context, new LinearInterpolator());
+        setScroller(this.aOD);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aOA.isFinished()) {
+        if (this.aOD.isFinished()) {
             HX();
         }
     }
@@ -33,15 +33,15 @@ public class ScrollTextView extends TextView implements Runnable {
     private void HX() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.aOA.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aOB));
-        if (this.aOC) {
+        this.aOD.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aOE));
+        if (this.aOF) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aOA.isFinished()) {
+        if (this.aOD.isFinished()) {
             HX();
         } else {
             post(this);
@@ -49,14 +49,14 @@ public class ScrollTextView extends TextView implements Runnable {
     }
 
     public void setSpeed(float f) {
-        this.aOB = f;
+        this.aOE = f;
     }
 
     public float getSpeed() {
-        return this.aOB;
+        return this.aOE;
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.aOC = z;
+        this.aOF = z;
     }
 }

@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0058a interfaceC0058a) {
+    public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0057a interfaceC0057a) {
         e eVar = new e();
-        final a aVar = new a(str, str2, str3, interfaceC0058a, false);
+        final a aVar = new a(str, str2, str3, interfaceC0057a, false);
         if (e.pm() && StringUtils.isNull(str4)) {
             eVar.a(str2, new e.a() { // from class: com.baidu.tieba.model.b.1
                 @Override // com.baidu.tbadk.core.a.e.a
@@ -28,8 +28,8 @@ public class b {
 
                 @Override // com.baidu.tbadk.core.a.e.a
                 public void onFailed() {
-                    if (interfaceC0058a != null) {
-                        interfaceC0058a.c(str, 1, null);
+                    if (interfaceC0057a != null) {
+                        interfaceC0057a.c(str, 1, null);
                     }
                 }
             });
@@ -42,40 +42,40 @@ public class b {
         return aVar;
     }
 
-    public static BdAsyncTask<?, ?, ?> b(String str, String str2, String str3, String str4, a.InterfaceC0058a interfaceC0058a) {
-        a aVar = new a(str, str2, str3, interfaceC0058a, false);
+    public static BdAsyncTask<?, ?, ?> b(String str, String str2, String str3, String str4, a.InterfaceC0057a interfaceC0057a) {
+        a aVar = new a(str, str2, str3, interfaceC0057a, false);
         aVar.execute(new String[0]);
         return aVar;
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String TR;
-        private final String eDY;
-        private final a.InterfaceC0058a eDZ;
-        private final boolean eEa;
+        private final String TS;
+        private final String eEc;
+        private final a.InterfaceC0057a eEd;
+        private final boolean eEe;
         private final String mName;
         private volatile x mNetwork = null;
         private String mStoken;
 
-        public a(String str, String str2, String str3, a.InterfaceC0058a interfaceC0058a, boolean z) {
+        public a(String str, String str2, String str3, a.InterfaceC0057a interfaceC0057a, boolean z) {
             this.mName = str;
-            this.eDY = str2;
-            this.TR = str3;
-            this.eEa = z;
-            this.eDZ = interfaceC0058a == null ? new a.InterfaceC0058a() { // from class: com.baidu.tieba.model.b.a.1
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0058a
+            this.eEc = str2;
+            this.TS = str3;
+            this.eEe = z;
+            this.eEd = interfaceC0057a == null ? new a.InterfaceC0057a() { // from class: com.baidu.tieba.model.b.a.1
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0057a
                 public void cu(String str4) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0058a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0057a
                 public void a(AccountData accountData) {
                 }
 
-                @Override // com.baidu.tbadk.core.a.a.InterfaceC0058a
+                @Override // com.baidu.tbadk.core.a.a.InterfaceC0057a
                 public void c(String str4, int i, String str5) {
                 }
-            } : interfaceC0058a;
+            } : interfaceC0057a;
             setPriority(3);
         }
 
@@ -86,7 +86,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.eDZ.cu(this.mName);
+            this.eEd.cu(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,13 +97,13 @@ public class b {
             a.b a;
             this.mNetwork = new x(TbConfig.LOGIN_FULL_ADDRESS);
             this.mNetwork.uN().vK().mIsUseCurrentBDUSS = false;
-            this.mNetwork.n("bdusstoken", this.eDY + "|" + this.TR);
+            this.mNetwork.n("bdusstoken", this.eEc + "|" + this.TS);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.n(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.mStoken);
             }
             this.mNetwork.n("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
             this.mNetwork.n("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.mNetwork.uN().vK().ain = false;
+            this.mNetwork.uN().vK().aiq = false;
             String up = this.mNetwork.up();
             if (this.mNetwork.uN().vL().isRequestSuccess() && up != null) {
                 ae aeVar = new ae();
@@ -112,9 +112,9 @@ public class b {
                 accountData.setAccount(aeVar.getUser().getUserName());
                 accountData.setPassword("");
                 accountData.setID(aeVar.getUser().getUserId());
-                String str = this.eDY;
-                if (this.eEa && (a = d.a(com.baidu.tbadk.core.a.a.pf().ct(str))) != null) {
-                    str = a.wq + "|" + a.TR;
+                String str = this.eEc;
+                if (this.eEe && (a = d.a(com.baidu.tbadk.core.a.a.pf().ct(str))) != null) {
+                    str = a.wr + "|" + a.TS;
                 }
                 accountData.setBDUSS(str);
                 accountData.setPortrait(aeVar.getUser().getPortrait());
@@ -138,7 +138,7 @@ public class b {
             ReloginManager.tX().aw(false);
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.mNetwork.uR(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.eDZ.a(accountData);
+                this.eEd.a(accountData);
                 return;
             }
             String str = null;
@@ -149,7 +149,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.data_load_error);
             }
-            this.eDZ.c(this.mName, i, str);
+            this.eEd.c(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

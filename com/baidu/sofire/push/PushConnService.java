@@ -19,6 +19,7 @@ import com.baidu.sofire.core.c;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.push.a.a;
 import com.baidu.sofire.push.a.b;
+import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -146,7 +147,7 @@ public class PushConnService extends Service {
             }
         }
     };
-    private a.AbstractBinderC0050a F = new a.AbstractBinderC0050a() { // from class: com.baidu.sofire.push.PushConnService.3
+    private a.AbstractBinderC0049a F = new a.AbstractBinderC0049a() { // from class: com.baidu.sofire.push.PushConnService.3
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [417=4] */
         @Override // com.baidu.sofire.push.a.a
         public final Bundle a(Bundle bundle) throws RemoteException {
@@ -154,22 +155,22 @@ public class PushConnService extends Service {
                 Bundle bundle2 = new Bundle();
                 int i2 = bundle.getInt("action_type");
                 if (i2 <= 0) {
-                    bundle2.putInt("result_code", 0);
+                    bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 0);
                     return bundle2;
                 }
                 switch (i2) {
                     case 1:
-                        bundle2.putInt("result_code", 1);
+                        bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 1);
                         return bundle2;
                     case 2:
-                        bundle2.putInt("result_code", 2);
+                        bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 2);
                         bundle2.putStringArray("query_host_ret", PushConnService.this.a());
                         return bundle2;
                     case 3:
                         String string = bundle.getString("appkey");
                         int i3 = bundle.getInt("plugin_id");
                         String string2 = bundle.getString(PushConstants.EXTRA_PUSH_MESSAGE);
-                        bundle2.putInt("result_code", 3);
+                        bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 3);
                         if (TextUtils.isEmpty(string) || i3 <= 0 || TextUtils.isEmpty(string2)) {
                             bundle2.putInt("error_code", -2);
                             return bundle2;
@@ -212,7 +213,7 @@ public class PushConnService extends Service {
                         }
                         return bundle2;
                     default:
-                        bundle2.putInt("result_code", 0);
+                        bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 0);
                         return bundle2;
                 }
             } catch (Throwable th) {

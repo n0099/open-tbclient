@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x geJ;
+        x geO;
 
         private a() {
-            this.geJ = null;
+            this.geO = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,19 +155,19 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             String up;
             try {
-                this.geJ = new x("http://114.113.149.3:8086/partnersService");
-                this.geJ.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.geJ.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.geJ.n("model", Build.MODEL);
-                this.geJ.n("edition", TbConfig.getVersion());
-                this.geJ.n("system", Build.VERSION.SDK);
-                this.geJ.uN().vK().vN().mIsBaiduServer = false;
-                up = this.geJ.up();
+                this.geO = new x("http://114.113.149.3:8086/partnersService");
+                this.geO.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.geO.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.geO.n("model", Build.MODEL);
+                this.geO.n("edition", TbConfig.getVersion());
+                this.geO.n("system", Build.VERSION.SDK);
+                this.geO.uN().vK().vN().mIsBaiduServer = false;
+                up = this.geO.up();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.geJ.uQ()) {
+            if (this.geO.uQ()) {
                 return up;
             }
             return null;
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.geJ != null) {
-                this.geJ.fo();
+            if (this.geO != null) {
+                this.geO.fo();
             }
             super.cancel(true);
         }

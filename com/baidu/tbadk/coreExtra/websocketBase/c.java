@@ -11,52 +11,52 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c azp = new c();
-    private boolean azk;
-    private int azl;
-    private long azm;
-    private final SparseArray<a> azn;
-    private final HashSet<Integer> azo;
-    private int azq;
+    private static c azs = new c();
+    private boolean azn;
+    private int azo;
+    private long azp;
+    private final SparseArray<a> azq;
+    private final HashSet<Integer> azr;
+    private int azt;
 
     public static c Cc() {
-        return azp;
+        return azs;
     }
 
     private c() {
         super(1001);
-        this.azl = 3;
-        this.azm = ReportUserInfoModel.TIME_INTERVAL;
-        this.azn = new SparseArray<>();
-        this.azo = new HashSet<>();
-        this.azq = 0;
+        this.azo = 3;
+        this.azp = ReportUserInfoModel.TIME_INTERVAL;
+        this.azq = new SparseArray<>();
+        this.azr = new HashSet<>();
+        this.azt = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public boolean eA(int i) {
-        this.azq = 0;
-        if (this.azk) {
-            this.azq = 3;
+        this.azt = 0;
+        if (this.azn) {
+            this.azt = 3;
             return false;
-        } else if (this.azo.contains(Integer.valueOf(i))) {
-            this.azq = 6;
+        } else if (this.azr.contains(Integer.valueOf(i))) {
+            this.azt = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.azq = 1;
+            this.azt = 1;
             return false;
         } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().cU() > PingManager.Cg().Ci() + 20000) {
             i.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.azq = 2;
+            this.azt = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.azn.get(i);
-            if (aVar != null && aVar.azs) {
-                if (Math.abs(System.currentTimeMillis() - aVar.azt) > this.azm) {
+            a aVar = this.azq.get(i);
+            if (aVar != null && aVar.azv) {
+                if (Math.abs(System.currentTimeMillis() - aVar.azw) > this.azp) {
                     aVar.reset();
                 } else {
-                    this.azq = 4;
+                    this.azt = 4;
                     return false;
                 }
             }
@@ -68,8 +68,8 @@ public class c extends com.baidu.adp.framework.listener.c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.azn.size()) {
-                this.azn.valueAt(i2).reset();
+            if (i2 < this.azq.size()) {
+                this.azq.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -78,40 +78,40 @@ public class c extends com.baidu.adp.framework.listener.c {
     }
 
     public void eB(int i) {
-        a aVar = this.azn.get(i);
+        a aVar = this.azq.get(i);
         if (aVar == null) {
             aVar = new a();
-            this.azn.append(i, aVar);
+            this.azq.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.azl);
+            aVar.onError(this.azo);
         }
-        this.azq = 5;
+        this.azt = 5;
     }
 
     public void eC(int i) {
-        this.azn.remove(i);
+        this.azq.remove(i);
     }
 
     public void bo(boolean z) {
-        this.azk = z;
+        this.azn = z;
     }
 
     public void g(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.azo.clear();
+            this.azr.clear();
             for (int i : iArr) {
-                this.azo.add(Integer.valueOf(i));
+                this.azr.add(Integer.valueOf(i));
             }
         }
     }
 
     public void eD(int i) {
-        this.azl = i;
+        this.azo = i;
     }
 
     public void S(long j) {
-        this.azm = j;
+        this.azp = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -125,31 +125,31 @@ public class c extends com.baidu.adp.framework.listener.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int azr;
-        public boolean azs;
-        public long azt;
+        public int azu;
+        public boolean azv;
+        public long azw;
 
         private a() {
         }
 
         public void reset() {
-            this.azr = 0;
-            if (this.azs) {
-                this.azs = false;
-                this.azt = 0L;
+            this.azu = 0;
+            if (this.azv) {
+                this.azv = false;
+                this.azw = 0L;
             }
         }
 
         public void onError(int i) {
-            this.azr++;
-            if (!this.azs && this.azr >= i) {
-                this.azs = true;
-                this.azt = System.currentTimeMillis();
+            this.azu++;
+            if (!this.azv && this.azu >= i) {
+                this.azv = true;
+                this.azw = System.currentTimeMillis();
             }
         }
     }
 
     public int Cd() {
-        return this.azq;
+        return this.azt;
     }
 }

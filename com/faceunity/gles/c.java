@@ -3,29 +3,29 @@ package com.faceunity.gles;
 import com.faceunity.gles.Drawable2d;
 /* loaded from: classes2.dex */
 public class c {
-    private final Drawable2d hxt = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
-    private Texture2dProgram hxu;
+    private final Drawable2d hxy = new Drawable2d(Drawable2d.Prefab.FULL_RECTANGLE);
+    private Texture2dProgram hxz;
 
     public c(Texture2dProgram texture2dProgram) {
-        this.hxu = texture2dProgram;
+        this.hxz = texture2dProgram;
     }
 
     public void release(boolean z) {
-        if (this.hxu != null) {
+        if (this.hxz != null) {
             if (z) {
-                this.hxu.release();
+                this.hxz.release();
             }
-            this.hxu = null;
+            this.hxz = null;
         }
     }
 
     public int createTextureObject() {
-        return this.hxu.createTextureObject();
+        return this.hxz.createTextureObject();
     }
 
     public void drawFrame(int i, float[] fArr) {
-        if (this.hxu != null) {
-            this.hxu.draw(d.IDENTITY_MATRIX, this.hxt.getVertexArray(), 0, this.hxt.getVertexCount(), this.hxt.getCoordsPerVertex(), this.hxt.getVertexStride(), fArr, this.hxt.getTexCoordArray(), i, this.hxt.getTexCoordStride());
+        if (this.hxz != null) {
+            this.hxz.draw(d.IDENTITY_MATRIX, this.hxy.getVertexArray(), 0, this.hxy.getVertexCount(), this.hxy.getCoordsPerVertex(), this.hxy.getVertexStride(), fArr, this.hxy.getTexCoordArray(), i, this.hxy.getTexCoordStride());
         }
     }
 }

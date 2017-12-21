@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class z {
-    public int cKd;
+    public int cKh;
     public String name;
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.b.a;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int bXf = -1;
+    private int bXj = -1;
 
     public abstract boolean c(float f, float f2, float f3, int i);
 
@@ -18,10 +18,10 @@ public abstract class a {
     }
 
     public int aaL() {
-        return this.bXf;
+        return this.bXj;
     }
 
     public void ix(int i) {
-        this.bXf = i;
+        this.bXj = i;
     }
 }

@@ -9,27 +9,27 @@ import org.apache.http.entity.mime.MIME;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f OH;
+    final /* synthetic */ f OI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.OH = fVar;
+        this.OI = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.OH.h = i.c();
-        this.OH.b();
-        this.OH.a();
+        this.OI.h = i.c();
+        this.OI.b();
+        this.OI.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.OH.i;
+        int i = this.OI.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.OH.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.OI.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -74,8 +74,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.OH.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.OH.a(true);
+                this.OI.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.OI.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -94,7 +94,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.OH.j = null;
-        this.OH.a(false);
+        this.OI.j = null;
+        this.OI.a(false);
     }
 }

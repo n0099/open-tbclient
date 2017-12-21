@@ -15,7 +15,7 @@ public class c {
         eVar.fy().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
         int i = eVar.fz().responseCode;
-        byte[] bArr2 = eVar.fz().vo;
+        byte[] bArr2 = eVar.fz().vp;
         if (bArr2 == null || i != 200) {
             return false;
         }

@@ -14,68 +14,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.tieba.frs.view.c {
-    protected h cIl;
-    protected g cMq;
-    protected TextView cMr;
-    protected ViewGroup cMs;
-    protected ExpandLayout cMt;
-    protected com.baidu.tieba.frs.view.a cMu;
+    protected h cIp;
+    protected g cMu;
+    protected TextView cMv;
+    protected ViewGroup cMw;
+    protected ExpandLayout cMx;
+    protected com.baidu.tieba.frs.view.a cMy;
 
-    public void and() {
-        this.cMt = (ExpandLayout) this.dcB.findViewById(d.g.expandable_layout);
-        this.cMr = (TextView) this.dcB.findViewById(d.g.top_item_type);
-        this.cMr.setText(TbadkCoreApplication.getInst().getString(d.j.game));
-        this.cMq = new g(this.cIy);
-        this.cMu = new com.baidu.tieba.frs.view.a(this.cIy, this.cMt, this.ddq, this.cMq);
+    public void ane() {
+        this.cMx = (ExpandLayout) this.dcF.findViewById(d.g.expandable_layout);
+        this.cMv = (TextView) this.dcF.findViewById(d.g.top_item_type);
+        this.cMv.setText(TbadkCoreApplication.getInst().getString(d.j.game));
+        this.cMu = new g(this.cIC);
+        this.cMy = new com.baidu.tieba.frs.view.a(this.cIC, this.cMx, this.ddv, this.cMu);
     }
 
     public void a(h hVar) {
-        this.cIl = hVar;
+        this.cIp = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ane() {
-        if (this.cIy != null && this.cIy.alE() != null && this.cMq != null) {
+    public void anf() {
+        if (this.cIC != null && this.cIC.alE() != null && this.cMu != null) {
             ArrayList arrayList = new ArrayList();
-            List<f> bwa = this.cIy.alE().bwa();
-            if (bwa != null) {
-                for (int i = 0; i < v.v(bwa); i++) {
-                    f fVar = (f) v.c(bwa, i);
+            List<f> bwb = this.cIC.alE().bwb();
+            if (bwb != null) {
+                for (int i = 0; i < v.v(bwb); i++) {
+                    f fVar = (f) v.c(bwb, i);
                     if (fVar instanceof bd) {
                         arrayList.add((bd) fVar);
                     }
                 }
             }
-            if (this.cMq instanceof com.baidu.tieba.frs.e.c) {
-                g gVar = this.cMq;
-                if (com.baidu.tieba.frs.e.c.cYY != null && this.cIy.alE() != null) {
-                    if (this.cIy.alE().gzl == 1) {
-                        com.baidu.tieba.frs.e.c.cYY.cYO = true;
+            if (this.cMu instanceof com.baidu.tieba.frs.e.c) {
+                g gVar = this.cMu;
+                if (com.baidu.tieba.frs.e.c.cZc != null && this.cIC.alE() != null) {
+                    if (this.cIC.alE().gzq == 1) {
+                        com.baidu.tieba.frs.e.c.cZc.cYS = true;
                     } else {
-                        com.baidu.tieba.frs.e.c.cYY.cYO = false;
+                        com.baidu.tieba.frs.e.c.cZc.cYS = false;
                     }
-                    if (this.cIy.alE().aRn() != null) {
-                        com.baidu.tieba.frs.e.c.cYY.cYQ = this.cIy.alE().aRn().getId();
+                    if (this.cIC.alE().aRo() != null) {
+                        com.baidu.tieba.frs.e.c.cZc.cYU = this.cIC.alE().aRo().getId();
                     }
                 }
             }
-            this.cMu.c(this.cIl);
-            this.cMu.bl(arrayList);
-            this.cMu.arc();
+            this.cMy.c(this.cIp);
+            this.cMy.bl(arrayList);
+            this.cMy.ard();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anf() {
-        if (this.cMq != null) {
-            this.cMq.notifyDataSetChanged();
+    public void ang() {
+        if (this.cMu != null) {
+            this.cMu.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void ang() {
-        if (this.cMq != null) {
-            this.cMq.notifyDataSetChanged();
+    public void anh() {
+        if (this.cMu != null) {
+            this.cMu.notifyDataSetChanged();
         }
     }
 }

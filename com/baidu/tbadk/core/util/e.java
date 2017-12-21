@@ -10,13 +10,13 @@ public class e {
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.yz != null) {
-                e.yz.cancel();
+            if (e.yA != null) {
+                e.yA.cancel();
             }
         }
     };
-    private static Toast yz;
-    private boolean afb;
+    private static Toast yA;
+    private boolean afe;
 
     public static e uf() {
         return new e();
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.afb && str != null) {
+        if (!this.afe && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (yz != null && yz.getView() != null) {
+                if (yA != null && yA.getView() != null) {
                     try {
-                        yz.setText(trim);
+                        yA.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        yz = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        yz.setGravity(17, 0, i2);
+                        yA = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        yA.setGravity(17, 0, i2);
                     }
                 } else {
-                    yz = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    yz.setGravity(17, 0, i2);
+                    yA = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    yA.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                yz.show();
+                yA.show();
             }
         }
     }
@@ -69,19 +69,19 @@ public class e {
     }
 
     public void onPause() {
-        this.afb = true;
+        this.afe = true;
         cancel();
     }
 
     public void onResume() {
-        this.afb = false;
+        this.afe = false;
     }
 
     public static void cancel() {
-        if (yz != null) {
+        if (yA != null) {
             mHandler.removeCallbacks(r);
-            yz.cancel();
-            yz = null;
+            yA.cancel();
+            yA = null;
         }
     }
 }

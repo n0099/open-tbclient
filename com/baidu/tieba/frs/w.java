@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class w extends e<x, y> {
-    private final LinkedList<com.baidu.tbadk.j.f> cJZ;
-    private final LinkedList<RelativeLayout> cKa;
+    private final LinkedList<com.baidu.tbadk.j.f> cKd;
+    private final LinkedList<RelativeLayout> cKe;
 
     public w(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cJZ = new LinkedList<>();
-        this.cKa = new LinkedList<>();
+        this.cKd = new LinkedList<>();
+        this.cKe = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,10 +30,10 @@ public class w extends e<x, y> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
         fVar.Q(relativeLayout);
-        this.cJZ.add(fVar);
-        this.cKa.add(relativeLayout);
+        this.cKd.add(fVar);
+        this.cKe.add(relativeLayout);
         y yVar = new y(relativeLayout);
-        yVar.cKc = fVar;
+        yVar.cKg = fVar;
         return yVar;
     }
 
@@ -42,8 +42,8 @@ public class w extends e<x, y> {
     @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, x xVar, y yVar) {
-        if (yVar != null && yVar.cKc != null) {
-            yVar.cKc.onChangeSkinType();
+        if (yVar != null && yVar.cKg != null) {
+            yVar.cKg.onChangeSkinType();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class w extends e<x, y> {
     @Override // com.baidu.tieba.frs.e
     public void release() {
         super.release();
-        if (this.cJZ.size() != 0 && this.cKa.size() == this.cJZ.size()) {
+        if (this.cKd.size() != 0 && this.cKe.size() == this.cKd.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.cJZ.size()) {
+                if (i2 >= this.cKd.size()) {
                     break;
                 }
-                this.cJZ.get(i2).P(this.cKa.get(i2));
+                this.cKd.get(i2).P(this.cKe.get(i2));
                 i = i2 + 1;
             }
         }
-        this.cJZ.clear();
-        this.cKa.clear();
+        this.cKd.clear();
+        this.cKe.clear();
     }
 }

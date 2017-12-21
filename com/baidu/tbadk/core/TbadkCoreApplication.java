@@ -275,9 +275,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.e.a.bmv().mu(valueOf);
-                        com.baidu.tieba.recapp.e.a.bmv().mt(valueOf2);
-                        com.baidu.tieba.recapp.e.a.bmv().cK(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.e.a.bmw().mu(valueOf);
+                        com.baidu.tieba.recapp.e.a.bmw().mt(valueOf2);
+                        com.baidu.tieba.recapp.e.a.bmw().cK(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
                     BdLog.e(e.getMessage());
@@ -741,7 +741,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         s.GH().aq(System.currentTimeMillis() - currentTimeMillis);
         initIM();
         if (isMainProcess(true)) {
-            com.baidu.tieba.quickWebView.c.blr().init();
+            com.baidu.tieba.quickWebView.c.bls().init();
             long currentTimeMillis2 = System.currentTimeMillis();
             com.baidu.tbadk.coreExtra.messageCenter.b.zk().initSetting();
             s.GH().ar(System.currentTimeMillis() - currentTimeMillis2);
@@ -2413,7 +2413,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.METHOD_INVOKE_USER_CHANGE));
         com.baidu.tbadk.coreExtra.messageCenter.a.yN().aS(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.bxQ();
+        com.baidu.tieba.tbadkCore.util.a.bxR();
     }
 
     public void onUserChanged(Intent intent2) {

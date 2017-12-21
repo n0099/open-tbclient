@@ -75,13 +75,13 @@ public final class SapiSafeFacade {
                 this.a.onFinish();
                 return;
             }
-            ThreadPoolService.getInstance().runImport(new TPRunnable(new RunnableC00321()));
+            ThreadPoolService.getInstance().runImport(new TPRunnable(new RunnableC00311()));
         }
 
         /* renamed from: com.baidu.sapi2.SapiSafeFacade$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC00321 implements Runnable {
-            RunnableC00321() {
+        class RunnableC00311 implements Runnable {
+            RunnableC00311() {
             }
 
             @Override // java.lang.Runnable

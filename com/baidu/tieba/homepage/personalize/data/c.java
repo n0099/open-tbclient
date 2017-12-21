@@ -6,15 +6,15 @@ import tbclient.Personalized.Resource;
 public class c extends q {
     public void a(Resource resource) {
         if (resource != null) {
-            this.ceJ = resource.res_id.longValue();
+            this.ceN = resource.res_id.longValue();
             this.userName = resource.user_name;
-            this.ceK = resource.user_image;
-            this.ceL = resource.user_link;
-            this.ceM = resource.res_title;
-            this.ceN = resource.res_image;
-            this.ceO = resource.res_link;
-            this.ceP = resource.position.longValue();
-            this.ceQ = resource.icon_text;
+            this.ceO = resource.user_image;
+            this.ceP = resource.user_link;
+            this.ceQ = resource.res_title;
+            this.ceR = resource.res_image;
+            this.ceS = resource.res_link;
+            this.ceT = resource.position.longValue();
+            this.ceU = resource.icon_text;
         }
     }
 }

@@ -86,12 +86,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0040a e;
+    private C0039a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0040a {
+    public static class C0039a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -103,7 +103,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0040a(Context context) {
+        public C0039a(Context context) {
             this.a = context;
             e();
             f();
@@ -139,7 +139,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0040a(context);
+        this.e = new C0039a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -295,7 +295,7 @@ public final class a {
         hashMap.put("cert_id", str2);
         hashMap.put("isdpass", "1");
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("username", str3);
+        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str3);
         jSONObject.put("isphone", "1");
         jSONObject.put("password", str4);
         jSONObject.put(LoginActivityConfig.LOGIN_TYPE, "3");
@@ -450,7 +450,7 @@ public final class a {
                                 getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                                 getUserInfoResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                             }
-                            getUserInfoResult.username = jSONObject.optString("username");
+                            getUserInfoResult.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
                             getUserInfoResult.uid = jSONObject.optString("userid");
                             getUserInfoResult.displayname = jSONObject.optString("displayname");
                             getUserInfoResult.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
@@ -562,7 +562,7 @@ public final class a {
                                 getUserInfoResponse.portrait = String.format(SapiHost.getHost(SapiHost.DOMAIN_BDIMG) + "/sys/portrait/item/%s.jpg", optString);
                                 getUserInfoResponse.portraitHttps = String.format(SapiHost.getHost(SapiHost.DOMAIN_PORTRAIT_HTTPS_URL) + "/sys/portrait/item/%s.jpg", optString);
                             }
-                            getUserInfoResponse.username = jSONObject.optString("username");
+                            getUserInfoResponse.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
                             getUserInfoResponse.uid = jSONObject.optString("userid");
                             getUserInfoResponse.displayname = jSONObject.optString("displayname");
                             getUserInfoResponse.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
@@ -640,7 +640,7 @@ public final class a {
             if (!TextUtils.isEmpty(this.c.clientIp)) {
                 jSONObject.put("clientip", this.c.clientIp);
             }
-            jSONObject.put("username", str2);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str2);
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
             hashMap.put("userinfo", sapiDataEncryptor.encrypt(SapiDataEncryptor.Cert1.CERT, jSONObject.toString()));
             hashMap.put("sig", a(hashMap, this.c.appSignKey));
@@ -801,7 +801,7 @@ public final class a {
         if (!TextUtils.isEmpty(str2)) {
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
         }
-        jSONObject.put("username", str3);
+        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str3);
         jSONObject.put("key", sapiDataEncryptor.getAESKey());
         hashMap.put("userinfo", sapiDataEncryptor.encrypt(str4, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
@@ -1485,7 +1485,7 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(v());
             HashMap hashMap = new HashMap();
-            hashMap.put("username", str);
+            hashMap.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 hashMap.put("clientid", this.c.clientId);
             }

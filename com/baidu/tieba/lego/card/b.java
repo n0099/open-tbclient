@@ -11,32 +11,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> eha;
+    private final List<e> ehe;
 
     private b() {
-        this.eha = new ArrayList(4);
+        this.ehe = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b ehb = new b();
+        private static final b ehf = new b();
     }
 
-    public static b aGA() {
-        return a.ehb;
+    public static b aGB() {
+        return a.ehf;
     }
 
     public synchronized void a(e eVar) {
-        this.eha.add(eVar);
+        this.ehe.add(eVar);
     }
 
     public synchronized void a(e eVar, int i) {
-        this.eha.add(0, eVar);
+        this.ehe.add(0, eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aGB() {
+    protected void aGC() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -50,7 +50,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.eha) {
+        for (e eVar : this.ehe) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -75,7 +75,7 @@ public class b extends e {
 
     private <T> l b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         l a2;
-        for (e eVar : this.eha) {
+        for (e eVar : this.ehe) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -108,6 +108,6 @@ public class b extends e {
     }
 
     public static ICardInfo B(JSONObject jSONObject) throws CardParseException {
-        return aGA().a(jSONObject, jSONObject.optInt("card_type"));
+        return aGB().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

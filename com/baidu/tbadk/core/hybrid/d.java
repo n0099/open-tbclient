@@ -11,28 +11,28 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements i {
-    private final m adb;
-    private final HashMap<String, Method> adc = new HashMap<>();
+    private final m adf;
+    private final HashMap<String, Method> adg = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(m mVar) {
-        this.adb = mVar;
+        this.adf = mVar;
         i(getClass());
-        if (this.adc.isEmpty()) {
+        if (this.adg.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.adb.getContext();
+        return this.adf.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0062a.sendMessage(message);
+        a.C0061a.sendMessage(message);
     }
 
     protected void b(String str, JSONObject jSONObject) {
@@ -46,13 +46,13 @@ public abstract class d implements i {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.adb.a(n.b(str, hashMap));
+        this.adf.a(n.b(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.adc.get(str);
+        Method method = this.adg.get(str);
         if (method != null) {
             p pVar = (p) method.getAnnotation(p.class);
             String optString = jSONObject2.optString("callbackId");
@@ -125,7 +125,7 @@ public abstract class d implements i {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.adb.a(n.b(optString, hashMap));
+        this.adf.a(n.b(optString, hashMap));
     }
 
     private void i(Class<? extends d> cls) {
@@ -144,7 +144,7 @@ public abstract class d implements i {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.adc.put(value, method);
+                this.adg.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

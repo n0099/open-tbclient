@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ac extends SparseArray<ak> {
-    public BdUniqueId aSy = null;
+    public BdUniqueId aSB = null;
 
     public void a(am amVar) {
         int i = 0;

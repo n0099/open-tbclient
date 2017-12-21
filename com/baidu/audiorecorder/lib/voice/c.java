@@ -1,27 +1,27 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes2.dex */
 public class c {
-    private static c Ix;
-    private int It;
-    private short Iu;
+    private static c Iy;
+    private int Iu;
     private short Iv;
-    private int Iw = -2;
-    private static int[] Iy = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
-    private static short[] Iz = {2, 3};
-    private static short[] IA = {2, 16, 12, 3};
+    private short Iw;
+    private int Ix = -2;
+    private static int[] Iz = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+    private static short[] IA = {2, 3};
+    private static short[] IB = {2, 16, 12, 3};
 
     public static c lw() {
         c cVar;
-        if (Ix == null) {
+        if (Iy == null) {
             synchronized (c.class) {
-                if (Ix == null) {
-                    Ix = new c();
+                if (Iy == null) {
+                    Iy = new c();
                 }
-                cVar = Ix;
+                cVar = Iy;
             }
             return cVar;
         }
-        return Ix;
+        return Iy;
     }
 
     private c() {
@@ -40,30 +40,30 @@ public class c {
         /*
             r18 = this;
             r0 = r18
-            int r1 = r0.It
-            if (r1 <= 0) goto L29
-            r0 = r18
-            short r1 = r0.Iu
+            int r1 = r0.Iu
             if (r1 <= 0) goto L29
             r0 = r18
             short r1 = r0.Iv
             if (r1 <= 0) goto L29
+            r0 = r18
+            short r1 = r0.Iw
+            if (r1 <= 0) goto L29
             android.media.AudioRecord r1 = new android.media.AudioRecord
             r2 = 1
             r0 = r18
-            int r3 = r0.It
+            int r3 = r0.Iu
             r0 = r18
-            short r4 = r0.Iv
+            short r4 = r0.Iw
             r0 = r18
-            short r5 = r0.Iu
+            short r5 = r0.Iv
             r0 = r18
-            int r6 = r0.Iw
+            int r6 = r0.Ix
             r1.<init>(r2, r3, r4, r5, r6)
         L28:
             return r1
         L29:
             r2 = 0
-            int[] r12 = com.baidu.audiorecorder.lib.voice.c.Iy
+            int[] r12 = com.baidu.audiorecorder.lib.voice.c.Iz
             int r13 = r12.length
             r1 = 0
             r9 = r1
@@ -71,7 +71,7 @@ public class c {
         L30:
             if (r9 >= r13) goto L112
             r3 = r12[r9]
-            short[] r14 = com.baidu.audiorecorder.lib.voice.c.Iz
+            short[] r14 = com.baidu.audiorecorder.lib.voice.c.IA
             int r15 = r14.length
             r2 = 0
             r10 = r2
@@ -79,7 +79,7 @@ public class c {
         L3a:
             if (r10 >= r15) goto L10c
             short r5 = r14[r10]
-            short[] r16 = com.baidu.audiorecorder.lib.voice.c.IA
+            short[] r16 = com.baidu.audiorecorder.lib.voice.c.IB
             r0 = r16
             int r0 = r0.length
             r17 = r0
@@ -92,9 +92,9 @@ public class c {
             short r4 = r16[r11]
             int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L128
             r0 = r18
-            r0.Iw = r1     // Catch: java.lang.Throwable -> L128
+            r0.Ix = r1     // Catch: java.lang.Throwable -> L128
             r0 = r18
-            int r1 = r0.Iw     // Catch: java.lang.Throwable -> L128
+            int r1 = r0.Ix     // Catch: java.lang.Throwable -> L128
             r2 = -2
             if (r1 != r2) goto L6f
             if (r7 == 0) goto L12c
@@ -110,7 +110,7 @@ public class c {
             goto L48
         L6f:
             r0 = r18
-            int r1 = r0.Iw     // Catch: java.lang.Throwable -> L128
+            int r1 = r0.Ix     // Catch: java.lang.Throwable -> L128
             int r1 = r1 * 8
             r2 = 4096(0x1000, float:5.74E-42)
             int r6 = java.lang.Math.min(r1, r2)     // Catch: java.lang.Throwable -> L128
@@ -122,13 +122,13 @@ public class c {
             r2 = 1
             if (r1 != r2) goto La7
             r0 = r18
-            r0.It = r3     // Catch: java.lang.Throwable -> Le3
+            r0.Iu = r3     // Catch: java.lang.Throwable -> Le3
             r0 = r18
-            r0.Iu = r5     // Catch: java.lang.Throwable -> Le3
+            r0.Iv = r5     // Catch: java.lang.Throwable -> Le3
             r0 = r18
-            r0.Iv = r4     // Catch: java.lang.Throwable -> Le3
+            r0.Iw = r4     // Catch: java.lang.Throwable -> Le3
             r0 = r18
-            r0.Iw = r6     // Catch: java.lang.Throwable -> Le3
+            r0.Ix = r6     // Catch: java.lang.Throwable -> Le3
             if (r8 == 0) goto La5
             int r1 = r8.getState()
             r2 = 1
@@ -142,17 +142,17 @@ public class c {
             android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Le3
             r2 = 1
             r0 = r18
-            int r6 = r0.Iw     // Catch: java.lang.Throwable -> Le3
+            int r6 = r0.Ix     // Catch: java.lang.Throwable -> Le3
             r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Le3
             int r2 = r1.getState()     // Catch: java.lang.Throwable -> L126
             r6 = 1
             if (r2 != r6) goto Ld5
             r0 = r18
-            r0.It = r3     // Catch: java.lang.Throwable -> L126
+            r0.Iu = r3     // Catch: java.lang.Throwable -> L126
             r0 = r18
-            r0.Iu = r5     // Catch: java.lang.Throwable -> L126
+            r0.Iv = r5     // Catch: java.lang.Throwable -> L126
             r0 = r18
-            r0.Iv = r4     // Catch: java.lang.Throwable -> L126
+            r0.Iw = r4     // Catch: java.lang.Throwable -> L126
             if (r1 == 0) goto L28
             int r2 = r1.getState()
             r3 = 1

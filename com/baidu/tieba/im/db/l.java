@@ -9,20 +9,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String dJe = "tb_private_msg_";
-    private static a dJt;
+    public static String dJi = "tb_private_msg_";
+    private static a dJx;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l azF() {
+    public static synchronized l azG() {
         l lVar;
         synchronized (l.class) {
-            if (dJt == null) {
-                dJt = new l();
+            if (dJx == null) {
+                dJx = new l();
             }
-            lVar = (l) dJt;
+            lVar = (l) dJx;
         }
         return lVar;
     }
@@ -48,10 +48,10 @@ public class l extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dJe;
+            ?? r2 = dJi;
             try {
                 try {
-                    cursor = g.azu().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.azv().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {

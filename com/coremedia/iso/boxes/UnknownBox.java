@@ -7,8 +7,8 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class UnknownBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0185a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
     ByteBuffer data;
 
     static {

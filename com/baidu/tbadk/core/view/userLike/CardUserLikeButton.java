@@ -30,15 +30,15 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void aN(boolean z) {
-        this.apn = z;
+        this.apr = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.apl);
+            setText(this.apo);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.apm);
+            setText(this.apq);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -46,14 +46,14 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.apn) {
+        if (this.apr) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            aj.i(this, d.C0096d.cp_cont_e);
+            aj.i(this, d.C0095d.cp_cont_e);
             setBackgroundDrawable(null);
             return;
         }
         setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.i(this, d.C0096d.pb_like_user_select_color);
+        aj.i(this, d.C0095d.pb_like_user_select_color);
         aj.j(this, d.f.btn_focus_border_bg);
     }
 }

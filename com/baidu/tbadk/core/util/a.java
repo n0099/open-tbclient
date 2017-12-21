@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a aeZ = null;
+    private static a afc = null;
 
     private a() {
     }
@@ -11,10 +11,10 @@ public class a implements com.baidu.adp.lib.stats.b {
     public static synchronized a ud() {
         a aVar;
         synchronized (a.class) {
-            if (aeZ == null) {
-                aeZ = new a();
+            if (afc == null) {
+                afc = new a();
             }
-            aVar = aeZ;
+            aVar = afc;
         }
         return aVar;
     }

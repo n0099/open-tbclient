@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private b gRA;
-    b.a gRB;
-    private com.baidu.tieba.video.editvideo.data.a gRz;
+    private com.baidu.tieba.video.editvideo.data.a gRE;
+    private b gRF;
+    b.a gRG;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.gRz = aVar;
-    }
-
-    public boolean bBG() {
-        return (this.gRz == null || "normal".equalsIgnoreCase(this.gRz.value)) ? false : true;
-    }
-
-    public void ud(String str) {
-        if ((this.gRA == null || !this.gRA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bBJ = bBJ();
-            String str2 = "normal";
-            if (this.gRz != null) {
-                str2 = this.gRz.value;
-            }
-            this.gRA = new b(this.mContext, str, bBJ, str2);
-            if (this.gRB != null) {
-                this.gRA.a(this.gRB);
-            }
-            this.gRA.bBK();
-        }
+        this.gRE = aVar;
     }
 
     public boolean bBH() {
-        if (this.gRA != null) {
-            return this.gRA.isRunning();
+        return (this.gRE == null || "normal".equalsIgnoreCase(this.gRE.value)) ? false : true;
+    }
+
+    public void ud(String str) {
+        if ((this.gRF == null || !this.gRF.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bBK = bBK();
+            String str2 = "normal";
+            if (this.gRE != null) {
+                str2 = this.gRE.value;
+            }
+            this.gRF = new b(this.mContext, str, bBK, str2);
+            if (this.gRG != null) {
+                this.gRF.a(this.gRG);
+            }
+            this.gRF.bBL();
+        }
+    }
+
+    public boolean bBI() {
+        if (this.gRF != null) {
+            return this.gRF.isRunning();
         }
         return false;
     }
 
-    public void bBI() {
-        if (this.gRA != null) {
-            this.gRA.bBL();
+    public void bBJ() {
+        if (this.gRF != null) {
+            this.gRF.bBM();
         }
     }
 
     public void a(b.a aVar) {
-        this.gRB = aVar;
-        if (this.gRA != null) {
-            this.gRA.a(this.gRB);
+        this.gRG = aVar;
+        if (this.gRF != null) {
+            this.gRF.a(this.gRG);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bBJ() {
-        return com.baidu.tieba.video.b.gPB + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bBK() {
+        return com.baidu.tieba.video.b.gPG + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

@@ -152,7 +152,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.cn(this.mUrlTitle);
         }
         if (!this.mView.on() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ax.b(this.mView.Se, d.C0096d.cp_link_tip_b, false);
+            ax.b(this.mView.Sf, d.C0095d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -429,7 +429,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.auE = Uri.parse(findSubString2);
+                dVar.auH = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -446,7 +446,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.auE = Uri.parse(str4);
+            dVar.auH = Uri.parse(str4);
         }
         return dVar;
     }
@@ -598,12 +598,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str3 = "";
         a.b ct = com.baidu.tbadk.core.a.a.pf().ct(TbadkCoreApplication.getCurrentBduss());
         if (ct != null) {
-            if (ct.wq != null) {
-                str3 = ct.wq;
+            if (ct.wr != null) {
+                str3 = ct.wr;
             }
-            if (ct.TR != null) {
+            if (ct.TS != null) {
                 str = str3;
-                str2 = ct.TR;
+                str2 = ct.TS;
                 z.a aVar = new z.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

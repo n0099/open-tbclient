@@ -8,32 +8,32 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0080a aRF;
-    private final Rect aRG;
-    private final Rect aRH;
-    private final Rect aRI;
-    private int aRJ;
+    private final C0079a aRI;
+    private final Rect aRJ;
+    private final Rect aRK;
+    private final Rect aRL;
+    private int aRM;
     private Bitmap mBitmap;
     private Canvas mCanvas;
 
     public a(int i) {
-        this.aRF = new C0080a();
-        this.aRG = new Rect();
-        this.aRH = new Rect();
-        this.aRI = new Rect();
+        this.aRI = new C0079a();
+        this.aRJ = new Rect();
+        this.aRK = new Rect();
+        this.aRL = new Rect();
         this.mBitmap = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.aRJ = i;
+        this.aRM = i;
         this.mCanvas = new Canvas();
     }
 
     public a(Bitmap bitmap) {
-        this.aRF = new C0080a();
-        this.aRG = new Rect();
-        this.aRH = new Rect();
-        this.aRI = new Rect();
+        this.aRI = new C0079a();
+        this.aRJ = new Rect();
+        this.aRK = new Rect();
+        this.aRL = new Rect();
         if (bitmap != null) {
             this.mBitmap = bitmap;
-            this.aRG.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
+            this.aRJ.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
         }
         this.mCanvas = new Canvas();
     }
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean d(Rect rect) {
-        return rect != null && rect.right - rect.left == this.aRJ && rect.bottom - rect.top == this.aRJ;
+        return rect != null && rect.right - rect.left == this.aRM && rect.bottom - rect.top == this.aRM;
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -58,68 +58,68 @@ public class a {
     }
 
     public Rect Ir() {
-        return this.aRG;
+        return this.aRJ;
     }
 
     public Rect Is() {
-        return this.aRH;
+        return this.aRK;
     }
 
     public void j(int i, int i2, int i3, int i4) {
-        this.aRH.set(i, i2, i3, i4);
+        this.aRK.set(i, i2, i3, i4);
     }
 
     public void k(int i, int i2, int i3, int i4) {
-        this.aRG.set(i, i2, i3, i4);
+        this.aRJ.set(i, i2, i3, i4);
     }
 
     public void p(int i, int i2, int i3) {
-        this.aRF.row = i;
-        this.aRF.column = i2;
-        this.aRF.aRK = i3;
+        this.aRI.row = i;
+        this.aRI.column = i2;
+        this.aRI.aRN = i3;
     }
 
-    public C0080a It() {
-        return this.aRF;
+    public C0079a It() {
+        return this.aRI;
     }
 
     public Rect Iu() {
-        int i = this.aRJ * this.aRF.column * this.aRF.aRK;
-        int i2 = this.aRJ * this.aRF.row * this.aRF.aRK;
-        this.aRI.set(i, i2, (this.aRJ * this.aRF.aRK) + i, (this.aRJ * this.aRF.aRK) + i2);
-        return this.aRI;
+        int i = this.aRM * this.aRI.column * this.aRI.aRN;
+        int i2 = this.aRM * this.aRI.row * this.aRI.aRN;
+        this.aRL.set(i, i2, (this.aRM * this.aRI.aRN) + i, (this.aRM * this.aRI.aRN) + i2);
+        return this.aRL;
     }
 
     /* renamed from: com.baidu.tbadk.widget.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0080a {
-        int aRK;
+    public static class C0079a {
+        int aRN;
         int column;
         int row;
 
-        public C0080a() {
+        public C0079a() {
         }
 
-        public C0080a(int i, int i2, int i3) {
+        public C0079a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
-            this.aRK = i3;
+            this.aRN = i3;
         }
 
         public String toString() {
-            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.aRK + '}';
+            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.aRN + '}';
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0080a) {
-                C0080a c0080a = (C0080a) obj;
-                return this.row == c0080a.getRow() && this.column == c0080a.Eh() && this.aRK == c0080a.Iv();
+            if (obj instanceof C0079a) {
+                C0079a c0079a = (C0079a) obj;
+                return this.row == c0079a.getRow() && this.column == c0079a.Eh() && this.aRN == c0079a.Iv();
             }
             return false;
         }
 
         public int hashCode() {
-            return (17 * (((this.row + 119) * 17) + this.column)) + (this.aRK * 100);
+            return (17 * (((this.row + 119) * 17) + this.column)) + (this.aRN * 100);
         }
 
         public int getRow() {
@@ -131,7 +131,7 @@ public class a {
         }
 
         public int Iv() {
-            return this.aRK;
+            return this.aRN;
         }
     }
 }

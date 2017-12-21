@@ -8,44 +8,44 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int gEy = 6144000;
-    private static int gEz = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private h gCP;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gEA;
+    private static int gED = 6144000;
+    private static int gEE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private h gCU;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gEF;
 
     public a(h hVar) {
-        this.gCP = hVar;
+        this.gCU = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.eV().af("is_video_batch") == 1) {
-                this.gEA = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gEz, this.gCP);
+                this.gEF = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gEE, this.gCU);
             } else {
-                this.gEA = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gEy, this.gCP);
+                this.gEF = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gED, this.gCU);
             }
-            this.gEA.a(eVar);
-            return this.gEA.aH(str2, i);
+            this.gEF.a(eVar);
+            return this.gEF.aH(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gCP != null) {
-                this.gCP.f(306, -4399, com.baidu.tieba.i.a.g(e));
+            if (this.gCU != null) {
+                this.gCU.f(306, -4399, com.baidu.tieba.i.a.g(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.gEA != null) {
-            this.gEA.cancel();
+        if (this.gEF != null) {
+            this.gEF.cancel();
         }
     }
 
     public static void uF(int i) {
         if (i <= 0) {
-            gEz = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            gEE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            gEz = i;
+            gEE = i;
         }
     }
 
@@ -59,9 +59,9 @@ public class a {
 
     public static void uH(int i) {
         if (i <= 0) {
-            gEy = 6144000;
+            gED = 6144000;
         } else {
-            gEy = i;
+            gED = i;
         }
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, com.baidu.tbadk.i.a> {
-    private View.OnClickListener beg;
+    private View.OnClickListener bek;
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.aAf, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.c.aAi, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
@@ -33,7 +33,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.aFT.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.e.1
+        aVar.aFW.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.e.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -46,12 +46,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.c, c
                 return view2.onTouchEvent(motionEvent);
             }
         });
-        aVar.setOnClick(this.beg);
+        aVar.setOnClick(this.bek);
         aVar.c(cVar);
         return aVar.getView();
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.beg = onClickListener;
+        this.bek = onClickListener;
     }
 }

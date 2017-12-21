@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    private String cdB;
-    private String cdw;
-    private int cdx;
-    private String cdy;
-    private String cdz;
+    private String cdA;
+    private int cdB;
+    private String cdC;
+    private String cdD;
+    private String cdF;
     private String mSource;
     public String tid;
-    public int cdA = 0;
-    public SparseArray<String> Xy = null;
+    public int cdE = 0;
+    public SparseArray<String> XB = null;
 
     public void setWeight(String str) {
-        this.cdw = str;
+        this.cdA = str;
     }
 
     public void setSource(String str) {
@@ -32,23 +32,23 @@ public abstract class c extends b implements ae {
     }
 
     public void iG(int i) {
-        this.cdx = i;
+        this.cdB = i;
     }
 
     public void jS(String str) {
-        this.cdy = str;
+        this.cdC = str;
     }
 
     public int ace() {
-        return this.cdx;
+        return this.cdB;
     }
 
     public String acf() {
-        return this.mSource + "#" + this.cdx + "#" + this.cdy;
+        return this.mSource + "#" + this.cdB + "#" + this.cdC;
     }
 
     public String getWeight() {
-        return this.cdw;
+        return this.cdA;
     }
 
     public String getSource() {
@@ -56,15 +56,15 @@ public abstract class c extends b implements ae {
     }
 
     public String acg() {
-        return this.cdy;
+        return this.cdC;
     }
 
     public String ach() {
-        return this.cdz;
+        return this.cdD;
     }
 
     public void jT(String str) {
-        this.cdz = str;
+        this.cdD = str;
     }
 
     public bd Ox() {
@@ -76,11 +76,11 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.cdB = str;
+        this.cdF = str;
     }
 
     public String getExtra() {
-        return this.cdB;
+        return this.cdF;
     }
 
     public ak jU(String str) {
@@ -96,15 +96,15 @@ public abstract class c extends b implements ae {
         if (!z) {
             ac.r("obj_type", aci());
         } else {
-            if (Ox.aaA > 0) {
+            if (Ox.aaD > 0) {
                 ac.r("midpageflag", 1);
             } else {
                 ac.r("midpageflag", 0);
             }
             ac.ac("ab_tag", acg());
         }
-        if (Ox.sM() != null && Ox.sM().bwX() != null && Ox.sM().bwX().Jr() != null && Ox.sM().bwX().Jr().size() > 0) {
-            ac.r("obj_to", Ox.sM().gCv ? 2 : 1);
+        if (Ox.sM() != null && Ox.sM().bwY() != null && Ox.sM().bwY().Jr() != null && Ox.sM().bwY().Jr().size() > 0) {
+            ac.r("obj_to", Ox.sM().gCA ? 2 : 1);
         }
         return ac;
     }

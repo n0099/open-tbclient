@@ -259,7 +259,7 @@ public class TiebaSyncService extends BdBaseService {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("home_page_max_thread_count", zS.yC());
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("localvideo_open", zS.yI());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEFT_NAV_DRESSUP_CENTER_TIP));
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("card_show_statistic_max_count", zS.asg);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("card_show_statistic_max_count", zS.asj);
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("nick_name_activity_link", zS.yK());
                     String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("clean_smart_frs_cookie", "");
                     String yH = zS.yH();

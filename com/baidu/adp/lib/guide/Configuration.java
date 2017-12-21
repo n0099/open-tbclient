@@ -14,11 +14,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.tM = parcel.readInt();
             configuration.tN = parcel.readInt();
             configuration.tO = parcel.readInt();
-            configuration.tP = parcel.readByte() == 1;
+            configuration.tP = parcel.readInt();
             configuration.tQ = parcel.readByte() == 1;
+            configuration.tR = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -29,17 +29,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean tL;
+    boolean tM;
     View ju = null;
     int mAlpha = MotionEventCompat.ACTION_MASK;
-    int tM = -1;
     int tN = -1;
-    int tO = 17170444;
-    boolean tP = true;
-    boolean tQ = false;
+    int tO = -1;
+    int tP = 17170444;
+    boolean tQ = true;
     boolean tR = false;
-    int tS = -1;
+    boolean tS = false;
     int tT = -1;
+    int tU = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -49,10 +49,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.tM);
         parcel.writeInt(this.tN);
         parcel.writeInt(this.tO);
-        parcel.writeByte((byte) (this.tP ? 1 : 0));
+        parcel.writeInt(this.tP);
         parcel.writeByte((byte) (this.tQ ? 1 : 0));
+        parcel.writeByte((byte) (this.tR ? 1 : 0));
     }
 }

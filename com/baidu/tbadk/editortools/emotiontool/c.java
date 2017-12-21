@@ -3,8 +3,8 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aCQ;
-    private com.baidu.adp.widget.a.a aCR;
+    private com.baidu.adp.widget.a.a aCT;
+    private com.baidu.adp.widget.a.a aCU;
     private int cols;
     private int rows;
 
@@ -31,25 +31,25 @@ public abstract class c {
     public abstract int getWidth();
 
     public com.baidu.adp.widget.a.a Du() {
-        return this.aCQ;
+        return this.aCT;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.kK();
         }
-        this.aCQ = aVar;
+        this.aCT = aVar;
     }
 
     public com.baidu.adp.widget.a.a Dv() {
-        return this.aCR;
+        return this.aCU;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.kK();
         }
-        this.aCR = aVar;
+        this.aCU = aVar;
     }
 
     public int getCols() {

@@ -1261,12 +1261,12 @@ public final class SapiWebView extends WebView {
                 int parseInt = Integer.parseInt(command.getActionParams().get(0));
                 int parseInt2 = command.getActionParams().size() > 1 ? Integer.parseInt(command.getActionParams().get(1)) : 0;
                 if (command.getActionParams().size() <= 2) {
-                    str = "pp";
+                    str = SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID;
                 } else {
                     str = command.getActionParams().get(2).toString();
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = "pp";
+                    str = SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID;
                 }
                 if (SapiWebView.this.ag != null) {
                     SapiWebView.this.ag.onBiometricsIdentify(parseInt, parseInt2, str, new BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiWebView.23.1
@@ -1297,11 +1297,11 @@ public final class SapiWebView extends WebView {
                 if (command.getActionParams().size() > 4) {
                     str3 = command.getActionParams().get(4);
                 }
-                String str4 = "pp";
+                String str4 = SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID;
                 if (command.getActionParams().size() > 5) {
                     str4 = command.getActionParams().get(5);
                 }
-                String str5 = TextUtils.isEmpty(str4) ? "pp" : str4;
+                String str5 = TextUtils.isEmpty(str4) ? SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID : str4;
                 if (SapiWebView.this.ag != null) {
                     SapiWebView.this.ag.onBiometricsIdentify(parseInt, parseInt2, str, str2, str3, str5, new BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiWebView.24.1
                         {
@@ -1328,11 +1328,11 @@ public final class SapiWebView extends WebView {
                 String str2 = command.getActionParams().get(1);
                 int parseInt2 = command.getActionParams().size() > 2 ? Integer.parseInt(command.getActionParams().get(2)) : 0;
                 if (command.getActionParams().size() <= 3) {
-                    str = "pp";
+                    str = SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID;
                 } else {
                     str = command.getActionParams().get(3).toString();
                 }
-                String str3 = TextUtils.isEmpty(str) ? "pp" : str;
+                String str3 = TextUtils.isEmpty(str) ? SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID : str;
                 if (SapiWebView.this.ag != null) {
                     SapiWebView.this.ag.onBiometricsIdentify(parseInt, parseInt2, str2, str3, new BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiWebView.25.1
                         {
@@ -1443,7 +1443,7 @@ public final class SapiWebView extends WebView {
             public String interpret(Command command) {
                 try {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                    String optString = jSONObject.optString("username");
+                    String optString = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
                     boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
                     PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new PreFillUserNameCallback.PreFillUserNameResult();
                     preFillUserNameResult.userName = optString;
@@ -1502,7 +1502,7 @@ public final class SapiWebView extends WebView {
                         bioScanFaceResult.subpro = jSONObject.optString("subpro");
                         bioScanFaceResult.showGuidePage = 1 - jSONObject.optInt("hideGuidePage", 0);
                         if (TextUtils.isEmpty(bioScanFaceResult.subpro)) {
-                            bioScanFaceResult.subpro = "pp";
+                            bioScanFaceResult.subpro = SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID;
                         }
                         JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
                         if (optJSONObject != null) {
@@ -2346,7 +2346,7 @@ public final class SapiWebView extends WebView {
             throw new IllegalArgumentException("realnameAuthenticateStoken can't be empty");
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add("pp");
+        arrayList.add(QR_FACE_AUTH_PASS_PRODUCT_ID);
         SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.SapiWebView.39
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -2354,7 +2354,7 @@ public final class SapiWebView extends WebView {
                 String i2 = SapiAccountManager.getInstance().getAccountService().i();
                 ArrayList arrayList2 = new ArrayList();
                 arrayList2.add(new BasicNameValuePair("bduss", str));
-                arrayList2.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_STOKEN, getTplStokenResult.tplStokenMap.get("pp")));
+                arrayList2.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_STOKEN, getTplStokenResult.tplStokenMap.get(SapiWebView.QR_FACE_AUTH_PASS_PRODUCT_ID)));
                 arrayList2.add(new BasicNameValuePair("bdstoken", SapiWebView.this.H.realnameAuthenticateStoken));
                 SapiWebView.this.loadUrl(i2 + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
             }
@@ -3005,7 +3005,7 @@ public final class SapiWebView extends WebView {
                 String optString2 = jSONObject.optString("u");
                 SapiAccount sapiAccount = new SapiAccount();
                 sapiAccount.uid = jSONObject.optString("passuid");
-                sapiAccount.username = jSONObject.optString("username");
+                sapiAccount.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
                 sapiAccount.displayname = jSONObject.optString("displayname");
                 sapiAccount.bduss = jSONObject.optString("bduss");
                 sapiAccount.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);

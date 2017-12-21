@@ -3,25 +3,25 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class q extends b implements r {
-    public static final BdUniqueId ceI = BdUniqueId.gen();
-    public long ceJ;
-    public String ceK;
-    public String ceL;
-    public String ceM;
-    public String ceN;
+    public static final BdUniqueId ceM = BdUniqueId.gen();
+    public long ceN;
     public String ceO;
-    public long ceP;
+    public String ceP;
     public String ceQ;
+    public String ceR;
+    public String ceS;
+    public long ceT;
+    public String ceU;
     public String userName;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ceI;
+        return ceM;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        return (int) this.ceP;
+        return (int) this.ceT;
     }
 
     @Override // com.baidu.tieba.card.data.r

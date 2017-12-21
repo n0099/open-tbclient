@@ -9,10 +9,10 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class f extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v<bd> buT;
-    private com.baidu.tieba.frs.entelechy.view.c cNF;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> cNG;
-    private com.baidu.adp.lib.e.b<TbImageView> cNH;
+    private v<bd> buX;
+    private com.baidu.tieba.frs.entelechy.view.c cNJ;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> cNK;
+    private com.baidu.adp.lib.e.b<TbImageView> cNL;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
@@ -21,12 +21,12 @@ public class f extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.cNF = new com.baidu.tieba.frs.entelechy.view.c(this.mPageContext, this.mPageId);
-        this.cNF.setConstrainLayoutPool(this.cNG);
-        this.cNF.setConstrainImagePool(this.cNH);
-        this.cNF.setForumName(this.mForumName);
-        this.cNF.k(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(this.cNF);
+        this.cNJ = new com.baidu.tieba.frs.entelechy.view.c(this.mPageContext, this.mPageId);
+        this.cNJ.setConstrainLayoutPool(this.cNK);
+        this.cNJ.setConstrainImagePool(this.cNL);
+        this.cNJ.setForumName(this.mForumName);
+        this.cNJ.k(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.cNJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,17 +37,17 @@ public class f extends e<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entele
         if (aVar == null || aVar.acB() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGO);
+        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGS);
         aVar.acB().a(bdVar);
-        aVar.acB().b(this.buT);
-        com.baidu.tieba.frs.e.b.aqv().a(cYY, bdVar);
+        aVar.acB().b(this.buX);
+        com.baidu.tieba.frs.e.b.aqw().a(cZc, bdVar);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.frs.e
     public void setFromCDN(boolean z) {
-        if (this.cNF != null) {
-            this.cNF.setFromCDN(z);
+        if (this.cNJ != null) {
+            this.cNJ.setFromCDN(z);
         }
     }
 

@@ -19,7 +19,7 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.editortools.d {
-    private boolean aEh = false;
+    private boolean aEk = false;
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f aW(Context context) {
@@ -28,7 +28,7 @@ public class i extends com.baidu.tbadk.editortools.d {
         iVar.setBarMaxLauCount(5);
         iVar.setBackgroundColorId(0);
         iVar.setBarLauncherType(2);
-        iVar.setBarBackgroundColorId(d.C0096d.cp_bg_line_d);
+        iVar.setBarBackgroundColorId(d.C0095d.cp_bg_line_d);
         iVar.bz(false);
         return new h(iVar);
     }
@@ -45,7 +45,7 @@ public class i extends com.baidu.tbadk.editortools.d {
                         switch (aVar.code) {
                             case 4:
                                 hVar.fX((String) aVar.data);
-                                i.this.aEh = false;
+                                i.this.aEk = false;
                                 return;
                             case 5:
                             case 6:
@@ -58,7 +58,7 @@ public class i extends com.baidu.tbadk.editortools.d {
                                 return;
                             case 7:
                                 hVar.xR().showToast(d.j.over_limit_tip);
-                                i.this.aEh = true;
+                                i.this.aEk = true;
                                 return;
                             case 8:
                                 if (i.this.a(hVar.xR(), 11001)) {
@@ -78,7 +78,7 @@ public class i extends com.baidu.tbadk.editortools.d {
                                 hVar.setVoiceModel(null);
                                 return;
                             case 16:
-                                if (i.this.aEh) {
+                                if (i.this.aEk) {
                                     hVar.xR().showToast(d.j.over_limit_tip);
                                 }
                                 if (i.this.a(hVar.xR(), 11025)) {
@@ -110,16 +110,16 @@ public class i extends com.baidu.tbadk.editortools.d {
         r eP = De.eP(5);
         if (eP != null) {
             eP.bB(false);
-            eP.aCI = 1;
-            eP.aCG = d.f.new_pbeditor_face_button;
+            eP.aCL = 1;
+            eP.aCJ = d.f.new_pbeditor_face_button;
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.byb() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, De.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
-            rVar.aCG = d.f.new_pbeditor_voice_button;
-            rVar.aCI = 2;
+        if (com.baidu.tieba.tbadkCore.voice.c.byc() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, De.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
+            rVar.aCJ = d.f.new_pbeditor_voice_button;
+            rVar.aCL = 2;
             De.b(rVar);
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(De.getContext(), 4);
-        aVar.aCG = d.f.new_pbeditor_at_button;
+        aVar.aCJ = d.f.new_pbeditor_at_button;
         De.b(aVar);
         e eVar = new e(De.getContext());
         if (eVar.getInputView() != null) {

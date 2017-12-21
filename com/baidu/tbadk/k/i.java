@@ -6,25 +6,25 @@ import android.os.Message;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class i extends k {
-    public long EL;
-    public long Gn;
-    public int aJV;
-    public long aKd;
-    public long aKe;
-    public int aKf;
-    private a aKg = null;
-    private final Handler aKh = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.k.i.1
+    public long EM;
+    public long Go;
+    public int aJY;
+    public long aKg;
+    public long aKh;
+    public int aKi;
+    private a aKj = null;
+    private final Handler aKk = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.k.i.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            i.this.aKg = new a();
-            i.this.aKg.setSelfExecute(true);
-            i.this.aKg.execute(new String[0]);
+            i.this.aKj = new a();
+            i.this.aKj.setSelfExecute(true);
+            i.this.aKj.execute(new String[0]);
         }
     };
-    public long uH;
+    public long uI;
 
     public void Gs() {
-        this.aKh.sendEmptyMessage(0);
+        this.aKk.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class i extends k {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            i.this.aJV = r.GB().GF();
+            i.this.aJY = r.GB().GF();
             i.this.Gt();
             return Boolean.TRUE;
         }

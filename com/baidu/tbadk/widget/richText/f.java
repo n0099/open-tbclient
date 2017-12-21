@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aVr;
-    private int aVs;
-    private String aVt;
-    private int aVu;
+    private String aVu;
     private int aVv;
+    private String aVw;
+    private int aVx;
+    private int aVy;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aVr = pbContent.src;
+            this.aVu = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aVs = pbContent.e_type.intValue();
-            this.aVt = pbContent.text;
+            this.aVv = pbContent.e_type.intValue();
+            this.aVw = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aVu = pbContent.count.intValue();
-            this.aVv = pbContent.origin_size.intValue();
+            this.aVx = pbContent.count.intValue();
+            this.aVy = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aVr;
+        return this.aVu;
     }
 
     public int getWidth() {
@@ -45,11 +45,11 @@ public class f {
     }
 
     public String Kd() {
-        return this.aVt;
+        return this.aVw;
     }
 
     public boolean Ke() {
-        return this.aVs == 15;
+        return this.aVv == 15;
     }
 
     public boolean isAvaliable() {
@@ -57,10 +57,10 @@ public class f {
     }
 
     public int Kf() {
-        return this.aVu;
+        return this.aVx;
     }
 
     public void gh(int i) {
-        this.aVu = i;
+        this.aVx = i;
     }
 }

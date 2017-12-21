@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean ajh;
+    private boolean ajk;
     private int procType;
 
     public s(boolean z, int i) {
-        this.ajh = true;
+        this.ajk = true;
         this.procType = 0;
-        this.ajh = z;
+        this.ajk = z;
         this.procType = i;
     }
 
@@ -35,7 +35,7 @@ public class s extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajh;
+        return this.ajk;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -67,7 +67,7 @@ public class s extends a {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(ek);
-            aVar.vC = dVar;
+            aVar.vD = dVar;
         }
         boolean hi = com.baidu.adp.lib.util.j.hi();
         if (!com.baidu.adp.lib.Disk.d.dH().c(ek)) {
@@ -107,7 +107,7 @@ public class s extends a {
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.vC = dVar;
+                aVar.vD = dVar;
             }
         }
         return aVar2;

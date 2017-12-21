@@ -228,7 +228,7 @@ public final class a {
         b at = b.at(context);
         Message message = new Message();
         message.what = 8;
-        at.QO.QK.sendMessage(message);
+        at.QP.QL.sendMessage(message);
         com.baidu.sofire.rp.a.b bVar2 = new com.baidu.sofire.rp.a.b();
         bVar2.a = str;
         bVar2.b = str2;
@@ -247,10 +247,10 @@ public final class a {
                     aVar.c.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
                     aVar.c.commit();
                 }
-                com.baidu.sofire.rp.e.a aVar2 = b.at(context).QO;
+                com.baidu.sofire.rp.e.a aVar2 = b.at(context).QP;
                 Message message2 = new Message();
                 message2.what = 7;
-                aVar2.QK.sendMessage(message2);
+                aVar2.QL.sendMessage(message2);
                 return;
             }
             if (!aVar.a.getBoolean("re_net_ins_" + bVar2.e, false)) {
@@ -258,16 +258,16 @@ public final class a {
                 Message message3 = new Message();
                 message3.what = 3;
                 message3.obj = bVar2;
-                at2.QO.QK.sendMessage(message3);
+                at2.QP.QL.sendMessage(message3);
             }
-            com.baidu.sofire.rp.e.a aVar3 = b.at(context).QO;
+            com.baidu.sofire.rp.e.a aVar3 = b.at(context).QP;
             Message message4 = new Message();
             message4.what = 7;
-            aVar3.QK.sendMessage(message4);
+            aVar3.QL.sendMessage(message4);
             b at3 = b.at(context);
             Message message5 = new Message();
             message5.what = 2;
-            at3.QO.QK.sendMessage(message5);
+            at3.QP.QL.sendMessage(message5);
         }
     }
 
@@ -300,7 +300,7 @@ public final class a {
             Message message = new Message();
             message.what = 1;
             message.obj = aVar2;
-            at.QO.QK.sendMessage(message);
+            at.QP.QL.sendMessage(message);
         } catch (Exception e) {
             d.a(e);
         }

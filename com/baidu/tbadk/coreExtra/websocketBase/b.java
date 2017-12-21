@@ -6,11 +6,11 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b azj = new b();
+        private static b azm = new b();
     }
 
     public static b BZ() {
-        return a.azj;
+        return a.azm;
     }
 
     private b() {
@@ -29,6 +29,6 @@ public class b {
     }
 
     private void fu(String str) {
-        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.f.TD, str);
+        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.f.TE, str);
     }
 }

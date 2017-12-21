@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class c implements d.a {
-    private final CloudMusicModel gQt;
-    private final d.b gQu;
+    private final CloudMusicModel gQy;
+    private final d.b gQz;
 
     public c(CloudMusicModel cloudMusicModel, d.b bVar) {
-        this.gQt = cloudMusicModel;
-        this.gQu = bVar;
+        this.gQy = cloudMusicModel;
+        this.gQz = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void bBn() {
-        this.gQu.nC(true);
-        this.gQt.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
+    public void bBo() {
+        this.gQz.nC(true);
+        this.gQy.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void ad(CloudMusicData cloudMusicData) {
-                c.this.gQu.nC(false);
+                c.this.gQz.nC(false);
                 if (cloudMusicData != null) {
-                    c.this.gQu.nD(false);
+                    c.this.gQz.nD(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        c.this.gQu.nD(true);
+                        c.this.gQz.nD(true);
                         return;
                     } else {
-                        c.this.gQu.a(cloudMusicData);
+                        c.this.gQz.a(cloudMusicData);
                         return;
                     }
                 }
-                c.this.gQu.nD(true);
+                c.this.gQz.nD(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.a
-    public void anc() {
-        this.gQt.cancelLoadData();
+    public void and() {
+        this.gQy.cancelLoadData();
     }
 }

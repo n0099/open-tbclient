@@ -8,8 +8,8 @@ import com.baidu.tieba.d;
 public class a extends r {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(d.j.editor_hot_tipc), 26, i);
-        this.aCG = d.f.btn_pb_add_topic_n;
-        this.aCH = false;
-        this.aCL = new int[]{43};
+        this.aCJ = d.f.btn_pb_add_topic_n;
+        this.aCK = false;
+        this.aCO = new int[]{43};
     }
 }

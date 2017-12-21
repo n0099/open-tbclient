@@ -23,8 +23,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gzj;
-    private String gzk;
+    private String gzo;
+    private String gzp;
     private int isGood;
     private String kw;
     private String lastId;
@@ -43,7 +43,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String stType;
     private int updateType;
     private int withGroup;
-    private String anP = "";
+    private String anS = "";
     private int mSortType = -1;
     private int mLoadType = 1;
 
@@ -152,7 +152,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.anP = str;
+        this.anS = str;
     }
 
     public void setLastId(String str) {
@@ -180,11 +180,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void sQ(String str) {
-        this.gzj = str;
+        this.gzo = str;
     }
 
     public void setObjSource(String str) {
-        this.gzk = str;
+        this.gzp = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -213,13 +213,13 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.anP;
+        builder.yuelaou_locate = this.anS;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.e.a.bmv().bmy();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bmw().bmz();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gzj;
-        builder.obj_source = this.gzk;
+        builder.obj_locate = this.gzo;
+        builder.obj_source = this.gzp;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);

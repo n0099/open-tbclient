@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        bjl();
         bjm();
+        bjn();
     }
 
-    private static void bjl() {
+    private static void bjm() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -23,7 +23,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bjm() {
+    private static void bjn() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -47,7 +47,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (yVar != null) {
-            httpMessage.addParam("video_md5", yVar.fRm);
+            httpMessage.addParam("video_md5", yVar.fRr);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -57,14 +57,14 @@ public class l {
 
     private static void a(HttpMessage httpMessage, y yVar) {
         if (httpMessage != null && yVar != null) {
-            httpMessage.addParam("tid", yVar.aMU);
-            httpMessage.addParam(ImageViewerConfig.FORUM_ID, yVar.aAs);
-            httpMessage.addParam("obj_to", yVar.fRi);
-            httpMessage.addParam("obj_id", yVar.WF);
-            httpMessage.addParam("obj_param3", yVar.fRj);
+            httpMessage.addParam("tid", yVar.aMX);
+            httpMessage.addParam(ImageViewerConfig.FORUM_ID, yVar.aAv);
+            httpMessage.addParam("obj_to", yVar.fRn);
+            httpMessage.addParam("obj_id", yVar.WI);
+            httpMessage.addParam("obj_param3", yVar.fRo);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, yVar.mSource);
             httpMessage.addParam("obj_locate", yVar.mLocate);
-            httpMessage.addParam("obj_param1", yVar.fRk);
+            httpMessage.addParam("obj_param1", yVar.fRp);
         }
     }
 }
