@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.PollInfo;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class VoteDataInfo implements com.baidu.adp.widget.ListView.f, Serializable {
+public class VoteDataInfo implements com.baidu.adp.widget.ListView.i, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
     private int mEndtime;
     private int mIsMulti;
@@ -129,14 +129,14 @@ public class VoteDataInfo implements com.baidu.adp.widget.ListView.f, Serializab
                 this.mTotalPoll = j;
                 for (PollOption pollOption2 : list) {
                     if (pollOption2 != null) {
-                        m mVar = new m(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
+                        j jVar = new j(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            mVar.setPercent((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            jVar.setPercent((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (b(strArr, String.valueOf(pollOption2.id))) {
-                            mVar.setSelected(true);
+                            jVar.setSelected(true);
                         }
-                        this.mOptions.add(mVar);
+                        this.mOptions.add(jVar);
                     }
                 }
             }
@@ -155,8 +155,8 @@ public class VoteDataInfo implements com.baidu.adp.widget.ListView.f, Serializab
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return PostData.gBV;
+        return PostData.hiI;
     }
 }

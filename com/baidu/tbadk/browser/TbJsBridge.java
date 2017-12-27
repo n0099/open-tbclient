@@ -33,7 +33,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.g(String.valueOf(i), 0))));
+        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.h(String.valueOf(i), 0))));
     }
 
     @JavascriptInterface
@@ -43,7 +43,7 @@ public class TbJsBridge {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.auH = Uri.parse(str3);
+            dVar.biN = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }

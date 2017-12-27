@@ -11,7 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class AutoScrollHelper implements View.OnTouchListener {
     private static final int DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
     public static final int EDGE_TYPE_INSIDE = 0;
@@ -22,15 +22,15 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     public static final float RELATIVE_UNSPECIFIED = 0.0f;
     private int mActivationDelay;
     private boolean mAlreadyDelayed;
-    private boolean mAnimating;
+    boolean mAnimating;
     private int mEdgeType;
     private boolean mEnabled;
     private boolean mExclusive;
-    private boolean mNeedsCancel;
-    private boolean mNeedsReset;
+    boolean mNeedsCancel;
+    boolean mNeedsReset;
     private Runnable mRunnable;
-    private final View mTarget;
-    private final ClampedScroller mScroller = new ClampedScroller();
+    final View mTarget;
+    final ClampedScroller mScroller = new ClampedScroller();
     private final Interpolator mEdgeInterpolator = new AccelerateInterpolator();
     private float[] mRelativeEdges = {0.0f, 0.0f};
     private float[] mMaximumEdges = {Float.MAX_VALUE, Float.MAX_VALUE};
@@ -166,8 +166,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean shouldAnimate() {
+    boolean shouldAnimate() {
         ClampedScroller clampedScroller = this.mScroller;
         int verticalDirection = clampedScroller.getVerticalDirection();
         int horizontalDirection = clampedScroller.getHorizontalDirection();
@@ -249,24 +248,21 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static int constrain(int i, int i2, int i3) {
+    static int constrain(int i, int i2, int i3) {
         if (i > i3) {
             return i3;
         }
         return i < i2 ? i2 : i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static float constrain(float f, float f2, float f3) {
+    static float constrain(float f, float f2, float f3) {
         if (f > f3) {
             return f3;
         }
         return f < f2 ? f2 : f;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cancelTargetTouch() {
+    void cancelTargetTouch() {
         long uptimeMillis = SystemClock.uptimeMillis();
         MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
         this.mTarget.onTouchEvent(obtain);
@@ -274,9 +270,9 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class ScrollAnimationRunnable implements Runnable {
-        private ScrollAnimationRunnable() {
+        ScrollAnimationRunnable() {
         }
 
         @Override // java.lang.Runnable
@@ -303,7 +299,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ClampedScroller {
         private int mEffectiveRampDown;
         private int mRampDownDuration;
@@ -316,6 +312,9 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         private long mDeltaTime = 0;
         private int mDeltaX = 0;
         private int mDeltaY = 0;
+
+        ClampedScroller() {
+        }
 
         public void setRampUpDuration(int i) {
             this.mRampUpDuration = i;
@@ -349,10 +348,10 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             if (j < this.mStartTime) {
                 return 0.0f;
             }
-            if (this.mStopTime >= 0 && j >= this.mStopTime) {
-                return (AutoScrollHelper.constrain(((float) (j - this.mStopTime)) / this.mEffectiveRampDown, 0.0f, 1.0f) * this.mStopValue) + (1.0f - this.mStopValue);
+            if (this.mStopTime < 0 || j < this.mStopTime) {
+                return AutoScrollHelper.constrain(((float) (j - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
             }
-            return AutoScrollHelper.constrain(((float) (j - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
+            return (AutoScrollHelper.constrain(((float) (j - this.mStopTime)) / this.mEffectiveRampDown, 0.0f, 1.0f) * this.mStopValue) + (1.0f - this.mStopValue);
         }
 
         private float interpolateValue(float f) {

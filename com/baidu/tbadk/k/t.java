@@ -5,103 +5,103 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class t extends q {
     public void a(m mVar) {
-        if (r.GB().GC()) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            fK.p("ishttp", mVar.aKF ? "1" : "0");
-            fK.p("issuccess", mVar.isSuccess ? "1" : "0");
-            fK.p("nettype", r.GB().getNetType());
-            fK.p("wt", String.valueOf(mVar.aKA));
-            fK.p("qt", String.valueOf(mVar.aKt));
-            fK.p("connt", String.valueOf(mVar.aKu));
-            fK.p("rwt", String.valueOf(mVar.aKv));
-            fK.p("fbt", String.valueOf(mVar.od));
-            fK.p("abt", String.valueOf(mVar.oe));
-            fK.p("dect", String.valueOf(mVar.aKw));
-            fK.p("parset", String.valueOf(mVar.aKx));
-            fK.p("tqt", String.valueOf(mVar.aKy));
-            fK.p("rendert", String.valueOf(mVar.aKz));
-            fK.p("ss", String.valueOf(mVar.aKD));
-            fK.p("hs", String.valueOf(mVar.aKE));
-            if (mVar.aKF && mVar.socketErrNo != 0) {
-                fK.p("salno", String.valueOf(mVar.socketErrNo));
+        if (r.Oa().Ob()) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            nm.append("ishttp", mVar.byt ? "1" : "0");
+            nm.append("issuccess", mVar.isSuccess ? "1" : "0");
+            nm.append("nettype", r.Oa().getNetType());
+            nm.append("wt", String.valueOf(mVar.byo));
+            nm.append("qt", String.valueOf(mVar.byh));
+            nm.append("connt", String.valueOf(mVar.byi));
+            nm.append("rwt", String.valueOf(mVar.byj));
+            nm.append("fbt", String.valueOf(mVar.acN));
+            nm.append("abt", String.valueOf(mVar.acO));
+            nm.append("dect", String.valueOf(mVar.byk));
+            nm.append("parset", String.valueOf(mVar.byl));
+            nm.append("tqt", String.valueOf(mVar.bym));
+            nm.append("rendert", String.valueOf(mVar.byn));
+            nm.append("ss", String.valueOf(mVar.byr));
+            nm.append("hs", String.valueOf(mVar.bys));
+            if (mVar.byt && mVar.socketErrNo != 0) {
+                nm.append("salno", String.valueOf(mVar.socketErrNo));
                 if (mVar.socketCostTime != 0) {
-                    fK.p("scosttime", String.valueOf(mVar.socketCostTime));
+                    nm.append("scosttime", String.valueOf(mVar.socketCostTime));
                 }
             }
-            if (mVar.aKF) {
-                fK.p("hrtn", String.valueOf(mVar.aKG));
-                fK.p("hrtt", String.valueOf(mVar.aKH));
+            if (mVar.byt) {
+                nm.append("hrtn", String.valueOf(mVar.byu));
+                nm.append("hrtt", String.valueOf(mVar.byv));
             }
             if (mVar.errCode != 0) {
-                fK.c("errcode", Integer.valueOf(mVar.errCode));
+                nm.h("errcode", Integer.valueOf(mVar.errCode));
             }
-            if (mVar.aKI) {
-                fK.p("pt", "1");
+            if (mVar.byw) {
+                nm.append("pt", "1");
             } else {
-                fK.p("sysct", String.valueOf(mVar.aKr));
-                fK.p("ct", String.valueOf(mVar.aKs));
+                nm.append("sysct", String.valueOf(mVar.byf));
+                nm.append("ct", String.valueOf(mVar.byg));
             }
-            if (mVar.aKF) {
-                fK.p("c_logid", String.valueOf(mVar.aKJ));
+            if (mVar.byt) {
+                nm.append("c_logid", String.valueOf(mVar.byx));
                 if (mVar.sequenceID != 0) {
-                    fK.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
+                    nm.append("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
                 }
             } else {
-                fK.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
+                nm.append("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 
     public void b(m mVar) {
-        if (r.GB().GC() && mVar.aKB > 0) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", "readCache");
-            fK.p("rct", String.valueOf(mVar.aKB));
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+        if (r.Oa().Ob() && mVar.byp > 0) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", "readCache");
+            nm.append("rct", String.valueOf(mVar.byp));
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 
     public void c(m mVar) {
-        if (r.GB().GC() && mVar.aKC > 0) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", "writeCache");
-            fK.p("wct", String.valueOf(mVar.aKC));
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+        if (r.Oa().Ob() && mVar.byq > 0) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", "writeCache");
+            nm.append("wct", String.valueOf(mVar.byq));
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 
     public void a(l lVar, String str) {
-        if (lVar != null && str != null && r.GB().GC()) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", "resource");
-            fK.p("actype", str);
-            fK.p("issuccess", lVar.isSuccess ? "1" : "0");
-            fK.p("isfs", lVar.aKq ? "1" : "0");
-            fK.p("ct", String.valueOf(lVar.Go));
-            fK.p("from", String.valueOf(lVar.Gn));
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+        if (lVar != null && str != null && r.Oa().Ob()) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", "resource");
+            nm.append("actype", str);
+            nm.append("issuccess", lVar.isSuccess ? "1" : "0");
+            nm.append("isfs", lVar.bye ? "1" : "0");
+            nm.append("ct", String.valueOf(lVar.auq));
+            nm.append("from", String.valueOf(lVar.aup));
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 
     public void g(d dVar) {
-        if (dVar != null && r.GB().GC()) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", "fluency");
-            fK.p("fps", String.valueOf(dVar.Gl()));
-            fK.p("memp", String.valueOf(dVar.Gn()));
-            fK.p("cpu", String.valueOf(dVar.Go()));
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+        if (dVar != null && r.Oa().Ob()) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", "fluency");
+            nm.append("fps", String.valueOf(dVar.NK()));
+            nm.append("memp", String.valueOf(dVar.NM()));
+            nm.append("cpu", String.valueOf(dVar.NN()));
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 
     public void h(d dVar) {
-        if (r.GB().GC()) {
-            com.baidu.adp.lib.stats.a fK = fK();
-            fK.p("action", "gc");
-            fK.p("gc", String.valueOf(dVar.Gm()));
-            BdStatisticsManager.getInstance().performance(this.subType, fK);
+        if (r.Oa().Ob()) {
+            com.baidu.adp.lib.stats.a nm = nm();
+            nm.append("action", "gc");
+            nm.append("gc", String.valueOf(dVar.NL()));
+            BdStatisticsManager.getInstance().performance(this.subType, nm);
         }
     }
 }

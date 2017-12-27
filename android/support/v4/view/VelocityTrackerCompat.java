@@ -2,18 +2,18 @@ package android.support.v4.view;
 
 import android.os.Build;
 import android.view.VelocityTracker;
-/* loaded from: classes.dex */
-public class VelocityTrackerCompat {
+/* loaded from: classes2.dex */
+public final class VelocityTrackerCompat {
     static final VelocityTrackerVersionImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface VelocityTrackerVersionImpl {
         float getXVelocity(VelocityTracker velocityTracker, int i);
 
         float getYVelocity(VelocityTracker velocityTracker, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BaseVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
         BaseVelocityTrackerVersionImpl() {
         }
@@ -29,7 +29,7 @@ public class VelocityTrackerCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class HoneycombVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
         HoneycombVelocityTrackerVersionImpl() {
         }
@@ -59,5 +59,8 @@ public class VelocityTrackerCompat {
 
     public static float getYVelocity(VelocityTracker velocityTracker, int i) {
         return IMPL.getYVelocity(velocityTracker, i);
+    }
+
+    private VelocityTrackerCompat() {
     }
 }

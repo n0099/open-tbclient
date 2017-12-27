@@ -1,13 +1,12 @@
 package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
-import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float gWu;
-    private int gWv;
-    private j gWw;
+    private j hDA;
+    private float hDy;
+    private int hDz;
     private Camera mCamera;
     private int mode = 0;
 
@@ -16,40 +15,40 @@ class b {
     }
 
     public void setRecordController(j jVar) {
-        this.gWw = jVar;
+        this.hDA = jVar;
     }
 
-    public boolean e(MotionEvent motionEvent) {
-        if (this.gWw == null || !this.gWw.isRecording()) {
-            switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
+    public boolean o(MotionEvent motionEvent) {
+        if (this.hDA == null || !this.hDA.isRecording()) {
+            switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
                     break;
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
-                        float m = m(motionEvent);
-                        int i = (int) ((m - this.gWu) / 10.0f);
+                        float v = v(motionEvent);
+                        int i = (int) ((v - this.hDy) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.gWv;
+                            int i2 = i + this.hDz;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.gWu = m;
+                            this.hDy = v;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.gWu = m(motionEvent);
+                    this.hDy = v(motionEvent);
                     break;
             }
         }
         return true;
     }
 
-    private float m(MotionEvent motionEvent) {
+    private float v(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -78,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.gWv = i;
+                this.hDz = i;
             }
         }
     }

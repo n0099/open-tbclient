@@ -3,7 +3,7 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.widget.EdgeEffect;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class EdgeEffectCompatIcs {
     public static Object newEdgeEffect(Context context) {
         return new EdgeEffect(context);

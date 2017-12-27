@@ -2,8 +2,7 @@ package android.support.v4.media;
 
 import android.os.SystemClock;
 import android.view.KeyEvent;
-import com.baidu.tbadk.TbConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class TransportPerformer {
     public abstract long onGetCurrentPosition();
 
@@ -30,7 +29,7 @@ public abstract class TransportPerformer {
     public boolean onMediaButtonDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 79:
-            case TbConfig.POST_IMAGE_QUALITY /* 85 */:
+            case 85:
                 if (onIsPlaying()) {
                     onPause();
                     break;

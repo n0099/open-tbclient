@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes2.dex */
@@ -69,7 +70,7 @@ public class c {
                     InputStream openStream = resources.nextElement().openStream();
                     XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
                     newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                    newPullParser.setInput(openStream, "UTF-8");
+                    newPullParser.setInput(openStream, HTTP.UTF_8);
                     int eventType = newPullParser.getEventType();
                     do {
                         if (eventType == 2) {

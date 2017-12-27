@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.j.p;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -50,79 +51,58 @@ public class j extends c {
             k kVar = new k();
             byte[] bArr2 = new byte[128];
             hVar.a(bArr2);
-            String a = a(bArr2);
-            kVar.a(a);
-            long d = hVar.d();
-            kVar.d(d);
+            kVar.a(a(bArr2));
+            kVar.d(hVar.d());
             short c = hVar.c();
             kVar.a((int) c);
             int c2 = hVar.c();
             byte[] bArr3 = new byte[64];
             hVar.a(bArr3);
             kVar.a(bArr3);
-            com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Message Received  appid = " + a + " msgid: " + d + " type: " + ((int) c));
             if (c2 > 0) {
-                String str = "";
                 byte[] bArr4 = new byte[c2];
                 hVar.a(bArr4);
-                String str2 = new String(bArr4);
-                long j = 0;
                 try {
-                    JSONObject jSONObject = new JSONObject(str2);
+                    JSONObject jSONObject = new JSONObject(new String(bArr4));
                     if (!jSONObject.isNull("package_name")) {
                         String string = jSONObject.getString("package_name");
                         if (!TextUtils.isEmpty(string)) {
                             kVar.b(string);
-                            com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Message Has PackageName = " + string);
                         }
                     }
                     if (!jSONObject.isNull("expiretime")) {
-                        j = jSONObject.getLong("expiretime");
-                        kVar.c(j);
+                        kVar.c(jSONObject.getLong("expiretime"));
                     }
-                    long j2 = j;
                     if (com.baidu.android.pushservice.message.a.l.MSG_TYPE_ALARM_NOTIFICATION.a() == c || com.baidu.android.pushservice.message.a.l.MSG_TYPE_ALARM_MESSAGE.a() == c || com.baidu.android.pushservice.message.a.l.MSG_TYPE_ALARM_AD_NOTIFICATION.a() == c) {
-                        long j3 = 0;
-                        long j4 = 0;
                         kVar.a(true);
                         com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("deleteInvalidAlarmMsg", (short) 95) { // from class: com.baidu.android.pushservice.message.j.1
                             @Override // com.baidu.android.pushservice.i.c
                             public void a() {
                                 com.baidu.android.pushservice.d.a.c(j.this.a);
-                                com.baidu.android.pushservice.g.a.c("PushMessageHandler", "deleteInvalidAlarmMsg");
                             }
                         });
                         if (!jSONObject.isNull("alarmmsgid")) {
-                            str = jSONObject.getString("alarmmsgid");
+                            String string2 = jSONObject.getString("alarmmsgid");
                             if (!jSONObject.isNull("alarmmsgenable")) {
-                                int i = jSONObject.getInt("alarmmsgenable");
-                                int a2 = com.baidu.android.pushservice.d.a.a(this.a, str, i);
+                                int a = com.baidu.android.pushservice.d.a.a(this.a, string2, jSONObject.getInt("alarmmsgenable"));
                                 eVar.a(kVar);
-                                com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Alarm Message Json setMsg MsgID = " + str + "  Enable  = " + i);
-                                gVar2.a(a2 < 0 ? 3 : 0);
+                                gVar2.a(a < 0 ? 3 : 0);
                                 return gVar2;
                             }
                         }
                         if (!jSONObject.isNull("sendtime")) {
-                            j3 = jSONObject.getLong("sendtime");
-                            kVar.a(j3);
+                            kVar.a(jSONObject.getLong("sendtime"));
                         }
                         if (!jSONObject.isNull("showtime")) {
-                            j4 = jSONObject.getLong("showtime");
-                            kVar.b(j4);
+                            kVar.b(jSONObject.getLong("showtime"));
                         }
-                        com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Alarm Message  sendtime = " + j3 + "   showtime = " + j4 + "  expiretime =  " + j2 + "  mAlarmMsgId = " + str + " msgIDEnable =  0  msgid = " + kVar.h());
                     } else {
                         kVar.a(false);
-                        com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Alarm Message Json = setIsAlarm false and message is not alarm Type!");
                     }
                 } catch (JSONException e) {
-                    com.baidu.android.pushservice.g.a.a("PushMessageHandler", e);
                 }
             } else {
                 kVar.a(false);
-                com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Message is not Alarm Message");
-                com.baidu.android.pushservice.g.a.c("PushMessageHandler", "Message NOT Has PackageName !");
             }
             byteArrayInputStream.close();
             hVar.a();
@@ -130,40 +110,38 @@ public class j extends c {
             if (c2 <= 0) {
                 c2 = 0;
             }
-            int i2 = c2 + 204;
-            int length = bArr.length - i2;
+            int i = c2 + HttpStatus.SC_NO_CONTENT;
+            int length = bArr.length - i;
             if (length <= 0) {
                 length = 0;
             }
             byte[] bArr5 = new byte[length];
-            System.arraycopy(bArr, i2, bArr5, 0, length);
-            com.baidu.android.pushservice.g.a.b("PushMessageHandler", "New MSG: " + kVar.toString());
+            System.arraycopy(bArr, i, bArr5, 0, length);
             p.b("New MSG: " + kVar.toString(), this.a);
             if (com.baidu.android.pushservice.d.c.c(this.a, kVar.g())) {
-                com.baidu.android.pushservice.g.b.a("PushMessageHandler", "Message ID(" + kVar.h() + ") received duplicated, ack success to server directly.", this.b);
-                com.baidu.android.pushservice.h.k.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, 4, com.baidu.android.pushservice.h.i.a);
+                com.baidu.android.pushservice.g.a.a("PushMessageHandler", "Message ID(" + kVar.h() + ") received duplicated, ack success to server directly.", this.b);
+                com.baidu.android.pushservice.h.l.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, 4, com.baidu.android.pushservice.h.j.a);
                 gVar2.a(4);
                 return gVar2;
             }
-            com.baidu.android.pushservice.message.a.l a3 = com.baidu.android.pushservice.message.a.l.a(kVar.i());
-            com.baidu.android.pushservice.message.a.c a4 = new com.baidu.android.pushservice.message.a.k(this.a).a(a3);
-            if (a4 != null) {
-                gVar = a4.a(kVar, bArr5);
+            com.baidu.android.pushservice.message.a.l a2 = com.baidu.android.pushservice.message.a.l.a(kVar.i());
+            com.baidu.android.pushservice.message.a.c a3 = new com.baidu.android.pushservice.message.a.k(this.a).a(a2);
+            if (a3 != null) {
+                gVar = a3.a(kVar, bArr5);
             } else {
                 gVar2.a(2);
                 gVar = gVar2;
             }
-            if (a3 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_SINGLE_PRIVATE || a3 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE || a3 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE) {
+            if (a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_SINGLE_PRIVATE || a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE || a2 == com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE) {
                 com.baidu.android.pushservice.d.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), bArr5, kVar.j(), kVar.d(), gVar.a());
             } else {
                 com.baidu.android.pushservice.d.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), null, null, 0L, gVar.a());
             }
-            com.baidu.android.pushservice.g.a.c("PushMessageHandler", "insertMsgInfo  msgid: " + kVar.g() + " expiretime =  " + kVar.d());
-            com.baidu.android.pushservice.g.a.b("PushMessageHandler", "push message handle messageType = " + a3 + " msgId: " + kVar.g() + " result: " + gVar.a() + " socketversion = " + (p.E(this.a) ? "V3" : "V2") + " MessagePkgname = " + kVar.f());
-            com.baidu.android.pushservice.h.k.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, gVar.a(), com.baidu.android.pushservice.h.i.a);
+            if (p.F(this.a)) {
+            }
+            com.baidu.android.pushservice.h.l.a(this.a, kVar.e(), kVar.h(), kVar.i(), bArr5, gVar.a(), com.baidu.android.pushservice.h.j.a);
             return gVar;
         } catch (IOException e2) {
-            com.baidu.android.pushservice.g.a.a("PushMessageHandler", e2);
             return gVar2;
         }
     }

@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +42,7 @@ public class HostManagerV2 extends HostManager {
     static String a(String str) {
         try {
             int length = str.length();
-            byte[] bytes = str.getBytes("UTF-8");
+            byte[] bytes = str.getBytes(HTTP.UTF_8);
             for (int i = 0; i < bytes.length; i++) {
                 byte b = bytes[i];
                 if ((b & 240) != 240) {

@@ -15,26 +15,26 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private TbPageContext<?> aca;
-    private ArrayList<g> acu = new ArrayList<>();
+    private ArrayList<g> aQH = new ArrayList<>();
+    private TbPageContext<?> aQq;
 
     public f(TbPageContext<?> tbPageContext) {
-        this.aca = tbPageContext;
+        this.aQq = tbPageContext;
     }
 
     public void setData(ArrayList<g> arrayList) {
-        this.acu = arrayList;
+        this.aQH = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.acu.size();
+        return this.aQH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.acu.get(i);
+        return this.aQH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,52 +45,52 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        g gVar = this.acu.get(i);
+        g gVar = this.aQH.get(i);
         if (gVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.aca.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.aQq.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.acv = (TextView) view.findViewById(d.g.text_tip);
-            aVar2.acw = (TextView) view.findViewById(d.g.text_desc);
-            aVar2.acx = (CheckBox) view.findViewById(d.g.checked_icon);
+            aVar2.aQI = (TextView) view.findViewById(d.g.text_tip);
+            aVar2.aQJ = (TextView) view.findViewById(d.g.text_desc);
+            aVar2.aQK = (CheckBox) view.findViewById(d.g.checked_icon);
             aVar2.divider = view.findViewById(d.g.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.acv.setText(gVar.tr());
+        aVar.aQI.setText(gVar.AR());
         if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.acw.setVisibility(8);
+            aVar.aQJ.setVisibility(8);
         } else {
-            aVar.acw.setText(gVar.getDesc());
-            aVar.acw.setVisibility(0);
+            aVar.aQJ.setText(gVar.getDesc());
+            aVar.aQJ.setVisibility(0);
         }
-        aVar.acx.setChecked(gVar.isChecked());
-        aVar.acx.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0095d.common_color_10022));
-        if (ct(i)) {
+        aVar.aQK.setChecked(gVar.isChecked());
+        aVar.aQK.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0108d.common_color_10022));
+        if (fs(i)) {
             aVar.divider.setVisibility(8);
-            aj.j(view, d.f.dialog_single_button_bg_selector);
+            aj.s(view, d.f.dialog_single_button_bg_selector);
         } else {
             aVar.divider.setVisibility(0);
-            aj.j(view, d.f.dialg_alert_btn_bg);
+            aj.s(view, d.f.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.aca.getLayoutMode().ag(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.aca.getLayoutMode().t(view);
+        this.aQq.getLayoutMode().aM(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.aQq.getLayoutMode().aM(view);
         return view;
     }
 
-    private boolean ct(int i) {
-        return this.acu != null && i == this.acu.size() + (-1);
+    private boolean fs(int i) {
+        return this.aQH != null && i == this.aQH.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView acv;
-        TextView acw;
-        CheckBox acx;
+        TextView aQI;
+        TextView aQJ;
+        CheckBox aQK;
         View divider;
 
         private a() {

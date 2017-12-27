@@ -7,11 +7,11 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.af;
-import com.baidu.tieba.frs.g;
-/* loaded from: classes.dex */
+import com.baidu.tieba.frs.i;
+/* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.mainTab.b {
-    public d(g gVar) {
-        Fa().aHJ = gVar;
+    public d(i iVar) {
+        Mz().bvx = iVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,24 +20,24 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c EZ() {
+    public com.baidu.tbadk.mainTab.c My() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 1;
-        cVar.aHK = d.j.chosen_pb_title;
-        cVar.aHR = com.baidu.tbadk.mainTab.c.aHP;
+        cVar.bvy = d.j.chosen_pb_title;
+        cVar.bvF = com.baidu.tbadk.mainTab.c.bvD;
         return cVar;
     }
 
     public void a(af afVar) {
-        if (afVar != null && afVar.jZ(1)) {
+        if (afVar != null && afVar.na(1)) {
             afVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e ba(Context context) {
-        this.aHA = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aHA.setTextSize(2.0f);
-        return this.aHA;
+    public e bm(Context context) {
+        this.bvo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bvo.setTextSize(2.0f);
+        return this.bvo;
     }
 }

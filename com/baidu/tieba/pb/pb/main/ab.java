@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ab {
-    public String fag;
-    public boolean fah;
-    public boolean fai;
-    public boolean eZR = false;
-    public boolean eZS = false;
-    public boolean eQu = false;
-    public boolean eZT = false;
-    public boolean eZU = false;
-    public boolean eZV = false;
-    public boolean eZW = false;
-    public boolean eZX = false;
-    public boolean eZY = false;
-    public boolean eZZ = false;
-    public boolean faa = false;
-    public boolean fab = false;
-    public boolean fac = false;
-    public boolean fad = false;
-    public boolean fae = false;
-    public boolean faf = false;
+    public String fMY;
+    public boolean fMZ;
+    public boolean fNa;
+    public boolean fMJ = false;
+    public boolean fMK = false;
+    public boolean fCV = false;
+    public boolean fML = false;
+    public boolean fMM = false;
+    public boolean fMN = false;
+    public boolean fMO = false;
+    public boolean fMP = false;
+    public boolean fMQ = false;
+    public boolean fMR = false;
+    public boolean fMS = false;
+    public boolean fMT = false;
+    public boolean fMU = false;
+    public boolean fMV = false;
+    public boolean fMW = false;
+    public boolean fMX = false;
     public boolean isHostOnly = false;
 }

@@ -1,26 +1,36 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.List;
-import tbclient.TwAnchorProfitItem;
-import tbclient.TwZhiBoUser;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class aa {
-    private TwZhiBoUser Xi;
-    private List<TwAnchorProfitItem> Xj;
+    private String class_name = null;
+    private int aLF = 0;
 
-    public TwZhiBoUser pX() {
-        return this.Xi;
+    public String xy() {
+        return this.class_name;
     }
 
-    public void a(TwZhiBoUser twZhiBoUser) {
-        this.Xi = twZhiBoUser;
+    public int xz() {
+        return this.aLF;
     }
 
-    public List<TwAnchorProfitItem> pY() {
-        return this.Xj;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.aLF = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public void q(List<TwAnchorProfitItem> list) {
-        this.Xj = list;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.aLF = classify.class_id.intValue();
+            this.class_name = classify.class_name;
+        }
     }
 }

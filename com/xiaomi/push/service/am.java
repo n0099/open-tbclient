@@ -1,6 +1,4 @@
 package com.xiaomi.push.service;
-
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 /* loaded from: classes2.dex */
 public abstract class am {
     public static String a = "1";
@@ -34,7 +32,7 @@ public abstract class am {
     public static String C = "sig";
     public static String D = "ext_notify_title";
     public static String E = "ext_notify_description";
-    public static String F = VrPlayerActivityConfig.TITLE;
+    public static String F = "title";
     public static String G = "description";
     public static String H = "notifyId";
 

@@ -2,16 +2,16 @@ package android.support.v4.widget;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes.dex */
-public class ListPopupWindowCompat {
+/* loaded from: classes2.dex */
+public final class ListPopupWindowCompat {
     static final ListPopupWindowImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface ListPopupWindowImpl {
         View.OnTouchListener createDragToOpenListener(Object obj, View view);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BaseListPopupWindowImpl implements ListPopupWindowImpl {
         BaseListPopupWindowImpl() {
         }
@@ -22,7 +22,7 @@ public class ListPopupWindowCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class KitKatListPopupWindowImpl extends BaseListPopupWindowImpl {
         KitKatListPopupWindowImpl() {
         }

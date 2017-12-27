@@ -16,8 +16,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(d.j.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(d.j.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).cR(string).cS(format).a(TbadkCoreApplication.getInst().getContext().getString(d.j.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.j.cancel), bVar2).b(tbPageContext);
-        b.th();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).cY(string).cZ(format).a(TbadkCoreApplication.getInst().getContext().getString(d.j.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.j.cancel), bVar2).b(tbPageContext);
+        b.AI();
         return b;
     }
 
@@ -28,15 +28,15 @@ public class a {
         String string = TbadkCoreApplication.getInst().getContext().getString(d.j.setup);
         String string2 = TbadkCoreApplication.getInst().getContext().getString(d.j.cancel);
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.cS(TbadkCoreApplication.getInst().getContext().getString(i));
+        aVar.cZ(TbadkCoreApplication.getInst().getContext().getString(i));
         aVar.a(string, bVar);
         aVar.b(string2, bVar2);
         aVar.b(tbPageContext);
         if (z) {
-            aVar.tf();
+            aVar.AG();
             return aVar;
         }
-        aVar.th();
+        aVar.AI();
         return aVar;
     }
 
@@ -44,16 +44,16 @@ public class a {
         return a(tbPageContext, i, bVar, bVar2, false);
     }
 
-    public static b a(Context context, b.InterfaceC0060b interfaceC0060b) {
-        if (i.Y(context) == null) {
+    public static b a(Context context, b.InterfaceC0074b interfaceC0074b) {
+        if (i.ak(context) == null) {
             return null;
         }
-        b bVar = new b(i.Y(context).getPageActivity());
-        bVar.cT(TbadkCoreApplication.getInst().getString(d.j.operation));
-        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.j.delete_user_chat)}, interfaceC0060b);
-        bVar.d(i.Y(context));
+        b bVar = new b(i.ak(context).getPageActivity());
+        bVar.da(TbadkCoreApplication.getInst().getString(d.j.operation));
+        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.j.delete_user_chat)}, interfaceC0074b);
+        bVar.d(i.ak(context));
         if (context instanceof Activity) {
-            bVar.tl();
+            bVar.AL();
             return bVar;
         }
         return bVar;
@@ -72,8 +72,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.cR(str);
-        aVar.cS(str2);
+        aVar.cY(str);
+        aVar.cZ(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
@@ -85,21 +85,21 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.cR(str);
-        aVar.cS(str2);
+        aVar.cY(str);
+        aVar.cZ(str2);
         aVar.a(d.j.dialog_ok, bVar);
         aVar.b(d.j.dialog_cancel, bVar2);
         aVar.b(tbPageContext);
         return aVar;
     }
 
-    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0060b interfaceC0060b) {
+    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0074b interfaceC0074b) {
         if (tbPageContext == null) {
             return null;
         }
         b bVar = new b(tbPageContext.getPageActivity());
-        bVar.cg(i);
-        bVar.a(charSequenceArr, interfaceC0060b);
+        bVar.fg(i);
+        bVar.a(charSequenceArr, interfaceC0074b);
         bVar.d(tbPageContext);
         return bVar;
     }

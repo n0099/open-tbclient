@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ViewCompatICS {
     public static boolean canScrollHorizontally(View view, int i) {
         return view.canScrollHorizontally(i);
@@ -27,5 +27,9 @@ class ViewCompatICS {
 
     public static void onInitializeAccessibilityNodeInfo(View view, Object obj) {
         view.onInitializeAccessibilityNodeInfo((AccessibilityNodeInfo) obj);
+    }
+
+    public static void setFitsSystemWindows(View view, boolean z) {
+        view.setFitsSystemWindows(z);
     }
 }

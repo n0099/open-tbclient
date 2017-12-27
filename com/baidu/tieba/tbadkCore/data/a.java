@@ -5,16 +5,16 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private int ais;
-    private String gBl;
-    private String gBm;
-    private String gBn;
+    private int aWB;
+    private String hhX;
+    private String hhY;
+    private String hhZ;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String bwr() {
-        return this.gBl;
+    public String bBG() {
+        return this.hhX;
     }
 
     public int getImageWidth() {
@@ -25,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String bws() {
-        return this.gBm;
+    public String bBH() {
+        return this.hhY;
     }
 
     public String getTitle() {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.gBn;
+        return this.hhZ;
     }
 
     public void a(ActHot actHot) {
@@ -43,8 +43,8 @@ public class a {
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.mWidth = com.baidu.adp.lib.g.b.h(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.h(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -55,11 +55,11 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.gBl = actHot.img_src;
-            this.gBm = actHot.link;
+            this.hhX = actHot.img_src;
+            this.hhY = actHot.link;
             this.mTitle = actHot.author_name;
-            this.gBn = actHot.img_des;
-            this.ais = actHot.img_type.intValue();
+            this.hhZ = actHot.img_des;
+            this.aWB = actHot.img_type.intValue();
         }
     }
 }

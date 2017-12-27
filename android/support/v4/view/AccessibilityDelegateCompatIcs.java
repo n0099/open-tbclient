@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityDelegateCompatIcs {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface AccessibilityDelegateBridge {
         boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent);
 

@@ -2,8 +2,7 @@ package com.baidu.android.pushservice.message;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushManager;
-import com.baidu.android.pushservice.j.m;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +22,7 @@ public class i {
     public String l;
     public int m;
     public String n;
+    public String o;
 
     public PublicMsg a(Context context) {
         PublicMsg publicMsg = new PublicMsg();
@@ -42,14 +42,12 @@ public class i {
             }
             return publicMsg;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.b.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
-            com.baidu.android.pushservice.g.a.a("ProxyPushMessage", e);
+            com.baidu.android.pushservice.g.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
             return null;
         }
     }
 
     public String a(Context context, String str) {
-        String str2;
         JSONArray jSONArray;
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -58,38 +56,17 @@ public class i {
                     a(jSONArray);
                     if (!TextUtils.isEmpty(this.n)) {
                         JSONObject jSONObject2 = new JSONObject(new String(this.n));
-                        if (jSONObject2.isNull("custom_content")) {
-                            str2 = null;
-                        } else {
-                            str2 = jSONObject2.getString("custom_content");
-                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + str2);
-                        }
+                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
                         if (jSONObject2.isNull("hwsigninfo")) {
-                            m.a(context, "bdpush_hwsignresult", 0);
-                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", " passthrough message has not hwsigninfo!");
-                            return null;
+                            return string;
                         }
-                        String string = jSONObject2.getString("hwsigninfo");
-                        com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough = " + string);
-                        if (!TextUtils.isEmpty(string)) {
-                            String str3 = this.l + str2;
-                            if (!PushManager.hwMessageVerify(context, string, str3)) {
-                                m.a(context, "bdpush_hwsignresult", 0);
-                                com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check not pass   " + str3);
-                                return null;
-                            }
-                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check pass " + str3);
-                            m.a(context, "bdpush_hwsignresult", 1);
-                        }
-                        return str2;
+                        this.o = jSONObject2.getString("hwsigninfo");
+                        return string;
                     }
                 }
             }
-            str2 = null;
-            return str2;
+            return null;
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "not receive correct huawei passthrough message");
-            m.a(context, "bdpush_hwsignresult", 0);
             return null;
         }
     }
@@ -107,8 +84,8 @@ public class i {
                 if (!jSONObject.isNull("Type")) {
                     this.m = jSONObject.getInt("Type");
                 }
-                if (!jSONObject.isNull("push_type")) {
-                    this.i = jSONObject.getInt("push_type");
+                if (!jSONObject.isNull(PushConstants.PUSH_TYPE)) {
+                    this.i = jSONObject.getInt(PushConstants.PUSH_TYPE);
                 }
                 if (!jSONObject.isNull("gid")) {
                     this.j = jSONObject.getString("gid");
@@ -117,7 +94,6 @@ public class i {
                     this.n = jSONObject.getString("msgBody");
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("ProxyPushMessage", e);
                 return;
             }
         }
@@ -126,23 +102,47 @@ public class i {
     public String b(Context context, String str) {
         JSONArray jSONArray;
         try {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.isNull("extras") || (jSONArray = jSONObject.getJSONArray("extras")) == null) {
+                return null;
+            }
+            a(jSONArray);
+            if (TextUtils.isEmpty(this.n)) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject(this.n);
+            if (jSONObject2.isNull("custom_content")) {
+                return null;
+            }
+            return jSONObject2.getString("custom_content");
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    public String c(Context context, String str) {
+        JSONArray jSONArray;
+        try {
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
                     a(jSONArray);
                     if (!TextUtils.isEmpty(this.n)) {
-                        JSONObject jSONObject2 = new JSONObject(new String(this.n));
-                        if (!jSONObject2.isNull("custom_content")) {
-                            String string = jSONObject2.getString("custom_content");
-                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + string);
+                        JSONObject jSONObject2 = new JSONObject(this.n);
+                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
+                        if (jSONObject2.isNull("mzsigninfo")) {
                             return string;
                         }
+                        this.o = jSONObject2.getString("mzsigninfo");
+                        return string;
                     }
                 }
             }
             return null;
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "not receive correct xiaomi passthrough message");
             return null;
         }
     }

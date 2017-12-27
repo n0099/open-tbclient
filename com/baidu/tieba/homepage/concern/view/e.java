@@ -3,22 +3,22 @@ package com.baidu.tieba.homepage.concern.view;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e extends d {
-    private ThreadLinkView cbA;
+    private ThreadLinkView cQg;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void af(View view) {
+    protected void bx(View view) {
         if (view != null) {
-            this.cbA = (ThreadLinkView) view.findViewById(d.g.card_recommend_god_link_therad);
-            this.cbA.setTag(getTag());
+            this.cQg = (ThreadLinkView) view.findViewById(d.g.card_recommend_god_link_therad);
+            this.cQg.setTag(getTag());
         }
     }
 
@@ -28,25 +28,25 @@ public class e extends d {
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void W(bd bdVar) {
-        if (bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
+    protected void U(be beVar) {
+        if (beVar != null && !StringUtils.isNull(beVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.dpf);
+                getView().setOnClickListener(this.ebn);
             }
-            this.cbA.setData(bdVar);
+            this.cQg.setData(beVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void aby() {
-        super.aby();
-        this.cbA.ew(this.bku.getId());
+    public void ajd() {
+        super.ajd();
+        this.cQg.eD(this.bXF.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cbA.onChangeSkinType();
+        this.cQg.onChangeSkinType();
     }
 }

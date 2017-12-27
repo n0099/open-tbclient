@@ -14,16 +14,12 @@ public class b extends c {
     public g a(e eVar) {
         JSONObject jSONObject;
         g gVar = new g();
-        String str = new String(eVar.c);
-        com.baidu.android.pushservice.g.a.b("HandShakeMessageHandler", "handleMessage MSG_ID_HANDSHAKE : " + str);
         try {
-            jSONObject = new JSONObject(str);
+            jSONObject = new JSONObject(new String(eVar.c));
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.a.e("HandShakeMessageHandler", "error : " + e.getMessage());
             jSONObject = null;
         }
         int optInt = jSONObject != null ? jSONObject.optInt("ret", -1) : -1;
-        com.baidu.android.pushservice.g.a.b("HandShakeMessageHandler", "handleMessage MSG_ID_HANDSHAKE : result = " + optInt);
         if (optInt == 0) {
             com.baidu.android.pushservice.e.b.a(this.a);
         } else if (optInt == 5003) {

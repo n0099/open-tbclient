@@ -5,7 +5,6 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.TextUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.tieba.model.ReportUserInfoModel;
@@ -26,15 +25,15 @@ public class i {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String On = "http://loc.map.baidu.com/sdk.php";
+    private static String aDd = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String Oo = "http://loc.map.baidu.com/user_err.php";
-    private static String Op = "http://loc.map.baidu.com/oqur.php";
-    private static String Oq = "http://loc.map.baidu.com/tcu.php";
-    private static String Or = "http://loc.map.baidu.com/rtbu.php";
-    private static String Os = "http://loc.map.baidu.com/iofd.php";
-    private static String Ot = "https://sapi.skyhookwireless.com/wps2/location";
-    private static String Ou = "http://loc.map.baidu.com/wloc";
+    private static String aDe = "http://loc.map.baidu.com/user_err.php";
+    private static String aDf = "http://loc.map.baidu.com/oqur.php";
+    private static String aDg = "http://loc.map.baidu.com/tcu.php";
+    private static String aDh = "http://loc.map.baidu.com/rtbu.php";
+    private static String aDi = "http://loc.map.baidu.com/iofd.php";
+    private static String aDj = "https://sapi.skyhookwireless.com/wps2/location";
+    private static String aDk = "http://loc.map.baidu.com/wloc";
     public static String f = "no";
     public static boolean g = false;
     public static boolean h = false;
@@ -44,10 +43,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
-    public static double Lx = 0.0d;
-    public static double Ly = 0.0d;
-    public static double Lz = 0.0d;
-    public static double LA = 0.0d;
+    public static double aAr = 0.0d;
+    public static double aAs = 0.0d;
+    public static double aAt = 0.0d;
+    public static double aAu = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -59,20 +58,20 @@ public class i {
     public static int A = 3;
     public static int B = 10;
     public static int C = 2;
-    public static int Mc = 7;
+    public static int aAV = 7;
     public static int E = 20;
     public static int F = 70;
-    public static int Ov = 120;
+    public static int aDl = 120;
     public static float H = 2.0f;
     public static float I = 10.0f;
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float Ow = 0.9f;
+    public static float aDm = 0.9f;
     public static int N = 10000;
-    public static float Ox = 0.5f;
-    public static float Oy = 0.0f;
-    public static float Oz = 0.1f;
+    public static float aDn = 0.5f;
+    public static float aDo = 0.0f;
+    public static float aDp = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -81,27 +80,27 @@ public class i {
     public static int W = 420000;
     public static boolean X = true;
     public static boolean Y = true;
-    public static int OA = 20;
+    public static int aDq = 20;
     public static int aa = 300;
     public static int ab = 1000;
     public static long ac = 900000;
-    public static long OB = 420000;
-    public static long OC = 180000;
-    public static long OD = 0;
-    public static long OE = 15;
-    public static long OF = ReportUserInfoModel.TIME_INTERVAL;
+    public static long aDr = 420000;
+    public static long aDs = 180000;
+    public static long aDt = 0;
+    public static long aDu = 15;
+    public static long aDv = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float OG = 6.0f;
-    public static float OH = 10.0f;
+    public static float aDw = 6.0f;
+    public static float aDx = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
 
-    public static Object K(Context context, String str) {
+    public static Object O(Context context, String str) {
         if (context == null) {
             return null;
         }
@@ -139,7 +138,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.mI().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.ul().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -149,25 +148,25 @@ public class i {
             }
         }
         if (location != null) {
-            String h2 = (d == 0 || i2 == 0) ? com.baidu.location.f.e.h(location) : com.baidu.location.f.e.i(location);
-            if (h2 != null) {
-                stringBuffer.append(h2);
+            String i3 = (d == 0 || i2 == 0) ? com.baidu.location.f.e.i(location) : com.baidu.location.f.e.j(location);
+            if (i3 != null) {
+                stringBuffer.append(i3);
             }
         }
-        String a2 = c.mX().a(i2 == 0);
+        String a2 = c.uA().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.mn().d();
+        String d2 = com.baidu.location.c.b.tQ().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.mN().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.uq().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -176,13 +175,13 @@ public class i {
                 n = 3;
             } else {
                 float speed = location.getSpeed();
-                int i3 = d;
+                int i4 = d;
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < OG && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
+                if (speed < aDw && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= OH || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= aDx || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -263,11 +262,11 @@ public class i {
     }
 
     public static String c() {
-        return On;
+        return aDd;
     }
 
     public static String d() {
-        return Oq;
+        return aDg;
     }
 
     public static boolean d(BDLocation bDLocation) {
@@ -329,18 +328,18 @@ public class i {
         }
     }
 
-    public static int j(String str, String str2, String str3) {
+    public static int k(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
         String substring;
         if (str == null || str.equals("") || (indexOf = str.indexOf(str2)) == -1 || (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) == -1 || (substring = str.substring(length, indexOf2)) == null || substring.equals("")) {
-            return ExploreByTouchHelper.INVALID_ID;
+            return Integer.MIN_VALUE;
         }
         try {
             return Integer.parseInt(substring);
         } catch (NumberFormatException e2) {
-            return ExploreByTouchHelper.INVALID_ID;
+            return Integer.MIN_VALUE;
         }
     }
 }

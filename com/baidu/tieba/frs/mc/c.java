@@ -1,139 +1,140 @@
 package com.baidu.tieba.frs.mc;
 
+import com.baidu.tieba.frs.k;
 import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
 import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
-import com.baidu.tieba.tbadkCore.k;
+import com.baidu.tieba.tbadkCore.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private final com.baidu.tieba.frs.j cHm;
-    private final FrsModelController cHu;
-    private final com.baidu.tieba.frs.g cOB;
-    private final FrsLoadMoreModel cXO;
-    private final FrsSmartLoadMoreModel cXP;
+    private final com.baidu.tieba.frs.i dKN;
+    private final FrsLoadMoreModel dKO;
+    private final FrsSmartLoadMoreModel dKP;
+    private final k dwH;
+    private final FrsModelController dwP;
 
-    public c(com.baidu.tieba.frs.g gVar, i iVar) {
-        if (gVar == null) {
+    public c(com.baidu.tieba.frs.i iVar, i iVar2) {
+        if (iVar == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.cOB = gVar;
-        this.cXO = new FrsLoadMoreModel(gVar, iVar);
-        this.cXP = new FrsSmartLoadMoreModel(gVar, iVar);
-        this.cHm = gVar.aln();
-        this.cHu = gVar.ali();
-        this.cXP.setSortType(this.cHu.Qt());
-        this.cXO.setSortType(this.cHu.Qt());
+        this.dKN = iVar;
+        this.dKO = new FrsLoadMoreModel(iVar, iVar2);
+        this.dKP = new FrsSmartLoadMoreModel(iVar, iVar2);
+        this.dwH = iVar.asV();
+        this.dwP = iVar.asQ();
+        this.dKP.setSortType(this.dwP.XR());
+        this.dKO.setSortType(this.dwP.XR());
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
+    public ArrayList<com.baidu.adp.widget.ListView.i> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
         return a(z, z2, arrayList, eVar, false);
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar, boolean z3) {
-        if (this.cHu != null) {
-            boolean aqe = this.cOB.ali().aqe();
-            if (this.cHu.aqf()) {
-                return this.cXP.a(z, aqe, arrayList, z3);
+    public ArrayList<com.baidu.adp.widget.ListView.i> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.data.e eVar, boolean z3) {
+        if (this.dwP != null) {
+            boolean axq = this.dKN.asQ().axq();
+            if (this.dwP.axr()) {
+                return this.dKP.a(z, axq, arrayList, z3);
             }
-            return this.cXO.a(z, aqe, z2, arrayList, eVar);
+            return this.dKO.a(z, axq, z2, arrayList, eVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.cHu != null) {
-            if (this.cHu.aqf()) {
-                this.cXP.resetData();
+        if (this.dwP != null) {
+            if (this.dwP.axr()) {
+                this.dKP.resetData();
             } else {
-                this.cXO.resetData();
+                this.dKO.resetData();
             }
         }
     }
 
-    public boolean bc(List<Long> list) {
-        if (this.cHu == null || this.cHu.aqf()) {
+    public boolean bv(List<Long> list) {
+        if (this.dwP == null || this.dwP.axr()) {
             return false;
         }
-        return this.cXO.bc(list);
+        return this.dKO.bv(list);
     }
 
-    public void a(String str, String str2, k kVar) {
-        if (this.cHu != null && this.cHm != null && kVar != null) {
-            if (this.cHu.aqf()) {
-                if (this.cXP.alo() == 1 && !this.cHu.wA()) {
-                    this.cXP.setSortType(this.cHu.Qt());
-                    this.cHm.a(this.cXP.getDataList(), kVar);
-                    int pn = this.cXP.getPn();
-                    this.cXP.setPn(pn);
-                    this.cHu.ks(pn + 1);
+    public void a(String str, String str2, l lVar) {
+        if (this.dwP != null && this.dwH != null && lVar != null) {
+            if (this.dwP.axr()) {
+                if (this.dKP.asW() == 1 && !this.dwP.DY()) {
+                    this.dKP.setSortType(this.dwP.XR());
+                    this.dwH.a(this.dKP.getDataList(), lVar);
+                    int pn = this.dKP.getPn();
+                    this.dKP.setPn(pn);
+                    this.dwP.nB(pn + 1);
                 }
-            } else if (this.cHu.apV() == 1) {
-                if (!this.cXO.isLoading && !this.cHu.wA()) {
-                    int pn2 = this.cXO.getPn();
-                    if (this.cXO.bc(kVar.bva())) {
-                        this.cHm.a(this.cXO.aoA(), kVar);
-                        this.cXO.setSortType(this.cHu.Qt());
-                        this.cXO.a(com.baidu.adp.lib.g.b.c(str2, 0L), kVar.bva(), str, pn2);
-                    } else if (this.cXO.alo() == 1) {
-                        this.cHm.a(this.cXO.aoA(), kVar);
-                        this.cXO.setPn(pn2);
-                        this.cHu.ks(pn2 + 1);
-                        this.cXO.loadingDone = false;
-                        this.cXO.loadIndex = 0;
+            } else if (this.dwP.axh() == 1) {
+                if (!this.dKO.isLoading && !this.dwP.DY()) {
+                    int pn2 = this.dKO.getPn();
+                    if (this.dKO.bv(lVar.bAm())) {
+                        this.dwH.a(this.dKO.awY(), lVar);
+                        this.dKO.setSortType(this.dwP.XR());
+                        this.dKO.a(com.baidu.adp.lib.g.b.c(str2, 0L), lVar.bAm(), str, pn2);
+                    } else if (this.dKO.asW() == 1) {
+                        this.dwH.a(this.dKO.awY(), lVar);
+                        this.dKO.setPn(pn2);
+                        this.dwP.nB(pn2 + 1);
+                        this.dKO.loadingDone = false;
+                        this.dKO.loadIndex = 0;
                     }
                 }
-            } else if (!this.cHu.apY()) {
-                this.cHu.adq();
+            } else if (!this.dwP.axk()) {
+                this.dwP.akW();
             }
         }
     }
 
-    public int alo() {
-        if (this.cHu == null) {
+    public int asW() {
+        if (this.dwP == null) {
             return -1;
         }
-        if (this.cHu.aqf()) {
-            return this.cXP.alo();
+        if (this.dwP.axr()) {
+            return this.dKP.asW();
         }
-        return this.cXO.alo();
+        return this.dKO.asW();
     }
 
     public void setHasMore(int i) {
-        if (this.cHu != null) {
-            if (this.cHu.aqf()) {
-                this.cXP.setHasMore(i);
+        if (this.dwP != null) {
+            if (this.dwP.axr()) {
+                this.dKP.setHasMore(i);
             } else {
-                this.cXO.setHasMore(i);
+                this.dKO.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.cHu == null) {
+        if (this.dwP == null) {
             return 1;
         }
-        if (this.cHu.aqf()) {
-            return this.cXP.getPn();
+        if (this.dwP.axr()) {
+            return this.dKP.getPn();
         }
-        return this.cXO.getPn();
+        return this.dKO.getPn();
     }
 
     public void setPn(int i) {
-        if (this.cHu != null) {
-            if (this.cHu.aqf()) {
-                this.cXP.setPn(i);
+        if (this.dwP != null) {
+            if (this.dwP.axr()) {
+                this.dKP.setPn(i);
             } else {
-                this.cXO.setPn(i);
+                this.dKO.setPn(i);
             }
         }
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.f> getDataList() {
-        return this.cHu.aqf() ? this.cXP.getDataList() : this.cHu.aqa();
+    public ArrayList<com.baidu.adp.widget.ListView.i> getDataList() {
+        return this.dwP.axr() ? this.dKP.getDataList() : this.dwP.axm();
     }
 
-    public FrsSmartLoadMoreModel apP() {
-        return this.cXP;
+    public FrsSmartLoadMoreModel axb() {
+        return this.dKP;
     }
 }

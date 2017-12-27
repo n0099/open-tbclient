@@ -1,6 +1,7 @@
 package org.apache.http.entity.mime;
 
 import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class FormBodyPart {
     private final ContentBody body;
@@ -58,10 +59,10 @@ public class FormBodyPart {
         StringBuilder sb = new StringBuilder();
         sb.append(contentBody.getMimeType());
         if (contentBody.getCharset() != null) {
-            sb.append("; charset=");
+            sb.append(HTTP.CHARSET_PARAM);
             sb.append(contentBody.getCharset());
         }
-        addField(MIME.CONTENT_TYPE, sb.toString());
+        addField("Content-Type", sb.toString());
     }
 
     protected void generateTransferEncoding(ContentBody contentBody) {

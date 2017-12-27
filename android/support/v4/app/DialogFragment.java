@@ -1,12 +1,13 @@
 package android.support.v4.app;
 
-import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.RestrictTo;
 import android.view.LayoutInflater;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DialogFragment extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     public static final int STYLE_NORMAL = 0;
     public static final int STYLE_NO_FRAME = 2;
@@ -109,8 +110,8 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         if (!this.mShownByMe) {
             this.mDismissed = false;
         }
@@ -138,23 +139,32 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
+    @RestrictTo
     public LayoutInflater getLayoutInflater(Bundle bundle) {
         if (!this.mShowsDialog) {
             return super.getLayoutInflater(bundle);
         }
         this.mDialog = onCreateDialog(bundle);
-        switch (this.mStyle) {
-            case 3:
-                this.mDialog.getWindow().addFlags(24);
-            case 1:
-            case 2:
-                this.mDialog.requestWindowFeature(1);
-                break;
-        }
         if (this.mDialog != null) {
+            setupDialog(this.mDialog, this.mStyle);
             return (LayoutInflater) this.mDialog.getContext().getSystemService("layout_inflater");
         }
-        return (LayoutInflater) this.mActivity.getSystemService("layout_inflater");
+        return (LayoutInflater) this.mHost.getContext().getSystemService("layout_inflater");
+    }
+
+    @RestrictTo
+    public void setupDialog(Dialog dialog, int i) {
+        switch (i) {
+            case 1:
+            case 2:
+                break;
+            default:
+                return;
+            case 3:
+                dialog.getWindow().addFlags(24);
+                break;
+        }
+        dialog.requestWindowFeature(1);
     }
 
     public Dialog onCreateDialog(Bundle bundle) {
@@ -184,7 +194,10 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                 }
                 this.mDialog.setContentView(view);
             }
-            this.mDialog.setOwnerActivity(getActivity());
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                this.mDialog.setOwnerActivity(activity);
+            }
             this.mDialog.setCancelable(this.mCancelable);
             this.mDialog.setOnCancelListener(this);
             this.mDialog.setOnDismissListener(this);

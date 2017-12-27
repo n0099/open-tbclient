@@ -1,11 +1,11 @@
 package com.baidu.tieba.card.data;
 /* loaded from: classes.dex */
-public interface r extends com.baidu.adp.widget.ListView.f {
-    boolean acj();
+public interface r extends com.baidu.adp.widget.ListView.i {
+    boolean ajP();
 
-    void dW(boolean z);
+    void eD(boolean z);
 
-    void dX(boolean z);
+    void eE(boolean z);
 
     int getPosition();
 }

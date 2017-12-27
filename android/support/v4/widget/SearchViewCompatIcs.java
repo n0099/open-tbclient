@@ -3,10 +3,10 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.view.View;
 import android.widget.SearchView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class SearchViewCompatIcs {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class MySearchView extends SearchView {
         public MySearchView(Context context) {
             super(context);

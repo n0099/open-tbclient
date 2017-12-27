@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,9 +21,9 @@ import com.baidu.tieba.d.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0093a {
-    private a ckh;
-    private ShareDialogConfig cki;
+public class c implements a.InterfaceC0106a {
+    private a cYL;
+    private ShareDialogConfig cYM;
     private ArrayList<TransmitForumData> mForumList;
     private TbPageContext mPageContext;
     private int mPrivateThread;
@@ -33,60 +34,60 @@ public class c implements a.InterfaceC0093a {
         } else if (context instanceof BaseFragmentActivity) {
             this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
         }
-        adK();
+        alq();
     }
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        adK();
+        alq();
     }
 
-    private void adK() {
+    private void alq() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, this.mPageContext), a.class);
         if (runTask != null) {
-            this.ckh = (a) runTask.getData();
+            this.cYL = (a) runTask.getData();
         }
-        if (this.ckh != null) {
-            this.ckh.setUseCache(false);
-            this.ckh.a(this);
+        if (this.cYL != null) {
+            this.cYL.setUseCache(false);
+            this.cYL.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
-            this.cki = shareDialogConfig;
+            this.cYM = shareDialogConfig;
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.auI = adL();
+                shareDialogConfig.shareItem.biO = alr();
             }
-            if (TbadkCoreApplication.isLogin() && this.ckh != null && !shareDialogConfig.mIsAlaLive) {
-                this.ckh.aK(null, null);
+            if (TbadkCoreApplication.isLogin() && this.cYL != null && !shareDialogConfig.mIsAlaLive) {
+                this.cYL.aJ(null, null);
             } else {
-                wH();
+                Ef();
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0093a
+    @Override // com.baidu.tieba.d.a.InterfaceC0106a
     public void b(List<TransmitForumData> list, boolean z, int i) {
         if (list instanceof ArrayList) {
             this.mForumList = (ArrayList) list;
         }
         this.mPrivateThread = i;
-        wH();
+        Ef();
     }
 
-    private void wH() {
-        if (this.cki != null && this.cki.shareItem != null) {
-            this.cki.setIsShowTransmitShare(true);
-            this.cki.setTransmitForumList(this.mForumList);
-            this.cki.setPrivateThread(this.mPrivateThread);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cki));
+    private void Ef() {
+        if (this.cYM != null && this.cYM.shareItem != null) {
+            this.cYM.setIsShowTransmitShare(true);
+            this.cYM.setTransmitForumList(this.mForumList);
+            this.cYM.setPrivateThread(this.mPrivateThread);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.cYM));
         }
     }
 
-    private Location adL() {
-        if (ab.aH(this.mPageContext.getPageActivity())) {
-            LocationManager locationManager = (LocationManager) this.mPageContext.getPageActivity().getApplication().getSystemService("location");
+    private Location alr() {
+        if (ab.aT(this.mPageContext.getPageActivity())) {
+            LocationManager locationManager = (LocationManager) this.mPageContext.getPageActivity().getApplication().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);
             criteria.setAltitudeRequired(false);

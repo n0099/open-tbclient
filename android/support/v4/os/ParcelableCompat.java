@@ -3,16 +3,13 @@ package android.support.v4.os;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes.dex */
-public class ParcelableCompat {
+/* loaded from: classes2.dex */
+public final class ParcelableCompat {
     public static <T> Parcelable.Creator<T> newCreator(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {
-        if (Build.VERSION.SDK_INT >= 13) {
-            ParcelableCompatCreatorHoneycombMR2Stub.instantiate(parcelableCompatCreatorCallbacks);
-        }
-        return new CompatCreator(parcelableCompatCreatorCallbacks);
+        return Build.VERSION.SDK_INT >= 13 ? ParcelableCompatCreatorHoneycombMR2Stub.instantiate(parcelableCompatCreatorCallbacks) : new CompatCreator(parcelableCompatCreatorCallbacks);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class CompatCreator<T> implements Parcelable.Creator<T> {
         final ParcelableCompatCreatorCallbacks<T> mCallbacks;
 
@@ -29,5 +26,8 @@ public class ParcelableCompat {
         public T[] newArray(int i) {
             return this.mCallbacks.newArray(i);
         }
+    }
+
+    private ParcelableCompat() {
     }
 }

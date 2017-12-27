@@ -9,32 +9,32 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes2.dex */
 public class b {
-    private Bitmap gvy;
+    private Bitmap hVQ;
+    private Rect lQ = new Rect();
     private Context mContext;
-    private Rect ru = new Rect();
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void ud(int i) {
-        this.gvy = BitmapHelper.getResBitmap(this.mContext, i);
+    public void zn(int i) {
+        this.hVQ = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void draw(Canvas canvas, float f, float f2) {
-        if (this.gvy != null) {
-            this.ru.left = (int) (f - (this.gvy.getWidth() / 2));
-            this.ru.right = (int) ((this.gvy.getWidth() / 2) + f);
-            this.ru.top = (int) (f2 - (this.gvy.getHeight() / 2));
-            this.ru.bottom = (int) ((this.gvy.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.gvy, (Rect) null, this.ru, (Paint) null);
+        if (this.hVQ != null) {
+            this.lQ.left = (int) (f - (this.hVQ.getWidth() / 2));
+            this.lQ.right = (int) ((this.hVQ.getWidth() / 2) + f);
+            this.lQ.top = (int) (f2 - (this.hVQ.getHeight() / 2));
+            this.lQ.bottom = (int) ((this.hVQ.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.hVQ, (Rect) null, this.lQ, (Paint) null);
         }
     }
 
-    public boolean B(MotionEvent motionEvent) {
+    public boolean R(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return false;
         }
-        return motionEvent.getX(0) >= ((float) this.ru.left) && motionEvent.getX(0) <= ((float) this.ru.right) && motionEvent.getY(0) >= ((float) this.ru.top) && motionEvent.getY(0) <= ((float) this.ru.bottom);
+        return motionEvent.getX(0) >= ((float) this.lQ.left) && motionEvent.getX(0) <= ((float) this.lQ.right) && motionEvent.getY(0) >= ((float) this.lQ.top) && motionEvent.getY(0) <= ((float) this.lQ.bottom);
     }
 }

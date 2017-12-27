@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     private Integer like_forum;
     private Integer recommend;

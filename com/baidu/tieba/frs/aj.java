@@ -1,21 +1,19 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.util.s;
 /* loaded from: classes.dex */
 public interface aj {
-    void Pj();
+    void Ea();
 
-    void Pk();
+    void WI();
 
-    void Pl();
+    void WJ();
+
+    void WK();
 
     void setHeaderViewHeight(int i);
 
-    void setRecommendFrsNavigationAnimDispatcher(s sVar);
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.s sVar);
 
     void setVideoThreadId(String str);
 
     void showFloatingView();
-
-    void wC();
 }

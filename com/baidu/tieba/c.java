@@ -27,7 +27,7 @@ public class c {
         }
         final long currentTimeMillis = System.currentTimeMillis();
         final ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-        aj.j(imageView, d.f.circle_shape);
+        aj.s(imageView, d.f.circle_shape);
         int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(d.e.ds140);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(d.e.ds374);
@@ -71,7 +71,7 @@ public class c {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 GifView.this.setVisibility(0);
-                GifView.this.Ev();
+                GifView.this.LW();
             }
         });
         imageView.startAnimation(scaleAnimation);

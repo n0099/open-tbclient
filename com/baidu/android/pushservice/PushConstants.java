@@ -12,13 +12,12 @@ public final class PushConstants {
     public static final String EXTRA_ERROR_CODE = "error_msg";
     public static final String EXTRA_METHOD = "method";
     public static final String EXTRA_PUSH_MESSAGE = "message";
-    public static final int LOGIN_TYPE_ACCESS_TOKEN = 1;
     public static final int LOGIN_TYPE_API_KEY = 0;
-    public static final int LOGIN_TYPE_BDUSS = 2;
-    public static final int LOGIN_TYPE_LIGHT_APP_API_KEY = 4;
-    public static final int LOGIN_TYPE_WEB_APP_API_KEY = 3;
     public static final String METHOD_BIND = "method_bind";
     public static final String PACKAGE_NAME = "pkg_name";
+    public static final int SWITCH_SYNC_TYPE_BY_USER = 0;
+    public static final int SWITCH_SYNC_TYPE_INSTALL = 1;
+    public static final int SWITCH_SYNC_TYPE_UPDATE = 2;
 
     public static String a(int i) {
         switch (i) {
@@ -77,5 +76,33 @@ public final class PushConstants {
             default:
                 return "Unknown";
         }
+    }
+
+    private static byte[] decryptB(byte[] bArr, String str) {
+        try {
+            return com.baidu.android.pushservice.k.g.a(bArr, str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static byte[] encryptB(byte[] bArr, String str) {
+        try {
+            return com.baidu.android.pushservice.k.g.b(bArr, str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static byte[] encryptL(byte[] bArr, String str) {
+        try {
+            return com.baidu.android.pushservice.k.g.c(bArr, str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static boolean verify(byte[] bArr, String str, String str2) {
+        return com.baidu.android.pushservice.k.g.a(bArr, str, str2);
     }
 }

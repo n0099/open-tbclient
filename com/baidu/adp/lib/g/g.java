@@ -40,7 +40,7 @@ public class g {
             } catch (Exception e) {
             }
         }
-        if (activity.getWindow() == null || !p(activity.getWindow().getDecorView())) {
+        if (activity.getWindow() == null || !aH(activity.getWindow().getDecorView())) {
             return false;
         }
         try {
@@ -52,15 +52,15 @@ public class g {
     }
 
     public static final boolean b(Dialog dialog, Activity activity) {
-        if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !p(activity.getWindow().getDecorView())) {
+        if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !aH(activity.getWindow().getDecorView())) {
             return false;
         }
         dialog.dismiss();
         return true;
     }
 
-    public static final boolean a(PopupWindow popupWindow) {
-        if (popupWindow == null || aa(popupWindow.getContentView().getContext()) || !p(popupWindow.getContentView())) {
+    public static final boolean b(PopupWindow popupWindow) {
+        if (popupWindow == null || am(popupWindow.getContentView().getContext()) || !aH(popupWindow.getContentView())) {
             return false;
         }
         popupWindow.dismiss();
@@ -69,17 +69,17 @@ public class g {
 
     public static final boolean a(PopupWindow popupWindow, Activity activity) {
         if (popupWindow != null && activity != null) {
-            if (!aa(activity) && p(activity.getWindow().getDecorView())) {
+            if (!am(activity) && aH(activity.getWindow().getDecorView())) {
                 popupWindow.dismiss();
                 return true;
             }
             return false;
         }
-        return a(popupWindow);
+        return b(popupWindow);
     }
 
     public static final boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (popupWindow == null || view == null || aa(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || am(view.getContext()) || !aH(view)) {
             return false;
         }
         try {
@@ -91,7 +91,7 @@ public class g {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (popupWindow == null || view == null || aa(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || am(view.getContext()) || !aH(view)) {
             return false;
         }
         try {
@@ -103,7 +103,7 @@ public class g {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (popupWindow == null || view == null || aa(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || am(view.getContext()) || !aH(view)) {
             return false;
         }
         try {
@@ -115,13 +115,13 @@ public class g {
     }
 
     public static final boolean m(Activity activity) {
-        if (activity == null || aa(activity)) {
+        if (activity == null || am(activity)) {
             return false;
         }
-        return p(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
+        return aH(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
     }
 
-    private static final boolean p(View view) {
+    private static final boolean aH(View view) {
         IBinder windowToken;
         if (view != null && (windowToken = view.getWindowToken()) != null) {
             try {
@@ -136,7 +136,7 @@ public class g {
         return false;
     }
 
-    private static final boolean aa(Context context) {
+    private static final boolean am(Context context) {
         if (context instanceof Activity) {
             return ((Activity) context).isFinishing();
         }

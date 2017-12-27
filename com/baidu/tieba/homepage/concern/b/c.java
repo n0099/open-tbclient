@@ -2,9 +2,10 @@ package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Userlike.UserList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements com.baidu.tbadk.core.view.userLike.a {
     private int is_like;
+    private int likeStatus = 1;
     private String name = null;
     private String prefix = null;
     private String intro = null;
@@ -63,12 +64,22 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public String atO() {
+    public String aAR() {
         return this.recom_reason;
     }
 
     public long getId() {
         return this.id;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public void setLikeStatus(int i) {
+        this.likeStatus = i;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public int getLikeStatus() {
+        return this.likeStatus;
     }
 
     public void b(UserList userList) {

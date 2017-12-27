@@ -16,20 +16,20 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] ef = cVar.ef();
+        Type[] lJ = cVar.lJ();
         Set<String> keySet = this.bundle.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
             Object obj = this.bundle.get(str);
-            if (ef != null && ef.length >= 2) {
+            if (lJ != null && lJ.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.k(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(ef[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.ap(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(lJ[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.k(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.eg())));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.ap(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.lK())));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }

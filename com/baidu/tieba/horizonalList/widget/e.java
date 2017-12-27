@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> duR = new ArrayList<>();
-    boolean Hf;
+    static final ArrayList<HListView.b> egU = new ArrayList<>();
+    boolean avh;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,16 +23,16 @@ public class e implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = duR;
+            this.mHeaderViewInfos = egU;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = duR;
+            this.mFooterViewInfos = egU;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.Hf = e(this.mHeaderViewInfos) && e(this.mFooterViewInfos);
+        this.avh = f(this.mHeaderViewInfos) && f(this.mFooterViewInfos);
     }
 
     public int getHeadersCount() {
@@ -48,7 +48,7 @@ public class e implements Filterable, WrapperListAdapter {
         return this.mAdapter == null || this.mAdapter.isEmpty();
     }
 
-    private boolean e(ArrayList<HListView.b> arrayList) {
+    private boolean f(ArrayList<HListView.b> arrayList) {
         if (arrayList != null) {
             Iterator<HListView.b> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -65,10 +65,10 @@ public class e implements Filterable, WrapperListAdapter {
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             if (this.mHeaderViewInfos.get(i).view == view) {
                 this.mHeaderViewInfos.remove(i);
-                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Hf = z;
+                this.avh = z;
                 return true;
             }
         }
@@ -80,10 +80,10 @@ public class e implements Filterable, WrapperListAdapter {
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             if (this.mFooterViewInfos.get(i).view == view) {
                 this.mFooterViewInfos.remove(i);
-                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Hf = z;
+                this.avh = z;
                 return true;
             }
         }
@@ -98,7 +98,7 @@ public class e implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Hf && this.mAdapter.areAllItemsEnabled();
+            return this.avh && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }

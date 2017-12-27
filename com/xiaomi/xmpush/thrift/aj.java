@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.Serializable;
 import java.util.BitSet;
@@ -21,7 +20,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
     private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("packageName", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("topic", (byte) 11, 6);
     private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("aliasName", (byte) 11, 7);
-    private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b(PushConstants.EXTRA_PUSH_MESSAGE, (byte) 12, 8);
+    private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("message", (byte) 12, 8);
     private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("needAck", (byte) 2, 9);
     private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b(LegoListActivityConfig.PARAMS, (byte) 13, 10);
     private static final org.apache.thrift.protocol.b y = new org.apache.thrift.protocol.b("category", (byte) 11, 11);
@@ -49,7 +48,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
         PACKAGE_NAME(5, "packageName"),
         TOPIC(6, "topic"),
         ALIAS_NAME(7, "aliasName"),
-        MESSAGE(8, PushConstants.EXTRA_PUSH_MESSAGE),
+        MESSAGE(8, "message"),
         NEED_ACK(9, "needAck"),
         PARAMS(10, LegoListActivityConfig.PARAMS),
         CATEGORY(11, "category"),
@@ -86,7 +85,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.ALIAS_NAME, (a) new org.apache.thrift.meta_data.b("aliasName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.MESSAGE, (a) new org.apache.thrift.meta_data.b(PushConstants.EXTRA_PUSH_MESSAGE, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, q.class)));
+        enumMap.put((EnumMap) a.MESSAGE, (a) new org.apache.thrift.meta_data.b("message", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, q.class)));
         enumMap.put((EnumMap) a.NEED_ACK, (a) new org.apache.thrift.meta_data.b("needAck", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.PARAMS, (a) new org.apache.thrift.meta_data.b(LegoListActivityConfig.PARAMS, (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));

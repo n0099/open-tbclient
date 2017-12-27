@@ -1,53 +1,35 @@
 package com.baidu.android.pushservice.h;
 
-import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class i extends c {
-    public static int a = 0;
-    private int b;
+public class i extends n {
+    public int a;
+    public String b;
+    public String c;
 
     public i() {
-        this.b = 0;
     }
 
-    public i(String str) {
-        super(str);
-        this.b = 0;
+    public i(n nVar) {
+        super(nVar);
     }
 
-    public JSONObject a(Context context) throws JSONException {
+    public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("app_type", this.b);
-        if (!TextUtils.isEmpty(b())) {
-            jSONObject.put("app_package_name", b());
+        jSONObject.put("action_name", this.d);
+        jSONObject.put("timestamp", this.e);
+        jSONObject.put("network_status", this.f);
+        jSONObject.put("heart", this.a);
+        jSONObject.put("err_code", this.g);
+        jSONObject.put("msg_result", this.i);
+        if (!TextUtils.isEmpty(this.b)) {
+            jSONObject.put("msg_id", this.b);
         }
-        if (!TextUtils.isEmpty(c())) {
-            jSONObject.put("app_name", c());
+        if (!TextUtils.isEmpty(this.c)) {
+            jSONObject.put("msg_open_by", this.c);
         }
-        if (!TextUtils.isEmpty(d())) {
-            jSONObject.put("app_cfrom", d());
-        }
-        if (e() != -1) {
-            jSONObject.put("app_vercode", e());
-        }
-        if (!TextUtils.isEmpty(f())) {
-            jSONObject.put("app_vername", f());
-        }
-        if (g() != -1) {
-            jSONObject.put("app_push_version", g());
-        }
-        jSONObject.put("app_appid", a());
         return jSONObject;
-    }
-
-    public void c(int i) {
-        this.b = i;
-    }
-
-    public int h() {
-        return this.b;
     }
 }

@@ -12,12 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class m {
-    public static final String gZe;
-    private HashMap<String, String> gSe;
-    private List<DownloadData> gZf;
-    private a gZg;
-    private String gZh;
-    private com.baidu.tbadk.download.d gZi = new com.baidu.tbadk.download.d() { // from class: com.baidu.tieba.video.record.m.1
+    public static final String hGh;
+    private List<DownloadData> hGi;
+    private a hGj;
+    private String hGk;
+    private com.baidu.tbadk.download.d hGl = new com.baidu.tbadk.download.d() { // from class: com.baidu.tieba.video.record.m.1
         @Override // com.baidu.tbadk.download.d
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -26,8 +25,8 @@ public class m {
                     file.delete();
                 }
                 m.this.x(downloadData);
-                if (m.this.gZg != null && m.this.gZh.equals(downloadData.getUrl())) {
-                    m.this.gZg.bBm();
+                if (m.this.hGj != null && m.this.hGk.equals(downloadData.getUrl())) {
+                    m.this.hGj.bGJ();
                 }
             }
         }
@@ -44,11 +43,11 @@ public class m {
 
         @Override // com.baidu.tbadk.download.d
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(m.gZe)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(m.hGh)) {
                 m.this.x(downloadData);
-                if (m.this.gZg != null && m.this.gZh.equals(downloadData.getUrl())) {
-                    m.this.gSe.put(downloadData.getPath().substring(m.gZe.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    m.this.gZg.cn(m.this.gZh, downloadData.getPath());
+                if (m.this.hGj != null && m.this.hGk.equals(downloadData.getUrl())) {
+                    m.this.hzg.put(downloadData.getPath().substring(m.hGh.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    m.this.hGj.co(m.this.hGk, downloadData.getPath());
                 }
             }
         }
@@ -60,91 +59,92 @@ public class m {
                 file.delete();
             }
             m.this.x(downloadData);
-            if (m.this.gZg != null && m.this.gZh.equals(downloadData.getUrl())) {
-                m.this.gZg.tW(str);
+            if (m.this.hGj != null && m.this.hGk.equals(downloadData.getUrl())) {
+                m.this.hGj.tX(str);
             }
         }
     };
+    private HashMap<String, String> hzg;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bBm();
+        void bGJ();
 
-        void cn(String str, String str2);
+        void co(String str, String str2);
 
-        void tW(String str);
+        void tX(String str);
     }
 
     static {
-        gZe = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        hGh = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String uu(String str) {
-        String dX = ao.dX(str);
-        if (dX == null) {
+    public String uv(String str) {
+        String ee = ao.ee(str);
+        if (ee == null) {
             return null;
         }
-        if (this.gSe == null) {
-            this.gSe = new HashMap<>();
-            bEt();
+        if (this.hzg == null) {
+            this.hzg = new HashMap<>();
+            bJV();
         }
-        return this.gSe.get(dX);
+        return this.hzg.get(ee);
     }
 
-    public void bEt() {
-        if (!StringUtils.isNull(gZe)) {
-            if (this.gSe == null) {
-                this.gSe = new HashMap<>();
+    public void bJV() {
+        if (!StringUtils.isNull(hGh)) {
+            if (this.hzg == null) {
+                this.hzg = new HashMap<>();
             } else {
-                this.gSe.clear();
+                this.hzg.clear();
             }
-            File file = new File(gZe);
+            File file = new File(hGh);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.gSe.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.hzg.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
         }
     }
 
-    public void uv(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(gZe)) {
-            if (this.gZg != null) {
-                this.gZg.tW("");
+    public void uw(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(hGh)) {
+            if (this.hGj != null) {
+                this.hGj.tX("");
                 return;
             }
             return;
         }
-        String dX = ao.dX(str);
-        if (dX != null) {
-            File file = new File(gZe);
+        String ee = ao.ee(str);
+        if (ee != null) {
+            File file = new File(hGh);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.gZf == null) {
-                this.gZf = new ArrayList();
+            if (this.hGi == null) {
+                this.hGi = new ArrayList();
             }
-            if (!fH(str)) {
+            if (!fO(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(gZe + "/" + dX + str2);
-                downloadData.setCallback(this.gZi);
-                this.gZf.add(downloadData);
-                com.baidu.tbadk.download.e.CW().f(downloadData);
+                downloadData.setPath(hGh + "/" + ee + str2);
+                downloadData.setCallback(this.hGl);
+                this.hGi.add(downloadData);
+                com.baidu.tbadk.download.e.Kx().f(downloadData);
             }
         }
     }
 
-    private boolean fH(String str) {
-        if (v.w(this.gZf) || str == null) {
+    private boolean fO(String str) {
+        if (v.G(this.hGi) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.gZf) {
+        for (DownloadData downloadData : this.hGi) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     public void x(DownloadData downloadData) {
         int i;
-        if (!v.w(this.gZf) && downloadData != null) {
+        if (!v.G(this.hGi) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.gZf.size()) {
+                if (i >= this.hGi.size()) {
                     i = -1;
                     break;
-                } else if (this.gZf.get(i) != null && this.gZf.get(i).getUrl() != null && this.gZf.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.hGi.get(i) != null && this.hGi.get(i).getUrl() != null && this.hGi.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.gZf.remove(i);
+            this.hGi.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.gZg = aVar;
+        this.hGj = aVar;
     }
 
-    public void uw(String str) {
+    public void ux(String str) {
         if (str == null) {
-            this.gZh = "";
+            this.hGk = "";
         } else {
-            this.gZh = str;
+            this.hGk = str;
         }
     }
 }

@@ -1,91 +1,46 @@
 package com.baidu.android.pushservice.h;
 
-import android.content.Context;
 import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class k {
-    private static void a(Context context, com.baidu.android.pushservice.b.f fVar, j jVar, i iVar) {
-        if (fVar != null) {
-            iVar.b(fVar.c());
-            iVar = com.baidu.android.pushservice.j.p.a(iVar, context, fVar.c());
-            jVar.j = fVar.c();
-        }
-        try {
-            p.a(context, jVar);
-            p.a(context, iVar);
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.b("PushBehaviorHelper", "MH insert db exception");
-        }
+public class k extends n {
+    public String a;
+    public int b;
+    public int c;
+    public String k;
+
+    public k() {
+        this.a = "";
+        this.b = -1;
+        this.c = -1;
     }
 
-    public static void a(Context context, String str, String str2, int i, byte[] bArr, int i2, int i3) {
-        j jVar = new j();
-        jVar.d = "010101";
-        jVar.a = str2;
-        jVar.e = System.currentTimeMillis();
-        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        jVar.b = new String(bArr).length();
-        jVar.g = i2;
-        jVar.c = i;
-        jVar.h = str;
-        i iVar = new i(str);
-        iVar.c(i3);
-        com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
-        if (d != null) {
-            iVar.b(d.c());
-        } else {
-            iVar.b("NP");
-        }
-        a(context, d, jVar, iVar);
+    public k(n nVar) {
+        super(nVar);
+        this.a = "";
+        this.b = -1;
+        this.c = -1;
     }
 
-    public static void a(Context context, String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
+    public JSONObject a() throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("action_name", this.d);
+        jSONObject.put("timestamp", this.e);
+        jSONObject.put("network_status", this.f);
+        if (this.c != -1) {
+            jSONObject.put("msg_type", this.c);
         }
-        try {
-            j jVar = new j();
-            String str4 = null;
-            if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(str3)) {
-                str4 = "010601";
-            } else if ("com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(str3)) {
-                str4 = "010602";
-            } else if ("com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(str3)) {
-                str4 = "010603";
-            }
-            jVar.d = str4;
-            jVar.a = str;
-            jVar.e = System.currentTimeMillis();
-            jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-            jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE.a();
-            jVar.h = str2;
-            com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
-            if (d != null) {
-                a(context, d, jVar, new i(str2));
-            }
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("PushBehaviorHelper", "error " + e.getMessage());
+        if (!TextUtils.isEmpty(this.a)) {
+            jSONObject.put("msg_id", this.a);
         }
-    }
-
-    public static void b(Context context, String str, String str2, int i, byte[] bArr, int i2, int i3) {
-        j jVar = new j();
-        jVar.d = "019901";
-        jVar.a = str2;
-        jVar.e = System.currentTimeMillis();
-        jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        jVar.b = new String(bArr).length();
-        jVar.g = i2;
-        jVar.c = i;
-        jVar.h = str;
-        i iVar = new i(str);
-        iVar.c(i3);
-        com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
-        if (d != null) {
-            iVar.b(d.c());
-        } else {
-            iVar.b("NP");
+        if (this.b > 0) {
+            jSONObject.put("msg_len", this.b);
         }
-        a(context, d, jVar, iVar);
+        if (this.k != null) {
+            jSONObject.put("msg_open_by", this.k);
+        }
+        jSONObject.put("err_code", this.g);
+        return jSONObject;
     }
 }

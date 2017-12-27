@@ -13,15 +13,15 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class ClassificationBox extends AbstractFullBox {
     public static final String TYPE = "clsf";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
     private String classificationEntity;
     private String classificationInfo;
     private int classificationTableIndex;
@@ -74,7 +74,7 @@ public class ClassificationBox extends AbstractFullBox {
     }
 
     public void setClassificationTableIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zC(i)));
         this.classificationTableIndex = i;
     }
 

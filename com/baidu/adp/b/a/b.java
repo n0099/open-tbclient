@@ -7,7 +7,6 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -75,13 +74,13 @@ public abstract class b extends ImageView implements i {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
             this.mArgs.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
-            this.mArgs.Bj = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.mArgs.Bk = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
-            this.mArgs.Bl = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
-            this.mArgs.Bm = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
-            this.mArgs.Bo = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.mArgs.Bq = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.mArgs.Bs = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.mArgs.apr = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.mArgs.aps = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.mArgs.ou = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
+            this.mArgs.apt = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
+            this.mArgs.apu = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.mArgs.apw = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.mArgs.apy = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, Integer.MAX_VALUE);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, Integer.MAX_VALUE);
@@ -89,10 +88,10 @@ public abstract class b extends ImageView implements i {
             obtainStyledAttributes.recycle();
         } else {
             this.mArgs.mRadius = com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f);
-            this.mArgs.Bl = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
-            this.mArgs.Bm = DEFAULT_BORDER_COLOR;
+            this.mArgs.ou = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
+            this.mArgs.apt = DEFAULT_BORDER_COLOR;
         }
-        this.mDrawer = f.iC().aD(this.mDrawerType);
+        this.mDrawer = f.qb().dx(this.mDrawerType);
         this.mDrawer.a(this.mArgs);
     }
 
@@ -123,7 +122,7 @@ public abstract class b extends ImageView implements i {
         int mode = View.MeasureSpec.getMode(i3);
         int size = View.MeasureSpec.getSize(i3);
         switch (mode) {
-            case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
+            case Integer.MIN_VALUE:
                 return Math.min(Math.min(i, size), i2);
             case 0:
                 return Math.min(i, i2);
@@ -141,32 +140,31 @@ public abstract class b extends ImageView implements i {
         return frame;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         this.mNeedRecomputeMatrix = true;
     }
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.mImage.Bh = (BitmapDrawable) getDrawable();
-        this.mImage.Bi = getBdImage();
-        if (this.mImage.iA()) {
-            this.mImage.Bi = null;
+        this.mImage.apo = (BitmapDrawable) getDrawable();
+        this.mImage.apq = getBdImage();
+        if (this.mImage.pZ()) {
+            this.mImage.apq = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
-        } else if (this.mImage.iB()) {
-            this.mImage.Bh = null;
+        } else if (this.mImage.qa()) {
+            this.mImage.apo = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else {
-            this.mImage.Bh = null;
-            this.mImage.Bi = getDefaultBdImage();
+            this.mImage.apo = null;
+            this.mImage.apq = getDefaultBdImage();
             this.mImage.isDefault = true;
-            ImageView.ScaleType scaleType2 = this.mImage.iB() ? this.mDefaultScaleType : scaleType;
+            ImageView.ScaleType scaleType2 = this.mImage.qa() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
             scaleType = scaleType2;
         }
@@ -265,59 +263,59 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setIsRound(boolean z) {
-        if (this.mArgs.Bj != z) {
-            this.mArgs.Bj = z;
+        if (this.mArgs.apr != z) {
+            this.mArgs.apr = z;
             invalidate();
         }
     }
 
     public void setIsNight(boolean z) {
-        if (this.mArgs.Bn != z) {
-            this.mArgs.Bn = z;
+        if (this.mArgs.CM != z) {
+            this.mArgs.CM = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.mArgs.Bk != z) {
-            this.mArgs.Bk = z;
+        if (this.mArgs.aps != z) {
+            this.mArgs.aps = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setBorderWidth(int i) {
-        if (this.mArgs.Bl != i) {
-            this.mArgs.Bl = i;
+        if (this.mArgs.ou != i) {
+            this.mArgs.ou = i;
             invalidate();
         }
     }
 
     public void setBorderColor(int i) {
-        if (this.mArgs.Bm != i) {
-            this.mArgs.Bm = i;
+        if (this.mArgs.apt != i) {
+            this.mArgs.apt = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.mArgs.Bo != z) {
-            this.mArgs.Bo = z;
+        if (this.mArgs.apu != z) {
+            this.mArgs.apu = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        if (this.mArgs.Bp != z) {
-            this.mArgs.Bp = z;
+        if (this.mArgs.apv != z) {
+            this.mArgs.apv = z;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.mArgs.Bq != z) {
-            this.mArgs.Bq = z;
+        if (this.mArgs.apw != z) {
+            this.mArgs.apw = z;
             invalidate();
         }
     }
@@ -325,7 +323,7 @@ public abstract class b extends ImageView implements i {
     public void setDrawerType(int i) {
         if (this.mDrawerType != i) {
             this.mDrawerType = i;
-            this.mDrawer = f.iC().aD(this.mDrawerType);
+            this.mDrawer = f.qb().dx(this.mDrawerType);
             this.mDrawer.a(this.mArgs);
             this.mNeedRecomputeMatrix = true;
             invalidate();
@@ -341,7 +339,7 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.mArgs.Br = matrix;
+        this.mArgs.apx = matrix;
         invalidate();
     }
 
@@ -350,7 +348,7 @@ public abstract class b extends ImageView implements i {
         if (!this.mIsBitmap) {
             super.setImageMatrix(matrix);
         } else if (matrix != null && this.mCurrentScaleType == ImageView.ScaleType.MATRIX) {
-            this.mDrawer.a(matrix);
+            this.mDrawer.b(matrix);
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
@@ -358,11 +356,11 @@ public abstract class b extends ImageView implements i {
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.mIsBitmap ? super.getImageMatrix() : this.mDrawer.ix();
+        return !this.mIsBitmap ? super.getImageMatrix() : this.mDrawer.pW();
     }
 
     public RectF getImageBounds() {
-        return this.mDrawer.iy();
+        return this.mDrawer.pX();
     }
 
     public int getImageWidth() {
@@ -388,13 +386,13 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setForegroundColor(int i) {
-        if (this.mArgs.Bs != i) {
-            this.mArgs.Bs = i;
+        if (this.mArgs.apy != i) {
+            this.mArgs.apy = i;
             invalidate();
         }
     }
 
     public boolean isNight() {
-        return this.mArgs.Bn;
+        return this.mArgs.CM;
     }
 }

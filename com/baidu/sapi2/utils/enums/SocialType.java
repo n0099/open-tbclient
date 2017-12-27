@@ -1,6 +1,4 @@
 package com.baidu.sapi2.utils.enums;
-
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
@@ -44,13 +42,13 @@ public enum SocialType {
                 return TENCENT_WEIBO;
             case 15:
                 return QQ;
-            case d.l.View_duplicateParentState /* 42 */:
+            case 42:
                 return WEIXIN;
             case 45:
                 return HUAWEI;
-            case d.l.View_hapticFeedbackEnabled /* 46 */:
+            case 46:
                 return WANDA_FEIFAN;
-            case d.l.View_contentDescription /* 47 */:
+            case 47:
                 return IQIYI;
             case 49:
                 return XIAOMI;

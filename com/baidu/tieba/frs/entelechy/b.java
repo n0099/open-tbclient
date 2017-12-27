@@ -1,56 +1,45 @@
 package com.baidu.tieba.frs.entelechy;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.entelechy.a.u;
-import com.baidu.tieba.frs.g;
-/* loaded from: classes.dex */
+import com.baidu.tieba.frs.i;
+/* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cMz;
-
-    public com.baidu.tieba.frs.entelechy.b.d z(g gVar) {
-        return new com.baidu.tieba.frs.entelechy.c.a(gVar);
-    }
+    private a dBC;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b ani() {
+    public com.baidu.tieba.frs.entelechy.b.b auO() {
         return new d();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.view.c a(String str, g gVar, int i) {
-        if (gVar == null) {
+    public com.baidu.tieba.frs.view.c a(String str, i iVar, int i) {
+        if (iVar == null) {
             return null;
         }
-        this.cMz = new c(gVar, null, null, i);
-        this.cMz.a(gVar.alf());
-        return this.cMz;
+        this.dBC = new c(iVar, null, null, i);
+        this.dBC.a(iVar.asN());
+        return this.dBC;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public u a(g gVar, BdTypeListView bdTypeListView, boolean z) {
-        return new com.baidu.tieba.frs.entelechy.a.b(gVar, bdTypeListView, z);
+    public u a(i iVar, n nVar, boolean z) {
+        return new com.baidu.tieba.frs.entelechy.a.b(iVar, nVar, z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.g.d c(g gVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (gVar.alH()) {
+    public com.baidu.tieba.frs.f.d c(i iVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        if (iVar.atq()) {
             return null;
         }
-        return new com.baidu.tieba.frs.g.d(gVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.f.d(iVar, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.c b(g gVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.g.b(gVar, noPressedRelativeLayout);
-    }
-
-    public c anj() {
-        if (this.cMz instanceof c) {
-            return (c) this.cMz;
-        }
-        return null;
+    public com.baidu.tieba.frs.entelechy.b.c b(i iVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        return new com.baidu.tieba.frs.f.b(iVar, noPressedRelativeLayout);
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
@@ -36,11 +36,11 @@ public class g {
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
             Drawable drawable = aj.getDrawable(d.f.icon_pb_tail);
-            int f = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
-            drawable.setBounds(0, 0, f, f);
-            com.baidu.tbadk.widget.e eVar = new com.baidu.tbadk.widget.e(drawable);
-            eVar.fB(l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
-            spannableStringBuilder.setSpan(eVar, 0, 4, 33);
+            int s = l.s(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
+            drawable.setBounds(0, 0, s, s);
+            com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(drawable);
+            fVar.iA(l.s(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
+            spannableStringBuilder.setSpan(fVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);
             textView.setTextColor(smallTailInfo.showColorId);

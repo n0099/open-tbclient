@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.baidu.android.pushservice.h.q;
 import com.baidu.android.pushservice.j.p;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +31,7 @@ public final class h {
     private static boolean p = false;
 
     public static int a(Context context) {
-        return p.E(context) ? b : a;
+        return p.F(context) ? b : a;
     }
 
     public static String a() {
@@ -124,31 +125,28 @@ public final class h {
                 i = j[parseInt % 10];
                 return;
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.a("PushUrl", "parseInt err: " + a2, e2);
                 return;
             }
         }
         Properties properties = new Properties();
+        FileInputStream fileInputStream2 = null;
         try {
-            if (p.t(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (p.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 fileInputStream = new FileInputStream(file);
                 try {
-                    try {
-                        properties.load(fileInputStream);
-                    } catch (Exception e3) {
-                        e = e3;
-                        com.baidu.android.pushservice.g.a.a("PushUrl", e);
-                        com.baidu.android.pushservice.f.b.a(fileInputStream);
-                        return;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+                    properties.load(fileInputStream);
+                } catch (Exception e3) {
                     com.baidu.android.pushservice.f.b.a(fileInputStream);
+                    return;
+                } catch (Throwable th) {
+                    fileInputStream2 = fileInputStream;
+                    th = th;
+                    com.baidu.android.pushservice.f.b.a(fileInputStream2);
                     throw th;
                 }
             } else {
                 properties.put("http_server", "http://10.95.41.15:8080");
-                if (p.E(context)) {
+                if (p.F(context)) {
                     properties.put("socket_server_port_v3", "8006");
                 } else {
                     properties.put("socket_server_port", "8005");
@@ -167,7 +165,7 @@ public final class h {
             if (!TextUtils.isEmpty(property2)) {
                 i = property2;
             }
-            if (p.E(context)) {
+            if (p.F(context)) {
                 String property3 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property3)) {
                     b = Integer.parseInt(property3);
@@ -194,19 +192,14 @@ public final class h {
             p = true;
             com.baidu.android.pushservice.f.b.a(fileInputStream);
         } catch (Exception e4) {
-            e = e4;
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            com.baidu.android.pushservice.f.b.a(fileInputStream);
-            throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(Context context, String str, String str2) {
-        boolean z = false;
         try {
             if (str.startsWith("http://")) {
                 str = str.replace("http://", "");
@@ -215,25 +208,21 @@ public final class h {
             if (context != null && allByName != null && allByName.length > 0) {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
                 String str3 = "";
-                int i2 = 0;
-                while (i2 < allByName.length) {
-                    i2++;
+                for (int i2 = 0; i2 < allByName.length; i2++) {
                     str3 = str3 + ":" + allByName[i2].getHostAddress();
                 }
                 if (str3.length() > 1) {
-                    str3 = str3.substring(1);
+                    String substring = str3.substring(1);
                     SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putString(str2, str3);
+                    edit.putString(str2, substring);
                     edit.commit();
-                    z = true;
+                    return true;
                 }
-                com.baidu.android.pushservice.g.a.c("PushUrl", "  --- write bck " + str2 + " : " + str3);
             }
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.e("PushUrl", "  --- write bck Exception " + e2);
-            com.baidu.android.pushservice.h.p.a(context, e2);
+            q.a(context, e2);
         }
-        return z;
+        return false;
     }
 
     public static String c() {
@@ -242,10 +231,7 @@ public final class h {
 
     public static void c(final Context context) {
         final SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
-        long j2 = sharedPreferences.getLong(".baidu.push.dns.refresh", 0L);
-        long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.android.pushservice.g.a.c("PushUrl", " update last: " + j2 + " current: " + currentTimeMillis);
-        if (currentTimeMillis - j2 > 86400000) {
+        if (System.currentTimeMillis() - sharedPreferences.getLong(".baidu.push.dns.refresh", 0L) > 86400000) {
             com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("updateBackupIp", (short) 95) { // from class: com.baidu.android.pushservice.h.1
                 @Override // com.baidu.android.pushservice.i.c
                 public void a() {

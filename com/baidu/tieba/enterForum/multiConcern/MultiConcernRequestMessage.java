@@ -6,7 +6,7 @@ import com.baidu.tbadk.util.o;
 import java.util.List;
 import tbclient.MultiConcern.DataReq;
 import tbclient.MultiConcern.MultiConcernReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultiConcernRequestMessage extends NetMessage {
     private List<Long> idList;
 

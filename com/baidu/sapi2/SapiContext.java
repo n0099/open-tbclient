@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -594,7 +595,7 @@ public final class SapiContext {
     private String c() {
         if (TextUtils.isEmpty(B)) {
             try {
-                B = EncodeUtils.toMd5((this.A.getPackageName() + SapiUtils.getPackageSign(this.A, this.A.getPackageName())).getBytes("UTF-8")).substring(0, 16);
+                B = EncodeUtils.toMd5((this.A.getPackageName() + SapiUtils.getPackageSign(this.A, this.A.getPackageName())).getBytes(HTTP.UTF_8)).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }

@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.v4.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class LoaderManager {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface LoaderCallbacks<D> {
         Loader<D> onCreateLoader(int i, Bundle bundle);
 

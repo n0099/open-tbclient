@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean nI(boolean z) {
+    public static boolean oc(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -96,36 +96,50 @@ public class a {
     }
 
     public static Camera.Size a(Camera camera, int i, int i2) {
+        int i3;
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0151a());
+        Collections.sort(supportedPreviewSizes, new C0164a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
         Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
+        int i4 = -1;
         while (true) {
             if (!it.hasNext()) {
+                i3 = i4;
                 size = null;
                 z = false;
                 break;
             }
-            size = it.next();
-            if (size != null && size.width >= i2 && size.height >= i) {
+            Camera.Size next = it.next();
+            i4++;
+            if (next != null && next.width >= i2 && next.height >= i) {
                 z = true;
+                size = next;
+                i3 = i4;
                 break;
             }
         }
         if (!z) {
-            return supportedPreviewSizes.get(supportedPreviewSizes.size() - 1);
+            int size2 = supportedPreviewSizes.size() - 1;
+            size = supportedPreviewSizes.get(size2);
+            i3 = size2;
+        }
+        int i5 = 1080 * ((int) (1080 * ((i2 * 1.0f) / i)));
+        while (size.width * size.height > i5 && i3 > 0) {
+            int i6 = i3 - 1;
+            size = supportedPreviewSizes.get(i6);
+            i3 = i6;
         }
         return size;
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0151a implements Comparator<Camera.Size> {
-        private C0151a() {
+    private static class C0164a implements Comparator<Camera.Size> {
+        private C0164a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

@@ -12,11 +12,11 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class f {
@@ -42,11 +42,11 @@ public class f {
         intent.putExtra("public_msg", publicMsg);
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        intent.putExtra("notify_type", "private");
+        intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.putExtra("message_id", str);
         intent.putExtra("app_id", str2);
         intent.putExtra("baidu_message_type", i);
-        if (p.l(context, publicMsg.mPkgName) > 45) {
+        if (p.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
@@ -55,12 +55,11 @@ public class f {
 
     public static void a(Context context, String str) {
         try {
-            Intent intent = new Intent(PushConstants.ACTION_METHOD);
-            intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
+            Intent intent = new Intent(com.baidu.android.pushservice.PushConstants.ACTION_METHOD);
+            intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
             intent.putExtra("app_id", str);
             o.a(context, intent);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("NotificationHandler", "unbind exception", e);
         }
     }
 
@@ -73,11 +72,10 @@ public class f {
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("baidu_message_type", i);
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        if (p.l(context, publicMsg.mPkgName) > 45) {
+        if (p.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);
         }
-        com.baidu.android.pushservice.g.a.c("NotificationHandler", "richMedia Intent content： public_msg=" + publicMsg + ", notify_type=rich_media, appid=" + str + ", message_id=" + str2 + ", pushService_package_name=" + context.getPackageName() + ", service_name=com.baidu.android.pushservice.PushServicepMsg.mPkgName=" + publicMsg.mPkgName);
         p.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
     }
 
@@ -92,48 +90,26 @@ public class f {
         cVar.c(3);
         cVar.a(str);
         cVar.b(str2);
-        cVar.a(p.p(context, intent.getPackage()));
+        cVar.a(p.q(context, intent.getPackage()));
         cVar.a(context, activity, str5);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x004a A[ORIG_RETURN, RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static boolean a(Context context, PublicMsg publicMsg) {
         boolean z;
-        boolean z2;
         if (publicMsg.mNetType == 1) {
             NetworkInfo c = com.baidu.android.pushservice.j.k.c(context);
-            if (c != null) {
-                com.baidu.android.pushservice.g.a.c("NotificationHandler", "network type : " + c.getTypeName().toLowerCase(Locale.getDefault()));
-                if ("wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault()))) {
-                    z2 = true;
-                    if (!z2) {
-                        return false;
-                    }
-                }
-            }
-            z2 = false;
-            if (!z2) {
+            if (!(c != null && "wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
+                return false;
             }
         }
         if (TextUtils.isEmpty(publicMsg.mSupportAppname)) {
-            com.baidu.android.pushservice.g.a.c("NotificationHandler", ">>> isNeedShowNotification supportapp = null");
             return true;
         }
         try {
+            z = context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null;
         } catch (PackageManager.NameNotFoundException e) {
-            com.baidu.android.pushservice.g.a.e("NotificationHandler", e.getMessage());
+            z = false;
         }
-        if (context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null) {
-            com.baidu.android.pushservice.g.a.c("NotificationHandler", ">>> isNeedShowNotification supportapp found \r\n pckname = " + publicMsg.mSupportAppname);
-            z = true;
-            return (!publicMsg.mIsSupportApp && z) || !(publicMsg.mIsSupportApp || z);
-        }
-        z = false;
-        if (publicMsg.mIsSupportApp) {
-        }
-        return false;
+        return (publicMsg.mIsSupportApp && z) || !(publicMsg.mIsSupportApp || z);
     }
 }

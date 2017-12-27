@@ -1,55 +1,88 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ae {
-    private ArrayList<String> Xv;
-    private int Xw = 0;
-    private UserData Xt = new UserData();
-    private AntiData Xu = new AntiData();
+    public static int aLL = 1;
+    private String aLM;
+    private String aLN;
+    private String aLO;
+    private int aLP = 0;
+    private boolean aLQ = false;
+    private String linkUrl;
 
-    public ae() {
-        this.Xv = null;
-        this.Xv = new ArrayList<>();
-        bE(0);
-    }
-
-    public UserData getUser() {
-        return this.Xt;
-    }
-
-    public AntiData qg() {
-        return this.Xu;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.f(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.aLM = linkThreadContent.link_title;
+                this.aLN = linkThreadContent.link_abstract;
+                this.aLO = linkThreadContent.link_head_small_pic;
+                this.aLP = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.am.isEmpty(this.aLM) && com.baidu.tbadk.core.util.am.isEmpty(this.aLN)) {
+                    this.aLQ = true;
+                    return;
+                }
+                return;
+            }
+            this.aLQ = true;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.Xt.parserJson(jSONObject.optJSONObject("user"));
-            this.Xu.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Xv.add(optJSONArray.optString(i, null));
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.aLM = jSONObject2.optString("link_title");
+                        this.aLN = jSONObject2.optString("link_abstract");
+                        this.aLO = jSONObject2.optString("link_head_small_pic");
+                        this.aLP = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.am.isEmpty(this.aLM) && com.baidu.tbadk.core.util.am.isEmpty(this.aLN)) {
+                            this.aLQ = true;
+                        }
+                    } else {
+                        this.aLQ = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.aLQ = true;
+                    return;
                 }
             }
-            bE(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.aLQ = true;
         }
     }
 
-    public void bE(int i) {
-        this.Xw = i;
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String xE() {
+        return this.aLM;
+    }
+
+    public String xF() {
+        return this.aLN;
+    }
+
+    public String xG() {
+        return this.aLO;
+    }
+
+    public int xH() {
+        return this.aLP;
+    }
+
+    public boolean xI() {
+        return this.aLQ;
     }
 }

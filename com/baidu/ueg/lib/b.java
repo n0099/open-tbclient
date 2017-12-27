@@ -3,11 +3,11 @@ package com.baidu.ueg.lib;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected final byte hoo = 61;
-    private final int hop;
-    private final int hoq;
-    private final int hor;
-    protected final int xI;
+    protected final int alT;
+    protected final byte hWG = 61;
+    private final int hWH;
+    private final int hWI;
+    private final int hWJ;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -20,10 +20,10 @@ public abstract class b {
     public static class a {
         byte[] buffer;
         boolean eof;
-        int hos;
-        long hot;
-        int hou;
-        int hov;
+        int hWK;
+        long hWL;
+        int hWM;
+        int hWN;
         int modulus;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.hov), Boolean.valueOf(this.eof), Integer.valueOf(this.hos), Long.valueOf(this.hot), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.hou));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.hWN), Boolean.valueOf(this.eof), Integer.valueOf(this.hWK), Long.valueOf(this.hWL), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.hWM));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.hop = i;
-        this.hoq = i2;
-        this.xI = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.hor = i4;
+        this.hWH = i;
+        this.hWI = i2;
+        this.alT = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.hWJ = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.hou;
+            return aVar.pos - aVar.hWM;
         }
         return 0;
     }
 
-    protected int bJy() {
+    protected int bPt() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bJy()];
+            aVar.buffer = new byte[bPt()];
             aVar.pos = 0;
-            aVar.hou = 0;
+            aVar.hWM = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.hou, bArr, i, min);
-        aVar.hou += min;
-        if (aVar.hou >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.hWM, bArr, i, min);
+        aVar.hWM += min;
+        if (aVar.hWM >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.vd(str));
+        return decode(d.vj(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.hou];
+            byte[] bArr2 = new byte[aVar.pos - aVar.hWM];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long G(byte[] bArr) {
-        long length = (((bArr.length + this.hop) - 1) / this.hop) * this.hoq;
-        if (this.xI > 0) {
-            return length + ((((this.xI + length) - 1) / this.xI) * this.hor);
+        long length = (((bArr.length + this.hWH) - 1) / this.hWH) * this.hWI;
+        if (this.alT > 0) {
+            return length + ((((this.alT + length) - 1) / this.alT) * this.hWJ);
         }
         return length;
     }

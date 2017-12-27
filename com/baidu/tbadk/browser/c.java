@@ -3,7 +3,6 @@ package com.baidu.tbadk.browser;
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.m;
@@ -20,32 +19,32 @@ public class c extends o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String oh() {
+    public String vK() {
         return "TBHY_COMMON_Utils";
     }
 
-    @p(tQ = false, value = "showToast")
+    @p(Bq = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tq();
+            BdToast.a(getContext(), jSONObject.optString("message")).AQ();
         }
     }
 
-    @p(tQ = false, value = "showNetStatus")
+    @p(Bq = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.hi()) {
+        if (j.oJ()) {
             i = 1;
             str = "WIFI";
-        } else if (j.hm()) {
+        } else if (j.oN()) {
             i = 3;
             str = "2G";
-        } else if (j.hl()) {
+        } else if (j.oM()) {
             i = 4;
             str = "3G";
-        } else if (j.hk()) {
+        } else if (j.oL()) {
             i = 5;
             str = "4G";
         }
@@ -57,13 +56,13 @@ public class c extends o {
         return jSONObject;
     }
 
-    @p(tQ = false, value = "showDeviceInfo")
+    @p(Bq = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(l.ac(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.ae(getContext()));
+        String str3 = String.valueOf(l.ao(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.aq(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

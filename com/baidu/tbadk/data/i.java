@@ -1,34 +1,39 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.Lbs;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class i {
-    private String lat;
-    private String lng;
-    private String name = null;
+public class i implements com.baidu.adp.widget.ListView.i {
+    public static final BdUniqueId boP = BdUniqueId.gen();
+    private String boQ;
+    private String boR;
+    private boolean boS = false;
 
-    public String getLat() {
-        return this.lat;
+    @Override // com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return boP;
     }
 
-    public String getLng() {
-        return this.lng;
+    public String Ki() {
+        return this.boQ;
     }
 
-    public String getName() {
-        return this.name;
+    public void fH(String str) {
+        this.boQ = str;
     }
 
-    public void a(Lbs lbs) {
-        if (lbs != null) {
-            try {
-                this.name = lbs.name;
-                this.lat = lbs.lat;
-                this.lng = lbs.lng;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public String getSmallUrl() {
+        return this.boR;
+    }
+
+    public void fI(String str) {
+        this.boR = str;
+    }
+
+    public boolean isPortrait() {
+        return this.boS;
+    }
+
+    public void bV(boolean z) {
+        this.boS = z;
     }
 }

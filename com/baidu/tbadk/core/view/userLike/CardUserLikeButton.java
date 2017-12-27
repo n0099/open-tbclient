@@ -25,20 +25,20 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.f(getContext(), d.e.fontsize26));
+        setTextSize(0, l.s(getContext(), d.e.fontsize26));
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void aN(boolean z) {
-        this.apr = z;
+    public void f(boolean z, int i) {
+        this.bdp = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.apo);
+            setText(this.bdn);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.apq);
+            setText(this.bdo);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -46,14 +46,14 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.apr) {
+        if (this.bdp) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            aj.i(this, d.C0095d.cp_cont_e);
+            aj.r(this, d.C0108d.cp_cont_e);
             setBackgroundDrawable(null);
             return;
         }
         setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.i(this, d.C0095d.pb_like_user_select_color);
-        aj.j(this, d.f.btn_focus_border_bg);
+        aj.r(this, d.C0108d.pb_like_user_select_color);
+        aj.s(this, d.f.btn_focus_border_bg);
     }
 }

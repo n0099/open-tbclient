@@ -42,6 +42,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import javax.crypto.Cipher;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -239,49 +240,47 @@ public final class e {
     }
 
     private List<a> a(Intent intent, boolean z) {
+        Bundle bundle;
         ArrayList arrayList = new ArrayList();
-        PackageManager packageManager = this.b.getPackageManager();
-        List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-        if (queryBroadcastReceivers != null) {
-            for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                if (resolveInfo.activityInfo != null && resolveInfo.activityInfo.applicationInfo != null) {
-                    try {
-                        Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                        if (bundle != null) {
-                            String string = bundle.getString("galaxy_data");
-                            if (!TextUtils.isEmpty(string)) {
-                                byte[] a2 = com.baidu.android.pushservice.k.b.a(string.getBytes("utf-8"));
-                                JSONObject jSONObject = new JSONObject(new String(a2));
-                                a aVar = new a();
-                                aVar.b = jSONObject.getInt("priority");
-                                aVar.a = resolveInfo.activityInfo.applicationInfo;
-                                if (this.b.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                    aVar.d = true;
-                                }
-                                if (z) {
-                                    String string2 = bundle.getString("galaxy_sf");
-                                    if (!TextUtils.isEmpty(string2)) {
-                                        PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                        JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                        String[] strArr = new String[jSONArray.length()];
-                                        for (int i = 0; i < strArr.length; i++) {
-                                            strArr[i] = jSONArray.getString(i);
-                                        }
-                                        if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.android.pushservice.k.b.a(string2.getBytes()), this.d);
-                                            if (a3 != null && Arrays.equals(a3, h.a(a2))) {
-                                                aVar.c = true;
-                                            }
+        try {
+            PackageManager packageManager = this.b.getPackageManager();
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers != null) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    if (resolveInfo.activityInfo != null && resolveInfo.activityInfo.applicationInfo != null && (bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData) != null) {
+                        String string = bundle.getString("galaxy_data");
+                        if (!TextUtils.isEmpty(string)) {
+                            byte[] a2 = com.baidu.android.pushservice.k.b.a(string.getBytes("utf-8"));
+                            JSONObject jSONObject = new JSONObject(new String(a2));
+                            a aVar = new a();
+                            aVar.b = jSONObject.getInt(LogFactory.PRIORITY_KEY);
+                            aVar.a = resolveInfo.activityInfo.applicationInfo;
+                            if (this.b.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                aVar.d = true;
+                            }
+                            if (z) {
+                                String string2 = bundle.getString("galaxy_sf");
+                                if (!TextUtils.isEmpty(string2)) {
+                                    PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
+                                    JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                                    String[] strArr = new String[jSONArray.length()];
+                                    for (int i = 0; i < strArr.length; i++) {
+                                        strArr[i] = jSONArray.getString(i);
+                                    }
+                                    if (a(strArr, a(packageInfo.signatures))) {
+                                        byte[] a3 = a(com.baidu.android.pushservice.k.b.a(string2.getBytes()), this.d);
+                                        if (a3 != null && Arrays.equals(a3, h.a(a2))) {
+                                            aVar.c = true;
                                         }
                                     }
                                 }
-                                arrayList.add(aVar);
                             }
+                            arrayList.add(aVar);
                         }
-                    } catch (Exception e2) {
                     }
                 }
             }
+        } catch (Throwable th) {
         }
         Collections.sort(arrayList, new Comparator<a>() { // from class: com.baidu.android.pushservice.k.e.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String Ra;
-    private String bbo;
-    private boolean bbp;
-    private long bbq = -1;
-    private long bbr = -1;
-    private long bbs = 0;
-    private long bbt = 0;
+    private String aFH;
+    private String bOZ;
+    private boolean bPa;
+    private long bPb = -1;
+    private long bPc = -1;
+    private long bPd = 0;
+    private long bPe = 0;
 
-    public String LM() {
-        return this.bbo;
+    public String Tl() {
+        return this.bOZ;
     }
 
-    public void hv(String str) {
-        this.bbo = str;
+    public void hx(String str) {
+        this.bOZ = str;
     }
 
-    public String LN() {
-        return this.Ra;
+    public String Tm() {
+        return this.aFH;
     }
 
-    public void hw(String str) {
-        this.Ra = str;
+    public void hy(String str) {
+        this.aFH = str;
     }
 
-    public boolean LO() {
-        return this.bbp;
+    public boolean Tn() {
+        return this.bPa;
     }
 
-    public void cp(boolean z) {
-        this.bbp = z;
+    public void cS(boolean z) {
+        this.bPa = z;
     }
 
-    public long LP() {
-        return this.bbq;
+    public long To() {
+        return this.bPb;
     }
 
-    public void aw(long j) {
-        this.bbq = j;
+    public void aE(long j) {
+        this.bPb = j;
     }
 
-    public long LQ() {
-        return this.bbr;
+    public long Tp() {
+        return this.bPc;
     }
 
-    public void ax(long j) {
-        this.bbr = j;
+    public void aF(long j) {
+        this.bPc = j;
     }
 
     public long getTotalLength() {
-        return this.bbs;
+        return this.bPd;
     }
 
-    public void Q(long j) {
-        this.bbs = j;
+    public void Y(long j) {
+        this.bPd = j;
     }
 
-    public void ay(long j) {
-        this.bbt = j;
+    public void aG(long j) {
+        this.bPe = j;
     }
 
-    public long LR() {
-        return this.bbt;
+    public long Tq() {
+        return this.bPe;
     }
 }

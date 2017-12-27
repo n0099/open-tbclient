@@ -5,10 +5,10 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 import java.util.WeakHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
-    private static final WeakHashMap<Context, DisplayManagerCompat> jl = new WeakHashMap<>();
+    private static final WeakHashMap<Context, DisplayManagerCompat> wK = new WeakHashMap<>();
 
     public abstract Display getDisplay(int i);
 
@@ -21,21 +21,21 @@ public abstract class DisplayManagerCompat {
 
     public static DisplayManagerCompat getInstance(Context context) {
         DisplayManagerCompat displayManagerCompat;
-        synchronized (jl) {
-            displayManagerCompat = jl.get(context);
+        synchronized (wK) {
+            displayManagerCompat = wK.get(context);
             if (displayManagerCompat == null) {
                 if (Build.VERSION.SDK_INT >= 17) {
                     displayManagerCompat = new a(context);
                 } else {
                     displayManagerCompat = new b(context);
                 }
-                jl.put(context, displayManagerCompat);
+                wK.put(context, displayManagerCompat);
             }
         }
         return displayManagerCompat;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class b extends DisplayManagerCompat {
         private final WindowManager mWindowManager;
 
@@ -63,27 +63,27 @@ public abstract class DisplayManagerCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class a extends DisplayManagerCompat {
-        private final Object jm;
+        private final Object wL;
 
         public a(Context context) {
-            this.jm = android.support.v4.hardware.display.a.N(context);
+            this.wL = android.support.v4.hardware.display.a.S(context);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display getDisplay(int i) {
-            return android.support.v4.hardware.display.a.a(this.jm, i);
+            return android.support.v4.hardware.display.a.a(this.wL, i);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return android.support.v4.hardware.display.a.e(this.jm);
+            return android.support.v4.hardware.display.a.j(this.wL);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays(String str) {
-            return android.support.v4.hardware.display.a.c(this.jm, str);
+            return android.support.v4.hardware.display.a.c(this.wL, str);
         }
     }
 }

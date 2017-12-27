@@ -13,25 +13,14 @@ public abstract class c {
     public abstract com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:14:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0022  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean a(byte[] bArr) {
         int i;
-        JSONObject jSONObject;
         try {
-            jSONObject = new JSONObject(new String(bArr));
+            JSONObject jSONObject = new JSONObject(new String(bArr));
+            i = !jSONObject.isNull("bccs_fb") ? Integer.parseInt(jSONObject.getString("bccs_fb")) : 0;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("IPushMessageHandler", "Message parsing feedback fail:\r\n" + e.getMessage());
+            i = 0;
         }
-        if (!jSONObject.isNull("bccs_fb")) {
-            i = Integer.parseInt(jSONObject.getString("bccs_fb"));
-            return i != 1;
-        }
-        i = 0;
-        if (i != 1) {
-        }
+        return i == 1;
     }
 }

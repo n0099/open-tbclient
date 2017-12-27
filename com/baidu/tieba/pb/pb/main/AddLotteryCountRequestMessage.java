@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.AddLotteryCount.AddLotteryCountReqIdl;
 import tbclient.AddLotteryCount.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddLotteryCountRequestMessage extends NetMessage {
     private long mAwardActId;
     private int mFromType;

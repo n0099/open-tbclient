@@ -1,62 +1,64 @@
 package android.support.v4.text;
 
 import android.os.Build;
-/* loaded from: classes.dex */
-public class ICUCompat {
-    private static final a kf;
+import java.util.Locale;
+/* loaded from: classes2.dex */
+public final class ICUCompat {
+    private static final a Be;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface a {
-        String addLikelySubtags(String str);
-
-        String getScript(String str);
+        String maximizeAndGetScript(Locale locale);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class b implements a {
         b() {
         }
 
         @Override // android.support.v4.text.ICUCompat.a
-        public String getScript(String str) {
+        public String maximizeAndGetScript(Locale locale) {
             return null;
-        }
-
-        @Override // android.support.v4.text.ICUCompat.a
-        public String addLikelySubtags(String str) {
-            return str;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class c implements a {
         c() {
         }
 
         @Override // android.support.v4.text.ICUCompat.a
-        public String getScript(String str) {
-            return android.support.v4.text.a.getScript(str);
+        public String maximizeAndGetScript(Locale locale) {
+            return android.support.v4.text.b.maximizeAndGetScript(locale);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class d implements a {
+        d() {
         }
 
         @Override // android.support.v4.text.ICUCompat.a
-        public String addLikelySubtags(String str) {
-            return android.support.v4.text.a.addLikelySubtags(str);
+        public String maximizeAndGetScript(Locale locale) {
+            return android.support.v4.text.a.maximizeAndGetScript(locale);
         }
     }
 
     static {
-        if (Build.VERSION.SDK_INT >= 14) {
-            kf = new c();
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            Be = new d();
+        } else if (i >= 14) {
+            Be = new c();
         } else {
-            kf = new b();
+            Be = new b();
         }
     }
 
-    public static String getScript(String str) {
-        return kf.getScript(str);
+    public static String maximizeAndGetScript(Locale locale) {
+        return Be.maximizeAndGetScript(locale);
     }
 
-    public static String addLikelySubtags(String str) {
-        return kf.addLikelySubtags(str);
+    private ICUCompat() {
     }
 }

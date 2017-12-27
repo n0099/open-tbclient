@@ -14,38 +14,31 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView apa;
-    private HeadImageView cJv;
-    private TextView cyQ;
-    private ImageView dZW;
-    private TextView dZX;
+    private TextView bcZ;
+    private TextView dno;
+    private HeadImageView dyP;
+    private ImageView eLZ;
+    private TextView eMa;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cJv = (HeadImageView) view.findViewById(d.g.photo);
-        this.apa = (TextView) view.findViewById(d.g.user_name);
-        this.dZW = (ImageView) view.findViewById(d.g.fans_reply);
-        this.cyQ = (TextView) view.findViewById(d.g.time);
-        this.dZX = (TextView) view.findViewById(d.g.content);
+        this.dyP = (HeadImageView) view.findViewById(d.g.photo);
+        this.bcZ = (TextView) view.findViewById(d.g.user_name);
+        this.eLZ = (ImageView) view.findViewById(d.g.fans_reply);
+        this.dno = (TextView) view.findViewById(d.g.time);
+        this.eMa = (TextView) view.findViewById(d.g.content);
         this.mLine = view.findViewById(d.g.line);
-        this.cJv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.dyP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.FQ().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
+                a.this.Np().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
             }
         });
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                com.baidu.tbadk.mvc.c.b bVar;
-                FeedData data = a.this.getData();
-                if (data != null && data.isStory()) {
-                    bVar = new com.baidu.tbadk.mvc.c.b(9489, data, null, null);
-                } else {
-                    bVar = new com.baidu.tbadk.mvc.c.b(9484, data, null, null);
-                }
-                a.this.FQ().dispatchMvcEvent(bVar);
+                a.this.Np().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, a.this.getData(), null, null));
             }
         });
     }
@@ -53,43 +46,43 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void D(FeedData feedData) {
-        super.D(feedData);
+    public void aI(FeedData feedData) {
+        super.aI(feedData);
         if (feedData.getReplyer() != null) {
-            this.apa.setText(feedData.getReplyer().getName_show());
+            this.bcZ.setText(feedData.getReplyer().getName_show());
             if (feedData.getReplyer().isBigV()) {
-                aj.i(this.apa, d.C0095d.cp_cont_r);
+                aj.r(this.bcZ, d.C0108d.cp_cont_r);
             } else {
-                aj.i(this.apa, d.C0095d.cp_cont_c);
+                aj.r(this.bcZ, d.C0108d.cp_cont_c);
             }
-            this.cJv.setShowV(feedData.getReplyer().isBigV());
-            this.cJv.setIsRound(true);
-            this.cJv.setVisibility(0);
+            this.dyP.setShowV(feedData.getReplyer().isBigV());
+            this.dyP.setIsRound(true);
+            this.dyP.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.cJv.setTag(null);
+            this.dyP.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.cJv.startLoad(portrait, 12, false);
+                this.dyP.startLoad(portrait, 12, false);
             } else {
-                this.cJv.setImageResource(d.f.photo);
+                this.dyP.setImageResource(d.f.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.dZW.setVisibility(0);
+                this.eLZ.setVisibility(0);
             } else {
-                this.dZW.setVisibility(8);
+                this.eLZ.setVisibility(8);
             }
         }
-        this.cyQ.setText(am.r(feedData.getTime()));
-        this.dZX.setText(feedData.getContent());
+        this.dno.setText(am.z(feedData.getTime()));
+        this.eMa.setText(feedData.getContent());
     }
 
-    @Override // com.baidu.tieba.tbadkCore.n
+    @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        aj.j(getRootView(), d.f.list_selector);
-        aj.k(this.mLine, d.C0095d.cp_bg_line_b);
-        aj.i(this.cyQ, d.C0095d.cp_cont_d);
-        aj.j(this.dZW, d.f.icon_pb_fans);
-        aj.i(this.dZX, d.C0095d.cp_cont_b);
-        this.cyQ.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        aj.s(getRootView(), d.f.list_selector);
+        aj.t(this.mLine, d.C0108d.cp_bg_line_b);
+        aj.r(this.dno, d.C0108d.cp_cont_d);
+        aj.s(this.eLZ, d.f.icon_pb_fans);
+        aj.r(this.eMa, d.C0108d.cp_cont_b);
+        this.dno.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

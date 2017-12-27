@@ -5,10 +5,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.lib.g.b;
-import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.i;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.gif.GifInfo;
@@ -20,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, f {
+public abstract class ChatMessage extends TbSocketMessage implements a, i {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -372,7 +371,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, f {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         if (this.msgType == 11) {
             return TYPE_MSG_MID;
@@ -412,7 +411,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, f {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
+                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                 }
             } catch (Exception e) {
             }

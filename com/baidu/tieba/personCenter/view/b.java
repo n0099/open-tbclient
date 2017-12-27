@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.b> {
+public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.c> {
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
@@ -17,7 +17,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aj.k(getView(), d.C0095d.cp_bg_line_e);
+            aj.t(getView(), d.C0108d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
@@ -29,7 +29,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personCenter.data.b bVar) {
+    public void a(com.baidu.tieba.personCenter.data.c cVar) {
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

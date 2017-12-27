@@ -15,7 +15,7 @@ public class w {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int gX(String str) {
+    public static int ha(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -30,7 +30,7 @@ public class w {
         return i;
     }
 
-    public static int gY(String str) {
+    public static int hb(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class w {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += gX(substring);
+                i += ha(substring);
             }
         }
         return i;
     }
 
-    public static int gZ(String str) {
+    public static int hc(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -61,13 +61,13 @@ public class w {
         return i;
     }
 
-    public static String E(String str, int i) {
+    public static String F(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (gZ(substring) > i) {
+            if (hc(substring) > i) {
                 break;
             }
             i2++;
@@ -76,27 +76,27 @@ public class w {
         return str2;
     }
 
-    public static String F(String str, int i) {
-        if (StringUtils.isNull(str)) {
-            return "";
-        }
-        if (gX(str) > i) {
-            return e(str, 0, i - 2) + "...";
-        }
-        return str;
-    }
-
     public static String G(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gX(str) > i) {
-            return e(str, 0, i);
+        if (ha(str) > i) {
+            return j(str, 0, i - 2) + "...";
         }
         return str;
     }
 
-    public static String e(String str, int i, int i2) {
+    public static String H(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (ha(str) > i) {
+            return j(str, 0, i);
+        }
+        return str;
+    }
+
+    public static String j(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str) || i > i2) {
             return sb.toString();
@@ -156,13 +156,13 @@ public class w {
         return sb.toString();
     }
 
-    public static String H(String str, int i) {
+    public static String I(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (gY(substring) > i) {
+            if (hb(substring) > i) {
                 break;
             }
             i2++;

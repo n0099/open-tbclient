@@ -9,44 +9,44 @@ import com.baidu.tbadk.mvc.model.NetAutoModel;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes.dex */
-public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.h, T> {
+/* loaded from: classes2.dex */
+public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.i, T> {
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
         super(tbPageContext, frsRequestData);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> FB() {
+    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcProtobufHttpResponsedMessage> MU() {
         return FrsPageHttpResponseMessage.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> FD() {
+    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> MV() {
         return FRSPageSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<com.baidu.tieba.tbadkCore.h> getResponseDataClass() {
-        return com.baidu.tieba.tbadkCore.h.class;
+    protected Class<com.baidu.tieba.tbadkCore.i> getResponseDataClass() {
+        return com.baidu.tieba.tbadkCore.i.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fv() {
+    protected int MW() {
         return CmdConfigHttp.FRS_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fw() {
+    protected int MX() {
         return 301001;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Fx() {
+    protected String MY() {
         return TbConfig.FRS_ADDRESS;
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.aIx = frsRequestData;
+        this.bwl = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

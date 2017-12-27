@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String dii;
-    private String dij;
-    private String dik;
-    private String dil;
-    private String dim;
-    private String din;
+    private String dUq;
+    private String dUr;
+    private String dUs;
+    private String dUt;
+    private String dUu;
+    private String dUv;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.dii = String.valueOf(esportRank.rank);
-            this.dij = esportRank.text;
-            this.din = esportRank.url;
+            this.dUq = String.valueOf(esportRank.rank);
+            this.dUr = esportRank.text;
+            this.dUv = esportRank.url;
             if (esportRank.user != null) {
-                this.dik = esportRank.user.steam_name;
-                this.dil = esportRank.user.steam_portrait;
+                this.dUs = esportRank.user.steam_name;
+                this.dUt = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String asr() {
+    public String azx() {
         return this.mTitle;
     }
 
-    public String ass() {
-        return this.dii;
+    public String azy() {
+        return this.dUq;
     }
 
-    public String ast() {
-        return this.dij;
+    public String azz() {
+        return this.dUr;
     }
 
-    public String asu() {
-        return this.dik;
+    public String azA() {
+        return this.dUs;
     }
 
-    public String asv() {
-        return this.dil;
+    public String azB() {
+        return this.dUt;
     }
 
-    public String asw() {
-        return this.dim;
+    public String azC() {
+        return this.dUu;
     }
 
-    public void lO(String str) {
-        this.dim = str;
+    public void lX(String str) {
+        this.dUu = str;
     }
 
-    public String asx() {
-        return this.din;
+    public String azD() {
+        return this.dUv;
     }
 
-    public void lP(String str) {
-        this.din = str;
+    public void lY(String str) {
+        this.dUv = str;
     }
 }

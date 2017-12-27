@@ -1,32 +1,17 @@
 package com.baidu.tieba.frs.entelechy.b;
-
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.frs.ak;
-import com.baidu.tieba.frs.tab.TabData;
-import com.baidu.tieba.tbadkCore.k;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface d {
-    void a(AbsListView absListView, int i, int i2, int i3, int i4);
+    boolean atD();
 
-    void a(BdListView bdListView, int i);
+    void avu();
 
-    void a(BdListView bdListView, k kVar, int i);
+    void avv();
 
-    void a(ak akVar);
+    void avw();
 
-    TabData anR();
+    boolean avx();
 
-    View anS();
-
-    View anT();
-
-    void az(View view);
-
-    void b(BdListView bdListView);
-
-    void fm(boolean z);
+    void fy(boolean z);
 
     void onChangeSkinType(int i);
 }

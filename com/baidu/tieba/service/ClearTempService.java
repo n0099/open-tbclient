@@ -40,25 +40,32 @@ public class ClearTempService extends BdBaseService {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         this.interrupted = false;
-        if (this.thread == null) {
-            this.thread = new Thread() { // from class: com.baidu.tieba.service.ClearTempService.2
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    super.run();
-                    try {
-                        File file = new File(k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
-                        File file2 = new File(k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
-                        File file3 = new File(k.xR + "/" + TbConfig.getTempDirName() + "/voice");
-                        ClearTempService.this.deleteCache(file, false);
-                        ClearTempService.this.deleteDir(file2);
-                        ClearTempService.this.deleteDir(file3);
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
+        try {
+            if (this.thread == null) {
+                this.thread = new Thread() { // from class: com.baidu.tieba.service.ClearTempService.2
+                    @Override // java.lang.Thread, java.lang.Runnable
+                    public void run() {
+                        super.run();
+                        try {
+                            File file = new File(k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
+                            File file2 = new File(k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
+                            File file3 = new File(k.amc + "/" + TbConfig.getTempDirName() + "/voice");
+                            ClearTempService.this.deleteCache(file, false);
+                            ClearTempService.this.deleteDir(file2);
+                            ClearTempService.this.deleteDir(file3);
+                        } catch (Exception e) {
+                            BdLog.e(e.getMessage());
+                        }
+                        ClearTempService.this.handler.sendMessage(ClearTempService.this.handler.obtainMessage());
                     }
-                    ClearTempService.this.handler.sendMessage(ClearTempService.this.handler.obtainMessage());
-                }
-            };
-            this.thread.start();
+                };
+                this.thread.start();
+            }
+        } catch (OutOfMemoryError e) {
+            System.gc();
+            BdLog.e(e.getMessage());
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 
@@ -89,7 +96,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {

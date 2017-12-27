@@ -5,6 +5,8 @@ public interface a {
 
     boolean getIsLike();
 
+    int getLikeStatus();
+
     String getPortrait();
 
     String getUserId();
@@ -16,4 +18,6 @@ public interface a {
     void setIsFromNetWork(boolean z);
 
     void setIsLike(boolean z);
+
+    void setLikeStatus(int i);
 }

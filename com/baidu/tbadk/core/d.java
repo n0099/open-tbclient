@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    protected NewErrorData Tx = null;
+    protected NewErrorData aHY = null;
     protected x mNetWork;
 
     public d() {
@@ -14,7 +14,7 @@ public class d {
 
     public void cancel() {
         if (this.mNetWork != null) {
-            this.mNetWork.fo();
+            this.mNetWork.mR();
         }
     }
 
@@ -27,20 +27,20 @@ public class d {
     }
 
     protected String getResult() {
-        String up = this.mNetWork.up();
-        this.Tx = new NewErrorData();
-        this.Tx.parserJson(up);
-        return up;
+        String BP = this.mNetWork.BP();
+        this.aHY = new NewErrorData();
+        this.aHY.parserJson(BP);
+        return BP;
     }
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.uN().vL().isRequestSuccess();
+            return this.mNetWork.Cn().Dl().isRequestSuccess();
         }
         return false;
     }
 
-    public String oW() {
+    public String wz() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }

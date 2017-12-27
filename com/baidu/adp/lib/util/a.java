@@ -4,7 +4,7 @@ import android.text.ClipboardManager;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class a {
-    public static void aw(String str) {
+    public static void aE(String str) {
         if (str == null) {
             str = "";
         }

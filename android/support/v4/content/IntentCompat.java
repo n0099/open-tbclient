@@ -3,10 +3,11 @@ package android.support.v4.content;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Build;
-/* loaded from: classes.dex */
-public class IntentCompat {
+/* loaded from: classes2.dex */
+public final class IntentCompat {
     public static final String ACTION_EXTERNAL_APPLICATIONS_AVAILABLE = "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE";
     public static final String ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE = "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE";
+    public static final String CATEGORY_LEANBACK_LAUNCHER = "android.intent.category.LEANBACK_LAUNCHER";
     public static final String EXTRA_CHANGED_PACKAGE_LIST = "android.intent.extra.changed_package_list";
     public static final String EXTRA_CHANGED_UID_LIST = "android.intent.extra.changed_uid_list";
     public static final String EXTRA_HTML_TEXT = "android.intent.extra.HTML_TEXT";
@@ -14,7 +15,7 @@ public class IntentCompat {
     public static final int FLAG_ACTIVITY_TASK_ON_HOME = 16384;
     private static final IntentCompatImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface IntentCompatImpl {
         Intent makeMainActivity(ComponentName componentName);
 
@@ -23,7 +24,7 @@ public class IntentCompat {
         Intent makeRestartActivityTask(ComponentName componentName);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class IntentCompatImplBase implements IntentCompatImpl {
         IntentCompatImplBase() {
         }
@@ -51,7 +52,7 @@ public class IntentCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class IntentCompatImplHC extends IntentCompatImplBase {
         IntentCompatImplHC() {
         }
@@ -67,7 +68,7 @@ public class IntentCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class IntentCompatImplIcsMr1 extends IntentCompatImplHC {
         IntentCompatImplIcsMr1() {
         }

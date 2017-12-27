@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a nz;
-    private SparseArray<String> nA;
+    private static volatile a ack;
+    private SparseArray<String> acl;
 
-    public static a cp() {
-        if (nz == null) {
+    public static a jU() {
+        if (ack == null) {
             synchronized (a.class) {
-                if (nz == null) {
-                    nz = new a();
+                if (ack == null) {
+                    ack = new a();
                 }
             }
         }
-        return nz;
+        return ack;
     }
 
     private a() {
-        this.nA = null;
-        this.nA = new SparseArray<>();
+        this.acl = null;
+        this.acl = new SparseArray<>();
     }
 
-    public void e(List<String> list) {
+    public void o(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                A(str);
+                H(str);
             }
         }
     }
 
-    private void A(String str) {
+    private void H(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.nA.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.nA.get(i) + " 重复");
+                    if (this.acl.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.acl.get(i) + " 重复");
                     }
-                    this.nA.put(i, name);
+                    this.acl.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String F(int i) {
-        String str = this.nA.get(i);
+    public String cz(int i) {
+        String str = this.acl.get(i);
         if (str != null) {
             return str;
         }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -20,9 +20,11 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
     public static final String KEY_FROM_FRS = "from_frs";
+    public static final String KEY_FROM_GUIDE = "game_guide";
     public static final String KEY_FROM_HOTTOPIC = "from_hottopic";
     public static final String KEY_FROM_MAINTAB = "from_maintab";
     public static final String KEY_FROM_MARK = "from_mark";
+    public static final String KEY_FROM_NEWS = "game_news";
     public static final String KEY_FROM_SMART_FRS = "from_smart_frs";
     public static final String KEY_FROM_TIEBA_KUANG = "from_tieba_kuang";
     public static final String KEY_GOD_REPLY_ID = "god_reply_id";
@@ -268,16 +270,16 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bd bdVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bdVar != null) {
+    public PbActivityConfig createFromThreadCfg(be beVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (beVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bdVar.getTid());
-            if (bdVar.sM() != null && !StringUtils.isNull(bdVar.sM().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.sM().getId());
+            intent.putExtra("thread_id", beVar.getTid());
+            if (beVar.Ao() != null && !StringUtils.isNull(beVar.Ao().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, beVar.Ao().getId());
             }
-            intent.putExtra("is_good", bdVar.rr());
-            intent.putExtra("is_top", bdVar.rq());
-            intent.putExtra("thread_time", bdVar.rp());
+            intent.putExtra("is_good", beVar.yT());
+            intent.putExtra("is_top", beVar.yS());
+            intent.putExtra("thread_time", beVar.yR());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -287,10 +289,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.rk() == null ? 0L : bdVar.rk().getNum()));
-            if (bdVar.rv() != null && bdVar.rv().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bdVar.rv().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bdVar.rv().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (beVar.yM() == null ? 0L : beVar.yM().getNum()));
+            if (beVar.yX() != null && beVar.yX().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", beVar.yX().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", beVar.yX().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

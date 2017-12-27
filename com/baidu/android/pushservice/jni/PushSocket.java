@@ -2,7 +2,6 @@ package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.g.a;
 import com.baidu.android.pushservice.message.h;
 /* loaded from: classes2.dex */
 public class PushSocket {
@@ -16,10 +15,9 @@ public class PushSocket {
     static {
         a = false;
         try {
-            System.loadLibrary("bdpush_V2_7");
+            System.loadLibrary("bdpush_V2_9");
             a = true;
         } catch (UnsatisfiedLinkError e2) {
-            a.e(d, "Native library not found! Please copy libbdpush_V2_7.so into your project!");
         }
     }
 
@@ -36,30 +34,29 @@ public class PushSocket {
     public static boolean a(Context context) {
         if (!a) {
             try {
-                System.loadLibrary("bdpush_V2_7");
+                System.loadLibrary("bdpush_V2_9");
                 a = true;
             } catch (UnsatisfiedLinkError e2) {
-                Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V2_7.so into your project!");
+                Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V2_9.so into your project!");
             }
         }
         return a;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x004a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
         r0 = new byte[2];
         java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x005b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0042, code lost:
         if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
-        com.baidu.android.pushservice.g.a.b(com.baidu.android.pushservice.jni.PushSocket.d, "MSG_ID_TINY_HEARTBEAT_SERVER");
-        com.baidu.android.pushservice.j.p.b("MSG_ID_TINY_HEARTBEAT_SERVER", r7);
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
+        com.baidu.android.pushservice.j.p.b("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x006b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004a, code lost:
         com.baidu.android.pushservice.jni.PushSocket.c += 2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0071, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
         return r0;
      */
     /*
@@ -74,7 +71,6 @@ public class PushSocket {
                     c = 0;
                 } else if (length - c > 1) {
                     short a2 = a(b, c);
-                    a.b(d, "msgid:" + ((int) a2));
                     if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
                         break;
                     } else if (length - c < e && !b(i)) {

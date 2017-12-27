@@ -16,7 +16,7 @@ public class h extends a {
         return this.mList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return TYPE;
     }

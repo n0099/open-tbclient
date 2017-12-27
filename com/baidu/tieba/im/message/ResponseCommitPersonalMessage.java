@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
+import org.apache.http.cookie.ClientCookie;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 /* loaded from: classes.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
@@ -41,11 +42,12 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (commitPersonalMsgResIdl.data == null) {
-            BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+            BdStatisticsManager.getInstance().error("im", 0L, (String) null, ClientCookie.COMMENT_ATTR, "personalchat_resdatanull");
+            return;
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(d.bX(longValue));
+        setMsgId(d.cg(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

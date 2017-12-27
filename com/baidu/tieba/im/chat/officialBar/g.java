@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,10 +12,10 @@ public class g {
 
     /* loaded from: classes.dex */
     public static class a {
-        public long dFF;
-        public String dFG;
-        public int dFH;
-        public String dFy;
+        public String erB;
+        public long erI;
+        public String erJ;
+        public int erK;
         public String fid;
         public long picId;
         public String src;
@@ -45,7 +44,7 @@ public class g {
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                String optString = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
+                String optString = optJSONObject.optString("title");
                 String optString2 = optJSONObject.optString("url");
                 String optString3 = optJSONObject.optString("src");
                 String optString4 = optJSONObject.optString("text");
@@ -59,14 +58,14 @@ public class g {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.dFy = optString5;
+                aVar.erB = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.dFF = j;
-                    aVar.dFG = userData.getUserId();
-                    aVar.dFH = userData.getUserType();
+                    aVar.erI = j;
+                    aVar.erJ = userData.getUserId();
+                    aVar.erK = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

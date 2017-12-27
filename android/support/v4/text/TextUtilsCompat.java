@@ -1,61 +1,106 @@
 package android.support.v4.text;
 
-import com.baidu.tieba.d;
+import android.os.Build;
 import java.util.Locale;
-/* loaded from: classes.dex */
-public class TextUtilsCompat {
-    public static final Locale ROOT = new Locale("", "");
-    private static String kp = "Arab";
-    private static String kq = "Hebr";
+/* loaded from: classes2.dex */
+public final class TextUtilsCompat {
+    private static final a Bo;
+    static String Bp;
+    static String Bq;
+    public static final Locale ROOT;
 
-    public static String htmlEncode(String str) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
-            switch (charAt) {
-                case '\"':
-                    sb.append("&quot;");
-                    break;
-                case d.l.View_saveEnabled /* 38 */:
-                    sb.append("&amp;");
-                    break;
-                case d.l.View_filterTouchesWhenObscured /* 39 */:
-                    sb.append("&#39;");
-                    break;
-                case d.l.View_verticalScrollbarPosition /* 60 */:
-                    sb.append("&lt;");
-                    break;
-                case '>':
-                    sb.append("&gt;");
-                    break;
+    /* loaded from: classes2.dex */
+    private static class a {
+        a() {
+        }
+
+        public String htmlEncode(String str) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
+                switch (charAt) {
+                    case '\"':
+                        sb.append("&quot;");
+                        break;
+                    case '&':
+                        sb.append("&amp;");
+                        break;
+                    case '\'':
+                        sb.append("&#39;");
+                        break;
+                    case '<':
+                        sb.append("&lt;");
+                        break;
+                    case '>':
+                        sb.append("&gt;");
+                        break;
+                    default:
+                        sb.append(charAt);
+                        break;
+                }
+            }
+            return sb.toString();
+        }
+
+        public int getLayoutDirectionFromLocale(Locale locale) {
+            if (locale != null && !locale.equals(TextUtilsCompat.ROOT)) {
+                String maximizeAndGetScript = ICUCompat.maximizeAndGetScript(locale);
+                if (maximizeAndGetScript == null) {
+                    return d(locale);
+                }
+                if (maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bp) || maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bq)) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        private static int d(Locale locale) {
+            switch (Character.getDirectionality(locale.getDisplayName(locale).charAt(0))) {
+                case 1:
+                case 2:
+                    return 1;
                 default:
-                    sb.append(charAt);
-                    break;
+                    return 0;
             }
         }
-        return sb.toString();
+    }
+
+    /* loaded from: classes2.dex */
+    private static class b extends a {
+        b() {
+        }
+
+        @Override // android.support.v4.text.TextUtilsCompat.a
+        public String htmlEncode(String str) {
+            return c.htmlEncode(str);
+        }
+
+        @Override // android.support.v4.text.TextUtilsCompat.a
+        public int getLayoutDirectionFromLocale(Locale locale) {
+            return c.getLayoutDirectionFromLocale(locale);
+        }
+    }
+
+    static {
+        if (Build.VERSION.SDK_INT >= 17) {
+            Bo = new b();
+        } else {
+            Bo = new a();
+        }
+        ROOT = new Locale("", "");
+        Bp = "Arab";
+        Bq = "Hebr";
+    }
+
+    public static String htmlEncode(String str) {
+        return Bo.htmlEncode(str);
     }
 
     public static int getLayoutDirectionFromLocale(Locale locale) {
-        if (locale != null && !locale.equals(ROOT)) {
-            String script = ICUCompat.getScript(ICUCompat.addLikelySubtags(locale.toString()));
-            if (script == null) {
-                return c(locale);
-            }
-            if (script.equalsIgnoreCase(kp) || script.equalsIgnoreCase(kq)) {
-                return 1;
-            }
-        }
-        return 0;
+        return Bo.getLayoutDirectionFromLocale(locale);
     }
 
-    private static int c(Locale locale) {
-        switch (Character.getDirectionality(locale.getDisplayName(locale).charAt(0))) {
-            case 1:
-            case 2:
-                return 1;
-            default:
-                return 0;
-        }
+    private TextUtilsCompat() {
     }
 }

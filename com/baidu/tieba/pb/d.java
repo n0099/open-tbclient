@@ -2,9 +2,9 @@ package com.baidu.tieba.pb;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    public static int u(TbPageContext tbPageContext) {
+    public static int t(TbPageContext tbPageContext) {
         String fromPageKey = UtilHelper.getFromPageKey(tbPageContext);
         if (fromPageKey == null) {
             return 3;

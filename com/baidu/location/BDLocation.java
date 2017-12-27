@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.location.Address;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
@@ -312,7 +313,7 @@ public final class BDLocation implements Parcelable {
                 setLatitude(Double.parseDouble(jSONObject4.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject4.getString("x")));
                 setRadius(Float.parseFloat(jSONObject3.getString("radius")));
-                setSpeed(Float.parseFloat(jSONObject3.getString("s")));
+                setSpeed(Float.parseFloat(jSONObject3.getString(NotifyType.SOUND)));
                 setDirection(Float.parseFloat(jSONObject3.getString("d")));
                 setSatelliteNumber(Integer.parseInt(jSONObject3.getString("n")));
                 if (jSONObject3.has("h")) {

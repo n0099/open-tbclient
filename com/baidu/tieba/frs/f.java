@@ -1,30 +1,53 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId cGY = BdUniqueId.gen();
-    private int height = 0;
-    private int cGZ = 0;
+public class f {
+    private static UserData mUserData;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return cGY;
+    public static UserData asI() {
+        return mUserData;
     }
 
-    public int getHeight() {
-        return this.height;
+    private static UserData a(com.baidu.tieba.tbadkCore.l lVar) {
+        mUserData = lVar != null ? lVar.getUserData() : null;
+        return mUserData;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
+        if (threadCommentAndPraiseInfoLayout != null) {
+            if (b(a(lVar))) {
+                threadCommentAndPraiseInfoLayout.setManageVisible(true);
+            } else {
+                threadCommentAndPraiseInfoLayout.setManageVisible(false);
+            }
+        }
     }
 
-    public int ald() {
-        return this.cGZ;
+    public static boolean b(UserData userData) {
+        if (userData == null) {
+            return false;
+        }
+        switch (userData.getIs_manager()) {
+            case 1:
+            case 2:
+                return true;
+            default:
+                return false;
+        }
     }
 
-    public void jM(int i) {
-        this.cGZ = i;
+    public static boolean asJ() {
+        UserData asI = asI();
+        if (asI == null) {
+            return false;
+        }
+        switch (asI.getIs_manager()) {
+            case 1:
+                return true;
+            default:
+                return false;
+        }
     }
 }

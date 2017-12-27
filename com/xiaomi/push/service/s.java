@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ak;
@@ -339,7 +340,7 @@ public class s {
             return;
         }
         com.xiaomi.smack.packet.c cVar = (com.xiaomi.smack.packet.c) dVar;
-        com.xiaomi.smack.packet.a p = cVar.p("s");
+        com.xiaomi.smack.packet.a p = cVar.p(NotifyType.SOUND);
         if (p != null) {
             try {
                 a(xMPushService, aq.b(aq.a(bVar.i, cVar.k()), p.c()), com.xiaomi.smack.util.g.a(dVar.c()));

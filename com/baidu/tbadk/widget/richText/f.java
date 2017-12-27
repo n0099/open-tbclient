@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aVu;
-    private int aVv;
-    private String aVw;
-    private int aVx;
-    private int aVy;
+    private String bJi;
+    private int bJj;
+    private String bJk;
+    private int bJl;
+    private int bJm;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aVu = pbContent.src;
+            this.bJi = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aVv = pbContent.e_type.intValue();
-            this.aVw = pbContent.text;
+            this.bJj = pbContent.e_type.intValue();
+            this.bJk = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aVx = pbContent.count.intValue();
-            this.aVy = pbContent.origin_size.intValue();
+            this.bJl = pbContent.count.intValue();
+            this.bJm = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aVu;
+        return this.bJi;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class f {
         return this.height;
     }
 
-    public String Kd() {
-        return this.aVw;
+    public String RA() {
+        return this.bJk;
     }
 
-    public boolean Ke() {
-        return this.aVv == 15;
+    public boolean RB() {
+        return this.bJj == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Kf() {
-        return this.aVx;
+    public int RC() {
+        return this.bJl;
     }
 
-    public void gh(int i) {
-        this.aVx = i;
+    public void jg(int i) {
+        this.bJl = i;
     }
 }

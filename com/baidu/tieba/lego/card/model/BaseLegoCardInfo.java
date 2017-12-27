@@ -3,7 +3,6 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
@@ -50,7 +49,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
         this.flipId = jSONObject.optString("flip_id");
         this.scheme = jSONObject.optString("scheme");
-        this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+        this.title = jSONObject.optString("title");
         this.statistics = jSONObject.optString("statistics");
         this.sExtras = jSONObject.optString("sExtras");
         this.showKey = jSONObject.optString("showKey");
@@ -198,7 +197,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }

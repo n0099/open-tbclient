@@ -10,50 +10,50 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean o(Bundle bundle);
+    protected abstract boolean p(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void axl() {
-        awN();
+    public void aEm() {
+        aDO();
     }
 
-    public void awN() {
+    public void aDO() {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!o(bundle)) {
+        if (!p(bundle)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0095d.common_color_10022, false);
-        if (this.dEL != null) {
-            this.dEL.setImageUploadUIProgressCallback(this.dER);
+        adjustResizeForSoftInput(d.C0108d.common_color_10022, false);
+        if (this.eqO != null) {
+            this.eqO.setImageUploadUIProgressCallback(this.eqT);
         }
-        axr();
+        aEs();
         if (a((d) this)) {
             loadDraft();
-            awL();
-            j.dEJ = com.baidu.tbadk.util.i.Hf();
+            aDM();
+            j.eqM = com.baidu.tbadk.util.i.OE();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.dEL != null) {
-            this.dEL.onDestroy();
+        if (this.eqO != null) {
+            this.eqO.onDestroy();
         }
         setIntent(intent);
-        if (!o(null)) {
+        if (!p(null)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0095d.common_color_10022, false);
-        axr();
+        adjustResizeForSoftInput(d.C0108d.common_color_10022, false);
+        aEs();
         if (a((d) this)) {
             loadDraft();
         }
@@ -62,8 +62,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dEK != null) {
-            this.dEK.onChangeSkinType(i);
+        if (this.eqN != null) {
+            this.eqN.onChangeSkinType(i);
         }
     }
 
@@ -71,37 +71,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dEK != null) {
-            this.dEK.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            awI();
+        if (this.eqN != null) {
+            this.eqN.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            aDJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void awI() {
+    public void aDJ() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.dEK.showReceiver();
+            this.eqN.showReceiver();
         } else {
-            this.dEK.closeReceiver();
+            this.eqN.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.dEL.loadDraft();
+        return this.eqO.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        awM();
+        aDN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void awL() {
+    public void aDM() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void awM() {
+    public void aDN() {
     }
 }

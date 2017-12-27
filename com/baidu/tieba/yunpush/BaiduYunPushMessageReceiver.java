@@ -4,14 +4,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushMessageReceiver;
-import com.baidu.sapi2.result.FillUserProfileResult;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import java.net.URISyntaxException;
@@ -25,9 +21,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
-        Log.e(TAG, "onBind errorCode=" + i);
+        String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            Log.e(TAG, FillUserProfileResult.RESULT_MSG_SUCCESS);
             b.getInstance().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
@@ -36,7 +31,6 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onUnbind(Context context, int i, String str) {
         if (i == 0) {
-            Log.e(TAG, "解绑成功");
         }
     }
 
@@ -60,12 +54,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     */
     public void onMessage(Context context, String str, String str2) {
         String str3;
-        int g;
+        int h;
         JSONObject jSONObject;
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
-                String string = !jSONObject2.isNull(VrPlayerActivityConfig.TITLE) ? jSONObject2.getString(VrPlayerActivityConfig.TITLE) : null;
+                String string = !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null;
                 String string2 = !jSONObject2.isNull("description") ? jSONObject2.getString("description") : null;
                 if (!jSONObject2.isNull("custom_content")) {
                     JSONObject jSONObject3 = new JSONObject(jSONObject2.getString("custom_content"));
@@ -74,32 +68,32 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                         String str4 = "";
                         if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
                             jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                            if (!jSONObject.isNull(InterviewLiveActivityConfig.KEY_TASK_ID)) {
-                                str4 = jSONObject.getString(InterviewLiveActivityConfig.KEY_TASK_ID);
+                            if (!jSONObject.isNull("task_id")) {
+                                str4 = jSONObject.getString("task_id");
                             }
                         }
-                        g = com.baidu.adp.lib.g.b.g(str4, TbConfig.NOTIFY_YUN_PUSH);
-                        if (g < 2500) {
-                            g += TbConfig.NOTIFY_YUN_PUSH;
+                        h = com.baidu.adp.lib.g.b.h(str4, TbConfig.NOTIFY_YUN_PUSH);
+                        if (h < 2500) {
+                            h += TbConfig.NOTIFY_YUN_PUSH;
                         }
                         Intent parseUri = Intent.parseUri(str3, 1);
                         parseUri.setFlags(276824064);
-                        NotificationHelper.showNotification(context, g, string, string2, string2, PendingIntent.getActivity(context, g, parseUri, 134217728), false);
+                        NotificationHelper.showNotification(context, h, string, string2, string2, PendingIntent.getActivity(context, h, parseUri, 134217728), false);
                     }
                 }
                 str3 = null;
                 String str42 = "";
                 if (!TextUtils.isEmpty(str3)) {
                     jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                    if (!jSONObject.isNull(InterviewLiveActivityConfig.KEY_TASK_ID)) {
+                    if (!jSONObject.isNull("task_id")) {
                     }
                 }
-                g = com.baidu.adp.lib.g.b.g(str42, TbConfig.NOTIFY_YUN_PUSH);
-                if (g < 2500) {
+                h = com.baidu.adp.lib.g.b.h(str42, TbConfig.NOTIFY_YUN_PUSH);
+                if (h < 2500) {
                 }
                 Intent parseUri2 = Intent.parseUri(str3, 1);
                 parseUri2.setFlags(276824064);
-                NotificationHelper.showNotification(context, g, string, string2, string2, PendingIntent.getActivity(context, g, parseUri2, 134217728), false);
+                NotificationHelper.showNotification(context, h, string, string2, string2, PendingIntent.getActivity(context, h, parseUri2, 134217728), false);
             } catch (Exception e) {
             }
         }

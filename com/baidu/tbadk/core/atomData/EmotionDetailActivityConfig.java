@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class EmotionDetailActivityConfig extends IntentConfig {
+    public static final String EMOTION_FROM_PACKAGE = "from_package";
     public static final String EMOTION_IS_GIF_KEY = "is_gif";
     public static final String EMOTION_PCK_ID_KEY = "pck_id";
     public static final String EMOTION_PIC_ID_KEY = "pic_id";
@@ -26,5 +27,10 @@ public class EmotionDetailActivityConfig extends IntentConfig {
         intent.putExtra(EMOTION_PIC_ID_KEY, j);
         intent.putExtra(EMOTION_IS_GIF_KEY, z);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public EmotionDetailActivityConfig setFromEmotionPackage(boolean z) {
+        getIntent().putExtra(EMOTION_FROM_PACKAGE, z);
+        return this;
     }
 }

@@ -115,13 +115,13 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        if (this.mHeaders.containsKey(KEY_COOKIE) && (parseKVString = parseKVString(this.mHeaders.get(KEY_COOKIE), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null) {
+        if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null) {
             String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
             parseKVString.put(str, str2);
-            addHeader(KEY_COOKIE, map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
+            addHeader("Cookie", map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
             return str3;
         }
-        addHeader(KEY_COOKIE, str + '=' + str2 + ';');
+        addHeader("Cookie", str + '=' + str2 + ';');
         return null;
     }
 
@@ -130,12 +130,12 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     public String removeCookie(String str) {
-        if (str == null || !this.mHeaders.containsKey(KEY_COOKIE)) {
+        if (str == null || !this.mHeaders.containsKey("Cookie")) {
             return null;
         }
-        Map<String, String> parseKVString = parseKVString(this.mHeaders.get(KEY_COOKIE), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        Map<String, String> parseKVString = parseKVString(this.mHeaders.get("Cookie"), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         String remove = parseKVString.remove(str);
-        addHeader(KEY_COOKIE, map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
+        addHeader("Cookie", map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
         return remove;
     }
 
@@ -191,24 +191,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT qe;
+        private SORT aeF;
 
         public a(SORT sort) {
-            this.qe = null;
-            this.qe = sort;
+            this.aeF = null;
+            this.aeF = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.qe == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.aeF == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.H(i);
+        return FrameHelper.cB(i);
     }
 
     public boolean setNeedProgress() {

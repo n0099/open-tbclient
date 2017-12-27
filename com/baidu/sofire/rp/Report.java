@@ -7,7 +7,7 @@ import com.baidu.sofire.rp.f.a;
 import com.baidu.sofire.rp.f.b;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report QF;
+    private static Report aFn;
     private Context b;
 
     private Report(Context context) {
@@ -17,10 +17,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (QF == null) {
-                QF = new Report(context);
+            if (aFn == null) {
+                aFn = new Report(context);
             }
-            report = QF;
+            report = aFn;
         }
         return report;
     }
@@ -43,11 +43,11 @@ public class Report {
 
     public void sr(String str) {
         try {
-            b at = b.at(this.b);
+            b aF = b.aF(this.b);
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            at.QP.QL.sendMessage(message);
+            aF.aFx.aFt.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -55,7 +55,7 @@ public class Report {
 
     public void r(boolean z) {
         try {
-            b.at(this.b).a();
+            b.aF(this.b).a();
         } catch (Throwable th) {
             d.a(th);
         }
@@ -71,10 +71,10 @@ public class Report {
 
     public void n() {
         try {
-            b at = b.at(this.b);
+            b aF = b.aF(this.b);
             Message message = new Message();
             message.what = 6;
-            at.QP.QL.sendMessage(message);
+            aF.aFx.aFt.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -82,10 +82,10 @@ public class Report {
 
     public void fr() {
         try {
-            b at = b.at(this.b);
+            b aF = b.aF(this.b);
             Message message = new Message();
             message.what = 9;
-            at.QP.QL.sendMessage(message);
+            aF.aFx.aFt.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }

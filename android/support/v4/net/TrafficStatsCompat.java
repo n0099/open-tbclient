@@ -1,13 +1,14 @@
 package android.support.v4.net;
 
 import android.os.Build;
+import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
-/* loaded from: classes.dex */
-public class TrafficStatsCompat {
+/* loaded from: classes2.dex */
+public final class TrafficStatsCompat {
     private static final TrafficStatsCompatImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface TrafficStatsCompatImpl {
         void clearThreadStatsTag();
 
@@ -19,12 +20,16 @@ public class TrafficStatsCompat {
 
         void setThreadStatsTag(int i);
 
+        void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException;
+
         void tagSocket(Socket socket) throws SocketException;
+
+        void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException;
 
         void untagSocket(Socket socket) throws SocketException;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BaseTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
         private ThreadLocal<SocketTags> mThreadSocketTags = new ThreadLocal<SocketTags>() { // from class: android.support.v4.net.TrafficStatsCompat.BaseTrafficStatsCompatImpl.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -36,17 +41,16 @@ public class TrafficStatsCompat {
             }
         };
 
-        /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes.dex */
-        public static class SocketTags {
-            public int statsTag;
-
-            private SocketTags() {
-                this.statsTag = -1;
-            }
+        BaseTrafficStatsCompatImpl() {
         }
 
-        BaseTrafficStatsCompatImpl() {
+        /* JADX INFO: Access modifiers changed from: private */
+        /* loaded from: classes2.dex */
+        public static class SocketTags {
+            public int statsTag = -1;
+
+            SocketTags() {
+            }
         }
 
         @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
@@ -79,9 +83,17 @@ public class TrafficStatsCompat {
         @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
         public void untagSocket(Socket socket) {
         }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void tagDatagramSocket(DatagramSocket datagramSocket) {
+        }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void untagDatagramSocket(DatagramSocket datagramSocket) {
+        }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class IcsTrafficStatsCompatImpl implements TrafficStatsCompatImpl {
         IcsTrafficStatsCompatImpl() {
         }
@@ -120,10 +132,38 @@ public class TrafficStatsCompat {
         public void untagSocket(Socket socket) throws SocketException {
             TrafficStatsCompatIcs.untagSocket(socket);
         }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+            TrafficStatsCompatIcs.tagDatagramSocket(datagramSocket);
+        }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+            TrafficStatsCompatIcs.untagDatagramSocket(datagramSocket);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class Api24TrafficStatsCompatImpl extends IcsTrafficStatsCompatImpl {
+        Api24TrafficStatsCompatImpl() {
+        }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.IcsTrafficStatsCompatImpl, android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+            TrafficStatsCompatApi24.tagDatagramSocket(datagramSocket);
+        }
+
+        @Override // android.support.v4.net.TrafficStatsCompat.IcsTrafficStatsCompatImpl, android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
+        public void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+            TrafficStatsCompatApi24.untagDatagramSocket(datagramSocket);
+        }
     }
 
     static {
-        if (Build.VERSION.SDK_INT >= 14) {
+        if ("N".equals(Build.VERSION.CODENAME)) {
+            IMPL = new Api24TrafficStatsCompatImpl();
+        } else if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new IcsTrafficStatsCompatImpl();
         } else {
             IMPL = new BaseTrafficStatsCompatImpl();
@@ -156,5 +196,16 @@ public class TrafficStatsCompat {
 
     public static void untagSocket(Socket socket) throws SocketException {
         IMPL.untagSocket(socket);
+    }
+
+    public static void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+        IMPL.tagDatagramSocket(datagramSocket);
+    }
+
+    public static void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+        IMPL.untagDatagramSocket(datagramSocket);
+    }
+
+    private TrafficStatsCompat() {
     }
 }

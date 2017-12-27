@@ -11,6 +11,8 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
+import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +32,7 @@ public final class StatService {
     public static void onEvent(StatEvent statEvent) {
         if (statEvent != null && !TextUtils.isEmpty(statEvent.a)) {
             HashMap hashMap = new HashMap();
-            hashMap.put("di", SapiDeviceInfo.getDeviceInfo(statEvent.b));
+            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(statEvent.b));
             hashMap.put("pis_di", SapiDeviceInfo.getPisDeviceInfo());
             onEvent(statEvent.a, hashMap);
         }
@@ -59,7 +61,7 @@ public final class StatService {
                     if (!TextUtils.isEmpty(confignation.clientId)) {
                         hashMap.put("cuid", confignation.clientId);
                     }
-                    hashMap.put("v", String.valueOf(System.currentTimeMillis()));
+                    hashMap.put(NotifyType.VIBRATE, String.valueOf(System.currentTimeMillis()));
                     if (map != null) {
                         for (Map.Entry<String, String> entry : map.entrySet()) {
                             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {

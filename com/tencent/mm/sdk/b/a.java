@@ -6,13 +6,13 @@ import android.os.Process;
 /* loaded from: classes.dex */
 public final class a {
     private static int level = 6;
-    private static InterfaceC0170a n;
-    private static InterfaceC0170a o;
+    private static InterfaceC0192a n;
+    private static InterfaceC0192a o;
     private static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0170a {
+    public interface InterfaceC0192a {
         int b();
 
         void d(String str, String str2);
@@ -56,11 +56,11 @@ public final class a {
         if (format == null) {
             format = "";
         }
-        InterfaceC0170a interfaceC0170a = o;
+        InterfaceC0192a interfaceC0192a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0170a.f(str, format);
+        interfaceC0192a.f(str, format);
     }
 
     public static void b(String str, String str2) {
@@ -70,11 +70,11 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0170a interfaceC0170a = o;
+        InterfaceC0192a interfaceC0192a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0170a.d(str, str2);
+        interfaceC0192a.d(str, str2);
     }
 
     public static void c(String str, String str2) {
@@ -84,10 +84,10 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0170a interfaceC0170a = o;
+        InterfaceC0192a interfaceC0192a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0170a.e(str, str2);
+        interfaceC0192a.e(str, str2);
     }
 }

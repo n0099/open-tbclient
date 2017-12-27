@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.pb.data.m;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public m pbFloorData;
     private boolean treatDelPage;
@@ -39,7 +39,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 mVar = m.a(pbFloorResIdl.data, context);
                 if (mVar != null) {
-                    mVar.eQv = pbFloorResIdl.error;
+                    mVar.fCW = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

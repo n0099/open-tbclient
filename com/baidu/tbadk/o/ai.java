@@ -1,10 +1,10 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ai extends j {
-    private static ai aMr = new ai();
+    private static ai bAe = new ai();
 
-    public static boolean GU() {
-        return aMr.fS();
+    public static boolean Ot() {
+        return bAe.nu();
     }
 
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class ai extends j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
-    public int eN() {
-        return super.eN();
+    public int mr() {
+        return super.mr();
     }
 }

@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import android.support.v4.view.MotionEventCompat;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -70,7 +69,7 @@ public class EC3TrackImpl extends AbstractTrack {
             if (bitStreamInfo2.strmtyp == 1) {
                 int i2 = bitStreamInfo2.substreamid;
                 iArr[i2] = iArr[i2] + 1;
-                iArr2[bitStreamInfo2.substreamid] = ((bitStreamInfo2.chanmap >> 5) & MotionEventCompat.ACTION_MASK) | ((bitStreamInfo2.chanmap >> 6) & 256);
+                iArr2[bitStreamInfo2.substreamid] = ((bitStreamInfo2.chanmap >> 5) & 255) | ((bitStreamInfo2.chanmap >> 6) & 256);
             }
         }
         for (BitStreamInfo bitStreamInfo3 : this.bitStreamInfos) {

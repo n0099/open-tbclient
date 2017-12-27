@@ -2,11 +2,11 @@ package android.support.v4.view;
 
 import android.os.Build;
 import android.view.ViewGroup;
-/* loaded from: classes.dex */
-public class MarginLayoutParamsCompat {
+/* loaded from: classes2.dex */
+public final class MarginLayoutParamsCompat {
     static final MarginLayoutParamsCompatImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface MarginLayoutParamsCompatImpl {
         int getLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams);
 
@@ -25,7 +25,7 @@ public class MarginLayoutParamsCompat {
         void setMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class MarginLayoutParamsCompatImplBase implements MarginLayoutParamsCompatImpl {
         MarginLayoutParamsCompatImplBase() {
         }
@@ -69,7 +69,7 @@ public class MarginLayoutParamsCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class MarginLayoutParamsCompatImplJbMr1 implements MarginLayoutParamsCompatImpl {
         MarginLayoutParamsCompatImplJbMr1() {
         }
@@ -144,7 +144,11 @@ public class MarginLayoutParamsCompat {
     }
 
     public static int getLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams) {
-        return IMPL.getLayoutDirection(marginLayoutParams);
+        int layoutDirection = IMPL.getLayoutDirection(marginLayoutParams);
+        if (layoutDirection != 0 && layoutDirection != 1) {
+            return 0;
+        }
+        return layoutDirection;
     }
 
     public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
@@ -153,5 +157,8 @@ public class MarginLayoutParamsCompat {
 
     public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         IMPL.resolveLayoutDirection(marginLayoutParams, i);
+    }
+
+    private MarginLayoutParamsCompat() {
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ak {
-    void QJ();
+    void Yi();
 
-    void a(int i, int i2, ap apVar);
+    void a(int i, int i2, aq aqVar);
 
-    void a(am amVar);
+    void a(an anVar);
 
     void init();
 }

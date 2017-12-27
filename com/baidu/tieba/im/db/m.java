@@ -11,55 +11,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private static int dJz = TbConfig.POST_IMAGE_SMALL;
-    private static int dJA = 500;
+    private static int evF = TbConfig.POST_IMAGE_SMALL;
+    private static int evG = 500;
 
-    public static void azH() {
-        if (!ao.fS()) {
+    public static void aGI() {
+        if (!ao.nu()) {
             com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
             return;
         }
         try {
-            g.azv().azw();
-            String azJ = azJ();
-            if (!TextUtils.isEmpty(azJ)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + mM(azJ), new Object[0]);
+            g.aGw().aGx();
+            String aGK = aGK();
+            if (!TextUtils.isEmpty(aGK)) {
+                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + mV(aGK), new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            g.azv().endTransaction();
+            g.aGw().endTransaction();
         }
     }
 
-    public static void nj(int i) {
-        if (i < dJA) {
-            i = dJA;
+    public static void qb(int i) {
+        if (i < evG) {
+            i = evG;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_max_stranger", i);
     }
 
-    private static int azI() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", dJz);
+    private static int aGJ() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", evF);
     }
 
-    private static String azJ() {
-        List<String> azK;
+    private static String aGK() {
+        List<String> aGL;
         StringBuilder sb = new StringBuilder();
         try {
-            azK = azK();
+            aGL = aGL();
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeData", new Object[0]);
         }
-        if (azK == null || azK.size() == 0) {
+        if (aGL == null || aGL.size() == 0) {
             return null;
         }
-        int azI = azI();
-        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + azK.size() + " max is " + azI, new Object[0]);
-        if (azK.size() > azI) {
+        int aGJ = aGJ();
+        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + aGL.size() + " max is " + aGJ, new Object[0]);
+        if (aGL.size() > aGJ) {
             boolean z = true;
-            for (String str : azK.subList(0, 2000 >= azK.size() - azI ? azK.size() - azI : 2000)) {
+            for (String str : aGL.subList(0, 2000 >= aGL.size() - aGJ ? aGL.size() - aGJ : 2000)) {
                 if (z) {
                     z = false;
                 } else {
@@ -71,11 +71,11 @@ public class m {
         return sb.toString();
     }
 
-    private static List<String> azK() {
+    private static List<String> aGL() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = g.azv().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+            cursor = g.aGw().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -85,14 +85,14 @@ public class m {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
         } finally {
-            n.e(cursor);
+            n.i(cursor);
         }
         return arrayList;
     }
 
-    private static boolean mM(String str) {
+    private static boolean mV(String str) {
         try {
-            return g.azv().mL("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            return g.aGw().mU("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);

@@ -1,36 +1,31 @@
 package com.baidu.tbadk.data;
-
-import com.baidu.adp.BdUniqueId;
-import tbclient.UserStory;
 /* loaded from: classes.dex */
-public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aAw = BdUniqueId.gen();
-    public int aAt;
-    public com.baidu.tieba.story.process.b aAu;
-    public String aAv;
-    public int has_read;
-    private boolean isStop;
-    public String portrait;
-    public long user_id;
-    public String user_name;
-    public int aAs = -1;
-    public int mStatus = 0;
+public class g {
+    private int activityId;
+    private String activityNum;
+    private int boN;
 
-    public void bq(boolean z) {
-        this.isStop = z;
+    public int getActivityId() {
+        return this.activityId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return aAw;
+    public void setActivityId(int i) {
+        this.activityId = i;
     }
 
-    public void a(UserStory userStory) {
-        if (userStory != null) {
-            this.user_id = userStory.user_id.longValue();
-            this.user_name = userStory.user_name;
-            this.has_read = userStory.has_read.intValue();
-            this.portrait = userStory.portrait;
-        }
+    public int Kf() {
+        return this.boN;
+    }
+
+    public void hD(int i) {
+        this.boN = i;
+    }
+
+    public String Kg() {
+        return this.activityNum;
+    }
+
+    public void fG(String str) {
+        this.activityNum = str;
     }
 }

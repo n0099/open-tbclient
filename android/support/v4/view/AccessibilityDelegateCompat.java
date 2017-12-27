@@ -9,14 +9,14 @@ import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AccessibilityDelegateCompat {
     private static final Object DEFAULT_DELEGATE;
     private static final AccessibilityDelegateImpl IMPL;
     final Object mBridge = IMPL.newAccessiblityDelegateBridge(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface AccessibilityDelegateImpl {
         boolean dispatchPopulateAccessibilityEvent(Object obj, View view, AccessibilityEvent accessibilityEvent);
 
@@ -41,7 +41,7 @@ public class AccessibilityDelegateCompat {
         void sendAccessibilityEventUnchecked(Object obj, View view, AccessibilityEvent accessibilityEvent);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityDelegateStubImpl implements AccessibilityDelegateImpl {
         AccessibilityDelegateStubImpl() {
         }
@@ -97,7 +97,7 @@ public class AccessibilityDelegateCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityDelegateIcsImpl extends AccessibilityDelegateStubImpl {
         AccessibilityDelegateIcsImpl() {
         }
@@ -183,7 +183,7 @@ public class AccessibilityDelegateCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityDelegateJellyBeanImpl extends AccessibilityDelegateIcsImpl {
         AccessibilityDelegateJellyBeanImpl() {
         }

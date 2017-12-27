@@ -20,17 +20,17 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class a extends TextureView implements TextureView.SurfaceTextureListener {
-    private static final j bXI = new j();
-    private final WeakReference<a> bXJ;
-    private i bXK;
-    private c.m bXL;
-    private e bXM;
-    private f bXN;
-    private g bXO;
-    private k bXP;
-    private int bXQ;
-    private int bXR;
-    private boolean bXS;
+    private static final j cMp = new j();
+    private final WeakReference<a> cMq;
+    private i cMr;
+    private c.m cMs;
+    private e cMt;
+    private f cMu;
+    private g cMv;
+    private k cMw;
+    private int cMx;
+    private int cMy;
+    private boolean cMz;
     private boolean mDetached;
 
     /* loaded from: classes.dex */
@@ -59,14 +59,14 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
     public a(Context context) {
         super(context);
-        this.bXJ = new WeakReference<>(this);
+        this.cMq = new WeakReference<>(this);
         init();
     }
 
     protected void finalize() throws Throwable {
         try {
-            if (this.bXK != null) {
-                this.bXK.abf();
+            if (this.cMr != null) {
+                this.cMr.aiL();
             }
         } finally {
             super.finalize();
@@ -78,54 +78,54 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void setGLWrapper(k kVar) {
-        this.bXP = kVar;
+        this.cMw = kVar;
     }
 
     public void setDebugFlags(int i2) {
-        this.bXQ = i2;
+        this.cMx = i2;
     }
 
     public int getDebugFlags() {
-        return this.bXQ;
+        return this.cMx;
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
-        this.bXS = z;
+        this.cMz = z;
     }
 
     public boolean getPreserveEGLContextOnPause() {
-        return this.bXS;
+        return this.cMz;
     }
 
     public void setRenderer(c.m mVar) {
-        aaS();
-        if (this.bXM == null) {
-            this.bXM = new m(true);
+        aiy();
+        if (this.cMt == null) {
+            this.cMt = new m(true);
         }
-        if (this.bXN == null) {
-            this.bXN = new c();
+        if (this.cMu == null) {
+            this.cMu = new c();
         }
-        if (this.bXO == null) {
-            this.bXO = new d();
+        if (this.cMv == null) {
+            this.cMv = new d();
         }
-        this.bXL = mVar;
-        this.bXK = new i(this.bXJ);
-        this.bXK.start();
+        this.cMs = mVar;
+        this.cMr = new i(this.cMq);
+        this.cMr.start();
     }
 
     public void setEGLContextFactory(f fVar) {
-        aaS();
-        this.bXN = fVar;
+        aiy();
+        this.cMu = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
-        aaS();
-        this.bXO = gVar;
+        aiy();
+        this.cMv = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
-        aaS();
-        this.bXM = eVar;
+        aiy();
+        this.cMt = eVar;
     }
 
     public void setEGLConfigChooser(boolean z) {
@@ -133,41 +133,41 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void setEGLContextClientVersion(int i2) {
-        aaS();
-        this.bXR = i2;
+        aiy();
+        this.cMy = i2;
     }
 
     public void setRenderMode(int i2) {
-        this.bXK.setRenderMode(i2);
+        this.cMr.setRenderMode(i2);
     }
 
     public int getRenderMode() {
-        return this.bXK.getRenderMode();
+        return this.cMr.getRenderMode();
     }
 
     public void requestRender() {
-        this.bXK.requestRender();
+        this.cMr.requestRender();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        this.bXK.abe();
+        this.cMr.aiK();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        this.bXK.ak(i2, i3);
+        this.cMr.bj(i2, i3);
     }
 
     @Override // android.view.TextureView, android.view.View
     protected void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.bXK.ak(i2, i3);
+        this.cMr.bj(i2, i3);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.bXK.surfaceDestroyed();
+        this.cMr.surfaceDestroyed();
         return true;
     }
 
@@ -177,31 +177,31 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void onPause() {
-        this.bXK.onPause();
+        this.cMr.onPause();
     }
 
     public void onResume() {
-        this.bXK.onResume();
+        this.cMr.onResume();
     }
 
     @Override // android.view.TextureView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mDetached && this.bXL != null) {
-            int renderMode = this.bXK != null ? this.bXK.getRenderMode() : 1;
-            this.bXK = new i(this.bXJ);
+        if (this.mDetached && this.cMs != null) {
+            int renderMode = this.cMr != null ? this.cMr.getRenderMode() : 1;
+            this.cMr = new i(this.cMq);
             if (renderMode != 1) {
-                this.bXK.setRenderMode(renderMode);
+                this.cMr.setRenderMode(renderMode);
             }
-            this.bXK.start();
+            this.cMr.start();
         }
         this.mDetached = false;
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
-        if (this.bXK != null) {
-            this.bXK.abf();
+        if (this.cMr != null) {
+            this.cMr.aiL();
         }
         this.mDetached = true;
         try {
@@ -220,9 +220,9 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
         @Override // com.baidu.tieba.b.d.a.f
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, a.this.bXR, 12344};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, a.this.cMy, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
-            if (a.this.bXR == 0) {
+            if (a.this.cMy == 0) {
                 iArr = null;
             }
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
@@ -232,7 +232,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         public void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (!egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 Log.e("DefaultContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);
-                h.O("eglDestroyContex", egl10.eglGetError());
+                h.Q("eglDestroyContex", egl10.eglGetError());
             }
         }
     }
@@ -260,19 +260,19 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
     /* renamed from: com.baidu.tieba.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private abstract class AbstractC0090a implements e {
-        protected int[] bXT;
+    private abstract class AbstractC0103a implements e {
+        protected int[] cMA;
 
         abstract EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
 
-        public AbstractC0090a(int[] iArr) {
-            this.bXT = h(iArr);
+        public AbstractC0103a(int[] iArr) {
+            this.cMA = o(iArr);
         }
 
         @Override // com.baidu.tieba.b.d.a.e
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.bXT, null, 0, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.cMA, null, 0, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig failed");
             }
             int i = iArr[0];
@@ -280,7 +280,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                 throw new IllegalArgumentException("No configs match configSpec");
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[i];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.bXT, eGLConfigArr, i, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.cMA, eGLConfigArr, i, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig#2 failed");
             }
             EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
@@ -290,8 +290,8 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             return chooseConfig;
         }
 
-        private int[] h(int[] iArr) {
-            if (a.this.bXR == 2) {
+        private int[] o(int[] iArr) {
+            if (a.this.cMy == 2) {
                 int length = iArr.length;
                 int[] iArr2 = new int[length + 2];
                 System.arraycopy(iArr, 0, iArr2, 0, length - 1);
@@ -305,7 +305,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     /* loaded from: classes.dex */
-    private class b extends AbstractC0090a {
+    private class b extends AbstractC0103a {
         protected int mAlphaSize;
         protected int mBlueSize;
         protected int mDepthSize;
@@ -325,7 +325,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             this.mStencilSize = i6;
         }
 
-        @Override // com.baidu.tieba.b.d.a.AbstractC0090a
+        @Override // com.baidu.tieba.b.d.a.AbstractC0103a
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             for (EGLConfig eGLConfig : eGLConfigArr) {
                 int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12325, 0);
@@ -361,89 +361,89 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class h {
-        private WeakReference<a> bXV;
-        EGL10 bXW;
-        EGLDisplay bXX;
-        EGLSurface bXY;
-        EGLConfig bXZ;
-        EGLContext bYa;
+        private WeakReference<a> cMC;
+        EGL10 cMD;
+        EGLDisplay cME;
+        EGLSurface cMF;
+        EGLConfig cMG;
+        EGLContext cMH;
 
         public h(WeakReference<a> weakReference) {
-            this.bXV = weakReference;
+            this.cMC = weakReference;
         }
 
         public void start() {
-            this.bXW = (EGL10) EGLContext.getEGL();
-            this.bXX = this.bXW.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            if (this.bXX == EGL10.EGL_NO_DISPLAY) {
+            this.cMD = (EGL10) EGLContext.getEGL();
+            this.cME = this.cMD.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            if (this.cME == EGL10.EGL_NO_DISPLAY) {
                 throw new RuntimeException("eglGetDisplay failed");
             }
-            if (!this.bXW.eglInitialize(this.bXX, new int[2])) {
+            if (!this.cMD.eglInitialize(this.cME, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
-            a aVar = this.bXV.get();
+            a aVar = this.cMC.get();
             if (aVar != null) {
-                this.bXZ = aVar.bXM.chooseConfig(this.bXW, this.bXX);
+                this.cMG = aVar.cMt.chooseConfig(this.cMD, this.cME);
                 try {
-                    this.bYa = aVar.bXN.createContext(this.bXW, this.bXX, this.bXZ);
+                    this.cMH = aVar.cMu.createContext(this.cMD, this.cME, this.cMG);
                 } catch (IllegalArgumentException e) {
                     BdLog.e(e);
                 }
             } else {
-                this.bXZ = null;
-                this.bYa = null;
+                this.cMG = null;
+                this.cMH = null;
             }
-            if (this.bYa == null || this.bYa == EGL10.EGL_NO_CONTEXT) {
-                this.bYa = null;
-                jI("createContext");
+            if (this.cMH == null || this.cMH == EGL10.EGL_NO_CONTEXT) {
+                this.cMH = null;
+                jN("createContext");
             }
-            this.bXY = null;
+            this.cMF = null;
         }
 
-        public boolean aaU() {
-            if (this.bXW == null) {
+        public boolean aiA() {
+            if (this.cMD == null) {
                 throw new RuntimeException("egl not initialized");
             }
-            if (this.bXX == null) {
+            if (this.cME == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
-            if (this.bXZ == null) {
+            if (this.cMG == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
-            aaY();
-            a aVar = this.bXV.get();
+            aiE();
+            a aVar = this.cMC.get();
             if (aVar != null) {
-                this.bXY = aVar.bXO.createWindowSurface(this.bXW, this.bXX, this.bXZ, aVar.getSurfaceTexture());
+                this.cMF = aVar.cMv.createWindowSurface(this.cMD, this.cME, this.cMG, aVar.getSurfaceTexture());
             } else {
-                this.bXY = null;
+                this.cMF = null;
             }
-            if (this.bXY == null || this.bXY == EGL10.EGL_NO_SURFACE) {
-                if (this.bXW.eglGetError() == 12299) {
+            if (this.cMF == null || this.cMF == EGL10.EGL_NO_SURFACE) {
+                if (this.cMD.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                 }
                 return false;
-            } else if (!this.bXW.eglMakeCurrent(this.bXX, this.bXY, this.bXY, this.bYa)) {
-                f("EGLHelper", "eglMakeCurrent", this.bXW.eglGetError());
+            } else if (!this.cMD.eglMakeCurrent(this.cME, this.cMF, this.cMF, this.cMH)) {
+                f("EGLHelper", "eglMakeCurrent", this.cMD.eglGetError());
                 return false;
             } else {
                 return true;
             }
         }
 
-        GL aaV() {
+        GL aiB() {
             l lVar;
-            GL gl = this.bYa.getGL();
-            a aVar = this.bXV.get();
+            GL gl = this.cMH.getGL();
+            a aVar = this.cMC.get();
             if (aVar != null) {
-                if (aVar.bXP != null) {
-                    gl = aVar.bXP.wrap(gl);
+                if (aVar.cMw != null) {
+                    gl = aVar.cMw.wrap(gl);
                 }
-                if ((aVar.bXQ & 3) != 0) {
+                if ((aVar.cMx & 3) != 0) {
                     int i = 0;
-                    if ((aVar.bXQ & 1) != 0) {
+                    if ((aVar.cMx & 1) != 0) {
                         i = 1;
                     }
-                    if ((aVar.bXQ & 2) == 0) {
+                    if ((aVar.cMx & 2) == 0) {
                         lVar = null;
                     } else {
                         lVar = new l();
@@ -455,58 +455,58 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             return gl;
         }
 
-        public int aaW() {
-            if (this.bXW.eglSwapBuffers(this.bXX, this.bXY)) {
+        public int aiC() {
+            if (this.cMD.eglSwapBuffers(this.cME, this.cMF)) {
                 return 12288;
             }
-            return this.bXW.eglGetError();
+            return this.cMD.eglGetError();
         }
 
-        public void aaX() {
-            aaY();
+        public void aiD() {
+            aiE();
         }
 
-        private void aaY() {
-            if (this.bXY != null && this.bXY != EGL10.EGL_NO_SURFACE) {
-                this.bXW.eglMakeCurrent(this.bXX, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
-                a aVar = this.bXV.get();
+        private void aiE() {
+            if (this.cMF != null && this.cMF != EGL10.EGL_NO_SURFACE) {
+                this.cMD.eglMakeCurrent(this.cME, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
+                a aVar = this.cMC.get();
                 if (aVar != null) {
-                    aVar.bXO.destroySurface(this.bXW, this.bXX, this.bXY);
+                    aVar.cMv.destroySurface(this.cMD, this.cME, this.cMF);
                 }
-                this.bXY = null;
+                this.cMF = null;
             }
         }
 
         public void finish() {
-            if (this.bYa != null) {
-                a aVar = this.bXV.get();
+            if (this.cMH != null) {
+                a aVar = this.cMC.get();
                 if (aVar != null) {
                     try {
-                        aVar.bXN.destroyContext(this.bXW, this.bXX, this.bYa);
+                        aVar.cMu.destroyContext(this.cMD, this.cME, this.cMH);
                     } catch (Exception e) {
                     }
                 }
-                this.bYa = null;
+                this.cMH = null;
             }
-            if (this.bXX != null) {
-                this.bXW.eglTerminate(this.bXX);
-                this.bXX = null;
+            if (this.cME != null) {
+                this.cMD.eglTerminate(this.cME);
+                this.cME = null;
             }
         }
 
-        private void jI(String str) {
-            O(str, this.bXW.eglGetError());
+        private void jN(String str) {
+            Q(str, this.cMD.eglGetError());
         }
 
-        public static void O(String str, int i) {
-            throw new RuntimeException(P(str, i));
+        public static void Q(String str, int i) {
+            throw new RuntimeException(R(str, i));
         }
 
         public static void f(String str, String str2, int i) {
-            Log.w(str, P(str2, i));
+            Log.w(str, R(str2, i));
         }
 
-        public static String P(String str, int i) {
+        public static String R(String str, int i) {
             return str + " failed";
         }
     }
@@ -514,29 +514,29 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class i extends Thread {
-        private WeakReference<a> bXV;
-        private boolean bYb;
-        private boolean bYc;
-        private boolean bYd;
-        private boolean bYe;
-        private boolean bYf;
-        private boolean bYg;
-        private boolean bYh;
-        private boolean bYi;
-        private boolean bYj;
-        private boolean bYk;
-        private boolean bYl;
-        private boolean bYo;
-        private h bYr;
-        private ArrayList<Runnable> bYp = new ArrayList<>();
-        private boolean bYq = true;
+        private WeakReference<a> cMC;
+        private boolean cMI;
+        private boolean cMJ;
+        private boolean cMK;
+        private boolean cML;
+        private boolean cMM;
+        private boolean cMN;
+        private boolean cMO;
+        private boolean cMP;
+        private boolean cMQ;
+        private boolean cMR;
+        private boolean cMU;
+        private h cMX;
+        private boolean vv;
+        private ArrayList<Runnable> cMV = new ArrayList<>();
+        private boolean cMW = true;
         private int mWidth = 0;
         private int mHeight = 0;
-        private boolean bYn = true;
-        private int bYm = 1;
+        private boolean cMT = true;
+        private int cMS = 1;
 
         i(WeakReference<a> weakReference) {
-            this.bXV = weakReference;
+            this.cMC = weakReference;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -544,36 +544,36 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             setName("GLThread " + getId());
             try {
                 try {
-                    abb();
-                    a.bXI.a(this);
+                    aiH();
+                    a.cMp.a(this);
                 } catch (Exception e) {
-                    af.vb().az(false);
-                    a.bXI.a(this);
+                    af.CB().bh(false);
+                    a.cMp.a(this);
                 }
             } catch (Throwable th) {
-                a.bXI.a(this);
+                a.cMp.a(this);
                 throw th;
             }
         }
 
-        private void aaZ() {
-            if (this.bYj) {
-                this.bYj = false;
-                this.bYr.aaX();
+        private void aiF() {
+            if (this.cMP) {
+                this.cMP = false;
+                this.cMX.aiD();
             }
         }
 
-        private void aba() {
-            if (this.bYi) {
-                this.bYr.finish();
-                this.bYi = false;
-                a.bXI.c(this);
+        private void aiG() {
+            if (this.cMO) {
+                this.cMX.finish();
+                this.cMO = false;
+                a.cMp.c(this);
             }
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1395=4] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        private void abb() throws InterruptedException {
+        private void aiH() throws InterruptedException {
             boolean z;
             int i;
             Runnable remove;
@@ -594,9 +594,9 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             boolean z14;
             int i3;
             int i4;
-            this.bYr = new h(this.bXV);
-            this.bYi = false;
-            this.bYj = false;
+            this.cMX = new h(this.cMC);
+            this.cMO = false;
+            this.cMP = false;
             boolean z15 = false;
             GL10 gl102 = null;
             int i5 = 0;
@@ -612,91 +612,91 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             while (true) {
                 try {
                     sleep(4L);
-                    synchronized (a.bXI) {
-                        while (!this.bYb) {
-                            if (this.bYp.isEmpty()) {
-                                if (this.bYe != this.bYd) {
-                                    boolean z23 = this.bYd;
-                                    this.bYe = this.bYd;
-                                    a.bXI.notifyAll();
+                    synchronized (a.cMp) {
+                        while (!this.cMI) {
+                            if (this.cMV.isEmpty()) {
+                                if (this.vv != this.cMK) {
+                                    boolean z23 = this.cMK;
+                                    this.vv = this.cMK;
+                                    a.cMp.notifyAll();
                                     z9 = z23;
                                 } else {
                                     z9 = false;
                                 }
-                                if (this.bYl) {
-                                    aaZ();
-                                    aba();
-                                    this.bYl = false;
+                                if (this.cMR) {
+                                    aiF();
+                                    aiG();
+                                    this.cMR = false;
                                     z16 = true;
                                 }
                                 if (z19) {
-                                    aaZ();
-                                    aba();
+                                    aiF();
+                                    aiG();
                                     z19 = false;
                                 }
-                                if (z9 && this.bYj) {
-                                    aaZ();
+                                if (z9 && this.cMP) {
+                                    aiF();
                                 }
-                                if (z9 && this.bYi) {
-                                    a aVar = this.bXV.get();
-                                    if (!(aVar == null ? false : aVar.bXS) || a.bXI.abh()) {
-                                        aba();
+                                if (z9 && this.cMO) {
+                                    a aVar = this.cMC.get();
+                                    if (!(aVar == null ? false : aVar.cMz) || a.cMp.aiN()) {
+                                        aiG();
                                     }
                                 }
-                                if (z9 && a.bXI.abi()) {
-                                    this.bYr.finish();
+                                if (z9 && a.cMp.aiO()) {
+                                    this.cMX.finish();
                                 }
-                                if (!this.bYf && !this.bYh) {
-                                    if (this.bYj) {
-                                        aaZ();
+                                if (!this.cML && !this.cMN) {
+                                    if (this.cMP) {
+                                        aiF();
                                     }
-                                    this.bYh = true;
-                                    this.bYg = false;
-                                    a.bXI.notifyAll();
+                                    this.cMN = true;
+                                    this.cMM = false;
+                                    a.cMp.notifyAll();
                                 }
-                                if (this.bYf && this.bYh) {
-                                    this.bYh = false;
-                                    a.bXI.notifyAll();
+                                if (this.cML && this.cMN) {
+                                    this.cMN = false;
+                                    a.cMp.notifyAll();
                                 }
                                 if (z22) {
                                     z17 = false;
                                     z22 = false;
-                                    this.bYo = true;
-                                    a.bXI.notifyAll();
+                                    this.cMU = true;
+                                    a.cMp.notifyAll();
                                 }
-                                if (abd()) {
-                                    if (!this.bYi) {
+                                if (aiJ()) {
+                                    if (!this.cMO) {
                                         if (z16) {
                                             z16 = false;
-                                        } else if (a.bXI.b(this)) {
+                                        } else if (a.cMp.b(this)) {
                                             try {
-                                                this.bYr.start();
-                                                this.bYi = true;
+                                                this.cMX.start();
+                                                this.cMO = true;
                                                 z15 = true;
-                                                a.bXI.notifyAll();
+                                                a.cMp.notifyAll();
                                             } catch (RuntimeException e) {
-                                                a.bXI.c(this);
+                                                a.cMp.c(this);
                                                 throw e;
                                             }
                                         }
                                     }
-                                    if (!this.bYi || this.bYj) {
+                                    if (!this.cMO || this.cMP) {
                                         z10 = z18;
                                         z11 = z20;
                                     } else {
-                                        this.bYj = true;
+                                        this.cMP = true;
                                         z21 = true;
                                         z10 = true;
                                         z11 = true;
                                     }
-                                    if (this.bYj) {
-                                        if (this.bYq) {
+                                    if (this.cMP) {
+                                        if (this.cMW) {
                                             z14 = true;
                                             i4 = this.mWidth;
                                             i3 = this.mHeight;
                                             z13 = true;
                                             z12 = true;
-                                            this.bYq = false;
+                                            this.cMW = false;
                                         } else {
                                             z12 = z21;
                                             int i7 = i6;
@@ -705,8 +705,8 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                                             i3 = i5;
                                             i4 = i7;
                                         }
-                                        this.bYn = false;
-                                        a.bXI.notifyAll();
+                                        this.cMT = false;
+                                        a.cMp.notifyAll();
                                         z3 = z11;
                                         z6 = z13;
                                         remove = runnable;
@@ -723,11 +723,11 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                                         z18 = z10;
                                     }
                                 }
-                                a.bXI.wait();
+                                a.cMp.wait();
                             } else {
                                 z = z22;
                                 i = i6;
-                                remove = this.bYp.remove(0);
+                                remove = this.cMV.remove(0);
                                 z2 = z21;
                                 z3 = z20;
                                 z4 = z19;
@@ -737,9 +737,9 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                                 i2 = i5;
                             }
                         }
-                        synchronized (a.bXI) {
-                            aaZ();
-                            aba();
+                        synchronized (a.cMp) {
+                            aiF();
+                            aiG();
                         }
                         return;
                     }
@@ -759,17 +759,17 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                     } else {
                         if (!z2) {
                             z8 = z2;
-                        } else if (this.bYr.aaU()) {
-                            synchronized (a.bXI) {
-                                this.bYk = true;
-                                a.bXI.notifyAll();
+                        } else if (this.cMX.aiA()) {
+                            synchronized (a.cMp) {
+                                this.cMQ = true;
+                                a.cMp.notifyAll();
                             }
                             z8 = false;
                         } else {
-                            synchronized (a.bXI) {
-                                this.bYk = true;
-                                this.bYg = true;
-                                a.bXI.notifyAll();
+                            synchronized (a.cMp) {
+                                this.cMQ = true;
+                                this.cMM = true;
+                                a.cMp.notifyAll();
                             }
                             i5 = i2;
                             z16 = z7;
@@ -784,43 +784,43 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                             z22 = z25;
                         }
                         if (z3) {
-                            GL10 gl103 = (GL10) this.bYr.aaV();
-                            a.bXI.b(gl103);
+                            GL10 gl103 = (GL10) this.cMX.aiB();
+                            a.cMp.b(gl103);
                             z3 = false;
                             gl10 = gl103;
                         } else {
                             gl10 = gl102;
                         }
                         if (z15) {
-                            a aVar2 = this.bXV.get();
+                            a aVar2 = this.cMC.get();
                             if (aVar2 != null) {
-                                aVar2.bXL.onSurfaceCreated(gl10, this.bYr.bXZ);
+                                aVar2.cMs.onSurfaceCreated(gl10, this.cMX.cMG);
                             }
                             z15 = false;
                         }
                         if (z5) {
-                            a aVar3 = this.bXV.get();
+                            a aVar3 = this.cMC.get();
                             if (aVar3 != null) {
-                                aVar3.bXL.onSurfaceChanged(gl10, i, i2);
+                                aVar3.cMs.onSurfaceChanged(gl10, i, i2);
                             }
                             z5 = false;
                         }
-                        a aVar4 = this.bXV.get();
+                        a aVar4 = this.cMC.get();
                         if (aVar4 != null) {
-                            aVar4.bXL.onDrawFrame(gl10);
+                            aVar4.cMs.onDrawFrame(gl10);
                         }
-                        int aaW = this.bYr.aaW();
-                        switch (aaW) {
+                        int aiC = this.cMX.aiC();
+                        switch (aiC) {
                             case 12288:
                                 break;
                             case 12302:
                                 z4 = true;
                                 break;
                             default:
-                                h.f("GLThread", "eglSwapBuffers", aaW);
-                                synchronized (a.bXI) {
-                                    this.bYg = true;
-                                    a.bXI.notifyAll();
+                                h.f("GLThread", "eglSwapBuffers", aiC);
+                                synchronized (a.cMp) {
+                                    this.cMM = true;
+                                    a.cMp.notifyAll();
                                     break;
                                 }
                         }
@@ -839,28 +839,28 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                         z16 = z27;
                     }
                 } catch (Throwable th) {
-                    synchronized (a.bXI) {
-                        aaZ();
-                        aba();
+                    synchronized (a.cMp) {
+                        aiF();
+                        aiG();
                         throw th;
                     }
                 }
             }
         }
 
-        public boolean abc() {
-            return this.bYi && this.bYj && abd();
+        public boolean aiI() {
+            return this.cMO && this.cMP && aiJ();
         }
 
-        private boolean abd() {
-            return !this.bYe && this.bYf && !this.bYg && this.mWidth > 0 && this.mHeight > 0 && (this.bYn || this.bYm == 1);
+        private boolean aiJ() {
+            return !this.vv && this.cML && !this.cMM && this.mWidth > 0 && this.mHeight > 0 && (this.cMT || this.cMS == 1);
         }
 
         public void setRenderMode(int i) {
             if (i >= 0 && i <= 1) {
-                synchronized (a.bXI) {
-                    this.bYm = i;
-                    a.bXI.notifyAll();
+                synchronized (a.cMp) {
+                    this.cMS = i;
+                    a.cMp.notifyAll();
                 }
                 return;
             }
@@ -869,27 +869,27 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
         public int getRenderMode() {
             int i;
-            synchronized (a.bXI) {
-                i = this.bYm;
+            synchronized (a.cMp) {
+                i = this.cMS;
             }
             return i;
         }
 
         public void requestRender() {
-            synchronized (a.bXI) {
-                this.bYn = true;
-                a.bXI.notifyAll();
+            synchronized (a.cMp) {
+                this.cMT = true;
+                a.cMp.notifyAll();
             }
         }
 
-        public void abe() {
-            synchronized (a.bXI) {
-                this.bYf = true;
-                this.bYk = false;
-                a.bXI.notifyAll();
-                while (this.bYh && !this.bYk && !this.bYc) {
+        public void aiK() {
+            synchronized (a.cMp) {
+                this.cML = true;
+                this.cMQ = false;
+                a.cMp.notifyAll();
+                while (this.cMN && !this.cMQ && !this.cMJ) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -898,12 +898,12 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         }
 
         public void surfaceDestroyed() {
-            synchronized (a.bXI) {
-                this.bYf = false;
-                a.bXI.notifyAll();
-                while (!this.bYh && !this.bYc) {
+            synchronized (a.cMp) {
+                this.cML = false;
+                a.cMp.notifyAll();
+                while (!this.cMN && !this.cMJ) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -912,12 +912,12 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         }
 
         public void onPause() {
-            synchronized (a.bXI) {
-                this.bYd = true;
-                a.bXI.notifyAll();
-                while (!this.bYc && !this.bYe) {
+            synchronized (a.cMp) {
+                this.cMK = true;
+                a.cMp.notifyAll();
+                while (!this.cMJ && !this.vv) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -926,14 +926,14 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         }
 
         public void onResume() {
-            synchronized (a.bXI) {
-                this.bYd = false;
-                this.bYn = true;
-                this.bYo = false;
-                a.bXI.notifyAll();
-                while (!this.bYc && this.bYe && !this.bYo) {
+            synchronized (a.cMp) {
+                this.cMK = false;
+                this.cMT = true;
+                this.cMU = false;
+                a.cMp.notifyAll();
+                while (!this.cMJ && this.vv && !this.cMU) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -941,17 +941,17 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void ak(int i, int i2) {
-            synchronized (a.bXI) {
+        public void bj(int i, int i2) {
+            synchronized (a.cMp) {
                 this.mWidth = i;
                 this.mHeight = i2;
-                this.bYq = true;
-                this.bYn = true;
-                this.bYo = false;
-                a.bXI.notifyAll();
-                while (!this.bYc && !this.bYe && !this.bYo && abc()) {
+                this.cMW = true;
+                this.cMT = true;
+                this.cMU = false;
+                a.cMp.notifyAll();
+                while (!this.cMJ && !this.vv && !this.cMU && aiI()) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -959,13 +959,13 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void abf() {
-            synchronized (a.bXI) {
-                this.bYb = true;
-                a.bXI.notifyAll();
-                while (!this.bYc) {
+        public void aiL() {
+            synchronized (a.cMp) {
+                this.cMI = true;
+                a.cMp.notifyAll();
+                while (!this.cMJ) {
                     try {
-                        a.bXI.wait();
+                        a.cMp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -973,9 +973,9 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void abg() {
-            this.bYl = true;
-            a.bXI.notifyAll();
+        public void aiM() {
+            this.cMR = true;
+            a.cMp.notifyAll();
         }
     }
 
@@ -1017,8 +1017,8 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    private void aaS() {
-        if (this.bXK != null) {
+    private void aiy() {
+        if (this.cMr != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
     }
@@ -1027,75 +1027,75 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     /* loaded from: classes.dex */
     public static class j {
         private static String TAG = "GLThreadManager";
-        private boolean bYs;
-        private int bYt;
-        private boolean bYu;
-        private boolean bYv;
-        private boolean bYw;
-        private i bYx;
+        private boolean cMY;
+        private int cMZ;
+        private boolean cNa;
+        private boolean cNb;
+        private boolean cNc;
+        private i cNd;
 
         private j() {
         }
 
         public synchronized void a(i iVar) {
-            iVar.bYc = true;
-            if (this.bYx == iVar) {
-                this.bYx = null;
+            iVar.cMJ = true;
+            if (this.cNd == iVar) {
+                this.cNd = null;
             }
             notifyAll();
         }
 
         public boolean b(i iVar) {
-            if (this.bYx == iVar || this.bYx == null) {
-                this.bYx = iVar;
+            if (this.cNd == iVar || this.cNd == null) {
+                this.cNd = iVar;
                 notifyAll();
                 return true;
             }
-            abj();
-            if (this.bYv) {
+            aiP();
+            if (this.cNb) {
                 return true;
             }
-            if (this.bYx != null) {
-                this.bYx.abg();
+            if (this.cNd != null) {
+                this.cNd.aiM();
             }
             return false;
         }
 
         public void c(i iVar) {
-            if (this.bYx == iVar) {
-                this.bYx = null;
+            if (this.cNd == iVar) {
+                this.cNd = null;
             }
             notifyAll();
         }
 
-        public synchronized boolean abh() {
-            return this.bYw;
+        public synchronized boolean aiN() {
+            return this.cNc;
         }
 
-        public synchronized boolean abi() {
-            abj();
-            return !this.bYv;
+        public synchronized boolean aiO() {
+            aiP();
+            return !this.cNb;
         }
 
         public synchronized void b(GL10 gl10) {
             synchronized (this) {
-                if (!this.bYu) {
-                    abj();
+                if (!this.cNa) {
+                    aiP();
                     String glGetString = gl10.glGetString(7937);
-                    if (this.bYt < 131072) {
-                        this.bYv = !glGetString.startsWith("Q3Dimension MSM7500 ");
+                    if (this.cMZ < 131072) {
+                        this.cNb = !glGetString.startsWith("Q3Dimension MSM7500 ");
                         notifyAll();
                     }
-                    this.bYw = this.bYv ? false : true;
-                    this.bYu = true;
+                    this.cNc = this.cNb ? false : true;
+                    this.cNa = true;
                 }
             }
         }
 
-        private void abj() {
-            if (!this.bYs) {
-                this.bYv = true;
-                this.bYs = true;
+        private void aiP() {
+            if (!this.cMY) {
+                this.cNb = true;
+                this.cMY = true;
             }
         }
     }

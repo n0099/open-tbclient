@@ -9,7 +9,6 @@ public abstract class e extends a {
 
     @Override // com.baidu.android.pushservice.e.a
     public boolean c() {
-        com.baidu.android.pushservice.g.a.b("SendApiProcessor", "networkConnect");
         this.c += "channel";
         return super.c();
     }

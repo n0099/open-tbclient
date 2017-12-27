@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.j;
 
 import android.content.Context;
+import android.net.http.Headers;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.CellLocation;
@@ -17,6 +18,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +52,6 @@ public class g {
             int indexOf = str2.indexOf(37);
             return indexOf != -1 ? str2.substring(0, indexOf) : str2;
         } catch (SocketException e) {
-            com.baidu.android.pushservice.g.a.a("LbsUtils", e);
             return "";
         }
     }
@@ -84,8 +85,8 @@ public class g {
             if (jSONObject.has("cityCode")) {
                 jSONObject2.put("city_code", jSONObject.optString("cityCode"));
             }
-            if (jSONObject.has("location")) {
-                JSONObject jSONObject3 = jSONObject.getJSONObject("location");
+            if (jSONObject.has(Headers.LOCATION)) {
+                JSONObject jSONObject3 = jSONObject.getJSONObject(Headers.LOCATION);
                 JSONObject jSONObject4 = new JSONObject();
                 if (jSONObject3 != null) {
                     jSONObject4.put("latitude", jSONObject3.getString("lat"));
@@ -94,12 +95,11 @@ public class g {
                 if (jSONObject.has("accuracy")) {
                     jSONObject4.put("accuracy", jSONObject.optString("accuracy"));
                 }
-                jSONObject2.put("location", jSONObject4);
+                jSONObject2.put(Headers.LOCATION, jSONObject4);
             }
             m.a(context, "com.baidu.android.pushservice.lbscache", jSONObject2.toString());
             return jSONObject2.toString();
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.a.a("LbsUtils", e);
             return null;
         }
     }
@@ -129,7 +129,6 @@ public class g {
                             jSONObject2.put("userid", p.a(((com.baidu.android.pushservice.b.f) arrayList.get(i2)).f));
                             jSONObject2.put("appid", ((com.baidu.android.pushservice.b.f) arrayList.get(i2)).a());
                         } catch (Exception e) {
-                            com.baidu.android.pushservice.g.a.a("LbsUtils", e);
                         }
                         jSONArray.put(jSONObject2);
                     }
@@ -139,18 +138,17 @@ public class g {
                     try {
                         jSONObject.put("channelid", a2);
                         jSONObject.put("cuid", com.baidu.android.pushservice.k.e.a(context));
-                        jSONObject.put("nettype", p.s(context.getApplicationContext()));
+                        jSONObject.put("nettype", p.t(context.getApplicationContext()));
                         jSONObject.put("clients", jSONArray);
                         jSONObject.put("apinfo", c);
                         jSONObject.put("cip", a3);
                         jSONObject.put("model", Build.MODEL);
-                        jSONObject.put("version", Build.VERSION.RELEASE);
+                        jSONObject.put(ClientCookie.VERSION_ATTR, Build.VERSION.RELEASE);
                         jSONObject.put("sdkversion", (int) com.baidu.android.pushservice.a.a());
-                        if (p.E(context)) {
+                        if (p.F(context)) {
                             jSONObject.put("connect_version", 3);
                         }
                     } catch (JSONException e2) {
-                        com.baidu.android.pushservice.g.a.a("LbsUtils", e2);
                     }
                     return jSONObject.toString();
                 }
@@ -165,7 +163,6 @@ public class g {
 
     public static long b(Context context) {
         if (context == null) {
-            com.baidu.android.pushservice.g.a.e("LbsUtils", "getLastSendLbsTime mContext == null");
             return 0L;
         }
         return m.c(context, "com.baidu.pushservice.clt");

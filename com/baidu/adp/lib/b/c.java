@@ -6,85 +6,85 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String tG = "_crashtime";
-    public static String tH = "_crashtype";
-    private int tI;
-    private int tJ;
-    private b tK;
+    public static String ahV = "_crashtime";
+    public static String ahW = "_crashtype";
+    private int ahX;
+    private int ahY;
+    private b ahZ;
 
     public c(b bVar) {
-        this.tI = 0;
-        this.tJ = 0;
-        this.tK = null;
+        this.ahX = 0;
+        this.ahY = 0;
+        this.ahZ = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.tK = bVar;
-        if (this.tK.eP() > 0 && this.tK.eS() != null) {
-            this.tI = eU();
-            if (this.tI == -1) {
+        this.ahZ = bVar;
+        if (this.ahZ.mt() > 0 && this.ahZ.mw() != null) {
+            this.ahX = my();
+            if (this.ahX == -1) {
                 reset();
             }
         }
-        this.tJ = eT();
-        this.tK.c(this.tJ, true);
+        this.ahY = mx();
+        this.ahZ.n(this.ahY, true);
     }
 
     public String getName() {
-        return this.tK.getName();
+        return this.ahZ.getName();
     }
 
-    public int eN() {
-        return this.tK.eN();
+    public int mr() {
+        return this.ahZ.mr();
     }
 
     public int getType() {
-        return this.tJ;
+        return this.ahY;
     }
 
-    public boolean X(int i) {
-        if (this.tK.eP() >= 0 && this.tI >= this.tK.eP() + 2) {
-            i = this.tK.eO();
+    public boolean cR(int i) {
+        if (this.ahZ.mt() >= 0 && this.ahX >= this.ahZ.mt() + 2) {
+            i = this.ahZ.ms();
         }
-        if (i == this.tJ) {
+        if (i == this.ahY) {
             return false;
         }
-        this.tJ = i;
-        this.tK.c(this.tJ, false);
-        Y(i);
+        this.ahY = i;
+        this.ahZ.n(this.ahY, false);
+        cS(i);
         return true;
     }
 
-    public boolean ae(String str) {
-        String[] eQ;
-        String[] eS;
-        if (str == null || this.tK.eP() <= 0) {
+    public boolean am(String str) {
+        String[] mu;
+        String[] mw;
+        if (str == null || this.ahZ.mt() <= 0) {
             return false;
         }
-        if (this.tK.eS() != null) {
-            for (String str2 : this.tK.eS()) {
+        if (this.ahZ.mw() != null) {
+            for (String str2 : this.ahZ.mw()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.tI++;
-                    Z(this.tI);
-                    if (this.tI >= this.tK.eP()) {
-                        Y(this.tK.eO());
-                        this.tJ = this.tK.eO();
-                        this.tK.c(this.tK.eO(), false);
+                    this.ahX++;
+                    cT(this.ahX);
+                    if (this.ahX >= this.ahZ.mt()) {
+                        cS(this.ahZ.ms());
+                        this.ahY = this.ahZ.ms();
+                        this.ahZ.n(this.ahZ.ms(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.tK.eQ() != null) {
-            for (String str3 : this.tK.eQ()) {
+        if (this.ahZ.mu() != null) {
+            for (String str3 : this.ahZ.mu()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.tI++;
-                    Z(this.tI);
-                    if (this.tI >= this.tK.eP()) {
-                        Y(this.tK.eO());
-                        this.tJ = this.tK.eO();
-                        this.tK.c(this.tK.eO(), false);
+                    this.ahX++;
+                    cT(this.ahX);
+                    if (this.ahX >= this.ahZ.mt()) {
+                        cS(this.ahZ.ms());
+                        this.ahY = this.ahZ.ms();
+                        this.ahZ.n(this.ahZ.ms(), false);
                         return true;
                     }
                     return true;
@@ -94,31 +94,31 @@ public class c {
         return false;
     }
 
-    private void Y(int i) {
+    private void cS(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.tK.getName() + tH, i);
+        edit.putInt(this.ahZ.getName() + ahW, i);
         edit.commit();
     }
 
-    private int eT() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.tK.getName() + tH, this.tK.eN());
+    private int mx() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ahZ.getName() + ahW, this.ahZ.mr());
     }
 
-    private int eU() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.tK.getName() + tG, -1);
+    private int my() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ahZ.getName() + ahV, -1);
     }
 
-    private void Z(int i) {
+    private void cT(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.tK.getName() + tG, i);
+        edit.putInt(this.ahZ.getName() + ahV, i);
         edit.commit();
     }
 
     public void reset() {
-        this.tI = 0;
+        this.ahX = 0;
     }
 
-    public void aa(int i) {
-        this.tI = i;
+    public void cU(int i) {
+        this.ahX = i;
     }
 }

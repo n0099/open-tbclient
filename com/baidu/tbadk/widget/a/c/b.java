@@ -1,31 +1,31 @@
 package com.baidu.tbadk.widget.a.c;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.a.a.a> {
-    private int aRM;
+    private int bFz;
 
     public b(int i) {
-        this.aRM = i;
+        this.bFz = i;
     }
 
     public int getBlockSize() {
-        return this.aRM;
+        return this.bFz;
     }
 
-    public void fL(int i) {
-        this.aRM = i;
+    public void iK(int i) {
+        this.bFz = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: IS */
-    public com.baidu.tbadk.widget.a.a.a fI() {
-        return new com.baidu.tbadk.widget.a.a.a(this.aRM);
+    /* renamed from: Qq */
+    public com.baidu.tbadk.widget.a.a.a nk() {
+        return new com.baidu.tbadk.widget.a.a.a(this.bFz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public void n(com.baidu.tbadk.widget.a.a.a aVar) {
+    public void as(com.baidu.tbadk.widget.a.a.a aVar) {
         if (aVar != null && aVar.getBitmap() != null) {
             aVar.getBitmap().recycle();
         }
@@ -34,14 +34,14 @@ public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.a.a.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public com.baidu.tbadk.widget.a.a.a o(com.baidu.tbadk.widget.a.a.a aVar) {
+    public com.baidu.tbadk.widget.a.a.a at(com.baidu.tbadk.widget.a.a.a aVar) {
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: d */
-    public com.baidu.tbadk.widget.a.a.a p(com.baidu.tbadk.widget.a.a.a aVar) {
+    public com.baidu.tbadk.widget.a.a.a au(com.baidu.tbadk.widget.a.a.a aVar) {
         return aVar;
     }
 }

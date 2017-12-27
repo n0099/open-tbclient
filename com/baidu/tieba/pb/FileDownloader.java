@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.d;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FileDownloader extends Service {
     public static final int FILE_EXIST = 1;
     private static final String TAG_FILE = "file";
@@ -85,7 +85,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (k.dk(fileOfUrl) != null) {
+            if (k.dr(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
@@ -109,7 +109,7 @@ public class FileDownloader extends Service {
         return split[split.length - 1];
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a extends BdAsyncTask<String, Integer, Boolean> {
         private final String mFile;
         private final String mUrl;
@@ -125,15 +125,15 @@ public class FileDownloader extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            File dn;
+            File du;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new x(this.mUrl);
                     bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.uR() == -2) {
+                    if (bool.booleanValue() || this.mNetWork.Cr() == -2) {
                         break;
-                    } else if (!this.mNetWork.uN().vL().fp()) {
+                    } else if (!this.mNetWork.Cn().Dl().mS()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -143,10 +143,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dv(this.mFile);
-                File dk = k.dk(this.mFile + ".tmp");
-                if (dk != null && (dn = k.dn(this.mFile)) != null) {
-                    if (!dk.renameTo(dn)) {
+                k.dC(this.mFile);
+                File dr = k.dr(this.mFile + ".tmp");
+                if (dr != null && (du = k.du(this.mFile)) != null) {
+                    if (!dr.renameTo(du)) {
                     }
                 }
             }
@@ -159,7 +159,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.fo();
+                this.mNetWork.mR();
             }
         }
 

@@ -7,11 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.util.o;
-import com.baidu.tieba.recapp.e.a;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
@@ -70,17 +69,17 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.user_id = Long.valueOf(b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-        int ac = l.ac(TbadkCoreApplication.getInst());
-        int ae = l.ae(TbadkCoreApplication.getInst());
+        int ao = l.ao(TbadkCoreApplication.getInst());
+        int aq = l.aq(TbadkCoreApplication.getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
-        builder.scr_h = Integer.valueOf(ae);
-        builder.scr_w = Integer.valueOf(ac);
-        builder.q_type = Integer.valueOf(an.vs().vu() ? 2 : 1);
+        builder.scr_h = Integer.valueOf(aq);
+        builder.scr_w = Integer.valueOf(ao);
+        builder.q_type = Integer.valueOf(an.CS().CU() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         o.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = a.bmw().bmz();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bud().bug();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

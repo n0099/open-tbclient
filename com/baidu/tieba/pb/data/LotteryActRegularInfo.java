@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.data;
 
 import java.io.Serializable;
 import tbclient.Lottery.ActRegular;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LotteryActRegularInfo implements Serializable {
     public static final int ACT_REGULAR_TYPE_LINK = 4;
     public static final int ACT_REGULAR_TYPE_REPLY = 3;

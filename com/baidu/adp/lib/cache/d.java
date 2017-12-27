@@ -4,24 +4,24 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final boolean sJ;
-    protected final e sK;
+    protected final boolean ahd;
+    protected final e ahe;
 
-    public abstract g<T> Q(String str);
+    public abstract g<T> Y(String str);
 
-    public abstract void R(String str);
+    public abstract void Z(String str);
 
-    protected abstract void S(String str);
+    protected abstract void aa(String str);
 
     public abstract void c(g<T> gVar);
 
     public d(e eVar, boolean z) {
-        this.sK = eVar;
-        this.sJ = z;
+        this.ahe = eVar;
+        this.ahd = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.sJ) {
+        if (this.ahd) {
             return str + "@" + str2;
         }
         return str2;
@@ -29,24 +29,24 @@ public abstract class d<T> implements k<T> {
 
     protected g<T> j(String str, String str2) {
         String h = h(str, str2);
-        g<T> Q = Q(h);
-        if (Q == null) {
+        g<T> Y = Y(h);
+        if (Y == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (Q.sR < System.currentTimeMillis()) {
-            S(h);
+        } else if (Y.ahl < System.currentTimeMillis()) {
+            aa(h);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.sK.ex()) {
-                Q.sQ = System.currentTimeMillis();
-                c(Q);
+            if (this.ahe.mb()) {
+                Y.ahk = System.currentTimeMillis();
+                c(Y);
             }
             if (BdLog.isDebugMode()) {
             }
-            return Q;
+            return Y;
         }
     }
 
@@ -68,30 +68,30 @@ public abstract class d<T> implements k<T> {
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
         bVar.value = j.value;
-        bVar.sR = j.sR;
-        bVar.th = j.sP;
+        bVar.ahl = j.ahl;
+        bVar.ahA = j.ahj;
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void a(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.sN = h(str, str2);
-        gVar.sO = str;
-        gVar.sR = j;
+        gVar.ahh = h(str, str2);
+        gVar.ahi = str;
+        gVar.ahl = j;
         gVar.value = t;
-        gVar.sQ = System.currentTimeMillis();
-        gVar.sP = System.currentTimeMillis();
+        gVar.ahk = System.currentTimeMillis();
+        gVar.ahj = System.currentTimeMillis();
         c(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void m(String str, String str2) {
-        R(h(str, str2));
+        Z(h(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e ew() {
-        return this.sK;
+    public e ma() {
+        return this.ahe;
     }
 }

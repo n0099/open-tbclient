@@ -7,14 +7,15 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.http.HttpStatus;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static final String TYPE = "sdtp";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -49,7 +50,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         }
 
         public void setSampleDependsOn(int i) {
-            this.value = ((i & 3) << 4) | (this.value & 207);
+            this.value = ((i & 3) << 4) | (this.value & HttpStatus.SC_MULTI_STATUS);
         }
 
         public int getSampleIsDependentOn() {

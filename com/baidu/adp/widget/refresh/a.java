@@ -1,0 +1,114 @@
+package com.baidu.adp.widget.refresh;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.os.Build;
+import android.support.v4.view.ViewCompat;
+import android.view.animation.Animation;
+import android.widget.ImageView;
+/* loaded from: classes.dex */
+public class a extends ImageView {
+    private Animation.AnimationListener mListener;
+    int mShadowRadius;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(Context context, int i) {
+        super(context);
+        ShapeDrawable shapeDrawable;
+        float f = getContext().getResources().getDisplayMetrics().density;
+        int i2 = (int) (1.75f * f);
+        int i3 = (int) (0.0f * f);
+        this.mShadowRadius = (int) (3.5f * f);
+        if (elevationSupported()) {
+            shapeDrawable = new ShapeDrawable(new OvalShape());
+            ViewCompat.setElevation(this, f * 4.0f);
+        } else {
+            shapeDrawable = new ShapeDrawable(new C0028a(this.mShadowRadius));
+            ViewCompat.setLayerType(this, 1, shapeDrawable.getPaint());
+            shapeDrawable.getPaint().setShadowLayer(this.mShadowRadius, i3, i2, 503316480);
+            int i4 = this.mShadowRadius;
+            setPadding(i4, i4, i4, i4);
+        }
+        shapeDrawable.getPaint().setColor(i);
+        setBackgroundDrawable(shapeDrawable);
+    }
+
+    private boolean elevationSupported() {
+        return Build.VERSION.SDK_INT >= 21;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        if (!elevationSupported()) {
+            setMeasuredDimension(getMeasuredWidth() + (this.mShadowRadius * 2), getMeasuredHeight() + (this.mShadowRadius * 2));
+        }
+    }
+
+    public void setAnimationListener(Animation.AnimationListener animationListener) {
+        this.mListener = animationListener;
+    }
+
+    @Override // android.view.View
+    public void onAnimationStart() {
+        super.onAnimationStart();
+        if (this.mListener != null) {
+            this.mListener.onAnimationStart(getAnimation());
+        }
+    }
+
+    @Override // android.view.View
+    public void onAnimationEnd() {
+        super.onAnimationEnd();
+        if (this.mListener != null) {
+            this.mListener.onAnimationEnd(getAnimation());
+        }
+    }
+
+    public void setBackgroundColorRes(int i) {
+        setBackgroundColor(getContext().getResources().getColor(i));
+    }
+
+    @Override // android.view.View
+    public void setBackgroundColor(int i) {
+        if (getBackground() instanceof ShapeDrawable) {
+            ((ShapeDrawable) getBackground()).getPaint().setColor(i);
+        }
+    }
+
+    /* renamed from: com.baidu.adp.widget.refresh.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private class C0028a extends OvalShape {
+        private RadialGradient mRadialGradient;
+        private Paint mShadowPaint = new Paint();
+
+        C0028a(int i) {
+            a.this.mShadowRadius = i;
+            updateRadialGradient((int) rect().width());
+        }
+
+        @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
+        protected void onResize(float f, float f2) {
+            super.onResize(f, f2);
+            updateRadialGradient((int) f);
+        }
+
+        @Override // android.graphics.drawable.shapes.OvalShape, android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
+        public void draw(Canvas canvas, Paint paint) {
+            int width = a.this.getWidth();
+            int height = a.this.getHeight();
+            canvas.drawCircle(width / 2, height / 2, width / 2, this.mShadowPaint);
+            canvas.drawCircle(width / 2, height / 2, (width / 2) - a.this.mShadowRadius, paint);
+        }
+
+        private void updateRadialGradient(int i) {
+            this.mRadialGradient = new RadialGradient(i / 2, i / 2, a.this.mShadowRadius, new int[]{1023410176, 0}, (float[]) null, Shader.TileMode.CLAMP);
+            this.mShadowPaint.setShader(this.mRadialGradient);
+        }
+    }
+}

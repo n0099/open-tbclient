@@ -8,12 +8,11 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.tencent.mm.sdk.modelbase.BaseResp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes.dex */
-public class LocalBroadcastManager {
+/* loaded from: classes2.dex */
+public final class LocalBroadcastManager {
     private static LocalBroadcastManager mInstance;
     private static final Object mLock = new Object();
     private final Context mAppContext;
@@ -23,7 +22,7 @@ public class LocalBroadcastManager {
     private final ArrayList<BroadcastRecord> mPendingBroadcasts = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ReceiverRecord {
         boolean broadcasting;
         final IntentFilter filter;
@@ -46,7 +45,7 @@ public class LocalBroadcastManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class BroadcastRecord {
         final Intent intent;
         final ArrayList<ReceiverRecord> receivers;
@@ -180,7 +179,7 @@ public class LocalBroadcastManager {
                         } else {
                             if (z) {
                                 switch (match) {
-                                    case BaseResp.ErrCode.ERR_AUTH_DENIED /* -4 */:
+                                    case -4:
                                         str = "category";
                                         break;
                                     case -3:

@@ -7,8 +7,8 @@ import com.baidu.tbadk.editortools.r;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends r {
-    private static final int[] aDt = {4, 17, 24, 3, 9, 6, 44};
-    private InputView aDu;
+    private static final int[] brn = {4, 17, 24, 3, 9, 6, 44};
+    private InputView bro;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -18,17 +18,17 @@ public class a extends r {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.aDu != null) {
-            this.aDu.setNeedFaceMaxCount(z2);
+        if (this.bro != null) {
+            this.bro.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.aCN = false;
-        this.aCM = 2;
-        this.aCO = aDt;
-        this.aDu = new InputView(context, z);
-        this.aBW = this.aDu;
+        this.bqI = false;
+        this.bqH = 2;
+        this.bqJ = brn;
+        this.bro = new InputView(context, z);
+        this.bpR = this.bro;
         p.a aVar = new p.a(0, -1);
         aVar.topMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
         aVar.bottomMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
@@ -36,10 +36,10 @@ public class a extends r {
         aVar.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds12);
         aVar.weight = 1.0f;
         aVar.gravity = 80;
-        ((View) this.aBW).setLayoutParams(aVar);
+        ((View) this.bpR).setLayoutParams(aVar);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.aBW).setIsOnlyLocalEmotion(z);
+        ((InputView) this.bpR).setIsOnlyLocalEmotion(z);
     }
 }

@@ -1,89 +1,15 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.widget.ListView.r;
 import com.baidu.tieba.d;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
-/* loaded from: classes.dex */
-public class n extends j.a {
-    public TextView anm;
-    public TextView ann;
-    public UserIconBox aoA;
-    public ImageView aoB;
-    public UserIconBox aoC;
-    public int apG;
-    public ThreadSkinView bvQ;
-    public TextView cIy;
-    public TextView cIz;
-    public LinearLayout cJA;
-    public LinearLayout cJB;
-    public View cJC;
-    public TbImageView cJD;
-    public RelativeLayout cJE;
-    public TbImageView cJF;
-    public TextView cJG;
-    public int cJn;
-    public FrameLayout cJo;
-    public LinearLayout cJp;
-    public RelativeLayout cJq;
-    public TextView cJr;
-    public PlayVoiceBnt cJs;
-    public FrsCommonImageLayout cJt;
-    public TextView cJu;
-    public HeadImageView cJv;
-    public TextView cJw;
-    public TextView cJx;
-    public RelativeLayout cJy;
-    public LinearLayout cJz;
-    public TbImageView ccL;
-    public TextView mTitle;
+/* loaded from: classes2.dex */
+public class n extends r.a {
+    public TextView dyN;
 
-    public n(View view, int i) {
+    public n(View view) {
         super(view);
-        this.apG = 3;
-        this.cJn = 0;
-        this.cJn = i;
-        this.cJo = (FrameLayout) view.findViewById(d.g.frs_list);
-        this.cJy = (RelativeLayout) view.findViewById(d.g.frs_item_user_info_view);
-        this.cJz = (LinearLayout) view.findViewById(d.g.frs_item_base_user_info);
-        this.cJp = (LinearLayout) view.findViewById(d.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cJp.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.cJp.setLayoutParams(layoutParams);
-        this.cJq = (RelativeLayout) view.findViewById(d.g.frs_list_item_top_card);
-        this.ccL = (TbImageView) view.findViewById(d.g.frs_normal_item_theme_card);
-        this.cJv = (HeadImageView) view.findViewById(d.g.frs_photo);
-        this.aoA = (UserIconBox) view.findViewById(d.g.frs_user_tshow_icon_box);
-        this.aoC = (UserIconBox) view.findViewById(d.g.frs_user_icon_box);
-        this.cJu = (TextView) view.findViewById(d.g.frs_lv_author);
-        this.aoB = (ImageView) view.findViewById(d.g.identity_view);
-        this.anm = (TextView) view.findViewById(d.g.frs_lv_reply_time);
-        this.mTitle = (TextView) view.findViewById(d.g.frs_lv_title);
-        this.cJr = (TextView) view.findViewById(d.g.abstract_text);
-        this.cJs = (PlayVoiceBnt) view.findViewById(d.g.abstract_voice);
-        this.cJt = (FrsCommonImageLayout) view.findViewById(d.g.abstract_img_layout);
-        this.ann = (TextView) view.findViewById(d.g.frs_praise_num);
-        this.cJw = (TextView) view.findViewById(d.g.action_button);
-        this.cIz = (TextView) view.findViewById(d.g.frs_reply_num);
-        this.cJx = (TextView) view.findViewById(d.g.frs_more_abstract);
-        this.cJA = (LinearLayout) view.findViewById(d.g.frs_item_num);
-        this.cJB = (LinearLayout) view.findViewById(d.g.frs_item_loc_view);
-        this.cIy = (TextView) view.findViewById(d.g.frs_item_location_address);
-        this.cJC = view.findViewById(d.g.frs_item_location_sep);
-        this.cJD = (TbImageView) view.findViewById(d.g.game_activity_banner);
-        this.cJF = (TbImageView) view.findViewById(d.g.app_code_banner);
-        this.cJG = (TextView) view.findViewById(d.g.app_code_btn);
-        this.cJE = (RelativeLayout) view.findViewById(d.g.app_code_wrapper);
-        this.bvQ = (ThreadSkinView) view.findViewById(d.g.frs_thread_skin);
+        this.dyN = (TextView) view.findViewById(d.g.no_data_tips);
     }
 }

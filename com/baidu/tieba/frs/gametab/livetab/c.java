@@ -7,12 +7,12 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.af;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
-    private b cXi = new b();
+    private b dJu = new b();
 
     public c() {
-        Fa().aHJ = this.cXi;
+        Mz().bvx = this.dJu;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,42 +21,42 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c EZ() {
+    public com.baidu.tbadk.mainTab.c My() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.aHK = d.j.ala_live;
-        cVar.aHR = com.baidu.tbadk.mainTab.c.aHP;
+        cVar.bvy = d.j.ala_live;
+        cVar.bvF = com.baidu.tbadk.mainTab.c.bvD;
         return cVar;
     }
 
     public void a(af afVar) {
-        if (afVar != null && afVar.jZ(2)) {
+        if (afVar != null && afVar.na(2)) {
             afVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e ba(Context context) {
-        this.aHA = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aHA.setTextSize(2.0f);
-        return this.aHA;
+    public e bm(Context context) {
+        this.bvo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bvo.setTextSize(2.0f);
+        return this.bvo;
     }
 
     public void setForumId(String str) {
-        if (this.cXi != null) {
-            this.cXi.setForumId(str);
+        if (this.dJu != null) {
+            this.dJu.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.cXi != null) {
-            this.cXi.setForumName(str);
+        if (this.dJu != null) {
+            this.dJu.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.cXi != null) {
-            this.cXi.setForumGameLabel(str);
+        if (this.dJu != null) {
+            this.dJu.setForumGameLabel(str);
         }
     }
 }

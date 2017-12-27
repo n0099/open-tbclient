@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.IntentCompat;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
@@ -16,21 +15,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
-public class ShareCompat {
+/* loaded from: classes2.dex */
+public final class ShareCompat {
     public static final String EXTRA_CALLING_ACTIVITY = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_PACKAGE = "android.support.v4.app.EXTRA_CALLING_PACKAGE";
-    private static ShareCompatImpl IMPL;
+    static ShareCompatImpl IMPL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface ShareCompatImpl {
         void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder);
 
         String escapeHtml(CharSequence charSequence);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class ShareCompatImplBase implements ShareCompatImpl {
         ShareCompatImplBase() {
         }
@@ -73,7 +72,7 @@ public class ShareCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class ShareCompatImplICS extends ShareCompatImplBase {
         ShareCompatImplICS() {
         }
@@ -91,7 +90,7 @@ public class ShareCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class ShareCompatImplJB extends ShareCompatImplICS {
         ShareCompatImplJB() {
         }
@@ -115,6 +114,9 @@ public class ShareCompat {
         } else {
             IMPL = new ShareCompatImplBase();
         }
+    }
+
+    private ShareCompat() {
     }
 
     public static String getCallingPackage(Activity activity) {
@@ -145,7 +147,7 @@ public class ShareCompat {
         configureMenuItem(findItem, intentBuilder);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class IntentBuilder {
         private Activity mActivity;
         private ArrayList<String> mBccAddresses;
@@ -163,7 +165,7 @@ public class ShareCompat {
             this.mActivity = activity;
             this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE, activity.getPackageName());
             this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, activity.getComponentName());
-            this.mIntent.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
+            this.mIntent.addFlags(524288);
         }
 
         public Intent getIntent() {
@@ -274,7 +276,7 @@ public class ShareCompat {
 
         public IntentBuilder addStream(Uri uri) {
             Uri uri2 = (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
-            if (uri2 == null) {
+            if (this.mStreams == null && uri2 == null) {
                 return setStream(uri);
             }
             if (this.mStreams == null) {
@@ -351,7 +353,7 @@ public class ShareCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class IntentReader {
         private Activity mActivity;
         private ComponentName mCallingActivity;

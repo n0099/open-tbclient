@@ -5,12 +5,13 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e ww;
-    private HashMap<String, a> wu = new HashMap<>();
-    private HashMap<String, b> wv = new HashMap<>();
+    private static e akH;
+    private HashMap<String, a> akF = new HashMap<>();
+    private HashMap<String, b> akG = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -18,10 +19,10 @@ public class e {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.G(false);
-                        aVar.H(false);
-                        aVar.ao(0);
-                        aVar.g(System.currentTimeMillis());
+                        aVar.am(false);
+                        aVar.an(false);
+                        aVar.di(0);
+                        aVar.p(System.currentTimeMillis());
                         return;
                     }
                     return;
@@ -31,84 +32,84 @@ public class e {
         }
     };
 
-    public static e fV() {
-        if (ww == null) {
+    public static e nx() {
+        if (akH == null) {
             synchronized (e.class) {
-                if (ww == null) {
-                    ww = new e();
+                if (akH == null) {
+                    akH = new e();
                 }
             }
         }
-        return ww;
+        return akH;
     }
 
     public e() {
         b bVar = new b();
-        bVar.ap(3000);
-        bVar.aq(120000);
-        bVar.ar(500);
-        this.wv.put("net", bVar);
-        this.wv.put("op", bVar);
-        this.wv.put("stat", bVar);
-        this.wv.put("crash", bVar);
-        this.wv.put("pfmonitor", bVar);
+        bVar.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+        bVar.dk(120000);
+        bVar.dl(500);
+        this.akG.put("net", bVar);
+        this.akG.put("op", bVar);
+        this.akG.put("stat", bVar);
+        this.akG.put("crash", bVar);
+        this.akG.put("pfmonitor", bVar);
         b bVar2 = new b();
-        bVar2.ap(3000);
-        bVar2.aq(120000);
-        bVar2.ar(TbConfig.POST_IMAGE_SMALL);
-        this.wv.put("file", bVar2);
-        this.wv.put("db", bVar2);
-        this.wv.put("img", bVar2);
-        this.wv.put("voice", bVar2);
-        this.wv.put("error", bVar2);
+        bVar2.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+        bVar2.dk(120000);
+        bVar2.dl(TbConfig.POST_IMAGE_SMALL);
+        this.akG.put("file", bVar2);
+        this.akG.put("db", bVar2);
+        this.akG.put("img", bVar2);
+        this.akG.put("voice", bVar2);
+        this.akG.put("error", bVar2);
         b bVar3 = new b();
-        bVar3.ap(3000);
-        bVar3.aq(120000);
-        bVar3.ar(TbConfig.POST_IMAGE_SMALL);
-        this.wv.put("dbg", bVar3);
+        bVar3.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+        bVar3.dk(120000);
+        bVar3.dl(TbConfig.POST_IMAGE_SMALL);
+        this.akG.put("dbg", bVar3);
     }
 
-    public synchronized boolean ao(String str) {
+    public synchronized boolean aw(String str) {
         a aVar;
         boolean z;
-        b bVar = this.wv.get(str);
+        b bVar = this.akG.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.wu.get(str);
+            a aVar2 = this.akF.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
-                aVar3.H(false);
-                aVar3.G(false);
-                aVar3.g(currentTimeMillis);
-                this.wu.put(str, aVar3);
+                aVar3.an(false);
+                aVar3.am(false);
+                aVar3.p(currentTimeMillis);
+                this.akF.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.fW()) {
+            if (aVar.ny()) {
                 z = true;
             } else {
-                if (aVar.ga()) {
-                    aVar.ao(aVar.fY() + 1);
-                    if (currentTimeMillis - aVar.fX() < bVar.gd()) {
-                        if (aVar.fY() >= bVar.ge()) {
-                            aVar.G(true);
+                if (aVar.nC()) {
+                    aVar.di(aVar.nA() + 1);
+                    if (currentTimeMillis - aVar.nz() < bVar.nE()) {
+                        if (aVar.nA() >= bVar.nF()) {
+                            aVar.am(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.H(false);
-                        aVar.ao(0);
-                        aVar.g(currentTimeMillis);
+                        aVar.an(false);
+                        aVar.di(0);
+                        aVar.p(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.fZ() < bVar.gb()) {
-                    aVar.H(true);
-                    aVar.f(currentTimeMillis);
+                } else if (currentTimeMillis - aVar.nB() < bVar.nD()) {
+                    aVar.an(true);
+                    aVar.o(currentTimeMillis);
                 } else {
-                    aVar.g(currentTimeMillis);
+                    aVar.p(currentTimeMillis);
                 }
                 z = false;
             }
@@ -127,91 +128,91 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
+        private long akJ;
+        private long akK;
+        private boolean akL;
         private int mCount;
-        private long wA;
-        private boolean wB;
-        private long wy;
-        private boolean wz;
+        private boolean sx;
 
         private a() {
-            this.wz = false;
+            this.sx = false;
             this.mCount = 0;
-            this.wB = false;
+            this.akL = false;
         }
 
-        public boolean fW() {
-            return this.wB;
+        public boolean ny() {
+            return this.akL;
         }
 
-        public void G(boolean z) {
-            this.wB = z;
+        public void am(boolean z) {
+            this.akL = z;
         }
 
-        public long fX() {
-            return this.wA;
+        public long nz() {
+            return this.akK;
         }
 
-        public void f(long j) {
-            this.wA = j;
+        public void o(long j) {
+            this.akK = j;
         }
 
-        public int fY() {
+        public int nA() {
             return this.mCount;
         }
 
-        public void ao(int i) {
+        public void di(int i) {
             this.mCount = i;
         }
 
-        public long fZ() {
-            return this.wy;
+        public long nB() {
+            return this.akJ;
         }
 
-        public void g(long j) {
-            this.wy = j;
+        public void p(long j) {
+            this.akJ = j;
         }
 
-        public boolean ga() {
-            return this.wz;
+        public boolean nC() {
+            return this.sx;
         }
 
-        public void H(boolean z) {
-            this.wz = z;
+        public void an(boolean z) {
+            this.sx = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int wC;
-        private int wD;
-        private int wE;
+        private int akM;
+        private int akN;
+        private int akO;
 
         private b() {
         }
 
-        public int gb() {
-            return this.wC;
+        public int nD() {
+            return this.akM;
         }
 
-        public void ap(int i) {
-            this.wC = i;
+        public void dj(int i) {
+            this.akM = i;
         }
 
-        public int gd() {
-            return this.wD;
+        public int nE() {
+            return this.akN;
         }
 
-        public void aq(int i) {
-            this.wD = i;
+        public void dk(int i) {
+            this.akN = i;
         }
 
-        public int ge() {
-            return this.wE;
+        public int nF() {
+            return this.akO;
         }
 
-        public void ar(int i) {
-            this.wE = i;
+        public void dl(int i) {
+            this.akO = i;
         }
     }
 }

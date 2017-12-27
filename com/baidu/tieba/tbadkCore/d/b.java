@@ -2,71 +2,72 @@ package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gCZ;
-    private final int gDa = 10;
-    private final int gDb = 3000;
-    public String gDc = null;
-    public boolean aiS = false;
+    private com.baidu.adp.lib.stats.a hjO;
+    private final int hjP = 10;
+    private final int hjQ = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    public String hjR = null;
+    public boolean aXb = false;
 
     public b(String str) {
-        aa(str, false);
+        ab(str, false);
     }
 
-    public void aa(String str, boolean z) {
-        this.gDc = str;
-        this.aiS = z;
-        this.gCZ = new com.baidu.adp.lib.stats.a("dbg");
+    public void ab(String str, boolean z) {
+        this.hjR = str;
+        this.aXb = z;
+        this.hjO = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.gCZ.fT();
+        this.hjO.nv();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bxo;
-        if (this.gCZ != null && (bxo = bxo()) != null) {
+        e bCF;
+        if (this.hjO != null && (bCF = bCF()) != null) {
             if (z) {
-                if (bxo.gDh != null) {
-                    bxo.gDh.num++;
+                if (bCF.hjW != null) {
+                    bCF.hjW.num++;
                     if (z2) {
-                        bxo.gDh.gDe += j2;
-                        bxo.gDh.size += j;
+                        bCF.hjW.hjT += j2;
+                        bCF.hjW.size += j;
                     } else {
-                        bxo.gDh.gDf++;
+                        bCF.hjW.hjU++;
                     }
                 } else {
                     return;
                 }
-            } else if (bxo.gDi != null) {
-                bxo.gDi.num++;
+            } else if (bCF.hjX != null) {
+                bCF.hjX.num++;
                 if (z2) {
-                    bxo.gDi.gDe += j3;
-                    bxo.gDi.size += j;
+                    bCF.hjX.hjT += j3;
+                    bCF.hjX.size += j;
                     j2 = j3;
                 } else {
-                    bxo.gDi.gDf++;
+                    bCF.hjX.hjU++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gCZ = null;
+            this.hjO = null;
             if (z2) {
-                c.a(bxo, 10);
+                c.a(bCF, 10);
             }
-            if (this.gDc == "frsStat") {
+            if (this.hjR == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
-                    aVar.p("act", "frs");
-                    aVar.p("result", z2 ? "0" : "1");
-                    aVar.p("isHttp", z ? "1" : "0");
-                    aVar.p("timeCost", String.valueOf(j2));
-                    aVar.p("errCode", String.valueOf(i));
-                    aVar.p("errMsg", str);
-                    aVar.p("down", String.valueOf(j));
+                    aVar.append("act", "frs");
+                    aVar.append("result", z2 ? "0" : "1");
+                    aVar.append("isHttp", z ? "1" : "0");
+                    aVar.append("timeCost", String.valueOf(j2));
+                    aVar.append("errCode", String.valueOf(i));
+                    aVar.append("errMsg", str);
+                    aVar.append("down", String.valueOf(j));
                     BdStatisticsManager.getInstance().debug("frs", aVar);
                 }
             }
@@ -74,34 +75,34 @@ public class b {
     }
 
     public void destory() {
-        e bxo;
-        if (this.gCZ != null && (bxo = bxo()) != null && bxo.gDj != null) {
-            long fU = this.gCZ.fU();
-            if (fU > 3000) {
-                d dVar = bxo.gDj;
-                dVar.gDe = fU + dVar.gDe;
-                bxo.gDj.num++;
-                c.a(bxo, 10);
+        e bCF;
+        if (this.hjO != null && (bCF = bCF()) != null && bCF.hjY != null) {
+            long nw = this.hjO.nw();
+            if (nw > 3000) {
+                d dVar = bCF.hjY;
+                dVar.hjT = nw + dVar.hjT;
+                bCF.hjY.num++;
+                c.a(bCF, 10);
             }
         }
     }
 
-    private e bxo() {
-        return c.l(this.gDc, getNetType(), this.aiS);
+    private e bCF() {
+        return c.l(this.hjR, getNetType(), this.aXb);
     }
 
     private String getNetType() {
-        int hn = j.hn();
-        if (hn == 0) {
+        int oO = j.oO();
+        if (oO == 0) {
             return "N";
         }
-        if (hn == 1) {
+        if (oO == 1) {
             return "WIFI";
         }
-        if (hn == 3) {
+        if (oO == 3) {
             return "3G";
         }
-        if (hn != 2) {
+        if (oO != 2) {
             return "N";
         }
         return "2G";

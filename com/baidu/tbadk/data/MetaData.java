@@ -29,10 +29,11 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int is_manager;
     private int is_myfans;
     private int is_myfriend;
-    private k pendantData;
+    private h pendantData;
     private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
+    private int likeStatus = 1;
     private GodUserData godUserData = new GodUserData();
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
     private String userId = null;
@@ -407,7 +408,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new k();
+                this.pendantData = new h();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -455,6 +456,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
                 this.likeNum = jSONObject.optInt("my_like_num");
                 this.threadNum = jSONObject.optInt("post_num");
+                int optInt = jSONObject.optInt("has_concerned");
+                this.mHadConcerned = optInt == 1 || optInt == 2;
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
@@ -498,9 +501,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.alaUserData.parserJson(jSONObject.optJSONObject("ala_info"));
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
                 if (optJSONObject4 != null) {
-                    int optInt = optJSONObject4.optInt("is_virtual");
+                    int optInt2 = optJSONObject4.optInt("is_virtual");
                     String optString = optJSONObject4.optString("url");
-                    if (optInt == 1 && !StringUtils.isNull(optString)) {
+                    if (optInt2 == 1 && !StringUtils.isNull(optString)) {
                         this.virtualUserUrl = optString;
                     }
                 }
@@ -515,12 +518,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public k getPendantData() {
+    public h getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(k kVar) {
-        this.pendantData = kVar;
+    public void setPendantData(h hVar) {
+        this.pendantData = hVar;
     }
 
     public String getVirtualUserUrl() {
@@ -529,5 +532,15 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public void setVirtualUserUrl(String str) {
         this.virtualUserUrl = str;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public void setLikeStatus(int i) {
+        this.likeStatus = i;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public int getLikeStatus() {
+        return this.likeStatus;
     }
 }

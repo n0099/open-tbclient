@@ -4,17 +4,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends FragmentPagerAdapter {
-    private int[] btO;
+    private int[] chg;
     private List<Fragment> list;
 
     public a(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.btO = new int[]{0, 1};
+        this.chg = new int[]{0, 1};
     }
 
-    public void an(List<Fragment> list) {
+    public void ay(List<Fragment> list) {
         this.list = list;
     }
 

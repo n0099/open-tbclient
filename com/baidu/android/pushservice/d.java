@@ -70,28 +70,21 @@ public class d {
     }
 
     private static PushNotificationBuilder a(Context context, int i) {
-        PushNotificationBuilder pushNotificationBuilder;
-        Exception e;
-        ObjectInputStream objectInputStream;
-        com.baidu.android.pushservice.g.a.c(a, "getBuilder id=" + i);
         String string = context.getSharedPreferences(b, 0).getString("" + i, null);
         if (string != null) {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.k.b.a(string.getBytes()));
             try {
-                objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+                try {
+                    objectInputStream.close();
+                    byteArrayInputStream.close();
+                    return pushNotificationBuilder;
+                } catch (Exception e) {
+                    return pushNotificationBuilder;
+                }
             } catch (Exception e2) {
-                pushNotificationBuilder = null;
-                e = e2;
-            }
-            try {
-                objectInputStream.close();
-                byteArrayInputStream.close();
-                return pushNotificationBuilder;
-            } catch (Exception e3) {
-                e = e3;
-                com.baidu.android.pushservice.g.a.a(a, e);
-                return pushNotificationBuilder;
+                return null;
             }
         }
         return b(context);
@@ -110,7 +103,6 @@ public class d {
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a(a, "setNotificationBuilder write object error", e);
             }
         }
     }
@@ -128,36 +120,29 @@ public class d {
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.e(a, "setDefaultNotificationBuilder write object error");
-                com.baidu.android.pushservice.g.a.e(a, "error " + e.getMessage());
             }
         }
     }
 
     private static PushNotificationBuilder b(Context context) {
-        PushNotificationBuilder pushNotificationBuilder;
-        Exception e;
         String string = context.getSharedPreferences(b, 0).getString("" + d, null);
-        if (string == null) {
-            return a(context);
-        }
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.k.b.a(string.getBytes()));
-        try {
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+        if (string != null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.k.b.a(string.getBytes()));
             try {
-                objectInputStream.close();
-                byteArrayInputStream.close();
-                return pushNotificationBuilder;
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+                try {
+                    objectInputStream.close();
+                    byteArrayInputStream.close();
+                    return pushNotificationBuilder;
+                } catch (Exception e) {
+                    return pushNotificationBuilder;
+                }
             } catch (Exception e2) {
-                e = e2;
-                com.baidu.android.pushservice.g.a.a(a, "getDefaultBuilder read object error", e);
-                return pushNotificationBuilder;
+                return null;
             }
-        } catch (Exception e3) {
-            pushNotificationBuilder = null;
-            e = e3;
         }
+        return a(context);
     }
 
     public static void b(Context context, PushNotificationBuilder pushNotificationBuilder) {

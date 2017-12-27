@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -13,11 +12,11 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class TitleBox extends AbstractFullBox {
     public static final String TYPE = "titl";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
     private String language;
     private String title;
 
@@ -30,7 +29,7 @@ public class TitleBox extends AbstractFullBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 46);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getTitle", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 50);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", VrPlayerActivityConfig.TITLE, "", "void"), 63);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", "title", "", "void"), 63);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 86);
     }
 

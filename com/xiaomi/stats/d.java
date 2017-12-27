@@ -1,6 +1,5 @@
 package com.xiaomi.stats;
 
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.smack.l;
 import java.net.UnknownHostException;
 /* loaded from: classes2.dex */
@@ -105,7 +104,7 @@ final class d {
             case 109:
                 aVar.a = com.xiaomi.push.thrift.a.BIND_TCP_CONNRESET;
                 break;
-            case TbConfig.BIG_PHOTO_MAX_SIZE /* 110 */:
+            case 110:
                 aVar.a = com.xiaomi.push.thrift.a.BIND_TCP_BROKEN_PIPE;
                 break;
             case 199:
@@ -150,7 +149,7 @@ final class d {
             case 109:
                 aVar.a = com.xiaomi.push.thrift.a.CHANNEL_TCP_CONNRESET;
                 break;
-            case TbConfig.BIG_PHOTO_MAX_SIZE /* 110 */:
+            case 110:
                 aVar.a = com.xiaomi.push.thrift.a.CHANNEL_TCP_BROKEN_PIPE;
                 break;
             case 199:

@@ -10,7 +10,7 @@ public abstract class b {
 
     public abstract void setParams(String str);
 
-    public Bitmap gy(String str) throws Exception {
+    public Bitmap gD(String str) throws Exception {
         return b(BitmapHelper.loadBitmap(str), true);
     }
 }

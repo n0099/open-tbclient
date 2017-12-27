@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -267,7 +266,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
             float f = 0.0f;
             float x2 = motionEvent.getX(0);
             float y = motionEvent.getY(0);
-            int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
+            int action = motionEvent.getAction() & 255;
             if (action == 5 || action == 6) {
                 this.mActionState = action;
             }
@@ -280,7 +279,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (this.mActionState == 6) {
                 this.mActionState = 0;
             }
-            GL2JNILib.transform(this.mRender.m_hRender, x2, x, y, f, motionEvent.getAction() & MotionEventCompat.ACTION_MASK);
+            GL2JNILib.transform(this.mRender.m_hRender, x2, x, y, f, motionEvent.getAction() & 255);
         }
         return false;
     }

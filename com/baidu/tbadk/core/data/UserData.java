@@ -99,6 +99,8 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
     @Override // com.baidu.tbadk.data.MetaData, com.baidu.tbadk.core.view.userLike.a
     public void setIsLike(boolean z) {
         super.setIsLike(z);
-        setHave_attention(z ? 1 : 0);
+        if (!z) {
+            setHave_attention(0);
+        }
     }
 }

@@ -13,41 +13,41 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> aMG;
-    private int aMI;
-    private int aMJ;
-    private TbPageContext<?> aca;
+    private TbPageContext<?> aQq;
+    private ArrayList<b> bAt;
+    private int bAv;
+    private int bAw;
     private int padding;
-    private int aMz = -1;
+    private int bAm = -1;
     private int rowSize = 0;
-    private int akb = aj.getColor(d.C0095d.common_color_10043);
-    private int aMH = aj.getColor(d.C0095d.cp_link_tip_a);
+    private int aYk = aj.getColor(d.C0108d.common_color_10043);
+    private int bAu = aj.getColor(d.C0108d.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.aMG = null;
-        this.aca = null;
+        this.bAt = null;
+        this.aQq = null;
         this.padding = 0;
-        this.aca = tbPageContext;
-        this.aMG = new ArrayList<>();
-        this.aMI = l.f(tbPageContext.getPageActivity(), d.e.ds1);
-        this.aMJ = l.f(this.aca.getPageActivity(), d.e.ds4);
-        this.padding = l.f(this.aca.getPageActivity(), d.e.ds36);
+        this.aQq = tbPageContext;
+        this.bAt = new ArrayList<>();
+        this.bAv = l.s(tbPageContext.getPageActivity(), d.e.ds1);
+        this.bAw = l.s(this.aQq.getPageActivity(), d.e.ds4);
+        this.padding = l.s(this.aQq.getPageActivity(), d.e.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aMG != null) {
-            return this.aMG.size();
+        if (this.bAt != null) {
+            return this.bAt.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aMG == null || i >= this.aMG.size()) {
+        if (this.bAt == null || i >= this.bAt.size()) {
             return null;
         }
-        return this.aMG.get(i);
+        return this.bAt.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,41 +57,41 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0077a c0077a;
+        C0091a c0091a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.aca.getPageActivity()).inflate(d.h.recommend_system_photo_item, viewGroup, false);
-            c0077a = new C0077a();
-            c0077a.aya = (LinearLayout) view.findViewById(d.g.photo_container);
-            c0077a.aMK = (TbImageView) view.findViewById(d.g.photo);
+            view = LayoutInflater.from(this.aQq.getPageActivity()).inflate(d.h.recommend_system_photo_item, viewGroup, false);
+            c0091a = new C0091a();
+            c0091a.bmf = (LinearLayout) view.findViewById(d.g.photo_container);
+            c0091a.bAx = (TbImageView) view.findViewById(d.g.photo);
         } else {
-            c0077a = (C0077a) view.getTag();
+            c0091a = (C0091a) view.getTag();
         }
-        if (fu(i) == 1) {
-            c0077a.aya.setPadding(0, this.padding, 0, 0);
-        } else if (fu(i) == 2) {
-            c0077a.aya.setPadding(0, 0, 0, this.padding);
+        if (it(i) == 1) {
+            c0091a.bmf.setPadding(0, this.padding, 0, 0);
+        } else if (it(i) == 2) {
+            c0091a.bmf.setPadding(0, 0, 0, this.padding);
         } else {
-            c0077a.aya.setPadding(0, 0, 0, 0);
+            c0091a.bmf.setPadding(0, 0, 0, 0);
         }
-        c0077a.aMK.setDrawerType(0);
-        c0077a.aMK.setBorderSurroundContent(true);
-        c0077a.aMK.setDrawBorder(true);
+        c0091a.bAx.setDrawerType(0);
+        c0091a.bAx.setBorderSurroundContent(true);
+        c0091a.bAx.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0077a.aMK.setBorderColor(this.akb);
-            c0077a.aMK.setBorderWidth(this.aMI);
+            c0091a.bAx.setBorderColor(this.aYk);
+            c0091a.bAx.setBorderWidth(this.bAv);
         } else {
-            c0077a.aMK.setBorderColor(this.aMH);
-            c0077a.aMK.setBorderWidth(this.aMJ);
+            c0091a.bAx.setBorderColor(this.bAu);
+            c0091a.bAx.setBorderWidth(this.bAw);
         }
-        c0077a.aMK.setDefaultResource(d.f.transparent_bg);
-        c0077a.aMK.setDefaultErrorResource(d.f.icon_default_avatar100);
-        c0077a.aMK.startLoad(this.aMG.get(i).getUrl(), 10, false);
-        view.setTag(c0077a);
+        c0091a.bAx.setDefaultResource(d.f.transparent_bg);
+        c0091a.bAx.setDefaultErrorResource(d.f.icon_default_avatar100);
+        c0091a.bAx.startLoad(this.bAt.get(i).getUrl(), 10, false);
+        view.setTag(c0091a);
         return view;
     }
 
-    public int fu(int i) {
+    public int it(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.aMz ? 1 : 0;
+        return i == this.bAm ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -111,8 +111,8 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    public void s(ArrayList<b> arrayList) {
-        this.aMG = arrayList;
+    public void t(ArrayList<b> arrayList) {
+        this.bAt = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -122,17 +122,17 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void fv(int i) {
-        this.aMz = i;
+    public void iu(int i) {
+        this.bAm = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0077a {
-        TbImageView aMK;
-        LinearLayout aya;
+    private class C0091a {
+        TbImageView bAx;
+        LinearLayout bmf;
 
-        private C0077a() {
+        private C0091a() {
         }
     }
 }

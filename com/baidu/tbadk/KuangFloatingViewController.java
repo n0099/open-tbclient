@@ -1,6 +1,8 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +35,7 @@ public class KuangFloatingViewController {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    if (KuangFloatingViewController.this.canShowFloatingView()) {
+                    if (KuangFloatingViewController.this.canShowFloatingView() && KuangFloatingViewController.this.init()) {
                         KuangFloatingViewController.this.showFloatingView();
                         return;
                     }
@@ -48,7 +50,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.vk().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.CK().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -73,7 +75,7 @@ public class KuangFloatingViewController {
         return (topActivityClassName == null || topActivityClassName.contains(WRITE_PACKAGE) || topActivityClassName.contains(STORY_PACKAGE)) ? false : true;
     }
 
-    public void showFloatingView() {
+    public boolean init() {
         if (this.needShowFloatingView) {
             if (this.mFloatingView == null) {
                 this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(d.h.floating_view_from_kuang, (ViewGroup) null);
@@ -93,33 +95,45 @@ public class KuangFloatingViewController {
                     public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
                         KuangFloatingViewController.this.needShowFloatingView = false;
-                        TiebaStatic.log(new ak("C12265").r("obj_type", 2));
+                        TiebaStatic.log(new ak("C12265").s("obj_type", 2));
                     }
                 });
             } else if (this.mFloatingView.getParent() != null) {
-                return;
+                return false;
             }
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = 2002;
-            layoutParams.flags = 65800;
-            layoutParams.format = -3;
-            layoutParams.x = 0;
-            layoutParams.y = l.f(TbadkCoreApplication.getInst(), d.e.ds260) + UtilHelper.getStatusBarHeight();
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            layoutParams.gravity = 51;
-            if (this.wm == null) {
-                this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
-            }
-            try {
-                this.wm.addView(this.mFloatingView, layoutParams);
+            return true;
+        }
+        return false;
+    }
+
+    public void showFloatingView() {
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.type = 2002;
+        layoutParams.flags = 65800;
+        layoutParams.format = -3;
+        layoutParams.x = 0;
+        layoutParams.y = l.s(TbadkCoreApplication.getInst(), d.e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.width = -2;
+        layoutParams.height = -2;
+        layoutParams.gravity = 51;
+        if (this.wm == null) {
+            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+        }
+        try {
+            if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                this.wm = null;
+                this.mFloatingView = null;
+            } else if (init()) {
+                if (this.mFloatingView != null && this.mFloatingView.getParent() == null) {
+                    this.wm.addView(this.mFloatingView, layoutParams);
+                }
                 TiebaStatic.log("C12266");
                 MessageManager.getInstance().registerListener(this.backGroundSwitchListener);
                 MessageManager.getInstance().registerListener(this.writeListener);
-            } catch (SecurityException e) {
-                this.wm = null;
-                this.mFloatingView = null;
             }
+        } catch (SecurityException e) {
+            this.wm = null;
+            this.mFloatingView = null;
         }
     }
 
@@ -129,7 +143,12 @@ public class KuangFloatingViewController {
         }
         if (this.mFloatingView != null && this.mFloatingView.getParent() != null) {
             try {
-                this.wm.removeView(this.mFloatingView);
+                if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                    this.wm = null;
+                    this.mFloatingView = null;
+                } else {
+                    this.wm.removeView(this.mFloatingView);
+                }
             } catch (SecurityException e) {
                 this.wm = null;
                 this.mFloatingView = null;

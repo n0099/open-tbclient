@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String aVr;
-    private int aVs;
+    private String bJf;
+    private int bJg;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gd(int i) {
-        this.aVs = i;
+    public void jc(int i) {
+        this.bJg = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void ge(int i) {
+    public void jd(int i) {
         this.urlType = i;
     }
 
-    public void hf(String str) {
-        this.aVr = str;
+    public void hi(String str) {
+        this.bJf = str;
     }
 
     public String getLink() {
@@ -78,14 +78,14 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aVs == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bJg == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.C0095d.cp_bg_line_c);
+                textPaint.bgColor = aj.getColor(d.C0108d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aj.getColor(d.C0095d.cp_bg_line_z);
+                textPaint.bgColor = aj.getColor(d.C0108d.cp_bg_line_z);
             }
-        } else if (this.aVs == 2) {
-            textPaint.bgColor = aj.getColor(d.C0095d.transparent);
+        } else if (this.bJg == 2) {
+            textPaint.bgColor = aj.getColor(d.C0108d.transparent);
         }
     }
 
@@ -93,7 +93,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aVr));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.bJf));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -103,7 +103,7 @@ public class c extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new ak("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
+            TiebaStatic.log(new ak("c11972").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).s("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -114,28 +114,28 @@ public class c extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    eVar.V(pageActivity, str);
-                    return;
-                case 16:
-                    eVar.U(pageActivity, str);
-                    return;
-                case 18:
-                    eVar.V(pageActivity, str);
-                    return;
-                case 32:
-                    eVar.W(pageActivity, str);
-                    return;
-                case 64:
-                    eVar.X(pageActivity, str);
-                    return;
-                case 128:
                     eVar.Y(pageActivity, str);
                     return;
+                case 16:
+                    eVar.X(pageActivity, str);
+                    return;
+                case 18:
+                    eVar.Y(pageActivity, str);
+                    return;
+                case 32:
+                    eVar.Z(pageActivity, str);
+                    return;
+                case 64:
+                    eVar.aa(pageActivity, str);
+                    return;
+                case 128:
+                    eVar.ab(pageActivity, str);
+                    return;
                 case 256:
-                    eVar.f(pageActivity, str, str2);
+                    eVar.h(pageActivity, str, str2);
                     return;
                 case 1024:
-                    eVar.Z(pageActivity, str);
+                    eVar.ac(pageActivity, str);
                     return;
                 default:
                     return;

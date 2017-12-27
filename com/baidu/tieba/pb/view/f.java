@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.core.view.e;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f extends PopupWindow {
     private com.baidu.tbadk.core.view.e mContainer;
     private View mContentView;
@@ -30,7 +30,7 @@ public class f extends PopupWindow {
             setWidth(-1);
             setSoftInputMode(16);
             setFocusable(false);
-            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0095d.common_color_10022)));
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0108d.common_color_10022)));
             setAnimationStyle(d.k.pb_more_pop_anim);
         }
     }

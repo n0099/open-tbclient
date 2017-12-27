@@ -1,20 +1,20 @@
 package android.support.v4.view;
 
 import android.os.Build;
-/* loaded from: classes.dex */
-public class ScaleGestureDetectorCompat {
+/* loaded from: classes2.dex */
+public final class ScaleGestureDetectorCompat {
     static final ScaleGestureDetectorImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface ScaleGestureDetectorImpl {
         boolean isQuickScaleEnabled(Object obj);
 
         void setQuickScaleEnabled(Object obj, boolean z);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class BaseScaleGestureDetectorImpl implements ScaleGestureDetectorImpl {
-        private BaseScaleGestureDetectorImpl() {
+        BaseScaleGestureDetectorImpl() {
         }
 
         @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl
@@ -27,9 +27,9 @@ public class ScaleGestureDetectorCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class ScaleGestureDetectorCompatKitKatImpl implements ScaleGestureDetectorImpl {
-        private ScaleGestureDetectorCompatKitKatImpl() {
+        ScaleGestureDetectorCompatKitKatImpl() {
         }
 
         @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl

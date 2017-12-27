@@ -9,188 +9,188 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b RI = null;
-    private static a RJ = null;
-    private static boolean RK = false;
-    private static String RL = "";
-    private static transient List<String> RO = new ArrayList(5);
+    private static b aGp = null;
+    private static a aGq = null;
+    private static boolean aGr = false;
+    private static String aGs = "";
+    private static transient List<String> aGt = new ArrayList(5);
 
     /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0055a {
-        private static SparseIntArray RP = new SparseIntArray();
+    public static class C0069a {
+        private static SparseIntArray aGu = new SparseIntArray();
 
         static {
-            RP.put(2, 1);
-            RP.put(4, 2);
-            RP.put(8, 3);
-            RP.put(12, 4);
-            RP.put(16, 5);
-            RP.put(20, 6);
-            RP.put(24, 7);
+            aGu.put(2, 1);
+            aGu.put(4, 2);
+            aGu.put(8, 3);
+            aGu.put(12, 4);
+            aGu.put(16, 5);
+            aGu.put(20, 6);
+            aGu.put(24, 7);
         }
 
-        public static int ba(int i) {
-            return RP.get(i);
+        public static int ea(int i) {
+            return aGu.get(i);
         }
     }
 
     private a() {
     }
 
-    public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (RJ == null) {
+    public static a b(BaseFragmentActivity baseFragmentActivity) {
+        if (aGq == null) {
             synchronized (a.class) {
-                if (RJ == null) {
-                    RJ = new a();
-                    RI = b.b(baseFragmentActivity);
+                if (aGq == null) {
+                    aGq = new a();
+                    aGp = b.c(baseFragmentActivity);
                 }
             }
-        } else if (RI != null) {
-            RI.a(baseFragmentActivity.getPageContext());
+        } else if (aGp != null) {
+            aGp.a(baseFragmentActivity.getPageContext());
         }
-        if (RK && RI != null) {
-            RI.nW();
-            RI.nX();
-            RK = false;
+        if (aGr && aGp != null) {
+            aGp.vz();
+            aGp.vA();
+            aGr = false;
         }
-        return RJ;
+        return aGq;
     }
 
     public static a b(BaseActivity baseActivity) {
-        if (RJ == null) {
+        if (aGq == null) {
             synchronized (a.class) {
-                if (RJ == null) {
-                    RJ = new a();
-                    RI = b.c(baseActivity);
+                if (aGq == null) {
+                    aGq = new a();
+                    aGp = b.c(baseActivity);
                 }
             }
-        } else if (RI != null) {
-            RI.a(baseActivity.getPageContext());
+        } else if (aGp != null) {
+            aGp.a(baseActivity.getPageContext());
         }
-        if (RK && RI != null) {
-            RI.nW();
-            RI.nX();
-            RK = false;
+        if (aGr && aGp != null) {
+            aGp.vz();
+            aGp.vA();
+            aGr = false;
         }
-        return RJ;
+        return aGq;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        nR();
+        vu();
         if (z) {
-            nL();
+            vo();
         }
         if (z2) {
-            nM();
+            vp();
         }
-        ac(z3);
+        aI(z3);
         a(aVar);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        nR();
-        if (RI != null) {
-            RI.a(tbPageContext, str, str2, str3);
+        vu();
+        if (aGp != null) {
+            aGp.a(tbPageContext, str, str2, str3);
         }
     }
 
-    public void nL() {
-        nR();
-        if (RI != null) {
-            RI.nW();
-            RK = false;
+    public void vo() {
+        vu();
+        if (aGp != null) {
+            aGp.vz();
+            aGr = false;
         }
     }
 
-    public void nM() {
-        nR();
-        if (RI != null) {
-            RI.nX();
-            RK = false;
+    public void vp() {
+        vu();
+        if (aGp != null) {
+            aGp.vA();
+            aGr = false;
         }
     }
 
-    public void ac(boolean z) {
-        nR();
-        if (RI != null) {
-            RI.ac(z);
+    public void aI(boolean z) {
+        vu();
+        if (aGp != null) {
+            aGp.aI(z);
         }
     }
 
-    public boolean nN() {
-        nR();
-        if (RI != null) {
-            return RI.nN();
+    public boolean vq() {
+        vu();
+        if (aGp != null) {
+            return aGp.vq();
         }
         return false;
     }
 
     public void a(b.a aVar) {
-        nR();
-        if (RI != null) {
-            RI.c(aVar);
+        vu();
+        if (aGp != null) {
+            aGp.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        nR();
-        if (RI != null) {
-            if (RI.nT()) {
-                RI.c(aVar);
+        vu();
+        if (aGp != null) {
+            if (aGp.vw()) {
+                aGp.c(aVar);
             }
-            RI.nV();
+            aGp.vy();
         }
     }
 
     public void a(int i, b.a aVar) {
-        nR();
-        if (RI != null) {
-            if (RI.nT()) {
-                RI.c(aVar);
+        vu();
+        if (aGp != null) {
+            if (aGp.vw()) {
+                aGp.c(aVar);
             }
-            RI.bb(i);
+            aGp.eb(i);
         }
     }
 
-    public void nO() {
-        nR();
-        if (RI != null) {
-            RI.nO();
-            RK = true;
+    public void vr() {
+        vu();
+        if (aGp != null) {
+            aGp.vr();
+            aGr = true;
         }
     }
 
-    public void nP() {
-        nR();
-        if (RI != null) {
-            RI.nP();
+    public void vs() {
+        vu();
+        if (aGp != null) {
+            aGp.vs();
         }
     }
 
-    public void nQ() {
-        nR();
-        nP();
-        nO();
+    public void vt() {
+        vu();
+        vs();
+        vr();
     }
 
-    private void nR() {
-        if (RI == null) {
+    private void vu() {
+        if (aGp == null) {
         }
     }
 
-    public static void nS() {
+    public static void vv() {
         try {
-            if (RI != null) {
-                if (RJ != null) {
-                    RJ.nQ();
+            if (aGp != null) {
+                if (aGq != null) {
+                    aGq.vt();
                 }
-                RI.nU();
-                RI.nY();
-                RI = null;
+                aGp.vx();
+                aGp.vB();
+                aGp = null;
             }
-            if (RJ != null) {
-                RJ = null;
+            if (aGq != null) {
+                aGq = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.m;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends m<b, c> {
-    public View.OnClickListener aWM;
+    public View.OnClickListener bKB;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,7 +20,7 @@ public class a extends m<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
+    /* renamed from: bu */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -31,21 +31,21 @@ public class a extends m<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cbj != null) {
-            if (this.aWM != null) {
-                cVar.cbj.setOnClickListener(this.aWM);
+        if (cVar != null && cVar.cPP != null) {
+            if (this.bKB != null) {
+                cVar.cPP.setOnClickListener(this.bKB);
             }
-            if (cVar.apG != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.apG = TbadkCoreApplication.getInst().getSkinType();
-                aj.i(cVar.cbj, d.C0095d.cp_cont_f);
-                aj.j(cVar.cbj, d.f.more_all);
-                aj.j(cVar.baj, d.C0095d.cp_bg_line_c);
+            if (cVar.bdE != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.bdE = TbadkCoreApplication.getInst().getSkinType();
+                aj.r(cVar.cPP, d.C0108d.cp_cont_f);
+                aj.s(cVar.cPP, d.f.more_all);
+                aj.s(cVar.bNU, d.C0108d.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aWM = onClickListener;
+        this.bKB = onClickListener;
     }
 }

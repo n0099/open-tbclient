@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TimeZone;
+import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class s {
     private static Queue<String> c;
@@ -103,7 +104,7 @@ public class s {
                 String str5 = (trim.startsWith("http://") || trim.startsWith("https://")) ? trim : "http://" + trim;
                 try {
                     String protocol = new URL(str5).getProtocol();
-                    if ("http".equals(protocol) || "https".equals(protocol)) {
+                    if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {
                         intent = new Intent("android.intent.action.VIEW");
                         try {
                             intent.setData(Uri.parse(str5));

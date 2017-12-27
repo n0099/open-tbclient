@@ -1,9 +1,9 @@
 package com.baidu.tbadk.baseEditMark;
 
+import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.am;
@@ -306,7 +306,7 @@ public class MarkData implements Serializable {
             if (this.mHostMode) {
                 i += 2;
             }
-            jSONObject.put("status", i);
+            jSONObject.put(NotificationCompat.CATEGORY_STATUS, i);
             return jSONObject;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -319,7 +319,7 @@ public class MarkData implements Serializable {
             this.mThreadId = jSONObject.optString("thread_id");
             this.mPostId = jSONObject.optString("mark_pid");
             this.mForumName = jSONObject.optString("forum_name");
-            this.mTitle = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            this.mTitle = jSONObject.optString("title");
             this.mAuthorName = jSONObject.optJSONObject("author").optString("name_show");
             this.mUserName = jSONObject.optJSONObject("author").optString("name");
             this.portrait = jSONObject.optJSONObject("author").optString("user_portrait");

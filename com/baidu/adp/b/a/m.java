@@ -7,29 +7,29 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class m extends l {
-    private boolean Bj;
-    private Path Bv;
-    private Rect ru;
+    private Path apB;
+    private boolean apr;
+    private Rect lQ;
 
-    private void c(Rect rect) {
+    private void g(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.Bv == null || this.Bj != this.mArgs.Bj) {
+            if (this.apB == null || this.apr != this.mArgs.apr) {
                 z = true;
             }
-            if (this.ru == null || !this.ru.contains(rect)) {
+            if (this.lQ == null || !this.lQ.contains(rect)) {
                 z = true;
             }
-            this.Bj = this.mArgs.Bj;
+            this.apr = this.mArgs.apr;
             if (z) {
-                this.ru = rect;
-                this.Bv = new Path();
-                if (this.Bj) {
-                    this.Bv.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.lQ = rect;
+                this.apB = new Path();
+                if (this.apr) {
+                    this.apB.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.Bv.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
+                    this.apB.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
                 }
-                this.Bv.close();
+                this.apB.close();
             }
         }
     }
@@ -37,9 +37,9 @@ public class m extends l {
     @Override // com.baidu.adp.b.a.a
     protected void a(Canvas canvas, Drawable drawable) {
         canvas.save();
-        c(drawable.getBounds());
+        g(drawable.getBounds());
         try {
-            canvas.clipPath(this.Bv);
+            canvas.clipPath(this.apB);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

@@ -10,7 +10,7 @@ public class a {
         if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {
             return true;
         }
-        f(baseFragmentActivity);
+        h(baseFragmentActivity);
         return false;
     }
 
@@ -18,11 +18,11 @@ public class a {
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
             return true;
         }
-        f(baseFragmentActivity);
+        h(baseFragmentActivity);
         return false;
     }
 
-    private static void f(BaseFragmentActivity baseFragmentActivity) {
+    private static void h(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
                 baseFragmentActivity.showToast(d.j.plugin_not_exit_for_2_3);

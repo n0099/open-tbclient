@@ -20,7 +20,7 @@ import java.util.Queue;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class f {
-    public static final h k(Object obj) {
+    public static final h ap(Object obj) {
         if (obj == null) {
             return null;
         }

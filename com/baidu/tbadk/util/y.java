@@ -18,40 +18,40 @@ public class y {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fx(int i) {
+    public static boolean iw(int i) {
         boolean z = true;
         switch (i) {
             case 2:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.j.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+                    return (com.baidu.adp.lib.util.j.oK() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.oJ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) || !com.baidu.adp.lib.util.j.hi()) {
+                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_frs", 0) == 1) || !com.baidu.adp.lib.util.j.oJ()) {
                     z = false;
                 }
                 return z;
             case 3:
             case 4:
-                return com.baidu.adp.lib.util.j.hi();
+                return com.baidu.adp.lib.util.j.oJ();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.r.GV() && com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.r.Ou() && com.baidu.adp.lib.util.j.oJ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.j.hj() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.hi() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+                    return (com.baidu.adp.lib.util.j.oK() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.oJ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.j.hi()) {
+                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.j.oJ()) {
                     z = false;
                 }
                 return z;
         }
     }
 
-    public static boolean q(int i, String str) {
-        if (!am.isEmpty(com.baidu.tieba.play.s.hD(str))) {
+    public static boolean p(int i, String str) {
+        if (!am.isEmpty(com.baidu.tieba.play.t.hF(str))) {
             if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
                 return false;
             }
-            return (com.baidu.adp.lib.util.j.hj() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
+            return (com.baidu.adp.lib.util.j.oK() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return fx(i);
+        return iw(i);
     }
 }

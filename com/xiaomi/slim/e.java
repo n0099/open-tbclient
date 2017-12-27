@@ -1,6 +1,5 @@
 package com.xiaomi.slim;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.xiaomi.smack.l;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
@@ -27,7 +26,7 @@ public class e {
         int eventType = this.a.getEventType();
         String name = this.a.getName();
         if (eventType == 2) {
-            if (name.equals(PushConstants.EXTRA_PUSH_MESSAGE)) {
+            if (name.equals("message")) {
                 return com.xiaomi.smack.util.a.a(this.a);
             }
             if (name.equals("iq")) {

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.util.o;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 

@@ -14,34 +14,34 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.e.b bHP;
-    private boolean cWK;
+    private com.baidu.tieba.e.b ckD;
+    private boolean dIV;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean aNn = false;
-    private a.InterfaceC0096a bHQ = new a.InterfaceC0096a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int bRk = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+    private boolean bBa = false;
+    private a.InterfaceC0109a ckE = new a.InterfaceC0109a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int cFR = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0096a
-        public void ag(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && K(i2)) {
-                b.this.fc(false);
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
+        public void aY(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && aa(i2)) {
+                b.this.fI(false);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0096a
-        public void ah(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && K(i2)) {
-                b.this.fc(true);
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
+        public void aZ(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && aa(i2)) {
+                b.this.fI(true);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0096a
-        public void ai(int i, int i2) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
+        public void ba(int i, int i2) {
         }
 
-        private boolean K(float f) {
+        private boolean aa(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
@@ -49,14 +49,14 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.cWK = z;
-        if (this.cWK) {
-            this.bHP = new com.baidu.tieba.e.b(context);
-            this.bHP.a(this.bHQ);
+        this.dIV = z;
+        if (this.dIV) {
+            this.ckD = new com.baidu.tieba.e.b(context);
+            this.ckD.a(this.ckE);
         }
     }
 
-    public void d(View view, MotionEvent motionEvent) {
+    public void f(View view, MotionEvent motionEvent) {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         }
@@ -64,24 +64,24 @@ public class b {
         switch (motionEvent.getAction()) {
             case 1:
             case 3:
-                lj();
+                iJ();
                 break;
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.cWK = false;
+                    this.dIV = false;
                     break;
                 } else {
-                    this.cWK = true;
+                    this.dIV = true;
                     break;
                 }
         }
-        if (this.cWK && this.bHP != null) {
-            this.bHP.onTouchEvent(motionEvent);
+        if (this.dIV && this.ckD != null) {
+            this.ckD.onTouchEvent(motionEvent);
         }
     }
 
-    private void lj() {
+    private void iJ() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -90,14 +90,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fc(boolean z) {
-        this.aNn = z;
-        if (this.cWK) {
-            n(!this.aNn, true);
+    public void fI(boolean z) {
+        this.bBa = z;
+        if (this.dIV) {
+            p(!this.bBa, true);
         }
     }
 
-    private void n(boolean z, boolean z2) {
+    private void p(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
             customMessage.setTag(this.mPageId);

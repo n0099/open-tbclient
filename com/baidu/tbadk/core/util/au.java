@@ -4,11 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class au {
-    public static Date vG() {
+    public static Date Dg() {
         return new Date(System.currentTimeMillis());
     }
 
-    public static long vH() {
-        return com.baidu.adp.lib.g.b.c(new SimpleDateFormat("yyyyMMdd").format(vG()), 0L);
+    public static long Dh() {
+        return com.baidu.adp.lib.g.b.c(new SimpleDateFormat("yyyyMMdd").format(Dg()), 0L);
     }
 }

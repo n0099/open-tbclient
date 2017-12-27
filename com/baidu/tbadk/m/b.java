@@ -11,11 +11,11 @@ public class b extends e {
 
     @Override // com.baidu.adp.framework.a.e
     public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.tX().d(i, bdUniqueId);
+        ReloginManager.Bx().d(i, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a.e
     public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.tX().g(bdUniqueId);
+        ReloginManager.Bx().g(bdUniqueId);
     }
 }

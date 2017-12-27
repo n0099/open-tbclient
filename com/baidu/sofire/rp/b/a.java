@@ -12,30 +12,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a QI;
-    private SQLiteDatabase Nz;
-    private C0052a QJ;
-    private com.baidu.sofire.rp.a.a QK;
+    private static a aFq;
+    private SQLiteDatabase aCr;
+    private C0066a aFr;
+    private com.baidu.sofire.rp.a.a aFs;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.QJ = new C0052a(context);
-        this.QK = new com.baidu.sofire.rp.a.a(context);
+        this.aFr = new C0066a(context);
+        this.aFs = new com.baidu.sofire.rp.a.a(context);
         try {
-            this.Nz = this.QJ.getWritableDatabase();
+            this.aCr = this.aFr.getWritableDatabase();
         } catch (Throwable th) {
             d.a(th);
         }
     }
 
-    public static synchronized a ar(Context context) {
+    public static synchronized a aD(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (QI == null) {
-                QI = new a(context);
+            if (aFq == null) {
+                aFq = new a(context);
             }
-            aVar = QI;
+            aVar = aFq;
         }
         return aVar;
     }
@@ -58,18 +58,18 @@ public final class a {
         }
         contentValues.put("h", str);
         try {
-            return this.Nz.insert("r", null, contentValues);
+            return this.aCr.insert("r", null, contentValues);
         } catch (Throwable th) {
             d.a(th);
             return -1L;
         }
     }
 
-    public final long bO(String str) {
+    public final long a(String str) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
-            return this.Nz.insert("c", null, contentValues);
+            return this.aCr.insert("c", null, contentValues);
         } catch (Throwable th) {
             d.a(th);
             return -1L;
@@ -85,7 +85,7 @@ public final class a {
         boolean z;
         Cursor query;
         try {
-            query = this.Nz.query("c", null, "b=?", new String[]{str}, null, null, null);
+            query = this.aCr.query("c", null, "b=?", new String[]{str}, null, null, null);
         } catch (Throwable th2) {
             th = th2;
             z = true;
@@ -113,7 +113,7 @@ public final class a {
 
     private int b(int i) {
         try {
-            return this.Nz.delete("r", "a=?", new String[]{String.valueOf(i)});
+            return this.aCr.delete("r", "a=?", new String[]{String.valueOf(i)});
         } catch (Throwable th) {
             d.a(th);
             return -1;
@@ -122,13 +122,13 @@ public final class a {
 
     public final int a(List<Integer> list) {
         try {
-            this.Nz.beginTransaction();
+            this.aCr.beginTransaction();
             for (Integer num : list) {
                 b(num.intValue());
             }
-            this.Nz.setTransactionSuccessful();
+            this.aCr.setTransactionSuccessful();
             try {
-                this.Nz.endTransaction();
+                this.aCr.endTransaction();
                 return -1;
             } catch (Exception e) {
                 d.a(e);
@@ -144,7 +144,7 @@ public final class a {
                 }
             } finally {
                 try {
-                    this.Nz.endTransaction();
+                    this.aCr.endTransaction();
                 } catch (Exception e22) {
                     d.a(e22);
                 }
@@ -157,7 +157,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> aZ(int i) {
+    public final List<com.baidu.sofire.rp.c.a> a(int i) {
         Cursor cursor;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -165,7 +165,7 @@ public final class a {
         com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
         String str2 = i == 2 ? "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )" : "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - (aVar.a.getInt("re_net_wt", 3) * 3600000)) + ")";
         try {
-            cursor = i == 2 ? this.Nz.query("r", null, str2, null, null, null, "d desc", null) : this.Nz.query("r", null, str2, null, null, null, "d desc", Integer.toString(aVar.a.getInt("up_nu_li", 100)));
+            cursor = i == 2 ? this.aCr.query("r", null, str2, null, null, null, "d desc", null) : this.aCr.query("r", null, str2, null, null, null, "d desc", Integer.toString(aVar.a.getInt("up_nu_li", 100)));
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -244,7 +244,7 @@ public final class a {
         String str;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.Nz.query("r", null, "i=5", null, null, null, "d desc", "100");
+            cursor = this.aCr.query("r", null, "i=5", null, null, null, "d desc", "100");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -318,7 +318,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final List<com.baidu.sofire.rp.c.a> b(boolean z, int i) {
+    public final List<com.baidu.sofire.rp.c.a> d(boolean z, int i) {
         long currentTimeMillis;
         Cursor cursor;
         String str;
@@ -326,11 +326,11 @@ public final class a {
         String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
         try {
             if (i == 2) {
-                cursor = this.Nz.query("r", null, str2, null, null, null, "d desc", null);
+                cursor = this.aCr.query("r", null, str2, null, null, null, "d desc", null);
             } else {
                 int i2 = new com.baidu.sofire.rp.a.a(this.e).a.getInt("up_nu_li", 100);
                 new StringBuilder("sj-trigger report 3g limit").append(Integer.toString(i2));
-                cursor = this.Nz.query("r", null, str2, null, null, null, "d desc", Integer.toString(i2));
+                cursor = this.aCr.query("r", null, str2, null, null, null, "d desc", Integer.toString(i2));
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -412,7 +412,7 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         try {
             try {
-                cursor = this.Nz.query("r", null, null, null, null, null, null, null);
+                cursor = this.aCr.query("r", null, null, null, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -483,7 +483,7 @@ public final class a {
         com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.Nz.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (aVar.a.getInt("re_net_over", 7) * 86400000))});
+            return this.aCr.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (aVar.a.getInt("re_net_over", 7) * 86400000))});
         } catch (Exception e) {
             d.a(e);
             return -1;
@@ -492,8 +492,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0052a extends SQLiteOpenHelper {
-        public C0052a(Context context) {
+    class C0066a extends SQLiteOpenHelper {
+        public C0066a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

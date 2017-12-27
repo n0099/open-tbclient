@@ -20,7 +20,7 @@ public class InterviewLiveActivityConfig extends IntentConfig {
     public InterviewLiveActivityConfig createNormalCfg(String str, String str2, String str3, String str4, int i, int i2) {
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
-        intent.putExtra(KEY_TASK_ID, str2);
+        intent.putExtra("task_id", str2);
         intent.putExtra("forum_id", str3);
         intent.putExtra("forum_name", str4);
         intent.putExtra("is_top", i);

@@ -1,32 +1,32 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static a dpp = new a();
-    private long dpq = 0;
-    private SparseArray<Long> dpr = new SparseArray<>();
-    private SparseArray<Long> dps = new SparseArray<>();
-    private SparseArray<Long> dpt = new SparseArray<>();
-    private SparseArray<Long> dpu = new SparseArray<>();
+    private static a eby = new a();
+    private long ebz = 0;
+    private SparseArray<Long> ebA = new SparseArray<>();
+    private SparseArray<Long> ebB = new SparseArray<>();
+    private SparseArray<Long> ebC = new SparseArray<>();
+    private SparseArray<Long> ebD = new SparseArray<>();
 
     private a() {
     }
 
-    public static a atP() {
-        return dpp;
+    public static a aAS() {
+        return eby;
     }
 
     public long getCreateTime() {
-        return this.dpq;
+        return this.ebz;
     }
 
     public void setCreateTime(long j) {
-        this.dpq = j;
+        this.ebz = j;
     }
 
-    public long lK(int i) {
-        Long l = this.dps.get(i);
+    public long oB(int i) {
+        Long l = this.ebB.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.dps.put(i, Long.valueOf(j));
+        this.ebB.put(i, Long.valueOf(j));
     }
 
-    public long lL(int i) {
-        Long l = this.dpr.get(i);
+    public long oC(int i) {
+        Long l = this.ebA.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.dpr.put(i, Long.valueOf(j));
+        this.ebA.put(i, Long.valueOf(j));
     }
 
-    public long lM(int i) {
-        Long l = this.dpt.get(i);
+    public long oD(int i) {
+        Long l = this.ebC.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.dpt.put(i, Long.valueOf(j));
+        this.ebC.put(i, Long.valueOf(j));
     }
 
-    public long lN(int i) {
-        Long l = this.dpu.get(i);
+    public long oE(int i) {
+        Long l = this.ebD.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dpu.put(i, Long.valueOf(j));
+        this.ebD.put(i, Long.valueOf(j));
     }
 }

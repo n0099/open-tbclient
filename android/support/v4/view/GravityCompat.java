@@ -3,15 +3,15 @@ package android.support.v4.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.Gravity;
-/* loaded from: classes.dex */
-public class GravityCompat {
+/* loaded from: classes2.dex */
+public final class GravityCompat {
     public static final int END = 8388613;
     static final GravityCompatImpl IMPL;
     public static final int RELATIVE_HORIZONTAL_GRAVITY_MASK = 8388615;
     public static final int RELATIVE_LAYOUT_DIRECTION = 8388608;
     public static final int START = 8388611;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface GravityCompatImpl {
         void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6);
 
@@ -22,7 +22,7 @@ public class GravityCompat {
         int getAbsoluteGravity(int i, int i2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class GravityCompatImplBase implements GravityCompatImpl {
         GravityCompatImplBase() {
         }
@@ -48,7 +48,7 @@ public class GravityCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class GravityCompatImplJellybeanMr1 implements GravityCompatImpl {
         GravityCompatImplJellybeanMr1() {
         }
@@ -96,5 +96,8 @@ public class GravityCompat {
 
     public static int getAbsoluteGravity(int i, int i2) {
         return IMPL.getAbsoluteGravity(i, i2);
+    }
+
+    private GravityCompat() {
     }
 }

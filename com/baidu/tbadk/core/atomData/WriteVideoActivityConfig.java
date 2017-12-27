@@ -12,6 +12,7 @@ public class WriteVideoActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
     public static final String FORUM_VIDEO_TITLE = "forum_video_title";
+    public static final String FROM_TYPE = "from_type";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String VIDEO_INFO = "video_info";
     public static final String VIDEO_TITLE = "video_title";
@@ -33,5 +34,9 @@ public class WriteVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("video_title", str4);
         getIntent().putExtra(FORUM_VIDEO_TITLE, videoTitleData);
         getIntent().putExtra(ALL_VIDEO_TITLE, (Serializable) list);
+    }
+
+    public void addFromType(String str) {
+        getIntent().putExtra("from_type", str);
     }
 }

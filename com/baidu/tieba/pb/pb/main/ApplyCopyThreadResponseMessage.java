@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     private int errorCode;
     private String errorMessage;

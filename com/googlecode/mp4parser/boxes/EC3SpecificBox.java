@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes;
 
-import com.baidu.tbadk.TbConfig;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
@@ -14,15 +13,15 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
     int dataRate;
     List<Entry> entries;
     int numIndSub;
@@ -41,7 +40,7 @@ public class EC3SpecificBox extends AbstractBox {
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getDataRate", "com.googlecode.mp4parser.boxes.EC3SpecificBox", "", "", "", "int"), 98);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setDataRate", "com.googlecode.mp4parser.boxes.EC3SpecificBox", "int", "dataRate", "", "void"), 102);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getNumIndSub", "com.googlecode.mp4parser.boxes.EC3SpecificBox", "", "", "", "int"), 106);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setNumIndSub", "com.googlecode.mp4parser.boxes.EC3SpecificBox", "int", "numIndSub", "", "void"), TbConfig.BIG_PHOTO_MAX_SIZE);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setNumIndSub", "com.googlecode.mp4parser.boxes.EC3SpecificBox", "int", "numIndSub", "", "void"), 110);
     }
 
     public EC3SpecificBox() {
@@ -134,7 +133,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setDataRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.zC(i)));
         this.dataRate = i;
     }
 
@@ -144,7 +143,7 @@ public class EC3SpecificBox extends AbstractBox {
     }
 
     public void setNumIndSub(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.zC(i)));
         this.numIndSub = i;
     }
 

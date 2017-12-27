@@ -61,7 +61,7 @@ public class n {
         }
     }
 
-    public static void e(Cursor cursor) {
+    public static void i(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();

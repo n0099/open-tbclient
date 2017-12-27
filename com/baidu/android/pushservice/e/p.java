@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class p extends c {
@@ -16,8 +15,7 @@ public class p extends c {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "ginfo");
+        hashMap.put("method", "ginfo");
         hashMap.put("gid", this.d);
-        com.baidu.android.pushservice.g.a.c("Ginfo", "Ginfo param -- " + b.a(hashMap));
     }
 }

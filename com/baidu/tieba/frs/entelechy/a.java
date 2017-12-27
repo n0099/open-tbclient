@@ -2,80 +2,85 @@ package com.baidu.tieba.frs.entelechy;
 
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.f;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.ListView.i;
+import com.baidu.adp.widget.ListView.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.view.ExpandLayout;
 import com.baidu.tieba.frs.view.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends com.baidu.tieba.frs.view.c {
-    protected h cIp;
-    protected g cMu;
-    protected TextView cMv;
-    protected ViewGroup cMw;
-    protected ExpandLayout cMx;
-    protected com.baidu.tieba.frs.view.a cMy;
+    protected TextView dBA;
+    protected ViewGroup dBB;
+    protected g dBz;
+    protected o dxL;
 
-    public void ane() {
-        this.cMx = (ExpandLayout) this.dcF.findViewById(d.g.expandable_layout);
-        this.cMv = (TextView) this.dcF.findViewById(d.g.top_item_type);
-        this.cMv.setText(TbadkCoreApplication.getInst().getString(d.j.game));
-        this.cMu = new g(this.cIC);
-        this.cMy = new com.baidu.tieba.frs.view.a(this.cIC, this.cMx, this.ddv, this.cMu);
+    public void auL() {
+        this.dBA = (TextView) this.dOQ.findViewById(d.g.top_item_type);
+        this.dBA.setText(TbadkCoreApplication.getInst().getString(d.j.game));
+        this.dOU = new com.baidu.tieba.frs.view.a(this.dxW.getContext());
+        this.dOU.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dOU.setOrientation(1);
+        this.dOU.setPadding(0, 0, 0, l.s(this.aQq.getPageActivity(), d.e.tbds16));
+        this.dBz = new g(this.dxW);
+        this.dBz.a(this.dPF);
+        this.dOU.setAdapter(this.dBz);
     }
 
-    public void a(h hVar) {
-        this.cIp = hVar;
+    public void a(o oVar) {
+        this.dxL = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void anf() {
-        if (this.cIC != null && this.cIC.alE() != null && this.cMu != null) {
+    public void bl(List<com.baidu.tieba.tbadkCore.g> list) {
+        if (this.dxW != null && this.dxW.atn() != null && this.dBz != null) {
             ArrayList arrayList = new ArrayList();
-            List<f> bwb = this.cIC.alE().bwb();
-            if (bwb != null) {
-                for (int i = 0; i < v.v(bwb); i++) {
-                    f fVar = (f) v.c(bwb, i);
-                    if (fVar instanceof bd) {
-                        arrayList.add((bd) fVar);
+            List<i> bBq = this.dxW.atn().bBq();
+            if (bBq != null) {
+                for (int i = 0; i < v.F(bBq) && arrayList.size() < 2; i++) {
+                    i iVar = (i) v.f(bBq, i);
+                    if (iVar instanceof be) {
+                        arrayList.add(iVar);
                     }
                 }
             }
-            if (this.cMu instanceof com.baidu.tieba.frs.e.c) {
-                g gVar = this.cMu;
-                if (com.baidu.tieba.frs.e.c.cZc != null && this.cIC.alE() != null) {
-                    if (this.cIC.alE().gzq == 1) {
-                        com.baidu.tieba.frs.e.c.cZc.cYS = true;
+            if (this.dBz instanceof com.baidu.tieba.frs.d.c) {
+                g gVar = this.dBz;
+                if (com.baidu.tieba.frs.d.c.dMh != null && this.dxW.atn() != null) {
+                    if (this.dxW.atn().hgc == 1) {
+                        com.baidu.tieba.frs.d.c.dMh.dLV = true;
                     } else {
-                        com.baidu.tieba.frs.e.c.cZc.cYS = false;
+                        com.baidu.tieba.frs.d.c.dMh.dLV = false;
                     }
-                    if (this.cIC.alE().aRo() != null) {
-                        com.baidu.tieba.frs.e.c.cZc.cYU = this.cIC.alE().aRo().getId();
+                    if (this.dxW.atn().aYy() != null) {
+                        com.baidu.tieba.frs.d.c.dMh.dLX = this.dxW.atn().aYy().getId();
                     }
                 }
             }
-            this.cMy.c(this.cIp);
-            this.cMy.bl(arrayList);
-            this.cMy.ard();
+            if (!v.G(list)) {
+                arrayList.add(list.get(0));
+            }
+            this.dBz.c(this.dxL);
+            this.dBz.setData(arrayList);
+            this.dBz.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ang() {
-        if (this.cMu != null) {
-            this.cMu.notifyDataSetChanged();
+    public void auM() {
+        if (this.dBz != null) {
+            this.dBz.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void anh() {
-        if (this.cMu != null) {
-            this.cMu.notifyDataSetChanged();
+    public void auN() {
+        if (this.dBz != null) {
+            this.dBz.notifyDataSetChanged();
         }
     }
 }

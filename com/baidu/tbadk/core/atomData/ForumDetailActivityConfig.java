@@ -24,6 +24,6 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public ForumDetailActivityConfig(Context context, String str, FromType fromType) {
         super(context);
         getIntent().putExtra("forum_id", str);
-        getIntent().putExtra(FROM_TYPE, fromType.toString());
+        getIntent().putExtra("from_type", fromType.toString());
     }
 }

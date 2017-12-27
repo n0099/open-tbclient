@@ -1,17 +1,12 @@
 package com.baidu.android.pushservice.g;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
+import com.baidu.android.pushservice.PushSettings;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /* loaded from: classes2.dex */
-public final class a {
-    private static boolean a = false;
-    private static boolean b = false;
-    private static Logger c;
-
+public class a {
     public static String a(Throwable th) {
         if (th == null) {
             return "";
@@ -21,67 +16,35 @@ public final class a {
         return stringWriter.toString();
     }
 
-    public static void a(String str, String str2) {
-        if (a) {
-            String str3 = "BDPushSDK-" + str;
-            if (!b || c == null) {
-                Log.v(str3, str2);
-            } else {
-                c.log(Level.INFO, str3 + ": " + str2);
-            }
+    public static void a(String str, String str2, Context context) {
+        if (!PushSettings.c(context) || str2 == null) {
+            return;
         }
+        Log.d("BDPushSDK-" + str, str2);
     }
 
-    public static void a(String str, String str2, Throwable th) {
-        e(str, str2 + '\n' + a(th));
+    public static void a(String str, Throwable th, Context context) {
+        b(str, a(th), context);
     }
 
-    public static void a(String str, Throwable th) {
-        e(str, a(th));
-    }
-
-    public static void b(String str, String str2) {
-        if (a) {
-            String str3 = "BDPushSDK-" + str;
-            if (!b || c == null) {
-                Log.i(str3, str2);
-            } else {
-                c.log(Level.INFO, str3 + ": " + str2);
-            }
+    public static void b(String str, String str2, Context context) {
+        if (!PushSettings.c(context) || str2 == null) {
+            return;
         }
+        Log.e("BDPushSDK-" + str, str2);
     }
 
-    public static void c(String str, String str2) {
-        if (a) {
-            String str3 = "BDPushSDK-" + str;
-            if (!b || c == null) {
-                Log.d(str3, str2);
-            } else {
-                c.log(Level.INFO, str3 + ": " + str2);
-            }
+    public static void c(String str, String str2, Context context) {
+        if (!PushSettings.c(context) || str2 == null) {
+            return;
         }
+        Log.i("BDPushSDK-" + str, str2);
     }
 
-    public static void d(String str, String str2) {
-        if (a) {
-            String str3 = "BDPushSDK-" + str;
-            if (!b || c == null) {
-                Log.w(str3, str2);
-            } else {
-                c.log(Level.WARNING, str3 + ": " + str2);
-            }
+    public static void d(String str, String str2, Context context) {
+        if (!PushSettings.c(context) || str2 == null) {
+            return;
         }
-    }
-
-    public static void e(String str, String str2) {
-        if (a) {
-            String str3 = "BDPushSDK-" + str;
-            if (b && c != null) {
-                c.log(Level.SEVERE, str3 + ": " + str2);
-            } else if (TextUtils.isEmpty(str2)) {
-            } else {
-                Log.e(str3, str2);
-            }
-        }
+        Log.w("BDPushSDK-" + str, str2);
     }
 }

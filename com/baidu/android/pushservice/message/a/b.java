@@ -3,9 +3,7 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -18,7 +16,7 @@ public class b extends c {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0112  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00f4  */
     @Override // com.baidu.android.pushservice.message.a.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -40,14 +38,14 @@ public class b extends c {
                 jSONObject2 = jSONObject;
             } catch (JSONException e) {
                 e = e;
-                com.baidu.android.pushservice.g.b.b("BaiduSupperHandler", "Supper message parsing action Fail:\r\n" + e.getMessage(), this.b);
+                com.baidu.android.pushservice.g.a.b("BaiduSupperHandler", "Supper message parsing action Fail:\r\n" + e.getMessage(), this.b);
                 jSONObject2 = jSONObject;
                 str = null;
                 z = false;
                 if (z) {
                 }
                 intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
-                intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
+                intent.putExtra("message", bArr);
                 p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
                 if (intent == null) {
                 }
@@ -59,23 +57,22 @@ public class b extends c {
         }
         if (z || TextUtils.isEmpty(str)) {
             intent = new Intent("com.baidu.pushservice.action.supper.MESSAGE");
-            intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
+            intent.putExtra("message", bArr);
             p.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
         } else if (str.equalsIgnoreCase("push.NOTIFICATION")) {
             try {
-                f.a(this.a, !jSONObject2.isNull(VrPlayerActivityConfig.TITLE) ? jSONObject2.getString(VrPlayerActivityConfig.TITLE) : null, jSONObject2.getString("description"), !jSONObject2.isNull("iconUrl") ? jSONObject2.getString("iconUrl") : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);
+                f.a(this.a, !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null, jSONObject2.getString("description"), !jSONObject2.isNull("iconUrl") ? jSONObject2.getString("iconUrl") : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);
             } catch (JSONException e3) {
-                com.baidu.android.pushservice.g.b.b("BaiduSupperHandler", "Supper message parsing notification action Fail:\r\n" + e3.getMessage(), this.b);
+                com.baidu.android.pushservice.g.a.b("BaiduSupperHandler", "Supper message parsing notification action Fail:\r\n" + e3.getMessage(), this.b);
             }
         } else {
             try {
-                str2 = jSONObject2.getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                str2 = jSONObject2.getString("message");
             } catch (JSONException e4) {
-                com.baidu.android.pushservice.g.a.e("BaiduSupperHandler", "Supper message parsing default action Fail:\r\n" + e4.getMessage());
                 str2 = null;
             }
             intent = new Intent(str);
-            intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, str2);
+            intent.putExtra("message", str2);
         }
         if (intent == null) {
             intent.setFlags(32);

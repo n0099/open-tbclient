@@ -1,5 +1,6 @@
 package android.support.v4.app;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ListFragment extends Fragment {
     ListAdapter mAdapter;
     CharSequence mEmptyText;
@@ -39,22 +40,22 @@ public class ListFragment extends Fragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        FragmentActivity activity = getActivity();
-        FrameLayout frameLayout = new FrameLayout(activity);
-        LinearLayout linearLayout = new LinearLayout(activity);
+        Context context = getContext();
+        FrameLayout frameLayout = new FrameLayout(context);
+        LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setId(16711682);
         linearLayout.setOrientation(1);
         linearLayout.setVisibility(8);
         linearLayout.setGravity(17);
-        linearLayout.addView(new ProgressBar(activity, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
+        linearLayout.addView(new ProgressBar(context, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
-        FrameLayout frameLayout2 = new FrameLayout(activity);
+        FrameLayout frameLayout2 = new FrameLayout(context);
         frameLayout2.setId(16711683);
-        TextView textView = new TextView(getActivity());
+        TextView textView = new TextView(context);
         textView.setId(16711681);
         textView.setGravity(17);
         frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
-        ListView listView = new ListView(getActivity());
+        ListView listView = new ListView(context);
         listView.setId(16908298);
         listView.setDrawSelectorOnTop(false);
         frameLayout2.addView(listView, new FrameLayout.LayoutParams(-1, -1));
@@ -144,8 +145,8 @@ public class ListFragment extends Fragment {
             this.mListShown = z;
             if (z) {
                 if (z2) {
-                    this.mProgressContainer.startAnimation(AnimationUtils.loadAnimation(getActivity(), 17432577));
-                    this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getActivity(), 17432576));
+                    this.mProgressContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432577));
+                    this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432576));
                 } else {
                     this.mProgressContainer.clearAnimation();
                     this.mListContainer.clearAnimation();
@@ -155,8 +156,8 @@ public class ListFragment extends Fragment {
                 return;
             }
             if (z2) {
-                this.mProgressContainer.startAnimation(AnimationUtils.loadAnimation(getActivity(), 17432576));
-                this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getActivity(), 17432577));
+                this.mProgressContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432576));
+                this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432577));
             } else {
                 this.mProgressContainer.clearAnimation();
                 this.mListContainer.clearAnimation();

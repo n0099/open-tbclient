@@ -12,6 +12,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -27,12 +28,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.aeg, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.aeh, "remote_settings");
-        mProcessMap.put(a.aei, "bdservice_settings");
-        mProcessMap.put(a.aej, a.aem);
-        mProcessMap.put(a.aek, a.aen);
-        mProcessMap.put(a.ael, a.aeo);
+        mProcessMap.put(a.aSs, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.aSt, "remote_settings");
+        mProcessMap.put(a.aSu, "bdservice_settings");
+        mProcessMap.put(a.aSv, a.aSy);
+        mProcessMap.put(a.aSw, a.aSz);
+        mProcessMap.put(a.aSx, a.aSA);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -206,9 +207,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.aep.length;
+        int length = a.aSB.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.aep[i])) {
+            if (str.equals(a.aSB[i])) {
                 return true;
             }
         }
@@ -273,7 +274,7 @@ public class b {
     }
 
     private String getProcessName() {
-        ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
@@ -291,7 +292,7 @@ public class b {
                 }
             }
         }
-        return a.aeg;
+        return a.aSs;
     }
 
     public void migrateToNewVersion() {
@@ -332,7 +333,7 @@ public class b {
     }
 
     protected void setValue(final Uri uri, final ContentValues contentValues) {
-        if (l.hx()) {
+        if (l.oY()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -366,7 +367,7 @@ public class b {
     }
 
     protected void deleteValue(final Uri uri) {
-        if (l.hx()) {
+        if (l.oY()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */

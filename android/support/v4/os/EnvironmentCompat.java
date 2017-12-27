@@ -5,8 +5,8 @@ import android.os.Environment;
 import android.util.Log;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes.dex */
-public class EnvironmentCompat {
+/* loaded from: classes2.dex */
+public final class EnvironmentCompat {
     public static final String MEDIA_UNKNOWN = "unknown";
 
     public static String getStorageState(File file) {
@@ -21,5 +21,8 @@ public class EnvironmentCompat {
             Log.w("EnvironmentCompat", "Failed to resolve canonical path: " + e);
         }
         return "unknown";
+    }
+
+    private EnvironmentCompat() {
     }
 }

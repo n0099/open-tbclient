@@ -18,79 +18,79 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.tieba.d.a {
-    private com.baidu.tieba.write.transmit.model.a hdP;
-    private com.baidu.tieba.likedForum.a hdQ;
-    private com.baidu.tbadk.core.view.b hdR;
-    private List<SimpleForum> hdV;
-    private List<ForumInfo> hdW;
-    private a.InterfaceC0093a hdX;
-    private boolean hdY;
+    private com.baidu.tieba.write.transmit.model.a hLL;
+    private com.baidu.tieba.likedForum.a hLM;
+    private com.baidu.tbadk.core.view.b hLN;
+    private List<SimpleForum> hLR;
+    private List<ForumInfo> hLS;
+    private a.InterfaceC0106a hLT;
+    private boolean hLU;
     private WriteData mData;
     private TbPageContext mPageContext;
     private int mPrivateThread;
     private List<TransmitForumData> mDataList = new ArrayList();
-    private boolean hdS = false;
-    private boolean hdT = false;
-    private boolean hdU = false;
+    private boolean hLO = false;
+    private boolean hLP = false;
+    private boolean hLQ = false;
     private boolean mUseCache = true;
-    private a.InterfaceC0158a hdZ = new a.InterfaceC0158a() { // from class: com.baidu.tieba.write.a.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0158a
-        public void bFD() {
-            a.this.bFC();
+    private a.InterfaceC0171a hLV = new a.InterfaceC0171a() { // from class: com.baidu.tieba.write.a.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0171a
+        public void onError() {
+            a.this.bLl();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0158a
-        public void r(List<SimpleForum> list, int i) {
-            a.this.hdS = true;
-            a.this.hdV = list;
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0171a
+        public void u(List<SimpleForum> list, int i) {
+            a.this.hLO = true;
+            a.this.hLR = list;
             a.this.mPrivateThread = i;
-            a.this.bFB();
+            a.this.bLk();
         }
     };
-    private a.InterfaceC0120a bzn = new a.InterfaceC0120a() { // from class: com.baidu.tieba.write.a.2
-        @Override // com.baidu.tieba.likedForum.a.InterfaceC0120a
+    private a.InterfaceC0132a cnq = new a.InterfaceC0132a() { // from class: com.baidu.tieba.write.a.2
+        @Override // com.baidu.tieba.likedForum.a.InterfaceC0132a
         public void a(boolean z, int i, String str, List<ForumInfo> list) {
             if (!z) {
-                a.this.bFC();
+                a.this.bLl();
                 return;
             }
-            a.this.hdT = true;
-            a.this.hdW = list;
-            a.this.bFB();
+            a.this.hLP = true;
+            a.this.hLS = list;
+            a.this.bLk();
         }
     };
-    private DialogInterface.OnCancelListener hea = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.a.3
+    private DialogInterface.OnCancelListener hLW = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.a.3
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (a.this.hdP != null) {
-                a.this.hdP.and();
+            if (a.this.hLL != null) {
+                a.this.hLL.auK();
             }
-            if (a.this.hdQ != null) {
-                a.this.hdQ.and();
+            if (a.this.hLM != null) {
+                a.this.hLM.auK();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, WriteData writeData) {
-        this.hdR = null;
+        this.hLN = null;
         this.mPageContext = tbPageContext;
         this.mData = writeData;
         BdUniqueId gen = BdUniqueId.gen();
-        this.hdP = new com.baidu.tieba.write.transmit.model.a(this.mPageContext.getUniqueId());
-        this.hdP.a(this.hdZ);
+        this.hLL = new com.baidu.tieba.write.transmit.model.a(this.mPageContext.getUniqueId());
+        this.hLL.a(this.hLV);
         if (this.mData != null) {
-            this.hdP.setForumId(this.mData.getForumId());
+            this.hLL.setForumId(this.mData.getForumId());
         }
-        this.hdP.setRequestId(gen);
-        this.hdQ = new com.baidu.tieba.likedForum.a(this.mPageContext.getUniqueId());
-        this.hdQ.a(this.bzn);
-        this.hdQ.setRequestId(gen);
-        this.hdR = new com.baidu.tbadk.core.view.b(this.mPageContext);
-        this.hdR.c(this.hea);
-        bFA();
+        this.hLL.setRequestId(gen);
+        this.hLM = new com.baidu.tieba.likedForum.a(this.mPageContext.getUniqueId());
+        this.hLM.a(this.cnq);
+        this.hLM.setRequestId(gen);
+        this.hLN = new com.baidu.tbadk.core.view.b(this.mPageContext);
+        this.hLN.c(this.hLW);
+        bLj();
     }
 
-    private void bFA() {
+    private void bLj() {
         if (this.mData != null) {
             String str = null;
             Intent intent = this.mPageContext.getPageActivity().getIntent();
@@ -100,7 +100,7 @@ public class a implements com.baidu.tieba.d.a {
             long c = com.baidu.adp.lib.g.b.c(this.mData.getForumId(), 0L);
             if (c > 0 && !StringUtils.isNull(this.mData.getForumName())) {
                 TransmitForumData transmitForumData = new TransmitForumData(c, this.mData.getForumName(), true, 0, str);
-                transmitForumData.aaT = true;
+                transmitForumData.aPp = true;
                 if (this.mDataList != null) {
                     this.mDataList.add(transmitForumData);
                 }
@@ -109,49 +109,49 @@ public class a implements com.baidu.tieba.d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFB() {
-        if (this.hdS && this.hdT) {
-            this.hdR.aE(false);
+    public void bLk() {
+        if (this.hLO && this.hLP) {
+            this.hLN.bm(false);
             ArrayList arrayList = new ArrayList();
-            if (v.v(this.hdV) > 0) {
-                for (SimpleForum simpleForum : this.hdV) {
-                    if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !dd(simpleForum.id.longValue()) && !StringUtils.isNull(simpleForum.name)) {
+            if (v.F(this.hLR) > 0) {
+                for (SimpleForum simpleForum : this.hLR) {
+                    if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !de(simpleForum.id.longValue()) && !StringUtils.isNull(simpleForum.name)) {
                         arrayList.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                     }
                 }
                 this.mDataList.addAll(arrayList);
             }
-            if (v.v(this.hdW) > 0) {
+            if (v.F(this.hLS) > 0) {
                 arrayList.clear();
-                for (ForumInfo forumInfo : this.hdW) {
-                    if (forumInfo != null && forumInfo.forum_id != null && forumInfo.forum_id.longValue() > 0 && !dd(forumInfo.forum_id.longValue()) && !StringUtils.isNull(forumInfo.forum_name)) {
+                for (ForumInfo forumInfo : this.hLS) {
+                    if (forumInfo != null && forumInfo.forum_id != null && forumInfo.forum_id.longValue() > 0 && !de(forumInfo.forum_id.longValue()) && !StringUtils.isNull(forumInfo.forum_name)) {
                         arrayList.add(new TransmitForumData(forumInfo.forum_id.longValue(), forumInfo.forum_name, false, 0, forumInfo.avatar));
                     }
                 }
                 this.mDataList.addAll(arrayList);
             }
-            if (this.hdX != null) {
-                this.hdX.b(this.mDataList, true, this.mPrivateThread);
+            if (this.hLT != null) {
+                this.hLT.b(this.mDataList, true, this.mPrivateThread);
             }
             if (!this.mUseCache) {
-                this.hdS = false;
-                this.hdT = false;
+                this.hLO = false;
+                this.hLP = false;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFC() {
-        if (!this.hdY) {
-            if (this.hdX != null) {
-                this.hdR.aE(false);
-                this.hdX.b(null, false, 0);
+    public void bLl() {
+        if (!this.hLU) {
+            if (this.hLT != null) {
+                this.hLN.bm(false);
+                this.hLT.b(null, false, 0);
             }
-            this.hdY = true;
+            this.hLU = true;
         }
     }
 
-    private boolean dd(long j) {
+    private boolean de(long j) {
         if (this.mDataList == null) {
             return false;
         }
@@ -164,26 +164,26 @@ public class a implements com.baidu.tieba.d.a {
     }
 
     @Override // com.baidu.tieba.d.a
-    public void aK(String str, String str2) {
-        if (this.hdS && this.hdT) {
-            if (this.hdX != null) {
-                this.hdX.b(this.mDataList, true, this.mPrivateThread);
+    public void aJ(String str, String str2) {
+        if (this.hLO && this.hLP) {
+            if (this.hLT != null) {
+                this.hLT.b(this.mDataList, true, this.mPrivateThread);
             }
-        } else if (!l.hy()) {
-            if (this.hdX != null) {
-                this.hdX.b(this.mDataList, true, this.mPrivateThread);
+        } else if (!l.oZ()) {
+            if (this.hLT != null) {
+                this.hLT.b(this.mDataList, true, this.mPrivateThread);
             }
         } else {
-            this.hdY = false;
-            if (!this.hdS) {
-                this.hdP.setThreadTitle(str);
-                this.hdP.setThreadContent(str2);
-                this.hdP.Om();
+            this.hLU = false;
+            if (!this.hLO) {
+                this.hLL.setThreadTitle(str);
+                this.hLL.setThreadContent(str2);
+                this.hLL.VL();
             }
-            if (!this.hdT) {
-                this.hdQ.Fz();
+            if (!this.hLP) {
+                this.hLM.Na();
             }
-            this.hdR.aE(true);
+            this.hLN.bm(true);
         }
     }
 
@@ -193,7 +193,7 @@ public class a implements com.baidu.tieba.d.a {
     }
 
     @Override // com.baidu.tieba.d.a
-    public void a(a.InterfaceC0093a interfaceC0093a) {
-        this.hdX = interfaceC0093a;
+    public void a(a.InterfaceC0106a interfaceC0106a) {
+        this.hLT = interfaceC0106a;
     }
 }

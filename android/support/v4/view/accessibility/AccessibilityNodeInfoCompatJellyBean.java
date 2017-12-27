@@ -3,7 +3,7 @@ package android.support.v4.view.accessibility;
 import android.os.Bundle;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatJellyBean {
     public static void addChild(Object obj, View view, int i) {
         ((AccessibilityNodeInfo) obj).addChild(view, i);

@@ -1,12 +1,13 @@
 package com.coremedia.iso;
 
 import java.io.UnsupportedEncodingException;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class Utf8 {
     public static byte[] convert(String str) {
         if (str != null) {
             try {
-                return str.getBytes("UTF-8");
+                return str.getBytes(HTTP.UTF_8);
             } catch (UnsupportedEncodingException e) {
                 throw new Error(e);
             }
@@ -17,7 +18,7 @@ public final class Utf8 {
     public static String convert(byte[] bArr) {
         if (bArr != null) {
             try {
-                return new String(bArr, "UTF-8");
+                return new String(bArr, HTTP.UTF_8);
             } catch (UnsupportedEncodingException e) {
                 throw new Error(e);
             }
@@ -28,7 +29,7 @@ public final class Utf8 {
     public static int utf8StringLengthInBytes(String str) {
         if (str != null) {
             try {
-                return str.getBytes("UTF-8").length;
+                return str.getBytes(HTTP.UTF_8).length;
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException();
             }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class d {
-    static d Og;
+    static d aCW;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -15,7 +15,23 @@ public class d {
     int h = 80;
     int i = 100;
 
-    private long aT(int i) {
+    private void b(int i, long j) {
+        String g = i.g();
+        if (g == null) {
+            return;
+        }
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(g + File.separator + this.a, "rw");
+            randomAccessFile.seek(i);
+            randomAccessFile.writeInt(this.b);
+            randomAccessFile.writeLong(j);
+            randomAccessFile.writeInt(this.b);
+            randomAccessFile.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private long dV(int i) {
         RandomAccessFile randomAccessFile;
         String g = i.g();
         if (g == null) {
@@ -75,27 +91,11 @@ public class d {
         }
     }
 
-    private void b(int i, long j) {
-        String g = i.g();
-        if (g == null) {
-            return;
+    public static d uB() {
+        if (aCW == null) {
+            aCW = new d();
         }
-        try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(g + File.separator + this.a, "rw");
-            randomAccessFile.seek(i);
-            randomAccessFile.writeInt(this.b);
-            randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.b);
-            randomAccessFile.close();
-        } catch (Exception e) {
-        }
-    }
-
-    public static d mY() {
-        if (Og == null) {
-            Og = new d();
-        }
-        return Og;
+        return aCW;
     }
 
     public void a(long j) {
@@ -103,7 +103,7 @@ public class d {
     }
 
     public long b() {
-        return aT(this.d);
+        return dV(this.d);
     }
 
     public void b(long j) {
@@ -111,6 +111,6 @@ public class d {
     }
 
     public long c() {
-        return aT(this.g);
+        return dV(this.g);
     }
 }

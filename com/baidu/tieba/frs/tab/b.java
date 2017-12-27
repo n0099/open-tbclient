@@ -1,7 +1,20 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes.dex */
-public interface b {
-    void kQ(int i);
 
-    void kR(int i);
+import com.baidu.tieba.frs.aw;
+/* loaded from: classes2.dex */
+public class b {
+    public aw dMi;
+    public String name;
+    public int tabId;
+    public String url;
+
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof b)) {
+            return false;
+        }
+        if (this.tabId == ((b) obj).tabId && this.name != null && this.name.equals(((b) obj).name)) {
+            return true;
+        }
+        return super.equals(obj);
+    }
 }

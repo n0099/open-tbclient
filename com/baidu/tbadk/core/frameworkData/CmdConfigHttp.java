@@ -78,6 +78,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
+    public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
     public static final int CMD_GET_BARRAGE_LIST = 1003180;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BOOKRACK = 1003157;
@@ -102,6 +103,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
+    public static final int CMD_GET_FORUM_EMOTION_PACKAGE = 1003389;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_BANNER = 1003013;

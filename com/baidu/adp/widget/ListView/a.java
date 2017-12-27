@@ -1,18 +1,21 @@
 package com.baidu.adp.widget.ListView;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.adp.widget.ListView.j.a;
+import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.r.a;
 /* loaded from: classes.dex */
-public abstract class a<T, V extends j.a> {
-    private j mAdapter;
-    protected h mAdapterItemClickListener;
-    protected i mAdapterItemLongClickListener;
+public abstract class a<T, V extends r.a> {
+    private m<i> mAdapter;
+    protected o mAdapterItemClickListener;
+    protected p mAdapterItemLongClickListener;
     protected Context mContext;
     protected BdUniqueId mPageId;
     protected BdUniqueId mType;
@@ -35,7 +38,7 @@ public abstract class a<T, V extends j.a> {
         this.mPageId = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.j$a> */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.r$a> */
     /* JADX WARN: Multi-variable type inference failed */
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
@@ -48,26 +51,34 @@ public abstract class a<T, V extends j.a> {
         } else {
             view2 = view;
         }
-        return onFillViewHolder(i, view2, viewGroup, t, (j.a) view2.getTag());
+        return onFillViewHolder(i, view2, viewGroup, t, (r.a) view2.getTag());
     }
 
     private boolean needCreateNewHolder(View view) {
         return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
     }
 
-    public void setOnAdapterItemClickListener(h hVar) {
-        this.mAdapterItemClickListener = hVar;
+    public V onCreateViewHolder(ViewGroup viewGroup, T t) {
+        return onCreateViewHolder(viewGroup);
     }
 
-    public h getOnAdapterItemClickListener() {
+    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
+        onFillViewHolder(i, v.getView(), viewGroup, t, v);
+    }
+
+    public void setOnAdapterItemClickListener(o oVar) {
+        this.mAdapterItemClickListener = oVar;
+    }
+
+    public o getOnAdapterItemClickListener() {
         return this.mAdapterItemClickListener;
     }
 
-    public void setOnAdapterItemLongClickListener(i iVar) {
-        this.mAdapterItemLongClickListener = iVar;
+    public void setOnAdapterItemLongClickListener(p pVar) {
+        this.mAdapterItemLongClickListener = pVar;
     }
 
-    public i getOnAdapterItemLongClickListener() {
+    public p getOnAdapterItemLongClickListener() {
         return this.mAdapterItemLongClickListener;
     }
 
@@ -84,8 +95,8 @@ public abstract class a<T, V extends j.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAdapter(j jVar) {
-        this.mAdapter = jVar;
+    public void setAdapter(m<i> mVar) {
+        this.mAdapter = mVar;
     }
 
     public void notifyDataSetChanged() {
@@ -94,7 +105,7 @@ public abstract class a<T, V extends j.a> {
         }
     }
 
-    public f getItem(int i) {
+    public i getItem(int i) {
         if (this.mAdapter != null) {
             return this.mAdapter.getItem(i);
         }
@@ -105,7 +116,7 @@ public abstract class a<T, V extends j.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.s(i, this.mType.getId());
+        return this.mAdapter.ar(i, this.mType.getId());
     }
 
     public int getCount() {
@@ -113,5 +124,15 @@ public abstract class a<T, V extends j.a> {
             return this.mAdapter.getCount();
         }
         return 0;
+    }
+
+    public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
+        if (viewGroup instanceof ListView) {
+            return new AbsListView.LayoutParams(-1, -2);
+        }
+        if (viewGroup instanceof RecyclerView) {
+            return new RecyclerView.LayoutParams(-1, -2);
+        }
+        return new ViewGroup.LayoutParams(-1, -2);
     }
 }

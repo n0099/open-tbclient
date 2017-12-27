@@ -1,53 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-/* loaded from: classes.dex */
-public class d {
-    private static UserData mUserData;
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.d;
+/* loaded from: classes2.dex */
+public class d extends BaseFragment implements al {
+    private static final String TAG = d.class.getSimpleName();
+    private View dwg;
+    private RecyclerView dwh;
 
-    public static UserData akZ() {
-        return mUserData;
+    @Override // android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        if (this.dwg != null && this.dwg.getParent() != null) {
+            ((ViewGroup) this.dwg.getParent()).removeView(this.dwg);
+        }
+        return this.dwg;
     }
 
-    private static UserData a(com.baidu.tieba.tbadkCore.k kVar) {
-        mUserData = kVar != null ? kVar.getUserData() : null;
-        return mUserData;
+    public void setView(View view) {
+        this.dwg = view;
+        this.dwh = (RecyclerView) this.dwg.findViewById(d.g.frs_lv_thread);
     }
 
-    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.k kVar) {
-        if (threadCommentAndPraiseInfoLayout != null) {
-            if (b(a(kVar))) {
-                threadCommentAndPraiseInfoLayout.setManageVisible(true);
-            } else {
-                threadCommentAndPraiseInfoLayout.setManageVisible(false);
-            }
-        }
-    }
-
-    public static boolean b(UserData userData) {
-        if (userData == null) {
-            return false;
-        }
-        switch (userData.getIs_manager()) {
-            case 1:
-            case 2:
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    public static boolean ala() {
-        UserData akZ = akZ();
-        if (akZ == null) {
-            return false;
-        }
-        switch (akZ.getIs_manager()) {
-            case 1:
-                return true;
-            default:
-                return false;
+    @Override // com.baidu.tieba.frs.al
+    public void asH() {
+        if (this.dwh != null) {
+            this.dwh.scrollToPosition(0);
         }
     }
 }

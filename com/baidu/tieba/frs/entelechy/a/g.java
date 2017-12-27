@@ -4,34 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.e;
-import com.baidu.tieba.frs.entelechy.view.CardFrsGodAutoVideoView;
-import com.baidu.tieba.play.y;
-/* loaded from: classes.dex */
-public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v<bd> bva;
+import com.baidu.tieba.play.aa;
+/* loaded from: classes2.dex */
+public class g extends com.baidu.tieba.frs.g<be, a<Object>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.d.c {
+    private v<be> cis;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.bva = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        this.cis = new v<be>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
-            public void a(View view, bd bdVar) {
-                if (view != null && bdVar != null) {
+            public void a(View view, be beVar) {
+                if (view != null && beVar != null) {
                     if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 4);
+                        com.baidu.tieba.frs.d.b.axH().a(com.baidu.tieba.frs.d.c.dMh, beVar, 4);
                     } else if (view.getId() == d.g.layout_root) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 1);
+                        com.baidu.tieba.frs.d.b.axH().a(com.baidu.tieba.frs.d.c.dMh, beVar, 1);
                     } else if (view.getId() == d.g.image_user) {
-                        com.baidu.tieba.frs.e.b.aqw().a(com.baidu.tieba.frs.e.c.cZc, bdVar, 2);
+                        com.baidu.tieba.frs.d.b.axH().a(com.baidu.tieba.frs.d.c.dMh, beVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.cZc, bdVar.rU());
+                        com.baidu.tieba.frs.e.g.a(com.baidu.tieba.frs.d.c.dMh, beVar.zw());
                     }
                 }
             }
@@ -42,43 +39,43 @@ public class g extends e<bd, a<CardFrsGodAutoVideoView>> implements com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: al */
+    /* renamed from: at */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.a aVar = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
-        aVar.k(this.mPageId);
+        aVar.j(this.mPageId);
         aVar.setForumName(this.forumName);
         return new a(aVar);
     }
 
-    private y I(bd bdVar) {
-        if (bdVar == null) {
+    private aa M(be beVar) {
+        if (beVar == null) {
             return null;
         }
-        y yVar = new y();
-        yVar.mLocate = bdVar.sq() ? "3" : "2";
-        yVar.aAv = cZc.cYU;
-        yVar.aMX = bdVar.getTid();
-        yVar.fRq = bdVar.aai;
-        if (bdVar.rN() != null) {
-            yVar.fRr = bdVar.rN().video_md5;
+        aa aaVar = new aa();
+        aaVar.mLocate = beVar.zS() ? "3" : "2";
+        aaVar.cSk = dMh.dLX;
+        aaVar.bAK = beVar.getTid();
+        aaVar.gER = beVar.mRecomAbTag;
+        if (beVar.zp() != null) {
+            aaVar.gES = beVar.zp().video_md5;
         }
-        bdVar.su();
-        return yVar;
+        beVar.zW();
+        return aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.acB() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, be beVar, a aVar) {
+        if (aVar == null || aVar.akh() == null) {
             return null;
         }
-        com.baidu.tieba.frs.d.a(aVar.acB().abX(), this.cGS);
-        aVar.acB().setVideoStatsData(I(bdVar));
-        aVar.acB().a(bdVar);
-        aVar.acB().b(this.bva);
-        com.baidu.tieba.frs.e.b.aqw().a(cZc, bdVar);
+        com.baidu.tieba.frs.f.a(aVar.akh().ajD(), this.dwm);
+        aVar.akh().setVideoStatsData(M(beVar));
+        aVar.akh().a(beVar);
+        aVar.akh().b(this.cis);
+        com.baidu.tieba.frs.d.b.axH().a(dMh, beVar);
         return aVar.getView();
     }
 

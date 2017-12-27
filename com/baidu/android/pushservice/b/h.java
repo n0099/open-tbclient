@@ -63,15 +63,11 @@ public class h extends e {
             z = false;
             if (z) {
                 try {
-                    try {
-                        String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
-                        com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr", a);
-                        return a;
-                    } catch (Exception e2) {
-                        com.baidu.android.pushservice.g.a.e(e, "error : " + e2.getMessage());
-                    }
+                    String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
+                    com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr", a);
+                    return a;
+                } catch (Exception e2) {
                 } catch (UnsatisfiedLinkError e3) {
-                    com.baidu.android.pushservice.g.a.a(e, e3);
                 }
             }
             return null;
@@ -126,7 +122,6 @@ public class h extends e {
                         gVar.a(split[3]);
                     }
                 } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.c(e, "str2Clients E: " + e2);
                 }
                 arrayList.add(gVar);
             }
@@ -140,15 +135,14 @@ public class h extends e {
             try {
                 String a2 = com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr");
                 if (TextUtils.isEmpty(a2)) {
-                    com.baidu.android.pushservice.g.a.b(e, "ClientManager init strApps empty.");
-                } else {
-                    byte[] a3 = com.baidu.android.pushservice.k.b.a(a2.getBytes());
-                    a = a(str, a(new String(BaiduAppSSOJni.decryptAES(a3, a3.length, 0))));
+                    return a;
                 }
+                byte[] a3 = com.baidu.android.pushservice.k.b.a(a2.getBytes());
+                return a(str, a(new String(BaiduAppSSOJni.decryptAES(a3, a3.length, 0))));
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.e(e, "error : " + e2.getMessage());
+                return a;
             } catch (UnsatisfiedLinkError e3) {
-                com.baidu.android.pushservice.g.a.a(e, e3);
+                return a;
             }
         }
         return a;

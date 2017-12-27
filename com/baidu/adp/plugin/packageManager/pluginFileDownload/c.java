@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c DL;
-    private b DM;
+    private static volatile c arP;
+    private b arQ;
 
-    public static c jM() {
-        if (DL == null) {
+    public static c rl() {
+        if (arP == null) {
             synchronized (c.class) {
-                if (DL == null) {
-                    DL = new c();
+                if (arP == null) {
+                    arP = new c();
                 }
             }
         }
-        return DL;
+        return arP;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.DM != null) {
+        if (bdFileDownloadData != null && this.arQ != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.DM.h(bdFileDownloadData);
+            this.arQ.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.DM != null) {
+        if (bdFileDownloadData != null && this.arQ != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.DM.b(bdFileDownloadData, 1);
+            this.arQ.b(bdFileDownloadData, 1);
         }
     }
 
-    public void bu(String str) {
-        if (this.DM != null) {
-            this.DM.bt(str);
+    public void bC(String str) {
+        if (this.arQ != null) {
+            this.arQ.bB(str);
         }
     }
 
     public void a(b bVar) {
-        this.DM = bVar;
+        this.arQ = bVar;
     }
 
-    public boolean br(String str) {
+    public boolean bz(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.DM != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.DM.jL()) {
+        if (this.arQ != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.arQ.rk()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

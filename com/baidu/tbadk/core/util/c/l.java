@@ -6,7 +6,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import java.io.File;
 /* loaded from: classes.dex */
 public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     private int height;
@@ -15,7 +14,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     public l() {
         this.width = 0;
         this.height = 0;
-        wd();
+        DC();
     }
 
     public l(int i, int i2) {
@@ -26,28 +25,28 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             this.height = i2;
             return;
         }
-        wd();
+        DC();
     }
 
-    private void wd() {
-        this.width = com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst());
-        this.height = com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst());
+    private void DC() {
+        this.width = com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst());
+        this.height = com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public boolean fM() {
+    public boolean no() {
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
-    /* renamed from: c */
-    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gr = com.baidu.tbadk.imageManager.c.EA().gr(ep(str));
-        if (gr == null || gr.kK() == null) {
+    /* renamed from: g */
+    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.a.a gx = com.baidu.tbadk.imageManager.c.Mb().gx(ew(str));
+        if (gx == null || gx.si() == null) {
             return null;
         }
-        return gr;
+        return gx;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,13 +56,13 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eo(str);
+        return ev(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.EA().c(ep(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Mb().c(ew(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -75,36 +74,35 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel fN() {
+    public BdAsyncTaskParallel np() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int fO() {
+    public int nq() {
         return 1;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:13:0x002e -> B:9:0x001d). Please submit an issue!!! */
-    public com.baidu.adp.widget.a.a eo(String str) {
+    public com.baidu.adp.widget.a.a ev(String str) {
+        com.baidu.adp.widget.a.a aVar;
         try {
-            File file = new File(str);
-            if (file != null && file.exists()) {
-                if (com.baidu.tbadk.core.util.k.dq(str)) {
-                    return new com.baidu.adp.widget.a.a(BitmapHelper.loadBitmap(str), true, str);
-                }
-                return new com.baidu.adp.widget.a.a(BitmapHelper.loadResizedBitmap(str, this.width, this.height), false, str);
+            if (str.toLowerCase().endsWith(".gif")) {
+                aVar = new com.baidu.adp.widget.a.a(BitmapHelper.loadBitmap(str), true, str);
+            } else {
+                aVar = new com.baidu.adp.widget.a.a(BitmapHelper.loadResizedBitmap(str, this.width, this.height), false, str);
             }
-        } catch (OutOfMemoryError e) {
+            return aVar;
+        } catch (Throwable th) {
+            return null;
         }
-        return null;
     }
 
-    public String ep(String str) {
-        ImageOperation J = com.baidu.tbadk.img.effect.d.J(this.width, this.height);
+    public String ew(String str) {
+        ImageOperation aI = com.baidu.tbadk.img.effect.d.aI(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");
         sb.append(str);
-        sb.append(':').append(J.actionName).append('=').append(J.actionParam);
+        sb.append(':').append(aI.actionName).append('=').append(aI.actionParam);
         return sb.toString();
     }
 }

@@ -11,6 +11,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.coremedia.iso.boxes.UserBox;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -358,7 +359,7 @@ public class HostManager {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getProcessName() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.sAppContext.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.sAppContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.pid == Process.myPid()) {

@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
-    private Map<Integer, Boolean> hfA = new HashMap();
-    private AlbumActivity hfp;
-    private LayoutInflater hfz;
+    private AlbumActivity hNl;
+    private Map<Integer, Boolean> hNv = new HashMap();
+    private LayoutInflater kh;
     private List<ImageFileInfo> mList;
 
     public c(AlbumActivity albumActivity) {
-        this.hfp = albumActivity;
-        this.hfz = LayoutInflater.from(this.hfp.getPageContext().getPageActivity());
+        this.hNl = albumActivity;
+        this.kh = LayoutInflater.from(this.hNl.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -31,7 +31,7 @@ public class c extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return v.v(this.mList);
+        return v.F(this.mList);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -44,20 +44,20 @@ public class c extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo pC(int i) {
-        return (ImageFileInfo) v.c(this.mList, i);
+    public ImageFileInfo sw(int i) {
+        return (ImageFileInfo) v.f(this.mList, i);
     }
 
-    public boolean vT(int i) {
-        if (this.hfA.get(Integer.valueOf(i)) == null) {
+    public boolean yK(int i) {
+        if (this.hNv.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hfA.get(Integer.valueOf(i)).booleanValue();
+        return this.hNv.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = this.hfz.inflate(d.h.album_big_image_item, (ViewGroup) null);
+        View inflate = this.kh.inflate(d.h.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(d.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
@@ -65,13 +65,21 @@ public class c extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        ImageFileInfo pC = pC(i);
-        if (pC != null) {
-            tbImageView.startLoad(pC.getFilePath(), 36, false);
-            this.hfA.put(Integer.valueOf(i), true);
+        TbImageView tbImageView2 = (TbImageView) inflate.findViewById(d.g.thumbnail_iamge);
+        tbImageView2.setTag(null);
+        tbImageView2.setDefaultBgResource(0);
+        tbImageView2.setDefaultResource(0);
+        tbImageView2.setDefaultErrorResource(0);
+        tbImageView2.setGifIconSupport(false);
+        tbImageView2.setLongIconSupport(false);
+        ImageFileInfo sw = sw(i);
+        if (sw != null) {
+            tbImageView2.startLoad(sw.getFilePath(), 35, false, true);
+            tbImageView.startLoad(sw.getFilePath(), 36, false);
+            this.hNv.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        aj.k(inflate, d.C0095d.cp_bg_line_d);
+        aj.t(inflate, d.C0108d.cp_bg_line_d);
         return inflate;
     }
 }

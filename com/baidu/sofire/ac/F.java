@@ -13,6 +13,7 @@ import com.baidu.sofire.core.c;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.f;
 import com.baidu.sofire.jni.Asc;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 /* loaded from: classes.dex */
 public class F implements FI {
     private static F instance;
@@ -35,7 +36,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = e.no().a.get(str);
+            ApkInfo apkInfo = e.uR().a.get(str);
             if (apkInfo == null) {
                 return null;
             }
@@ -51,20 +52,20 @@ public class F implements FI {
         try {
             new StringBuilder().append(str).append(", ").append(intentFilter).append(", ").append(str2).append(", ").append(str3);
             if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                e no = e.no();
-                new StringBuilder("h=").append(no);
-                if (no != null) {
-                    no.a(new f(str, intentFilter, str2, str3));
+                e uR = e.uR();
+                new StringBuilder("h=").append(uR);
+                if (uR != null) {
+                    uR.a(new f(str, intentFilter, str2, str3));
                     new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
                     if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                        a aVar = a.Qi;
+                        a aVar = a.aEQ;
                         new StringBuilder("d=").append(aVar);
                         if (aVar != null) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("r", (Integer) 1);
                             contentValues.put("b", str2);
                             contentValues.put(Info.kBaiduTimeKey, str3);
-                            aVar.Qh.update("pgn", contentValues, "p=?", new String[]{str});
+                            aVar.aEP.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
                 }
@@ -76,10 +77,10 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        e no;
+        e uR;
         try {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (no = e.no()) != null) {
-                no.b(new f(str, intentFilter, str2, str3));
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (uR = e.uR()) != null) {
+                uR.b(new f(str, intentFilter, str2, str3));
             }
         } catch (Throwable th) {
             d.a(th);
@@ -95,20 +96,20 @@ public class F implements FI {
                     callback.onEnd(new Object[0]);
                 }
             } else {
-                e no = e.no();
-                if (no == null) {
+                e uR = e.uR();
+                if (uR == null) {
                     if (callback != null) {
                         callback.onEnd(new Object[0]);
                     }
                 } else {
-                    ApkInfo bY = no.bY(str2);
-                    if (no.bY(str) == null || bY == null) {
+                    ApkInfo cf = uR.cf(str2);
+                    if (uR.cf(str) == null || cf == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                         }
                     } else {
-                        Class<?> bX = ((com.baidu.sofire.core.d) bY.classLoader).bX("com.baidu.sofire.engine.EngineImpl");
-                        Object a = d.a(bX.getDeclaredMethod("getInstance", Context.class).invoke(bX, null), str3, clsArr, objArr);
+                        Class<?> ce = ((com.baidu.sofire.core.d) cf.classLoader).ce("com.baidu.sofire.engine.EngineImpl");
+                        Object a = d.a(ce.getDeclaredMethod("getInstance", Context.class).invoke(ce, null), str3, clsArr, objArr);
                         new StringBuilder().append(a);
                         if (callback != null) {
                             callback.onEnd(a);
@@ -124,7 +125,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
         try {
-            c nn = c.nn();
+            c uQ = c.uQ();
             new StringBuilder().append(str);
             new c.AnonymousClass4(str).start();
         } catch (Throwable th) {
@@ -213,11 +214,11 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public String gs(String str) {
-        ApkInfo bY;
+        ApkInfo cf;
         try {
-            e no = e.no();
-            if (no != null && (bY = no.bY(str)) != null) {
-                return bY.libPath;
+            e uR = e.uR();
+            if (uR != null && (cf = uR.cf(str)) != null) {
+                return cf.libPath;
             }
             return "";
         } catch (Throwable th) {
@@ -244,12 +245,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void s(int i, boolean z) {
         try {
-            a aVar = a.Qi;
+            a aVar = a.aEQ;
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("s", Integer.valueOf(i2));
-                aVar.Qh.update("pgn", contentValues, "k=" + i + " and n=1", null);
+                contentValues.put(NotifyType.SOUND, Integer.valueOf(i2));
+                aVar.aEP.update("pgn", contentValues, "k=" + i + " and n=1", null);
             }
         } catch (Throwable th) {
             d.a(th);
@@ -259,12 +260,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            a aVar = a.Qi;
+            a aVar = a.aEQ;
             if (aVar != null) {
                 int i = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("s", Integer.valueOf(i));
-                aVar.Qh.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                contentValues.put(NotifyType.SOUND, Integer.valueOf(i));
+                aVar.aEP.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable th) {
             d.a(th);

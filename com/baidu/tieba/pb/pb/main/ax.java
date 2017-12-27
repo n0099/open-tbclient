@@ -1,0 +1,57 @@
+package com.baidu.tieba.pb.pb.main;
+
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.GameLaunchMessage;
+import java.util.Map;
+/* loaded from: classes2.dex */
+public class ax {
+    private static ax fRF = null;
+
+    public static ax beo() {
+        if (fRF == null) {
+            synchronized (ax.class) {
+                if (fRF == null) {
+                    fRF = new ax();
+                }
+            }
+        }
+        return fRF;
+    }
+
+    public void f(TbPageContext tbPageContext, String str) {
+        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
+            if (str.contains("is_native_app=1")) {
+            }
+            if (qj(str)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
+            } else if (qk(str)) {
+                com.baidu.tbadk.core.util.av.Di().a(tbPageContext, new String[]{str}, true);
+            } else {
+                com.baidu.tbadk.core.util.av.Di().c(tbPageContext, new String[]{str});
+            }
+        }
+    }
+
+    public static boolean qi(String str) {
+        return str != null && str.contains("bookcover:");
+    }
+
+    private boolean qj(String str) {
+        Map<String, String> eh;
+        if (!TextUtils.isEmpty(str) && (eh = com.baidu.tbadk.core.util.av.eh(com.baidu.tbadk.core.util.av.ei(str))) != null) {
+            String str2 = eh.get("url");
+            if (!TextUtils.isEmpty(str2)) {
+                return qj(com.baidu.adp.lib.util.k.aW(str2));
+            }
+            String str3 = eh.get("tbgametype");
+            return !TextUtils.isEmpty(str3) && str3.equals("1");
+        }
+        return false;
+    }
+
+    private boolean qk(String str) {
+        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
+    }
+}

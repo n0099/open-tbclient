@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.entelechy.b;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.entelechy.a.u;
-import com.baidu.tieba.frs.g;
-/* loaded from: classes.dex */
+import com.baidu.tieba.frs.i;
+/* loaded from: classes2.dex */
 public interface a {
-    u a(g gVar, BdTypeListView bdTypeListView, boolean z);
+    u a(i iVar, n nVar, boolean z);
 
-    com.baidu.tieba.frs.view.c a(String str, g gVar, int i);
+    com.baidu.tieba.frs.view.c a(String str, i iVar, int i);
 
-    b ani();
+    b auO();
 
-    c b(g gVar, NoPressedRelativeLayout noPressedRelativeLayout);
+    c b(i iVar, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    e c(g gVar, NoPressedRelativeLayout noPressedRelativeLayout);
+    d c(i iVar, NoPressedRelativeLayout noPressedRelativeLayout);
 }

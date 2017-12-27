@@ -5,13 +5,13 @@ import android.text.method.SingleLineTransformationMethod;
 import android.view.View;
 import android.widget.TextView;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class PagerTitleStripIcs {
     public static void setSingleLineAllCaps(TextView textView) {
         textView.setTransformationMethod(new SingleLineAllCapsTransform(textView.getContext()));
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 

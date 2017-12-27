@@ -64,7 +64,7 @@ public class TbLaunchStatic {
                     long j = b.getInstance().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.js().jI();
+                        PluginPackageManager.qR().rh();
                         b.getInstance().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

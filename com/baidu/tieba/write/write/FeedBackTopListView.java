@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<bd> hkt;
+    private ArrayList<be> hSy;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -34,14 +34,14 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.hkt = null;
+        this.hSy = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ArrayList<bd> arrayList, TbPageContext<?> tbPageContext) {
+    public void a(ArrayList<be> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
         this.mPageContext = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
@@ -50,14 +50,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.hkt = new ArrayList<>(arrayList.subList(0, 3));
+            this.hSy = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.hkt = arrayList;
+            this.hSy = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.hkt.size()) {
-                addView(d(this.hkt.get(i2), i2));
+            if (i2 < this.hSy.size()) {
+                addView(d(this.hSy.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -65,20 +65,20 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    private View d(final bd bdVar, int i) {
-        if (bdVar == null) {
+    private View d(final be beVar, int i) {
+        if (beVar == null) {
             return null;
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_top_item, (ViewGroup) null);
         LinearLayout linearLayout = (LinearLayout) inflate.findViewById(d.g.frs_top_item);
         TextView textView = (TextView) inflate.findViewById(d.g.frs_top_title);
         inflate.findViewById(d.g.frs_top_divider);
-        final String tid = bdVar.getTid();
-        textView.setText(bdVar.getTitle());
-        this.mPageContext.getLayoutMode().ag(this.mSkinType == 1);
-        this.mPageContext.getLayoutMode().t(inflate);
+        final String tid = beVar.getTid();
+        textView.setText(beVar.getTitle());
+        this.mPageContext.getLayoutMode().aM(this.mSkinType == 1);
+        this.mPageContext.getLayoutMode().aM(inflate);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) aj.getDrawable(d.f.icon_notice);
-        aj.j(linearLayout, d.f.bg_frs_top_middle_selector);
+        aj.s(linearLayout, d.f.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
@@ -86,11 +86,11 @@ public class FeedBackTopListView extends LinearLayout {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FeedBackTopListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (bdVar.getThreadType() != 33) {
+                if (beVar.getThreadType() != 33) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, bdVar.getTid()).cx(bdVar.rM()).pn()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, beVar.getTid()).cE(beVar.zo()).wQ()));
             }
         });
         return inflate;

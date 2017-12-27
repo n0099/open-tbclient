@@ -8,24 +8,24 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class GenericMediaHeaderTextAtom extends AbstractBox {
     public static final String TYPE = "text";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_9 = null;
     int unknown_1;
     int unknown_2;
     int unknown_3;
@@ -106,7 +106,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_1 = i;
     }
 
@@ -116,7 +116,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_2 = i;
     }
 
@@ -126,7 +126,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_3(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_3 = i;
     }
 
@@ -136,7 +136,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_4(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_4 = i;
     }
 
@@ -146,7 +146,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_5(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_5 = i;
     }
 
@@ -156,7 +156,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_6(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_6 = i;
     }
 
@@ -166,7 +166,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_7(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_7 = i;
     }
 
@@ -176,7 +176,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_8 = i;
     }
 
@@ -186,7 +186,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_9(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown_9 = i;
     }
 }

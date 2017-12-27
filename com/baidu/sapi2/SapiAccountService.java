@@ -82,6 +82,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public final class SapiAccountService implements ISAccountService {
     private static final String a = "native";
@@ -235,7 +236,7 @@ public final class SapiAccountService implements ISAccountService {
         }
         if (!TextUtils.isEmpty(this.b.fastRegTitleText)) {
             try {
-                arrayList.add(new BasicNameValuePair("fastRegText", URLEncoder.encode(this.b.fastRegTitleText, "UTF-8")));
+                arrayList.add(new BasicNameValuePair("fastRegText", URLEncoder.encode(this.b.fastRegTitleText, HTTP.UTF_8)));
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -308,7 +309,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new BasicNameValuePair("wapsec", "center"));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
             try {
-                arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, "UTF-8")));
+                arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, HTTP.UTF_8)));
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }

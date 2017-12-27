@@ -5,13 +5,14 @@ import android.os.Parcelable;
 import android.view.View;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AccessibilityRecordCompat {
     private static final AccessibilityRecordImpl IMPL;
     private final Object mRecord;
 
-    /* loaded from: classes.dex */
-    interface AccessibilityRecordImpl {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public interface AccessibilityRecordImpl {
         int getAddedCount(Object obj);
 
         CharSequence getBeforeText(Object obj);
@@ -105,7 +106,7 @@ public class AccessibilityRecordCompat {
         void setToIndex(Object obj, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityRecordStubImpl implements AccessibilityRecordImpl {
         AccessibilityRecordStubImpl() {
         }
@@ -319,7 +320,7 @@ public class AccessibilityRecordCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityRecordIcsImpl extends AccessibilityRecordStubImpl {
         AccessibilityRecordIcsImpl() {
         }
@@ -530,7 +531,7 @@ public class AccessibilityRecordCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityRecordIcsMr1Impl extends AccessibilityRecordIcsImpl {
         AccessibilityRecordIcsMr1Impl() {
         }
@@ -556,7 +557,7 @@ public class AccessibilityRecordCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityRecordJellyBeanImpl extends AccessibilityRecordIcsMr1Impl {
         AccessibilityRecordJellyBeanImpl() {
         }
@@ -579,10 +580,12 @@ public class AccessibilityRecordCompat {
         }
     }
 
+    @Deprecated
     public AccessibilityRecordCompat(Object obj) {
         this.mRecord = obj;
     }
 
+    @Deprecated
     public Object getImpl() {
         return this.mRecord;
     }

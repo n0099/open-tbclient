@@ -1,7 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -17,13 +15,13 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("id", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("messageTs", (byte) 10, 2);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("topic", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b(VrPlayerActivityConfig.TITLE, (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("title", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("description", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("notifyType", (byte) 8, 6);
     private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("url", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("passThrough", (byte) 8, 8);
     private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("notifyId", (byte) 8, 9);
-    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b(ISapiAccount.SAPI_ACCOUNT_EXTRA, (byte) 13, 10);
+    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b("extra", (byte) 13, 10);
     private static final org.apache.thrift.protocol.b y = new org.apache.thrift.protocol.b("internal", (byte) 13, 11);
     private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("ignoreRegInfo", (byte) 2, 12);
     private BitSet A;
@@ -45,13 +43,13 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
         ID(1, "id"),
         MESSAGE_TS(2, "messageTs"),
         TOPIC(3, "topic"),
-        TITLE(4, VrPlayerActivityConfig.TITLE),
+        TITLE(4, "title"),
         DESCRIPTION(5, "description"),
         NOTIFY_TYPE(6, "notifyType"),
         URL(7, "url"),
         PASS_THROUGH(8, "passThrough"),
         NOTIFY_ID(9, "notifyId"),
-        EXTRA(10, ISapiAccount.SAPI_ACCOUNT_EXTRA),
+        EXTRA(10, "extra"),
         INTERNAL(11, "internal"),
         IGNORE_REG_INFO(12, "ignoreRegInfo");
         
@@ -82,13 +80,13 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.MESSAGE_TS, (a) new org.apache.thrift.meta_data.b("messageTs", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TITLE, (a) new org.apache.thrift.meta_data.b(VrPlayerActivityConfig.TITLE, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.TITLE, (a) new org.apache.thrift.meta_data.b("title", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.DESCRIPTION, (a) new org.apache.thrift.meta_data.b("description", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.NOTIFY_TYPE, (a) new org.apache.thrift.meta_data.b("notifyType", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.URL, (a) new org.apache.thrift.meta_data.b("url", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PASS_THROUGH, (a) new org.apache.thrift.meta_data.b("passThrough", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.NOTIFY_ID, (a) new org.apache.thrift.meta_data.b("notifyId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
-        enumMap.put((EnumMap) a.EXTRA, (a) new org.apache.thrift.meta_data.b(ISapiAccount.SAPI_ACCOUNT_EXTRA, (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
+        enumMap.put((EnumMap) a.EXTRA, (a) new org.apache.thrift.meta_data.b("extra", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.INTERNAL, (a) new org.apache.thrift.meta_data.b("internal", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.IGNORE_REG_INFO, (a) new org.apache.thrift.meta_data.b("ignoreRegInfo", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         m = Collections.unmodifiableMap(enumMap);

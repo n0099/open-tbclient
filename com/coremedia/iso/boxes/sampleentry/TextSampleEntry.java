@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import android.support.v4.view.MotionEventCompat;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -137,24 +136,24 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     public boolean isContinuousKaraoke() {
-        return (this.displayFlags & IjkMediaMeta.AV_CH_TOP_CENTER) == IjkMediaMeta.AV_CH_TOP_CENTER;
+        return (this.displayFlags & 2048) == 2048;
     }
 
     public void setContinuousKaraoke(boolean z) {
         if (z) {
-            this.displayFlags |= IjkMediaMeta.AV_CH_TOP_CENTER;
+            this.displayFlags |= 2048;
         } else {
             this.displayFlags &= -2049;
         }
     }
 
     public boolean isWriteTextVertically() {
-        return (this.displayFlags & IjkMediaMeta.AV_CH_TOP_BACK_RIGHT) == IjkMediaMeta.AV_CH_TOP_BACK_RIGHT;
+        return (this.displayFlags & 131072) == 131072;
     }
 
     public void setWriteTextVertically(boolean z) {
         if (z) {
-            this.displayFlags |= IjkMediaMeta.AV_CH_TOP_BACK_RIGHT;
+            this.displayFlags |= 131072;
         } else {
             this.displayFlags &= -131073;
         }
@@ -257,11 +256,11 @@ public class TextSampleEntry extends AbstractSampleEntry {
         int[] textColor;
 
         public StyleRecord() {
-            this.textColor = new int[]{MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK};
+            this.textColor = new int[]{255, 255, 255, 255};
         }
 
         public StyleRecord(int i, int i2, int i3, int i4, int i5, int[] iArr) {
-            this.textColor = new int[]{MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK};
+            this.textColor = new int[]{255, 255, 255, 255};
             this.startChar = i;
             this.endChar = i2;
             this.fontId = i3;

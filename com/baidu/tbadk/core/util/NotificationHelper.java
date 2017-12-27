@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.os.Build;
@@ -14,6 +15,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
+import org.apache.http.HttpStatus;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
@@ -55,7 +57,7 @@ public class NotificationHelper {
     }
 
     public static boolean showNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
-        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, z);
+        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z);
     }
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
@@ -114,7 +116,7 @@ public class NotificationHelper {
         return showProgressNotification;
     }
 
-    private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
+    private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
         Notification notif_excption;
         if (pendingIntent == null) {
             pendingIntent = PendingIntent.getActivity(context, 0, new Intent(), 0);
@@ -129,6 +131,9 @@ public class NotificationHelper {
         try {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst());
             builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.f.icon_notify).setTicker(str3);
+            if (bitmap != null) {
+                builder.setLargeIcon(bitmap);
+            }
             builder.setContent(remoteViews);
             notif_excption = builder.build();
             notif_excption.contentIntent = pendingIntent;
@@ -137,11 +142,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.agH) {
+            if (!switchData.aUR) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.agG) {
+            if (!switchData.aUQ) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -149,10 +154,10 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.agI) {
+            if (switchData.aUS) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
-                notif_excption.ledOnMS = 400;
+                notif_excption.ledOnMS = HttpStatus.SC_BAD_REQUEST;
                 notif_excption.ledOffMS = 700;
                 notif_excption.flags |= 1;
             }
@@ -162,37 +167,41 @@ public class NotificationHelper {
     }
 
     public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
-        return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, z);
+        return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z);
+    }
+
+    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
+        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z);
     }
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.yP() && com.baidu.tbadk.coreExtra.messageCenter.a.yO()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.Go() && com.baidu.tbadk.coreExtra.messageCenter.a.Gn()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.b.zk().zt()) {
-                    aVar.agG = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GS()) {
+                    aVar.aUQ = true;
                     if (z || z2) {
-                        aVar.agG = false;
+                        aVar.aUQ = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.b.zk().zw()) {
-                    aVar.agH = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GV()) {
+                    aVar.aUR = true;
                     if (z) {
-                        aVar.agH = false;
+                        aVar.aUR = false;
                     }
                     if (z2) {
-                        aVar.agH = true;
+                        aVar.aUR = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.b.zk().zu()) {
-            aVar.agI = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GT()) {
+            aVar.aUS = true;
         }
         return aVar;
     }
@@ -222,9 +231,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean agG = false;
-        boolean agH = false;
-        boolean agI = false;
+        boolean aUQ = false;
+        boolean aUR = false;
+        boolean aUS = false;
 
         a() {
         }

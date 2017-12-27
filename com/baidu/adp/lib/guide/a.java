@@ -10,16 +10,16 @@ class a {
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View a = bVar.a(layoutInflater);
         e.a aVar = new e.a(-2, -2);
-        aVar.up = bVar.getXOffset();
-        aVar.uq = bVar.getYOffset();
-        aVar.um = bVar.eW();
-        aVar.uo = bVar.eX();
+        aVar.aiC = bVar.getXOffset();
+        aVar.aiD = bVar.getYOffset();
+        aVar.aiA = bVar.mA();
+        aVar.aiB = bVar.mB();
         a.setLayoutParams(aVar);
         return a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Rect a(View view, int i, int i2) {
+    public static Rect c(View view, int i, int i2) {
         int[] iArr = new int[2];
         view.getLocationInWindow(iArr);
         Rect rect = new Rect();

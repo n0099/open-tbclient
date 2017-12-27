@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import javax.crypto.Cipher;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -179,7 +180,7 @@ public final class DeviceId {
                                 byte[] decode = Base64.decode(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(decode));
                                 CUIDBuddyInfo cUIDBuddyInfo = new CUIDBuddyInfo();
-                                cUIDBuddyInfo.priority = jSONObject.getInt("priority");
+                                cUIDBuddyInfo.priority = jSONObject.getInt(LogFactory.PRIORITY_KEY);
                                 cUIDBuddyInfo.appInfo = resolveInfo.activityInfo.applicationInfo;
                                 if (this.mContext.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     cUIDBuddyInfo.isSelf = true;

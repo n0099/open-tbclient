@@ -31,7 +31,6 @@ public class f {
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z);
         } catch (NoSuchAlgorithmException e) {
-            com.baidu.android.pushservice.g.a.a("MD5Util", e);
             return null;
         }
     }
@@ -54,7 +53,6 @@ public class f {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MD5Util", e);
         }
         return bArr;
     }

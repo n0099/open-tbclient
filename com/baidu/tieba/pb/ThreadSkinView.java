@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eNy;
-    private a.C0142a eNz;
+    private SkinInfo fzU;
+    private a.C0155a fzV;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -39,32 +39,32 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0142a c0142a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0155a c0155a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eNy != skinInfo && c0142a != null) {
-            this.eNz = c0142a;
-            this.eNz.dO("action_type");
-            this.eNz.cg("obj_id", skinInfo.obj_id);
-            this.eNz.cg("obj_url", skinInfo.url);
-            this.eNz.cg("obj_name", skinInfo.monitor_id);
-            this.eNz.cg("action_type", "VIEW_TRUE");
-            this.eNz.save();
+        if (this.fzU != skinInfo && c0155a != null) {
+            this.fzV = c0155a;
+            this.fzV.dV("action_type");
+            this.fzV.ch("obj_id", skinInfo.obj_id);
+            this.fzV.ch("obj_url", skinInfo.url);
+            this.fzV.ch("obj_name", skinInfo.monitor_id);
+            this.fzV.ch("action_type", "VIEW_TRUE");
+            this.fzV.save();
         }
-        this.eNy = skinInfo;
-        int ac = l.ac(tbPageContext.getPageActivity());
+        this.fzU = skinInfo;
+        int ao = l.ao(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = ac;
+        layoutParams.width = ao;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
-                int g = com.baidu.adp.lib.g.b.g(split[0].trim(), -1);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1].trim(), -1);
-                if (g > 0 && g2 > 0) {
-                    layoutParams.height = (int) ((g2 / g) * layoutParams.width);
+                int h = com.baidu.adp.lib.g.b.h(split[0].trim(), -1);
+                int h2 = com.baidu.adp.lib.g.b.h(split[1].trim(), -1);
+                if (h > 0 && h2 > 0) {
+                    layoutParams.height = (int) ((h2 / h) * layoutParams.width);
                 } else {
                     layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
                 }
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eNy != null && !StringUtils.isNull(this.eNy.url)) {
-            if (this.eNz != null) {
-                this.eNz.dO("action_type");
-                this.eNz.cg("action_type", "CLICK");
-                this.eNz.save();
+        if (this.fzU != null && !StringUtils.isNull(this.fzU.url)) {
+            if (this.fzV != null) {
+                this.fzV.dV("action_type");
+                this.fzV.ch("action_type", "CLICK");
+                this.fzV.save();
             }
-            av.vI().c(this.mTbPageContext, new String[]{this.eNy.url});
+            av.Di().c(this.mTbPageContext, new String[]{this.fzU.url});
         }
     }
 }

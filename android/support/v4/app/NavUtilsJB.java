@@ -3,7 +3,7 @@ package android.support.v4.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class NavUtilsJB {
     public static Intent getParentActivityIntent(Activity activity) {
         return activity.getParentActivityIntent();

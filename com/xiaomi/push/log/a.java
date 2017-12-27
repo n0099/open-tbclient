@@ -3,7 +3,6 @@ package com.xiaomi.push.log;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.at;
 import java.io.BufferedReader;
@@ -31,7 +30,7 @@ class a {
     private int f;
     @SuppressLint({"SimpleDateFormat"})
     private final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private int g = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+    private int g = 2097152;
     private ArrayList<File> h = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {

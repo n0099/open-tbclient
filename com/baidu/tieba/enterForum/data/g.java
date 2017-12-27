@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
-    private ArrayList<f> ctb = new ArrayList<>();
+    private ArrayList<f> dhz = new ArrayList<>();
 
-    public ArrayList<f> agR() {
-        return this.ctb;
+    public ArrayList<f> aos() {
+        return this.dhz;
     }
 
-    public void agS() {
-        Iterator<f> it = this.ctb.iterator();
+    public void aot() {
+        Iterator<f> it = this.dhz.iterator();
         while (it.hasNext()) {
-            it.next().jn(0);
+            it.next().ml(0);
         }
     }
 
-    public void aB(List<?> list) {
+    public void aM(List<?> list) {
         if (list != null) {
             a(list, null);
         }
@@ -37,7 +37,7 @@ public class g {
                         f fVar = new f();
                         fVar.a((LikeForum) list.get(i));
                         if (!TextUtils.isEmpty(fVar.getName())) {
-                            this.ctb.add(fVar);
+                            this.dhz.add(fVar);
                         }
                     } else {
                         return;

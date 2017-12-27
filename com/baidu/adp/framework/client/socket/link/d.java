@@ -12,29 +12,29 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d {
     private boolean isRunning = false;
-    private int pJ = 0;
-    private final Handler pK = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
+    private int aek = 0;
+    private final Handler ael = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    d.this.pK.removeMessages(1);
-                    BdLog.i("this is reconn time:" + d.this.pJ);
+                    d.this.ael.removeMessages(1);
+                    BdLog.i("this is reconn time:" + d.this.aek);
                     BdSocketLinkService.startService(true, "time to reconnStragety");
                     d.c(d.this);
-                    if (j.hh()) {
-                        if (d.this.pJ >= com.baidu.adp.lib.stats.switchs.a.gz().getMaxAlertCount("alert_im", 3)) {
-                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.pJ) + "_times");
+                    if (j.oI()) {
+                        if (d.this.aek >= com.baidu.adp.lib.stats.switchs.a.oa().getMaxAlertCount("alert_im", 3)) {
+                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.aek) + "_times");
                         }
                     }
-                    int[] cX = h.cX();
-                    if (cX != null && d.this.pJ < cX.length) {
-                        BdLog.i("Next will be delay:" + cX[d.this.pJ]);
-                        d.this.pK.sendMessageDelayed(d.this.pK.obtainMessage(1), cX[d.this.pJ] * 1000);
+                    int[] kB = h.kB();
+                    if (kB != null && d.this.aek < kB.length) {
+                        BdLog.i("Next will be delay:" + kB[d.this.aek]);
+                        d.this.ael.sendMessageDelayed(d.this.ael.obtainMessage(1), kB[d.this.aek] * 1000);
                         return;
                     }
-                    d.this.stop("reconnStragety to the end");
+                    d.this.L("reconnStragety to the end");
                     return;
                 default:
                     return;
@@ -43,31 +43,31 @@ public class d {
     };
 
     static /* synthetic */ int c(d dVar) {
-        int i = dVar.pJ;
-        dVar.pJ = i + 1;
+        int i = dVar.aek;
+        dVar.aek = i + 1;
         return i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
         if (!BdSocketLinkService.isAvailable()) {
-            stop("online failed 5");
+            L("online failed 5");
         } else if (!this.isRunning) {
             this.isRunning = true;
-            this.pK.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.hU().hX()) {
+            this.ael.removeMessages(1);
+            if (com.baidu.adp.lib.webSocket.h.pu().px()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
-                stop("in Opened");
+                L("in Opened");
                 return;
             }
-            m2do();
+            kS();
             BdLog.d("启动重连策略");
-            this.pJ = 0;
-            int[] cX = h.cX();
-            if (cX != null && cX.length >= 1) {
-                BdLog.i("start reconnStrategy... the first will be delay" + cX[0]);
-                i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.pJ));
-                this.pK.sendMessageDelayed(this.pK.obtainMessage(1), cX[0] * 1000);
+            this.aek = 0;
+            int[] kB = h.kB();
+            if (kB != null && kB.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + kB[0]);
+                i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.aek));
+                this.ael.sendMessageDelayed(this.ael.obtainMessage(1), kB[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -77,18 +77,17 @@ public class d {
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private void m2do() {
+    private void kS() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void stop(String str) {
+    public void L(String str) {
         if (this.isRunning) {
             i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.isRunning = false;
-            this.pJ = 0;
+            this.aek = 0;
             BdLog.i("stop reconnStrategy");
-            this.pK.removeMessages(1);
+            this.ael.removeMessages(1);
         }
     }
 }

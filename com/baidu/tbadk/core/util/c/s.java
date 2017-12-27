@@ -8,43 +8,43 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean ajk;
+    private boolean aXt;
     private int procType;
 
     public s(boolean z, int i) {
-        this.ajk = true;
+        this.aXt = true;
         this.procType = 0;
-        this.ajk = z;
+        this.aXt = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vZ() {
+    public int Dy() {
         return this.procType;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return com.baidu.adp.lib.util.l.ac(TbadkCoreApplication.getInst().getApp());
+        return com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getHeight() {
-        return com.baidu.adp.lib.util.l.ae(TbadkCoreApplication.getInst().getApp());
+        return com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajk;
+        return this.aXt;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vX() {
+    public boolean Dw() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vY() {
+    public boolean Dx() {
         return false;
     }
 
@@ -52,30 +52,30 @@ public class s extends a {
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.a fK = com.baidu.tbadk.core.util.s.fK();
-        fK.fT();
+        com.baidu.adp.lib.stats.a nm = com.baidu.tbadk.core.util.s.nm();
+        nm.nv();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c ek = ek(ao.dX(str2));
-        if (ek == null) {
+        com.baidu.adp.lib.Disk.ops.c er = er(ao.ee(str2));
+        if (er == null) {
             return null;
         }
-        ek.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        ek.t(true);
-        ek.u(false);
-        ek.j(bArr);
-        ek.v(false);
+        er.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        er.Z(true);
+        er.aa(false);
+        er.ao(bArr);
+        er.ab(false);
         if (aVar != null) {
             d dVar = new d();
-            dVar.f(ek);
-            aVar.vD = dVar;
+            dVar.f(er);
+            aVar.ajQ = dVar;
         }
-        boolean hi = com.baidu.adp.lib.util.j.hi();
-        if (!com.baidu.adp.lib.Disk.d.dH().c(ek)) {
-            com.baidu.tbadk.core.util.s.a(fK, str2, false, fK.fU(), hi);
+        boolean oJ = com.baidu.adp.lib.util.j.oJ();
+        if (!com.baidu.adp.lib.Disk.d.ll().c(er)) {
+            com.baidu.tbadk.core.util.s.a(nm, str2, false, nm.nw(), oJ);
             return null;
         }
         int i = 2000;
-        if (hi) {
+        if (oJ) {
             i = 300;
         }
         synchronized (bArr) {
@@ -84,30 +84,30 @@ public class s extends a {
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = ek.isSuccess() ? a(ek, str2) : null;
+        com.baidu.adp.widget.a.a a = er.isSuccess() ? a(er, str2) : null;
         if (a != null) {
-            com.baidu.tbadk.core.util.s.a(fK, str2, true, fK.fU(), hi);
+            com.baidu.tbadk.core.util.s.a(nm, str2, true, nm.nw(), oJ);
             return a;
         }
-        com.baidu.tbadk.core.util.s.a(fK, str2, false, fK.fU(), hi);
+        com.baidu.tbadk.core.util.s.a(nm, str2, false, nm.nw(), oJ);
         return a;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
-        if (d(bitmap)) {
+        if (g(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.dX(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ee(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.t(true);
+            cVar.Z(true);
             cVar.setData(bArr);
-            cVar.w(z);
-            cVar.v(false);
-            com.baidu.adp.lib.Disk.d.dH().c(cVar);
+            cVar.ac(z);
+            cVar.ab(false);
+            com.baidu.adp.lib.Disk.d.ll().c(cVar);
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.vD = dVar;
+                aVar.ajQ = dVar;
             }
         }
         return aVar2;

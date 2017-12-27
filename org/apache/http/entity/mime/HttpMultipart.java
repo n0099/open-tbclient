@@ -119,7 +119,7 @@ public class HttpMultipart {
                 case BROWSER_COMPATIBLE:
                     writeField(formBodyPart.getHeader().getField(MIME.CONTENT_DISPOSITION), this.charset, outputStream);
                     if (formBodyPart.getBody().getFilename() != null) {
-                        writeField(formBodyPart.getHeader().getField(MIME.CONTENT_TYPE), this.charset, outputStream);
+                        writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);
                         break;
                     }
                     break;

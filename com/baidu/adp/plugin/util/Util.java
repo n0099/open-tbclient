@@ -26,7 +26,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean ke() {
+    public static boolean rD() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -60,17 +60,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean l(long j) {
-        long kg = kg();
+    public static final boolean u(long j) {
+        long rF = rF();
         if (j <= 0) {
-            return kg <= 0 || kg >= 31457280;
+            return rF <= 0 || rF >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < kg;
+        return (j2 <= 31457280 ? j2 : 31457280L) < rF;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -142,9 +142,9 @@ public final class Util {
         }
     }
 
-    public static void k(File file) {
+    public static void l(File file) {
         if (file != null && file.exists()) {
-            i(file);
+            j(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -153,14 +153,14 @@ public final class Util {
         }
     }
 
-    public static void i(File file) {
+    public static void j(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            j(file2);
+                            k(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -172,10 +172,10 @@ public final class Util {
         }
     }
 
-    public static void j(File file) {
+    public static void k(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                k(file);
+                l(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -204,15 +204,15 @@ public final class Util {
         }
     }
 
-    public static File bG(String str) {
-        PluginSetting bj = PluginPackageManager.js().bj(str);
-        if (bj == null || bj.apkPath == null || bj.apkPath.length() <= ".apk".length()) {
+    public static File bO(String str) {
+        PluginSetting br = PluginPackageManager.qR().br(str);
+        if (br == null || br.apkPath == null || br.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bj.apkPath.substring(0, bj.apkPath.length() - ".apk".length()));
+        return new File(br.apkPath.substring(0, br.apkPath.length() - ".apk".length()));
     }
 
-    public static File kf() {
+    public static File rE() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -294,7 +294,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare I(String str, String str2) {
+    public static VersionCompare H(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -310,12 +310,12 @@ public final class Util {
         int length2 = split2.length;
         int i = length < length2 ? length : length2;
         for (int i2 = 0; i2 < i; i2++) {
-            int g = com.baidu.adp.lib.g.b.g(split[i2], 0);
-            int g2 = com.baidu.adp.lib.g.b.g(split2[i2], 0);
-            if (g > g2) {
+            int h = com.baidu.adp.lib.g.b.h(split[i2], 0);
+            int h2 = com.baidu.adp.lib.g.b.h(split2[i2], 0);
+            if (h > h2) {
                 return VersionCompare.GREATER;
             }
-            if (g < g2) {
+            if (h < h2) {
                 return VersionCompare.LESS;
             }
         }
@@ -335,7 +335,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bH(String str) {
+    public static String bP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -346,10 +346,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return kf() + File.separator + e(pluginSetting);
+        return rE() + File.separator + e(pluginSetting);
     }
 
-    public static long kg() {
+    public static long rF() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

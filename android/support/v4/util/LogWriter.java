@@ -1,8 +1,10 @@
 package android.support.v4.util;
 
+import android.support.annotation.RestrictTo;
 import android.util.Log;
 import java.io.Writer;
-/* loaded from: classes.dex */
+@RestrictTo
+/* loaded from: classes2.dex */
 public class LogWriter extends Writer {
     private StringBuilder mBuilder = new StringBuilder(128);
     private final String mTag;

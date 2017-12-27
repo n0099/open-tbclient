@@ -1,35 +1,35 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class k extends l {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.data.l, com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.tieba.card.data.l, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    public k(bd bdVar) {
-        this.threadData = bdVar;
+    public k(be beVar) {
+        this.threadData = beVar;
     }
 
-    public static boolean F(bd bdVar) {
-        return bdVar != null && bdVar.getThreadType() == 49;
+    public static boolean J(be beVar) {
+        return beVar != null && beVar.getThreadType() == 49;
     }
 
-    public ak jV(String str) {
-        ak jW = jW(str);
-        jW.dO("obj_type");
-        jW.dO("obj_type");
-        jW.r("obj_type", 3);
-        return jW;
+    public ak kb(String str) {
+        ak kc = kc(str);
+        kc.dV("obj_type");
+        kc.dV("obj_type");
+        kc.s("obj_type", 3);
+        return kc;
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c
-    public bd Ox() {
+    public be VW() {
         return this.threadData;
     }
 }

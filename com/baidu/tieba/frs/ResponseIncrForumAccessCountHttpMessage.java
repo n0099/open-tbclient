@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseIncrForumAccessCountHttpMessage extends TbHttpResponsedMessage {
     private IncrForumAccessCountResIdl mResponseData;
 

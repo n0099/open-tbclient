@@ -1,9 +1,12 @@
 package com.baidu.tbadk.core.data;
 
+import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
+import tbclient.AlaStageDislikeInfo;
 /* loaded from: classes.dex */
 public class AlaInfoData implements Serializable {
     public static final int LIVE_STATUS_LIVE_ON = 1;
@@ -12,6 +15,7 @@ public class AlaInfoData implements Serializable {
     public int audience_count;
     public String cover;
     public String description;
+    public SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
     public long group_id;
@@ -66,6 +70,18 @@ public class AlaInfoData implements Serializable {
                 this.distance = jSONObject.optDouble("distance");
                 this.appId = jSONObject.optString("third_app_id");
                 this.thread_id = jSONObject.optLong("thread_id");
+                JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
+                if (optJSONArray != null) {
+                    if (this.dislikeInfo == null) {
+                        this.dislikeInfo = new SparseArray<>();
+                    }
+                    this.dislikeInfo.clear();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        if (optJSONArray.optJSONObject(i) != null) {
+                            this.dislikeInfo.put(jSONObject.optInt("dislike_id"), jSONObject.optString("dislike_reason"));
+                        }
+                    }
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -99,6 +115,25 @@ public class AlaInfoData implements Serializable {
                 this.distance = alaLiveInfo.distance.longValue();
                 this.appId = alaLiveInfo.third_app_id;
                 this.thread_id = alaLiveInfo.thread_id.longValue();
+                if (alaLiveInfo.stage_dislike_info != null) {
+                    if (this.dislikeInfo == null) {
+                        this.dislikeInfo = new SparseArray<>();
+                    }
+                    this.dislikeInfo.clear();
+                    int i = 0;
+                    while (true) {
+                        int i2 = i;
+                        if (i2 < alaLiveInfo.stage_dislike_info.size()) {
+                            AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i2);
+                            if (alaStageDislikeInfo != null) {
+                                this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
+                            }
+                            i = i2 + 1;
+                        } else {
+                            return;
+                        }
+                    }
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

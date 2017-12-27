@@ -1,172 +1,199 @@
 package com.baidu.android.pushservice.h;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.android.pushservice.PushSettings;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class p {
-    private final Context a;
-    private g b;
-    private final n c;
+public final class p {
+    private static volatile p a = null;
+    private Context b;
 
-    public p(Context context) {
-        this.a = context;
-        this.c = new n(context);
-        this.b = g.a(context);
-    }
-
-    public static long a(Context context, b bVar) {
-        return com.baidu.android.pushservice.d.a.a(context, bVar);
-    }
-
-    public static long a(Context context, f fVar) {
-        return com.baidu.android.pushservice.d.a.a(context, fVar);
-    }
-
-    public static long a(Context context, h hVar) {
-        return com.baidu.android.pushservice.d.a.a(context, hVar);
-    }
-
-    public static long a(Context context, i iVar) {
-        return com.baidu.android.pushservice.d.a.a(context, iVar);
-    }
-
-    public static long a(Context context, j jVar) {
-        return com.baidu.android.pushservice.d.a.a(context, jVar);
-    }
-
-    public static long a(Context context, String str, int i, String str2) {
-        h hVar = new h();
-        hVar.e = System.currentTimeMillis();
-        hVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        hVar.g = i;
-        hVar.i = str2;
-        hVar.d = str;
-        return a(context, hVar);
-    }
-
-    public static long a(Context context, String str, String str2, int i, String str3) {
-        b bVar = new b();
-        bVar.d = str;
-        bVar.j = str2;
-        bVar.g = i;
-        bVar.a = str3;
-        bVar.e = System.currentTimeMillis();
-        bVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        return a(context, bVar);
-    }
-
-    public static String a(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        int myPid = Process.myPid();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-        }
-        return "";
-    }
-
-    public static void a(final Context context, final String str) {
-        com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("insertNetworkInfo", (short) 95) { // from class: com.baidu.android.pushservice.h.p.1
-            @Override // com.baidu.android.pushservice.i.c
-            public void a() {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 4);
-                if (System.currentTimeMillis() - sharedPreferences.getLong(str, 0L) < 1800000) {
-                    return;
-                }
-                p.a(context, str, 0, str.equals("039912") ? com.baidu.android.pushservice.j.p.v(context) : com.baidu.android.pushservice.j.p.w(context));
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putLong(str, System.currentTimeMillis());
-                edit.commit();
-            }
-        });
-    }
-
-    public static void a(final Context context, final String str, final String str2) {
-        com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("sendHttpNotificationDeleted", (short) 90) { // from class: com.baidu.android.pushservice.h.p.2
-            @Override // com.baidu.android.pushservice.i.c
-            public void a() {
-                j jVar = new j();
-                jVar.d = str2;
-                jVar.a = str;
-                jVar.e = System.currentTimeMillis();
-                jVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-                jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a();
-                jVar.h = PushSettings.b(context);
-                jVar.j = context.getPackageName();
-                p.a(context, jVar);
-            }
-        });
-    }
-
-    public static void a(Context context, Throwable th) {
-        f fVar = new f();
-        fVar.d = "040102";
-        fVar.e = System.currentTimeMillis();
-        fVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        fVar.a = b(context, th);
-        a(context, fVar);
-    }
-
-    public static long b(Context context, h hVar) {
-        return com.baidu.android.pushservice.d.a.b(context, hVar);
-    }
-
-    public static String b(Context context, Throwable th) {
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stringWriter);
-        while (th != null) {
-            th.printStackTrace(printWriter);
-            th = th.getCause();
-        }
-        String obj = stringWriter.toString();
-        String a = a(context);
-        if (!TextUtils.isEmpty(a)) {
-            obj = a + "\n" + obj;
-        }
-        printWriter.close();
-        return obj;
-    }
-
-    public static void b(Context context, String str) {
-        f fVar = new f();
-        fVar.d = "040101";
-        fVar.e = System.currentTimeMillis();
-        fVar.f = com.baidu.android.pushservice.h.a.b.b(context);
-        fVar.a = str;
-        a(context, fVar);
-    }
-
-    private boolean b() {
-        if (PushSettings.i(this.a) || this.b.c()) {
-            return false;
-        }
-        return System.currentTimeMillis() - com.baidu.android.pushservice.j.g.b(this.a) > (PushSettings.h(this.a) ? (long) PushSettings.g(this.a) : 43200000L);
-    }
-
-    public void a() {
-        if (this.c != null) {
-            this.c.b();
-        }
-    }
-
-    public void a(boolean z, com.baidu.android.pushservice.j.f fVar) {
+    private p(Context context) {
+        this.b = null;
+        this.b = context.getApplicationContext();
         if (this.b == null) {
-            this.b = g.a(this.a);
         }
-        this.b.a(fVar);
-        if (z || b()) {
-            this.b.b(z);
+    }
+
+    public static p a(Context context) {
+        if (a == null) {
+            a = new p(context);
         }
+        return a;
+    }
+
+    public String a(long j, long j2, int i) {
+        JSONArray jSONArray = new JSONArray();
+        List<j> a2 = com.baidu.android.pushservice.d.a.a(this.b);
+        ArrayList<i> arrayList = new ArrayList();
+        HashMap hashMap = new HashMap();
+        HashMap hashMap2 = new HashMap();
+        HashMap hashMap3 = new HashMap();
+        ArrayList<f> arrayList2 = new ArrayList();
+        List<e> a3 = com.baidu.android.pushservice.d.a.a(this.b, j, j2, TbConfig.POST_IMAGE_SMALL);
+        List<e> h = com.baidu.android.pushservice.d.c.h(this.b);
+        int i2 = 0;
+        if (a3 == null) {
+            return null;
+        }
+        boolean z = a3.size() > i;
+        if (h != null) {
+            a3.addAll(h);
+        }
+        Iterator<e> it = a3.iterator();
+        while (true) {
+            int i3 = i2;
+            if (!it.hasNext()) {
+                i2 = i3;
+                break;
+            }
+            e next = it.next();
+            if (next.a().startsWith(n.r)) {
+                if (!hashMap.containsKey(next.b())) {
+                    hashMap.put(next.b(), new ArrayList());
+                }
+                List list = (List) hashMap.get(next.b());
+                if (list != null) {
+                    list.add(next.e());
+                }
+            } else if (next.a().startsWith(n.s)) {
+                if (!hashMap2.containsKey(next.b())) {
+                    hashMap2.put(next.b(), new ArrayList());
+                }
+                List list2 = (List) hashMap2.get(next.b());
+                if (list2 != null) {
+                    list2.add(next.f());
+                }
+            } else if (next.a().startsWith(n.v)) {
+                if (!hashMap3.containsKey(next.b())) {
+                    hashMap3.put(next.b(), new ArrayList());
+                }
+                List list3 = (List) hashMap3.get(next.b());
+                if (list3 != null) {
+                    list3.add(next.h());
+                }
+            } else if (next.a().startsWith(n.u)) {
+                arrayList2.add(next.g());
+            }
+            if (z) {
+                i2 = i3 + 1;
+                if (i2 >= i) {
+                    break;
+                }
+            } else {
+                i2 = i3;
+            }
+        }
+        if (i2 < i) {
+            Iterator<e> it2 = a3.iterator();
+            while (true) {
+                int i4 = i2;
+                if (it2.hasNext()) {
+                    e next2 = it2.next();
+                    if (next2.a().startsWith(n.t)) {
+                        arrayList.add(next2.d());
+                    }
+                    if (z) {
+                        i2 = i4 + 1;
+                        if (i2 < i) {
+                        }
+                    } else {
+                        i2 = i4;
+                    }
+                }
+            }
+        }
+        try {
+            if (arrayList.size() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("app_appid", "9527");
+                JSONArray jSONArray2 = new JSONArray();
+                for (i iVar : arrayList) {
+                    jSONArray2.put(iVar.a());
+                }
+                jSONObject.put("push_action", jSONArray2);
+                jSONArray.put(jSONObject);
+            }
+            if (a2 != null) {
+                for (j jVar : a2) {
+                    JSONObject a4 = jVar.a(this.b);
+                    JSONArray jSONArray3 = new JSONArray();
+                    List<k> list4 = (List) hashMap.get(jVar.b());
+                    List<b> list5 = (List) hashMap2.get(jVar.b());
+                    List<h> list6 = (List) hashMap3.get(jVar.b());
+                    if (list4 != null) {
+                        try {
+                            if (list4.size() != 0) {
+                                for (k kVar : list4) {
+                                    jSONArray3.put(kVar.a());
+                                }
+                            }
+                        } catch (JSONException e) {
+                        }
+                    }
+                    if (list5 != null && list5.size() != 0) {
+                        for (b bVar : list5) {
+                            jSONArray3.put(bVar.a());
+                        }
+                    }
+                    if (list6 != null) {
+                        for (h hVar : list6) {
+                            if (hVar.j.equals(jVar.b())) {
+                                jSONArray3.put(hVar.a());
+                                hashMap3.remove(jVar.b());
+                            }
+                        }
+                    }
+                    if (jSONArray3.length() > 0) {
+                        a4.put("push_action", jSONArray3);
+                    }
+                    jSONArray.put(a4);
+                }
+                for (String str : hashMap3.keySet()) {
+                    try {
+                        List<h> list7 = (List) hashMap3.get(str);
+                        JSONArray jSONArray4 = new JSONArray();
+                        if (list7 != null) {
+                            r2 = null;
+                            for (h hVar2 : list7) {
+                                jSONArray4.put(hVar2.a());
+                            }
+                        } else {
+                            hVar2 = null;
+                        }
+                        if (hVar2 != null) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("app_type", j.b);
+                            jSONObject2.put("app_package_name", hVar2.j);
+                            jSONObject2.put("app_vercode", hVar2.b);
+                            jSONObject2.put("app_vername", hVar2.a);
+                            if (jSONArray4.length() > 0) {
+                                jSONObject2.put("push_action", jSONArray4);
+                            }
+                            jSONArray.put(jSONObject2);
+                        }
+                    } catch (Exception e2) {
+                    }
+                }
+            }
+            if (arrayList2.size() > 0) {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("app_appid", "9528");
+                JSONArray jSONArray5 = new JSONArray();
+                for (f fVar : arrayList2) {
+                    jSONArray5.put(fVar.a());
+                }
+                jSONObject3.put("crash_info", jSONArray5);
+                jSONArray.put(jSONObject3);
+            }
+        } catch (JSONException e3) {
+        }
+        return jSONArray.length() == 0 ? "" : jSONArray.toString();
     }
 }

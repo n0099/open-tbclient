@@ -18,7 +18,7 @@ public class HttpResponseHandler extends Handler {
     protected String mDefaultCharset;
 
     public HttpResponseHandler() {
-        this(DEFAULT_CHARSET);
+        this("UTF-8");
     }
 
     public HttpResponseHandler(String str) {
@@ -27,7 +27,7 @@ public class HttpResponseHandler extends Handler {
 
     public HttpResponseHandler(Looper looper) {
         super(looper);
-        this.mDefaultCharset = DEFAULT_CHARSET;
+        this.mDefaultCharset = "UTF-8";
     }
 
     protected void onStart() {
@@ -88,7 +88,7 @@ public class HttpResponseHandler extends Handler {
         }
         StatusLine statusLine = httpResponse.getStatusLine();
         if (statusLine.getStatusCode() >= 300) {
-            sendFailureMessage((Throwable) new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase()), str);
+            sendFailureMessage(new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase()), str);
         } else {
             sendSuccessMessage(statusLine.getStatusCode(), str);
         }

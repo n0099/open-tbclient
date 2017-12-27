@@ -21,8 +21,8 @@ import java.util.UUID;
 public final class e {
     public static String a(Context context) {
         try {
-            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.b.getString("xyus", "");
+            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
+            String string = dVar.b.getString("xyus", "");
             if (TextUtils.isEmpty(string)) {
                 String l = l(context);
                 String m = m(context);
@@ -30,8 +30,8 @@ public final class e {
                     m = "0";
                 }
                 String str = l + "|" + new StringBuffer(m).reverse().toString();
-                eVar.d.putString("xyus", str);
-                eVar.d.commit();
+                dVar.d.putString("xyus", str);
+                dVar.d.commit();
                 return str;
             }
             return string;
@@ -43,8 +43,8 @@ public final class e {
 
     public static String b(Context context) {
         try {
-            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.a.getString("sgud", "");
+            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
+            String string = dVar.a.getString("sgud", "");
             if (TextUtils.isEmpty(string)) {
                 String m = m(context);
                 String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
@@ -62,8 +62,8 @@ public final class e {
                 if (TextUtils.isEmpty(a)) {
                     return "";
                 }
-                eVar.c.putString("sgud", a);
-                eVar.c.commit();
+                dVar.c.putString("sgud", a);
+                dVar.c.commit();
                 return a;
             }
             return string;

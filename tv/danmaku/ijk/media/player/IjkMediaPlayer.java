@@ -18,7 +18,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.play.b.a;
+import com.baidu.tieba.play.c.e;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -32,7 +32,7 @@ import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public static final int FFP_PROPV_DECODER_AVCODEC = 1;
     public static final int FFP_PROPV_DECODER_MEDIACODEC = 2;
@@ -132,17 +132,17 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private static volatile boolean mIsLibLoaded = false;
     private static volatile boolean mIsNativeInitialized = false;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -738,7 +738,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class EventHandler extends Handler {
         private boolean ignoreSubError;
         private final WeakReference<IjkMediaPlayer> mWeakPlayer;
@@ -757,7 +757,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
             }
             switch (message.what) {
                 case 0:
-                case IjkMediaPlayer.MEDIA_TIMED_TEXT /* 99 */:
+                case 99:
                 case 300:
                 default:
                     return;
@@ -804,8 +804,8 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         e.printStackTrace();
                         return;
                     }
-                case IjkMediaPlayer.MEDIA_ERROR_LOG /* 400 */:
-                    a.bK(message.arg1, message.arg2);
+                case 400:
+                    e.cI(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -908,7 +908,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         return onMediaCodecSelectListener.onMediaCodecSelect(ijkMediaPlayer, str, i, i2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 

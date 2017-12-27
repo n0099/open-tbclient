@@ -6,7 +6,7 @@ import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.ExploreByTouchHelper;
+import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,13 +14,14 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
-public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
+@ViewPager.DecorView
+/* loaded from: classes2.dex */
+public class PagerTitleStrip extends ViewGroup {
     private static final PagerTitleStripImpl IMPL;
     TextView mCurrText;
     private int mGravity;
     private int mLastKnownCurrentPage;
-    private float mLastKnownPositionOffset;
+    float mLastKnownPositionOffset;
     TextView mNextText;
     private int mNonPrimaryAlpha;
     private final PageListener mPageListener;
@@ -35,7 +36,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     private static final int[] TEXT_ATTRS = {16843660};
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface PagerTitleStripImpl {
         void setSingleLineAllCaps(TextView textView);
     }
@@ -48,7 +49,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class PagerTitleStripImplBase implements PagerTitleStripImpl {
         PagerTitleStripImplBase() {
         }
@@ -59,7 +60,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class PagerTitleStripImplIcs implements PagerTitleStripImpl {
         PagerTitleStripImplIcs() {
         }
@@ -97,9 +98,9 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ATTRS);
         int resourceId = obtainStyledAttributes.getResourceId(0, 0);
         if (resourceId != 0) {
-            this.mPrevText.setTextAppearance(context, resourceId);
-            this.mCurrText.setTextAppearance(context, resourceId);
-            this.mNextText.setTextAppearance(context, resourceId);
+            TextViewCompat.setTextAppearance(this.mPrevText, resourceId);
+            TextViewCompat.setTextAppearance(this.mCurrText, resourceId);
+            TextViewCompat.setTextAppearance(this.mNextText, resourceId);
         }
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         if (dimensionPixelSize != 0) {
@@ -145,7 +146,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     }
 
     public void setNonPrimaryAlpha(float f) {
-        this.mNonPrimaryAlpha = ((int) (255.0f * f)) & MotionEventCompat.ACTION_MASK;
+        this.mNonPrimaryAlpha = ((int) (255.0f * f)) & 255;
         int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i);
         this.mNextText.setTextColor(i);
@@ -180,7 +181,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         ViewPager viewPager = (ViewPager) parent;
         PagerAdapter adapter = viewPager.getAdapter();
         viewPager.setInternalPageChangeListener(this.mPageListener);
-        viewPager.setOnAdapterChangeListener(this.mPageListener);
+        viewPager.addOnAdapterChangeListener(this.mPageListener);
         this.mPager = viewPager;
         updateAdapter(this.mWatchingAdapter != null ? this.mWatchingAdapter.get() : null, adapter);
     }
@@ -191,7 +192,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         if (this.mPager != null) {
             updateAdapter(this.mPager.getAdapter(), null);
             this.mPager.setInternalPageChangeListener(null);
-            this.mPager.setOnAdapterChangeListener(null);
+            this.mPager.removeOnAdapterChangeListener(this.mPageListener);
             this.mPager = null;
         }
     }
@@ -206,8 +207,8 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
             charSequence = pagerAdapter.getPageTitle(i + 1);
         }
         this.mNextText.setText(charSequence);
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.8f), ExploreByTouchHelper.INVALID_ID);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec((getHeight() - getPaddingTop()) - getPaddingBottom(), ExploreByTouchHelper.INVALID_ID);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(Math.max(0, (int) (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.8f)), Integer.MIN_VALUE);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(Math.max(0, (getHeight() - getPaddingTop()) - getPaddingBottom()), Integer.MIN_VALUE);
         this.mPrevText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mCurrText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mNextText.measure(makeMeasureSpec, makeMeasureSpec2);
@@ -309,25 +310,23 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        if (mode != 1073741824) {
+        int max;
+        if (View.MeasureSpec.getMode(i) != 1073741824) {
             throw new IllegalStateException("Must measure with an exact width");
         }
-        int minHeight = getMinHeight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (size * 0.8f), ExploreByTouchHelper.INVALID_ID);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(size2 - paddingTop, ExploreByTouchHelper.INVALID_ID);
-        this.mPrevText.measure(makeMeasureSpec, makeMeasureSpec2);
-        this.mCurrText.measure(makeMeasureSpec, makeMeasureSpec2);
-        this.mNextText.measure(makeMeasureSpec, makeMeasureSpec2);
-        if (mode2 == 1073741824) {
-            setMeasuredDimension(size, size2);
+        int childMeasureSpec = getChildMeasureSpec(i2, paddingTop, -2);
+        int size = View.MeasureSpec.getSize(i);
+        int childMeasureSpec2 = getChildMeasureSpec(i, (int) (size * 0.2f), -2);
+        this.mPrevText.measure(childMeasureSpec2, childMeasureSpec);
+        this.mCurrText.measure(childMeasureSpec2, childMeasureSpec);
+        this.mNextText.measure(childMeasureSpec2, childMeasureSpec);
+        if (View.MeasureSpec.getMode(i2) == 1073741824) {
+            max = View.MeasureSpec.getSize(i2);
         } else {
-            setMeasuredDimension(size, Math.max(minHeight, this.mCurrText.getMeasuredHeight() + paddingTop));
+            max = Math.max(getMinHeight(), paddingTop + this.mCurrText.getMeasuredHeight());
         }
+        setMeasuredDimension(size, ViewCompat.resolveSizeAndState(max, i2, ViewCompat.getMeasuredState(this.mCurrText) << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -347,11 +346,11 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class PageListener extends DataSetObserver implements ViewPager.OnAdapterChangeListener, ViewPager.OnPageChangeListener {
         private int mScrollState;
 
-        private PageListener() {
+        PageListener() {
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -376,7 +375,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         }
 
         @Override // android.support.v4.view.ViewPager.OnAdapterChangeListener
-        public void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2) {
+        public void onAdapterChanged(ViewPager viewPager, PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2) {
             PagerTitleStrip.this.updateAdapter(pagerAdapter, pagerAdapter2);
         }
 

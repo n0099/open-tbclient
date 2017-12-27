@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddVoteNetMessage extends NetMessage {
     private String mOptions;
     private long mThreadId;

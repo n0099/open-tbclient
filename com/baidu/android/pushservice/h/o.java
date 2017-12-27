@@ -1,158 +1,262 @@
 package com.baidu.android.pushservice.h;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import com.baidu.tbadk.TbConfig;
-import java.util.ArrayList;
+import android.content.Intent;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
+import com.baidu.adp.BuildConfig;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushService;
+import com.baidu.android.pushservice.PushSettings;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class o {
-    private static volatile o a = null;
+    public static String a = "";
     private Context b;
+    private p c;
+    private boolean d = false;
 
-    private o(Context context) {
+    public o(Context context) {
         this.b = null;
+        this.c = null;
         this.b = context.getApplicationContext();
-        if (this.b == null) {
-            com.baidu.android.pushservice.g.a.e("StatisticProcessor", "Error occurs with mContext");
-        }
+        this.c = p.a(context);
     }
 
-    public static o a(Context context) {
-        if (a == null) {
-            a = new o(context);
+    private boolean a(String str, String str2, String str3) {
+        InputStream inputStream;
+        Throwable th;
+        if (com.baidu.android.pushservice.j.k.a(this.b)) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("stats", str2);
+            hashMap.put("pbVer", str3);
+            hashMap.put("os", "android");
+            InputStream inputStream2 = null;
+            long j = 1000;
+            int i = 0;
+            while (true) {
+                if (i >= 2) {
+                    break;
+                }
+                try {
+                    com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str, HttpPost.METHOD_NAME, hashMap);
+                    int b = a2.b();
+                    inputStream2 = a2.a();
+                    String a3 = com.baidu.android.pushservice.h.a.b.a(inputStream2);
+                    if (b == 200) {
+                        com.baidu.android.pushservice.f.b.a(inputStream2);
+                        return true;
+                    } else if (b == 201) {
+                        a(a3);
+                        break;
+                    } else if (b == 403) {
+                        b(a3);
+                        break;
+                    } else {
+                        j += i * 300;
+                        Thread.sleep(j);
+                        i++;
+                    }
+                } catch (Exception e) {
+                    inputStream = inputStream2;
+                    try {
+                        q.a(this.b, e);
+                        com.baidu.android.pushservice.f.b.a(inputStream);
+                        return false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.baidu.android.pushservice.f.b.a(inputStream);
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    inputStream = inputStream2;
+                    th = th3;
+                    com.baidu.android.pushservice.f.b.a(inputStream);
+                    throw th;
+                }
+            }
+            com.baidu.android.pushservice.f.b.a(inputStream2);
+            return false;
         }
-        com.baidu.android.pushservice.g.a.c("StatisticProcessor", "Current packet name: " + context.getPackageName());
-        return a;
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean d() {
+        long j;
+        long j2 = 259200000;
+        if (!com.baidu.android.pushservice.h.a.b.c(this.b) || this.d || PushSettings.f(this.b)) {
+            return false;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        long d = PushSettings.d(this.b);
+        long j3 = currentTimeMillis - d;
+        if (j3 > 259200000) {
+            j = currentTimeMillis - 259200000;
+            PushSettings.a(this.b, j);
+        } else {
+            j2 = j3;
+            j = d;
+        }
+        if (com.baidu.android.pushservice.j.k.b(this.b)) {
+            if (j2 < 21600000) {
+                return false;
+            }
+        } else if (j2 < PushSettings.e(this.b)) {
+            return false;
+        }
+        return com.baidu.android.pushservice.d.a.b(this.b, currentTimeMillis, j);
+    }
+
+    public String a() {
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject.put("user_device", com.baidu.android.pushservice.h.a.b.e(this.b));
+            jSONObject.put("user_network", com.baidu.android.pushservice.h.a.b.d(this.b));
+            jSONObject2.put("channel_id", PushSettings.a(this.b));
+            jSONObject2.put("push_running_version", (int) com.baidu.android.pushservice.a.a());
+            jSONObject.put("push_channel", jSONObject2);
+        } catch (JSONException e) {
+        }
+        return jSONObject.toString();
     }
 
     public String a(long j, long j2, int i) {
-        int i2;
-        JSONArray jSONArray = new JSONArray();
-        List<i> a2 = com.baidu.android.pushservice.d.a.a(this.b);
-        ArrayList<h> arrayList = new ArrayList();
-        HashMap hashMap = new HashMap();
-        HashMap hashMap2 = new HashMap();
-        ArrayList<f> arrayList2 = new ArrayList();
-        List<e> a3 = com.baidu.android.pushservice.d.a.a(this.b, j, j2, TbConfig.POST_IMAGE_SMALL);
-        if (a3 == null) {
-            return null;
-        }
-        boolean z = a3.size() > i;
-        Iterator<e> it = a3.iterator();
-        int i3 = 0;
-        while (true) {
-            if (!it.hasNext()) {
-                i2 = i3;
-                break;
+        byte[] bArr;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(ClientCookie.VERSION_ATTR, BuildConfig.VERSION_NAME);
+            String a2 = a();
+            if (!TextUtils.isEmpty(a2)) {
+                jSONObject.put("common", new JSONObject(a2));
             }
-            e next = it.next();
-            if (next.a().startsWith(m.q)) {
-                if (!hashMap.containsKey(next.b())) {
-                    hashMap.put(next.b(), new ArrayList());
-                }
-                List list = (List) hashMap.get(next.b());
-                if (list != null) {
-                    list.add(next.e());
-                }
-            } else if (next.a().startsWith(m.r)) {
-                if (!hashMap2.containsKey(next.b())) {
-                    hashMap2.put(next.b(), new ArrayList());
-                }
-                List list2 = (List) hashMap2.get(next.b());
-                if (list2 != null) {
-                    list2.add(next.f());
-                }
-            } else if (next.a().startsWith(m.t)) {
-                arrayList2.add(next.g());
+            String a3 = this.c.a(j, j2, i);
+            if (!TextUtils.isEmpty(a3)) {
+                jSONObject.put("application_info", new JSONArray(a3));
             }
-            if (z) {
-                i2 = i3 + 1;
-                if (i2 >= i) {
-                    break;
-                }
-            } else {
-                i2 = i3;
-            }
-            i3 = i2;
-        }
-        if (i2 < i) {
-            Iterator<e> it2 = a3.iterator();
-            while (true) {
-                int i4 = i2;
-                if (it2.hasNext()) {
-                    e next2 = it2.next();
-                    if (next2.a().startsWith(m.s)) {
-                        arrayList.add(next2.d());
-                    }
-                    if (z) {
-                        i2 = i4 + 1;
-                        if (i2 < i) {
-                        }
-                    } else {
-                        i2 = i4;
-                    }
-                }
-            }
+        } catch (JSONException e) {
         }
         try {
-            if (arrayList.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("app_appid", "9527");
-                JSONArray jSONArray2 = new JSONArray();
-                for (h hVar : arrayList) {
-                    jSONArray2.put(hVar.a());
-                }
-                jSONObject.put("push_action", jSONArray2);
-                jSONArray.put(jSONObject);
-            }
-            if (a2 != null) {
-                for (i iVar : a2) {
-                    JSONObject a4 = iVar.a(this.b);
-                    JSONArray jSONArray3 = new JSONArray();
-                    List<j> list3 = (List) hashMap.get(iVar.b());
-                    List<b> list4 = (List) hashMap2.get(iVar.b());
-                    if (list3 != null) {
-                        try {
-                            if (list3.size() != 0) {
-                                for (j jVar : list3) {
-                                    jSONArray3.put(jVar.a());
-                                }
-                            }
-                        } catch (JSONException e) {
-                            com.baidu.android.pushservice.g.a.e("StatisticProcessor", "error: JSONException");
-                        }
-                    }
-                    if (list4 != null && list4.size() != 0) {
-                        for (b bVar : list4) {
-                            jSONArray3.put(bVar.a());
-                        }
-                    }
-                    if (jSONArray3.length() > 0) {
-                        a4.put("push_action", jSONArray3);
-                    }
-                    jSONArray.put(a4);
-                }
-            }
-            if (arrayList2.size() > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("app_appid", "9528");
-                JSONArray jSONArray4 = new JSONArray();
-                for (f fVar : arrayList2) {
-                    jSONArray4.put(fVar.a());
-                }
-                jSONObject2.put("crash_info", jSONArray4);
-                jSONArray.put(jSONObject2);
-            }
-        } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.e("StatisticProcessor", "error:" + e2.getMessage());
+            bArr = com.baidu.android.pushservice.h.a.a.a(jSONObject.toString());
+            bArr[0] = 117;
+            bArr[1] = 123;
+        } catch (IOException e2) {
+            bArr = null;
         }
-        String jSONArray5 = jSONArray.length() == 0 ? "" : jSONArray.toString();
-        com.baidu.android.pushservice.g.a.c("StatisticProcessor", "stat:" + jSONArray5);
-        return jSONArray5;
+        if (bArr == null) {
+            return null;
+        }
+        try {
+            return com.baidu.android.pushservice.k.b.a(bArr, "utf-8");
+        } catch (UnsupportedEncodingException e3) {
+            return null;
+        }
+    }
+
+    public void a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            int i = jSONObject.getInt("config_type");
+            int i2 = jSONObject.getInt("interval");
+            if (i == 0) {
+                if (i2 > 0) {
+                    PushSettings.b(this.b, i2 * 1000);
+                }
+            } else if (i == 1) {
+                this.d = true;
+            } else if (i == 2) {
+                if (i2 > 0) {
+                    PushSettings.a(this.b, 1);
+                    Intent intent = new Intent(PushConstants.ACTION_METHOD);
+                    intent.putExtra("method", "com.baidu.android.pushservice.action.ENBALE_APPSTAT");
+                    intent.setClass(this.b, PushService.class);
+                    PendingIntent service = PendingIntent.getService(this.b.getApplicationContext(), 0, intent, 268435456);
+                    AlarmManager alarmManager = (AlarmManager) this.b.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                    alarmManager.cancel(service);
+                    alarmManager.set(1, SystemClock.elapsedRealtime() + i2, service);
+                }
+            } else if (i == 10) {
+                PushSettings.j(this.b);
+            } else if (i == 11) {
+                PushSettings.k(this.b);
+            }
+        } catch (JSONException e) {
+        }
+    }
+
+    public void b() {
+        com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("checkSendStatisticData", (short) 90) { // from class: com.baidu.android.pushservice.h.o.1
+            @Override // com.baidu.android.pushservice.i.c
+            public void a() {
+                if (o.this.d()) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    int i = (int) ((currentTimeMillis / 60000) % 5);
+                    int i2 = ((int) (currentTimeMillis / 1000)) % 60;
+                    if (i == 0 && i2 < 15) {
+                        try {
+                            Thread.sleep((long) (Math.random() * 60.0d * 1000.0d));
+                        } catch (InterruptedException e) {
+                        }
+                        if (!com.baidu.android.pushservice.h.a.b.c(o.this.b)) {
+                            return;
+                        }
+                    }
+                    o.this.c();
+                }
+            }
+        });
+    }
+
+    public void b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            int i = jSONObject.getInt("error_code");
+            jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+            if (i == 50009) {
+                PushSettings.a(this.b, 1);
+            }
+        } catch (JSONException e) {
+        }
+    }
+
+    public boolean b(long j, long j2, int i) {
+        String a2 = a(j, j2, i);
+        try {
+            if (!TextUtils.isEmpty(a2)) {
+                return a("https://statsonline.pushct.baidu.com/pushlog_special", a2, BuildConfig.VERSION_NAME);
+            }
+        } catch (OutOfMemoryError e) {
+        }
+        return false;
+    }
+
+    public synchronized void c() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long d = PushSettings.d(this.b);
+        if (com.baidu.android.pushservice.d.a.a(this.b, currentTimeMillis, d) > 0 ? b(currentTimeMillis, d, 1000) : true) {
+            PushSettings.a(this.b, System.currentTimeMillis());
+            try {
+                com.baidu.android.pushservice.d.a.d(this.b);
+            } catch (Exception e) {
+            }
+        }
     }
 }

@@ -33,28 +33,22 @@ public class n extends c {
         int i;
         String str2;
         int i2;
-        com.baidu.android.pushservice.message.g gVar;
         String e = kVar.e();
         String h = kVar.h();
         byte[] j = kVar.j();
         String f = kVar.f();
-        com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
-        String str3 = new String(bArr);
-        com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg: " + str3);
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
         try {
-            JSONObject jSONObject = new JSONObject(str3);
+            JSONObject jSONObject = new JSONObject(new String(bArr));
             int optInt = jSONObject.optInt("version_require", -1);
             int optInt2 = jSONObject.optInt("command_type");
             String optString = jSONObject.optString("command_body");
-            com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg, vr: " + optInt + " ct: " + optInt2 + " b: " + optString);
             if (TextUtils.isEmpty(e) || e.equals("0")) {
                 str = null;
                 i = 0;
             } else {
                 if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
                     f = null;
-                } else {
-                    com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message has PackageName = " + f);
                 }
                 com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(this.a).d(e);
                 if (d == null || d.c() == null) {
@@ -67,7 +61,6 @@ public class n extends c {
                 } else if (p.c(this.a, d.c())) {
                     if (TextUtils.isEmpty(f)) {
                         f = d.c();
-                        com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message PackageName is from  PushClient");
                     }
                     if (optInt2 == 1 && d.d() < optInt) {
                         i = 6;
@@ -90,27 +83,20 @@ public class n extends c {
                     str2 = str;
                     i2 = 6;
                 } else {
-                    String c = a.c();
-                    com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "Ultron Message PackageName is from  PushClient  needBaiduAPP");
                     i2 = i;
-                    str2 = c;
+                    str2 = a.c();
                 }
             } else {
                 int i3 = i;
                 str2 = str;
                 i2 = i3;
             }
-            if (i2 == 0) {
-                com.baidu.android.pushservice.g.a.c("UltronMessageHandler", "ultronMsg, handleMsg: " + str2);
-                gVar = a(str2, 0L, h, j, optString);
-            } else {
-                gVar = gVar2;
-            }
-            gVar.a(i2);
-            return gVar;
+            com.baidu.android.pushservice.message.g a2 = i2 == 0 ? a(str2, 0L, h, j, optString) : gVar;
+            a2.a(i2);
+            return a2;
         } catch (JSONException e2) {
-            gVar2.a(2);
-            return gVar2;
+            gVar.a(2);
+            return gVar;
         }
     }
 }

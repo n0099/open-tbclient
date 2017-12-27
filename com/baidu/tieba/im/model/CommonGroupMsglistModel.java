@@ -83,7 +83,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.aBP().am(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.aIQ().ao(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -96,7 +96,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.azr().be(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aGs().be(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -110,7 +110,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.azr().bd(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aGs().bd(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -186,7 +186,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                             for (String str : split) {
                                 if (id.equals(str)) {
                                     this.mLoadDataMode = 9;
-                                    this.mLoadDataCallBack.f(null);
+                                    this.mLoadDataCallBack.ak(null);
                                     return;
                                 }
                             }
@@ -203,7 +203,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
             if (responseUpdateGroupMessage.getError() == 0 && responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
                 this.mLoadDataMode = 10;
-                this.mLoadDataCallBack.f(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
+                this.mLoadDataCallBack.ak(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
             }
         }
     }

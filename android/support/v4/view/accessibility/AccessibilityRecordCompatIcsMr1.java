@@ -1,7 +1,7 @@
 package android.support.v4.view.accessibility;
 
 import android.view.accessibility.AccessibilityRecord;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityRecordCompatIcsMr1 {
     public static int getMaxScrollX(Object obj) {
         return ((AccessibilityRecord) obj).getMaxScrollX();

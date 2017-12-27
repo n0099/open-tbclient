@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView IR;
-    private View ham;
-    private View han;
-    private View hao;
-    private ObjectAnimator hap;
-    private ObjectAnimator haq;
-    private ObjectAnimator har;
-    private ObjectAnimator has;
+    private TextView axN;
+    private View hHr;
+    private View hHs;
+    private View hHt;
+    private ObjectAnimator hHu;
+    private ObjectAnimator hHv;
+    private ObjectAnimator hHw;
+    private ObjectAnimator hHx;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), d.h.layout_record_button, this);
-        this.ham = findViewById(d.g.record_layer1);
-        this.han = findViewById(d.g.record_layer2);
-        this.hao = findViewById(d.g.record_layer3);
-        this.IR = (TextView) findViewById(d.g.tv_tip);
-        this.hao.setScaleX(0.766f);
-        this.hao.setScaleY(0.766f);
+        this.hHr = findViewById(d.g.record_layer1);
+        this.hHs = findViewById(d.g.record_layer2);
+        this.hHt = findViewById(d.g.record_layer3);
+        this.axN = (TextView) findViewById(d.g.tv_tip);
+        this.hHt.setScaleX(0.766f);
+        this.hHt.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.hao;
+        return this.hHt;
     }
 
     public View getLayer1() {
-        return this.ham;
+        return this.hHr;
     }
 
     public View getLayer2() {
-        return this.han;
+        return this.hHs;
     }
 
     public TextView getTvTip() {
-        return this.IR;
+        return this.axN;
     }
 
-    public void bEE() {
-        if (this.has != null && this.has.isRunning()) {
-            this.har.cancel();
+    public void bKh() {
+        if (this.hHx != null && this.hHx.isRunning()) {
+            this.hHw.cancel();
         }
-        if (this.har == null) {
-            this.har = ObjectAnimator.ofPropertyValuesHolder(this.han, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.har.setDuration(200L);
+        if (this.hHw == null) {
+            this.hHw = ObjectAnimator.ofPropertyValuesHolder(this.hHs, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.hHw.setDuration(200L);
         }
-        this.har.start();
+        this.hHw.start();
     }
 
-    public void bEF() {
-        if (this.har != null && this.har.isRunning()) {
-            this.har.cancel();
+    public void bKi() {
+        if (this.hHw != null && this.hHw.isRunning()) {
+            this.hHw.cancel();
         }
-        if (this.han.getScaleX() != 1.0f) {
-            if (this.has == null) {
-                this.has = ObjectAnimator.ofPropertyValuesHolder(this.han, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.has.setDuration(200L);
+        if (this.hHs.getScaleX() != 1.0f) {
+            if (this.hHx == null) {
+                this.hHx = ObjectAnimator.ofPropertyValuesHolder(this.hHs, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.hHx.setDuration(200L);
             }
-            this.has.start();
+            this.hHx.start();
         }
     }
 
-    public void nN(boolean z) {
-        if (this.haq != null && this.haq.isRunning()) {
-            this.haq.cancel();
+    public void oh(boolean z) {
+        if (this.hHv != null && this.hHv.isRunning()) {
+            this.hHv.cancel();
         }
-        if (this.hap == null) {
-            this.hap = ObjectAnimator.ofPropertyValuesHolder(this.hao, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.hap.setRepeatCount(-1);
-            this.hap.setRepeatMode(2);
-            this.hap.setDuration(1000L);
+        if (this.hHu == null) {
+            this.hHu = ObjectAnimator.ofPropertyValuesHolder(this.hHt, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.hHu.setRepeatCount(-1);
+            this.hHu.setRepeatMode(2);
+            this.hHu.setDuration(1000L);
         }
-        this.hao.setVisibility(0);
+        this.hHt.setVisibility(0);
         if (z) {
-            this.ham.setVisibility(8);
+            this.hHr.setVisibility(8);
         } else {
-            this.ham.setBackgroundResource(d.f.red_square_bg);
+            this.hHr.setBackgroundResource(d.f.red_square_bg);
         }
-        this.IR.setVisibility(8);
-        this.hap.start();
+        this.axN.setVisibility(8);
+        this.hHu.start();
     }
 
-    public void bEu() {
-        if (this.hap != null && this.hap.isRunning()) {
-            this.hap.cancel();
+    public void bJW() {
+        if (this.hHu != null && this.hHu.isRunning()) {
+            this.hHu.cancel();
         }
-        if (this.haq == null) {
-            this.haq = ObjectAnimator.ofPropertyValuesHolder(this.hao, PropertyValuesHolder.ofFloat("scaleX", this.hao.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hao.getScaleY(), 0.766f));
-            this.haq.setDuration((500.0f * Math.abs(0.766f - this.hao.getScaleX())) / 0.3f);
+        if (this.hHv == null) {
+            this.hHv = ObjectAnimator.ofPropertyValuesHolder(this.hHt, PropertyValuesHolder.ofFloat("scaleX", this.hHt.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hHt.getScaleY(), 0.766f));
+            this.hHv.setDuration((500.0f * Math.abs(0.766f - this.hHt.getScaleX())) / 0.3f);
         }
-        this.ham.setVisibility(0);
-        this.ham.setBackgroundResource(d.f.red_circle_bg);
-        this.haq.start();
+        this.hHr.setVisibility(0);
+        this.hHr.setBackgroundResource(d.f.red_circle_bg);
+        this.hHv.start();
     }
 }

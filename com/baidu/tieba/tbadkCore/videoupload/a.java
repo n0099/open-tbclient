@@ -1,67 +1,66 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.adp.lib.b.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.i.h;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int gED = 6144000;
-    private static int gEE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private h gCU;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gEF;
+    private static int chunkLength = 524288;
+    private static int hlr = 6144000;
+    private static int hls = 524288;
+    private h hjJ;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b hlt;
 
     public a(h hVar) {
-        this.gCU = hVar;
+        this.hjJ = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.eV().af("is_video_batch") == 1) {
-                this.gEF = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gEE, this.gCU);
+            if (d.mz().an("is_video_batch") == 1) {
+                this.hlt = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hls, this.hjJ);
             } else {
-                this.gEF = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gED, this.gCU);
+                this.hlt = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hlr, this.hjJ);
             }
-            this.gEF.a(eVar);
-            return this.gEF.aH(str2, i);
+            this.hlt.a(eVar);
+            return this.hlt.aH(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gCU != null) {
-                this.gCU.f(306, -4399, com.baidu.tieba.i.a.g(e));
+            if (this.hjJ != null) {
+                this.hjJ.h(306, -4399, com.baidu.tieba.i.a.i(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.gEF != null) {
-            this.gEF.cancel();
+        if (this.hlt != null) {
+            this.hlt.cancel();
         }
     }
 
-    public static void uF(int i) {
+    public static void xs(int i) {
         if (i <= 0) {
-            gEE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            hls = 524288;
         } else {
-            gEE = i;
+            hls = i;
         }
     }
 
-    public static void uG(int i) {
+    public static void xt(int i) {
         if (i <= 0) {
-            chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            chunkLength = 524288;
         } else {
             chunkLength = i;
         }
     }
 
-    public static void uH(int i) {
+    public static void xu(int i) {
         if (i <= 0) {
-            gED = 6144000;
+            hlr = 6144000;
         } else {
-            gED = i;
+            hlr = i;
         }
     }
 }

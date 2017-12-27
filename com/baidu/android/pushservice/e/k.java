@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -21,15 +20,13 @@ public class k extends c {
         int length = this.d.length;
         if (length == 0) {
             a(30602);
-            com.baidu.android.pushservice.g.a.c("Delete", "Delete param -- msgIds == null");
             return;
         }
-        hashMap.put(PushConstants.EXTRA_METHOD, WriteImageActivityConfig.DELET_FLAG);
+        hashMap.put("method", WriteImageActivityConfig.DELET_FLAG);
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < length; i++) {
             jSONArray.put(this.d[i]);
         }
         hashMap.put("msg_ids", jSONArray.toString());
-        com.baidu.android.pushservice.g.a.c("Delete", "Delete param -- " + b.a(hashMap));
     }
 }

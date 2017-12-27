@@ -4,11 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.Loader;
+import android.support.v4.os.CancellationSignal;
+import android.support.v4.os.OperationCanceledException;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CursorLoader extends AsyncTaskLoader<Cursor> {
+    CancellationSignal mCancellationSignal;
     Cursor mCursor;
     final Loader<Cursor>.ForceLoadContentObserver mObserver;
     String[] mProjection;
@@ -17,16 +20,48 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
     String mSortOrder;
     Uri mUri;
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.support.v4.content.AsyncTaskLoader
     public Cursor loadInBackground() {
-        Cursor query = getContext().getContentResolver().query(this.mUri, this.mProjection, this.mSelection, this.mSelectionArgs, this.mSortOrder);
-        if (query != null) {
-            query.getCount();
-            query.registerContentObserver(this.mObserver);
+        synchronized (this) {
+            if (isLoadInBackgroundCanceled()) {
+                throw new OperationCanceledException();
+            }
+            this.mCancellationSignal = new CancellationSignal();
         }
-        return query;
+        try {
+            Cursor query = ContentResolverCompat.query(getContext().getContentResolver(), this.mUri, this.mProjection, this.mSelection, this.mSelectionArgs, this.mSortOrder, this.mCancellationSignal);
+            if (query != null) {
+                try {
+                    query.getCount();
+                    query.registerContentObserver(this.mObserver);
+                } catch (RuntimeException e) {
+                    query.close();
+                    throw e;
+                }
+            }
+            synchronized (this) {
+                this.mCancellationSignal = null;
+            }
+            return query;
+        } catch (Throwable th) {
+            synchronized (this) {
+                this.mCancellationSignal = null;
+                throw th;
+            }
+        }
+    }
+
+    @Override // android.support.v4.content.AsyncTaskLoader
+    public void cancelLoadInBackground() {
+        super.cancelLoadInBackground();
+        synchronized (this) {
+            if (this.mCancellationSignal != null) {
+                this.mCancellationSignal.cancel();
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */

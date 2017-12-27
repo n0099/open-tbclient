@@ -1,354 +1,82 @@
 package com.baidu.tieba.play.b;
 
-import android.net.Uri;
-import android.os.Handler;
-import android.support.v4.widget.ExploreByTouchHelper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tieba.play.CustomPlayerSwitchStatic;
-import com.baidu.tieba.play.a.b;
-import com.baidu.tieba.play.g;
-import java.io.File;
+import com.baidu.tieba.i.e;
+import com.baidu.tieba.i.i;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    private c fRA;
-    private int fRB = 0;
-    private int fRC = 0;
-    private Handler mHandler = new Handler();
+public class a implements e.a {
+    private String bAK;
+    private i gCK;
+    private String gCZ;
 
-    public a(c cVar) {
-        this.fRA = cVar;
+    public a(String str, String str2, i iVar) {
+        this.bAK = str;
+        this.gCZ = str2;
+        this.gCK = iVar;
     }
 
-    public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.fRA == null) {
-            return false;
-        }
-        if (i == -300) {
-            if (this.fRC == 0) {
-                this.fRC++;
-                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRC), 200L);
-            } else if (this.fRC == 1) {
-                this.fRC++;
-                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRC), 200L);
-            } else {
-                return false;
-            }
-            return true;
-        } else if (i3 == -4399) {
-            if (this.fRB < 4 && i == -200) {
-                if (!a(gVar, i, i2, i3, uri, this.fRB)) {
-                    this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
-                }
-                this.fRB = 4;
-                return true;
-            } else if (i == -100) {
-                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            this.fRB++;
-            if (this.fRB <= 2) {
-                if (!a(gVar, i, i2, i3, uri, this.fRB)) {
-                    if (i == -200) {
-                        this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
-                        this.fRB = 2;
-                    } else {
-                        this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
-                        this.fRB = 4;
-                        return false;
+    @Override // com.baidu.tieba.i.e.a
+    public void sk(int i) {
+        if (i == 1) {
+            ak akVar = new ak("c12620");
+            akVar.s("obj_locate", 1);
+            akVar.ab("tid", this.bAK);
+            TiebaStatic.log(akVar);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
+            httpMessage.addParam("thread_id", this.bAK);
+            httpMessage.addParam("video_url", this.gCZ);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            if (this.gCK != null) {
+                this.gCK.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.b.a.1
+                    @Override // com.baidu.tieba.i.b
+                    public void G(JSONObject jSONObject) throws JSONException {
                     }
-                }
-                return true;
-            } else if (this.fRB <= 4) {
-                if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 0, this.fRB), 200L);
-                    return true;
-                }
-                return false;
-            } else if (this.fRB <= 6 && i == -200) {
-                this.mHandler.postDelayed(new b(this.fRA, gVar, i, i2, i3, 1, this.fRB), 200L);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
 
-    private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!bjO() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost())) {
-            return false;
-        }
-        com.baidu.tieba.play.a.b.bjN().a(new C0135a(this.mHandler, this.fRA, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.a.b.bjN().ru(uri.getHost());
-    }
-
-    private boolean bjO() {
-        return (com.baidu.adp.lib.b.d.eV().af("android_video_http_dns_open") == 0 || !j.hh() || CustomPlayerSwitchStatic.biQ() == 0) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.tieba.play.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0135a implements b.InterfaceC0134b {
-        private int afr;
-        private c fRA;
-        private g fRD;
-        private int fRE;
-        private int fRF;
-        private Handler mHandler;
-        private Uri mUri;
-        private int what;
-
-        public C0135a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
-            this.mHandler = handler;
-            this.fRA = cVar;
-            this.mUri = uri;
-            this.fRD = gVar;
-            this.fRE = i;
-            this.what = i2;
-            this.fRF = i3;
-            this.afr = i4;
-        }
-
-        @Override // com.baidu.tieba.play.a.b.InterfaceC0134b
-        public void bS(String str, String str2) {
-            try {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
-                    if (this.mHandler != null) {
-                        this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, 0, this.afr), 200L);
+                    @Override // com.baidu.tieba.i.b
+                    public void H(JSONObject jSONObject) throws JSONException {
                     }
-                } else if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, str, 2, this.afr), 200L);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-                if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.fRA, this.fRD, this.fRE, this.what, this.fRF, 0, this.afr), 200L);
-                }
-            }
-        }
-    }
 
-    public boolean bjP() {
-        boolean z = this.fRB > 0 || this.fRC > 0;
-        this.fRB = 0;
-        this.fRC = 0;
-        return z;
-    }
-
-    public static void Y(int i, int i2, int i3) {
-        if (i == -100) {
-            if (i2 == -24399) {
-                TiebaStatic.log(new ak("c12512").r("obj_locate", 0));
-            } else if (i2 == -34399) {
-                TiebaStatic.log(new ak("c12512").r("obj_locate", 1));
-            } else {
-                switch (i2) {
-                    case 1:
-                        i2 = 0;
-                        break;
-                    case 100:
-                        i2 = 1;
-                        break;
-                    case 200:
-                        i2 = 2;
-                        break;
-                }
-                switch (i3) {
-                    case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
-                        i3 = 4;
-                        break;
-                    case -1010:
-                        i3 = 2;
-                        break;
-                    case TbErrInfo.ERR_IMG_FILE /* -1007 */:
-                        i3 = 1;
-                        break;
-                    case TbErrInfo.ERR_IMG_CACHE /* -1004 */:
-                        i3 = 0;
-                        break;
-                    case -110:
-                        i3 = 3;
-                        break;
-                }
-                TiebaStatic.log(new ak("c12508").r("obj_locate", i2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i3));
-            }
-        } else if (i == -200) {
-            if (i2 == -24399) {
-                TiebaStatic.log(new ak("c12512").r("obj_locate", 0));
-            } else if (i2 == -34399) {
-                TiebaStatic.log(new ak("c12512").r("obj_locate", 1));
-            } else {
-                switch (i3) {
-                    case -10028:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 7));
-                        return;
-                    case -10027:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 6));
-                        return;
-                    case -10026:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 5));
-                        return;
-                    case -10025:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 4));
-                        return;
-                    case -10024:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 3));
-                        return;
-                    case -10023:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 2));
-                        return;
-                    case -10022:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 1));
-                        return;
-                    case -10021:
-                        TiebaStatic.log(new ak("c12510").r("obj_locate", 0));
-                        return;
-                    case -10020:
-                    case -10019:
-                    case -10017:
-                    case -10016:
-                    default:
-                        return;
-                    case -10018:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 8));
-                        return;
-                    case -10015:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 5));
-                        return;
-                    case -10014:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 4));
-                        return;
-                    case -10013:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 3));
-                        return;
-                    case -10012:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 2));
-                        return;
-                    case -10011:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 1));
-                        return;
-                    case -10010:
-                        TiebaStatic.log(new ak("c12509").r("obj_locate", 0));
-                        return;
-                }
-            }
-        }
-    }
-
-    public static void bK(int i, int i2) {
-        switch (i2) {
-            case -10040:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 6));
-                return;
-            case -10039:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 5));
-                return;
-            case -10038:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 4));
-                return;
-            case -10037:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 3));
-                return;
-            case -10035:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 2));
-                return;
-            case -10032:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 1));
-                return;
-            case -10031:
-                TiebaStatic.log(new ak("c12511").r("obj_locate", 0));
-                return;
-            case -10019:
-                TiebaStatic.log(new ak("c12509").r("obj_locate", 8));
-                return;
-            case -10017:
-                TiebaStatic.log(new ak("c12509").r("obj_locate", 7));
-                return;
-            case -10016:
-                TiebaStatic.log(new ak("c12509").r("obj_locate", 6));
-                return;
-            default:
-                return;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private static class b implements Runnable {
-        private final int afr;
-        private c fRA;
-        private final g fRD;
-        private final int fRE;
-        private final int fRF;
-        private final String ip;
-        private final int type;
-        private final int what;
-
-        public b(c cVar, g gVar, int i, int i2, int i3, int i4, int i5) {
-            this.fRA = cVar;
-            this.fRD = gVar;
-            this.fRE = i;
-            this.what = i2;
-            this.fRF = i3;
-            this.type = i4;
-            this.afr = i5;
-            this.ip = "";
-        }
-
-        public b(c cVar, g gVar, int i, int i2, int i3, String str, int i4, int i5) {
-            this.fRA = cVar;
-            this.fRD = gVar;
-            this.fRE = i;
-            this.what = i2;
-            this.fRF = i3;
-            this.ip = str;
-            this.type = i4;
-            this.afr = i5;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (this.fRA != null) {
-                if (this.type == 0) {
-                    this.fRA.a(this.fRD, this.fRE, this.what, this.fRF, this.afr);
-                } else if (this.type == 1) {
-                    this.fRA.b(this.fRD, this.fRE, this.what, this.fRF, this.afr);
-                } else if (this.type == 2) {
-                    this.fRA.a(this.fRD, this.fRE, this.what, this.fRF, this.ip, this.afr);
-                }
-            }
-        }
-    }
-
-    public void clear() {
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacksAndMessages(null);
-        }
-    }
-
-    public static void rw(String str) {
-        if (!StringUtils.isNull(str)) {
-            new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.play.b.a.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(String... strArr) {
-                    if (strArr != null && strArr.length == 1) {
-                        k.r(new File(strArr[0]).getParentFile());
+                    @Override // com.baidu.tieba.i.b
+                    public void I(JSONObject jSONObject) throws JSONException {
+                        jSONObject.put("moov_bottom", 1);
                     }
-                    return null;
-                }
-            }.execute(str);
+                });
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.i.e.a
+    public void onChange(final boolean z) {
+        ak akVar = new ak("c12621");
+        akVar.s("obj_locate", 1);
+        akVar.s("obj_param1", z ? 1 : 0);
+        akVar.ab("tid", this.bAK);
+        TiebaStatic.log(akVar);
+        if (this.gCK != null) {
+            this.gCK.a(new com.baidu.tieba.i.b() { // from class: com.baidu.tieba.play.b.a.2
+                @Override // com.baidu.tieba.i.b
+                public void G(JSONObject jSONObject) throws JSONException {
+                }
+
+                @Override // com.baidu.tieba.i.b
+                public void H(JSONObject jSONObject) throws JSONException {
+                }
+
+                @Override // com.baidu.tieba.i.b
+                public void I(JSONObject jSONObject) throws JSONException {
+                    jSONObject.put("moov_bottom_fix", z ? 1 : 0);
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.tieba.i.e.a
+    public void iS(boolean z) {
     }
 }

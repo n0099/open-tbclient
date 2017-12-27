@@ -14,6 +14,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class c {
@@ -21,7 +22,7 @@ public class c {
 
     public c() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = pl();
+        this.mKey = wO();
     }
 
     private byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
@@ -37,7 +38,7 @@ public class c {
         }
         PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
         JSONArray jSONArray = new JSONArray();
-        byte[] bytes = str2.getBytes("UTF-8");
+        byte[] bytes = str2.getBytes(HTTP.UTF_8);
         if (bytes.length % 116 == 0) {
             length = bytes.length / 116;
         } else {
@@ -57,10 +58,10 @@ public class c {
                 jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bArr2)));
             }
         }
-        return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+        return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes(HTTP.UTF_8));
     }
 
-    private String pl() {
+    private String wO() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

@@ -11,9 +11,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class ContentDistributorIdBox extends AbstractFullBox {
     public static final String TYPE = "cdis";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
     private String contentDistributorId;
     private String language;
 

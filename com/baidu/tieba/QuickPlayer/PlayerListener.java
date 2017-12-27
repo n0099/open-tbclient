@@ -5,7 +5,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PlayerListener extends IQuickMediaPlayerListener.Stub {
     private WeakReference<Handler> mHandler;
 
@@ -25,7 +25,7 @@ public class PlayerListener extends IQuickMediaPlayerListener.Stub {
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener
     public void onError(int i, int i2, int i3) throws RemoteException {
-        sendMessage(8, new com.baidu.tieba.play.b.d(i, i2, i3));
+        sendMessage(8, new com.baidu.tieba.play.c.d(i, i2, i3));
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener

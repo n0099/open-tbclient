@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListener {
     private boolean mAttached;
     private int mContainerId;
@@ -24,12 +24,12 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     private final ArrayList<TabInfo> mTabs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class TabInfo {
-        private final Bundle args;
-        private final Class<?> clss;
-        private Fragment fragment;
-        private final String tag;
+        final Bundle args;
+        final Class<?> clss;
+        Fragment fragment;
+        final String tag;
 
         TabInfo(String str, Class<?> cls, Bundle bundle) {
             this.tag = str;
@@ -38,7 +38,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class DummyTabFactory implements TabHost.TabContentFactory {
         private final Context mContext;
 
@@ -56,7 +56,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.app.FragmentTabHost.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +79,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             super(parcelable);
         }
 
-        private SavedState(Parcel parcel) {
+        SavedState(Parcel parcel) {
             super(parcel);
             this.curTab = parcel.readString();
         }
@@ -195,13 +195,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         super.onAttachedToWindow();
         String currentTabTag = getCurrentTabTag();
         FragmentTransaction fragmentTransaction = null;
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.mTabs.size()) {
-                break;
-            }
-            TabInfo tabInfo = this.mTabs.get(i2);
+        int size = this.mTabs.size();
+        for (int i = 0; i < size; i++) {
+            TabInfo tabInfo = this.mTabs.get(i);
             tabInfo.fragment = this.mFragmentManager.findFragmentByTag(tabInfo.tag);
             if (tabInfo.fragment != null && !tabInfo.fragment.isDetached()) {
                 if (tabInfo.tag.equals(currentTabTag)) {
@@ -213,7 +209,6 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                     fragmentTransaction.detach(tabInfo.fragment);
                 }
             }
-            i = i2 + 1;
         }
         this.mAttached = true;
         FragmentTransaction doTabChanged = doTabChanged(currentTabTag, fragmentTransaction);
@@ -238,6 +233,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     @Override // android.view.View
     protected void onRestoreInstanceState(Parcelable parcelable) {
+        if (!(parcelable instanceof SavedState)) {
+            super.onRestoreInstanceState(parcelable);
+            return;
+        }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
         setCurrentTabByTag(savedState.curTab);
@@ -255,36 +254,35 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     private FragmentTransaction doTabChanged(String str, FragmentTransaction fragmentTransaction) {
-        TabInfo tabInfo = null;
-        int i = 0;
-        while (i < this.mTabs.size()) {
-            TabInfo tabInfo2 = this.mTabs.get(i);
-            if (!tabInfo2.tag.equals(str)) {
-                tabInfo2 = tabInfo;
-            }
-            i++;
-            tabInfo = tabInfo2;
-        }
-        if (tabInfo == null) {
-            throw new IllegalStateException("No tab known for tag " + str);
-        }
-        if (this.mLastTab != tabInfo) {
+        TabInfo tabInfoForTag = getTabInfoForTag(str);
+        if (this.mLastTab != tabInfoForTag) {
             if (fragmentTransaction == null) {
                 fragmentTransaction = this.mFragmentManager.beginTransaction();
             }
             if (this.mLastTab != null && this.mLastTab.fragment != null) {
                 fragmentTransaction.detach(this.mLastTab.fragment);
             }
-            if (tabInfo != null) {
-                if (tabInfo.fragment == null) {
-                    tabInfo.fragment = Fragment.instantiate(this.mContext, tabInfo.clss.getName(), tabInfo.args);
-                    fragmentTransaction.add(this.mContainerId, tabInfo.fragment, tabInfo.tag);
+            if (tabInfoForTag != null) {
+                if (tabInfoForTag.fragment == null) {
+                    tabInfoForTag.fragment = Fragment.instantiate(this.mContext, tabInfoForTag.clss.getName(), tabInfoForTag.args);
+                    fragmentTransaction.add(this.mContainerId, tabInfoForTag.fragment, tabInfoForTag.tag);
                 } else {
-                    fragmentTransaction.attach(tabInfo.fragment);
+                    fragmentTransaction.attach(tabInfoForTag.fragment);
                 }
             }
-            this.mLastTab = tabInfo;
+            this.mLastTab = tabInfoForTag;
         }
         return fragmentTransaction;
+    }
+
+    private TabInfo getTabInfoForTag(String str) {
+        int size = this.mTabs.size();
+        for (int i = 0; i < size; i++) {
+            TabInfo tabInfo = this.mTabs.get(i);
+            if (tabInfo.tag.equals(str)) {
+                return tabInfo;
+            }
+        }
+        return null;
     }
 }

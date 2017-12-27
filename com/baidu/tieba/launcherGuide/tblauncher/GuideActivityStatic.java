@@ -13,7 +13,7 @@ class GuideActivityStatic {
     }
 
     static {
-        new CustomMessageTask(CmdConfigCustom.START_GUILD, new CustomMessageTask.CustomRunnable<GuildActivityConfig>() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivityStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_GUILD, new CustomMessageTask.CustomRunnable<GuildActivityConfig>() { // from class: com.baidu.tieba.launcherGuide.tblauncher.GuideActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GuildActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
@@ -24,6 +24,8 @@ class GuideActivityStatic {
                 }
                 return null;
             }
-        }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

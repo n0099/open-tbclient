@@ -1,41 +1,27 @@
 package com.baidu.tbadk.data;
 
-import org.json.JSONObject;
-import tbclient.TailInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
-public class a {
-    private int aAd;
-    private String content;
-    private String icon_link;
-    private String icon_url;
+public class a extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId boi = BdUniqueId.gen();
+    public AlaLiveInfoCoreData boj;
+    public String bol;
+    public int bok = 0;
+    public int bom = -1;
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.icon_url = jSONObject.optString("icon_url");
-            this.icon_link = jSONObject.optString("icon_link");
-            this.content = jSONObject.optString("content");
-            this.aAd = jSONObject.optInt("tail_type");
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override // com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return boi;
+    }
+
+    public void parserProtoBuf(AlaLiveInfo alaLiveInfo) {
+        if (alaLiveInfo != null) {
+            if (this.boj == null) {
+                this.boj = new AlaLiveInfoCoreData();
+            }
+            this.boj.parserProtoBuf(alaLiveInfo);
         }
-    }
-
-    public void a(TailInfo tailInfo) {
-        try {
-            this.icon_url = tailInfo.icon_url;
-            this.icon_link = tailInfo.icon_link;
-            this.content = tailInfo.content;
-            this.aAd = tailInfo.tail_type.intValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getIconUrl() {
-        return this.icon_url;
-    }
-
-    public String Ct() {
-        return this.icon_link;
     }
 }

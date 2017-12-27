@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> gUO = new ArrayList<>();
-    private boolean gUP = false;
+    private ArrayList<d> hBS = new ArrayList<>();
+    private boolean hBT = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.gUP = true;
-        this.gUO.clear();
+        this.hBT = true;
+        this.hBS.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.gUO.addAll(list);
+            this.hBS.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void ul(String str) {
-        if (this.gUO != null && !TextUtils.isEmpty(str)) {
+    public void um(String str) {
+        if (this.hBS != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.gUO.size()) {
-                    d dVar = this.gUO.get(i2);
+                if (i2 < this.hBS.size()) {
+                    d dVar = this.hBS.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.gUO.remove(i2);
+                        this.hBS.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.w(this.gUO)) {
+        if (v.G(this.hBS)) {
             return 0;
         }
-        return this.gUO.size();
+        return this.hBS.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vw */
+    /* renamed from: ym */
     public d getItem(int i) {
-        if (this.gUO == null || this.gUO.isEmpty() || i < 0 || i >= this.gUO.size()) {
+        if (this.hBS == null || this.hBS.isEmpty() || i < 0 || i >= this.hBS.size()) {
             return null;
         }
-        return this.gUO.get(i);
+        return this.hBS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.gUO != null && this.gUO.size() > i) {
-            localVideoInfoView.a(this.gUO.get(i));
-        } else if (i == 0 && this.gUP) {
-            localVideoInfoView.lJ(true);
+        if (this.hBS != null && this.hBS.size() > i) {
+            localVideoInfoView.a(this.hBS.get(i));
+        } else if (i == 0 && this.hBT) {
+            localVideoInfoView.mn(true);
         } else {
-            localVideoInfoView.lJ(false);
+            localVideoInfoView.mn(false);
         }
         return view2;
     }

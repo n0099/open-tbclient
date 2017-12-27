@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ public final class g {
 
     public static String a(Context context, String str, String str2) {
         char c;
-        ApkInfo bY;
+        ApkInfo cf;
         String[] split;
         try {
             if (str.contains(a[0])) {
@@ -25,8 +26,8 @@ public final class g {
             }
             switch (c) {
                 case 1:
-                    String str3 = str + "\r\n{libpath=" + bY.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.no().bY(str2).libPath.split(":")) {
+                    String str3 = str + "\r\n{libpath=" + cf.libPath + "}";
+                    for (String str4 : com.baidu.sofire.core.e.uR().cf(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {
@@ -92,7 +93,7 @@ public final class g {
                     j += a(file2, jSONArray);
                 } else if (file2.exists()) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("path", file2.getAbsolutePath());
+                    jSONObject.put(ClientCookie.PATH_ATTR, file2.getAbsolutePath());
                     jSONObject.put("size", file2.length());
                     jSONArray.put(jSONObject);
                     j += file2.length();

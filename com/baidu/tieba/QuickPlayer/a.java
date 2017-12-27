@@ -1,7 +1,7 @@
 package com.baidu.tieba.QuickPlayer;
 
 import tv.danmaku.ijk.media.player.IMediaPlayer;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void addPlayer(IMediaPlayer iMediaPlayer);
 

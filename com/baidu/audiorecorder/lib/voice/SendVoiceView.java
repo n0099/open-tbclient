@@ -13,35 +13,35 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.ISendVoiceView;
 /* loaded from: classes2.dex */
 public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, com.baidu.tieba.im.chat.c {
-    private i IS;
-    private int IT;
-    private TextView Ju;
-    private FloatRecordView Jv;
-    private WindowManager Jw;
-    private WindowManager.LayoutParams Jx;
+    private i axO;
+    private int axP;
+    private TextView ayp;
+    private FloatRecordView ayq;
+    private WindowManager ayr;
+    private WindowManager.LayoutParams ays;
 
     public SendVoiceView(Context context) {
         super(context);
-        this.Ju = null;
-        this.IT = 0;
+        this.ayp = null;
+        this.axP = 0;
         if (context != null) {
             LayoutInflater.from(context).inflate(d.h.send_voice_view, this);
-            this.Ju = (TextView) findViewById(d.g.tex_send_voice);
+            this.ayp = (TextView) findViewById(d.g.tex_send_voice);
             setFocusable(true);
             setFocusableInTouchMode(true);
-            lL();
+            to();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
     public void refreshSendVoiceText(boolean z) {
         if (z) {
-            this.Ju.setBackgroundResource(d.f.but_talk_s);
-            this.Ju.setText(TbadkCoreApplication.getInst().getContext().getString(d.j.msglist_no_push));
+            this.ayp.setBackgroundResource(d.f.but_talk_s);
+            this.ayp.setText(TbadkCoreApplication.getInst().getContext().getString(d.j.msglist_no_push));
             return;
         }
-        this.Ju.setBackgroundResource(d.f.but_talk_n);
-        this.Ju.setText(TbadkCoreApplication.getInst().getContext().getString(d.j.msglist_push_talk));
+        this.ayp.setBackgroundResource(d.f.but_talk_n);
+        this.ayp.setText(TbadkCoreApplication.getInst().getContext().getString(d.j.msglist_push_talk));
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -49,13 +49,13 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lE() {
+    public void th() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.IT;
+        return this.axP;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -69,37 +69,37 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.IS != null) {
-            this.IS.b(aVar);
+        if (this.axO != null) {
+            this.axO.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.IS = iVar;
+        this.axO = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.IT = i;
+        this.axP = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
     }
 
-    private void lL() {
-        this.Jv = new FloatRecordView(getContext());
-        this.Jw = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
-        this.Jx = new WindowManager.LayoutParams();
-        this.Jx.type = 2002;
-        this.Jx.format = 1;
-        this.Jx.flags = 56;
-        this.Jx.gravity = 17;
-        this.Jx.x = 0;
-        this.Jx.y = 0;
-        this.Jx.width = getContext().getResources().getDimensionPixelSize(d.e.ds360);
-        this.Jx.height = getContext().getResources().getDimensionPixelSize(d.e.ds360);
+    private void to() {
+        this.ayq = new FloatRecordView(getContext());
+        this.ayr = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
+        this.ays = new WindowManager.LayoutParams();
+        this.ays.type = 2002;
+        this.ays.format = 1;
+        this.ays.flags = 56;
+        this.ays.gravity = 17;
+        this.ays.x = 0;
+        this.ays.y = 0;
+        this.ays.width = getContext().getResources().getDimensionPixelSize(d.e.ds360);
+        this.ays.height = getContext().getResources().getDimensionPixelSize(d.e.ds360);
     }
 
     @Override // com.baidu.adp.lib.voice.f
@@ -118,7 +118,7 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
             } else if (i == 2) {
                 closeRecordCancel();
                 closeRecordTooShort();
-                lC();
+                tf();
             }
         }
     }
@@ -137,66 +137,66 @@ public class SendVoiceView extends LinearLayout implements s, ISendVoiceView, co
 
     @Override // com.baidu.adp.lib.voice.f
     public void onShowRecording(int i) {
-        if (this.Jv != null && this.Jw != null && this.Jx != null) {
-            this.Jv.onShowRecording(i);
+        if (this.ayq != null && this.ayr != null && this.ays != null) {
+            this.ayq.onShowRecording(i);
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void closeRecordCancel() {
-        if (this.Jv != null && this.Jw != null && this.Jx != null) {
-            this.Jv.closeRecordCancel();
-            LinearLayout lB = this.Jv.lB();
-            if (lB != null && lB.getParent() != null) {
-                this.Jw.removeView(lB);
+        if (this.ayq != null && this.ayr != null && this.ays != null) {
+            this.ayq.closeRecordCancel();
+            LinearLayout te = this.ayq.te();
+            if (te != null && te.getParent() != null) {
+                this.ayr.removeView(te);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void closeRecordTooShort() {
-        if (this.Jv != null && this.Jw != null && this.Jx != null) {
-            this.Jv.closeRecordTooShort();
-            LinearLayout lA = this.Jv.lA();
-            if (lA != null && lA.getParent() != null) {
-                this.Jw.removeView(lA);
+        if (this.ayq != null && this.ayr != null && this.ays != null) {
+            this.ayq.closeRecordTooShort();
+            LinearLayout td = this.ayq.td();
+            if (td != null && td.getParent() != null) {
+                this.ayr.removeView(td);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void showRecordCancel() {
-        LinearLayout lB;
-        if (this.Jv != null && this.Jw != null && this.Jx != null && (lB = this.Jv.lB()) != null && lB.getParent() == null) {
-            this.Jw.addView(lB, this.Jx);
-            this.Jv.showRecordCancel();
+        LinearLayout te;
+        if (this.ayq != null && this.ayr != null && this.ays != null && (te = this.ayq.te()) != null && te.getParent() == null) {
+            this.ayr.addView(te, this.ays);
+            this.ayq.showRecordCancel();
         }
     }
 
-    public void lC() {
-        LinearLayout lA;
-        if (this.Jv != null && this.Jw != null && this.Jx != null && (lA = this.Jv.lA()) != null && lA.getParent() == null) {
-            this.Jw.addView(lA, this.Jx);
-            this.Jv.lC();
+    public void tf() {
+        LinearLayout td;
+        if (this.ayq != null && this.ayr != null && this.ays != null && (td = this.ayq.td()) != null && td.getParent() == null) {
+            this.ayr.addView(td, this.ays);
+            this.ayq.tf();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void startRecordVoice() {
-        LinearLayout lz;
-        if (this.Jv != null && this.Jw != null && this.Jx != null && (lz = this.Jv.lz()) != null && lz.getParent() == null) {
-            this.Jw.addView(lz, this.Jx);
-            this.Jv.startRecordVoice();
+        LinearLayout tc;
+        if (this.ayq != null && this.ayr != null && this.ays != null && (tc = this.ayq.tc()) != null && tc.getParent() == null) {
+            this.ayr.addView(tc, this.ays);
+            this.ayq.startRecordVoice();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.c
     public void stopRecordVoice() {
-        if (this.Jv != null && this.Jw != null && this.Jx != null) {
-            this.Jv.stopRecordVoice();
-            LinearLayout lz = this.Jv.lz();
-            if (lz != null && lz.getParent() != null) {
-                this.Jw.removeView(lz);
+        if (this.ayq != null && this.ayr != null && this.ays != null) {
+            this.ayq.stopRecordVoice();
+            LinearLayout tc = this.ayq.tc();
+            if (tc != null && tc.getParent() != null) {
+                this.ayr.removeView(tc);
             }
         }
     }

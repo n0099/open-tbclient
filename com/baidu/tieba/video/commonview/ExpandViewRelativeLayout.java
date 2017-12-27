@@ -6,17 +6,17 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 /* loaded from: classes2.dex */
 public class ExpandViewRelativeLayout extends RelativeLayout {
-    private a gRa;
-    private boolean gRb;
-    private float gRc;
-    private boolean gRd;
+    private a hyc;
+    private boolean hyd;
+    private float hye;
+    private boolean hyf;
     private float mLastY;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ao(float f);
+        void aC(float f);
 
-        void bBw();
+        void bGT();
 
         void c(float f, float f2, int i);
 
@@ -24,7 +24,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.gRa = aVar;
+        this.hyc = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context) {
@@ -43,17 +43,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.gRd = true;
+        this.hyf = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.gRc = motionEvent.getY();
+                this.hye = motionEvent.getY();
                 this.mLastY = motionEvent.getY();
-                if (this.gRa != null) {
-                    this.gRa.ao(motionEvent.getY());
+                if (this.hyc != null) {
+                    this.hyc.aC(motionEvent.getY());
                     break;
                 }
                 break;
@@ -65,16 +65,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.gRa != null) {
-                    this.gRb = this.gRa.d(0.0f, motionEvent.getY(), 0);
-                    return this.gRb;
+                if (this.hyc != null) {
+                    this.hyd = this.hyc.d(0.0f, motionEvent.getY(), 0);
+                    return this.hyd;
                 }
                 break;
             case 2:
-                if (this.gRa != null) {
-                    this.gRc = motionEvent.getY();
-                    this.gRb = this.gRa.d(motionEvent.getY() - this.gRc, motionEvent.getY(), motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2);
-                    return this.gRb;
+                if (this.hyc != null) {
+                    this.hye = motionEvent.getY();
+                    this.hyd = this.hyc.d(motionEvent.getY() - this.hye, motionEvent.getY(), motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2);
+                    return this.hyd;
                 }
                 break;
         }
@@ -83,7 +83,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.gRd) {
+        if (this.hyf) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
@@ -92,17 +92,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                this.gRb = false;
-                if (this.gRa != null) {
-                    this.gRa.bBw();
+                this.hyd = false;
+                if (this.hyc != null) {
+                    this.hyc.bGT();
                     break;
                 }
                 break;
             case 2:
-                float y = motionEvent.getY() - this.gRc;
+                float y = motionEvent.getY() - this.hye;
                 int i = motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2;
-                if (this.gRb && this.gRa != null) {
-                    this.gRa.c(motionEvent.getY(), y, i);
+                if (this.hyd && this.hyc != null) {
+                    this.hyc.c(motionEvent.getY(), y, i);
                     return true;
                 }
                 break;
@@ -111,7 +111,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.gRd = z;
+        this.hyf = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

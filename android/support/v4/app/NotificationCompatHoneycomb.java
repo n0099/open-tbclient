@@ -5,7 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.RemoteViews;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class NotificationCompatHoneycomb {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Notification add(Context context, Notification notification, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, RemoteViews remoteViews, int i, PendingIntent pendingIntent, PendingIntent pendingIntent2, Bitmap bitmap) {

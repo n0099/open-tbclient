@@ -14,53 +14,53 @@ import com.baidu.tieba.pb.pb.main.emotion.message.GetSugMatchWordsResponseMessag
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.T;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> dKl = new ArrayList();
-    private a ffl;
-    private final HttpMessageListener ffm;
+    private static List<String> ewr = new ArrayList();
+    private a fSe;
+    private final HttpMessageListener fSf;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void C(List<String> list);
+        void L(List<String> list);
 
         void onFail(int i, String str);
     }
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.ffm = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.fSf = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.ffl != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.fSe != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
-                    if (!v.w(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.ffl.C(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.dKl.clear();
-                        GetSugMatchWordsModel.dKl.addAll(getSugMatchWordsResponseMessage.getData());
+                    if (!v.G(getSugMatchWordsResponseMessage.getData())) {
+                        GetSugMatchWordsModel.this.fSe.L(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.ewr.clear();
+                        GetSugMatchWordsModel.ewr.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.ffl.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.fSe.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        zL();
-        this.ffm.setSelfListener(true);
-        registerListener(this.ffm);
+        Hk();
+        this.fSf.setSelfListener(true);
+        registerListener(this.fSf);
     }
 
-    private void zL() {
+    private void Hk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS, TbConfig.SERVER_ADDRESS + "c/e/meme/getSugKeyWords");
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.ffl = aVar;
-        if (this.ffl != null) {
-            if (!v.w(dKl)) {
-                this.ffl.C(dKl);
+        this.fSe = aVar;
+        if (this.fSe != null) {
+            if (!v.G(ewr)) {
+                this.fSe.L(ewr);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.ffm);
+        MessageManager.getInstance().unRegisterListener(this.fSf);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
@@ -22,10 +22,10 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        zL();
+        Hk();
     }
 
-    private void zL() {
+    private void Hk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -38,16 +38,16 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean qk(String str) {
+    public static boolean qv(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean ql(String str) {
+    public static boolean qw(String str) {
         String str2;
         boolean z;
-        l<String> N = a.td().N("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
-        if (N != null) {
-            String str3 = N.get(str);
+        l<String> M = a.AE().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        if (M != null) {
+            String str3 = M.get(str);
             String currentDay = UtilHelper.getCurrentDay();
             if (!StringUtils.isNull(str3)) {
                 String[] split = str3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -55,12 +55,12 @@ public class AddExperiencedModel extends BdBaseModel {
                     String trim = split[0].trim();
                     String trim2 = split[1].trim();
                     if (currentDay.equals(trim)) {
-                        int g = b.g(trim2, 0) + 1;
-                        String str4 = trim + Constants.ACCEPT_TIME_SEPARATOR_SP + g;
+                        int h = b.h(trim2, 0) + 1;
+                        String str4 = trim + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
                         if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-                            z = g <= MAX_ADD_ADVANCED;
+                            z = h <= MAX_ADD_ADVANCED;
                         } else {
-                            z = g <= MAX_ADD_NORMAL;
+                            z = h <= MAX_ADD_NORMAL;
                         }
                         str2 = str4;
                     } else {
@@ -75,7 +75,7 @@ public class AddExperiencedModel extends BdBaseModel {
                 str2 = currentDay + Constants.ACCEPT_TIME_SEPARATOR_SP + "1";
                 z = true;
             }
-            N.e(str, str2);
+            M.e(str, str2);
             return z;
         }
         return false;

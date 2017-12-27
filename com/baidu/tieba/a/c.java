@@ -1,168 +1,63 @@
 package com.baidu.tieba.a;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
-import java.util.List;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.e, com.baidu.tbadk.i.c> {
-    private int bdY;
-    private String bdZ;
-    private TbPageContext<?> mPageContext;
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.i.a> {
+    private TbPageContext mPageContext;
 
-    static /* synthetic */ int b(c cVar) {
-        int i = cVar.bdY;
-        cVar.bdY = i + 1;
-        return i;
-    }
-
-    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.e.aAo, bdUniqueId);
-        this.bdY = 0;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: f */
-    public com.baidu.tbadk.i.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.i.c(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.entrance_frs_story_item, (ViewGroup) null));
+    /* renamed from: n */
+    public com.baidu.tbadk.i.a onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tbadk.i.a(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.e eVar, com.baidu.tbadk.i.c cVar) {
-        if (cVar == null || eVar == null) {
-            return null;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.a aVar, com.baidu.tbadk.i.a aVar2) {
+        if (aVar != null && aVar2 != null) {
+            aVar2.a(i, aVar);
+            a(aVar2, aVar);
         }
-        a(cVar, (com.baidu.tbadk.data.e) getItem(i));
         return view;
     }
 
-    private void a(com.baidu.tbadk.i.c cVar, final com.baidu.tbadk.data.e eVar) {
-        if (cVar != null && eVar != null && !v.w(eVar.getList())) {
-            final List<AlaLiveInfoCoreData> list = eVar.getList();
-            cVar.mName.setText(this.mPageContext.getString(d.j.frs_game_gather_title));
-            final HeadImageView frontImg = cVar.aFY.getFrontImg();
-            final HeadImageView backImg = cVar.aFY.getBackImg();
-            cVar.aFY.setLiveIngImgVisible(true);
-            cVar.aFY.setOuterColor(d.C0095d.cp_link_tip_g);
-            if (list.size() == 1) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = list.get(0);
-                if (alaLiveInfoCoreData != null && alaLiveInfoCoreData.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData.userInfo.portrait)) {
-                    frontImg.startLoad(alaLiveInfoCoreData.userInfo.portrait, 25, false);
+    private void a(com.baidu.tbadk.i.a aVar, final com.baidu.tbadk.data.a aVar2) {
+        aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (aVar2.bok == -100) {
+                    TiebaStatic.log("c12679");
+                    com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
+                    return;
                 }
-                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.4f, 1.0f, 1.4f, 1, 0.33f, 1, 0.33f);
-                scaleAnimation.setDuration(3000L);
-                scaleAnimation.setRepeatCount(-1);
-                scaleAnimation.setRepeatMode(2);
-                backImg.setVisibility(8);
-                frontImg.setIsRound(true);
-                frontImg.startAnimation(scaleAnimation);
-            } else {
-                frontImg.setIsRound(true);
-                backImg.setIsRound(true);
-                final AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                alphaAnimation.setDuration(300L);
-                alphaAnimation.setFillAfter(true);
-                final ScaleAnimation scaleAnimation2 = new ScaleAnimation(1.0f, 1.4f, 1.0f, 1.4f, 1, 0.33f, 1, 0.33f);
-                scaleAnimation2.setDuration(3000L);
-                scaleAnimation2.setFillAfter(true);
-                scaleAnimation2.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.a.c.1
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                        if (c.this.bdY >= list.size()) {
-                            c.this.bdY = 0;
-                        }
-                        AlaLiveInfoCoreData alaLiveInfoCoreData2 = (AlaLiveInfoCoreData) list.get(c.b(c.this));
-                        if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
-                            c.this.bdZ = alaLiveInfoCoreData2.userInfo.portrait;
-                            backImg.startLoad(c.this.bdZ, 25, false);
-                        }
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                        frontImg.startAnimation(alphaAnimation);
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-                alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.a.c.2
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                        if (!StringUtils.isNull(c.this.bdZ)) {
-                            frontImg.setScaleX(1.0f);
-                            frontImg.setScaleY(1.0f);
-                            frontImg.startLoad(c.this.bdZ, 25, false);
-                            frontImg.setAlpha(1);
-                            frontImg.startAnimation(scaleAnimation2);
-                        }
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-                this.bdY = 0;
-                int i = this.bdY;
-                this.bdY = i + 1;
-                AlaLiveInfoCoreData alaLiveInfoCoreData2 = list.get(i);
-                if (alaLiveInfoCoreData2 != null && alaLiveInfoCoreData2.userInfo != null && !StringUtils.isNull(alaLiveInfoCoreData2.userInfo.portrait)) {
-                    frontImg.startLoad(alaLiveInfoCoreData2.userInfo.portrait, 25, false);
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.boj;
+                if (alaLiveInfoCoreData != null) {
+                    TiebaStatic.log("c12677");
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));
                 }
-                frontImg.startAnimation(scaleAnimation2);
             }
-            cVar.aFY.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.a.c.3
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (motionEvent.getAction() == 0) {
-                        view.setScaleX(0.8f);
-                        view.setScaleY(0.8f);
-                    } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                        view.setScaleX(1.0f);
-                        view.setScaleY(1.0f);
-                    }
-                    return view.onTouchEvent(motionEvent);
-                }
-            });
-            cVar.aFY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (eVar != null && !StringUtils.isNull(eVar.getFid())) {
-                        TiebaStatic.log(new ak("c12548"));
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFrsStoryLiveGatherActivityConfig(c.this.mPageContext.getPageActivity(), eVar.getFid(), eVar.getForumName())));
-                    }
-                }
-            });
-            cVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+        });
     }
 }

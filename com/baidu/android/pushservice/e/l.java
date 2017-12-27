@@ -59,7 +59,7 @@ public class l {
         }
         this.d = intent.getStringExtra("access_token");
         this.i = intent.getStringExtra("secret_key");
-        this.a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+        this.a = intent.getStringExtra("method");
         this.b = intent.getStringExtra("method_type");
         this.c = intent.getStringExtra("method_version");
         this.h = intent.getStringExtra("bduss");

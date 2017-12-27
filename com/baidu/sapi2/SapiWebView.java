@@ -87,6 +87,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
+import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
@@ -2006,7 +2007,7 @@ public final class SapiWebView extends WebView {
         }
         String str2 = "";
         try {
-            str2 = "disusername=" + URLEncoder.encode(str, j);
+            str2 = "disusername=" + URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
         }
@@ -2099,7 +2100,7 @@ public final class SapiWebView extends WebView {
             for (NameValuePair nameValuePair : list) {
                 if (!TextUtils.isEmpty(nameValuePair.getName()) && !TextUtils.isEmpty(nameValuePair.getValue())) {
                     try {
-                        arrayList.add(new BasicNameValuePair(URLEncoder.encode(nameValuePair.getName(), j), URLEncoder.encode(nameValuePair.getValue(), j)));
+                        arrayList.add(new BasicNameValuePair(URLEncoder.encode(nameValuePair.getName(), "UTF-8"), URLEncoder.encode(nameValuePair.getValue(), "UTF-8")));
                     } catch (UnsupportedEncodingException e2) {
                         Log.e(e2);
                     }
@@ -2145,7 +2146,7 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + h, j)));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + h, "UTF-8")));
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new BasicNameValuePair("skin", str2));
             }
@@ -2199,7 +2200,7 @@ public final class SapiWebView extends WebView {
     public void loadForgetPwd(String str) {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + g, j)));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + g, "UTF-8")));
             if (!TextUtils.isEmpty(str)) {
                 arrayList.add(new BasicNameValuePair("skin", str));
             }
@@ -2296,8 +2297,8 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str2, j)));
-            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + f, j)));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str2, "UTF-8")));
+            arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + d + "=" + f, "UTF-8")));
             if (!TextUtils.isEmpty(str3)) {
                 arrayList.add(new BasicNameValuePair("skin", str3));
             }
@@ -2386,12 +2387,12 @@ public final class SapiWebView extends WebView {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str, j)));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str, "UTF-8")));
             if (str2 != null) {
                 arrayList.add(new BasicNameValuePair("u", str2));
             }
             if (str3 != null) {
-                arrayList.add(new BasicNameValuePair("adtext", URLEncoder.encode(str3, j)));
+                arrayList.add(new BasicNameValuePair("adtext", URLEncoder.encode(str3, "UTF-8")));
             }
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
@@ -2481,7 +2482,7 @@ public final class SapiWebView extends WebView {
         String a3 = !TextUtils.isEmpty(a2) ? a(a2, str) : str;
         String a4 = a(a2);
         if (!TextUtils.isEmpty(a4)) {
-            loadDataWithBaseURL(a3, a4, i, j, a3);
+            loadDataWithBaseURL(a3, a4, i, "UTF-8", a3);
         } else {
             c(a3);
         }
@@ -3035,7 +3036,7 @@ public final class SapiWebView extends WebView {
         if (!TextUtils.isEmpty(b2)) {
             try {
                 newPullParser = Xml.newPullParser();
-                newPullParser.setInput(new ByteArrayInputStream(b2.getBytes()), j);
+                newPullParser.setInput(new ByteArrayInputStream(b2.getBytes()), "UTF-8");
                 z2 = false;
                 eventType = newPullParser.getEventType();
                 sapiAccountResponse = null;
@@ -3215,7 +3216,7 @@ public final class SapiWebView extends WebView {
         if (!TextUtils.isEmpty(b2)) {
             try {
                 XmlPullParser newPullParser = Xml.newPullParser();
-                newPullParser.setInput(new ByteArrayInputStream(b2.getBytes()), j);
+                newPullParser.setInput(new ByteArrayInputStream(b2.getBytes()), "UTF-8");
                 for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.next()) {
                     switch (eventType) {
                         case 2:
@@ -3728,7 +3729,7 @@ public final class SapiWebView extends WebView {
                             SapiWebView.this.R.handleHuaweiLoginFailure();
                             return;
                         }
-                        SapiWebView.this.loadUrl(SapiWebView.this.a(SapiAccountManager.getInstance().getAccountService().a(SocialType.HUAWEI, URLEncoder.encode(str, SapiWebView.j), URLEncoder.encode(str2, SapiWebView.j)), list));
+                        SapiWebView.this.loadUrl(SapiWebView.this.a(SapiAccountManager.getInstance().getAccountService().a(SocialType.HUAWEI, URLEncoder.encode(str, "UTF-8"), URLEncoder.encode(str2, "UTF-8")), list));
                     } catch (UnsupportedEncodingException e2) {
                         Log.e(e2);
                     }
@@ -3755,7 +3756,7 @@ public final class SapiWebView extends WebView {
         }
         String str3 = null;
         try {
-            str3 = SapiAccountManager.getInstance().getAccountService().a(SocialType.HUAWEI, URLEncoder.encode(str, j), URLEncoder.encode(str2, j));
+            str3 = SapiAccountManager.getInstance().getAccountService().a(SocialType.HUAWEI, URLEncoder.encode(str, "UTF-8"), URLEncoder.encode(str2, "UTF-8"));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
@@ -3806,7 +3807,7 @@ public final class SapiWebView extends WebView {
                     }
                     String str = null;
                     try {
-                        str = SapiAccountManager.getInstance().getAccountService().a(SocialType.MEIZU, URLEncoder.encode(accessToken, SapiWebView.j), URLEncoder.encode(openId, SapiWebView.j));
+                        str = SapiAccountManager.getInstance().getAccountService().a(SocialType.MEIZU, URLEncoder.encode(accessToken, "UTF-8"), URLEncoder.encode(openId, "UTF-8"));
                     } catch (UnsupportedEncodingException e2) {
                         Log.e(e2);
                     }
@@ -4444,7 +4445,7 @@ public final class SapiWebView extends WebView {
         List<String> loginCookieDiKeys = SapiContext.getInstance(getContext()).getSapiOptions().getLoginCookieDiKeys();
         ArrayList arrayList = new ArrayList();
         String replaceAll = this.H.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-        if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals("di")) {
+        if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
             diCookieInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
         } else {
             diCookieInfo = SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);

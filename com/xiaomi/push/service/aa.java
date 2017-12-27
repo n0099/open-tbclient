@@ -1,7 +1,6 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.ak;
 import java.nio.ByteBuffer;
@@ -25,7 +24,7 @@ public final class aa {
             bVar.a(5);
             bVar.c(nVar.a);
             bVar.b(abVar.f);
-            bVar.a("SECMSG", PushConstants.EXTRA_PUSH_MESSAGE);
+            bVar.a("SECMSG", "message");
             String str = nVar.a;
             abVar.g.b = str.substring(0, str.indexOf("@"));
             abVar.g.d = str.substring(str.indexOf("/") + 1);

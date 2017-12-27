@@ -8,8 +8,8 @@ public class ai {
     public static int a(ah ahVar, com.xiaomi.xmpush.thrift.f fVar) {
         int i = 0;
         String a = a(fVar);
-        switch (aj.a[fVar.ordinal()]) {
-            case 1:
+        switch (fVar) {
+            case MISC_CONFIG:
                 i = 1;
                 break;
         }
@@ -33,17 +33,17 @@ public class ai {
                 if (z && pVar.c) {
                     arrayList.add(new Pair(Integer.valueOf(a), null));
                 } else {
-                    switch (aj.b[a2.ordinal()]) {
-                        case 1:
+                    switch (a2) {
+                        case INT:
                             pair = new Pair(Integer.valueOf(a), Integer.valueOf(pVar.f()));
                             break;
-                        case 2:
+                        case LONG:
                             pair = new Pair(Integer.valueOf(a), Long.valueOf(pVar.h()));
                             break;
-                        case 3:
+                        case STRING:
                             pair = new Pair(Integer.valueOf(a), pVar.j());
                             break;
-                        case 4:
+                        case BOOLEAN:
                             pair = new Pair(Integer.valueOf(a), Boolean.valueOf(pVar.l()));
                             break;
                         default:

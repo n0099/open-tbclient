@@ -3,7 +3,7 @@ package android.support.v4.util;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     MapCollections<K, V> mCollections;
 
@@ -33,7 +33,7 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
 
                 @Override // android.support.v4.util.MapCollections
                 protected int colIndexOfKey(Object obj) {
-                    return obj == null ? ArrayMap.this.indexOfNull() : ArrayMap.this.indexOf(obj, obj.hashCode());
+                    return ArrayMap.this.indexOfKey(obj);
                 }
 
                 @Override // android.support.v4.util.MapCollections

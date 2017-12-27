@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class SrtParser {
     public static TextTrackImpl parse(InputStream inputStream) throws IOException {
-        LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(inputStream, "UTF-8"));
+        LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(inputStream, HTTP.UTF_8));
         TextTrackImpl textTrackImpl = new TextTrackImpl();
         while (lineNumberReader.readLine() != null) {
             String readLine = lineNumberReader.readLine();

@@ -1,10 +1,10 @@
 package android.support.v4.view;
 
 import android.view.MenuItem;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class MenuItemCompatIcs {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface SupportActionExpandProxy {
         boolean onMenuItemActionCollapse(MenuItem menuItem);
 
@@ -27,7 +27,7 @@ class MenuItemCompatIcs {
         return menuItem.setOnActionExpandListener(new OnActionExpandListenerWrapper(supportActionExpandProxy));
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class OnActionExpandListenerWrapper implements MenuItem.OnActionExpandListener {
         private SupportActionExpandProxy mWrapped;
 

@@ -1,5 +1,7 @@
 package android.support.v4.app;
-/* loaded from: classes.dex */
+
+import android.view.View;
+/* loaded from: classes2.dex */
 public abstract class FragmentTransaction {
     public static final int TRANSIT_ENTER_MASK = 4096;
     public static final int TRANSIT_EXIT_MASK = 8192;
@@ -15,6 +17,8 @@ public abstract class FragmentTransaction {
 
     public abstract FragmentTransaction add(Fragment fragment, String str);
 
+    public abstract FragmentTransaction addSharedElement(View view, String str);
+
     public abstract FragmentTransaction addToBackStack(String str);
 
     public abstract FragmentTransaction attach(Fragment fragment);
@@ -22,6 +26,10 @@ public abstract class FragmentTransaction {
     public abstract int commit();
 
     public abstract int commitAllowingStateLoss();
+
+    public abstract void commitNow();
+
+    public abstract void commitNowAllowingStateLoss();
 
     public abstract FragmentTransaction detach(Fragment fragment);
 

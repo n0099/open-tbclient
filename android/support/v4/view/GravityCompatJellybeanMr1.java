@@ -2,7 +2,7 @@ package android.support.v4.view;
 
 import android.graphics.Rect;
 import android.view.Gravity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class GravityCompatJellybeanMr1 {
     public static int getAbsoluteGravity(int i, int i2) {
         return Gravity.getAbsoluteGravity(i, i2);

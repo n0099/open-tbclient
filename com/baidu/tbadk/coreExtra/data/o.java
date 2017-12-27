@@ -1,34 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class o {
-    private int arJ;
-    private int arK;
-    private int arL;
+    private int bfJ;
+    private int bfK;
+    private int bfL;
 
-    public int yd() {
-        if (this.arJ == 0) {
+    public int FC() {
+        if (this.bfJ == 0) {
             return Integer.MAX_VALUE;
         }
-        return this.arJ;
+        return this.bfJ;
     }
 
-    public void eJ(String str) {
-        this.arJ = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eQ(String str) {
+        this.bfJ = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
-    public int ye() {
-        return this.arK;
+    public int FD() {
+        return this.bfK;
     }
 
-    public void eK(String str) {
-        this.arK = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eR(String str) {
+        this.bfK = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
-    public int yf() {
-        return this.arL;
+    public int FE() {
+        return this.bfL;
     }
 
-    public void eL(String str) {
-        this.arL = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eS(String str) {
+        this.bfL = com.baidu.adp.lib.g.b.h(str, 0);
     }
 }

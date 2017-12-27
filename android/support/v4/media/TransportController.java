@@ -1,5 +1,5 @@
 package android.support.v4.media;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class TransportController {
     public abstract int getBufferPercentage();
 

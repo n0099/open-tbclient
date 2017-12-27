@@ -10,65 +10,65 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g mS = null;
-    private Resources mT = null;
-    private ArrayList<String> mU = null;
-    private HashSet<String> mV = null;
+    private static g abG = null;
+    private Resources abH = null;
+    private ArrayList<String> abI = null;
+    private HashSet<String> abJ = null;
 
-    public static g cg() {
-        if (mS == null) {
+    public static g jL() {
+        if (abG == null) {
             synchronized (g.class) {
-                if (mS == null) {
-                    mS = new g();
+                if (abG == null) {
+                    abG = new g();
                 }
             }
         }
-        return mS;
+        return abG;
     }
 
-    public synchronized void a(Resources resources) {
-        this.mT = resources;
+    public synchronized void b(Resources resources) {
+        this.abH = resources;
     }
 
     public synchronized void g(String str, String str2) throws IllegalAccessException, InstantiationException, SecurityException, IllegalArgumentException, NoSuchMethodException, InvocationTargetException {
         if (TextUtils.isEmpty(str2)) {
             throw new IllegalArgumentException("param resPath is null");
         }
-        if (this.mT == null) {
+        if (this.abH == null) {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.mV == null) {
-                this.mV = new HashSet<>();
+            if (this.abJ == null) {
+                this.abJ = new HashSet<>();
             }
-            if (this.mV.contains(str)) {
-                com.baidu.adp.plugin.b.a.jf().c("plugin_load", "repeat_inject_res", str, str2);
+            if (this.abJ.contains(str)) {
+                com.baidu.adp.plugin.b.a.qE().f("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.mV.add(str);
+            this.abJ.add(str);
         }
-        if (this.mU == null) {
-            this.mU = new ArrayList<>();
+        if (this.abI == null) {
+            this.abI = new ArrayList<>();
         }
-        if (!this.mU.contains(str2)) {
+        if (!this.abI.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 20) {
-                com.baidu.adp.plugin.util.d.c(this.mT.getAssets(), "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.d.c(this.abH.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.mU.size() > 0) {
-                    Iterator<String> it = this.mU.iterator();
+                if (this.abI.size() > 0) {
+                    Iterator<String> it = this.abI.iterator();
                     while (it.hasNext()) {
                         com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
                 }
                 com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{str2});
                 com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                this.mT = new Resources(assetManager, this.mT.getDisplayMetrics(), this.mT.getConfiguration());
+                this.abH = new Resources(assetManager, this.abH.getDisplayMetrics(), this.abH.getConfiguration());
             }
-            this.mU.add(str2);
+            this.abI.add(str2);
         }
     }
 
     public synchronized Resources getResources() {
-        return this.mT;
+        return this.abH;
     }
 }

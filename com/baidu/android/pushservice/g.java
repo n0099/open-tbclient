@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.LocalServerSocket;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.pushservice.h.q;
 import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
@@ -25,6 +27,7 @@ public class g {
     private boolean m;
     private PushServiceReceiver n;
     private RegistrationReceiver o;
+    private boolean p;
     private static String b = "PushSDK";
     private static g c = null;
     private static int d = 180000;
@@ -32,19 +35,19 @@ public class g {
     private static final Object g = new Object();
     private static Object j = new Object();
     private Boolean i = false;
-    private Runnable p = new Runnable() { // from class: com.baidu.android.pushservice.g.2
+    private Runnable q = new Runnable() { // from class: com.baidu.android.pushservice.g.2
         @Override // java.lang.Runnable
         public void run() {
             g.this.a(new Intent());
         }
     };
-    private Runnable q = new Runnable() { // from class: com.baidu.android.pushservice.g.3
+    private Runnable r = new Runnable() { // from class: com.baidu.android.pushservice.g.3
         @Override // java.lang.Runnable
         public void run() {
             g.this.d();
         }
     };
-    private Runnable r = new Runnable() { // from class: com.baidu.android.pushservice.g.4
+    private Runnable s = new Runnable() { // from class: com.baidu.android.pushservice.g.4
         @Override // java.lang.Runnable
         public void run() {
             synchronized (g.g) {
@@ -81,13 +84,13 @@ public class g {
     }
 
     private boolean b(Context context) {
-        String u = p.u(context);
+        String v = p.v(context);
         String packageName = context.getPackageName();
-        if (packageName.equals(u)) {
-            com.baidu.android.pushservice.g.b.a(b, "Try use current push service, package name is: " + packageName, this.k);
+        if (packageName.equals(v)) {
+            com.baidu.android.pushservice.g.a.a(b, "Try use current push service, package name is: " + packageName, this.k);
             return false;
         }
-        com.baidu.android.pushservice.g.b.a(b, "Current push service : " + packageName + " should stop!!! highest priority service is: " + u, this.k);
+        com.baidu.android.pushservice.g.a.a(b, "Current push service : " + packageName + " should stop!!! highest priority service is: " + v, this.k);
         return true;
     }
 
@@ -115,7 +118,7 @@ public class g {
     }
 
     private void j() {
-        com.baidu.android.pushservice.g.b.a(b, "destroy", this.k);
+        com.baidu.android.pushservice.g.a.a(b, "destroy", this.k);
         synchronized (j) {
             try {
                 if (h != null) {
@@ -123,7 +126,6 @@ public class g {
                     h = null;
                 }
             } catch (IOException e2) {
-                com.baidu.android.pushservice.g.a.a(b, e2);
             }
             if (a != null) {
                 synchronized (g) {
@@ -134,7 +136,6 @@ public class g {
             try {
                 com.baidu.android.pushservice.d.a.a();
             } catch (Exception e3) {
-                com.baidu.android.pushservice.g.a.e(b, "error " + e3.getMessage());
             }
             if (this.m) {
                 i();
@@ -157,17 +158,15 @@ public class g {
             currentTimeMillis += ((long) (Math.random() * (this.f - 20000))) + 15000;
         }
         try {
-            ((AlarmManager) this.k.getSystemService("alarm")).setRepeating(0, currentTimeMillis, this.f, t());
+            ((AlarmManager) this.k.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, currentTimeMillis, this.f, t());
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a(b, e2);
         }
     }
 
     private void m() {
         try {
-            ((AlarmManager) this.k.getSystemService("alarm")).cancel(t());
+            ((AlarmManager) this.k.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(t());
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a(b, e2);
         }
     }
 
@@ -180,21 +179,21 @@ public class g {
                 }
                 synchronized (g.c) {
                     boolean e2 = k.e(g.this.k);
-                    com.baidu.android.pushservice.g.b.a(g.b, "tryConnect networkConnected :" + e2, g.this.k);
+                    com.baidu.android.pushservice.g.a.a(g.b, "tryConnect networkConnected :" + e2, g.this.k);
                     if (!e2) {
                         if (a.b() > 0) {
-                            com.baidu.android.pushservice.h.p.a(g.this.k, "039912");
+                            q.a(g.this.k, "039912");
                         }
                         return;
                     }
                     if (a.b() > 0) {
-                        com.baidu.android.pushservice.h.p.a(g.this.k, "039914");
+                        q.a(g.this.k, "039914");
                     }
                     if (g.a != null && !g.a.a()) {
                         if (j.a(g.this.k).c()) {
                             g.this.r();
                         } else {
-                            com.baidu.android.pushservice.g.b.d(g.b, "Channel token is not available, start NETWORK REGISTER SERVICE .", g.this.k);
+                            com.baidu.android.pushservice.g.a.d(g.b, "Channel token is not available, start NETWORK REGISTER SERVICE .", g.this.k);
                             g.this.q();
                         }
                     }
@@ -207,11 +206,10 @@ public class g {
         if (h == null) {
             try {
                 com.baidu.android.pushservice.d.c.b(this.k, (String) null);
-                h = new LocalServerSocket(p.o(this.k));
+                h = new LocalServerSocket(p.p(this.k));
                 s();
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.a(b, e2);
-                com.baidu.android.pushservice.g.b.a(b, "--- Socket Adress (" + p.o(this.k) + ") in use --- @ " + this.k.getPackageName(), this.k);
+                com.baidu.android.pushservice.g.a.a(b, "--- Socket Adress (" + p.p(this.k) + ") in use --- @ " + this.k.getPackageName(), this.k);
                 o.b(this.k);
                 return false;
             }
@@ -223,9 +221,9 @@ public class g {
     private boolean p() {
         com.baidu.android.pushservice.message.a.d.a(this.k);
         boolean a2 = k.a(this.k);
-        com.baidu.android.pushservice.g.b.a(b, "heartbeat networkConnected :" + a2, this.k);
-        String u = p.u(this.k);
-        if (p.c(this.k) || !(TextUtils.isEmpty(u) || this.k.getPackageName().equals(u))) {
+        com.baidu.android.pushservice.g.a.a(b, "heartbeat networkConnected :" + a2, this.k);
+        String v = p.v(this.k);
+        if (p.c(this.k) || !(TextUtils.isEmpty(v) || this.k.getPackageName().equals(v))) {
             m();
             return false;
         } else if (!a2) {
@@ -233,21 +231,27 @@ public class g {
                 a.a(true);
             }
             if (a.b() > 0) {
-                com.baidu.android.pushservice.h.p.a(this.k, "039912");
+                q.a(this.k, "039912");
                 return true;
             }
             return true;
         } else {
             if (a.b() > 0) {
-                com.baidu.android.pushservice.h.p.a(this.k, "039914");
+                q.a(this.k, "039914");
             }
             if (a != null) {
                 if (a.a()) {
                     a.d();
+                    if (!this.p) {
+                        this.p = true;
+                        Intent intent = new Intent(PushConstants.ACTION_METHOD);
+                        intent.putExtra("method", "com.baidu.android.pushservice.action.SEND_APPSTAT");
+                        c().a(intent);
+                    }
                 } else if (j.a(this.k).c()) {
                     r();
                 } else {
-                    com.baidu.android.pushservice.g.b.c(b, "Channel token is not available, start NETWORK REGISTER SERVICE .", this.k);
+                    com.baidu.android.pushservice.g.a.c(b, "Channel token is not available, start NETWORK REGISTER SERVICE .", this.k);
                     q();
                 }
                 p.b("heartbeat PushConnection isConnected " + a.a() + " at Time " + System.currentTimeMillis(), this.k.getApplicationContext());
@@ -259,20 +263,20 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        this.l.removeCallbacks(this.q);
-        this.l.postDelayed(this.q, 500L);
+        this.l.removeCallbacks(this.r);
+        this.l.postDelayed(this.r, 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         if (h != null || o()) {
-            this.l.removeCallbacks(this.r);
-            this.l.postDelayed(this.r, 1000L);
+            this.l.removeCallbacks(this.s);
+            this.l.postDelayed(this.s, 1000L);
         }
     }
 
     private void s() {
-        if (!p.E(this.k)) {
+        if (!p.F(this.k)) {
             com.baidu.android.pushservice.j.b.a(this.k, "com.baidu.push.cur_prio", a.a());
             com.baidu.android.pushservice.j.b.a(this.k, "com.baidu.push.cur_pkg", this.k.getPackageName());
             return;
@@ -293,7 +297,7 @@ public class g {
     }
 
     public void a(int i) {
-        com.baidu.android.pushservice.g.b.a(b, "heartbeat set : " + i + " secs", this.k);
+        com.baidu.android.pushservice.g.a.a(b, "heartbeat set : " + i + " secs", this.k);
         if (i > 0) {
             this.f = i * 1000;
         }
@@ -301,22 +305,22 @@ public class g {
     }
 
     public boolean a() {
-        com.baidu.android.pushservice.g.b.a(b, "Create PushSDK from : " + this.k.getPackageName(), this.k);
+        com.baidu.android.pushservice.g.a.a(b, "Create PushSDK from : " + this.k.getPackageName(), this.k);
         m();
         this.i = true;
         if (p.c(this.k.getApplicationContext()) || b(this.k)) {
-            com.baidu.android.pushservice.g.b.a(b, "onCreate shouldStopSelf", this.k);
+            com.baidu.android.pushservice.g.a.a(b, "onCreate shouldStopSelf", this.k);
             return false;
         }
         synchronized (j) {
             if (PushSocket.a) {
                 if (!o()) {
-                    p.t(this.k);
-                    if (!this.k.getPackageName().equals(p.u(this.k))) {
+                    p.u(this.k);
+                    if (!this.k.getPackageName().equals(p.v(this.k))) {
                         return false;
                     }
                 }
-                this.m = p.F(this.k);
+                this.m = p.G(this.k);
                 if (this.m) {
                     h();
                 }
@@ -326,7 +330,7 @@ public class g {
                 i.a(this.k);
                 PushSettings.l(this.k);
                 if (h != null) {
-                    this.l.postDelayed(this.p, 500L);
+                    this.l.postDelayed(this.q, 500L);
                     n();
                 }
                 return true;
@@ -336,17 +340,16 @@ public class g {
     }
 
     public boolean a(Intent intent) {
-        com.baidu.android.pushservice.g.b.a(b, "PushSDK handleOnStart go", this.k);
+        com.baidu.android.pushservice.g.a.a(b, "PushSDK handleOnStart go", this.k);
         if (intent == null) {
             intent = new Intent();
-            com.baidu.android.pushservice.g.b.c(b, "--- handleOnStart by null intent!", this.k);
+            com.baidu.android.pushservice.g.a.c(b, "--- handleOnStart by null intent!", this.k);
         }
         if (!this.i.booleanValue()) {
             a();
         }
         synchronized (j) {
-            this.l.removeCallbacks(this.p);
-            com.baidu.android.pushservice.g.a.b(b, "-- handleOnStart -- " + intent);
+            this.l.removeCallbacks(this.q);
             if (h == null) {
                 if (PushConstants.ACTION_METHOD.equals(intent.getAction())) {
                     return c().a(intent);
@@ -355,16 +358,16 @@ public class g {
             } else if (intent.getStringExtra("AlarmAlert") != null) {
                 return p();
             } else {
-                if (("pushservice_restart_v2".equals(intent.getStringExtra(PushConstants.EXTRA_METHOD)) || "pushservice_restart_v3".equals(intent.getStringExtra(PushConstants.EXTRA_METHOD))) && h != null) {
-                    long longExtra = p.E(this.k) ? intent.getLongExtra("priority3", 0L) : intent.getLongExtra("priority2", 0L);
+                if (("pushservice_restart_v2".equals(intent.getStringExtra("method")) || "pushservice_restart_v3".equals(intent.getStringExtra("method"))) && h != null) {
+                    long longExtra = p.F(this.k) ? intent.getLongExtra("priority3", 0L) : intent.getLongExtra("priority2", 0L);
                     com.baidu.android.pushservice.c.d.a(this.k).e();
-                    boolean z = longExtra > p.h(this.k) && com.baidu.android.pushservice.c.d.a(this.k).b() != com.baidu.android.pushservice.c.d.g;
-                    boolean z2 = com.baidu.android.pushservice.c.d.a(this.k).b() == com.baidu.android.pushservice.c.d.h;
+                    boolean z = longExtra > p.h(this.k) && com.baidu.android.pushservice.c.d.a(this.k).b() != 3;
+                    boolean z2 = com.baidu.android.pushservice.c.d.a(this.k).b() == 4;
                     if (z || z2) {
                         return false;
                     }
                 } else if (c().a(intent)) {
-                    com.baidu.android.pushservice.g.b.c(b, "-- handleOnStart -- intent handled  by mRegistrationService ", this.k);
+                    com.baidu.android.pushservice.g.a.c(b, "-- handleOnStart -- intent handled  by mRegistrationService ", this.k);
                     return true;
                 }
                 n();
@@ -379,7 +382,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        com.baidu.android.pushservice.g.b.a(b, ">> sendRequestTokenIntent", this.k);
+        com.baidu.android.pushservice.g.a.a(b, ">> sendRequestTokenIntent", this.k);
         o.b(this.k, new Intent("com.baidu.pushservice.action.TOKEN"));
     }
 }

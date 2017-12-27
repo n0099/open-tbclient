@@ -1,7 +1,8 @@
 package com.xiaomi.smack.util;
 
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
 import com.xiaomi.smack.l;
@@ -12,6 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.logging.LogFactory;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -86,7 +88,7 @@ public class a {
 
     public static com.xiaomi.smack.packet.d a(XmlPullParser xmlPullParser) {
         String str;
-        if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
+        if ("1".equals(xmlPullParser.getAttributeValue("", NotifyType.SOUND))) {
             String attributeValue = xmlPullParser.getAttributeValue("", "chid");
             String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
@@ -102,7 +104,7 @@ public class a {
             while (!z) {
                 int next = xmlPullParser.next();
                 if (next == 2) {
-                    if (!"s".equals(xmlPullParser.getName())) {
+                    if (!NotifyType.SOUND.equals(xmlPullParser.getName())) {
                         throw new l("error while receiving a encrypted message with wrong format");
                     }
                     if (xmlPullParser.next() != 4) {
@@ -117,7 +119,7 @@ public class a {
                         cVar.m(attributeValue4);
                         cVar.k(attributeValue2);
                         cVar.f(attributeValue5);
-                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a("s", null, null, null);
+                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a(NotifyType.SOUND, null, null, null);
                         aVar.b(text);
                         cVar.a(aVar);
                         return cVar;
@@ -125,7 +127,7 @@ public class a {
                     a(aq.b(aq.a(b2.i, attributeValue2), text));
                     a.next();
                     dVar = a(a);
-                } else if (next == 3 && xmlPullParser.getName().equals(PushConstants.EXTRA_PUSH_MESSAGE)) {
+                } else if (next == 3 && xmlPullParser.getName().equals("message")) {
                     z = true;
                 }
             }
@@ -171,7 +173,7 @@ public class a {
         } catch (Exception e4) {
         }
         try {
-            String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
+            String attributeValue10 = xmlPullParser.getAttributeValue("", NotificationCompat.CATEGORY_STATUS);
             if (!TextUtils.isEmpty(attributeValue10)) {
                 cVar2.e(attributeValue10);
             }
@@ -216,7 +218,7 @@ public class a {
                 } else {
                     cVar2.a(a(name, namespace, xmlPullParser));
                 }
-            } else if (next2 == 3 && xmlPullParser.getName().equals(PushConstants.EXTRA_PUSH_MESSAGE)) {
+            } else if (next2 == 3 && xmlPullParser.getName().equals("message")) {
                 z2 = true;
             }
         }
@@ -261,9 +263,9 @@ public class a {
             if (next == 2) {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
-                if (name.equals("status")) {
+                if (name.equals(NotificationCompat.CATEGORY_STATUS)) {
                     fVar.a(xmlPullParser.nextText());
-                } else if (name.equals("priority")) {
+                } else if (name.equals(LogFactory.PRIORITY_KEY)) {
                     try {
                         fVar.a(Integer.parseInt(xmlPullParser.nextText()));
                     } catch (NumberFormatException e2) {

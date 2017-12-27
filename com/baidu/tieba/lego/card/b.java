@@ -11,36 +11,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> ehe;
+    private final List<e> eTk;
 
     private b() {
-        this.ehe = new ArrayList(4);
+        this.eTk = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b ehf = new b();
+        private static final b eTl = new b();
     }
 
-    public static b aGB() {
-        return a.ehf;
+    public static b aNB() {
+        return a.eTl;
     }
 
     public synchronized void a(e eVar) {
-        this.ehe.add(eVar);
+        this.eTk.add(eVar);
     }
 
     public synchronized void a(e eVar, int i) {
-        this.ehe.add(0, eVar);
+        this.eTk.add(0, eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aGC() {
+    protected void aNC() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public String nq() {
+    public String uT() {
         return "lego_main";
     }
 
@@ -50,14 +50,14 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.ehe) {
+        for (e eVar : this.eTk) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
                     return a2;
                 }
             } catch (Throwable th) {
-                throw new CardParseException("Card type " + i + ", factory <" + eVar.nq() + "> respond exception", th);
+                throw new CardParseException("Card type " + i + ", factory <" + eVar.uT() + "> respond exception", th);
             }
         }
         BdLog.e("No card factory for card type " + i);
@@ -75,11 +75,11 @@ public class b extends e {
 
     private <T> l b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         l a2;
-        for (e eVar : this.ehe) {
+        for (e eVar : this.eTk) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
-                BdLog.detailException("factory <" + eVar.nq() + "> respond exception", th);
+                BdLog.detailException("factory <" + eVar.uT() + "> respond exception", th);
             }
             if (a2 != null) {
                 return a2;
@@ -89,12 +89,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo nL(String str) {
+    public static ICardInfo nU(String str) {
         try {
-            ICardInfo B = B(new JSONObject(str));
-            if (B != null) {
-                if (B.isValid()) {
-                    return B;
+            ICardInfo C = C(new JSONObject(str));
+            if (C != null) {
+                if (C.isValid()) {
+                    return C;
                 }
             }
             return null;
@@ -107,7 +107,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo B(JSONObject jSONObject) throws CardParseException {
-        return aGB().a(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo C(JSONObject jSONObject) throws CardParseException {
+        return aNB().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

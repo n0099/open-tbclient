@@ -6,14 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public final class a {
-    private static int a = 1;
+    private static int a = 0;
 
     public static short a() {
-        return (short) 62;
+        return (short) 65;
     }
 
     public static void a(Context context, boolean z) {
-        int i = z ? 0 : 62;
+        int i = z ? 0 : 65;
         SharedPreferences.Editor edit = context.getSharedPreferences("pst", 4).edit();
         edit.putInt("com.baidu.push.nd_restart", i);
         edit.commit();
@@ -26,12 +26,11 @@ public final class a {
     public static int b() {
         if (a != 0) {
             try {
-                if (new Date().getTime() - new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-07-08 11:47:32").getTime() > 0) {
+                if (new Date().getTime() - new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-11-23 00:00:00").getTime() > 0) {
                     a = 0;
                 }
             } catch (Exception e) {
                 a = 0;
-                com.baidu.android.pushservice.g.a.a("Constants", e);
             }
         }
         return a;
@@ -54,7 +53,7 @@ public final class a {
     }
 
     public static boolean b(Context context) {
-        return 62 > context.getSharedPreferences("pst", 4).getInt("com.baidu.push.nd_restart", 0);
+        return 65 > context.getSharedPreferences("pst", 4).getInt("com.baidu.push.nd_restart", 0);
     }
 
     public static String c(Context context) {

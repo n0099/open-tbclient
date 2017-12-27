@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class h {
+    public String agW;
+    public String ahi;
+    public String ahm;
+    public int ahn;
+    public long aho;
     public int maxSize;
-    public String sC;
-    public String sO;
-    public String sS;
-    public int sT;
-    public long sU;
 }

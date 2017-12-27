@@ -2,7 +2,6 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,16 +11,16 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0116a {
-        public String auF;
-        public String cWf;
-        public int dZB;
-        public String dZC;
-        public String dZD;
-        public int dZE;
-        public String dZF;
-        public String dZG;
-        public String dZe;
+    public static class C0128a {
+        public String biL;
+        public String dIq;
+        public int eLE;
+        public String eLF;
+        public String eLG;
+        public int eLH;
+        public String eLI;
+        public String eLJ;
+        public String eLh;
         public String postId;
         public String threadId;
         public int threadType;
@@ -29,37 +28,37 @@ public class a {
         public int type;
     }
 
-    public static C0116a nw(String str) {
+    public static C0128a nF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0116a c0116a = new C0116a();
+        C0128a c0128a = new C0128a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0116a.dZC = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                c0116a.dZe = optJSONObject.optString("content");
-                c0116a.dZF = optJSONObject.optString("quote_content");
-                c0116a.auF = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                c0116a.threadId = optJSONObject.optString("thread_id");
-                c0116a.postId = optJSONObject.optString("post_id");
-                c0116a.type = optJSONObject.optInt("type");
-                c0116a.title = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                c0116a.threadType = optJSONObject.optInt("thread_type");
+                c0128a.eLF = optJSONObject.optString("title");
+                c0128a.eLh = optJSONObject.optString("content");
+                c0128a.eLI = optJSONObject.optString("quote_content");
+                c0128a.biL = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                c0128a.threadId = optJSONObject.optString("thread_id");
+                c0128a.postId = optJSONObject.optString("post_id");
+                c0128a.type = optJSONObject.optInt("type");
+                c0128a.title = optJSONObject.optString("title");
+                c0128a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0116a.dZD = optJSONObject2.optString("id");
-                    c0116a.dZG = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0116a.dZE = optJSONObject2.optInt("gender");
+                    c0128a.eLG = optJSONObject2.optString("id");
+                    c0128a.eLJ = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0128a.eLH = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0116a.cWf = optJSONObject3.optString("id");
-                    c0116a.dZB = optJSONObject3.optInt("gender");
+                    c0128a.dIq = optJSONObject3.optString("id");
+                    c0128a.eLE = optJSONObject3.optInt("gender");
                 }
             }
-            return c0116a;
+            return c0128a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

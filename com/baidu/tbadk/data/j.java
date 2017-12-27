@@ -1,31 +1,68 @@
 package com.baidu.tbadk.data;
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class j {
-    private int aAR;
-    private int activityId;
-    private String activityNum;
+public class j implements com.baidu.tbadk.widget.vote.a {
+    private String aTq;
+    private long boT;
+    private int boU;
+    private boolean isSelected = false;
+    private int mId;
+    private String mUrl;
 
-    public int getActivityId() {
-        return this.activityId;
+    public j(int i, String str, String str2, long j) {
+        this.mId = i;
+        this.aTq = str;
+        this.mUrl = str2;
+        this.boT = j;
     }
 
-    public void setActivityId(int i) {
-        this.activityId = i;
+    public void setSelected(boolean z) {
+        this.isSelected = z;
     }
 
-    public int CD() {
-        return this.aAR;
+    public void setPercent(int i) {
+        this.boU = i;
     }
 
-    public void eF(int i) {
-        this.aAR = i;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return this.mId;
     }
 
-    public String CE() {
-        return this.activityNum;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Kj() {
+        return this.aTq;
     }
 
-    public void fz(String str) {
-        this.activityNum = str;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return this.isSelected;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Kk() {
+        return this.boT + TbadkCoreApplication.getInst().getString(d.j.vote_unit);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Kl() {
+        return this.boU + TbadkCoreApplication.getInst().getString(d.j.vote_percent);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Km() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Kn() {
+        return this.boU;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ko() {
+        return this.mUrl;
     }
 }

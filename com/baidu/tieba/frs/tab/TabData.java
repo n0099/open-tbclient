@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.tab;
 
 import java.util.LinkedList;
-/* loaded from: classes.dex */
-public class TabData extends LinkedList<d> {
+/* loaded from: classes2.dex */
+public class TabData extends LinkedList<b> {
     public static final int TYPE_CUSTOM = 12;
     public static final int TYPE_H5 = 1;
     public static final int TYPE_NATIVE = 0;

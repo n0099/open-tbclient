@@ -17,7 +17,7 @@ public class MvcSocketMessage<T extends k, D extends j> extends TbSocketMessage 
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
-        return this.requestData.bM(false);
+        return this.requestData.cp(false);
     }
 
     public T getRequestData() {

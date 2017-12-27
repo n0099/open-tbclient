@@ -1,5 +1,6 @@
 package com.xiaomi.network;
 
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -33,7 +34,7 @@ class c implements Comparable<c> {
     }
 
     public synchronized c a(JSONObject jSONObject) {
-        this.d = jSONObject.getLong("tt");
+        this.d = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
         this.b = jSONObject.getInt("wt");
         this.a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("ah");
@@ -46,7 +47,7 @@ class c implements Comparable<c> {
     public synchronized JSONObject a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("tt", this.d);
+        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.d);
         jSONObject.put("wt", this.b);
         jSONObject.put("host", this.a);
         JSONArray jSONArray = new JSONArray();

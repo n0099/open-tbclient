@@ -595,19 +595,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream dt = k.dt(str);
-                BitmapFactory.decodeStream(dt, null, options);
+                InputStream dA = k.dA(str);
+                BitmapFactory.decodeStream(dA, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.d(dt);
+                com.baidu.adp.lib.util.n.d(dA);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream dt2 = k.dt(str);
-                        decodeStream = BitmapFactory.decodeStream(dt2, null, options);
-                        com.baidu.adp.lib.util.n.d(dt2);
+                        InputStream dA2 = k.dA(str);
+                        decodeStream = BitmapFactory.decodeStream(dA2, null, options);
+                        com.baidu.adp.lib.util.n.d(dA2);
                     }
                 }
             }
@@ -627,19 +627,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream q = k.q(new File(str));
-                BitmapFactory.decodeStream(q, null, options);
+                InputStream r = k.r(new File(str));
+                BitmapFactory.decodeStream(r, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.d(q);
+                com.baidu.adp.lib.util.n.d(r);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream q2 = k.q(new File(str));
-                        decodeStream = BitmapFactory.decodeStream(q2, null, options);
-                        com.baidu.adp.lib.util.n.d(q2);
+                        InputStream r2 = k.r(new File(str));
+                        decodeStream = BitmapFactory.decodeStream(r2, null, options);
+                        com.baidu.adp.lib.util.n.d(r2);
                     }
                 }
             }

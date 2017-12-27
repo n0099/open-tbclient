@@ -1,10 +1,11 @@
 package android.support.v4.accessibilityservice;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
-/* loaded from: classes.dex */
-public class AccessibilityServiceInfoCompat {
+/* loaded from: classes2.dex */
+public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
     public static final int CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 4;
     public static final int CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION = 2;
@@ -19,7 +20,7 @@ public class AccessibilityServiceInfoCompat {
     public static final int FLAG_REQUEST_TOUCH_EXPLORATION_MODE = 4;
     private static final AccessibilityServiceInfoVersionImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface AccessibilityServiceInfoVersionImpl {
         boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo);
 
@@ -32,9 +33,11 @@ public class AccessibilityServiceInfoCompat {
         ResolveInfo getResolveInfo(AccessibilityServiceInfo accessibilityServiceInfo);
 
         String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo);
+
+        String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityServiceInfoStubImpl implements AccessibilityServiceInfoVersionImpl {
         AccessibilityServiceInfoStubImpl() {
         }
@@ -68,9 +71,14 @@ public class AccessibilityServiceInfoCompat {
         public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
             return 0;
         }
+
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
+            return null;
+        }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityServiceInfoIcsImpl extends AccessibilityServiceInfoStubImpl {
         AccessibilityServiceInfoIcsImpl() {
         }
@@ -106,9 +114,20 @@ public class AccessibilityServiceInfoCompat {
         }
     }
 
-    /* loaded from: classes.dex */
-    static class AccessibilityServiceInfoJellyBeanMr2 extends AccessibilityServiceInfoIcsImpl {
-        AccessibilityServiceInfoJellyBeanMr2() {
+    /* loaded from: classes2.dex */
+    static class AccessibilityServiceInfoJellyBeanImpl extends AccessibilityServiceInfoIcsImpl {
+        AccessibilityServiceInfoJellyBeanImpl() {
+        }
+
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        public String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
+            return AccessibilityServiceInfoCompatJellyBean.loadDescription(accessibilityServiceInfo, packageManager);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class AccessibilityServiceInfoJellyBeanMr2Impl extends AccessibilityServiceInfoJellyBeanImpl {
+        AccessibilityServiceInfoJellyBeanMr2Impl() {
         }
 
         @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoIcsImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
@@ -119,7 +138,9 @@ public class AccessibilityServiceInfoCompat {
 
     static {
         if (Build.VERSION.SDK_INT >= 18) {
-            IMPL = new AccessibilityServiceInfoJellyBeanMr2();
+            IMPL = new AccessibilityServiceInfoJellyBeanMr2Impl();
+        } else if (Build.VERSION.SDK_INT >= 16) {
+            IMPL = new AccessibilityServiceInfoJellyBeanImpl();
         } else if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new AccessibilityServiceInfoIcsImpl();
         } else {
@@ -148,6 +169,10 @@ public class AccessibilityServiceInfoCompat {
 
     public static String getDescription(AccessibilityServiceInfo accessibilityServiceInfo) {
         return IMPL.getDescription(accessibilityServiceInfo);
+    }
+
+    public static String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
+        return IMPL.loadDescription(accessibilityServiceInfo, packageManager);
     }
 
     public static String feedbackTypeToString(int i) {

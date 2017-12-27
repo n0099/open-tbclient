@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.sofire.b.d;
 import com.baidu.sofire.b.e;
@@ -51,7 +52,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static JSONObject as(Context context) {
+    public static JSONObject aE(Context context) {
         String str;
         String g;
         String str2;
@@ -161,7 +162,7 @@ public final class a {
     }
 
     public static JSONObject a(Context context, com.baidu.sofire.rp.a.b bVar, String str, boolean z) {
-        return b(context, bVar.a, bVar.c, z ? bVar.d : bVar.e, str);
+        return a(context, bVar.a, bVar.c, z ? bVar.d : bVar.e, str);
     }
 
     public static JSONObject b(Context context, JSONObject jSONObject) {
@@ -224,11 +225,11 @@ public final class a {
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         int indexOf;
         com.baidu.sofire.rp.a.b bVar;
-        b.at(context).a();
-        b at = b.at(context);
+        b.aF(context).a();
+        b aF = b.aF(context);
         Message message = new Message();
         message.what = 8;
-        at.QP.QL.sendMessage(message);
+        aF.aFx.aFt.sendMessage(message);
         com.baidu.sofire.rp.a.b bVar2 = new com.baidu.sofire.rp.a.b();
         bVar2.a = str;
         bVar2.b = str2;
@@ -247,27 +248,27 @@ public final class a {
                     aVar.c.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
                     aVar.c.commit();
                 }
-                com.baidu.sofire.rp.e.a aVar2 = b.at(context).QP;
+                com.baidu.sofire.rp.e.a aVar2 = b.aF(context).aFx;
                 Message message2 = new Message();
                 message2.what = 7;
-                aVar2.QL.sendMessage(message2);
+                aVar2.aFt.sendMessage(message2);
                 return;
             }
             if (!aVar.a.getBoolean("re_net_ins_" + bVar2.e, false)) {
-                b at2 = b.at(context);
+                b aF2 = b.aF(context);
                 Message message3 = new Message();
                 message3.what = 3;
                 message3.obj = bVar2;
-                at2.QP.QL.sendMessage(message3);
+                aF2.aFx.aFt.sendMessage(message3);
             }
-            com.baidu.sofire.rp.e.a aVar3 = b.at(context).QP;
+            com.baidu.sofire.rp.e.a aVar3 = b.aF(context).aFx;
             Message message4 = new Message();
             message4.what = 7;
-            aVar3.QL.sendMessage(message4);
-            b at3 = b.at(context);
+            aVar3.aFt.sendMessage(message4);
+            b aF3 = b.aF(context);
             Message message5 = new Message();
             message5.what = 2;
-            at3.QP.QL.sendMessage(message5);
+            aF3.aFx.aFt.sendMessage(message5);
         }
     }
 
@@ -296,11 +297,11 @@ public final class a {
             aVar2.h = optInt3;
             aVar2.i = optInt4;
             aVar2.j = optString2;
-            b at = b.at(context);
+            b aF = b.aF(context);
             Message message = new Message();
             message.what = 1;
             message.obj = aVar2;
-            at.QP.QL.sendMessage(message);
+            aF.aFx.aFt.sendMessage(message);
         } catch (Exception e) {
             d.a(e);
         }
@@ -368,7 +369,7 @@ public final class a {
         return new StringBuilder().append(i).append(i2).append(calendar.get(5)).toString();
     }
 
-    public static JSONObject b(Context context, String str, String str2, String str3, String str4) {
+    public static JSONObject a(Context context, String str, String str2, String str3, String str4) {
         JSONObject jSONObject;
         JSONObject jSONObject2;
         JSONObject jSONObject3;
@@ -412,7 +413,7 @@ public final class a {
     }
 
     public static void a(Context context, long j) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, new Intent("com.b.r.p"), 134217728);
         try {
             alarmManager.cancel(broadcast);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushSettings;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class f extends d {
@@ -45,7 +45,7 @@ public class f extends d {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "bind");
+        hashMap.put("method", "bind");
         hashMap.put("bind_name", Build.MODEL);
         hashMap.put("bind_status", this.e + "");
         hashMap.put("push_sdk_version", this.f + "");
@@ -55,18 +55,17 @@ public class f extends d {
         if (!TextUtils.isEmpty(this.g)) {
             hashMap.put("bind_notify_status", this.g);
         }
-        if (!TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.d.d(this.a)) {
+        if (!TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.d.g(this.a)) {
             hashMap.put("push_proxy", this.b.l);
         }
         try {
             hashMap.put("manufacture", Build.MANUFACTURER);
-            if (Build.MANUFACTURER.toLowerCase().contains("huawei") || Build.MANUFACTURER.toLowerCase().contains("xiaomi")) {
-                hashMap.put("rom", com.baidu.android.pushservice.j.p.B(this.a));
+            if (Build.MANUFACTURER.toLowerCase().contains("huawei") || Build.MANUFACTURER.toLowerCase().contains("xiaomi") || Build.MANUFACTURER.toLowerCase().contains("oppo")) {
+                hashMap.put("rom", com.baidu.android.pushservice.j.p.C(this.a));
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Bind", e);
         }
-        if (com.baidu.android.pushservice.j.p.E(this.a)) {
+        if (com.baidu.android.pushservice.j.p.F(this.a)) {
             hashMap.put("connect_version", "3");
         } else {
             hashMap.put("connect_version", "2");
@@ -76,9 +75,11 @@ public class f extends d {
         if (!TextUtils.isEmpty(str) && str.length() <= 128) {
             hashMap.put("package_name", str);
         }
-        com.baidu.android.pushservice.g.a.c("Bind", "BIND param -- " + b.a(hashMap));
+        if (!PushSettings.c(this.a)) {
+            hashMap.put("check_sdk", com.baidu.android.pushservice.j.m.a(this.a, "com.baidu.android.pushservice.CHECK_SDK"));
+        }
         if (com.baidu.android.pushservice.a.b() > 0) {
-            com.baidu.android.pushservice.h.p.a(this.a, "039903", 0, this.b.i);
+            com.baidu.android.pushservice.h.q.a(this.a, "039903", 0, this.b.i);
         }
     }
 

@@ -5,11 +5,23 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.widget.SearchViewCompatHoneycomb;
 import android.view.View;
-/* loaded from: classes.dex */
-public class SearchViewCompat {
+/* loaded from: classes2.dex */
+public final class SearchViewCompat {
     private static final SearchViewCompatImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
+    public interface OnCloseListener {
+        boolean onClose();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface OnQueryTextListener {
+        boolean onQueryTextChange(String str);
+
+        boolean onQueryTextSubmit(String str);
+    }
+
+    /* loaded from: classes2.dex */
     interface SearchViewCompatImpl {
         CharSequence getQuery(View view);
 
@@ -18,10 +30,6 @@ public class SearchViewCompat {
         boolean isQueryRefinementEnabled(View view);
 
         boolean isSubmitButtonEnabled(View view);
-
-        Object newOnCloseListener(OnCloseListenerCompat onCloseListenerCompat);
-
-        Object newOnQueryTextListener(OnQueryTextListenerCompat onQueryTextListenerCompat);
 
         View newSearchView(Context context);
 
@@ -33,9 +41,9 @@ public class SearchViewCompat {
 
         void setMaxWidth(View view, int i);
 
-        void setOnCloseListener(Object obj, Object obj2);
+        void setOnCloseListener(View view, OnCloseListener onCloseListener);
 
-        void setOnQueryTextListener(Object obj, Object obj2);
+        void setOnQueryTextListener(View view, OnQueryTextListener onQueryTextListener);
 
         void setQuery(View view, CharSequence charSequence, boolean z);
 
@@ -48,7 +56,7 @@ public class SearchViewCompat {
         void setSubmitButtonEnabled(View view, boolean z);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class SearchViewCompatStubImpl implements SearchViewCompatImpl {
         SearchViewCompatStubImpl() {
         }
@@ -70,22 +78,20 @@ public class SearchViewCompat {
         public void setInputType(View view, int i) {
         }
 
-        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public Object newOnQueryTextListener(OnQueryTextListenerCompat onQueryTextListenerCompat) {
+        public Object newOnQueryTextListener(OnQueryTextListener onQueryTextListener) {
             return null;
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public void setOnQueryTextListener(Object obj, Object obj2) {
+        public void setOnQueryTextListener(View view, OnQueryTextListener onQueryTextListener) {
         }
 
-        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public Object newOnCloseListener(OnCloseListenerCompat onCloseListenerCompat) {
+        public Object newOnCloseListener(OnCloseListener onCloseListener) {
             return null;
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public void setOnCloseListener(Object obj, Object obj2) {
+        public void setOnCloseListener(View view, OnCloseListener onCloseListener) {
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
@@ -133,7 +139,7 @@ public class SearchViewCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class SearchViewCompatHoneycombImpl extends SearchViewCompatStubImpl {
         SearchViewCompatHoneycombImpl() {
         }
@@ -145,96 +151,113 @@ public class SearchViewCompat {
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setSearchableInfo(View view, ComponentName componentName) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setSearchableInfo(view, componentName);
         }
 
-        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public Object newOnQueryTextListener(final OnQueryTextListenerCompat onQueryTextListenerCompat) {
+        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl
+        public Object newOnQueryTextListener(final OnQueryTextListener onQueryTextListener) {
             return SearchViewCompatHoneycomb.newOnQueryTextListener(new SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge() { // from class: android.support.v4.widget.SearchViewCompat.SearchViewCompatHoneycombImpl.1
                 @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge
                 public boolean onQueryTextSubmit(String str) {
-                    return onQueryTextListenerCompat.onQueryTextSubmit(str);
+                    return onQueryTextListener.onQueryTextSubmit(str);
                 }
 
                 @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge
                 public boolean onQueryTextChange(String str) {
-                    return onQueryTextListenerCompat.onQueryTextChange(str);
+                    return onQueryTextListener.onQueryTextChange(str);
                 }
             });
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public void setOnQueryTextListener(Object obj, Object obj2) {
-            SearchViewCompatHoneycomb.setOnQueryTextListener(obj, obj2);
+        public void setOnQueryTextListener(View view, OnQueryTextListener onQueryTextListener) {
+            checkIfLegalArg(view);
+            SearchViewCompatHoneycomb.setOnQueryTextListener(view, newOnQueryTextListener(onQueryTextListener));
         }
 
-        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public Object newOnCloseListener(final OnCloseListenerCompat onCloseListenerCompat) {
+        @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl
+        public Object newOnCloseListener(final OnCloseListener onCloseListener) {
             return SearchViewCompatHoneycomb.newOnCloseListener(new SearchViewCompatHoneycomb.OnCloseListenerCompatBridge() { // from class: android.support.v4.widget.SearchViewCompat.SearchViewCompatHoneycombImpl.2
                 @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnCloseListenerCompatBridge
                 public boolean onClose() {
-                    return onCloseListenerCompat.onClose();
+                    return onCloseListener.onClose();
                 }
             });
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
-        public void setOnCloseListener(Object obj, Object obj2) {
-            SearchViewCompatHoneycomb.setOnCloseListener(obj, obj2);
+        public void setOnCloseListener(View view, OnCloseListener onCloseListener) {
+            checkIfLegalArg(view);
+            SearchViewCompatHoneycomb.setOnCloseListener(view, newOnCloseListener(onCloseListener));
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public CharSequence getQuery(View view) {
+            checkIfLegalArg(view);
             return SearchViewCompatHoneycomb.getQuery(view);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setQuery(View view, CharSequence charSequence, boolean z) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setQuery(view, charSequence, z);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setQueryHint(View view, CharSequence charSequence) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setQueryHint(view, charSequence);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setIconified(View view, boolean z) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setIconified(view, z);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public boolean isIconified(View view) {
+            checkIfLegalArg(view);
             return SearchViewCompatHoneycomb.isIconified(view);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setSubmitButtonEnabled(View view, boolean z) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setSubmitButtonEnabled(view, z);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public boolean isSubmitButtonEnabled(View view) {
+            checkIfLegalArg(view);
             return SearchViewCompatHoneycomb.isSubmitButtonEnabled(view);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setQueryRefinementEnabled(View view, boolean z) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setQueryRefinementEnabled(view, z);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public boolean isQueryRefinementEnabled(View view) {
+            checkIfLegalArg(view);
             return SearchViewCompatHoneycomb.isQueryRefinementEnabled(view);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setMaxWidth(View view, int i) {
+            checkIfLegalArg(view);
             SearchViewCompatHoneycomb.setMaxWidth(view, i);
+        }
+
+        protected void checkIfLegalArg(View view) {
+            SearchViewCompatHoneycomb.checkIfLegalArg(view);
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class SearchViewCompatIcsImpl extends SearchViewCompatHoneycombImpl {
         SearchViewCompatIcsImpl() {
         }
@@ -246,11 +269,13 @@ public class SearchViewCompat {
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setImeOptions(View view, int i) {
+            checkIfLegalArg(view);
             SearchViewCompatIcs.setImeOptions(view, i);
         }
 
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public void setInputType(View view, int i) {
+            checkIfLegalArg(view);
             SearchViewCompatIcs.setInputType(view, i);
         }
     }
@@ -281,31 +306,32 @@ public class SearchViewCompat {
         IMPL.setInputType(view, i);
     }
 
-    public static void setOnQueryTextListener(View view, OnQueryTextListenerCompat onQueryTextListenerCompat) {
-        IMPL.setOnQueryTextListener(view, onQueryTextListenerCompat.mListener);
+    public static void setOnQueryTextListener(View view, OnQueryTextListener onQueryTextListener) {
+        IMPL.setOnQueryTextListener(view, onQueryTextListener);
     }
 
-    /* loaded from: classes.dex */
-    public static abstract class OnQueryTextListenerCompat {
-        final Object mListener = SearchViewCompat.IMPL.newOnQueryTextListener(this);
-
+    @Deprecated
+    /* loaded from: classes2.dex */
+    public static abstract class OnQueryTextListenerCompat implements OnQueryTextListener {
+        @Override // android.support.v4.widget.SearchViewCompat.OnQueryTextListener
         public boolean onQueryTextSubmit(String str) {
             return false;
         }
 
+        @Override // android.support.v4.widget.SearchViewCompat.OnQueryTextListener
         public boolean onQueryTextChange(String str) {
             return false;
         }
     }
 
-    public static void setOnCloseListener(View view, OnCloseListenerCompat onCloseListenerCompat) {
-        IMPL.setOnCloseListener(view, onCloseListenerCompat.mListener);
+    public static void setOnCloseListener(View view, OnCloseListener onCloseListener) {
+        IMPL.setOnCloseListener(view, onCloseListener);
     }
 
-    /* loaded from: classes.dex */
-    public static abstract class OnCloseListenerCompat {
-        final Object mListener = SearchViewCompat.IMPL.newOnCloseListener(this);
-
+    @Deprecated
+    /* loaded from: classes2.dex */
+    public static abstract class OnCloseListenerCompat implements OnCloseListener {
+        @Override // android.support.v4.widget.SearchViewCompat.OnCloseListener
         public boolean onClose() {
             return false;
         }

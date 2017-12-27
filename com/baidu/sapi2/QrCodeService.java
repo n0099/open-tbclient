@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
@@ -28,6 +29,8 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.Collections;
 import java.util.HashMap;
 import javax.net.ssl.SSLPeerUnverifiedException;
@@ -497,7 +500,7 @@ public class QrCodeService extends AbstractService {
         hashMap.put(SapiUtils.KEY_QR_LOGIN_LP, SapiUtils.QR_LOGIN_LP_PC);
         hashMap.put("client", "android");
         hashMap.put("apiver", "v3");
-        hashMap.put("tt", String.valueOf(System.currentTimeMillis()));
+        hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         hashMap.put("sig", calculateSig(hashMap, this.configuration.appSignKey));
         this.asyncHttpClient.get(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.GET_QR_CODE_IMAGE_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.5
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -591,7 +594,7 @@ public class QrCodeService extends AbstractService {
             hashMap.put("apiver", "v3");
             hashMap.put("callback", "cb");
             hashMap.put("channel_id", qrLoginStstusCheckDTO.channelId);
-            hashMap.put("tt", String.valueOf(System.currentTimeMillis()));
+            hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
             hashMap.put("sig", calculateSig(hashMap, this.configuration.appSignKey));
             this.asyncHttpClient.get(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.GET_QR_LOGIN_STATUS_CHECK, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.6
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -619,13 +622,13 @@ public class QrCodeService extends AbstractService {
                         switch (parseInt) {
                             case 0:
                                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
-                                int optInt = jSONObject2.optInt("status");
+                                int optInt = jSONObject2.optInt(NotificationCompat.CATEGORY_STATUS);
                                 qrLoginStatusCheckResult.status = optInt;
                                 if (optInt == 1) {
                                     qrLoginStatusCheckCallback.onScanQrCodeDone(qrLoginStatusCheckResult);
                                     QrCodeService.this.qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO);
                                 } else if (optInt == 0) {
-                                    QrCodeService.this.getQrLoginResult(qrLoginStatusCheckCallback, qrLoginStatusCheckResult, jSONObject2.optString("v"));
+                                    QrCodeService.this.getQrLoginResult(qrLoginStatusCheckCallback, qrLoginStatusCheckResult, jSONObject2.optString(NotifyType.VIBRATE));
                                 } else {
                                     QrCodeService.this.qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO);
                                     qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
@@ -680,7 +683,7 @@ public class QrCodeService extends AbstractService {
         hashMap.put("qrcode", "1");
         hashMap.put("bduss", str);
         hashMap.put("client", "android");
-        hashMap.put("tt", String.valueOf(System.currentTimeMillis()));
+        hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         hashMap.put("sig", calculateSig(hashMap, this.configuration.appSignKey));
         this.asyncHttpClient.get(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.GET_QR_LOGIN_RESULT, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.7
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler

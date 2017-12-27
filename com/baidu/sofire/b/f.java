@@ -89,36 +89,36 @@ public final class f {
             return new String(ad);
         }
         try {
-            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.a.getLong("pu_cl_fd", 0L);
+            long j = dVar.a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
-                eVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
-                eVar.c.commit();
+                dVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
+                dVar.c.commit();
             }
             if (currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
                 if (d.c(context)) {
-                    hashMap.put("0", Integer.valueOf(eVar.a.getInt("wi_fa_pu_cl", 0) + 1));
-                    hashMap.put("1", Integer.valueOf(eVar.a.getInt("mo_fa_pu_cl", 0)));
+                    hashMap.put("0", Integer.valueOf(dVar.a.getInt("wi_fa_pu_cl", 0) + 1));
+                    hashMap.put("1", Integer.valueOf(dVar.a.getInt("mo_fa_pu_cl", 0)));
                 } else {
-                    hashMap.put("0", Integer.valueOf(eVar.a.getInt("wi_fa_pu_cl", 0)));
-                    hashMap.put("1", Integer.valueOf(eVar.a.getInt("mo_fa_pu_cl", 0) + 1));
+                    hashMap.put("0", Integer.valueOf(dVar.a.getInt("wi_fa_pu_cl", 0)));
+                    hashMap.put("1", Integer.valueOf(dVar.a.getInt("mo_fa_pu_cl", 0) + 1));
                 }
-                eVar.c.putInt("mo_fa_pu_cl", 0);
-                eVar.c.commit();
-                eVar.c.putInt("wi_fa_pu_cl", 0);
-                eVar.c.commit();
-                eVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
-                eVar.c.commit();
+                dVar.c.putInt("mo_fa_pu_cl", 0);
+                dVar.c.commit();
+                dVar.c.putInt("wi_fa_pu_cl", 0);
+                dVar.c.commit();
+                dVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
+                dVar.c.commit();
                 d.a(context, "1013104", hashMap);
             } else if (d.c(context)) {
-                eVar.c.putInt("wi_fa_pu_ap", eVar.a.getInt("wi_fa_pu_cl", 0) + 1);
-                eVar.c.commit();
+                dVar.c.putInt("wi_fa_pu_ap", dVar.a.getInt("wi_fa_pu_cl", 0) + 1);
+                dVar.c.commit();
             } else {
-                eVar.c.putInt("mo_fa_pu_ap", eVar.a.getInt("mo_fa_pu_cl", 0) + 1);
-                eVar.c.commit();
+                dVar.c.putInt("mo_fa_pu_ap", dVar.a.getInt("mo_fa_pu_cl", 0) + 1);
+                dVar.c.commit();
             }
         } catch (Throwable th2) {
             d.a(th2);

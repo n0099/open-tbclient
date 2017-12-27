@@ -1,9 +1,10 @@
 package android.support.v4.view;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ViewCompatJB {
     public static boolean hasTransientState(View view) {
         return view.hasTransientState();
@@ -47,5 +48,29 @@ class ViewCompatJB {
 
     public static ViewParent getParentForAccessibility(View view) {
         return view.getParentForAccessibility();
+    }
+
+    public static int getMinimumWidth(View view) {
+        return view.getMinimumWidth();
+    }
+
+    public static int getMinimumHeight(View view) {
+        return view.getMinimumHeight();
+    }
+
+    public static void requestApplyInsets(View view) {
+        view.requestFitSystemWindows();
+    }
+
+    public static boolean getFitsSystemWindows(View view) {
+        return view.getFitsSystemWindows();
+    }
+
+    public static boolean hasOverlappingRendering(View view) {
+        return view.hasOverlappingRendering();
+    }
+
+    public static void setBackground(View view, Drawable drawable) {
+        view.setBackground(drawable);
     }
 }

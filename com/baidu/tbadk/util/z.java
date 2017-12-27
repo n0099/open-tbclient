@@ -12,9 +12,10 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class z {
-    public static String as(String str, String str2) {
+    public static String ar(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -32,7 +33,7 @@ public class z {
         return "";
     }
 
-    public static String at(String str, String str2) {
+    public static String as(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -65,7 +66,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle ha(String str) {
+    public static Bundle hd(String str) {
         URL url;
         String query;
         String[] split;
@@ -82,7 +83,7 @@ public class z {
         if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
             return null;
         }
-        bundle.putString("path", url.getPath());
+        bundle.putString(ClientCookie.PATH_ATTR, url.getPath());
         for (String str2 : split) {
             String[] split2 = str2.split("=");
             if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
@@ -95,17 +96,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aNx;
+        public String bBk;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aNx = "";
+            this.bBk = "";
             this.BDUSS = str;
-            this.aNx = str2;
+            this.bBk = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aNx != null ? this.aNx.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bBk != null ? this.bBk.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -121,7 +122,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aNx == null ? aVar.aNx == null : this.aNx.equals(aVar.aNx);
+                return this.bBk == null ? aVar.bBk == null : this.bBk.equals(aVar.bBk);
             }
             return false;
         }

@@ -17,18 +17,14 @@ public class i extends c {
         String h = kVar.h();
         PublicMsg a = j.a(this.a, h, e, bArr);
         if (a == null || TextUtils.isEmpty(a.mTitle) || TextUtils.isEmpty(a.mDescription) || TextUtils.isEmpty(a.mUrl)) {
-            com.baidu.android.pushservice.g.a.e("PublicMessageHandler", ">>> pMsg JSON parsing error!");
             p.b(">>> pMsg JSON parsing error!", this.a);
             i = 2;
         } else if (f.a(this.a, a) && p.e(this.a, this.a.getPackageName())) {
-            com.baidu.android.pushservice.g.a.c("PublicMessageHandler", ">>> Show pMsg Notification!");
             p.b(">>> Show pMsg Notification!", this.a);
             f.a(this.a, a, h);
             i = 1;
         } else {
-            String str = ">>> Don't Show pMsg Notification! --- IsBaiduApp = " + p.e(this.a, this.a.getPackageName());
-            com.baidu.android.pushservice.g.a.c("PublicMessageHandler", str);
-            p.b(str, this.a);
+            p.b(">>> Don't Show pMsg Notification! --- IsBaiduApp = " + p.e(this.a, this.a.getPackageName()), this.a);
             i = 0;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

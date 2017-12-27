@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String aGm = "add_user_collect_emotoin";
-    public static String aGn = "image_url";
-    public static String aGo = "package_id";
-    public static String aGp = "#(meme,setting)";
-    public static String aGq = "#(meme,collect_";
-    public static String aGr = "meme,collect_";
+    public static String bug = "add_user_collect_emotoin";
+    public static String buh = "image_url";
+    public static String bui = "package_id";
+    public static String buj = "#(meme,setting)";
+    public static String buk = "#(meme,collect_";
+    public static String bul = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -22,15 +22,15 @@ public class d {
         public String url;
     }
 
-    public static String EF() {
+    public static String Mf() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String EG() {
-        return Math.abs(EF().hashCode()) + "";
+    public static String Mg() {
+        return Math.abs(Mf().hashCode()) + "";
     }
 
-    public static void gt(String str) {
+    public static void gy(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
@@ -50,12 +50,12 @@ public class d {
             }
             if (i2 > 0) {
                 ak akVar = new ak("c12223");
-                akVar.r("obj_param1", i2);
+                akVar.s("obj_param1", i2);
                 TiebaStatic.log(akVar);
             }
             if (i > 0) {
                 ak akVar2 = new ak("c12231");
-                akVar2.r("obj_param1", i);
+                akVar2.s("obj_param1", i);
                 TiebaStatic.log(akVar2);
             }
         }

@@ -4,23 +4,23 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> emF = new HashMap<>();
-    public long emD;
-    public int emE;
+    private static final HashMap<String, e> eYL = new HashMap<>();
+    public long eYJ;
+    public int eYK;
     public String itemId = "";
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        emF.put(this.emD + "_" + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        eYL.put(this.eYJ + "_" + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
-    public static e n(long j, String str) {
+    public static e l(long j, String str) {
         StringBuilder append = new StringBuilder().append(j).append("_");
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return emF.get(append.append(str).toString());
+        return eYL.get(append.append(str).toString());
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ActivityOptionsCompatJB {
     private final ActivityOptions mActivityOptions;
 

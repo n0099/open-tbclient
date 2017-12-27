@@ -1,74 +1,70 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ak;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class y {
-    public String WI;
-    public String aAv;
-    public String aMX;
-    public String fRn;
-    public String fRo;
-    public String fRp;
-    public String fRq;
-    public String fRr;
-    public String mLocate;
-    public String mSource;
-    public String mType;
-    public String mUid;
+    private ViewGroup gEm;
+    private ImageView gEn;
+    private VideoLoadingProgressView gEo;
+    ObjectAnimator gEp;
+    ObjectAnimator gEq;
+    ObjectAnimator gEr;
 
-    public ak f(ak akVar) {
-        if (akVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                akVar.ac("obj_locate", this.mLocate);
-            }
-            if (!StringUtils.isNull(this.aMX)) {
-                akVar.ac("tid", this.aMX);
-            }
-            if (!StringUtils.isNull(this.aAv)) {
-                akVar.ac(ImageViewerConfig.FORUM_ID, this.aAv);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                akVar.ac("uid", this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                akVar.ac(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
-            }
-            if (!StringUtils.isNull(this.fRn)) {
-                akVar.ac("obj_param1", this.fRn);
-            }
-            if (!StringUtils.isNull(this.fRo)) {
-                akVar.ac("obj_param2", this.fRo);
-            }
-            if (!StringUtils.isNull(this.fRp)) {
-                akVar.ac("obj_param3", this.fRp);
-            }
-            if (!StringUtils.isNull(this.WI)) {
-                akVar.ac("obj_id", this.WI);
-            }
-            if (!StringUtils.isNull(this.fRq)) {
-                akVar.ac("ab_tag", this.fRq);
-            }
-        }
-        return akVar;
+    public y(ViewGroup viewGroup) {
+        this.gEm = viewGroup;
+        this.gEn = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
+        this.gEo = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
+        init();
     }
 
-    public y bjL() {
-        y yVar = new y();
-        yVar.mLocate = this.mLocate;
-        yVar.mType = this.mType;
-        yVar.aMX = this.aMX;
-        yVar.aAv = this.aAv;
-        yVar.mUid = this.mUid;
-        yVar.mSource = this.mSource;
-        yVar.fRn = this.fRn;
-        yVar.fRo = this.fRo;
-        yVar.fRp = this.fRp;
-        yVar.WI = this.WI;
-        yVar.fRq = this.fRq;
-        yVar.fRr = this.fRr;
-        return yVar;
+    private void init() {
+        this.gEp = ObjectAnimator.ofFloat(this.gEn, "alpha", 1.0f, 0.5f);
+        this.gEq = ObjectAnimator.ofFloat(this.gEn, "alpha", 0.5f, 0.0f);
+        this.gEr = ObjectAnimator.ofFloat(this.gEo, "alpha", 1.0f, 0.0f);
+        this.gEp.setDuration(300L);
+        this.gEq.setDuration(300L);
+        this.gEr.setDuration(300L);
+    }
+
+    public void startLoading() {
+        brl();
+        this.gEn.setAlpha(1.0f);
+        this.gEo.setAlpha(1.0f);
+        this.gEm.setVisibility(0);
+        this.gEo.startLoading();
+        this.gEp.start();
+    }
+
+    public void bri() {
+        brl();
+        this.gEo.bri();
+    }
+
+    public void brj() {
+        brl();
+        this.gEq.start();
+        this.gEr.start();
+    }
+
+    public void brk() {
+        brl();
+        this.gEm.setVisibility(8);
+        this.gEo.brk();
+    }
+
+    private void brl() {
+        this.gEp.cancel();
+        this.gEq.cancel();
+        this.gEr.cancel();
+    }
+
+    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
+        if (this.gEo != null) {
+            this.gEo.setLoadingAnimationListener(aVar);
+        }
     }
 }

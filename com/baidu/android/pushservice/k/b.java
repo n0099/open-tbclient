@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.k;
 
-import android.support.v4.view.MotionEventCompat;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public final class b {
@@ -62,7 +61,6 @@ public final class b {
         try {
             return a(bArr, bArr.length);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Base64", e);
             return null;
         }
     }
@@ -124,7 +122,7 @@ public final class b {
                     int i15 = i14 + 1;
                     bArr2[i14] = (byte) ((65280 & i13) >> 8);
                     i6 = i15 + 1;
-                    bArr2[i15] = (byte) (i13 & MotionEventCompat.ACTION_MASK);
+                    bArr2[i15] = (byte) (i13 & 255);
                 } else {
                     i6 = i12;
                 }

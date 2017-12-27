@@ -6,7 +6,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.view.MotionEventCompat;
 import android.telephony.CellIdentityCdma;
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
@@ -522,8 +521,8 @@ public class SapiBDLocManager {
             return null;
         }
         byte[] bytes = str.getBytes();
-        byte nextInt = (byte) new Random().nextInt(MotionEventCompat.ACTION_MASK);
-        byte nextInt2 = (byte) new Random().nextInt(MotionEventCompat.ACTION_MASK);
+        byte nextInt = (byte) new Random().nextInt(255);
+        byte nextInt2 = (byte) new Random().nextInt(255);
         byte[] bArr = new byte[bytes.length + 2];
         int length = bytes.length;
         int i2 = 0;

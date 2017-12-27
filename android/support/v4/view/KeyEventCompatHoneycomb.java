@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.view.KeyEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class KeyEventCompatHoneycomb {
     public static int normalizeMetaState(int i) {
         return KeyEvent.normalizeMetaState(i);
@@ -13,5 +13,9 @@ class KeyEventCompatHoneycomb {
 
     public static boolean metaStateHasNoModifiers(int i) {
         return KeyEvent.metaStateHasNoModifiers(i);
+    }
+
+    public static boolean isCtrlPressed(KeyEvent keyEvent) {
+        return keyEvent.isCtrlPressed();
     }
 }

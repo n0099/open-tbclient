@@ -23,16 +23,15 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String FROM_DISCOVER_BEAUTY = "discover_beauty";
     public static final String FROM_FRS = "frs";
     public static final String FROM_PB = "pb";
-    public static final String HAS_NEXT = "hasnext";
     public static final String IMAGE_DATA_LIST = "image_data_list";
     public static final String INDEX = "index";
     public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
+    public static final String IS_SHOW_HOST = "is_show_host";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
-    public static final String NEXT_TILE = "nexttile";
     public static final String PARAM_IS_CDN = "isCdn";
     public static final String PV_TYPE = "pv_type";
     public static final String REVERSE_MODE = "reverse_mode";
@@ -53,7 +52,7 @@ public class ImageViewerConfig extends IntentConfig {
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, false);
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, true);
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
@@ -125,6 +124,11 @@ public class ImageViewerConfig extends IntentConfig {
 
     public ImageViewerConfig setIsCanDrag(boolean z) {
         getIntent().putExtra(IS_CAN_DRAG, z);
+        return this;
+    }
+
+    public ImageViewerConfig setIsShowHost(boolean z) {
+        getIntent().putExtra(IS_SHOW_HOST, z);
         return this;
     }
 

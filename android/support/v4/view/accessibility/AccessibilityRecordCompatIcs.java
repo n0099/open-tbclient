@@ -4,7 +4,7 @@ import android.os.Parcelable;
 import android.view.View;
 import android.view.accessibility.AccessibilityRecord;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityRecordCompatIcs {
     public static Object obtain() {
         return AccessibilityRecord.obtain();

@@ -4,11 +4,11 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
+    private boolean afd;
+    private boolean afe;
+    private boolean aff;
+    private DupLicateMode afg;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean qD;
-    private boolean qE;
-    private boolean qF;
-    private DupLicateMode qG;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.qD = false;
-        this.qE = false;
-        this.qF = true;
-        this.qG = DupLicateMode.NONE;
+        this.afd = false;
+        this.afe = false;
+        this.aff = true;
+        this.afg = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.I(this.mCmd);
+        return FrameHelper.cC(this.mCmd);
     }
 
-    public void m(boolean z) {
-        this.qD = z;
+    public void T(boolean z) {
+        this.afd = z;
     }
 
-    public boolean dz() {
-        return this.qD;
+    public boolean ld() {
+        return this.afd;
     }
 
-    public boolean dA() {
-        return this.qE;
+    public boolean le() {
+        return this.afe;
     }
 
-    public void n(boolean z) {
-        this.qE = z;
+    public void U(boolean z) {
+        this.afe = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean dB() {
-        return this.qF;
+    public boolean lf() {
+        return this.aff;
     }
 
-    public void o(boolean z) {
-        this.qF = z;
+    public void V(boolean z) {
+        this.aff = z;
     }
 
-    public DupLicateMode dC() {
-        return this.qG;
+    public DupLicateMode lg() {
+        return this.afg;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.qG = dupLicateMode;
+        this.afg = dupLicateMode;
     }
 }

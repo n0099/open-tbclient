@@ -1,81 +1,71 @@
 package com.baidu.tieba.view;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 /* loaded from: classes.dex */
-public class d extends LinkMovementMethod {
-    private static d haX;
-    private int aPP;
-    private int aPQ;
-    private com.baidu.tbadk.widget.richText.c haV;
-    private long haW;
+public class d extends TimePickerDialog {
+    private int ezt;
+    private int hIP;
+    private boolean hIQ;
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        com.baidu.tbadk.widget.richText.c a = a(textView, spannable, motionEvent);
-        if (a == null && motionEvent.getAction() == 0) {
-            return super.onTouchEvent(textView, spannable, motionEvent);
-        }
-        if (a != null) {
-            this.haV = a;
-        }
-        if (motionEvent.getAction() == 0) {
-            this.aPP = (int) motionEvent.getX();
-            this.aPQ = (int) motionEvent.getY();
-            this.haW = System.currentTimeMillis();
-            if (this.haV != null) {
-                this.haV.gd(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.haV), spannable.getSpanEnd(this.haV));
-            }
-            textView.invalidate();
-        } else if (motionEvent.getAction() == 2) {
-            if (this.haV != null && (Math.abs(this.aPP - motionEvent.getX()) > 20.0f || Math.abs(this.aPQ - motionEvent.getY()) > 20.0f)) {
-                this.haV.gd(2);
-                textView.invalidate();
-                Selection.removeSelection(spannable);
-            }
-        } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.haV != null) {
-                this.haV.gd(2);
-                textView.invalidate();
-                Selection.removeSelection(spannable);
-            }
-            if (a(this.aPP, this.aPQ, motionEvent.getX(), motionEvent.getY(), this.haW, System.currentTimeMillis(), 500L)) {
-                return true;
-            }
-        }
-        return super.onTouchEvent(textView, spannable, motionEvent);
+    public d(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
+        this.ezt = -1;
+        this.hIP = -1;
+        this.hIQ = false;
+        this.ezt = i;
+        this.hIP = i2;
     }
 
-    public static d bEK() {
-        if (haX == null) {
-            haX = new d();
-        }
-        return haX;
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
+        super.updateTime(i, i2);
+        this.ezt = i;
+        this.hIP = i2;
+        this.hIQ = false;
     }
 
-    private com.baidu.tbadk.widget.richText.c a(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        if (motionEvent == null || motionEvent.getAction() == 3) {
-            return this.haV;
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle = null;
+        try {
+            bundle = super.onSaveInstanceState();
+        } catch (Exception e) {
         }
-        int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-        int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-        int scrollX = x + textView.getScrollX();
-        int scrollY = y + textView.getScrollY();
-        Layout layout = textView.getLayout();
-        int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-        com.baidu.tbadk.widget.richText.c[] cVarArr = (com.baidu.tbadk.widget.richText.c[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.c.class);
-        if (cVarArr == null || cVarArr.length <= 0 || cVarArr[0] == null) {
-            return null;
+        if (bundle == null) {
+            bundle = new Bundle();
         }
-        return cVarArr[0];
+        bundle.putInt("hour_key", this.ezt);
+        bundle.putInt("min_key", this.hIP);
+        return bundle;
     }
 
-    static boolean a(float f, float f2, float f3, float f4, long j, long j2, long j3) {
-        return Math.abs(f3 - f) <= 100.0f && Math.abs(f4 - f2) <= 100.0f && j2 - j >= j3;
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        updateTime(0, 0);
+        this.ezt = bundle.getInt("hour_key");
+        this.hIP = bundle.getInt("min_key");
+        updateTime(this.ezt, this.hIP);
+    }
+
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == -1) {
+            this.hIQ = true;
+        } else if (this.ezt >= 0 && this.hIP >= 0) {
+            updateTime(this.ezt, this.hIP);
+        }
+        super.onClick(dialogInterface, i);
+    }
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        if (!this.hIQ) {
+            updateTime(this.ezt, this.hIP);
+        }
+        super.onStop();
     }
 }

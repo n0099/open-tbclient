@@ -1,49 +1,16 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.support.v4.app.NotificationManagerCompat;
+import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public class g {
-    private static final CustomMessageListener TG = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.g.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                switch (customResponsedMessage.getCmd()) {
-                    case CmdConfigCustom.METHOD_START_SYNC /* 2005009 */:
-                        TbadkCoreApplication.getInst().startSyncService();
-                        return;
-                    case CmdConfigCustom.METHOD_STOP_SYNC /* 2005010 */:
-                        TbadkCoreApplication.getInst().stopSyncService();
-                        return;
-                    case CmdConfigCustom.METHOD_START_ACTIVE /* 2005011 */:
-                        TbadkCoreApplication.getInst().startActiveService();
-                        return;
-                    case CmdConfigCustom.METHOD_STOP_ACTIVE /* 2005012 */:
-                        TbadkCoreApplication.getInst().stopActiveServide();
-                        return;
-                    case CmdConfigCustom.METHOD_START_CLEARTEMP /* 2005013 */:
-                        TbadkCoreApplication.getInst().startClearTempService();
-                        return;
-                    case 2005014:
-                    default:
-                        return;
-                    case CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED /* 2005015 */:
-                        TbadkCoreApplication.getInst().startSyncLoginService();
-                        return;
-                }
-            }
-        }
-    };
-
-    public static void init() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_SYNC, TG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_SYNC, TG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_ACTIVE, TG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_ACTIVE, TG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_CLEARTEMP, TG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED, TG);
-    }
+    private static int BASE_ERROR_NO = -100000000;
+    public static final int aHZ = BASE_ERROR_NO + NotificationManagerCompat.IMPORTANCE_UNSPECIFIED;
+    public static final int aIa = BASE_ERROR_NO - 1001;
+    public static final int aIb = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
+    public static final int aIc = BASE_ERROR_NO - 2000;
+    public static final int aId = BASE_ERROR_NO - 2001;
+    public static final int aIe = BASE_ERROR_NO - 2002;
+    public static final int aIf = BASE_ERROR_NO - 3000;
+    public static final int aIg = BASE_ERROR_NO - 3001;
 }

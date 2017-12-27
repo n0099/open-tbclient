@@ -6,12 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class RoundProgressBar extends View {
-    private int gYU;
+    private int hFX;
     private int mHeight;
     private Paint mPaint;
     private float mProgress;
@@ -33,8 +32,8 @@ public class RoundProgressBar extends View {
     }
 
     public void init() {
-        this.gYU = 4;
-        this.mProgressColor = Color.rgb((int) MotionEventCompat.ACTION_MASK, (int) MotionEventCompat.ACTION_MASK, (int) MotionEventCompat.ACTION_MASK);
+        this.hFX = 4;
+        this.mProgressColor = Color.rgb(255, 255, 255);
     }
 
     @Override // android.view.View
@@ -48,12 +47,12 @@ public class RoundProgressBar extends View {
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeWidth(this.gYU);
+        this.mPaint.setStrokeWidth(this.hFX);
         this.mPaint.setColor(this.mProgressColor);
         canvas.drawArc(new RectF(5.0f, 5.0f, this.mWidth - 5, this.mHeight - 5), 270.0f, (360.0f * this.mProgress) / 100.0f, false, this.mPaint);
     }
 
-    public void ap(float f) {
+    public void aD(float f) {
         this.mProgress = f;
         invalidate();
     }

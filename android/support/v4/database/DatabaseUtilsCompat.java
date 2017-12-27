@@ -1,8 +1,8 @@
 package android.support.v4.database;
 
 import android.text.TextUtils;
-/* loaded from: classes.dex */
-public class DatabaseUtilsCompat {
+/* loaded from: classes2.dex */
+public final class DatabaseUtilsCompat {
     private DatabaseUtilsCompat() {
     }
 

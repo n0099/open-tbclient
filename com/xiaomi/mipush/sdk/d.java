@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
@@ -132,7 +133,7 @@ public class d extends f.a {
         Location location;
         Location location2;
         Location location3;
-        LocationManager locationManager = (LocationManager) this.g.getSystemService("location");
+        LocationManager locationManager = (LocationManager) this.g.getSystemService(Headers.LOCATION);
         try {
             location = locationManager.getLastKnownLocation("network");
         } catch (Exception e) {

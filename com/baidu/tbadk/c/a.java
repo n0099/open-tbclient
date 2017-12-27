@@ -1,11 +1,11 @@
 package com.baidu.tbadk.c;
 /* loaded from: classes.dex */
 public interface a {
-    void cd(String str);
+    void ck(String str);
 
-    void nZ();
+    void uN();
 
-    void nk();
+    void vC();
 
-    void oa();
+    void vD();
 }

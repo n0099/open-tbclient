@@ -68,7 +68,7 @@ public class i {
     }
 
     public String a(int i) {
-        return d(i, false);
+        return o(i, false);
     }
 
     public boolean a(i iVar) {
@@ -86,7 +86,7 @@ public class i {
 
     public String b() {
         try {
-            return d(com.baidu.location.h.i.L, true);
+            return o(com.baidu.location.h.i.L, true);
         } catch (Exception e) {
             return null;
         }
@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.Ox);
+        return j.a(iVar, this, com.baidu.location.h.i.aDn);
     }
 
     public int d() {
@@ -197,6 +197,22 @@ public class i {
         return 0;
     }
 
+    public boolean e() {
+        return this.d;
+    }
+
+    public boolean f() {
+        return System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+
+    public boolean g() {
+        return System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+
+    public boolean h() {
+        return System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:120:0x0308 A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:125:0x031c  */
     /* JADX WARN: Removed duplicated region for block: B:126:0x0320  */
@@ -206,7 +222,7 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String d(int i, boolean z) {
+    public String o(int i, boolean z) {
         int i2;
         String str;
         long j;
@@ -230,13 +246,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo mS = k.mW().mS();
-                if (mS == null || mS.getBSSID() == null) {
+                WifiInfo uv = k.uz().uv();
+                if (uv == null || uv.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = mS.getBSSID().replace(":", "");
-                    int rssi = mS.getRssi();
+                    String replace = uv.getBSSID().replace(":", "");
+                    int rssi = uv.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;
@@ -412,21 +428,5 @@ public class i {
         } catch (Error e5) {
             return null;
         }
-    }
-
-    public boolean e() {
-        return this.d;
-    }
-
-    public boolean f() {
-        return System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
-    }
-
-    public boolean g() {
-        return System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
-    }
-
-    public boolean h() {
-        return System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 }

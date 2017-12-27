@@ -4,16 +4,16 @@ import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ac extends SparseArray<ak> {
-    public BdUniqueId aSB = null;
+    public BdUniqueId bGo = null;
 
-    public void a(am amVar) {
+    public void a(an anVar) {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < size()) {
                 ak valueAt = valueAt(i2);
                 if (valueAt != null) {
-                    valueAt.a(amVar);
+                    valueAt.a(anVar);
                 }
                 i = i2 + 1;
             } else {
@@ -46,7 +46,7 @@ public class ac extends SparseArray<ak> {
                 ak valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.QJ();
+                    valueAt.Yi();
                 }
                 i = i2 + 1;
             } else {
@@ -62,7 +62,7 @@ public class ac extends SparseArray<ak> {
         put(i, akVar);
     }
 
-    public ak jW(int i) {
+    public ak mX(int i) {
         if (i > 100) {
             i = 100;
         }

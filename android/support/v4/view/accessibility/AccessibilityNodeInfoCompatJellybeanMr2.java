@@ -1,7 +1,8 @@
 package android.support.v4.view.accessibility;
 
 import android.view.accessibility.AccessibilityNodeInfo;
-/* loaded from: classes.dex */
+import java.util.List;
+/* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatJellybeanMr2 {
     public static void setViewIdResourceName(Object obj, String str) {
         ((AccessibilityNodeInfo) obj).setViewIdResourceName(str);
@@ -9,5 +10,33 @@ class AccessibilityNodeInfoCompatJellybeanMr2 {
 
     public static String getViewIdResourceName(Object obj) {
         return ((AccessibilityNodeInfo) obj).getViewIdResourceName();
+    }
+
+    public static List<Object> findAccessibilityNodeInfosByViewId(Object obj, String str) {
+        return ((AccessibilityNodeInfo) obj).findAccessibilityNodeInfosByViewId(str);
+    }
+
+    public static void setTextSelection(Object obj, int i, int i2) {
+        ((AccessibilityNodeInfo) obj).setTextSelection(i, i2);
+    }
+
+    public static int getTextSelectionStart(Object obj) {
+        return ((AccessibilityNodeInfo) obj).getTextSelectionStart();
+    }
+
+    public static int getTextSelectionEnd(Object obj) {
+        return ((AccessibilityNodeInfo) obj).getTextSelectionEnd();
+    }
+
+    public static boolean isEditable(Object obj) {
+        return ((AccessibilityNodeInfo) obj).isEditable();
+    }
+
+    public static void setEditable(Object obj, boolean z) {
+        ((AccessibilityNodeInfo) obj).setEditable(z);
+    }
+
+    public static boolean refresh(Object obj) {
+        return ((AccessibilityNodeInfo) obj).refresh();
     }
 }

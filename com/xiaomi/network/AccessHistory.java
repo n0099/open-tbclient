@@ -1,5 +1,6 @@
 package com.xiaomi.network;
 
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AccessHistory {
@@ -30,7 +31,7 @@ public class AccessHistory {
     public AccessHistory a(JSONObject jSONObject) {
         this.b = jSONObject.getLong("cost");
         this.e = jSONObject.getLong("size");
-        this.c = jSONObject.getLong("ts");
+        this.c = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.a = jSONObject.getInt("wt");
         this.d = jSONObject.optString("expt");
         return this;
@@ -40,7 +41,7 @@ public class AccessHistory {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("cost", this.b);
         jSONObject.put("size", this.e);
-        jSONObject.put("ts", this.c);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.c);
         jSONObject.put("wt", this.a);
         jSONObject.put("expt", this.d);
         return jSONObject;

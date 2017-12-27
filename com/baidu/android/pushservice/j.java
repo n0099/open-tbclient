@@ -38,9 +38,9 @@ public final class j {
         return this.b;
     }
 
-    public void a(Context context, boolean z, a.C0019a c0019a) {
+    public void a(Context context, boolean z, a.C0033a c0033a) {
         if (this.d == null || !this.d.isAlive()) {
-            x xVar = new x(context, c0019a);
+            x xVar = new x(context, c0033a);
             if (!z) {
                 xVar.a(0);
             }
@@ -61,29 +61,21 @@ public final class j {
     }
 
     public boolean c() {
-        if (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) {
-            com.baidu.android.pushservice.g.a.c("TokenManager", "isChannelTokenAvailable false mChannelId = " + this.b + " mChannelToken =  " + this.c);
-            return false;
-        }
-        com.baidu.android.pushservice.g.a.c("TokenManager", "isChannelTokenAvailable true mChannelId = " + this.b + " mChannelToken =  " + this.c);
-        return true;
+        return (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true;
     }
 
     public boolean d() {
-        SharedPreferences sharedPreferences;
         try {
-            sharedPreferences = this.f.getSharedPreferences("pushclient", 0);
+            SharedPreferences sharedPreferences = this.f.getSharedPreferences("pushclient", 0);
+            if (sharedPreferences.getInt("isFirstReqChannelIDVcode", 0) == a.a()) {
+                return false;
+            }
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putInt("isFirstReqChannelIDVcode", a.a());
+            edit.commit();
+            return true;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("TokenManager", e);
+            return true;
         }
-        if (sharedPreferences.getInt("isFirstReqChannelIDVcode", 0) == a.a()) {
-            com.baidu.android.pushservice.g.a.c("TokenManager", "not first REQChannelID");
-            return false;
-        }
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putInt("isFirstReqChannelIDVcode", a.a());
-        edit.commit();
-        com.baidu.android.pushservice.g.a.c("TokenManager", " first REQChannelID");
-        return true;
     }
 }

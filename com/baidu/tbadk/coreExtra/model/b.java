@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eS(str2);
+                        eZ(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eS(str2);
+                        eZ(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zF() {
+    public void He() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String zG() {
+    public String Hf() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void eS(String str) {
-        String zG = zG();
-        if (!TextUtils.equals(zG, str) || !isFileExist(zG)) {
-            ah(str, zG);
+    public void eZ(String str) {
+        String Hf = Hf();
+        if (!TextUtils.equals(Hf, str) || !isFileExist(Hf)) {
+            ag(str, Hf);
         }
     }
 
     private boolean isFileExist(String str) {
-        File dk = k.dk(ao.dX(str));
-        return dk != null && dk.exists() && dk.isFile();
+        File dr = k.dr(ao.ee(str));
+        return dr != null && dr.exists() && dr.isFile();
     }
 
-    private void ah(String str, String str2) {
-        if (j.hi()) {
-            new a(str, ao.dX(str), str2).execute(new String[0]);
+    private void ag(String str, String str2) {
+        if (j.oJ()) {
+            new a(str, ao.ee(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String asZ;
-        private final String ata;
+        private final String bha;
+        private final String bhb;
         private final String mFile;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.asZ = str;
+            this.bha = str;
             this.mFile = str2;
-            this.ata = str3;
+            this.bhb = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.asZ);
+                this.mNetWork = new x(this.bha);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.f(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.asZ) && !this.asZ.equals(this.ata)) {
-                        k.dv(ao.dX(this.ata));
+                    if (!StringUtils.isNull(k.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.bha) && !this.bha.equals(this.bhb)) {
+                        k.dC(ao.ee(this.bhb));
                     }
                 } else {
-                    k.dv(this.mFile + ".tmp");
+                    k.dC(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().zF();
+                new b().He();
             }
         }
     }

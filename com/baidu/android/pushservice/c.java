@@ -65,7 +65,7 @@ public class c {
                     try {
                         Drawable createFromStream = Drawable.createFromStream(new URL(c.this.i).openStream(), null);
                         Notification.Builder builder = new Notification.Builder(context);
-                        if (p.F(context)) {
+                        if (p.G(context)) {
                             l.a(context, "com.baidu.android.pushservice.push", "Push");
                             builder.setChannelId("com.baidu.android.pushservice.push");
                         }
@@ -90,7 +90,6 @@ public class c {
                         build.contentIntent = pendingIntent;
                         ((NotificationManager) context.getSystemService("notification")).notify(str, 0, build);
                     } catch (MalformedURLException e) {
-                        com.baidu.android.pushservice.g.a.a("NewPushNotificationBuilder", e);
                     } catch (IOException e2) {
                     }
                 }

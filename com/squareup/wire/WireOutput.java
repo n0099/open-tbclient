@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import android.support.v4.view.MotionEventCompat;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public final class WireOutput {
@@ -185,22 +184,22 @@ public final class WireOutput {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeFixed32(int i) throws IOException {
-        writeRawByte(i & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 8) & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 16) & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 24) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(i & 255);
+        writeRawByte((i >> 8) & 255);
+        writeRawByte((i >> 16) & 255);
+        writeRawByte((i >> 24) & 255);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeFixed64(long j) throws IOException {
-        writeRawByte(((int) j) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 8)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 16)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 24)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 32)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 40)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 48)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 56)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) j) & 255);
+        writeRawByte(((int) (j >> 8)) & 255);
+        writeRawByte(((int) (j >> 16)) & 255);
+        writeRawByte(((int) (j >> 24)) & 255);
+        writeRawByte(((int) (j >> 32)) & 255);
+        writeRawByte(((int) (j >> 40)) & 255);
+        writeRawByte(((int) (j >> 48)) & 255);
+        writeRawByte(((int) (j >> 56)) & 255);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

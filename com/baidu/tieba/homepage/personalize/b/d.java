@@ -1,31 +1,31 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.util.u;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import tbclient.ThreadInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    public static long dsS;
-    private String dsR;
+    public static long eeY;
+    private String eeX;
 
-    public void bJ(List<f> list) {
+    public void bV(List<i> list) {
         com.baidu.tieba.card.data.c cVar;
         int i = 0;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.dsR == null) {
-                this.dsR = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.eeX == null) {
+                this.eeX = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.dsR)) {
-                String[] split = this.dsR.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.eeX)) {
+                String[] split = this.eeX.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long c = com.baidu.adp.lib.g.b.c(split[1], 0L);
-                    if (c == 0 || StringUtils.isNull(str) || v.w(list)) {
+                    if (c == 0 || StringUtils.isNull(str) || v.G(list)) {
                         return;
                     }
                     while (true) {
@@ -35,7 +35,7 @@ public class d {
                                 i = i2 + 1;
                             } else {
                                 c cVar2 = new c();
-                                cVar2.dsQ = c;
+                                cVar2.eeW = c;
                                 if (i2 + 1 < list.size()) {
                                     list.add(i2 + 1, cVar2);
                                     return;
@@ -53,16 +53,16 @@ public class d {
 
     public void a(boolean z, int i, List<ThreadInfo> list, List<ThreadInfo> list2) {
         ThreadInfo threadInfo;
-        if (TbadkCoreApplication.isLogin() && !v.w(list) && i == v.v(list2) - 1 && z && (threadInfo = (ThreadInfo) v.c(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+        if (TbadkCoreApplication.isLogin() && !v.G(list) && i == v.F(list2) - 1 && z && (threadInfo = (ThreadInfo) v.f(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.dsR = null;
-            dsS = threadInfo.tid.longValue();
+            this.eeX = null;
+            eeY = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
-    public static void a(long j, int i, List<ThreadInfo> list, List<f> list2) {
-        if (j == dsS && !v.w(list) && !v.w(list2)) {
+    public static void a(long j, int i, List<ThreadInfo> list, List<i> list2) {
+        if (j == eeY && !v.G(list) && !v.G(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -81,7 +81,7 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    dsS = threadInfo.tid.longValue();
+                    eeY = threadInfo.tid.longValue();
                     com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.u
                         public Object doInBackground() {

@@ -2,7 +2,7 @@ package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class IjkTrackInfo implements ITrackInfo {
     private IjkMediaMeta.IjkStreamMeta mStreamMeta;
     private int mTrackType = 0;

@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SubmitPbShowTipHttpResponseMessage extends JsonHttpResponsedMessage {
     public SubmitPbShowTipHttpResponseMessage() {
         super(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);

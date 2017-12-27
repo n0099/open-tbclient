@@ -10,56 +10,56 @@ import com.baidu.tbadk.core.util.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String auT = k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int aaJ;
-    public String auF;
-    public String auK;
-    public String auL;
-    public int auO;
-    private Bundle auR;
+    public static final String biZ = k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int aPf;
+    public String biL;
+    public String biQ;
+    public String biR;
+    public int biU;
+    private Bundle biX;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String uid;
-    public boolean aux = false;
-    public boolean auy = false;
-    public boolean auz = false;
-    public boolean auA = false;
-    public boolean auB = false;
-    public boolean auC = false;
-    public boolean auD = false;
-    public String auE = "";
-    public int auM = 0;
-    public int auN = 3;
-    public boolean auP = false;
-    public boolean auS = true;
+    public boolean biD = false;
+    public boolean biE = false;
+    public boolean biF = false;
+    public boolean biG = false;
+    public boolean biH = false;
+    public boolean biI = false;
+    public boolean biJ = false;
+    public String biK = "";
+    public int biS = 0;
+    public int biT = 3;
+    public boolean biV = false;
+    public boolean biY = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String auG = null;
-    public Uri auH = null;
-    public Location auI = null;
-    private WeakReference<Bitmap> auQ = null;
-    public String auJ = null;
+    public String biM = null;
+    public Uri biN = null;
+    public Location biO = null;
+    private WeakReference<Bitmap> biW = null;
+    public String biP = null;
     public String extData = null;
 
-    public Bundle AU() {
-        return this.auR;
+    public Bundle Iw() {
+        return this.biX;
     }
 
-    public void e(Bundle bundle) {
-        this.auR = bundle;
+    public void h(Bundle bundle) {
+        this.biX = bundle;
     }
 
-    public Bitmap AV() {
+    public Bitmap Ix() {
         Bitmap bitmap;
-        if (this.auQ == null || (bitmap = this.auQ.get()) == null || bitmap.isRecycled()) {
+        if (this.biW == null || (bitmap = this.biW.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
-    public void e(Bitmap bitmap) {
-        this.auQ = new WeakReference<>(bitmap);
+    public void h(Bitmap bitmap) {
+        this.biW = new WeakReference<>(bitmap);
     }
 }

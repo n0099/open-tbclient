@@ -2,6 +2,7 @@ package com.baidu.appsearchlib;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -69,7 +70,7 @@ public class Logger {
     }
 
     public static void checkOnForeground(final Context context) {
-        activityManager = (ActivityManager) context.getSystemService("activity");
+        activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         packageName = context.getPackageName();
         if (checkThread == null) {
             checkThread = new Thread() { // from class: com.baidu.appsearchlib.Logger.1

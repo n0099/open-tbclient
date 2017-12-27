@@ -2,7 +2,9 @@ package com.baidu.android.pushservice.j;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class m {
     public static String a(Context context, String str) {
@@ -15,7 +17,6 @@ public class m {
             edit.putInt(str, i);
             edit.apply();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
         }
     }
 
@@ -25,7 +26,6 @@ public class m {
             edit.putLong(str, j);
             edit.apply();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
         }
     }
 
@@ -49,7 +49,25 @@ public class m {
             edit.putLong("version_code", p.d(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
+        }
+    }
+
+    public static void a(Context context, List<String> list) {
+        if (list == null || list.size() == 0 || list.size() > 20) {
+            return;
+        }
+        try {
+            SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.app_stat", 0).edit();
+            edit.putString("pkg_list", TextUtils.join(":", list));
+            edit.putLong("last_save", System.currentTimeMillis());
+            for (String str : list) {
+                PackageInfo a = p.a(context, str);
+                if (a != null) {
+                    edit.putString(str, a.versionCode + ":" + a.versionName);
+                }
+            }
+            edit.apply();
+        } catch (Exception e) {
         }
     }
 
@@ -60,7 +78,6 @@ public class m {
             edit.apply();
             return true;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
             return false;
         }
     }
@@ -80,7 +97,6 @@ public class m {
             edit.apply();
             return true;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
             return false;
         }
     }
@@ -95,7 +111,6 @@ public class m {
             edit.putInt(str, i);
             edit.apply();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PrivateParams", e);
         }
     }
 

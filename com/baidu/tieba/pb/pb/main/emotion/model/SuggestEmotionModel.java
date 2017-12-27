@@ -2,32 +2,56 @@ package com.baidu.tieba.pb.pb.main.emotion.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.g.e;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SuggestEmotionModel extends BdBaseModel {
-    private final HttpMessageListener aGJ = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+    private a fSq;
+    private String forumId;
+    private String forumName;
+    private final CustomMessageListener fSr = new CustomMessageListener(CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                e.nr().post(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
+                        httpMessage.addParam("forum_id", SuggestEmotionModel.this.forumId);
+                        httpMessage.addParam("forum_name", SuggestEmotionModel.this.forumName);
+                        httpMessage.addParam("has_pkg", (String) customResponsedMessage.getData());
+                        SuggestEmotionModel.this.sendMessage(httpMessage);
+                    }
+                });
+            }
+        }
+    };
+    private final HttpMessageListener buD = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.ffx != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.fSq != null) {
                 SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
                 if (suggestEmotionResponseMessage.getData() != null) {
-                    SuggestEmotionModel.this.ffx.a(suggestEmotionResponseMessage.getData());
+                    SuggestEmotionModel.this.fSq.a(suggestEmotionResponseMessage.getData());
                 } else {
-                    SuggestEmotionModel.this.ffx.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                    SuggestEmotionModel.this.fSq.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
                 }
             }
         }
     };
-    private a ffx;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(com.baidu.tieba.pb.pb.main.emotion.a.a aVar);
 
@@ -35,24 +59,24 @@ public class SuggestEmotionModel extends BdBaseModel {
     }
 
     public SuggestEmotionModel() {
-        zL();
-        this.aGJ.setTag(getUniqueId());
-        this.aGJ.setSelfListener(true);
-        registerListener(this.aGJ);
+        Hk();
+        this.buD.setTag(getUniqueId());
+        this.buD.setSelfListener(true);
+        registerListener(this.buD);
     }
 
-    private void zL() {
+    private void Hk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/suggest");
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.fSr);
     }
 
     public void a(String str, String str2, a aVar) {
-        this.ffx = aVar;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-        httpMessage.addParam("forum_id", str);
-        httpMessage.addParam("forum_name", str2);
-        sendMessage(httpMessage);
+        this.fSq = aVar;
+        this.forumId = str;
+        this.forumName = str2;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_SEND_LOCAL_EMOTIONS, new Integer((int) CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS)));
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -62,8 +86,9 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aGJ);
+        MessageManager.getInstance().unRegisterListener(this.buD);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
+        MessageManager.getInstance().unRegisterListener(this.fSr);
         return true;
     }
 }
