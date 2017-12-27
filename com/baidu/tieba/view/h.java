@@ -1,7 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface h {
-    void a(View view, com.baidu.tieba.f.a aVar);
+    void K(int i, boolean z);
+
+    void a(Context context, NavigationBar navigationBar);
+
+    void biB();
+
+    void c(float f, boolean z);
+
+    void e(UserData userData);
+
+    void onChangeSkinType(int i);
+
+    void setOnViewResponseListener(i iVar);
 }

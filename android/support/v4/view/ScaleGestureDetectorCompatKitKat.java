@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.view.ScaleGestureDetector;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ScaleGestureDetectorCompatKitKat {
     public static void setQuickScaleEnabled(Object obj, boolean z) {
         ((ScaleGestureDetector) obj).setQuickScaleEnabled(z);

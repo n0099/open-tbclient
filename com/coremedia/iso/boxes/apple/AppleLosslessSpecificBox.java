@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.apple;
 
-import com.baidu.tbadk.TbConfig;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -11,28 +10,28 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public final class AppleLosslessSpecificBox extends AbstractFullBox {
     public static final String TYPE = "alac";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_9 = null;
     private long bitRate;
     private int channels;
     private int historyMult;
@@ -62,7 +61,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
         ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 98);
         ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "maxCodedFrameSize", "", "void"), 102);
         ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "getBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 106);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "bitRate", "", "void"), TbConfig.BIG_PHOTO_MAX_SIZE);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "bitRate", "", "void"), 110);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getUnknown1", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 42);
         ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "getSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 114);
         ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "sampleRate", "", "void"), 118);
@@ -81,7 +80,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setMaxSamplePerFrame(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zC(i)));
         this.maxSamplePerFrame = i;
     }
 
@@ -91,7 +90,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setUnknown1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown1 = i;
     }
 
@@ -101,7 +100,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setSampleSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zC(i)));
         this.sampleSize = i;
     }
 
@@ -111,7 +110,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setHistoryMult(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zC(i)));
         this.historyMult = i;
     }
 
@@ -121,7 +120,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setInitialHistory(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.zC(i)));
         this.initialHistory = i;
     }
 
@@ -131,7 +130,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setKModifier(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.zC(i)));
         this.kModifier = i;
     }
 
@@ -141,7 +140,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setChannels(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.zC(i)));
         this.channels = i;
     }
 
@@ -151,7 +150,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setUnknown2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.zC(i)));
         this.unknown2 = i;
     }
 
@@ -161,7 +160,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setMaxCodedFrameSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.zC(i)));
         this.maxCodedFrameSize = i;
     }
 
@@ -171,7 +170,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setBitRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.zC(i)));
         this.bitRate = i;
     }
 
@@ -181,7 +180,7 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
     }
 
     public void setSampleRate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.zC(i)));
         this.sampleRate = i;
     }
 

@@ -39,41 +39,37 @@ public class b {
     */
     public static a a() {
         RandomAccessFile randomAccessFile;
+        Throwable th;
         String str;
         a a2;
+        byte[] bArr;
+        RandomAccessFile randomAccessFile2 = null;
         try {
-            byte[] bArr = new byte[1024];
+            bArr = new byte[1024];
             randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
-            try {
-                try {
-                    randomAccessFile.read(bArr);
-                    str = new String(bArr);
-                    int indexOf = str.indexOf(0);
-                    if (indexOf != -1) {
-                        str = str.substring(0, indexOf);
-                    }
-                    com.baidu.android.pushservice.f.b.a(randomAccessFile);
-                } catch (Exception e) {
-                    e = e;
-                    com.baidu.android.pushservice.g.a.a("StatUtils", e);
-                    com.baidu.android.pushservice.f.b.a(randomAccessFile);
-                    str = "";
-                    a2 = a(str);
-                    if (a2 != null) {
-                    }
-                    return a2;
-                }
-            } catch (Throwable th) {
-                th = th;
-                com.baidu.android.pushservice.f.b.a(randomAccessFile);
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            randomAccessFile = null;
+        } catch (Exception e) {
         } catch (Throwable th2) {
-            th = th2;
             randomAccessFile = null;
+            th = th2;
+        }
+        try {
+            randomAccessFile.read(bArr);
+            str = new String(bArr);
+            int indexOf = str.indexOf(0);
+            if (indexOf != -1) {
+                str = str.substring(0, indexOf);
+            }
+            com.baidu.android.pushservice.f.b.a(randomAccessFile);
+        } catch (Exception e2) {
+            randomAccessFile2 = randomAccessFile;
+            com.baidu.android.pushservice.f.b.a(randomAccessFile2);
+            str = "";
+            a2 = a(str);
+            if (a2 != null) {
+            }
+            return a2;
+        } catch (Throwable th3) {
+            th = th3;
             com.baidu.android.pushservice.f.b.a(randomAccessFile);
             throw th;
         }
@@ -145,16 +141,13 @@ public class b {
         StringBuilder sb = new StringBuilder();
         while (true) {
             try {
-                try {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    sb.append(readLine);
-                } catch (IOException e) {
-                    com.baidu.android.pushservice.g.a.a("StatUtils", e);
-                    com.baidu.android.pushservice.f.b.a(inputStream, inputStreamReader, bufferedReader);
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    break;
                 }
+                sb.append(readLine);
+            } catch (IOException e) {
+                com.baidu.android.pushservice.f.b.a(inputStream, inputStreamReader, bufferedReader);
             } catch (Throwable th) {
                 com.baidu.android.pushservice.f.b.a(inputStream, inputStreamReader, bufferedReader);
                 throw th;
@@ -258,7 +251,6 @@ public class b {
             }
             jSONObject.put("user_ip", e());
         } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.a("StatUtils", e2);
         }
         return jSONObject;
     }
@@ -279,12 +271,12 @@ public class b {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("StatUtils", e);
             return null;
         }
     }
 
     public static JSONObject e(Context context) {
+        String str;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("os_name", "Android");
@@ -306,69 +298,66 @@ public class b {
             String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
             if (string == null || string.length() == 0) {
                 try {
-                    string = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                    if (string != null && string.length() > 0) {
-                        context.getSharedPreferences("pst", 0).edit().putString("push_mac_id", string).apply();
+                    str = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                    if (str != null) {
+                        try {
+                            if (str.length() > 0) {
+                                context.getSharedPreferences("pst", 0).edit().putString("push_mac_id", str).apply();
+                            }
+                        } catch (Exception e) {
+                        }
                     }
-                } catch (Exception e) {
-                    com.baidu.android.pushservice.g.a.a("StatUtils", e);
+                } catch (Exception e2) {
+                    str = string;
                 }
+            } else {
+                str = string;
             }
-            if (string != null && string.length() > 0) {
-                jSONObject.put("mac_id", string);
+            if (str != null && str.length() > 0) {
+                jSONObject.put("mac_id", str);
             }
-        } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.a("StatUtils", e2);
+        } catch (JSONException e3) {
         }
         return jSONObject;
     }
 
     private static int f() {
-        BufferedReader bufferedReader;
         FileReader fileReader;
-        FileReader fileReader2 = null;
+        Throwable th;
+        BufferedReader bufferedReader;
+        FileReader fileReader2;
+        BufferedReader bufferedReader2 = null;
         try {
             fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
             try {
                 bufferedReader = new BufferedReader(fileReader);
-            } catch (Exception e) {
-                e = e;
-                bufferedReader = null;
+                try {
+                    String readLine = bufferedReader.readLine();
+                    int parseInt = readLine != null ? Integer.parseInt(readLine.trim()) : 0;
+                    com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
+                    return parseInt;
+                } catch (Exception e) {
+                    bufferedReader2 = bufferedReader;
+                    fileReader2 = fileReader;
+                    com.baidu.android.pushservice.f.b.a(fileReader2, bufferedReader2);
+                    return 0;
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
+                    throw th;
+                }
+            } catch (Exception e2) {
                 fileReader2 = fileReader;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader = null;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader = null;
-            fileReader = null;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            int parseInt = readLine != null ? Integer.parseInt(readLine.trim()) : 0;
-            com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
-            return parseInt;
-        } catch (Exception e3) {
-            e = e3;
-            fileReader2 = fileReader;
-            try {
-                com.baidu.android.pushservice.g.a.a("StatUtils", e);
-                com.baidu.android.pushservice.f.b.a(fileReader2, bufferedReader);
-                return 0;
             } catch (Throwable th3) {
+                bufferedReader = null;
                 th = th3;
-                fileReader = fileReader2;
-                com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
-                throw th;
             }
+        } catch (Exception e3) {
+            fileReader2 = null;
         } catch (Throwable th4) {
+            fileReader = null;
             th = th4;
-            com.baidu.android.pushservice.f.b.a(fileReader, bufferedReader);
-            throw th;
+            bufferedReader = null;
         }
     }
 }

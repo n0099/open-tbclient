@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.smartsort;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
     public String forumName;
     public long lastTime;
@@ -18,7 +18,7 @@ public class e {
         this.lastTime = jSONObject.optLong("last_time");
     }
 
-    public JSONObject aqv() {
+    public JSONObject axG() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

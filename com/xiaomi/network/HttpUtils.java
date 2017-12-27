@@ -3,7 +3,6 @@ package com.xiaomi.network;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
 import com.xiaomi.channel.commonutils.network.d;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -12,6 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public abstract class HttpUtils {
 
@@ -39,7 +39,7 @@ public abstract class HttpUtils {
     }
 
     static int a(int i, int i2, int i3) {
-        return (((i2 + 200) / 1448) * 132) + CreateGroupStepActivityConfig.SOURCE_FROM_NEAR + i2 + i + i3;
+        return (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3;
     }
 
     private static int a(HttpProcessor httpProcessor, String str, List<com.xiaomi.channel.commonutils.network.c> list, String str2) {
@@ -57,7 +57,7 @@ public abstract class HttpUtils {
             return 0;
         }
         try {
-            return str.getBytes("UTF-8").length;
+            return str.getBytes(HTTP.UTF_8).length;
         } catch (UnsupportedEncodingException e) {
             return 0;
         }

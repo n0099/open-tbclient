@@ -16,15 +16,15 @@ public class AES {
     private String encoding;
 
     public AES() {
-        this("AES", DEFAULT_ALGORITHM_MODE, DEFAULT_ENCODING);
+        this("AES", DEFAULT_ALGORITHM_MODE, "UTF-8");
     }
 
     public AES(String str, String str2) {
-        this(str, str2, DEFAULT_ENCODING);
+        this(str, str2, "UTF-8");
     }
 
     public AES(String str, String str2, String str3) {
-        this.encoding = DEFAULT_ENCODING;
+        this.encoding = "UTF-8";
         this.algorithmMode = DEFAULT_ALGORITHM_MODE;
         this.algorithm = "AES";
         this.algorithm = str;

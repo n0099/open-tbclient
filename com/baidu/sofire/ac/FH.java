@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.sofire.a.a;
 import com.baidu.sofire.ac.Callback;
-import com.baidu.sofire.b.d;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
+import com.baidu.sofire.d;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
@@ -27,25 +27,25 @@ public class FH {
                 public final void run() {
                     try {
                         e.a(context);
-                        new com.baidu.sofire.e(context).e(iArr);
-                        c ap = c.ap(context);
+                        new d(context).l(iArr);
+                        c aB = c.aB(context);
                         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                            String[] e = d.e(context);
+                            String[] e = com.baidu.sofire.b.d.e(context);
                             if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
-                                ap.a(e[0], e[1]);
+                                aB.a(e[0], e[1]);
                             }
                         } else {
-                            ap.a(str, str2);
+                            aB.a(str, str2);
                         }
                         c.a(1);
-                        ap.a((Callback) null);
+                        aB.a((Callback) null);
                     } catch (Throwable th) {
-                        d.a(th);
+                        com.baidu.sofire.b.d.a(th);
                     }
                 }
             }).start();
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
     }
 
@@ -59,25 +59,25 @@ public class FH {
                         if (i > 0) {
                             Thread.sleep(i * 1000);
                         }
-                        new com.baidu.sofire.e(context).e(iArr);
-                        c ap = c.ap(context);
+                        new d(context).l(iArr);
+                        c aB = c.aB(context);
                         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                            String[] e = d.e(context);
+                            String[] e = com.baidu.sofire.b.d.e(context);
                             if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1])) {
-                                ap.a(e[0], e[1]);
+                                aB.a(e[0], e[1]);
                             }
                         } else {
-                            ap.a(str, str2);
+                            aB.a(str, str2);
                         }
                         c.a(1);
-                        ap.a((Callback) null);
+                        aB.a((Callback) null);
                     } catch (Throwable th) {
-                        d.a(th);
+                        com.baidu.sofire.b.d.a(th);
                     }
                 }
             }).start();
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
     }
 
@@ -92,15 +92,15 @@ public class FH {
     public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
         Pair<Integer, Object> a;
         try {
-            c nn = c.nn();
-            if (nn == null) {
+            c uQ = c.uQ();
+            if (uQ == null) {
                 a = new Pair<>(3, null);
             } else {
-                a = nn.a(i, str, clsArr, objArr);
+                a = uQ.a(i, str, clsArr, objArr);
             }
             return a;
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
             return new Pair<>(3, null);
         }
     }
@@ -116,20 +116,20 @@ public class FH {
     /* JADX WARN: Type inference failed for: r0v10, types: [com.baidu.sofire.core.c$3] */
     public static boolean call(final int i, final String str, final Callback callback, final Class<?>[] clsArr, final Object... objArr) {
         try {
-            final c nn = c.nn();
-            if (nn == null) {
+            final c uQ = c.uQ();
+            if (uQ == null) {
                 for (int i2 = 0; i2 < 20; i2++) {
                     try {
                         Thread.sleep(50L);
                     } catch (InterruptedException e) {
-                        d.a(e);
+                        com.baidu.sofire.b.d.a(e);
                     }
-                    nn = c.nn();
-                    if (nn != null) {
+                    uQ = c.uQ();
+                    if (uQ != null) {
                         break;
                     }
                 }
-                if (nn == null) {
+                if (uQ == null) {
                     return false;
                 }
             }
@@ -138,7 +138,7 @@ public class FH {
             hashMap.put("0", Integer.toString(i));
             hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
             hashMap.put("2", "0");
-            d.a(nn.a, "1003136", hashMap);
+            com.baidu.sofire.b.d.a(uQ.a, "1003136", hashMap);
             if (TextUtils.isEmpty(str)) {
                 if (callback != null) {
                     callback.onError(1);
@@ -155,23 +155,23 @@ public class FH {
                             if (callback != null) {
                                 callback.onBegin(new Object[0]);
                             }
-                            if (c.this.Qs.aW(i)) {
+                            if (c.this.aFa.dX(i)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                while (c.this.Qs.aW(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                                while (c.this.aFa.dX(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
                                     SystemClock.sleep(300L);
                                 }
                             }
-                            if (!c.this.Qs.aW(i)) {
+                            if (!c.this.aFa.dX(i)) {
                                 if (!c.this.d) {
                                     c.a(3);
                                     c.this.a((Callback) null);
                                 }
-                                e aq = e.aq(c.this.a.getApplicationContext());
+                                e aC = e.aC(c.this.a.getApplicationContext());
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 while (System.currentTimeMillis() - currentTimeMillis2 <= 120000) {
-                                    apkInfo2 = c.this.Qs.aV(i);
+                                    apkInfo2 = c.this.aFa.dW(i);
                                     if (apkInfo2 != null) {
-                                        if (aq.bY(apkInfo2.packageName) == null) {
+                                        if (aC.cf(apkInfo2.packageName) == null) {
                                             if (apkInfo2.initStatus == -1) {
                                                 break;
                                             }
@@ -192,8 +192,8 @@ public class FH {
                                     }
                                     return;
                                 }
-                                Class<?> bX = ((d) aq.bY(apkInfo.packageName).classLoader).bX("com.baidu.sofire.engine.EngineImpl");
-                                Object a = com.baidu.sofire.b.d.a(bX.getDeclaredMethod("getInstance", Context.class).invoke(bX, c.this.a), str, clsArr, objArr);
+                                Class<?> ce = ((d) aC.cf(apkInfo.packageName).classLoader).ce("com.baidu.sofire.engine.EngineImpl");
+                                Object a = com.baidu.sofire.b.d.a(ce.getDeclaredMethod("getInstance", Context.class).invoke(ce, c.this.a), str, clsArr, objArr);
                                 try {
                                     new StringBuilder().append(a);
                                 } catch (Throwable th) {
@@ -236,7 +236,7 @@ public class FH {
             }
             return true;
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
             return false;
         }
     }
@@ -248,11 +248,11 @@ public class FH {
                     return "";
                 }
                 try {
-                    com.baidu.sofire.core.e no = com.baidu.sofire.core.e.no();
-                    if (no == null) {
+                    com.baidu.sofire.core.e uR = com.baidu.sofire.core.e.uR();
+                    if (uR == null) {
                         return "";
                     }
-                    List<ApkInfo> b = no.b();
+                    List<ApkInfo> b = uR.b();
                     if (b == null || b.size() <= 0) {
                         return "";
                     }
@@ -266,7 +266,7 @@ public class FH {
                     }
                     return "";
                 } catch (Throwable th) {
-                    d.a(th);
+                    com.baidu.sofire.b.d.a(th);
                     return "";
                 }
             default:
@@ -281,9 +281,9 @@ public class FH {
     public static String gz(Context context) {
         String string;
         try {
-            string = new com.baidu.sofire.e(context).b.getString("xytk", "");
+            string = new d(context).b.getString("xytk", "");
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
         if (TextUtils.isEmpty(string)) {
             String a = e.a(context);
@@ -292,7 +292,7 @@ public class FH {
                 if (split != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
                     byte[] re = F.getInstance().re(split[1].getBytes(), split[0].getBytes());
                     if (re != null) {
-                        return split[0] + d.a(re);
+                        return split[0] + com.baidu.sofire.b.d.a(re);
                     }
                 } else {
                     return a;
@@ -304,16 +304,16 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        ApkInfo aV;
-        com.baidu.sofire.core.e no;
+        ApkInfo dW;
+        com.baidu.sofire.core.e uR;
         try {
-            a aVar = a.Qi;
-            if (aVar == null || (aV = aVar.aV(i)) == null || aV.initStatus != 1 || (no = com.baidu.sofire.core.e.no()) == null) {
+            a aVar = a.aEQ;
+            if (aVar == null || (dW = aVar.dW(i)) == null || dW.initStatus != 1 || (uR = com.baidu.sofire.core.e.uR()) == null) {
                 return false;
             }
-            return no.bY(aV.packageName) != null;
+            return uR.cf(dW.packageName) != null;
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
             return false;
         }
     }

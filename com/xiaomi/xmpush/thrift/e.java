@@ -1,4 +1,6 @@
 package com.xiaomi.xmpush.thrift;
+
+import android.support.v4.view.PointerIconCompat;
 /* loaded from: classes2.dex */
 public enum e {
     UploadSwitch(1),
@@ -45,8 +47,8 @@ public enum e {
     UploadNOWIFIGeoLocFrequency(42),
     CollectionDataPluginVersion(1001),
     CollectionPluginDownloadUrl(1002),
-    CollectionPluginMd5(1003),
-    CollectionPluginForceStop(1004);
+    CollectionPluginMd5(PointerIconCompat.TYPE_HELP),
+    CollectionPluginForceStop(PointerIconCompat.TYPE_WAIT);
     
     private final int U;
 

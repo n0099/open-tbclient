@@ -3,14 +3,14 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ContentLoadingProgressBar extends ProgressBar {
     private final Runnable mDelayedHide;
     private final Runnable mDelayedShow;
-    private boolean mDismissed;
-    private boolean mPostedHide;
-    private boolean mPostedShow;
-    private long mStartTime;
+    boolean mDismissed;
+    boolean mPostedHide;
+    boolean mPostedShow;
+    long mStartTime;
 
     public ContentLoadingProgressBar(Context context) {
         this(context, null);

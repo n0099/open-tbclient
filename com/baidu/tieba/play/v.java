@@ -1,83 +1,369 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import java.util.Iterator;
-import tbclient.VideoDesc;
-import tbclient.VideoInfo;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.MediaController;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class v {
-    private long cMa;
-    private int duration;
-    private String fRj;
-    private String videoMd5;
-    private String videoUrl;
+public class v extends RelativeLayout {
+    private boolean bEY;
+    private int bRh;
+    private MediaController.MediaPlayerControl bRi;
+    private TextView bRj;
+    private TextView bRk;
+    private boolean bRl;
+    private SeekBar bRm;
+    private SeekBar.OnSeekBarChangeListener bRp;
+    private int bRq;
+    private SeekBar.OnSeekBarChangeListener bRr;
+    private b eYt;
+    private a eYu;
+    private Context mContext;
+    private int mDuration;
+    private Handler mHandler;
 
-    public void a(VideoInfo videoInfo, boolean z) {
-        String str;
-        if (videoInfo != null) {
-            String str2 = videoInfo.video_url;
-            videoInfo.video_width.toString();
-            videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.w(videoInfo.video_desc)) {
-                VideoDesc videoDesc = null;
-                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    VideoDesc next = it.next();
-                    if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.hi()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.hj()) {
-                                videoDesc = next;
-                                break;
+    /* loaded from: classes.dex */
+    public interface a {
+        void TX();
+    }
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void jw(int i);
+    }
+
+    public v(Context context) {
+        super(context);
+        this.bRh = 50;
+        this.bEY = false;
+        this.bRl = true;
+        this.bRq = 0;
+        this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                switch (message.what) {
+                    case 1:
+                        if (!v.this.bEY && v.this.bRl && v.this.bRi != null && v.this.bRi.isPlaying()) {
+                            int TW = v.this.TW();
+                            if (v.this.eYt != null) {
+                                v.this.eYt.jw(TW);
                             }
-                        } else {
-                            videoDesc = next;
-                            break;
+                            sendMessageDelayed(obtainMessage(1), v.this.bRh - (TW % v.this.bRh));
+                            return;
                         }
-                    }
-                }
-                if (videoDesc != null) {
-                    str = videoDesc.video_url;
-                    String str3 = videoDesc.video_width;
-                    String str4 = videoDesc.video_height;
-                    this.videoUrl = str;
-                    this.cMa = videoInfo.video_length.intValue();
-                    this.duration = videoInfo.video_duration.intValue();
-                    this.fRj = videoInfo.video_width + "x" + videoInfo.video_height;
-                    this.videoMd5 = videoInfo.video_md5;
+                        return;
+                    default:
+                        return;
                 }
             }
-            str = str2;
-            this.videoUrl = str;
-            this.cMa = videoInfo.video_length.intValue();
-            this.duration = videoInfo.video_duration.intValue();
-            this.fRj = videoInfo.video_width + "x" + videoInfo.video_height;
-            this.videoMd5 = videoInfo.video_md5;
+        };
+        this.bRr = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                v.this.bEY = true;
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStartTrackingTouch(seekBar);
+                }
+                v.this.mHandler.removeMessages(1);
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+                if (z) {
+                    v.this.bRq = (int) ((v.this.bRi.getDuration() * i) / 10000);
+                    if (v.this.bRj != null) {
+                        v.this.bRj.setText(am.fX(v.this.bRq));
+                    }
+                    if (v.this.eYu != null) {
+                        v.this.eYu.TX();
+                    }
+                    if (v.this.bRp != null) {
+                        v.this.bRp.onProgressChanged(seekBar, v.this.bRq, z);
+                    }
+                }
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                v.this.bRi.seekTo(v.this.bRq);
+                v.this.bEY = false;
+                v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStopTrackingTouch(seekBar);
+                }
+            }
+        };
+        init(context);
+    }
+
+    public v(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.bRh = 50;
+        this.bEY = false;
+        this.bRl = true;
+        this.bRq = 0;
+        this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                switch (message.what) {
+                    case 1:
+                        if (!v.this.bEY && v.this.bRl && v.this.bRi != null && v.this.bRi.isPlaying()) {
+                            int TW = v.this.TW();
+                            if (v.this.eYt != null) {
+                                v.this.eYt.jw(TW);
+                            }
+                            sendMessageDelayed(obtainMessage(1), v.this.bRh - (TW % v.this.bRh));
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        };
+        this.bRr = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                v.this.bEY = true;
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStartTrackingTouch(seekBar);
+                }
+                v.this.mHandler.removeMessages(1);
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+                if (z) {
+                    v.this.bRq = (int) ((v.this.bRi.getDuration() * i) / 10000);
+                    if (v.this.bRj != null) {
+                        v.this.bRj.setText(am.fX(v.this.bRq));
+                    }
+                    if (v.this.eYu != null) {
+                        v.this.eYu.TX();
+                    }
+                    if (v.this.bRp != null) {
+                        v.this.bRp.onProgressChanged(seekBar, v.this.bRq, z);
+                    }
+                }
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                v.this.bRi.seekTo(v.this.bRq);
+                v.this.bEY = false;
+                v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStopTrackingTouch(seekBar);
+                }
+            }
+        };
+        init(context);
+    }
+
+    public v(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.bRh = 50;
+        this.bEY = false;
+        this.bRl = true;
+        this.bRq = 0;
+        this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                switch (message.what) {
+                    case 1:
+                        if (!v.this.bEY && v.this.bRl && v.this.bRi != null && v.this.bRi.isPlaying()) {
+                            int TW = v.this.TW();
+                            if (v.this.eYt != null) {
+                                v.this.eYt.jw(TW);
+                            }
+                            sendMessageDelayed(obtainMessage(1), v.this.bRh - (TW % v.this.bRh));
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        };
+        this.bRr = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                v.this.bEY = true;
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStartTrackingTouch(seekBar);
+                }
+                v.this.mHandler.removeMessages(1);
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
+                if (z) {
+                    v.this.bRq = (int) ((v.this.bRi.getDuration() * i2) / 10000);
+                    if (v.this.bRj != null) {
+                        v.this.bRj.setText(am.fX(v.this.bRq));
+                    }
+                    if (v.this.eYu != null) {
+                        v.this.eYu.TX();
+                    }
+                    if (v.this.bRp != null) {
+                        v.this.bRp.onProgressChanged(seekBar, v.this.bRq, z);
+                    }
+                }
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                v.this.bRi.seekTo(v.this.bRq);
+                v.this.bEY = false;
+                v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
+                if (v.this.bRp != null) {
+                    v.this.bRp.onStopTrackingTouch(seekBar);
+                }
+            }
+        };
+        init(context);
+    }
+
+    private void init(Context context) {
+        this.mContext = context;
+        View bu = bu(context);
+        addView(bu, -1, (int) context.getResources().getDimension(d.e.ds80));
+        this.bRj = (TextView) bu.findViewById(d.g.textview_cur_time);
+        this.bRk = (TextView) bu.findViewById(d.g.textview_duration);
+        this.bRm = (SeekBar) bu.findViewById(d.g.pb_video_controller_seekBar);
+        this.bRm.setOnSeekBarChangeListener(this.bRr);
+    }
+
+    protected View bu(Context context) {
+        return LayoutInflater.from(context).inflate(d.h.video_controller, (ViewGroup) null);
+    }
+
+    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
+        this.bRi = mediaPlayerControl;
+    }
+
+    public void aU(int i, int i2) {
+        this.mDuration = i2;
+        this.bRl = false;
+        this.mHandler.removeMessages(1);
+        this.bRm.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.bRj != null) {
+            this.bRj.setText(am.fX(i));
+        }
+        if (this.bRk != null) {
+            this.bRk.setText(am.fX(this.mDuration));
         }
     }
 
-    public void d(VideoInfo videoInfo) {
-        a(videoInfo, false);
-    }
-
-    public void b(AlaInfoData alaInfoData) {
-        if (alaInfoData != null) {
-            this.videoUrl = alaInfoData.hls_url;
+    public void showProgress() {
+        if (this.bRi != null) {
+            this.bRh = ((this.bRi.getDuration() / 200) / 50) * 50;
+            if (this.bRh < 50) {
+                this.bRh = 50;
+            } else if (this.bRh > 500) {
+                this.bRh = 500;
+            }
+            this.bRl = true;
+            this.mHandler.removeMessages(1);
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.bRh - (this.bRi.getCurrentPosition() % this.bRh));
         }
     }
 
-    public long bjI() {
-        return this.cMa;
+    public void TV() {
+        this.bRl = false;
+        this.mHandler.removeMessages(1);
+        this.bRm.setProgress(0);
+        if (this.bRj != null) {
+            this.bRj.setText(am.fX(0));
+        }
     }
 
-    public int getDuration() {
-        return this.duration;
+    /* JADX INFO: Access modifiers changed from: private */
+    public int TW() {
+        if (this.bRi == null || this.bEY) {
+            return 0;
+        }
+        int currentPosition = this.bRi.getCurrentPosition();
+        int duration = this.bRi.getDuration();
+        if (currentPosition > duration) {
+            currentPosition = duration;
+        }
+        if (this.bRm != null) {
+            if (duration > 0) {
+                this.bRm.setProgress((int) ((10000 * currentPosition) / duration));
+            }
+            this.bRi.getBufferPercentage();
+        }
+        if (this.bRj != null) {
+            this.bRj.setText(am.fX(currentPosition));
+            return currentPosition;
+        }
+        return currentPosition;
     }
 
-    public String bjJ() {
-        return this.fRj;
+    public void L(int i, boolean z) {
+        if (i < 0) {
+            i = 0;
+        }
+        if (!z) {
+            if (this.mHandler != null) {
+                this.mHandler.removeMessages(1);
+            }
+        } else {
+            this.bRi.seekTo(i);
+            if (this.bRj != null) {
+                this.bRj.setText(am.fX(i));
+            }
+            showProgress();
+        }
+        if (!this.bRi.isPlaying()) {
+            this.bRm.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
+        }
+    }
+
+    public String vu(int i) {
+        if (i < 0) {
+            i = 0;
+        }
+        return am.fX(i);
+    }
+
+    public int getSeekPosition() {
+        return this.bRq;
+    }
+
+    public int getCurProgress() {
+        if (this.bRm != null) {
+            return this.bRm.getProgress();
+        }
+        return 0;
+    }
+
+    public void destroy() {
+        if (this.mHandler != null) {
+            this.mHandler.removeMessages(1);
+        }
+    }
+
+    public void setOnProgressUpdatedListener(b bVar) {
+        this.eYt = bVar;
+    }
+
+    public void setOnDragingListener(a aVar) {
+        this.eYu = aVar;
+    }
+
+    public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
+        this.bRp = onSeekBarChangeListener;
     }
 }

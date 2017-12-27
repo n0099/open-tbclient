@@ -5,11 +5,12 @@ import android.database.DataSetObserver;
 import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class PagerAdapter {
     public static final int POSITION_NONE = -2;
     public static final int POSITION_UNCHANGED = -1;
-    private DataSetObservable mObservable = new DataSetObservable();
+    private final DataSetObservable mObservable = new DataSetObservable();
+    private DataSetObserver mViewPagerObserver;
 
     public abstract int getCount();
 
@@ -35,20 +36,25 @@ public abstract class PagerAdapter {
         finishUpdate((View) viewGroup);
     }
 
+    @Deprecated
     public void startUpdate(View view) {
     }
 
+    @Deprecated
     public Object instantiateItem(View view, int i) {
         throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
     }
 
+    @Deprecated
     public void destroyItem(View view, int i, Object obj) {
         throw new UnsupportedOperationException("Required method destroyItem was not overridden");
     }
 
+    @Deprecated
     public void setPrimaryItem(View view, int i, Object obj) {
     }
 
+    @Deprecated
     public void finishUpdate(View view) {
     }
 
@@ -64,6 +70,11 @@ public abstract class PagerAdapter {
     }
 
     public void notifyDataSetChanged() {
+        synchronized (this) {
+            if (this.mViewPagerObserver != null) {
+                this.mViewPagerObserver.onChanged();
+            }
+        }
         this.mObservable.notifyChanged();
     }
 
@@ -73,6 +84,13 @@ public abstract class PagerAdapter {
 
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         this.mObservable.unregisterObserver(dataSetObserver);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setViewPagerObserver(DataSetObserver dataSetObserver) {
+        synchronized (this) {
+            this.mViewPagerObserver = dataSetObserver;
+        }
     }
 
     public CharSequence getPageTitle(int i) {

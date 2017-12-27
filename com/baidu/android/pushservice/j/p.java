@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,11 +16,12 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.database.Cursor;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -27,22 +29,24 @@ import android.view.WindowManager;
 import com.baidu.adp.BuildConfig;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.android.pushservice.d.c;
+import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.baidu.tieba.model.ReportUserInfoModel;
+import com.meizu.cloud.pushsdk.PushManager;
+import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
@@ -52,6 +56,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.json.JSONObject;
 @SuppressLint({"WorldReadableFiles"})
 /* loaded from: classes2.dex */
@@ -68,135 +74,56 @@ public final class p {
             }
             return 0;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return 0;
         }
     }
 
     public static void A(Context context) {
-        com.baidu.android.pushservice.message.a.d.a(context);
         Intent intent = new Intent(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.SEND_LBS");
+        intent.putExtra("method", "com.baidu.android.pushservice.action.SEND_APPSTAT");
         com.baidu.android.pushservice.i.a(context.getApplicationContext()).a(intent);
     }
 
-    public static String B(Context context) {
-        String str = "";
-        String upperCase = Build.MANUFACTURER.toUpperCase();
-        if (upperCase.contains("XIAOMI")) {
-            str = "ro.build.version.incremental";
-        } else if (upperCase.contains("HUAWEI")) {
-            str = "ro.build.version.emui";
-        }
-        try {
-            Class<?> cls = Class.forName("android.os.SystemProperties");
-            return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
-        } catch (Exception e) {
-            String str2 = (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : "" : "EmotionUI_notfound";
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-            return str2;
-        }
-    }
-
-    public static boolean B(Context context, String str) {
-        try {
-            String a2 = m.a(context, "huawei_msg_md5");
-            if (a2 == null || a2.equals(str)) {
-                return false;
-            }
-            m.a(context, "huawei_msg_md5", str);
-            return true;
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-            return false;
-        }
-    }
-
-    public static String C(Context context) {
-        String str;
-        Exception e;
-        String str2 = "";
-        if (c()) {
-            String str3 = "";
-            String upperCase = Build.MANUFACTURER.toUpperCase();
-            if (upperCase.contains("XIAOMI")) {
-                str3 = "ro.miui.ui.version.code";
-            } else if (upperCase.contains("HUAWEI")) {
-                str3 = "ro.build.version.emui";
-            }
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
-            } catch (Exception e2) {
-                str = "";
-                e = e2;
-            }
-            try {
-                if (!upperCase.contains("HUAWEI") || TextUtils.isEmpty(str)) {
-                    return str;
-                }
-                str2 = str.substring(str.indexOf("_") + 1, str.length());
-                if (!str2.matches("\\d+\\.\\d+$")) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        return "3.1";
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
-                    str = "3.1";
-                } else if (upperCase.contains("HUAWEI")) {
-                    str = BuildConfig.VERSION_NAME;
-                } else if (upperCase.contains("XIAOMI")) {
-                    str = "4.0";
-                }
-                com.baidu.android.pushservice.g.a.a("Utility", e);
-                return str;
-            }
-        }
-        return str2;
-    }
-
-    public static String C(Context context, String str) {
+    public static String B(Context context, String str) {
         String str2;
+        ArrayList<com.baidu.android.pushservice.b.f> e;
         if (context == null) {
             return null;
         }
         try {
             String g = com.baidu.android.pushservice.d.c.g(context);
-            if (TextUtils.isEmpty(g) && D(context)) {
+            if (TextUtils.isEmpty(g) && E(context)) {
                 g = q.a(context, context.getPackageName() + ".push_sync", "r_v2");
             }
-            if (!TextUtils.isEmpty(g)) {
-                String a2 = com.baidu.android.pushservice.b.b.a(g);
-                com.baidu.android.pushservice.g.a.b("Utility", "ClientManager init strAppsV2 : " + a2);
-                ArrayList<com.baidu.android.pushservice.b.f> e = com.baidu.android.pushservice.b.b.e(a2);
-                if (e != null) {
-                    Iterator<com.baidu.android.pushservice.b.f> it = e.iterator();
-                    while (it.hasNext()) {
-                        com.baidu.android.pushservice.b.f next = it.next();
-                        if (next.c().equals(str)) {
-                            str2 = next.a();
-                            break;
-                        }
+            if (!TextUtils.isEmpty(g) && (e = com.baidu.android.pushservice.b.b.e(com.baidu.android.pushservice.b.b.a(g))) != null) {
+                Iterator<com.baidu.android.pushservice.b.f> it = e.iterator();
+                while (it.hasNext()) {
+                    com.baidu.android.pushservice.b.f next = it.next();
+                    if (next.c().equals(str)) {
+                        str2 = next.a();
+                        break;
                     }
                 }
-            } else {
-                com.baidu.android.pushservice.g.a.d("Utility", "ClientManager init strAppsV2 empty.");
             }
+            str2 = null;
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a("Utility", e2);
+            str2 = null;
         }
-        str2 = null;
         return str2;
     }
 
-    public static int D(Context context, String str) {
-        int i;
+    public static void B(Context context) {
+        com.baidu.android.pushservice.message.a.d.a(context);
+        Intent intent = new Intent(PushConstants.ACTION_METHOD);
+        intent.putExtra("method", "com.baidu.android.pushservice.action.SEND_LBS");
+        com.baidu.android.pushservice.i.a(context.getApplicationContext()).a(intent);
+    }
+
+    public static int C(Context context, String str) {
         ArrayList<com.baidu.android.pushservice.b.f> e;
         try {
             String f = com.baidu.android.pushservice.d.c.f(context);
-            if (TextUtils.isEmpty(f) && D(context)) {
+            if (TextUtils.isEmpty(f) && E(context)) {
                 f = q.a(context, context.getPackageName() + ".push_sync", "r_v2");
             }
             if (!TextUtils.isEmpty(f) && (e = com.baidu.android.pushservice.b.b.e(com.baidu.android.pushservice.b.b.a(f))) != null) {
@@ -204,20 +131,173 @@ public final class p {
                 while (it.hasNext()) {
                     com.baidu.android.pushservice.b.f next = it.next();
                     if (TextUtils.equals(next.c(), str)) {
-                        i = next.e();
-                        break;
+                        return next.e();
                     }
                 }
             }
+            return 0;
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a("Utility", e2);
+            return 0;
         }
-        i = 0;
-        com.baidu.android.pushservice.g.a.c("Utility", str + " SDK Version Code = " + i);
-        return i;
     }
 
-    public static boolean D(Context context) {
+    public static String C(Context context) {
+        String str = "";
+        String upperCase = Build.MANUFACTURER.toUpperCase();
+        if (upperCase.contains("XIAOMI")) {
+            str = "ro.build.version.incremental";
+        } else if (upperCase.contains("HUAWEI")) {
+            str = "ro.build.version.emui";
+        } else if (upperCase.contains("MEIZU")) {
+            return Build.DISPLAY;
+        } else {
+            if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+                str = "ro.build.version.opporom";
+            }
+        }
+        try {
+            Class<?> cls = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES);
+            return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+        } catch (Exception e) {
+            return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "ColorOS_notfound" : "" : "EmotionUI_notfound";
+        }
+    }
+
+    public static String D(Context context) {
+        String str;
+        String str2 = "";
+        if (e()) {
+            String str3 = "";
+            String upperCase = Build.MANUFACTURER.toUpperCase();
+            if (upperCase.contains("XIAOMI")) {
+                str3 = "ro.miui.ui.version.code";
+            } else if (upperCase.contains("HUAWEI")) {
+                str3 = "ro.build.version.emui";
+            } else if (upperCase.contains("MEIZU")) {
+                str3 = "ro.build.display.id";
+            } else if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+                str3 = "ro.build.version.opporom";
+            }
+            try {
+                Class<?> cls = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES);
+                str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
+            } catch (Exception e) {
+                str = "";
+            }
+            try {
+                if (!upperCase.contains("HUAWEI") || TextUtils.isEmpty(str)) {
+                    if (upperCase.contains("MEIZU")) {
+                        if (TextUtils.isEmpty(str)) {
+                            str = Build.DISPLAY;
+                        }
+                        Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
+                        return matcher.find() ? matcher.group() : str;
+                    } else if (!upperCase.contains(RomTypeUtil.ROM_OPPO) || TextUtils.isEmpty(str)) {
+                        return str;
+                    } else {
+                        Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str);
+                        return matcher2.find() ? matcher2.group(1) : str;
+                    }
+                }
+                str2 = str.substring(str.indexOf("_") + 1, str.length());
+                if (!str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21) {
+                    return "3.1";
+                }
+            } catch (Exception e2) {
+                return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? BuildConfig.VERSION_NAME : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "5.0" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "3.0" : str : "3.1";
+            }
+        }
+        return str2;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:60:0x0114 -> B:42:0x00f7). Please submit an issue!!! */
+    public static boolean D(Context context, String str) {
+        Cursor cursor;
+        ContentResolver contentResolver;
+        boolean z = true;
+        boolean z2 = false;
+        Cursor cursor2 = null;
+        if (c() || a() || b()) {
+            try {
+                try {
+                    contentResolver = context.getContentResolver();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                cursor = null;
+            }
+            if (contentResolver != null) {
+                cursor2 = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), null, null, null, null);
+                try {
+                } catch (Exception e2) {
+                    cursor = cursor2;
+                }
+                if (cursor2 == null) {
+                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), null, null, null, null);
+                    if (cursor != null) {
+                        try {
+                        } catch (Exception e3) {
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e4) {
+                                }
+                            }
+                            return z2;
+                        } catch (Throwable th2) {
+                            cursor2 = cursor;
+                            th = th2;
+                            if (cursor2 != null) {
+                                try {
+                                    cursor2.close();
+                                } catch (Exception e5) {
+                                }
+                            }
+                            throw th;
+                        }
+                        if (cursor.moveToFirst()) {
+                            int i = cursor.getInt(cursor.getColumnIndex(c.e.PushVersion.name()));
+                            int i2 = cursor.getInt(cursor.getColumnIndex(c.e.PushPriority.name()));
+                            if (i <= 0 || i2 != 0) {
+                                z = false;
+                            }
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e6) {
+                                }
+                            }
+                            z2 = z;
+                        }
+                    }
+                    cursor2 = cursor;
+                } else if (cursor2.moveToFirst()) {
+                    boolean z3 = cursor2.getInt(cursor2.getColumnIndex(c.e.PushVersion.name())) > 0 && cursor2.getInt(cursor2.getColumnIndex(c.e.PushPriority.name())) == 0;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e7) {
+                        }
+                    }
+                    z2 = z3;
+                }
+            }
+            if (cursor2 != null) {
+                try {
+                    cursor2.close();
+                } catch (Exception e8) {
+                }
+            }
+        }
+        return z2;
+    }
+
+    private static int E(Context context, String str) {
+        return context.getPackageManager().getComponentEnabledSetting(new ComponentName(context.getPackageName(), str));
+    }
+
+    public static boolean E(Context context) {
         try {
             PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 0);
             if ((packageInfo != null ? packageInfo.applicationInfo.targetSdkVersion : 0) >= 24) {
@@ -226,20 +306,15 @@ public final class p {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         return true;
     }
 
-    private static int E(Context context, String str) {
-        return context.getPackageManager().getComponentEnabledSetting(new ComponentName(context.getPackageName(), str));
-    }
-
-    public static boolean E(Context context) {
-        return !D(context);
-    }
-
     public static boolean F(Context context) {
+        return !E(context);
+    }
+
+    public static boolean G(Context context) {
         PackageInfo packageInfo;
         try {
             if (Build.VERSION.SDK_INT < 26 || (packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 0)) == null) {
@@ -247,40 +322,70 @@ public final class p {
             }
             return packageInfo.applicationInfo.targetSdkVersion >= 26;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
     }
 
-    public static boolean G(Context context) {
-        return com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.g && Build.MANUFACTURER.equalsIgnoreCase("koobee");
-    }
-
-    private static boolean H(Context context) {
-        if (!a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
-            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushServiceReceiver did not declared com.baidu.android.pushservice.action.notification.SHOW");
-            return false;
-        } else if (!a(context, "android.net.conn.CONNECTIVITY_CHANGE", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
-            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushServiceReceiver did not declared android.net.conn.CONNECTIVITY_CHANGE");
-            return false;
-        } else if (a(context, PushConstants.ACTION_METHOD, "com.baidu.android.pushservice.RegistrationReceiver", true)) {
-            return true;
-        } else {
-            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushServiceReceiver did not declared com.baidu.android.pushservice.action.notification.SHOW");
-            return false;
-        }
+    public static boolean H(Context context) {
+        return com.baidu.android.pushservice.c.d.a(context).b() == 3 && Build.MANUFACTURER.equalsIgnoreCase("koobee");
     }
 
     private static boolean I(Context context) {
-        if (J(context)) {
-            com.baidu.android.pushservice.g.a.e("Utility", "xiaomi service is not found!!!");
-            Log.e("BDPushSDK-Utility", "xiaomi service is not found or wrong  declared, please check!");
+        PackageManager packageManager;
+        Intent intent = new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.setPackage(context.getPackageName());
+        try {
+            packageManager = context.getPackageManager();
+        } catch (Exception e) {
+            com.baidu.android.pushservice.g.a.b("Utility", "error  " + e.getMessage(), context);
+        }
+        if (packageManager == null) {
             return false;
         }
-        return a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false);
+        List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
+        if (queryBroadcastReceivers.size() < 1) {
+            return false;
+        }
+        for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+            if ("com.meizu.cloud.pushsdk.SystemReceiver".equals(resolveInfo.activityInfo.name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    private static boolean J(Context context) {
+    private static String J(Context context) {
+        if (!a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
+            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW");
+            return "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW";
+        } else if (!a(context, "android.net.conn.CONNECTIVITY_CHANGE", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
+            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared android.net.conn.CONNECTIVITY_CHANGE");
+            return "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared android.net.conn.CONNECTIVITY_CHANGE";
+        } else if (a(context, PushConstants.ACTION_METHOD, "com.baidu.android.pushservice.RegistrationReceiver", true)) {
+            return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
+        } else {
+            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD");
+            return "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD";
+        }
+    }
+
+    private static String K(Context context) {
+        if (L(context)) {
+            Log.e("BDPushSDK-Utility", "xiaomi service is not found or wrong  declared, please check!");
+            return "xiaomi service is not found or wrong  declared, please check!";
+        } else if (M(context)) {
+            Log.e("BDPushSDK-Utility", "meizu service is not found or wrong  declared, please check!");
+            return "meizu service is not found or wrong  declared, please check!";
+        } else if (!N(context)) {
+            return a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "com.baidu.android.pushservice.PushService is not exist or did not declared com.baidu.android.pushservice.action.PUSH_SERVICE";
+        } else {
+            Log.e("BDPushSDK-Utility", "oppo service is not found or wrong  declared, please check!");
+            return "oppo service is not found or wrong  declared, please check!";
+        }
+    }
+
+    private static boolean L(Context context) {
         try {
             if (a() && PushSettings.m(context)) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
@@ -312,13 +417,84 @@ public final class p {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         return false;
     }
 
-    private static boolean K(Context context) {
-        com.baidu.android.pushservice.g.a.b("Utility", "checkPushInfoContentProvider");
+    private static boolean M(Context context) {
+        try {
+            if (b() && PushSettings.n(context)) {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                if (packageInfo.services != null) {
+                    ServiceInfo[] serviceInfoArr = packageInfo.services;
+                    boolean z = false;
+                    for (ServiceInfo serviceInfo : serviceInfoArr) {
+                        if (serviceInfo.name.equals("com.meizu.cloud.pushsdk.NotificationService")) {
+                            int E = E(context, "com.meizu.cloud.pushsdk.NotificationService");
+                            if (E == 1 || (E == 0 && serviceInfo.enabled)) {
+                                z = true;
+                            } else {
+                                Log.e("BDPushSDK-Utility", "com.meizu.cloud.pushsdk.NotificationService is disable, please check!");
+                            }
+                        }
+                    }
+                    if (!z) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
+        r2 = E(r8, "com.coloros.mcssdk.PushService");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0039, code lost:
+        if (r2 == 1) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
+        if (r2 != 0) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003f, code lost:
+        if (r6.enabled != false) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0041, code lost:
+        android.util.Log.e("BDPushSDK-Utility", "com.coloros.mcssdk.PushService is disable, please check!");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x005b, code lost:
+        return true;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static boolean N(Context context) {
+        try {
+            if (d() && PushSettings.o(context)) {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4);
+                if (packageInfo.services != null) {
+                    ServiceInfo[] serviceInfoArr = packageInfo.services;
+                    int length = serviceInfoArr.length;
+                    int i = 0;
+                    while (true) {
+                        if (i >= length) {
+                            break;
+                        }
+                        ServiceInfo serviceInfo = serviceInfoArr[i];
+                        if (serviceInfo.name.equals("com.coloros.mcssdk.PushService")) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    private static boolean O(Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
             ComponentName componentName = new ComponentName(context, "com.baidu.android.pushservice.PushInfoProvider");
@@ -326,7 +502,7 @@ public final class p {
             ProviderInfo providerInfo = packageManager.getProviderInfo(componentName, 128);
             String str = providerInfo.name;
             String str2 = providerInfo.authority;
-            com.baidu.android.pushservice.g.b.c("Utility", "provider name  = " + str + "  export  = " + providerInfo.exported + " provider authorities = " + str2, context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.c("Utility", "provider name  = " + str + "  export  = " + providerInfo.exported + " provider authorities = " + str2, context.getApplicationContext());
             if (TextUtils.isEmpty(str)) {
                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider did not declared, please check ! ");
                 return false;
@@ -343,24 +519,22 @@ public final class p {
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
     }
 
-    private static boolean L(Context context) {
+    private static boolean P(Context context) {
         if (b == -1) {
-            b = t(context, "android.permission.WRITE_EXTERNAL_STORAGE") ? 0 : 1;
+            b = u(context, "android.permission.WRITE_EXTERNAL_STORAGE") ? 0 : 1;
         }
         return b == 0;
     }
 
-    private static boolean M(Context context) {
+    private static boolean Q(Context context) {
         String str;
         try {
             str = Build.DISPLAY;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         if (TextUtils.isEmpty(str) || !str.contains("VIBEUI_V3.1_1614_5.294.1_ST_K50-T5")) {
             String str2 = Build.MODEL;
@@ -379,7 +553,7 @@ public final class p {
 
     public static int a(Context context, Intent intent, String str, String str2) {
         intent.setFlags(32);
-        if (l(context, str2) < 50) {
+        if (m(context, str2) < 50) {
             b(context, intent, str, str2);
             return 0;
         }
@@ -419,16 +593,16 @@ public final class p {
         }
     }
 
-    public static com.baidu.android.pushservice.h.i a(com.baidu.android.pushservice.h.i iVar, Context context, String str) {
+    public static com.baidu.android.pushservice.h.j a(com.baidu.android.pushservice.h.j jVar, Context context, String str) {
         PackageInfo a2 = a(context, str);
         if (a2 != null) {
-            iVar.c(a2.applicationInfo.loadLabel(context.getPackageManager()).toString());
-            iVar.e(a2.versionName);
-            iVar.a(a2.versionCode);
-            iVar.d(m(context, str));
-            iVar.b(l(context, str));
+            jVar.c(a2.applicationInfo.loadLabel(context.getPackageManager()).toString());
+            jVar.e(a2.versionName);
+            jVar.a(a2.versionCode);
+            jVar.d(n(context, str));
+            jVar.b(m(context, str));
         }
-        return iVar;
+        return jVar;
     }
 
     public static String a(long j) {
@@ -468,13 +642,11 @@ public final class p {
         ApplicationInfo applicationInfo;
         PackageManager packageManager;
         if (context == null) {
-            com.baidu.android.pushservice.g.a.b("Utility", "getMetaData context == null");
             return null;
         }
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("getMetaDataString", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;
         }
         if (packageManager != null) {
@@ -489,24 +661,23 @@ public final class p {
 
     public static String a(String str) {
         BigInteger add;
-        if (TextUtils.isDigitsOnly(str)) {
-            BigInteger bigInteger = new BigInteger(str);
-            try {
-                if (bigInteger.and(new BigInteger("0800000000000000", 16)).equals(BigInteger.ZERO)) {
-                    BigInteger xor = bigInteger.xor(new BigInteger("282335"));
-                    add = xor.and(new BigInteger("00ff0000", 16)).shiftLeft(8).add(xor.and(new BigInteger("000000ff", 16)).shiftLeft(16)).add(xor.and(new BigInteger("ff000000", 16)).shiftRight(16).and(new BigInteger("0000ff00", 16))).add(xor.and(new BigInteger("0000ff00", 16)).shiftRight(8));
-                } else {
-                    System.out.println("encode =  1");
-                    BigInteger xor2 = bigInteger.xor(new BigInteger("22727017042830095"));
-                    add = xor2.and(new BigInteger("000000ff00000000", 16)).shiftLeft(16).add(xor2.and(new BigInteger("000000000000ffff", 16)).shiftLeft(32)).add(xor2.and(new BigInteger("00ffff0000000000", 16)).shiftRight(24).and(new BigInteger("00000000ffff0000", 16))).add(xor2.and(new BigInteger("00000000ffff0000", 16)).shiftRight(16)).add(xor2.and(new BigInteger("ff00000000000000", 16)));
-                }
-                return add.toString();
-            } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("Utility", e);
-                return "0";
-            }
+        if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
+            return "0";
         }
-        return "0";
+        BigInteger bigInteger = new BigInteger(str);
+        try {
+            if (bigInteger.and(new BigInteger("0800000000000000", 16)).equals(BigInteger.ZERO)) {
+                BigInteger xor = bigInteger.xor(new BigInteger("282335"));
+                add = xor.and(new BigInteger("00ff0000", 16)).shiftLeft(8).add(xor.and(new BigInteger("000000ff", 16)).shiftLeft(16)).add(xor.and(new BigInteger("ff000000", 16)).shiftRight(16).and(new BigInteger("0000ff00", 16))).add(xor.and(new BigInteger("0000ff00", 16)).shiftRight(8));
+            } else {
+                System.out.println("encode =  1");
+                BigInteger xor2 = bigInteger.xor(new BigInteger("22727017042830095"));
+                add = xor2.and(new BigInteger("000000ff00000000", 16)).shiftLeft(16).add(xor2.and(new BigInteger("000000000000ffff", 16)).shiftLeft(32)).add(xor2.and(new BigInteger("00ffff0000000000", 16)).shiftRight(24).and(new BigInteger("00000000ffff0000", 16))).add(xor2.and(new BigInteger("00000000ffff0000", 16)).shiftRight(16)).add(xor2.and(new BigInteger("ff00000000000000", 16)));
+            }
+            return add.toString();
+        } catch (Exception e) {
+            return "0";
+        }
     }
 
     public static String a(Throwable th) {
@@ -519,7 +690,6 @@ public final class p {
     }
 
     public static void a(Context context, long j) {
-        com.baidu.android.pushservice.g.a.c("Utility", ">>> setAlarmForRestart");
         Context applicationContext = context.getApplicationContext();
         Intent c2 = o.c(applicationContext);
         String packageName = applicationContext.getPackageName();
@@ -535,27 +705,28 @@ public final class p {
             Uri data = intent.getData();
             if (data != null) {
                 String f = f(data.toString());
-                com.baidu.android.pushservice.g.a.c("Utility", "Huawei Message Body = " + f);
                 Intent intent2 = new Intent();
-                String stringExtra = intent.getStringExtra("hwtitle");
-                String stringExtra2 = intent.getStringExtra("hwcontent");
-                if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                    intent2.putExtra("notification_title", stringExtra);
-                    intent2.putExtra("notification_content", stringExtra2);
+                String stringExtra = intent.getStringExtra("bdpush_hwmsgid");
+                String stringExtra2 = intent.getStringExtra("hwtitle");
+                String stringExtra3 = intent.getStringExtra("hwcontent");
+                if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra3)) {
+                    intent2.putExtra("notification_title", stringExtra2);
+                    intent2.putExtra("notification_content", stringExtra3);
+                }
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    intent2.putExtra("msgid", stringExtra);
                 }
                 intent2.putExtra("extra_extra_custom_content", f);
-                a(context, "", "", stringExtra, stringExtra2, f);
+                a(context, stringExtra, "", stringExtra2, stringExtra3, f);
                 b(context, intent2, "com.baidu.android.pushservice.action.notification.CLICK", context.getPackageName());
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
     }
 
     public static void a(Context context, Intent intent, long j) {
-        com.baidu.android.pushservice.g.a.c("Utility", ">>> setAlarmForSendInent : \r\n" + intent);
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 268435456);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         alarmManager.cancel(broadcast);
         alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
     }
@@ -574,38 +745,64 @@ public final class p {
         try {
             i = Long.valueOf(System.currentTimeMillis()).intValue();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         Intent a2 = a(context, new Intent(), "com.baidu.android.pushservice.action.alarm.message");
         a2.putExtra("tinyMessageHead", kVar);
         a2.putExtra("msgBody", bArr);
         PendingIntent service = PendingIntent.getService(context, i, a2, 134217728);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT < 19) {
                 alarmManager.set(0, aVar.c, service);
             } else if (Build.VERSION.SDK_INT >= 19) {
                 alarmManager.setExact(0, aVar.c, service);
             }
-            com.baidu.android.pushservice.g.a.c("Utility", "setMessageAlarm  showtime = " + aVar.c + " expiretime = " + aVar.d);
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a("Utility", e2);
+        }
+    }
+
+    public static void a(Context context, String str, int i) {
+        Intent intent = new Intent();
+        intent.putExtra("r_sync_type", i);
+        intent.putExtra("r_sync_rdata_v2", str);
+        intent.putExtra("r_sync_from", context.getPackageName());
+        intent.setFlags(32);
+        List<ResolveInfo> o = F(context) ? o(context) : n(context);
+        if (o == null) {
+            return;
+        }
+        for (ResolveInfo resolveInfo : o) {
+            if (i(context, resolveInfo.activityInfo.packageName)) {
+                b(context, intent, "com.baidu.android.pushservice.action.BIND_SYNC", resolveInfo.activityInfo.packageName);
+            }
+        }
+    }
+
+    public static void a(Context context, String str, String str2, com.coloros.mcssdk.d.b bVar) {
+        if (context == null) {
+            return;
+        }
+        try {
+            Context applicationContext = context.getApplicationContext();
+            n.a(applicationContext, 8, "");
+            com.coloros.mcssdk.a.bPw().b(applicationContext, str, str2, bVar);
+        } catch (Exception e) {
         }
     }
 
     public static void a(Context context, boolean z, boolean z2) {
-        com.baidu.android.pushservice.g.b.a("Utility", context.getPackageName() + ": updateServiceInfo isForce = " + z + ",isSend = " + z2, context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("Utility", context.getPackageName() + ": updateServiceInfo isForce = " + z + ",isSend = " + z2, context.getApplicationContext());
         SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
         int d = d(context, context.getPackageName());
         if (sharedPreferences.getInt("pr_app_v", 0) < d || z) {
-            if (c(context) || com.baidu.android.pushservice.c.d.d(context)) {
+            if (c(context) || com.baidu.android.pushservice.c.d.g(context)) {
                 com.baidu.android.pushservice.d.c.a(context, 0L);
             } else {
                 com.baidu.android.pushservice.d.c.a(context, f(context));
             }
-            if (D(context)) {
+            if (E(context)) {
                 SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName() + ".push_sync", 5).edit();
-                if (c(context) || com.baidu.android.pushservice.c.d.d(context)) {
+                if (c(context) || com.baidu.android.pushservice.c.d.g(context)) {
                     edit.putLong("priority2", 0L);
                 } else {
                     edit.putLong("priority2", f(context));
@@ -623,66 +820,175 @@ public final class p {
         }
     }
 
-    private static synchronized void a(String str, String str2) {
-        FileOutputStream fileOutputStream;
-        synchronized (p.class) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-                String concat = format.length() > 0 ? format.substring(0, 4).concat(format.substring(5, 7)).concat(format.substring(8, 10)) : null;
-                String str3 = format + " " + str2 + "\n\r";
-                String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                File file = new File(absolutePath, "baidu/pushservice/files");
-                if (file.exists()) {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
-                    File[] listFiles = file.listFiles();
-                    for (File file2 : listFiles) {
-                        if (file2.getName().startsWith(str) && Integer.parseInt(concat) - Integer.parseInt(simpleDateFormat.format(Long.valueOf(file2.lastModified()))) >= 7) {
-                            file2.delete();
-                        }
-                    }
-                } else {
-                    file.mkdirs();
-                }
-                File file3 = new File(absolutePath, "baidu/pushservice/files/" + str + concat + ".log");
-                if (file3.exists()) {
-                    fileOutputStream = new FileOutputStream(file3, true);
-                    try {
-                        fileOutputStream.write(str3.getBytes());
-                        fileOutputStream.close();
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream2 = fileOutputStream;
-                        com.baidu.android.pushservice.g.a.a("Utility", th);
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                            } catch (IOException e) {
-                                com.baidu.android.pushservice.g.a.a("Utility", e);
-                            }
-                        }
-                    }
-                } else {
-                    fileOutputStream = null;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    com.baidu.android.pushservice.g.a.a("Utility", e2);
-                }
-            }
+    public static void a(Intent intent, Context context) {
+        try {
+            String packageName = context.getPackageName();
+            String c2 = c(context, context.getPackageName(), PushConstants.ACTION_MESSAGE);
+            Class<?> cls = Class.forName(c2);
+            Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            String[] strArr = {"android.content.Context", "android.content.Intent"};
+            Method method = cls.getMethod("onReceive", Context.class, Intent.class);
+            intent.setClassName(packageName, c2);
+            method.invoke(newInstance, context, intent);
+        } catch (Exception e) {
         }
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    private static synchronized void a(java.lang.String r17, java.lang.String r18) {
+        /*
+            java.lang.Class<com.baidu.android.pushservice.j.p> r5 = com.baidu.android.pushservice.j.p.class
+            monitor-enter(r5)
+            r2 = 0
+            java.text.SimpleDateFormat r3 = new java.text.SimpleDateFormat     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r4 = "yyyy-MM-dd HH:mm:ss"
+            java.util.Locale r6 = java.util.Locale.getDefault()     // Catch: java.lang.Throwable -> Lfa
+            r3.<init>(r4, r6)     // Catch: java.lang.Throwable -> Lfa
+            java.util.Date r4 = new java.util.Date     // Catch: java.lang.Throwable -> Lfa
+            r4.<init>()     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r6 = r3.format(r4)     // Catch: java.lang.Throwable -> Lfa
+            r3 = 0
+            int r4 = r6.length()     // Catch: java.lang.Throwable -> Lfa
+            if (r4 <= 0) goto L11d
+            r3 = 0
+            r4 = 4
+            java.lang.String r3 = r6.substring(r3, r4)     // Catch: java.lang.Throwable -> Lfa
+            r4 = 5
+            r7 = 7
+            java.lang.String r4 = r6.substring(r4, r7)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r3 = r3.concat(r4)     // Catch: java.lang.Throwable -> Lfa
+            r4 = 8
+            r7 = 10
+            java.lang.String r4 = r6.substring(r4, r7)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r3 = r3.concat(r4)     // Catch: java.lang.Throwable -> Lfa
+            r4 = r3
+        L3d:
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lfa
+            r3.<init>()     // Catch: java.lang.Throwable -> Lfa
+            java.lang.StringBuilder r3 = r3.append(r6)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r6 = " "
+            java.lang.StringBuilder r3 = r3.append(r6)     // Catch: java.lang.Throwable -> Lfa
+            r0 = r18
+            java.lang.StringBuilder r3 = r3.append(r0)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r6 = "\n\r"
+            java.lang.StringBuilder r3 = r3.append(r6)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r6 = r3.toString()     // Catch: java.lang.Throwable -> Lfa
+            java.io.File r3 = android.os.Environment.getExternalStorageDirectory()     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r7 = r3.getAbsolutePath()     // Catch: java.lang.Throwable -> Lfa
+            java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r8 = "baidu/pushservice/files"
+            r3.<init>(r7, r8)     // Catch: java.lang.Throwable -> Lfa
+            boolean r8 = r3.exists()     // Catch: java.lang.Throwable -> Lfa
+            if (r8 != 0) goto Lba
+            r3.mkdirs()     // Catch: java.lang.Throwable -> Lfa
+        L77:
+            java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> Lfa
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lfa
+            r3.<init>()     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r9 = "baidu/pushservice/files/"
+            java.lang.StringBuilder r3 = r3.append(r9)     // Catch: java.lang.Throwable -> Lfa
+            r0 = r17
+            java.lang.StringBuilder r3 = r3.append(r0)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r4 = ".log"
+            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> Lfa
+            r8.<init>(r7, r3)     // Catch: java.lang.Throwable -> Lfa
+            boolean r3 = r8.exists()     // Catch: java.lang.Throwable -> Lfa
+            if (r3 == 0) goto L11b
+            java.io.FileOutputStream r3 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lfa
+            r4 = 1
+            r3.<init>(r8, r4)     // Catch: java.lang.Throwable -> Lfa
+            byte[] r2 = r6.getBytes()     // Catch: java.lang.Throwable -> L118
+            r3.write(r2)     // Catch: java.lang.Throwable -> L118
+            r3.close()     // Catch: java.lang.Throwable -> L118
+        Lb3:
+            if (r3 == 0) goto Lb8
+            r3.close()     // Catch: java.lang.Throwable -> L10f java.io.IOException -> L112
+        Lb8:
+            monitor-exit(r5)
+            return
+        Lba:
+            java.text.SimpleDateFormat r8 = new java.text.SimpleDateFormat     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r9 = "yyyyMMdd"
+            java.util.Locale r10 = java.util.Locale.getDefault()     // Catch: java.lang.Throwable -> Lfa
+            r8.<init>(r9, r10)     // Catch: java.lang.Throwable -> Lfa
+            java.io.File[] r9 = r3.listFiles()     // Catch: java.lang.Throwable -> Lfa
+            int r10 = r9.length     // Catch: java.lang.Throwable -> Lfa
+            r3 = 0
+        Lcc:
+            if (r3 >= r10) goto L77
+            r11 = r9[r3]     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r12 = r11.getName()     // Catch: java.lang.Throwable -> Lfa
+            r0 = r17
+            boolean r12 = r12.startsWith(r0)     // Catch: java.lang.Throwable -> Lfa
+            if (r12 == 0) goto Lf7
+            int r12 = java.lang.Integer.parseInt(r4)     // Catch: java.lang.Throwable -> Lfa
+            long r14 = r11.lastModified()     // Catch: java.lang.Throwable -> Lfa
+            java.lang.Long r13 = java.lang.Long.valueOf(r14)     // Catch: java.lang.Throwable -> Lfa
+            java.lang.String r13 = r8.format(r13)     // Catch: java.lang.Throwable -> Lfa
+            int r13 = java.lang.Integer.parseInt(r13)     // Catch: java.lang.Throwable -> Lfa
+            int r12 = r12 - r13
+            r13 = 7
+            if (r12 < r13) goto Lf7
+            r11.delete()     // Catch: java.lang.Throwable -> Lfa
+        Lf7:
+            int r3 = r3 + 1
+            goto Lcc
+        Lfa:
+            r3 = move-exception
+        Lfb:
+            if (r2 == 0) goto Lb8
+            r2.close()     // Catch: java.io.IOException -> L101 java.lang.Throwable -> L10f
+            goto Lb8
+        L101:
+            r2 = move-exception
+            goto Lb8
+        L103:
+            r3 = move-exception
+            r16 = r3
+            r3 = r2
+            r2 = r16
+        L109:
+            if (r3 == 0) goto L10e
+            r3.close()     // Catch: java.lang.Throwable -> L10f java.io.IOException -> L114
+        L10e:
+            throw r2     // Catch: java.lang.Throwable -> L10f
+        L10f:
+            r2 = move-exception
+            monitor-exit(r5)
+            throw r2
+        L112:
+            r2 = move-exception
+            goto Lb8
+        L114:
+            r3 = move-exception
+            goto L10e
+        L116:
+            r2 = move-exception
+            goto L109
+        L118:
+            r2 = move-exception
+            r2 = r3
+            goto Lfb
+        L11b:
+            r3 = r2
+            goto Lb3
+        L11d:
+            r4 = r3
+            goto L3d
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.j.p.a(java.lang.String, java.lang.String):void");
+    }
+
     public static boolean a() {
-        try {
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-        }
         return Build.MANUFACTURER.toUpperCase().contains("XIAOMI");
     }
 
@@ -735,7 +1041,7 @@ public final class p {
             try {
                 String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
                 if (!a(str, strArr)) {
-                    com.baidu.android.pushservice.g.b.b("Utility", "the permission [ " + str + " ] for xiaomi proxy need is not exist, please check!", context);
+                    com.baidu.android.pushservice.g.a.b("Utility", "the permission [ " + str + " ] for xiaomi proxy need is not exist, please check!", context);
                     return true;
                 }
                 PermissionInfo[] permissionInfoArr = packageManager.getPackageInfo(context.getPackageName(), 4096).permissions;
@@ -755,7 +1061,6 @@ public final class p {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("Utility", e);
             }
         }
         return false;
@@ -782,35 +1087,10 @@ public final class p {
         if (!z) {
             m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS", str);
         }
-        if (com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.g) {
+        if (com.baidu.android.pushservice.c.d.a(context).b() == 3) {
             com.baidu.android.pushservice.d.c.a(context, new com.baidu.android.pushservice.d.e(publicMsg.mMsgId, a2, publicMsg.mAppId));
         }
         return true;
-    }
-
-    public static boolean a(Context context, String str, String str2, String str3, String str4) {
-        boolean z;
-        String b2 = PushSettings.b(context);
-        if (!TextUtils.isEmpty(b2)) {
-            str = b2;
-        }
-        String str5 = str + str2 + str3 + str4;
-        if (TextUtils.isEmpty(str5)) {
-            return false;
-        }
-        String a2 = com.baidu.android.pushservice.k.f.a(str5.getBytes(), true);
-        String b3 = m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS");
-        if (TextUtils.isEmpty(b3) || TextUtils.isEmpty(a2) || !b3.contains(a2)) {
-            z = false;
-        } else {
-            b3.replace(a2, "");
-            z = true;
-        }
-        if (!z && !TextUtils.isEmpty(a2)) {
-            String b4 = com.baidu.android.pushservice.d.c.b(context, com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.h ? com.baidu.android.pushservice.c.d.a(context).c() : u(context), a2);
-            z = !TextUtils.isEmpty(b4) && b4.equals(a2);
-        }
-        return z;
     }
 
     public static boolean a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -819,7 +1099,7 @@ public final class p {
             b2 = str2;
         }
         boolean z = false;
-        String a2 = com.baidu.android.pushservice.k.f.a((b2 + str3 + str4 + str5).getBytes(), true);
+        String a2 = com.baidu.android.pushservice.k.f.a((b2 + str + str3 + str4 + str5).getBytes(), true);
         String b3 = m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS");
         if (TextUtils.isEmpty(b3)) {
             b3 = a2;
@@ -834,7 +1114,7 @@ public final class p {
         if (!z) {
             m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS", b3);
         }
-        if (com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.g && !TextUtils.isEmpty(str)) {
+        if (com.baidu.android.pushservice.c.d.a(context).b() == 3 && !TextUtils.isEmpty(str)) {
             com.baidu.android.pushservice.d.c.a(context, new com.baidu.android.pushservice.d.e(str, a2, str2));
         }
         return z;
@@ -847,7 +1127,7 @@ public final class p {
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.b.b("Utility", "error  " + e.getMessage(), context);
+            com.baidu.android.pushservice.g.a.b("Utility", "error  " + e.getMessage(), context);
         }
         if (packageManager == null) {
             return false;
@@ -855,6 +1135,7 @@ public final class p {
         if (z) {
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
             if (queryBroadcastReceivers.size() < 1) {
+                Log.e("BDPushSDK-Utility", str2 + " is not exist or did not declared " + str);
                 return false;
             }
             for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
@@ -887,23 +1168,34 @@ public final class p {
 
     public static boolean a(Context context, byte[] bArr, String str, String str2, byte[] bArr2) {
         com.baidu.android.pushservice.b.f d;
+        if (bArr == null || str2 == null || bArr2 == null) {
+            return false;
+        }
         try {
             String b2 = PushSettings.b(context);
             if (TextUtils.isEmpty(b2) && (d = com.baidu.android.pushservice.b.b.a(context).d(str)) != null) {
                 b2 = d.a();
             }
             if (TextUtils.isEmpty(b2) || !b2.equals(str)) {
-                com.baidu.android.pushservice.g.b.a("Utility", "walnutShellVerify error, appId not equal: " + str + "  stored: " + b2, context);
+                com.baidu.android.pushservice.g.a.a("Utility", "walnutShellVerify error, appId not equal: " + str + "  stored: " + b2, context);
                 return false;
             }
-            byte[] a2 = com.baidu.android.pushservice.k.g.a(bArr, "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAtadv7/MPKp+9Djta\r/DIEt15755s3h1KYA4Lbej2GL2Mx0mdk4wzmjMCzfvNh+v4R7/mF8kfN8Kzowuaa\rFjAzfwIDAQABAkBVYQxguFoxi4DddpJuJMhIs3UDR9YSmYRvagrkapRuIqJmj3hO\rk+EsDQUtNA7JYJdiv/hrPrH0UACDV/Whb1MJAiEA8Rw37/dC157fsxasiTDz9bMQ\reAq9F8GudeH8oT5j8r0CIQDA30JBzOmu7CpPWbsTFh9YuL9wujJdiAdcBVHqmmfg\r6wIhAJbQIMkPr5axgJlDqH5TyXU5IScFCIwwkNCZn2y4Wso9AiBmMydhxJojFYNJ\r7stBTtynX6YZrqBXjWgQ68S/YrgepwIgdIQpvO4xNCT1j/mGIRcM/dqTGwiPOi/x\r/YLmfF2zQkM=\r");
-            String a3 = com.baidu.android.pushservice.k.f.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false);
-            String str3 = new String(a2);
-            return (str3 == null || a3 == null || !a3.equals(str3)) ? false : true;
+            byte[] decryptR = BaiduAppSSOJni.decryptR(bArr, 0);
+            String a2 = com.baidu.android.pushservice.k.f.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false);
+            return a2 != null && a2.equals(new String(decryptR));
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
+    }
+
+    private static boolean a(Context context, String[] strArr) {
+        if (d() && PushSettings.o(context)) {
+            try {
+                return !a("com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE", strArr);
+            } catch (Exception e) {
+            }
+        }
+        return false;
     }
 
     public static boolean a(String str, Context context) {
@@ -924,15 +1216,13 @@ public final class p {
     }
 
     public static byte[] a(Context context, String str, byte[] bArr, byte[] bArr2, String str2) {
-        int l = l(context, str2);
-        com.baidu.android.pushservice.g.a.c("Utility", " handleSecureInfo getIntergratedPushVersion from: " + str2 + " : " + l + " msgid: " + str);
-        if (l <= 45 || l >= 50) {
+        int m = m(context, str2);
+        if (m <= 45 || m >= 50) {
             return bArr2;
         }
         try {
-            return com.baidu.android.pushservice.k.g.b(com.baidu.android.pushservice.k.f.a(a(str.getBytes(), bArr), false).getBytes(), "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMPGuiFnHoDFak4nw1ipCr6EiCA2gSBJ\rtUKSfL41Goz+h4oX2Fs6uNvc0XNPlowZw1Np1AFKGwRgVLuLvot6XnkCAwEAAQ==");
+            return BaiduAppSSOJni.encryptR(com.baidu.android.pushservice.k.f.a(a(str.getBytes(), bArr), false).getBytes(), 0);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return bArr2;
         }
     }
@@ -954,7 +1244,6 @@ public final class p {
                 }
                 return (int) Long.parseLong(str);
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.d("Utility", "exception " + e2.getMessage());
                 return 0;
             }
         }
@@ -962,8 +1251,8 @@ public final class p {
 
     public static void b(Context context, Intent intent, String str, String str2) {
         intent.setFlags(32);
-        int l = l(context, str2);
-        if (l >= 32) {
+        int m = m(context, str2);
+        if (m >= 32) {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     intent.setAction(str);
@@ -976,12 +1265,11 @@ public final class p {
                 if (context.startService(intent) != null) {
                     return;
                 }
-                b("sendRedirecctionIntent#intergratedPushVersion=" + l + ", packageName=" + str2 + ", intent=" + intent.toUri(0), context);
+                b("sendRedirecctionIntent#intergratedPushVersion=" + m + ", packageName=" + str2 + ", intent=" + intent.toUri(0), context);
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("Utility", e);
             }
         }
-        if (F(context)) {
+        if (G(context)) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
@@ -997,79 +1285,171 @@ public final class p {
         context.sendBroadcast(intent);
     }
 
-    public static synchronized void b(String str, Context context) {
-        FileWriter fileWriter;
-        File[] listFiles;
-        synchronized (p.class) {
-            if (L(context)) {
-                if (com.baidu.android.pushservice.a.b() > 0) {
-                    c(str, context);
-                } else if (com.baidu.android.pushservice.a.a(context)) {
-                    FileWriter fileWriter2 = null;
-                    try {
-                        String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " " + str + "\n\r";
-                        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                        File file = new File(absolutePath, "baidu/pushservice/files");
-                        if (!file.exists()) {
-                            file.mkdirs();
-                        }
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-                        Date date = new Date();
-                        File file2 = new File(absolutePath, "baidu/pushservice/files/msg" + simpleDateFormat.format(date) + ".log");
-                        if (!file2.exists()) {
-                            for (File file3 : file.listFiles()) {
-                                String name = file3.getName();
-                                if (name.startsWith(AddFriendActivityConfig.MSG) && name.length() > 0 && ((int) Math.abs((simpleDateFormat.parse(name.substring(3, 11)).getTime() - date.getTime()) / 86400000)) >= 7) {
-                                    file3.delete();
-                                }
-                            }
-                            file2.createNewFile();
-                        }
-                        if (file2.exists()) {
-                            fileWriter = new FileWriter(file2, true);
-                            try {
-                                fileWriter.write(str2);
-                            } catch (Throwable th) {
-                                th = th;
-                                fileWriter2 = fileWriter;
-                                com.baidu.android.pushservice.g.a.a("Utility", th);
-                                com.baidu.android.pushservice.f.b.a(fileWriter2);
-                            }
-                        } else {
-                            fileWriter = null;
-                        }
-                        com.baidu.android.pushservice.f.b.a(fileWriter);
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-            }
-        }
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public static synchronized void b(java.lang.String r15, android.content.Context r16) {
+        /*
+            java.lang.Class<com.baidu.android.pushservice.j.p> r2 = com.baidu.android.pushservice.j.p.class
+            monitor-enter(r2)
+            boolean r0 = P(r16)     // Catch: java.lang.Throwable -> L15
+            if (r0 != 0) goto Lb
+        L9:
+            monitor-exit(r2)
+            return
+        Lb:
+            int r0 = com.baidu.android.pushservice.a.b()     // Catch: java.lang.Throwable -> L15
+            if (r0 <= 0) goto L18
+            c(r15, r16)     // Catch: java.lang.Throwable -> L15
+            goto L9
+        L15:
+            r0 = move-exception
+            monitor-exit(r2)
+            throw r0
+        L18:
+            boolean r0 = com.baidu.android.pushservice.a.a(r16)     // Catch: java.lang.Throwable -> L15
+            if (r0 == 0) goto L9
+            r0 = 0
+            java.text.SimpleDateFormat r1 = new java.text.SimpleDateFormat     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r3 = "yyyy-MM-dd HH:mm:ss"
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> Lff
+            java.util.Date r3 = new java.util.Date     // Catch: java.lang.Throwable -> Lff
+            r3.<init>()     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r1 = r1.format(r3)     // Catch: java.lang.Throwable -> Lff
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lff
+            r3.<init>()     // Catch: java.lang.Throwable -> Lff
+            java.lang.StringBuilder r1 = r3.append(r1)     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r3 = " "
+            java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.lang.Throwable -> Lff
+            java.lang.StringBuilder r1 = r1.append(r15)     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r3 = "\n\r"
+            java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r3 = r1.toString()     // Catch: java.lang.Throwable -> Lff
+            java.io.File r1 = android.os.Environment.getExternalStorageDirectory()     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r1 = r1.getAbsolutePath()     // Catch: java.lang.Throwable -> Lff
+            java.io.File r4 = new java.io.File     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r5 = "baidu/pushservice/files"
+            r4.<init>(r1, r5)     // Catch: java.lang.Throwable -> Lff
+            boolean r5 = r4.exists()     // Catch: java.lang.Throwable -> Lff
+            if (r5 != 0) goto L68
+            r4.mkdirs()     // Catch: java.lang.Throwable -> Lff
+        L68:
+            java.text.SimpleDateFormat r5 = new java.text.SimpleDateFormat     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r6 = "yyyyMMdd"
+            r5.<init>(r6)     // Catch: java.lang.Throwable -> Lff
+            java.util.Date r6 = new java.util.Date     // Catch: java.lang.Throwable -> Lff
+            r6.<init>()     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r7 = r5.format(r6)     // Catch: java.lang.Throwable -> Lff
+            java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> Lff
+            java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lff
+            r9.<init>()     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r10 = "baidu/pushservice/files/msg"
+            java.lang.StringBuilder r9 = r9.append(r10)     // Catch: java.lang.Throwable -> Lff
+            java.lang.StringBuilder r7 = r9.append(r7)     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r9 = ".log"
+            java.lang.StringBuilder r7 = r7.append(r9)     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r7 = r7.toString()     // Catch: java.lang.Throwable -> Lff
+            r8.<init>(r1, r7)     // Catch: java.lang.Throwable -> Lff
+            boolean r1 = r8.exists()     // Catch: java.lang.Throwable -> Lff
+            if (r1 != 0) goto Le5
+            java.io.File[] r4 = r4.listFiles()     // Catch: java.lang.Throwable -> Lff
+            int r7 = r4.length     // Catch: java.lang.Throwable -> Lff
+            r1 = 0
+        La5:
+            if (r1 >= r7) goto Le2
+            r9 = r4[r1]     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r10 = r9.getName()     // Catch: java.lang.Throwable -> Lff
+            java.lang.String r11 = "msg"
+            boolean r11 = r10.startsWith(r11)     // Catch: java.lang.Throwable -> Lff
+            if (r11 == 0) goto Ldf
+            int r11 = r10.length()     // Catch: java.lang.Throwable -> Lff
+            if (r11 <= 0) goto Ldf
+            r11 = 3
+            r12 = 11
+            java.lang.String r10 = r10.substring(r11, r12)     // Catch: java.lang.Throwable -> Lff
+            java.util.Date r10 = r5.parse(r10)     // Catch: java.lang.Throwable -> Lff
+            long r10 = r10.getTime()     // Catch: java.lang.Throwable -> Lff
+            long r12 = r6.getTime()     // Catch: java.lang.Throwable -> Lff
+            long r10 = r10 - r12
+            r12 = 86400000(0x5265c00, double:4.2687272E-316)
+            long r10 = r10 / r12
+            long r10 = java.lang.Math.abs(r10)     // Catch: java.lang.Throwable -> Lff
+            int r10 = (int) r10     // Catch: java.lang.Throwable -> Lff
+            r11 = 7
+            if (r10 < r11) goto Ldf
+            r9.delete()     // Catch: java.lang.Throwable -> Lff
+        Ldf:
+            int r1 = r1 + 1
+            goto La5
+        Le2:
+            r8.createNewFile()     // Catch: java.lang.Throwable -> Lff
+        Le5:
+            boolean r1 = r8.exists()     // Catch: java.lang.Throwable -> Lff
+            if (r1 == 0) goto L11e
+            java.io.FileWriter r1 = new java.io.FileWriter     // Catch: java.lang.Throwable -> Lff
+            r4 = 1
+            r1.<init>(r8, r4)     // Catch: java.lang.Throwable -> Lff
+            r1.write(r3)     // Catch: java.lang.Throwable -> L11b
+        Lf4:
+            r0 = 1
+            java.io.Closeable[] r0 = new java.io.Closeable[r0]     // Catch: java.lang.Throwable -> L15
+            r3 = 0
+            r0[r3] = r1     // Catch: java.lang.Throwable -> L15
+            com.baidu.android.pushservice.f.b.a(r0)     // Catch: java.lang.Throwable -> L15
+            goto L9
+        Lff:
+            r1 = move-exception
+        L100:
+            r1 = 1
+            java.io.Closeable[] r1 = new java.io.Closeable[r1]     // Catch: java.lang.Throwable -> L15
+            r3 = 0
+            r1[r3] = r0     // Catch: java.lang.Throwable -> L15
+            com.baidu.android.pushservice.f.b.a(r1)     // Catch: java.lang.Throwable -> L15
+            goto L9
+        L10b:
+            r1 = move-exception
+            r14 = r1
+            r1 = r0
+            r0 = r14
+        L10f:
+            r3 = 1
+            java.io.Closeable[] r3 = new java.io.Closeable[r3]     // Catch: java.lang.Throwable -> L15
+            r4 = 0
+            r3[r4] = r1     // Catch: java.lang.Throwable -> L15
+            com.baidu.android.pushservice.f.b.a(r3)     // Catch: java.lang.Throwable -> L15
+            throw r0     // Catch: java.lang.Throwable -> L15
+        L119:
+            r0 = move-exception
+            goto L10f
+        L11b:
+            r0 = move-exception
+            r0 = r1
+            goto L100
+        L11e:
+            r1 = r0
+            goto Lf4
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.pushservice.j.p.b(java.lang.String, android.content.Context):void");
     }
 
     public static boolean b() {
-        try {
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-        }
-        return Build.MANUFACTURER.toUpperCase().contains("HUAWEI");
+        return Build.MANUFACTURER.toUpperCase().contains("MEIZU");
     }
 
     public static boolean b(Context context, PublicMsg publicMsg) {
-        boolean z;
         if (publicMsg != null) {
             String a2 = com.baidu.android.pushservice.k.f.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), true);
             String b2 = m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS");
-            if (TextUtils.isEmpty(b2) || TextUtils.isEmpty(a2) || !b2.contains(a2)) {
-                z = false;
-            } else {
-                b2.replace(a2, "");
-                z = true;
-            }
+            boolean z = (TextUtils.isEmpty(b2) || TextUtils.isEmpty(a2) || !b2.contains(a2)) ? false : true;
             if (z || TextUtils.isEmpty(a2)) {
                 return z;
             }
-            String a3 = com.baidu.android.pushservice.d.c.a(context, com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.h ? com.baidu.android.pushservice.c.d.a(context).c() : u(context), publicMsg.mMsgId);
+            String a3 = com.baidu.android.pushservice.d.c.a(context, com.baidu.android.pushservice.c.d.a(context).b() == 4 ? com.baidu.android.pushservice.c.d.a(context).c() : v(context), publicMsg.mMsgId);
             return !TextUtils.isEmpty(a3) && a3.equals(a2);
         }
         return false;
@@ -1083,19 +1463,16 @@ public final class p {
             }
             return (packageManager.getApplicationInfo(str, 0).flags & 1) != 0;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
     }
 
     public static boolean b(Context context, String str, String str2) {
-        ApplicationInfo applicationInfo;
         PackageManager packageManager;
+        ApplicationInfo applicationInfo = null;
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("getMetaDataBoolean", "--- " + str + " GetMetaData Exception:\r\n", e);
-            applicationInfo = null;
         }
         if (packageManager == null) {
             return false;
@@ -1107,6 +1484,25 @@ public final class p {
         return applicationInfo.metaData.getBoolean(str2);
     }
 
+    public static boolean b(Context context, String str, String str2, String str3, String str4, String str5) {
+        String b2 = PushSettings.b(context);
+        if (!TextUtils.isEmpty(b2)) {
+            str2 = b2;
+        }
+        String str6 = str2 + str + str3 + str4 + str5;
+        if (TextUtils.isEmpty(str6)) {
+            return false;
+        }
+        String a2 = com.baidu.android.pushservice.k.f.a(str6.getBytes(), true);
+        String b3 = m.b(context, "com.baidu.android.pushservice.NOTIFICATION_SHOWED_IDS");
+        boolean z = (TextUtils.isEmpty(b3) || TextUtils.isEmpty(a2) || !b3.contains(a2)) ? false : true;
+        if (!z && !TextUtils.isEmpty(a2)) {
+            String b4 = com.baidu.android.pushservice.d.c.b(context, com.baidu.android.pushservice.c.d.a(context).b() == 4 ? com.baidu.android.pushservice.c.d.a(context).c() : v(context), a2);
+            z = !TextUtils.isEmpty(b4) && b4.equals(a2);
+        }
+        return z;
+    }
+
     public static int[] b(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
@@ -1114,45 +1510,22 @@ public final class p {
     }
 
     public static int c(String str) {
-        int i;
-        Exception e;
-        String str2;
-        int i2 = 0;
-        String str3 = str;
-        while (true) {
+        int indexOf;
+        int i = 0;
+        String str2 = str;
+        do {
             try {
-                int indexOf = str3.indexOf("#Intent;");
+                indexOf = str2.indexOf("#Intent;");
                 if (indexOf != -1) {
-                    int length = i2 + "#Intent;".length() + indexOf;
-                    String substring = str3.substring("#Intent;".length() + indexOf);
-                    i = length;
-                    str2 = substring;
-                } else {
-                    String str4 = str3;
-                    i = i2;
-                    str2 = str4;
+                    i += "#Intent;".length() + indexOf;
+                    str2 = str2.substring("#Intent;".length() + indexOf);
+                    continue;
                 }
-                if (indexOf == -1) {
-                    break;
-                }
-                String str5 = str2;
-                i2 = i;
-                str3 = str5;
-            } catch (Exception e2) {
-                i = i2;
-                e = e2;
-            }
-        }
-        if (i > 0) {
-            try {
-                return i - "#Intent;".length();
-            } catch (Exception e3) {
-                e = e3;
-                com.baidu.android.pushservice.g.a.a("Utility", e);
+            } catch (Exception e) {
                 return i;
             }
-        }
-        return i;
+        } while (indexOf != -1);
+        return i > 0 ? i - "#Intent;".length() : i;
     }
 
     public static String c(Context context, String str, String str2) {
@@ -1166,7 +1539,6 @@ public final class p {
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             list = null;
         }
         if (packageManager != null) {
@@ -1183,32 +1555,36 @@ public final class p {
         synchronized (p.class) {
             if (context != null) {
                 String str2 = "samonitor" + com.baidu.android.pushservice.k.e.b(context);
-                String r = r(context);
-                int s = s(context);
+                String s = s(context);
+                int t = t(context);
                 if (!c) {
-                    ArrayList<String> p = p(context);
+                    ArrayList<String> q = q(context);
                     StringBuffer stringBuffer = new StringBuffer();
-                    Iterator<String> it = p.iterator();
+                    Iterator<String> it = q.iterator();
                     while (it.hasNext()) {
                         stringBuffer.append(it.next() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                     }
                     a(str2, "#AllPackagesUsingPush:" + stringBuffer.toString());
                     c = true;
                 }
-                a(str2, "#IMEI:" + ((String) null) + "#networkType:" + r + "#mobileType:" + s + "#" + str);
+                a(str2, "#IMEI:" + ((String) null) + "#networkType:" + s + "#mobileType:" + t + "#" + str);
             }
         }
     }
 
     public static boolean c() {
-        return a() || b();
+        return Build.MANUFACTURER.toUpperCase().contains("HUAWEI");
     }
 
     public static boolean c(Context context) {
         String c2 = com.baidu.android.pushservice.a.c(context);
-        boolean b2 = "enabled".equals(c2) ? false : "disabled".equals(c2) ? true : b(context, context.getPackageName(), "DisableService");
-        com.baidu.android.pushservice.g.a.b("Utility", "--- isDisableService : " + b2);
-        return b2;
+        if ("enabled".equals(c2)) {
+            return false;
+        }
+        if ("disabled".equals(c2)) {
+            return true;
+        }
+        return b(context, context.getPackageName(), "DisableService");
     }
 
     public static boolean c(Context context, String str) {
@@ -1219,7 +1595,6 @@ public final class p {
             context.getPackageManager().getApplicationInfo(str, 8192);
             return true;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
     }
@@ -1232,16 +1607,14 @@ public final class p {
         return 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a0  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static int d(String str) {
-        InputStreamReader inputStreamReader;
-        Process process;
-        Process process2;
         BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
+        Process process;
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        BufferedReader bufferedReader2;
+        Process process2;
+        InputStreamReader inputStreamReader2 = null;
         try {
             process = Runtime.getRuntime().exec("/system/bin/ping -w 1 " + str);
             try {
@@ -1249,27 +1622,29 @@ public final class p {
                 try {
                     bufferedReader = new BufferedReader(inputStreamReader);
                 } catch (Exception e) {
-                    e = e;
                     process2 = process;
-                } catch (Throwable th) {
-                    th = th;
+                    inputStreamReader2 = inputStreamReader;
+                    bufferedReader2 = null;
+                } catch (Throwable th2) {
+                    bufferedReader = null;
+                    th = th2;
                 }
             } catch (Exception e2) {
-                e = e2;
-                inputStreamReader = null;
+                bufferedReader2 = null;
                 process2 = process;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
                 inputStreamReader = null;
             }
         } catch (Exception e3) {
-            e = e3;
-            inputStreamReader = null;
+            bufferedReader2 = null;
             process2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            inputStreamReader = null;
+        } catch (Throwable th4) {
+            bufferedReader = null;
             process = null;
+            inputStreamReader = null;
+            th = th4;
         }
         try {
             new String();
@@ -1295,32 +1670,67 @@ public final class p {
             }
             return -1;
         } catch (Exception e4) {
-            e = e4;
+            inputStreamReader2 = inputStreamReader;
             bufferedReader2 = bufferedReader;
             process2 = process;
-            try {
-                com.baidu.android.pushservice.g.a.a("Utility", e);
-                com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
-                if (process2 != null) {
-                    process2.destroy();
-                }
-                return 1;
-            } catch (Throwable th4) {
-                th = th4;
-                process = process2;
-                com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
-                if (process != null) {
-                    process.destroy();
-                }
-                throw th;
+            com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader2);
+            if (process2 != null) {
+                process2.destroy();
             }
+            return 1;
         } catch (Throwable th5) {
             th = th5;
-            bufferedReader2 = bufferedReader;
-            com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
+            com.baidu.android.pushservice.f.b.a(bufferedReader, inputStreamReader);
             if (process != null) {
+                process.destroy();
             }
             throw th;
+        }
+    }
+
+    static String d(Context context) {
+        String str;
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager != null) {
+                String[] strArr = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
+                if (strArr != null) {
+                    if (!a(context, packageManager, strArr)) {
+                        if (!a(context, strArr)) {
+                            String[] strArr2 = a;
+                            int length = strArr2.length;
+                            int i = 0;
+                            while (true) {
+                                if (i >= length) {
+                                    str = "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
+                                    break;
+                                }
+                                String str2 = strArr2[i];
+                                if (!a(str2, strArr)) {
+                                    str = str2 + " permission Push-SDK need is not exist !";
+                                    Log.e("BDPushSDK-Utility", str);
+                                    break;
+                                }
+                                i++;
+                            }
+                        } else {
+                            str = "permission Push-SDK for oppo proxy need is not exist !";
+                            Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
+                        }
+                    } else {
+                        str = "permission Push-SDK for xiaomi proxy need is not exist !";
+                        Log.e("BDPushSDK-Utility", "permission Push-SDK for xiaomi proxy need is not exist !");
+                    }
+                } else {
+                    str = "Permissions Push-SDK need are not exist !";
+                    Log.e("BDPushSDK-Utility", "Permissions Push-SDK need are not exist !");
+                }
+            } else {
+                str = "pm is null";
+            }
+            return str;
+        } catch (Exception e) {
+            return "checkSDKPermissions exception " + e.getMessage();
         }
     }
 
@@ -1329,46 +1739,15 @@ public final class p {
             return;
         }
         try {
-            com.baidu.android.pushservice.g.a.c("Utility", "requestXiaomiRegId--------  appid = " + str + " appkey = " + str2);
             Context applicationContext = context.getApplicationContext();
-            n.b(applicationContext, "");
+            n.a(applicationContext, 6, "");
             MiPushClient.registerPush(applicationContext, str, str2);
         } catch (Throwable th) {
-            com.baidu.android.pushservice.g.a.a("Utility", th);
         }
     }
 
-    static boolean d(Context context) {
-        boolean z = false;
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            if (packageManager != null) {
-                String[] strArr = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
-                if (strArr != null) {
-                    if (!a(context, packageManager, strArr)) {
-                        int i = 0;
-                        while (true) {
-                            if (i >= a.length) {
-                                z = true;
-                                break;
-                            } else if (!a(a[i], strArr)) {
-                                Log.e("BDPushSDK-Utility", a[i] + " permission Push-SDK need is not exist !");
-                                break;
-                            } else {
-                                i++;
-                            }
-                        }
-                    } else {
-                        Log.e("BDPushSDK-Utility", " permission Push-SDK for xiaomi proxy need is not exist !");
-                    }
-                } else {
-                    Log.e("BDPushSDK-Utility", "Permissions Push-SDK need are not exist !");
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-        }
-        return z;
+    public static boolean d() {
+        return Build.MANUFACTURER.toUpperCase().contains(RomTypeUtil.ROM_OPPO);
     }
 
     private static String e(String str) {
@@ -1393,18 +1772,31 @@ public final class p {
     }
 
     public static void e(Context context) {
-        com.baidu.android.pushservice.g.a.c("Utility", ">>> setAlarmForPeriodRestart");
         a(context, (long) ReportUserInfoModel.TIME_INTERVAL);
     }
 
+    public static void e(Context context, String str, String str2) {
+        if (context == null) {
+            return;
+        }
+        try {
+            Context applicationContext = context.getApplicationContext();
+            n.a(applicationContext, 7, "");
+            PushManager.register(applicationContext, str, str2);
+        } catch (Exception e) {
+        }
+    }
+
+    public static boolean e() {
+        return a() || c() || b() || d();
+    }
+
     public static boolean e(Context context, String str) {
-        ApplicationInfo applicationInfo;
         PackageManager packageManager;
+        ApplicationInfo applicationInfo = null;
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("isBaiduApp", "--- " + str + " GetMetaData Exception:\r\n", e);
-            applicationInfo = null;
         }
         if (packageManager == null) {
             return false;
@@ -1418,25 +1810,26 @@ public final class p {
 
     public static long f(Context context) {
         String packageName = context.getPackageName();
-        if (G(context) && packageName.equalsIgnoreCase("com.baidu.push4manufacture")) {
+        if (H(context) && packageName.equalsIgnoreCase("com.baidu.push4manufacture")) {
             return 10000L;
         }
         long a2 = com.baidu.android.pushservice.a.a();
         int b2 = com.baidu.android.pushservice.a.b();
         if (b2 > 0) {
             return (b2 <= 5 ? b2 : 5) + (a2 << 4) + 10;
+        } else if (context.getPackageName().equals("com.baidu.searchbox")) {
+            return (a2 << 4) + 10;
+        } else {
+            long j = a2 << 2;
+            if (e(context, context.getPackageName())) {
+                j++;
+            }
+            long j2 = j << 1;
+            if (b(context, context.getPackageName())) {
+                j2++;
+            }
+            return (j2 << 1) + l(context);
         }
-        long j = a2 << 2;
-        if (e(context, context.getPackageName())) {
-            com.baidu.android.pushservice.g.a.c("Utility", "--- get " + context + " PriorityVersion, baidu app");
-            j++;
-        }
-        long j2 = j << 1;
-        if (b(context, context.getPackageName())) {
-            com.baidu.android.pushservice.g.a.c("Utility", "--- get " + context + " PriorityVersion, system app");
-            j2++;
-        }
-        return (j2 << 1) + l(context);
     }
 
     private static String f(String str) {
@@ -1453,77 +1846,72 @@ public final class p {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         return str2;
     }
 
     public static void f(Context context, String str) {
-        Intent c2 = o.c(context);
-        if (E(context)) {
-            c2.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart_v3");
-            if (TextUtils.isEmpty(str) || !str.equals(t(context))) {
-                c2.putExtra("priority3", h(context));
+        if (i(context, str)) {
+            Intent c2 = o.c(context);
+            if (F(context)) {
+                c2.putExtra("method", "pushservice_restart_v3");
+                if (TextUtils.isEmpty(str) || !str.equals(u(context))) {
+                    c2.putExtra("priority3", h(context));
+                } else {
+                    c2.putExtra("priority3", Long.MAX_VALUE);
+                }
             } else {
-                c2.putExtra("priority3", Long.MAX_VALUE);
+                c2.putExtra("method", "pushservice_restart_v2");
+                if (TextUtils.isEmpty(str) || !str.equals(u(context))) {
+                    c2.putExtra("priority2", h(context));
+                } else {
+                    c2.putExtra("priority2", Long.MAX_VALUE);
+                }
             }
-        } else {
-            c2.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart_v2");
-            if (TextUtils.isEmpty(str) || !str.equals(t(context))) {
-                c2.putExtra("priority2", h(context));
-            } else {
-                c2.putExtra("priority2", Long.MAX_VALUE);
+            if (!TextUtils.isEmpty(str)) {
+                c2.setPackage(str);
+                c2.setClassName(str, "com.baidu.android.pushservice.CommandService");
             }
-        }
-        if (!TextUtils.isEmpty(str)) {
-            c2.setPackage(str);
-            c2.setClassName(str, "com.baidu.android.pushservice.CommandService");
-        }
-        c2.putExtra("command_type", "reflect_receiver");
-        try {
-            if (context.startService(c2) != null) {
+            c2.putExtra("command_type", "reflect_receiver");
+            try {
+                if (context.startService(c2) != null) {
+                    return;
+                }
+            } catch (Exception e) {
+            }
+            if (G(context)) {
                 return;
             }
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
+            if (!TextUtils.isEmpty(str)) {
+                c2.setPackage(str);
+            }
+            String c3 = c(context, str, PushConstants.ACTION_METHOD);
+            if (!TextUtils.isEmpty(c3)) {
+                c2.setClassName(str, c3);
+            }
+            context.sendBroadcast(c2);
+            com.baidu.android.pushservice.a.a(context, false);
         }
-        if (F(context)) {
-            return;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            c2.setPackage(str);
-        }
-        String c3 = c(context, str, PushConstants.ACTION_METHOD);
-        if (!TextUtils.isEmpty(c3)) {
-            c2.setClassName(str, c3);
-        }
-        context.sendBroadcast(c2);
-        com.baidu.android.pushservice.a.a(context, false);
     }
 
     public static long g(Context context, String str) {
-        long j;
-        Exception e;
-        Context u;
+        Context v;
         SharedPreferences sharedPreferences;
         if (context == null || TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = (!D(context) || (u = u(context, str)) == null || (sharedPreferences = u.getSharedPreferences(new StringBuilder().append(str).append(".push_sync").toString(), 5)) == null) ? -1L : sharedPreferences.getLong("priority2", 0L);
+            long j = (!E(context) || (v = v(context, str)) == null || (sharedPreferences = v.getSharedPreferences(new StringBuilder().append(str).append(".push_sync").toString(), 5)) == null) ? -1L : sharedPreferences.getLong("priority2", 0L);
             if (j == -1) {
                 try {
                     return com.baidu.android.pushservice.d.d.c(context, str);
-                } catch (Exception e2) {
-                    e = e2;
-                    com.baidu.android.pushservice.g.a.a("Utility", "create packagecontext exception: ", e);
+                } catch (Exception e) {
                     return j;
                 }
             }
             return j;
-        } catch (Exception e3) {
-            j = -1;
-            e = e3;
+        } catch (Exception e2) {
+            return -1L;
         }
     }
 
@@ -1532,32 +1920,28 @@ public final class p {
     }
 
     public static long h(Context context) {
-        long j;
-        Exception e;
         SharedPreferences sharedPreferences;
         if (context == null) {
             return 0L;
         }
         try {
-            j = (!D(context) || (sharedPreferences = context.getSharedPreferences(new StringBuilder().append(context.getPackageName()).append(".push_sync").toString(), 5)) == null) ? -1L : sharedPreferences.getLong("priority2", 0L);
+            long j = (!E(context) || (sharedPreferences = context.getSharedPreferences(new StringBuilder().append(context.getPackageName()).append(".push_sync").toString(), 5)) == null) ? -1L : sharedPreferences.getLong("priority2", 0L);
             if (j == -1) {
                 try {
                     return com.baidu.android.pushservice.d.c.b(context);
-                } catch (Exception e2) {
-                    e = e2;
-                    com.baidu.android.pushservice.g.a.a("Utility", e);
+                } catch (Exception e) {
                     return j;
                 }
             }
             return j;
-        } catch (Exception e3) {
-            j = -1;
-            e = e3;
+        } catch (Exception e2) {
+            return -1L;
         }
     }
 
     public static boolean h(Context context, String str) {
         boolean z;
+        boolean z2;
         int i;
         PackageManager packageManager;
         Intent intent = new Intent("com.baidu.android.pushservice.action.PUSH_SERVICE");
@@ -1565,7 +1949,6 @@ public final class p {
         try {
             packageManager = context.getPackageManager();
         } catch (Exception e) {
-            e = e;
             z = false;
         }
         if (packageManager == null) {
@@ -1582,25 +1965,43 @@ public final class p {
         }
         z = false;
         try {
+            z2 = z;
             i = packageManager.getComponentEnabledSetting(new ComponentName(str, "com.baidu.android.pushservice.PushService"));
         } catch (Exception e2) {
-            e = e2;
-            com.baidu.android.pushservice.g.a.a("Utility", e);
+            z2 = z;
             i = 2;
-            return i != 1 || (i == 0 && z);
+            return i != 1 || (i == 0 && z2);
         }
-        return i != 1 || (i == 0 && z);
+        return i != 1 || (i == 0 && z2);
     }
 
     static boolean i(Context context) {
-        return i(context, context.getPackageName());
+        return j(context, context.getPackageName());
     }
 
     public static boolean i(Context context, String str) {
-        boolean z;
-        Exception e;
+        PackageManager packageManager;
+        List<ResolveInfo> list = null;
+        Intent intent = new Intent("com.baidu.android.pushservice.action.PUSH_SERVICE");
+        intent.setPackage(str);
+        try {
+            packageManager = context.getPackageManager();
+        } catch (Exception e) {
+        }
+        if (packageManager == null) {
+            return false;
+        }
+        list = packageManager.queryIntentServices(intent, 576);
+        return list != null && list.size() > 0;
+    }
+
+    static boolean j(Context context) {
+        return k(context, context.getPackageName());
+    }
+
+    public static boolean j(Context context, String str) {
         String str2;
-        boolean z2;
+        boolean z;
         try {
             Intent intent = new Intent("com.baidu.android.pushservice.action.notification.CLICK");
             intent.setPackage(context.getPackageName());
@@ -1616,16 +2017,16 @@ public final class p {
             if (it.hasNext()) {
                 ResolveInfo next = it.next();
                 str2 = next.activityInfo.name;
-                z2 = next.activityInfo.enabled;
+                z = next.activityInfo.enabled;
             } else {
                 str2 = null;
-                z2 = false;
+                z = false;
             }
             if (!a(context, PushConstants.ACTION_MESSAGE, str2, true) || !a(context, PushConstants.ACTION_RECEIVE, str2, true)) {
                 Log.e("BDPushSDK-Utility", str2 + " did not declared " + PushConstants.ACTION_MESSAGE + " or " + PushConstants.ACTION_RECEIVE);
                 return false;
             }
-            if (b() && PushSettings.n(context)) {
+            if (c() && PushSettings.p(context)) {
                 if (!a(context, "com.huawei.intent.action.PUSH", str2, true)) {
                     Log.e("BDPushSDK-Utility", str2 + " did not declared com.huawei.intent.action.PUSH");
                     return false;
@@ -1647,34 +2048,57 @@ public final class p {
                     Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.ERROR");
                     return false;
                 }
+            } else if (b() && PushSettings.n(context)) {
+                if (!a(context, com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
+                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
+                    return false;
+                } else if (!a(context, com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_REGISTER_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
+                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_REGISTER_ACTION);
+                    return false;
+                } else if (!a(context, com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
+                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION);
+                    return false;
+                } else if (!I(context)) {
+                    Log.e("BDPushSDK-Utility", "com.meizu.cloud.pushsdk.SystemReceiver did not declared com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
+                    return false;
+                }
+            } else if (d() && PushSettings.o(context) && !a(context, "com.coloros.mcs.action.RECEIVE_MCS_MESSAGE", "com.coloros.mcssdk.PushService", false)) {
+                Log.e("BDPushSDK-Utility", "com.coloros.mcssdk.PushService did not declared com.coloros.mcs.action.RECEIVE_MCS_MESSAGE");
+                return false;
             }
             int componentEnabledSetting = packageManager.getComponentEnabledSetting(new ComponentName(context.getPackageName(), str2));
-            z = componentEnabledSetting == 1 || (componentEnabledSetting == 0 && z2);
-            if (z) {
-                return z;
+            boolean z2 = componentEnabledSetting == 1 || (componentEnabledSetting == 0 && z);
+            if (z2) {
+                return z2;
             }
             try {
                 Log.e("BDPushSDK-Utility", str2 + " is disable, please check!");
-                return z;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.android.pushservice.g.a.a("Utility", e);
-                return z;
+                return z2;
+            } catch (Exception e) {
+                return z2;
             }
-        } catch (Exception e3) {
-            z = false;
-            e = e3;
+        } catch (Exception e2) {
+            return false;
         }
     }
 
-    static boolean j(Context context) {
-        return j(context, context.getPackageName());
+    public static String k(Context context) {
+        String d = d(context);
+        if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", d)) {
+            String J = J(context);
+            if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", J)) {
+                String K = K(context);
+                return (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", K) || Q(context)) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : K;
+            }
+            return J;
+        }
+        return d;
     }
 
-    public static boolean j(Context context, String str) {
+    public static boolean k(Context context, String str) {
         boolean z = true;
         try {
-            if (!D(context) || context.getSharedPreferences(context.getPackageName() + ".push_sync", 5).getInt("version2", 0) >= 29) {
+            if (!E(context) || context.getSharedPreferences(context.getPackageName() + ".push_sync", 5).getInt("version2", 0) >= 29) {
                 ComponentName componentName = new ComponentName(context, "com.baidu.android.pushservice.CommandService");
                 PackageManager packageManager = context.getPackageManager();
                 new ServiceInfo();
@@ -1688,44 +2112,8 @@ public final class p {
             }
             return z;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
-    }
-
-    public static String k(Context context, String str) {
-        if (!PushSocket.a(context)) {
-            Log.e("BDPushSDK-Utility", "check socket library failed");
-            return "check socket library failed";
-        } else if (!k(context)) {
-            Log.e("BDPushSDK-Utility", "check SDK AndroidManifest failed");
-            return "check SDK AndroidManifest failed";
-        } else if (!a(str, context)) {
-            Log.e("BDPushSDK-Utility", "check Apikey failed");
-            return "check Apikey failed";
-        } else {
-            if (!i(context)) {
-                Log.e("BDPushSDK-Utility", "check SelfConfiged Receiver failed");
-                com.baidu.android.pushservice.g.a.e("Utility", "check SelfConfiged Receiver failed");
-            }
-            if (!j(context) && !M(context)) {
-                Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
-                return "check CommandService Enable failed";
-            } else if (K(context)) {
-                return "";
-            } else {
-                Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
-                return "check CommandService Enable failed";
-            }
-        }
-    }
-
-    public static boolean k(Context context) {
-        com.baidu.android.pushservice.g.a.c("Utility", "check PushService AndroidManifest declearation !");
-        if (d(context) && H(context)) {
-            return I(context) || M(context);
-        }
-        return false;
     }
 
     static int l(Context context) {
@@ -1739,69 +2127,119 @@ public final class p {
         return a(context, "android.intent.action.ACTION_POWER_DISCONNECTED", "com.baidu.android.pushservice.PushServiceReceiver", true) ? i + 1 : i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0053 A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006e  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
+    public static String l(Context context, String str) {
+        if (!PushSocket.a(context)) {
+            Log.e("BDPushSDK-Utility", "check socket library failed");
+            return "check socket library failed";
+        }
+        String k = k(context);
+        if (!TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", k)) {
+            Log.e("BDPushSDK-Utility", k);
+            return k;
+        } else if (!a(str, context)) {
+            Log.e("BDPushSDK-Utility", "check Apikey failed");
+            return "check Apikey failed";
+        } else {
+            if (!i(context)) {
+                Log.e("BDPushSDK-Utility", "check SelfConfiged Receiver failed");
+            }
+            if (!j(context) && !Q(context)) {
+                Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
+                return "check CommandService Enable failed";
+            } else if (O(context)) {
+                return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
+            } else {
+                Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
+                return "check CommandService Enable failed";
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0052  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Exception] */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int l(Context context, String str) {
+    public static int m(Context context, String str) {
         int i;
-        Exception exc;
-        int i2;
-        int d;
+        SharedPreferences sharedPreferences;
+        int e = -1;
+        e = -1;
+        e = -1;
+        e = -1;
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         try {
             if (str.equals(context.getPackageName())) {
-                return com.baidu.android.pushservice.a.a();
-            }
-            if (D(context)) {
-                try {
-                    Context u = u(context, str);
-                    SharedPreferences sharedPreferences = u != null ? u.getSharedPreferences(str + ".push_sync", 5) : null;
-                    i2 = sharedPreferences != null ? sharedPreferences.getInt("version2", 0) : -1;
-                } catch (Exception e) {
-                    com.baidu.android.pushservice.g.a.a("Utility", e);
-                }
-                if (i2 != -1) {
+                i = com.baidu.android.pushservice.a.a();
+            } else {
+                if (E(context)) {
                     try {
-                        d = com.baidu.android.pushservice.d.d.d(context, str);
+                        Context v = v(context, str);
+                        sharedPreferences = v != null ? v.getSharedPreferences(str + ".push_sync", 5) : null;
                     } catch (Exception e2) {
-                        exc = e2;
-                        i = i2;
-                        com.baidu.android.pushservice.g.a.a("Utility", exc);
-                        return i;
+                        i = -1;
                     }
-                } else {
-                    d = i2;
+                    if (sharedPreferences != null) {
+                        i = sharedPreferences.getInt("version2", 0);
+                        if (i == -1) {
+                            try {
+                                i = com.baidu.android.pushservice.d.d.d(context, str);
+                            } catch (Exception e3) {
+                                e = e3;
+                            }
+                        }
+                        if (i == 0) {
+                            i = 50;
+                        }
+                    }
                 }
-                if (d != 0) {
-                    return 50;
+                i = -1;
+                if (i == -1) {
                 }
-                return d;
+                if (i == 0) {
+                }
             }
-            i2 = -1;
-            if (i2 != -1) {
-            }
-            if (d != 0) {
-            }
-        } catch (Exception e3) {
-            i = -1;
-            exc = e3;
+            return i;
+        } catch (Exception e4) {
+            return e;
         }
     }
 
-    public static String m(Context context, String str) {
+    public static List<String> m(Context context) {
+        PackageManager packageManager;
+        List<ResolveInfo> arrayList = new ArrayList<>();
+        Intent intent = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
+        try {
+            packageManager = context.getPackageManager();
+        } catch (Exception e) {
+        }
+        if (packageManager == null) {
+            return null;
+        }
+        arrayList = packageManager.queryBroadcastReceivers(intent, 576);
+        ArrayList arrayList2 = new ArrayList();
+        for (ResolveInfo resolveInfo : arrayList) {
+            arrayList2.add(resolveInfo.activityInfo.packageName);
+        }
+        return arrayList2;
+    }
+
+    public static String n(Context context, String str) {
         return TextUtils.isEmpty(str) ? "" : a(context, str, "BaiduPush_CHANNEL");
     }
 
-    public static List<ResolveInfo> m(Context context) {
-        ArrayList arrayList;
-        Exception exc;
-        ArrayList arrayList2 = new ArrayList();
+    public static List<ResolveInfo> n(Context context) {
+        ArrayList arrayList = new ArrayList();
         Intent intent = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -1810,32 +2248,24 @@ public final class p {
             }
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
             try {
-                ArrayList<ResolveInfo> arrayList3 = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
                     if (z(context, resolveInfo.activityInfo.packageName)) {
-                        arrayList3.add(resolveInfo);
+                        arrayList2.add(resolveInfo);
                     }
                 }
-                for (ResolveInfo resolveInfo2 : arrayList3) {
-                    queryBroadcastReceivers.remove(resolveInfo2);
-                }
+                queryBroadcastReceivers.removeAll(arrayList2);
                 return queryBroadcastReceivers;
             } catch (Exception e) {
-                arrayList = queryBroadcastReceivers;
-                exc = e;
-                com.baidu.android.pushservice.g.a.a("Utility", exc);
-                return arrayList;
+                return queryBroadcastReceivers;
             }
         } catch (Exception e2) {
-            arrayList = arrayList2;
-            exc = e2;
+            return arrayList;
         }
     }
 
-    public static List<ResolveInfo> n(Context context) {
-        ArrayList arrayList;
-        Exception exc;
-        ArrayList arrayList2 = new ArrayList();
+    public static List<ResolveInfo> o(Context context) {
+        ArrayList arrayList = new ArrayList();
         try {
             Intent intent = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
             PackageManager packageManager = context.getPackageManager();
@@ -1844,73 +2274,60 @@ public final class p {
             }
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
             try {
-                ArrayList<ResolveInfo> arrayList3 = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
                     if (!z(context, resolveInfo.activityInfo.packageName)) {
-                        arrayList3.add(resolveInfo);
+                        arrayList2.add(resolveInfo);
                     }
                 }
-                for (ResolveInfo resolveInfo2 : arrayList3) {
-                    queryBroadcastReceivers.remove(resolveInfo2);
-                }
+                queryBroadcastReceivers.removeAll(arrayList2);
                 return queryBroadcastReceivers;
             } catch (Exception e) {
-                arrayList = queryBroadcastReceivers;
-                exc = e;
-                com.baidu.android.pushservice.g.a.a("Utility", exc);
-                return arrayList;
+                return queryBroadcastReceivers;
             }
         } catch (Exception e2) {
-            arrayList = arrayList2;
-            exc = e2;
+            return arrayList;
         }
     }
 
-    public static boolean n(Context context, String str) {
+    public static boolean o(Context context, String str) {
         return a(context, str) != null;
     }
 
-    public static String o(Context context) {
+    public static String p(Context context) {
         String b2 = com.baidu.android.pushservice.k.e.b(context);
-        if (E(context)) {
-            String a2 = com.baidu.android.pushservice.k.f.a(("com.baidu.pushservice.singelinstancev3" + b2).getBytes(), false);
-            com.baidu.android.pushservice.g.a.c("Utility", "createV3  MD5");
-            return a2;
-        }
-        String a3 = com.baidu.android.pushservice.k.f.a(("com.baidu.pushservice.singelinstancev2" + b2).getBytes(), false);
-        com.baidu.android.pushservice.g.a.c("Utility", "createV2  MD5");
-        return a3;
+        return F(context) ? com.baidu.android.pushservice.k.f.a(("com.baidu.pushservice.singelinstancev3" + b2).getBytes(), false) : com.baidu.android.pushservice.k.f.a(("com.baidu.pushservice.singelinstancev2" + b2).getBytes(), false);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d9  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ec  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0165  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0187 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x007d  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0091  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00e0  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00f5  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0025 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String o(Context context, String str) {
+    public static String p(Context context, String str) {
+        SharedPreferences sharedPreferences;
         long j;
         Iterator<ResolveInfo> it;
-        SharedPreferences sharedPreferences;
+        SharedPreferences sharedPreferences2;
         int b2 = com.baidu.android.pushservice.c.d.a(context).b();
-        if (b2 == com.baidu.android.pushservice.c.d.g || b2 == com.baidu.android.pushservice.c.d.h || b2 == com.baidu.android.pushservice.c.d.f) {
+        if (b2 == 3 || b2 == 4 || b2 == 2) {
             String c2 = com.baidu.android.pushservice.c.d.a(context).c();
             if (!TextUtils.isEmpty(c2)) {
                 return c2;
             }
         }
-        List<ResolveInfo> n = E(context) ? n(context.getApplicationContext()) : m(context.getApplicationContext());
-        if (n != null && n.size() <= 1) {
+        List<ResolveInfo> o = F(context) ? o(context.getApplicationContext()) : n(context.getApplicationContext());
+        if (o != null && o.size() <= 1) {
             return context.getPackageName();
         }
-        if (D(context)) {
+        if (E(context)) {
             try {
                 sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 5);
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("Utility", e);
                 sharedPreferences = null;
             }
             if (sharedPreferences != null) {
@@ -1918,24 +2335,24 @@ public final class p {
                 if (j == -1) {
                     j = com.baidu.android.pushservice.d.c.b(context);
                 }
-                String t = t(context);
-                it = n.iterator();
+                String u = u(context);
+                it = o.iterator();
                 while (true) {
                     long j2 = j;
                     if (it.hasNext()) {
-                        com.baidu.android.pushservice.g.a.c("Utility", "Current highest priority Push PackageName: " + str);
                         return str;
                     }
                     String str2 = it.next().activityInfo.packageName;
-                    Context u = u(context, str2);
-                    if (D(context)) {
-                        SharedPreferences sharedPreferences2 = null;
-                        if (u != null) {
+                    Context v = v(context, str2);
+                    if (E(context)) {
+                        if (v != null) {
                             try {
-                                sharedPreferences2 = u.getSharedPreferences(str2 + ".push_sync", 5);
+                                sharedPreferences2 = v.getSharedPreferences(str2 + ".push_sync", 5);
                             } catch (Exception e2) {
-                                com.baidu.android.pushservice.g.a.a("Utility", e2);
+                                sharedPreferences2 = null;
                             }
+                        } else {
+                            sharedPreferences2 = null;
                         }
                         if (sharedPreferences2 != null) {
                             j = sharedPreferences2.getLong("priority2", 0L);
@@ -1943,17 +2360,15 @@ public final class p {
                                 j = str2.equals(context.getPackageName()) ? com.baidu.android.pushservice.d.c.b(context) : com.baidu.android.pushservice.d.d.c(context, str2);
                             }
                             if (j <= j2) {
-                                com.baidu.android.pushservice.g.a.c("Utility", "Find more higher priority pkg : " + str2 + " priority = " + j + ",Current highest priority pkg : " + str + " priority = " + j2);
-                                if (h(u, str2)) {
+                                if (h(v, str2)) {
                                     str = str2;
-                                } else {
-                                    com.baidu.android.pushservice.g.a.c("Utility", str2 + "push service is disabled");
-                                    j = j2;
                                 }
-                            } else if (j != j2 || (!(str2.equals(t) && h(u, str2)) && (!str2.equals(context.getPackageName()) || D(context)))) {
                                 j = j2;
                             } else {
-                                str = str2;
+                                if (j == j2 && ((str2.equals(u) && h(v, str2)) || (str2.equals(context.getPackageName()) && !E(context)))) {
+                                    str = str2;
+                                }
+                                j = j2;
                             }
                         }
                     }
@@ -1968,8 +2383,8 @@ public final class p {
         j = -1;
         if (j == -1) {
         }
-        String t2 = t(context);
-        it = n.iterator();
+        String u2 = u(context);
+        it = o.iterator();
         while (true) {
             long j22 = j;
             if (it.hasNext()) {
@@ -1977,10 +2392,10 @@ public final class p {
         }
     }
 
-    public static ArrayList<String> p(Context context) {
-        List<ResolveInfo> n = E(context) ? n(context.getApplicationContext()) : m(context.getApplicationContext());
+    public static ArrayList<String> q(Context context) {
+        List<ResolveInfo> o = F(context) ? o(context.getApplicationContext()) : n(context.getApplicationContext());
         ArrayList<String> arrayList = new ArrayList<>();
-        for (ResolveInfo resolveInfo : n) {
+        for (ResolveInfo resolveInfo : o) {
             if (!arrayList.contains(resolveInfo.activityInfo.packageName)) {
                 arrayList.add(resolveInfo.activityInfo.packageName);
             }
@@ -1988,21 +2403,15 @@ public final class p {
         return arrayList;
     }
 
-    public static boolean p(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            com.baidu.android.pushservice.g.a.c("Utility", "isNoDisturb parameters illegal : false");
+    public static boolean q(Context context, String str) {
+        int[] f;
+        if (context == null || TextUtils.isEmpty(str) || (f = com.baidu.android.pushservice.d.a.f(context, str)) == null || 4 != f.length) {
             return false;
         }
-        int[] f = com.baidu.android.pushservice.d.a.f(context, str);
-        if (f == null || 4 != f.length) {
-            return false;
-        }
-        boolean a2 = a(f[0], f[1], f[2], f[3]);
-        com.baidu.android.pushservice.g.a.c("Utility", "isNoDisturb :" + a2 + " ret0 = " + f[0] + " ret1 = " + f[1] + " ret2 = " + f[2] + " ret[3] = " + f[3]);
-        return a2;
+        return a(f[0], f[1], f[2], f[3]);
     }
 
-    public static String q(Context context, String str) {
+    public static String r(Context context, String str) {
         try {
             PackageManager packageManager = context.getPackageManager();
             if (packageManager == null) {
@@ -2010,21 +2419,18 @@ public final class p {
             }
             return com.baidu.android.pushservice.k.f.a(packageManager.getPackageInfo(str, 64).signatures[0].toByteArray(), false);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return null;
         }
     }
 
-    public static List<String> q(Context context) {
+    public static List<String> r(Context context) {
         ArrayList arrayList = new ArrayList();
         try {
-            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            ActivityManager activityManager = (ActivityManager) context.getSystemService(com.meizu.cloud.pushsdk.constants.PushConstants.INTENT_ACTIVITY_NAME);
             if (activityManager == null) {
-                com.baidu.android.pushservice.g.a.e("Utility", "ActivityManager is null !!!");
             }
             List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(500);
             if (runningServices == null || runningServices.isEmpty()) {
-                com.baidu.android.pushservice.g.a.e("Utility", "runnServs is null !!!");
             }
             for (ActivityManager.RunningServiceInfo runningServiceInfo : runningServices) {
                 if (runningServiceInfo.service.getClassName().contains("com.baidu.android.pushservice.PushService")) {
@@ -2037,7 +2443,7 @@ public final class p {
         return arrayList;
     }
 
-    public static String r(Context context) {
+    public static String s(Context context) {
         NetworkInfo c2 = k.c(context);
         if (c2 != null && c2.isConnected() && c2.getState() == NetworkInfo.State.CONNECTED) {
             if (c2.getTypeName().equals("WIFI")) {
@@ -2049,12 +2455,12 @@ public final class p {
         return "unknown";
     }
 
-    public static boolean r(Context context, String str) {
+    public static boolean s(Context context, String str) {
         String a2 = m.a(context, "com.baidu.android.pushservice.MESSAGE_IDS_RECEIVED");
         return !TextUtils.isEmpty(a2) && a2.contains(str);
     }
 
-    public static int s(Context context) {
+    public static int t(Context context) {
         NetworkInfo c2;
         String str = "";
         if (context != null && (c2 = k.c(context)) != null && c2.isConnectedOrConnecting()) {
@@ -2111,7 +2517,7 @@ public final class p {
         return str.equals("4G") ? 4 : 0;
     }
 
-    public static boolean s(Context context, String str) {
+    public static boolean t(Context context, String str) {
         String a2 = m.a(context, "com.baidu.android.pushservice.MESSAGE_IDS_RECEIVED");
         if (!TextUtils.isEmpty(a2)) {
             if (a2.contains(str)) {
@@ -2126,77 +2532,66 @@ public final class p {
         return false;
     }
 
-    public static String t(Context context) {
-        if (E(context)) {
-            List<String> q = q(context);
-            List<ResolveInfo> n = n(context);
-            if (!q.isEmpty()) {
-                for (ResolveInfo resolveInfo : n) {
-                    if (q.contains(resolveInfo.activityInfo.packageName)) {
+    public static String u(Context context) {
+        if (F(context)) {
+            List<String> r = r(context);
+            List<ResolveInfo> o = o(context);
+            if (!r.isEmpty()) {
+                for (ResolveInfo resolveInfo : o) {
+                    if (r.contains(resolveInfo.activityInfo.packageName)) {
                         String b2 = com.baidu.android.pushservice.d.d.b(context, resolveInfo.activityInfo.packageName);
-                        if (!TextUtils.isEmpty(b2) && n(context, b2)) {
-                            if (h(context, b2)) {
-                                return b2;
-                            }
-                            com.baidu.android.pushservice.g.a.c("Utility", "The Highest priority Service: " + ((String) null) + " is disabled,Maybe use setComponentEnabledSetting method");
+                        if (!TextUtils.isEmpty(b2) && o(context, b2) && h(context, b2)) {
+                            return b2;
                         }
                     }
                 }
             }
         } else {
             String a2 = b.a(context, "com.baidu.push.cur_pkg");
-            List<String> q2 = q(context);
-            if (TextUtils.isEmpty(a2) || !q2.contains(a2)) {
-                if (!q2.isEmpty()) {
-                    for (String str : q2) {
+            List<String> r2 = r(context);
+            if (TextUtils.isEmpty(a2) || !r2.contains(a2)) {
+                if (!r2.isEmpty()) {
+                    for (String str : r2) {
                         if (!z(context, str)) {
                             String b3 = com.baidu.android.pushservice.d.d.b(context, str);
-                            if (!TextUtils.isEmpty(b3) && n(context, b3)) {
-                                if (h(context, b3)) {
-                                    return b3;
-                                }
-                                com.baidu.android.pushservice.g.a.c("Utility", "The Highest priority Service: " + ((String) null) + " is disabled,Maybe use setComponentEnabledSetting method");
+                            if (!TextUtils.isEmpty(b3) && o(context, b3) && h(context, b3)) {
+                                return b3;
                             }
                         }
                     }
                 }
-            } else if (n(context, a2)) {
-                if (h(context, a2)) {
-                    return a2;
-                }
-                com.baidu.android.pushservice.g.a.c("Utility", "The Highest priority Service: " + a2 + " is disabled,Maybe use setComponentEnabledSetting method");
+            } else if (o(context, a2) && h(context, a2)) {
+                return a2;
             }
         }
         return null;
     }
 
-    public static boolean t(Context context, String str) {
+    public static boolean u(Context context, String str) {
         try {
             return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
             return false;
         }
     }
 
-    public static Context u(Context context, String str) {
+    public static Context v(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             return context.createPackageContext(str, 4);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-            com.baidu.android.pushservice.h.p.a(context.getApplicationContext(), e);
+            com.baidu.android.pushservice.h.q.a(context.getApplicationContext(), e);
             return null;
         }
     }
 
-    public static String u(Context context) {
-        return o(context, context.getPackageName());
+    public static String v(Context context) {
+        return p(context, context.getPackageName());
     }
 
-    public static String v(Context context) {
+    public static String w(Context context) {
         int i = 1;
         int i2 = k.a(context) ? 0 : 1;
         NetworkInfo c2 = k.c(context);
@@ -2214,22 +2609,20 @@ public final class p {
             jSONObject.put("sa_avail", d2);
             jSONObject.put("logic_avail", d3);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         return jSONObject.toString();
     }
 
-    public static String v(Context context, String str) {
+    public static String w(Context context, String str) {
         try {
             PackageInfo a2 = a(context, str);
             return (a2 == null || a2.firstInstallTime <= 0) ? "" : String.valueOf(a2.firstInstallTime);
         } catch (Throwable th) {
-            com.baidu.android.pushservice.g.a.a("Utility", th);
             return "";
         }
     }
 
-    public static String w(Context context) {
+    public static String x(Context context) {
         String e = e("www.baidu.com");
         String e2 = e("sa.tuisong.baidu.com");
         String e3 = e("api.tuisong.baidu.com");
@@ -2239,15 +2632,13 @@ public final class p {
             jSONObject.put("sa_ip", e2);
             jSONObject.put("logic_ip", e3);
         } catch (Exception e4) {
-            com.baidu.android.pushservice.g.a.a("Utility", e4);
         }
         if (com.baidu.android.pushservice.a.b() > 0) {
-            com.baidu.android.pushservice.g.a.c("Utility", "getNetworkInfo json: " + jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
-    public static boolean w(Context context, String str) {
+    public static boolean x(Context context, String str) {
         boolean z = false;
         ArrayList arrayList = (ArrayList) com.baidu.android.pushservice.b.b.a(context).a.clone();
         if (arrayList != null && !arrayList.isEmpty()) {
@@ -2263,7 +2654,7 @@ public final class p {
         }
         if (!z) {
             String f = com.baidu.android.pushservice.d.c.f(context);
-            if (TextUtils.isEmpty(f) && D(context)) {
+            if (TextUtils.isEmpty(f) && E(context)) {
                 f = q.a(context, context.getPackageName() + ".push_sync", "r_v2");
             }
             String a2 = com.baidu.android.pushservice.b.b.a(f);
@@ -2277,34 +2668,44 @@ public final class p {
         return z;
     }
 
-    public static void x(Context context, String str) {
-        Intent intent = new Intent();
-        intent.putExtra("r_sync_type", 0);
-        intent.putExtra("r_sync_rdata_v2", str);
-        intent.putExtra("r_sync_from", context.getPackageName());
-        intent.setFlags(32);
-        for (ResolveInfo resolveInfo : E(context) ? n(context) : m(context)) {
-            b(context, intent, "com.baidu.android.pushservice.action.BIND_SYNC", resolveInfo.activityInfo.packageName);
-        }
-    }
-
-    public static boolean x(Context context) {
-        boolean z = false;
+    public static boolean y(Context context) {
         try {
-            z = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false);
+            return context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
+            return false;
         }
-        com.baidu.android.pushservice.g.a.c("Utility", "isbind = " + z);
-        return z;
     }
 
-    public static void y(Context context) {
+    public static boolean y(Context context, String str) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        try {
+        } catch (Exception e) {
+            z = false;
+        }
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        z = com.baidu.android.pushservice.d.a.e(context, str);
+        try {
+            z2 = z;
+            z3 = t(context, str);
+        } catch (Exception e2) {
+            z2 = z;
+            z3 = false;
+            return z2 ? false : false;
+        }
+        if (z2 && z3) {
+            return true;
+        }
+    }
+
+    public static void z(Context context) {
         if (context == null) {
             return;
         }
-        com.baidu.android.pushservice.g.a.c("Utility", "requestHuaweiToken--------");
-        n.a(context, "");
+        n.a(context, 5, "");
         Context applicationContext = context.getApplicationContext();
         Intent intent = new Intent("com.huawei.android.push.intent.REGISTER");
         intent.putExtra(PushConstants.PACKAGE_NAME, applicationContext.getPackageName());
@@ -2313,48 +2714,14 @@ public final class p {
         n.a(applicationContext, "hasRequestToken", true);
     }
 
-    public static boolean y(Context context, String str) {
-        boolean z;
-        boolean z2;
-        try {
-        } catch (Exception e) {
-            e = e;
-            z = false;
-        }
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.android.pushservice.g.a.e("Utility", "msgid = null");
-            return false;
-        }
-        z = com.baidu.android.pushservice.d.a.e(context, str);
-        try {
-            z2 = s(context, str);
-        } catch (Exception e2) {
-            e = e2;
-            com.baidu.android.pushservice.g.a.a("Utility", e);
-            z2 = false;
-            return z ? false : false;
-        }
-        if (z && z2) {
-            return true;
-        }
-    }
-
-    public static void z(Context context) {
-        Intent intent = new Intent(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.SEND_APPSTAT");
-        intent.setClass(context, PushService.class);
-        com.baidu.android.pushservice.i.a(context.getApplicationContext()).a(intent);
-    }
-
     public static boolean z(Context context, String str) {
         try {
             if (A(context, str) >= 24 && Build.VERSION.SDK_INT >= 24) {
-                if ((str.equals(context.getPackageName()) ? com.baidu.android.pushservice.a.a() : l(context, str)) >= 55) {
+                if ((str.equals(context.getPackageName()) ? com.baidu.android.pushservice.a.a() : m(context, str)) >= 55) {
                     return true;
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("Utility", e);
         }
         return false;
     }

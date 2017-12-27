@@ -187,6 +187,7 @@ public class AntiData implements Serializable {
                 this.mFrsForbidenDialogInfo.ok_info = anti.block_pop_info.ok_info;
                 this.mFrsForbidenDialogInfo.can_post = anti.block_pop_info.can_post;
                 this.mFrsForbidenDialogInfo.block_info = anti.block_pop_info.block_info;
+                this.mFrsForbidenDialogInfo.ahead_type = anti.block_pop_info.ahead_type;
             }
         }
     }
@@ -231,6 +232,7 @@ public class AntiData implements Serializable {
                     this.mFrsForbidenDialogInfo.ok_info = optJSONObject.optString("ok_info");
                     this.mFrsForbidenDialogInfo.can_post = Integer.valueOf(optJSONObject.optInt("can_post"));
                     this.mFrsForbidenDialogInfo.block_info = optJSONObject.optString("block_info");
+                    this.mFrsForbidenDialogInfo.ahead_type = Integer.valueOf(optJSONObject.optInt("ahead_type"));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -266,6 +268,7 @@ public class AntiData implements Serializable {
                 jSONObject2.put("ok_info", this.mFrsForbidenDialogInfo.ok_info);
                 jSONObject2.put("can_post", this.mFrsForbidenDialogInfo.can_post);
                 jSONObject2.put("block_info", this.mFrsForbidenDialogInfo.block_info);
+                jSONObject2.put("ahead_type", this.mFrsForbidenDialogInfo.ahead_type);
                 jSONObject.put("block_pop_info", jSONObject2);
             }
             return jSONObject.toString();

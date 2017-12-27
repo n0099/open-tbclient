@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
 import com.baidu.sapi2.base.debug.Log;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -16,10 +17,11 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class SapiDataEncryptor {
-    public static final String UID_CIPHER_KEY = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "v", "o", "i", "c", "e", "3", "5", "h", "y", "1", "2"});
+    public static final String UID_CIPHER_KEY = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", NotifyType.VIBRATE, "o", "i", "c", "e", "3", "5", "h", "y", "1", "2"});
     public static final String UID_CIPHER_KEY_FACE = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "f", "a", "c", "e", "D", "z", "T", "9", "9", "1", "1"});
     private static final String a = "0123456789ABCDEF";
     private String b;
@@ -59,7 +61,7 @@ public class SapiDataEncryptor {
         }
         PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
         JSONArray jSONArray = new JSONArray();
-        byte[] bytes = str2.getBytes("UTF-8");
+        byte[] bytes = str2.getBytes(HTTP.UTF_8);
         if (bytes.length % 116 == 0) {
             length = bytes.length / 116;
         } else {
@@ -67,23 +69,23 @@ public class SapiDataEncryptor {
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
-                jSONArray.put(Base64.encode(a(publicKey, bytes), "UTF-8"));
+                jSONArray.put(Base64.encode(a(publicKey, bytes), HTTP.UTF_8));
             } else if (i != length - 1) {
                 byte[] bArr = new byte[116];
                 System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                jSONArray.put(Base64.encode(a(publicKey, bArr), "UTF-8"));
+                jSONArray.put(Base64.encode(a(publicKey, bArr), HTTP.UTF_8));
             } else {
                 int length2 = bytes.length - (i * 116);
                 byte[] bArr2 = new byte[length2];
                 System.arraycopy(bytes, i * 116, bArr2, 0, length2);
-                jSONArray.put(Base64.encode(a(publicKey, bArr2), "UTF-8"));
+                jSONArray.put(Base64.encode(a(publicKey, bArr2), HTTP.UTF_8));
             }
         }
-        return Base64.encode(jSONArray.toString().getBytes("UTF-8"), "UTF-8");
+        return Base64.encode(jSONArray.toString().getBytes(HTTP.UTF_8), HTTP.UTF_8);
     }
 
     public String decrypt(String str) throws Exception {
-        return new String(this.c.decrypt(Base64.decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), "UTF-8");
+        return new String(this.c.decrypt(Base64.decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), HTTP.UTF_8);
     }
 
     private String a() {
@@ -97,7 +99,7 @@ public class SapiDataEncryptor {
 
     public static String decryptUid(String str, String str2) {
         try {
-            return new String(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2), "UTF-8").trim();
+            return new String(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2), HTTP.UTF_8).trim();
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";
@@ -106,7 +108,7 @@ public class SapiDataEncryptor {
 
     public static String encryptUid(String str, String str2) {
         try {
-            return Base64.encode(new AES().encrypt(str, new StringBuffer(str2).reverse().toString(), str2), "UTF-8");
+            return Base64.encode(new AES().encrypt(str, new StringBuffer(str2).reverse().toString(), str2), HTTP.UTF_8);
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";
@@ -118,7 +120,7 @@ public class SapiDataEncryptor {
             return null;
         }
         try {
-            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
+            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), HTTP.UTF_8).trim();
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";
@@ -130,7 +132,7 @@ public class SapiDataEncryptor {
             return null;
         }
         try {
-            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), "UTF-8"), new StringBuffer(str2).reverse().toString(), str2), "UTF-8");
+            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), HTTP.UTF_8), new StringBuffer(str2).reverse().toString(), str2), HTTP.UTF_8);
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";

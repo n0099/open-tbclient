@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import android.net.http.Headers;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
@@ -42,7 +43,7 @@ public class AlaUserInfoData extends OrmObject {
                 this.sex = jSONObject.optString(MyGiftListActivityConfig.USER_SEX);
                 this.live_status = jSONObject.optInt("live_status");
                 this.live_id = jSONObject.optLong("live_id");
-                this.location = jSONObject.optString("location");
+                this.location = jSONObject.optString(Headers.LOCATION);
                 this.update_time = jSONObject.optInt("update_time");
                 this.charm_count = jSONObject.optLong("charm_count");
                 this.level_exp = jSONObject.optLong("level_exp");

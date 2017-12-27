@@ -4,34 +4,34 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType cst;
-    private int csu;
-    private int csv;
-    private com.baidu.tbadk.editortools.emotiontool.c csw;
-    private int csx;
-    private int csy;
+    private EmotionGroupType dgR;
+    private int dgS;
+    private int dgT;
+    private com.baidu.tbadk.editortools.emotiontool.c dgU;
+    private int dgV;
+    private int dgW;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.csw = cVar;
+        this.dgU = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c agx() {
-        return this.csw;
+    public com.baidu.tbadk.editortools.emotiontool.c anY() {
+        return this.dgU;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cst = emotionGroupType;
+        this.dgR = emotionGroupType;
     }
 
-    public EmotionGroupType agy() {
-        return this.cst;
+    public EmotionGroupType anZ() {
+        return this.dgR;
     }
 
-    public void fa(int i) {
+    public void hY(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class d {
         return this.row;
     }
 
-    public void eZ(int i) {
+    public void hX(int i) {
         this.column = i;
     }
 
-    public int agz() {
+    public int aoa() {
         return this.column;
     }
 
-    public void jh(int i) {
-        this.csy = i;
+    public void mf(int i) {
+        this.dgW = i;
     }
 
-    public int agA() {
-        return this.csy;
+    public int aob() {
+        return this.dgW;
     }
 
-    public void ji(int i) {
-        this.csx = i;
+    public void mg(int i) {
+        this.dgV = i;
     }
 
-    public int agB() {
-        return this.csx;
+    public int aoc() {
+        return this.dgV;
     }
 
-    public void jj(int i) {
-        this.csu = i;
+    public void mh(int i) {
+        this.dgS = i;
     }
 
-    public int agC() {
-        return this.csu;
+    public int aod() {
+        return this.dgS;
     }
 
-    public void jk(int i) {
+    public void mi(int i) {
         this.startIndex = i;
     }
 
-    public int agD() {
+    public int aoe() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void jl(int i) {
-        this.csv = i;
+    public void mj(int i) {
+        this.dgT = i;
     }
 
-    public int agE() {
-        return this.csv;
+    public int aof() {
+        return this.dgT;
     }
 }

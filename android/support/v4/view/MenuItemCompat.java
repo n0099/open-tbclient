@@ -6,8 +6,8 @@ import android.support.v4.view.MenuItemCompatIcs;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes.dex */
-public class MenuItemCompat {
+/* loaded from: classes2.dex */
+public final class MenuItemCompat {
     static final MenuVersionImpl IMPL;
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW = 8;
@@ -15,7 +15,7 @@ public class MenuItemCompat {
     public static final int SHOW_AS_ACTION_NEVER = 0;
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface MenuVersionImpl {
         boolean collapseActionView(MenuItem menuItem);
 
@@ -34,14 +34,14 @@ public class MenuItemCompat {
         void setShowAsAction(MenuItem menuItem, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnActionExpandListener {
         boolean onMenuItemActionCollapse(MenuItem menuItem);
 
         boolean onMenuItemActionExpand(MenuItem menuItem);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BaseMenuVersionImpl implements MenuVersionImpl {
         BaseMenuVersionImpl() {
         }
@@ -86,7 +86,7 @@ public class MenuItemCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class HoneycombMenuVersionImpl implements MenuVersionImpl {
         HoneycombMenuVersionImpl() {
         }
@@ -132,7 +132,7 @@ public class MenuItemCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class IcsMenuVersionImpl extends HoneycombMenuVersionImpl {
         IcsMenuVersionImpl() {
         }
@@ -229,5 +229,8 @@ public class MenuItemCompat {
 
     public static MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener) {
         return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setSupportOnActionExpandListener(onActionExpandListener) : IMPL.setOnActionExpandListener(menuItem, onActionExpandListener);
+    }
+
+    private MenuItemCompat() {
     }
 }

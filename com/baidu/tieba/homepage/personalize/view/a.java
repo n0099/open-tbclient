@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.personalize.data.e;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends RelativeLayout {
-    private BdUniqueId aAT;
+    private BdUniqueId boP;
     private int ds94;
-    public ImageView dsU;
-    private LinearLayout dsV;
-    private TextView dsW;
-    private ImageView dsX;
-    private int dsY;
+    public ImageView efa;
+    private LinearLayout efb;
+    private TextView efc;
+    private ImageView efd;
+    private int efe;
     private TextView mInfo;
     private TextView mTitle;
 
@@ -36,58 +36,58 @@ public class a extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.ds94 = l.f(getContext(), d.e.tbds94);
-        this.dsY = 0 - l.f(getContext(), d.e.tbds18);
+        this.ds94 = l.s(getContext(), d.e.tbds94);
+        this.efe = 0 - l.s(getContext(), d.e.tbds18);
         LayoutInflater.from(context).inflate(d.h.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(d.g.concern_unread_tip_title);
-        this.dsU = (ImageView) findViewById(d.g.concern_unread_tip_close);
-        this.dsV = (LinearLayout) findViewById(d.g.concern_unread_tip_header_box);
+        this.efa = (ImageView) findViewById(d.g.concern_unread_tip_close);
+        this.efb = (LinearLayout) findViewById(d.g.concern_unread_tip_header_box);
         this.mInfo = (TextView) findViewById(d.g.concern_unread_tip_info);
-        this.dsW = (TextView) findViewById(d.g.concern_unread_tip_show);
-        this.dsX = (ImageView) findViewById(d.g.concern_unread_tip_show_arrow);
-        setPadding(0, 0, 0, l.f(context, d.e.tbds44));
+        this.efc = (TextView) findViewById(d.g.concern_unread_tip_show);
+        this.efd = (ImageView) findViewById(d.g.concern_unread_tip_show_arrow);
+        setPadding(0, 0, 0, l.s(context, d.e.tbds44));
         onChangeSkinType();
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.aAT = bdUniqueId;
+        this.boP = bdUniqueId;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
-        this.dsU.setOnClickListener(onClickListener);
+        this.efa.setOnClickListener(onClickListener);
     }
 
     public void setData(e eVar) {
         if (eVar != null) {
-            if (!eVar.auv()) {
+            if (!eVar.aBz()) {
                 setVisibility(8);
                 return;
             }
-            if (eVar.dsy > 0) {
-                b.getInstance().putLong(b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.dsy);
+            if (eVar.eeE > 0) {
+                b.getInstance().putLong(b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.eeE);
             }
-            if (this.mInfo != null && !StringUtils.isNull(eVar.dsz)) {
-                this.mInfo.setText(eVar.dsz);
+            if (this.mInfo != null && !StringUtils.isNull(eVar.eeF)) {
+                this.mInfo.setText(eVar.eeF);
             }
-            if (this.dsV != null && eVar.dsx != null) {
-                this.dsV.removeAllViews();
-                List<String> list = eVar.dsx;
+            if (this.efb != null && eVar.eeD != null) {
+                this.efb.removeAllViews();
+                List<String> list = eVar.eeD;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), d.h.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.dsY;
+                            layoutParams.leftMargin = this.efe;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(d.g.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
                         aj.c((ImageView) frameLayout.findViewById(d.g.out_img), d.f.bg_unread_tip_head_border);
-                        this.dsV.addView(frameLayout);
-                        headImageView.setPageId(this.aAT);
+                        this.efb.addView(frameLayout);
+                        headImageView.setPageId(this.boP);
                         headImageView.startLoad(str, 12, false);
                     }
                 }
@@ -96,11 +96,11 @@ public class a extends RelativeLayout {
     }
 
     public void onChangeSkinType() {
-        aj.k(this, d.C0095d.cp_bg_line_d);
-        aj.i(this.mTitle, d.C0095d.cp_cont_b);
-        aj.c(this.dsU, d.f.icon_home_feedback_selector);
-        aj.i(this.mInfo, d.C0095d.cp_cont_b);
-        aj.i(this.dsW, d.C0095d.cp_cont_d);
-        aj.c(this.dsX, d.f.icon_arrow_gray_right_n);
+        aj.t(this, d.C0108d.cp_bg_line_d);
+        aj.r(this.mTitle, d.C0108d.cp_cont_b);
+        aj.c(this.efa, d.f.icon_home_feedback_selector);
+        aj.r(this.mInfo, d.C0108d.cp_cont_b);
+        aj.r(this.efc, d.C0108d.cp_cont_d);
+        aj.c(this.efd, d.f.icon_arrow_gray_right_n);
     }
 }

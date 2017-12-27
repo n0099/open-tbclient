@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aqL = null;
-    private boolean aqK;
-    private int aqM;
+    private static volatile a beK = null;
+    private boolean beJ;
+    private int beL;
 
     private a() {
-        this.aqK = false;
-        this.aqM = 0;
+        this.beJ = false;
+        this.beL = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            dVar.v(true);
+            dVar.ab(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.dI()) {
+            if (dVar.lm()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.aqM = Integer.parseInt(content);
+                    this.beL = Integer.parseInt(content);
                 }
-                if (this.aqM == 1 || this.aqM == 2) {
-                    this.aqK = true;
+                if (this.beL == 1 || this.beL == 2) {
+                    this.beJ = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a xr() {
-        if (aqL == null) {
+    public static a EQ() {
+        if (beK == null) {
             synchronized (a.class) {
-                if (aqL == null) {
-                    aqL = new a();
+                if (beK == null) {
+                    beK = new a();
                 }
             }
         }
-        return aqL;
+        return beK;
     }
 
-    public boolean xs() {
-        return this.aqK;
+    public boolean ER() {
+        return this.beJ;
     }
 
-    public int xt() {
-        return this.aqM;
+    public int ES() {
+        return this.beL;
     }
 
-    public String xu() {
-        return this.aqK ? "pub_env=" + this.aqM + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String ET() {
+        return this.beJ ? "pub_env=" + this.beL + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.data;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class b {
-    private String gBm;
+    private String hhY;
     private String mDescription;
     private String mType;
 
@@ -11,8 +11,8 @@ public class b {
         return this.mDescription;
     }
 
-    public String bws() {
-        return this.gBm;
+    public String bBH() {
+        return this.hhY;
     }
 
     public String getType() {
@@ -22,7 +22,7 @@ public class b {
     public void a(LinkInfo linkInfo) {
         if (linkInfo != null) {
             this.mDescription = linkInfo.desc;
-            this.gBm = linkInfo.link;
+            this.hhY = linkInfo.link;
             this.mType = linkInfo.type;
         }
     }

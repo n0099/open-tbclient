@@ -6,16 +6,16 @@ import android.view.ViewStub;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.widget.vote.VoteView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.aw;
+import com.baidu.tieba.frs.ax;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.PollOption;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g extends i {
-    private VoteView cPq;
+    private VoteView dEh;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,34 +29,34 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.cPq = (VoteView) findViewById;
-            this.cPq.setWidth(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds560));
-            this.cPq.setProgressBarHeight(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds20));
-            this.cPq.setDescTextColorResId(d.C0095d.cp_cont_b);
-            this.cPq.setProgressBarTopMargin(com.baidu.adp.lib.util.l.f(getContext(), d.e.ds8));
-            this.cPq.setDescTopMargin(0);
+            this.dEh = (VoteView) findViewById;
+            this.dEh.setWidth(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds560));
+            this.dEh.setProgressBarHeight(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds20));
+            this.dEh.setDescTextColorResId(d.C0108d.cp_cont_b);
+            this.dEh.setProgressBarTopMargin(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds8));
+            this.dEh.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.cPG.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds38);
+                ((ViewGroup.MarginLayoutParams) this.dEx.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void kn(int i) {
-        if (this.cPq != null) {
-            this.cPq.onChangeSkinType(i);
+    protected void nl(int i) {
+        if (this.dEh != null) {
+            this.dEh.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void L(bd bdVar) {
-        if (bdVar != null && bdVar.rh() != null) {
-            long longValue = bdVar.rh().total_poll.longValue();
+    protected void P(be beVar) {
+        if (beVar != null && beVar.yJ() != null) {
+            long longValue = beVar.yJ().total_poll.longValue();
             if (longValue < 0) {
                 longValue = 0;
             }
-            List<PollOption> list = bdVar.rh().options;
+            List<PollOption> list = beVar.yJ().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -64,19 +64,19 @@ public class g extends i {
                         if (linkedList.size() >= 3) {
                             break;
                         }
-                        aw awVar = new aw();
-                        awVar.ff(true);
-                        awVar.a(linkedList.size() + 1, pollOption, longValue);
-                        linkedList.add(awVar);
+                        ax axVar = new ax();
+                        axVar.fL(true);
+                        axVar.a(linkedList.size() + 1, pollOption, longValue);
+                        linkedList.add(axVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.cPq.setBoallotsForListView(linkedList);
-                    this.cPq.onChangeSkinType(getSkinType());
-                    this.cPq.setVisibility(0);
+                    this.dEh.setBoallotsForListView(linkedList);
+                    this.dEh.onChangeSkinType(getSkinType());
+                    this.dEh.setVisibility(0);
                     return;
                 }
-                this.cPq.setVisibility(8);
+                this.dEh.setVisibility(8);
             }
         }
     }

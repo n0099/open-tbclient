@@ -3,21 +3,22 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean azK = false;
-    private int azL = 0;
+    private boolean bnP = false;
+    private int bnQ = 0;
 
-    public void fv(String str) {
+    public void fC(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.azK = false;
-        this.azL = 0;
+        this.bnP = false;
+        this.bnQ = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -44,11 +45,11 @@ public class e {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.h(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.azK = true;
+                                this.bnP = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -79,25 +80,25 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.azK && i4 > 0) {
-                    this.azL = i3 / i4;
+                if (this.bnP && i4 > 0) {
+                    this.bnQ = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.azK;
+        return this.bnP;
     }
 
-    public int Cj() {
-        return this.azL;
+    public int JL() {
+        return this.bnQ;
     }
 
     private int getTimeout() {
-        switch (j.hn()) {
+        switch (j.oO()) {
             case 1:
-                return 3000;
+                return PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
             case 2:
                 return 10000;
             case 3:

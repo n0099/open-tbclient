@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.av;
+import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
@@ -22,19 +22,19 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                 String uri = intent.getData().toString();
                 if (uri.contains("tbyunpushnotifybody=")) {
                     JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                    if (jSONObject.isNull(InterviewLiveActivityConfig.KEY_TASK_ID)) {
+                    if (jSONObject.isNull("task_id")) {
                         str = "";
                     } else {
-                        str = jSONObject.getString(InterviewLiveActivityConfig.KEY_TASK_ID);
+                        str = jSONObject.getString("task_id");
                     }
                     String str2 = "";
                     if (!jSONObject.isNull("jump_scheme")) {
                         str2 = jSONObject.getString("jump_scheme");
                     }
-                    TiebaStatic.log(new ak("c11703").r("obj_type", 2).ac(InterviewLiveActivityConfig.KEY_TASK_ID, str).ac("obj_to", str2));
+                    TiebaStatic.log(new ak("c11703").s("obj_type", 2).ab("task_id", str).ab("obj_to", str2));
                     if (!TextUtils.isEmpty(str2)) {
-                        if (str2.startsWith("http") || str2.startsWith("https")) {
-                            av.vI().c(getPageContext(), new String[]{str2});
+                        if (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https")) {
+                            av.Di().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

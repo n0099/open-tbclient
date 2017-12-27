@@ -31,12 +31,10 @@ public class k {
             case MSG_TYPE_ALARM_MESSAGE:
             case MSG_TYPE_ALARM_NOTIFICATION:
             case MSG_TYPE_ALARM_AD_NOTIFICATION:
-                com.baidu.android.pushservice.g.a.c("PushMessageHandlerFactory", ">>> MSG_TYPE_ALARM msg_type : " + lVar);
                 return new a(this.a);
             case MSG_TYPE_ULTRON_COMMAND:
                 return new n(this.a);
             default:
-                com.baidu.android.pushservice.g.a.e("PushMessageHandlerFactory", ">>> Unknown msg_type : " + lVar);
                 p.b(">>> Unknown msg_type : " + lVar, this.a);
                 return null;
         }

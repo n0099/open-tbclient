@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EllipsizeRichTextView extends TextView {
     public EllipsizeRichTextView(Context context) {
         super(context);

@@ -13,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class MessageAdapter<M extends Message> {
@@ -563,7 +564,7 @@ public final class MessageAdapter<M extends Message> {
                 writeEnum((ProtoEnum) obj, wireOutput);
                 return;
             case 9:
-                byte[] bytes = ((String) obj).getBytes("UTF-8");
+                byte[] bytes = ((String) obj).getBytes(HTTP.UTF_8);
                 wireOutput.writeVarint32(bytes.length);
                 wireOutput.writeRawBytes(bytes);
                 return;

@@ -1,7 +1,7 @@
 package android.support.v4.util;
 
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SimpleArrayMap<K, V> {
     static Object[] mBaseCache;
     static int mBaseCacheSize;
@@ -11,8 +11,7 @@ public class SimpleArrayMap<K, V> {
     int[] mHashes;
     int mSize;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int indexOf(Object obj, int i) {
+    int indexOf(Object obj, int i) {
         int i2 = this.mSize;
         if (i2 == 0) {
             return -1;
@@ -36,8 +35,7 @@ public class SimpleArrayMap<K, V> {
         return binarySearch;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int indexOfNull() {
+    int indexOfNull() {
         int i = this.mSize;
         if (i == 0) {
             return -1;
@@ -167,7 +165,11 @@ public class SimpleArrayMap<K, V> {
     }
 
     public boolean containsKey(Object obj) {
-        return obj == null ? indexOfNull() >= 0 : indexOf(obj, obj.hashCode()) >= 0;
+        return indexOfKey(obj) >= 0;
+    }
+
+    public int indexOfKey(Object obj) {
+        return obj == null ? indexOfNull() : indexOf(obj, obj.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -200,9 +202,9 @@ public class SimpleArrayMap<K, V> {
     }
 
     public V get(Object obj) {
-        int indexOfNull = obj == null ? indexOfNull() : indexOf(obj, obj.hashCode());
-        if (indexOfNull >= 0) {
-            return (V) this.mArray[(indexOfNull << 1) + 1];
+        int indexOfKey = indexOfKey(obj);
+        if (indexOfKey >= 0) {
+            return (V) this.mArray[(indexOfKey << 1) + 1];
         }
         return null;
     }
@@ -288,9 +290,9 @@ public class SimpleArrayMap<K, V> {
     }
 
     public V remove(Object obj) {
-        int indexOfNull = obj == null ? indexOfNull() : indexOf(obj, obj.hashCode());
-        if (indexOfNull >= 0) {
-            return removeAt(indexOfNull);
+        int indexOfKey = indexOfKey(obj);
+        if (indexOfKey >= 0) {
+            return removeAt(indexOfKey);
         }
         return null;
     }
@@ -336,18 +338,18 @@ public class SimpleArrayMap<K, V> {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof Map) {
-            Map map = (Map) obj;
-            if (size() != map.size()) {
+        if (obj instanceof SimpleArrayMap) {
+            SimpleArrayMap simpleArrayMap = (SimpleArrayMap) obj;
+            if (size() != simpleArrayMap.size()) {
                 return false;
             }
             for (int i = 0; i < this.mSize; i++) {
                 try {
                     K keyAt = keyAt(i);
                     V valueAt = valueAt(i);
-                    Object obj2 = map.get(keyAt);
+                    Object obj2 = simpleArrayMap.get(keyAt);
                     if (valueAt == null) {
-                        if (obj2 != null || !map.containsKey(keyAt)) {
+                        if (obj2 != null || !simpleArrayMap.containsKey(keyAt)) {
                             return false;
                         }
                     } else if (!valueAt.equals(obj2)) {
@@ -360,8 +362,33 @@ public class SimpleArrayMap<K, V> {
                 }
             }
             return true;
+        } else if (obj instanceof Map) {
+            Map map = (Map) obj;
+            if (size() != map.size()) {
+                return false;
+            }
+            for (int i2 = 0; i2 < this.mSize; i2++) {
+                try {
+                    K keyAt2 = keyAt(i2);
+                    V valueAt2 = valueAt(i2);
+                    Object obj3 = map.get(keyAt2);
+                    if (valueAt2 == null) {
+                        if (obj3 != null || !map.containsKey(keyAt2)) {
+                            return false;
+                        }
+                    } else if (!valueAt2.equals(obj3)) {
+                        return false;
+                    }
+                } catch (ClassCastException e3) {
+                    return false;
+                } catch (NullPointerException e4) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     public int hashCode() {

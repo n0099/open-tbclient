@@ -13,15 +13,17 @@ import android.util.Base64;
 import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.b;
-import com.baidu.sofire.b.d;
+import com.baidu.sofire.b.e;
 import com.baidu.sofire.b.f;
 import com.baidu.sofire.b.i;
 import com.baidu.sofire.b.j;
 import com.baidu.sofire.b.k;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
-import com.baidu.sofire.e;
+import com.baidu.sofire.d;
 import com.baidu.sofire.jni.Asc;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -86,7 +88,7 @@ public class U extends Thread {
     private int mStartNetwork;
     List<Integer> mUnloadPluginsList;
     private Map<Integer, a> mUpgradeResultMap;
-    private e preference;
+    private d preference;
     private File tmpDir;
     private static long sLastCheckTime = 0;
     private static volatile boolean sOutGoing = false;
@@ -118,9 +120,9 @@ public class U extends Thread {
         this.mUpgradeResultMap = new HashMap();
         this.mStartNetwork = -2;
         this.context = context;
-        this.loadedPluginDB = com.baidu.sofire.a.a.an(context);
-        this.preference = new e(context);
-        this.forHostAPP = c.ap(context);
+        this.loadedPluginDB = com.baidu.sofire.a.a.aA(context);
+        this.preference = new d(context);
+        this.forHostAPP = c.aB(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
         this.mFrom = i;
         this.mOut = z;
@@ -139,10 +141,10 @@ public class U extends Thread {
 
     public void handleWork(Context context, Intent intent) {
         this.context = context;
-        this.loadedPluginDB = com.baidu.sofire.a.a.an(context);
-        this.preference = new e(context);
+        this.loadedPluginDB = com.baidu.sofire.a.a.aA(context);
+        this.preference = new d(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
-        this.forHostAPP = c.ap(context);
+        this.forHostAPP = c.aB(context);
         this.mFrom = intent.getIntExtra("from", 0);
         start();
     }
@@ -162,14 +164,14 @@ public class U extends Thread {
                 super.run();
                 handleThreadStart();
                 if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3 || this.mOut || System.currentTimeMillis() - sLastCheckTime >= 600000) {
-                    if (d.d(this.context)) {
+                    if (com.baidu.sofire.b.d.d(this.context)) {
                         sLastCheckTime = System.currentTimeMillis();
                     }
                     b.a(this.context, false);
                     Context context = this.context;
-                    com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-                    c ap = c.ap(context);
-                    for (ApkInfo apkInfo : an.a()) {
+                    com.baidu.sofire.a.a aA = com.baidu.sofire.a.a.aA(context);
+                    c aB = c.aB(context);
+                    for (ApkInfo apkInfo : aA.a()) {
                         if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
                             String str3 = apkInfo.packageName;
                             new StringBuilder().append(str3);
@@ -179,20 +181,20 @@ public class U extends Thread {
                     if (this.mFrom == 1 || this.mFrom == 3) {
                         sRetryPingTimesCount = 0;
                         sRetryDownoadHostCareApksTimesCount = 0;
-                        b.b(this.context, 0, true);
+                        b.c(this.context, 0, true);
                         sSetRetrmAlarm = false;
                     }
                     if (this.mFrom == 2) {
                         sSetRetrmAlarm = false;
                     }
-                    if (!d.d(this.context)) {
+                    if (!com.baidu.sofire.b.d.d(this.context)) {
                         if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                             sMonitorNetworkWhenUpgradeNoNet = true;
                             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                            if (d.Qm == null) {
-                                d.Qm = new MyReceiver().a();
+                            if (com.baidu.sofire.b.d.aEU == null) {
+                                com.baidu.sofire.b.d.aEU = new MyReceiver().a();
                             }
-                            this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter);
+                            this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEU, intentFilter);
                         }
                         if (this.mEndReason == 0) {
                             this.mEndReason = 3;
@@ -200,25 +202,25 @@ public class U extends Thread {
                         throw new NetworkErrorException("no internet");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (d.Qm != null && (sMonitorNetworkWhenUpgradeNoNet || d.a)) {
-                        this.context.getApplicationContext().unregisterReceiver(d.Qm);
+                    if (com.baidu.sofire.b.d.aEU != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.b.d.a)) {
+                        this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.b.d.aEU);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
-                    d.a = false;
-                    String str4 = d.a() + "opmon";
+                    com.baidu.sofire.b.d.a = false;
+                    String str4 = com.baidu.sofire.b.d.a() + "opmon";
                     if (TextUtils.isEmpty(new i(this.context, (byte) 0).a(str4)) && TextUtils.isEmpty(new i(this.context, (byte) 0).a(str4))) {
                         if ((this.mFrom == 1 || this.mFrom == 2 || (this.mFrom == 3 && !sSetRetrmAlarm)) && this.preference.b().size() > 0) {
                             sSetRetrmAlarm = true;
-                            b.b(this.context, sRetryPingTimesCount, false);
+                            b.c(this.context, sRetryPingTimesCount, false);
                             sRetryPingTimesCount++;
                         }
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (d.Qm == null) {
-                            d.Qm = new MyReceiver().a();
+                        if (com.baidu.sofire.b.d.aEU == null) {
+                            com.baidu.sofire.b.d.aEU = new MyReceiver().a();
                         } else {
-                            d.Qm.a();
+                            com.baidu.sofire.b.d.aEU.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEU, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                         if (this.mEndReason == 0) {
                             this.mEndReason = 4;
@@ -227,7 +229,7 @@ public class U extends Thread {
                     }
                     sRetryPingTimesCount = 0;
                     Context context2 = this.context;
-                    String[] e = d.e(context2);
+                    String[] e = com.baidu.sofire.b.d.e(context2);
                     if (e == null || e.length != 2 || TextUtils.isEmpty(e[0]) || TextUtils.isEmpty(e[1])) {
                         str = "";
                         str2 = "";
@@ -240,15 +242,15 @@ public class U extends Thread {
                     if ((TextUtils.isEmpty(str2) || "3".equals(str2) || TextUtils.isEmpty(str) || "925fc15df8a49bed0b3eca8d2b44cb7b".equals(str)) ? true : true) {
                         JSONObject jSONObject = new JSONObject();
                         String packageName = context2.getPackageName();
-                        jSONObject.put("pk", packageName);
+                        jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
                         PackageInfo packageInfo = context2.getPackageManager().getPackageInfo(packageName, 64);
                         if (packageInfo != null) {
-                            PublicKey bW = com.baidu.sofire.b.c.bW(packageInfo.applicationInfo.sourceDir);
-                            PublicKey publicKey = (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bW : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                            PublicKey cd = com.baidu.sofire.b.c.cd(packageInfo.applicationInfo.sourceDir);
+                            PublicKey publicKey = (cd != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? cd : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                             if (publicKey != null) {
                                 byte[] encoded = publicKey.getEncoded();
                                 if (encoded != null) {
-                                    d.a(context2, encoded);
+                                    com.baidu.sofire.b.d.a(context2, encoded);
                                     jSONObject.put("sm", j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
                                 }
                             } else {
@@ -257,13 +259,13 @@ public class U extends Thread {
                         } else {
                             jSONObject.put("sm", "");
                         }
-                        String a2 = f.a(context2, d.a() + "plugin/v1/product/key", jSONObject.toString(), false, false, "");
+                        String a2 = f.a(context2, com.baidu.sofire.b.d.a() + "plugin/v1/product/key", jSONObject.toString(), false, false, "");
                         new StringBuilder().append(a2);
                         JSONObject jSONObject2 = new JSONObject(a2);
                         String optString = jSONObject2.optString("ak");
                         String optString2 = jSONObject2.optString("sk");
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            c.ap(context2).a(optString, optString2);
+                            c.aB(context2).a(optString, optString2);
                         }
                     }
                     this.forHostAPP.b(this.context);
@@ -279,11 +281,11 @@ public class U extends Thread {
                     JSONObject jSONObject4 = new JSONObject();
                     JSONObject jSONObject5 = new JSONObject();
                     String packageName2 = this.context.getPackageName();
-                    jSONObject5.put("pk", packageName2);
-                    jSONObject4.put("pk", packageName2);
+                    jSONObject5.put(PushConstants.URI_PACKAGE_NAME, packageName2);
+                    jSONObject4.put(PushConstants.URI_PACKAGE_NAME, packageName2);
                     jSONObject4.put("dm", Build.MODEL);
                     jSONObject5.put("dm", Build.MODEL);
-                    jSONObject4.put("cuid", com.baidu.sofire.b.e.a(this.context));
+                    jSONObject4.put("cuid", e.a(this.context));
                     jSONObject4.put("al", String.valueOf(Build.VERSION.SDK_INT));
                     jSONObject5.put("al", String.valueOf(Build.VERSION.SDK_INT));
                     jSONObject4.put("ev", "3.0.6.1");
@@ -296,12 +298,12 @@ public class U extends Thread {
                     }
                     jSONObject4.put("av", packageInfo2.versionName);
                     jSONObject5.put("av", packageInfo2.versionName);
-                    PublicKey bW2 = com.baidu.sofire.b.c.bW(packageInfo2.applicationInfo.sourceDir);
-                    PublicKey publicKey2 = (bW2 != null || packageInfo2.signatures == null || packageInfo2.signatures.length <= 0 || packageInfo2.signatures[0] == null) ? bW2 : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo2.signatures[0].toByteArray())).getPublicKey();
+                    PublicKey cd2 = com.baidu.sofire.b.c.cd(packageInfo2.applicationInfo.sourceDir);
+                    PublicKey publicKey2 = (cd2 != null || packageInfo2.signatures == null || packageInfo2.signatures.length <= 0 || packageInfo2.signatures[0] == null) ? cd2 : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo2.signatures[0].toByteArray())).getPublicKey();
                     if (publicKey2 != null) {
                         byte[] encoded2 = publicKey2.getEncoded();
                         if (encoded2 != null) {
-                            d.a(this.context, encoded2);
+                            com.baidu.sofire.b.d.a(this.context, encoded2);
                             String a3 = j.a(Base64.encodeToString(encoded2, 0).replace("\n", "").replace("\r", ""));
                             jSONObject4.put("sm", a3);
                             jSONObject5.put("sm", a3);
@@ -325,17 +327,17 @@ public class U extends Thread {
                     }
                     jSONObject3.put("host_apps", jSONArray);
                     String jSONObject7 = jSONObject3.toString();
-                    String str7 = d.a() + "plugin/v1/plugins";
+                    String str7 = com.baidu.sofire.b.d.a() + "plugin/v1/plugins";
                     if (!sPidRegister) {
-                        e eVar = this.preference;
-                        eVar.c.putInt("pdcg", this.preference.a.getInt("pdcg", 0) + 1);
-                        eVar.c.commit();
+                        d dVar = this.preference;
+                        dVar.c.putInt("pdcg", this.preference.a.getInt("pdcg", 0) + 1);
+                        dVar.c.commit();
                         this.preference.a(System.currentTimeMillis());
                         sPidRegister = true;
                     }
-                    e eVar2 = this.preference;
-                    eVar2.c.putInt("rtqe", this.preference.a.getInt("rtqe", 0) + 1);
-                    eVar2.c.commit();
+                    d dVar2 = this.preference;
+                    dVar2.c.putInt("rtqe", this.preference.a.getInt("rtqe", 0) + 1);
+                    dVar2.c.commit();
                     String a4 = f.a(this.context, str7, jSONObject7, true, false, "");
                     new StringBuilder().append(a4);
                     JSONObject jSONObject8 = new JSONObject(a4);
@@ -354,7 +356,7 @@ public class U extends Thread {
                     long optLong = jSONObject8.optLong("pt");
                     if (optJSONArray != null && optJSONArray.length() > 0 && optLong > 0) {
                         this.preference.a(optJSONArray.toString(), optLong);
-                        d.f(this.context);
+                        com.baidu.sofire.b.d.f(this.context);
                     }
                     JSONObject optJSONObject = jSONObject8.optJSONObject("plugin");
                     if (optJSONObject == null) {
@@ -368,8 +370,8 @@ public class U extends Thread {
                         while (keys.hasNext()) {
                             String next = keys.next();
                             JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                            int optInt = optJSONObject2.optInt("l");
-                            String optString3 = optJSONObject2.optString("v");
+                            int optInt = optJSONObject2.optInt(NotifyType.LIGHTS);
+                            String optString3 = optJSONObject2.optString(NotifyType.VIBRATE);
                             if (this.mCloudKeyMap != null) {
                                 this.mCloudKeyMap.put(Integer.valueOf(optInt), optString3);
                             }
@@ -384,10 +386,10 @@ public class U extends Thread {
                             boolean z3 = optJSONObject2.optInt("d") == 1;
                             int optInt2 = optJSONObject2.optInt("r");
                             if (z2) {
-                                e eVar3 = this.preference;
-                                if (optInt2 > eVar3.a.getInt("opi", 0)) {
-                                    eVar3.c.putInt("opi", optInt2);
-                                    eVar3.c.commit();
+                                d dVar3 = this.preference;
+                                if (optInt2 > dVar3.a.getInt("opi", 0)) {
+                                    dVar3.c.putInt("opi", optInt2);
+                                    dVar3.c.commit();
                                 }
                             }
                             if (z2 && z3) {
@@ -395,7 +397,7 @@ public class U extends Thread {
                             } else {
                                 PackageInfo packageInfo3 = new PackageInfo();
                                 packageInfo3.packageName = optJSONObject2.optString("p");
-                                packageInfo3.versionName = optJSONObject2.optString("v");
+                                packageInfo3.versionName = optJSONObject2.optString(NotifyType.VIBRATE);
                                 ApplicationInfo applicationInfo = new ApplicationInfo();
                                 applicationInfo.className = optJSONObject2.optString("n");
                                 if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
@@ -421,7 +423,7 @@ public class U extends Thread {
                                             }
                                             activityInfo.packageName = next;
                                             activityInfo.theme = jSONObject9.optInt(Info.kBaiduTimeKey);
-                                            activityInfo.labelRes = jSONObject9.optInt("l");
+                                            activityInfo.labelRes = jSONObject9.optInt(NotifyType.LIGHTS);
                                             if (!TextUtils.isEmpty(activityInfo.name)) {
                                                 arrayList4.add(activityInfo);
                                             }
@@ -461,7 +463,7 @@ public class U extends Thread {
                                             iArr[i4] = b.get(i4).intValue();
                                             i3 = i4 + 1;
                                         }
-                                        this.preference.e(iArr);
+                                        this.preference.l(iArr);
                                     }
                                 }
                                 apkInfo2.signMD5 = lowerCase;
@@ -470,17 +472,17 @@ public class U extends Thread {
                                 new StringBuilder("t=").append(apkInfo2).append(", i=").append(indexOf);
                                 if (indexOf >= 0) {
                                     ApkInfo apkInfo3 = a5.get(indexOf);
-                                    if (!d.c(apkInfo2.versionName, apkInfo3.versionName) || (c.c != null && (c.c == null || c.c.contains(Integer.valueOf(apkInfo2.key))))) {
+                                    if (!com.baidu.sofire.b.d.c(apkInfo2.versionName, apkInfo3.versionName) || (c.c != null && (c.c == null || c.c.contains(Integer.valueOf(apkInfo2.key))))) {
                                         if (apkInfo3.priority != apkInfo2.priority) {
                                             apkInfo3.priority = apkInfo2.priority;
-                                            this.loadedPluginDB.t(apkInfo2.key, apkInfo2.priority);
+                                            this.loadedPluginDB.as(apkInfo2.key, apkInfo2.priority);
                                         }
                                         arrayList.add(apkInfo3);
                                     } else {
                                         if (apkInfo3.priority != apkInfo2.priority) {
-                                            this.loadedPluginDB.t(apkInfo2.key, apkInfo2.priority);
+                                            this.loadedPluginDB.as(apkInfo2.key, apkInfo2.priority);
                                         }
-                                        if (!this.loadedPluginDB.aX(apkInfo3.key)) {
+                                        if (!this.loadedPluginDB.dY(apkInfo3.key)) {
                                             arrayList2.add(apkInfo2);
                                             if (this.mDownloadPluginsList != null) {
                                                 this.mDownloadPluginsList.add(Integer.valueOf(apkInfo2.key));
@@ -512,9 +514,9 @@ public class U extends Thread {
                             new c.AnonymousClass4(str8).start();
                         }
                     }
-                    d.a(this.context);
+                    com.baidu.sofire.b.d.a(this.context);
                     new StringBuilder().append(arrayList);
-                    com.baidu.sofire.core.e aq = com.baidu.sofire.core.e.aq(this.context.getApplicationContext());
+                    com.baidu.sofire.core.e aC = com.baidu.sofire.core.e.aC(this.context.getApplicationContext());
                     final List<Integer> c = this.preference.c();
                     List<Integer> b2 = this.preference.b();
                     for (int i5 = 0; i5 < b2.size(); i5++) {
@@ -554,8 +556,8 @@ public class U extends Thread {
                     for (int i6 = 0; i6 < arrayList5.size(); i6++) {
                         ApkInfo apkInfo5 = (ApkInfo) arrayList5.get(i6);
                         if (arrayList.contains(apkInfo5)) {
-                            if (aq.bY(apkInfo5.packageName) == null) {
-                                boolean z4 = this.loadedPluginDB.aY(apkInfo5.key) != 3;
+                            if (aC.cf(apkInfo5.packageName) == null) {
+                                boolean z4 = this.loadedPluginDB.dZ(apkInfo5.key) != 3;
                                 if (this.preference.a.getBoolean("bka", true) && z4) {
                                     File file = new File(this.context.getFilesDir(), ".b");
                                     if (!file.exists()) {
@@ -563,23 +565,23 @@ public class U extends Thread {
                                     }
                                     File file2 = new File(apkInfo5.pkgPath);
                                     File file3 = new File(file, apkInfo5.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
-                                    if (!d.a(file3)) {
-                                        d.a(file2, file3);
+                                    if (!com.baidu.sofire.b.d.a(file3)) {
+                                        com.baidu.sofire.b.d.a(file2, file3);
                                     }
-                                    com.baidu.sofire.c.a(this.context, apkInfo5.key, file2, file3);
+                                    com.baidu.sofire.b.a(this.context, apkInfo5.key, file2, file3);
                                 } else {
                                     File file4 = new File(this.context.getFilesDir(), ".b");
                                     if (file4.exists()) {
                                         File file5 = new File(file4, apkInfo5.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo5.versionName);
-                                        if (d.a(file5)) {
-                                            com.baidu.sofire.c.a(file5);
+                                        if (com.baidu.sofire.b.d.a(file5)) {
+                                            com.baidu.sofire.b.a(file5);
                                             new StringBuilder().append(file5.getAbsolutePath()).append(" s=").append(file5.delete());
                                         }
                                     }
                                 }
                                 this.forHostAPP.a(apkInfo5.key, apkInfo5.versionName, null);
                             }
-                        } else if (arrayList2.contains(apkInfo5) && !this.loadedPluginDB.aX(apkInfo5.key)) {
+                        } else if (arrayList2.contains(apkInfo5) && !this.loadedPluginDB.dY(apkInfo5.key)) {
                             handlePluginUpgrade(apkInfo5);
                         }
                     }
@@ -605,14 +607,14 @@ public class U extends Thread {
 
     private void handleThreadEnd(String str) {
         try {
-            e eVar = this.preference;
-            eVar.c.putInt("sufzfd", this.preference.a.getInt("sufzfd", 0) + 1);
-            eVar.c.commit();
+            d dVar = this.preference;
+            dVar.c.putInt("sufzfd", this.preference.a.getInt("sufzfd", 0) + 1);
+            dVar.c.commit();
             if (this.mEndReason != 0) {
                 this.preference.a(1, this.mEndReason, this.preference.a(1, this.mEndReason) + 1);
             }
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
         try {
             HashMap hashMap = new HashMap();
@@ -653,10 +655,10 @@ public class U extends Thread {
                 hashMap.put("12", str.replace("\n", "").replace("\t", "").replace("\r", ""));
             }
             hashMap.put("13", Integer.valueOf(this.mStartNetwork));
-            hashMap.put("14", Integer.valueOf(d.ao(this.context)));
-            d.a(this.context, "1003129", hashMap);
+            hashMap.put("14", Integer.valueOf(com.baidu.sofire.b.d.h(this.context)));
+            com.baidu.sofire.b.d.a(this.context, "1003129", hashMap);
         } catch (Throwable th2) {
-            d.a(th2);
+            com.baidu.sofire.b.d.a(th2);
         }
     }
 
@@ -667,9 +669,9 @@ public class U extends Thread {
             if (j > 0 && currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("1", Integer.valueOf(this.preference.a.getInt("sustfd", 0)));
-                e eVar = this.preference;
-                eVar.c.putInt("sustfd", 0);
-                eVar.c.commit();
+                d dVar = this.preference;
+                dVar.c.putInt("sustfd", 0);
+                dVar.c.commit();
                 JSONObject jSONObject = new JSONObject();
                 for (int i = 1; i <= 6; i++) {
                     jSONObject.put(String.valueOf(i), this.preference.a(0, i));
@@ -677,32 +679,32 @@ public class U extends Thread {
                 }
                 hashMap.put("2", jSONObject);
                 hashMap.put("3", Integer.valueOf(this.preference.a.getInt("sufzfd", 0)));
-                e eVar2 = this.preference;
-                eVar2.c.putInt("sufzfd", 0);
-                eVar2.c.commit();
+                d dVar2 = this.preference;
+                dVar2.c.putInt("sufzfd", 0);
+                dVar2.c.commit();
                 JSONObject jSONObject2 = new JSONObject();
                 for (int i2 = 1; i2 <= 11; i2++) {
                     jSONObject2.put(String.valueOf(i2), this.preference.a(1, i2));
                     this.preference.a(1, i2, 0);
                 }
                 hashMap.put("4", jSONObject2);
-                d.a(this.context, "1003128", hashMap);
-                e eVar3 = this.preference;
-                eVar3.c.putLong("slruct", currentTimeMillis);
-                eVar3.c.commit();
+                com.baidu.sofire.b.d.a(this.context, "1003128", hashMap);
+                d dVar3 = this.preference;
+                dVar3.c.putLong("slruct", currentTimeMillis);
+                dVar3.c.commit();
             } else if (j == 0) {
-                e eVar4 = this.preference;
-                eVar4.c.putLong("slruct", currentTimeMillis);
-                eVar4.c.commit();
+                d dVar4 = this.preference;
+                dVar4.c.putLong("slruct", currentTimeMillis);
+                dVar4.c.commit();
             }
         } catch (Throwable th) {
             try {
-                e eVar5 = this.preference;
-                eVar5.c.putInt("sustfd", 0);
-                eVar5.c.commit();
-                e eVar6 = this.preference;
-                eVar6.c.putInt("sufzfd", 0);
-                eVar6.c.commit();
+                d dVar5 = this.preference;
+                dVar5.c.putInt("sustfd", 0);
+                dVar5.c.commit();
+                d dVar6 = this.preference;
+                dVar6.c.putInt("sufzfd", 0);
+                dVar6.c.commit();
                 for (int i3 = 1; i3 <= 6; i3++) {
                     this.preference.a(0, i3, 0);
                 }
@@ -710,32 +712,32 @@ public class U extends Thread {
                     this.preference.a(1, i4, 0);
                 }
             } catch (Throwable th2) {
-                d.a(th2);
+                com.baidu.sofire.b.d.a(th2);
             }
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
         try {
             this.mStartKeyMap = this.loadedPluginDB.b();
-            e eVar7 = this.preference;
-            eVar7.c.putInt("sustfd", this.preference.a.getInt("sustfd", 0) + 1);
-            eVar7.c.commit();
+            d dVar7 = this.preference;
+            dVar7.c.putInt("sustfd", this.preference.a.getInt("sustfd", 0) + 1);
+            dVar7.c.commit();
             if (this.mFrom != 0) {
                 this.preference.a(0, this.mFrom, this.preference.a(0, this.mFrom) + 1);
             }
-            this.mStartNetwork = d.ao(this.context);
+            this.mStartNetwork = com.baidu.sofire.b.d.h(this.context);
         } catch (Throwable th3) {
-            d.a(th3);
+            com.baidu.sofire.b.d.a(th3);
         }
     }
 
     private void handlePluginUpgrade(ApkInfo apkInfo) {
         try {
-            int ao = d.ao(this.context);
+            int h = com.baidu.sofire.b.d.h(this.context);
             new StringBuilder("a=").append(apkInfo);
             List<Integer> b = this.preference.b();
-            if (!b.contains(Integer.valueOf(apkInfo.key)) && !d.a(this.context, apkInfo.network)) {
+            if (!b.contains(Integer.valueOf(apkInfo.key)) && !com.baidu.sofire.b.d.a(this.context, apkInfo.network)) {
                 if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 3));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 3));
                     return;
                 }
                 return;
@@ -744,11 +746,11 @@ public class U extends Thread {
                 this.tmpDir.mkdir();
             }
             StringBuilder sb = new StringBuilder("before update, time=" + System.currentTimeMillis() + ", ");
-            ApkInfo aV = this.loadedPluginDB.aV(apkInfo.key);
-            if (aV == null) {
+            ApkInfo dW = this.loadedPluginDB.dW(apkInfo.key);
+            if (dW == null) {
                 sb.append("apkInDB == null");
             } else {
-                File file = new File(aV.pkgPath);
+                File file = new File(dW.pkgPath);
                 sb.append("origAPK path:" + file.getAbsolutePath() + ", exists=" + file.exists() + ", canRead=" + file.canRead() + ", isFile=" + file.isFile() + ",length" + file.length());
             }
             File file2 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".tmp");
@@ -766,137 +768,137 @@ public class U extends Thread {
                     }
                     if (asc.df(file2.getAbsolutePath(), file3.getAbsolutePath(), bytes) != 0) {
                         if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                            this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 7));
+                            this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 7));
                         }
                         b2 = false;
                     }
                 }
             } else if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 4));
+                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 4));
             }
             new StringBuilder().append(b2);
             String a2 = j.a(file3);
             new StringBuilder("ds=").append(b2).append(", fm=").append(apkInfo.apkMD5).append(", am=").append(a2);
             file2.delete();
             if (b2 && apkInfo.apkMD5.equals(a2)) {
-                d.a(file3.getAbsolutePath(), true);
+                com.baidu.sofire.b.d.a(file3.getAbsolutePath(), true);
                 if (this.preference.a.getBoolean("bka", true)) {
                     File file4 = new File(this.context.getFilesDir(), ".b");
                     if (!file4.exists()) {
                         file4.mkdir();
                     }
                     File file5 = new File(file4, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName);
-                    d.a(file3, file5);
-                    com.baidu.sofire.c.a(this.context, apkInfo.key, file3, file5);
+                    com.baidu.sofire.b.d.a(file3, file5);
+                    com.baidu.sofire.b.a(this.context, apkInfo.key, file3, file5);
                 }
                 apkInfo.pkgPath = file3.getAbsolutePath();
                 boolean a3 = this.forHostAPP.a(apkInfo, "before update, time=" + System.currentTimeMillis() + ", downloadAPK path:" + file3.getAbsolutePath() + ", exists=" + file3.exists() + ", canRead=" + file3.canRead() + ", isFile=" + file3.isFile() + ",length" + file3.length());
                 new StringBuilder().append(apkInfo.packageName).append(" s=").append(a3);
                 if (!a3) {
                     if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                        this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 5));
+                        this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 5));
                         return;
                     }
                     return;
                 }
-                int aY = this.loadedPluginDB.aY(apkInfo.key);
-                new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(" ").append(aY);
-                if (aY < 3 && aY != -1) {
-                    this.loadedPluginDB.b(apkInfo.key, aY + 1);
+                int dZ = this.loadedPluginDB.dZ(apkInfo.key);
+                new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(" ").append(dZ);
+                if (dZ < 3 && dZ != -1) {
+                    this.loadedPluginDB.b(apkInfo.key, dZ + 1);
                 }
                 if (this.mUpgradeResultMap != null) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 1));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 1));
                     return;
                 }
                 return;
             }
             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(ao, 8));
+                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(h, 8));
             }
             if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                 if (b.contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
                     sSetRetrmAlarm = true;
-                    b.b(this.context, sRetryDownoadHostCareApksTimesCount, false);
+                    b.c(this.context, sRetryDownoadHostCareApksTimesCount, false);
                     sRetryDownoadHostCareApksTimesCount++;
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.Qm == null) {
-                        d.Qm = new MyReceiver().a();
+                    if (com.baidu.sofire.b.d.aEU == null) {
+                        com.baidu.sofire.b.d.aEU = new MyReceiver().a();
                     } else {
-                        d.Qm.a();
+                        com.baidu.sofire.b.d.aEU.a();
                     }
-                    this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter);
+                    this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEU, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             }
             long currentTimeMillis = System.currentTimeMillis();
-            e eVar = this.preference;
-            long j = eVar.a.getLong("pu_ap_fd", 0L);
+            d dVar = this.preference;
+            long j = dVar.a.getLong("pu_ap_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
-                eVar.c.putLong("pu_ap_fd", System.currentTimeMillis());
-                eVar.c.commit();
+                dVar.c.putLong("pu_ap_fd", System.currentTimeMillis());
+                dVar.c.commit();
             }
             if (currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
-                if (d.c(this.context)) {
+                if (com.baidu.sofire.b.d.c(this.context)) {
                     hashMap.put("0", Integer.valueOf(this.preference.a.getInt("wi_fa_pu_ap", 0) + 1));
                     hashMap.put("1", Integer.valueOf(this.preference.a.getInt("mo_fa_pu_ap", 0)));
                 } else {
                     hashMap.put("0", Integer.valueOf(this.preference.a.getInt("wi_fa_pu_ap", 0)));
                     hashMap.put("1", Integer.valueOf(this.preference.a.getInt("mo_fa_pu_ap", 0) + 1));
                 }
-                e eVar2 = this.preference;
-                eVar2.c.putInt("wi_fa_pu_ap", 0);
-                eVar2.c.commit();
-                e eVar3 = this.preference;
-                eVar3.c.putInt("mo_fa_pu_ap", 0);
-                eVar3.c.commit();
-                e eVar4 = this.preference;
-                eVar4.c.putLong("pu_ap_fd", System.currentTimeMillis());
-                eVar4.c.commit();
-                d.a(this.context, "1003116", hashMap);
-            } else if (d.c(this.context)) {
-                e eVar5 = this.preference;
-                eVar5.c.putInt("wi_fa_pu_ap", this.preference.a.getInt("wi_fa_pu_ap", 0) + 1);
-                eVar5.c.commit();
+                d dVar2 = this.preference;
+                dVar2.c.putInt("wi_fa_pu_ap", 0);
+                dVar2.c.commit();
+                d dVar3 = this.preference;
+                dVar3.c.putInt("mo_fa_pu_ap", 0);
+                dVar3.c.commit();
+                d dVar4 = this.preference;
+                dVar4.c.putLong("pu_ap_fd", System.currentTimeMillis());
+                dVar4.c.commit();
+                com.baidu.sofire.b.d.a(this.context, "1003116", hashMap);
+            } else if (com.baidu.sofire.b.d.c(this.context)) {
+                d dVar5 = this.preference;
+                dVar5.c.putInt("wi_fa_pu_ap", this.preference.a.getInt("wi_fa_pu_ap", 0) + 1);
+                dVar5.c.commit();
             } else {
-                e eVar6 = this.preference;
-                eVar6.c.putInt("mo_fa_pu_ap", this.preference.a.getInt("mo_fa_pu_ap", 0) + 1);
-                eVar6.c.commit();
+                d dVar6 = this.preference;
+                dVar6.c.putInt("mo_fa_pu_ap", this.preference.a.getInt("mo_fa_pu_ap", 0) + 1);
+                dVar6.c.commit();
             }
             file3.delete();
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
             try {
                 if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(d.ao(this.context), 2));
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new a(com.baidu.sofire.b.d.h(this.context), 2));
                 }
             } catch (Throwable th2) {
-                d.a(th2);
+                com.baidu.sofire.b.d.a(th2);
             }
             try {
                 List<Integer> b3 = this.preference.b();
                 if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                     if (b3.contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
                         sSetRetrmAlarm = true;
-                        b.b(this.context, sRetryDownoadHostCareApksTimesCount, false);
+                        b.c(this.context, sRetryDownoadHostCareApksTimesCount, false);
                         sRetryDownoadHostCareApksTimesCount++;
                     }
                     if (!sMonitorNetworkWhenUpgradeNoNet) {
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (d.Qm == null) {
-                            d.Qm = new MyReceiver().a();
+                        if (com.baidu.sofire.b.d.aEU == null) {
+                            com.baidu.sofire.b.d.aEU = new MyReceiver().a();
                         } else {
-                            d.Qm.a();
+                            com.baidu.sofire.b.d.aEU.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(d.Qm, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEU, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                     }
                 }
             } catch (Throwable th3) {
-                d.a(th3);
+                com.baidu.sofire.b.d.a(th3);
             }
         }
     }
@@ -904,9 +906,9 @@ public class U extends Thread {
     public static void handleUploadPidChange(Context context, Intent intent) {
         try {
             b.a(context);
-            e eVar = new e(context);
+            d dVar = new d(context);
             JSONArray jSONArray = new JSONArray();
-            String string = eVar.a.getString("pdcgts", "");
+            String string = dVar.a.getString("pdcgts", "");
             if (!TextUtils.isEmpty(string)) {
                 String[] split = string.split("_");
                 for (String str : split) {
@@ -916,17 +918,17 @@ public class U extends Thread {
                 }
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("0", Integer.valueOf(eVar.a.getInt("rtqe", 0)));
-            hashMap.put("1", Integer.valueOf(eVar.a.getInt("pdcg", 0)));
+            hashMap.put("0", Integer.valueOf(dVar.a.getInt("rtqe", 0)));
+            hashMap.put("1", Integer.valueOf(dVar.a.getInt("pdcg", 0)));
             hashMap.put("2", jSONArray);
-            eVar.c.putInt("rtqe", 0);
-            eVar.c.commit();
-            eVar.c.putInt("pdcg", 0);
-            eVar.c.commit();
-            eVar.a(0L);
-            d.a(context, "1003122", hashMap);
+            dVar.c.putInt("rtqe", 0);
+            dVar.c.commit();
+            dVar.c.putInt("pdcg", 0);
+            dVar.c.commit();
+            dVar.a(0L);
+            com.baidu.sofire.b.d.a(context, "1003122", hashMap);
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.d.a(th);
         }
     }
 }

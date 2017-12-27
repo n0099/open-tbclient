@@ -90,11 +90,11 @@ final class WireInput {
     public String readString() throws IOException {
         int readVarint32 = readVarint32();
         if (bytesRemaining() >= readVarint32) {
-            String str = new String(this.buffer, this.pos, readVarint32, UTF_8);
+            String str = new String(this.buffer, this.pos, readVarint32, "UTF-8");
             this.pos = readVarint32 + this.pos;
             return str;
         }
-        return new String(readRawBytes(readVarint32), UTF_8);
+        return new String(readRawBytes(readVarint32), "UTF-8");
     }
 
     private int bytesRemaining() {

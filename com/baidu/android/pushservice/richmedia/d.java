@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.richmedia;
 
 import com.baidu.android.pushservice.richmedia.c;
+import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes2.dex */
 public class d {
     public static c a(c.a aVar, String str) {
@@ -9,10 +10,7 @@ public class d {
         switch (aVar) {
             case REQ_TYPE_GET_ZIP:
                 cVar.b(str);
-                cVar.a("GET");
-                break;
-            default:
-                com.baidu.android.pushservice.g.a.e("RequestFactory", "illegal request type " + aVar);
+                cVar.a(HttpGet.METHOD_NAME);
                 break;
         }
         return cVar;

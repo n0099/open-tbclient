@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class m extends c {
@@ -20,9 +19,8 @@ public class m extends c {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "fetch");
+        hashMap.put("method", "fetch");
         hashMap.put("fetch_type", this.d + "");
         hashMap.put("fetch_num", this.e + "");
-        com.baidu.android.pushservice.g.a.c("Fetch", "FETCH param -- " + b.a(hashMap));
     }
 }

@@ -1,9 +1,7 @@
 package com.googlecode.mp4parser.h264.model;
-
-import android.support.v4.view.MotionEventCompat;
 /* loaded from: classes2.dex */
 public class AspectRatio {
-    public static final AspectRatio Extended_SAR = new AspectRatio(MotionEventCompat.ACTION_MASK);
+    public static final AspectRatio Extended_SAR = new AspectRatio(255);
     private int value;
 
     private AspectRatio(int i) {

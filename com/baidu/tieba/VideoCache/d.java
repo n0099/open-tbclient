@@ -1,31 +1,31 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class d {
-    private long bbh;
-    private long currentSize;
+    private long bOR;
+    private long bOS;
     private String fileName;
 
     public String getFileName() {
         return this.fileName;
     }
 
-    public void ho(String str) {
+    public void hq(String str) {
         this.fileName = str;
     }
 
-    public long LH() {
-        return this.bbh;
+    public long Tg() {
+        return this.bOR;
     }
 
-    public void au(long j) {
-        this.bbh = j;
+    public void aC(long j) {
+        this.bOR = j;
     }
 
-    public long LI() {
-        return this.currentSize;
+    public long Th() {
+        return this.bOS;
     }
 
-    public void av(long j) {
-        this.currentSize = j;
+    public void aD(long j) {
+        this.bOS = j;
     }
 }

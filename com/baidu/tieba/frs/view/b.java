@@ -20,28 +20,28 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.j.a {
-    protected TbImageView aHt;
-    protected TextView aHu;
-    private View bqw;
-    private BdListView dch;
-    private a dci;
-    private TextView dcj;
+    protected TbImageView bvg;
+    protected TextView bvh;
+    private View cdQ;
+    private BdListView dOt;
+    private a dOu;
+    private TextView dOv;
     private com.baidu.adp.base.e mPageContext;
     private TextView mTitleView;
 
     /* renamed from: com.baidu.tieba.frs.view.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0103b {
-        public TextView dcn;
-        public TextView dco;
-        public TextView dcp;
-        public ImageView dcq;
-        public TbImageView dcr;
-        public TextView dcs;
-        public TextView dct;
-        public ImageView dcv;
+    /* loaded from: classes2.dex */
+    public static class C0115b {
+        public TextView dOA;
+        public TextView dOB;
+        public ImageView dOC;
+        public TbImageView dOD;
+        public TextView dOE;
+        public TextView dOF;
+        public ImageView dOG;
+        public TextView dOz;
         public View divider;
         public View rootView;
     }
@@ -49,78 +49,78 @@ public class b extends com.baidu.tbadk.j.a {
     public b(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(eVar.getContext()).inflate(d.h.forbid_detail_view_layout, (ViewGroup) null));
         this.mPageContext = eVar;
-        this.aHt = (TbImageView) this.aHl.findViewById(d.g.net_refresh_image);
-        this.aHu = (TextView) this.aHl.findViewById(d.g.net_refresh_desc);
-        this.bqw = this.aHl.findViewById(d.g.divider);
-        this.dch = (BdListView) this.aHl.findViewById(d.g.recommend_bar_listview);
-        this.aHl.setOnClickListener(null);
-        this.mTitleView = (TextView) this.aHl.findViewById(d.g.content_title);
-        this.dcj = (TextView) this.aHl.findViewById(d.g.local_tip_tv);
+        this.bvg = (TbImageView) this.buY.findViewById(d.g.net_refresh_image);
+        this.bvh = (TextView) this.buY.findViewById(d.g.net_refresh_desc);
+        this.cdQ = this.buY.findViewById(d.g.divider);
+        this.dOt = (BdListView) this.buY.findViewById(d.g.recommend_bar_listview);
+        this.buY.setOnClickListener(null);
+        this.mTitleView = (TextView) this.buY.findViewById(d.g.content_title);
+        this.dOv = (TextView) this.buY.findViewById(d.g.local_tip_tv);
     }
 
-    public void gB(String str) {
+    public void gE(String str) {
         if (str == null) {
-            this.aHu.setVisibility(8);
+            this.bvh.setVisibility(8);
             return;
         }
-        this.aHu.setVisibility(0);
-        this.aHu.setText(str);
+        this.bvh.setVisibility(0);
+        this.bvh.setText(str);
     }
 
-    public void bn(List<RecmForumInfo> list) {
+    public void by(List<RecmForumInfo> list) {
         if (list != null) {
-            this.dci = new a(list);
-            this.dch.setAdapter((ListAdapter) this.dci);
+            this.dOu = new a(list);
+            this.dOt.setAdapter((ListAdapter) this.dOu);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void EP() {
-        super.EP();
+    public void Mo() {
+        super.Mo();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
-    public void EQ() {
-        super.EQ();
-        this.aHt.setImageResource(0);
+    public void Mp() {
+        super.Mp();
+        this.bvg.setImageResource(0);
     }
 
     public void onChangeSkinType() {
-        if (EO()) {
+        if (Mn()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aj.c(this.aHt, d.f.pic_emotion_01);
-            aj.b(this.aHu, d.C0095d.cp_cont_d, 1, skinType);
-            aj.k(this.aHl, d.C0095d.cp_bg_line_d);
-            aj.k(this.bqw, d.C0095d.cp_bg_line_c);
-            aj.b(this.mTitleView, d.C0095d.cp_cont_d, 1, skinType);
-            aj.b(this.dcj, d.C0095d.cp_cont_f, 1, skinType);
-            if (this.dci != null) {
-                this.dci.notifyDataSetChanged();
+            aj.c(this.bvg, d.f.pic_emotion_01);
+            aj.b(this.bvh, d.C0108d.cp_cont_d, 1, skinType);
+            aj.t(this.buY, d.C0108d.cp_bg_line_d);
+            aj.t(this.cdQ, d.C0108d.cp_bg_line_c);
+            aj.b(this.mTitleView, d.C0108d.cp_cont_d, 1, skinType);
+            aj.b(this.dOv, d.C0108d.cp_cont_f, 1, skinType);
+            if (this.dOu != null) {
+                this.dOu.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BaseAdapter {
-        private List<RecmForumInfo> dck;
+        private List<RecmForumInfo> dOw;
 
         public a(List<RecmForumInfo> list) {
-            this.dck = list;
+            this.dOw = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.dck.size();
+            return this.dOw.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: lh */
+        /* renamed from: nZ */
         public RecmForumInfo getItem(int i) {
-            return this.dck.get(i);
+            return this.dOw.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -130,31 +130,31 @@ public class b extends com.baidu.tbadk.j.a {
 
         @Override // android.widget.Adapter
         public View getView(final int i, View view, ViewGroup viewGroup) {
-            C0103b c0103b;
+            C0115b c0115b;
             if (view == null) {
                 view = LayoutInflater.from(b.this.mPageContext.getPageActivity()).inflate(d.h.recommend_view, (ViewGroup) null);
-                C0103b c0103b2 = new C0103b();
-                c0103b2.rootView = view.findViewById(d.g.root_view);
-                c0103b2.dcn = (TextView) view.findViewById(d.g.forum_name);
-                c0103b2.dcp = (TextView) view.findViewById(d.g.follow_tv);
-                c0103b2.dco = (TextView) view.findViewById(d.g.thread_tv);
-                c0103b2.dcq = (ImageView) view.findViewById(d.g.arrow_item_img);
-                c0103b2.dcr = (TbImageView) view.findViewById(d.g.headview);
-                c0103b2.dcs = (TextView) view.findViewById(d.g.follow_title);
-                c0103b2.dct = (TextView) view.findViewById(d.g.thread_title);
-                c0103b2.divider = view.findViewById(d.g.divider_line);
-                c0103b2.dcv = (ImageView) view.findViewById(d.g.content_img);
-                view.setTag(c0103b2);
-                c0103b = c0103b2;
+                C0115b c0115b2 = new C0115b();
+                c0115b2.rootView = view.findViewById(d.g.root_view);
+                c0115b2.dOz = (TextView) view.findViewById(d.g.forum_name);
+                c0115b2.dOB = (TextView) view.findViewById(d.g.follow_tv);
+                c0115b2.dOA = (TextView) view.findViewById(d.g.thread_tv);
+                c0115b2.dOC = (ImageView) view.findViewById(d.g.arrow_item_img);
+                c0115b2.dOD = (TbImageView) view.findViewById(d.g.headview);
+                c0115b2.dOE = (TextView) view.findViewById(d.g.follow_title);
+                c0115b2.dOF = (TextView) view.findViewById(d.g.thread_title);
+                c0115b2.divider = view.findViewById(d.g.divider_line);
+                c0115b2.dOG = (ImageView) view.findViewById(d.g.content_img);
+                view.setTag(c0115b2);
+                c0115b = c0115b2;
             } else {
-                c0103b = (C0103b) view.getTag();
+                c0115b = (C0115b) view.getTag();
             }
             if (getItem(i) != null) {
-                c0103b.dcn.setText(am.e(getItem(i).forum_name, 14, "..."));
-                c0103b.dcr.startLoad(getItem(i).avatar, 10, false);
-                c0103b.dcp.setText(am.u(getItem(i).member_count.intValue()));
-                c0103b.dco.setText(am.u(getItem(i).post_num.intValue()));
-                c0103b.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.b.a.1
+                c0115b.dOz.setText(am.e(getItem(i).forum_name, 14, "..."));
+                c0115b.dOD.startLoad(getItem(i).avatar, 10, false);
+                c0115b.dOB.setText(am.C(getItem(i).member_count.intValue()));
+                c0115b.dOA.setText(am.C(getItem(i).post_num.intValue()));
+                c0115b.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.b.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (!StringUtils.isNull(a.this.getItem(i).forum_name)) {
@@ -162,15 +162,15 @@ public class b extends com.baidu.tbadk.j.a {
                         }
                     }
                 });
-                aj.i(c0103b.dcn, d.C0095d.cp_cont_b);
-                aj.i(c0103b.dcp, d.C0095d.cp_cont_d);
-                aj.i(c0103b.dco, d.C0095d.cp_cont_d);
-                aj.i(c0103b.dct, d.C0095d.cp_cont_d);
-                aj.i(c0103b.dcs, d.C0095d.cp_cont_d);
-                aj.j(c0103b.divider, d.C0095d.cp_bg_line_c);
-                aj.c(c0103b.dcq, d.f.icon_arrow_gray_right_n);
-                aj.j(view, d.f.addresslist_item_bg);
-                aj.j(c0103b.dcv, d.f.picture_content_frame);
+                aj.r(c0115b.dOz, d.C0108d.cp_cont_b);
+                aj.r(c0115b.dOB, d.C0108d.cp_cont_d);
+                aj.r(c0115b.dOA, d.C0108d.cp_cont_d);
+                aj.r(c0115b.dOF, d.C0108d.cp_cont_d);
+                aj.r(c0115b.dOE, d.C0108d.cp_cont_d);
+                aj.s(c0115b.divider, d.C0108d.cp_bg_line_c);
+                aj.c(c0115b.dOC, d.f.icon_arrow_gray_right_n);
+                aj.s(view, d.f.addresslist_item_bg);
+                aj.s(c0115b.dOG, d.f.picture_content_frame);
             }
             return view;
         }

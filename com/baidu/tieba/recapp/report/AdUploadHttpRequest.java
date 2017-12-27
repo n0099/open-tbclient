@@ -28,7 +28,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam(KEY_NET_TYPE, j.hn());
+        addParam(KEY_NET_TYPE, j.oO());
         addParam(KEY_OS_TYPE, 2);
     }
 
@@ -46,7 +46,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (v.v(arrayList) <= 0) {
+        if (v.F(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -54,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.bmA());
+                jSONArray.put(next.buh());
             }
         }
         return jSONArray.toString();

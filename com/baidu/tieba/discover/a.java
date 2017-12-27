@@ -18,32 +18,32 @@ import com.baidu.tieba.frs.aj;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseFragment implements aj {
-    private b cpX;
-    private boolean cpY;
+    private b deC;
+    private boolean deD;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean btP = true;
+    private boolean chh = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.cpX != null && a.this.cpX.QA() != null && a.this.cpX.QA().getUrl() != null) {
-                if (a.this.cpX.QA().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.cpX.NO();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.deC != null && a.this.deC.XY() != null && a.this.deC.XY().getUrl() != null) {
+                if (a.this.deC.XY().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.deC.Vn();
                 }
             }
         }
     };
-    private CustomMessageListener cpZ = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener deE = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.Pk();
+                    a.this.WJ();
                 } else {
-                    a.this.Pl();
+                    a.this.WK();
                 }
             }
         }
@@ -51,33 +51,33 @@ public class a extends BaseFragment implements aj {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.cpX = new b();
-        return this.cpX.a(layoutInflater, viewGroup);
+        this.deC = new b();
+        return this.deC.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.cpX.j(getPageContext());
+        this.deC.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.cpZ);
-        z.a(this.cpX.QA(), getUniqueId());
+        registerListener(this.deE);
+        z.a(this.deC.XY(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.btP || StringUtils.isNull(this.cpX.QA().getUrl())) {
+        if (this.chh || StringUtils.isNull(this.deC.XY().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.cpX.loadUrl(iz(this.mUrl));
+                this.deC.loadUrl(iB(this.mUrl));
             } else {
-                this.cpX.loadUrl(this.mUrl);
+                this.deC.loadUrl(this.mUrl);
             }
-            this.btP = false;
+            this.chh = false;
         }
     }
 
-    private String iz(String str) {
+    private String iB(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -97,8 +97,8 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.cpX != null) {
-            this.cpX.onDestroy();
+        if (this.deC != null) {
+            this.deC.onDestroy();
         }
     }
 
@@ -115,7 +115,7 @@ public class a extends BaseFragment implements aj {
         } else {
             arrayList = new ArrayList();
         }
-        if (!"a001".equals(v.c(arrayList, arrayList.size() - 1))) {
+        if (!"a001".equals(v.f(arrayList, arrayList.size() - 1))) {
             arrayList.add("a001");
         }
         return arrayList;
@@ -124,32 +124,32 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.btP) {
+        if (!this.chh) {
             if (i == 1) {
-                this.cpX.loadUrl(iz(this.mUrl));
+                this.deC.loadUrl(iB(this.mUrl));
             } else {
-                this.cpX.loadUrl(this.mUrl);
+                this.deC.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Pj() {
+    public void WI() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Pk() {
-        if (this.cpX != null && !this.cpY) {
-            this.cpY = true;
-            this.cpX.afS();
+    public void WJ() {
+        if (this.deC != null && !this.deD) {
+            this.deD = true;
+            this.deC.anw();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Pl() {
-        if (this.cpX != null && this.cpY) {
-            this.cpY = false;
-            this.cpX.afT();
+    public void WK() {
+        if (this.deC != null && this.deD) {
+            this.deD = false;
+            this.deC.anx();
         }
     }
 
@@ -166,7 +166,7 @@ public class a extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void wC() {
+    public void Ea() {
     }
 
     @Override // com.baidu.tieba.frs.aj

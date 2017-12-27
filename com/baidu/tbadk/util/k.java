@@ -11,32 +11,32 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class k {
-    private static String aMX;
-    private static String aMY;
-    private static String aMW = "";
+    private static String bAK;
+    private static String bAL;
+    private static String bAJ = "";
     private static int mThreadType = 0;
-    public static String aMZ = "floor";
-    public static String aNa = "pbPage";
+    public static String bAM = "floor";
+    public static String bAN = "pbPage";
 
     public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar) {
-        aMX = str;
-        aMY = str2;
-        aMW = str3;
+        bAK = str;
+        bAL = str2;
+        bAJ = str3;
         mThreadType = i;
-        if (!StringUtils.isNull(aMW) && eVar != null && eVar.getPageActivity() != null) {
-            if (aMZ.equals(aMW)) {
+        if (!StringUtils.isNull(bAJ) && eVar != null && eVar.getPageActivity() != null) {
+            if (bAM.equals(bAJ)) {
                 if (mThreadType == 33) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(eVar.getPageActivity()).createPhotoLiveCommentActivityConfig(aMX, aMY, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(eVar.getPageActivity()).createPhotoLiveCommentActivityConfig(bAK, bAL, true)));
                     return;
                 }
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(aMX, aMY, "search_post", true);
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(bAK, bAL, "search_post", true);
                 createSubPbActivityConfig.setKeyPageStartFrom(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
             } else if (mThreadType == 33) {
                 TiebaStatic.log("c10256");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(eVar.getPageActivity(), aMX).cx(aMY).cy("search_post").pn()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(eVar.getPageActivity(), bAK).cE(bAL).cF("search_post").wQ()));
             } else {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(aMX, aMY, "search_post");
+                PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(bAK, bAL, "search_post");
                 createNormalCfg.setStartFrom(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
             }

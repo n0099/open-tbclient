@@ -14,39 +14,39 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
-    private a aGI;
-    private final HttpMessageListener aGJ = new HttpMessageListener(CmdConfigHttp.CMD_GET_EMOTION_INFOS) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
+    private a buC;
+    private final HttpMessageListener buD = new HttpMessageListener(CmdConfigHttp.CMD_GET_EMOTION_INFOS) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.aGI != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.buC != null) {
                 GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
                 if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                    GetEmotionInfosModel.this.aGI.C(getEmotionInfosResponseMessage.getEmotionList());
+                    GetEmotionInfosModel.this.buC.L(getEmotionInfosResponseMessage.getEmotionList());
                 } else {
-                    GetEmotionInfosModel.this.aGI.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                    GetEmotionInfosModel.this.buC.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
                 }
-                GetEmotionInfosModel.this.aGI = null;
+                GetEmotionInfosModel.this.buC = null;
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void C(List<c> list);
+        void L(List<c> list);
 
         void onFail(int i, String str);
     }
 
     public GetEmotionInfosModel() {
         setUniqueId(BdUniqueId.gen());
-        zL();
-        this.aGJ.setTag(getUniqueId());
-        this.aGJ.setSelfListener(true);
-        registerListener(this.aGJ);
+        Hk();
+        this.buD.setTag(getUniqueId());
+        this.buD.setSelfListener(true);
+        registerListener(this.buD);
     }
 
-    private void zL() {
+    private void Hk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS, TbConfig.SERVER_ADDRESS + "c/e/meme/pic2idJson");
         tbHttpMessageTask.setResponsedClass(GetEmotionInfosResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -54,7 +54,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     public void a(List<String> list, a aVar) {
         int i = 0;
-        this.aGI = aVar;
+        this.buC = aVar;
         if (list == null || list.isEmpty()) {
             if (aVar != null) {
                 aVar.onFail(0, "list is empty");
@@ -73,7 +73,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 i = i2 + 1;
             } else {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.ch(jSONArray.toString()));
+                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.co(jSONArray.toString()));
                 sendMessage(httpMessage);
                 return;
             }
@@ -87,7 +87,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aGJ);
+        MessageManager.getInstance().unRegisterListener(this.buD);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         return true;
     }

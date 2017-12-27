@@ -53,10 +53,11 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -77,6 +78,7 @@ import javax.security.cert.CertificateException;
 import org.apache.http.client.CookieStore;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.cookie.BasicClientCookie;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -86,12 +88,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0039a e;
+    private C0053a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0039a {
+    public static class C0053a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -103,7 +105,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0039a(Context context) {
+        public C0053a(Context context) {
             this.a = context;
             e();
             f();
@@ -139,7 +141,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0039a(context);
+        this.e = new C0053a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -290,7 +292,7 @@ public final class a {
         }
         String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.LOGIN_URI);
         if (!TextUtils.isEmpty(deviceInfo)) {
-            hashMap.put("di", deviceInfo);
+            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         hashMap.put("cert_id", str2);
         hashMap.put("isdpass", "1");
@@ -341,7 +343,7 @@ public final class a {
                     sapiAccountResponse.displayname = jSONObject.optString("displayname");
                     sapiAccountResponse.username = jSONObject.optString("uname");
                     sapiAccountResponse.uid = jSONObject.optString("uid");
-                    sapiAccountResponse.email = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_EMAIL);
+                    sapiAccountResponse.email = jSONObject.optString("email");
                     sapiAccountResponse.bduss = jSONObject.optString("bduss");
                     sapiAccountResponse.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
                     sapiAccountResponse.stoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_STOKEN);
@@ -408,7 +410,7 @@ public final class a {
         hashMap.put("client", "android");
         String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
         if (!TextUtils.isEmpty(deviceInfo)) {
-            hashMap.put("di", deviceInfo);
+            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         String pisDeviceInfo = SapiDeviceInfo.getPisDeviceInfo();
         if (!TextUtils.isEmpty(pisDeviceInfo)) {
@@ -530,7 +532,7 @@ public final class a {
         hashMap.put("client", "android");
         String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
         if (!TextUtils.isEmpty(deviceInfo)) {
-            hashMap.put("di", deviceInfo);
+            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         String pisDeviceInfo = SapiDeviceInfo.getPisDeviceInfo();
         if (!TextUtils.isEmpty(pisDeviceInfo)) {
@@ -886,7 +888,7 @@ public final class a {
                                     requestParams.put("channel_id", optString3);
                                     requestParams.put("callback", "p");
                                     requestParams.put("apiver", "v3");
-                                    requestParams.put("tt", String.valueOf(System.currentTimeMillis()));
+                                    requestParams.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
                                     a.this.d.get(a.this.c.context, a.this.e.a() + SapiEnv.GET_QR_LOGIN_STATUS_CHECK, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.22.1
                                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                                         protected void onStart() {
@@ -1477,7 +1479,7 @@ public final class a {
             return false;
         } else if (TextUtils.isEmpty(str)) {
             if (sapiCallBack != null) {
-                sapiCallBack.onSystemError(SapiErrorCode.PHONE_NULL);
+                sapiCallBack.onSystemError(257);
                 return false;
             }
             return false;
@@ -1660,7 +1662,7 @@ public final class a {
                 fastRegResult.setResultCode(b2);
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    fastRegResult.setResultMsg(jSONObject.optJSONObject("sdk").optString(AddFriendActivityConfig.MSG));
+                    fastRegResult.setResultMsg(jSONObject.optJSONObject("sdk").optString("msg"));
                     switch (b2) {
                         case 0:
                             a.this.e.e();
@@ -1744,7 +1746,7 @@ public final class a {
         }
         String deviceInfo = SapiDeviceInfo.getDeviceInfo(str);
         if (!TextUtils.isEmpty(deviceInfo)) {
-            hashMap.put("di", deviceInfo);
+            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
         String pisDeviceInfo = SapiDeviceInfo.getPisDeviceInfo();
         if (!TextUtils.isEmpty(pisDeviceInfo)) {
@@ -1771,7 +1773,7 @@ public final class a {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, "UTF-8"));
+                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
                 }
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
@@ -1818,7 +1820,7 @@ public final class a {
                     sapiAccountResponse.displayname = jSONObject.optString("displayname");
                     sapiAccountResponse.uid = jSONObject.optString("uid");
                     sapiAccountResponse.username = jSONObject.optString("uname");
-                    sapiAccountResponse.email = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_EMAIL);
+                    sapiAccountResponse.email = jSONObject.optString("email");
                     switch (i) {
                         case 0:
                             SapiAccount a2 = a(sapiAccountResponse);
@@ -2094,7 +2096,7 @@ public final class a {
             hashMap.put("clientfrom", "native");
             String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.LOGIN_URI);
             if (!TextUtils.isEmpty(deviceInfo)) {
-                hashMap.put("di", deviceInfo);
+                hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
             }
             hashMap.put("sapiver", "1");
             hashMap.put("tpl", this.c.tpl);

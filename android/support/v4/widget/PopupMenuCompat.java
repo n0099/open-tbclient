@@ -2,16 +2,16 @@ package android.support.v4.widget;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes.dex */
-public class PopupMenuCompat {
+/* loaded from: classes2.dex */
+public final class PopupMenuCompat {
     static final PopupMenuImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface PopupMenuImpl {
         View.OnTouchListener getDragToOpenListener(Object obj);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BasePopupMenuImpl implements PopupMenuImpl {
         BasePopupMenuImpl() {
         }
@@ -22,7 +22,7 @@ public class PopupMenuCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class KitKatPopupMenuImpl extends BasePopupMenuImpl {
         KitKatPopupMenuImpl() {
         }

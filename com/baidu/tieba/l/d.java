@@ -1,7 +1,6 @@
 package com.baidu.tieba.l;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tieba.l.c;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,20 +16,20 @@ public class d extends c.b {
     }
 
     @Override // com.baidu.tieba.l.c.b, com.baidu.tieba.l.c
-    public JSONObject bjQ() {
-        JSONObject bjQ = super.bjQ();
+    public JSONObject brv() {
+        JSONObject brv = super.brv();
         try {
             JSONObject jSONObject = new JSONObject();
             if (this.code != -4399) {
                 jSONObject.put("code", this.code);
             }
             if (!StringUtils.isNull(this.msg)) {
-                jSONObject.put(AddFriendActivityConfig.MSG, this.msg);
+                jSONObject.put("msg", this.msg);
             }
-            bjQ.put("ext", jSONObject);
+            brv.put("ext", jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return bjQ;
+        return brv;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecommendFrsStatic {
     static {
         MessageManager messageManager = MessageManager.getInstance();

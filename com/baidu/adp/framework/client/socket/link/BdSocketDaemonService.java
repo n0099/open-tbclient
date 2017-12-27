@@ -23,7 +23,7 @@ public class BdSocketDaemonService extends BdBaseService {
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             if (BdSocketDaemonService.sCallBack != null) {
-                BdSocketDaemonService.sCallBack.dn();
+                BdSocketDaemonService.sCallBack.kR();
             } else {
                 BdSocketLinkService.startService(false, "restart");
             }
@@ -56,7 +56,7 @@ public class BdSocketDaemonService extends BdBaseService {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem.p("loc", getClass().getName() + "-onCreate-startForeground");
+                statsItem.append("loc", getClass().getName() + "-onCreate-startForeground");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
         }
@@ -76,7 +76,7 @@ public class BdSocketDaemonService extends BdBaseService {
             unbindService(this.conn);
         } catch (Exception e) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.p("loc", getClass().getName() + "-onDestroy-unbindService");
+            statsItem.append("loc", getClass().getName() + "-onDestroy-unbindService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
         }
         Intent intent = new Intent();
@@ -85,7 +85,7 @@ public class BdSocketDaemonService extends BdBaseService {
             startService(intent);
         } catch (Exception e2) {
             com.baidu.adp.lib.stats.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem2.p("loc", getClass().getName() + "-onDestroy-startService");
+            statsItem2.append("loc", getClass().getName() + "-onDestroy-startService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
         }
     }

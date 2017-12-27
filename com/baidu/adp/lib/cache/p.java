@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
 public class p {
-    private final com.baidu.adp.base.a.b sB;
+    private final com.baidu.adp.base.a.b agV;
 
     public p(Context context, com.baidu.adp.base.a.b bVar) {
-        this.sB = bVar;
+        this.agV = bVar;
     }
 
-    public h Y(String str) {
+    public h ag(String str) {
         Cursor cursor;
         try {
-            cursor = this.sB.ch().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.agV.jM().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
             th = th;
             cursor = null;
@@ -25,21 +25,21 @@ public class p {
         } catch (Throwable th2) {
             th = th2;
             try {
-                this.sB.a(th, "get");
-                com.baidu.adp.lib.g.a.e(cursor);
+                this.agV.a(th, "get");
+                com.baidu.adp.lib.g.a.i(cursor);
                 return null;
             } finally {
-                com.baidu.adp.lib.g.a.e(cursor);
+                com.baidu.adp.lib.g.a.i(cursor);
             }
         }
         if (cursor.moveToNext()) {
             h hVar = new h();
-            hVar.sO = cursor.getString(0);
-            hVar.sC = cursor.getString(1);
+            hVar.ahi = cursor.getString(0);
+            hVar.agW = cursor.getString(1);
             hVar.maxSize = cursor.getInt(2);
-            hVar.sS = cursor.getString(3);
-            hVar.sT = cursor.getInt(4);
-            hVar.sU = cursor.getLong(5);
+            hVar.ahm = cursor.getString(3);
+            hVar.ahn = cursor.getInt(4);
+            hVar.aho = cursor.getLong(5);
             return hVar;
         }
         return null;
@@ -48,29 +48,29 @@ public class p {
     public void a(h hVar) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("nameSpace", hVar.sO);
-            contentValues.put("tableName", hVar.sC);
+            contentValues.put("nameSpace", hVar.ahi);
+            contentValues.put("tableName", hVar.agW);
             contentValues.put("maxSize", Integer.valueOf(hVar.maxSize));
-            contentValues.put("cacheVersion", Integer.valueOf(hVar.sT));
-            contentValues.put("cacheType", hVar.sS);
-            contentValues.put("lastActiveTime", Long.valueOf(hVar.sU));
-            SQLiteDatabase ch = this.sB.ch();
-            if (ch != null && ch.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.sO}) == 0) {
-                ch.insert("cache_meta_info", null, contentValues);
+            contentValues.put("cacheVersion", Integer.valueOf(hVar.ahn));
+            contentValues.put("cacheType", hVar.ahm);
+            contentValues.put("lastActiveTime", Long.valueOf(hVar.aho));
+            SQLiteDatabase jM = this.agV.jM();
+            if (jM != null && jM.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.ahi}) == 0) {
+                jM.insert("cache_meta_info", null, contentValues);
             }
         } catch (Throwable th) {
-            this.sB.a(th, "addOrUpdate");
+            this.agV.a(th, "addOrUpdate");
         }
     }
 
-    public int Z(String str) {
+    public int ah(String str) {
         try {
-            if (Y(str) == null) {
+            if (ag(str) == null) {
                 return 0;
             }
-            return this.sB.ch().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            return this.agV.jM().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.sB.a(th, WriteImageActivityConfig.DELET_FLAG);
+            this.agV.a(th, WriteImageActivityConfig.DELET_FLAG);
             return 0;
         }
     }

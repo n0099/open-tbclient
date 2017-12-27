@@ -1,85 +1,15 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import tbclient.FrsPage.StarEnter;
+import com.baidu.tbadk.core.data.be;
+import java.util.List;
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.widget.ListView.f {
-    private int ePW;
-    private String euk;
-    private String icon;
-    private String obj_id;
-    private int time;
-    private String title;
-    private int type;
-    private String url;
-    private int weight;
+public class f extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.i {
+    public static final BdUniqueId hfA = BdUniqueId.gen();
+    public List<be> hfB;
 
-    public int aRT() {
-        return this.ePW;
-    }
-
-    public void ug(int i) {
-        this.ePW = i;
-    }
-
-    public String getIcon() {
-        return this.icon;
-    }
-
-    public void setIcon(String str) {
-        this.icon = str;
-    }
-
-    public void uh(int i) {
-        this.weight = i;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void ui(int i) {
-        this.type = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public void setTime(int i) {
-        this.time = i;
-    }
-
-    public String buM() {
-        return this.obj_id;
-    }
-
-    public String aKZ() {
-        return this.euk;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        ui(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        uh(starEnter.weight.intValue());
-        ug(starEnter.rank_num.intValue());
-        this.obj_id = starEnter.obj_id;
-        this.euk = starEnter.text;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return BdUniqueId.gen();
+        return hfA;
     }
 }

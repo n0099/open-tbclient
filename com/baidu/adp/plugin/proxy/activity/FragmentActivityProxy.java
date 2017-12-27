@@ -47,6 +47,7 @@ import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.d;
 import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
 import com.baidu.adp.plugin.util.d;
+import com.baidu.adp.widget.ListView.l;
 import com.baidu.megapp.ma.MAFragmentActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -299,7 +300,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.cg().getResources();
+            Resources resources = g.jL().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -455,7 +456,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         this.mEntity = null;
@@ -502,7 +503,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return this.mEntity != null ? this.mEntity.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
     }
@@ -526,7 +527,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         return this.mEntity != null ? this.mEntity.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
     }
@@ -931,7 +932,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
@@ -1569,18 +1570,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.iJ().aX(stringExtra);
+            aVar = com.baidu.adp.plugin.d.qi().bf(stringExtra);
         }
-        if (aVar == null || aVar.Cf == null) {
+        if (aVar == null || aVar.aqk == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.iJ().iK() == 1) {
-            com.baidu.adp.plugin.d.iJ().aY(stringExtra);
-            aVar.Cf.stopSelf();
+        } else if (com.baidu.adp.plugin.d.qi().qj() == 1) {
+            com.baidu.adp.plugin.d.qi().bg(stringExtra);
+            aVar.aqk.stopSelf();
             return true;
         } else {
-            aVar.Cf.onDestroy();
-            com.baidu.adp.plugin.d.iJ().aY(stringExtra);
+            aVar.aqk.onDestroy();
+            com.baidu.adp.plugin.d.qi().bg(stringExtra);
             return true;
         }
     }
@@ -1636,9 +1637,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(com.baidu.adp.widget.ListView.g gVar) {
+    public void onPreLoad(l lVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(gVar);
+            this.mEntity.onPreLoad(lVar);
         }
     }
 

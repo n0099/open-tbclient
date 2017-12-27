@@ -24,6 +24,8 @@ import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -194,7 +196,7 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
     }
 
     public void logout() {
-        StatService.onEvent("logout", Collections.singletonMap("di", SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
+        StatService.onEvent("logout", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
         StatService.onEvent("logout", Collections.singletonMap("pis_di", SapiDeviceInfo.getPisDeviceInfo()));
         removeLoginAccount(getSession());
     }
@@ -378,7 +380,7 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
     static String a(Context context) {
         try {
             int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
                 if (runningAppProcessInfo.pid == myPid) {
                     return runningAppProcessInfo.processName;
                 }

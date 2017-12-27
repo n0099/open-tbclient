@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public class j implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eQa = BdUniqueId.gen();
-    public static final BdUniqueId eQb = BdUniqueId.gen();
-    public long eQc;
-    public String eQd;
+/* loaded from: classes2.dex */
+public class j implements com.baidu.adp.widget.ListView.i {
+    public static final BdUniqueId fCA = BdUniqueId.gen();
+    public static final BdUniqueId fCB = BdUniqueId.gen();
+    public long fCC;
+    public String fCD;
     public BdUniqueId mType;
-    public boolean aFS = true;
-    public boolean eQe = false;
+    public boolean btL = true;
+    public boolean fCE = false;
 
     public j(BdUniqueId bdUniqueId) {
-        this.mType = eQb;
+        this.mType = fCB;
         this.mType = bdUniqueId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return this.mType;
     }

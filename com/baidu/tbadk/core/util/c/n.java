@@ -8,19 +8,19 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean fM() {
+    public boolean no() {
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
-    /* renamed from: c */
-    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gr = com.baidu.tbadk.imageManager.c.EA().gr(ep(str));
-        if (gr == null || gr.kK() == null) {
+    /* renamed from: g */
+    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.a.a gx = com.baidu.tbadk.imageManager.c.Mb().gx(ew(str));
+        if (gx == null || gx.si() == null) {
             return null;
         }
-        return gr;
+        return gx;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,13 +30,13 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eq(str);
+        return ex(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.EA().c(ep(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Mb().c(ew(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -48,16 +48,16 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel fN() {
+    public BdAsyncTaskParallel np() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int fO() {
+    public int nq() {
         return 1;
     }
 
-    public com.baidu.adp.widget.a.a eq(String str) {
+    public com.baidu.adp.widget.a.a ex(String str) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
@@ -68,7 +68,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return null;
     }
 
-    public String ep(String str) {
+    public String ew(String str) {
         return "videoThumb_" + str;
     }
 }

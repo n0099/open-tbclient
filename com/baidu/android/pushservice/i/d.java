@@ -28,7 +28,6 @@ public class d {
             a.submit(cVar);
             return true;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("ThreadPool", "submitRunnable e: " + e);
             if (a == null || a.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
                 a = new a(3, 100, 1L, TimeUnit.MINUTES, new b());
             }
@@ -42,7 +41,6 @@ public class d {
                 a.getQueue().clear();
                 a.shutdown();
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.c("ThreadPool", " ThreadPool shutdown e: " + e);
             }
         }
     }

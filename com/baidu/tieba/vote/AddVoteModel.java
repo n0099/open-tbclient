@@ -2,7 +2,7 @@ package com.baidu.tieba.vote;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddVoteModel extends BdBaseModel {
     public AddVoteModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());

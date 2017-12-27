@@ -7,9 +7,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class AlbumActivityConfig extends IntentConfig {
     public static final String ALBUM_RESULT = "album_result";
     public static final String AUTO_PHOTO_NAME = "auto_photo_name";
+    public static final int AVATAR_TYPE = 2;
     public static final String CAMERA_PHOTO_NAME = "camera_photo_name";
     public static final String CAMERA_REQUEST_FROM = "camera_request_from";
     public static final String CAMERA_RESULT = "camera_result";
+    public static final int COMMON_TYPE = 0;
     public static final String FINISH_SELF = "finish_self";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FRS = "frs";
@@ -21,6 +23,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final int FROM_VOTE = 3;
     public static final int FROM_WEB_VIEW = 5;
     public static final String FROM_WRITE = "write";
+    public static final int IM_TYPE = 1;
     public static final String IS_SELECT_DIRECTLY = "select_directly";
     public static final String KEY_FORUM_WRITE_DATA = "KEY_FORUM_WRITE_DATA";
     public static final String LAST_ALBUM_ID = "last_album_id";
@@ -92,9 +95,9 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setImResource(boolean z) {
+    public void setResourceType(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_FROM_IM, z);
+            getIntent().putExtra("from_type", i);
         }
     }
 

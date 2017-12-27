@@ -10,7 +10,6 @@ public class SDcardRemovedReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_BAD_REMOVAL") || intent.getAction().equals("android.intent.action.MEDIA_REMOVED")) {
-            com.baidu.android.pushservice.g.a.c(a, "sdcard removed");
             com.baidu.android.pushservice.d.a.a();
         }
     }

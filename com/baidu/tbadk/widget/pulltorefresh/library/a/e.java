@@ -8,7 +8,7 @@ public class e {
         view.postDelayed(runnable, 16L);
     }
 
-    public static void a(View view, Drawable drawable) {
+    public static void setBackground(View view, Drawable drawable) {
         view.setBackgroundDrawable(drawable);
     }
 }

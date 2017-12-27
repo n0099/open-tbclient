@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new Parcelable.Creator<BackStackState>() { // from class: android.support.v4.app.BackStackState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -31,10 +31,12 @@ public final class BackStackState implements Parcelable {
     final int mIndex;
     final String mName;
     final int[] mOps;
+    final ArrayList<String> mSharedElementSourceNames;
+    final ArrayList<String> mSharedElementTargetNames;
     final int mTransition;
     final int mTransitionStyle;
 
-    public BackStackState(FragmentManagerImpl fragmentManagerImpl, BackStackRecord backStackRecord) {
+    public BackStackState(BackStackRecord backStackRecord) {
         int i = 0;
         for (BackStackRecord.Op op = backStackRecord.mHead; op != null; op = op.next) {
             if (op.removed != null) {
@@ -83,6 +85,8 @@ public final class BackStackState implements Parcelable {
         this.mBreadCrumbTitleText = backStackRecord.mBreadCrumbTitleText;
         this.mBreadCrumbShortTitleRes = backStackRecord.mBreadCrumbShortTitleRes;
         this.mBreadCrumbShortTitleText = backStackRecord.mBreadCrumbShortTitleText;
+        this.mSharedElementSourceNames = backStackRecord.mSharedElementSourceNames;
+        this.mSharedElementTargetNames = backStackRecord.mSharedElementTargetNames;
     }
 
     public BackStackState(Parcel parcel) {
@@ -95,6 +99,8 @@ public final class BackStackState implements Parcelable {
         this.mBreadCrumbTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         this.mBreadCrumbShortTitleRes = parcel.readInt();
         this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mSharedElementSourceNames = parcel.createStringArrayList();
+        this.mSharedElementTargetNames = parcel.createStringArrayList();
     }
 
     public BackStackRecord instantiate(FragmentManagerImpl fragmentManagerImpl) {
@@ -137,6 +143,10 @@ public final class BackStackState implements Parcelable {
                     i10++;
                 }
             }
+            backStackRecord.mEnterAnim = op.enterAnim;
+            backStackRecord.mExitAnim = op.exitAnim;
+            backStackRecord.mPopEnterAnim = op.popEnterAnim;
+            backStackRecord.mPopExitAnim = op.popExitAnim;
             backStackRecord.addOp(op);
             i++;
             i2 = i10;
@@ -150,6 +160,8 @@ public final class BackStackState implements Parcelable {
         backStackRecord.mBreadCrumbTitleText = this.mBreadCrumbTitleText;
         backStackRecord.mBreadCrumbShortTitleRes = this.mBreadCrumbShortTitleRes;
         backStackRecord.mBreadCrumbShortTitleText = this.mBreadCrumbShortTitleText;
+        backStackRecord.mSharedElementSourceNames = this.mSharedElementSourceNames;
+        backStackRecord.mSharedElementTargetNames = this.mSharedElementTargetNames;
         backStackRecord.bumpBackStackNesting(1);
         return backStackRecord;
     }
@@ -170,5 +182,7 @@ public final class BackStackState implements Parcelable {
         TextUtils.writeToParcel(this.mBreadCrumbTitleText, parcel, 0);
         parcel.writeInt(this.mBreadCrumbShortTitleRes);
         TextUtils.writeToParcel(this.mBreadCrumbShortTitleText, parcel, 0);
+        parcel.writeStringList(this.mSharedElementSourceNames);
+        parcel.writeStringList(this.mSharedElementTargetNames);
     }
 }

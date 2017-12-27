@@ -34,8 +34,11 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.entity.mime.MIME;
+import org.apache.http.protocol.HTTP;
 @SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
 public final class i {
@@ -70,7 +73,7 @@ public final class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection nm() throws IOException {
+    private HttpURLConnection uP() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         String[] e;
@@ -82,8 +85,8 @@ public final class i {
         if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d)) {
             throw new IllegalArgumentException();
         }
-        if (!this.c.equals("POST") && !this.c.equals("GET")) {
-            this.c = "POST";
+        if (!this.c.equals(HttpPost.METHOD_NAME) && !this.c.equals(HttpGet.METHOD_NAME)) {
+            this.c = HttpPost.METHOD_NAME;
         }
         URL url = new URL(this.d);
         if (d.c(this.a)) {
@@ -136,7 +139,7 @@ public final class i {
                 }
                 httpURLConnection.setRequestMethod(this.c);
                 httpURLConnection.setDoInput(true);
-                if ("POST".equals(this.c)) {
+                if (HttpPost.METHOD_NAME.equals(this.c)) {
                 }
                 httpURLConnection.setInstanceFollowRedirects(true);
                 httpURLConnection.setConnectTimeout(this.e);
@@ -148,10 +151,10 @@ public final class i {
                 String str3 = "sofire";
                 if ("sofire".equals("sofire")) {
                 }
-                httpURLConnection.setRequestProperty("User-Agent", str3 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
+                httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
-                httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded");
+                httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
                 httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
                 httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
                 httpURLConnection.setRequestProperty("x-device-id", j.a(e.a(this.a)));
@@ -177,7 +180,7 @@ public final class i {
         }
         httpURLConnection.setRequestMethod(this.c);
         httpURLConnection.setDoInput(true);
-        if ("POST".equals(this.c)) {
+        if (HttpPost.METHOD_NAME.equals(this.c)) {
             httpURLConnection.setDoOutput(true);
         }
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -193,10 +196,10 @@ public final class i {
         if ("sofire".equals("sofire")) {
             str32 = "eos";
         }
-        httpURLConnection.setRequestProperty("User-Agent", str32 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
+        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str32 + "/" + str2 + "/" + m.a(this.a) + "/3.0.6.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
-        httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded");
+        httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
         httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
         httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
         httpURLConnection.setRequestProperty("x-device-id", j.a(e.a(this.a)));
@@ -372,22 +375,22 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager Qn;
+        private X509TrustManager aEV;
 
         a(X509TrustManager x509TrustManager) {
-            this.Qn = null;
-            this.Qn = x509TrustManager;
+            this.aEV = null;
+            this.aEV = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.Qn.checkClientTrusted(x509CertificateArr, str);
+            this.aEV.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.Qn.checkServerTrusted(x509CertificateArr, str);
+                this.aEV.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 d.a(e);
                 for (Throwable th = e; th != null; th = th.getCause()) {
@@ -404,7 +407,7 @@ public final class i {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.Qn.getAcceptedIssuers();
+            return this.aEV.getAcceptedIssuers();
         }
     }
 
@@ -420,10 +423,10 @@ public final class i {
             d.a(th);
         }
         try {
-            this.c = "POST";
+            this.c = HttpPost.METHOD_NAME;
             this.d = str;
             try {
-                httpURLConnection = nm();
+                httpURLConnection = uP();
                 try {
                     inputStream = a(bArr, httpURLConnection);
                     String a2 = a(inputStream);
@@ -472,9 +475,9 @@ public final class i {
         }
         try {
             try {
-                this.c = "GET";
+                this.c = HttpGet.METHOD_NAME;
                 this.d = str;
-                httpURLConnection = nm();
+                httpURLConnection = uP();
                 try {
                     inputStream = a(null, httpURLConnection);
                     String a2 = a(inputStream);
@@ -565,7 +568,7 @@ public final class i {
             java.lang.String r1 = "GET"
             r6.c = r1     // Catch: java.lang.Throwable -> L82
             r6.d = r7     // Catch: java.lang.Throwable -> L82
-            java.net.HttpURLConnection r2 = r6.nm()     // Catch: java.lang.Throwable -> L82
+            java.net.HttpURLConnection r2 = r6.uP()     // Catch: java.lang.Throwable -> L82
             java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> Le9
             boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> Le9
             if (r3 == 0) goto L5e

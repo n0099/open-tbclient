@@ -1,7 +1,6 @@
 package com.baidu.tieba.yunpush;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes2.dex */
 public class PushStatic {
-    private static CustomMessageListener hnY = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener hWq = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -21,56 +20,46 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        Log.e("BaiduYunPush", "push static init " + System.currentTimeMillis());
-                        PushStatic.bJv();
+                        PushStatic.bPq();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bJt() {
-        cm(TbadkApplication.getInst());
+    private static void bPo() {
+        cx(TbadkApplication.getInst());
     }
 
-    private static void bJu() {
-        cn(TbadkCoreApplication.getInst());
+    private static void bPp() {
+        cy(TbadkCoreApplication.getInst());
     }
 
-    private static void cm(Context context) {
-        Log.e("BaiduYunPush", "start push");
-        Log.e("BaiduYunPush", "start push1");
+    private static void cx(Context context) {
         PushManager.enableHuaweiProxy(context, true);
-        Log.e("BaiduYunPush", "start push2");
         PushManager.enableXiaomiProxy(context, true, "2882303761517130520", "5651713089520");
-        Log.e("BaiduYunPush", "start push3");
+        PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
         PushManager.startWork(context, 0, a.getMetaValue(context, "api_key"));
-        Log.e("BaiduYunPush", "start push4 ");
     }
 
-    private static void cn(Context context) {
-        Log.e("BaiduYunPush", "stop push");
+    private static void cy(Context context) {
         if (b.getInstance().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
-            Log.e("BaiduYunPush", "stop push pushservice is working");
             PushManager.stopWork(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bJv() {
+    public static void bPq() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                Log.e("BaiduYunPush", "switch available");
-                bJt();
-                return;
+                bPo();
+            } else {
+                bPp();
             }
-            Log.e("BaiduYunPush", "switch close");
-            bJu();
         }
     }
 
     static {
-        Log.e("BaiduYunPush", "push static init load static " + System.currentTimeMillis());
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, hnY);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, hWq);
     }
 }

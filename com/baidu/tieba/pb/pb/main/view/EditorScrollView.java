@@ -5,25 +5,25 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EditorScrollView extends ScrollView {
-    private boolean cvK;
-    private int fgo;
-    private ViewTreeObserver.OnScrollChangedListener fgp;
+    private boolean dkg;
+    private int fTk;
+    private ViewTreeObserver.OnScrollChangedListener fTl;
 
     public EditorScrollView(Context context) {
         super(context);
-        this.fgo = 50;
+        this.fTk = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fgo = 50;
+        this.fTk = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fgo = 50;
+        this.fTk = 50;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -31,11 +31,11 @@ public class EditorScrollView extends ScrollView {
         switch (motionEvent.getAction()) {
             case 0:
             case 2:
-                this.cvK = true;
+                this.dkg = true;
                 break;
             case 1:
             case 3:
-                this.cvK = false;
+                this.dkg = false;
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -44,12 +44,12 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.fgp != null && this.cvK && Math.abs(i3 - i2) >= this.fgo) {
-            this.fgp.onScrollChanged();
+        if (this.fTl != null && this.dkg && Math.abs(i3 - i2) >= this.fTk) {
+            this.fTl.onScrollChanged();
         }
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.fgp = onScrollChangedListener;
+        this.fTl = onScrollChangedListener;
     }
 }

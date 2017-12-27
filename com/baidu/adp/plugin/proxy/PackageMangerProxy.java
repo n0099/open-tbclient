@@ -8,6 +8,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.FeatureInfo;
 import android.content.pm.InstrumentationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
@@ -16,7 +17,9 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -382,5 +385,84 @@ public class PackageMangerProxy extends PackageManager {
     @Override // android.content.pm.PackageManager
     public void verifyPendingInstall(int i, int i2) {
         this.mPm.verifyPendingInstall(i, i2);
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Intent getLeanbackLaunchIntentForPackage(String str) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public int[] getPackageGids(String str, int i) throws PackageManager.NameNotFoundException {
+        return new int[0];
+    }
+
+    @Override // android.content.pm.PackageManager
+    public int getPackageUid(String str, int i) throws PackageManager.NameNotFoundException {
+        return 0;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public List<PackageInfo> getPackagesHoldingPermissions(String[] strArr, int i) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public boolean isPermissionRevokedByPolicy(String str, String str2) {
+        return false;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public boolean hasSystemFeature(String str, int i) {
+        return false;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public List<ResolveInfo> queryIntentContentProviders(Intent intent, int i) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getActivityBanner(ComponentName componentName) throws PackageManager.NameNotFoundException {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getActivityBanner(Intent intent) throws PackageManager.NameNotFoundException {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getApplicationBanner(ApplicationInfo applicationInfo) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getApplicationBanner(String str) throws PackageManager.NameNotFoundException {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getUserBadgedIcon(Drawable drawable, UserHandle userHandle) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public Drawable getUserBadgedDrawableForDensity(Drawable drawable, UserHandle userHandle, Rect rect, int i) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public CharSequence getUserBadgedLabel(CharSequence charSequence, UserHandle userHandle) {
+        return null;
+    }
+
+    @Override // android.content.pm.PackageManager
+    public void extendVerificationTimeout(int i, int i2, long j) {
+    }
+
+    @Override // android.content.pm.PackageManager
+    public PackageInstaller getPackageInstaller() {
+        return null;
     }
 }

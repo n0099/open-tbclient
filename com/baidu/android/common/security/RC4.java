@@ -1,6 +1,4 @@
 package com.baidu.android.common.security;
-
-import android.support.v4.view.MotionEventCompat;
 /* loaded from: classes.dex */
 public class RC4 {
     private static final int STATE_LENGTH = 256;
@@ -22,12 +20,12 @@ public class RC4 {
             throw new RuntimeException("output buffer too short");
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.x = (this.x + 1) & MotionEventCompat.ACTION_MASK;
-            this.y = (this.engineState[this.x] + this.y) & MotionEventCompat.ACTION_MASK;
+            this.x = (this.x + 1) & 255;
+            this.y = (this.engineState[this.x] + this.y) & 255;
             byte b = this.engineState[this.x];
             this.engineState[this.x] = this.engineState[this.y];
             this.engineState[this.y] = b;
-            bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ this.engineState[(this.engineState[this.x] + this.engineState[this.y]) & MotionEventCompat.ACTION_MASK]);
+            bArr2[i4 + i3] = (byte) (bArr[i4 + i] ^ this.engineState[(this.engineState[this.x] + this.engineState[this.y]) & 255]);
         }
     }
 
@@ -47,7 +45,7 @@ public class RC4 {
         int i2 = 0;
         int i3 = 0;
         for (int i4 = 0; i4 < 256; i4++) {
-            i2 = (i2 + (bArr[i3] & 255) + this.engineState[i4]) & MotionEventCompat.ACTION_MASK;
+            i2 = (i2 + (bArr[i3] & 255) + this.engineState[i4]) & 255;
             byte b = this.engineState[i4];
             this.engineState[i4] = this.engineState[i2];
             this.engineState[i2] = b;

@@ -3,14 +3,14 @@ package com.baidu.android.pushservice.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class f extends m {
+public class f extends n {
     public String a;
 
     public f() {
     }
 
-    public f(m mVar) {
-        super(mVar);
+    public f(n nVar) {
+        super(nVar);
     }
 
     public JSONObject a() throws JSONException {

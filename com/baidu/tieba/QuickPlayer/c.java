@@ -2,24 +2,24 @@ package com.baidu.tieba.QuickPlayer;
 
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static c aZf;
+    private static c bMR;
     private HandlerThread mHandlerThread = new HandlerThread("PlayerHandlerThread");
 
     private c() {
         this.mHandlerThread.start();
     }
 
-    public static c Lh() {
-        if (aZf == null) {
+    public static c SG() {
+        if (bMR == null) {
             synchronized (c.class) {
-                if (aZf == null) {
-                    aZf = new c();
+                if (bMR == null) {
+                    bMR = new c();
                 }
             }
         }
-        return aZf;
+        return bMR;
     }
 
     public Looper getLooper() {

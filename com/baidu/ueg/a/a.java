@@ -1,7 +1,7 @@
 package com.baidu.ueg.a;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean h(CharSequence charSequence) {
+    public static boolean v(CharSequence charSequence) {
         int length;
         if (charSequence == null || (length = charSequence.length()) == 0) {
             return true;

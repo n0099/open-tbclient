@@ -17,8 +17,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.http.cookie.ClientCookie;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FileProvider extends ContentProvider {
     private static final String[] COLUMNS = {"_display_name", "_size"};
     private static final File DEVICE_ROOT = new File("/");
@@ -26,7 +27,7 @@ public class FileProvider extends ContentProvider {
     private PathStrategy mStrategy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface PathStrategy {
         File getFileForUri(Uri uri);
 
@@ -143,7 +144,7 @@ public class FileProvider extends ContentProvider {
     }
 
     private static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
-        File buildPath;
+        File file;
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
         XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
         if (loadXmlMetaData == null) {
@@ -155,18 +156,32 @@ public class FileProvider extends ContentProvider {
                 if (next == 2) {
                     String name = loadXmlMetaData.getName();
                     String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, ClientCookie.PATH_ATTR);
                     if ("root-path".equals(name)) {
-                        buildPath = buildPath(DEVICE_ROOT, attributeValue2);
+                        file = DEVICE_ROOT;
                     } else if ("files-path".equals(name)) {
-                        buildPath = buildPath(context.getFilesDir(), attributeValue2);
+                        file = context.getFilesDir();
                     } else if ("cache-path".equals(name)) {
-                        buildPath = buildPath(context.getCacheDir(), attributeValue2);
+                        file = context.getCacheDir();
+                    } else if ("external-path".equals(name)) {
+                        file = Environment.getExternalStorageDirectory();
+                    } else if ("external-files-path".equals(name)) {
+                        File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
+                        if (externalFilesDirs.length > 0) {
+                            file = externalFilesDirs[0];
+                        }
+                        file = null;
                     } else {
-                        buildPath = "external-path".equals(name) ? buildPath(Environment.getExternalStorageDirectory(), attributeValue2) : null;
+                        if ("external-cache-path".equals(name)) {
+                            File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+                            if (externalCacheDirs.length > 0) {
+                                file = externalCacheDirs[0];
+                            }
+                        }
+                        file = null;
                     }
-                    if (buildPath != null) {
-                        simplePathStrategy.addRoot(attributeValue, buildPath);
+                    if (file != null) {
+                        simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
                     }
                 }
             } else {
@@ -176,7 +191,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.ActionProvider;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ShareCompatICS {
     public static void configureMenuItem(MenuItem menuItem, Activity activity, Intent intent) {
         ShareActionProvider shareActionProvider;

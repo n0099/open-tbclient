@@ -5,19 +5,28 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.view.View;
 import android.widget.SearchView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class SearchViewCompatHoneycomb {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface OnCloseListenerCompatBridge {
         boolean onClose();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface OnQueryTextListenerCompatBridge {
         boolean onQueryTextChange(String str);
 
         boolean onQueryTextSubmit(String str);
+    }
+
+    public static void checkIfLegalArg(View view) {
+        if (view == null) {
+            throw new IllegalArgumentException("searchView must be non-null");
+        }
+        if (!(view instanceof SearchView)) {
+            throw new IllegalArgumentException("searchView must be an instance ofandroid.widget.SearchView");
+        }
     }
 
     public static View newSearchView(Context context) {
@@ -43,8 +52,8 @@ class SearchViewCompatHoneycomb {
         };
     }
 
-    public static void setOnQueryTextListener(Object obj, Object obj2) {
-        ((SearchView) obj).setOnQueryTextListener((SearchView.OnQueryTextListener) obj2);
+    public static void setOnQueryTextListener(View view, Object obj) {
+        ((SearchView) view).setOnQueryTextListener((SearchView.OnQueryTextListener) obj);
     }
 
     public static Object newOnCloseListener(final OnCloseListenerCompatBridge onCloseListenerCompatBridge) {
@@ -56,8 +65,8 @@ class SearchViewCompatHoneycomb {
         };
     }
 
-    public static void setOnCloseListener(Object obj, Object obj2) {
-        ((SearchView) obj).setOnCloseListener((SearchView.OnCloseListener) obj2);
+    public static void setOnCloseListener(View view, Object obj) {
+        ((SearchView) view).setOnCloseListener((SearchView.OnCloseListener) obj);
     }
 
     public static CharSequence getQuery(View view) {

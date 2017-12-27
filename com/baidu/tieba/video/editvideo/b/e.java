@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 class e {
-    private final MediaMuxer gRR;
-    private volatile boolean gRT;
-    private volatile boolean gRU;
-    private int gRS = 2;
+    private final MediaMuxer hyT;
+    private volatile boolean hyV;
+    private volatile boolean hyW;
+    private int hyU = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.gRR = new MediaMuxer(str, 0);
+        this.hyT = new MediaMuxer(str, 0);
     }
 
-    public void bBT() {
-        this.gRT = true;
+    public void bHq() {
+        this.hyV = true;
     }
 
-    public void bBU() {
-        this.gRU = true;
+    public void bHr() {
+        this.hyW = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.gRU || !this.gRT) {
+        if (!this.hyW || !this.hyV) {
             z = false;
         } else {
-            if (this.gRS > 0 && this.gRU && this.gRT) {
-                this.gRR.start();
+            if (this.hyU > 0 && this.hyW && this.hyV) {
+                this.hyT.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.gRS > 0) {
+        if (this.hyU > 0) {
             try {
-                this.gRR.stop();
-                this.gRR.release();
+                this.hyT.stop();
+                this.hyT.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -57,17 +57,17 @@ class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized int d(MediaFormat mediaFormat) {
+    public synchronized int addTrack(MediaFormat mediaFormat) {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.gRR.addTrack(mediaFormat);
+        return this.hyT.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void a(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.gRR.writeSampleData(i, byteBuffer, bufferInfo);
+            this.hyT.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

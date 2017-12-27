@@ -17,6 +17,8 @@ public final class DataRes extends Message {
     public final Integer mask_type;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<PostInfoList> post_list;
+    @ProtoField(tag = 8, type = Message.Datatype.INT32)
+    public final Integer reddot_deleted_thread;
     @ProtoField(tag = 3, type = Message.Datatype.UINT64)
     public final Long time;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
@@ -28,6 +30,7 @@ public final class DataRes extends Message {
     public static final Long DEFAULT_LOGID = 0L;
     public static final Integer DEFAULT_MASK_TYPE = 0;
     public static final Integer DEFAULT_VIEW_CARD_NUM = 0;
+    public static final Integer DEFAULT_REDDOT_DELETED_THREAD = 0;
 
     private DataRes(Builder builder, boolean z) {
         super(builder);
@@ -64,9 +67,14 @@ public final class DataRes extends Message {
             }
             if (builder.view_card_num == null) {
                 this.view_card_num = DEFAULT_VIEW_CARD_NUM;
-                return;
             } else {
                 this.view_card_num = builder.view_card_num;
+            }
+            if (builder.reddot_deleted_thread == null) {
+                this.reddot_deleted_thread = DEFAULT_REDDOT_DELETED_THREAD;
+                return;
+            } else {
+                this.reddot_deleted_thread = builder.reddot_deleted_thread;
                 return;
             }
         }
@@ -77,6 +85,7 @@ public final class DataRes extends Message {
         this.logid = builder.logid;
         this.mask_type = builder.mask_type;
         this.view_card_num = builder.view_card_num;
+        this.reddot_deleted_thread = builder.reddot_deleted_thread;
     }
 
     /* loaded from: classes.dex */
@@ -86,6 +95,7 @@ public final class DataRes extends Message {
         public Long logid;
         public Integer mask_type;
         public List<PostInfoList> post_list;
+        public Integer reddot_deleted_thread;
         public Long time;
         public Integer view_card_num;
 
@@ -102,6 +112,7 @@ public final class DataRes extends Message {
                 this.logid = dataRes.logid;
                 this.mask_type = dataRes.mask_type;
                 this.view_card_num = dataRes.view_card_num;
+                this.reddot_deleted_thread = dataRes.reddot_deleted_thread;
             }
         }
 

@@ -24,27 +24,27 @@ public class Static {
                 GroupNewsPojo p;
                 PluginNetConfigInfos parse;
                 int i = 0;
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.jU().jR().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.rt().rq().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
                     String content = p.getContent();
                     if (!TextUtils.isEmpty(content)) {
                         try {
                             JSONObject jSONObject = new JSONObject(content).getJSONObject("userMsg");
                             if (jSONObject != null) {
                                 String string = jSONObject.getString("client_version");
-                                String jD = PluginPackageManager.js().jD();
-                                if (!TextUtils.isEmpty(jD)) {
-                                    String[] split = jD.split("\\.");
+                                String rc = PluginPackageManager.qR().rc();
+                                if (!TextUtils.isEmpty(rc)) {
+                                    String[] split = rc.split("\\.");
                                     if (split.length != 0 && split.length != 3) {
                                         String str = "";
                                         for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
                                             str = str + split[i2] + ".";
                                         }
-                                        jD = str.substring(0, str.length() - 1);
+                                        rc = str.substring(0, str.length() - 1);
                                     }
-                                    if (Util.I(string, jD) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                                    if (Util.H(string, rc) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                         PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
-                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.js().getPluginConfig(pluginConfig.package_name);
-                                        d.jO().jP().addOrUpdateConfig(pluginConfig);
+                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.qR().getPluginConfig(pluginConfig.package_name);
+                                        d.rn().ro().addOrUpdateConfig(pluginConfig);
                                         if (pluginConfig2 == null) {
                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                                             return;

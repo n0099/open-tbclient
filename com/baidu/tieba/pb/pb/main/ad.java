@@ -1,35 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
-/* loaded from: classes.dex */
-public class ad extends m<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.c> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ad(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
+/* loaded from: classes2.dex */
+public class ad extends PostData {
+    public static final BdUniqueId fNb = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ao fNc;
+    public com.baidu.tbadk.core.data.ao fNd;
+    public com.baidu.tbadk.core.data.ao fNe;
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return fNb;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
-    public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(d.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, cVar);
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eVu.getLayoutMode().ag(this.mSkinType == 1);
-        this.eVu.getLayoutMode().t(view);
-        return view;
+    public boolean hasData() {
+        if (this.fNc == null || StringUtils.isNull(this.fNc.summary)) {
+            if (this.fNd == null || StringUtils.isNull(this.fNd.summary)) {
+                return (this.fNe == null || StringUtils.isNull(this.fNe.summary)) ? false : true;
+            }
+            return true;
+        }
+        return true;
     }
 }

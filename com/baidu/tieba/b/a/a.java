@@ -1,13 +1,13 @@
 package com.baidu.tieba.b.a;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int bXj = -1;
+    private int cLQ = -1;
 
     public abstract boolean c(float f, float f2, float f3, int i);
 
     public abstract void e(float f, float f2, float f3, int i);
 
-    public boolean aaK() {
+    public boolean aiq() {
         return true;
     }
 
@@ -17,11 +17,11 @@ public abstract class a {
     public void d(float f, float f2, float f3, int i) {
     }
 
-    public int aaL() {
-        return this.bXj;
+    public int air() {
+        return this.cLQ;
     }
 
-    public void ix(int i) {
-        this.bXj = i;
+    public void lv(int i) {
+        this.cLQ = i;
     }
 }

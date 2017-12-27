@@ -28,7 +28,7 @@ public abstract class a extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> wS() {
+    public final ArrayList<Fragment> Er() {
         return this.mFragments;
     }
 

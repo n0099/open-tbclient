@@ -14,13 +14,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0146a gRt;
+    private InterfaceC0159a hyv;
     private List<PendantData> mList;
     private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0146a {
+    public interface InterfaceC0159a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,87 +59,87 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.gRv = (TextView) view.findViewById(d.g.cover_text);
-            bVar.gRw = (TbImageView) view.findViewById(d.g.pendant_image);
-            bVar.gRx = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
-            bVar.gRw.setDefaultBgResource(d.C0095d.transparent);
-            bVar.gRw.setDefaultErrorResource(d.C0095d.cp_cont_i);
-            bVar.gRw.setDefaultResource(d.C0095d.cp_cont_i);
+            bVar.hyx = (TextView) view.findViewById(d.g.cover_text);
+            bVar.hyy = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.hyz = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.hyy.setDefaultBgResource(d.C0108d.transparent);
+            bVar.hyy.setDefaultErrorResource(d.C0108d.cp_cont_i);
+            bVar.hyy.setDefaultResource(d.C0108d.cp_cont_i);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.gRt != null) {
+                    if (a.this.hyv != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.gRw.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.gRw.getTag();
+                        if (bVar2.hyy.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.hyy.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.gRt.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.hyv.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
                 }
             });
-            view.setBackgroundColor(aj.getColor(d.C0095d.cp_bg_line_d));
+            view.setBackgroundColor(aj.getColor(d.C0108d.cp_bg_line_d));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.gRw.setTag(Integer.valueOf(i));
+            bVar.hyy.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.gRv.setVisibility(0);
-                    bVar.gRw.setVisibility(8);
-                    bVar.gRx.setVisibility(8);
-                    bVar.gRv.setTextColor(aj.getColor(d.C0095d.cp_cont_e));
-                    bVar.gRv.setText("No");
-                    bVar.gRv.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hyx.setVisibility(0);
+                    bVar.hyy.setVisibility(8);
+                    bVar.hyz.setVisibility(8);
+                    bVar.hyx.setTextColor(aj.getColor(d.C0108d.cp_cont_e));
+                    bVar.hyx.setText("No");
+                    bVar.hyx.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.gRv.setVisibility(0);
-                    bVar.gRw.setVisibility(8);
-                    bVar.gRx.setVisibility(8);
-                    bVar.gRv.setTextColor(aj.getColor(d.C0095d.cp_cont_g));
-                    bVar.gRv.setText("T");
-                    bVar.gRv.setBackgroundColor(aj.getColor(d.C0095d.cp_link_tip_a));
+                    bVar.hyx.setVisibility(0);
+                    bVar.hyy.setVisibility(8);
+                    bVar.hyz.setVisibility(8);
+                    bVar.hyx.setTextColor(aj.getColor(d.C0108d.cp_cont_g));
+                    bVar.hyx.setText("T");
+                    bVar.hyx.setBackgroundColor(aj.getColor(d.C0108d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.gRv.setVisibility(0);
-                    bVar.gRw.setVisibility(8);
-                    bVar.gRx.setVisibility(8);
-                    bVar.gRv.setTextColor(aj.getColor(d.C0095d.cp_cont_g));
-                    bVar.gRv.setText("T");
-                    bVar.gRv.setBackgroundColor(aj.getColor(d.C0095d.cp_cont_d));
+                    bVar.hyx.setVisibility(0);
+                    bVar.hyy.setVisibility(8);
+                    bVar.hyz.setVisibility(8);
+                    bVar.hyx.setTextColor(aj.getColor(d.C0108d.cp_cont_g));
+                    bVar.hyx.setText("T");
+                    bVar.hyx.setBackgroundColor(aj.getColor(d.C0108d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.gRv.setVisibility(0);
-                    bVar.gRw.setVisibility(8);
-                    bVar.gRx.setVisibility(8);
-                    bVar.gRv.setTextColor(aj.getColor(d.C0095d.cp_cont_d));
-                    bVar.gRv.setText("T");
-                    bVar.gRv.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hyx.setVisibility(0);
+                    bVar.hyy.setVisibility(8);
+                    bVar.hyz.setVisibility(8);
+                    bVar.hyx.setTextColor(aj.getColor(d.C0108d.cp_cont_d));
+                    bVar.hyx.setText("T");
+                    bVar.hyx.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.gRv.setVisibility(8);
-                    bVar.gRw.setVisibility(0);
-                    bVar.gRx.setVisibility(8);
-                    bVar.gRw.startLoad(pendantData.img, 10, false);
+                    bVar.hyx.setVisibility(8);
+                    bVar.hyy.setVisibility(0);
+                    bVar.hyz.setVisibility(8);
+                    bVar.hyy.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0146a interfaceC0146a) {
-        this.gRt = interfaceC0146a;
+    public void a(InterfaceC0159a interfaceC0159a) {
+        this.hyv = interfaceC0159a;
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public TextView gRv;
-        public TbImageView gRw;
-        public ProgressBar gRx;
+        public TextView hyx;
+        public TbImageView hyy;
+        public ProgressBar hyz;
 
         public b() {
         }

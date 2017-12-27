@@ -26,7 +26,6 @@ public abstract class d {
                 this.b.add(eVar);
                 this.b.notify();
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("IMessageHandler", e);
             }
         }
     }

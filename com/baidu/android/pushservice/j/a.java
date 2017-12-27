@@ -9,54 +9,39 @@ import java.util.Properties;
 public class a {
     private final Properties a = new Properties();
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0048 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private a() throws IOException {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         try {
-            try {
-                fileInputStream = new FileInputStream(new File(Environment.getRootDirectory(), "build.prop"));
-                try {
-                    this.a.load(fileInputStream);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e) {
-                            com.baidu.android.pushservice.g.a.a("BuildProperties", e);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    com.baidu.android.pushservice.g.a.a("BuildProperties", e);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e3) {
-                            com.baidu.android.pushservice.g.a.a("BuildProperties", e3);
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e4) {
-                        com.baidu.android.pushservice.g.a.a("BuildProperties", e4);
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            e = e5;
+            fileInputStream = new FileInputStream(new File(Environment.getRootDirectory(), "build.prop"));
+        } catch (Exception e) {
             fileInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            this.a.load(fileInputStream);
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (Exception e2) {
+                }
+            }
+        } catch (Exception e3) {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (Exception e4) {
+                }
+            }
         } catch (Throwable th2) {
+            fileInputStream2 = fileInputStream;
             th = th2;
             if (fileInputStream2 != null) {
+                try {
+                    fileInputStream2.close();
+                } catch (Exception e5) {
+                }
             }
             throw th;
         }

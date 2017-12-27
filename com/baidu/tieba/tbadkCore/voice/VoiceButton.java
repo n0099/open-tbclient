@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    f gFk;
-    private boolean gFl;
+    f hlX;
+    private boolean hlY;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gFl = false;
+        this.hlY = false;
     }
 
     public void setRecorderView(f fVar) {
-        this.gFk = fVar;
+        this.hlX = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.a(fVar);
@@ -31,13 +31,13 @@ public class VoiceButton extends ImageView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         a recorderManager = getRecorderManager();
         if (motionEvent.getAction() == 0) {
-            if (recorderManager == null || !recorderManager.lH()) {
+            if (recorderManager == null || !recorderManager.tk()) {
                 return false;
             }
-            this.gFl = recorderManager.a(this.gFk, -1);
+            this.hlY = recorderManager.a(this.hlX, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.gFl && recorderManager != null) {
+            if (this.hlY && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -53,7 +53,7 @@ public class VoiceButton extends ImageView {
         if (context instanceof VoiceManager.c) {
             return ((VoiceManager.c) context).getVoiceManager();
         }
-        if ((i.Y(getContext()) instanceof e) && (tbPageContext = (TbPageContext) i.Y(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+        if ((i.ak(getContext()) instanceof e) && (tbPageContext = (TbPageContext) i.ak(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;

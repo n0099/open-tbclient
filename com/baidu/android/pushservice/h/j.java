@@ -1,46 +1,57 @@
 package com.baidu.android.pushservice.h;
 
+import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class j extends m {
-    public String a;
-    public int b;
-    public int c;
-    public String k;
+public class j extends c {
+    public static int a = 0;
+    public static int b = 10;
+    public static int c = 11;
+    public static int d = 12;
+    public static int e = 13;
+    private int f;
 
     public j() {
-        this.a = "";
-        this.b = -1;
-        this.c = -1;
+        this.f = 0;
     }
 
-    public j(m mVar) {
-        super(mVar);
-        this.a = "";
-        this.b = -1;
-        this.c = -1;
+    public j(String str) {
+        super(str);
+        this.f = 0;
     }
 
-    public JSONObject a() throws JSONException {
+    public JSONObject a(Context context) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("action_name", this.d);
-        jSONObject.put("timestamp", this.e);
-        jSONObject.put("network_status", this.f);
-        if (this.c != -1) {
-            jSONObject.put("msg_type", this.c);
+        jSONObject.put("app_type", this.f);
+        if (!TextUtils.isEmpty(b())) {
+            jSONObject.put("app_package_name", b());
         }
-        if (!TextUtils.isEmpty(this.a)) {
-            jSONObject.put("msg_id", this.a);
+        if (!TextUtils.isEmpty(c())) {
+            jSONObject.put("app_name", c());
         }
-        if (this.b > 0) {
-            jSONObject.put("msg_len", this.b);
+        if (!TextUtils.isEmpty(d())) {
+            jSONObject.put("app_cfrom", d());
         }
-        if (this.k != null) {
-            jSONObject.put("msg_open_by", this.k);
+        if (e() != -1) {
+            jSONObject.put("app_vercode", e());
         }
-        jSONObject.put("err_code", this.g);
+        if (!TextUtils.isEmpty(f())) {
+            jSONObject.put("app_vername", f());
+        }
+        if (g() != -1) {
+            jSONObject.put("app_push_version", g());
+        }
+        jSONObject.put("app_appid", a());
         return jSONObject;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int h() {
+        return this.f;
     }
 }

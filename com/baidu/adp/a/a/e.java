@@ -7,32 +7,32 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int nt;
-    private a nu;
+    private int ace;
+    private a acf;
 
-    public a cn() throws IOException {
+    public a jS() throws IOException {
         a aVar = new a();
-        aVar.nw = z("/proc/uid_stat/" + this.nt + "/tcp_rcv");
-        aVar.nx = z("/proc/uid_stat/" + this.nt + "/tcp_snd");
-        aVar.nv = d.c(aVar.nw + aVar.nx);
+        aVar.ach = G("/proc/uid_stat/" + this.ace + "/tcp_rcv");
+        aVar.aci = G("/proc/uid_stat/" + this.ace + "/tcp_snd");
+        aVar.acg = d.d(aVar.ach + aVar.aci);
         return aVar;
     }
 
-    public a co() throws IOException {
-        a cn = cn();
-        this.nu.nw = d.c(cn.nw - d.cm().nw);
-        this.nu.nx = d.c(cn.nx - d.cm().nx);
-        this.nu.nv = d.c(cn.nv - d.cm().nv);
-        return this.nu;
+    public a jT() throws IOException {
+        a jS = jS();
+        this.acf.ach = d.d(jS.ach - d.jR().ach);
+        this.acf.aci = d.d(jS.aci - d.jR().aci);
+        this.acf.acg = d.d(jS.acg - d.jR().acg);
+        return this.acf;
     }
 
-    public double z(String str) {
+    public double G(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream()));
             try {
-                d = d.c(Long.valueOf(Long.parseLong(bufferedReader.readLine())).longValue() / 1024.0d);
+                d = d.d(Long.valueOf(Long.parseLong(bufferedReader.readLine())).longValue() / 1024.0d);
                 n.b((Reader) bufferedReader);
             } catch (Throwable th) {
                 th = th;
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(co());
+                d.a(jT());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!ck()) {
+            if (!jP()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double nv = 0.0d;
-        double nw = 0.0d;
-        double nx = 0.0d;
+        double acg = 0.0d;
+        double ach = 0.0d;
+        double aci = 0.0d;
 
         public a() {
         }

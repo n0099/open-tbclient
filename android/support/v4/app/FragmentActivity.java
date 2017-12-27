@@ -1,42 +1,50 @@
 package android.support.v4.app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
+import android.support.annotation.RestrictTo;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityCompatApi23;
+import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.util.SimpleArrayMap;
-import android.support.v4.view.ViewCompat;
+import android.support.v4.util.SparseArrayCompat;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-/* loaded from: classes.dex */
-public class FragmentActivity extends Activity {
+/* loaded from: classes2.dex */
+public class FragmentActivity extends BaseFragmentActivityJB implements ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompatApi23.RequestPermissionsRequestCodeValidator {
+    static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
     static final String FRAGMENTS_TAG = "android:support:fragments";
     private static final int HONEYCOMB = 11;
+    static final int MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS = 65534;
     static final int MSG_REALLY_STOPPED = 1;
     static final int MSG_RESUME_PENDING = 2;
+    static final String NEXT_CANDIDATE_REQUEST_INDEX_TAG = "android:support:next_request_index";
+    static final String REQUEST_FRAGMENT_WHO_TAG = "android:support:request_fragment_who";
     private static final String TAG = "FragmentActivity";
-    SimpleArrayMap<String, LoaderManagerImpl> mAllLoaderManagers;
-    boolean mCheckedForLoaderManager;
     boolean mCreated;
-    LoaderManagerImpl mLoaderManager;
-    boolean mLoadersStarted;
+    MediaControllerCompat mMediaController;
+    int mNextCandidateRequestIndex;
     boolean mOptionsMenuInvalidated;
+    SparseArrayCompat<String> mPendingFragmentActivityResults;
     boolean mReallyStopped;
+    boolean mRequestedPermissionsFromFragment;
     boolean mResumed;
     boolean mRetaining;
     boolean mStopped;
@@ -60,26 +68,38 @@ public class FragmentActivity extends Activity {
             }
         }
     };
-    final FragmentManagerImpl mFragments = new FragmentManagerImpl();
-    final FragmentContainer mContainer = new FragmentContainer() { // from class: android.support.v4.app.FragmentActivity.2
-        @Override // android.support.v4.app.FragmentContainer
-        public View findViewById(int i) {
-            return FragmentActivity.this.findViewById(i);
-        }
-    };
+    final FragmentController mFragments = FragmentController.createController(new HostCallbacks());
 
-    /* loaded from: classes.dex */
-    static class FragmentTag {
-        public static final int[] Fragment = {16842755, 16842960, 16842961};
+    @Override // android.support.v4.app.BaseFragmentActivityHoneycomb, android.app.Activity, android.view.LayoutInflater.Factory2
+    public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
     }
 
-    /* loaded from: classes.dex */
+    @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity, android.view.LayoutInflater.Factory
+    public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(str, context, attributeSet);
+    }
+
+    @Override // android.support.v4.app.BaseFragmentActivityJB, android.app.Activity
+    public /* bridge */ /* synthetic */ void startActivityForResult(Intent intent, int i, Bundle bundle) {
+        super.startActivityForResult(intent, i, bundle);
+    }
+
+    @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
+    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+        super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
+    }
+
+    @Override // android.support.v4.app.BaseFragmentActivityJB, android.app.Activity
+    public /* bridge */ /* synthetic */ void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+        super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
+    }
+
+    /* loaded from: classes2.dex */
     static final class NonConfigurationInstances {
-        Object activity;
-        SimpleArrayMap<String, Object> children;
         Object custom;
-        ArrayList<Fragment> fragments;
-        SimpleArrayMap<String, LoaderManagerImpl> loaders;
+        FragmentManagerNonConfig fragments;
+        SimpleArrayMap<String, LoaderManager> loaders;
 
         NonConfigurationInstances() {
         }
@@ -92,16 +112,18 @@ public class FragmentActivity extends Activity {
         int i3 = i >> 16;
         if (i3 != 0) {
             int i4 = i3 - 1;
-            if (this.mFragments.mActive == null || i4 < 0 || i4 >= this.mFragments.mActive.size()) {
-                Log.w(TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+            String str = this.mPendingFragmentActivityResults.get(i4);
+            this.mPendingFragmentActivityResults.remove(i4);
+            if (str == null) {
+                Log.w(TAG, "Activity result delivered for unknown Fragment.");
                 return;
             }
-            Fragment fragment = this.mFragments.mActive.get(i4);
-            if (fragment == null) {
-                Log.w(TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+            Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
+            if (findFragmentByWho == null) {
+                Log.w(TAG, "Activity result no fragment exists for who: " + str);
                 return;
             } else {
-                fragment.onActivityResult(65535 & i, i2, intent);
+                findFragmentByWho.onActivityResult(65535 & i, i2, intent);
                 return;
             }
         }
@@ -110,9 +132,50 @@ public class FragmentActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (!this.mFragments.popBackStackImmediate()) {
-            finish();
+        if (!this.mFragments.getSupportFragmentManager().popBackStackImmediate()) {
+            super.onBackPressed();
         }
+    }
+
+    public final void setSupportMediaController(MediaControllerCompat mediaControllerCompat) {
+        this.mMediaController = mediaControllerCompat;
+        if (Build.VERSION.SDK_INT >= 21) {
+            ActivityCompatApi21.setMediaController(this, mediaControllerCompat.getMediaController());
+        }
+    }
+
+    public final MediaControllerCompat getSupportMediaController() {
+        return this.mMediaController;
+    }
+
+    public void supportFinishAfterTransition() {
+        ActivityCompat.finishAfterTransition(this);
+    }
+
+    public void setEnterSharedElementCallback(SharedElementCallback sharedElementCallback) {
+        ActivityCompat.setEnterSharedElementCallback(this, sharedElementCallback);
+    }
+
+    public void setExitSharedElementCallback(SharedElementCallback sharedElementCallback) {
+        ActivityCompat.setExitSharedElementCallback(this, sharedElementCallback);
+    }
+
+    public void supportPostponeEnterTransition() {
+        ActivityCompat.postponeEnterTransition(this);
+    }
+
+    public void supportStartPostponedEnterTransition() {
+        ActivityCompat.startPostponedEnterTransition(this);
+    }
+
+    @Override // android.app.Activity
+    public void onMultiWindowModeChanged(boolean z) {
+        this.mFragments.dispatchMultiWindowModeChanged(z);
+    }
+
+    @Override // android.app.Activity
+    public void onPictureInPictureModeChanged(boolean z) {
+        this.mFragments.dispatchPictureInPictureModeChanged(z);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -122,19 +185,33 @@ public class FragmentActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.mFragments.attachActivity(this, this.mContainer, null);
-        if (getLayoutInflater().getFactory() == null) {
-            getLayoutInflater().setFactory(this);
-        }
+        this.mFragments.attachHost(null);
         super.onCreate(bundle);
         NonConfigurationInstances nonConfigurationInstances = (NonConfigurationInstances) getLastNonConfigurationInstance();
         if (nonConfigurationInstances != null) {
-            this.mAllLoaderManagers = nonConfigurationInstances.loaders;
+            this.mFragments.restoreLoaderNonConfig(nonConfigurationInstances.loaders);
         }
         if (bundle != null) {
             this.mFragments.restoreAllState(bundle.getParcelable(FRAGMENTS_TAG), nonConfigurationInstances != null ? nonConfigurationInstances.fragments : null);
+            if (bundle.containsKey(NEXT_CANDIDATE_REQUEST_INDEX_TAG)) {
+                this.mNextCandidateRequestIndex = bundle.getInt(NEXT_CANDIDATE_REQUEST_INDEX_TAG);
+                int[] intArray = bundle.getIntArray(ALLOCATED_REQUEST_INDICIES_TAG);
+                String[] stringArray = bundle.getStringArray(REQUEST_FRAGMENT_WHO_TAG);
+                if (intArray == null || stringArray == null || intArray.length != stringArray.length) {
+                    Log.w(TAG, "Invalid requestCode mapping in savedInstanceState.");
+                } else {
+                    this.mPendingFragmentActivityResults = new SparseArrayCompat<>(intArray.length);
+                    for (int i = 0; i < intArray.length; i++) {
+                        this.mPendingFragmentActivityResults.put(intArray[i], stringArray[i]);
+                    }
+                }
+            }
+        }
+        if (this.mPendingFragmentActivityResults == null) {
+            this.mPendingFragmentActivityResults = new SparseArrayCompat<>();
+            this.mNextCandidateRequestIndex = 0;
         }
         this.mFragments.dispatchCreate();
     }
@@ -151,78 +228,10 @@ public class FragmentActivity extends Activity {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x006a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0072 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x007c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [android.view.View] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v19, types: [android.support.v4.app.Fragment] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [android.support.v4.app.Fragment, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r3v3, types: [android.support.v4.app.FragmentManagerImpl] */
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        Fragment fragment;
-        if (!"fragment".equals(str)) {
-            return super.onCreateView(str, context, attributeSet);
-        }
-        String attributeValue = attributeSet.getAttributeValue(null, "class");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, FragmentTag.Fragment);
-        if (attributeValue == null) {
-            attributeValue = obtainStyledAttributes.getString(0);
-        }
-        int resourceId = obtainStyledAttributes.getResourceId(1, -1);
-        String string = obtainStyledAttributes.getString(2);
-        obtainStyledAttributes.recycle();
-        if (!Fragment.isSupportFragmentClass(this, attributeValue)) {
-            return super.onCreateView(str, context, attributeSet);
-        }
-        int id = 0 != 0 ? r1.getId() : 0;
-        if (id == -1 && resourceId == -1 && string == null) {
-            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
-        }
-        r1 = resourceId != -1 ? this.mFragments.findFragmentById(resourceId) : 0;
-        if (r1 == 0 && string != null) {
-            r1 = this.mFragments.findFragmentByTag(string);
-        }
-        if (r1 == 0 && id != -1) {
-            r1 = this.mFragments.findFragmentById(id);
-        }
-        if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
-        }
-        if (r1 == 0) {
-            Fragment instantiate = Fragment.instantiate(this, attributeValue);
-            instantiate.mFromLayout = true;
-            instantiate.mFragmentId = resourceId != 0 ? resourceId : id;
-            instantiate.mContainerId = id;
-            instantiate.mTag = string;
-            instantiate.mInLayout = true;
-            instantiate.mFragmentManager = this.mFragments;
-            instantiate.onInflate(this, attributeSet, instantiate.mSavedFragmentState);
-            this.mFragments.addFragment(instantiate, true);
-            fragment = instantiate;
-        } else if (r1.mInLayout) {
-            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
-        } else {
-            r1.mInLayout = true;
-            if (!r1.mRetaining) {
-                r1.onInflate(this, attributeSet, r1.mSavedFragmentState);
-            }
-            this.mFragments.moveToState(r1);
-            fragment = r1;
-        }
-        if (fragment.mView == null) {
-            throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
-        }
-        if (resourceId != 0) {
-            fragment.mView.setId(resourceId);
-        }
-        if (fragment.mView.getTag() == null) {
-            fragment.mView.setTag(string);
-        }
-        return fragment.mView;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // android.support.v4.app.BaseFragmentActivityGingerbread
+    public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mFragments.onCreateView(view, str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -231,18 +240,7 @@ public class FragmentActivity extends Activity {
         super.onDestroy();
         doReallyStop(false);
         this.mFragments.dispatchDestroy();
-        if (this.mLoaderManager != null) {
-            this.mLoaderManager.doDestroy();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
-            onBackPressed();
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
+        this.mFragments.doLoaderDestroy();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -295,6 +293,11 @@ public class FragmentActivity extends Activity {
         this.mFragments.noteStateNotSaved();
     }
 
+    @Override // android.app.Activity
+    public void onStateNotSaved() {
+        this.mFragments.noteStateNotSaved();
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onResume() {
@@ -330,46 +333,26 @@ public class FragmentActivity extends Activity {
         return onPrepareOptionsPanel(view, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
     }
 
+    @RestrictTo
     protected boolean onPrepareOptionsPanel(View view, Menu menu) {
         return super.onPreparePanel(0, view, menu);
     }
 
     @Override // android.app.Activity
     public final Object onRetainNonConfigurationInstance() {
-        boolean z;
         if (this.mStopped) {
             doReallyStop(true);
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-        ArrayList<Fragment> retainNonConfig = this.mFragments.retainNonConfig();
-        if (this.mAllLoaderManagers != null) {
-            int size = this.mAllLoaderManagers.size();
-            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[size];
-            for (int i = size - 1; i >= 0; i--) {
-                loaderManagerImplArr[i] = this.mAllLoaderManagers.valueAt(i);
-            }
-            z = false;
-            for (int i2 = 0; i2 < size; i2++) {
-                LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i2];
-                if (loaderManagerImpl.mRetaining) {
-                    z = true;
-                } else {
-                    loaderManagerImpl.doDestroy();
-                    this.mAllLoaderManagers.remove(loaderManagerImpl.mWho);
-                }
-            }
-        } else {
-            z = false;
-        }
-        if (retainNonConfig == null && !z && onRetainCustomNonConfigurationInstance == null) {
+        FragmentManagerNonConfig retainNestedNonConfig = this.mFragments.retainNestedNonConfig();
+        SimpleArrayMap<String, LoaderManager> retainLoaderNonConfig = this.mFragments.retainLoaderNonConfig();
+        if (retainNestedNonConfig == null && retainLoaderNonConfig == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         NonConfigurationInstances nonConfigurationInstances = new NonConfigurationInstances();
-        nonConfigurationInstances.activity = null;
         nonConfigurationInstances.custom = onRetainCustomNonConfigurationInstance;
-        nonConfigurationInstances.children = null;
-        nonConfigurationInstances.fragments = retainNonConfig;
-        nonConfigurationInstances.loaders = this.mAllLoaderManagers;
+        nonConfigurationInstances.fragments = retainNestedNonConfig;
+        nonConfigurationInstances.loaders = retainLoaderNonConfig;
         return nonConfigurationInstances;
     }
 
@@ -380,6 +363,24 @@ public class FragmentActivity extends Activity {
         Parcelable saveAllState = this.mFragments.saveAllState();
         if (saveAllState != null) {
             bundle.putParcelable(FRAGMENTS_TAG, saveAllState);
+        }
+        if (this.mPendingFragmentActivityResults.size() > 0) {
+            bundle.putInt(NEXT_CANDIDATE_REQUEST_INDEX_TAG, this.mNextCandidateRequestIndex);
+            int[] iArr = new int[this.mPendingFragmentActivityResults.size()];
+            String[] strArr = new String[this.mPendingFragmentActivityResults.size()];
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.mPendingFragmentActivityResults.size()) {
+                    iArr[i2] = this.mPendingFragmentActivityResults.keyAt(i2);
+                    strArr[i2] = this.mPendingFragmentActivityResults.valueAt(i2);
+                    i = i2 + 1;
+                } else {
+                    bundle.putIntArray(ALLOCATED_REQUEST_INDICIES_TAG, iArr);
+                    bundle.putStringArray(REQUEST_FRAGMENT_WHO_TAG, strArr);
+                    return;
+                }
+            }
         }
     }
 
@@ -396,31 +397,9 @@ public class FragmentActivity extends Activity {
         }
         this.mFragments.noteStateNotSaved();
         this.mFragments.execPendingActions();
-        if (!this.mLoadersStarted) {
-            this.mLoadersStarted = true;
-            if (this.mLoaderManager != null) {
-                this.mLoaderManager.doStart();
-            } else if (!this.mCheckedForLoaderManager) {
-                this.mLoaderManager = getLoaderManager("(root)", this.mLoadersStarted, false);
-                if (this.mLoaderManager != null && !this.mLoaderManager.mStarted) {
-                    this.mLoaderManager.doStart();
-                }
-            }
-            this.mCheckedForLoaderManager = true;
-        }
+        this.mFragments.doLoaderStart();
         this.mFragments.dispatchStart();
-        if (this.mAllLoaderManagers != null) {
-            int size = this.mAllLoaderManagers.size();
-            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[size];
-            for (int i = size - 1; i >= 0; i--) {
-                loaderManagerImplArr[i] = this.mAllLoaderManagers.valueAt(i);
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i2];
-                loaderManagerImpl.finishRetain();
-                loaderManagerImpl.doReportStart();
-            }
-        }
+        this.mFragments.reportLoaderStart();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -470,17 +449,8 @@ public class FragmentActivity extends Activity {
         printWriter.print(this.mStopped);
         printWriter.print(" mReallyStopped=");
         printWriter.println(this.mReallyStopped);
-        printWriter.print(str2);
-        printWriter.print("mLoadersStarted=");
-        printWriter.println(this.mLoadersStarted);
-        if (this.mLoaderManager != null) {
-            printWriter.print(str);
-            printWriter.print("Loader Manager ");
-            printWriter.print(Integer.toHexString(System.identityHashCode(this.mLoaderManager)));
-            printWriter.println(":");
-            this.mLoaderManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
-        }
-        this.mFragments.dump(str, fileDescriptor, printWriter, strArr);
+        this.mFragments.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
+        this.mFragments.getSupportFragmentManager().dump(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.println("View Hierarchy:");
         dumpViewHierarchy(str + "  ", printWriter, getWindow().getDecorView());
@@ -533,7 +503,7 @@ public class FragmentActivity extends Activity {
             Resources resources = view.getResources();
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
-                    case ViewCompat.MEASURED_STATE_TOO_SMALL /* 16777216 */:
+                    case 16777216:
                         resourcePackageName = "android";
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
@@ -600,20 +570,14 @@ public class FragmentActivity extends Activity {
             this.mRetaining = z;
             this.mHandler.removeMessages(1);
             onReallyStop();
+        } else if (z) {
+            this.mFragments.doLoaderStart();
+            this.mFragments.doLoaderStop(true);
         }
     }
 
     void onReallyStop() {
-        if (this.mLoadersStarted) {
-            this.mLoadersStarted = false;
-            if (this.mLoaderManager != null) {
-                if (!this.mRetaining) {
-                    this.mLoaderManager.doStop();
-                } else {
-                    this.mLoaderManager.doRetain();
-                }
-            }
-        }
+        this.mFragments.doLoaderStop(this.mRetaining);
         this.mFragments.dispatchReallyStop();
     }
 
@@ -621,60 +585,195 @@ public class FragmentActivity extends Activity {
     }
 
     public FragmentManager getSupportFragmentManager() {
-        return this.mFragments;
+        return this.mFragments.getSupportFragmentManager();
+    }
+
+    public LoaderManager getSupportLoaderManager() {
+        return this.mFragments.getSupportLoaderManager();
     }
 
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
-        if (i != -1 && ((-65536) & i) != 0) {
-            throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
+        if (!this.mStartedActivityFromFragment && i != -1) {
+            checkForValidRequestCode(i);
         }
         super.startActivityForResult(intent, i);
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
-        if (i == -1) {
-            super.startActivityForResult(intent, -1);
-        } else if (((-65536) & i) != 0) {
-            throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
-        } else {
-            super.startActivityForResult(intent, ((fragment.mIndex + 1) << 16) + (65535 & i));
+    @Override // android.support.v4.app.ActivityCompatApi23.RequestPermissionsRequestCodeValidator
+    public final void validateRequestPermissionsRequestCode(int i) {
+        if (!this.mRequestedPermissionsFromFragment && i != -1) {
+            checkForValidRequestCode(i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void invalidateSupportFragment(String str) {
-        LoaderManagerImpl loaderManagerImpl;
-        if (this.mAllLoaderManagers != null && (loaderManagerImpl = this.mAllLoaderManagers.get(str)) != null && !loaderManagerImpl.mRetaining) {
-            loaderManagerImpl.doDestroy();
-            this.mAllLoaderManagers.remove(str);
-        }
-    }
-
-    public LoaderManager getSupportLoaderManager() {
-        if (this.mLoaderManager != null) {
-            return this.mLoaderManager;
-        }
-        this.mCheckedForLoaderManager = true;
-        this.mLoaderManager = getLoaderManager("(root)", this.mLoadersStarted, true);
-        return this.mLoaderManager;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public LoaderManagerImpl getLoaderManager(String str, boolean z, boolean z2) {
-        if (this.mAllLoaderManagers == null) {
-            this.mAllLoaderManagers = new SimpleArrayMap<>();
-        }
-        LoaderManagerImpl loaderManagerImpl = this.mAllLoaderManagers.get(str);
-        if (loaderManagerImpl == null) {
-            if (z2) {
-                LoaderManagerImpl loaderManagerImpl2 = new LoaderManagerImpl(str, this, z);
-                this.mAllLoaderManagers.put(str, loaderManagerImpl2);
-                return loaderManagerImpl2;
+    @Override // android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+        int i2 = (i >> 16) & SupportMenu.USER_MASK;
+        if (i2 != 0) {
+            int i3 = i2 - 1;
+            String str = this.mPendingFragmentActivityResults.get(i3);
+            this.mPendingFragmentActivityResults.remove(i3);
+            if (str == null) {
+                Log.w(TAG, "Activity result delivered for unknown Fragment.");
+                return;
             }
-            return loaderManagerImpl;
+            Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
+            if (findFragmentByWho == null) {
+                Log.w(TAG, "Activity result no fragment exists for who: " + str);
+            } else {
+                findFragmentByWho.onRequestPermissionsResult(i & SupportMenu.USER_MASK, strArr, iArr);
+            }
         }
-        loaderManagerImpl.updateActivity(this);
-        return loaderManagerImpl;
+    }
+
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+        startActivityFromFragment(fragment, intent, i, (Bundle) null);
+    }
+
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+        this.mStartedActivityFromFragment = true;
+        try {
+            if (i == -1) {
+                ActivityCompat.startActivityForResult(this, intent, -1, bundle);
+                this.mStartedActivityFromFragment = false;
+                return;
+            }
+            checkForValidRequestCode(i);
+            ActivityCompat.startActivityForResult(this, intent, ((allocateRequestIndex(fragment) + 1) << 16) + (65535 & i), bundle);
+        } finally {
+            this.mStartedActivityFromFragment = false;
+        }
+    }
+
+    public void startIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+        this.mStartedIntentSenderFromFragment = true;
+        try {
+            if (i == -1) {
+                ActivityCompat.startIntentSenderForResult(this, intentSender, i, intent, i2, i3, i4, bundle);
+                this.mStartedIntentSenderFromFragment = false;
+                return;
+            }
+            checkForValidRequestCode(i);
+            ActivityCompat.startIntentSenderForResult(this, intentSender, ((allocateRequestIndex(fragment) + 1) << 16) + (65535 & i), intent, i2, i3, i4, bundle);
+        } finally {
+            this.mStartedIntentSenderFromFragment = false;
+        }
+    }
+
+    private int allocateRequestIndex(Fragment fragment) {
+        if (this.mPendingFragmentActivityResults.size() >= MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS) {
+            throw new IllegalStateException("Too many pending Fragment activity results.");
+        }
+        while (this.mPendingFragmentActivityResults.indexOfKey(this.mNextCandidateRequestIndex) >= 0) {
+            this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+        }
+        int i = this.mNextCandidateRequestIndex;
+        this.mPendingFragmentActivityResults.put(i, fragment.mWho);
+        this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+        return i;
+    }
+
+    void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+        if (i == -1) {
+            ActivityCompat.requestPermissions(this, strArr, i);
+            return;
+        }
+        checkForValidRequestCode(i);
+        try {
+            this.mRequestedPermissionsFromFragment = true;
+            ActivityCompat.requestPermissions(this, strArr, ((allocateRequestIndex(fragment) + 1) << 16) + (65535 & i));
+        } finally {
+            this.mRequestedPermissionsFromFragment = false;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    class HostCallbacks extends FragmentHostCallback<FragmentActivity> {
+        public HostCallbacks() {
+            super(FragmentActivity.this);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+            FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public boolean onShouldSaveFragmentState(Fragment fragment) {
+            return !FragmentActivity.this.isFinishing();
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public LayoutInflater onGetLayoutInflater() {
+            return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.support.v4.app.FragmentHostCallback
+        public FragmentActivity onGetHost() {
+            return FragmentActivity.this;
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onSupportInvalidateOptionsMenu() {
+            FragmentActivity.this.supportInvalidateOptionsMenu();
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
+            FragmentActivity.this.startActivityFromFragment(fragment, intent, i);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+            FragmentActivity.this.startActivityFromFragment(fragment, intent, i, bundle);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+            FragmentActivity.this.startIntentSenderFromFragment(fragment, intentSender, i, intent, i2, i3, i4, bundle);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onRequestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+            FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public boolean onShouldShowRequestPermissionRationale(String str) {
+            return ActivityCompat.shouldShowRequestPermissionRationale(FragmentActivity.this, str);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public boolean onHasWindowAnimations() {
+            return FragmentActivity.this.getWindow() != null;
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public int onGetWindowAnimations() {
+            Window window = FragmentActivity.this.getWindow();
+            if (window == null) {
+                return 0;
+            }
+            return window.getAttributes().windowAnimations;
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback
+        public void onAttachFragment(Fragment fragment) {
+            FragmentActivity.this.onAttachFragment(fragment);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback, android.support.v4.app.FragmentContainer
+        public View onFindViewById(int i) {
+            return FragmentActivity.this.findViewById(i);
+        }
+
+        @Override // android.support.v4.app.FragmentHostCallback, android.support.v4.app.FragmentContainer
+        public boolean onHasView() {
+            Window window = FragmentActivity.this.getWindow();
+            return (window == null || window.peekDecorView() == null) ? false : true;
+        }
     }
 }

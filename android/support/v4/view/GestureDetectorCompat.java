@@ -8,11 +8,11 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-/* loaded from: classes.dex */
-public class GestureDetectorCompat {
+/* loaded from: classes2.dex */
+public final class GestureDetectorCompat {
     private final GestureDetectorCompatImpl mImpl;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface GestureDetectorCompatImpl {
         boolean isLongpressEnabled();
 
@@ -23,13 +23,13 @@ public class GestureDetectorCompat {
         void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener onDoubleTapListener);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
         private boolean mAlwaysInBiggerTapRegion;
         private boolean mAlwaysInTapRegion;
-        private MotionEvent mCurrentDownEvent;
-        private boolean mDeferConfirmSingleTap;
-        private GestureDetector.OnDoubleTapListener mDoubleTapListener;
+        MotionEvent mCurrentDownEvent;
+        boolean mDeferConfirmSingleTap;
+        GestureDetector.OnDoubleTapListener mDoubleTapListener;
         private int mDoubleTapSlopSquare;
         private float mDownFocusX;
         private float mDownFocusY;
@@ -39,18 +39,18 @@ public class GestureDetectorCompat {
         private boolean mIsLongpressEnabled;
         private float mLastFocusX;
         private float mLastFocusY;
-        private final GestureDetector.OnGestureListener mListener;
+        final GestureDetector.OnGestureListener mListener;
         private int mMaximumFlingVelocity;
         private int mMinimumFlingVelocity;
         private MotionEvent mPreviousUpEvent;
-        private boolean mStillDown;
+        boolean mStillDown;
         private int mTouchSlopSquare;
         private VelocityTracker mVelocityTracker;
         private static final int LONGPRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
         private static final int TAP_TIMEOUT = ViewConfiguration.getTapTimeout();
         private static final int DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         private class GestureHandler extends Handler {
             GestureHandler() {
             }
@@ -145,21 +145,21 @@ public class GestureDetectorCompat {
                 this.mVelocityTracker = VelocityTracker.obtain();
             }
             this.mVelocityTracker.addMovement(motionEvent);
-            boolean z3 = (action & MotionEventCompat.ACTION_MASK) == 6;
+            boolean z3 = (action & 255) == 6;
             int actionIndex = z3 ? MotionEventCompat.getActionIndex(motionEvent) : -1;
-            int pointerCount = MotionEventCompat.getPointerCount(motionEvent);
+            int pointerCount = motionEvent.getPointerCount();
             float f = 0.0f;
             float f2 = 0.0f;
             for (int i = 0; i < pointerCount; i++) {
                 if (actionIndex != i) {
-                    f2 += MotionEventCompat.getX(motionEvent, i);
-                    f += MotionEventCompat.getY(motionEvent, i);
+                    f2 += motionEvent.getX(i);
+                    f += motionEvent.getY(i);
                 }
             }
             int i2 = z3 ? pointerCount - 1 : pointerCount;
             float f3 = f2 / i2;
             float f4 = f / i2;
-            switch (action & MotionEventCompat.ACTION_MASK) {
+            switch (action & 255) {
                 case 0:
                     if (this.mDoubleTapListener != null) {
                         boolean hasMessages = this.mHandler.hasMessages(3);
@@ -224,7 +224,7 @@ public class GestureDetectorCompat {
                         }
                     } else {
                         VelocityTracker velocityTracker = this.mVelocityTracker;
-                        int pointerId = MotionEventCompat.getPointerId(motionEvent, 0);
+                        int pointerId = motionEvent.getPointerId(0);
                         velocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
                         float yVelocity = VelocityTrackerCompat.getYVelocity(velocityTracker, pointerId);
                         float xVelocity = VelocityTrackerCompat.getXVelocity(velocityTracker, pointerId);
@@ -299,12 +299,12 @@ public class GestureDetectorCompat {
                     this.mDownFocusY = f4;
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
                     int actionIndex2 = MotionEventCompat.getActionIndex(motionEvent);
-                    int pointerId2 = MotionEventCompat.getPointerId(motionEvent, actionIndex2);
+                    int pointerId2 = motionEvent.getPointerId(actionIndex2);
                     float xVelocity2 = VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, pointerId2);
                     float yVelocity2 = VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, pointerId2);
                     for (int i6 = 0; i6 < pointerCount; i6++) {
                         if (i6 != actionIndex2) {
-                            int pointerId3 = MotionEventCompat.getPointerId(motionEvent, i6);
+                            int pointerId3 = motionEvent.getPointerId(i6);
                             if ((VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, pointerId3) * yVelocity2) + (VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, pointerId3) * xVelocity2) < 0.0f) {
                                 this.mVelocityTracker.clear();
                                 return false;
@@ -353,8 +353,7 @@ public class GestureDetectorCompat {
             return false;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public void dispatchLongPress() {
+        void dispatchLongPress() {
             this.mHandler.removeMessages(3);
             this.mDeferConfirmSingleTap = false;
             this.mInLongPress = true;
@@ -362,7 +361,7 @@ public class GestureDetectorCompat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class GestureDetectorCompatImplJellybeanMr2 implements GestureDetectorCompatImpl {
         private final GestureDetector mDetector;
 

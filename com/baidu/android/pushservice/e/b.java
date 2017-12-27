@@ -4,36 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class b {
-    public static String a(HashMap<String, String> hashMap) {
-        if (hashMap == null || hashMap.isEmpty()) {
-            return "params is null or empty";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (!it.hasNext()) {
-                return stringBuffer.toString();
-            }
-            if (i2 != 0) {
-                stringBuffer.append(", ");
-            }
-            Map.Entry<String, String> next = it.next();
-            String key = next.getKey();
-            stringBuffer.append((Object) key).append("=").append((Object) next.getValue());
-            i = i2 + 1;
-        }
-    }
-
     public static void a(Context context) {
         a(context, (ArrayList) com.baidu.android.pushservice.b.b.a(context).a.clone());
     }
@@ -53,7 +32,6 @@ public final class b {
                         packageManager.getPackageInfo(c, 0);
                     } catch (Exception e) {
                         if (!TextUtils.isEmpty(c)) {
-                            com.baidu.android.pushservice.g.a.d("ApiUtils", c + " not found at packageManager");
                         }
                     }
                 }
@@ -62,15 +40,14 @@ public final class b {
     }
 
     @SuppressLint({"InlinedApi"})
-    public static void b(HashMap<String, String> hashMap) {
+    public static void a(HashMap<String, String> hashMap) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         hashMap.put("timestamp", currentTimeMillis + "");
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
-        hashMap.put("v", "1");
+        hashMap.put(NotifyType.VIBRATE, "1");
         try {
-            hashMap.put("vcode", com.baidu.android.pushservice.k.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
+            hashMap.put("vcode", com.baidu.android.pushservice.k.f.a(URLEncoder.encode(currentTimeMillis + "bccs", HTTP.UTF_8).getBytes(), false));
         } catch (UnsupportedEncodingException e) {
-            com.baidu.android.pushservice.g.a.a("ApiUtils", e);
         }
     }
 }

@@ -10,16 +10,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends o {
-    private TbPageContext<?> aca;
+    private TbPageContext<?> aQq;
 
     public d(m mVar, TbPageContext<?> tbPageContext) {
         super(mVar);
-        this.aca = tbPageContext;
+        this.aQq = tbPageContext;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String oh() {
+    public String vK() {
         return "TBHY_COMMON_Navigator";
     }
 
@@ -28,7 +28,7 @@ public class d extends o {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                av.vI().c(this.aca, new String[]{optString});
+                av.Di().c(this.aQq, new String[]{optString});
             }
         }
     }

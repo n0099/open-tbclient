@@ -1,8 +1,14 @@
 package com.baidu.tieba.personCenter.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class f {
-    public boolean ftg;
-    public String fti;
-    public boolean ftf = false;
-    public long fth = -1;
+public class f extends com.baidu.tieba.card.data.b {
+    public static BdUniqueId gga = BdUniqueId.gen();
+    public UserData fBT;
+
+    @Override // com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return gga;
+    }
 }

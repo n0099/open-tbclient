@@ -8,14 +8,14 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
-    private volatile C0073b aGA;
-    private Queue<a> aGz = new ConcurrentLinkedQueue();
+    private Queue<a> but = new ConcurrentLinkedQueue();
+    private volatile C0087b buu;
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.EA().gr(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.Mb().gx(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -25,11 +25,11 @@ public class b {
                 return null;
             }
             a aVar = new a();
-            aVar.aGC = bVar;
-            aVar.aGB = imageFileInfo;
-            aVar.aGD = z;
-            this.aGz.add(aVar);
-            EK();
+            aVar.buw = bVar;
+            aVar.buv = imageFileInfo;
+            aVar.bux = z;
+            this.but.add(aVar);
+            Mk();
             return null;
         }
         return a2;
@@ -39,56 +39,56 @@ public class b {
         return a(imageFileInfo, bVar, z, false);
     }
 
-    protected void EK() {
-        if (this.aGA == null && !this.aGz.isEmpty()) {
-            this.aGA = new C0073b(this.aGz);
-            this.aGA.execute(new Void[0]);
+    protected void Mk() {
+        if (this.buu == null && !this.but.isEmpty()) {
+            this.buu = new C0087b(this.but);
+            this.buu.execute(new Void[0]);
         }
     }
 
-    public void EL() {
-        this.aGz = new ConcurrentLinkedQueue();
-        if (this.aGA != null) {
-            this.aGA.cancel(true);
-            this.aGA = null;
+    public void Ml() {
+        this.but = new ConcurrentLinkedQueue();
+        if (this.buu != null) {
+            this.buu.cancel(true);
+            this.buu = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0073b extends BdAsyncTask<Void, a, a> {
-        final Queue<a> aGH;
+    public class C0087b extends BdAsyncTask<Void, a, a> {
+        final Queue<a> buB;
 
-        public C0073b(Queue<a> queue) {
-            this.aGH = queue;
+        public C0087b(Queue<a> queue) {
+            this.buB = queue;
             super.setPriority(2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
+        /* renamed from: d */
         public a doInBackground(Void... voidArr) {
             Bitmap bitmap;
             int i;
             while (true) {
-                a poll = this.aGH.poll();
+                a poll = this.buB.poll();
                 if (poll == null) {
                     break;
                 } else if (isCancelled()) {
-                    this.aGH.add(poll);
+                    this.buB.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.a.a gr = com.baidu.tbadk.imageManager.c.EA().gr(poll.aGB.toCachedKey(poll.aGD));
-                    if (gr != null) {
-                        poll.aGE = gr;
-                        poll.aGF = true;
+                    com.baidu.adp.widget.a.a gx = com.baidu.tbadk.imageManager.c.Mb().gx(poll.buv.toCachedKey(poll.bux));
+                    if (gx != null) {
+                        poll.buy = gx;
+                        poll.buz = true;
                     } else {
-                        Bitmap b = b.this.b(poll.aGB, poll.aGD);
+                        Bitmap b = b.this.b(poll.buv, poll.bux);
                         if (b != null) {
                             try {
-                                i = BitmapHelper.readPictureDegree(poll.aGB.getFilePath());
+                                i = BitmapHelper.readPictureDegree(poll.buv.getFilePath());
                                 if (i != 0) {
                                     try {
                                         bitmap = BitmapHelper.rotateBitmapBydegree(b, i);
@@ -110,9 +110,9 @@ public class b {
                                 i = 0;
                             }
                             if (i != 0 && bitmap != null) {
-                                poll.aGE = new com.baidu.adp.widget.a.a(bitmap, poll.aGB.isGif(), poll.aGB.getFilePath());
+                                poll.buy = new com.baidu.adp.widget.a.a(bitmap, poll.buv.isGif(), poll.buv.getFilePath());
                             } else {
-                                poll.aGE = new com.baidu.adp.widget.a.a(b, poll.aGB.isGif(), poll.aGB.getFilePath());
+                                poll.buy = new com.baidu.adp.widget.a.a(b, poll.buv.isGif(), poll.buv.getFilePath());
                             }
                         }
                     }
@@ -128,8 +128,8 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
-            b.this.aGA = null;
-            b.this.EK();
+            b.this.buu = null;
+            b.this.Mk();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,12 +139,12 @@ public class b {
         public void onProgressUpdate(a... aVarArr) {
             if (aVarArr != null) {
                 for (a aVar : aVarArr) {
-                    com.baidu.adp.widget.a.a aVar2 = aVar.aGE;
-                    if (aVar2 != null && !aVar.aGF) {
-                        com.baidu.tbadk.imageManager.c.EA().c(aVar.aGB.toCachedKey(aVar.aGD), aVar2);
+                    com.baidu.adp.widget.a.a aVar2 = aVar.buy;
+                    if (aVar2 != null && !aVar.buz) {
+                        com.baidu.tbadk.imageManager.c.Mb().c(aVar.buv.toCachedKey(aVar.bux), aVar2);
                     }
-                    if (aVar.aGC != null) {
-                        aVar.aGC.a(aVar2, aVar.aGB.toCachedKey(aVar.aGD), aVar.aGF);
+                    if (aVar.buw != null) {
+                        aVar.buw.a(aVar2, aVar.buv.toCachedKey(aVar.bux), aVar.buz);
                     }
                 }
             }
@@ -154,12 +154,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            b.this.aGA = null;
+            b.this.buu = null;
             while (true) {
-                a poll = this.aGH.poll();
+                a poll = this.buB.poll();
                 if (poll != null) {
-                    if (poll.aGC != null) {
-                        poll.aGC.a(null, poll.aGB.toCachedKey(poll.aGD), false);
+                    if (poll.buw != null) {
+                        poll.buw.a(null, poll.buv.toCachedKey(poll.bux), false);
                     }
                 } else {
                     return;
@@ -181,14 +181,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.EM().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.Mm().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.EM().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.Mm().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -201,11 +201,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        ImageFileInfo aGB;
-        com.baidu.tbadk.imageManager.b aGC;
-        boolean aGD;
-        com.baidu.adp.widget.a.a aGE;
-        boolean aGF;
+        ImageFileInfo buv;
+        com.baidu.tbadk.imageManager.b buw;
+        boolean bux;
+        com.baidu.adp.widget.a.a buy;
+        boolean buz;
 
         private a() {
         }

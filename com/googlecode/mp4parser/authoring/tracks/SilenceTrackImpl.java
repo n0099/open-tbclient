@@ -15,7 +15,6 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class SilenceTrackImpl implements Track {
     long[] decodingTimes;
@@ -25,7 +24,7 @@ public class SilenceTrackImpl implements Track {
     public SilenceTrackImpl(Track track, long j) {
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
-            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / IjkMediaMeta.AV_CH_SIDE_RIGHT);
+            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
             this.decodingTimes = new long[l2i];
             Arrays.fill(this.decodingTimes, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
             while (true) {

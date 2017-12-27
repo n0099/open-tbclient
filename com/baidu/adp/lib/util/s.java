@@ -2,9 +2,10 @@ package com.baidu.adp.lib.util;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class s {
-    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] anb = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
@@ -23,8 +24,8 @@ public class s {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
-            sb.append(HEX_DIGITS[bArr[i] & 15]);
+            sb.append(anb[(bArr[i] & 240) >>> 4]);
+            sb.append(anb[bArr[i] & 15]);
         }
         return sb.toString();
     }
@@ -52,12 +53,12 @@ public class s {
         return str;
     }
 
-    public static String aS(String str) {
+    public static String ba(String str) {
         if (str == null) {
             return null;
         }
         try {
-            return toMd5(str.getBytes("UTF-8"));
+            return toMd5(str.getBytes(HTTP.UTF_8));
         } catch (Exception e) {
             return null;
         }

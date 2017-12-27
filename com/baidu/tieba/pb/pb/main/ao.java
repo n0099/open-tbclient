@@ -1,109 +1,106 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.j;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
-public class ao extends j.a {
-    public View dsJ;
-    public View fbA;
-    public View fbB;
-    public ImageView fbC;
-    public TextView fbD;
-    public ImageView fbx;
-    public TextView fby;
-    public TextView fbz;
-    public View mRootView;
+/* loaded from: classes2.dex */
+public class ao extends m<com.baidu.tieba.pb.data.l, ap> {
+    private View.OnTouchListener bBc;
+    private com.baidu.tieba.pb.a.c bJy;
+    private FrameLayout bZR;
+    private com.baidu.tieba.pb.view.d fOm;
+    public boolean fOn;
+    private View.OnClickListener mClickListener;
 
-    public ao(View view) {
-        super(view);
-        if (view != null) {
-            this.mRootView = view.findViewById(d.g.thread_praise_root);
-            this.fbx = (ImageView) view.findViewById(d.g.view_main_thread_praise_state);
-            this.fby = (TextView) view.findViewById(d.g.view_main_thread_praise_num);
-            this.fbD = (TextView) view.findViewById(d.g.tv_share);
-            this.fbz = (TextView) view.findViewById(d.g.tv_praise);
-            this.fbA = view.findViewById(d.g.praise_container);
-            this.fbB = view.findViewById(d.g.share_container);
-            this.fbC = (ImageView) view.findViewById(d.g.view_main_thread_share_state);
-            this.dsJ = view.findViewById(d.g.bottom_divider_line);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ao(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+        this.bBc = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (ao.this.fOm != null) {
+                    return ao.this.fOm.onTouch(view, motionEvent);
+                }
+                return false;
+            }
+        };
+        this.bZR = new FrameLayout(pbActivity.getPageContext().getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        this.bZR.setBackgroundResource(d.C0108d.transparent);
+        this.bZR.setTag("PraiseContainerView");
+        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.bZR, layoutParams);
+        this.fOm = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.bZR);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bt */
+    public ap onCreateViewHolder(ViewGroup viewGroup) {
+        ap apVar = new ap(LayoutInflater.from(this.mContext).inflate(d.h.layout_thread_praise_item, viewGroup, false));
+        if (this.bJy != null && apVar.mRootView != null) {
+            apVar.mRootView.setClickable(true);
+            apVar.mRootView.setOnTouchListener(this.bJy);
+        }
+        return apVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, ap apVar) {
+        super.onFillViewHolder(i, view, viewGroup, lVar, apVar);
+        if (lVar != null && apVar != null) {
+            apVar.fOv.setOnClickListener(this.mClickListener);
+            apVar.fOt.setOnClickListener(this.mClickListener);
+            apVar.b(lVar);
+            apVar.fOr.setTag(d.g.pb_main_thread_praise_data, lVar);
+            apVar.fOr.setTag(d.g.pb_main_thread_praise_view, apVar);
+            ((ap) this.viewholder).fOs.setTag(d.g.pb_main_thread_praise_view, apVar);
+            apVar.fOp.setTag(d.g.pb_main_thread_praise_view, apVar);
+            if (this.fOm != null) {
+                this.fOm.setAnchorView(apVar.fOp);
+                this.fOm.cE(((ap) this.viewholder).fOs);
+                this.fOm.setOnTouchListener(this.bBc);
+            } else {
+                apVar.fOr.setOnClickListener(this.mClickListener);
+            }
+            apVar.fOs.setOnClickListener(this.mClickListener);
+            apVar.fOq.setOnClickListener(this.mClickListener);
+            if (this.fOn) {
+                apVar.bcT();
+            } else {
+                apVar.bcS();
+            }
+        }
+        return view;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mClickListener = onClickListener;
+        if (this.fOm != null) {
+            this.fOm.setOnClickListener(onClickListener);
         }
     }
 
-    private boolean wI() {
-        com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.xE();
+    public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
+        this.bJy = cVar;
     }
 
-    public void b(com.baidu.tieba.pb.data.l lVar) {
-        if (lVar != null) {
-            if (lVar.aRW()) {
-                if (lVar.eQf == 1) {
-                    com.baidu.tbadk.core.util.aj.c(this.fbx, d.f.icon_floor_big_praised);
-                } else if (lVar.eQf == 3) {
-                    com.baidu.tbadk.core.util.aj.c(this.fbx, d.f.icon_floor_trample);
-                } else if (lVar.eQf == 4) {
-                    com.baidu.tbadk.core.util.aj.c(this.fbx, d.f.icon_floor_big_trample);
-                } else if (lVar.aRY() == 1) {
-                    com.baidu.tbadk.core.util.aj.c(this.fbx, wI() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
-                } else {
-                    com.baidu.tbadk.core.util.aj.c(this.fbx, wI() ? d.f.icon_floor_bigpraised_xmas : d.f.icon_floor_bigpraised);
-                }
-                com.baidu.tbadk.core.util.aj.i(this.fbz, d.C0095d.text_conth_50_color);
-                this.fbA.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector_orange));
-            } else {
-                com.baidu.tbadk.core.util.aj.c(this.fbx, wI() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
-                com.baidu.tbadk.core.util.aj.i(this.fbz, d.C0095d.text_contf_50_color);
-                this.fbA.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
-            }
-            aVE();
-            if (lVar.cLM > 0) {
-                if (com.baidu.tbadk.core.util.am.dU(com.baidu.tbadk.core.util.am.v(lVar.cLM)) >= 6) {
-                    this.fbD.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
-                }
-                this.fbD.setText(com.baidu.tbadk.core.util.am.v(lVar.cLM));
-            } else {
-                this.fbD.setText(getView().getResources().getString(d.j.share));
-            }
-            com.baidu.tbadk.core.util.aj.i(this.fby, d.C0095d.cp_link_tip_c);
-            this.fbx.setTag(d.g.pb_main_thread_praise_data, lVar);
-            this.fbz.setTag(d.g.pb_main_thread_praise_data, lVar);
-            if (lVar.aSa()) {
-                com.baidu.tbadk.core.util.aj.k(this.dsJ, d.C0095d.cp_bg_line_c);
-                this.dsJ.setVisibility(0);
-            } else {
-                this.dsJ.setVisibility(8);
-            }
-            if (lVar.aRV() <= 0 || com.baidu.tbadk.core.util.v.w(lVar.aRX())) {
-                this.fby.setText(d.j.no_praise_tip);
-                this.fbz.setText(d.j.action_praise_default);
-                com.baidu.tbadk.core.util.aj.i(this.fby, d.C0095d.cp_cont_f);
-                this.fby.setTag(false);
-                this.fbA.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
-                com.baidu.tbadk.core.util.aj.i(this.fbz, d.C0095d.text_contf_50_color);
-                com.baidu.tbadk.core.util.aj.c(this.fbx, wI() ? d.f.icon_card_like_n_xmas : d.f.icon_card_like_n);
-                return;
-            }
-            this.fby.setTag(true);
-            this.fby.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.count_main_thread_praise), com.baidu.tbadk.core.util.am.v(lVar.aRV())));
-            this.fbz.setText(com.baidu.tbadk.core.util.am.v(lVar.aRV()));
+    public void sQ(int i) {
+        if (i == 3 && this.fHW != null && this.bZR != null) {
+            this.bZR.removeAllViews();
+            ((FrameLayout) this.fHW.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bZR);
         }
+        this.fOm.sQ(i);
     }
 
-    private void aVE() {
-        this.fbB.setBackgroundDrawable(com.baidu.tbadk.core.util.aj.getDrawable(d.f.bg_first_floor_praise_border_selector));
-        com.baidu.tbadk.core.util.aj.j(this.fbC, d.f.icon_pb_first_floor_share_selector);
-        com.baidu.tbadk.core.util.aj.i(this.fbD, d.C0095d.text_contf_50_color);
-    }
-
-    public void aVF() {
-        this.mRootView.setPadding(0, com.baidu.adp.lib.util.l.f(getView().getContext(), d.e.tbds56), 0, 0);
-    }
-
-    public void aVG() {
-        this.mRootView.setPadding(0, 0, 0, 0);
+    public void m(boolean z, int i) {
+        this.fOm.n(z, i);
     }
 }

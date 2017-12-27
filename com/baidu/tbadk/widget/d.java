@@ -1,111 +1,231 @@
 package com.baidu.tbadk.widget;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.widget.ImageView;
+import com.baidu.adp.gif.NSGif;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d {
-    protected final Paint aOV = new Paint();
-    protected final Paint aOW = new Paint();
-    private int aOX;
-    private int aOY;
-    private int aOZ;
-    private int aPa;
-    private int aPb;
-    private int aPc;
-    private int aPd;
-    protected final View view;
+public class d extends ImageView implements View.OnClickListener {
+    private com.baidu.adp.gif.b aui;
+    private com.baidu.adp.widget.a.a bCC;
+    private Drawable bCD;
+    private Drawable bCE;
+    private Drawable bCF;
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bCG;
+    private final Rect btA;
+    private Bitmap mBitmap;
+    private int mCurrentFrame;
+    private TbRichTextView.f mDispatchTouchListener;
+    private final Handler mHandler;
+    private View.OnClickListener mOnClickListener;
+    private boolean mSupportNoImage;
+    private String mUrl;
 
-    private Context getContext() {
-        return (this.view == null || this.view.getContext() == null) ? TbadkCoreApplication.getInst().getContext() : this.view.getContext();
+    public d(Context context) {
+        super(context);
+        this.mSupportNoImage = true;
+        this.bCD = aj.getDrawable(d.C0108d.common_color_10220);
+        this.bCE = aj.getDrawable(d.f.icon_click);
+        this.bCF = aj.getDrawable(d.f.img_default_100);
+        this.btA = new Rect();
+        this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.d.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                com.baidu.adp.gif.b gif = d.this.getGif();
+                if (gif != null && message.what == 1) {
+                    d.this.mCurrentFrame++;
+                    if (d.this.mCurrentFrame >= gif.getFrameCount()) {
+                        d.this.mCurrentFrame = 0;
+                    }
+                    gif.cM(d.this.mCurrentFrame);
+                    gif.a(d.this.mBitmap, null);
+                    d.this.invalidate();
+                    d.this.mHandler.removeMessages(1);
+                    d.this.mHandler.sendEmptyMessageDelayed(1, gif.cN(d.this.mCurrentFrame));
+                }
+            }
+        };
+        this.bCG = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.widget.d.2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.f.b
+            public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+                if (aVar != null) {
+                    d.this.e(aVar);
+                }
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.f.b
+            public void onCancelled(String str) {
+                com.baidu.adp.lib.f.c.nl().f(str, 33);
+            }
+        };
+        init();
     }
 
-    public d(View view) {
-        this.aOX = 16;
-        this.aOY = 16;
-        this.aOZ = -1;
-        this.aPa = 1711276032;
-        this.aPb = 20;
-        this.aPc = 16;
-        this.aPd = 32;
-        this.view = view;
-        this.aPa = getContext().getResources().getColor(d.C0095d.black_alpha40);
-        this.aOW.setColor(this.aPa);
-        this.aOW.setAntiAlias(true);
-        this.aPb = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.aOZ = getContext().getResources().getColor(d.C0095d.cp_cont_i);
-        this.aOV.setColor(this.aOZ);
-        this.aOV.setTextSize(this.aPb);
-        this.aOV.setAntiAlias(true);
-        this.aOX = l.f(getContext(), d.e.tbds20);
-        this.aOY = l.f(getContext(), d.e.tbds20);
-        this.aPc = l.f(getContext(), d.e.ds16);
-        this.aPd = l.f(getContext(), d.e.tbds40);
+    private void init() {
+        setBackgroundDrawable(this.bCD);
+        setOnClickListener(null);
     }
 
-    public void c(Canvas canvas, String str) {
-        if (canvas != null && this.view != null && !TextUtils.isEmpty(str)) {
-            int save = canvas.save();
-            this.view.getPaddingLeft();
-            int paddingRight = this.view.getPaddingRight();
-            this.view.getPaddingTop();
-            int paddingBottom = this.view.getPaddingBottom();
-            int left = this.view.getLeft();
-            int right = this.view.getRight();
-            int top = this.view.getTop();
-            int bottom = this.view.getBottom();
-            float measureText = this.aOV.measureText(str);
-            float f = this.aPd + measureText;
-            float f2 = this.aPb + this.aPc;
-            canvas.translate((((right - left) - paddingRight) - f) - this.aOY, (((bottom - top) - paddingBottom) - f2) - this.aOX);
-            RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aOW);
-            Paint.FontMetrics fontMetrics = this.aOV.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aOV);
-            canvas.restoreToCount(save);
+    public void setDispatchTouchListener(TbRichTextView.f fVar) {
+        this.mDispatchTouchListener = fVar;
+    }
+
+    public com.baidu.adp.gif.b getGif() {
+        if (this.aui == null) {
+            return null;
+        }
+        return this.aui;
+    }
+
+    public void setSupportNoImage(boolean z) {
+        this.mSupportNoImage = z;
+    }
+
+    public void setHasNoImage(boolean z) {
+        if (z && (this.bCD != null || this.bCE != null)) {
+            int intrinsicWidth = this.bCD.getIntrinsicWidth();
+            int intrinsicHeight = this.bCD.getIntrinsicHeight();
+            int measuredWidth = getMeasuredWidth();
+            int measuredHeight = getMeasuredHeight();
+            if (intrinsicWidth > measuredWidth) {
+                intrinsicWidth = measuredWidth;
+            }
+            if (intrinsicHeight > measuredHeight) {
+                intrinsicHeight = measuredHeight;
+            }
+            int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
+            int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
+            this.bCD.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+        }
+        invalidate();
+    }
+
+    public com.baidu.adp.widget.a.a getBdImage() {
+        return this.bCC;
+    }
+
+    public void e(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            this.bCC = aVar;
+            if (aVar.isGif() && aVar.sn() != null && aVar.sn().length > 0) {
+                NSGif h = NSGif.h(aVar.sn(), 0, aVar.sn().length);
+                if (h != null) {
+                    this.aui = h;
+                    this.aui.cM(0);
+                    if (this.mBitmap == null || (this.mBitmap.getWidth() != this.aui.getWidth() && this.mBitmap.getHeight() != this.aui.getHeight())) {
+                        this.mBitmap = Bitmap.createBitmap(this.aui.getWidth(), this.aui.getHeight(), Bitmap.Config.ARGB_4444);
+                    }
+                    this.aui.a(this.mBitmap, null);
+                    setImageBitmap(this.mBitmap);
+                    play();
+                }
+            } else if (aVar.si() != null) {
+                setImageBitmap(aVar.si());
+            }
         }
     }
 
-    private void invalidate() {
-        if (this.view != null) {
-            this.view.invalidate();
+    public void play() {
+        com.baidu.adp.gif.b gif = getGif();
+        if (gif != null) {
+            if (this.mCurrentFrame != 0) {
+                this.mCurrentFrame = 0;
+            }
+            gif.cM(0);
+            this.mHandler.removeMessages(1);
+            this.mHandler.sendEmptyMessageDelayed(1, gif.cN(this.mCurrentFrame));
         }
     }
 
-    public void setTagPaddingDis(int i, int i2) {
-        this.aOY = i;
-        this.aOX = i2;
-        invalidate();
+    public void stop() {
+        if (getGif() != null) {
+            this.mHandler.removeMessages(1);
+        }
     }
 
-    public void fz(int i) {
-        this.aOZ = i;
-        this.aOV.setColor(i);
-        invalidate();
+    @Override // android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        if (this.mDispatchTouchListener != null) {
+            this.mDispatchTouchListener.B(motionEvent);
+        }
+        return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void setTagTextSize(int i) {
-        this.aPb = i;
-        this.aOV.setTextSize(i);
-        invalidate();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.bCC == null && this.mSupportNoImage) {
+            com.baidu.adp.lib.f.c.nl().a(this.mUrl, 33, this.bCG, 0, 0, false, null, new Object[0]);
+        } else if (this.mOnClickListener != null) {
+            this.mOnClickListener.onClick(this);
+        }
     }
 
-    public float hd(String str) {
-        return l.b(this.aOV, str).height() + this.aPc;
+    @Override // android.view.View
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        if (!isClickable()) {
+            setClickable(true);
+        }
+        super.setOnClickListener(this);
+        this.mOnClickListener = onClickListener;
     }
 
-    public float he(String str) {
-        return l.a(this.aOV, str) + this.aPd;
+    @Override // android.widget.ImageView, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.mHandler.removeMessages(1);
+        if (this.aui != null) {
+            this.aui.close();
+            this.aui = null;
+        }
+        if (this.bCC != null) {
+            this.bCC = null;
+        }
+        if (this.mBitmap != null) {
+            this.mBitmap.recycle();
+            this.mBitmap = null;
+        }
+        this.mCurrentFrame = 0;
     }
 
-    public void O(int i, int i2) {
-        this.aPd = i;
-        this.aPc = i2;
+    @Override // android.view.View
+    public void onStartTemporaryDetach() {
+        super.onStartTemporaryDetach();
+        this.mHandler.removeMessages(1);
+        if (this.aui != null) {
+            this.aui.close();
+            this.aui = null;
+        }
+        if (this.bCC != null) {
+            this.bCC = null;
+        }
+        if (this.mBitmap != null) {
+            this.mBitmap.recycle();
+            this.mBitmap = null;
+        }
+        this.mCurrentFrame = 0;
+    }
+
+    @Override // android.view.View
+    protected void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
+        if (this.aui != null) {
+            if (i == 4 || i == 8) {
+                stop();
+            } else if (i == 0) {
+                play();
+            }
+        }
     }
 }

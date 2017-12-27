@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     private String cacheKey;
     private Context context;
@@ -53,7 +53,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.e();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.ePp = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.fBL = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -73,10 +73,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.aTY().a(this.cacheKey, this.isFromMark, bArr);
+                i.bbj().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.aTY().m(this.cacheKey, bArr);
+                i.bbj().m(this.cacheKey, bArr);
                 return;
             default:
                 return;

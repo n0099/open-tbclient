@@ -5,5 +5,5 @@ import java.util.HashMap;
 public interface g {
     void a(HashMap<String, String> hashMap, h hVar);
 
-    String nq();
+    String uT();
 }

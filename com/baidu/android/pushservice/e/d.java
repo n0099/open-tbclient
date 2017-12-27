@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,26 +18,33 @@ public class d extends c {
     public String b(String str) {
         String str2;
         String string;
-        String string2;
         String jSONObject;
         com.baidu.android.pushservice.b.g gVar;
         try {
             JSONObject jSONObject2 = new JSONObject(str);
             JSONObject jSONObject3 = jSONObject2.getJSONObject("response_params");
-            string = jSONObject3.getString("user_id");
-            string2 = jSONObject3.getString("appid");
+            String string2 = jSONObject3.getString("user_id");
+            string = jSONObject3.getString("appid");
             jSONObject3.put("channel_id", com.baidu.android.pushservice.j.a(this.a).a());
-            this.b.g = string;
-            this.b.f = string2;
+            this.b.g = string2;
+            this.b.f = string;
             jSONObject = jSONObject2.toString();
             try {
             } catch (JSONException e) {
                 str2 = jSONObject;
-                com.baidu.android.pushservice.g.a.c("BaseRegisterProcessor", "Appid or user_id not found @: \r\n" + str);
-                if (TextUtils.isEmpty(this.b.b)) {
-                }
-                if (TextUtils.isEmpty(this.b.l)) {
-                }
+            }
+        } catch (JSONException e2) {
+            str2 = str;
+        }
+        if (this.b.a.equals("method_sdk_bind") && (gVar = (com.baidu.android.pushservice.b.g) com.baidu.android.pushservice.b.h.a(this.a).b(this.b.i)) != null) {
+            gVar.a(string);
+            gVar.b(this.b.e);
+            com.baidu.android.pushservice.j.p.a(this.a, com.baidu.android.pushservice.b.h.a(this.a).a(gVar), 3);
+            return jSONObject;
+        }
+        str2 = jSONObject;
+        if (TextUtils.isEmpty(this.b.b) || !this.b.b.equals("internal")) {
+            if (TextUtils.isEmpty(this.b.l) || !com.baidu.android.pushservice.c.d.g(this.a)) {
                 com.baidu.android.pushservice.b.f fVar = new com.baidu.android.pushservice.b.f();
                 fVar.b(this.b.e);
                 fVar.a(this.b.f);
@@ -47,43 +53,11 @@ public class d extends c {
                 fVar.b(com.baidu.android.pushservice.a.a());
                 String a = com.baidu.android.pushservice.b.b.a(this.a).a(fVar, this.d);
                 com.baidu.android.pushservice.b.b.a(this.a).a("r_v2", a);
-                com.baidu.android.pushservice.j.p.x(this.a, a);
+                com.baidu.android.pushservice.j.p.a(this.a, a, 0);
                 return str2;
             }
-        } catch (JSONException e2) {
-            str2 = str;
-        }
-        if (this.b.a.equals("method_sdk_bind") && (gVar = (com.baidu.android.pushservice.b.g) com.baidu.android.pushservice.b.h.a(this.a).b(this.b.i)) != null) {
-            gVar.a(string2);
-            gVar.b(this.b.e);
-            String a2 = com.baidu.android.pushservice.b.h.a(this.a).a(gVar);
-            Intent intent = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
-            intent.putExtra("r_sync_rdata_v2", a2);
-            intent.putExtra("r_sync_type", 3);
-            intent.putExtra("r_sync_sdk_from", this.a.getPackageName());
-            intent.setFlags(32);
-            this.a.sendBroadcast(intent);
-            return jSONObject;
-        }
-        com.baidu.android.pushservice.g.a.b("BaseRegisterProcessor", "RegisterThread userId :  " + string);
-        com.baidu.android.pushservice.g.a.b("BaseRegisterProcessor", "RegisterThread appId :  " + string2);
-        com.baidu.android.pushservice.g.a.b("BaseRegisterProcessor", "RegisterThread content :  " + str);
-        str2 = jSONObject;
-        if (TextUtils.isEmpty(this.b.b) && this.b.b.equals("internal")) {
             return str2;
         }
-        if (TextUtils.isEmpty(this.b.l) && com.baidu.android.pushservice.c.d.d(this.a)) {
-            return str2;
-        }
-        com.baidu.android.pushservice.b.f fVar2 = new com.baidu.android.pushservice.b.f();
-        fVar2.b(this.b.e);
-        fVar2.a(this.b.f);
-        fVar2.f = this.b.g;
-        fVar2.a(this.b.k);
-        fVar2.b(com.baidu.android.pushservice.a.a());
-        String a3 = com.baidu.android.pushservice.b.b.a(this.a).a(fVar2, this.d);
-        com.baidu.android.pushservice.b.b.a(this.a).a("r_v2", a3);
-        com.baidu.android.pushservice.j.p.x(this.a, a3);
         return str2;
     }
 }

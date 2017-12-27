@@ -2,7 +2,7 @@ package com.baidu.tieba.vote;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.i;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes.dex */
-public class VoteDataInfo implements f, Serializable {
+/* loaded from: classes2.dex */
+public class VoteDataInfo implements i, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
     private int mIsMulti;
     private int mIsPolled;
@@ -132,8 +132,8 @@ public class VoteDataInfo implements f, Serializable {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return PostData.gBV;
+        return PostData.hiI;
     }
 }

@@ -26,7 +26,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String L(String str, String str2) {
+    public static String K(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -39,7 +39,7 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void O(Context context, String str) {
+    public static void R(Context context, String str) {
         b(context, true, str);
     }
 
@@ -51,7 +51,7 @@ public class a {
         a(context, str2, str, true, true, true, true, z);
     }
 
-    public static void e(Context context, String str, String str2) {
+    public static void g(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
@@ -68,7 +68,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        od();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -88,7 +88,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        od();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -105,11 +105,11 @@ public class a {
         }
     }
 
-    public static void P(Context context, String str) {
-        O(context, str);
+    public static void S(Context context, String str) {
+        R(context, str);
     }
 
-    public static void Q(Context context, String str) {
+    public static void T(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -147,7 +147,7 @@ public class a {
         return (am.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aw(Context context) {
+    public static void aI(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -158,11 +158,11 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.pf().ct(TbadkCoreApplication.getCurrentBduss()) != null) {
-                String d = com.baidu.tbadk.core.a.e.d(TbadkCoreApplication.getCurrentAccountInfo());
+            if (com.baidu.tbadk.core.a.a.wI().cA(TbadkCoreApplication.getCurrentBduss()) != null) {
+                String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
-                if (!StringUtils.isNull(d)) {
-                    sb.append("STOKEN=").append(d).append("; domain=.tieba.baidu.com;");
+                if (!StringUtils.isNull(c)) {
+                    sb.append("STOKEN=").append(c).append("; domain=.tieba.baidu.com;");
                     cookieManager.setCookie("tieba.baidu.com", sb.toString());
                 }
             } else {
@@ -186,7 +186,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void od() {
+    private static void vG() {
         new ag("open_webview", true).start();
     }
 }

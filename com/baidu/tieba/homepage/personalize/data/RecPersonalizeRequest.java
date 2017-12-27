@@ -1,13 +1,14 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecPersonalizeRequest extends NetMessage {
     private int loadType;
     private int needForumlist;
@@ -66,9 +67,9 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(l.ac(TbadkCoreApplication.getInst()));
-        builder.scr_h = Integer.valueOf(l.ae(TbadkCoreApplication.getInst()));
-        builder.scr_dip = Double.valueOf(l.af(TbadkCoreApplication.getInst()));
+        builder.scr_w = Integer.valueOf(l.ao(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(l.aq(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(l.ar(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
@@ -78,6 +79,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.sex_tag = "";
         builder.age_tag = "";
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
+        builder.new_net_type = Integer.valueOf(j.oO());
         setNetType(NetMessage.NetType.HTTP);
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);

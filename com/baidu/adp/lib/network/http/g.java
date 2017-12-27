@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    public Map<String, List<String>> vo;
-    public byte[] vp;
-    public int vq;
-    public volatile boolean vm = false;
+    public Map<String, List<String>> ajB;
+    public byte[] ajC;
+    public int ajD;
+    public volatile boolean ajz = false;
     public int responseCode = -1;
-    public int vn = -1;
+    public int ajA = -1;
     public String contentEncoding = "";
     public String contentType = "";
     public String contentLength = "";
@@ -22,11 +22,11 @@ public class g {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.vo = httpURLConnection.getHeaderFields();
+            this.ajB = httpURLConnection.getHeaderFields();
         }
     }
 
-    public boolean fF() {
+    public boolean nh() {
         return this.responseCode == 200;
     }
 }

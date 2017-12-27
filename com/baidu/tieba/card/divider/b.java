@@ -6,7 +6,7 @@ public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String title;
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return TYPE;
     }

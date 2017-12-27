@@ -32,19 +32,21 @@ public class c {
         try {
             JSONObject jSONObject = new JSONObject(str);
             a(jSONObject.getString("manufacturer"));
-            com.baidu.android.pushservice.g.a.c("Manufacturer", " manufacturer name " + b());
             String string = jSONObject.getString("mode");
-            com.baidu.android.pushservice.g.a.c("Manufacturer", "mode " + string);
             if ("I".equalsIgnoreCase(string)) {
-                a(d.e);
+                a(1);
             } else if ("I_HW".equalsIgnoreCase(string)) {
-                a(d.i);
+                a(5);
             } else if ("I_XM".equalsIgnoreCase(string)) {
-                a(d.j);
+                a(6);
+            } else if ("I_MZ".equalsIgnoreCase(string)) {
+                a(7);
+            } else if ("I_OP".equalsIgnoreCase(string)) {
+                a(8);
             } else if ("C".equalsIgnoreCase(string)) {
-                a(d.f);
+                a(2);
             } else {
-                a(d.d);
+                a(0);
             }
             ArrayList<e> arrayList = new ArrayList<>();
             if (jSONObject.has("osversion")) {
@@ -53,9 +55,7 @@ public class c {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.a(jSONObject2.getString("key"));
-                    com.baidu.android.pushservice.g.a.c("Manufacturer", " key " + eVar.a());
                     eVar.b(jSONObject2.getString("value"));
-                    com.baidu.android.pushservice.g.a.c("Manufacturer", " value " + eVar.b());
                     String string2 = jSONObject2.getString("match");
                     if (string2.equalsIgnoreCase("above")) {
                         eVar.a(0);
@@ -87,16 +87,13 @@ public class c {
             }
             if (jSONObject.has("apkname")) {
                 b(jSONObject.getString("apkname"));
-                com.baidu.android.pushservice.g.a.c("Manufacturer", " pkgname " + f());
             }
             if (jSONObject.has("apksign")) {
                 c(jSONObject.getString("apksign"));
-                com.baidu.android.pushservice.g.a.c("Manufacturer", "apkSign " + g());
             }
             if (jSONObject.has("apkversion")) {
                 JSONObject jSONObject4 = jSONObject.getJSONObject("apkversion");
                 a(jSONObject4.optInt("from"), jSONObject4.optInt("to"));
-                com.baidu.android.pushservice.g.a.c("Manufacturer", "from " + a().a + " to " + a().b);
             }
             if (arrayList.size() > 0) {
                 a(arrayList);
@@ -105,7 +102,6 @@ public class c {
                 b(arrayList2);
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.d("Manufacturer", " exception parseConfig for manufacture!");
         }
     }
 

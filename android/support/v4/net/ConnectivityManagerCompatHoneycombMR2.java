@@ -2,7 +2,7 @@ package android.support.v4.net;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ConnectivityManagerCompatHoneycombMR2 {
     public static boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();

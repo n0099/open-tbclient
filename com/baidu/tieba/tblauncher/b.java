@@ -8,52 +8,52 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a gGG;
+    private a hnt;
 
     @Override // com.baidu.tbadk.core.e.a
-    public void c(Context context, int i, boolean z) {
+    public void d(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void h(Context context, int i) {
+    public void u(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void aD(Context context) {
+    public void aP(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            h(context, 1);
+            u(context, 1);
         } else {
-            h(context, 0);
+            u(context, 0);
         }
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void d(Context context, int i, boolean z) {
+    public void e(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> tV() {
+    public Class<?> Bv() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String tW() {
+    public String Bw() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.gGG != null) {
-            return this.gGG.getCurrentTabType();
+        if (this.hnt != null) {
+            return this.hnt.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.gGG = aVar;
+        this.hnt = aVar;
     }
 }

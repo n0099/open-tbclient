@@ -27,7 +27,7 @@ public class PassPiInfo {
     public static PassPiInfo fromJSONObject(JSONObject jSONObject) {
         PassPiInfo passPiInfo = new PassPiInfo();
         passPiInfo.pid = Integer.parseInt(jSONObject.optString("pid"));
-        passPiInfo.version = jSONObject.optString(KEY_PLUGIN_VERSION);
+        passPiInfo.version = jSONObject.optString("version");
         passPiInfo.hostVersion = jSONObject.optString(KEY_PLUGIN_HOST_VERSION);
         passPiInfo.name = jSONObject.optString("name");
         passPiInfo.entryClass = jSONObject.optString(KEY_PLUGIN_ENTRY);

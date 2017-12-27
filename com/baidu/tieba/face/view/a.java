@@ -13,7 +13,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private ImageView cvD;
+    private ImageView djZ;
     private int mImageWidth;
 
     public a(Context context) {
@@ -23,51 +23,51 @@ public class a extends LinearLayout {
 
     private void init() {
         setBackgroundResource(d.f.bg_expression_bubble);
-        int f = l.f(getContext(), d.e.ds20);
-        setPadding(f, f, f, l.f(getContext(), d.e.ds40));
-        this.mImageWidth = l.f(getContext(), d.e.ds200);
+        int s = l.s(getContext(), d.e.ds20);
+        setPadding(s, s, s, l.s(getContext(), d.e.ds40));
+        this.mImageWidth = l.s(getContext(), d.e.ds200);
     }
 
     public void a(final String str, final String str2, boolean z, int i) {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.cvD = new GifView(getContext());
-                ((GifView) this.cvD).setSupportNoImage(false);
+                this.djZ = new GifView(getContext());
+                ((GifView) this.djZ).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.cvD.setTag(gifInfo.mSharpText);
-                ((GifView) this.cvD).a(gifInfo);
+                this.djZ.setTag(gifInfo.mSharpText);
+                ((GifView) this.djZ).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.cvD, layoutParams);
+                addView(this.djZ, layoutParams);
                 return;
             }
-            c.fJ().a(str, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.view.a.1
+            c.nl().a(str, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.view.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.a.a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            a.this.cvD = new GifView(a.this.getContext());
-                            ((GifView) a.this.cvD).setSupportNoImage(false);
+                            a.this.djZ = new GifView(a.this.getContext());
+                            ((GifView) a.this.djZ).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            a.this.cvD.setTag(gifInfo2.mSharpText);
-                            ((GifView) a.this.cvD).a(gifInfo2);
+                            a.this.djZ.setTag(gifInfo2.mSharpText);
+                            ((GifView) a.this.djZ).a(gifInfo2);
                         } else {
-                            a.this.cvD = new TbImageView(a.this.getContext());
-                            ((TbImageView) a.this.cvD).setGifIconSupport(false);
-                            aVar.a(a.this.cvD);
+                            a.this.djZ = new TbImageView(a.this.getContext());
+                            ((TbImageView) a.this.djZ).setGifIconSupport(false);
+                            aVar.a(a.this.djZ);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(a.this.mImageWidth, a.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        a.this.addView(a.this.cvD, layoutParams2);
+                        a.this.addView(a.this.djZ, layoutParams2);
                     }
                 }
             }, null);

@@ -5,37 +5,50 @@ import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean apC;
-    private boolean apD;
-    private float x;
-    private float y;
+    private boolean bdA;
+    private boolean bdB;
+    private int mActivePointerId;
+    private float mInitialMotionX;
+    private float mInitialMotionY;
+    private float mLastMotionX;
+    private float mLastMotionY;
+    private int mTouchSlop;
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.apC = false;
-        this.apD = false;
+        this.bdA = false;
+        this.bdB = false;
+        this.mActivePointerId = -1;
+        initViewPager();
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apC = false;
-        this.apD = false;
+        this.bdA = false;
+        this.bdB = false;
+        this.mActivePointerId = -1;
+        initViewPager();
+    }
+
+    private void initViewPager() {
+        this.mTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.apC = z;
+        this.bdA = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.apC) {
+        if (motionEvent.getPointerCount() > 1 && this.bdA) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -48,37 +61,42 @@ public class BdBaseViewPager extends ViewPager {
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0044  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0048  */
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.apD) {
+        int findPointerIndex;
+        if (this.bdB) {
             return false;
         }
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
-        switch (motionEvent.getAction()) {
+        switch (motionEvent.getAction() & 255) {
             case 0:
-                this.x = getX();
-                this.y = getY();
-                if (Math.abs(this.x - getX()) <= Math.abs(this.y - getY())) {
-                    aP(true);
-                    break;
-                } else {
-                    aP(false);
+                float x = motionEvent.getX();
+                this.mInitialMotionX = x;
+                this.mLastMotionX = x;
+                float y = motionEvent.getY();
+                this.mInitialMotionY = y;
+                this.mLastMotionY = y;
+                this.mActivePointerId = motionEvent.getPointerId(0);
+                if (getCurrentItem() != 0) {
+                    bv(true);
                     break;
                 }
-            case 1:
-            default:
-                aP(true);
                 break;
             case 2:
-                if (Math.abs(this.x - getX()) <= Math.abs(this.y - getY())) {
+                int i = this.mActivePointerId;
+                if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1 && findPointerIndex < motionEvent.getPointerCount()) {
+                    float x2 = motionEvent.getX(findPointerIndex) - this.mLastMotionX;
+                    float abs = Math.abs(x2);
+                    float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.mInitialMotionY);
+                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0) {
+                        bv(false);
+                        return false;
+                    } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
+                        bv(true);
+                        break;
+                    }
                 }
                 break;
         }
@@ -87,22 +105,22 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.apD) {
+        if (this.bdB) {
             return false;
         }
-        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
+        switch (motionEvent.getAction() & 255) {
             case 0:
             case 2:
             case 5:
             case 6:
-                aP(true);
+                bv(true);
                 break;
             case 1:
             case 3:
-                aP(false);
+                bv(false);
                 break;
         }
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
         try {
@@ -112,18 +130,18 @@ public class BdBaseViewPager extends ViewPager {
         }
     }
 
-    private boolean k(MotionEvent motionEvent) {
+    private boolean t(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aP(boolean z) {
+    private void bv(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.apD = z;
+        this.bdB = z;
     }
 }

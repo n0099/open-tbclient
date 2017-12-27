@@ -1,5 +1,6 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
+import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
 
     /* loaded from: classes2.dex */
     public static class TBCdnMobileListData {
-        public String ecR = null;
-        public String ecS = null;
+        public String eOX = null;
+        public String eOY = null;
         public ArrayList<String> mobileIpList = new ArrayList<>();
     }
 
@@ -25,7 +26,7 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             try {
-                if (jSONObject.optInt("status", -1) == 0) {
+                if (jSONObject.optInt(NotificationCompat.CATEGORY_STATUS, -1) == 0) {
                     if (this.mobileCdnData == null) {
                         this.mobileCdnData = new TBCdnMobileListData();
                     }
@@ -39,8 +40,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.ecR = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.ecS = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.eOX = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.eOY = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

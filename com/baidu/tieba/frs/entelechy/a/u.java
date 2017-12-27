@@ -1,40 +1,38 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.tbadkCore.k;
+import com.baidu.adp.widget.ListView.o;
+import com.baidu.tbadk.core.data.be;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface u {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int amt();
+    int aub();
 
-    HashMap<Integer, bd> anD();
+    HashMap<Integer, be> avg();
 
-    void anE();
+    void avh();
 
-    int anF();
+    int avi();
 
-    int anG();
+    int avj();
 
-    int anH();
+    int avk();
 
-    int anI();
+    int avl();
 
-    void anJ();
+    void avm();
 
-    void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, k kVar);
+    void b(ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    void cN(boolean z);
+    void fP(boolean z);
 
-    void fj(boolean z);
+    List<com.baidu.adp.widget.ListView.i> getDatas();
 
-    List<com.baidu.adp.widget.ListView.f> getDatas();
-
-    boolean l(BdUniqueId bdUniqueId);
+    boolean k(BdUniqueId bdUniqueId);
 
     void notifyDataSetChanged();
 
@@ -44,5 +42,5 @@ public interface u {
 
     void setFromCDN(boolean z);
 
-    void setOnAdapterItemClickListener(com.baidu.adp.widget.ListView.h hVar);
+    void setOnAdapterItemClickListener(o oVar);
 }

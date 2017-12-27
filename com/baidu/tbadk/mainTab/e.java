@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean aIa;
+    protected boolean bvO;
 
     public e(Context context) {
         super(context);
-        this.aIa = false;
+        this.bvO = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIa = false;
+        this.bvO = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aIa = false;
+        this.bvO = false;
     }
 
-    public void dE(int i) {
+    public void gC(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bL(boolean z) {
+    public void co(boolean z) {
     }
 
     public View getContentTv() {
@@ -45,7 +45,10 @@ public abstract class e extends FrameLayout {
     public void a(String str, a aVar) {
     }
 
-    public a gC(String str) {
+    public void b(String str, a aVar) {
+    }
+
+    public a gF(String str) {
         return null;
     }
 
@@ -55,7 +58,7 @@ public abstract class e extends FrameLayout {
     public void setText(String str) {
     }
 
-    public void K(int i, int i2) {
+    public void aJ(int i, int i2) {
     }
 
     public void setCompoundDrawablesTopResId(int i) {
@@ -77,38 +80,38 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aIa = z;
+        this.bvO = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aIc;
-        public e aIe;
-        public int up;
+        public int aiC;
+        public int bvQ;
+        public e bvS;
         public View view;
-        public boolean aIb = true;
-        public int aId = d.C0095d.common_color_10225;
+        public boolean bvP = true;
+        public int bvR = d.C0108d.common_color_10225;
 
-        public void dE(int i) {
-            if (this.aIc != 0) {
-                aj.j(this.view, this.aIc);
+        public void gC(int i) {
+            if (this.bvQ != 0) {
+                aj.s(this.view, this.bvQ);
             }
             if (this.view instanceof TextView) {
-                if (this.aId != 0) {
-                    aj.c((TextView) this.view, this.aId, 1);
+                if (this.bvR != 0) {
+                    aj.e((TextView) this.view, this.bvR, 1);
                 }
-                int b = b((TextView) this.view);
-                if (b > 0 && b < 10) {
-                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_one);
-                } else if (b >= 10 && b < 100) {
-                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_two);
-                } else if (b >= 100) {
-                    aj.j((TextView) this.view, d.f.icon_news_head_prompt_more);
+                int e = e((TextView) this.view);
+                if (e > 0 && e < 10) {
+                    aj.s((TextView) this.view, d.f.icon_news_head_prompt_one);
+                } else if (e >= 10 && e < 100) {
+                    aj.s((TextView) this.view, d.f.icon_news_head_prompt_two);
+                } else if (e >= 100) {
+                    aj.s((TextView) this.view, d.f.icon_news_head_prompt_more);
                 }
             }
         }
 
-        private int b(TextView textView) {
+        private int e(TextView textView) {
             if (textView == null) {
                 return -1;
             }
@@ -116,7 +119,7 @@ public abstract class e extends FrameLayout {
             if ("   ".equals(charSequence)) {
                 return 100;
             }
-            return com.baidu.adp.lib.g.b.g(charSequence, -1);
+            return com.baidu.adp.lib.g.b.h(charSequence, -1);
         }
     }
 }

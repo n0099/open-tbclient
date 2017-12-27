@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class IjkMediaMeta {
     public static final long AV_CH_BACK_CENTER = 256;
     public static final long AV_CH_BACK_LEFT = 16;
@@ -200,7 +200,7 @@ public class IjkMediaMeta {
         return ijkMediaMeta;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class IjkStreamMeta {
         public long mBitrate;
         public long mChannelLayout;

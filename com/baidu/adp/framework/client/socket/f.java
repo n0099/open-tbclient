@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f og = null;
-    private int nQ = 0;
+    private static f acQ = null;
+    private int acB = 0;
 
-    public static f cQ() {
-        if (og == null) {
+    public static f ku() {
+        if (acQ == null) {
             synchronized (f.class) {
-                if (og == null) {
-                    og = new f();
+                if (acQ == null) {
+                    acQ = new f();
                 }
             }
         }
-        return og;
+        return acQ;
     }
 
     public synchronized void c(Map<String, String> map) {
         if (map != null) {
             try {
-                this.nQ = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.acB = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                i.a("SequenceManager", 0, 0, "setSequenceId", h.oZ, "parser Seq-Id error");
-                if (this.nQ == 0) {
-                    this.nQ = new Random().nextInt();
+                i.a("SequenceManager", 0, 0, "setSequenceId", h.adG, "parser Seq-Id error");
+                if (this.acB == 0) {
+                    this.acB = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int cK() {
+    public synchronized int getSequenceId() {
         int i;
-        if (this.nQ == 0) {
-            this.nQ++;
+        if (this.acB == 0) {
+            this.acB++;
         }
-        i = this.nQ;
-        this.nQ = i + 1;
+        i = this.acB;
+        this.acB = i + 1;
         return i;
     }
 }

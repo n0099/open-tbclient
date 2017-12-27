@@ -3,9 +3,9 @@ package android.support.v4.hardware.display;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.view.Display;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 final class a {
-    public static Object N(Context context) {
+    public static Object S(Context context) {
         return context.getSystemService("display");
     }
 
@@ -13,7 +13,7 @@ final class a {
         return ((DisplayManager) obj).getDisplay(i);
     }
 
-    public static Display[] e(Object obj) {
+    public static Display[] j(Object obj) {
         return ((DisplayManager) obj).getDisplays();
     }
 

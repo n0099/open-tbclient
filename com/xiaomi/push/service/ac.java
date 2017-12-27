@@ -22,6 +22,7 @@ import android.widget.RemoteViews;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.android.b;
 import com.xiaomi.push.service.ag;
 import java.lang.reflect.Field;
@@ -34,6 +35,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -167,7 +169,7 @@ public class ac {
         boolean z2 = (s != null && Boolean.parseBoolean(s.get("__adiom"))) || com.xiaomi.channel.commonutils.android.g.b();
         if (str2 != null && z2) {
             Bitmap bitmap = null;
-            if (str2.startsWith("http")) {
+            if (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 ag.b a6 = ag.a(context, str2);
                 if (a6 != null) {
                     bitmap = a6.a;
@@ -409,7 +411,7 @@ public class ac {
     }
 
     public static boolean a(Context context, String str) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.importance == 100 && Arrays.asList(runningAppProcessInfo.pkgList).contains(str)) {

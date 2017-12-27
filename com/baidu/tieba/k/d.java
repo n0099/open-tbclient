@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long D(File file) throws IOException {
+    public static long E(File file) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         try {
             return a(randomAccessFile, b(randomAccessFile));
@@ -23,7 +22,7 @@ final class d {
         if (length < 0) {
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
         }
-        long j = length - IjkMediaMeta.AV_CH_TOP_BACK_CENTER;
+        long j = length - 65536;
         long j2 = j >= 0 ? j : 0L;
         int reverseBytes = Integer.reverseBytes(101010256);
         long j3 = length;
@@ -49,14 +48,14 @@ final class d {
         long j = aVar.size;
         randomAccessFile.seek(aVar.offset);
         byte[] bArr = new byte[16384];
-        int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
+        int read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
         while (read != -1) {
             crc32.update(bArr, 0, read);
             j -= read;
             if (j == 0) {
                 break;
             }
-            read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
+            read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
         }
         return crc32.getValue();
     }

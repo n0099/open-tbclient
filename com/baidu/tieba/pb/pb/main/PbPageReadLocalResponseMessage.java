@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     private Context context;
     private boolean markCache;
@@ -59,7 +59,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.nG() != null && !this.pbData.nG().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.vj() != null && !this.pbData.vj().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

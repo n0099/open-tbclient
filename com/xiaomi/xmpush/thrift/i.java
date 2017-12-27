@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import android.net.http.Headers;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class i implements Serializable, Cloneable, org.apache.thrift.a<i, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> e;
     private static final org.apache.thrift.protocol.j f = new org.apache.thrift.protocol.j("GPS");
-    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("location", (byte) 12, 1);
+    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b(Headers.LOCATION, (byte) 12, 1);
     private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("provider", (byte) 11, 2);
     private static final org.apache.thrift.protocol.b i = new org.apache.thrift.protocol.b("period", (byte) 10, 3);
     private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b("accuracy", (byte) 4, 4);
@@ -24,7 +25,7 @@ public class i implements Serializable, Cloneable, org.apache.thrift.a<i, a> {
 
     /* loaded from: classes2.dex */
     public enum a {
-        LOCATION(1, "location"),
+        LOCATION(1, Headers.LOCATION),
         PROVIDER(2, "provider"),
         PERIOD(3, "period"),
         ACCURACY(4, "accuracy");
@@ -53,7 +54,7 @@ public class i implements Serializable, Cloneable, org.apache.thrift.a<i, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.LOCATION, (a) new org.apache.thrift.meta_data.b("location", (byte) 1, new org.apache.thrift.meta_data.g((byte) 12, l.class)));
+        enumMap.put((EnumMap) a.LOCATION, (a) new org.apache.thrift.meta_data.b(Headers.LOCATION, (byte) 1, new org.apache.thrift.meta_data.g((byte) 12, l.class)));
         enumMap.put((EnumMap) a.PROVIDER, (a) new org.apache.thrift.meta_data.b("provider", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PERIOD, (a) new org.apache.thrift.meta_data.b("period", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.ACCURACY, (a) new org.apache.thrift.meta_data.b("accuracy", (byte) 2, new org.apache.thrift.meta_data.c((byte) 4)));

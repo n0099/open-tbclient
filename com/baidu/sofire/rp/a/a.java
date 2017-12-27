@@ -10,9 +10,9 @@ import java.util.List;
 @SuppressLint({"InlinedApi"})
 /* loaded from: classes.dex */
 public final class a {
-    private SharedPreferences QG;
-    private SharedPreferences.Editor QH;
     public SharedPreferences a;
+    private SharedPreferences aFo;
+    private SharedPreferences.Editor aFp;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
     private Context f;
@@ -23,8 +23,8 @@ public final class a {
             this.a = context.getSharedPreferences("re_po_rt", 0);
             this.c = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.QG = context.getSharedPreferences("leroadcfg", 0);
-            this.QH = this.QG.edit();
+            this.aFo = context.getSharedPreferences("leroadcfg", 0);
+            this.aFp = this.aFo.edit();
         } catch (Throwable th) {
             d.a(th);
         }
@@ -36,7 +36,7 @@ public final class a {
     }
 
     public final List<b> a() {
-        b bZ;
+        b cg;
         String string = this.a.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
             return null;
@@ -44,8 +44,8 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         String[] split = string.split("\\|\\|");
         for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (bZ = b.bZ(str)) != null) {
-                arrayList.add(bZ);
+            if (!TextUtils.isEmpty(str) && (cg = b.cg(str)) != null) {
+                arrayList.add(cg);
             }
         }
         return arrayList;

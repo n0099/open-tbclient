@@ -5,7 +5,7 @@ public interface f {
 
     void bB(String str, String str2);
 
-    void c(String str, int i, int i2, String str2);
+    void d(String str, int i, int i2, String str2);
 
     void i(String str, int i, String str2);
 
@@ -15,13 +15,13 @@ public interface f {
 
     void l(String str, int i, String str2);
 
-    void oS(String str);
+    void pc(String str);
 
-    void oT(String str);
+    void pd(String str);
 
-    void oU(String str);
+    void pe(String str);
 
-    boolean oV(String str);
+    boolean pf(String str);
 
-    boolean oW(String str);
+    boolean pg(String str);
 }

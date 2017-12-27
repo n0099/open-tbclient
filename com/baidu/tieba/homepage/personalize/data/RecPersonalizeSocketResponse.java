@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     private DataRes resultData;
 

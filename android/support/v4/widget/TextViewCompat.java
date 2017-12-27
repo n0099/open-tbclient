@@ -1,0 +1,187 @@
+package android.support.v4.widget;
+
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.widget.TextView;
+/* loaded from: classes2.dex */
+public final class TextViewCompat {
+    static final TextViewCompatImpl IMPL;
+
+    /* loaded from: classes2.dex */
+    interface TextViewCompatImpl {
+        Drawable[] getCompoundDrawablesRelative(TextView textView);
+
+        int getMaxLines(TextView textView);
+
+        int getMinLines(TextView textView);
+
+        void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4);
+
+        void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4);
+
+        void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4);
+
+        void setTextAppearance(TextView textView, int i);
+    }
+
+    private TextViewCompat() {
+    }
+
+    /* loaded from: classes2.dex */
+    static class BaseTextViewCompatImpl implements TextViewCompatImpl {
+        BaseTextViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            textView.setCompoundDrawables(drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            textView.setCompoundDrawablesWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+            textView.setCompoundDrawablesWithIntrinsicBounds(i, i2, i3, i4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public int getMaxLines(TextView textView) {
+            return TextViewCompatGingerbread.getMaxLines(textView);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public int getMinLines(TextView textView) {
+            return TextViewCompatGingerbread.getMinLines(textView);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setTextAppearance(TextView textView, int i) {
+            TextViewCompatGingerbread.setTextAppearance(textView, i);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public Drawable[] getCompoundDrawablesRelative(TextView textView) {
+            return TextViewCompatGingerbread.getCompoundDrawablesRelative(textView);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class JbTextViewCompatImpl extends BaseTextViewCompatImpl {
+        JbTextViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public int getMaxLines(TextView textView) {
+            return TextViewCompatJb.getMaxLines(textView);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public int getMinLines(TextView textView) {
+            return TextViewCompatJb.getMinLines(textView);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class JbMr1TextViewCompatImpl extends JbTextViewCompatImpl {
+        JbMr1TextViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            TextViewCompatJbMr1.setCompoundDrawablesRelative(textView, drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            TextViewCompatJbMr1.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+            TextViewCompatJbMr1.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, i, i2, i3, i4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public Drawable[] getCompoundDrawablesRelative(TextView textView) {
+            return TextViewCompatJbMr1.getCompoundDrawablesRelative(textView);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class JbMr2TextViewCompatImpl extends JbMr1TextViewCompatImpl {
+        JbMr2TextViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.JbMr1TextViewCompatImpl, android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            TextViewCompatJbMr2.setCompoundDrawablesRelative(textView, drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.JbMr1TextViewCompatImpl, android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+            TextViewCompatJbMr2.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, drawable, drawable2, drawable3, drawable4);
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.JbMr1TextViewCompatImpl, android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+            TextViewCompatJbMr2.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, i, i2, i3, i4);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class Api23TextViewCompatImpl extends JbMr2TextViewCompatImpl {
+        Api23TextViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.widget.TextViewCompat.BaseTextViewCompatImpl, android.support.v4.widget.TextViewCompat.TextViewCompatImpl
+        public void setTextAppearance(TextView textView, int i) {
+            TextViewCompatApi23.setTextAppearance(textView, i);
+        }
+    }
+
+    static {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 23) {
+            IMPL = new Api23TextViewCompatImpl();
+        } else if (i >= 18) {
+            IMPL = new JbMr2TextViewCompatImpl();
+        } else if (i >= 17) {
+            IMPL = new JbMr1TextViewCompatImpl();
+        } else if (i >= 16) {
+            IMPL = new JbTextViewCompatImpl();
+        } else {
+            IMPL = new BaseTextViewCompatImpl();
+        }
+    }
+
+    public static void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        IMPL.setCompoundDrawablesRelative(textView, drawable, drawable2, drawable3, drawable4);
+    }
+
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        IMPL.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, drawable, drawable2, drawable3, drawable4);
+    }
+
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+        IMPL.setCompoundDrawablesRelativeWithIntrinsicBounds(textView, i, i2, i3, i4);
+    }
+
+    public static int getMaxLines(TextView textView) {
+        return IMPL.getMaxLines(textView);
+    }
+
+    public static int getMinLines(TextView textView) {
+        return IMPL.getMinLines(textView);
+    }
+
+    public static void setTextAppearance(TextView textView, int i) {
+        IMPL.setTextAppearance(textView, i);
+    }
+
+    public static Drawable[] getCompoundDrawablesRelative(TextView textView) {
+        return IMPL.getCompoundDrawablesRelative(textView);
+    }
+}

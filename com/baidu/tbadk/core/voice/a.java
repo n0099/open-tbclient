@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String xa() {
-        return q.hI();
+    public static String Ez() {
+        return q.pj();
     }
 
-    public static String ey(String str) {
+    public static String eF(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String ez(String str) {
-        return k.q(str, 1);
+    public static String eG(String str) {
+        return k.r(str, 1);
     }
 
-    public static String eA(String str) {
-        return f.az(ey(str));
+    public static String eH(String str) {
+        return f.aH(eF(str));
     }
 
-    public static boolean aE(String str) {
+    public static boolean aM(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

@@ -5,37 +5,37 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String gBH;
-    private String gBI;
-    private String gBJ;
-    private String gBK;
     private int height;
+    private String hiu;
+    private String hiv;
+    private String hiw;
+    private String hix;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.gBH = null;
+        this.hiu = null;
         this.urlFlag = 0;
-        this.gBI = null;
-        this.gBJ = null;
-        this.gBK = null;
+        this.hiv = null;
+        this.hiw = null;
+        this.hix = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.gBH = timgs.img_url;
+            this.hiu = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.gBI = timgs.url;
-            this.gBJ = timgs.big_cdn_url;
-            this.gBK = timgs.des_main;
+            this.hiv = timgs.url;
+            this.hiw = timgs.big_cdn_url;
+            this.hix = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.height = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.width = com.baidu.adp.lib.g.b.h(split[0], 1);
+                    this.height = com.baidu.adp.lib.g.b.h(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -51,19 +51,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.gBH;
+        return this.hiu;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pM() {
-        return this.gBI;
+    public String xp() {
+        return this.hiv;
     }
 
-    public String bwE() {
-        return this.gBH;
+    public String bBT() {
+        return this.hiu;
     }
 
-    public String bwF() {
-        return this.gBJ;
+    public String bBU() {
+        return this.hiw;
     }
 }

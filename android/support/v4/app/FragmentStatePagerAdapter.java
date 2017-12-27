@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
@@ -24,6 +24,9 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void startUpdate(ViewGroup viewGroup) {
+        if (viewGroup.getId() == -1) {
+            throw new IllegalStateException("ViewPager with adapter " + this + " requires a view id");
+        }
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -59,7 +62,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         while (this.mSavedState.size() <= i) {
             this.mSavedState.add(null);
         }
-        this.mSavedState.set(i, this.mFragmentManager.saveFragmentInstanceState(fragment));
+        this.mSavedState.set(i, fragment.isAdded() ? this.mFragmentManager.saveFragmentInstanceState(fragment) : null);
         this.mFragments.set(i, null);
         this.mCurTransaction.remove(fragment);
     }
@@ -83,9 +86,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
-            this.mCurTransaction.commitAllowingStateLoss();
+            this.mCurTransaction.commitNowAllowingStateLoss();
             this.mCurTransaction = null;
-            this.mFragmentManager.executePendingTransactions();
         }
     }
 
@@ -106,7 +108,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         Bundle bundle2 = bundle;
         for (int i = 0; i < this.mFragments.size(); i++) {
             Fragment fragment = this.mFragments.get(i);
-            if (fragment != null) {
+            if (fragment != null && fragment.isAdded()) {
                 if (bundle2 == null) {
                     bundle2 = new Bundle();
                 }

@@ -71,14 +71,14 @@ public class RequestParams {
 
     public HttpEntity getHttpEntity() {
         try {
-            return new UrlEncodedFormEntity(getParamsList(), ENCODING);
+            return new UrlEncodedFormEntity(getParamsList(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             return null;
         }
     }
 
     public final String getQueryString() {
-        return URLEncodedUtils.format(getParamsList(), ENCODING);
+        return URLEncodedUtils.format(getParamsList(), "UTF-8");
     }
 
     public final String toString() {

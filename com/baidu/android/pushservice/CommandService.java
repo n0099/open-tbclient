@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.k;
+import com.baidu.android.pushservice.h.l;
+import com.baidu.android.pushservice.h.q;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import java.lang.reflect.Method;
@@ -15,7 +16,6 @@ public class CommandService extends Service {
         String c = p.c(this, getPackageName(), intent.getAction());
         p.b("CommandService#onStartCommand#reflectReceiver#recevier = " + c, this);
         if (TextUtils.isEmpty(c)) {
-            com.baidu.android.pushservice.g.a.b("CommandService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);
             return;
@@ -28,7 +28,6 @@ public class CommandService extends Service {
             intent.setClassName(getPackageName(), c);
             method.invoke(newInstance, getApplicationContext(), intent);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("CommandService", e);
         }
     }
 
@@ -45,19 +44,16 @@ public class CommandService extends Service {
             intent.putExtra("bd.cross.request.SENDING", false);
             getApplicationContext().startService(intent);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("CommandService", e);
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        com.baidu.android.pushservice.g.a.c("CommandService", "onBind initSuc: ");
         return null;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        com.baidu.android.pushservice.g.a.c("CommandService", "-- CommandService oncreate -- ");
         super.onCreate();
     }
 
@@ -70,33 +66,27 @@ public class CommandService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null) {
             String action = intent.getAction();
-            com.baidu.android.pushservice.g.a.c("CommandService", "action = " + action);
             p.b("CommandService#onStartCommand#action = " + action, this);
             try {
                 if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
                     p.b("push_passthrough: receive  click delete and notified action", getApplicationContext());
-                    com.baidu.android.pushservice.g.a.c("CommandService", "handle passthrough notification " + action);
-                    k.a(getApplicationContext(), intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
+                    l.a(getApplicationContext(), intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
                     if (intent.getBooleanExtra("self_insert", false)) {
-                        new com.baidu.android.pushservice.h.p(this).a();
+                        new q(this).a();
                     }
                     stopSelf();
                 } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
                     String stringExtra = intent.getStringExtra("app_id");
                     String stringExtra2 = intent.getStringExtra("msg_id");
-                    ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, stringExtra2, stringExtra);
+                    ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, stringExtra2, stringExtra, intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
                     if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action)) {
-                        com.baidu.android.pushservice.h.p.a(getApplicationContext(), stringExtra2, "010203");
+                        q.a(getApplicationContext(), stringExtra2, "010203");
                     } else if ("com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
-                        com.baidu.android.pushservice.h.p.a(getApplicationContext(), stringExtra2, "010204");
+                        q.a(getApplicationContext(), stringExtra2, "010204");
                     }
                     stopSelf();
                 } else {
-                    if (intent.hasExtra("command_type")) {
-                        r0 = intent.getStringExtra("command_type");
-                        com.baidu.android.pushservice.g.a.c("CommandService", "-- command_type -- " + r0);
-                    }
-                    if ("reflect_receiver".equals(r0)) {
+                    if ("reflect_receiver".equals(intent.hasExtra("command_type") ? intent.getStringExtra("command_type") : null)) {
                         a(intent);
                     } else if (intent.hasExtra("bd.cross.request.COMMAND_TYPE")) {
                         String stringExtra3 = intent.getStringExtra("bd.cross.request.COMMAND_TYPE");
@@ -109,7 +99,6 @@ public class CommandService extends Service {
                     stopSelf();
                 }
             } catch (RuntimeException e) {
-                com.baidu.android.pushservice.g.a.e("CommandService", "runtime e: " + e);
             }
         }
         return 2;

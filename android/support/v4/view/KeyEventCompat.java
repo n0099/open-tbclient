@@ -3,28 +3,22 @@ package android.support.v4.view;
 import android.os.Build;
 import android.view.KeyEvent;
 import android.view.View;
-/* loaded from: classes.dex */
-public class KeyEventCompat {
+/* loaded from: classes2.dex */
+public final class KeyEventCompat {
     static final KeyEventVersionImpl IMPL;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface KeyEventVersionImpl {
-        boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2);
-
-        Object getKeyDispatcherState(View view);
-
-        boolean isTracking(KeyEvent keyEvent);
+        boolean isCtrlPressed(KeyEvent keyEvent);
 
         boolean metaStateHasModifiers(int i, int i2);
 
         boolean metaStateHasNoModifiers(int i);
 
         int normalizeMetaState(int i);
-
-        void startTracking(KeyEvent keyEvent);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class BaseKeyEventVersionImpl implements KeyEventVersionImpl {
         BaseKeyEventVersionImpl() {
         }
@@ -65,53 +59,13 @@ public class KeyEventCompat {
         }
 
         @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public void startTracking(KeyEvent keyEvent) {
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean isTracking(KeyEvent keyEvent) {
+        public boolean isCtrlPressed(KeyEvent keyEvent) {
             return false;
         }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public Object getKeyDispatcherState(View view) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
-            return keyEvent.dispatch(callback);
-        }
     }
 
-    /* loaded from: classes.dex */
-    static class EclairKeyEventVersionImpl extends BaseKeyEventVersionImpl {
-        EclairKeyEventVersionImpl() {
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public void startTracking(KeyEvent keyEvent) {
-            KeyEventCompatEclair.startTracking(keyEvent);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean isTracking(KeyEvent keyEvent) {
-            return KeyEventCompatEclair.isTracking(keyEvent);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public Object getKeyDispatcherState(View view) {
-            return KeyEventCompatEclair.getKeyDispatcherState(view);
-        }
-
-        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
-        public boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
-            return KeyEventCompatEclair.dispatch(keyEvent, callback, obj, obj2);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    static class HoneycombKeyEventVersionImpl extends EclairKeyEventVersionImpl {
+    /* loaded from: classes2.dex */
+    static class HoneycombKeyEventVersionImpl extends BaseKeyEventVersionImpl {
         HoneycombKeyEventVersionImpl() {
         }
 
@@ -128,6 +82,11 @@ public class KeyEventCompat {
         @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
         public boolean metaStateHasNoModifiers(int i) {
             return KeyEventCompatHoneycomb.metaStateHasNoModifiers(i);
+        }
+
+        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
+        public boolean isCtrlPressed(KeyEvent keyEvent) {
+            return KeyEventCompatHoneycomb.isCtrlPressed(keyEvent);
         }
     }
 
@@ -159,19 +118,30 @@ public class KeyEventCompat {
         return IMPL.metaStateHasNoModifiers(keyEvent.getMetaState());
     }
 
+    @Deprecated
     public static void startTracking(KeyEvent keyEvent) {
-        IMPL.startTracking(keyEvent);
+        keyEvent.startTracking();
     }
 
+    @Deprecated
     public static boolean isTracking(KeyEvent keyEvent) {
-        return IMPL.isTracking(keyEvent);
+        return keyEvent.isTracking();
     }
 
+    @Deprecated
     public static Object getKeyDispatcherState(View view) {
-        return IMPL.getKeyDispatcherState(view);
+        return view.getKeyDispatcherState();
     }
 
+    @Deprecated
     public static boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
-        return IMPL.dispatch(keyEvent, callback, obj, obj2);
+        return keyEvent.dispatch(callback, (KeyEvent.DispatcherState) obj, obj2);
+    }
+
+    public static boolean isCtrlPressed(KeyEvent keyEvent) {
+        return IMPL.isCtrlPressed(keyEvent);
+    }
+
+    private KeyEventCompat() {
     }
 }

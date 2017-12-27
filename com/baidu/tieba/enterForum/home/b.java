@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
 import com.baidu.tbadk.core.data.HotTopicBussinessData;
-import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.ad;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -33,13 +33,14 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.i;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.util.c;
 import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.data.f;
 import com.baidu.tieba.enterForum.data.g;
+import com.baidu.tieba.enterForum.data.h;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.tbadkCore.LikeModel;
@@ -47,190 +48,180 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.a {
-    private LikeModel bZx;
-    private BaseFragmentActivity beD;
-    private boolean ctA;
-    private boolean ctB;
-    private com.baidu.tieba.enterForum.home.a cts;
-    private EnterForumModel ctu;
-    private boolean ctv;
-    private String cty;
-    private long ctz;
+    private BaseFragmentActivity bRL;
+    private LikeModel cOc;
+    private com.baidu.tieba.enterForum.home.a dhQ;
+    private EnterForumModel dhS;
+    private boolean dhT;
+    private String dhV;
+    private long dhW;
+    private boolean dhX;
+    private boolean dhY;
     private boolean isFirst;
     private View mRootView;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
-    private com.baidu.tieba.enterForum.b.b ctt = null;
-    private boolean ctw = false;
-    private final CustomMessageListener beE = new CustomMessageListener(CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG) { // from class: com.baidu.tieba.enterForum.home.b.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && b.this.ctt != null) {
-                b.this.ctt.startPullRefresh();
-            }
-        }
-    };
-    private CustomMessageListener ctC = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_ENTERFORUM_GUIDE) { // from class: com.baidu.tieba.enterForum.home.b.8
+    private com.baidu.tieba.enterForum.b.b dhR = null;
+    private boolean dhU = false;
+    private CustomMessageListener dhZ = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_ENTERFORUM_GUIDE) { // from class: com.baidu.tieba.enterForum.home.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                b.this.ctw = true;
+                b.this.dhU = true;
             }
         }
     };
-    private com.baidu.adp.framework.listener.a ctD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.10
+    private com.baidu.adp.framework.listener.a dia = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.8
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.ctu.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                b.this.ctt.ahF();
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.dhS.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
+                b.this.dhR.sV();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = b.this.beD.getResources().getString(d.j.neterror);
+                        errorString = b.this.bRL.getResources().getString(d.j.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    b.this.beD.showToast(errorString);
-                    if (b.this.ctt.isEmpty()) {
-                        b.this.ctt.av(b.this.mRootView);
+                    b.this.bRL.showToast(errorString);
+                    if (b.this.dhR.isEmpty()) {
+                        b.this.dhR.bI(b.this.mRootView);
                         return;
                     }
                     return;
                 }
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    b.this.ctu.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    b.this.dhS.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    b.this.ctu.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    b.this.dhS.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
-    private CustomMessageListener ctE = new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_RESET_TABS) { // from class: com.baidu.tieba.enterForum.home.b.15
+    private CustomMessageListener dib = new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_RESET_TABS) { // from class: com.baidu.tieba.enterForum.home.b.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b.this.ctB = true;
+            b.this.dhY = true;
         }
     };
-    private com.baidu.adp.base.d ctF = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.b.4
+    private com.baidu.adp.base.d dic = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.b.3
         @Override // com.baidu.adp.base.d
-        public void f(Object obj) {
-            if (AntiHelper.uB(b.this.bZx.getErrorCode())) {
-                AntiHelper.am(b.this.beD.getPageContext().getPageActivity(), b.this.bZx.getErrorString());
+        public void ak(Object obj) {
+            if (AntiHelper.xo(b.this.cOc.getErrorCode())) {
+                AntiHelper.ap(b.this.bRL.getPageContext().getPageActivity(), b.this.cOc.getErrorString());
             } else if (obj != null) {
-                b.this.ctu.eC(!StringUtils.isNull(b.this.cty));
-            } else if (!StringUtils.isNull(b.this.bZx.getErrorString())) {
-                l.showToast(TbadkCoreApplication.getInst(), b.this.bZx.getErrorString());
+                b.this.dhS.fj(!StringUtils.isNull(b.this.dhV));
+            } else if (!StringUtils.isNull(b.this.cOc.getErrorString())) {
+                l.showToast(TbadkCoreApplication.getInst(), b.this.cOc.getErrorString());
             }
         }
     };
-    private final EnterForumModel.b ctG = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.5
+    private final EnterForumModel.b did = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.4
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (aVar != null && b.this.cts.isAdded()) {
+            if (aVar != null && b.this.dhQ.isAdded()) {
                 if (aVar.type == 1) {
-                    b.this.ctt.ahF();
+                    b.this.dhR.sV();
                 }
-                if (aVar.cua) {
+                if (aVar.dix) {
                     if (aVar.type == 1) {
-                        b.this.ctv = true;
+                        b.this.dhT = true;
                         new com.baidu.tieba.enterForum.data.b();
-                        b.this.a(aVar.cub);
-                    } else if (aVar.type == 0 && !b.this.ctv) {
+                        b.this.a(aVar.diy);
+                    } else if (aVar.type == 0 && !b.this.dhT) {
                         new com.baidu.tieba.enterForum.data.b();
-                        com.baidu.tieba.enterForum.data.b bVar = aVar.cub;
-                        b.this.ctu.c(bVar);
+                        com.baidu.tieba.enterForum.data.b bVar = aVar.diy;
+                        b.this.dhS.c(bVar);
                         b.this.a(bVar);
                     }
                 } else if (aVar.error != null && !aVar.error.equals("")) {
-                    b.this.beD.showToast(aVar.error);
+                    b.this.bRL.showToast(aVar.error);
                 }
                 if (aVar.type == 1 && TbadkCoreApplication.getInst().getIsNewRegUser() && b.this.isShow()) {
                     TbadkCoreApplication.getInst().setIsNewRegUser(false);
                 }
-                if (aVar.type == 1 && b.this.ctz > -1) {
+                if (aVar.type == 1 && b.this.dhW > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page("op_forum_enter", currentTimeMillis - b.this.ctz, b.this.ctu.ahs() - b.this.ctz, b.this.ctu.ahq(), b.this.ctu.ahr(), currentTimeMillis - b.this.ctu.ahp());
-                    b.this.ctz = -1L;
+                    TiebaStatic.page("op_forum_enter", currentTimeMillis - b.this.dhW, b.this.dhS.aoT() - b.this.dhW, b.this.dhS.aoR(), b.this.dhS.aoS(), currentTimeMillis - b.this.dhS.aoQ());
+                    b.this.dhW = -1L;
                 }
-                if (aVar.cub == null || aVar.cub.getHotSearchInfoData() == null) {
-                    b.this.setSearchHint(b.this.beD.getResources().getString(d.j.enter_forum_search_tip));
+                if (aVar.diy == null || aVar.diy.getHotSearchInfoData() == null) {
+                    b.this.setSearchHint(b.this.bRL.getResources().getString(d.j.enter_forum_search_tip));
                     return;
                 }
-                HotSearchInfoData hotSearchInfoData = aVar.cub.getHotSearchInfoData();
+                HotSearchInfoData hotSearchInfoData = aVar.diy.getHotSearchInfoData();
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData));
-                if (hotSearchInfoData != null && hotSearchInfoData.agP() != null) {
-                    b.this.setSearchHint(hotSearchInfoData.agP());
+                if (hotSearchInfoData != null && hotSearchInfoData.aoq() != null) {
+                    b.this.setSearchHint(hotSearchInfoData.aoq());
                 }
             }
         }
     };
-    private h.b amU = new h.b() { // from class: com.baidu.tieba.enterForum.home.b.6
-        @Override // com.baidu.tbadk.core.view.h.b
+    private i.b baS = new i.b() { // from class: com.baidu.tieba.enterForum.home.b.5
+        @Override // com.baidu.tbadk.core.view.i.b
         public void onListPullRefresh(boolean z) {
-            b.this.ctu.eC(!StringUtils.isNull(b.this.cty));
+            b.this.dhS.fj(!StringUtils.isNull(b.this.dhV));
             TbadkCoreApplication.getInst().setLikeBarChanged(false);
         }
     };
-    private ViewEventCenter csJ = new ViewEventCenter();
+    private ViewEventCenter dhh = new ViewEventCenter();
 
     public View getView() {
         return this.mRootView;
     }
 
     static {
-        OG();
+        Wf();
     }
 
     public b(com.baidu.tieba.enterForum.home.a aVar) {
-        this.ctu = null;
+        this.dhS = null;
         this.isFirst = true;
-        this.ctv = false;
-        this.ctz = -1L;
-        this.cts = aVar;
-        this.beD = aVar.getBaseFragmentActivity();
-        this.csJ.addEventDelegate(this);
-        this.ctz = System.currentTimeMillis();
+        this.dhT = false;
+        this.dhW = -1L;
+        this.dhQ = aVar;
+        this.bRL = aVar.getBaseFragmentActivity();
+        this.dhh.addEventDelegate(this);
+        this.dhW = System.currentTimeMillis();
         this.isFirst = true;
-        this.ctv = false;
-        this.cty = "";
-        this.ctu = new EnterForumModel(this.beD.getPageContext());
-        this.bZx = new LikeModel(this.beD.getPageContext());
-        this.bZx.setLoadDataCallBack(this.ctF);
-        this.ctu.a(this.ctG);
+        this.dhT = false;
+        this.dhV = "";
+        this.dhS = new EnterForumModel(this.bRL.getPageContext());
+        this.cOc = new LikeModel(this.bRL.getPageContext());
+        this.cOc.setLoadDataCallBack(this.dic);
+        this.dhS.a(this.did);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", false);
-        com.baidu.tieba.enterForum.model.a.ahk().l(this.cts.getFragmentActivity(), l.n(this.cts.getFragmentActivity()));
+        com.baidu.tieba.enterForum.model.a.aoL().y(this.dhQ.getFragmentActivity(), l.n(this.dhQ.getFragmentActivity()));
         initUI();
         initListener();
-        ahc();
+        aoD();
     }
 
     private void initListener() {
-        ahf();
-        this.cts.registerListener(this.ctE);
-        this.cts.registerListener(this.ctD);
-        this.cts.registerListener(this.beE);
-        this.cts.registerListener(this.ctC);
+        aoG();
+        this.dhQ.registerListener(this.dib);
+        this.dhQ.registerListener(this.dia);
+        this.dhQ.registerListener(this.dhZ);
     }
 
-    private static void OG() {
+    private static void Wf() {
         com.baidu.tieba.tbadkCore.a.a.a(303011, forumRecommendSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void ahc() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_LIKE_FORUM_LIST, new CustomMessageTask.CustomRunnable<ac>() { // from class: com.baidu.tieba.enterForum.home.b.9
+    private void aoD() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_LIKE_FORUM_LIST, new CustomMessageTask.CustomRunnable<ad>() { // from class: com.baidu.tieba.enterForum.home.b.7
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<ac> run(CustomMessage<ac> customMessage) {
-                ac acVar = new ac();
+            public CustomResponsedMessage<ad> run(CustomMessage<ad> customMessage) {
+                ad adVar = new ad();
                 ArrayList arrayList = new ArrayList();
-                if (b.this.ctu != null && b.this.ctu.aht() != null && b.this.ctu.aht().agM() != null && v.v(b.this.ctu.aht().agM().agR()) > 0) {
-                    Iterator<f> it = b.this.ctu.aht().agM().agR().iterator();
+                if (b.this.dhS != null && b.this.dhS.aoU() != null && b.this.dhS.aoU().aon() != null && v.F(b.this.dhS.aoU().aon().aos()) > 0) {
+                    Iterator<f> it = b.this.dhS.aoU().aon().aos().iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (next != null) {
@@ -241,9 +232,9 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                             arrayList.add(hotTopicBussinessData);
                         }
                     }
-                    acVar.r(arrayList);
+                    adVar.B(arrayList);
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_LIKE_FORUM_LIST, acVar);
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_LIKE_FORUM_LIST, adVar);
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -252,173 +243,173 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isChanged() {
-        return !this.ctu.i(this.ctt.ahG(), this.ctt.ahH());
+        return !this.dhS.i(this.dhR.apg(), this.dhR.aph());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahd() {
+    public void aoE() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT, 1));
-        this.ctt.ahD();
+        this.dhR.ape();
     }
 
-    public View ahe() {
-        return this.ctt.ahe();
+    public View aoF() {
+        return this.dhR.aoF();
     }
 
-    public void at(View view) {
-        this.ctt.at(view);
+    public void bG(View view) {
+        this.dhR.bG(view);
     }
 
-    private void ahf() {
-        this.cts.registerListener(new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL) { // from class: com.baidu.tieba.enterForum.home.b.11
+    private void aoG() {
+        this.dhQ.registerListener(new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL) { // from class: com.baidu.tieba.enterForum.home.b.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (!b.this.isChanged()) {
-                    b.this.ahd();
+                    b.this.aoE();
                 } else {
-                    b.this.ahg();
+                    b.this.aoH();
                 }
-                if (b.this.ctA) {
-                    b.this.ctt.startPullRefresh();
+                if (b.this.dhX) {
+                    b.this.dhR.startPullRefresh();
                 }
             }
         });
-        this.cts.registerListener(new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM) { // from class: com.baidu.tieba.enterForum.home.b.12
+        this.dhQ.registerListener(new CustomMessageListener(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM) { // from class: com.baidu.tieba.enterForum.home.b.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.ctt.ahD();
+                b.this.dhR.ape();
                 if (b.this.isChanged()) {
-                    if (b.this.ctt.isEmpty()) {
-                        b.this.ctt.av(b.this.mRootView);
+                    if (b.this.dhR.isEmpty()) {
+                        b.this.dhR.bI(b.this.mRootView);
                         return;
                     } else {
-                        b.this.ctt.ahC();
-                        b.this.ctu.aF(b.this.ctt.ahG());
+                        b.this.dhR.apd();
+                        b.this.dhS.aQ(b.this.dhR.apg());
                     }
                 }
-                if (b.this.ctA) {
-                    b.this.ctt.startPullRefresh();
+                if (b.this.dhX) {
+                    b.this.dhR.startPullRefresh();
                 }
             }
         });
     }
 
-    public void ahg() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.beD.getPageContext().getPageActivity());
-        aVar.cd(d.j.enter_forum_cancel_change_tip);
-        aVar.a(TbadkCoreApplication.getInst().getString(d.j.enter_forum_cancel_change), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.13
+    public void aoH() {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bRL.getPageContext().getPageActivity());
+        aVar.fd(d.j.enter_forum_cancel_change_tip);
+        aVar.a(TbadkCoreApplication.getInst().getString(d.j.enter_forum_cancel_change), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.11
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                b.this.ahd();
+                b.this.aoE();
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", false);
             }
         });
-        aVar.b(TbadkCoreApplication.getInst().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.14
+        aVar.b(TbadkCoreApplication.getInst().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.12
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
             }
         });
-        aVar.ce(d.C0095d.cp_cont_b);
-        aVar.b(this.beD.getPageContext());
-        aVar.th();
+        aVar.fe(d.C0108d.cp_cont_b);
+        aVar.b(this.bRL.getPageContext());
+        aVar.AI();
     }
 
     public void a(final f fVar) {
         if (fVar != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.beD.getPageContext().getPageActivity());
-            aVar.cS(String.format(this.beD.getPageContext().getString(d.j.attention_cancel_dialog_message), fVar.getName()));
-            aVar.a(TbadkCoreApplication.getInst().getString(d.j.cancel_attention), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.2
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bRL.getPageContext().getPageActivity());
+            aVar.cZ(String.format(this.bRL.getPageContext().getString(d.j.attention_cancel_dialog_message), fVar.getName()));
+            aVar.a(TbadkCoreApplication.getInst().getString(d.j.cancel_attention), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.14
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    if (!l.hy()) {
-                        b.this.beD.showToast(d.j.delete_like_fail);
+                    if (!l.oZ()) {
+                        b.this.bRL.showToast(d.j.delete_like_fail);
                     } else {
                         new a(fVar).execute(new f[0]);
                     }
-                    TiebaStatic.eventStat(b.this.beD.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(b.this.bRL.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
                     aVar2.dismiss();
                 }
             });
-            aVar.b(TbadkCoreApplication.getInst().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.3
+            aVar.b(TbadkCoreApplication.getInst().getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.enterForum.home.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
-            aVar.ce(d.C0095d.cp_cont_b);
-            aVar.b(this.beD.getPageContext());
-            aVar.th();
+            aVar.fe(d.C0108d.cp_cont_b);
+            aVar.b(this.bRL.getPageContext());
+            aVar.AI();
         }
     }
 
-    public void ey(boolean z) {
+    public void ff(boolean z) {
         if (this.mWaitingDialog == null) {
-            ahh();
+            aoI();
         }
-        this.mWaitingDialog.aE(z);
+        this.mWaitingDialog.bm(z);
     }
 
-    private void ahh() {
-        this.mWaitingDialog = new com.baidu.tbadk.core.view.b(this.beD.getPageContext());
+    private void aoI() {
+        this.mWaitingDialog = new com.baidu.tbadk.core.view.b(this.bRL.getPageContext());
     }
 
     private void initUI() {
-        this.mRootView = LayoutInflater.from(this.beD.getActivity()).inflate(d.h.enter_forum_view, (ViewGroup) null);
-        this.ctt = new com.baidu.tieba.enterForum.b.b(this.cts, this.mRootView, this.csJ);
-        this.ctt.a(this.amU);
+        this.mRootView = LayoutInflater.from(this.bRL.getActivity()).inflate(d.h.enter_forum_view, (ViewGroup) null);
+        this.dhR = new com.baidu.tieba.enterForum.b.b(this.dhQ, this.mRootView, this.dhh);
+        this.dhR.a(this.baS);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ez(boolean z) {
-        if (this.ctt != null && this.cts != null) {
+    public void fg(boolean z) {
+        if (this.dhR != null && this.dhQ != null) {
             if (z) {
-                if (this.cts.isPrimary() && this.cts.isResumed()) {
-                    this.ctt.startPullRefresh();
+                if (this.dhQ.isPrimary() && this.dhQ.isResumed()) {
+                    this.dhR.startPullRefresh();
                     return;
                 } else {
-                    this.ctt.ahF();
+                    this.dhR.sV();
                     return;
                 }
             }
-            this.ctt.ahF();
+            this.dhR.sV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isShow() {
-        return !this.cts.isHidden();
+        return !this.dhQ.isHidden();
     }
 
     public void a(com.baidu.tieba.enterForum.data.b bVar) {
-        if (this.ctt != null) {
+        if (this.dhR != null) {
             if (bVar == null) {
-                this.ctt.av(this.mRootView);
+                this.dhR.bI(this.mRootView);
                 return;
             }
-            g agM = bVar.agM();
+            g aon = bVar.aon();
             ArrayList<f> arrayList = new ArrayList<>();
-            if (agM != null) {
-                arrayList = agM.agR();
+            if (aon != null) {
+                arrayList = aon.aos();
             }
-            aD(arrayList);
+            aO(arrayList);
             if (b(bVar)) {
-                this.ctt.aK(bVar.agN());
+                this.dhR.aV(bVar.aoo());
             }
             HotSearchInfoData hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("hot_search_info", ""), HotSearchInfoData.class);
-            if (hotSearchInfoData != null && hotSearchInfoData.agP() != null) {
-                setSearchHint(hotSearchInfoData.agP());
+            if (hotSearchInfoData != null && hotSearchInfoData.aoq() != null) {
+                setSearchHint(hotSearchInfoData.aoq());
             }
-            this.ctt.ahI();
+            this.dhR.api();
         }
     }
 
     public boolean b(com.baidu.tieba.enterForum.data.b bVar) {
         if (TbadkCoreApplication.isLogin() && bVar != null) {
-            if ((bVar.agM() == null || v.w(bVar.agM().agR())) && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_recommend_forums_window_", false)) {
+            if ((bVar.aon() == null || v.G(bVar.aon().aos())) && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_recommend_forums_window_", false)) {
                 return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("set_recommend_label", false);
             }
             return false;
@@ -429,62 +420,62 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     /* JADX INFO: Access modifiers changed from: private */
     public void setSearchHint(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ctt.setSearchHint(str.trim());
+            this.dhR.setSearchHint(str.trim());
         } else {
-            this.ctt.setSearchHint(this.beD.getActivity().getString(d.j.enter_forum_search_tip));
+            this.dhR.setSearchHint(this.bRL.getActivity().getString(d.j.enter_forum_search_tip));
         }
     }
 
-    private void aD(List<f> list) {
+    private void aO(List<f> list) {
         if (list != null) {
             if (list.size() > 500) {
                 list = list.subList(0, 500);
             }
-            this.ctt.aJ(this.ctu.a(list, c.Hc()));
+            this.dhR.aU(this.dhS.a(list, c.OB()));
         }
     }
 
-    public void Om() {
-        if (this.ctt != null) {
-            eA(false);
+    public void VL() {
+        if (this.dhR != null) {
+            fh(false);
         }
     }
 
     public void onDestroy() {
-        EL();
-        com.baidu.tieba.enterForum.model.a.ahk().destroy();
-        if (this.ctt != null) {
-            if (this.ctu != null && TbadkCoreApplication.getInst().getLikeBarChanged()) {
-                this.ctu.aF(this.ctt.ahG());
+        Ml();
+        com.baidu.tieba.enterForum.model.a.aoL().destroy();
+        if (this.dhR != null) {
+            if (this.dhS != null && TbadkCoreApplication.getInst().getLikeBarChanged()) {
+                this.dhS.aQ(this.dhR.apg());
             }
-            this.ctt.onDestroy();
+            this.dhR.onDestroy();
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_GET_LIKE_FORUM_LIST);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ctt != null) {
-            this.ctt.onChangeSkinType(i);
+        if (this.dhR != null) {
+            this.dhR.onChangeSkinType(i);
         }
     }
 
-    public void EL() {
-        if (this.ctu != null) {
-            this.ctu.cancelLoadData();
+    public void Ml() {
+        if (this.dhS != null) {
+            this.dhS.cancelLoadData();
         }
     }
 
-    public void eA(boolean z) {
+    public void fh(boolean z) {
         boolean z2;
         boolean z3;
-        if (!this.ctB && this.ctu != null && this.ctt != null) {
-            String str = this.cty;
-            this.cty = TbadkCoreApplication.getCurrentAccount();
+        if (!this.dhY && this.dhS != null && this.dhR != null) {
+            String str = this.dhV;
+            this.dhV = TbadkCoreApplication.getCurrentAccount();
             if (this.isFirst) {
                 this.isFirst = false;
                 z2 = true;
                 z3 = false;
-            } else if (this.cty == null || this.cty.equals(str)) {
+            } else if (this.dhV == null || this.dhV.equals(str)) {
                 z2 = false;
                 z3 = false;
             } else {
@@ -497,12 +488,12 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
             }
             boolean z4 = z ? true : z3;
             if (TbadkCoreApplication.getInst().signedForumCount() > 0) {
-                if (this.ctu != null && this.ctu.aht() != null && this.ctu.aht().agM() != null) {
-                    Iterator<f> it = this.ctu.aht().agM().agR().iterator();
+                if (this.dhS != null && this.dhS.aoU() != null && this.dhS.aoU().aon() != null) {
+                    Iterator<f> it = this.dhS.aoU().aon().aos().iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (TbadkCoreApplication.getInst().hasSignedForum(next.getName())) {
-                            next.jn(1);
+                            next.ml(1);
                             int signLevelUpValue = TbadkCoreApplication.getInst().getSignLevelUpValue(next.getName());
                             if (signLevelUpValue > 0) {
                                 next.setLevel(signLevelUpValue);
@@ -513,17 +504,17 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    com.baidu.tieba.tbadkCore.util.a.th(currentAccount);
+                    com.baidu.tieba.tbadkCore.util.a.tg(currentAccount);
                 }
-                this.ctt.notifyDataSetChanged();
+                this.dhR.notifyDataSetChanged();
             }
             if (z2 || z4) {
-                EL();
+                Ml();
                 if (z4) {
-                    this.ctu.eC(StringUtils.isNull(this.cty) ? false : true);
+                    this.dhS.fj(StringUtils.isNull(this.dhV) ? false : true);
                 } else if (z2) {
-                    this.ctu.eD(!StringUtils.isNull(this.cty));
-                    this.ctu.eC(StringUtils.isNull(this.cty) ? false : true);
+                    this.dhS.fk(!StringUtils.isNull(this.dhV));
+                    this.dhS.fj(StringUtils.isNull(this.dhV) ? false : true);
                 }
             }
         }
@@ -536,19 +527,19 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     }
 
     public void onPause() {
-        if (this.ctt != null && this.ctt.ahB() != null) {
-            this.ctt.ahB().completePullRefresh();
+        if (this.dhR != null && this.dhR.apc() != null) {
+            this.dhR.apc().completePullRefresh();
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a extends BdAsyncTask<f, Integer, String> {
-        private f ctL;
+        private f dii;
         private x mNetwork = null;
 
         public a(f fVar) {
-            this.ctL = null;
-            this.ctL = fVar;
+            this.dii = null;
+            this.dii = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -556,15 +547,15 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public String doInBackground(f... fVarArr) {
-            f fVar = this.ctL;
+            f fVar = this.dii;
             if (fVar != null) {
                 try {
                     if (fVar.getId() != null && fVar.getName() != null) {
                         this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/c/forum/unfavo");
                         this.mNetwork.n(ImageViewerConfig.FORUM_ID, fVar.getId());
                         this.mNetwork.n("kw", fVar.getName());
-                        this.mNetwork.uN().vK().mIsNeedTbs = true;
-                        this.mNetwork.up();
+                        this.mNetwork.Cn().Dk().mIsNeedTbs = true;
+                        this.mNetwork.BP();
                         return null;
                     }
                     return null;
@@ -581,27 +572,27 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.ey(false);
+            b.this.ff(false);
             if (this.mNetwork != null) {
-                if (this.mNetwork.uN().vL().isRequestSuccess()) {
-                    b.this.ctA = true;
-                    if (b.this.cts.isAdded() && b.this.beD != null) {
-                        b.this.beD.showToast(b.this.beD.getActivity().getString(d.j.unlike_success));
+                if (this.mNetwork.Cn().Dl().isRequestSuccess()) {
+                    b.this.dhX = true;
+                    if (b.this.dhQ.isAdded() && b.this.bRL != null) {
+                        b.this.bRL.showToast(b.this.bRL.getActivity().getString(d.j.unlike_success));
                     }
                     TbadkCoreApplication.getInst().setLikeBarChanged(true);
-                    b.this.f(false, this.ctL.getId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, this.ctL.getId()));
-                    long c = com.baidu.adp.lib.g.b.c(this.ctL.getId(), 0L);
+                    b.this.f(false, this.dii.getId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, this.dii.getId()));
+                    long c = com.baidu.adp.lib.g.b.c(this.dii.getId(), 0L);
                     if (c > 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(c)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.ctL.getName()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.dii.getName()));
                     }
-                    b.this.ctt.b(this.ctL);
-                } else if (b.this.beD != null) {
+                    b.this.dhR.b(this.dii);
+                } else if (b.this.bRL != null) {
                     if (!StringUtils.isNull(this.mNetwork.getErrorString())) {
-                        b.this.beD.showToast(this.mNetwork.getErrorString());
-                    } else if (b.this.cts.isAdded()) {
-                        b.this.beD.showToast(b.this.beD.getActivity().getString(d.j.delete_like_fail));
+                        b.this.bRL.showToast(this.mNetwork.getErrorString());
+                    } else if (b.this.dhQ.isAdded()) {
+                        b.this.bRL.showToast(b.this.bRL.getActivity().getString(d.j.delete_like_fail));
                     }
                 }
             }
@@ -610,13 +601,13 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            b.this.ey(true);
+            b.this.ff(true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.fo();
+                this.mNetwork.mR();
                 this.mNetwork = null;
             }
             super.cancel(true);
@@ -625,13 +616,13 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(final boolean z, final String str) {
-        new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.home.b.7
+        new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.home.b.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tieba.im.settingcache.d.aDi().h(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
+                    com.baidu.tieba.im.settingcache.d.aKk().h(TbadkCoreApplication.getCurrentAccount(), String.valueOf(str), z);
                 }
                 return null;
             }
@@ -642,23 +633,23 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
         int i = 0;
-        int Fi = bVar.Fi();
-        com.baidu.tbadk.mvc.b.a Fj = bVar.Fj();
-        switch (Fi) {
+        int MH = bVar.MH();
+        com.baidu.tbadk.mvc.b.a MI = bVar.MI();
+        switch (MH) {
             case 1:
-                if (Fj instanceof f) {
-                    String name = ((f) Fj).getName();
-                    if (am.aL(name)) {
-                        this.beD.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.beD.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-                        List<f> ahG = this.ctt.ahG();
-                        if (!v.w(ahG)) {
-                            if (v.v(ahG) > 1 && ahG.get(0).getType() == 1) {
+                if (MI instanceof f) {
+                    String name = ((f) MI).getName();
+                    if (am.aT(name)) {
+                        this.bRL.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bRL.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                        List<f> apg = this.dhR.apg();
+                        if (!v.G(apg)) {
+                            if (v.F(apg) > 1 && apg.get(0).getType() == 1) {
                                 i = 1;
                             }
                             int i2 = i;
                             while (true) {
-                                if (i2 < ahG.size()) {
-                                    if (!ahG.get(i2).getName().equals(name)) {
+                                if (i2 < apg.size()) {
+                                    if (!apg.get(i2).getName().equals(name)) {
                                         i2++;
                                     } else {
                                         i = (i2 - i) + 2;
@@ -666,7 +657,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                                 }
                             }
                         }
-                        TiebaStatic.log(new ak("c12049").ac("obj_type", "2").r("obj_locate", i));
+                        TiebaStatic.log(new ak("c12049").ab("obj_type", "2").s("obj_locate", i));
                         return true;
                     }
                     return false;
@@ -678,20 +669,20 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT, 2));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", true);
-                this.ctt.jp(Fj instanceof com.baidu.tieba.enterForum.data.h ? ((com.baidu.tieba.enterForum.data.h) Fj).getPosition() : 0);
-                this.ctA = false;
-                if (this.cts.getView() == null || this.cts.getView().getParent() == null) {
+                this.dhR.mn(MI instanceof h ? ((h) MI).getPosition() : 0);
+                this.dhX = false;
+                if (this.dhQ.getView() == null || this.dhQ.getView().getParent() == null) {
                     return true;
                 }
-                this.cts.getView().getParent().requestDisallowInterceptTouchEvent(true);
+                this.dhQ.getView().getParent().requestDisallowInterceptTouchEvent(true);
                 return true;
             case 3:
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", false);
                 return true;
             case 4:
-                if (Fj instanceof f) {
-                    a((f) Fj);
+                if (MI instanceof f) {
+                    a((f) MI);
                     return true;
                 }
                 return false;
@@ -699,59 +690,59 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
             default:
                 return false;
             case 6:
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE, new SingleSquareActivityConfig(this.beD.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE, new SingleSquareActivityConfig(this.bRL.getPageContext().getPageActivity())));
                 if (!TbadkCoreApplication.isLogin()) {
-                    TiebaStatic.eventStat(this.beD.getPageContext().getPageActivity(), "notlogin_6", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.bRL.getPageContext().getPageActivity(), "notlogin_6", "click", 1, new Object[0]);
                 }
                 TiebaStatic.log(new ak("find_more_text_click"));
                 return true;
             case 7:
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(this.beD.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(this.bRL.getPageContext().getPageActivity())));
                 if (!TbadkCoreApplication.isLogin()) {
-                    TiebaStatic.eventStat(this.beD.getPageContext().getPageActivity(), "notlogin_8", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.bRL.getPageContext().getPageActivity(), "notlogin_8", "click", 1, new Object[0]);
                 }
-                TiebaStatic.log(new ak("c10378").ac("obj_type", "4"));
+                TiebaStatic.log(new ak("c10378").ab("obj_type", "4"));
                 return true;
             case 8:
-                TiebaStatic.log(new ak("c12049").ac("obj_type", "2").r("obj_locate", 1));
-                this.beD.finish();
+                TiebaStatic.log(new ak("c12049").ab("obj_type", "2").s("obj_locate", 1));
+                this.bRL.finish();
                 return true;
             case 9:
-                if (this.ctt != null) {
-                    this.ctt.startPullRefresh();
+                if (this.dhR != null) {
+                    this.dhR.startPullRefresh();
                     return true;
                 }
                 return true;
         }
     }
 
-    public void ahi() {
-        if (this.ctt != null) {
-            this.ctt.ahE();
+    public void aoJ() {
+        if (this.dhR != null) {
+            this.dhR.apf();
         }
     }
 
-    public boolean ahj() {
-        if (this.ctt != null) {
-            return this.ctt.ahj();
+    public boolean aoK() {
+        if (this.dhR != null) {
+            return this.dhR.aoK();
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Fh() {
+    public boolean MG() {
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
     public BdUniqueId getUniqueId() {
-        return this.beD.getUniqueId();
+        return this.bRL.getUniqueId();
     }
 
-    public void eB(boolean z) {
+    public void fi(boolean z) {
         int i = 1;
-        if (this.ctt != null && this.cts != null) {
-            boolean z2 = this.ctt.ahj() && this.cts.isPrimary();
+        if (this.dhR != null && this.dhQ != null) {
+            boolean z2 = this.dhR.aoK() && this.dhQ.isPrimary();
             if (z2 && z) {
                 i = 2;
             } else if (z2 || !z) {

@@ -24,7 +24,7 @@ public final class b {
         return jSONObject.toString();
     }
 
-    public static b bZ(String str) {
+    public static b cg(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);

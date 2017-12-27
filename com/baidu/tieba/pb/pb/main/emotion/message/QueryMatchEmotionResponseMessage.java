@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
     private List<EmotionImageData> mData;
 

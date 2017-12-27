@@ -1,34 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private int eKZ = 0;
-    private int fRc = 0;
-    private boolean fRd = false;
-    private boolean fRe = true;
+    private boolean gDZ;
+    private boolean gEa;
+    private Runnable gEb = new Runnable() { // from class: com.baidu.tieba.play.r.1
+        @Override // java.lang.Runnable
+        public void run() {
+            r.this.gDZ = false;
+        }
+    };
+    private Runnable gEc = new Runnable() { // from class: com.baidu.tieba.play.r.2
+        @Override // java.lang.Runnable
+        public void run() {
+            r.this.gEa = false;
+        }
+    };
 
-    public int bjC() {
-        return this.eKZ;
+    public void onPrepared() {
+        this.gEa = true;
+        com.baidu.adp.lib.g.e.nr().postDelayed(this.gEc, 500L);
     }
 
-    public int bjD() {
-        return this.fRc;
+    public void bqX() {
+        this.gDZ = true;
     }
 
-    public boolean bjE() {
-        return this.fRd;
+    public void bqY() {
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gEb);
+        com.baidu.adp.lib.g.e.nr().postDelayed(this.gEb, 500L);
     }
 
-    public boolean bjF() {
-        return this.fRe;
+    public void a(int i, int i2, com.baidu.tieba.i.i iVar) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.gDZ && !this.gEa) {
+            iVar.aVb();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.gDZ && !this.gEa) {
+            iVar.aVc();
+            this.gDZ = false;
+            this.gEa = false;
+            bqZ();
+        }
     }
 
-    public void i(int i, int i2, boolean z) {
-        this.eKZ = i;
-        this.fRc = i2;
-        this.fRd = z;
-    }
-
-    public void hH(boolean z) {
-        this.fRe = z;
+    public void bqZ() {
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gEb);
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gEc);
     }
 }

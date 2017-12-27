@@ -4,7 +4,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
     private FragmentTransaction mCurTransaction = null;
     private Fragment mCurrentPrimaryItem = null;
@@ -18,6 +18,9 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void startUpdate(ViewGroup viewGroup) {
+        if (viewGroup.getId() == -1) {
+            throw new IllegalStateException("ViewPager with adapter " + this + " requires a view id");
+        }
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -67,9 +70,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
-            this.mCurTransaction.commitAllowingStateLoss();
+            this.mCurTransaction.commitNowAllowingStateLoss();
             this.mCurTransaction = null;
-            this.mFragmentManager.executePendingTransactions();
         }
     }
 

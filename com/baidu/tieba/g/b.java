@@ -2,54 +2,54 @@ package com.baidu.tieba.g;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.i;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
-public class b implements f {
-    public static final BdUniqueId dio = BdUniqueId.gen();
-    private int cdB;
-    private List<a> dip;
-    private String diq;
-    private String dir;
+public class b implements i {
+    public static final BdUniqueId dUw = BdUniqueId.gen();
+    private int cSe;
+    private List<a> dUx;
+    private String dUy;
+    private String dUz;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.cdB = esport.floor_no.intValue();
+            this.cSe = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.diq = esport._static.img;
-                this.dir = esport._static.url;
+                this.dUy = esport._static.img;
+                this.dUz = esport._static.url;
             }
-            this.dip = new ArrayList();
-            if (!StringUtils.isNull(this.diq)) {
+            this.dUx = new ArrayList();
+            if (!StringUtils.isNull(this.dUy)) {
                 a aVar = new a();
-                aVar.lO(this.diq);
-                aVar.lP(this.dir);
-                this.dip.add(aVar);
+                aVar.lX(this.dUy);
+                aVar.lY(this.dUz);
+                this.dUx.add(aVar);
             }
-            if (!v.w(esport.billboard)) {
+            if (!v.G(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.dip.add(aVar2);
+                    this.dUx.add(aVar2);
                 }
             }
         }
     }
 
-    public int asy() {
-        return this.cdB;
+    public int azE() {
+        return this.cSe;
     }
 
-    public List<a> asz() {
-        return this.dip;
+    public List<a> azF() {
+        return this.dUx;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dio;
+        return dUw;
     }
 }

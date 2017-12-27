@@ -1,45 +1,46 @@
 package com.baidu.tbadk.data;
 
+import android.net.http.Headers;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int aAL = 1;
-    private int aAM = 1;
-    private int aAN = 1;
-    private int aAO = 1;
-    private int aAP = 1;
-    private int aAQ = 1;
+    private int boH = 1;
+    private int boI = 1;
+    private int boJ = 1;
+    private int boK = 1;
+    private int boL = 1;
+    private int boM = 1;
 
-    public int CB() {
-        return this.aAM;
+    public int Kd() {
+        return this.boI;
     }
 
-    public int CC() {
-        return this.aAQ;
+    public int Ke() {
+        return this.boM;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aAL = jSONObject.optInt("location", 1);
-            this.aAM = jSONObject.optInt("like", 1);
-            this.aAN = jSONObject.optInt("group", 1);
-            this.aAO = jSONObject.optInt("post", 1);
-            this.aAP = jSONObject.optInt("friend", 1);
-            this.aAQ = jSONObject.optInt("live", 1);
+            this.boH = jSONObject.optInt(Headers.LOCATION, 1);
+            this.boI = jSONObject.optInt("like", 1);
+            this.boJ = jSONObject.optInt("group", 1);
+            this.boK = jSONObject.optInt("post", 1);
+            this.boL = jSONObject.optInt("friend", 1);
+            this.boM = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.aAL = privSets.location.intValue();
-                this.aAM = privSets.like.intValue();
-                this.aAN = privSets.group.intValue();
-                this.aAO = privSets.post.intValue();
-                this.aAP = privSets.friend.intValue();
-                this.aAQ = privSets.live.intValue();
+                this.boH = privSets.location.intValue();
+                this.boI = privSets.like.intValue();
+                this.boJ = privSets.group.intValue();
+                this.boK = privSets.post.intValue();
+                this.boL = privSets.friend.intValue();
+                this.boM = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

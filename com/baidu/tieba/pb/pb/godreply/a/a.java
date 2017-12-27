@@ -4,108 +4,107 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private ViewGroup RU;
-    private View.OnClickListener avq;
-    private b eSE;
-    private int apG = 3;
-    private final int[] eSD = new int[2];
-    private int eSF = ExploreByTouchHelper.INVALID_ID;
-    private int eSG = ExploreByTouchHelper.INVALID_ID;
-    private boolean eSH = false;
+    private ViewGroup aGy;
+    private View.OnClickListener bjw;
+    private b fFf;
+    private int bdE = 3;
+    private final int[] fFe = new int[2];
+    private int fFg = Integer.MIN_VALUE;
+    private int fFh = Integer.MIN_VALUE;
+    private boolean fFi = false;
 
     public void E(View.OnClickListener onClickListener) {
-        this.avq = onClickListener;
+        this.bjw = onClickListener;
     }
 
     public void showTip(View view) {
         Context context;
         if (view != null && (context = view.getContext()) != null && (context instanceof Activity)) {
-            if (this.RU == null) {
-                this.RU = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
+            if (this.aGy == null) {
+                this.aGy = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
             }
-            if (this.RU != null) {
-                view.getLocationOnScreen(this.eSD);
+            if (this.aGy != null) {
+                view.getLocationOnScreen(this.fFe);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.eSE == null) {
-                    this.eSE = new b(context);
+                if (this.fFf == null) {
+                    this.fFf = new b(context);
                 }
-                this.eSE.animate().cancel();
-                this.eSE.setAlpha(0.0f);
-                this.eSE.animate().alpha(1.0f).setListener(null).start();
-                this.eSE.setOnClickListener(this.avq);
-                this.eSE.onChangeSkinType(this.apG);
-                if (this.eSE.getParent() != null && this.eSE.getParent() != this.RU) {
-                    ((ViewGroup) this.eSE.getParent()).removeView(this.eSE);
+                this.fFf.animate().cancel();
+                this.fFf.setAlpha(0.0f);
+                this.fFf.animate().alpha(1.0f).setListener(null).start();
+                this.fFf.setOnClickListener(this.bjw);
+                this.fFf.onChangeSkinType(this.bdE);
+                if (this.fFf.getParent() != null && this.fFf.getParent() != this.aGy) {
+                    ((ViewGroup) this.fFf.getParent()).removeView(this.fFf);
                 }
-                if (this.eSE.getParent() == null) {
+                if (this.fFf.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
-                    layoutParams.rightMargin = bO(context);
-                    layoutParams.topMargin = this.eSD[1] + view.getHeight() + bN(context);
+                    layoutParams.rightMargin = bZ(context);
+                    layoutParams.topMargin = this.fFe[1] + view.getHeight() + bY(context);
                     layoutParams.addRule(11);
-                    int childCount = this.RU.getChildCount();
+                    int childCount = this.aGy.getChildCount();
                     int i = -1;
                     for (int i2 = 0; i2 < childCount; i2++) {
-                        View childAt = this.RU.getChildAt(i2);
+                        View childAt = this.aGy.getChildAt(i2);
                         if (childAt != null && childAt.getId() == d.g.new_pb_list) {
                             i = i2 + 1;
                         }
                     }
-                    if (i > -1 && i <= this.RU.getChildCount()) {
-                        this.RU.addView(this.eSE, i, layoutParams);
+                    if (i > -1 && i <= this.aGy.getChildCount()) {
+                        this.aGy.addView(this.fFf, i, layoutParams);
                     }
                 }
-                this.eSE.setVisibility(0);
+                this.fFf.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.eSE != null) {
-            this.eSE.animate().cancel();
-            this.eSE.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
+        if (this.fFf != null) {
+            this.fFf.animate().cancel();
+            this.fFf.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.aSH();
+                    a.this.aZT();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.aSH();
+                    a.this.aZT();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSH() {
-        if (this.eSE != null && this.eSE.getParent() != null && this.eSE.getParent() == this.RU) {
-            this.eSE.setVisibility(4);
+    public void aZT() {
+        if (this.fFf != null && this.fFf.getParent() != null && this.fFf.getParent() == this.aGy) {
+            this.fFf.setVisibility(4);
         }
     }
 
-    public void bc(View view) {
-        if (aSI()) {
+    public void cn(View view) {
+        if (aZU()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.eSD);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eSE.getLayoutParams();
-            layoutParams.rightMargin = bO(context);
-            layoutParams.topMargin = this.eSD[1] + view.getHeight() + bN(context);
+            view.getLocationOnScreen(this.fFe);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fFf.getLayoutParams();
+            layoutParams.rightMargin = bZ(context);
+            layoutParams.topMargin = this.fFe[1] + view.getHeight() + bY(context);
             layoutParams.addRule(11);
-            this.eSE.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.eSE.getHeight() < l.ag(context)[1] && !this.eSH) {
-                c.t(context, true);
-                this.eSH = true;
-                this.eSE.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
+            this.fFf.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.fFf.getHeight() < l.as(context)[1] && !this.fFi) {
+                c.u(context, true);
+                this.fFi = true;
+                this.fFf.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
@@ -115,28 +114,28 @@ public class a {
         }
     }
 
-    public boolean aSI() {
-        return this.eSE != null && this.eSE.getParent() != null && this.eSE.getParent() == this.RU && this.eSE.getVisibility() == 0;
+    public boolean aZU() {
+        return this.fFf != null && this.fFf.getParent() != null && this.fFf.getParent() == this.aGy && this.fFf.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.apG = i;
-        if (this.eSE != null) {
-            this.eSE.onChangeSkinType(i);
+        this.bdE = i;
+        if (this.fFf != null) {
+            this.fFf.onChangeSkinType(i);
         }
     }
 
-    private int bN(Context context) {
-        if (this.eSF == Integer.MIN_VALUE) {
-            this.eSF = -l.dip2px(context, 5.0f);
+    private int bY(Context context) {
+        if (this.fFg == Integer.MIN_VALUE) {
+            this.fFg = -l.dip2px(context, 5.0f);
         }
-        return this.eSF;
+        return this.fFg;
     }
 
-    private int bO(Context context) {
-        if (this.eSG == Integer.MIN_VALUE) {
-            this.eSG = l.dip2px(context, 17.0f);
+    private int bZ(Context context) {
+        if (this.fFh == Integer.MIN_VALUE) {
+            this.fFh = l.dip2px(context, 17.0f);
         }
-        return this.eSG;
+        return this.fFh;
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
+    public String akA;
+    public String akB;
+    public String akC;
+    public String akD;
+    public String akE;
+    public String aku;
+    public String akv;
+    public String akw;
+    public String akx;
+    public String aky;
+    public String akz;
     public String mAppVersion;
     public String mChannel;
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String wi;
-    public String wj;
-    public String wk;
-    public String wl;
-    public String wn;
-    public String wo;
-    public String wp;
-    public String wq;
-    public String wr;
-    public String ws;
-    public String wt;
 }

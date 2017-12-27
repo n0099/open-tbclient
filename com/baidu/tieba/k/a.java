@@ -22,15 +22,16 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String acY = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> eFr = new HashSet();
-    private static final boolean eFs = ph(System.getProperty("java.vm.version"));
+    private static final String aRl = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> frq = new HashSet();
+    private static final boolean frr = pr(System.getProperty("java.vm.version"));
 
-    public static void bJ(Context context) {
+    public static void bU(Context context) {
         Log.i("MultiDex", "install");
-        if (eFs) {
+        if (frr) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +39,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = eFr;
-                    synchronized (eFr) {
+                    Set<String> set = frq;
+                    synchronized (frq) {
                         String str = applicationInfo.sourceDir;
-                        if (!eFr.contains(str)) {
-                            eFr.add(str);
+                        if (!frq.contains(str)) {
+                            frq.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -52,15 +53,15 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                bK(context);
-                                File file = new File(applicationInfo.dataDir, acY);
+                                bV(context);
+                                File file = new File(applicationInfo.dataDir, aRl);
                                 List<File> a = com.baidu.tieba.k.b.a(context, applicationInfo, file, false);
-                                if (cy(a)) {
+                                if (cJ(a)) {
                                     a(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.k.b.a(context, applicationInfo, file, true);
-                                    if (!cy(a2)) {
+                                    if (!cJ(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     a(classLoader, file, a2);
@@ -93,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean ph(String str) {
+    static boolean pr(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -119,7 +120,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0118a.a(classLoader, list, file);
+                    C0130a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -127,9 +128,9 @@ public final class a {
         }
     }
 
-    private static boolean cy(List<File> list) {
+    private static boolean cJ(List<File> list) {
         for (File file : list) {
-            if (!com.baidu.tieba.k.b.F(file)) {
+            if (!com.baidu.tieba.k.b.G(file)) {
                 return false;
             }
         }
@@ -137,7 +138,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Field g(Object obj, String str) throws NoSuchFieldException {
+    public static Field j(Object obj, String str) throws NoSuchFieldException {
         for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
             try {
                 Field declaredField = cls.getDeclaredField(str);
@@ -168,15 +169,15 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void f(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Field g = g(obj, str);
-        Object[] objArr2 = (Object[]) g.get(obj);
+        Field j = j(obj, str);
+        Object[] objArr2 = (Object[]) j.get(obj);
         Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
         System.arraycopy(objArr2, 0, objArr3, 0, objArr2.length);
         System.arraycopy(objArr, 0, objArr3, objArr2.length, objArr.length);
-        g.set(obj, objArr3);
+        j.set(obj, objArr3);
     }
 
-    private static void bK(Context context) throws Exception {
+    private static void bV(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
@@ -207,8 +208,8 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
             int size = list.size();
-            Field g = a.g(classLoader, "path");
-            StringBuilder sb = new StringBuilder((String) g.get(classLoader));
+            Field j = a.j(classLoader, ClientCookie.PATH_ATTR);
+            StringBuilder sb = new StringBuilder((String) j.get(classLoader));
             String[] strArr = new String[size];
             File[] fileArr = new File[size];
             ZipFile[] zipFileArr = new ZipFile[size];
@@ -224,7 +225,7 @@ public final class a {
                 zipFileArr[previousIndex] = new ZipFile(next);
                 dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, absolutePath + ".dex", 0);
             }
-            g.set(classLoader, sb.toString());
+            j.set(classLoader, sb.toString());
             a.f(classLoader, "mPaths", strArr);
             a.f(classLoader, "mFiles", fileArr);
             a.f(classLoader, "mZips", zipFileArr);
@@ -235,10 +236,10 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0118a {
+    public static final class C0130a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
-            Object obj = a.g(classLoader, "pathList").get(classLoader);
+            Object obj = a.j(classLoader, "pathList").get(classLoader);
             a.f(obj, "dexElements", a(obj, new ArrayList(list), file));
         }
 
@@ -253,7 +254,7 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             IOException[] iOExceptionArr;
-            Object obj = a.g(classLoader, "pathList").get(classLoader);
+            Object obj = a.j(classLoader, "pathList").get(classLoader);
             ArrayList arrayList = new ArrayList();
             a.f(obj, "dexElements", a(obj, new ArrayList(list), file, arrayList));
             if (arrayList.size() > 0) {
@@ -261,8 +262,8 @@ public final class a {
                 while (it.hasNext()) {
                     Log.w("MultiDex", "Exception in makeDexElement", (IOException) it.next());
                 }
-                Field g = a.g(classLoader, "dexElementsSuppressedExceptions");
-                IOException[] iOExceptionArr2 = (IOException[]) g.get(classLoader);
+                Field j = a.j(classLoader, "dexElementsSuppressedExceptions");
+                IOException[] iOExceptionArr2 = (IOException[]) j.get(classLoader);
                 if (iOExceptionArr2 == null) {
                     iOExceptionArr = (IOException[]) arrayList.toArray(new IOException[arrayList.size()]);
                 } else {
@@ -271,7 +272,7 @@ public final class a {
                     System.arraycopy(iOExceptionArr2, 0, iOExceptionArr3, arrayList.size(), iOExceptionArr2.length);
                     iOExceptionArr = iOExceptionArr3;
                 }
-                g.set(classLoader, iOExceptionArr);
+                j.set(classLoader, iOExceptionArr);
             }
         }
 

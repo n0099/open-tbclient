@@ -2,7 +2,7 @@ package android.support.v4.os;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ParcelableCompatCreatorHoneycombMR2<T> implements Parcelable.ClassLoaderCreator<T> {
     private final ParcelableCompatCreatorCallbacks<T> mCallbacks;
 

@@ -3,7 +3,6 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -139,7 +138,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("type", this.type);
-            jSONObject.put(VrPlayerActivityConfig.TITLE, this.title);
+            jSONObject.put("title", this.title);
             jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.time / 1000);
             jSONObject.put(ImageViewerConfig.FORUM_NAME, this.fname);
             jSONObject.put("content", this.content);
@@ -168,7 +167,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put("is_share_thread", this.mIsShareThread ? 1 : 0);
             if (this.mOriginalThreadInfo != null) {
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(VrPlayerActivityConfig.TITLE, this.mOriginalThreadInfo.title);
+                jSONObject4.put("title", this.mOriginalThreadInfo.title);
                 jSONObject.put("origin_thread_info", jSONObject4);
             }
             jSONArray.put(jSONObject);
@@ -183,7 +182,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         if (jSONObject != null) {
             try {
                 this.type = jSONObject.optInt("type", 0);
-                this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+                this.title = jSONObject.optString("title");
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
                 this.fname = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 this.content = jSONObject.optString("content");

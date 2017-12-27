@@ -3,10 +3,10 @@ package com.baidu.tieba.enterForum.data;
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.LikeForum;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f extends e implements com.baidu.tbadk.mvc.b.a {
-    private int csZ;
-    private String cta;
+    private int dhx;
+    private String dhy;
     private String mId;
     private int mLevel;
     private String mName;
@@ -19,12 +19,12 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void jn(int i) {
-        this.csZ = i;
+    public void ml(int i) {
+        this.dhx = i;
     }
 
-    public int agQ() {
-        return this.csZ;
+    public int aor() {
+        return this.dhx;
     }
 
     public void setLevel(int i) {
@@ -36,7 +36,7 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
     }
 
     public String getAvatar() {
-        return this.cta;
+        return this.dhy;
     }
 
     public void a(LikeForum likeForum) {
@@ -50,9 +50,9 @@ public class f extends e implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.csZ = likeForum.is_sign.intValue();
+                this.dhx = likeForum.is_sign.intValue();
                 this.mLevel = likeForum.level_id.intValue();
-                this.cta = likeForum.avatar;
+                this.dhy = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

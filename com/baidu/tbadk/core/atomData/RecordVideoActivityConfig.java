@@ -12,12 +12,13 @@ public class RecordVideoActivityConfig extends IntentConfig {
     public static final String VIDEO_TITLE = "video_title";
     public static final String WRITE_IMAGE_INFO = "write_image_info";
 
-    public RecordVideoActivityConfig(Context context, int i, ForumWriteData forumWriteData, WriteImagesInfo writeImagesInfo, String str) {
+    public RecordVideoActivityConfig(Context context, int i, ForumWriteData forumWriteData, WriteImagesInfo writeImagesInfo, String str, int i2) {
         super(context);
         getIntent().putExtra(FORUM_WRITE_DATA, forumWriteData);
         getIntent().putExtra(WRITE_IMAGE_INFO, writeImagesInfo);
         getIntent().putExtra("video_title", str);
         getIntent().putExtra(ENTRANCE_FLAG, i);
+        getIntent().putExtra("from_type", i2);
         setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }

@@ -42,10 +42,8 @@ public class e {
         try {
             this.d.startService(this.e);
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("CrossAppRequest", e);
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        com.baidu.android.pushservice.g.a.c("CrossAppRequest", "send crossapprequest: " + this.e.toUri(0));
         com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("timeOutRunnable-" + this.a, (short) 50) { // from class: com.baidu.android.pushservice.j.e.1
             @Override // com.baidu.android.pushservice.i.c
             public void a() {
@@ -55,7 +53,6 @@ public class e {
                         e.f.notifyAll();
                     }
                 } catch (InterruptedException e2) {
-                    com.baidu.android.pushservice.g.a.a("CrossAppRequest", "result return, interrupted by callback");
                 }
             }
         });
@@ -64,7 +61,6 @@ public class e {
                 try {
                     f.wait();
                 } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.a("CrossAppRequest", "wait exception: " + e2);
                 }
             }
             c();

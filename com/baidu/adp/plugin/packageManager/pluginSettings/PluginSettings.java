@@ -121,14 +121,14 @@ public class PluginSettings implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSettings m7clone() {
+    public PluginSettings m10clone() {
         PluginSettings pluginSettings = new PluginSettings();
         pluginSettings.mContainerVersion = this.mContainerVersion;
         pluginSettings.setForbiddenFeatures(this.mForbiddenFeatures);
         for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (value != null) {
-                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m6clone());
+                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m9clone());
             }
         }
         return pluginSettings;

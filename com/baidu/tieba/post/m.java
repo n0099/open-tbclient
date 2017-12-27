@@ -1,154 +1,130 @@
 package com.baidu.tieba.post;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.f;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.i.g;
-import com.baidu.tieba.l.c;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i.d;
+import com.baidu.tieba.i.f;
+import com.baidu.tieba.i.h;
+import java.util.HashMap;
+import java.util.UUID;
 /* loaded from: classes2.dex */
-public class m {
-    private String eEy;
-    private boolean isSuccess = true;
-    private int fSV = 0;
-    private boolean fSj = false;
-    private List<c> fSW = new ArrayList();
+public class m implements h {
+    private String fqx;
+    private String fqy;
+    private HashMap<String, f> gGH;
 
-    static {
-        if (f.dG()) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.post.m.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.i.d.oP(g.a.bbu);
-                    com.baidu.tieba.i.d.oP(g.a.eEv);
-                    com.baidu.tieba.i.d.oP(g.a.eEw);
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
+    /* loaded from: classes2.dex */
+    private static class a {
+        private static final h gGI = new m();
     }
 
-    public m(String str) {
-        this.eEy = str;
+    public static h brQ() {
+        return a.gGI;
     }
 
-    public void bkn() {
-        this.isSuccess = false;
+    private m() {
+        this.gGH = new HashMap<>();
     }
 
-    public void bko() {
-        this.isSuccess = true;
+    @Override // com.baidu.tieba.i.h
+    public void aUU() {
+        this.fqx = UUID.randomUUID().toString();
     }
 
-    public void bkp() {
-        this.fSV++;
+    @Override // com.baidu.tieba.i.h
+    public void P(int i, String str) {
+        brR().i(this.fqx, i, str);
     }
 
-    public boolean bkq() {
-        return this.fSV > 0;
+    @Override // com.baidu.tieba.i.h
+    public void Q(int i, String str) {
+        brR().j(this.fqx, i, str);
     }
 
-    public void bkr() {
-        this.fSj = true;
+    @Override // com.baidu.tieba.i.h
+    public void R(int i, String str) {
+        brR().k(this.fqx, i, str);
     }
 
-    public boolean bks() {
-        return this.fSj;
+    @Override // com.baidu.tieba.i.h
+    public void aUV() {
+        brR().pc(this.fqx);
     }
 
-    public void a(c cVar) {
-        this.fSW.add(cVar);
-        bku();
-        b(cVar);
-        bkt();
+    @Override // com.baidu.tieba.i.h
+    public void h(int i, int i2, String str) {
+        brR().d(this.fqx, i, i2, str);
     }
 
-    private void b(c cVar) {
-        if (f.dG() && cVar != null) {
-            new BdAsyncTask<n, Void, Void>() { // from class: com.baidu.tieba.post.m.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: a */
-                public Void doInBackground(n... nVarArr) {
-                    if (nVarArr != null && nVarArr.length == 1 && nVarArr[0] != null) {
-                        n nVar = nVarArr[0];
-                        synchronized ("debug") {
-                            com.baidu.tieba.i.d.a(new File(g.a.eEx + g.a.eEo + nVar.eEV + g.a.eEo + "debug"), nVar.fSZ.bjQ().toString() + "\n", true);
-                        }
-                    }
-                    return null;
-                }
-            }.execute(new n(cVar, this.eEy));
-        }
+    @Override // com.baidu.tieba.i.h
+    public void aUW() {
+        brR().pd(this.fqx);
+        pe(this.fqx);
     }
 
-    private void bkt() {
-        if (f.dG()) {
-            new BdAsyncTask<d, Void, Void>() { // from class: com.baidu.tieba.post.m.3
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: a */
-                public Void doInBackground(d... dVarArr) {
-                    if (dVarArr != null && dVarArr.length == 1 && dVarArr[0] != null) {
-                        d dVar = dVarArr[0];
-                        synchronized ("kpi") {
-                            com.baidu.tieba.i.d.a(new File(g.a.eEx + g.a.eEo + dVar.eEV + g.a.eEo + "kpi"), m.a(dVar.isSuccess, dVar.fSi, dVar.fSj).toString(), false);
-                        }
-                    }
-                    return null;
-                }
-            }.execute(new d(this.isSuccess, this.fSV, this.fSj, this.eEy));
-        }
+    @Override // com.baidu.tieba.i.h
+    public void S(int i, String str) {
+        brR().l(this.fqx, i, str);
     }
 
-    private void bku() {
-        if (f.dG()) {
-            File file = new File(g.a.eEx + g.a.eEo + this.eEy + g.a.eEo);
-            if (!file.exists()) {
-                file.mkdir();
+    @Override // com.baidu.tieba.i.h
+    public void ph(String str) {
+        if (!StringUtils.isNull(this.fqy)) {
+            if (pf(this.fqy) || pg(this.fqy)) {
+                pe(this.fqy);
+            } else {
+                d.pb(this.fqy);
+                this.gGH.remove(this.fqx);
             }
+            aUU();
+            brR().bA(this.fqy, str);
+            this.fqy = null;
         }
     }
 
-    public JSONObject aOh() {
-        return a(this.isSuccess, this.fSV, this.fSj);
+    @Override // com.baidu.tieba.i.h
+    public void aUX() {
+        this.fqy = this.fqx;
     }
 
-    public static final JSONObject a(boolean z, int i, boolean z2) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("postSuccess", z2 ? z ? 1 : 0 : 0);
-            jSONObject.put("errorTimes", i);
-            jSONObject.put("posted", z2 ? 1 : 0);
-        } catch (JSONException e) {
-            e.printStackTrace();
+    @Override // com.baidu.tieba.i.h
+    public void pi(String str) {
+        brR().bB(this.fqx, str);
+        if (pf(this.fqx) || pg(this.fqx)) {
+            pe(this.fqx);
+        } else {
+            d.pb(this.fqx);
+            this.gGH.remove(this.fqx);
         }
-        return jSONObject;
+        this.fqx = null;
     }
 
-    public JSONObject aOi() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONArray jSONArray = new JSONArray();
-            if (!v.w(this.fSW)) {
-                int size = this.fSW.size();
-                for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.fSW.get(i).bjQ());
-                }
-            }
-            jSONObject.put("running", jSONArray);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public boolean pf(String str) {
+        return brR().pf(str);
+    }
+
+    public boolean pg(String str) {
+        return brR().pg(str);
+    }
+
+    public void pe(String str) {
+        f fVar = this.gGH.get(str);
+        if (fVar != null) {
+            fVar.pe(str);
+            this.gGH.remove(str);
         }
-        return jSONObject;
+    }
+
+    private f brR() {
+        f fVar = this.gGH.get(this.fqx);
+        if (fVar == null) {
+            return brS();
+        }
+        return fVar;
+    }
+
+    private f brS() {
+        l lVar = new l(this.fqx);
+        this.gGH.put(this.fqx, lVar);
+        return lVar;
     }
 }

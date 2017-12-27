@@ -18,6 +18,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class b {
     static {
@@ -30,87 +35,67 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         a aVar = new a();
         try {
-            try {
-                httpURLConnection = a(str, str2, (String) null);
-                a(str2, hashMap, httpURLConnection);
-                aVar = a(httpURLConnection);
-            } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("HttpUtil", "execRequest>>", e);
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-            }
-            return aVar;
-        } finally {
+            httpURLConnection = a(str, str2, (String) null);
+            a(str2, hashMap, httpURLConnection);
+            aVar = a(httpURLConnection);
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
+        } catch (Exception e) {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        } catch (Throwable th) {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            throw th;
         }
+        return aVar;
     }
 
     public static a a(String str, String str2, HashMap<String, String> hashMap, String str3) {
         HttpURLConnection httpURLConnection = null;
         a aVar = new a();
         try {
-            try {
-                httpURLConnection = a(str, str2, str3);
-                a(str2, hashMap, httpURLConnection);
-                aVar = a(httpURLConnection);
-            } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("HttpUtil", "execRequest>>", e);
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-            }
-            return aVar;
-        } finally {
+            httpURLConnection = a(str, str2, str3);
+            a(str2, hashMap, httpURLConnection);
+            aVar = a(httpURLConnection);
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
+        } catch (Exception e) {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        } catch (Throwable th) {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            throw th;
         }
+        return aVar;
     }
 
     private static a a(HttpURLConnection httpURLConnection) throws Exception {
-        int i;
-        InputStream inputStream;
-        Exception exc;
+        InputStream inputStream = null;
         a aVar = new a();
+        int i = 0;
         try {
             i = httpURLConnection.getResponseCode();
+            InputStream errorStream = a(i) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream();
             try {
-                InputStream errorStream = a(i) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream();
+                inputStream = new BufferedInputStream(errorStream);
+                InputStream gZIPInputStream = b(httpURLConnection) ? new GZIPInputStream(inputStream) : inputStream;
                 try {
-                    InputStream bufferedInputStream = new BufferedInputStream(errorStream);
-                    try {
-                        if (b(httpURLConnection)) {
-                            bufferedInputStream = new GZIPInputStream(bufferedInputStream);
-                        }
-                        try {
-                            inputStream = new ByteArrayInputStream(a(bufferedInputStream));
-                        } catch (Exception e) {
-                            inputStream = bufferedInputStream;
-                            exc = e;
-                            com.baidu.android.pushservice.g.a.a("HttpUtil", "readResponseData>>", exc);
-                            aVar.a(i);
-                            aVar.a(inputStream);
-                            return aVar;
-                        }
-                    } catch (Exception e2) {
-                        inputStream = bufferedInputStream;
-                        exc = e2;
-                    }
-                } catch (Exception e3) {
-                    exc = e3;
-                    inputStream = errorStream;
+                    inputStream = new ByteArrayInputStream(a(gZIPInputStream));
+                } catch (Exception e) {
+                    inputStream = gZIPInputStream;
                 }
-            } catch (Exception e4) {
-                inputStream = null;
-                exc = e4;
+            } catch (Exception e2) {
+                inputStream = errorStream;
             }
-        } catch (Exception e5) {
-            i = 0;
-            inputStream = null;
-            exc = e5;
+        } catch (Exception e3) {
         }
         aVar.a(i);
         aVar.a(inputStream);
@@ -135,9 +120,9 @@ public class b {
                 stringBuffer.append(key).append("=");
                 String value = next.getValue();
                 if (TextUtils.isEmpty(value)) {
-                    stringBuffer.append(URLEncoder.encode("", "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode("", HTTP.UTF_8));
                 } else {
-                    stringBuffer.append(URLEncoder.encode(value, "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode(value, HTTP.UTF_8));
                 }
             }
             i = i2 + 1;
@@ -145,46 +130,40 @@ public class b {
     }
 
     private static HttpURLConnection a(String str, String str2, String str3) {
-        HttpURLConnection httpURLConnection;
-        Exception e;
         try {
-            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection.setConnectTimeout(30000);
+                httpURLConnection.setReadTimeout(30000);
+                if (HttpPost.METHOD_NAME.equals(str2) || HttpPut.METHOD_NAME.equals(str2)) {
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setUseCaches(false);
+                } else if (HttpDelete.METHOD_NAME.equals(str2)) {
+                    httpURLConnection.setDoOutput(true);
+                } else if (HttpGet.METHOD_NAME.equals(str2)) {
+                    httpURLConnection.setDoOutput(false);
+                }
+                httpURLConnection.setRequestMethod(str2);
+                httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
+                if (!TextUtils.isEmpty(str3)) {
+                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3);
+                }
+                if (httpURLConnection instanceof HttpsURLConnection) {
+                }
+                httpURLConnection.connect();
+                return httpURLConnection;
+            } catch (Exception e) {
+                return httpURLConnection;
+            }
         } catch (Exception e2) {
-            httpURLConnection = null;
-            e = e2;
+            return null;
         }
-        try {
-            httpURLConnection.setConnectTimeout(30000);
-            httpURLConnection.setReadTimeout(30000);
-            if ("POST".equals(str2) || "PUT".equals(str2)) {
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setUseCaches(false);
-            } else if ("DELETE".equals(str2)) {
-                httpURLConnection.setDoOutput(true);
-            } else if ("GET".equals(str2)) {
-                httpURLConnection.setDoOutput(false);
-            }
-            httpURLConnection.setRequestMethod(str2);
-            httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-            httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
-            if (!TextUtils.isEmpty(str3)) {
-                httpURLConnection.setRequestProperty("User-Agent", str3);
-            }
-            if (httpURLConnection instanceof HttpsURLConnection) {
-                com.baidu.android.pushservice.g.a.b("HttpUtil", "https request, url=" + str);
-            }
-            httpURLConnection.connect();
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.android.pushservice.g.a.a("HttpUtil", "initConnSet>>", e);
-            return httpURLConnection;
-        }
-        return httpURLConnection;
     }
 
     private static void a(String str, HashMap<String, String> hashMap, HttpURLConnection httpURLConnection) throws IOException {
-        if (("POST".equals(str) || "PUT".equals(str) || "DELETE".equals(str)) && !a(httpURLConnection, hashMap)) {
+        if ((HttpPost.METHOD_NAME.equals(str) || HttpPut.METHOD_NAME.equals(str) || HttpDelete.METHOD_NAME.equals(str)) && !a(httpURLConnection, hashMap)) {
             throw new IOException("failed to writeRequestParams");
         }
     }
@@ -200,7 +179,6 @@ public class b {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("HttpUtil", e);
             }
         }
     }
@@ -213,48 +191,39 @@ public class b {
     private static boolean a(HttpURLConnection httpURLConnection, HashMap<String, String> hashMap) {
         DataOutputStream dataOutputStream;
         OutputStream outputStream;
+        DataOutputStream dataOutputStream2;
         OutputStream outputStream2 = null;
         boolean z = (hashMap == null || hashMap.isEmpty()) ? false : true;
         try {
             outputStream = httpURLConnection.getOutputStream();
             try {
                 dataOutputStream = new DataOutputStream(outputStream);
-                try {
-                    dataOutputStream.write(a(hashMap).getBytes("UTF-8"));
-                    dataOutputStream.flush();
-                    a(dataOutputStream, outputStream);
-                    return z;
-                } catch (Exception e) {
-                    e = e;
-                    outputStream2 = outputStream;
-                    try {
-                        com.baidu.android.pushservice.g.a.a("HttpUtil", "writeRequestParams1>>", e);
-                        a(dataOutputStream, outputStream2);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        outputStream = outputStream2;
-                        a(dataOutputStream, outputStream);
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    a(dataOutputStream, outputStream);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                dataOutputStream = null;
+            } catch (Exception e) {
+                dataOutputStream2 = null;
                 outputStream2 = outputStream;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th) {
+                th = th;
                 dataOutputStream = null;
             }
+            try {
+                dataOutputStream.write(a(hashMap).getBytes(HTTP.UTF_8));
+                dataOutputStream.flush();
+                a(dataOutputStream, outputStream);
+                return z;
+            } catch (Exception e2) {
+                dataOutputStream2 = dataOutputStream;
+                outputStream2 = outputStream;
+                a(dataOutputStream2, outputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                a(dataOutputStream, outputStream);
+                throw th;
+            }
         } catch (Exception e3) {
-            e = e3;
-            dataOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
+            dataOutputStream2 = null;
+        } catch (Throwable th3) {
+            th = th3;
             dataOutputStream = null;
             outputStream = null;
         }
@@ -265,16 +234,13 @@ public class b {
         byte[] bArr = new byte[1024];
         while (true) {
             try {
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } catch (Exception e) {
-                    com.baidu.android.pushservice.g.a.a("HttpUtil", e);
-                    a(byteArrayOutputStream, inputStream);
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
                 }
+                byteArrayOutputStream.write(bArr, 0, read);
+            } catch (Exception e) {
+                a(byteArrayOutputStream, inputStream);
             } catch (Throwable th) {
                 a(byteArrayOutputStream, inputStream);
                 throw th;
@@ -285,7 +251,7 @@ public class b {
     }
 
     private static boolean b(HttpURLConnection httpURLConnection) {
-        String headerField = httpURLConnection.getHeaderField("Content-Encoding");
+        String headerField = httpURLConnection.getHeaderField(HTTP.CONTENT_ENCODING);
         return !TextUtils.isEmpty(headerField) && headerField.contains("zip");
     }
 }

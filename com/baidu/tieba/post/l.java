@@ -1,129 +1,122 @@
 package com.baidu.tieba.post;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tieba.VideoPlatformStatic;
 import com.baidu.tieba.i.f;
-import com.baidu.tieba.i.h;
-import java.util.HashMap;
-import java.util.UUID;
+import com.baidu.tieba.l.d;
+import com.baidu.tieba.q.b;
+import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
-public class l implements h {
-    private String eEy;
-    private String eEz;
-    private HashMap<String, f> fST;
+public class l implements f {
+    private String fqx;
+    private n gGG;
 
-    /* loaded from: classes2.dex */
-    private static class a {
-        private static final h fSU = new l();
+    public l(String str) {
+        this.fqx = str;
+        this.gGG = new n(str);
     }
 
-    public static h bkj() {
-        return a.fSU;
+    @Override // com.baidu.tieba.i.f
+    public void i(String str, int i, String str2) {
+        if (rL(str)) {
+            this.gGG.brW();
+            this.gGG.a(new d(i, "record", i, str2));
+        }
     }
 
-    private l() {
-        this.fST = new HashMap<>();
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void aNS() {
-        this.eEy = UUID.randomUUID().toString();
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void Q(int i, String str) {
-        bkk().i(this.eEy, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void R(int i, String str) {
-        bkk().j(this.eEy, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void S(int i, String str) {
-        bkk().k(this.eEy, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void aNT() {
-        bkk().oS(this.eEy);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void f(int i, int i2, String str) {
-        bkk().c(this.eEy, i, i2, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void aNU() {
-        bkk().oT(this.eEy);
-        oU(this.eEy);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void T(int i, String str) {
-        bkk().l(this.eEy, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void oX(String str) {
-        if (!StringUtils.isNull(this.eEz)) {
-            if (oV(this.eEz) || oW(this.eEz)) {
-                oU(this.eEz);
-            } else {
-                com.baidu.tieba.i.d.oR(this.eEz);
-                this.fST.remove(this.eEy);
+    @Override // com.baidu.tieba.i.f
+    public void j(String str, int i, String str2) {
+        if (rL(str)) {
+            if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
+                this.gGG.brW();
+                this.gGG.a(new d(i, str2, i, VideoPlatformStatic.jv(i)));
+                return;
             }
-            aNS();
-            bkk().bA(this.eEz, str);
-            this.eEz = null;
+            this.gGG.a(new d(i, str2, -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.i.h
-    public void aNV() {
-        this.eEz = this.eEy;
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void oY(String str) {
-        bkk().bB(this.eEy, str);
-        if (oV(this.eEy) || oW(this.eEy)) {
-            oU(this.eEy);
-        } else {
-            com.baidu.tieba.i.d.oR(this.eEy);
-            this.fST.remove(this.eEy);
-        }
-        this.eEy = null;
-    }
-
-    public boolean oV(String str) {
-        return bkk().oV(str);
-    }
-
-    public boolean oW(String str) {
-        return bkk().oW(str);
-    }
-
-    public void oU(String str) {
-        f fVar = this.fST.get(str);
-        if (fVar != null) {
-            fVar.oU(str);
-            this.fST.remove(str);
+    @Override // com.baidu.tieba.i.f
+    public void k(String str, int i, String str2) {
+        if (rL(str)) {
+            this.gGG.brW();
+            this.gGG.a(new d(i, "edit", i, str2));
         }
     }
 
-    private f bkk() {
-        f fVar = this.fST.get(this.eEy);
-        if (fVar == null) {
-            return bkl();
+    @Override // com.baidu.tieba.i.f
+    public void d(String str, int i, int i2, String str2) {
+        if (rL(str)) {
+            this.gGG.brW();
+            this.gGG.brU();
+            this.gGG.brY();
+            this.gGG.a(new d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
         }
-        return fVar;
     }
 
-    private f bkl() {
-        k kVar = new k(this.eEy);
-        this.fST.put(this.eEy, kVar);
-        return kVar;
+    @Override // com.baidu.tieba.i.f
+    public void pc(String str) {
+        if (rL(str)) {
+            this.gGG.brY();
+            this.gGG.a(new d(HttpStatus.SC_MOVED_PERMANENTLY, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+        }
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void pd(String str) {
+        if (rL(str)) {
+            this.gGG.brY();
+            this.gGG.brV();
+            this.gGG.a(new d(HttpStatus.SC_UNAUTHORIZED, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+        }
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void l(String str, int i, String str2) {
+        if (rL(str)) {
+            this.gGG.brW();
+            this.gGG.brU();
+            this.gGG.brY();
+            this.gGG.a(new d(HttpStatus.SC_PAYMENT_REQUIRED, AlbumActivityConfig.FROM_WRITE, i, str2));
+        }
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void pe(String str) {
+        if (rL(str)) {
+            b.bGp().d(this.fqx, b.a(VideoPlatformStatic.TG(), this.gGG.aVk(), this.gGG.aVl()));
+        }
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public boolean pf(String str) {
+        if (rL(str)) {
+            return this.gGG.brX();
+        }
+        return false;
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public boolean pg(String str) {
+        return this.gGG.brZ();
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void bA(String str, String str2) {
+        if (rL(str)) {
+            this.gGG.a(new d(HttpStatus.SC_SERVICE_UNAVAILABLE, str2, -4399, ""));
+        }
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void bB(String str, String str2) {
+        if (rL(str)) {
+            this.gGG.a(new d(HttpStatus.SC_NOT_IMPLEMENTED, str2, -4399, ""));
+        }
+    }
+
+    private boolean rL(String str) {
+        return (!TextUtils.equals(this.fqx, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.fqx)) ? false : true;
     }
 }

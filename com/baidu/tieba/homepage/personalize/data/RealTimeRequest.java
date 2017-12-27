@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RealTimeRequest extends NetMessage {
     private String abtest_tag;
     private int location;

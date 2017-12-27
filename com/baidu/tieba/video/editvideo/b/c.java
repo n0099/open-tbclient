@@ -47,7 +47,7 @@ public class c {
                 int i13 = (iArr[i11] & ViewCompat.MEASURED_STATE_MASK) >> 24;
                 int i14 = (iArr[i11] & 16711680) >> 16;
                 int i15 = (iArr[i11] & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
-                int i16 = (iArr[i11] & MotionEventCompat.ACTION_MASK) >> 0;
+                int i16 = (iArr[i11] & 255) >> 0;
                 int i17 = (((((i14 * 66) + (i15 * 129)) + (i16 * 25)) + 128) >> 8) + 16;
                 int i18 = (((((i14 * (-38)) - (i15 * 74)) + (i16 * 112)) + 128) >> 8) + 128;
                 int i19 = (((((i14 * 112) - (i15 * 94)) - (i16 * 18)) + 128) >> 8) + 128;
@@ -55,7 +55,7 @@ public class c {
                 if (i17 < 0) {
                     i17 = 0;
                 } else if (i17 > 255) {
-                    i17 = MotionEventCompat.ACTION_MASK;
+                    i17 = 255;
                 }
                 bArr[i12] = (byte) i17;
                 if (i9 % 2 == 0 && i11 % 2 == 0) {
@@ -63,14 +63,14 @@ public class c {
                     if (i19 < 0) {
                         i4 = 0;
                     } else {
-                        i4 = i19 > 255 ? MotionEventCompat.ACTION_MASK : i19;
+                        i4 = i19 > 255 ? 255 : i19;
                     }
                     bArr[i6] = (byte) i4;
                     int i22 = i21 + 1;
                     if (i18 < 0) {
                         i5 = 0;
                     } else {
-                        i5 = i18 > 255 ? MotionEventCompat.ACTION_MASK : i18;
+                        i5 = i18 > 255 ? 255 : i18;
                     }
                     bArr[i21] = (byte) i5;
                     i3 = i22;
@@ -114,7 +114,7 @@ public class c {
         return bitmap;
     }
 
-    public static Bitmap b(Bitmap bitmap, float f) {
+    public static Bitmap a(Bitmap bitmap, float f) {
         if (bitmap == null || bitmap.isRecycled()) {
             return null;
         }
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void an(Context context, String str) {
+    public static void aq(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(Uri.fromFile(new File(str)));

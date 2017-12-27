@@ -12,48 +12,48 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h extends FrameLayout {
-    private int aBO;
-    private LinkedList<l> aBX;
-    private LinkedList<s> aBY;
-    private s aBZ;
-    private boolean aCa;
-    private boolean aCb;
-    private i aCc;
-    private Runnable aCd;
+    private int bpJ;
+    private LinkedList<l> bpS;
+    private LinkedList<s> bpT;
+    private s bpU;
+    private boolean bpV;
+    private boolean bpW;
+    private i bpX;
+    private Runnable bpY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(Context context, i iVar) {
         super(context);
-        this.aBO = d.C0095d.cp_bg_line_d;
-        this.aBZ = null;
-        this.aCa = true;
-        this.aCb = false;
-        this.aCd = new Runnable() { // from class: com.baidu.tbadk.editortools.h.1
+        this.bpJ = d.C0108d.cp_bg_line_d;
+        this.bpU = null;
+        this.bpV = true;
+        this.bpW = false;
+        this.bpY = new Runnable() { // from class: com.baidu.tbadk.editortools.h.1
             @Override // java.lang.Runnable
             public void run() {
-                if (h.this.aBZ != null) {
-                    h.this.aBZ.lE();
+                if (h.this.bpU != null) {
+                    h.this.bpU.th();
                 }
             }
         };
-        this.aBX = new LinkedList<>();
-        this.aBY = new LinkedList<>();
-        this.aCc = iVar;
+        this.bpS = new LinkedList<>();
+        this.bpT = new LinkedList<>();
+        this.bpX = iVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(l lVar) {
-        this.aBX.add(lVar);
+        this.bpS.add(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(s sVar) {
-        this.aBY.add(sVar);
+        this.bpT.add(sVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Df() {
-        Iterator<s> it = this.aBY.iterator();
+    public void KG() {
+        Iterator<s> it = this.bpT.iterator();
         while (it.hasNext()) {
             s next = it.next();
             if (next.getToolId() == 2) {
@@ -71,41 +71,41 @@ public class h extends FrameLayout {
 
     private void b(s sVar) {
         if (sVar instanceof m) {
-            ((m) sVar).i(this.aBX);
+            ((m) sVar).j(this.bpS);
             sVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.aBZ = null;
-        this.aBX.clear();
-        this.aBY.clear();
+        this.bpU = null;
+        this.bpS.clear();
+        this.bpT.clear();
     }
 
-    protected void lE() {
+    protected void th() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.aBZ != null) {
-            this.aBZ.hide();
+        if (this.bpU != null) {
+            this.bpU.hide();
         }
-        this.aBZ = null;
+        this.bpU = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eL(int i) {
-        if (eO(i)) {
-            if (Di()) {
-                this.aCa = true;
+    public void hJ(int i) {
+        if (hM(i)) {
+            if (KJ()) {
+                this.bpV = true;
             } else {
-                this.aCa = false;
+                this.bpV = false;
             }
-            boolean z = this.aCb;
-            Iterator<s> it = this.aBY.iterator();
+            boolean z = this.bpW;
+            Iterator<s> it = this.bpT.iterator();
             while (it.hasNext()) {
                 s next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class h extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.aCb = true;
+                    this.bpW = true;
                 }
                 if (next.getToolId() == i) {
-                    this.aBZ = next;
-                    if (this.aCa) {
-                        next.lE();
+                    this.bpU = next;
+                    if (this.bpV) {
+                        next.th();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.aCa && (getContext() instanceof Activity)) {
-                if (this.aCc != null) {
-                    this.aCc.Dm();
+            if (!this.bpV && (getContext() instanceof Activity)) {
+                if (this.bpX != null) {
+                    this.bpX.KN();
                 } else {
                     com.baidu.adp.lib.util.l.a(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.g.e.fP().postDelayed(this.aCd, 250L);
+                com.baidu.adp.lib.g.e.nr().postDelayed(this.bpY, 250L);
             }
-            lE();
+            th();
         }
     }
 
-    private boolean eO(int i) {
-        Iterator<s> it = this.aBY.iterator();
+    private boolean hM(int i) {
+        Iterator<s> it = this.bpT.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -146,8 +146,8 @@ public class h extends FrameLayout {
         return false;
     }
 
-    public l eN(int i) {
-        Iterator<l> it = this.aBX.iterator();
+    public l hL(int i) {
+        Iterator<l> it = this.bpS.iterator();
         while (it.hasNext()) {
             l next = it.next();
             if (next.getToolId() == i) {
@@ -158,14 +158,14 @@ public class h extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aBO > 0) {
-            aj.e(this, this.aBO, i);
+        if (this.bpJ > 0) {
+            aj.g(this, this.bpJ, i);
         }
-        Iterator<l> it = this.aBX.iterator();
+        Iterator<l> it = this.bpS.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<s> it2 = this.aBY.iterator();
+        Iterator<s> it2 = this.bpT.iterator();
         while (it2.hasNext()) {
             s next = it2.next();
             if (next != null) {
@@ -174,12 +174,12 @@ public class h extends FrameLayout {
         }
     }
 
-    public boolean Dh() {
-        return getVisibility() == 0 && Di();
+    public boolean KI() {
+        return getVisibility() == 0 && KJ();
     }
 
-    private boolean Di() {
-        Iterator<s> it = this.aBY.iterator();
+    private boolean KJ() {
+        Iterator<s> it = this.bpT.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -190,20 +190,20 @@ public class h extends FrameLayout {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.aBO = i;
+        this.bpJ = i;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            aP(true);
+            bv(true);
         }
         super.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        aP(true);
+        bv(true);
         return super.onInterceptTouchEvent(motionEvent);
     }
 
@@ -212,7 +212,7 @@ public class h extends FrameLayout {
         return true;
     }
 
-    private void aP(boolean z) {
+    private void bv(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

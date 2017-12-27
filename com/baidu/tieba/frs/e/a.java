@@ -1,7 +1,51 @@
 package com.baidu.tieba.frs.e;
-/* loaded from: classes.dex */
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.tbadkCore.l;
+import java.util.List;
+/* loaded from: classes2.dex */
 public class a {
-    public boolean cYS = false;
-    public int cYT = 0;
-    public String cYU = null;
+    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<com.baidu.adp.widget.ListView.i> list, boolean z, int i) {
+        if (!v.G(list)) {
+            com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 5);
+            bVar2.X(list);
+            if (forumData != null) {
+                bVar2.setForumId(forumData.getId());
+                bVar2.hk(forumData.getFirst_class());
+                bVar2.hl(forumData.getSecond_class());
+            }
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                bVar2.hm(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+            }
+            bVar2.cO(z);
+            bVar2.jm(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
+        }
+    }
+
+    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.i> list, int i) {
+        if (lVar != null) {
+            a(bVar, lVar.aYy(), list, false, i);
+        }
+    }
+
+    public static void a(com.baidu.tieba.tbadkCore.data.e eVar, List<com.baidu.adp.widget.ListView.i> list, List<com.baidu.adp.widget.ListView.i> list2) {
+        int[] iArr;
+        int indexOf;
+        if (eVar != null && v.F(list) > 0 && v.F(list2) > 0) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.hii) {
+                com.baidu.adp.widget.ListView.i iVar = (com.baidu.adp.widget.ListView.i) v.f(list, i);
+                if (iVar != null && (indexOf = list2.indexOf(iVar)) >= 0) {
+                    eVar.cS(i, indexOf);
+                }
+            }
+        }
+    }
 }

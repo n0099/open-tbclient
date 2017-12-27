@@ -1,9 +1,11 @@
 package android.support.v4.net;
 
 import android.net.TrafficStats;
+import android.os.ParcelFileDescriptor;
+import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class TrafficStatsCompatIcs {
     public static void clearThreadStatsTag() {
         TrafficStats.clearThreadStatsTag();
@@ -31,5 +33,17 @@ class TrafficStatsCompatIcs {
 
     public static void untagSocket(Socket socket) throws SocketException {
         TrafficStats.untagSocket(socket);
+    }
+
+    public static void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+        TrafficStats.tagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+        fromDatagramSocket.detachFd();
+    }
+
+    public static void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
+        ParcelFileDescriptor fromDatagramSocket = ParcelFileDescriptor.fromDatagramSocket(datagramSocket);
+        TrafficStats.untagSocket(new DatagramSocketWrapper(datagramSocket, fromDatagramSocket.getFileDescriptor()));
+        fromDatagramSocket.detachFd();
     }
 }

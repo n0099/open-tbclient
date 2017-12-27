@@ -2,7 +2,7 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
     private IMediaPlayer.OnCompletionListener mOnCompletionListener;

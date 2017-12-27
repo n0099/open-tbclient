@@ -5,5 +5,5 @@ import tbclient.UserMuteCheck.DataRes;
 public class a {
     public int error;
     public String errorString;
-    public DataRes gPy;
+    public DataRes hww;
 }

@@ -3,6 +3,7 @@ package com.xiaomi.channel.commonutils.android;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
@@ -54,6 +55,6 @@ public class j {
     }
 
     public static boolean d() {
-        return TextUtils.equals((String) com.xiaomi.channel.commonutils.reflect.a.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
+        return TextUtils.equals((String) com.xiaomi.channel.commonutils.reflect.a.a(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES, "get", "sys.boot_completed"), "1");
     }
 }

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
     private static final String EXTRA_WAKE_LOCK_ID = "android.support.content.wakelockid";
     private static final SparseArray<PowerManager.WakeLock> mActiveWakeLocks = new SparseArray<>();

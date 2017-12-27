@@ -4,10 +4,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final String Rh = String.valueOf(Integer.MAX_VALUE);
-    public static final String Ri = String.valueOf(2147483646);
-    private MediaFileInfo Rj;
-    private List<MediaFileInfo> Rk;
+    public static final String aFO = String.valueOf(Integer.MAX_VALUE);
+    public static final String aFP = String.valueOf(2147483646);
+    private MediaFileInfo aFQ;
+    private List<MediaFileInfo> aFR;
     private String albumId;
     private int count;
     private String name;
@@ -16,7 +16,7 @@ public class a {
         return this.albumId;
     }
 
-    public void ca(String str) {
+    public void ch(String str) {
         this.albumId = str;
     }
 
@@ -32,34 +32,34 @@ public class a {
         return this.count;
     }
 
-    public void cb(String str) {
-        this.count = com.baidu.adp.lib.g.b.g(str, 0);
+    public void ci(String str) {
+        this.count = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
-    public void nw() {
+    public void uZ() {
         this.count++;
     }
 
-    public ImageFileInfo nx() {
-        if (this.Rj instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.Rj;
+    public ImageFileInfo va() {
+        if (this.aFQ instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.aFQ;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.Rj = mediaFileInfo;
+        this.aFQ = mediaFileInfo;
     }
 
-    public MediaFileInfo ny() {
-        return this.Rj;
+    public MediaFileInfo vb() {
+        return this.aFQ;
     }
 
-    public List<MediaFileInfo> nz() {
-        return this.Rk;
+    public List<MediaFileInfo> vc() {
+        return this.aFR;
     }
 
-    public void l(List<MediaFileInfo> list) {
-        this.Rk = list;
+    public void v(List<MediaFileInfo> list) {
+        this.aFR = list;
     }
 }

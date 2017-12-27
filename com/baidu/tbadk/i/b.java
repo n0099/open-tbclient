@@ -1,53 +1,42 @@
 package com.baidu.tbadk.i;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.j;
+import com.baidu.adp.widget.ListView.r;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.view.HeadImageEntranceStoryAlaViewGroup;
 import com.baidu.tieba.d;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
-public class b extends j.a {
-    public HeadImageEntranceStoryAlaViewGroup aFY;
-    public TextView mName;
-    public View mRootView;
-    private int mSkinType;
-    private int mStatus;
+public class b extends r.a {
+    private int bdE;
+    private HTypeListView btT;
+    private com.baidu.tieba.a.b btU;
+    private View mBottomLine;
+    private TbPageContext mPageContext;
 
-    public b(View view) {
+    public b(View view, TbPageContext tbPageContext) {
         super(view);
-        this.mSkinType = 3;
-        this.mStatus = 0;
-        this.mRootView = view.findViewById(d.g.rootview);
-        this.mName = (TextView) view.findViewById(d.g.name_txt);
-        this.aFY = (HeadImageEntranceStoryAlaViewGroup) view.findViewById(d.g.img_group);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.bdE = 3;
+        this.mPageContext = tbPageContext;
+        this.btT = (HTypeListView) view.findViewById(d.g.follow_live_list);
+        this.mBottomLine = view.findViewById(d.g.follow_live_bottom_line);
+        this.btT.setSelector(d.f.transparent_bg);
+        this.btU = new com.baidu.tieba.a.b(this.mPageContext, this.btT);
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            Ex();
-            this.aFY.onChangeSkinType(i);
-            this.mSkinType = i;
+    public void a(com.baidu.tbadk.data.b bVar) {
+        if (bVar != null) {
+            this.btU.setDatas(bVar.getList());
         }
     }
 
-    private void Ex() {
-        switch (this.mStatus) {
-            case 0:
-                aj.c(this.mName, d.C0095d.cp_cont_f, 1);
-                return;
-            case 1:
-            default:
-                aj.c(this.mName, d.C0095d.cp_cont_f, 1);
-                return;
-            case 2:
-                aj.c(this.mName, d.C0095d.cp_cont_d, 1);
-                return;
-            case 3:
-                aj.c(this.mName, d.C0095d.cp_cont_r, 1);
-                return;
+    public void LZ() {
+        if (this.bdE != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bdE = TbadkCoreApplication.getInst().getSkinType();
+            aj.t(this.btT, d.C0108d.cp_bg_line_d);
+            aj.t(this.mBottomLine, d.C0108d.cp_bg_line_c);
+            this.btU.notifyDataSetChanged();
         }
     }
 }

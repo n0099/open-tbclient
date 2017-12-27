@@ -7,7 +7,6 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -15,25 +14,25 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
-    private HttpMessageListener atd = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
+    private HttpMessageListener bhe = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse) && ((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).threadInfo != null && SendVideoSuccessShareModel.this.mLoadDataCallBack != null) {
-                SendVideoSuccessShareModel.this.mLoadDataCallBack.f(((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).getThreadInfo());
+                SendVideoSuccessShareModel.this.mLoadDataCallBack.ak(((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).getThreadInfo());
             }
         }
     };
 
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
-        zL();
-        this.atd.setTag(getUniqueId());
-        this.atd.setSelfListener(true);
-        registerListener(this.atd);
+        Hk();
+        this.bhe.setTag(getUniqueId());
+        this.bhe.setSelfListener(true);
+        registerListener(this.bhe);
     }
 
-    private void zL() {
+    private void Hk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_VIDEO_INFO_BY_VLOGID);
         tbHttpMessageTask.setResponsedClass(SendVideoSuccessShareOriginalThreadInfoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -46,11 +45,11 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.atd);
+        MessageManager.getInstance().unRegisterListener(this.bhe);
         return false;
     }
 
-    public void tT(String str) {
+    public void tU(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);
@@ -71,7 +70,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             int error = getError();
             if (statusCode == 200 && error >= 0 && jSONObject != null) {
                 this.threadInfo = new OriginalThreadInfo();
-                String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+                String optString = jSONObject.optString("title");
                 String optString2 = jSONObject.optString("cover");
                 String optString3 = jSONObject.optString("video_id");
                 this.threadInfo.showPicUrl = optString2;

@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public e mData;
 

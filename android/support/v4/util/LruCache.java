@@ -2,7 +2,7 @@ package android.support.v4.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LruCache<K, V> {
     private int createCount;
     private int evictionCount;
@@ -19,6 +19,16 @@ public class LruCache<K, V> {
         }
         this.maxSize = i;
         this.map = new LinkedHashMap<>(0, 0.75f, true);
+    }
+
+    public void resize(int i) {
+        if (i <= 0) {
+            throw new IllegalArgumentException("maxSize <= 0");
+        }
+        synchronized (this) {
+            this.maxSize = i;
+        }
+        trimToSize(i);
     }
 
     public final V get(K k) {

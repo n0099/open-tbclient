@@ -10,12 +10,12 @@ public class b {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aU(int i);
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    public static void a(Activity activity, String[] strArr, int i) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
         if (activity instanceof a) {
-            ((a) activity).aU(i);
+            ((a) activity).validateRequestPermissionsRequestCode(i);
         }
         activity.requestPermissions(strArr, i);
     }

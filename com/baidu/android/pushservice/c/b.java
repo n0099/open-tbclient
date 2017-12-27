@@ -16,14 +16,7 @@ public class b {
     }
 
     public boolean a() {
-        String a;
-        if (new File(this.c).exists()) {
-            a = a.a(this.c);
-            com.baidu.android.pushservice.g.a.c("BaseConfig", "load config from " + this.c);
-        } else {
-            a = a.a();
-            com.baidu.android.pushservice.g.a.c("BaseConfig", "load config from defaultConfig");
-        }
+        String a = new File(this.c).exists() ? a.a(this.c) : a.a();
         if (!TextUtils.isEmpty(a)) {
             try {
                 byte[] a2 = com.baidu.android.pushservice.k.b.a(a.getBytes());
@@ -31,12 +24,9 @@ public class b {
                     this.b = new String(BaiduAppSSOJni.decryptAES(a2, a2.length, 0));
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("BaseConfig", e);
             } catch (UnsatisfiedLinkError e2) {
-                com.baidu.android.pushservice.g.a.a("BaseConfig", e2);
             }
         }
-        com.baidu.android.pushservice.g.a.c("BaseConfig", "the config content = " + this.b);
         return !TextUtils.isEmpty(this.b);
     }
 

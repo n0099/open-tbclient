@@ -4,22 +4,22 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int ait;
+    public int aWC;
+    public int ajA;
     public String mErrorString;
-    public int vn;
-    public String aiu = null;
+    public String aWD = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean uQ() {
-        return this.vn == 200;
+    public boolean Cq() {
+        return this.ajA == 200;
     }
 
     public boolean isRequestSuccess() {
-        return this.vn == 200 && this.ait == 0;
+        return this.ajA == 200 && this.aWC == 0;
     }
 
-    public boolean fp() {
-        return this.vn == 200 || this.vn == 206;
+    public boolean mS() {
+        return this.ajA == 200 || this.ajA == 206;
     }
 }

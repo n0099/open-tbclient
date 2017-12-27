@@ -17,7 +17,7 @@ public class NightResourceStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.Tq = true;
+        c.aHR = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NIGHT_PLUGIN_INSATLLED));
     }
 }

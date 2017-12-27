@@ -1,10 +1,13 @@
 package android.support.v4.view;
 
 import android.view.MenuItem;
-/* loaded from: classes.dex */
-public class MenuCompat {
+/* loaded from: classes2.dex */
+public final class MenuCompat {
     @Deprecated
     public static void setShowAsAction(MenuItem menuItem, int i) {
         MenuItemCompat.setShowAsAction(menuItem, i);
+    }
+
+    private MenuCompat() {
     }
 }

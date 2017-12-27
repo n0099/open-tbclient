@@ -1,16 +1,16 @@
 package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
 public class b {
-    public long qh = 0;
-    public long qi = 0;
-    public long qj = 0;
-    public long ql = 0;
-    public long qm = 0;
-    public long qn = 0;
-    public long qo = 0;
-    public long qp = 0;
-    public int qq = 0;
-    public long qr = 0;
-    public long qs = 0;
-    public long qt = 0;
+    public long aeI = 0;
+    public long aeJ = 0;
+    public long aeK = 0;
+    public long aeL = 0;
+    public long aeM = 0;
+    public long aeN = 0;
+    public long aeO = 0;
+    public long aeP = 0;
+    public int aeQ = 0;
+    public long aeR = 0;
+    public long aeS = 0;
+    public long aeT = 0;
 }

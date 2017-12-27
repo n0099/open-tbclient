@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.PbTopAgreePost;
 import tbclient.Post;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class n {
     public String forum_top_list;
-    public final List<PostData> eQw = new ArrayList();
-    public final List<Long> eQx = new ArrayList();
+    public final List<PostData> fCX = new ArrayList();
+    public final List<Long> fCY = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -26,19 +26,19 @@ public class n {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.gCB = 102;
+                postData.hjo = 102;
                 postData.a(post, context);
-                this.eQw.add(postData);
+                this.fCX.add(postData);
             }
         }
-        if (!v.w(this.eQw)) {
-            this.eQw.get(0).gCC = true;
-            setCount(this.eQw.size());
+        if (!v.G(this.fCX)) {
+            this.fCX.get(0).hjp = true;
+            setCount(this.fCX.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.eQx.add(l);
+                this.fCY.add(l);
             }
         }
         this.forum_top_list = pbTopAgreePost.forum_top_list;

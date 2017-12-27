@@ -75,7 +75,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
-        if (p.F(context)) {
+        if (p.G(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
                 this.mChannelId = "com.baidu.android.pushservice.push";
             }

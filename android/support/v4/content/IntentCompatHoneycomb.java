@@ -2,7 +2,7 @@ package android.support.v4.content;
 
 import android.content.ComponentName;
 import android.content.Intent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class IntentCompatHoneycomb {
     public static Intent makeMainActivity(ComponentName componentName) {
         return Intent.makeMainActivity(componentName);

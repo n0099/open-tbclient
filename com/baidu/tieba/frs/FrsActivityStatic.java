@@ -29,36 +29,36 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import java.net.URLDecoder;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FrsActivityStatic {
-    public static boolean cGK = true;
-    public static boolean cGL = true;
+    public static boolean dwa = true;
+    public static boolean dwb = true;
     public static String forumName = "";
-    public static final CustomMessageListener cGM = new CustomMessageListener(CmdConfigCustom.MSG_NEW) { // from class: com.baidu.tieba.frs.FrsActivityStatic.4
+    public static final CustomMessageListener dwc = new CustomMessageListener(CmdConfigCustom.MSG_NEW) { // from class: com.baidu.tieba.frs.FrsActivityStatic.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                    FrsActivityStatic.cGL = true;
-                    FrsActivityStatic.cGK = true;
+                    FrsActivityStatic.dwb = true;
+                    FrsActivityStatic.dwa = true;
                     return;
                 }
-                FrsActivityStatic.cGL = false;
-                FrsActivityStatic.cGK = false;
+                FrsActivityStatic.dwb = false;
+                FrsActivityStatic.dwa = false;
             }
         }
     };
-    private static final CustomMessageListener cGN = new CustomMessageListener(CmdConfigCustom.MSG_READ) { // from class: com.baidu.tieba.frs.FrsActivityStatic.5
+    private static final CustomMessageListener dwd = new CustomMessageListener(CmdConfigCustom.MSG_READ) { // from class: com.baidu.tieba.frs.FrsActivityStatic.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                int g = com.baidu.adp.lib.g.b.g(customResponsedMessage.getData().toString(), 1);
-                if (g == 1 || g == 0) {
-                    FrsActivityStatic.cGL = false;
-                    FrsActivityStatic.cGK = false;
+                int h = com.baidu.adp.lib.g.b.h(customResponsedMessage.getData().toString(), 1);
+                if (h == 1 || h == 0) {
+                    FrsActivityStatic.dwb = false;
+                    FrsActivityStatic.dwa = false;
                 }
             }
         }
@@ -66,20 +66,20 @@ public class FrsActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FrsActivityConfig.class, FrsActivity.class);
-        akW();
-        akR();
-        akS();
-        akT();
-        akU();
-        akV();
-        LocationModel.bxI();
-        akX();
-        MessageManager.getInstance().registerListener(cGM);
-        MessageManager.getInstance().registerListener(cGN);
-        akY();
+        asD();
+        asy();
+        asz();
+        asA();
+        asB();
+        asC();
+        LocationModel.bCY();
+        asE();
+        MessageManager.getInstance().registerListener(dwc);
+        MessageManager.getInstance().registerListener(dwd);
+        asF();
     }
 
-    private static void akR() {
+    private static void asy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new CustomMessageTask.CustomRunnable<FrsActivityConfig>() { // from class: com.baidu.tieba.frs.FrsActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
@@ -93,7 +93,7 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void akS() {
+    private static void asz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new CustomMessageTask.CustomRunnable<FrsActivityConfig>() { // from class: com.baidu.tieba.frs.FrsActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
@@ -107,8 +107,8 @@ public class FrsActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void akT() {
-        com.baidu.tbadk.core.util.av.vI().a(new av.a() { // from class: com.baidu.tieba.frs.FrsActivityStatic.3
+    private static void asA() {
+        com.baidu.tbadk.core.util.av.Di().a(new av.a() { // from class: com.baidu.tieba.frs.FrsActivityStatic.3
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 String substring;
@@ -160,7 +160,7 @@ public class FrsActivityStatic {
                     z = false;
                     z2 = true;
                 } else if (lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains("kw=")) {
-                    str2 = com.baidu.tbadk.util.z.as(lowerCase, "kw=");
+                    str2 = com.baidu.tbadk.util.z.ar(lowerCase, "kw=");
                     if (!TextUtils.isEmpty(str2)) {
                         tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
                         return 0;
@@ -170,10 +170,10 @@ public class FrsActivityStatic {
                 } else if (!lowerCase.startsWith("tblaunch://tieba.baidu.com/f?")) {
                     return 3;
                 } else {
-                    String as = com.baidu.tbadk.util.z.as(lowerCase, "kw=");
+                    String ar = com.baidu.tbadk.util.z.ar(lowerCase, "kw=");
                     z2 = false;
-                    i = com.baidu.adp.lib.g.b.g(com.baidu.tbadk.util.z.as(lowerCase, "tab_id="), 0);
-                    str2 = as;
+                    i = com.baidu.adp.lib.g.b.h(com.baidu.tbadk.util.z.ar(lowerCase, "tab_id="), 0);
+                    str2 = ar;
                     z = false;
                 }
                 if (!TextUtils.isEmpty(str2)) {
@@ -184,8 +184,8 @@ public class FrsActivityStatic {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
                     return 1;
                 } else if (z2 && !TextUtils.isEmpty(str2)) {
-                    com.baidu.adp.lib.g.f.f(TbadkCoreApplication.getInst(), com.baidu.tieba.frs.f.h.ac(TbadkCoreApplication.getInst(), str2));
-                    com.baidu.tieba.frs.f.g.aM(2, 2);
+                    com.baidu.adp.lib.g.f.f(TbadkCoreApplication.getInst(), com.baidu.tieba.frs.e.h.af(TbadkCoreApplication.getInst(), str2));
+                    com.baidu.tieba.frs.e.g.bK(2, 2);
                     return 1;
                 } else if (z) {
                     tbPageContext.showToast(d.j.page_not_found);
@@ -197,55 +197,55 @@ public class FrsActivityStatic {
         });
     }
 
-    private static void akU() {
+    private static void asB() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_KV_CACHE_SUCC) { // from class: com.baidu.tieba.frs.FrsActivityStatic.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                    com.baidu.tieba.frs.smartsort.d.aqr().aqs();
-                    com.baidu.tieba.frs.smartsort.a.aqk().aqm();
-                    if (com.baidu.tieba.recapp.q.blR().blL() != null) {
-                        com.baidu.tieba.recapp.q.blR().blL().blC();
+                    com.baidu.tieba.frs.smartsort.d.axC().axD();
+                    com.baidu.tieba.frs.smartsort.a.axw().axy();
+                    if (com.baidu.tieba.recapp.q.bty().bts() != null) {
+                        com.baidu.tieba.recapp.q.bty().bts().btj();
                     }
-                    if (com.baidu.tieba.recapp.q.blR().blM() != null) {
-                        com.baidu.tieba.recapp.q.blR().blM().blD();
+                    if (com.baidu.tieba.recapp.q.bty().btt() != null) {
+                        com.baidu.tieba.recapp.q.bty().btt().btk();
                     }
                 }
             }
         });
     }
 
-    private static void akV() {
+    private static void asC() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_CLEAN_SMART_FRS_COOKIE) { // from class: com.baidu.tieba.frs.FrsActivityStatic.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    com.baidu.tieba.frs.smartsort.d.aqr().aqt();
+                    com.baidu.tieba.frs.smartsort.d.axC().axE();
                 }
             }
         });
     }
 
-    public static void akW() {
-        com.baidu.tbadk.ala.b.nv().a(1, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.frs.FrsActivityStatic.8
+    public static void asD() {
+        com.baidu.tbadk.ala.b.uY().a(1, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.frs.FrsActivityStatic.8
             @Override // com.baidu.tbadk.ala.d
-            public View av(Context context) {
-                TextView au = com.baidu.tbadk.ala.c.au(context);
-                if (au != null) {
+            public View aH(Context context) {
+                TextView aG = com.baidu.tbadk.ala.c.aG(context);
+                if (aG != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    com.baidu.tbadk.core.util.aj.i(au, d.C0095d.cp_link_tip_a);
-                    layoutParams.setMargins(com.baidu.adp.lib.util.l.f(context, d.e.ds8), 0, com.baidu.adp.lib.util.l.f(context, d.e.ds8), 0);
+                    com.baidu.tbadk.core.util.aj.r(aG, d.C0108d.cp_link_tip_a);
+                    layoutParams.setMargins(com.baidu.adp.lib.util.l.s(context, d.e.ds8), 0, com.baidu.adp.lib.util.l.s(context, d.e.ds8), 0);
                     layoutParams.gravity = 16;
-                    au.setLayoutParams(layoutParams);
+                    aG.setLayoutParams(layoutParams);
                 }
-                return au;
+                return aG;
             }
         });
     }
 
-    public static void akX() {
+    public static void asE() {
         com.baidu.tieba.tbadkCore.a.a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aG(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -261,7 +261,7 @@ public class FrsActivityStatic {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tbadk.util.aa.a(com.baidu.tieba.tbadkCore.h.WIRE, FrsPageResIdl.class);
+                com.baidu.tbadk.util.aa.a(com.baidu.tieba.tbadkCore.i.WIRE, FrsPageResIdl.class);
                 return null;
             }
         };
@@ -270,7 +270,7 @@ public class FrsActivityStatic {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private static void akY() {
+    private static void asF() {
         com.baidu.tieba.tbadkCore.a.a.c(301002, LoadMoreResponseSocketMessage.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, com.baidu.tieba.tbadkCore.a.a.aG(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
         tbHttpMessageTask.setIsNeedLogin(false);

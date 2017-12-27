@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Realtime.RealtimeResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RealTimeSocketResponse extends SocketResponsedMessage {
     public RealTimeSocketResponse() {
         super(309277);

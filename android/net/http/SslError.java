@@ -3,53 +3,54 @@ package android.net.http;
 import java.security.cert.X509Certificate;
 /* loaded from: classes.dex */
 public class SslError {
+    public static final int SSL_DATE_INVALID = 4;
     public static final int SSL_EXPIRED = 1;
     public static final int SSL_IDMISMATCH = 2;
-    public static final int SSL_MAX_ERROR = 4;
+    public static final int SSL_INVALID = 5;
+    @Deprecated
+    public static final int SSL_MAX_ERROR = 6;
     public static final int SSL_NOTYETVALID = 0;
     public static final int SSL_UNTRUSTED = 3;
-    SslCertificate mCertificate;
-    int mErrors;
 
+    @Deprecated
     public SslError(int i, SslCertificate sslCertificate) {
-        addError(i);
-        this.mCertificate = sslCertificate;
+        throw new RuntimeException("Stub!");
     }
 
+    @Deprecated
     public SslError(int i, X509Certificate x509Certificate) {
-        addError(i);
-        this.mCertificate = new SslCertificate(x509Certificate);
+        throw new RuntimeException("Stub!");
+    }
+
+    public SslError(int i, SslCertificate sslCertificate, String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public SslError(int i, X509Certificate x509Certificate, String str) {
+        throw new RuntimeException("Stub!");
     }
 
     public SslCertificate getCertificate() {
-        return this.mCertificate;
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getUrl() {
+        throw new RuntimeException("Stub!");
     }
 
     public boolean addError(int i) {
-        boolean z = i >= 0 && i < 4;
-        if (z) {
-            this.mErrors = (1 << i) | this.mErrors;
-        }
-        return z;
+        throw new RuntimeException("Stub!");
     }
 
     public boolean hasError(int i) {
-        boolean z = i >= 0 && i < 4;
-        return z ? (this.mErrors & (1 << i)) != 0 : z;
+        throw new RuntimeException("Stub!");
     }
 
     public int getPrimaryError() {
-        if (this.mErrors != 0) {
-            for (int i = 3; i >= 0; i--) {
-                if ((this.mErrors & (1 << i)) != 0) {
-                    return i;
-                }
-            }
-        }
-        return 0;
+        throw new RuntimeException("Stub!");
     }
 
     public String toString() {
-        return "primary error: " + getPrimaryError() + " certificate: " + getCertificate();
+        throw new RuntimeException("Stub!");
     }
 }

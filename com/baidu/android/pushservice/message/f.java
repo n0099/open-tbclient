@@ -23,50 +23,47 @@ public class f extends d {
         super(context);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(long j, g gVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         com.baidu.android.pushservice.j.i iVar = new com.baidu.android.pushservice.j.i(byteArrayOutputStream);
         try {
-            try {
-                iVar.a(j);
-                iVar.b(gVar.a());
-                iVar.b(0);
-                com.baidu.android.pushservice.g.a.c("MessageHandler", "reply null? " + (gVar.b() == null));
-                if (gVar.b() != null) {
-                    iVar.a(gVar.b());
-                }
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                try {
-                    return byteArray;
-                } catch (IOException e) {
-                    return byteArray;
-                }
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.e("MessageHandler", "wrapMsgHead error : " + e2.getMessage());
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException e3) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e3);
-                }
-                try {
-                    iVar.a();
-                } catch (IOException e4) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e4);
-                }
-                return null;
+            iVar.a(j);
+            iVar.b(gVar.a());
+            iVar.b(0);
+            if (gVar.b() != null) {
+                iVar.a(gVar.b());
             }
-        } finally {
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
             try {
                 byteArrayOutputStream.close();
-            } catch (IOException e5) {
-                com.baidu.android.pushservice.g.a.a("MessageHandler", e5);
+            } catch (IOException e) {
             }
             try {
                 iVar.a();
-            } catch (IOException e6) {
-                com.baidu.android.pushservice.g.a.a("MessageHandler", e6);
+                return byteArray;
+            } catch (IOException e2) {
+                return byteArray;
             }
+        } catch (Exception e3) {
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e4) {
+            }
+            try {
+                iVar.a();
+            } catch (IOException e5) {
+            }
+            return null;
+        } catch (Throwable th) {
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e6) {
+            }
+            try {
+                iVar.a();
+            } catch (IOException e7) {
+            }
+            throw th;
         }
     }
 
@@ -84,44 +81,38 @@ public class f extends d {
         com.baidu.android.pushservice.j.i iVar = new com.baidu.android.pushservice.j.i(byteArrayOutputStream);
         int length = bArr != null ? bArr.length : 0;
         try {
-            try {
-                iVar.a((int) s);
-                if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
-                    iVar.a((int) com.baidu.android.pushservice.a.a());
-                    iVar.b(0);
-                    iVar.a(a(p.e(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
-                    iVar.b(-76508268);
-                    iVar.b(1);
-                    iVar.b(length);
-                    if (bArr != null) {
-                        iVar.a(bArr);
-                    }
+            iVar.a((int) s);
+            if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
+                iVar.a((int) com.baidu.android.pushservice.a.a());
+                iVar.b(0);
+                iVar.a(a(p.e(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                iVar.b(-76508268);
+                iVar.b(1);
+                iVar.b(length);
+                if (bArr != null) {
+                    iVar.a(bArr);
                 }
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
-                try {
-                    iVar.a();
-                    return byteArray;
-                } catch (Exception e) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e);
-                    return byteArray;
-                }
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.e("MessageHandler", "error " + e2.getMessage());
-                com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
-                try {
-                    iVar.a();
-                } catch (Exception e3) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e3);
-                }
-                return null;
             }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
+            try {
+                iVar.a();
+                return byteArray;
+            } catch (Exception e) {
+                return byteArray;
+            }
+        } catch (Exception e2) {
+            com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
+            try {
+                iVar.a();
+            } catch (Exception e3) {
+            }
+            return null;
         } catch (Throwable th) {
             com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
             try {
                 iVar.a();
             } catch (Exception e4) {
-                com.baidu.android.pushservice.g.a.a("MessageHandler", e4);
             }
             throw th;
         }
@@ -129,7 +120,7 @@ public class f extends d {
 
     private String d() {
         try {
-            switch (p.s(this.a)) {
+            switch (p.t(this.a)) {
                 case 1:
                     return "wifi";
                 case 2:
@@ -142,7 +133,6 @@ public class f extends d {
                     return null;
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e);
             return null;
         }
     }
@@ -152,7 +142,6 @@ public class f extends d {
             Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
             return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e);
             return null;
         }
     }
@@ -172,27 +161,25 @@ public class f extends d {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e);
         }
         return null;
     }
 
     private String g() {
         try {
-            if (p.t(this.a, "android.permission.READ_PHONE_STATE")) {
+            if (p.u(this.a, "android.permission.READ_PHONE_STATE")) {
                 return ((TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
             }
+            return null;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e);
+            return null;
         }
-        return null;
     }
 
     private String h() {
         try {
             return ((WifiManager) this.a.getSystemService("wifi")).getConnectionInfo().getMacAddress();
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e);
             return null;
         }
     }
@@ -205,7 +192,6 @@ public class f extends d {
         short c = this.b.c();
         e eVar = new e(c);
         if (c == h.MSG_ID_TINY_HEARTBEAT_SERVER.a() || c == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a()) {
-            com.baidu.android.pushservice.g.a.b("MessageHandler", "readMessage tiny heart beat from server, msgType:" + ((int) c));
             if (byteArrayInputStream != null) {
                 byteArrayInputStream.close();
             }
@@ -214,15 +200,14 @@ public class f extends d {
             }
             return eVar;
         }
-        short c2 = this.b.c();
-        int b = this.b.b();
+        this.b.c();
+        this.b.b();
         this.b.a(new byte[16]);
-        int b2 = this.b.b();
-        int b3 = this.b.b();
-        int b4 = this.b.b();
-        com.baidu.android.pushservice.g.a.b("MessageHandler", "readMessage nshead, msgId:" + ((int) c) + " magicNum:" + Integer.toHexString(b2) + " length:" + b4 + " version =" + ((int) c2) + " logId =" + b + " reserved = " + b3);
-        if (b4 > 0) {
-            bArr2 = new byte[b4 <= 20480 ? b4 : 20480];
+        this.b.b();
+        this.b.b();
+        int b = this.b.b();
+        if (b > 0) {
+            bArr2 = new byte[b <= 20480 ? b : 20480];
             this.b.a(bArr2);
         } else {
             bArr2 = null;
@@ -247,16 +232,14 @@ public class f extends d {
             jSONObject.put("period", TbConfig.POST_IMAGE_MIDDLE);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
-            if (p.E(this.a)) {
+            if (p.F(this.a)) {
                 jSONObject.put("connect_version", 3);
                 String str2 = Build.MANUFACTURER;
                 if (!TextUtils.isEmpty(str2) && str2.length() <= 128) {
                     jSONObject.put("manufacture", str2);
                 }
-                com.baidu.android.pushservice.g.a.c("MessageHandler", "******** login sa by V3 ********" + this.a.getPackageName());
             } else {
                 jSONObject.put("connect_version", 2);
-                com.baidu.android.pushservice.g.a.c("MessageHandler", "******** login sa by V2 ********" + this.a.getPackageName());
             }
             jSONObject.put("tiny_msghead", 1);
             jSONObject.put("alarm_function", 1);
@@ -290,25 +273,18 @@ public class f extends d {
                 jSONObject2.put("imsi", g);
             }
             int length = jSONObject2.toString().length();
-            com.baidu.android.pushservice.g.a.c("MessageHandler", "jsonDevInfo = " + jSONObject2.toString());
-            String a2 = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), "utf-8");
-            com.baidu.android.pushservice.g.a.c("MessageHandler", "devinfo = " + a2);
-            com.baidu.android.pushservice.g.a.c("MessageHandler", "devinfolength = " + length);
-            jSONObject.put("devinfo", a2);
+            jSONObject.put("devinfo", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), "utf-8"));
             jSONObject.put("devinfolength", length);
             str = jSONObject.toString();
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e2);
         } catch (UnsatisfiedLinkError e3) {
-            com.baidu.android.pushservice.g.a.a("MessageHandler", e3);
         }
-        com.baidu.android.pushservice.g.a.b("MessageHandler", "onSessionOpened, send handshake msg :" + str);
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        byte[] a3 = a(h.MSG_ID_HANDSHAKE.a(), str.getBytes());
+        byte[] a2 = a(h.MSG_ID_HANDSHAKE.a(), str.getBytes());
         e eVar = new e(h.MSG_ID_HANDSHAKE.a());
-        eVar.c = a3;
+        eVar.c = a2;
         eVar.d = true;
         eVar.a(false);
         a(eVar);
@@ -331,10 +307,8 @@ public class f extends d {
             if (eVar.e) {
                 e eVar2 = new e(eVar.a);
                 if (a == h.MSG_ID_PUSH_MSG) {
-                    com.baidu.android.pushservice.g.a.c("MessageHandler", "message need reply , send msg msgId :" + eVar.d().g() + " ret: " + a3.a());
                     eVar2.c = a(h.MSG_ID_PUSH_MSG.a(), a(eVar.d().g(), a3));
                 } else if (a == h.MSG_ID_TINY_HEARTBEAT_SERVER || a == h.MSG_ID_HEARTBEAT_SERVER) {
-                    com.baidu.android.pushservice.g.a.b("MessageHandler", "handleServerHeartbeatMsg, send handshake return msg ");
                     eVar2.c = a(eVar.a, (byte[]) null);
                 }
                 a(eVar2);
@@ -344,7 +318,6 @@ public class f extends d {
 
     @Override // com.baidu.android.pushservice.message.d
     public void c() {
-        com.baidu.android.pushservice.g.a.b("MessageHandler", "sendHeartbeatMessage ");
         byte[] a = a(h.MSG_ID_TINY_HEARTBEAT_CLIENT.a(), (byte[]) null);
         e eVar = new e(h.MSG_ID_TINY_HEARTBEAT_CLIENT.a());
         eVar.c = a;

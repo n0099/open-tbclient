@@ -45,22 +45,18 @@ public class h extends c {
         int i3 = 0;
         com.baidu.android.pushservice.b.d a = com.baidu.android.pushservice.b.d.a(this.a, e);
         String str2 = null;
-        if (TextUtils.isEmpty(f) || !p.c(this.a, f)) {
-            if (a.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
-                str2 = a.a.c();
-            } else if (a.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
-                str2 = a.b.c();
-            }
-            com.baidu.android.pushservice.g.a.c("PrivateMessageHandler", "PrivateMessage PackageName is from  PushClient");
-            f = str2;
-        } else {
-            com.baidu.android.pushservice.g.a.c("PrivateMessageHandler", "PrivateMessage has PackageName = " + f);
+        if (!TextUtils.isEmpty(f) && p.c(this.a, f)) {
+            str2 = f;
+        } else if (a.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
+            str2 = a.a.c();
+        } else if (a.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
+            str2 = a.b.c();
         }
         switch (a.a()) {
             case PUSH_CLIENT:
-                byte[] a2 = p.a(this.a, h, bArr, j, f);
+                byte[] a2 = p.a(this.a, h, bArr, j, str2);
                 try {
-                    this.a.getPackageManager().getPackageInfo(f, 128);
+                    this.a.getPackageManager().getPackageInfo(str2, 128);
                     PublicMsg a3 = j.a(this.a, h, e, bArr);
                     boolean a4 = a(bArr);
                     if (a3 == null) {
@@ -94,67 +90,59 @@ public class h extends c {
                                 }
                                 intent.putExtra("extra_extra_custom_content", a3.mCustomContent);
                             } catch (JSONException e2) {
-                                com.baidu.android.pushservice.g.a.a("PrivateMessageHandler", "Custom content to JSONObject exception:", e2);
                             }
                         }
                         if (com.baidu.android.pushservice.a.b() > 0) {
                             intent.putExtra("bd.message.rate.REDIRECTION", System.currentTimeMillis());
                         }
-                        i = p.a(this.a, intent, str, f);
-                        String str3 = ">>> Deliver message to client: " + f + " msg: " + a3.mDescription + " result: " + i;
-                        com.baidu.android.pushservice.g.a.b("PrivateMessageHandler", str3);
-                        p.b(str3, this.a);
+                        i = p.a(this.a, intent, str, str2);
+                        p.b(">>> Deliver message to client: " + str2 + " msg: " + a3.mDescription + " result: " + i, this.a);
                         break;
                     }
                 } catch (PackageManager.NameNotFoundException e3) {
                     i = 8;
-                    String str4 = ">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.";
                     f.a(this.a, e);
-                    com.baidu.android.pushservice.g.a.b("PrivateMessageHandler", str4);
-                    p.b(str4, this.a);
+                    p.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
                     break;
                 }
             case SDK_CLIENT:
-                byte[] a5 = p.a(this.a, h, bArr, j, f);
-                com.baidu.android.pushservice.g.a.c("PrivateMessageHandler", "receive sdk message " + new String(bArr) + " pkgName = " + f);
+                byte[] a5 = p.a(this.a, h, bArr, j, str2);
                 try {
                     String optString = new JSONObject(new String(bArr)).optString("description");
                     if (TextUtils.isEmpty(optString)) {
                         i3 = 2;
                     } else {
                         try {
-                            this.a.getPackageManager().getPackageInfo(f, 128);
+                            this.a.getPackageManager().getPackageInfo(str2, 128);
                             Intent intent2 = new Intent();
                             intent2.setPackage(a.b.c());
-                            intent2.putExtra(PushConstants.EXTRA_PUSH_MESSAGE, bArr);
+                            intent2.putExtra("message", bArr);
                             intent2.putExtra("message_string", optString);
                             intent2.setFlags(32);
                             intent2.putExtra("baidu_message_body", bArr);
                             intent2.putExtra("baidu_message_secur_info", a5);
                             intent2.putExtra("message_id", h);
                             intent2.putExtra("baidu_message_type", i2);
-                            p.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", f);
+                            p.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", str2);
                         } catch (PackageManager.NameNotFoundException e4) {
+                            String str3 = ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.";
                             com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) a.b, false);
                             i3 = 8;
-                            com.baidu.android.pushservice.g.a.b("PrivateMessageHandler", ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.");
                         }
                     }
                     i = i3;
                     break;
                 } catch (JSONException e5) {
                     i = 2;
-                    com.baidu.android.pushservice.g.a.c("PrivateMessageHandler", "description is null return invalid");
                     break;
                 }
             default:
                 i = 7;
-                String str5 = ">>> NOT found client for privateMessageHandler appid " + e;
+                String str4 = ">>> NOT found client for privateMessageHandler appid " + e;
                 if (Build.VERSION.SDK_INT < 24) {
                     f.a(this.a, e);
                 }
-                com.baidu.android.pushservice.g.a.b("PrivateMessageHandler", str5 + " msgBody " + new String(bArr));
-                p.b(str5, this.a);
+                p.b(str4, this.a);
                 break;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

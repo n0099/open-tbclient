@@ -33,7 +33,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.ca().h(getPageContext().getPageActivity());
+        a.jF().h(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -142,8 +142,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.fJ().d(this.mId);
-        a.ca().i(getPageContext().getPageActivity());
+        com.baidu.adp.lib.f.c.nl().d(this.mId);
+        a.jF().i(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -151,7 +151,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.fJ().e(this.mId);
+        com.baidu.adp.lib.f.c.nl().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -166,7 +166,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        com.baidu.adp.widget.ListView.g onGetPreLoadListView = onGetPreLoadListView();
+        com.baidu.adp.widget.ListView.l onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -183,10 +183,10 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(com.baidu.adp.widget.ListView.g gVar) {
+    public void onPreLoad(com.baidu.adp.widget.ListView.l lVar) {
     }
 
-    public com.baidu.adp.widget.ListView.g onGetPreLoadListView() {
+    public com.baidu.adp.widget.ListView.l onGetPreLoadListView() {
         return null;
     }
 
@@ -222,7 +222,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.cg().getResources();
+        Resources resources = g.jL().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

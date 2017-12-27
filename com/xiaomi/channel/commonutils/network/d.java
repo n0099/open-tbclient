@@ -28,7 +28,11 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-import org.apache.http.entity.mime.MIME;
+import org.apache.http.HttpHost;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.SM;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class d {
     public static final Pattern a = Pattern.compile("([^\\s;]+)(.*)");
@@ -107,7 +111,7 @@ public class d {
                     b2.setConnectTimeout(10000);
                     b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                     if (str2 == null) {
-                        str2 = "GET";
+                        str2 = HttpGet.METHOD_NAME;
                     }
                     b2.setRequestMethod(str2);
                     if (map != null) {
@@ -221,7 +225,7 @@ public class d {
     }
 
     public static com.xiaomi.channel.commonutils.network.b a(Context context, String str, Map<String, String> map) {
-        return a(context, str, "POST", (Map<String, String>) null, a(map));
+        return a(context, str, HttpPost.METHOD_NAME, (Map<String, String>) null, a(map));
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2) {
@@ -242,17 +246,17 @@ public class d {
             b2.setConnectTimeout(10000);
             b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
             if (!TextUtils.isEmpty(str)) {
-                b2.setRequestProperty("User-Agent", str);
+                b2.setRequestProperty(HTTP.USER_AGENT, str);
             }
             if (str2 != null) {
-                b2.setRequestProperty("Cookie", str2);
+                b2.setRequestProperty(SM.COOKIE, str2);
             }
             if (map != null) {
                 for (String str3 : map.keySet()) {
                     b2.setRequestProperty(str3, map.get(str3));
                 }
             }
-            if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
+            if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
                 bVar.a = b2.getResponseCode();
                 if (bVar.b == null) {
                     bVar.b = new HashMap();
@@ -279,7 +283,7 @@ public class d {
     }
 
     public static String a(Context context, URL url) {
-        return a(context, url, false, null, "UTF-8", null);
+        return a(context, url, false, null, HTTP.UTF_8, null);
     }
 
     public static String a(Context context, URL url, boolean z, String str, String str2, String str3) {
@@ -347,9 +351,9 @@ public class d {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
-                httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "multipart/form-data;boundary=*****");
+                httpURLConnection.setRequestMethod(HttpPost.METHOD_NAME);
+                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=*****");
                 if (map != null) {
                     for (Map.Entry<String, String> entry : map.entrySet()) {
                         httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
@@ -482,9 +486,9 @@ public class d {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry.getKey() != null && entry.getValue() != null) {
                 try {
-                    stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode(entry.getKey(), HTTP.UTF_8));
                     stringBuffer.append("=");
-                    stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode(entry.getValue(), HTTP.UTF_8));
                     stringBuffer.append("&");
                 } catch (UnsupportedEncodingException e) {
                     Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e.toString());
@@ -497,7 +501,7 @@ public class d {
     }
 
     public static HttpURLConnection b(Context context, URL url) {
-        if ("http".equals(url.getProtocol())) {
+        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol())) {
             if (c(context)) {
                 return (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80)));
             }

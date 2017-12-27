@@ -9,7 +9,6 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.d;
 import java.util.List;
@@ -28,16 +27,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dF(int i);
+        void gD(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
+        int Eo();
+
+        com.baidu.adp.lib.e.b<HeadImageView> Ep();
+
         ListView getListView();
-
-        int wP();
-
-        com.baidu.adp.lib.e.b<HeadImageView> wQ();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -73,13 +72,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mAutoChangeStyle = true;
         this.mNormalShowCount = 6;
         this.mContext = context;
-        this.mPadding = l.dip2px(this.mContext, this.mPadding);
+        this.mPadding = com.baidu.adp.lib.util.l.dip2px(this.mContext, this.mPadding);
         this.mItemSize = (int) this.mContext.getResources().getDimension(d.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.wQ();
+            this.mUserPhotoPool = dVar.Ep();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.wP());
+                this.mTbRecyclerListener = new c(dVar.Eo());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -87,7 +86,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
                 if ((view2 instanceof HeadImageView) && UserPhotoLayout.this.mUserPhotoPool != null) {
-                    UserPhotoLayout.this.mUserPhotoPool.m((HeadImageView) view2);
+                    UserPhotoLayout.this.mUserPhotoPool.ar((HeadImageView) view2);
                 }
             }
 
@@ -197,7 +196,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dF(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.gD(this.mIndex);
             }
         }
     }
@@ -219,15 +218,15 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         return new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<HeadImageView>() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: wO */
-            public HeadImageView fI() {
+            /* renamed from: En */
+            public HeadImageView nk() {
                 return new HeadImageView(context);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: a */
-            public void n(HeadImageView headImageView) {
+            public void as(HeadImageView headImageView) {
                 headImageView.setBackgroundResource(0);
                 headImageView.setImageDrawable(null);
                 headImageView.setTag(null);
@@ -237,14 +236,14 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: b */
-            public HeadImageView o(HeadImageView headImageView) {
+            public HeadImageView at(HeadImageView headImageView) {
                 return headImageView;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: c */
-            public HeadImageView p(HeadImageView headImageView) {
+            public HeadImageView au(HeadImageView headImageView) {
                 headImageView.setBackgroundResource(0);
                 headImageView.setImageDrawable(null);
                 headImageView.setTag(null);
@@ -257,7 +256,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.fH();
+            headImageView = this.mUserPhotoPool.nj();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

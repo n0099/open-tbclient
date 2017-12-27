@@ -10,12 +10,12 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b, j {
-    protected List<Object> bmy;
     protected boolean mHasMore;
     protected List<Object> mThreadList;
     protected int pn;
+    protected List<Object> tagList;
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
@@ -37,10 +37,10 @@ public class a implements b, j {
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.bmy = new ArrayList();
+                this.tagList = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.bmy.add(excellentTagInfo);
+                        this.tagList.add(excellentTagInfo);
                     }
                 }
             }
@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Fc() {
+    public byte[] MB() {
         return null;
     }
 

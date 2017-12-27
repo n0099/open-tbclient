@@ -2,7 +2,6 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -38,7 +37,7 @@ public class SapiResult {
 
     /* loaded from: classes.dex */
     public enum ActionMode {
-        MSG(AddFriendActivityConfig.MSG),
+        MSG("msg"),
         URL("url");
         
         private static final Map<String, ActionMode> a = new HashMap();

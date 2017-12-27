@@ -14,7 +14,7 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.mainTab.e;
 import com.baidu.tieba.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private static boolean isAdded = false;
 
@@ -23,12 +23,12 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Fa;
+                c Mz;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (Fa = discoverDelegateStatic.Fa()) != null) {
-                        Fa.aHJ.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (Mz = discoverDelegateStatic.Mz()) != null) {
+                        Mz.bvx.setArguments(new Bundle());
                     }
                 }
             }
@@ -44,32 +44,32 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EZ() {
+    public c My() {
         c cVar = new c();
-        cVar.aHJ = new a();
+        cVar.bvx = new a();
         cVar.type = 10;
-        cVar.aHK = d.j.home_discover;
-        cVar.aHL = d.f.s_icon_tabbar_discover;
+        cVar.bvy = d.j.home_discover;
+        cVar.bvz = d.f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e ba(Context context) {
-        this.aHA = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+    public e bm(Context context) {
+        this.bvo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.aIe = this.aHA;
-        aVar.up = l.dip2px(context, 3.0f);
-        aVar.aIc = d.f.icon_news_down_bar_one;
-        this.aHA.a("emotion", aVar);
-        return this.aHA;
+        aVar.bvS = this.bvo;
+        aVar.aiC = l.dip2px(context, 3.0f);
+        aVar.bvQ = d.f.icon_news_down_bar_one;
+        this.bvo.a("emotion", aVar);
+        return this.bvo;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EY() {
+    public void Mx() {
         isAdded = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void cB() {
+    public void kg() {
     }
 }

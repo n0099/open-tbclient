@@ -3,37 +3,37 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class q extends b implements r {
-    public static final BdUniqueId ceM = BdUniqueId.gen();
-    public long ceN;
-    public String ceO;
-    public String ceP;
-    public String ceQ;
-    public String ceR;
-    public String ceS;
-    public long ceT;
-    public String ceU;
+    public static final BdUniqueId cTq = BdUniqueId.gen();
+    public long cTr;
+    public String cTs;
+    public String cTt;
+    public String cTu;
+    public String cTv;
+    public String cTw;
+    public long cTx;
+    public String cTy;
     public String userName;
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return ceM;
+        return cTq;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        return (int) this.ceT;
+        return (int) this.cTx;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean acj() {
+    public boolean ajP() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dW(boolean z) {
+    public void eD(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dX(boolean z) {
+    public void eE(boolean z) {
     }
 }

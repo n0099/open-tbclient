@@ -8,7 +8,6 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
-import org.apache.http.entity.mime.MIME;
 import org.apache.http.util.EntityUtils;
 /* loaded from: classes.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
@@ -55,9 +54,9 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
         boolean z = true;
         byte[] bArr = null;
         StatusLine statusLine = httpResponse.getStatusLine();
-        Header[] headers = httpResponse.getHeaders(MIME.CONTENT_TYPE);
+        Header[] headers = httpResponse.getHeaders("Content-Type");
         if (headers.length != 1) {
-            sendFailureMessage((Throwable) new HttpResponseException(statusLine.getStatusCode(), "None or more than one Content-Type Header found!"), (byte[]) null);
+            sendFailureMessage(new HttpResponseException(statusLine.getStatusCode(), "None or more than one Content-Type Header found!"), (byte[]) null);
             return;
         }
         Header header = headers[0];
@@ -75,7 +74,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
             }
         }
         if (!z) {
-            sendFailureMessage((Throwable) new HttpResponseException(statusLine.getStatusCode(), "Content-Type not allowed!"), (byte[]) null);
+            sendFailureMessage(new HttpResponseException(statusLine.getStatusCode(), "Content-Type not allowed!"), (byte[]) null);
             return;
         }
         HttpEntity entity = httpResponse.getEntity();
@@ -90,7 +89,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
             }
         }
         if (statusLine.getStatusCode() >= 300) {
-            sendFailureMessage((Throwable) new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase()), bArr);
+            sendFailureMessage(new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase()), bArr);
         } else {
             sendSuccessMessage(statusLine.getStatusCode(), bArr);
         }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import tbclient.Lottery.ActRegular;
 import tbclient.Lottery.UserChance;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LotteryUserChanceInfo implements Serializable {
     private final ArrayList<LotteryActRegularInfo> mActRegulars = new ArrayList<>();
     private long mChanceCount;

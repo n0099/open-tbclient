@@ -1,18 +1,41 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId aAi = BdUniqueId.gen();
+public class c {
+    private int boo;
+    private String content;
+    private String icon_link;
+    private String icon_url;
 
-    public String getName() {
-        return TbadkCoreApplication.getInst().getString(d.j.post_story);
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.icon_url = jSONObject.optString("icon_url");
+            this.icon_link = jSONObject.optString("icon_link");
+            this.content = jSONObject.optString("content");
+            this.boo = jSONObject.optInt("tail_type");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return aAi;
+    public void a(TailInfo tailInfo) {
+        try {
+            this.icon_url = tailInfo.icon_url;
+            this.icon_link = tailInfo.icon_link;
+            this.content = tailInfo.content;
+            this.boo = tailInfo.tail_type.intValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getIconUrl() {
+        return this.icon_url;
+    }
+
+    public String JW() {
+        return this.icon_link;
     }
 }

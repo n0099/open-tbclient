@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aOT;
-    private boolean apC;
+    private float bCI;
+    private boolean bdA;
     private int mDuration;
     private int mTouchSlop;
 
@@ -54,14 +54,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.apC = false;
+        this.bdA = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apC = false;
+        this.bdA = false;
         this.mDuration = 600;
         init();
     }
@@ -72,16 +72,16 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.apC = z;
+        this.bdA = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.apC) {
+        if (motionEvent.getPointerCount() > 1 && this.bdA) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -96,7 +96,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -104,40 +104,40 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
+        switch (motionEvent.getAction() & 255) {
             case 0:
             case 5:
             case 6:
-                aP(true);
-                this.aOT = motionEvent.getX();
+                bv(true);
+                this.bCI = motionEvent.getX();
                 break;
             case 1:
             case 3:
-                aP(false);
-                this.aOT = 0.0f;
+                bv(false);
+                this.bCI = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aOT;
+                float x = motionEvent.getX() - this.bCI;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
-                        aP(false);
+                        bv(false);
                         break;
                     } else {
-                        aP(true);
+                        bv(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
                     if (x <= (-this.mTouchSlop)) {
-                        aP(false);
+                        bv(false);
                         break;
                     } else {
-                        aP(true);
+                        bv(true);
                         break;
                     }
                 }
                 break;
         }
-        if (k(motionEvent)) {
+        if (t(motionEvent)) {
             return true;
         }
         try {
@@ -147,12 +147,12 @@ public class TbViewPager extends ViewPager {
         }
     }
 
-    private boolean k(MotionEvent motionEvent) {
+    private boolean t(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aP(boolean z) {
+    private void bv(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

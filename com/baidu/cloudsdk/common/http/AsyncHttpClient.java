@@ -29,6 +29,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.params.ClientPNames;
+import org.apache.http.client.params.CookiePolicy;
 import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ClientConnectionManagerFactory;
@@ -74,16 +76,18 @@ public class AsyncHttpClient extends DefaultHttpClient {
         HttpConnectionParams.setTcpNoDelay(params, true);
         HttpConnectionParams.setSocketBufferSize(params, 8192);
         HttpProtocolParams.setUserAgent(params, DEFAULT_USER_AGENT);
-        HttpClientParams.setCookiePolicy(params, "compatibility");
-        params.setParameter("http.connection-manager.factory-object", new ClientConnectionManagerFactory() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.1
+        HttpClientParams.setCookiePolicy(params, CookiePolicy.BROWSER_COMPATIBILITY);
+        params.setParameter(ClientPNames.CONNECTION_MANAGER_FACTORY, new ClientConnectionManagerFactory() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.1
+            @Override // org.apache.http.conn.ClientConnectionManagerFactory
             public ClientConnectionManager newInstance(HttpParams httpParams, SchemeRegistry schemeRegistry) {
                 SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
-                schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+                schemeRegistry.register(new Scheme(HttpHost.DEFAULT_SCHEME_NAME, PlainSocketFactory.getSocketFactory(), 80));
                 schemeRegistry.register(new Scheme("https", socketFactory, 443));
                 return new ThreadSafeClientConnManager(httpParams, schemeRegistry);
             }
         });
         addRequestInterceptor(new HttpRequestInterceptor() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.2
+            @Override // org.apache.http.HttpRequestInterceptor
             public void process(HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException {
                 if (!httpRequest.containsHeader(AsyncHttpClient.HEADER_ACCEPT_ENCODING)) {
                     httpRequest.addHeader(AsyncHttpClient.HEADER_ACCEPT_ENCODING, AsyncHttpClient.ENCODING_GZIP);
@@ -91,6 +95,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
             }
         });
         addResponseInterceptor(new HttpResponseInterceptor() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.3
+            @Override // org.apache.http.HttpResponseInterceptor
             public void process(HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
                 Header contentEncoding;
                 HttpEntity entity = httpResponse.getEntity();
@@ -112,7 +117,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
         for (Map.Entry<Context, List<WeakReference<Future<?>>>> entry : this.mRequestMap.entrySet()) {
             cancelRequests(entry.getKey(), true);
         }
-        super/*java.lang.Object*/.finalize();
+        super.finalize();
     }
 
     public void setTimeout(int i) {
@@ -275,7 +280,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
                         ConnRouteParams.setDefaultProxy(getParams(), new HttpHost(proxy, parseInt));
                     }
                 } else {
-                    ConnRouteParams.setDefaultProxy(getParams(), (HttpHost) null);
+                    ConnRouteParams.setDefaultProxy(getParams(), null);
                 }
                 this.mLastCheckTime = currentTimeMillis;
             }
@@ -321,16 +326,19 @@ public class AsyncHttpClient extends DefaultHttpClient {
             super(httpEntity);
         }
 
+        @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
         public InputStream getContent() throws IOException {
             this.wrappedStream = this.wrappedEntity.getContent();
             this.gzipStream = new GZIPInputStream(this.wrappedStream);
             return this.gzipStream;
         }
 
+        @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
         public long getContentLength() {
             return -1L;
         }
 
+        @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
         public void consumeContent() throws IOException {
             AsyncHttpClient.silentCloseInputStream(this.wrappedStream);
             AsyncHttpClient.silentCloseInputStream(this.gzipStream);

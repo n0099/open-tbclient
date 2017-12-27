@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ar extends com.baidu.adp.base.a.d {
     public ar() {
-        super(k.xR + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
+        super(k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
     }
 
     @Override // com.baidu.adp.base.a.a

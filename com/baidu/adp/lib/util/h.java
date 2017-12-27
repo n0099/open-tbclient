@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h xT = null;
+    private static h ame = null;
 
-    public static h gT() {
+    public static h ou() {
         h hVar;
-        if (xT == null) {
+        if (ame == null) {
             synchronized (h.class) {
-                if (xT == null) {
-                    xT = new h();
+                if (ame == null) {
+                    ame = new h();
                 }
-                hVar = xT;
+                hVar = ame;
             }
             return hVar;
         }
-        return xT;
+        return ame;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -51,11 +51,11 @@ public class h {
             if (z2) {
                 z = z2;
             } else {
-                String aJ = aJ(str);
-                File file = new File(aJ);
+                String aR = aR(str);
+                File file = new File(aR);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(aJ, sb);
+                        boolean loadSoLibrary = loadSoLibrary(aR, sb);
                         if (loadSoLibrary) {
                             sb.append("-Succ2-");
                             z = loadSoLibrary;
@@ -68,7 +68,7 @@ public class h {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aJ, sb, iVar);
+                    a aVar = new a(str, aR, sb, iVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -86,7 +86,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean i(String str, int i) {
+    public boolean j(String str, int i) {
         boolean z;
         StringBuilder sb = new StringBuilder();
         if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
@@ -100,11 +100,11 @@ public class h {
             }
         }
         if (!z2) {
-            String aJ = aJ(str);
-            File file = new File(aJ);
+            String aR = aR(str);
+            File file = new File(aR);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(aJ, sb);
+                    boolean loadSoLibrary = loadSoLibrary(aR, sb);
                     if (loadSoLibrary) {
                         sb.append("-Succ2-");
                         z = loadSoLibrary;
@@ -127,7 +127,7 @@ public class h {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(aI(str), sb);
+        boolean loadSoLibrary = loadSoLibrary(aQ(str), sb);
         if (!loadSoLibrary) {
             try {
                 System.loadLibrary(str);
@@ -161,11 +161,11 @@ public class h {
         }
     }
 
-    private String aI(String str) {
+    private String aQ(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aJ(String str) {
+    private String aR(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -217,9 +217,9 @@ public class h {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aJ = aJ(str2);
-                                a(aJ, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(aJ, sb)) {
+                                String aR = aR(str2);
+                                a(aR, byteArrayOutputStream.toByteArray(), sb);
+                                if (loadSoLibrary(aR, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String xU;
-        String xV;
-        StringBuilder xW;
-        i xX;
-        boolean xY = false;
+        String amf;
+        String amg;
+        StringBuilder amh;
+        i ami;
+        boolean amj = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.xU = str;
-            this.xV = str2;
-            this.xW = sb;
-            this.xX = iVar;
+            this.amf = str;
+            this.amg = str2;
+            this.amh = sb;
+            this.ami = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.xY = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.xU, this.xW);
-            if (!this.xY) {
-                h.this.a(this.xV, "".getBytes(), this.xW);
+            this.amj = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.amf, this.amh);
+            if (!this.amj) {
+                h.this.a(this.amg, "".getBytes(), this.amh);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.xW.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.xU + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.xW.toString(), new Object[0]);
+            if (this.amh.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.amf + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.amh.toString(), new Object[0]);
             }
-            if (this.xX != null) {
-                this.xX.p(this.xY);
+            if (this.ami != null) {
+                this.ami.W(this.amj);
             }
         }
     }

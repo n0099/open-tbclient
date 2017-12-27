@@ -1,6 +1,7 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class Fallback {
         this.a = jSONObject.optString("net");
         this.n = jSONObject.getLong("ttl");
         this.l = jSONObject.getDouble("pct");
-        this.i = jSONObject.getLong("ts");
+        this.i = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.d = jSONObject.optString("city");
         this.c = jSONObject.optString("prv");
         this.g = jSONObject.optString("cty");
@@ -236,7 +237,7 @@ public class Fallback {
         jSONObject.put("net", this.a);
         jSONObject.put("ttl", this.n);
         jSONObject.put("pct", this.l);
-        jSONObject.put("ts", this.i);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.i);
         jSONObject.put("city", this.d);
         jSONObject.put("prv", this.c);
         jSONObject.put("cty", this.g);

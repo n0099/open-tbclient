@@ -5,6 +5,7 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.os.Handler;
+import android.support.annotation.RestrictTo;
 import android.support.v4.widget.CursorFilter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,28 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.CursorFilterClient, Filterable {
     @Deprecated
     public static final int FLAG_AUTO_REQUERY = 1;
     public static final int FLAG_REGISTER_CONTENT_OBSERVER = 2;
+    @RestrictTo
     protected boolean mAutoRequery;
+    @RestrictTo
     protected ChangeObserver mChangeObserver;
+    @RestrictTo
     protected Context mContext;
+    @RestrictTo
     protected Cursor mCursor;
+    @RestrictTo
     protected CursorFilter mCursorFilter;
+    @RestrictTo
     protected DataSetObserver mDataSetObserver;
+    @RestrictTo
     protected boolean mDataValid;
+    @RestrictTo
     protected FilterQueryProvider mFilterQueryProvider;
+    @RestrictTo
     protected int mRowIDColumn;
 
     public abstract void bindView(View view, Context context, Cursor cursor);
@@ -218,9 +228,9 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class ChangeObserver extends ContentObserver {
-        public ChangeObserver() {
+        ChangeObserver() {
             super(new Handler());
         }
 
@@ -236,9 +246,9 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class MyDataSetObserver extends DataSetObserver {
-        private MyDataSetObserver() {
+        MyDataSetObserver() {
         }
 
         @Override // android.database.DataSetObserver

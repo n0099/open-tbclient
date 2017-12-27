@@ -9,9 +9,9 @@ public class b {
     public static abstract class a {
         protected View view;
 
-        public abstract void i(Runnable runnable);
-
         public abstract boolean isHardwareAccelerated();
+
+        public abstract void postOnAnimation(Runnable runnable);
 
         public abstract void setScrollX(int i);
 
@@ -22,13 +22,13 @@ public class b {
 
     /* renamed from: com.baidu.tieba.horizonalList.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0104b extends a {
-        public C0104b(View view) {
+    public static class C0116b extends a {
+        public C0116b(View view) {
             super(view);
         }
 
         @Override // com.baidu.tieba.horizonalList.a.b.a
-        public void i(Runnable runnable) {
+        public void postOnAnimation(Runnable runnable) {
             this.view.post(runnable);
         }
 
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    public static final a aJ(View view) {
-        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0104b(view);
+    public static final a bU(View view) {
+        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0116b(view);
     }
 }

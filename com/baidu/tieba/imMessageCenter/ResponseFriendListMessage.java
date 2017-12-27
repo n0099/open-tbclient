@@ -2,7 +2,6 @@ package com.baidu.tieba.imMessageCenter;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.StoryPageActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.relationship.a;
@@ -24,7 +23,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray(StoryPageActivityConfig.USER_LIST);
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         MetaData metaData = new MetaData();
@@ -32,7 +31,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
                             a aVar = new a();
                             aVar.setUserName(metaData.getName_show());
-                            aVar.ff(metaData.getPortrait());
+                            aVar.fm(metaData.getPortrait());
                             aVar.setUserId(metaData.getUserIdLong());
                             this.friendList.add(aVar);
                         }

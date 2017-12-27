@@ -3,29 +3,54 @@ package android.support.v4.view.accessibility;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.view.accessibility.AccessibilityManager;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityManagerCompatIcs {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     interface AccessibilityStateChangeListenerBridge {
         void onAccessibilityStateChanged(boolean z);
     }
 
-    public static Object newAccessibilityStateChangeListener(final AccessibilityStateChangeListenerBridge accessibilityStateChangeListenerBridge) {
-        return new AccessibilityManager.AccessibilityStateChangeListener() { // from class: android.support.v4.view.accessibility.AccessibilityManagerCompatIcs.1
-            @Override // android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener
-            public void onAccessibilityStateChanged(boolean z) {
-                AccessibilityStateChangeListenerBridge.this.onAccessibilityStateChanged(z);
+    /* loaded from: classes2.dex */
+    public static class AccessibilityStateChangeListenerWrapper implements AccessibilityManager.AccessibilityStateChangeListener {
+        Object mListener;
+        AccessibilityStateChangeListenerBridge mListenerBridge;
+
+        public AccessibilityStateChangeListenerWrapper(Object obj, AccessibilityStateChangeListenerBridge accessibilityStateChangeListenerBridge) {
+            this.mListener = obj;
+            this.mListenerBridge = accessibilityStateChangeListenerBridge;
+        }
+
+        public int hashCode() {
+            if (this.mListener == null) {
+                return 0;
             }
-        };
+            return this.mListener.hashCode();
+        }
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            AccessibilityStateChangeListenerWrapper accessibilityStateChangeListenerWrapper = (AccessibilityStateChangeListenerWrapper) obj;
+            return this.mListener == null ? accessibilityStateChangeListenerWrapper.mListener == null : this.mListener.equals(accessibilityStateChangeListenerWrapper.mListener);
+        }
+
+        @Override // android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener
+        public void onAccessibilityStateChanged(boolean z) {
+            this.mListenerBridge.onAccessibilityStateChanged(z);
+        }
     }
 
-    public static boolean addAccessibilityStateChangeListener(AccessibilityManager accessibilityManager, Object obj) {
-        return accessibilityManager.addAccessibilityStateChangeListener((AccessibilityManager.AccessibilityStateChangeListener) obj);
+    public static boolean addAccessibilityStateChangeListener(AccessibilityManager accessibilityManager, AccessibilityStateChangeListenerWrapper accessibilityStateChangeListenerWrapper) {
+        return accessibilityManager.addAccessibilityStateChangeListener(accessibilityStateChangeListenerWrapper);
     }
 
-    public static boolean removeAccessibilityStateChangeListener(AccessibilityManager accessibilityManager, Object obj) {
-        return accessibilityManager.removeAccessibilityStateChangeListener((AccessibilityManager.AccessibilityStateChangeListener) obj);
+    public static boolean removeAccessibilityStateChangeListener(AccessibilityManager accessibilityManager, AccessibilityStateChangeListenerWrapper accessibilityStateChangeListenerWrapper) {
+        return accessibilityManager.removeAccessibilityStateChangeListener(accessibilityStateChangeListenerWrapper);
     }
 
     public static List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(AccessibilityManager accessibilityManager, int i) {

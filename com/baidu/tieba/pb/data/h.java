@@ -2,47 +2,47 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class h {
-    private long Wx = 0;
-    private String Wy = "";
+    private long aKU = 0;
+    private String aKV = "";
     private String imgUrl = "";
-    private int ePW = Integer.MAX_VALUE;
-    private String ePX = "";
-    private String ePY = "";
+    private int fCw = Integer.MAX_VALUE;
+    private String fCx = "";
+    private String fCy = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.Wx = forumHeadlineImgInfo.img_user_id.longValue();
-            this.Wy = forumHeadlineImgInfo.img_user_name;
+            this.aKU = forumHeadlineImgInfo.img_user_id.longValue();
+            this.aKV = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.ePW = forumHeadlineImgInfo.rank_num.intValue();
-            this.ePX = forumHeadlineImgInfo.rank_up_info;
-            this.ePY = forumHeadlineImgInfo.rank_url;
+            this.fCw = forumHeadlineImgInfo.rank_num.intValue();
+            this.fCx = forumHeadlineImgInfo.rank_up_info;
+            this.fCy = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public boolean aRQ() {
-        return StringUtils.isNull(this.Wy, true) || this.Wx <= 0;
+    public boolean aZc() {
+        return StringUtils.isNull(this.aKV, true) || this.aKU <= 0;
     }
 
-    public String aRR() {
-        return this.ePY;
+    public String aZd() {
+        return this.fCy;
     }
 
-    public String aRS() {
-        return this.Wy;
+    public String aZe() {
+        return this.aKV;
     }
 
-    public String pR() {
+    public String xu() {
         return this.imgUrl;
     }
 
-    public int aRT() {
-        return this.ePW;
+    public int aZf() {
+        return this.fCw;
     }
 
-    public String aRU() {
-        return this.ePX;
+    public String aZg() {
+        return this.fCx;
     }
 }

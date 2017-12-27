@@ -1,7 +1,6 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
@@ -21,6 +20,6 @@ public class NoScrollGridView extends GridView {
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
     protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, ExploreByTouchHelper.INVALID_ID));
+        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
     }
 }

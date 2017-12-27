@@ -11,26 +11,26 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.video.record.j;
 /* loaded from: classes2.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, j.a {
-    private ImageView gZC;
-    private ImageView gZD;
-    private ImageView gZE;
-    private ImageView gZF;
-    private LinearLayout gZG;
-    private LinearLayout gZH;
-    private LinearLayout gZI;
-    private LinearLayout gZJ;
-    private a gZK;
-    private View gZL;
+    private ImageView hGG;
+    private ImageView hGH;
+    private ImageView hGI;
+    private ImageView hGJ;
+    private LinearLayout hGK;
+    private LinearLayout hGL;
+    private LinearLayout hGM;
+    private LinearLayout hGN;
+    private a hGO;
+    private View hGP;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bEg();
+        void bJG();
 
-        void bEh();
+        void bJH();
 
-        void bEi();
+        void bJI();
 
-        void bEj();
+        void bJJ();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -50,56 +50,56 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), d.h.layout_video_effect_button, this);
-        this.gZG = (LinearLayout) findViewById(d.g.layout_music);
-        this.gZH = (LinearLayout) findViewById(d.g.layout_sticker);
-        this.gZI = (LinearLayout) findViewById(d.g.layout_beauty);
-        this.gZJ = (LinearLayout) findViewById(d.g.layout_filter);
-        this.gZC = (ImageView) findViewById(d.g.img_music);
-        this.gZD = (ImageView) findViewById(d.g.img_sticker);
-        this.gZE = (ImageView) findViewById(d.g.img_beauty);
-        this.gZF = (ImageView) findViewById(d.g.img_filter);
-        this.gZC.setOnClickListener(this);
-        this.gZD.setOnClickListener(this);
-        this.gZE.setOnClickListener(this);
-        this.gZF.setOnClickListener(this);
+        this.hGK = (LinearLayout) findViewById(d.g.layout_music);
+        this.hGL = (LinearLayout) findViewById(d.g.layout_sticker);
+        this.hGM = (LinearLayout) findViewById(d.g.layout_beauty);
+        this.hGN = (LinearLayout) findViewById(d.g.layout_filter);
+        this.hGG = (ImageView) findViewById(d.g.img_music);
+        this.hGH = (ImageView) findViewById(d.g.img_sticker);
+        this.hGI = (ImageView) findViewById(d.g.img_beauty);
+        this.hGJ = (ImageView) findViewById(d.g.img_filter);
+        this.hGG.setOnClickListener(this);
+        this.hGH.setOnClickListener(this);
+        this.hGI.setOnClickListener(this);
+        this.hGJ.setOnClickListener(this);
     }
 
     public void reset() {
-        this.gZL = null;
+        this.hGP = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.gZG.setVisibility(i2);
+                this.hGK.setVisibility(i2);
                 return;
             case 1:
-                this.gZH.setVisibility(i2);
+                this.hGL.setVisibility(i2);
                 return;
             case 2:
-                this.gZI.setVisibility(i2);
+                this.hGM.setVisibility(i2);
                 return;
             case 3:
-                this.gZJ.setVisibility(i2);
+                this.hGN.setVisibility(i2);
                 return;
             default:
                 return;
         }
     }
 
-    public void F(int i, boolean z) {
+    public void Q(int i, boolean z) {
         switch (i) {
             case 0:
-                this.gZC.setSelected(z);
+                this.hGG.setSelected(z);
                 return;
             case 1:
-                this.gZD.setSelected(z);
+                this.hGH.setSelected(z);
                 return;
             case 2:
-                this.gZE.setSelected(z);
+                this.hGI.setSelected(z);
                 return;
             case 3:
-                this.gZF.setSelected(z);
+                this.hGJ.setSelected(z);
                 return;
             default:
                 return;
@@ -108,37 +108,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gZK != null) {
+        if (this.hGO != null) {
             int id = view.getId();
-            this.gZL = view;
+            this.hGP = view;
             ak akVar = new ak("c12495");
             if (id == d.g.img_music) {
-                this.gZK.bEg();
-                akVar.r("obj_type", 6);
+                this.hGO.bJG();
+                akVar.s("obj_type", 6);
             } else if (id == d.g.img_sticker) {
-                this.gZK.bEh();
-                akVar.r("obj_type", 4);
+                this.hGO.bJH();
+                akVar.s("obj_type", 4);
             } else if (id == d.g.img_beauty) {
-                this.gZK.bEi();
-                akVar.r("obj_type", 3);
+                this.hGO.bJI();
+                akVar.s("obj_type", 3);
             } else if (id == d.g.img_filter) {
-                this.gZK.bEj();
-                akVar.r("obj_type", 2);
+                this.hGO.bJJ();
+                akVar.s("obj_type", 2);
             }
             TiebaStatic.log(akVar);
         }
     }
 
     public void setListener(a aVar) {
-        this.gZK = aVar;
+        this.hGO = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.j.a
-    public void vD(int i) {
+    public void yt(int i) {
         if (i == 1) {
-            this.gZC.setImageResource(d.f.icon_video_music);
+            this.hGG.setImageResource(d.f.icon_video_music);
         } else {
-            this.gZC.setImageResource(d.f.icon_video_music_disable);
+            this.hGG.setImageResource(d.f.icon_video_music_disable);
         }
     }
 }

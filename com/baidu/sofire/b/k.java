@@ -7,6 +7,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.ac.U;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.ByteArrayInputStream;
 import java.security.PublicKey;
 import java.security.cert.CertificateFactory;
@@ -24,12 +26,12 @@ public final class k {
             String str = d.a() + "plugin/v1/product";
             JSONObject jSONObject = new JSONObject();
             String packageName = context.getPackageName();
-            jSONObject.put("pk", packageName);
+            jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
             if (packageInfo != null) {
-                PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
-                if (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
-                    publicKey = bW;
+                PublicKey cd = c.cd(packageInfo.applicationInfo.sourceDir);
+                if (cd != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) {
+                    publicKey = cd;
                 } else {
                     publicKey = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 }
@@ -51,7 +53,7 @@ public final class k {
             JSONArray optJSONArray = jSONObject2.optJSONArray("product");
             long optLong = jSONObject2.optLong("pt");
             if (optJSONArray != null && optLong > 0) {
-                new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
+                new com.baidu.sofire.d(context).a(optJSONArray.toString(), optLong);
             }
             if (optLong > 0) {
                 d.f(context);
@@ -64,14 +66,14 @@ public final class k {
     public static void b(Context context) {
         try {
             a.clear();
-            String a2 = new com.baidu.sofire.e(context).a();
+            String a2 = new com.baidu.sofire.d(context).a();
             if (!TextUtils.isEmpty(a2)) {
                 JSONArray jSONArray = new JSONArray(a2);
                 HashMap hashMap = new HashMap();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
                     new StringBuilder("167:").append(optString).append("_").append(optString2);
                     hashMap.put(optString, optString2);
                 }
@@ -79,21 +81,21 @@ public final class k {
                     String str = packageInfo.packageName;
                     if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
                         String str2 = (String) hashMap.get(str);
-                        PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
-                        new StringBuilder("183:").append(bW == null);
-                        if (bW == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
-                            bW = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                        PublicKey cd = c.cd(packageInfo.applicationInfo.sourceDir);
+                        new StringBuilder("183:").append(cd == null);
+                        if (cd == null && packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
+                            cd = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                         }
-                        new StringBuilder("194:").append(bW == null);
-                        if (bW != null) {
-                            byte[] encoded = bW.getEncoded();
+                        new StringBuilder("194:").append(cd == null);
+                        if (cd != null) {
+                            byte[] encoded = cd.getEncoded();
                             new StringBuilder("197:").append(encoded == null);
                             if (encoded != null) {
                                 d.a(context, encoded);
                                 String a3 = j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
                                 if (!TextUtils.isEmpty(a3) && a3.equals(str2)) {
                                     JSONObject jSONObject = new JSONObject();
-                                    jSONObject.put("pk", str);
+                                    jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
                                     jSONObject.put("av", packageInfo.versionName);
                                     jSONObject.put("sm", a3);
                                     jSONObject.put("dm", Build.MODEL);

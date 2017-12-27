@@ -4,12 +4,13 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ActionBarDrawerToggleHoneycomb {
     private static final int[] THEME_ATTRS = {16843531};
 
@@ -37,7 +38,11 @@ class ActionBarDrawerToggleHoneycomb {
         SetIndicatorInfo setIndicatorInfo2 = (SetIndicatorInfo) setIndicatorInfo;
         if (setIndicatorInfo2.setHomeAsUpIndicator != null) {
             try {
-                setIndicatorInfo2.setHomeActionContentDescription.invoke(activity.getActionBar(), Integer.valueOf(i));
+                ActionBar actionBar = activity.getActionBar();
+                setIndicatorInfo2.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
+                if (Build.VERSION.SDK_INT <= 19) {
+                    actionBar.setSubtitle(actionBar.getSubtitle());
+                }
             } catch (Exception e) {
                 Log.w("ActionBarDrawerToggleHoneycomb", "Couldn't set content description via JB-MR2 API", e);
             }
@@ -52,7 +57,7 @@ class ActionBarDrawerToggleHoneycomb {
         return drawable;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class SetIndicatorInfo {
         public Method setHomeActionContentDescription;
         public Method setHomeAsUpIndicator;

@@ -11,24 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
-    private static b eMw;
+    private static b fyS;
 
     private b() {
     }
 
-    public static synchronized b aQw() {
+    public static synchronized b aXG() {
         b bVar;
         synchronized (b.class) {
-            if (eMw == null) {
-                eMw = new b();
+            if (fyS == null) {
+                fyS = new b();
             }
-            bVar = eMw;
+            bVar = fyS;
         }
         return bVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void g(AccountData accountData) {
+    public void f(AccountData accountData) {
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
         if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
             for (SapiAccount sapiAccount : loginAccounts) {
@@ -41,7 +41,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void xp() {
+    public void EO() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void h(AccountData accountData) {
+    public void g(AccountData accountData) {
         if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
             SapiAccountManager.getInstance().logout();
             return;
@@ -69,16 +69,16 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData ua() {
+    public AccountData BA() {
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void a(a.InterfaceC0057a interfaceC0057a) {
+    public void a(a.InterfaceC0071a interfaceC0071a) {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> xq() {
+    public List<AccountData> EP() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

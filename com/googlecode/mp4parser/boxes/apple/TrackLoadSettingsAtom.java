@@ -8,14 +8,14 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class TrackLoadSettingsAtom extends AbstractBox {
     public static final String TYPE = "load";
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0184a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
     int defaultHints;
     int preloadDuration;
     int preloadFlags;
@@ -68,7 +68,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zC(i)));
         this.preloadStartTime = i;
     }
 
@@ -78,7 +78,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zC(i)));
         this.preloadDuration = i;
     }
 
@@ -88,7 +88,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zC(i)));
         this.preloadFlags = i;
     }
 
@@ -98,7 +98,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setDefaultHints(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.xY(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zC(i)));
         this.defaultHints = i;
     }
 }

@@ -7,8 +7,6 @@ import android.hardware.Camera;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +18,7 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.TbDomainConfig;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -118,7 +117,7 @@ public class CompatibleUtile {
     }
 
     public static int getActionMask() {
-        return MotionEventCompat.ACTION_MASK;
+        return 255;
     }
 
     public int getActionPointerUp() {
@@ -338,7 +337,7 @@ public class CompatibleUtile {
         }
 
         public int getMemoryClass(Context context) {
-            return ((ActivityManager) context.getSystemService("activity")).getMemoryClass();
+            return ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryClass();
         }
 
         public void WebViewNoDataBase(WebSettings webSettings) {
@@ -457,7 +456,7 @@ public class CompatibleUtile {
         }
 
         public void openGpu(Activity activity) {
-            activity.getWindow().setFlags(ViewCompat.MEASURED_STATE_TOO_SMALL, ViewCompat.MEASURED_STATE_TOO_SMALL);
+            activity.getWindow().setFlags(16777216, 16777216);
         }
 
         public boolean isUseHw(View view) {

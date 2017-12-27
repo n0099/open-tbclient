@@ -8,7 +8,7 @@ import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService;
 import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class QuickMediaPlayerService extends Service implements a {
     public static final String KEY_RELEASE_ALL_PLAYERS = "KEY_RELEASE_ALL_PLAYERS";
     private List<IMediaPlayer> mPlayerList = new ArrayList();
@@ -23,7 +23,7 @@ public class QuickMediaPlayerService extends Service implements a {
         return new QuickMediaPlayerServiceBinder();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class QuickMediaPlayerServiceBinder extends IQuickMediaPlayerService.Stub {
         public QuickMediaPlayerServiceBinder() {
         }

@@ -3,22 +3,20 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aCT;
-    private com.baidu.adp.widget.a.a aCU;
+    private com.baidu.adp.widget.a.a bqO;
+    private com.baidu.adp.widget.a.a bqP;
     private int cols;
     private int rows;
 
-    public abstract boolean Ds();
+    public abstract boolean KT();
 
-    public abstract EmotionGroupType Dt();
+    public abstract EmotionGroupType KU();
 
-    public abstract String eS(int i);
+    public abstract boolean fV(String str);
 
-    public abstract boolean fO(String str);
+    public abstract com.baidu.adp.widget.a.a fW(String str);
 
-    public abstract com.baidu.adp.widget.a.a fP(String str);
-
-    public abstract com.baidu.adp.widget.a.a fQ(String str);
+    public abstract com.baidu.adp.widget.a.a fX(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +28,28 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Du() {
-        return this.aCT;
+    public abstract String hQ(int i);
+
+    public com.baidu.adp.widget.a.a KV() {
+        return this.bqO;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kK();
+            aVar.si();
         }
-        this.aCT = aVar;
+        this.bqO = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Dv() {
-        return this.aCU;
+    public com.baidu.adp.widget.a.a KW() {
+        return this.bqP;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kK();
+            aVar.si();
         }
-        this.aCU = aVar;
+        this.bqP = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eT(int i) {
+    public void hR(int i) {
         this.cols = i;
     }
 
-    public int Dw() {
+    public int KX() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eU(int i) {
+    public void hS(int i) {
         this.rows = i;
     }
 }

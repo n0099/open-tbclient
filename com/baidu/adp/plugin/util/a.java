@@ -20,12 +20,12 @@ public class a {
 
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0012a {
-        public boolean Ey;
+    public static class C0025a {
+        public boolean asC;
         public String mErrMsg;
     }
 
-    public static C0012a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
+    public static C0025a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -41,8 +41,8 @@ public class a {
         return b(classLoader, classLoader2, str, z, str2);
     }
 
-    private static C0012a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
-        C0012a c0012a;
+    private static C0025a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+        C0025a c0025a;
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -51,15 +51,15 @@ public class a {
                 PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
                 DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
                 dexClassLoader.loadClass(str);
-                a(pathClassLoader, PathClassLoader.class, "mPaths", e(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
+                a(pathClassLoader, PathClassLoader.class, "mPaths", n(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
                 if (z) {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", m(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", m(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", m(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
                 } else {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", m(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", m(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", m(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
                 }
                 try {
                     ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
@@ -70,42 +70,42 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.G((String) obj, (String) obj2);
+                                return a.F((String) obj, (String) obj2);
                             }
                             return 0;
                         }
                     });
                 } catch (Exception e) {
-                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", d(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
+                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", m(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                 }
-                c0012a = null;
+                c0025a = null;
             } catch (IllegalAccessException e2) {
-                C0012a a = a(false, e2);
+                C0025a a = a(false, e2);
                 BdLog.e(e2);
-                c0012a = a;
+                c0025a = a;
             } catch (NoSuchFieldException e3) {
-                C0012a a2 = a(false, e3);
+                C0025a a2 = a(false, e3);
                 BdLog.e(e3);
-                c0012a = a2;
+                c0025a = a2;
             }
         } catch (NoSuchFieldError e4) {
-            C0012a a3 = a(false, e4);
+            C0025a a3 = a(false, e4);
             BdLog.e(e4);
-            c0012a = a3;
+            c0025a = a3;
         } catch (Throwable th) {
-            C0012a a4 = a(false, th);
+            C0025a a4 = a(false, th);
             BdLog.e(th);
-            c0012a = a4;
+            c0025a = a4;
         }
-        if (c0012a == null) {
+        if (c0025a == null) {
             return a(true, null);
         }
-        return c0012a;
+        return c0025a;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [257=7] */
-    private static C0012a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
-        C0012a c0012a;
+    private static C0025a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
+        C0025a c0025a;
         List list;
         List list2;
         List list3;
@@ -115,104 +115,104 @@ public class a {
         try {
             DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
             dexClassLoader.loadClass(str);
-            Object v = v((PathClassLoader) classLoader);
-            Object v2 = v(dexClassLoader);
+            Object aA = aA((PathClassLoader) classLoader);
+            Object aA2 = aA(dexClassLoader);
             if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {
-                Method declaredMethod = v.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
+                Method declaredMethod = aA.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
                 declaredMethod.setAccessible(true);
-                declaredMethod.invoke(v, str2, null);
-                Object d = d(x(v), x(v2));
-                if (d instanceof File[]) {
-                    Arrays.sort((File[]) d, kd());
-                    list = d;
+                declaredMethod.invoke(aA, str2, null);
+                Object m = m(aC(aA), aC(aA2));
+                if (m instanceof File[]) {
+                    Arrays.sort((File[]) m, rC());
+                    list = m;
                 } else {
-                    boolean z2 = d instanceof List;
-                    list = d;
+                    boolean z2 = m instanceof List;
+                    list = m;
                     if (z2) {
-                        List list4 = (List) d;
-                        Collections.sort(list4, kd());
+                        List list4 = (List) m;
+                        Collections.sort(list4, rC());
                         list = list4;
                     }
                 }
-                a(v, v.getClass(), "nativeLibraryDirectories", list);
+                a(aA, aA.getClass(), "nativeLibraryDirectories", list);
                 ArrayList arrayList = new ArrayList((List) list);
-                arrayList.addAll((List) a(v, v.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod2 = v.getClass().getDeclaredMethod("makePathElements", List.class);
+                arrayList.addAll((List) a(aA, aA.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod2 = aA.getClass().getDeclaredMethod("makePathElements", List.class);
                 declaredMethod2.setAccessible(true);
-                a(v, v.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(v.getClass(), arrayList));
+                a(aA, aA.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(aA.getClass(), arrayList));
             } else if (Build.VERSION.SDK_INT >= 23) {
-                a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
-                Object d2 = d(x(v), x(v2));
-                if (d2 instanceof File[]) {
-                    Arrays.sort((File[]) d2, kd());
-                    list3 = d2;
+                a(aA, aA.getClass(), "dexElements", z ? m(aB(aA), aB(aA2)) : m(aB(aA2), aB(aA)));
+                Object m2 = m(aC(aA), aC(aA2));
+                if (m2 instanceof File[]) {
+                    Arrays.sort((File[]) m2, rC());
+                    list3 = m2;
                 } else {
-                    boolean z3 = d2 instanceof List;
-                    list3 = d2;
+                    boolean z3 = m2 instanceof List;
+                    list3 = m2;
                     if (z3) {
-                        List list5 = (List) d2;
-                        Collections.sort(list5, kd());
+                        List list5 = (List) m2;
+                        Collections.sort(list5, rC());
                         list3 = list5;
                     }
                 }
-                a(v, v.getClass(), "nativeLibraryDirectories", list3);
+                a(aA, aA.getClass(), "nativeLibraryDirectories", list3);
                 ArrayList arrayList2 = new ArrayList((List) list3);
-                arrayList2.addAll((List) a(v, v.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod3 = v.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                arrayList2.addAll((List) a(aA, aA.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod3 = aA.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                 declaredMethod3.setAccessible(true);
-                a(v, v.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(v.getClass(), arrayList2, null, new ArrayList()));
+                a(aA, aA.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(aA.getClass(), arrayList2, null, new ArrayList()));
             } else {
-                a(v, v.getClass(), "dexElements", z ? d(w(v), w(v2)) : d(w(v2), w(v)));
-                Object d3 = d(x(v), x(v2));
-                if (d3 instanceof File[]) {
-                    Arrays.sort((File[]) d3, kd());
-                    list2 = d3;
+                a(aA, aA.getClass(), "dexElements", z ? m(aB(aA), aB(aA2)) : m(aB(aA2), aB(aA)));
+                Object m3 = m(aC(aA), aC(aA2));
+                if (m3 instanceof File[]) {
+                    Arrays.sort((File[]) m3, rC());
+                    list2 = m3;
                 } else {
-                    boolean z4 = d3 instanceof List;
-                    list2 = d3;
+                    boolean z4 = m3 instanceof List;
+                    list2 = m3;
                     if (z4) {
-                        List list6 = (List) d3;
-                        Collections.sort(list6, kd());
+                        List list6 = (List) m3;
+                        Collections.sort(list6, rC());
                         list2 = list6;
                     }
                 }
-                a(v, v.getClass(), "nativeLibraryDirectories", list2);
+                a(aA, aA.getClass(), "nativeLibraryDirectories", list2);
             }
-            c0012a = null;
+            c0025a = null;
         } catch (ClassNotFoundException e) {
-            C0012a a = a(false, e);
+            C0025a a = a(false, e);
             BdLog.e(e);
-            c0012a = a;
+            c0025a = a;
         } catch (IllegalAccessException e2) {
-            C0012a a2 = a(false, e2);
+            C0025a a2 = a(false, e2);
             BdLog.e(e2);
-            c0012a = a2;
+            c0025a = a2;
         } catch (IllegalArgumentException e3) {
-            C0012a a3 = a(false, e3);
+            C0025a a3 = a(false, e3);
             BdLog.e(e3);
-            c0012a = a3;
+            c0025a = a3;
         } catch (NoSuchFieldError e4) {
-            C0012a a4 = a(false, e4);
+            C0025a a4 = a(false, e4);
             BdLog.e(e4);
-            c0012a = a4;
+            c0025a = a4;
         } catch (NoSuchFieldException e5) {
-            C0012a a5 = a(false, e5);
+            C0025a a5 = a(false, e5);
             BdLog.e(e5);
-            c0012a = a5;
+            c0025a = a5;
         } catch (NoSuchMethodException e6) {
-            C0012a a6 = a(false, e6);
+            C0025a a6 = a(false, e6);
             BdLog.e(e6);
-            c0012a = a6;
+            c0025a = a6;
         } catch (SecurityException e7) {
-            C0012a a7 = a(false, e7);
+            C0025a a7 = a(false, e7);
             BdLog.e(e7);
-            c0012a = a7;
+            c0025a = a7;
         } catch (Throwable th) {
-            C0012a a8 = a(false, th);
+            C0025a a8 = a(false, th);
             BdLog.e(th);
-            c0012a = a8;
+            c0025a = a8;
         }
-        return c0012a == null ? a(true, null) : c0012a;
+        return c0025a == null ? a(true, null) : c0025a;
     }
 
     private static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
@@ -227,7 +227,7 @@ public class a {
         return declaredField.get(obj);
     }
 
-    private static Object d(Object obj, Object obj2) {
+    private static Object m(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -259,7 +259,7 @@ public class a {
         return obj;
     }
 
-    private static Object e(Object obj, Object obj2) {
+    private static Object n(Object obj, Object obj2) {
         Class<?> componentType = obj.getClass().getComponentType();
         int length = Array.getLength(obj);
         int i = length + 1;
@@ -274,26 +274,26 @@ public class a {
         return newInstance;
     }
 
-    private static C0012a a(boolean z, Throwable th) {
-        C0012a c0012a = new C0012a();
-        c0012a.Ey = z;
-        c0012a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
-        return c0012a;
+    private static C0025a a(boolean z, Throwable th) {
+        C0025a c0025a = new C0025a();
+        c0025a.asC = z;
+        c0025a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
+        return c0025a;
     }
 
-    private static Object v(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
+    private static Object aA(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
         return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
-    private static Object w(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object aB(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object x(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object aC(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
-    public static C0012a a(Context context, ClassLoader classLoader, String str) {
+    public static C0025a a(Context context, ClassLoader classLoader, String str) {
         Object a;
         try {
             classLoader.loadClass(str);
@@ -313,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kd() {
+    private static final Comparator<File> rC() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -321,13 +321,13 @@ public class a {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.G(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.F(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int G(String str, String str2) {
+    public static final int F(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

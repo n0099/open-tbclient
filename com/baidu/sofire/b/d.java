@@ -10,6 +10,7 @@ import android.util.Base64;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.rp.Report;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -26,13 +27,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
+    public static boolean a = false;
+    public static MyReceiver aEU = null;
     public static String b;
     public static String c;
-    public static boolean a = false;
-    public static MyReceiver Qm = null;
 
     public static void a(Throwable th) {
-        com.baidu.sofire.b.b(th);
+        com.baidu.sofire.a.b(th);
     }
 
     public static String a() {
@@ -106,7 +107,7 @@ public final class d {
             r0 = move-exception
             r2 = r3
         L31:
-            com.baidu.sofire.b.b(r0)     // Catch: java.lang.Throwable -> L95
+            com.baidu.sofire.a.b(r0)     // Catch: java.lang.Throwable -> L95
             if (r2 == 0) goto L39
             r2.close()     // Catch: java.io.IOException -> L73
         L39:
@@ -217,7 +218,7 @@ public final class d {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
         }
     }
 
@@ -273,16 +274,16 @@ public final class d {
     }
 
     public static void a(String str, boolean z) {
-        boolean J = J("771", str);
-        new StringBuilder().append(str).append(",s=").append(J);
+        boolean I = I("771", str);
+        new StringBuilder().append(str).append(",s=").append(I);
         if (z) {
             String absolutePath = new File(str).getParentFile().getAbsolutePath();
-            J("771", absolutePath);
-            new StringBuilder().append(absolutePath).append(",s=").append(J);
+            I("771", absolutePath);
+            new StringBuilder().append(absolutePath).append(",s=").append(I);
         }
     }
 
-    private static boolean J(String str, String str2) {
+    private static boolean I(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !new File(str2).exists()) {
             return false;
         }
@@ -290,7 +291,7 @@ public final class d {
             Runtime.getRuntime().exec("chmod " + str + " " + str2 + "\n").waitFor();
             return true;
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
             return false;
         }
     }
@@ -299,8 +300,8 @@ public final class d {
         try {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
-            com.baidu.sofire.a.a an = com.baidu.sofire.a.a.an(context);
-            Map<Integer, String> b2 = an.b();
+            com.baidu.sofire.a.a aA = com.baidu.sofire.a.a.aA(context);
+            Map<Integer, String> b2 = aA.b();
             jSONObject.put("0", b2.keySet());
             jSONObject.put("1", b2.values());
             jSONObject.toString();
@@ -308,7 +309,7 @@ public final class d {
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("1003003", jSONObject);
             jSONObject2.put("0", jSONObject3);
-            Map<Integer, String> c2 = an.c();
+            Map<Integer, String> c2 = aA.c();
             JSONArray jSONArray = new JSONArray();
             for (String str : c2.values()) {
                 jSONArray.put(str);
@@ -367,7 +368,7 @@ public final class d {
                 new StringBuilder().append(jSONObject3);
                 report.s(jSONObject3);
             } catch (Throwable th) {
-                com.baidu.sofire.b.b(th);
+                com.baidu.sofire.a.b(th);
             }
         }
     }
@@ -399,7 +400,7 @@ public final class d {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
         }
         return str3;
     }
@@ -420,14 +421,14 @@ public final class d {
             }
             return activeNetworkInfo.isConnected();
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
             return false;
         }
     }
 
     public static String[] e(Context context) {
         if (TextUtils.isEmpty(b) || TextUtils.isEmpty(c)) {
-            String string = new com.baidu.sofire.e(context).a.getString("svi", "");
+            String string = new com.baidu.sofire.d(context).a.getString("svi", "");
             if (!TextUtils.isEmpty(string)) {
                 String[] split = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 if (split == null || split.length != 2) {
@@ -447,10 +448,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (Qm == null) {
-                    Qm = new MyReceiver().a();
+                if (aEU == null) {
+                    aEU = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(Qm, intentFilter);
+                context.getApplicationContext().registerReceiver(aEU, intentFilter);
                 a = true;
                 return false;
             }
@@ -461,9 +462,9 @@ public final class d {
     public static void f(Context context) {
         byte[] encoded;
         try {
-            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String a2 = eVar.a();
-            long j = eVar.a.getLong("lslt", 0L);
+            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
+            String a2 = dVar.a();
+            long j = dVar.a.getLong("lslt", 0L);
             if (!TextUtils.isEmpty(a2) || j != 0) {
                 String packageName = context.getPackageName();
                 JSONArray jSONArray = new JSONArray(a2);
@@ -472,8 +473,8 @@ public final class d {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
                 if (packageInfo != null) {
                     str2 = packageInfo.applicationInfo.sourceDir;
-                    PublicKey bW = c.bW(str2);
-                    PublicKey publicKey = (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bW : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                    PublicKey cd = c.cd(str2);
+                    PublicKey publicKey = (cd != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? cd : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                     if (publicKey != null && (encoded = publicKey.getEncoded()) != null) {
                         a(context, encoded);
                         str = j.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
@@ -483,14 +484,14 @@ public final class d {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
                     if (packageName.equals(optString) && !TextUtils.isEmpty(str) && str.equalsIgnoreCase(optString2)) {
                         z = true;
                     }
                 }
                 new StringBuilder().append(z);
-                eVar.c.putBoolean("hac", z);
-                eVar.c.commit();
+                dVar.c.putBoolean("hac", z);
+                dVar.c.commit();
                 if (!z) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", packageName);
@@ -509,7 +510,7 @@ public final class d {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
         }
     }
 
@@ -527,9 +528,9 @@ public final class d {
 
     public static boolean a(Context context, String str) {
         try {
-            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String a2 = eVar.a();
-            long j = eVar.a.getLong("lslt", 0L);
+            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
+            String a2 = dVar.a();
+            long j = dVar.a.getLong("lslt", 0L);
             if (TextUtils.isEmpty(a2) && j == 0) {
                 return false;
             }
@@ -537,8 +538,8 @@ public final class d {
             String str2 = "";
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null) {
-                PublicKey bW = c.bW(packageInfo.applicationInfo.sourceDir);
-                PublicKey publicKey = (bW != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? bW : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
+                PublicKey cd = c.cd(packageInfo.applicationInfo.sourceDir);
+                PublicKey publicKey = (cd != null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || packageInfo.signatures[0] == null) ? cd : CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(packageInfo.signatures[0].toByteArray())).getPublicKey();
                 if (publicKey != null) {
                     byte[] encoded = publicKey.getEncoded();
                     if (encoded != null) {
@@ -548,7 +549,7 @@ public final class d {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i);
                         String optString = optJSONObject.optString("p");
-                        String optString2 = optJSONObject.optString("s");
+                        String optString2 = optJSONObject.optString(NotifyType.SOUND);
                         if (str.equals(optString) && !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(optString2)) {
                             return true;
                         }
@@ -559,32 +560,32 @@ public final class d {
             }
             return true;
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
             return true;
         }
     }
 
     public static void g(Context context) {
-        com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+        com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
         long currentTimeMillis = System.currentTimeMillis();
-        long j = eVar.a.getLong("se_ae_fd", 0L);
+        long j = dVar.a.getLong("se_ae_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
-            eVar.c.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.c.commit();
+            dVar.c.putLong("se_ae_fd", System.currentTimeMillis());
+            dVar.c.commit();
         }
         if (currentTimeMillis - j > 86400000) {
             HashMap hashMap = new HashMap();
-            hashMap.put("0", Integer.valueOf(eVar.a.getInt("mo_ae_fa_ct", 0) + 1));
-            eVar.c.putInt("mo_ae_fa_ct", 0);
-            eVar.c.commit();
-            eVar.c.putLong("se_ae_fd", System.currentTimeMillis());
-            eVar.c.commit();
+            hashMap.put("0", Integer.valueOf(dVar.a.getInt("mo_ae_fa_ct", 0) + 1));
+            dVar.c.putInt("mo_ae_fa_ct", 0);
+            dVar.c.commit();
+            dVar.c.putLong("se_ae_fd", System.currentTimeMillis());
+            dVar.c.commit();
             a(context, "1003119", hashMap);
             return;
         }
-        eVar.c.putInt("mo_ae_fa_ct", eVar.a.getInt("mo_ae_fa_ct", 0) + 1);
-        eVar.c.commit();
+        dVar.c.putInt("mo_ae_fa_ct", dVar.a.getInt("mo_ae_fa_ct", 0) + 1);
+        dVar.c.commit();
     }
 
     public static boolean c(String str, String str2) {
@@ -606,12 +607,12 @@ public final class d {
         }
     }
 
-    public static int ao(Context context) {
+    public static int h(Context context) {
         ConnectivityManager connectivityManager;
         try {
             connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         } catch (Throwable th) {
-            com.baidu.sofire.b.b(th);
+            com.baidu.sofire.a.b(th);
         }
         if (connectivityManager == null) {
             return -1;

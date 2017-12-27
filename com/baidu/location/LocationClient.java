@@ -10,11 +10,11 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.location.a.b;
-import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.apache.commons.logging.LogFactory;
 /* loaded from: classes.dex */
-public final class LocationClient implements b.InterfaceC0024b {
+public final class LocationClient implements b.InterfaceC0038b {
     private static final int MIN_REQUEST_SPAN = 1000;
     private static final int MSG_REG_LISTENER = 5;
     private static final int MSG_REG_NOTIFY_LISTENER = 8;
@@ -132,13 +132,13 @@ public final class LocationClient implements b.InterfaceC0024b {
                 case 27:
                     LocationClient.this.onNewNotifyLocation(message);
                     return;
-                case d.l.View_transformPivotY /* 54 */:
+                case 54:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = true;
                         return;
                     }
                     return;
-                case d.l.View_rotation /* 55 */:
+                case 55:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = false;
                         return;
@@ -242,7 +242,7 @@ public final class LocationClient implements b.InterfaceC0024b {
         bundle.putInt("scanSpan", this.mOption.scanSpan);
         bundle.putBoolean("enableSimulateGps", this.mOption.enableSimulateGps);
         bundle.putInt("timeOut", this.mOption.timeOut);
-        bundle.putInt("priority", this.mOption.priority);
+        bundle.putInt(LogFactory.PRIORITY_KEY, this.mOption.priority);
         bundle.putBoolean("map", this.mConfig_map.booleanValue());
         bundle.putBoolean("import", this.mConfig_preimport.booleanValue());
         bundle.putBoolean("needDirect", this.mOption.mIsNeedDeviceDirect);
@@ -560,7 +560,7 @@ public final class LocationClient implements b.InterfaceC0024b {
         return this.mIsStarted;
     }
 
-    @Override // com.baidu.location.a.b.InterfaceC0024b
+    @Override // com.baidu.location.a.b.InterfaceC0038b
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.serverFirst || this.clientFirst) && bDLocation != null) {
             Message obtainMessage = this.mHandler.obtainMessage(701);

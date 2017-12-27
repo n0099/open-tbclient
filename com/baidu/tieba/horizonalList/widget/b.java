@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> duf = new ArrayList<>(5);
-    public int duj;
-    public int duk;
-    int dul;
+    private static ArrayList<b> egj = new ArrayList<>(5);
+    public int egn;
+    public int ego;
+    int egp;
     public int type;
 
-    private void Lg() {
-        this.duj = 0;
-        this.duk = 0;
-        this.dul = 0;
+    private void SF() {
+        this.egn = 0;
+        this.ego = 0;
+        this.egp = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long auM() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.duj, this.duk) : ExpandableListView.getPackedPositionForGroup(this.duj);
+    public long aBP() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.egn, this.ego) : ExpandableListView.getPackedPositionForGroup(this.egn);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b mp(int i) {
-        return r(2, i, 0, 0);
+    public static b pg(int i) {
+        return z(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b r(int i, int i2, int i3, int i4) {
-        b auN = auN();
-        auN.type = i;
-        auN.duj = i2;
-        auN.duk = i3;
-        auN.dul = i4;
-        return auN;
+    public static b z(int i, int i2, int i3, int i4) {
+        b aBQ = aBQ();
+        aBQ.type = i;
+        aBQ.egn = i2;
+        aBQ.ego = i3;
+        aBQ.egp = i4;
+        return aBQ;
     }
 
-    private static b auN() {
+    private static b aBQ() {
         b bVar;
-        synchronized (duf) {
-            if (duf.size() > 0) {
-                bVar = duf.remove(0);
-                bVar.Lg();
+        synchronized (egj) {
+            if (egj.size() > 0) {
+                bVar = egj.remove(0);
+                bVar.SF();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (duf) {
-            if (duf.size() < 5) {
-                duf.add(this);
+        synchronized (egj) {
+            if (egj.size() < 5) {
+                egj.add(this);
             }
         }
     }

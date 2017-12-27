@@ -5,10 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-/* loaded from: classes.dex */
+import android.view.accessibility.AccessibilityNodeProvider;
+/* loaded from: classes2.dex */
 class AccessibilityDelegateCompatJellyBean {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface AccessibilityDelegateBridgeJellyBean {
         boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent);
 
@@ -64,6 +65,16 @@ class AccessibilityDelegateCompatJellyBean {
             @Override // android.view.View.AccessibilityDelegate
             public void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
                 AccessibilityDelegateBridgeJellyBean.this.sendAccessibilityEventUnchecked(view, accessibilityEvent);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public AccessibilityNodeProvider getAccessibilityNodeProvider(View view) {
+                return (AccessibilityNodeProvider) AccessibilityDelegateBridgeJellyBean.this.getAccessibilityNodeProvider(view);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
+                return AccessibilityDelegateBridgeJellyBean.this.performAccessibilityAction(view, i, bundle);
             }
         };
     }

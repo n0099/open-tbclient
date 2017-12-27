@@ -12,24 +12,24 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
-public class TaskStackBuilder implements Iterable<Intent> {
+/* loaded from: classes2.dex */
+public final class TaskStackBuilder implements Iterable<Intent> {
     private static final TaskStackBuilderImpl IMPL;
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface SupportParentable {
         Intent getSupportParentActivityIntent();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface TaskStackBuilderImpl {
         PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class TaskStackBuilderImplBase implements TaskStackBuilderImpl {
         TaskStackBuilderImplBase() {
         }
@@ -42,7 +42,7 @@ public class TaskStackBuilder implements Iterable<Intent> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class TaskStackBuilderImplHoneycomb implements TaskStackBuilderImpl {
         TaskStackBuilderImplHoneycomb() {
         }
@@ -70,6 +70,7 @@ public class TaskStackBuilder implements Iterable<Intent> {
         return new TaskStackBuilder(context);
     }
 
+    @Deprecated
     public static TaskStackBuilder from(Context context) {
         return create(context);
     }
@@ -131,6 +132,7 @@ public class TaskStackBuilder implements Iterable<Intent> {
         return this.mIntents.size();
     }
 
+    @Deprecated
     public Intent getIntent(int i) {
         return editIntentAt(i);
     }
@@ -140,6 +142,7 @@ public class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Override // java.lang.Iterable
+    @Deprecated
     public Iterator<Intent> iterator() {
         return this.mIntents.iterator();
     }

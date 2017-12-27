@@ -28,7 +28,7 @@ public class s extends c {
         } else {
             intent.setAction(PushConstants.ACTION_RECEIVE);
         }
-        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.a);
+        intent.putExtra("method", this.b.a);
         intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
         intent.putExtra("content", bArr);
         if (!this.d.isEmpty()) {
@@ -43,7 +43,6 @@ public class s extends c {
         } else if (!this.b.a.equals("method_list_lapp_tags") && !this.b.a.equals("method_list_sdk_tags")) {
             intent.setPackage(this.b.e);
         }
-        com.baidu.android.pushservice.g.a.c("Glist", "> sendResult to " + this.b.i + " ,method:" + this.b.a + " ,errorCode : " + i + " ,content : " + new String(bArr));
         com.baidu.android.pushservice.j.p.b(this.a, intent, intent.getAction(), intent.getPackage());
     }
 
@@ -51,8 +50,7 @@ public class s extends c {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "glist");
-        com.baidu.android.pushservice.g.a.c("Glist", "Glist param -- " + b.a(hashMap));
+        hashMap.put("method", "glist");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +63,6 @@ public class s extends c {
                 this.d.add(jSONArray.getJSONObject(i).getString("name"));
             }
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.a.e("Glist", "error " + e.getMessage());
         }
         return b;
     }

@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class v extends e {
@@ -26,20 +25,17 @@ public class v extends e {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "sendmsgtouser");
+        hashMap.put("method", "sendmsgtouser");
         hashMap.put("appid", this.d);
         hashMap.put("user_id", this.e);
         if (this.g == null || this.f == null) {
             return;
         }
-        com.baidu.android.pushservice.g.a.c("user_id", this.e);
         StringBuilder sb = new StringBuilder("[\"");
         sb.append(this.f).append("\"]");
         StringBuilder sb2 = new StringBuilder("[\"");
         sb2.append(this.g).append("\"]");
         hashMap.put("msg_keys", sb.toString());
         hashMap.put("messages", sb2.toString());
-        com.baidu.android.pushservice.g.a.c("Send", "key:" + this.f.toString() + " messages:" + this.g.toString());
-        com.baidu.android.pushservice.g.a.c("Send", "sendMsgToUser param -- " + b.a(hashMap));
     }
 }

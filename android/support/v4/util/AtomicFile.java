@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AtomicFile {
     private final File mBackupName;
     private final File mBaseName;
@@ -38,7 +38,7 @@ public class AtomicFile {
         try {
             return new FileOutputStream(this.mBaseName);
         } catch (FileNotFoundException e) {
-            if (!this.mBaseName.getParentFile().mkdir()) {
+            if (!this.mBaseName.getParentFile().mkdirs()) {
                 throw new IOException("Couldn't create directory " + this.mBaseName);
             }
             try {

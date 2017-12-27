@@ -11,116 +11,116 @@ import com.baidu.tieba.play.j;
 import java.net.InetAddress;
 /* loaded from: classes.dex */
 public class n implements d {
-    private String bdl;
-    private y fQA;
-    private String fQC;
-    private v fQI;
-    private boolean fQJ;
-    private long fQO;
+    private String aoh;
+    private String bQX;
+    private w gDF;
+    private boolean gDG;
+    private long gDL;
+    private aa gDx;
+    private String gDz;
     private Context mContext;
-    private String zW;
-    private String fQB = "1";
-    private boolean fQD = false;
-    private long fQE = 0;
-    private long fQF = 0;
+    private String gDy = "1";
+    private boolean gDA = false;
+    private long gDB = 0;
+    private long gDC = 0;
     private long mStartTime = 0;
-    private long fQG = 0;
-    private int fQH = 0;
-    private boolean fQK = false;
-    private boolean fQL = false;
-    private int fQM = 8;
-    private int fQN = 16;
-    private Runnable fQP = new Runnable() { // from class: com.baidu.tieba.play.n.2
+    private long gDD = 0;
+    private int gDE = 0;
+    private boolean gDH = false;
+    private boolean gDI = false;
+    private int gDJ = 8;
+    private int gDK = 16;
+    private Runnable gDM = new Runnable() { // from class: com.baidu.tieba.play.n.2
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.fQK && n.this.fQL && n.this.bje() && n.this.bjz()) {
-                s.f(n.this.mContext, n.this.fQC, -1);
+            if (n.this.gDH && n.this.gDI && n.this.bqz() && n.this.bqU()) {
+                t.f(n.this.mContext, n.this.gDz, -1);
             }
         }
     };
-    private Runnable fQQ = new Runnable() { // from class: com.baidu.tieba.play.n.3
+    private Runnable gDN = new Runnable() { // from class: com.baidu.tieba.play.n.3
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.bjz()) {
-                s.aa(n.this.mContext, n.this.fQC);
-            } else if (!n.this.fQD) {
-                s.hE(n.this.fQC);
+            if (n.this.bqU()) {
+                t.ad(n.this.mContext, n.this.gDz);
+            } else if (!n.this.gDA) {
+                t.hG(n.this.gDz);
             }
         }
     };
-    private j.c fPx = new j.c() { // from class: com.baidu.tieba.play.n.4
+    private j.c gCy = new j.c() { // from class: com.baidu.tieba.play.n.4
         @Override // com.baidu.tieba.play.j.c
-        public void OT() {
+        public void Ws() {
             n.g(n.this);
         }
     };
-    private j blq = new j();
+    private j bYB = new j();
 
     static /* synthetic */ int g(n nVar) {
-        int i = nVar.fQH;
-        nVar.fQH = i + 1;
+        int i = nVar.gDE;
+        nVar.gDE = i + 1;
         return i;
     }
 
     public n(Context context) {
         this.mContext = context;
-        this.blq.a(this.fPx);
-        this.fQI = new v();
+        this.bYB.a(this.gCy);
+        this.gDF = new w();
     }
 
     @Override // com.baidu.tieba.play.d
-    public String hC(String str) {
-        this.fQK = com.baidu.tbadk.coreExtra.model.f.AK();
-        this.fQL = com.baidu.tbadk.coreExtra.model.f.AL();
-        this.fQM = com.baidu.tbadk.coreExtra.model.f.AM();
-        this.fQN = com.baidu.tbadk.coreExtra.model.f.AN();
-        this.fQC = str;
-        this.bdl = this.fQD ? this.fQC : s.U(str, this.fQK);
-        if (this.fQI != null) {
-            w.a("start_play", this.fQC, bjz(), (int) this.fQI.bjI(), this.fQI.getDuration());
+    public String hE(String str) {
+        this.gDH = com.baidu.tbadk.coreExtra.model.f.Im();
+        this.gDI = com.baidu.tbadk.coreExtra.model.f.In();
+        this.gDJ = com.baidu.tbadk.coreExtra.model.f.Io();
+        this.gDK = com.baidu.tbadk.coreExtra.model.f.Ip();
+        this.gDz = str;
+        this.bQX = this.gDA ? this.gDz : t.V(str, this.gDH);
+        if (this.gDF != null) {
+            x.a("start_play", this.gDz, bqU(), (int) this.gDF.brg(), this.gDF.getDuration());
         }
-        this.fQF = System.currentTimeMillis();
-        return this.bdl;
+        this.gDC = System.currentTimeMillis();
+        return this.bQX;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bje() {
-        return !StringUtils.isNull(this.bdl) && this.bdl.contains("127.0.0.1");
+    public boolean bqz() {
+        return !StringUtils.isNull(this.bQX) && this.bQX.contains("127.0.0.1");
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bjf() {
-        return this.fQK;
+    public boolean bqA() {
+        return this.gDH;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean bjg() {
-        return this.fQL;
+    public boolean bqB() {
+        return this.gDI;
     }
 
     @Override // com.baidu.tieba.play.d
-    public int bjh() {
-        return com.baidu.tbadk.coreExtra.model.f.AO() ? this.fQM : this.fQN;
+    public int bqC() {
+        return com.baidu.tbadk.coreExtra.model.f.Iq() ? this.gDJ : this.gDK;
     }
 
     @Override // com.baidu.tieba.play.d
-    public String bjd() {
-        return this.fQC;
+    public String bqx() {
+        return this.gDz;
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bji() {
-        if (this.fQK && this.fQL && bje() && bjz()) {
-            s.f(this.mContext, this.fQC, -1);
+    public void bqD() {
+        if (this.gDH && this.gDI && bqz() && bqU()) {
+            t.f(this.mContext, this.gDz, -1);
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cI(long j) {
-        this.fQO = j;
-        bjr();
-        if (this.fQF > 0) {
-            this.fQG = System.currentTimeMillis() - this.fQF;
+    public void cR(long j) {
+        this.gDL = j;
+        bqT();
+        if (this.gDC > 0) {
+            this.gDD = System.currentTimeMillis() - this.gDC;
         }
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.play.n.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -128,9 +128,9 @@ public class n implements d {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 Uri parse;
-                if (!am.isEmpty(n.this.fQC) && (parse = Uri.parse(n.this.fQC)) != null) {
+                if (!am.isEmpty(n.this.gDz) && (parse = Uri.parse(n.this.gDz)) != null) {
                     try {
-                        n.this.zW = InetAddress.getByName(parse.getHost()).getHostAddress();
+                        n.this.aoh = InetAddress.getByName(parse.getHost()).getHostAddress();
                         return null;
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -148,65 +148,65 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.fQE += System.currentTimeMillis() - this.mStartTime;
+            this.gDB += System.currentTimeMillis() - this.mStartTime;
         }
         this.mStartTime = System.currentTimeMillis();
-        if (this.blq != null) {
-            this.blq.start();
+        if (this.bYB != null) {
+            this.bYB.start();
         }
-        this.fQJ = true;
+        this.gDG = true;
     }
 
     @Override // com.baidu.tieba.play.d
     public void onStop() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQQ);
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQP);
-        bjk();
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gDN);
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gDM);
+        bqF();
         if (this.mStartTime > 0) {
-            this.fQE += System.currentTimeMillis() - this.mStartTime;
+            this.gDB += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
-        bjv();
-        this.fQJ = false;
-        if (this.blq != null) {
-            this.blq.stop();
+        bqQ();
+        this.gDG = false;
+        if (this.bYB != null) {
+            this.bYB.stop();
         }
-        if (this.fQG > 0 && this.fQI != null) {
+        if (this.gDD > 0 && this.gDF != null) {
             ak akVar = new ak("c11685");
-            akVar.ac("service_ip", this.zW);
-            akVar.ac("video_url", this.fQC);
-            akVar.f("video_size", this.fQI.bjI());
-            akVar.r("video_duration", this.fQI.getDuration());
-            akVar.ac("video_resolution", this.fQI.bjJ());
-            akVar.r("loading_count", this.fQH);
-            akVar.f("user_watch_time", this.fQE / 1000);
-            akVar.f("start_play_time", this.fQG);
+            akVar.ab("service_ip", this.aoh);
+            akVar.ab("video_url", this.gDz);
+            akVar.f("video_size", this.gDF.brg());
+            akVar.s("video_duration", this.gDF.getDuration());
+            akVar.ab("video_resolution", this.gDF.brh());
+            akVar.s("loading_count", this.gDE);
+            akVar.f("user_watch_time", this.gDB / 1000);
+            akVar.f("start_play_time", this.gDD);
             TiebaStatic.log(akVar);
         }
-        if (this.fQI != null && this.fQG > 0) {
-            w.a("stop_play", this.fQC, bjz(), (int) this.fQI.bjI(), this.fQI.getDuration());
+        if (this.gDF != null && this.gDD > 0) {
+            x.a("stop_play", this.gDz, bqU(), (int) this.gDF.brg(), this.gDF.getDuration());
         }
-        this.fQG = 0L;
-        this.fQE = 0L;
-        this.fQH = 0;
-        this.fQF = 0L;
+        this.gDD = 0L;
+        this.gDB = 0L;
+        this.gDE = 0;
+        this.gDC = 0L;
         this.mStartTime = 0L;
     }
 
-    private void bjv() {
-        if (this.fQE >= 0 && this.fQE < 86400000) {
-            if (this.fQE > 0) {
+    private void bqQ() {
+        if (this.gDB >= 0 && this.gDB < 86400000) {
+            if (this.gDB > 0) {
                 ak akVar = new ak("c11244");
-                akVar.f("obj_duration", this.fQE);
-                akVar.ac("obj_type", this.fQB);
-                akVar.f("playduration", this.fQO);
-                if (this.fQA != null) {
-                    this.fQA.f(akVar);
+                akVar.f("obj_duration", this.gDB);
+                akVar.ab("obj_type", this.gDy);
+                akVar.f("playduration", this.gDL);
+                if (this.gDx != null) {
+                    this.gDx.f(akVar);
                 }
                 TiebaStatic.log(akVar);
-                l.a(this.fQE, this.fQB, this.fQA, "", this.fQO);
-            } else if (this.fQJ) {
-                l.a(this.fQE, this.fQB, this.fQA, "", this.fQO);
+                l.a(this.gDB, this.gDy, this.gDx, "", this.gDL);
+            } else if (this.gDG) {
+                l.a(this.gDB, this.gDy, this.gDx, "", this.gDL);
             }
         }
     }
@@ -214,7 +214,7 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.fQE += System.currentTimeMillis() - this.mStartTime;
+            this.gDB += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
     }
@@ -222,77 +222,70 @@ public class n implements d {
     @Override // com.baidu.tieba.play.d
     public void onCompletion() {
         if (this.mStartTime > 0) {
-            this.fQE += System.currentTimeMillis() - this.mStartTime;
+            this.gDB += System.currentTimeMillis() - this.mStartTime;
             this.mStartTime = 0L;
         }
     }
 
-    public boolean bjw() {
-        return s.hD(this.fQC) != null;
+    @Override // com.baidu.tieba.play.d
+    public boolean bqy() {
+        return t.hF(this.gDz) != null;
     }
 
-    public void bjx() {
-        this.fQD = true;
+    public void bqR() {
+        this.gDA = true;
     }
 
-    public void rq(String str) {
-        this.fQB = str;
+    public void rB(String str) {
+        this.gDy = str;
     }
 
     @Override // com.baidu.tieba.play.d
-    public j getMediaProgressObserver() {
-        return this.blq;
+    public j bqE() {
+        return this.bYB;
     }
 
-    public v bjy() {
-        return this.fQI;
+    public w bqS() {
+        return this.gDF;
     }
 
-    public void bjr() {
-        if (!this.fQK) {
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQQ);
-            com.baidu.adp.lib.g.e.fP().postDelayed(this.fQQ, 100L);
+    public void bqT() {
+        if (!this.gDH) {
+            com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gDN);
+            com.baidu.adp.lib.g.e.nr().postDelayed(this.gDN, 100L);
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bjj() {
-        if (!this.fQK) {
-            com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQQ);
-            com.baidu.adp.lib.g.e.fP().post(this.fQQ);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.d
-    public void sx(int i) {
-        if (bjz()) {
-            s.f(this.mContext, this.fQC, i);
+    public void vs(int i) {
+        if (bqU()) {
+            t.f(this.mContext, this.gDz, i);
         }
     }
 
     @Override // com.baidu.tieba.play.d
     public void onSeekComplete() {
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fQP);
-        com.baidu.adp.lib.g.e.fP().postDelayed(this.fQP, 1000L);
+        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gDM);
+        com.baidu.adp.lib.g.e.nr().postDelayed(this.gDM, 1000L);
     }
 
     @Override // com.baidu.tieba.play.d
-    public void bjk() {
-        if (bjz()) {
-            s.ab(this.mContext, this.fQC);
+    public void bqF() {
+        if (bqU()) {
+            t.ae(this.mContext, this.gDz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bjz() {
-        return (this.fQD || this.bdl == null || this.bdl.equals(this.fQC)) ? false : true;
+    public boolean bqU() {
+        return (this.gDA || this.bQX == null || this.bQX.equals(this.gDz)) ? false : true;
     }
 
-    public void setVideoStatsData(y yVar) {
-        this.fQA = yVar;
+    public void setVideoStatsData(aa aaVar) {
+        this.gDx = aaVar;
     }
 
-    public y bjA() {
-        return this.fQA;
+    public aa bqV() {
+        return this.gDx;
     }
 }

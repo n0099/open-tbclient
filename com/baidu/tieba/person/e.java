@@ -5,31 +5,32 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout aMw;
+    private LinearLayout bAj;
     private Context context;
-    private float frw;
+    private float gem;
     private View mContentView;
 
     public e(Context context) {
         super(context, 16973835);
-        this.frw = 0.3f;
+        this.gem = 0.3f;
         this.context = context;
     }
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.frw = 0.3f;
+        this.gem = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
-    public void ah(float f) {
-        this.frw = f;
+    public void ax(float f) {
+        this.gem = f;
     }
 
     @Override // android.app.Dialog
@@ -46,22 +47,30 @@ public class e extends Dialog {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(d.C0095d.transparent);
-        getWindow().setDimAmount(this.frw);
+        getWindow().setBackgroundDrawableResource(d.C0108d.transparent);
+        getWindow().setDimAmount(this.gem);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.aMw = (LinearLayout) findViewById(d.g.root_view);
-        if (this.mContentView != null) {
-            this.aMw.removeAllViews();
-            this.aMw.addView(this.mContentView);
-        }
-        this.aMw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.bAj = (LinearLayout) findViewById(d.g.root_view);
+        this.bAj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
+        if (this.mContentView != null) {
+            this.bAj.removeAllViews();
+            if (this.mContentView.getParent() != null) {
+                if (this.mContentView.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
+                    this.bAj.addView(this.mContentView);
+                    return;
+                }
+                return;
+            }
+            this.bAj.addView(this.mContentView);
+        }
     }
 }

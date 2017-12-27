@@ -27,24 +27,24 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vX() {
+    public boolean Dw() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vY() {
+    public boolean Dx() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    /* renamed from: c */
-    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gr = com.baidu.tbadk.imageManager.c.EA().gr(str);
-        if (gr == null || gr.kK() == null) {
+    /* renamed from: g */
+    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
+        com.baidu.adp.widget.a.a gx = com.baidu.tbadk.imageManager.c.Mb().gx(str);
+        if (gx == null || gx.si() == null) {
             return null;
         }
-        return gr;
+        return gx;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vZ() {
+    public int Dy() {
         return this.procType;
     }
 }

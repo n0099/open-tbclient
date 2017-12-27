@@ -7,7 +7,7 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c Of = null;
+    private static c aCV = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -22,11 +22,11 @@ public class c {
         }
     }
 
-    public static c mX() {
-        if (Of == null) {
-            Of = new c();
+    public static c uA() {
+        if (aCV == null) {
+            aCV = new c();
         }
-        return Of;
+        return aCV;
     }
 
     public String a(boolean z) {
@@ -82,10 +82,10 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float lZ = com.baidu.location.a.f.lY().lZ();
-        if (lZ != 0.0f) {
+        float tC = com.baidu.location.a.f.tB().tC();
+        if (tC != 0.0f) {
             stringBuffer.append("&altv=");
-            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(lZ)));
+            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(tC)));
         }
         stringBuffer.append("&resid=");
         stringBuffer.append("12");

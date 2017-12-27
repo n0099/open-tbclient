@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.HashMap;
+import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes2.dex */
 public class k {
     private static ConnectivityManager a = null;
@@ -26,19 +27,14 @@ public class k {
         try {
             Context applicationContext = context.getApplicationContext();
             if (applicationContext == null) {
-                com.baidu.android.pushservice.g.a.d("NetworkCheck", "context is null !!!");
             }
             ConnectivityManager f = f(applicationContext);
             if (f != null) {
                 networkInfo = f.getActiveNetworkInfo();
                 if (networkInfo == null) {
-                    com.baidu.android.pushservice.g.a.d("NetworkCheck", "networkInfo is null !!!");
                 }
-            } else {
-                com.baidu.android.pushservice.g.a.d("NetworkCheck", "connManager is null !!!");
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("NetworkCheck", "exp: " + e.getMessage());
         }
         return networkInfo;
     }
@@ -70,11 +66,11 @@ public class k {
 
     public static boolean e(Context context) {
         boolean a2 = a(context);
-        if (a2 || !p.t(context, "android.permission.INTERNET")) {
+        if (a2 || !p.u(context, "android.permission.INTERNET")) {
             return a2;
         }
         try {
-            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
+            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.a(), HttpGet.METHOD_NAME, (HashMap<String, String>) null);
             if (a3.b() != 0) {
                 if (a3.a() != null) {
                     return true;

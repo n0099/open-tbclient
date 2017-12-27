@@ -6,23 +6,29 @@ import android.os.Handler;
 import android.support.v4.util.DebugUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Loader<D> {
     Context mContext;
     int mId;
     OnLoadCompleteListener<D> mListener;
+    OnLoadCanceledListener<D> mOnLoadCanceledListener;
     boolean mStarted = false;
     boolean mAbandoned = false;
     boolean mReset = true;
     boolean mContentChanged = false;
     boolean mProcessingChange = false;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
+    public interface OnLoadCanceledListener<D> {
+        void onLoadCanceled(Loader<D> loader);
+    }
+
+    /* loaded from: classes2.dex */
     public interface OnLoadCompleteListener<D> {
         void onLoadComplete(Loader<D> loader, D d);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public final class ForceLoadContentObserver extends ContentObserver {
         public ForceLoadContentObserver() {
             super(new Handler());
@@ -46,6 +52,12 @@ public class Loader<D> {
     public void deliverResult(D d) {
         if (this.mListener != null) {
             this.mListener.onLoadComplete(this, d);
+        }
+    }
+
+    public void deliverCancellation() {
+        if (this.mOnLoadCanceledListener != null) {
+            this.mOnLoadCanceledListener.onLoadCanceled(this);
         }
     }
 
@@ -75,6 +87,23 @@ public class Loader<D> {
         this.mListener = null;
     }
 
+    public void registerOnLoadCanceledListener(OnLoadCanceledListener<D> onLoadCanceledListener) {
+        if (this.mOnLoadCanceledListener != null) {
+            throw new IllegalStateException("There is already a listener registered");
+        }
+        this.mOnLoadCanceledListener = onLoadCanceledListener;
+    }
+
+    public void unregisterOnLoadCanceledListener(OnLoadCanceledListener<D> onLoadCanceledListener) {
+        if (this.mOnLoadCanceledListener == null) {
+            throw new IllegalStateException("No listener register");
+        }
+        if (this.mOnLoadCanceledListener != onLoadCanceledListener) {
+            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        }
+        this.mOnLoadCanceledListener = null;
+    }
+
     public boolean isStarted() {
         return this.mStarted;
     }
@@ -95,6 +124,14 @@ public class Loader<D> {
     }
 
     protected void onStartLoading() {
+    }
+
+    public boolean cancelLoad() {
+        return onCancelLoad();
+    }
+
+    protected boolean onCancelLoad() {
+        return false;
     }
 
     public void forceLoad() {
@@ -147,7 +184,7 @@ public class Loader<D> {
 
     public void rollbackContentChanged() {
         if (this.mProcessingChange) {
-            this.mContentChanged = true;
+            onContentChanged();
         }
     }
 

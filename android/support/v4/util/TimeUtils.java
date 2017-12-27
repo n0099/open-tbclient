@@ -1,8 +1,10 @@
 package android.support.v4.util;
 
+import android.support.annotation.RestrictTo;
 import java.io.PrintWriter;
-/* loaded from: classes.dex */
-public class TimeUtils {
+@RestrictTo
+/* loaded from: classes2.dex */
+public final class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
     private static final Object sFormatSync = new Object();
     private static char[] sFormatStr = new char[24];
@@ -144,5 +146,8 @@ public class TimeUtils {
         } else {
             formatDuration(j - j2, printWriter, 0);
         }
+    }
+
+    private TimeUtils() {
     }
 }

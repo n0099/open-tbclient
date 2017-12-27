@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import android.support.v4.view.MotionEventCompat;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class BitReaderBuffer {
@@ -21,7 +20,7 @@ public class BitReaderBuffer {
         }
         int i3 = 8 - (this.position % 8);
         if (i <= i3) {
-            readBits = ((i2 << (this.position % 8)) & MotionEventCompat.ACTION_MASK) >> ((i3 - i) + (this.position % 8));
+            readBits = ((i2 << (this.position % 8)) & 255) >> ((i3 - i) + (this.position % 8));
             this.position += i;
         } else {
             int i4 = i - i3;

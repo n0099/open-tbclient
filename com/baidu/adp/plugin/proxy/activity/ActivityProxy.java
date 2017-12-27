@@ -48,6 +48,7 @@ import com.baidu.adp.plugin.a.a;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.d;
+import com.baidu.adp.widget.ListView.l;
 import com.baidu.megapp.ma.MAActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -290,7 +291,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.cg().getResources();
+            Resources resources = g.jL().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1602,9 +1603,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(com.baidu.adp.widget.ListView.g gVar) {
+    public void onPreLoad(l lVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(gVar);
+            this.mEntity.onPreLoad(lVar);
         }
     }
 

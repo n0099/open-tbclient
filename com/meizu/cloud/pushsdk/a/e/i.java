@@ -1,0 +1,9 @@
+package com.meizu.cloud.pushsdk.a.e;
+
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public interface i {
+    void a(com.meizu.cloud.pushsdk.a.c.a aVar);
+
+    void a(com.meizu.cloud.pushsdk.a.d.k kVar, JSONObject jSONObject);
+}

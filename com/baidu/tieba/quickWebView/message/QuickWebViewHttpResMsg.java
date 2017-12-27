@@ -2,7 +2,6 @@ package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
     private String result;
@@ -52,10 +51,10 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
                     sb.append('\\');
                     sb.append(charAt);
                     break;
-                case d.l.View_filterTouchesWhenObscured /* 39 */:
+                case '\'':
                     sb.append("\\'");
                     break;
-                case d.l.View_contentDescription /* 47 */:
+                case '/':
                     sb.append('\\');
                     sb.append(charAt);
                     break;

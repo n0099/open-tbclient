@@ -1,15 +1,16 @@
 package android.support.v4.app;
 
 import android.os.Bundle;
+import android.support.annotation.RestrictTo;
 import android.support.v4.app.Fragment;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class FragmentManager {
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface BackStackEntry {
         CharSequence getBreadCrumbShortTitle();
 
@@ -24,7 +25,7 @@ public abstract class FragmentManager {
         String getName();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnBackStackChangedListener {
         void onBackStackChanged();
     }
@@ -47,7 +48,10 @@ public abstract class FragmentManager {
 
     public abstract Fragment getFragment(Bundle bundle, String str);
 
+    @RestrictTo
     public abstract List<Fragment> getFragments();
+
+    public abstract boolean isDestroyed();
 
     public abstract void popBackStack();
 
@@ -67,6 +71,7 @@ public abstract class FragmentManager {
 
     public abstract Fragment.SavedState saveFragmentInstanceState(Fragment fragment);
 
+    @RestrictTo
     @Deprecated
     public FragmentTransaction openTransaction() {
         return beginTransaction();

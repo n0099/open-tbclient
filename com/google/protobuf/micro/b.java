@@ -2,6 +2,7 @@ package com.google.protobuf.micro;
 
 import java.io.InputStream;
 import java.util.Vector;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class b {
     private final byte[] a;
@@ -152,17 +153,17 @@ public final class b {
         }
     }
 
-    public a bMK() {
+    public a bPT() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.J(xh(j));
+            return a.I(zy(j));
         }
         a l = a.l(this.a, this.d, j);
         this.d = j + this.d;
         return l;
     }
 
-    public byte bML() {
+    public byte bPU() {
         if (this.d == this.b) {
             a(true);
         }
@@ -236,9 +237,9 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(xh(j), "UTF-8");
+            return new String(zy(j), HTTP.UTF_8);
         }
-        String str = new String(this.a, this.d, j, "UTF-8");
+        String str = new String(this.a, this.d, j, HTTP.UTF_8);
         this.d = j + this.d;
         return str;
     }
@@ -248,31 +249,31 @@ public final class b {
     }
 
     public int j() {
-        byte bML = bML();
-        if (bML >= 0) {
-            return bML;
+        byte bPU = bPU();
+        if (bPU >= 0) {
+            return bPU;
         }
-        int i = bML & Byte.MAX_VALUE;
-        byte bML2 = bML();
-        if (bML2 >= 0) {
-            return i | (bML2 << 7);
+        int i = bPU & Byte.MAX_VALUE;
+        byte bPU2 = bPU();
+        if (bPU2 >= 0) {
+            return i | (bPU2 << 7);
         }
-        int i2 = i | ((bML2 & Byte.MAX_VALUE) << 7);
-        byte bML3 = bML();
-        if (bML3 >= 0) {
-            return i2 | (bML3 << 14);
+        int i2 = i | ((bPU2 & Byte.MAX_VALUE) << 7);
+        byte bPU3 = bPU();
+        if (bPU3 >= 0) {
+            return i2 | (bPU3 << 14);
         }
-        int i3 = i2 | ((bML3 & Byte.MAX_VALUE) << 14);
-        byte bML4 = bML();
-        if (bML4 >= 0) {
-            return i3 | (bML4 << 21);
+        int i3 = i2 | ((bPU3 & Byte.MAX_VALUE) << 14);
+        byte bPU4 = bPU();
+        if (bPU4 >= 0) {
+            return i3 | (bPU4 << 21);
         }
-        int i4 = i3 | ((bML4 & Byte.MAX_VALUE) << 21);
-        byte bML5 = bML();
-        int i5 = i4 | (bML5 << 28);
-        if (bML5 < 0) {
+        int i4 = i3 | ((bPU4 & Byte.MAX_VALUE) << 21);
+        byte bPU5 = bPU();
+        int i5 = i4 | (bPU5 << 28);
+        if (bPU5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bML() >= 0) {
+                if (bPU() >= 0) {
                     return i5;
                 }
             }
@@ -284,9 +285,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bML = bML();
-            j |= (bML & Byte.MAX_VALUE) << i;
-            if ((bML & 128) == 0) {
+            byte bPU = bPU();
+            j |= (bPU & Byte.MAX_VALUE) << i;
+            if ((bPU & 128) == 0) {
                 return j;
             }
         }
@@ -294,20 +295,20 @@ public final class b {
     }
 
     public int l() {
-        return (bML() & 255) | ((bML() & 255) << 8) | ((bML() & 255) << 16) | ((bML() & 255) << 24);
+        return (bPU() & 255) | ((bPU() & 255) << 8) | ((bPU() & 255) << 16) | ((bPU() & 255) << 24);
     }
 
     public long m() {
-        byte bML = bML();
-        byte bML2 = bML();
-        return ((bML2 & 255) << 8) | (bML & 255) | ((bML() & 255) << 16) | ((bML() & 255) << 24) | ((bML() & 255) << 32) | ((bML() & 255) << 40) | ((bML() & 255) << 48) | ((bML() & 255) << 56);
+        byte bPU = bPU();
+        byte bPU2 = bPU();
+        return ((bPU2 & 255) << 8) | (bPU & 255) | ((bPU() & 255) << 16) | ((bPU() & 255) << 24) | ((bPU() & 255) << 32) | ((bPU() & 255) << 40) | ((bPU() & 255) << 48) | ((bPU() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] xh(int i) {
+    public byte[] zy(int i) {
         if (i < 0) {
             throw d.b();
         }

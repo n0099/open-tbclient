@@ -147,7 +147,7 @@ public class PushConnService extends Service {
             }
         }
     };
-    private a.AbstractBinderC0049a F = new a.AbstractBinderC0049a() { // from class: com.baidu.sofire.push.PushConnService.3
+    private a.AbstractBinderC0063a F = new a.AbstractBinderC0063a() { // from class: com.baidu.sofire.push.PushConnService.3
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [417=4] */
         @Override // com.baidu.sofire.push.a.a
         public final Bundle a(Bundle bundle) throws RemoteException {
@@ -169,7 +169,7 @@ public class PushConnService extends Service {
                     case 3:
                         String string = bundle.getString("appkey");
                         int i3 = bundle.getInt("plugin_id");
-                        String string2 = bundle.getString(PushConstants.EXTRA_PUSH_MESSAGE);
+                        String string2 = bundle.getString("message");
                         bundle2.putInt(SocialLoginActivityConfig.RESULT_CODE, 3);
                         if (TextUtils.isEmpty(string) || i3 <= 0 || TextUtils.isEmpty(string2)) {
                             bundle2.putInt("error_code", -2);
@@ -184,7 +184,7 @@ public class PushConnService extends Service {
                             PushConnService.this.D.beginBroadcast();
                             Bundle bundle3 = new Bundle();
                             bundle3.putInt("type", 4);
-                            bundle3.putString(PushConstants.EXTRA_PUSH_MESSAGE, string2);
+                            bundle3.putString("message", string2);
                             bundle3.putInt("plugin_id", i3);
                             Bundle a2 = bVar.a(bundle3);
                             switch (a2.getInt("local_msg_code")) {
@@ -200,7 +200,7 @@ public class PushConnService extends Service {
                                     bundle2.putInt("error_code", -7);
                                     break;
                                 case 2:
-                                    bundle2.putInt("error_code", PushConnService.x);
+                                    bundle2.putInt("error_code", -6);
                                     break;
                                 case 3:
                                     bundle2.putInt("error_code", -7);
@@ -258,28 +258,28 @@ public class PushConnService extends Service {
                             }
                             if (PushConnService.this.D.register(bVar)) {
                                 PushConnService.this.c.put(str2, bVar);
-                                c ap = c.ap(PushConnService.this.getApplicationContext());
-                                e aq = e.aq(PushConnService.this);
-                                ApkInfo bY = aq.bY("com.baidu.sofire.x18");
-                                if (bY == null) {
+                                c aB = c.aB(PushConnService.this.getApplicationContext());
+                                e aC = e.aC(PushConnService.this);
+                                ApkInfo cf = aC.cf("com.baidu.sofire.x18");
+                                if (cf == null) {
                                     for (int i2 = 0; i2 < 10; i2++) {
                                         try {
                                             Thread.sleep(3000L);
                                         } catch (InterruptedException e2) {
                                             e2.printStackTrace();
                                         }
-                                        bY = aq.bY("com.baidu.sofire.x18");
-                                        if (bY != null) {
+                                        cf = aC.cf("com.baidu.sofire.x18");
+                                        if (cf != null) {
                                             break;
                                         }
                                     }
                                 }
-                                new StringBuilder("push::fha:").append(ap).append(",hub:").append(aq).append(",info:").append(bY);
-                                if (bY != null) {
+                                new StringBuilder("push::fha:").append(aB).append(",hub:").append(aC).append(",info:").append(cf);
+                                if (cf != null) {
                                     if (PushConnService.z == -1) {
-                                        int unused = PushConnService.z = bY.key;
+                                        int unused = PushConnService.z = cf.key;
                                     }
-                                    Pair<Integer, Object> a2 = ap.a(PushConnService.z, "registerHost", new Class[]{String.class, String.class, String.class}, str3, str2, str);
+                                    Pair<Integer, Object> a2 = aB.a(PushConnService.z, "registerHost", new Class[]{String.class, String.class, String.class}, str3, str2, str);
                                     new StringBuilder("push::p:").append(a2.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a2.second);
                                     if (((Integer) a2.first).intValue() != 0) {
                                         PushConnService.this.a("registerHost", (Integer) a2.first);
@@ -308,27 +308,27 @@ public class PushConnService extends Service {
                 if (!TextUtils.isEmpty(string)) {
                     PushConnService.this.c.remove(string);
                     new StringBuilder("afterRemove:mCallbackMap:").append(PushConnService.this.c.size());
-                    c ap = c.ap(PushConnService.this.getApplicationContext());
-                    e aq = e.aq(PushConnService.this);
-                    ApkInfo bY = aq.bY("com.baidu.sofire.x18");
-                    if (bY == null) {
+                    c aB = c.aB(PushConnService.this.getApplicationContext());
+                    e aC = e.aC(PushConnService.this);
+                    ApkInfo cf = aC.cf("com.baidu.sofire.x18");
+                    if (cf == null) {
                         for (int i2 = 0; i2 < 10; i2++) {
                             try {
                                 Thread.sleep(3000L);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            bY = aq.bY("com.baidu.sofire.x18");
-                            if (bY != null) {
+                            cf = aC.cf("com.baidu.sofire.x18");
+                            if (cf != null) {
                                 break;
                             }
                         }
                     }
-                    if (bY != null) {
+                    if (cf != null) {
                         if (PushConnService.z == -1) {
-                            int unused = PushConnService.z = bY.key;
+                            int unused = PushConnService.z = cf.key;
                         }
-                        Pair<Integer, Object> a2 = ap.a(PushConnService.z, "unregisterHost", new Class[]{String.class, String.class}, string2, string);
+                        Pair<Integer, Object> a2 = aB.a(PushConnService.z, "unregisterHost", new Class[]{String.class, String.class}, string2, string);
                         new StringBuilder("push::unregisterHost:p:").append(a2.first).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(a2.second);
                         if (((Integer) a2.first).intValue() != 0) {
                             PushConnService.this.a("unregisterHost", (Integer) a2.first);
@@ -364,7 +364,7 @@ public class PushConnService extends Service {
         try {
             super.onCreate();
             b = true;
-            this.C = c.ap(getApplicationContext());
+            this.C = c.aB(getApplicationContext());
             new StringBuilder("push::1 PushService oncreate:").append(getPackageName());
             new Thread(new Runnable() { // from class: com.baidu.sofire.push.PushConnService.1
                 @Override // java.lang.Runnable
@@ -389,17 +389,17 @@ public class PushConnService extends Service {
                         } else {
                             PushConnService.this.a(true);
                         }
-                        e aq = e.aq(PushConnService.this);
-                        ApkInfo bY = aq.bY("com.baidu.sofire.x18");
-                        new StringBuilder("push::onCreate fha:").append(PushConnService.this.C).append(",hub:").append(aq).append(",info:").append(bY);
-                        if (bY != null) {
-                            PushConnService.this.B = bY.versionName;
+                        e aC = e.aC(PushConnService.this);
+                        ApkInfo cf = aC.cf("com.baidu.sofire.x18");
+                        new StringBuilder("push::onCreate fha:").append(PushConnService.this.C).append(",hub:").append(aC).append(",info:").append(cf);
+                        if (cf != null) {
+                            PushConnService.this.B = cf.versionName;
                         } else {
                             PushConnService.this.a(2);
                             PushConnService.this.stopSelf();
                             Process.killProcess(Process.myPid());
                         }
-                        int unused = PushConnService.z = bY.key;
+                        int unused = PushConnService.z = cf.key;
                         Pair c = PushConnService.this.c(PushConnService.z);
                         boolean z3 = c != null && ((Boolean) c.second).booleanValue();
                         if (((Integer) c.first).intValue() == 0 && z3) {

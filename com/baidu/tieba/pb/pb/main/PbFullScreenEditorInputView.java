@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tieba.d;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbFullScreenEditorInputView extends EditText {
     public PbFullScreenEditorInputView(Context context) {
         super(context);
@@ -33,20 +33,20 @@ public class PbFullScreenEditorInputView extends EditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.n nVar) {
-        if (com.baidu.tieba.face.a.kq(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.uf().showToast(d.j.too_many_face);
+        if (com.baidu.tieba.face.a.kw(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.BF().showToast(d.j.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), nVar, this);
         }
     }
 
-    public void fR(String str) {
+    public void fY(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void aj(ArrayList<String> arrayList) {
+    public void ak(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;

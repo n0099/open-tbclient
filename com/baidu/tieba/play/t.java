@@ -1,53 +1,81 @@
 package com.baidu.tieba.play;
 
-import android.os.Environment;
-import com.baidu.adp.lib.util.StringUtils;
-import java.io.File;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class t {
-    public static final String bbu = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bbv = bbu + "/.tieba_video_cache";
-    public static final String bbw = bbv + "/v2";
-    public static final String bbx = bbw + "/";
-    public static final String bby = bbw + "/files";
-    public static final String bbz = bby + "/";
+    private static i gEh = null;
+    private static boolean gEi = true;
+    private static boolean gEj = true;
 
-    private static long hz(String str) {
-        File file;
-        File file2;
-        File[] listFiles;
-        long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bbz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
-            for (File file3 : listFiles) {
-                if (file3 != null && file3.exists()) {
-                    j += file3.length();
-                }
+    private static i bre() {
+        if (gEh == null) {
+            gEi = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
+            if (runTask != null) {
+                gEh = (i) runTask.getData();
             }
         }
-        return j;
+        return gEh;
     }
 
-    private static String hA(String str) {
-        if (str == null || !str.contains("/")) {
-            return null;
-        }
-        String substring = str.substring(str.lastIndexOf("/") + 1);
-        if (substring != null && substring.contains(".mp4")) {
-            return substring.replace(".mp4", "");
-        }
-        return substring;
-    }
-
-    public static long rr(String str) {
-        try {
-            String hA = hA(str);
-            if (StringUtils.isNULL(hA)) {
-                return 0L;
+    public static String V(String str, boolean z) {
+        if (z) {
+            if (gEj && bre() != null) {
+                return bre().r(str, true);
             }
-            return hz(hA);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
+            return str;
+        } else if (gEj && gEi && bre() != null) {
+            return bre().hE(str);
+        } else {
+            return str;
         }
+    }
+
+    public static String hF(String str) {
+        if (bre() != null) {
+            return bre().hF(str);
+        }
+        return null;
+    }
+
+    public static void f(Context context, String str, int i) {
+        if (bre() != null) {
+            bre().f(context, str, i);
+        }
+    }
+
+    public static void ad(Context context, String str) {
+        if (bre() != null) {
+            bre().ad(context, str);
+        }
+    }
+
+    public static void ae(Context context, String str) {
+        if (gEj && gEi && bre() != null) {
+            bre().ae(context, str);
+        }
+    }
+
+    public static void hG(String str) {
+        if (gEj && gEi && bre() != null) {
+            bre().hG(str);
+        }
+    }
+
+    public static void bs(Context context) {
+        if (bre() != null) {
+            bre().bs(context);
+        }
+    }
+
+    public static void mE(boolean z) {
+        gEi = z;
+    }
+
+    public static void brf() {
+        gEj = com.baidu.adp.lib.b.d.mz().an("android_video_cache_open") == 1;
     }
 }

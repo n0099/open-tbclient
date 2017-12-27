@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.hybrid;
 import android.text.TextUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
+import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 class q {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cX(String str) {
+    public static boolean de(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -16,7 +17,7 @@ class q {
             if ("file".equals(protocol)) {
                 return true;
             }
-            if ("http".equals(protocol) || "https".equals(protocol)) {
+            if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {
                 return url.getHost().endsWith(".baidu.com");
             }
             return false;
@@ -26,7 +27,7 @@ class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cY(String str) {
+    public static boolean df(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -36,7 +37,7 @@ class q {
             if ("file".equals(protocol)) {
                 return true;
             }
-            if ("http".equals(protocol) || "https".equals(protocol)) {
+            if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {
                 if (url.getHost().endsWith(".baidu.com")) {
                     if (str.contains("tieba_hybrid_enabled=1")) {
                         return true;

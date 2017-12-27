@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.view.ViewGroup;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class ViewGroupCompatJellybeanMR2 {
     public static int getLayoutMode(ViewGroup viewGroup) {
         return viewGroup.getLayoutMode();

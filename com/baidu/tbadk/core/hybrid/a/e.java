@@ -4,7 +4,6 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.hybrid.m;
 import com.baidu.tbadk.core.hybrid.o;
@@ -13,23 +12,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e extends o {
-    private m adU;
+    private m aSg;
 
     public e(m mVar) {
         super(mVar);
-        this.adU = mVar;
+        this.aSg = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String oh() {
+    public String vK() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @p(tQ = false, value = "showShareDialog")
+    @p(Bq = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            String optString = jSONObject.optString("title");
             String optString2 = jSONObject.optString("content");
             String optString3 = jSONObject.optString("imgUrl");
             String optString4 = jSONObject.optString("shareUrl");
@@ -37,12 +36,12 @@ public class e extends o {
             dVar.title = optString;
             dVar.content = optString2;
             if (optString3 == null) {
-                dVar.auH = null;
+                dVar.biN = null;
             } else {
-                dVar.auH = Uri.parse(optString3);
+                dVar.biN = Uri.parse(optString3);
             }
             dVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.adU.getContext(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aSg.getContext(), dVar, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

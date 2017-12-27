@@ -7,10 +7,10 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String eEo = File.separator;
-        public static final String bbu = Environment.getExternalStorageDirectory() + eEo + "tieba";
-        public static final String eEv = bbu + eEo + ".tieba_post_monitor";
-        public static final String eEw = eEv + eEo + "v1";
-        public static final String eEx = eEw + eEo;
+        public static final String fqn = File.separator;
+        public static final String bPf = Environment.getExternalStorageDirectory() + fqn + "tieba";
+        public static final String fqu = bPf + fqn + ".tieba_post_monitor";
+        public static final String fqv = fqu + fqn + "v1";
+        public static final String fqw = fqv + fqn;
     }
 }

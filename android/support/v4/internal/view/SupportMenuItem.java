@@ -1,10 +1,12 @@
 package android.support.v4.internal.view;
 
+import android.support.annotation.RestrictTo;
 import android.support.v4.view.ActionProvider;
 import android.support.v4.view.MenuItemCompat;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes.dex */
+@RestrictTo
+/* loaded from: classes2.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW = 8;

@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.xiaomi.mipush.sdk.Constants;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class c extends k {
     public c() {
@@ -25,7 +26,7 @@ public class c extends k {
                 sb.append(groupMids.valueAt(i));
                 sb.append("|");
             }
-            com.baidu.tbadk.core.d.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
+            com.baidu.tbadk.core.d.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), ClientCookie.COMMENT_ATTR, sb.toString());
         }
         return socketMessage;
     }

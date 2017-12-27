@@ -2,26 +2,26 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void W(int i) {
+    protected void cQ(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eM() {
+    protected String[] mq() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eN() {
+    protected int mr() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
+    protected int ms() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
+    protected int mt() {
         return 10;
     }
 

@@ -323,7 +323,7 @@ public final class SapiOptions {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(SapiOptions.k, this.b);
-                jSONObject.put(SapiOptions.l, this.c);
+                jSONObject.put("version", this.c);
                 JSONArray jSONArray = new JSONArray();
                 for (Module module : getModules()) {
                     jSONArray.put(module.a());
@@ -340,7 +340,7 @@ public final class SapiOptions {
             if (jSONObject != null) {
                 try {
                     cache.b = jSONObject.optBoolean(SapiOptions.k, true);
-                    cache.c = jSONObject.optLong(SapiOptions.l) + "";
+                    cache.c = jSONObject.optLong("version") + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.m);
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         cache.getModules().add(Module.a(optJSONArray.getJSONObject(i)));

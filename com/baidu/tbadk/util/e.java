@@ -1,7 +1,6 @@
 package com.baidu.tbadk.util;
 
 import android.graphics.Bitmap;
-import android.support.v4.view.MotionEventCompat;
 import java.lang.reflect.Array;
 /* loaded from: classes.dex */
 public class e {
@@ -52,7 +51,7 @@ public class e {
                 int[] iArr8 = iArr7[i23 + i];
                 iArr8[0] = (16711680 & i24) >> 16;
                 iArr8[1] = (65280 & i24) >> 8;
-                iArr8[2] = i24 & MotionEventCompat.ACTION_MASK;
+                iArr8[2] = i24 & 255;
                 int abs = i9 - Math.abs(i23);
                 i21 += iArr8[0] * abs;
                 i20 += iArr8[1] * abs;
@@ -89,7 +88,7 @@ public class e {
                 int i37 = iArr[iArr5[i30] + i11];
                 iArr9[0] = (16711680 & i37) >> 16;
                 iArr9[1] = (65280 & i37) >> 8;
-                iArr9[2] = i37 & MotionEventCompat.ACTION_MASK;
+                iArr9[2] = i37 & 255;
                 int i38 = i15 + iArr9[0];
                 int i39 = i22 + iArr9[1];
                 int i40 = i14 + iArr9[2];

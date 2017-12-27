@@ -6,26 +6,26 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eQD;
-    private View eQE;
+    private a fDe;
+    private View fDf;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean a(View view, MotionEvent motionEvent);
-
-        boolean b(View view, MotionEvent motionEvent);
-
         boolean c(View view, MotionEvent motionEvent);
+
+        boolean d(View view, MotionEvent motionEvent);
+
+        boolean e(View view, MotionEvent motionEvent);
     }
 
     public c(a aVar) {
-        this.eQD = aVar;
+        this.fDe = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eQE = view;
+        this.fDf = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eQD != null) {
-            return this.eQD.a(this.eQE, motionEvent);
+        if (this.fDe != null) {
+            return this.fDe.c(this.fDf, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eQD != null) {
-            return this.eQD.b(this.eQE, motionEvent);
+        if (this.fDe != null) {
+            return this.fDe.d(this.fDf, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eQD != null) {
-            return this.eQD.c(this.eQE, motionEvent);
+        if (this.fDe != null) {
+            return this.fDe.e(this.fDf, motionEvent);
         }
         return false;
     }
 
-    public void bb(View view) {
-        this.eQE = view;
+    public void cm(View view) {
+        this.fDf = view;
     }
 }

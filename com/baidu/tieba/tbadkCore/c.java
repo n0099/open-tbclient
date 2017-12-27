@@ -17,34 +17,34 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c gyK;
-    private com.baidu.adp.lib.cache.l<byte[]> bmW;
-    private h responseData = null;
+    private static c hfu;
+    private com.baidu.adp.lib.cache.l<byte[]> caj;
+    private i responseData = null;
 
     private c() {
-        this.bmW = null;
-        this.bmW = BdCacheService.eE().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.caj = null;
+        this.caj = BdCacheService.mi().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c buK() {
+    public static synchronized c bzX() {
         c cVar;
         synchronized (c.class) {
-            if (gyK == null) {
-                gyK = new c();
+            if (hfu == null) {
+                hfu = new c();
             }
-            cVar = gyK;
+            cVar = hfu;
         }
         return cVar;
     }
 
     public boolean sO(String str) {
-        if (this.bmW != null && str != null) {
-            byte[] bArr = this.bmW.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.caj != null && str != null) {
+            byte[] bArr = this.caj.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
-                this.responseData = new h();
+                this.responseData = new i();
                 this.responseData.C(bArr);
-                if (this.responseData.ePq != null && this.responseData.ePq.getFrsBannerData() != null) {
-                    this.responseData.ePq.getFrsBannerData().WL = false;
+                if (this.responseData.fBM != null && this.responseData.fBM.getFrsBannerData() != null) {
+                    this.responseData.fBM.getFrsBannerData().aLj = false;
                 }
                 return true;
             }
@@ -53,8 +53,30 @@ public class c {
     }
 
     public void cc(String str, String str2) {
-        if (this.bmW != null && str != null) {
-            byte[] bArr = this.bmW.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.caj != null && str != null) {
+            byte[] bArr = this.caj.get(TbadkCoreApplication.getCurrentAccount() + str);
+            if (bArr != null && bArr.length > 0) {
+                try {
+                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
+                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.ala_stage_list != null) {
+                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
+                        if (builder.ala_stage_list != null) {
+                            builder.ala_stage_list.clear();
+                        }
+                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
+                        builder2.data = builder.build(true);
+                        c(str, builder2.build(true).toByteArray(), true);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+        }
+    }
+
+    public void cd(String str, String str2) {
+        if (this.caj != null && str != null) {
+            byte[] bArr = this.caj.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -80,9 +102,9 @@ public class c {
         }
     }
 
-    public void cd(String str, String str2) {
-        if (this.bmW != null && str != null) {
-            byte[] bArr = this.bmW.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void ce(String str, String str2) {
+        if (this.caj != null && str != null) {
+            byte[] bArr = this.caj.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -115,32 +137,32 @@ public class c {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bmW.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.caj.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
                 return;
             }
-            this.bmW.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            this.caj.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
-    public void Z(String str, boolean z) {
+    public void aa(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bmW.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.caj.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.bmW.X(TbadkCoreApplication.getCurrentAccount() + str);
+            this.caj.af(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
-        l.b<byte[]> W;
-        if (str == null || str.length() <= 0 || (W = this.bmW.W(str)) == null) {
+        l.b<byte[]> ae;
+        if (str == null || str.length() <= 0 || (ae = this.caj.ae(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(W.th, System.currentTimeMillis());
+        return UtilHelper.isSameDay(ae.ahA, System.currentTimeMillis());
     }
 
-    public h getResponseData() {
+    public i getResponseData() {
         return this.responseData;
     }
 

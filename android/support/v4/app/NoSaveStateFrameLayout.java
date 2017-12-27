@@ -6,7 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class NoSaveStateFrameLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ViewGroup wrap(View view) {

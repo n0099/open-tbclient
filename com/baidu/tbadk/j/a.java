@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aHl;
-    private boolean aHm;
+    protected View buY;
+    private boolean buZ;
 
     public a(View view) {
-        this.aHl = view;
+        this.buY = view;
     }
 
-    public boolean EO() {
-        return this.aHm;
+    public boolean Mn() {
+        return this.buZ;
     }
 
-    public void c(View view, boolean z) {
-        if (view != null && this.aHl != null && this.aHl.getParent() == null) {
-            this.aHm = true;
-            d.R(view).a(view, this.aHl, z);
-            EP();
+    public void j(View view, boolean z) {
+        if (view != null && this.buY != null && this.buY.getParent() == null) {
+            this.buZ = true;
+            d.bj(view).a(view, this.buY, z);
+            Mo();
         }
     }
 
-    public void P(View view) {
-        if (view != null && this.aHl != null && this.aHl.getParent() != null && (view instanceof ViewGroup)) {
+    public void bi(View view) {
+        if (view != null && this.buY != null && this.buY.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                EQ();
-                ((ViewGroup) view).removeView(this.aHl);
-                this.aHm = false;
+                Mp();
+                ((ViewGroup) view).removeView(this.buY);
+                this.buZ = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void Q(View view) {
-        c(view, false);
+    public void attachView(View view) {
+        j(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EP() {
+    public void Mo() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EQ() {
+    public void Mp() {
     }
 }

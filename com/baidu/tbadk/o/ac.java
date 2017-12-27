@@ -2,7 +2,7 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void W(int i) {
+    protected void cQ(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -11,26 +11,26 @@ public class ac extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eM() {
+    protected String[] mq() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eN() {
+    protected int mr() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
+    protected int ms() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
+    protected int mt() {
         return 10;
     }
 
-    public static boolean fS() {
-        return com.baidu.adp.lib.b.d.eV().af("nickname_activity") == 1;
+    public static boolean nu() {
+        return com.baidu.adp.lib.b.d.mz().an("nickname_activity") == 1;
     }
 }

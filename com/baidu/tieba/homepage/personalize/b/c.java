@@ -2,13 +2,13 @@ package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.r;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.card.data.b implements r {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public long dsQ;
+    public long eeW;
     public boolean showBottomDivider = false;
 
-    @Override // com.baidu.adp.widget.ListView.f
+    @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
         return TYPE;
     }
@@ -19,16 +19,16 @@ public class c extends com.baidu.tieba.card.data.b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean acj() {
+    public boolean ajP() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dW(boolean z) {
+    public void eD(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dX(boolean z) {
+    public void eE(boolean z) {
         this.showBottomDivider = z;
     }
 }

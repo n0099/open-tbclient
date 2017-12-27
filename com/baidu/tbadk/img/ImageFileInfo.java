@@ -28,7 +28,6 @@ public class ImageFileInfo extends MediaFileInfo {
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
     public int mCount = 0;
-    public long mRotateType = 0;
     private String modifyTime;
     private Bitmap orginalBitmap;
     private LinkedList<ImageOperation> pageActionsList;
@@ -43,7 +42,7 @@ public class ImageFileInfo extends MediaFileInfo {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.v(this.persistActionsList) > 0) {
+                if (v.F(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -52,7 +51,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.v(this.pageActionsList) > 0) {
+                if (v.F(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();
@@ -314,14 +313,6 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public boolean isGif() {
         return this.isGif;
-    }
-
-    public long getRotateType() {
-        return this.mRotateType;
-    }
-
-    public void setRotateType(long j) {
-        this.mRotateType = j;
     }
 
     public void setIsLong(boolean z) {

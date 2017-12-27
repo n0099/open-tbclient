@@ -2,7 +2,7 @@ package android.support.v4.view;
 
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class MenuItemCompatHoneycomb {
     public static void setShowAsAction(MenuItem menuItem, int i) {
         menuItem.setShowAsAction(i);

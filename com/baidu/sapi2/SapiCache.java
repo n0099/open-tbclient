@@ -26,6 +26,7 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Domain;
+import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -211,7 +212,7 @@ public final class SapiCache {
                 RequestParams d2 = d();
                 String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
                 if (!TextUtils.isEmpty(deviceInfo)) {
-                    StatService.onEvent("dvif_interface", Collections.singletonMap("di", deviceInfo), false);
+                    StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo), false);
                 }
                 String e = e();
                 SapiOptions sapiOptions = SapiContext.getInstance(d).getSapiOptions();

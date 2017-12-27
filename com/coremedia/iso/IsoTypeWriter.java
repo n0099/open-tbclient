@@ -1,7 +1,6 @@
 package com.coremedia.iso;
 
 import android.support.v4.internal.view.SupportMenu;
-import android.support.v4.view.MotionEventCompat;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
@@ -43,17 +42,17 @@ public final class IsoTypeWriter {
     public static void writeUInt16(ByteBuffer byteBuffer, int i) {
         int i2 = 65535 & i;
         writeUInt8(byteBuffer, i2 >> 8);
-        writeUInt8(byteBuffer, i2 & MotionEventCompat.ACTION_MASK);
+        writeUInt8(byteBuffer, i2 & 255);
     }
 
     public static void writeUInt16BE(ByteBuffer byteBuffer, int i) {
         int i2 = 65535 & i;
-        writeUInt8(byteBuffer, i2 & MotionEventCompat.ACTION_MASK);
+        writeUInt8(byteBuffer, i2 & 255);
         writeUInt8(byteBuffer, i2 >> 8);
     }
 
     public static void writeUInt8(ByteBuffer byteBuffer, int i) {
-        byteBuffer.put((byte) (i & MotionEventCompat.ACTION_MASK));
+        byteBuffer.put((byte) (i & 255));
     }
 
     public static void writeFixedPoint1616(ByteBuffer byteBuffer, double d) {
@@ -61,7 +60,7 @@ public final class IsoTypeWriter {
         byteBuffer.put((byte) (((-16777216) & i) >> 24));
         byteBuffer.put((byte) ((16711680 & i) >> 16));
         byteBuffer.put((byte) ((65280 & i) >> 8));
-        byteBuffer.put((byte) (i & MotionEventCompat.ACTION_MASK));
+        byteBuffer.put((byte) (i & 255));
     }
 
     public static void writeFixedPoint0230(ByteBuffer byteBuffer, double d) {
@@ -69,7 +68,7 @@ public final class IsoTypeWriter {
         byteBuffer.put((byte) (((-16777216) & i) >> 24));
         byteBuffer.put((byte) ((16711680 & i) >> 16));
         byteBuffer.put((byte) ((65280 & i) >> 8));
-        byteBuffer.put((byte) (i & MotionEventCompat.ACTION_MASK));
+        byteBuffer.put((byte) (i & 255));
     }
 
     public static void writeFixedPoint88(ByteBuffer byteBuffer, double d) {

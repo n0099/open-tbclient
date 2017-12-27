@@ -3,24 +3,27 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.annotation.RestrictTo;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SimpleCursorAdapter extends ResourceCursorAdapter {
     private CursorToStringConverter mCursorToStringConverter;
+    @RestrictTo
     protected int[] mFrom;
     String[] mOriginalFrom;
     private int mStringConversionColumn;
+    @RestrictTo
     protected int[] mTo;
     private ViewBinder mViewBinder;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface CursorToStringConverter {
         CharSequence convertToString(Cursor cursor);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface ViewBinder {
         boolean setViewValue(View view, Cursor cursor, int i);
     }
@@ -31,7 +34,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         this.mStringConversionColumn = -1;
         this.mTo = iArr;
         this.mOriginalFrom = strArr;
-        findColumns(strArr);
+        findColumns(cursor, strArr);
     }
 
     public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr, int i2) {
@@ -39,7 +42,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         this.mStringConversionColumn = -1;
         this.mTo = iArr;
         this.mOriginalFrom = strArr;
-        findColumns(strArr);
+        findColumns(cursor, strArr);
     }
 
     @Override // android.support.v4.widget.CursorAdapter
@@ -117,14 +120,14 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         return super.convertToString(cursor);
     }
 
-    private void findColumns(String[] strArr) {
-        if (this.mCursor != null) {
+    private void findColumns(Cursor cursor, String[] strArr) {
+        if (cursor != null) {
             int length = strArr.length;
             if (this.mFrom == null || this.mFrom.length != length) {
                 this.mFrom = new int[length];
             }
             for (int i = 0; i < length; i++) {
-                this.mFrom[i] = this.mCursor.getColumnIndexOrThrow(strArr[i]);
+                this.mFrom[i] = cursor.getColumnIndexOrThrow(strArr[i]);
             }
             return;
         }
@@ -133,15 +136,14 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     @Override // android.support.v4.widget.CursorAdapter
     public Cursor swapCursor(Cursor cursor) {
-        Cursor swapCursor = super.swapCursor(cursor);
-        findColumns(this.mOriginalFrom);
-        return swapCursor;
+        findColumns(cursor, this.mOriginalFrom);
+        return super.swapCursor(cursor);
     }
 
     public void changeCursorAndColumns(Cursor cursor, String[] strArr, int[] iArr) {
         this.mOriginalFrom = strArr;
         this.mTo = iArr;
+        findColumns(cursor, this.mOriginalFrom);
         super.changeCursor(cursor);
-        findColumns(this.mOriginalFrom);
     }
 }

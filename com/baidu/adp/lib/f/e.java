@@ -10,11 +10,11 @@ public interface e<T> {
 
     void a(String str, Object obj, Object... objArr);
 
-    T b(String str, String str2, Object... objArr);
+    T f(String str, String str2, Object... objArr);
 
-    boolean fM();
+    boolean no();
 
-    BdAsyncTaskParallel fN();
+    BdAsyncTaskParallel np();
 
-    int fO();
+    int nq();
 }

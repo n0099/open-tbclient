@@ -1,6 +1,5 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -21,7 +20,7 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE);
+            JSONObject optJSONObject = jSONObject.optJSONObject("message");
             if (jSONObject != null) {
                 h hVar = new h();
                 hVar.parserJson(optJSONObject);

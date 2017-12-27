@@ -31,7 +31,7 @@ public class VrPlayerActivityConfig extends IntentConfig {
 
     public void addTitle(String str) {
         if (getIntent() != null) {
-            getIntent().putExtra(TITLE, str);
+            getIntent().putExtra("title", str);
         }
     }
 }

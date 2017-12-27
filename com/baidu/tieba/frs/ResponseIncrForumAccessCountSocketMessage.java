@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseIncrForumAccessCountSocketMessage extends SocketResponsedMessage {
     private IncrForumAccessCountResIdl mResponseData;
 

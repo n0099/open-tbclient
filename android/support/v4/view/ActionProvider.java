@@ -1,22 +1,24 @@
 package android.support.v4.view;
 
 import android.content.Context;
+import android.support.annotation.RestrictTo;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class ActionProvider {
     private final Context mContext;
     private SubUiVisibilityListener mSubUiVisibilityListener;
     private VisibilityListener mVisibilityListener;
 
-    /* loaded from: classes.dex */
+    @RestrictTo
+    /* loaded from: classes2.dex */
     public interface SubUiVisibilityListener {
         void onSubUiVisibilityChanged(boolean z);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface VisibilityListener {
         void onActionProviderVisibilityChanged(boolean z);
     }
@@ -60,12 +62,14 @@ public abstract class ActionProvider {
     public void onPrepareSubMenu(SubMenu subMenu) {
     }
 
+    @RestrictTo
     public void subUiVisibilityChanged(boolean z) {
         if (this.mSubUiVisibilityListener != null) {
             this.mSubUiVisibilityListener.onSubUiVisibilityChanged(z);
         }
     }
 
+    @RestrictTo
     public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
         this.mSubUiVisibilityListener = subUiVisibilityListener;
     }
@@ -75,5 +79,11 @@ public abstract class ActionProvider {
             Log.w("ActionProvider(support)", "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
         }
         this.mVisibilityListener = visibilityListener;
+    }
+
+    @RestrictTo
+    public void reset() {
+        this.mVisibilityListener = null;
+        this.mSubUiVisibilityListener = null;
     }
 }

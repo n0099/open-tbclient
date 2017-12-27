@@ -14,6 +14,7 @@ import java.util.Collections;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class SapiDeviceUtils {
     static String a = "js52je)927!hsm^%3m";
@@ -124,7 +125,7 @@ public class SapiDeviceUtils {
 
     public static String getOSVersion() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -132,7 +133,7 @@ public class SapiDeviceUtils {
 
     public static String getBrandName() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -140,7 +141,7 @@ public class SapiDeviceUtils {
 
     public static String getBrandMode() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -206,7 +207,7 @@ public class SapiDeviceUtils {
             }
             String str2 = SapiDeviceUtils.a;
             try {
-                String base64Encode = base64Encode(str.getBytes(c));
+                String base64Encode = base64Encode(str.getBytes("UTF-8"));
                 return encryptAes128(base64Encode + "." + MD5Util.toMd5((base64Encode + str2).getBytes(), false), str2);
             } catch (Exception e2) {
                 Log.e(Log.TAG, e2.toString());
@@ -220,8 +221,8 @@ public class SapiDeviceUtils {
                 String substring = md5.substring(0, 16);
                 String stringBuffer = new StringBuffer(md5.substring(0, 16)).reverse().toString();
                 Cipher cipher = Cipher.getInstance(SapiDeviceUtils.b);
-                cipher.init(1, new SecretKeySpec(substring.getBytes(c), "AES"), new IvParameterSpec(stringBuffer.getBytes(c)));
-                return base64Encode(cipher.doFinal(a(str.getBytes(c))));
+                cipher.init(1, new SecretKeySpec(substring.getBytes("UTF-8"), "AES"), new IvParameterSpec(stringBuffer.getBytes("UTF-8")));
+                return base64Encode(cipher.doFinal(a(str.getBytes("UTF-8"))));
             } catch (Exception e2) {
                 Log.e(Log.TAG, e2.toString());
                 return null;

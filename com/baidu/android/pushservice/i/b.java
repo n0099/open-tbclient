@@ -11,7 +11,6 @@ public class b<E> extends PriorityBlockingQueue<E> {
             }
             return super.offer(e);
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.a("PushPriorityQueue", e2);
             return false;
         }
     }

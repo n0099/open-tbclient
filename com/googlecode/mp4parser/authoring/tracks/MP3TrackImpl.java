@@ -56,7 +56,7 @@ public class MP3TrackImpl extends AbstractTrack {
         double size;
         this.samples = new LinkedList();
         this.firstHeader = readSamples(dataSource);
-        double d = this.firstHeader.gVr / 1152.0d;
+        double d = this.firstHeader.hCv / 1152.0d;
         double size2 = this.samples.size() / d;
         LinkedList linkedList = new LinkedList();
         long j = 0;
@@ -82,7 +82,7 @@ public class MP3TrackImpl extends AbstractTrack {
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
         audioSampleEntry.setChannelCount(this.firstHeader.channelCount);
-        audioSampleEntry.setSampleRate(this.firstHeader.gVr);
+        audioSampleEntry.setSampleRate(this.firstHeader.hCv);
         audioSampleEntry.setDataReferenceIndex(1);
         audioSampleEntry.setSampleSize(16);
         ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -92,7 +92,7 @@ public class MP3TrackImpl extends AbstractTrack {
         sLConfigDescriptor.setPredefined(2);
         eSDescriptor.setSlConfigDescriptor(sLConfigDescriptor);
         DecoderConfigDescriptor decoderConfigDescriptor = new DecoderConfigDescriptor();
-        decoderConfigDescriptor.setObjectTypeIndication(ES_OBJECT_TYPE_INDICATION);
+        decoderConfigDescriptor.setObjectTypeIndication(107);
         decoderConfigDescriptor.setStreamType(5);
         decoderConfigDescriptor.setMaxBitRate(this.maxBitRate);
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
@@ -104,7 +104,7 @@ public class MP3TrackImpl extends AbstractTrack {
         this.trackMetaData.setModificationTime(new Date());
         this.trackMetaData.setLanguage(this.lang);
         this.trackMetaData.setVolume(1.0f);
-        this.trackMetaData.setTimescale(this.firstHeader.gVr);
+        this.trackMetaData.setTimescale(this.firstHeader.hCv);
         this.durations = new long[this.samples.size()];
         Arrays.fill(this.durations, 1152L);
     }
@@ -143,21 +143,21 @@ public class MP3TrackImpl extends AbstractTrack {
     /* loaded from: classes2.dex */
     public class a {
         int channelCount;
-        int gVr;
-        int hyI;
-        int hyJ;
-        int hyK;
-        int hzb;
-        int hzc;
-        int hzd;
+        int hCv;
+        int hZE;
+        int hZF;
+        int hZG;
+        int hZm;
+        int hZn;
+        int hZo;
         int layer;
         int padding;
 
         a() {
         }
 
-        int bMW() {
-            return ((this.hzc * 144) / this.gVr) + this.padding;
+        int bQf() {
+            return ((this.hZF * 144) / this.hCv) + this.padding;
         }
     }
 
@@ -171,7 +171,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bMW());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.bQf());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -193,29 +193,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.hyJ = bitReaderBuffer.readBits(2);
-        if (aVar.hyJ != 3) {
+        aVar.hZn = bitReaderBuffer.readBits(2);
+        if (aVar.hZn != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.hyK = bitReaderBuffer.readBits(1);
-        aVar.hzb = bitReaderBuffer.readBits(4);
-        aVar.hzc = BIT_RATE[aVar.hzb];
-        if (aVar.hzc == 0) {
+        aVar.hZo = bitReaderBuffer.readBits(1);
+        aVar.hZE = bitReaderBuffer.readBits(4);
+        aVar.hZF = BIT_RATE[aVar.hZE];
+        if (aVar.hZF == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.hyI = bitReaderBuffer.readBits(2);
-        aVar.gVr = SAMPLE_RATE[aVar.hyI];
-        if (aVar.gVr == 0) {
+        aVar.hZm = bitReaderBuffer.readBits(2);
+        aVar.hCv = SAMPLE_RATE[aVar.hZm];
+        if (aVar.hCv == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.hzd = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.hzd == 3 ? 1 : 2;
+        aVar.hZG = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.hZG == 3 ? 1 : 2;
         return aVar;
     }
 

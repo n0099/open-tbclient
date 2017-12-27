@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
@@ -129,6 +131,7 @@ public class BaseWebView extends WebView {
     private void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
+        getSettings().setUseWideViewPort(true);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
@@ -141,7 +144,25 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.aw(getContext());
+        com.baidu.tbadk.browser.a.aI(getContext());
+        setAcceptThirdPartyCookies(true);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getSettings().setMixedContentMode(0);
+        }
+    }
+
+    public final void setAcceptThirdPartyCookies(boolean z) {
+        CookieManager cookieManager;
+        try {
+            CookieSyncManager.createInstance(getContext());
+            cookieManager = CookieManager.getInstance();
+        } catch (Throwable th) {
+            BdLog.e(th);
+            cookieManager = null;
+        }
+        if (cookieManager != null && Build.VERSION.SDK_INT >= 21) {
+            cookieManager.setAcceptThirdPartyCookies(this, z);
+        }
     }
 
     public void initCommonJsBridge(Context context) {
@@ -296,7 +317,7 @@ public class BaseWebView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.Q(BaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.a.T(BaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }

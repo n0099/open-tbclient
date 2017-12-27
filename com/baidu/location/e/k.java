@@ -3,6 +3,7 @@ package com.baidu.location.e;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.location.Jni;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Locale;
@@ -12,16 +13,16 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class k {
-    private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
+    private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", Integer.valueOf((int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR));
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
-    private final SQLiteDatabase b;
     private String a = null;
-    private final a Nu = new a(this);
+    private final a aCm = new a(this);
+    private final SQLiteDatabase b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends com.baidu.location.h.f {
-        private k Nv;
+        private k aCn;
         private int b;
         private long c;
         private String d = null;
@@ -29,7 +30,7 @@ public final class k {
         private boolean f = false;
 
         a(k kVar) {
-            this.Nv = kVar;
+            this.aCn = kVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -40,7 +41,7 @@ public final class k {
             if (this.e) {
                 return;
             }
-            this.d = this.Nv.b();
+            this.d = this.aCn.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -172,7 +173,7 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.Nu.b();
+        this.aCm.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

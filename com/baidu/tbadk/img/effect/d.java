@@ -13,7 +13,7 @@ public class d extends b {
         return "resize";
     }
 
-    public static ImageOperation J(int i, int i2) {
+    public static ImageOperation aI(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "resize";
         imageOperation.actionParam = i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2;
@@ -25,8 +25,8 @@ public class d extends b {
         if (str != null) {
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 2) {
-                this.maxWidth = com.baidu.adp.lib.g.b.g(split[0], 0);
-                this.maxHeight = com.baidu.adp.lib.g.b.g(split[1], 0);
+                this.maxWidth = com.baidu.adp.lib.g.b.h(split[0], 0);
+                this.maxHeight = com.baidu.adp.lib.g.b.h(split[1], 0);
             }
         }
     }
@@ -36,12 +36,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.EA().fg(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.Mb().ie(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gy(String str) throws Exception {
+    public Bitmap gD(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

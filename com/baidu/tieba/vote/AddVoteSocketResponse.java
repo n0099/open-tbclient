@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.AddPollPost.AddPollPostResIdl;
 import tbclient.AddPollPost.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddVoteSocketResponse extends SocketResponsedMessage {
     private DataRes mData;
 

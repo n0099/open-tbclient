@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -15,8 +14,8 @@ public final class j {
         publicMsg.mAppId = str2;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
-            if (!jSONObject.isNull(VrPlayerActivityConfig.TITLE)) {
-                publicMsg.mTitle = jSONObject.getString(VrPlayerActivityConfig.TITLE);
+            if (!jSONObject.isNull("title")) {
+                publicMsg.mTitle = jSONObject.getString("title");
             }
             if (!jSONObject.isNull("description")) {
                 publicMsg.mDescription = jSONObject.getString("description");
@@ -56,8 +55,7 @@ public final class j {
             publicMsg.mPkgContent = jSONObject.getString("pkg_content");
             return publicMsg;
         } catch (JSONException e) {
-            com.baidu.android.pushservice.g.b.a("PublicMsgParser", e, context.getApplicationContext());
-            com.baidu.android.pushservice.g.a.a("PublicMsgParser", "Public Message Parsing Fail", e);
+            com.baidu.android.pushservice.g.a.a("PublicMsgParser", e, context.getApplicationContext());
             return null;
         }
     }
@@ -108,7 +106,6 @@ public final class j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("PublicMsgParser", e);
         }
         return iVar;
     }

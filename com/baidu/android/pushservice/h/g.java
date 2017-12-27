@@ -2,12 +2,11 @@ package com.baidu.android.pushservice.h;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class g extends l {
+public class g extends m {
     private static g e = null;
     private String c;
     private com.baidu.android.pushservice.j.f d;
@@ -26,7 +25,7 @@ public class g extends l {
         return e;
     }
 
-    @Override // com.baidu.android.pushservice.h.l
+    @Override // com.baidu.android.pushservice.h.m
     String a(boolean z) {
         return com.baidu.android.pushservice.j.g.a(this.a, z);
     }
@@ -35,54 +34,38 @@ public class g extends l {
         this.d = fVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0042  */
-    @Override // com.baidu.android.pushservice.h.l
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @Override // com.baidu.android.pushservice.h.m
     void a(String str) {
         JSONObject jSONObject;
-        JSONObject jSONObject2;
         com.baidu.android.pushservice.j.g.a(this.a, System.currentTimeMillis());
-        com.baidu.android.pushservice.g.a.b(this.c, "<<< Location info send result return OK!");
-        com.baidu.android.pushservice.g.a.c(this.c, "Lbs upload respponse: " + str);
         try {
-            jSONObject2 = new JSONObject(str);
+            JSONObject jSONObject2 = new JSONObject(str);
+            jSONObject = jSONObject2.has("lbsInfo") ? jSONObject2.optJSONObject("lbsInfo") : null;
         } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.e(this.c, " e " + e2.getMessage());
+            jSONObject = null;
         }
-        if (jSONObject2.has("lbsInfo")) {
-            jSONObject = jSONObject2.optJSONObject("lbsInfo");
-            if (jSONObject == null) {
-                String a = com.baidu.android.pushservice.j.g.a(this.a, jSONObject);
-                if (this.d == null || TextUtils.isEmpty(a)) {
-                    return;
-                }
-                this.d.a(0, a);
-                this.d = null;
+        if (jSONObject != null) {
+            String a = com.baidu.android.pushservice.j.g.a(this.a, jSONObject);
+            if (this.d == null || TextUtils.isEmpty(a)) {
                 return;
             }
-            return;
-        }
-        jSONObject = null;
-        if (jSONObject == null) {
+            this.d.a(0, a);
+            this.d = null;
         }
     }
 
-    @Override // com.baidu.android.pushservice.h.l
+    @Override // com.baidu.android.pushservice.h.m
     void a(String str, HashMap<String, String> hashMap) {
-        hashMap.put(PushConstants.EXTRA_METHOD, "uploadGeo");
-        com.baidu.android.pushservice.g.a.c(this.c, "Sending LBS data: " + str);
+        hashMap.put("method", "uploadGeo");
         hashMap.put("data", str);
     }
 
-    @Override // com.baidu.android.pushservice.h.l
+    @Override // com.baidu.android.pushservice.h.m
     boolean a() {
         return true;
     }
 
-    @Override // com.baidu.android.pushservice.h.l
+    @Override // com.baidu.android.pushservice.h.m
     boolean b() {
         return true;
     }

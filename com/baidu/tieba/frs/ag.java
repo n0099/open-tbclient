@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ag {
-    private final List<com.baidu.tbadk.mainTab.b> cKr = new LinkedList();
+    private final List<com.baidu.tbadk.mainTab.b> dwf = new LinkedList();
     private String forumGameLabel;
     private String forumId;
     private String forumName;
@@ -16,18 +16,18 @@ public class ag {
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.Fa() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.cKr) {
-                if (bVar2 != null && bVar2.Fa() != null && bVar2.Fa().type == bVar.Fa().type) {
+        if (bVar != null && bVar.Mz() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.dwf) {
+                if (bVar2 != null && bVar2.Mz() != null && bVar2.Mz().type == bVar.Mz().type) {
                     return;
                 }
             }
-            this.cKr.add(bVar);
+            this.dwf.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> amC() {
-        return this.cKr;
+    public List<com.baidu.tbadk.mainTab.b> asG() {
+        return this.dwf;
     }
 
     public void setForumName(String str) {

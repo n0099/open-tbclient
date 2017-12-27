@@ -5,11 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PagerTabStrip extends PagerTitleStrip {
     private boolean mDrawFullUnderline;
     private boolean mDrawFullUnderlineSet;
@@ -36,7 +37,7 @@ public class PagerTabStrip extends PagerTitleStrip {
         super(context, attributeSet);
         this.mTabPaint = new Paint();
         this.mTempRect = new Rect();
-        this.mTabAlpha = MotionEventCompat.ACTION_MASK;
+        this.mTabAlpha = 255;
         this.mDrawFullUnderline = false;
         this.mDrawFullUnderlineSet = false;
         this.mIndicatorColor = this.mTextColor;
@@ -78,7 +79,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     public void setTabIndicatorColorResource(int i) {
-        setTabIndicatorColor(getContext().getResources().getColor(i));
+        setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
     }
 
     public int getTabIndicatorColor() {

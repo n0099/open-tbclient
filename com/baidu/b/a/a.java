@@ -9,22 +9,22 @@ public class a extends com.baidu.b.b.a {
 
     /* renamed from: com.baidu.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0022a {
+    public interface InterfaceC0036a {
         void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
-    public static void a(Activity activity, String[] strArr, int i) {
-        if (com.baidu.b.a.nl()) {
-            b.a(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0022a) {
-            a(activity, strArr, i, (InterfaceC0022a) activity);
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        if (com.baidu.b.a.uO()) {
+            b.requestPermissions(activity, strArr, i);
+        } else if (activity instanceof InterfaceC0036a) {
+            a(activity, strArr, i, (InterfaceC0036a) activity);
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0022a interfaceC0022a) {
-        if (com.baidu.b.a.nl()) {
-            b.a(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0022a != null) {
+    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0036a interfaceC0036a) {
+        if (com.baidu.b.a.uO()) {
+            b.requestPermissions(activity, strArr, i);
+        } else if (!activity.isFinishing() && interfaceC0036a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.b.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -35,7 +35,7 @@ public class a extends com.baidu.b.b.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    interfaceC0022a.onRequestPermissionsResult(i, strArr, iArr);
+                    interfaceC0036a.onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }

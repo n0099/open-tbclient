@@ -1,13 +1,13 @@
 package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
-import com.faceunity.a.c;
+import com.faceunity.a.d;
 /* loaded from: classes2.dex */
 public interface h {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void s(boolean z, String str);
+        void r(boolean z, String str);
     }
 
     void a(a aVar);
@@ -20,7 +20,7 @@ public interface h {
 
     void j(Camera camera);
 
-    void setOnEncoderStatusUpdateListener(c.InterfaceC0166c interfaceC0166c);
+    void setOnEncoderStatusUpdateListener(d.c cVar);
 
     void setPreviewSize(int i, int i2);
 }

@@ -2,61 +2,61 @@ package com.baidu.tbadk.k;
 
 import android.os.Debug;
 import android.os.Process;
+import android.support.v4.view.PointerIconCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKY = "tb_perfor_samllflow_time";
-    private static volatile r aLb;
-    private long aLa;
-    private boolean aKW = false;
-    private long aKZ = 86400;
-    private long aKX = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKY, 0);
+    private static String byM = "tb_perfor_samllflow_time";
+    private static volatile r byP;
+    private long byO;
+    private boolean byK = false;
+    private long byN = 86400;
+    private long byL = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(byM, 0);
 
-    public static r GB() {
-        if (aLb == null) {
+    public static r Oa() {
+        if (byP == null) {
             synchronized (r.class) {
-                if (aLb == null) {
-                    aLb = new r();
+                if (byP == null) {
+                    byP = new r();
                 }
             }
         }
-        return aLb;
+        return byP;
     }
 
     private r() {
-        this.aLa = 0L;
-        this.aLa = this.aKZ;
+        this.byO = 0L;
+        this.byO = this.byN;
     }
 
-    public boolean GC() {
-        if (!this.aKW || (System.currentTimeMillis() - this.aKX) / 1000 <= this.aLa) {
-            return this.aKW;
+    public boolean Ob() {
+        if (!this.byK || (System.currentTimeMillis() - this.byL) / 1000 <= this.byO) {
+            return this.byK;
         }
         return false;
     }
 
-    public void bU(boolean z) {
+    public void cx(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKX || currentTimeMillis - this.aKX >= this.aLa) {
-                this.aKX = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKY, this.aKX);
+            if (0 == this.byL || currentTimeMillis - this.byL >= this.byO) {
+                this.byL = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byM, this.byL);
             }
         } else {
-            this.aKX = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKY, this.aKX);
+            this.byL = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byM, this.byL);
         }
-        this.aKW = z;
+        this.byK = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.GH().GI();
+            s.Og().Oh();
         }
     }
 
-    public String GD() {
+    public String Oc() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,10 +70,10 @@ public class r {
         }
     }
 
-    public final String GE() {
+    public final String Od() {
         try {
-            String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
-            String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
+            String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
+            String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(valueOf);
             stringBuffer.append("/");
@@ -86,25 +86,25 @@ public class r {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.hh()) {
+        if (!com.baidu.adp.lib.util.j.oI()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.hi()) {
+        if (com.baidu.adp.lib.util.j.oJ()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.hk()) {
+        if (com.baidu.adp.lib.util.j.oL()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.hl()) {
+        if (com.baidu.adp.lib.util.j.oM()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.hm()) {
+        if (!com.baidu.adp.lib.util.j.oN()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fs(int i) {
+    public static String ir(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class r {
         return "WIFI";
     }
 
-    public q ft(int i) {
-        if (GC()) {
+    public q is(int i) {
+        if (Ob()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -132,11 +132,11 @@ public class r {
                     n nVar = new n();
                     nVar.subType = "im";
                     return nVar;
-                case 1003:
+                case PointerIconCompat.TYPE_HELP /* 1003 */:
                     p pVar = new p();
                     pVar.subType = "native_live";
                     return pVar;
-                case 1004:
+                case PointerIconCompat.TYPE_WAIT /* 1004 */:
                     t tVar3 = new t();
                     tVar3.subType = "photo_live";
                     return tVar3;
@@ -151,9 +151,9 @@ public class r {
         return null;
     }
 
-    public void V(long j) {
+    public void ad(long j) {
         if (j > 0) {
-            this.aLa = j;
+            this.byO = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GF() {
+    public int Oe() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;
@@ -221,7 +221,7 @@ public class r {
                             str2 = str;
                             if (str2 != null) {
                             }
-                            return com.baidu.adp.lib.g.b.g(str2, -1);
+                            return com.baidu.adp.lib.g.b.h(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             process = process2;
@@ -279,6 +279,6 @@ public class r {
                 str2 = split2[0];
             }
         }
-        return com.baidu.adp.lib.g.b.g(str2, -1);
+        return com.baidu.adp.lib.g.b.h(str2, -1);
     }
 }

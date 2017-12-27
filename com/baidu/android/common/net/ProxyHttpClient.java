@@ -9,6 +9,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
@@ -43,7 +44,7 @@ public class ProxyHttpClient extends DefaultHttpClient {
         this.mProxy = connectManager.getProxy();
         this.mPort = connectManager.getProxyPort();
         if (this.mProxy != null && this.mProxy.length() > 0) {
-            getParams().setParameter("http.route.default-proxy", new HttpHost(this.mProxy, Integer.valueOf(this.mPort).intValue()));
+            getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(this.mProxy, Integer.valueOf(this.mPort).intValue()));
         }
         HttpConnectionParams.setConnectionTimeout(getParams(), HTTP_TIMEOUT_MS);
         HttpConnectionParams.setSoTimeout(getParams(), HTTP_TIMEOUT_MS);
@@ -61,7 +62,9 @@ public class ProxyHttpClient extends DefaultHttpClient {
         }
     }
 
-    protected HttpParams createHttpParams() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // org.apache.http.impl.client.DefaultHttpClient, org.apache.http.impl.client.AbstractHttpClient
+    public HttpParams createHttpParams() {
         HttpParams basicHttpParams;
         try {
             basicHttpParams = super.createHttpParams();
@@ -84,7 +87,7 @@ public class ProxyHttpClient extends DefaultHttpClient {
     }
 
     protected void finalize() throws Throwable {
-        super/*java.lang.Object*/.finalize();
+        super.finalize();
         if (this.mLeakedException != null) {
             Log.e(TAG, "Leak found", this.mLeakedException);
         }

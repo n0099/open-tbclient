@@ -1,6 +1,7 @@
 package com.baidu.location.e;
 
 import com.baidu.location.e.m;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -35,7 +36,7 @@ enum p extends m.b {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     try {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                        String string = jSONObject2.has("st") ? jSONObject2.getString("st") : null;
+                        String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
                         String string2 = jSONObject2.has("stn") ? jSONObject2.getString("stn") : null;
                         Double valueOf = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
                         Double valueOf2 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;

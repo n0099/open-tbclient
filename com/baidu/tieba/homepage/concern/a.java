@@ -5,68 +5,63 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.i;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.a.f;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.homepage.concern.a.e;
+import com.baidu.tieba.homepage.concern.a.f;
+import com.baidu.tieba.homepage.concern.a.g;
 import com.baidu.tieba.homepage.concern.a.h;
-import com.baidu.tieba.story.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private BdTypeListView aXC;
-    private g cME;
-    private com.baidu.tieba.homepage.concern.a.b dnA;
-    private com.baidu.tieba.homepage.concern.a.a dnB;
-    private e dnC;
-    private h dnD;
-    private h dnE;
-    private com.baidu.tieba.homepage.concern.a.c dnF;
-    private com.baidu.tieba.homepage.concern.a.g dnG;
-    private boolean dnH;
-    private List<com.baidu.adp.widget.ListView.a> dnw = new ArrayList();
-    private f dnx;
-    private com.baidu.tieba.homepage.concern.a.f dny;
-    private com.baidu.tieba.homepage.concern.a.d dnz;
-    private BdUniqueId mId;
+    private List<com.baidu.adp.widget.ListView.a> dZE = new ArrayList();
+    private BdTypeListView dZF;
+    private com.baidu.tieba.a.a dZG;
+    private f dZH;
+    private com.baidu.tieba.homepage.concern.a.d dZI;
+    private com.baidu.tieba.homepage.concern.a.b dZJ;
+    private com.baidu.tieba.homepage.concern.a.a dZK;
+    private e dZL;
+    private h dZM;
+    private h dZN;
+    private com.baidu.tieba.homepage.concern.a.c dZO;
+    private g dZP;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeListView bdTypeListView) {
-        this.aXC = bdTypeListView;
-        this.mPageContext = (TbPageContext) i.Y(context);
-        bu(context);
-        bdTypeListView.addAdapters(this.dnw);
+        this.dZF = bdTypeListView;
+        this.mPageContext = (TbPageContext) i.ak(context);
+        bF(context);
+        bdTypeListView.addAdapters(this.dZE);
     }
 
-    private void bu(Context context) {
-        this.dnx = new f(this.mPageContext, com.baidu.tbadk.data.f.aAp);
-        this.dnC = new e(this.mPageContext, l.TYPE);
-        this.dnD = new h(this.mPageContext, n.cec);
-        this.dnE = new h(this.mPageContext, n.ced);
-        this.dny = new com.baidu.tieba.homepage.concern.a.f(this.mPageContext.getContext());
-        this.dnz = new com.baidu.tieba.homepage.concern.a.d(this.mPageContext.getContext());
-        this.dnA = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.doI);
-        this.dnB = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.doJ);
-        this.dnF = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, k.TYPE);
-        this.dnG = new com.baidu.tieba.homepage.concern.a.g(this.mPageContext, l.YK);
-        this.cME = new g(this.mPageContext, 1, 0L, "");
-        this.dnx.setClickListener(this.cME);
-        this.dnw.add(this.dnx);
-        this.dnw.add(this.dnC);
-        this.dnw.add(this.dnD);
-        this.dnw.add(this.dnE);
-        this.dnw.add(this.dny);
-        this.dnw.add(this.dnz);
-        this.dnw.add(this.dnA);
-        this.dnw.add(this.dnB);
-        this.dnw.add(this.dnF);
-        this.dnw.add(this.dnG);
+    private void bF(Context context) {
+        this.dZG = new com.baidu.tieba.a.a(this.mPageContext, com.baidu.tbadk.data.b.bon);
+        this.dZL = new e(this.mPageContext, l.TYPE);
+        this.dZM = new h(this.mPageContext, n.cSG);
+        this.dZN = new h(this.mPageContext, n.cSH);
+        this.dZH = new f(this.mPageContext.getContext());
+        this.dZI = new com.baidu.tieba.homepage.concern.a.d(this.mPageContext.getContext());
+        this.dZJ = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.eaQ);
+        this.dZK = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.eaR);
+        this.dZO = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, k.TYPE);
+        this.dZP = new g(this.mPageContext, l.aNj);
+        this.dZE.add(this.dZG);
+        this.dZE.add(this.dZL);
+        this.dZE.add(this.dZM);
+        this.dZE.add(this.dZN);
+        this.dZE.add(this.dZH);
+        this.dZE.add(this.dZI);
+        this.dZE.add(this.dZJ);
+        this.dZE.add(this.dZK);
+        this.dZE.add(this.dZO);
+        this.dZE.add(this.dZP);
     }
 
-    public void ae(List<com.baidu.adp.widget.ListView.f> list) {
-        this.aXC.setData(list);
+    public void ao(List<com.baidu.adp.widget.ListView.i> list) {
+        this.dZF.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -74,27 +69,19 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aXC != null && (this.aXC.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
-            ((com.baidu.adp.widget.ListView.d) this.aXC.getAdapter()).notifyDataSetChanged();
+        if (this.dZF != null && (this.dZF.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.dZF.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.mId = bdUniqueId;
-        this.dnF.aSB = bdUniqueId;
-        this.dnC.aSB = bdUniqueId;
-        this.dnD.aSB = bdUniqueId;
-        this.dnE.aSB = bdUniqueId;
-        this.dnA.aSB = bdUniqueId;
-        this.dnB.aSB = bdUniqueId;
-        this.dnF.aSB = bdUniqueId;
-        this.dnG.aSB = bdUniqueId;
-    }
-
-    public void atx() {
-        if (!this.dnH) {
-            this.dnH = true;
-            this.dnx.j(this.mId);
-        }
+        this.dZO.bGo = bdUniqueId;
+        this.dZL.bGo = bdUniqueId;
+        this.dZM.bGo = bdUniqueId;
+        this.dZN.bGo = bdUniqueId;
+        this.dZJ.bGo = bdUniqueId;
+        this.dZK.bGo = bdUniqueId;
+        this.dZO.bGo = bdUniqueId;
+        this.dZP.bGo = bdUniqueId;
     }
 }

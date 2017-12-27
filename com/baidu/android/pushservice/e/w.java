@@ -26,9 +26,8 @@ public class w extends c {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "settags");
+        hashMap.put("method", "settags");
         hashMap.put("tags", this.d);
-        com.baidu.android.pushservice.g.a.c("SetTags", "SetTags param -- " + b.a(hashMap));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

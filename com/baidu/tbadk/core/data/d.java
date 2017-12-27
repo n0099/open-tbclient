@@ -9,15 +9,11 @@ public class d {
     private String game_icon;
     private String post_url;
 
-    public String getGameIcon() {
-        return this.game_icon;
-    }
-
     public String getPostUrl() {
         return this.post_url;
     }
 
-    public String pA() {
+    public String xd() {
         return this.button_text;
     }
 

@@ -35,7 +35,6 @@ public abstract class c implements Runnable {
         if (!TextUtils.isEmpty(this.a)) {
             Thread.currentThread().setName(this.a);
         }
-        com.baidu.android.pushservice.g.a.c("PushRunnable", "running: " + this.a);
         a();
     }
 }

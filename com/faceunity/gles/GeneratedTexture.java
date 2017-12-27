@@ -1,12 +1,13 @@
 package com.faceunity.gles;
 
 import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.view.InputDeviceCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class GeneratedTexture {
-    private static final int[] GRID = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, -256, -65281, -256, SupportMenu.CATEGORY_MASK};
+    private static final int[] GRID = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
     private static final ByteBuffer sCoarseImageData = generateCoarseData();
     private static final ByteBuffer sFineImageData = generateFineData();
 
@@ -25,15 +26,13 @@ public class GeneratedTexture {
             } else if (i == bArr.length - 4) {
                 i2 = -1;
             }
-            int i3 = i2 & MotionEventCompat.ACTION_MASK;
-            int i4 = (i2 >> 8) & MotionEventCompat.ACTION_MASK;
-            int i5 = (i2 >> 16) & MotionEventCompat.ACTION_MASK;
-            int i6 = (i2 >> 24) & MotionEventCompat.ACTION_MASK;
-            float f = i6 / 255.0f;
+            int i3 = i2 & 255;
+            int i4 = (i2 >> 24) & 255;
+            float f = i4 / 255.0f;
             bArr[i] = (byte) (i3 * f);
-            bArr[i + 1] = (byte) (i4 * f);
-            bArr[i + 2] = (byte) (i5 * f);
-            bArr[i + 3] = (byte) i6;
+            bArr[i + 1] = (byte) (((i2 >> 8) & 255) * f);
+            bArr[i + 2] = (byte) (((i2 >> 16) & 255) * f);
+            bArr[i + 3] = (byte) i4;
         }
         ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
         allocateDirect.put(bArr);
@@ -59,15 +58,13 @@ public class GeneratedTexture {
             for (int i9 = i; i9 < i3; i9++) {
                 int i10 = i8 + (i9 * 4);
                 int i11 = ((i2 & i7) ^ (i9 & i7)) == 0 ? i5 : i6;
-                int i12 = i11 & MotionEventCompat.ACTION_MASK;
-                int i13 = (i11 >> 8) & MotionEventCompat.ACTION_MASK;
-                int i14 = (i11 >> 16) & MotionEventCompat.ACTION_MASK;
-                int i15 = (i11 >> 24) & MotionEventCompat.ACTION_MASK;
-                float f = i15 / 255.0f;
+                int i12 = i11 & 255;
+                int i13 = (i11 >> 24) & 255;
+                float f = i13 / 255.0f;
                 bArr[i10] = (byte) (i12 * f);
-                bArr[i10 + 1] = (byte) (i13 * f);
-                bArr[i10 + 2] = (byte) (i14 * f);
-                bArr[i10 + 3] = (byte) i15;
+                bArr[i10 + 1] = (byte) (((i11 >> 8) & 255) * f);
+                bArr[i10 + 2] = (byte) (((i11 >> 16) & 255) * f);
+                bArr[i10 + 3] = (byte) i13;
             }
             i2++;
         }

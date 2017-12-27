@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class AccessibilityNodeInfoCompatIcs {
     public static Object obtain() {
         return AccessibilityNodeInfo.obtain();

@@ -6,7 +6,6 @@ import android.text.format.DateFormat;
 import android.text.format.Time;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
 import java.util.Calendar;
 import org.json.JSONException;
@@ -14,18 +13,18 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean bnb() {
+    public static boolean buJ() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage tz(String str) {
+    public static RemindRecommendMessage ty(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
             JSONObject jSONObject = new JSONObject(str);
-            remindRecommendMessage.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            remindRecommendMessage.title = jSONObject.optString("title");
             remindRecommendMessage.url = jSONObject.optString("url");
             remindRecommendMessage.picture = jSONObject.optString("picture");
             remindRecommendMessage.name = jSONObject.optString("name");
@@ -42,7 +41,7 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(VrPlayerActivityConfig.TITLE, dataRes.local_dialog.title);
+            jSONObject.put("title", dataRes.local_dialog.title);
             jSONObject.put("picture", dataRes.local_dialog.picture);
             jSONObject.put("url", dataRes.local_dialog.url);
             jSONObject.put("name", dataRes.local_dialog.name);
@@ -67,9 +66,9 @@ public class a {
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.g.b.g(split[0], 12);
-            i2 = com.baidu.adp.lib.g.b.g(split[1], 5);
-            i = com.baidu.adp.lib.g.b.g(split[2], 0);
+            i3 = com.baidu.adp.lib.g.b.h(split[0], 12);
+            i2 = com.baidu.adp.lib.g.b.h(split[1], 5);
+            i = com.baidu.adp.lib.g.b.h(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -97,11 +96,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long byS() {
+    public static long bEk() {
         return cY(System.currentTimeMillis());
     }
 
-    public static boolean O(long j) {
+    public static boolean W(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +110,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean byT() {
+    public static boolean bEl() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("sync_local_dialog", 1) == 1;
     }
 }

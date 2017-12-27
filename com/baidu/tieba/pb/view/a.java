@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends FrameLayout {
     public a(Context context) {
         super(context);

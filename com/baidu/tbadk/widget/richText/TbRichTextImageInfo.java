@@ -7,51 +7,52 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextImageInfo extends OrmObject {
-    private String aVi;
-    private String aVj;
-    private String aVk;
-    private boolean aVl;
-    private boolean aVm;
-    private String aVn;
-    private long aVo;
-    private boolean aVp;
-    private boolean aVq;
+    private String bIV;
+    private String bIW;
+    private String bIX;
+    private boolean bIY;
+    private boolean bIZ;
+    private String bJa;
+    private long bJb;
+    private boolean bJc;
+    private boolean bJd;
+    private String bJe;
     private int mHeight;
     private int mWidth;
 
     public TbRichTextImageInfo() {
-        this.aVi = null;
-        this.aVj = null;
-        this.aVk = null;
+        this.bIV = null;
+        this.bIW = null;
+        this.bIX = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aVl = false;
-        this.aVm = false;
-        this.aVn = null;
-        this.aVo = 0L;
-        this.aVp = false;
-        this.aVq = false;
+        this.bIY = false;
+        this.bIZ = false;
+        this.bJa = null;
+        this.bJb = 0L;
+        this.bJc = false;
+        this.bJd = false;
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
-        this.aVi = null;
-        this.aVj = null;
-        this.aVk = null;
+        this.bIV = null;
+        this.bIW = null;
+        this.bIX = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aVl = false;
-        this.aVm = false;
-        this.aVn = null;
-        this.aVo = 0L;
-        this.aVp = false;
-        this.aVq = false;
+        this.bIY = false;
+        this.bIZ = false;
+        this.bJa = null;
+        this.bJb = 0L;
+        this.bJc = false;
+        this.bJd = false;
         if (pbContent != null) {
-            this.aVi = pbContent.src;
-            this.aVj = pbContent.cdn_src;
-            if (this.aVj == null || this.aVj.length() == 0) {
-                this.aVj = this.aVi;
+            this.bIV = pbContent.src;
+            this.bIW = pbContent.cdn_src;
+            if (this.bIW == null || this.bIW.length() == 0) {
+                this.bIW = this.bIV;
             }
-            this.aVk = pbContent.big_cdn_src;
+            this.bIX = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -68,35 +69,36 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aVj != null && this.aVj.indexOf(".baidu.com") != -1) {
-                this.aVl = true;
+            if (this.bIW != null && this.bIW.indexOf(".baidu.com") != -1) {
+                this.bIY = true;
             }
-            this.aVn = pbContent.origin_src;
-            this.aVo = pbContent.origin_size.intValue();
-            this.aVp = pbContent.show_original_btn.intValue() == 1;
-            this.aVq = pbContent.is_long_pic.intValue() == 1;
+            this.bJa = pbContent.origin_src;
+            this.bJb = pbContent.origin_size.intValue();
+            this.bJc = pbContent.show_original_btn.intValue() == 1;
+            this.bJd = pbContent.is_long_pic.intValue() == 1;
+            this.bJe = pbContent.cdn_src_active;
         }
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
-        this.aVi = null;
-        this.aVj = null;
-        this.aVk = null;
+        this.bIV = null;
+        this.bIW = null;
+        this.bIX = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aVl = false;
-        this.aVm = false;
-        this.aVn = null;
-        this.aVo = 0L;
-        this.aVp = false;
-        this.aVq = false;
+        this.bIY = false;
+        this.bIZ = false;
+        this.bJa = null;
+        this.bJb = 0L;
+        this.bJc = false;
+        this.bJd = false;
         if (jSONObject != null) {
-            this.aVi = jSONObject.optString("src");
-            this.aVj = jSONObject.optString("cdn_src", "");
-            if (this.aVj == null || this.aVj.length() == 0) {
-                this.aVj = this.aVi;
+            this.bIV = jSONObject.optString("src");
+            this.bIW = jSONObject.optString("cdn_src", "");
+            if (this.bIW == null || this.bIW.length() == 0) {
+                this.bIW = this.bIV;
             }
-            this.aVk = jSONObject.optString("big_cdn_src", null);
+            this.bIX = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -110,14 +112,14 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aVj != null && this.aVj.indexOf(".baidu.com") != -1) {
-                this.aVl = true;
+            if (this.bIW != null && this.bIW.indexOf(".baidu.com") != -1) {
+                this.bIY = true;
             }
         }
     }
 
-    public String JI() {
-        return this.aVk;
+    public String Re() {
+        return this.bIX;
     }
 
     public int getHeight() {
@@ -128,35 +130,39 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mWidth;
     }
 
-    public boolean JJ() {
-        return this.aVl;
+    public boolean Rf() {
+        return this.bIY;
     }
 
-    public String JK() {
-        return this.aVi;
+    public String Rg() {
+        return this.bIV;
     }
 
-    public String JL() {
-        return this.aVj;
+    public String Rh() {
+        return this.bIW;
     }
 
-    public boolean JM() {
-        return this.aVm;
+    public String Ri() {
+        return this.bJe;
     }
 
-    public String JN() {
-        return this.aVn;
+    public boolean Rj() {
+        return this.bIZ;
+    }
+
+    public String Rk() {
+        return this.bJa;
     }
 
     public long getOriginalSize() {
-        return this.aVo;
+        return this.bJb;
     }
 
-    public boolean JO() {
-        return this.aVp;
+    public boolean Rl() {
+        return this.bJc;
     }
 
-    public boolean JP() {
-        return this.aVq;
+    public boolean Rm() {
+        return this.bJd;
     }
 }

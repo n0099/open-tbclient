@@ -1,6 +1,5 @@
 package com.xiaomi.smack;
 
-import com.baidu.tbadk.TbConfig;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -36,7 +35,7 @@ public class c {
                 return 109;
             }
             if (message.indexOf("Broken pipe") != -1) {
-                return TbConfig.BIG_PHOTO_MAX_SIZE;
+                return 110;
             }
             if (message.indexOf("No route to host") != -1) {
                 return 104;

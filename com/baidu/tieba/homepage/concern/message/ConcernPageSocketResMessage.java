@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserlikeResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ConcernPageSocketResMessage extends SocketResponsedMessage {
     private DataRes resultData;
 

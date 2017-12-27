@@ -2,7 +2,6 @@ package com.baidu.tbadk;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
@@ -147,6 +146,7 @@ public class TbConfig {
     public static final String GET_BOOK_PAY_PANEL = "c/e/tbread/getPayPanel";
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
+    public static final String GET_FEEDBACK_TIP = "mo/q/msg/remindnumber";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FORUM_PRIVATE_INFO = "c/f/forum/getForumPrivateInfo";
     public static final String GET_FRIEND_AND_STRANGER_MSG_SWITCH = "c/u/user/getMsgMask";
@@ -525,7 +525,7 @@ public class TbConfig {
     private static String TMPDIRNAME = "tieba";
     private static String CURRENT_FROM = null;
     private static int BIG_IMAGE_SIZE = 10240;
-    private static int BIG_IMAGE_MAX_USED_MEMORY = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
+    private static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
     public static String PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
     public static String FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
@@ -538,18 +538,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -681,7 +681,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.EA().fd(i);
+            c.Mb().ib(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -722,7 +722,7 @@ public class TbConfig {
                 return;
             }
             FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
-            FRIEND_PHOTO_MAX_SIZE = BIG_PHOTO_MAX_SIZE;
+            FRIEND_PHOTO_MAX_SIZE = 110;
         }
     }
 
@@ -826,7 +826,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.ac(context) * l.ae(context));
+            int sqrt = (int) Math.sqrt(l.ao(context) * l.aq(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

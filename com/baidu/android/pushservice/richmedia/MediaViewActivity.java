@@ -55,7 +55,6 @@ public class MediaViewActivity extends Activity {
                     intent.setData(Uri.parse(str));
                     MediaViewActivity.this.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    com.baidu.android.pushservice.g.a.e("MediaViewActivity", "Error dialing " + str + ": " + e.toString());
                 }
             } else if (str.startsWith("geo:")) {
                 try {
@@ -63,7 +62,6 @@ public class MediaViewActivity extends Activity {
                     intent2.setData(Uri.parse(str));
                     MediaViewActivity.this.startActivity(intent2);
                 } catch (ActivityNotFoundException e2) {
-                    com.baidu.android.pushservice.g.a.e("MediaViewActivity", "Error showing map " + str + ": " + e2.toString());
                 }
             } else if (str.startsWith("mailto:")) {
                 try {
@@ -71,7 +69,6 @@ public class MediaViewActivity extends Activity {
                     intent3.setData(Uri.parse(str));
                     MediaViewActivity.this.startActivity(intent3);
                 } catch (ActivityNotFoundException e3) {
-                    com.baidu.android.pushservice.g.a.e("MediaViewActivity", "Error sending email " + str + ": " + e3.toString());
                 }
             } else if (str.startsWith("sms:")) {
                 try {
@@ -91,7 +88,6 @@ public class MediaViewActivity extends Activity {
                     intent4.setType("vnd.android-dir/mms-sms");
                     MediaViewActivity.this.startActivity(intent4);
                 } catch (ActivityNotFoundException e4) {
-                    com.baidu.android.pushservice.g.a.e("MediaViewActivity", "Error sending sms " + str + ":" + e4.toString());
                 }
             }
             if (Build.VERSION.SDK_INT <= 17) {
@@ -104,7 +100,6 @@ public class MediaViewActivity extends Activity {
                 MediaViewActivity.this.startActivity(intent5);
                 return true;
             } catch (ActivityNotFoundException e5) {
-                com.baidu.android.pushservice.g.a.a("MediaViewActivity", "Error loading url " + str, e5);
                 return true;
             }
         }
@@ -126,7 +121,6 @@ public class MediaViewActivity extends Activity {
     @SuppressLint({"SetJavaScriptEnabled"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Intent intent = getIntent();
         getWindow().requestFeature(1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1, 0.0f);
         this.b = new RelativeLayout(this);
@@ -154,19 +148,22 @@ public class MediaViewActivity extends Activity {
         this.b.addView(this.a);
         setContentView(this.b);
         if (this.b == null || this.a == null) {
-            com.baidu.android.pushservice.g.a.e("MediaViewActivity", "Set up Layout error.");
             finish();
         }
-        com.baidu.android.pushservice.g.a.c("MediaViewActivity", "uri=" + intent.getData().toString());
-        this.a.loadUrl(intent.getData().toString());
+        Uri data = getIntent().getData();
+        if (data != null) {
+            this.a.loadUrl(data.toString());
+        }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        com.baidu.android.pushservice.g.a.c("MediaViewActivity", "uri=" + intent.getData().toString());
-        this.a.loadUrl(intent.getData().toString());
+        Uri data = intent.getData();
+        if (data != null) {
+            this.a.loadUrl(data.toString());
+        }
     }
 
     @Override // android.app.Activity

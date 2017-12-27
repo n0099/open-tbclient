@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long hy(String str) {
+    public static long hA(String str) {
         long j;
         long j2 = 0;
-        long hz = hz(str);
+        long hB = hB(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.bbz + str);
+            File file = new File(i.bPk + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + hz;
+        return j + j2 + hB;
     }
 
-    public static long hz(String str) {
+    public static long hB(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.bbz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.bPk + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long LU() {
+    public static long Tt() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -51,7 +51,7 @@ public class m {
         return 0L;
     }
 
-    public static synchronized long g(File file) {
+    public static synchronized long h(File file) {
         long j;
         synchronized (m.class) {
             j = 0;
@@ -64,7 +64,7 @@ public class m {
         return j;
     }
 
-    public static void y(File file) {
+    public static void z(File file) {
         if (file != null) {
             if (file.isFile()) {
                 file.delete();
@@ -75,14 +75,14 @@ public class m {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    y(file2);
+                    z(file2);
                 }
                 file.delete();
             }
         }
     }
 
-    public static String hA(String str) {
+    public static String hC(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

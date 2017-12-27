@@ -12,15 +12,15 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.data.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ViewEventCenter csJ;
+    private ViewEventCenter dhh;
     private List<com.baidu.tieba.enterForum.data.c> mData = new ArrayList();
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.mPageContext = tbPageContext;
-        this.csJ = viewEventCenter;
+        this.dhh = viewEventCenter;
     }
 
     @Override // android.widget.Adapter
@@ -55,39 +55,39 @@ public class a extends BaseAdapter {
         com.baidu.tieba.enterForum.data.a aVar;
         c cVar2;
         d dVar;
-        C0099a c0099a;
+        C0111a c0111a;
         switch (getItemViewType(i)) {
             case 0:
                 if (view == null || !(view.getTag() instanceof c)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(d.h.enter_forum_list_title_item, (ViewGroup) null);
                     cVar2 = new c();
                     cVar2.mTitle = (TextView) view.findViewById(d.g.title);
-                    cVar2.bbX = (TextView) view.findViewById(d.g.edit);
-                    cVar2.csM = (TextView) view.findViewById(d.g.title_tip);
-                    cVar2.csN = (ImageView) view.findViewById(d.g.divide_line_enter);
+                    cVar2.bPI = (TextView) view.findViewById(d.g.edit);
+                    cVar2.dhk = (TextView) view.findViewById(d.g.title_tip);
+                    cVar2.dhl = (ImageView) view.findViewById(d.g.divide_line_enter);
                     view.setTag(cVar2);
                 } else {
                     cVar2 = (c) view.getTag();
                 }
                 if ((this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.d) && (dVar = (com.baidu.tieba.enterForum.data.d) this.mData.get(i)) != null) {
                     cVar2.mTitle.setText(dVar.mTitle);
-                    aj.k(cVar2.csN, d.C0095d.cp_bg_line_c);
-                    aj.i(cVar2.mTitle, d.C0095d.cp_cont_d);
-                    if (dVar.csW) {
-                        cVar2.bbX.setVisibility(0);
-                        aj.i(cVar2.bbX, d.C0095d.btn_forum_focus_color);
-                        cVar2.csM.setVisibility(0);
-                        aj.i(cVar2.csM, d.C0095d.cp_cont_d);
+                    aj.t(cVar2.dhl, d.C0108d.cp_bg_line_c);
+                    aj.r(cVar2.mTitle, d.C0108d.cp_cont_d);
+                    if (dVar.dhu) {
+                        cVar2.bPI.setVisibility(0);
+                        aj.r(cVar2.bPI, d.C0108d.btn_forum_focus_color);
+                        cVar2.dhk.setVisibility(0);
+                        aj.r(cVar2.dhk, d.C0108d.cp_cont_d);
                     } else {
-                        cVar2.bbX.setVisibility(8);
-                        cVar2.csM.setVisibility(8);
+                        cVar2.bPI.setVisibility(8);
+                        cVar2.dhk.setVisibility(8);
                     }
                 }
-                cVar2.bbX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.2
+                cVar2.bPI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (a.this.csJ != null) {
-                            a.this.csJ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, null, null, null));
+                        if (a.this.dhh != null) {
+                            a.this.dhh.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, null, null, null));
                         }
                     }
                 });
@@ -95,41 +95,41 @@ public class a extends BaseAdapter {
             case 1:
                 if (view == null || !(view.getTag() instanceof com.baidu.tieba.enterForum.b.c)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(d.h.home_like_two_column_item, (ViewGroup) null);
-                    com.baidu.tieba.enterForum.b.c cVar3 = new com.baidu.tieba.enterForum.b.c(this.mPageContext, view, this.csJ);
+                    com.baidu.tieba.enterForum.b.c cVar3 = new com.baidu.tieba.enterForum.b.c(this.mPageContext, view, this.dhh);
                     view.setTag(cVar3);
                     cVar = cVar3;
                 } else {
                     cVar = (com.baidu.tieba.enterForum.b.c) view.getTag();
                 }
                 if ((this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.a) && (aVar = (com.baidu.tieba.enterForum.data.a) this.mData.get(i)) != null) {
-                    cVar.D(aVar);
+                    cVar.aI(aVar);
                     break;
                 }
                 break;
             case 2:
-                if (view == 0 || !(view.getTag() instanceof C0099a)) {
+                if (view == 0 || !(view.getTag() instanceof C0111a)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(d.h.enter_forum_list_footer_item, (ViewGroup) null);
-                    C0099a c0099a2 = new C0099a();
-                    c0099a2.mFooterText = (TextView) view.findViewById(d.g.footer_text);
-                    c0099a2.mImage = (ImageView) view.findViewById(d.g.footer_icon);
-                    c0099a2.csL = view.findViewById(d.g.container);
-                    view.setTag(c0099a2);
-                    c0099a = c0099a2;
+                    C0111a c0111a2 = new C0111a();
+                    c0111a2.mFooterText = (TextView) view.findViewById(d.g.footer_text);
+                    c0111a2.mImage = (ImageView) view.findViewById(d.g.footer_icon);
+                    c0111a2.dhj = view.findViewById(d.g.container);
+                    view.setTag(c0111a2);
+                    c0111a = c0111a2;
                 } else {
-                    c0099a = (C0099a) view.getTag();
+                    c0111a = (C0111a) view.getTag();
                 }
-                if (c0099a.csL != null) {
-                    c0099a.csL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.1
+                if (c0111a.dhj != null) {
+                    c0111a.dhj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (a.this.csJ != null) {
-                                a.this.csJ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(6, null, null, null));
+                            if (a.this.dhh != null) {
+                                a.this.dhh.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(6, null, null, null));
                             }
                         }
                     });
                 }
-                aj.c(c0099a.mImage, d.f.btn_focus_cross_bg);
-                aj.i(c0099a.mFooterText, d.f.enter_forum_bar_explore);
+                aj.c(c0111a.mImage, d.f.btn_focus_cross_bg);
+                aj.r(c0111a.mFooterText, d.f.enter_forum_bar_explore);
                 break;
             case 3:
                 if (view == null || !(view.getTag() instanceof b)) {
@@ -154,7 +154,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getViewTypeCount() {
-        return com.baidu.tieba.enterForum.data.c.csV.length;
+        return com.baidu.tieba.enterForum.data.c.dht.length;
     }
 
     public void setData(List<com.baidu.tieba.enterForum.data.c> list) {
@@ -165,11 +165,11 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class c {
-        TextView bbX;
-        TextView csM;
-        ImageView csN;
+        TextView bPI;
+        TextView dhk;
+        ImageView dhl;
         TextView mTitle;
 
         private c() {
@@ -177,17 +177,17 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.enterForum.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private class C0099a {
-        View csL;
+    /* loaded from: classes2.dex */
+    private class C0111a {
+        View dhj;
         TextView mFooterText;
         ImageView mImage;
 
-        private C0099a() {
+        private C0111a() {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class b {
         ImageView mImage;
 

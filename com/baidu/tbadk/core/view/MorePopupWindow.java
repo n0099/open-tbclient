@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.e;
@@ -94,9 +93,9 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ag(i == 1);
+            cVar.aM(i == 1);
             try {
-                cVar.t(this.mContentView);
+                cVar.aM(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -111,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int ac = l.ac(context);
-        this.mContentView.getLayoutParams().width = ac;
-        setWidth(ac);
+        int ao = com.baidu.adp.lib.util.l.ao(context);
+        this.mContentView.getLayoutParams().width = ao;
+        setWidth(ao);
     }
 
     public void setWindowHeight(int i) {
@@ -158,9 +157,9 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.e.ds4));
             setHeight(this.mWindowHeight);
-            int[] ag = l.ag(this.mActivity);
-            if (ag != null && ag.length > 1 && ag[0] > measuredWidth) {
-                this.mShowRightTopXOff = ag[0] - measuredWidth;
+            int[] as = com.baidu.adp.lib.util.l.as(this.mActivity);
+            if (as != null && as.length > 1 && as[0] > measuredWidth) {
+                this.mShowRightTopXOff = as[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

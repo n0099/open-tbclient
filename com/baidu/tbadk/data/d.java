@@ -1,27 +1,12 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import tbclient.AlaLiveInfo;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aAj = BdUniqueId.gen();
-    public static int aAn = 1;
-    public AlaLiveInfoCoreData aAk;
-    public boolean aAl = false;
-    public long aAm = 0;
+public class d extends TbConfig {
+    public static final Long bor = 86400000L;
+    private static int bos = 300;
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public BdUniqueId getType() {
-        return aAj;
-    }
-
-    public void a(AlaLiveInfo alaLiveInfo) {
-        if (alaLiveInfo != null) {
-            if (this.aAk == null) {
-                this.aAk = new AlaLiveInfoCoreData();
-            }
-            this.aAk.parserProtoBuf(alaLiveInfo);
-        }
+    public static int JZ() {
+        return bos;
     }
 }

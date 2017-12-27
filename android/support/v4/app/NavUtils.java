@@ -9,13 +9,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.content.IntentCompat;
 import android.util.Log;
-/* loaded from: classes.dex */
-public class NavUtils {
+/* loaded from: classes2.dex */
+public final class NavUtils {
     private static final NavUtilsImpl IMPL;
     public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface NavUtilsImpl {
         Intent getParentActivityIntent(Activity activity);
 
@@ -27,7 +27,7 @@ public class NavUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class NavUtilsImplBase implements NavUtilsImpl {
         NavUtilsImplBase() {
         }
@@ -39,7 +39,11 @@ public class NavUtils {
             if (parentActivityName != null) {
                 ComponentName componentName = new ComponentName(activity, parentActivityName);
                 try {
-                    intent = NavUtils.getParentActivityName(activity, componentName) == null ? IntentCompat.makeMainActivity(componentName) : new Intent().setComponent(componentName);
+                    if (NavUtils.getParentActivityName(activity, componentName) == null) {
+                        intent = IntentCompat.makeMainActivity(componentName);
+                    } else {
+                        intent = new Intent().setComponent(componentName);
+                    }
                 } catch (PackageManager.NameNotFoundException e) {
                     Log.e("NavUtils", "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
                 }
@@ -73,7 +77,7 @@ public class NavUtils {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class NavUtilsImplJB extends NavUtilsImplBase {
         NavUtilsImplJB() {
         }
@@ -145,7 +149,10 @@ public class NavUtils {
             return null;
         }
         ComponentName componentName = new ComponentName(context, parentActivityName);
-        return getParentActivityName(context, componentName) == null ? IntentCompat.makeMainActivity(componentName) : new Intent().setComponent(componentName);
+        if (getParentActivityName(context, componentName) == null) {
+            return IntentCompat.makeMainActivity(componentName);
+        }
+        return new Intent().setComponent(componentName);
     }
 
     public static Intent getParentActivityIntent(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
@@ -154,7 +161,10 @@ public class NavUtils {
             return null;
         }
         ComponentName componentName2 = new ComponentName(componentName.getPackageName(), parentActivityName);
-        return getParentActivityName(context, componentName2) == null ? IntentCompat.makeMainActivity(componentName2) : new Intent().setComponent(componentName2);
+        if (getParentActivityName(context, componentName2) == null) {
+            return IntentCompat.makeMainActivity(componentName2);
+        }
+        return new Intent().setComponent(componentName2);
     }
 
     public static String getParentActivityName(Activity activity) {

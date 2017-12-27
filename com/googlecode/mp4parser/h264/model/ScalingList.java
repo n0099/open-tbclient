@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.h264.model;
 
+import android.support.v4.view.InputDeviceCompat;
 import com.googlecode.mp4parser.h264.read.CAVLCReader;
 import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class ScalingList {
         }
         int i = 8;
         for (int i2 = 0; i2 < this.scalingList.length; i2++) {
-            cAVLCWriter.writeSE((this.scalingList[i2] - i) - 256, "SPS: ");
+            cAVLCWriter.writeSE((this.scalingList[i2] - i) + InputDeviceCompat.SOURCE_ANY, "SPS: ");
             i = this.scalingList[i2];
         }
     }

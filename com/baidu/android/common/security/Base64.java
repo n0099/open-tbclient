@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import android.support.v4.view.MotionEventCompat;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes.dex */
 public final class Base64 {
@@ -70,7 +69,7 @@ public final class Base64 {
                     int i15 = i14 + 1;
                     bArr2[i14] = (byte) ((65280 & i13) >> 8);
                     i6 = i15 + 1;
-                    bArr2[i15] = (byte) (i13 & MotionEventCompat.ACTION_MASK);
+                    bArr2[i15] = (byte) (i13 & 255);
                 } else {
                     i6 = i12;
                 }

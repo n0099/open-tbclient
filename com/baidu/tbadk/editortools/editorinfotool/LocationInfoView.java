@@ -17,10 +17,10 @@ public class LocationInfoView extends EditorInfoView {
         super(context, attributeSet);
         setMaxEms(8);
         setEllipsize(TextUtils.TruncateAt.END);
-        k(0, null);
+        j(0, null);
     }
 
-    public void k(int i, String str) {
+    public void j(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {

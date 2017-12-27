@@ -88,7 +88,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (str.equals(ISapiAccount.SAPI_ACCOUNT_USERNAME)) {
             return this.username;
         }
-        if (str.equals(ISapiAccount.SAPI_ACCOUNT_EMAIL)) {
+        if (str.equals("email")) {
             return this.email;
         }
         if (str.equals(ISapiAccount.SAPI_ACCOUNT_PHONE)) {
@@ -106,7 +106,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (str.equals(ISapiAccount.SAPI_ACCOUNT_STOKEN)) {
             return this.stoken;
         }
-        if (str.equals(ISapiAccount.SAPI_ACCOUNT_EXTRA)) {
+        if (str.equals("extra")) {
             return this.extra;
         }
         return null;
@@ -118,13 +118,13 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
             jSONObject.put("uid", this.uid);
             jSONObject.put("displayname", this.displayname);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, this.username);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_EMAIL, this.email);
+            jSONObject.put("email", this.email);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, this.phone);
             jSONObject.put("bduss", this.bduss);
             jSONObject.put("app", this.app);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, this.ptoken);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.stoken);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_EXTRA, this.extra);
+            jSONObject.put("extra", this.extra);
             return jSONObject;
         } catch (JSONException e) {
             Log.e(e);
@@ -154,13 +154,13 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         sapiAccount.uid = jSONObject.optString("uid");
         sapiAccount.displayname = jSONObject.optString("displayname");
         sapiAccount.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
-        sapiAccount.email = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_EMAIL);
+        sapiAccount.email = jSONObject.optString("email");
         sapiAccount.phone = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.app = jSONObject.optString("app");
         sapiAccount.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
         sapiAccount.stoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_STOKEN);
-        sapiAccount.extra = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_EXTRA);
+        sapiAccount.extra = jSONObject.optString("extra");
         if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
         }

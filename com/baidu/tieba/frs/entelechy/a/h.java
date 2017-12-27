@@ -16,17 +16,16 @@ import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.card.data.CardHListViewNormalItemData;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.e;
-/* loaded from: classes.dex */
-public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.e.c {
-    private v cNN;
+/* loaded from: classes2.dex */
+public class h extends com.baidu.tieba.frs.g<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.d.c {
+    private v dCO;
     private String mForumName;
 
-    public static void bp(long j) {
-        if (j > 0 && cZc != null && !TextUtils.isEmpty(cZc.cYU)) {
+    public static void by(long j) {
+        if (j > 0 && dMh != null && !TextUtils.isEmpty(dMh.dLX)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ac(ImageViewerConfig.FORUM_ID, cZc.cYU);
+            akVar.ab(ImageViewerConfig.FORUM_ID, dMh.dLX);
             TiebaStatic.log(akVar);
         }
     }
@@ -34,7 +33,7 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cNN = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.dCO = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -46,7 +45,7 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
                             createNormalCfg.setForumId(String.valueOf(cardHListViewNormalItemData.forumId));
                             createNormalCfg.setStartFrom(3);
                             h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                            h.bp(cardHListViewNormalItemData.threadId);
+                            h.by(cardHListViewNormalItemData.threadId);
                         }
                     } else if (view.getId() == d.g.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
                         h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(h.this.mContext).createNormalCfg(String.valueOf(((CardHListViewNormalItemData) obj).forumName), FrsActivityConfig.FRS_TO_PB)));
@@ -59,7 +58,7 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: U */
+    /* renamed from: aa */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.card.h hVar = new com.baidu.tieba.card.h(this.mPageContext);
         hVar.currentPageType = 3;
@@ -68,14 +67,14 @@ public class h extends e<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.t
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.e, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.acB() == null) {
+        if (aVar == null || aVar.akh() == null) {
             return null;
         }
-        aVar.acB().a(cardHListViewData);
-        aVar.acB().b(this.cNN);
+        aVar.akh().a(cardHListViewData);
+        aVar.akh().b(this.dCO);
         return aVar.getView();
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,21 +18,18 @@ public class u extends d {
     @Override // com.baidu.android.pushservice.e.a
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
-        hashMap.put(PushConstants.EXTRA_METHOD, "sendmsgtoserver");
+        hashMap.put("method", "sendmsgtoserver");
         if (this.e != null) {
             try {
                 JSONObject jSONObject = new JSONObject(this.e);
                 if (jSONObject.has("to")) {
                     hashMap.put("cb_url", jSONObject.getString("to"));
-                    com.baidu.android.pushservice.g.a.c("Send", jSONObject.getString("to"));
                 }
                 if (jSONObject.has("data")) {
                     hashMap.put("cb_data", jSONObject.getString("data"));
                 }
             } catch (JSONException e) {
-                com.baidu.android.pushservice.g.a.e("Send", "error " + e.getMessage());
             }
-            com.baidu.android.pushservice.g.a.c("Send", "send param -- " + b.a(hashMap));
         }
     }
 }

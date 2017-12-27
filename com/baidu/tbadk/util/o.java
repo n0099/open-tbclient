@@ -45,9 +45,9 @@ public class o {
                 builder.model = Build.MODEL;
                 if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
                     builder.BDUSS = currentAccountInfo.getBDUSS();
-                    String d = com.baidu.tbadk.core.a.e.d(currentAccountInfo);
-                    if (!StringUtils.isNull(d)) {
-                        builder.stoken = d;
+                    String c = com.baidu.tbadk.core.a.e.c(currentAccountInfo);
+                    if (!StringUtils.isNull(c)) {
+                        builder.stoken = c;
                     }
                 }
                 if (z2) {
@@ -61,6 +61,7 @@ public class o {
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
+                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.oO());
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

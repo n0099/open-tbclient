@@ -102,26 +102,6 @@ public class a {
         }
     }
 
-    public static final Object a(String str, Object obj, Class<?> cls) {
-        Method b = b(cls, str, new Object[0]);
-        if (b == null) {
-            return null;
-        }
-        try {
-            b.setAccessible(true);
-            return b.invoke(obj, new Object[0]);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
-        } catch (IllegalArgumentException e2) {
-            e2.printStackTrace();
-            return null;
-        } catch (InvocationTargetException e3) {
-            e3.printStackTrace();
-            return null;
-        }
-    }
-
     public static final Object a(Method method, Object obj, Class<?> cls) {
         if (method == null) {
             return null;
@@ -209,7 +189,7 @@ public class a {
         return field;
     }
 
-    public static final Object d(Object obj, String str) {
+    public static final Object g(Object obj, String str) {
         Field b = b(obj.getClass(), str);
         if (b != null) {
             try {
@@ -224,7 +204,7 @@ public class a {
         return null;
     }
 
-    public static final boolean a(Object obj, String str, Object obj2) {
+    public static final boolean d(Object obj, String str, Object obj2) {
         Field b = b(obj.getClass(), str);
         if (b != null) {
             try {

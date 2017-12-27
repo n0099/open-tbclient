@@ -1,10 +1,11 @@
 package com.baidu.location.f;
 
 import java.util.Locale;
+import org.apache.http.HttpStatus;
 /* loaded from: classes.dex */
 public class a {
-    public char NB;
     public int a;
+    public char aCt;
     public int b;
     public int c;
     public int d;
@@ -23,7 +24,7 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.NB = (char) 0;
+        this.aCt = (char) 0;
         this.j = false;
         this.g = System.currentTimeMillis();
     }
@@ -37,19 +38,19 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.NB = (char) 0;
+        this.aCt = (char) 0;
         this.j = false;
         this.a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
         this.h = i5;
-        this.NB = c;
+        this.aCt = c;
         this.g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.NB);
+        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.aCt);
         this.g = aVar.g;
     }
 
@@ -89,14 +90,14 @@ public class a {
         stringBuffer.append("K");
         stringBuffer.append(this.d + 54);
         stringBuffer.append("Q");
-        stringBuffer.append(this.c + 203);
+        stringBuffer.append(this.c + HttpStatus.SC_NON_AUTHORITATIVE_INFORMATION);
         return stringBuffer.toString();
     }
 
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(this.NB);
+        stringBuffer.append(this.aCt);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         if (this.j) {
             stringBuffer.append("&newcl=1");

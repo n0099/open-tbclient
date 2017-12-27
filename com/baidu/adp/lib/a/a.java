@@ -13,38 +13,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a tr = null;
-    private final String ts = "c.tieba.baidu.com";
-    private long tt;
-    private String tu;
+    private static a ahI = null;
+    private final String ahJ = "c.tieba.baidu.com";
+    private long ahK;
+    private String ahL;
+    private long ahM;
 
-    /* renamed from: tv  reason: collision with root package name */
-    private long f0tv;
-
-    public static final a eL() {
-        if (tr == null) {
+    public static final a mp() {
+        if (ahI == null) {
             synchronized (a.class) {
-                if (tr == null) {
-                    tr = new a();
+                if (ahI == null) {
+                    ahI = new a();
                 }
             }
         }
-        return tr;
+        return ahI;
     }
 
     private a() {
-        this.tt = 0L;
-        this.tu = null;
-        this.f0tv = 0L;
+        this.ahK = 0L;
+        this.ahL = null;
+        this.ahM = 0L;
         SharedPreferences config = getConfig();
-        this.tt = config.getLong(ab("c.tieba.baidu.com"), 0L);
-        this.tu = config.getString(ac("c.tieba.baidu.com"), null);
-        this.f0tv = config.getLong(ad("c.tieba.baidu.com"), 0L);
+        this.ahK = config.getLong(aj("c.tieba.baidu.com"), 0L);
+        this.ahL = config.getString(ak("c.tieba.baidu.com"), null);
+        this.ahM = config.getLong(al("c.tieba.baidu.com"), 0L);
     }
 
     public void b(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && j.hh()) {
+        if (!TextUtils.isEmpty(str) && j.oI()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -56,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.tt;
-                    long j2 = this.f0tv;
-                    String str3 = this.tu;
+                    long j = this.ahK;
+                    long j2 = this.ahM;
+                    String str3 = this.ahL;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -71,12 +69,12 @@ public class a {
                         a(host, host2, z, "newday", z2);
                     } else if (System.currentTimeMillis() - j2 > 3600000) {
                         if (TextUtils.isEmpty(host2)) {
-                            host2 = aa(host);
+                            host2 = ai(host);
                         }
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.f0tv = System.currentTimeMillis();
+                            this.ahM = System.currentTimeMillis();
                         }
                     }
                 }
@@ -88,34 +86,34 @@ public class a {
     private void a(String str, String str2, boolean z, String str3, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             if (str2 == null) {
-                str2 = aa(str);
+                str2 = ai(str);
             }
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 long currentTimeMillis2 = System.currentTimeMillis();
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem.p("host", str);
-                statsItem.p("hostip", str2);
-                statsItem.c("issuc", Boolean.valueOf(z));
-                statsItem.c("isuseip", Boolean.valueOf(z2));
-                Address b = com.baidu.adp.lib.d.a.fc().b(false, false);
-                if (b != null) {
-                    statsItem.c("lati", Double.valueOf(b.getLatitude()));
-                    statsItem.c("longi", Double.valueOf(b.getLongitude()));
+                statsItem.append("host", str);
+                statsItem.append("hostip", str2);
+                statsItem.h("issuc", Boolean.valueOf(z));
+                statsItem.h("isuseip", Boolean.valueOf(z2));
+                Address e = com.baidu.adp.lib.d.a.mF().e(false, false);
+                if (e != null) {
+                    statsItem.h("lati", Double.valueOf(e.getLatitude()));
+                    statsItem.h("longi", Double.valueOf(e.getLongitude()));
                 }
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
-                EditorHelper.putLong(config, ab(str), currentTimeMillis);
-                EditorHelper.putString(config, ac(str), str2);
-                EditorHelper.putLong(config, ad(str), currentTimeMillis2);
-                this.tt = currentTimeMillis;
-                this.f0tv = currentTimeMillis2;
-                this.tu = str2;
+                EditorHelper.putLong(config, aj(str), currentTimeMillis);
+                EditorHelper.putString(config, ak(str), str2);
+                EditorHelper.putLong(config, al(str), currentTimeMillis2);
+                this.ahK = currentTimeMillis;
+                this.ahM = currentTimeMillis2;
+                this.ahL = str2;
             }
         }
     }
 
-    private String aa(String str) {
+    private String ai(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (UnknownHostException e) {
@@ -129,15 +127,15 @@ public class a {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 
-    private String ab(String str) {
+    private String aj(String str) {
         return str + "-lastLogTime";
     }
 
-    private String ac(String str) {
+    private String ak(String str) {
         return str + "-lastIpAddress";
     }
 
-    private String ad(String str) {
+    private String al(String str) {
         return str + "-lastGetIpTime";
     }
 }

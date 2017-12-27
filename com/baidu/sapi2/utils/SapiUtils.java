@@ -14,6 +14,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -39,7 +40,6 @@ import com.baidu.sapi2.base.utils.EncodeUtils;
 import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -66,7 +66,6 @@ import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 import org.apache.http.conn.util.InetAddressUtils;
 import org.apache.http.message.BasicNameValuePair;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class SapiUtils {
     public static final String KEY_QR_LOGIN_LP = "lp";
@@ -158,7 +157,7 @@ public class SapiUtils {
     public static long getInternalMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getBlockCount() * statFs.getBlockSize()) / IjkMediaMeta.AV_CH_SIDE_RIGHT;
+            return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
         } catch (Throwable th) {
             Log.e(th);
             return 0L;
@@ -168,7 +167,7 @@ public class SapiUtils {
     public static long getInternalAvailableMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / IjkMediaMeta.AV_CH_SIDE_RIGHT;
+            return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
         } catch (Throwable th) {
             Log.e(th);
             return 0L;
@@ -181,7 +180,7 @@ public class SapiUtils {
 
     public static String getGPSInfo(Context context) {
         Location lastKnownLocation;
-        LocationManager locationManager = (LocationManager) context.getSystemService("location");
+        LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         try {
             return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + Constants.ACCEPT_TIME_SEPARATOR_SP + lastKnownLocation.getLatitude() : "";
         } catch (Exception e2) {
@@ -735,7 +734,7 @@ public class SapiUtils {
         if (TextUtils.isEmpty(str) || !str.contains(str2)) {
             return null;
         }
-        String[] strArr = {Uri.decode(parse.getQueryParameter(VrPlayerActivityConfig.TITLE)), Uri.decode(parse.getQueryParameter("url"))};
+        String[] strArr = {Uri.decode(parse.getQueryParameter("title")), Uri.decode(parse.getQueryParameter("url"))};
         Uri parse2 = Uri.parse(strArr[1]);
         if (TextUtils.isEmpty(strArr[1]) || !host.equals(parse2.getHost())) {
             return null;

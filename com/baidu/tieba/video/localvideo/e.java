@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tieba.video.f;
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<d> ch(Context context) {
+    public static List<d> cs(Context context) {
         Cursor cursor;
         Cursor cursor2;
         String videoPath;
@@ -30,7 +29,7 @@ public class e {
         ArrayList arrayList = new ArrayList();
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, VrPlayerActivityConfig.TITLE);
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
             try {
                 String[] strArr = {"video_id", "_data"};
                 cursor.moveToFirst();
@@ -43,16 +42,16 @@ public class e {
                     if (string3 != null) {
                         dVar.setVideoPath(string3.replace("/storage/emulated/0", "/sdcard"));
                     }
-                    dVar.setDuration(com.baidu.adp.lib.g.b.g(cursor.getString(cursor.getColumnIndex("duration")), 0));
+                    dVar.setDuration(com.baidu.adp.lib.g.b.h(cursor.getString(cursor.getColumnIndex("duration")), 0));
                     dVar.setMimeType(cursor.getString(cursor.getColumnIndex("mime_type")));
-                    dVar.cW(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
+                    dVar.dd(Long.parseLong(cursor.getString(cursor.getColumnIndex("date_modified"))));
                     try {
                         cursor2 = contentResolver.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
                         if (cursor2 != null) {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        dVar.un(string.replace("/storage/emulated/0", "/sdcard"));
+                                        dVar.uo(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -88,7 +87,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && uq(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && ur(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -131,18 +130,18 @@ public class e {
         return arrayList;
     }
 
-    public static int tV(String str) {
-        return f.tV(str);
+    public static int tW(String str) {
+        return f.tW(str);
     }
 
-    public static d uo(String str) {
+    public static d up(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
         }
         d dVar = new d();
         dVar.setVideoPath(str);
-        dVar.cW(file.lastModified());
+        dVar.dd(file.lastModified());
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
@@ -180,14 +179,14 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d up(String str) {
+    public static d uq(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
         }
         d dVar = new d();
         dVar.setVideoPath(str);
-        dVar.cW(file.lastModified());
+        dVar.dd(file.lastModified());
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
@@ -214,13 +213,13 @@ public class e {
         return dVar;
     }
 
-    public static String tU(String str) {
-        return f.tU(str);
+    public static String tV(String str) {
+        return f.tV(str);
     }
 
-    public static void d(String str, List<d> list, boolean z) {
+    public static void c(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d uo;
+        d up;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -230,18 +229,18 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (uo = uo(file.getPath())) != null && file.length() > 102400 && uo.getDuration() >= 1000 && uq(uo.getMimeType())) {
-                            list.add(uo);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (up = up(file.getPath())) != null && file.length() > 102400 && up.getDuration() >= 1000 && ur(up.getMimeType())) {
+                            list.add(up);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
-                        d(path, list, z);
+                        c(path, list, z);
                     }
                 }
             }
         }
     }
 
-    public static void dR(List<d> list) {
+    public static void dX(List<d> list) {
         Collections.sort(list, new a());
     }
 
@@ -262,7 +261,7 @@ public class e {
         }
     }
 
-    public static boolean uq(String str) {
+    public static boolean ur(String str) {
         return "video/mp4".equals(str) || "video/ext-mp4".equals(str);
     }
 }

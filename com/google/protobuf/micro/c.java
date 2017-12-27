@@ -3,12 +3,13 @@ package com.google.protobuf.micro;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hys;
+    private final OutputStream hYW;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -18,48 +19,48 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hys = outputStream;
+        this.hYW = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hys = null;
+        this.hYW = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
     }
 
-    public static int L(int i, boolean z) {
-        return xi(i) + oD(z);
+    public static int W(int i, boolean z) {
+        return zz(i) + oK(z);
     }
 
     public static c a(OutputStream outputStream, int i) {
         return new c(outputStream, new byte[i]);
     }
 
-    public static int aq(int i, String str) {
-        return xi(i) + b(str);
+    public static int ap(int i, String str) {
+        return zz(i) + b(str);
     }
 
     public static int b(int i, com.google.protobuf.micro.a aVar) {
-        return xi(i) + c(aVar);
+        return zz(i) + c(aVar);
     }
 
     public static int b(int i, e eVar) {
-        return xi(i) + b(eVar);
+        return zz(i) + b(eVar);
     }
 
     public static int b(e eVar) {
         int b = eVar.b();
-        return b + xj(b);
+        return b + zA(b);
     }
 
     public static int b(String str) {
         try {
-            byte[] bytes = str.getBytes("UTF-8");
-            return bytes.length + xj(bytes.length);
+            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            return bytes.length + zA(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
         }
@@ -67,44 +68,44 @@ public final class c {
 
     public static int c(int i) {
         if (i >= 0) {
-            return xj(i);
+            return zA(i);
         }
         return 10;
     }
 
     public static int c(int i, int i2) {
-        return xi(i) + c(i2);
+        return zz(i) + c(i2);
     }
 
     public static int c(com.google.protobuf.micro.a aVar) {
-        return xj(aVar.a()) + aVar.a();
-    }
-
-    public static int ck(int i, int i2) {
-        return xi(i) + d(i2);
+        return zA(aVar.a()) + aVar.a();
     }
 
     public static int d(int i) {
-        return xj(i);
+        return zA(i);
     }
 
     private void d() {
-        if (this.hys == null) {
+        if (this.hYW == null) {
             throw new a();
         }
-        this.hys.write(this.a, 0, this.c);
+        this.hYW.write(this.a, 0, this.c);
         this.c = 0;
     }
 
-    public static int dx(long j) {
-        return dz(j);
+    public static int df(int i, int i2) {
+        return zz(i) + d(i2);
     }
 
-    public static int dy(long j) {
-        return dz(j);
+    public static int di(long j) {
+        return dk(j);
     }
 
-    public static int dz(long j) {
+    public static int dj(long j) {
+        return dk(j);
+    }
+
+    public static int dk(long j) {
         if (((-128) & j) == 0) {
             return 1;
         }
@@ -136,27 +137,23 @@ public final class c {
         return a(outputStream, 4096);
     }
 
+    public static int n(int i, long j) {
+        return zz(i) + di(j);
+    }
+
     public static c n(byte[] bArr, int i, int i2) {
         return new c(bArr, i, i2);
     }
 
     public static int o(int i, long j) {
-        return xi(i) + dx(j);
+        return zz(i) + dj(j);
     }
 
-    public static int oD(boolean z) {
+    public static int oK(boolean z) {
         return 1;
     }
 
-    public static int p(int i, long j) {
-        return xi(i) + dy(j);
-    }
-
-    public static int xi(int i) {
-        return xj(f.a(i, 0));
-    }
-
-    public static int xj(int i) {
+    public static int zA(int i) {
         if ((i & (-128)) == 0) {
             return 1;
         }
@@ -169,8 +166,12 @@ public final class c {
         return ((-268435456) & i) == 0 ? 4 : 5;
     }
 
+    public static int zz(int i) {
+        return zA(f.a(i, 0));
+    }
+
     public void a() {
-        if (this.hys != null) {
+        if (this.hYW != null) {
             d();
         }
     }
@@ -228,7 +229,7 @@ public final class c {
     }
 
     public void a(String str) {
-        byte[] bytes = str.getBytes("UTF-8");
+        byte[] bytes = str.getBytes(HTTP.UTF_8);
         g(bytes.length);
         a(bytes);
     }
@@ -242,7 +243,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hys == null) {
+        if (this.hYW == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -285,7 +286,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hys.write(bArr, i4, i5);
+            this.hYW.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);
@@ -322,7 +323,7 @@ public final class c {
         e(i);
     }
 
-    public void n(int i, long j) {
+    public void m(int i, long j) {
         e(i, 0);
         b(j);
     }

@@ -1,5 +1,5 @@
 package tv.danmaku.ijk.media.player;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface IMediaFormat {
     public static final String KEY_HEIGHT = "height";
     public static final String KEY_MIME = "mime";

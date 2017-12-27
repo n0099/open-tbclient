@@ -2,11 +2,16 @@ package android.support.v4.view.accessibility;
 
 import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
-/* loaded from: classes.dex */
-public class AccessibilityEventCompat {
+/* loaded from: classes2.dex */
+public final class AccessibilityEventCompat {
+    public static final int CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION = 4;
+    public static final int CONTENT_CHANGE_TYPE_SUBTREE = 1;
+    public static final int CONTENT_CHANGE_TYPE_TEXT = 2;
+    public static final int CONTENT_CHANGE_TYPE_UNDEFINED = 0;
     private static final AccessibilityEventVersionImpl IMPL;
     public static final int TYPES_ALL_MASK = -1;
     public static final int TYPE_ANNOUNCEMENT = 16384;
+    public static final int TYPE_ASSIST_READING_CONTEXT = 16777216;
     public static final int TYPE_GESTURE_DETECTION_END = 524288;
     public static final int TYPE_GESTURE_DETECTION_START = 262144;
     public static final int TYPE_TOUCH_EXPLORATION_GESTURE_END = 1024;
@@ -15,23 +20,38 @@ public class AccessibilityEventCompat {
     public static final int TYPE_TOUCH_INTERACTION_START = 1048576;
     public static final int TYPE_VIEW_ACCESSIBILITY_FOCUSED = 32768;
     public static final int TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED = 65536;
+    public static final int TYPE_VIEW_CONTEXT_CLICKED = 8388608;
     public static final int TYPE_VIEW_HOVER_ENTER = 128;
     public static final int TYPE_VIEW_HOVER_EXIT = 256;
     public static final int TYPE_VIEW_SCROLLED = 4096;
     public static final int TYPE_VIEW_TEXT_SELECTION_CHANGED = 8192;
     public static final int TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY = 131072;
+    public static final int TYPE_WINDOWS_CHANGED = 4194304;
     public static final int TYPE_WINDOW_CONTENT_CHANGED = 2048;
 
-    /* loaded from: classes.dex */
-    interface AccessibilityEventVersionImpl {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public interface AccessibilityEventVersionImpl {
         void appendRecord(AccessibilityEvent accessibilityEvent, Object obj);
+
+        int getAction(AccessibilityEvent accessibilityEvent);
+
+        int getContentChangeTypes(AccessibilityEvent accessibilityEvent);
+
+        int getMovementGranularity(AccessibilityEvent accessibilityEvent);
 
         Object getRecord(AccessibilityEvent accessibilityEvent, int i);
 
         int getRecordCount(AccessibilityEvent accessibilityEvent);
+
+        void setAction(AccessibilityEvent accessibilityEvent, int i);
+
+        void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i);
+
+        void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityEventStubImpl implements AccessibilityEventVersionImpl {
         AccessibilityEventStubImpl() {
         }
@@ -46,12 +66,39 @@ public class AccessibilityEventCompat {
         }
 
         @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i) {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
         public int getRecordCount(AccessibilityEvent accessibilityEvent) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getContentChangeTypes(AccessibilityEvent accessibilityEvent) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i) {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getMovementGranularity(AccessibilityEvent accessibilityEvent) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setAction(AccessibilityEvent accessibilityEvent, int i) {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getAction(AccessibilityEvent accessibilityEvent) {
             return 0;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class AccessibilityEventIcsImpl extends AccessibilityEventStubImpl {
         AccessibilityEventIcsImpl() {
         }
@@ -72,8 +119,54 @@ public class AccessibilityEventCompat {
         }
     }
 
+    /* loaded from: classes2.dex */
+    static class AccessibilityEventJellyBeanImpl extends AccessibilityEventIcsImpl {
+        AccessibilityEventJellyBeanImpl() {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i) {
+            AccessibilityEventCompatJellyBean.setMovementGranularity(accessibilityEvent, i);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getMovementGranularity(AccessibilityEvent accessibilityEvent) {
+            return AccessibilityEventCompatJellyBean.getMovementGranularity(accessibilityEvent);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setAction(AccessibilityEvent accessibilityEvent, int i) {
+            AccessibilityEventCompatJellyBean.setAction(accessibilityEvent, i);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getAction(AccessibilityEvent accessibilityEvent) {
+            return AccessibilityEventCompatJellyBean.getAction(accessibilityEvent);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static class AccessibilityEventKitKatImpl extends AccessibilityEventJellyBeanImpl {
+        AccessibilityEventKitKatImpl() {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i) {
+            AccessibilityEventCompatKitKat.setContentChangeTypes(accessibilityEvent, i);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventStubImpl, android.support.v4.view.accessibility.AccessibilityEventCompat.AccessibilityEventVersionImpl
+        public int getContentChangeTypes(AccessibilityEvent accessibilityEvent) {
+            return AccessibilityEventCompatKitKat.getContentChangeTypes(accessibilityEvent);
+        }
+    }
+
     static {
-        if (Build.VERSION.SDK_INT >= 14) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            IMPL = new AccessibilityEventKitKatImpl();
+        } else if (Build.VERSION.SDK_INT >= 16) {
+            IMPL = new AccessibilityEventJellyBeanImpl();
+        } else if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new AccessibilityEventIcsImpl();
         } else {
             IMPL = new AccessibilityEventStubImpl();
@@ -97,5 +190,29 @@ public class AccessibilityEventCompat {
 
     public static AccessibilityRecordCompat asRecord(AccessibilityEvent accessibilityEvent) {
         return new AccessibilityRecordCompat(accessibilityEvent);
+    }
+
+    public static void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i) {
+        IMPL.setContentChangeTypes(accessibilityEvent, i);
+    }
+
+    public static int getContentChangeTypes(AccessibilityEvent accessibilityEvent) {
+        return IMPL.getContentChangeTypes(accessibilityEvent);
+    }
+
+    public void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i) {
+        IMPL.setMovementGranularity(accessibilityEvent, i);
+    }
+
+    public int getMovementGranularity(AccessibilityEvent accessibilityEvent) {
+        return IMPL.getMovementGranularity(accessibilityEvent);
+    }
+
+    public void setAction(AccessibilityEvent accessibilityEvent, int i) {
+        IMPL.setAction(accessibilityEvent, i);
+    }
+
+    public int getAction(AccessibilityEvent accessibilityEvent) {
+        return IMPL.getAction(accessibilityEvent);
     }
 }

@@ -10,11 +10,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class n implements Serializable, Cloneable, org.apache.thrift.a<n, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("NormalConfig");
-    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("version", (byte) 8, 1);
+    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b(ClientCookie.VERSION_ATTR, (byte) 8, 1);
     private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("configItems", (byte) 15, 2);
     private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("type", (byte) 8, 3);
     public int a;
@@ -24,7 +25,7 @@ public class n implements Serializable, Cloneable, org.apache.thrift.a<n, a> {
 
     /* loaded from: classes2.dex */
     public enum a {
-        VERSION(1, "version"),
+        VERSION(1, ClientCookie.VERSION_ATTR),
         CONFIG_ITEMS(2, "configItems"),
         TYPE(3, "type");
         
@@ -52,7 +53,7 @@ public class n implements Serializable, Cloneable, org.apache.thrift.a<n, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.VERSION, (a) new org.apache.thrift.meta_data.b("version", (byte) 1, new org.apache.thrift.meta_data.c((byte) 8)));
+        enumMap.put((EnumMap) a.VERSION, (a) new org.apache.thrift.meta_data.b(ClientCookie.VERSION_ATTR, (byte) 1, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.CONFIG_ITEMS, (a) new org.apache.thrift.meta_data.b("configItems", (byte) 1, new org.apache.thrift.meta_data.d((byte) 15, new org.apache.thrift.meta_data.g((byte) 12, p.class))));
         enumMap.put((EnumMap) a.TYPE, (a) new org.apache.thrift.meta_data.b("type", (byte) 1, new org.apache.thrift.meta_data.a((byte) 16, f.class)));
         d = Collections.unmodifiableMap(enumMap);

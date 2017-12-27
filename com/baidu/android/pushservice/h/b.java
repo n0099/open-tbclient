@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b extends m {
+public class b extends n {
     public String a;
     public String b;
     public String c;
@@ -12,8 +12,8 @@ public class b extends m {
     public b() {
     }
 
-    public b(m mVar) {
-        super(mVar);
+    public b(n nVar) {
+        super(nVar);
     }
 
     public JSONObject a() throws JSONException {

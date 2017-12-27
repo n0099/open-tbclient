@@ -8,7 +8,7 @@ import com.baidu.tbadk.util.o;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LookMoreReqMessage extends NetMessage {
     public int is_comm_reverse;
     public Long kz;
@@ -50,14 +50,14 @@ public class LookMoreReqMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         try {
-            int ac = l.ac(TbadkCoreApplication.getInst());
-            int ae = l.ae(TbadkCoreApplication.getInst());
+            int ao = l.ao(TbadkCoreApplication.getInst());
+            int aq = l.aq(TbadkCoreApplication.getInst());
             DataReq.Builder builder = new DataReq.Builder();
             builder.kz = this.kz;
             builder.with_floor = Integer.valueOf(this.with_floor);
             builder.post_id = this.post_id;
-            builder.scr_w = Integer.valueOf(ac);
-            builder.scr_h = Integer.valueOf(ae);
+            builder.scr_w = Integer.valueOf(ao);
+            builder.scr_h = Integer.valueOf(aq);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {

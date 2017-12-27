@@ -1,7 +1,6 @@
 package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
-import android.support.v4.widget.ExploreByTouchHelper;
 /* loaded from: classes2.dex */
 public class f extends d {
     private b c;
@@ -34,7 +33,7 @@ public class f extends d {
         super(bundle);
         this.c = b.available;
         this.d = null;
-        this.e = ExploreByTouchHelper.INVALID_ID;
+        this.e = Integer.MIN_VALUE;
         this.f = null;
         if (bundle.containsKey("ext_pres_type")) {
             this.c = b.valueOf(bundle.getString("ext_pres_type"));
@@ -53,7 +52,7 @@ public class f extends d {
     public f(b bVar) {
         this.c = b.available;
         this.d = null;
-        this.e = ExploreByTouchHelper.INVALID_ID;
+        this.e = Integer.MIN_VALUE;
         this.f = null;
         a(bVar);
     }

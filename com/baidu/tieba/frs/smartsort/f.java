@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.smartsort;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
-    public int cYR;
+    public int dLU;
     public String forumName;
 
     public f() {
@@ -15,14 +15,14 @@ public class f {
             throw new NullPointerException("JSONObject is Null");
         }
         this.forumName = jSONObject.optString("forum_name");
-        this.cYR = jSONObject.optInt("sort_tabId");
+        this.dLU = jSONObject.optInt("sort_tabId");
     }
 
-    public JSONObject aqv() {
+    public JSONObject axG() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
-            jSONObject.put("sort_tabId", this.cYR);
+            jSONObject.put("sort_tabId", this.dLU);
             return jSONObject;
         } catch (JSONException e) {
             return null;

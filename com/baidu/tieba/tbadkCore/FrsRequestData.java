@@ -23,8 +23,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gzo;
-    private String gzp;
+    private String hga;
+    private String hgb;
     private int isGood;
     private String kw;
     private String lastId;
@@ -43,7 +43,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private String stType;
     private int updateType;
     private int withGroup;
-    private String anS = "";
+    private String bbQ = "";
     private int mSortType = -1;
     private int mLoadType = 1;
 
@@ -55,7 +55,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int Qt() {
+    public int XR() {
         return this.mSortType;
     }
 
@@ -152,7 +152,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.anS = str;
+        this.bbQ = str;
     }
 
     public void setLastId(String str) {
@@ -180,20 +180,20 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void sQ(String str) {
-        this.gzo = str;
+        this.hga = str;
     }
 
     public void setObjSource(String str) {
-        this.gzp = str;
+        this.hgb = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Fg() {
+    public HashMap<String, Object> MF() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bM(boolean z) {
+    public Object cp(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -213,13 +213,13 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.anS;
+        builder.yuelaou_locate = this.bbQ;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.e.a.bmw().bmz();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bud().bug();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gzo;
-        builder.obj_source = this.gzp;
+        builder.obj_locate = this.hga;
+        builder.obj_source = this.hgb;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -231,12 +231,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Fd() {
+    public String MC() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Fe() {
+    public boolean MD() {
         return false;
     }
 

@@ -9,11 +9,11 @@ public interface s extends b {
 
     void init();
 
-    void lE();
-
     void onChangeSkinType(int i);
 
     void setEditorTools(i iVar);
 
     void setToolId(int i);
+
+    void th();
 }

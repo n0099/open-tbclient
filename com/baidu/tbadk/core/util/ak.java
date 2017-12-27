@@ -22,13 +22,13 @@ public class ak {
         this.key = str;
     }
 
-    public ak ac(String str, String str2) {
+    public ak ab(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public ak r(String str, int i) {
+    public ak s(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
@@ -40,7 +40,7 @@ public class ak {
         return this;
     }
 
-    public void dO(String str) {
+    public void dV(String str) {
         int indexOf;
         if (!am.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);

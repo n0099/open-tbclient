@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.adp.BuildConfig;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -35,7 +36,7 @@ public class b {
 
     public static String a(Context context) {
         try {
-            List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(1);
+            List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1);
             if (com.xiaomi.channel.commonutils.misc.b.a(runningTasks) || runningTasks.get(0) == null || runningTasks.get(0).topActivity == null) {
                 return null;
             }
@@ -86,7 +87,7 @@ public class b {
         if (context == null) {
             return null;
         }
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         int myPid = Process.myPid();
         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
             if (runningAppProcessInfo.pid == myPid) {
@@ -117,7 +118,7 @@ public class b {
     }
 
     public static String d(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         ArrayList arrayList = new ArrayList();
         StringBuilder sb = new StringBuilder();
         if (runningAppProcesses != null && runningAppProcesses.size() > 0) {

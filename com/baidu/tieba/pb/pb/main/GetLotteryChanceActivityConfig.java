@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.pb.data.LotteryUserChanceInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetLotteryChanceActivityConfig extends IntentConfig {
     public static final int ACTION_CODE_NONE = 0;
     public static final int ACTION_CODE_REPLY = 2;

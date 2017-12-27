@@ -3,42 +3,42 @@ package com.baidu.tieba.pb.pb.main.emotion.b;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private SearchEmotionModel.a cvA;
-    private SearchEmotionModel ffS;
-    private String ffT;
-    private Runnable ffU = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
+    private SearchEmotionModel.a djW;
+    private SearchEmotionModel fSN;
+    private String fSO;
+    private Runnable fSP = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(c.this.ffT) && c.this.cvA != null) {
-                if (c.this.ffS == null) {
-                    c.this.ffS = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(c.this.fSO) && c.this.djW != null) {
+                if (c.this.fSN == null) {
+                    c.this.fSN = new SearchEmotionModel();
                 }
-                c.this.ffS.a(c.this.ffT, 0, 30, c.this.cvA);
+                c.this.fSN.a(c.this.fSO, 0, 30, c.this.djW);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void qe(String str) {
+    public void qp(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.ffT = "";
+            this.fSO = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.ffU);
-        this.mHandler.postDelayed(this.ffU, 300L);
-        this.ffT = str;
+        this.mHandler.removeCallbacks(this.fSP);
+        this.mHandler.postDelayed(this.fSP, 300L);
+        this.fSO = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.cvA = aVar;
+        this.djW = aVar;
     }
 
-    public void and() {
-        if (this.ffS != null) {
-            this.ffS.cancelLoadData();
+    public void auK() {
+        if (this.fSN != null) {
+            this.fSN.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.ffU);
+        this.mHandler.removeCallbacks(this.fSP);
     }
 }

@@ -15,6 +15,8 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.j;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.PathClassLoader;
 import java.io.File;
@@ -37,9 +39,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class e {
-    private static e QA = null;
-    private static Application QB = null;
-    private static Random QC = new Random();
+    private static e aFi = null;
+    private static Application aFj = null;
+    private static Random aFk = new Random();
     public static List<Integer> b = new ArrayList();
     private String c;
     private boolean d;
@@ -47,21 +49,21 @@ public final class e {
     public Map<String, ApkInfo> a = new ConcurrentHashMap();
     private Map<String, MyReceiver> i = new HashMap();
 
-    public static e aq(Context context) {
-        if (QA == null) {
-            QB = (Application) context.getApplicationContext();
-            QA = new e();
+    public static e aC(Context context) {
+        if (aFi == null) {
+            aFj = (Application) context.getApplicationContext();
+            aFi = new e();
         }
-        return QA;
+        return aFi;
     }
 
-    public static e no() {
-        return QA;
+    public static e uR() {
+        return aFi;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
         r0.intentFilters.add(r7);
-        r1 = a(r7.QD);
+        r1 = a(r7.aFl);
         new java.lang.StringBuilder().append(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0051, code lost:
@@ -80,7 +82,7 @@ public final class e {
         r3 = new com.baidu.sofire.MyReceiver();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0076, code lost:
-        com.baidu.sofire.core.e.QB.registerReceiver(r3, r7.QD);
+        com.baidu.sofire.core.e.aFj.registerReceiver(r3, r7.aFl);
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x007d, code lost:
         r0 = false;
@@ -96,7 +98,7 @@ public final class e {
         String a;
         MyReceiver myReceiver;
         boolean z;
-        if (fVar.QD != null && (apkInfo = this.a.get(fVar.a)) != null) {
+        if (fVar.aFl != null && (apkInfo = this.a.get(fVar.a)) != null) {
             if (apkInfo.intentFilters == null) {
                 apkInfo.intentFilters = new ArrayList();
             }
@@ -111,7 +113,7 @@ public final class e {
                 }
             }
         }
-        QB.registerReceiver(myReceiver, fVar.QD);
+        aFj.registerReceiver(myReceiver, fVar.aFl);
         this.i.put(a, myReceiver);
         if (z) {
             try {
@@ -119,7 +121,7 @@ public final class e {
             } catch (InterruptedException e) {
                 com.baidu.sofire.b.d.a(e);
             }
-            QB.registerReceiver(myReceiver, fVar.QD);
+            aFj.registerReceiver(myReceiver, fVar.aFl);
         }
         this.i.put(a, myReceiver);
     }
@@ -217,7 +219,7 @@ public final class e {
 
     public final synchronized void b(f fVar) {
         try {
-            if (fVar.QD != null) {
+            if (fVar.aFl != null) {
                 ApkInfo apkInfo = this.a.get(fVar.a);
                 if (apkInfo != null && apkInfo.intentFilters != null) {
                     ArrayList<Integer> arrayList = new ArrayList();
@@ -236,7 +238,7 @@ public final class e {
                         apkInfo.intentFilters = null;
                     }
                 }
-                String a = a(fVar.QD);
+                String a = a(fVar.aFl);
                 new StringBuilder().append(a);
                 if (!TextUtils.isEmpty(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                     Iterator<ApkInfo> it = b().iterator();
@@ -245,7 +247,7 @@ public final class e {
                             ApkInfo next = it.next();
                             if (next.intentFilters != null && next.intentFilters.size() > 0) {
                                 for (f fVar2 : next.intentFilters) {
-                                    String a2 = a(fVar2.QD);
+                                    String a2 = a(fVar2.aFl);
                                     if (!TextUtils.isEmpty(a2) && a2.equals(a)) {
                                         new StringBuilder().append(a);
                                         break loop2;
@@ -255,7 +257,7 @@ public final class e {
                             }
                         } else {
                             new StringBuilder().append(a);
-                            QB.unregisterReceiver(this.i.get(a));
+                            aFj.unregisterReceiver(this.i.get(a));
                             this.i.remove(a);
                             break;
                         }
@@ -314,18 +316,18 @@ public final class e {
                     hashMap.put("0", 1);
                     hashMap.put("1", Integer.valueOf(apkInfo.key));
                     hashMap.put("2", apkInfo.versionName);
-                    com.baidu.sofire.b.d.a(QB.getApplicationContext(), "1003117", hashMap);
+                    com.baidu.sofire.b.d.a(aFj.getApplicationContext(), "1003117", hashMap);
                     z2 = false;
                 } else {
-                    apkInfo.hostContext = QB;
+                    apkInfo.hostContext = aFj;
                     if (apkInfo.apkParseSuc != 1) {
                         z = false;
                     } else if (TextUtils.isEmpty(apkInfo.packageName) || TextUtils.isEmpty(apkInfo.pkgPath)) {
                         throw new RuntimeException("packageName or pkgPath miss");
                     } else {
-                        apkInfo.dataDir = QB.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
+                        apkInfo.dataDir = aFj.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
                         String str = apkInfo.dataDir + "/dex";
-                        String str2 = (apkInfo.dataDir + "/lib/" + this.c) + "/" + QC.nextInt();
+                        String str2 = (apkInfo.dataDir + "/lib/" + this.c) + "/" + aFk.nextInt();
                         e(str);
                         com.baidu.sofire.b.d.a(str, false);
                         e(str2);
@@ -338,8 +340,8 @@ public final class e {
                     if (apkInfo.apkParseSuc != 1 || z) {
                         PackageInfo packageInfo2 = apkInfo.cloudPkgInfo;
                         if (packageInfo2 == null || TextUtils.isEmpty(packageInfo2.packageName) || TextUtils.isEmpty(packageInfo2.versionName)) {
-                            PackageInfo packageArchiveInfo = QB.getPackageManager().getPackageArchiveInfo(apkInfo.pkgPath, 1);
-                            if ((packageArchiveInfo == null || TextUtils.isEmpty(packageArchiveInfo.packageName) || TextUtils.isEmpty(packageArchiveInfo.versionName)) && ((packageArchiveInfo = K(apkInfo.packageName, apkInfo.apkMD5)) == null || TextUtils.isEmpty(packageArchiveInfo.packageName) || TextUtils.isEmpty(packageArchiveInfo.versionName))) {
+                            PackageInfo packageArchiveInfo = aFj.getPackageManager().getPackageArchiveInfo(apkInfo.pkgPath, 1);
+                            if ((packageArchiveInfo == null || TextUtils.isEmpty(packageArchiveInfo.packageName) || TextUtils.isEmpty(packageArchiveInfo.versionName)) && ((packageArchiveInfo = J(apkInfo.packageName, apkInfo.apkMD5)) == null || TextUtils.isEmpty(packageArchiveInfo.packageName) || TextUtils.isEmpty(packageArchiveInfo.versionName))) {
                                 throw new Exception("requestCloudPackageInfo failed");
                             }
                             packageInfo = packageArchiveInfo;
@@ -376,7 +378,7 @@ public final class e {
                                 hashMap2.put("1", Integer.valueOf(apkInfo.key));
                                 hashMap2.put("2", packageInfo.versionName);
                                 hashMap2.put("3", Base64.encodeToString(((String) pair.second).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
-                                com.baidu.sofire.b.d.a(QB.getApplicationContext(), "1003117", hashMap2);
+                                com.baidu.sofire.b.d.a(aFj.getApplicationContext(), "1003117", hashMap2);
                                 z2 = false;
                             }
                         }
@@ -386,9 +388,9 @@ public final class e {
                         apkInfo.versionName = packageInfo.versionName;
                         apkInfo.activities = packageInfo.activities;
                         apkInfo.applicationTheme = packageInfo.applicationInfo.theme;
-                        apkInfo.dataDir = QB.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
+                        apkInfo.dataDir = aFj.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
                         String str5 = apkInfo.dataDir + "/dex";
-                        String str6 = (apkInfo.dataDir + "/lib/" + this.c) + "/" + QC.nextInt();
+                        String str6 = (apkInfo.dataDir + "/lib/" + this.c) + "/" + aFk.nextInt();
                         e(str5);
                         com.baidu.sofire.b.d.a(str5, false);
                         e(str6);
@@ -405,14 +407,14 @@ public final class e {
         return z2;
     }
 
-    private static PackageInfo K(String str, String str2) {
+    private static PackageInfo J(String str, String str2) {
         try {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("pk", str);
+            jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
             jSONObject.put("m", str2);
             jSONArray.put(jSONObject);
-            String a = com.baidu.sofire.b.f.a(QB, com.baidu.sofire.b.d.a() + "plugin/v1/plugins/detail", jSONArray.toString(), false, false, "");
+            String a = com.baidu.sofire.b.f.a(aFj, com.baidu.sofire.b.d.a() + "plugin/v1/plugins/detail", jSONArray.toString(), false, false, "");
             new StringBuilder().append(a);
             JSONArray jSONArray2 = new JSONArray(a);
             if (jSONArray2.length() <= 0) {
@@ -421,7 +423,7 @@ public final class e {
             JSONObject optJSONObject = jSONArray2.optJSONObject(0);
             PackageInfo packageInfo = new PackageInfo();
             packageInfo.packageName = optJSONObject.optString("p");
-            packageInfo.versionName = optJSONObject.optString("v");
+            packageInfo.versionName = optJSONObject.optString(NotifyType.VIBRATE);
             ApplicationInfo applicationInfo = new ApplicationInfo();
             applicationInfo.className = optJSONObject.optString("n");
             if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
@@ -442,7 +444,7 @@ public final class e {
                         }
                         activityInfo.packageName = packageInfo.packageName;
                         activityInfo.theme = jSONObject2.optInt(Info.kBaiduTimeKey);
-                        activityInfo.labelRes = jSONObject2.optInt("l");
+                        activityInfo.labelRes = jSONObject2.optInt(NotifyType.LIGHTS);
                         if (!TextUtils.isEmpty(activityInfo.name)) {
                             arrayList.add(activityInfo);
                         }
@@ -466,8 +468,8 @@ public final class e {
                 return true;
             }
             Application application = (Application) apkInfo.classLoader.loadClass(str).newInstance();
-            com.baidu.sofire.f.a(Application.class, QB, application);
-            a(application, QB);
+            com.baidu.sofire.e.a(Application.class, aFj, application);
+            a(application, aFj);
             application.onCreate();
             return true;
         } catch (Throwable th) {
@@ -529,8 +531,8 @@ public final class e {
             this.h.remove(str);
             this.a.remove(apkInfo.packageName);
             com.baidu.sofire.b.d.b(apkInfo.dataDir);
-            if (QB != null) {
-                com.baidu.sofire.b.d.b(QB.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
+            if (aFj != null) {
+                com.baidu.sofire.b.d.b(aFj.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
             }
             return true;
         }
@@ -543,8 +545,8 @@ public final class e {
             this.h.remove(apkInfo.pkgPath);
             this.a.remove(str);
             com.baidu.sofire.b.d.b(apkInfo.dataDir);
-            if (QB != null) {
-                com.baidu.sofire.b.d.b(QB.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
+            if (aFj != null) {
+                com.baidu.sofire.b.d.b(aFj.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
             }
             new StringBuilder().append(this.h.size());
             new StringBuilder().append(this.a.size());
@@ -553,7 +555,7 @@ public final class e {
         return false;
     }
 
-    public final ApkInfo bV(String str) {
+    public final ApkInfo cc(String str) {
         try {
             return this.h.get(str);
         } catch (Throwable th) {
@@ -562,7 +564,7 @@ public final class e {
         }
     }
 
-    public final ApkInfo bY(String str) {
+    public final ApkInfo cf(String str) {
         try {
             return this.a.get(str);
         } catch (Throwable th) {
@@ -821,10 +823,10 @@ public final class e {
             java.lang.String r9 = r15.pkgPath     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
             r10 = 1
             com.baidu.sofire.b.d.a(r9, r10)     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
-            com.baidu.sofire.c.a(r1)     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
+            com.baidu.sofire.b.a(r1)     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
             android.content.Context r9 = r15.hostContext     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
             int r10 = r15.key     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
-            com.baidu.sofire.c.a(r9, r10, r1, r8)     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
+            com.baidu.sofire.b.a(r9, r10, r1, r8)     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
             boolean r1 = r1.exists()     // Catch: java.util.zip.ZipException -> L16e java.io.EOFException -> L1b4 java.lang.Throwable -> L223
             if (r1 == 0) goto L235
             java.util.zip.ZipFile r8 = new java.util.zip.ZipFile     // Catch: java.lang.Throwable -> L200

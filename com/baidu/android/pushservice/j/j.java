@@ -11,7 +11,7 @@ public class j {
     public static void a(Context context, Intent intent, Intent intent2) {
         long j;
         String stringExtra = intent.getStringExtra("message_id");
-        ArrayList<com.baidu.android.pushservice.h.h> arrayList = new ArrayList();
+        ArrayList<com.baidu.android.pushservice.h.i> arrayList = new ArrayList();
         HashMap hashMap = new HashMap();
         if (intent2 != null) {
             long longExtra = intent.getLongExtra("bd.message.rate.GET", 0L);
@@ -32,26 +32,26 @@ public class j {
             hashMap.put("030805", Long.valueOf(j2));
             j = j2;
         }
-        com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-        hVar.d = "030804";
-        hVar.b = stringExtra;
-        hVar.c = j + "";
-        hVar.f = "100%";
-        hVar.i = j + "";
-        hVar.e = System.currentTimeMillis();
-        arrayList.add(hVar);
+        com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
+        iVar.d = "030804";
+        iVar.b = stringExtra;
+        iVar.c = j + "";
+        iVar.f = "100%";
+        iVar.i = j + "";
+        iVar.e = System.currentTimeMillis();
+        arrayList.add(iVar);
         for (Map.Entry entry : hashMap.entrySet()) {
-            com.baidu.android.pushservice.h.h hVar2 = new com.baidu.android.pushservice.h.h();
-            hVar2.d = (String) entry.getKey();
-            hVar2.b = stringExtra;
-            hVar2.c = j + "";
-            hVar2.i = entry.getValue() + "";
-            hVar2.f = new DecimalFormat("#.##").format((((Long) entry.getValue()).longValue() / j) * 100.0d) + "%";
-            hVar2.e = System.currentTimeMillis();
-            arrayList.add(hVar2);
+            com.baidu.android.pushservice.h.i iVar2 = new com.baidu.android.pushservice.h.i();
+            iVar2.d = (String) entry.getKey();
+            iVar2.b = stringExtra;
+            iVar2.c = j + "";
+            iVar2.i = entry.getValue() + "";
+            iVar2.f = new DecimalFormat("#.##").format((((Long) entry.getValue()).longValue() / j) * 100.0d) + "%";
+            iVar2.e = System.currentTimeMillis();
+            arrayList.add(iVar2);
         }
-        for (com.baidu.android.pushservice.h.h hVar3 : arrayList) {
-            com.baidu.android.pushservice.h.p.a(context, hVar3);
+        for (com.baidu.android.pushservice.h.i iVar3 : arrayList) {
+            com.baidu.android.pushservice.h.q.a(context, iVar3);
         }
     }
 }

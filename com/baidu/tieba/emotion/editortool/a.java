@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private View aFk;
+    private View btc;
     private boolean visible;
 
     public a(Context context) {
@@ -16,8 +16,8 @@ public class a extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aFk != null) {
-            this.aFk.measure(getChildMeasureSpec(i, 0, this.aFk.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.aFk.getLayoutParams().height));
+        if (this.btc != null) {
+            this.btc.measure(getChildMeasureSpec(i, 0, this.btc.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.btc.getLayoutParams().height));
         }
     }
 
@@ -25,14 +25,14 @@ public class a extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.aFk != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.aFk.getMeasuredWidth();
-            this.aFk.layout(measuredWidth, 0, this.aFk.getMeasuredWidth() + measuredWidth, this.aFk.getMeasuredHeight());
+        if (this.btc != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.btc.getMeasuredWidth();
+            this.btc.layout(measuredWidth, 0, this.btc.getMeasuredWidth() + measuredWidth, this.btc.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.aFk = view;
+        this.btc = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -40,8 +40,8 @@ public class a extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.aFk.getLeft(), this.aFk.getTop());
-            this.aFk.draw(canvas);
+            canvas.translate(this.btc.getLeft(), this.btc.getTop());
+            this.btc.draw(canvas);
             canvas.restore();
         }
     }

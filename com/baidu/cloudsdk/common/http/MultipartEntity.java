@@ -8,7 +8,6 @@ import java.io.OutputStream;
 import java.util.Random;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
-import org.apache.http.entity.mime.MIME;
 import org.apache.http.message.BasicHeader;
 /* loaded from: classes.dex */
 class MultipartEntity implements HttpEntity {
@@ -79,41 +78,50 @@ class MultipartEntity implements HttpEntity {
         }
     }
 
+    @Override // org.apache.http.HttpEntity
     public void consumeContent() throws IOException {
         if (isStreaming()) {
             throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
         }
     }
 
+    @Override // org.apache.http.HttpEntity
     public InputStream getContent() throws IOException, IllegalStateException {
         return new ByteArrayInputStream(this.mOut.toByteArray());
     }
 
+    @Override // org.apache.http.HttpEntity
     public Header getContentEncoding() {
         return null;
     }
 
+    @Override // org.apache.http.HttpEntity
     public long getContentLength() {
         writeLastBoundaryIfNeeds();
         return this.mOut.toByteArray().length;
     }
 
+    @Override // org.apache.http.HttpEntity
     public Header getContentType() {
-        return new BasicHeader(MIME.CONTENT_TYPE, "multipart/form-data; boundary=" + this.mBoundary);
+        return new BasicHeader("Content-Type", "multipart/form-data; boundary=" + this.mBoundary);
     }
 
+    @Override // org.apache.http.HttpEntity
     public boolean isChunked() {
         return false;
     }
 
+    @Override // org.apache.http.HttpEntity
     public boolean isRepeatable() {
         return false;
     }
 
+    @Override // org.apache.http.HttpEntity
     public boolean isStreaming() {
         return false;
     }
 
+    @Override // org.apache.http.HttpEntity
     public void writeTo(OutputStream outputStream) throws IOException {
         outputStream.write(this.mOut.toByteArray());
     }

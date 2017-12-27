@@ -11,7 +11,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
-        intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
+        intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
         intent.putExtra("package_name", fVar.c());
         intent.putExtra("app_id", fVar.a());
         intent.putExtra("user_id", fVar.f);
@@ -20,16 +20,14 @@ public class RegistrationReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(Context context, Intent intent) {
-        String stringExtra = intent.getStringExtra("r_sync_from");
-        if (context.getPackageName().equals(stringExtra)) {
+        if (context.getPackageName().equals(intent.getStringExtra("r_sync_from"))) {
             return;
         }
-        String stringExtra2 = intent.getStringExtra("r_sync_rdata_v2");
-        if (TextUtils.isEmpty(stringExtra2)) {
+        String stringExtra = intent.getStringExtra("r_sync_rdata_v2");
+        if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        com.baidu.android.pushservice.g.a.b("RegistrationReceiver", "handleRegisterSync rdataV2: " + stringExtra2 + " from: " + stringExtra);
-        com.baidu.android.pushservice.b.b.a(context).a("r_v2", stringExtra2);
+        com.baidu.android.pushservice.b.b.a(context).a("r_v2", stringExtra);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,28 +77,22 @@ public class RegistrationReceiver extends BroadcastReceiver {
                 }
             }
             try {
-                String t = p.t(context);
-                if (!TextUtils.isEmpty(t) && !context.getPackageName().equals(t)) {
-                    com.baidu.android.pushservice.g.a.b("RegistrationReceiver", "not hightest package return");
-                    return;
+                String u = p.u(context);
+                if (TextUtils.isEmpty(u) || context.getPackageName().equals(u)) {
+                    String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
+                    boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
+                    if (!booleanExtra) {
+                        PushSettings.c(context, schemeSpecificPart);
+                    }
+                    com.baidu.android.pushservice.b.f c = com.baidu.android.pushservice.b.b.a(context).c(schemeSpecificPart);
+                    if (booleanExtra || c == null || context.getPackageName().equals(c.c())) {
+                        return;
+                    }
+                    a(context, c);
                 }
-                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
-                com.baidu.android.pushservice.g.a.b("RegistrationReceiver", "start for ACTION_PACKAGE_REMOVED，replacing：" + booleanExtra + " ,packageName: " + schemeSpecificPart);
-                if (!booleanExtra) {
-                    PushSettings.c(context, schemeSpecificPart);
-                }
-                com.baidu.android.pushservice.b.f c = com.baidu.android.pushservice.b.b.a(context).c(schemeSpecificPart);
-                if (booleanExtra || c == null || context.getPackageName().equals(c.c())) {
-                    return;
-                }
-                com.baidu.android.pushservice.g.a.b("RegistrationReceiver", "unregister registered push client : " + schemeSpecificPart);
-                a(context, c);
             } catch (Exception e) {
-                com.baidu.android.pushservice.g.a.a("RegistrationReceiver", e);
             }
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.a.c("RegistrationReceiver", "attack by null Serializable data and return");
         }
     }
 }

@@ -9,20 +9,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String dJi = "tb_private_msg_";
-    private static a dJx;
+    private static a evD;
+    public static String evo = "tb_private_msg_";
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l azG() {
+    public static synchronized l aGH() {
         l lVar;
         synchronized (l.class) {
-            if (dJx == null) {
-                dJx = new l();
+            if (evD == null) {
+                evD = new l();
             }
-            lVar = (l) dJx;
+            lVar = (l) evD;
         }
         return lVar;
     }
@@ -42,20 +42,20 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo ag(String str, int i) {
+    public CommonMsgPojo ai(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dJi;
+            ?? r2 = evo;
             try {
                 try {
-                    cursor = g.azv().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.aGw().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
-                            n.e(cursor);
+                            n.i(cursor);
                             r2 = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
@@ -73,7 +73,7 @@ public class l extends a {
                             commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            n.e(cursor);
+                            n.i(cursor);
                             commonMsgPojo = commonMsgPojo2;
                             r2 = cursor;
                         }
@@ -81,21 +81,21 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        mE(str);
-                        n.e(cursor);
+                        mN(str);
+                        n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        n.e(cursor);
+                        n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    n.e(r2);
+                    n.i((Cursor) r2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -107,7 +107,7 @@ public class l extends a {
             } catch (Throwable th3) {
                 r2 = 0;
                 th = th3;
-                n.e(r2);
+                n.i((Cursor) r2);
                 throw th;
             }
         }

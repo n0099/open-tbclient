@@ -9,35 +9,36 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-import org.apache.http.entity.mime.MIME;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Thread {
-    final /* synthetic */ f OJ;
     final /* synthetic */ boolean a;
+    final /* synthetic */ f aDz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar, boolean z) {
-        this.OJ = fVar;
+        this.aDz = fVar;
         this.a = z;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.OJ.h = i.c();
-        this.OJ.b();
-        this.OJ.a();
+        this.aDz.h = i.c();
+        this.aDz.b();
+        this.aDz.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.OJ.i;
+        int i = this.aDz.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                URL url = new URL(this.OJ.h);
+                URL url = new URL(this.aDz.h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.OJ.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.aDz.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -49,16 +50,16 @@ public class k extends Thread {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
                 try {
                     try {
-                        httpURLConnection.setRequestMethod("POST");
+                        httpURLConnection.setRequestMethod(HttpPost.METHOD_NAME);
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.setConnectTimeout(b.b);
                         httpURLConnection.setReadTimeout(b.b);
-                        httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=utf-8");
-                        httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
+                        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                        httpURLConnection.setRequestProperty("Accept-Charset", HTTP.UTF_8);
                         httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
-                        httpURLConnection.setRequestProperty("Host", "loc.map.baidu.com");
+                        httpURLConnection.setRequestProperty(HTTP.TARGET_HOST, "loc.map.baidu.com");
                         OutputStream outputStream = httpURLConnection.getOutputStream();
                         outputStream.write(stringBuffer.toString().getBytes());
                         outputStream.flush();
@@ -108,11 +109,11 @@ public class k extends Thread {
                 }
                 gZIPInputStream.close();
                 byteArrayOutputStream.close();
-                this.OJ.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.aDz.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                 if (this.a) {
-                    this.OJ.m = byteArrayOutputStream.toByteArray();
+                    this.aDz.m = byteArrayOutputStream.toByteArray();
                 }
-                this.OJ.a(true);
+                this.aDz.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -131,7 +132,7 @@ public class k extends Thread {
             return;
         }
         f.o++;
-        this.OJ.j = null;
-        this.OJ.a(false);
+        this.aDz.j = null;
+        this.aDz.a(false);
     }
 }

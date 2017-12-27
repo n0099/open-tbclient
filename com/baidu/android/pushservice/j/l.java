@@ -9,6 +9,20 @@ import android.content.pm.ApplicationInfo;
 /* loaded from: classes2.dex */
 public class l {
     @SuppressLint({"NewApi"})
+    public static int a(Context context) {
+        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService("appops");
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        String packageName = context.getApplicationContext().getPackageName();
+        int i = applicationInfo.uid;
+        try {
+            Class<?> cls = Class.forName(AppOpsManager.class.getName());
+            return ((Integer) cls.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField("OP_POST_NOTIFICATION").get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0 ? 1 : 0;
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    @SuppressLint({"NewApi"})
     public static void a(Context context, String str, String str2) {
         NotificationChannel notificationChannel = new NotificationChannel(str, str2, 3);
         notificationChannel.setShowBadge(true);
@@ -16,21 +30,6 @@ public class l {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         if (notificationManager != null) {
             notificationManager.createNotificationChannel(notificationChannel);
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static boolean a(Context context) {
-        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService("appops");
-        ApplicationInfo applicationInfo = context.getApplicationInfo();
-        String packageName = context.getApplicationContext().getPackageName();
-        int i = applicationInfo.uid;
-        try {
-            Class<?> cls = Class.forName(AppOpsManager.class.getName());
-            return ((Integer) cls.getMethod("checkOpNoThrow", Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField("OP_POST_NOTIFICATION").get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0;
-        } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.e("NotificationsUtils", "error = " + e.getMessage());
-            return false;
         }
     }
 }

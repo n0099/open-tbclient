@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.model;
 
+import android.net.http.EventHandler;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
@@ -13,7 +13,6 @@ import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.im.settingcache.b;
 import com.baidu.tieba.im.settingcache.e;
-import com.tencent.mm.sdk.modelbase.BaseResp;
 /* loaded from: classes2.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public static final int TYPE_GROUP_MSG = 1;
@@ -44,7 +43,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bi = b.aDg().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData bi = b.aKi().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bi != null) {
                 buildNormalItem.setGroupSetting(bi);
             }
@@ -64,7 +63,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(4));
-            PersonalSettingItemData bi = e.aDj().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            PersonalSettingItemData bi = e.aKl().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bi != null) {
                 buildNormalItem.setGroupSetting(bi);
             }
@@ -173,23 +172,23 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         switch (imMessageCenterPojo.getCustomGroupType()) {
-            case -8:
+            case EventHandler.ERROR_TIMEOUT /* -8 */:
                 d(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
-            case TbErrInfo.ERR_HTTP_UNKNOWN /* -7 */:
+            case -7:
                 e(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
-            case -6:
+            case EventHandler.ERROR_CONNECT /* -6 */:
             case -2:
             case -1:
             case 0:
             case 3:
             default:
                 return;
-            case BaseResp.ErrCode.ERR_UNSUPPORT /* -5 */:
+            case -5:
                 h(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
-            case BaseResp.ErrCode.ERR_AUTH_DENIED /* -4 */:
+            case -4:
                 g(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
             case -3:

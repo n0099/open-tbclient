@@ -11,7 +11,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class o {
     public static void a(Context context) {
-        com.baidu.android.pushservice.g.b.a("ServiceUtils", "--- Start Service from " + context.getPackageName(), context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("ServiceUtils", "--- Start Service from " + context.getPackageName(), context.getApplicationContext());
         if (!com.baidu.android.pushservice.a.b(context)) {
             d(context);
             return;
@@ -24,31 +24,29 @@ public class o {
         if (intent == null || TextUtils.isEmpty(intent.getAction())) {
             intent = c(context);
         }
-        if (com.baidu.android.pushservice.c.d.d(context)) {
+        if (com.baidu.android.pushservice.c.d.g(context)) {
             com.baidu.android.pushservice.i.a(context).a(intent);
-            return;
+        } else {
+            a(context, intent, p.v(context));
         }
-        String u = p.u(context);
-        com.baidu.android.pushservice.g.a.c("ServiceUtils", "package: " + u);
-        a(context, intent, u);
     }
 
     private static void a(Context context, Intent intent, String str) {
         if (!TextUtils.isEmpty(str)) {
             intent.setPackage(str);
         }
-        com.baidu.android.pushservice.g.b.a("ServiceUtils", "startPushService go on pkgName = " + str, context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("ServiceUtils", "startPushService go on pkgName = " + str, context.getApplicationContext());
         try {
             if (!TextUtils.isEmpty(str)) {
                 intent.setClassName(str, "com.baidu.android.pushservice.PushService");
                 context.startService(intent);
-                com.baidu.android.pushservice.g.b.a("ServiceUtils", "startPushService by startService", context.getApplicationContext());
+                com.baidu.android.pushservice.g.a.a("ServiceUtils", "startPushService by startService", context.getApplicationContext());
                 return;
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.b.b("ServiceUtils", "START SERVICE E: " + e, context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.b("ServiceUtils", "START SERVICE E: " + e, context.getApplicationContext());
         }
-        if (p.F(context)) {
+        if (p.G(context) || !p.i(context, str)) {
             return;
         }
         try {
@@ -56,25 +54,25 @@ public class o {
             if (!TextUtils.isEmpty(c)) {
                 intent.setClassName(str, c);
                 context.sendBroadcast(intent);
-                com.baidu.android.pushservice.g.b.a("ServiceUtils", "startPushService by sendBroadcast", context.getApplicationContext());
+                com.baidu.android.pushservice.g.a.a("ServiceUtils", "startPushService by sendBroadcast", context.getApplicationContext());
                 return;
             }
         } catch (Exception e2) {
-            com.baidu.android.pushservice.g.b.b("ServiceUtils", "START SERVICE E-2: " + e2, context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.b("ServiceUtils", "START SERVICE E-2: " + e2, context.getApplicationContext());
         }
         context.sendBroadcast(intent);
-        com.baidu.android.pushservice.g.b.a("ServiceUtils", "startPushService by sendBroadcast all", context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("ServiceUtils", "startPushService by sendBroadcast all", context.getApplicationContext());
     }
 
     public static void a(Context context, String str) {
         Intent c = c(context);
-        if (p.E(context)) {
-            c.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart_v3");
+        if (p.F(context)) {
+            c.putExtra("method", "pushservice_restart_v3");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
                 c.putExtra("priority3", Long.MAX_VALUE);
             }
         } else {
-            c.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart_v2");
+            c.putExtra("method", "pushservice_restart_v2");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
                 c.putExtra("priority2", Long.MAX_VALUE);
             }
@@ -86,17 +84,17 @@ public class o {
         if (context == null) {
             return;
         }
-        String t = p.t(context);
-        long g = p.g(context, t);
-        if (!TextUtils.isEmpty(t) && !t.equals(context.getPackageName()) && ((com.baidu.android.pushservice.c.d.a(context).b() != com.baidu.android.pushservice.c.d.h && g < p.h(context)) || com.baidu.android.pushservice.c.d.a(context).b() == com.baidu.android.pushservice.c.d.g)) {
-            a(context, t);
-        } else if (TextUtils.isEmpty(t) || t.equals(context.getPackageName())) {
-            List<String> q = p.q(context);
-            if (q.isEmpty()) {
+        String u = p.u(context);
+        long g = p.g(context, u);
+        if (!TextUtils.isEmpty(u) && !u.equals(context.getPackageName()) && ((com.baidu.android.pushservice.c.d.a(context).b() != 4 && g < p.h(context)) || com.baidu.android.pushservice.c.d.a(context).b() == 3)) {
+            a(context, u);
+        } else if (TextUtils.isEmpty(u) || u.equals(context.getPackageName())) {
+            List<String> r = p.r(context);
+            if (r.isEmpty()) {
                 return;
             }
-            for (String str : q) {
-                if (!context.getPackageName().equals(str) && ((p.E(context) && p.z(context, str)) || (!p.E(context) && !p.z(context, str)))) {
+            for (String str : r) {
+                if (!context.getPackageName().equals(str) && ((p.F(context) && p.z(context, str)) || (!p.F(context) && !p.z(context, str)))) {
                     a(context, str);
                 }
             }
@@ -113,29 +111,25 @@ public class o {
         try {
             intent.putExtra(PushConstants.PACKAGE_NAME, context.getPackageName());
             intent.putExtra("method_version", "V2");
-            if (p.E(context)) {
+            if (p.F(context)) {
                 intent.putExtra("priority3", p.h(context));
             } else {
                 intent.putExtra("priority2", p.h(context));
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("ServiceUtils", e);
         }
         return intent;
     }
 
     public static void d(Context context) {
         com.baidu.android.pushservice.c.d.a(context).e();
-        if (com.baidu.android.pushservice.c.d.d(context)) {
-            com.baidu.android.pushservice.g.a.c("ServiceUtils", "proxy mode, quit checkAndStartPushService");
+        if (com.baidu.android.pushservice.c.d.g(context)) {
             return;
         }
-        String t = p.t(context);
-        final String u = p.u(context);
-        com.baidu.android.pushservice.g.a.c("ServiceUtils", "curPkg in checkAndStartPushService: " + t + " highest: " + u);
-        if (TextUtils.isEmpty(t) || !t.equals(u)) {
-            com.baidu.android.pushservice.g.a.c("ServiceUtils", "curPkg in checkAndStartPushService: " + t);
-            a(context, t);
+        String u = p.u(context);
+        final String v = p.v(context);
+        if (TextUtils.isEmpty(u) || !u.equals(v)) {
+            a(context, u);
         }
         final Context applicationContext = context.getApplicationContext();
         com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("checkAndStartPushService", (short) 98) { // from class: com.baidu.android.pushservice.j.o.1
@@ -187,7 +181,7 @@ public class o {
                 r4 = r4 + 1;
              */
             /* JADX WARN: Code restructure failed: missing block: B:53:0x0119, code lost:
-                com.baidu.android.pushservice.g.b.b("ServiceUtils", r0.getMessage(), r3);
+                com.baidu.android.pushservice.g.a.b("ServiceUtils", r0.getMessage(), r3);
              */
             /* JADX WARN: Code restructure failed: missing block: B:54:0x0127, code lost:
                 r0 = e;
@@ -207,9 +201,9 @@ public class o {
                 boolean z;
                 boolean z2 = false;
                 try {
-                    List<ActivityManager.RunningServiceInfo> runningServices = ((ActivityManager) applicationContext.getSystemService("activity")).getRunningServices(1000);
-                    if (p.E(applicationContext)) {
-                        if (p.q(applicationContext).contains(u)) {
+                    List<ActivityManager.RunningServiceInfo> runningServices = ((ActivityManager) applicationContext.getSystemService(com.meizu.cloud.pushsdk.constants.PushConstants.INTENT_ACTIVITY_NAME)).getRunningServices(1000);
+                    if (p.F(applicationContext)) {
+                        if (p.r(applicationContext).contains(v)) {
                             for (String str : com.baidu.android.pushservice.k.c.a("netstat -ant", null)) {
                                 if (str.toUpperCase().contains("ESTABLISHED") && str.contains(String.valueOf(com.baidu.android.pushservice.h.b))) {
                                     z = true;
@@ -219,7 +213,7 @@ public class o {
                         }
                         z = false;
                         z2 = z;
-                    } else if (!TextUtils.isEmpty(u) && runningServices != null && !runningServices.isEmpty()) {
+                    } else if (!TextUtils.isEmpty(v) && runningServices != null && !runningServices.isEmpty()) {
                         Iterator<ActivityManager.RunningServiceInfo> it = runningServices.iterator();
                         while (true) {
                             if (!it.hasNext()) {
@@ -227,7 +221,7 @@ public class o {
                             }
                             ActivityManager.RunningServiceInfo next = it.next();
                             String packageName = next.service.getPackageName();
-                            if (next.service.getClassName().equals("com.baidu.android.pushservice.PushService") && u.equals(packageName)) {
+                            if (next.service.getClassName().equals("com.baidu.android.pushservice.PushService") && v.equals(packageName)) {
                                 break;
                             }
                         }
@@ -235,7 +229,7 @@ public class o {
                 } catch (Exception e) {
                     e = e;
                 }
-                com.baidu.android.pushservice.g.b.a("ServiceUtils", "checkAndStartPushService, running is " + z2, applicationContext.getApplicationContext());
+                com.baidu.android.pushservice.g.a.a("ServiceUtils", "checkAndStartPushService, running is " + z2, applicationContext.getApplicationContext());
                 if (!z2) {
                     o.a(applicationContext, new Intent());
                 }
@@ -247,15 +241,14 @@ public class o {
     public static void e(Context context) {
         boolean z;
         try {
-            if (p.E(context)) {
-                List<String> q = p.q(context);
-                List<ResolveInfo> m = p.m(context.getApplicationContext());
-                Iterator<ResolveInfo> it = m.iterator();
+            if (p.F(context)) {
+                List<String> r = p.r(context);
+                List<ResolveInfo> n = p.n(context.getApplicationContext());
+                Iterator<ResolveInfo> it = n.iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        if (q.contains(it.next().activityInfo.packageName)) {
+                        if (r.contains(it.next().activityInfo.packageName)) {
                             z = true;
-                            com.baidu.android.pushservice.g.a.c("ServiceUtils", "V2 version SDK is running!");
                             break;
                         }
                     } else {
@@ -266,13 +259,11 @@ public class o {
                 if (z) {
                     return;
                 }
-                com.baidu.android.pushservice.g.a.c("ServiceUtils", "V2 version SDK is not  running!  start V2 VERSION  SDK !");
-                for (ResolveInfo resolveInfo : m) {
+                for (ResolveInfo resolveInfo : n) {
                     a(context, new Intent(), resolveInfo.activityInfo.packageName);
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.a("ServiceUtils", e);
         }
     }
 }

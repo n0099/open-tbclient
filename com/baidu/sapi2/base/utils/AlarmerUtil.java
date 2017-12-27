@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import com.baidu.sapi2.base.debug.Log;
 import java.util.Calendar;
 /* loaded from: classes.dex */
@@ -17,7 +18,7 @@ public class AlarmerUtil {
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.add(i, i2);
         try {
-            ((AlarmManager) context.getSystemService("alarm")).set(0, calendar.getTimeInMillis(), broadcast);
+            ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
         } catch (Throwable th) {
             Log.e(th);
         }
