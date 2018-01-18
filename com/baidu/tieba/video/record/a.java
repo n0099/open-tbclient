@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean oc(boolean z) {
+    public static boolean nf(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -74,14 +74,14 @@ public class a {
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int D = D(activity);
+        int B = B(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + D) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + B) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - D) + 360) % 360;
+        return ((cameraInfo.orientation - B) + 360) % 360;
     }
 
-    public static int D(Activity activity) {
+    public static int B(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -100,7 +100,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0164a());
+        Collections.sort(supportedPreviewSizes, new C0163a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -138,8 +138,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0164a implements Comparator<Camera.Size> {
-        private C0164a() {
+    private static class C0163a implements Comparator<Camera.Size> {
+        private C0163a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

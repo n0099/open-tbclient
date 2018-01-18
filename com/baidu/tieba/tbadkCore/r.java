@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class r {
     private int cur_score;
     private String fid;
-    private int hhw;
-    private int hhx;
-    private List<FeedForumData> hhy = new ArrayList();
+    private int gWX;
+    private int gWY;
+    private List<FeedForumData> gWZ = new ArrayList();
     private int is_like;
     private String level_name;
     private int levelup_score;
@@ -24,8 +24,8 @@ public class r {
 
     public r() {
         setLike(0);
-        this.hhw = 0;
-        this.hhx = 0;
+        this.gWX = 0;
+        this.gWY = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
@@ -40,11 +40,11 @@ public class r {
         this.fid = str;
     }
 
-    public int getUserLevel() {
+    public int bsa() {
         return this.user_level;
     }
 
-    public void setUserLevel(int i) {
+    public void vp(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -64,8 +64,8 @@ public class r {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.hhw = jSONObject.optInt("is_black", 0);
-                this.hhx = jSONObject.optInt("like_num", 0);
+                this.gWX = jSONObject.optInt("is_black", 0);
+                this.gWY = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
@@ -99,7 +99,7 @@ public class r {
                     feedForumData.setReason(jSONObject.getString("reason"));
                     feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
                     feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
-                    this.hhy.add(feedForumData);
+                    this.gWZ.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -143,8 +143,8 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> bAa() {
-        return this.hhy;
+    public List<FeedForumData> btw() {
+        return this.gWZ;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {

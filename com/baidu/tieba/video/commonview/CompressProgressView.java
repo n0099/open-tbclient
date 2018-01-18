@@ -9,59 +9,59 @@ import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class CompressProgressView extends View {
+    private int aQA;
     private int aQB;
-    private int aQC;
+    private Paint aQC;
     private Paint aQD;
-    private Paint aQE;
-    private RectF aQF;
-    private int aQG;
+    private RectF aQE;
+    private int aQF;
     private int mWidth;
 
     public CompressProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aQG = 0;
+        this.aQF = 0;
         init();
     }
 
     public CompressProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aQG = 0;
+        this.aQF = 0;
         init();
     }
 
     public CompressProgressView(Context context) {
         super(context);
-        this.aQG = 0;
+        this.aQF = 0;
         init();
     }
 
     public void setProgress(int i) {
-        if (i != this.aQG) {
-            this.aQG = i;
+        if (i != this.aQF) {
+            this.aQF = i;
             invalidate();
         }
     }
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(d.e.ds100);
-        this.aQB = getResources().getDimensionPixelSize(d.e.ds4);
-        this.aQC = getResources().getDimensionPixelSize(d.e.ds2);
+        this.aQA = getResources().getDimensionPixelSize(d.e.ds4);
+        this.aQB = getResources().getDimensionPixelSize(d.e.ds2);
+        this.aQC = new Paint();
+        this.aQC.setStrokeWidth(this.aQA);
+        this.aQC.setColor(getResources().getColor(d.C0107d.cp_bg_line_d));
+        this.aQC.setStyle(Paint.Style.STROKE);
+        this.aQC.setAntiAlias(true);
         this.aQD = new Paint();
         this.aQD.setStrokeWidth(this.aQB);
-        this.aQD.setColor(getResources().getColor(d.C0108d.cp_bg_line_d));
+        this.aQD.setColor(getResources().getColor(d.C0107d.cp_cont_i_alpha40));
         this.aQD.setStyle(Paint.Style.STROKE);
         this.aQD.setAntiAlias(true);
-        this.aQE = new Paint();
-        this.aQE.setStrokeWidth(this.aQC);
-        this.aQE.setColor(getResources().getColor(d.C0108d.cp_cont_i_alpha40));
-        this.aQE.setStyle(Paint.Style.STROKE);
-        this.aQE.setAntiAlias(true);
-        this.aQF = new RectF(this.aQB, this.aQB, this.mWidth + this.aQB, this.mWidth + this.aQB);
+        this.aQE = new RectF(this.aQA, this.aQA, this.mWidth + this.aQA, this.mWidth + this.aQA);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.aQF, 270.0f, 360.0f, false, this.aQE);
-        canvas.drawArc(this.aQF, 270.0f, (this.aQG * 360) / 100, false, this.aQD);
+        canvas.drawArc(this.aQE, 270.0f, 360.0f, false, this.aQD);
+        canvas.drawArc(this.aQE, 270.0f, (this.aQF * 360) / 100, false, this.aQC);
     }
 }

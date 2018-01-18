@@ -6,126 +6,126 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes2.dex */
 public class au {
-    private PostWriteCallBackData fKt;
-    private com.baidu.tieba.write.b fRA = new com.baidu.tieba.write.b();
-    private com.baidu.tieba.write.b fRB;
-    private EditText fRC;
-    private EditText fRD;
+    private PostWriteCallBackData fLT;
+    private com.baidu.tieba.write.b fTa = new com.baidu.tieba.write.b();
+    private com.baidu.tieba.write.b fTb;
+    private EditText fTc;
+    private EditText fTd;
 
     public au() {
-        this.fRA.yD(d.C0108d.cp_cont_i);
-        this.fRA.yE(d.C0108d.cp_cont_h_alpha85);
-        this.fRB = new com.baidu.tieba.write.b();
-        this.fRB.yD(d.C0108d.cp_cont_i);
-        this.fRB.yE(d.C0108d.cp_cont_h_alpha85);
+        this.fTa.xg(d.C0107d.cp_cont_i);
+        this.fTa.xh(d.C0107d.cp_cont_h_alpha85);
+        this.fTb = new com.baidu.tieba.write.b();
+        this.fTb.xg(d.C0107d.cp_cont_i);
+        this.fTb.xh(d.C0107d.cp_cont_h_alpha85);
     }
 
-    public void kC(boolean z) {
-        if (this.fRC != null && this.fRC.getText() != null) {
-            int selectionEnd = this.fRC.getSelectionEnd();
-            SpannableStringBuilder b = this.fRA.b(this.fRC.getText());
+    public void kE(boolean z) {
+        if (this.fTc != null && this.fTc.getText() != null) {
+            int selectionEnd = this.fTc.getSelectionEnd();
+            SpannableStringBuilder b = this.fTa.b(this.fTc.getText());
             if (b != null) {
-                this.fRA.oo(true);
-                this.fRC.setText(b);
-                if (z && this.fRA.bLn() >= 0) {
-                    this.fRC.requestFocus();
-                    this.fRC.setSelection(this.fRA.bLn());
+                this.fTa.nr(true);
+                this.fTc.setText(b);
+                if (z && this.fTa.bEN() >= 0) {
+                    this.fTc.requestFocus();
+                    this.fTc.setSelection(this.fTa.bEN());
                 } else {
-                    this.fRC.setSelection(selectionEnd);
+                    this.fTc.setSelection(selectionEnd);
                 }
-                this.fRA.on(this.fRA.bLn() >= 0);
+                this.fTa.nq(this.fTa.bEN() >= 0);
             }
         }
     }
 
-    public void kD(boolean z) {
-        if (this.fRD != null && this.fRD.getText() != null) {
-            int selectionEnd = this.fRD.getSelectionEnd();
-            SpannableStringBuilder b = this.fRB.b(this.fRD.getText());
+    public void kF(boolean z) {
+        if (this.fTd != null && this.fTd.getText() != null) {
+            int selectionEnd = this.fTd.getSelectionEnd();
+            SpannableStringBuilder b = this.fTb.b(this.fTd.getText());
             if (b != null) {
-                this.fRB.oo(true);
-                this.fRD.setText(b);
-                if (z && this.fRB.bLn() >= 0) {
-                    this.fRD.requestFocus();
-                    this.fRD.setSelection(this.fRB.bLn());
+                this.fTb.nr(true);
+                this.fTd.setText(b);
+                if (z && this.fTb.bEN() >= 0) {
+                    this.fTd.requestFocus();
+                    this.fTd.setSelection(this.fTb.bEN());
                 } else {
-                    this.fRD.setSelection(selectionEnd);
+                    this.fTd.setSelection(selectionEnd);
                 }
-                this.fRB.on(this.fRB.bLn() >= 0);
+                this.fTb.nq(this.fTb.bEN() >= 0);
             }
         }
     }
 
-    public void bei() {
-        this.fRB.uE(null);
-        this.fRB.aB(null);
-        this.fRB.on(false);
+    public void bem() {
+        this.fTb.tZ(null);
+        this.fTb.av(null);
+        this.fTb.nq(false);
     }
 
-    public void bej() {
-        this.fRA.uE(null);
-        this.fRA.aB(null);
-        this.fRA.on(false);
+    public void ben() {
+        this.fTa.tZ(null);
+        this.fTa.av(null);
+        this.fTa.nq(false);
     }
 
     public void e(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.fRA.aB(postWriteCallBackData.getSensitiveWords());
-            this.fRA.uE(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.G(this.fRA.bLm())) {
-                kC(true);
-                this.fKt = postWriteCallBackData;
+            this.fTa.av(postWriteCallBackData.getSensitiveWords());
+            this.fTa.tZ(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.E(this.fTa.bEM())) {
+                kE(true);
+                this.fLT = postWriteCallBackData;
             }
         }
     }
 
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.fRB.aB(postWriteCallBackData.getSensitiveWords());
-            this.fRB.uE(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.G(this.fRB.bLm())) {
-                kD(true);
+            this.fTb.av(postWriteCallBackData.getSensitiveWords());
+            this.fTb.tZ(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.E(this.fTb.bEM())) {
+                kF(true);
             }
         }
     }
 
     public void g(EditText editText) {
-        this.fRC = editText;
+        this.fTc = editText;
     }
 
     public void h(EditText editText) {
-        this.fRD = editText;
+        this.fTd = editText;
     }
 
     public void onDestroy() {
-        this.fRC = null;
-        this.fRD = null;
+        this.fTc = null;
+        this.fTd = null;
     }
 
     public void onChangeSkinType() {
-        this.fRA.onChangeSkinType();
-        this.fRB.onChangeSkinType();
-        if (this.fRA.bLo()) {
-            kC(false);
+        this.fTa.onChangeSkinType();
+        this.fTb.onChangeSkinType();
+        if (this.fTa.bEO()) {
+            kE(false);
         }
-        if (this.fRB.bLo()) {
-            kD(false);
+        if (this.fTb.bEO()) {
+            kF(false);
         }
     }
 
-    public com.baidu.tieba.write.b bek() {
-        return this.fRA;
+    public com.baidu.tieba.write.b beo() {
+        return this.fTa;
     }
 
-    public com.baidu.tieba.write.b bel() {
-        return this.fRB;
+    public com.baidu.tieba.write.b bep() {
+        return this.fTb;
     }
 
-    public EditText bem() {
-        return this.fRD;
+    public EditText beq() {
+        return this.fTd;
     }
 
-    public PostWriteCallBackData ben() {
-        return this.fKt;
+    public PostWriteCallBackData ber() {
+        return this.fLT;
     }
 }

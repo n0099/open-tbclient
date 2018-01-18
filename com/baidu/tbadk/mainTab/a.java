@@ -1,15 +1,15 @@
 package com.baidu.tbadk.mainTab;
 /* loaded from: classes.dex */
 public class a {
-    public boolean bvl;
-    public int bvm;
+    public boolean bvu;
+    public int bvv;
 
     public a(boolean z) {
-        this.bvl = z;
+        this.bvu = z;
     }
 
     public a(boolean z, int i) {
-        this.bvl = z;
-        this.bvm = i;
+        this.bvu = z;
+        this.bvv = i;
     }
 }

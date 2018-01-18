@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class h {
-    private static final CustomMessageListener aIh = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
+    private static final CustomMessageListener aIf = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,11 +39,11 @@ public class h {
     };
 
     public static void init() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_SYNC, aIh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_SYNC, aIh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_ACTIVE, aIh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_ACTIVE, aIh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_CLEARTEMP, aIh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED, aIh);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_SYNC, aIf);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_SYNC, aIf);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_ACTIVE, aIf);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_ACTIVE, aIf);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_CLEARTEMP, aIf);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED, aIf);
     }
 }

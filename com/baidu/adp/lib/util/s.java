@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class s {
-    private static final char[] anb = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
@@ -24,8 +24,8 @@ public class s {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(anb[(bArr[i] & 240) >>> 4]);
-            sb.append(anb[bArr[i] & 15]);
+            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
+            sb.append(HEX_DIGITS[bArr[i] & 15]);
         }
         return sb.toString();
     }

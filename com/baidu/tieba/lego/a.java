@@ -3,5 +3,5 @@ package com.baidu.tieba.lego;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    public static int[] eRq = {d.C0108d.cp_other_g, d.C0108d.cp_other_b, d.C0108d.cp_other_h, d.C0108d.cp_bg_line_a};
+    public static int[] eSQ = {d.C0107d.cp_other_g, d.C0107d.cp_other_b, d.C0107d.cp_other_h, d.C0107d.cp_bg_line_a};
 }

@@ -18,11 +18,11 @@ import com.baidu.adp.widget.ListView.d;
 /* loaded from: classes.dex */
 public class h extends RecyclerView implements k<h> {
     private static final String LOG_TAG = h.class.getSimpleName();
-    private g avC;
-    private BdListView.d avD;
-    private long avE;
-    private a avx;
-    private b avy;
+    private g avB;
+    private BdListView.d avC;
+    private long avD;
+    private a avw;
+    private b avx;
     private Runnable mDelayedRunnable;
     private com.baidu.adp.widget.ListView.b mNextPage;
     private View mNoDataView;
@@ -49,14 +49,14 @@ public class h extends RecyclerView implements k<h> {
     public h(Context context) {
         super(context);
         this.mScrollable = null;
+        this.avw = null;
         this.avx = null;
-        this.avy = null;
         this.mOnHeaderClickListener = null;
         this.mOnFooterClickListener = null;
         this.mOnScrollToBottomListener = null;
         this.mOnScrollToTopListener = null;
-        this.avD = null;
-        this.avE = 100L;
+        this.avC = null;
+        this.avD = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
@@ -65,25 +65,25 @@ public class h extends RecyclerView implements k<h> {
             public void run() {
                 int i = 0;
                 int i2 = -1;
-                if (h.this.avD != null) {
+                if (h.this.avC != null) {
                     int firstVisiblePosition = h.this.getFirstVisiblePosition();
                     int lastVisiblePosition = h.this.getLastVisiblePosition();
-                    if (h.this.avC == null || h.this.avC.getWrappedAdapter() == null || h.this.avC.getWrappedAdapter().getItemCount() <= 0) {
+                    if (h.this.avB == null || h.this.avB.getWrappedAdapter() == null || h.this.avB.getWrappedAdapter().getItemCount() <= 0) {
                         i = -1;
                     } else {
-                        i2 = firstVisiblePosition - h.this.avC.getHeadersCount();
+                        i2 = firstVisiblePosition - h.this.avB.getHeadersCount();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        int headersCount = lastVisiblePosition - h.this.avC.getHeadersCount();
-                        if (headersCount >= h.this.avC.getWrappedAdapter().getItemCount()) {
-                            headersCount = h.this.avC.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount = lastVisiblePosition - h.this.avB.getHeadersCount();
+                        if (headersCount >= h.this.avB.getWrappedAdapter().getItemCount()) {
+                            headersCount = h.this.avB.getWrappedAdapter().getItemCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;
                         }
                     }
-                    h.this.avD.onScrollStop(i2, i);
+                    h.this.avC.onScrollStop(i2, i);
                 }
             }
         };
@@ -129,7 +129,7 @@ public class h extends RecyclerView implements k<h> {
         this.mPreLoadListView = new l() { // from class: com.baidu.adp.widget.ListView.h.4
             @Override // com.baidu.adp.widget.ListView.l
             public j getAdapter() {
-                return h.this.avC;
+                return h.this.avB;
             }
 
             @Override // com.baidu.adp.widget.ListView.l
@@ -153,14 +153,14 @@ public class h extends RecyclerView implements k<h> {
     public h(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mScrollable = null;
+        this.avw = null;
         this.avx = null;
-        this.avy = null;
         this.mOnHeaderClickListener = null;
         this.mOnFooterClickListener = null;
         this.mOnScrollToBottomListener = null;
         this.mOnScrollToTopListener = null;
-        this.avD = null;
-        this.avE = 100L;
+        this.avC = null;
+        this.avD = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
@@ -169,25 +169,25 @@ public class h extends RecyclerView implements k<h> {
             public void run() {
                 int i = 0;
                 int i2 = -1;
-                if (h.this.avD != null) {
+                if (h.this.avC != null) {
                     int firstVisiblePosition = h.this.getFirstVisiblePosition();
                     int lastVisiblePosition = h.this.getLastVisiblePosition();
-                    if (h.this.avC == null || h.this.avC.getWrappedAdapter() == null || h.this.avC.getWrappedAdapter().getItemCount() <= 0) {
+                    if (h.this.avB == null || h.this.avB.getWrappedAdapter() == null || h.this.avB.getWrappedAdapter().getItemCount() <= 0) {
                         i = -1;
                     } else {
-                        i2 = firstVisiblePosition - h.this.avC.getHeadersCount();
+                        i2 = firstVisiblePosition - h.this.avB.getHeadersCount();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        int headersCount = lastVisiblePosition - h.this.avC.getHeadersCount();
-                        if (headersCount >= h.this.avC.getWrappedAdapter().getItemCount()) {
-                            headersCount = h.this.avC.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount = lastVisiblePosition - h.this.avB.getHeadersCount();
+                        if (headersCount >= h.this.avB.getWrappedAdapter().getItemCount()) {
+                            headersCount = h.this.avB.getWrappedAdapter().getItemCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;
                         }
                     }
-                    h.this.avD.onScrollStop(i2, i);
+                    h.this.avC.onScrollStop(i2, i);
                 }
             }
         };
@@ -233,7 +233,7 @@ public class h extends RecyclerView implements k<h> {
         this.mPreLoadListView = new l() { // from class: com.baidu.adp.widget.ListView.h.4
             @Override // com.baidu.adp.widget.ListView.l
             public j getAdapter() {
-                return h.this.avC;
+                return h.this.avB;
             }
 
             @Override // com.baidu.adp.widget.ListView.l
@@ -257,14 +257,14 @@ public class h extends RecyclerView implements k<h> {
     public h(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mScrollable = null;
+        this.avw = null;
         this.avx = null;
-        this.avy = null;
         this.mOnHeaderClickListener = null;
         this.mOnFooterClickListener = null;
         this.mOnScrollToBottomListener = null;
         this.mOnScrollToTopListener = null;
-        this.avD = null;
-        this.avE = 100L;
+        this.avC = null;
+        this.avD = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
@@ -273,25 +273,25 @@ public class h extends RecyclerView implements k<h> {
             public void run() {
                 int i2 = 0;
                 int i22 = -1;
-                if (h.this.avD != null) {
+                if (h.this.avC != null) {
                     int firstVisiblePosition = h.this.getFirstVisiblePosition();
                     int lastVisiblePosition = h.this.getLastVisiblePosition();
-                    if (h.this.avC == null || h.this.avC.getWrappedAdapter() == null || h.this.avC.getWrappedAdapter().getItemCount() <= 0) {
+                    if (h.this.avB == null || h.this.avB.getWrappedAdapter() == null || h.this.avB.getWrappedAdapter().getItemCount() <= 0) {
                         i2 = -1;
                     } else {
-                        i22 = firstVisiblePosition - h.this.avC.getHeadersCount();
+                        i22 = firstVisiblePosition - h.this.avB.getHeadersCount();
                         if (i22 < 0) {
                             i22 = 0;
                         }
-                        int headersCount = lastVisiblePosition - h.this.avC.getHeadersCount();
-                        if (headersCount >= h.this.avC.getWrappedAdapter().getItemCount()) {
-                            headersCount = h.this.avC.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount = lastVisiblePosition - h.this.avB.getHeadersCount();
+                        if (headersCount >= h.this.avB.getWrappedAdapter().getItemCount()) {
+                            headersCount = h.this.avB.getWrappedAdapter().getItemCount() - 1;
                         }
                         if (headersCount >= 0) {
                             i2 = headersCount;
                         }
                     }
-                    h.this.avD.onScrollStop(i22, i2);
+                    h.this.avC.onScrollStop(i22, i2);
                 }
             }
         };
@@ -337,7 +337,7 @@ public class h extends RecyclerView implements k<h> {
         this.mPreLoadListView = new l() { // from class: com.baidu.adp.widget.ListView.h.4
             @Override // com.baidu.adp.widget.ListView.l
             public j getAdapter() {
-                return h.this.avC;
+                return h.this.avB;
             }
 
             @Override // com.baidu.adp.widget.ListView.l
@@ -360,15 +360,15 @@ public class h extends RecyclerView implements k<h> {
 
     private void initial() {
         setFadingEdgeLength(0);
-        this.avC = new g(getContext());
-        this.avC.a(new d.a() { // from class: com.baidu.adp.widget.ListView.h.5
+        this.avB = new g(getContext());
+        this.avB.a(new d.a() { // from class: com.baidu.adp.widget.ListView.h.5
             @Override // com.baidu.adp.widget.ListView.d.a
             public void onPreLoad() {
                 h.this.removeCallbacks(h.this.preLoadRunnable);
                 h.this.postDelayed(h.this.preLoadRunnable, 100L);
             }
         });
-        this.avC.setOnItemClickListener(new a() { // from class: com.baidu.adp.widget.ListView.h.6
+        this.avB.setOnItemClickListener(new a() { // from class: com.baidu.adp.widget.ListView.h.6
             @Override // com.baidu.adp.widget.ListView.h.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
                 int headerViewsCount = h.this.getHeaderViewsCount();
@@ -384,7 +384,7 @@ public class h extends RecyclerView implements k<h> {
                     return;
                 }
                 int i2 = i - headerViewsCount;
-                RecyclerView.Adapter wrappedAdapter = h.this.avC.getWrappedAdapter();
+                RecyclerView.Adapter wrappedAdapter = h.this.avB.getWrappedAdapter();
                 if (wrappedAdapter == null || i2 >= wrappedAdapter.getItemCount()) {
                     if (h.this.mNextPage == null || view != h.this.mNextPage.getView()) {
                         if (h.this.mOnFooterClickListener != null) {
@@ -394,20 +394,20 @@ public class h extends RecyclerView implements k<h> {
                         return;
                     }
                     h.this.mNextPage.onClick();
-                } else if (h.this.avx != null) {
-                    h.this.avx.a(viewGroup, view, obj, i2, j);
+                } else if (h.this.avw != null) {
+                    h.this.avw.a(viewGroup, view, obj, i2, j);
                 }
             }
         });
-        this.avC.setOnItemLongClickListener(new b() { // from class: com.baidu.adp.widget.ListView.h.7
+        this.avB.setOnItemLongClickListener(new b() { // from class: com.baidu.adp.widget.ListView.h.7
             @Override // com.baidu.adp.widget.ListView.h.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
                 int headerViewsCount = i - h.this.getHeaderViewsCount();
-                RecyclerView.Adapter wrappedAdapter = h.this.avC.getWrappedAdapter();
-                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || h.this.avy == null) {
+                RecyclerView.Adapter wrappedAdapter = h.this.avB.getWrappedAdapter();
+                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || h.this.avx == null) {
                     return false;
                 }
-                return h.this.avy.b(viewGroup, view, obj, i, j);
+                return h.this.avx.b(viewGroup, view, obj, i, j);
             }
         });
         addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.adp.widget.ListView.h.8
@@ -460,9 +460,9 @@ public class h extends RecyclerView implements k<h> {
                         }
                     });
                 }
-                if (h.this.avD != null && h.this.avE > 0) {
+                if (h.this.avC != null && h.this.avD > 0) {
                     h.this.getHandler().removeCallbacks(h.this.mDelayedRunnable);
-                    h.this.getHandler().postDelayed(h.this.mDelayedRunnable, h.this.avE);
+                    h.this.getHandler().postDelayed(h.this.mDelayedRunnable, h.this.avD);
                 }
             }
         });
@@ -471,13 +471,13 @@ public class h extends RecyclerView implements k<h> {
     @Override // android.support.v7.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         super.setAdapter(null);
-        this.avC.setAdapter(adapter);
-        super.setAdapter(this.avC);
+        this.avB.setAdapter(adapter);
+        super.setAdapter(this.avB);
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
-        if (this.avC != null) {
-            return this.avC.getWrappedAdapter();
+        if (this.avB != null) {
+            return this.avB.getWrappedAdapter();
         }
         return null;
     }
@@ -494,12 +494,12 @@ public class h extends RecyclerView implements k<h> {
 
     @Override // com.baidu.adp.widget.ListView.k
     public int getHeaderViewsCount() {
-        return this.avC.getHeadersCount();
+        return this.avB.getHeadersCount();
     }
 
     @Override // com.baidu.adp.widget.ListView.k
     public int getFooterViewsCount() {
-        return this.avC.getFootersCount();
+        return this.avB.getFootersCount();
     }
 
     @Override // com.baidu.adp.widget.ListView.k
@@ -612,29 +612,29 @@ public class h extends RecyclerView implements k<h> {
 
     @Override // com.baidu.adp.widget.ListView.k
     public boolean removeHeaderView(View view) {
-        if (this.avC == null) {
+        if (this.avB == null) {
             return false;
         }
-        return this.avC.removeHeader(view);
+        return this.avB.removeHeader(view);
     }
 
     public boolean removeFooterView(View view) {
-        if (this.avC == null) {
+        if (this.avB == null) {
             return false;
         }
-        return this.avC.removeFooter(view);
+        return this.avB.removeFooter(view);
     }
 
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.avC.addHeaderView(view, obj, z, -1);
+        this.avB.addHeaderView(view, obj, z, -1);
     }
 
     public void addHeaderView(View view) {
-        this.avC.addHeaderView(view, -1);
+        this.avB.addHeaderView(view, -1);
     }
 
     public void addHeaderView(View view, int i) {
-        this.avC.addHeaderView(view, i);
+        this.avB.addHeaderView(view, i);
     }
 
     public void setNoData(String str) {
@@ -678,7 +678,7 @@ public class h extends RecyclerView implements k<h> {
                 this.mNextPage = null;
             }
             if (bVar != null) {
-                this.avC.addFooterView(bVar.getView(), null, true, 0);
+                this.avB.addFooterView(bVar.getView(), null, true, 0);
                 this.mNextPage = bVar;
             }
         }
@@ -717,12 +717,12 @@ public class h extends RecyclerView implements k<h> {
     }
 
     public void setOnItemClickListener(a aVar) {
-        this.avx = aVar;
+        this.avw = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setOnItemLongClickListener(b bVar) {
-        this.avy = bVar;
+        this.avx = bVar;
     }
 
     public void setOnHeaderClickListener(BdListView.b bVar) {

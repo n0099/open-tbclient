@@ -23,8 +23,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String hga;
-    private String hgb;
+    private String gVA;
+    private String gVB;
     private int isGood;
     private String kw;
     private String lastId;
@@ -55,7 +55,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int XR() {
+    public int XF() {
         return this.mSortType;
     }
 
@@ -179,21 +179,21 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void sQ(String str) {
-        this.hga = str;
+    public void sj(String str) {
+        this.gVA = str;
     }
 
     public void setObjSource(String str) {
-        this.hgb = str;
+        this.gVB = str;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> MF() {
+    public HashMap<String, Object> Mt() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cp(boolean z) {
+    public Object cn(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -216,10 +216,10 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.bbQ;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.e.a.bud().bug();
+        builder.app_pos = com.baidu.tieba.recapp.e.a.bnw().bnz();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.hga;
-        builder.obj_source = this.hgb;
+        builder.obj_locate = this.gVA;
+        builder.obj_source = this.gVB;
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -231,12 +231,12 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String MC() {
+    public String Mq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean MD() {
+    public boolean Mr() {
         return false;
     }
 

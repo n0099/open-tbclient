@@ -153,17 +153,17 @@ public final class b {
         }
     }
 
-    public a bPT() {
+    public a bMj() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.I(zy(j));
+            return a.J(yJ(j));
         }
         a l = a.l(this.a, this.d, j);
         this.d = j + this.d;
         return l;
     }
 
-    public byte bPU() {
+    public byte bMk() {
         if (this.d == this.b) {
             a(true);
         }
@@ -237,7 +237,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(zy(j), HTTP.UTF_8);
+            return new String(yJ(j), HTTP.UTF_8);
         }
         String str = new String(this.a, this.d, j, HTTP.UTF_8);
         this.d = j + this.d;
@@ -249,31 +249,31 @@ public final class b {
     }
 
     public int j() {
-        byte bPU = bPU();
-        if (bPU >= 0) {
-            return bPU;
+        byte bMk = bMk();
+        if (bMk >= 0) {
+            return bMk;
         }
-        int i = bPU & Byte.MAX_VALUE;
-        byte bPU2 = bPU();
-        if (bPU2 >= 0) {
-            return i | (bPU2 << 7);
+        int i = bMk & Byte.MAX_VALUE;
+        byte bMk2 = bMk();
+        if (bMk2 >= 0) {
+            return i | (bMk2 << 7);
         }
-        int i2 = i | ((bPU2 & Byte.MAX_VALUE) << 7);
-        byte bPU3 = bPU();
-        if (bPU3 >= 0) {
-            return i2 | (bPU3 << 14);
+        int i2 = i | ((bMk2 & Byte.MAX_VALUE) << 7);
+        byte bMk3 = bMk();
+        if (bMk3 >= 0) {
+            return i2 | (bMk3 << 14);
         }
-        int i3 = i2 | ((bPU3 & Byte.MAX_VALUE) << 14);
-        byte bPU4 = bPU();
-        if (bPU4 >= 0) {
-            return i3 | (bPU4 << 21);
+        int i3 = i2 | ((bMk3 & Byte.MAX_VALUE) << 14);
+        byte bMk4 = bMk();
+        if (bMk4 >= 0) {
+            return i3 | (bMk4 << 21);
         }
-        int i4 = i3 | ((bPU4 & Byte.MAX_VALUE) << 21);
-        byte bPU5 = bPU();
-        int i5 = i4 | (bPU5 << 28);
-        if (bPU5 < 0) {
+        int i4 = i3 | ((bMk4 & Byte.MAX_VALUE) << 21);
+        byte bMk5 = bMk();
+        int i5 = i4 | (bMk5 << 28);
+        if (bMk5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bPU() >= 0) {
+                if (bMk() >= 0) {
                     return i5;
                 }
             }
@@ -285,9 +285,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bPU = bPU();
-            j |= (bPU & Byte.MAX_VALUE) << i;
-            if ((bPU & 128) == 0) {
+            byte bMk = bMk();
+            j |= (bMk & Byte.MAX_VALUE) << i;
+            if ((bMk & 128) == 0) {
                 return j;
             }
         }
@@ -295,20 +295,20 @@ public final class b {
     }
 
     public int l() {
-        return (bPU() & 255) | ((bPU() & 255) << 8) | ((bPU() & 255) << 16) | ((bPU() & 255) << 24);
+        return (bMk() & 255) | ((bMk() & 255) << 8) | ((bMk() & 255) << 16) | ((bMk() & 255) << 24);
     }
 
     public long m() {
-        byte bPU = bPU();
-        byte bPU2 = bPU();
-        return ((bPU2 & 255) << 8) | (bPU & 255) | ((bPU() & 255) << 16) | ((bPU() & 255) << 24) | ((bPU() & 255) << 32) | ((bPU() & 255) << 40) | ((bPU() & 255) << 48) | ((bPU() & 255) << 56);
+        byte bMk = bMk();
+        byte bMk2 = bMk();
+        return ((bMk2 & 255) << 8) | (bMk & 255) | ((bMk() & 255) << 16) | ((bMk() & 255) << 24) | ((bMk() & 255) << 32) | ((bMk() & 255) << 40) | ((bMk() & 255) << 48) | ((bMk() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] zy(int i) {
+    public byte[] yJ(int i) {
         if (i < 0) {
             throw d.b();
         }

@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.c.r;
 import com.baidu.tbadk.core.util.c.s;
 import com.baidu.tbadk.core.util.c.t;
 import com.baidu.tbadk.core.util.c.u;
-import com.baidu.tbadk.o.ap;
+import com.baidu.tbadk.o.aq;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -45,13 +45,13 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        wA();
-        ap.Ov();
+        wz();
+        aq.Oj();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.aKE();
+        com.baidu.tieba.im.widget.c.aKJ();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.aJc();
-        com.baidu.tieba.im.db.h.aGy();
+        ImMemoryCacheRegister.aJh();
+        com.baidu.tieba.im.db.h.aGD();
         com.baidu.tbadk.browser.d.init();
         h.init();
         com.baidu.tieba.wallet.d.init();
@@ -89,9 +89,9 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.LT().Hk();
+        com.baidu.tbadk.getUserInfo.b.LH().Hd();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aG(TbConfig.GET_PAY_CONFIG, 303039));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aI(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -117,7 +117,7 @@ public class LaunchStatic {
         });
     }
 
-    private static void wA() {
+    private static void wz() {
         com.baidu.adp.lib.f.c.nl().a(10, new t(true, 10));
         com.baidu.adp.lib.f.c.nl().a(11, new t(false, 10));
         com.baidu.adp.lib.f.c.nl().a(12, new r(false, false, false, 12));

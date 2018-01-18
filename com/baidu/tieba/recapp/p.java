@@ -16,21 +16,21 @@ public interface p {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    k bts();
+    k bmL();
 
-    m btt();
+    m bmM();
 
-    com.baidu.tieba.n.a btu();
+    com.baidu.tieba.n.a bmN();
 
-    i btv();
+    i bmO();
 
-    List<AppData> btw();
+    List<AppData> bmP();
 
-    void btx();
+    void bmQ();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    h ci(Context context);
+    h ce(Context context);
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

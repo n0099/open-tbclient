@@ -10,10 +10,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class TrackEncodedPixelsDimensionsAtom extends AbstractFullBox {
     public static final String TYPE = "enof";
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_3 = null;
     double height;
     double width;
 
@@ -58,7 +58,7 @@ public class TrackEncodedPixelsDimensionsAtom extends AbstractFullBox {
     }
 
     public void setWidth(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.m(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.n(d)));
         this.width = d;
     }
 
@@ -68,7 +68,7 @@ public class TrackEncodedPixelsDimensionsAtom extends AbstractFullBox {
     }
 
     public void setHeight(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.m(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.n(d)));
         this.height = d;
     }
 }

@@ -10,56 +10,56 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes2.dex */
 public class j {
-    private TextView aQI;
-    private com.baidu.tieba.frs.i dKN;
-    private NavigationBarCoverTip dNM;
-    private int dNN;
+    private TextView aQH;
+    private com.baidu.tieba.frs.i dPp;
+    private NavigationBarCoverTip dSo;
+    private int dSp;
 
     public j(com.baidu.tieba.frs.i iVar, NavigationBarCoverTip navigationBarCoverTip) {
-        this.dKN = iVar;
-        this.dNM = navigationBarCoverTip;
+        this.dPp = iVar;
+        this.dSo = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.dNN = 0;
-        this.aQI = new TextView(this.dKN.getActivity());
-        this.aQI.setLayoutParams(new LinearLayout.LayoutParams(-1, this.dKN.getResources().getDimensionPixelSize(d.e.tbds112)));
+        this.dSp = 0;
+        this.aQH = new TextView(this.dPp.getActivity());
+        this.aQH.setLayoutParams(new LinearLayout.LayoutParams(-1, this.dPp.getResources().getDimensionPixelSize(d.e.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.aQI.setPadding(this.dKN.getResources().getDimensionPixelSize(d.e.ds34), this.dKN.getResources().getDimensionPixelSize(d.e.ds1), this.dKN.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.aQI.setGravity(3);
+            this.aQH.setPadding(this.dPp.getResources().getDimensionPixelSize(d.e.ds34), this.dPp.getResources().getDimensionPixelSize(d.e.ds1), this.dPp.getResources().getDimensionPixelSize(d.e.ds34), 0);
+            this.aQH.setGravity(3);
         } else {
-            this.aQI.setPadding(this.dKN.getResources().getDimensionPixelSize(d.e.ds34), 0, this.dKN.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.aQI.setGravity(19);
+            this.aQH.setPadding(this.dPp.getResources().getDimensionPixelSize(d.e.ds34), 0, this.dPp.getResources().getDimensionPixelSize(d.e.ds34), 0);
+            this.aQH.setGravity(19);
         }
-        this.aQI.setTextSize(0, this.dKN.getResources().getDimensionPixelSize(d.e.ds28));
-        this.aQI.setLineSpacing(this.dKN.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
-        this.aQI.setMaxLines(2);
-        this.aQI.setEllipsize(TextUtils.TruncateAt.END);
+        this.aQH.setTextSize(0, this.dPp.getResources().getDimensionPixelSize(d.e.ds28));
+        this.aQH.setLineSpacing(this.dPp.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
+        this.aQH.setMaxLines(2);
+        this.aQH.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void lk(String str) {
+    public void ls(String str) {
         String str2;
-        if (!am.isEmpty(str) && this.dNM != null && this.dKN.isPrimary() && this.dNN <= 0) {
-            this.dNN++;
+        if (!am.isEmpty(str) && this.dSo != null && this.dPp.isPrimary() && this.dSp <= 0) {
+            this.dSp++;
             if (str.length() < 20) {
-                str2 = this.dKN.getResources().getString(d.j.forum_ueg_tip) + "\n" + str;
+                str2 = this.dPp.getResources().getString(d.j.forum_ueg_tip) + "\n" + str;
             } else if (str.length() < 34) {
-                str2 = this.dKN.getResources().getString(d.j.forum_ueg_tip) + str;
+                str2 = this.dPp.getResources().getString(d.j.forum_ueg_tip) + str;
             } else {
-                str2 = this.dKN.getResources().getString(d.j.forum_ueg_tip) + str.substring(0, 34);
+                str2 = this.dPp.getResources().getString(d.j.forum_ueg_tip) + str.substring(0, 34);
             }
-            this.aQI.setText(str2);
-            aj.r(this.aQI, d.C0108d.cp_cont_i);
-            this.dNM.removeAllViews();
-            this.dNM.addView(this.aQI);
-            this.dNM.j(this.dKN.getActivity(), 5000);
+            this.aQH.setText(str2);
+            aj.r(this.aQH, d.C0107d.cp_cont_i);
+            this.dSo.removeAllViews();
+            this.dSo.addView(this.aQH);
+            this.dSo.j(this.dPp.getActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.dNM != null) {
-            this.dNM.onDestroy();
+        if (this.dSo != null) {
+            this.dSo.onDestroy();
         }
     }
 }

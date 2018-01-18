@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.ao;
 public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public boolean no() {
-        return com.baidu.tbadk.core.i.wB().wH();
+        return com.baidu.tbadk.core.i.wA().wG();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.Mb().gx(str);
+        return com.baidu.tbadk.imageManager.c.LP().gy(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,11 +50,11 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             z = true;
         }
         byte[] j = iVar.j(str3, false);
-        if (iVar.Ds() && iVar.errorCode == -11) {
+        if (iVar.Dj() && iVar.errorCode == -11) {
             BdLog.e("BIGIMAGE imageLoaderProc too big");
             com.baidu.tbadk.core.d.a.a("gifplay", -1L, -1, "ImageLoaderProc.getFromRemote", iVar.errorCode, "image size too large", "url", str);
         }
-        if (j == null || !iVar.Ds()) {
+        if (j == null || !iVar.Dj()) {
             return null;
         }
         Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(j);
@@ -62,7 +62,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             TbadkCoreApplication.getInst().incWebpFailureCount();
             com.baidu.tbadk.core.d.a.a("gifplay", -1L, -1, "ImageLoaderProc.getFromRemote", iVar.errorCode, "webp decode fail ", "url", str);
             byte[] j2 = iVar.j(str, false);
-            if (j2 == null || !iVar.Ds()) {
+            if (j2 == null || !iVar.Dj()) {
                 bArr = j2;
             } else {
                 Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(j2);
@@ -76,7 +76,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
             String ee = ao.ee(str2);
-            com.baidu.tbadk.imageManager.c.Mb().ie(TbConfig.getPbImageSize() + bArr.length);
+            com.baidu.tbadk.imageManager.c.LP().ia(TbConfig.getPbImageSize() + bArr.length);
             boolean j3 = com.baidu.adp.lib.util.l.j(bArr);
             if (!NSGif.afl || !j3) {
                 nSGif = null;
@@ -112,7 +112,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Mb().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.LP().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 

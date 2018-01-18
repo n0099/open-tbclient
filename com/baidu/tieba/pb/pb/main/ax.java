@@ -7,43 +7,43 @@ import com.baidu.tbadk.core.message.GameLaunchMessage;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ax {
-    private static ax fRF = null;
+    private static ax fTf = null;
 
-    public static ax beo() {
-        if (fRF == null) {
+    public static ax bes() {
+        if (fTf == null) {
             synchronized (ax.class) {
-                if (fRF == null) {
-                    fRF = new ax();
+                if (fTf == null) {
+                    fTf = new ax();
                 }
             }
         }
-        return fRF;
+        return fTf;
     }
 
     public void f(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (qj(str)) {
+            if (ql(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (qk(str)) {
-                com.baidu.tbadk.core.util.av.Di().a(tbPageContext, new String[]{str}, true);
+            } else if (qm(str)) {
+                com.baidu.tbadk.core.util.av.CZ().a(tbPageContext, new String[]{str}, true);
             } else {
-                com.baidu.tbadk.core.util.av.Di().c(tbPageContext, new String[]{str});
+                com.baidu.tbadk.core.util.av.CZ().c(tbPageContext, new String[]{str});
             }
         }
     }
 
-    public static boolean qi(String str) {
+    public static boolean qk(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean qj(String str) {
+    private boolean ql(String str) {
         Map<String, String> eh;
         if (!TextUtils.isEmpty(str) && (eh = com.baidu.tbadk.core.util.av.eh(com.baidu.tbadk.core.util.av.ei(str))) != null) {
             String str2 = eh.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return qj(com.baidu.adp.lib.util.k.aW(str2));
+                return ql(com.baidu.adp.lib.util.k.aW(str2));
             }
             String str3 = eh.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -51,7 +51,7 @@ public class ax {
         return false;
     }
 
-    private boolean qk(String str) {
+    private boolean qm(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

@@ -34,7 +34,7 @@ public class aw {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aw.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.BH();
+                    return com.baidu.tbadk.core.util.k.Bz();
                 case -1:
                 default:
                     return aw.this.mPageContext.getString(d.j.save_fail);

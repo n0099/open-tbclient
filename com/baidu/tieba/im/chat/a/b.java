@@ -22,7 +22,7 @@ import org.apache.http.message.BasicNameValuePair;
 public abstract class b extends BaseAdapter {
     protected Context mContext;
     protected List<ImMessageCenterShowItemData> mList = null;
-    protected boolean erd = false;
+    protected boolean esB = false;
 
     protected abstract BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str);
 
@@ -55,7 +55,7 @@ public abstract class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pP */
+    /* renamed from: pI */
     public ImMessageCenterShowItemData getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -76,12 +76,12 @@ public abstract class b extends BaseAdapter {
         }
         if (aVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(d.h.chat_list_item, viewGroup, false);
-            aVar = bW(view);
+            aVar = bY(view);
             view.setTag(aVar);
         }
         aj.s(view, d.f.list_selector);
-        aj.s(aVar.mLine, d.C0108d.cp_bg_line_b);
-        aVar.ere.setVisibility(0);
+        aj.s(aVar.mLine, d.C0107d.cp_bg_line_b);
+        aVar.esC.setVisibility(0);
         aVar.mLine.setVisibility(0);
         ImMessageCenterShowItemData item = getItem(i);
         if (item != null) {
@@ -99,51 +99,51 @@ public abstract class b extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.erg.setText(imMessageCenterShowItemData.getFriendName());
+        aVar.esE.setText(imMessageCenterShowItemData.getFriendName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (aVar != null) {
             if (imMessageCenterShowItemData == null) {
-                aVar.erk.setVisibility(8);
+                aVar.esI.setVisibility(8);
             } else if (b(imMessageCenterShowItemData)) {
                 ChatSetting groupSetting = imMessageCenterShowItemData.getGroupSetting();
                 if (groupSetting == null) {
-                    aVar.erk.setVisibility(8);
+                    aVar.esI.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
-                    aVar.erk.setVisibility(0);
-                    aj.c(aVar.erk, d.f.icon_news_stop);
+                    aVar.esI.setVisibility(0);
+                    aj.c(aVar.esI, d.f.icon_news_stop);
                 } else {
-                    aVar.erk.setVisibility(8);
+                    aVar.esI.setVisibility(8);
                 }
             } else {
-                aVar.erk.setVisibility(8);
+                aVar.esI.setVisibility(8);
             }
         }
     }
 
     protected void c(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (this.erd) {
-            aVar.erm.setVisibility(0);
+        if (this.esB) {
+            aVar.esK.setVisibility(0);
         } else {
-            aVar.erm.setVisibility(8);
+            aVar.esK.setVisibility(8);
         }
         if (imMessageCenterShowItemData.isSelected()) {
-            aj.s(aVar.erm, d.f.btn_bgb_choice_s);
-            aj.t(aVar.ere, d.C0108d.cp_bg_line_e);
+            aj.s(aVar.esK, d.f.btn_bgb_choice_s);
+            aj.t(aVar.esC, d.C0107d.cp_bg_line_e);
             return;
         }
-        aj.s(aVar.erm, d.f.btn_bgb_choice_n);
-        aj.t(aVar.ere, d.C0108d.cp_bg_line_d);
+        aj.s(aVar.esK, d.f.btn_bgb_choice_n);
+        aj.t(aVar.esC, d.C0107d.cp_bg_line_d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-            aVar.erh.setText("");
+            aVar.esF.setText("");
         } else {
-            aVar.erh.setText(imMessageCenterShowItemData.getMsgContent());
+            aVar.esF.setText(imMessageCenterShowItemData.getMsgContent());
         }
     }
 
@@ -156,7 +156,7 @@ public abstract class b extends BaseAdapter {
             if (imMessageCenterShowItemData.getServerTime() != 0) {
                 str = am.f(date);
             }
-            aVar.eri.setText(str);
+            aVar.esG.setText(str);
         }
     }
 
@@ -164,9 +164,9 @@ public abstract class b extends BaseAdapter {
     public void f(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         int unReadCount = imMessageCenterShowItemData.getUnReadCount();
         if (unReadCount > 0) {
-            aVar.erj.setVisibility(0);
+            aVar.esH.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GM() == 0) {
+            if (com.baidu.tbadk.coreExtra.messageCenter.b.GC().GF() == 0) {
                 valueOf = "";
                 unReadCount = 0;
             } else {
@@ -179,67 +179,67 @@ public abstract class b extends BaseAdapter {
                     }
                 }
             }
-            aVar.erj.setText(valueOf);
+            aVar.esH.setText(valueOf);
         } else {
-            aVar.erj.setVisibility(8);
+            aVar.esH.setVisibility(8);
         }
-        aj.e(aVar.erg, d.C0108d.cp_cont_b, 1);
-        aj.e(aVar.erh, d.C0108d.cp_cont_d, 1);
-        aj.e(aVar.eri, d.C0108d.cp_cont_e, 1);
+        aj.e(aVar.esE, d.C0107d.cp_cont_b, 1);
+        aj.e(aVar.esF, d.C0107d.cp_cont_d, 1);
+        aj.e(aVar.esG, d.C0107d.cp_cont_e, 1);
         if (unReadCount < 10) {
             if (unReadCount == 0) {
-                aj.s(aVar.erj, d.f.icon_news_down_bar_one);
-                aVar.erj.setWidth(0);
-                aVar.erj.setHeight(0);
+                aj.s(aVar.esH, d.f.icon_news_down_bar_one);
+                aVar.esH.setWidth(0);
+                aVar.esH.setHeight(0);
             } else {
-                aj.s(aVar.erj, d.f.icon_news_head_prompt_one);
+                aj.s(aVar.esH, d.f.icon_news_head_prompt_one);
             }
         } else if (unReadCount < 100) {
-            aj.s(aVar.erj, d.f.icon_news_head_prompt_two);
+            aj.s(aVar.esH, d.f.icon_news_head_prompt_two);
         } else {
-            aj.s(aVar.erj, d.f.icon_news_head_prompt_more);
-            aVar.erj.setText("");
+            aj.s(aVar.esH, d.f.icon_news_head_prompt_more);
+            aVar.esH.setText("");
         }
-        aj.e(aVar.erj, d.C0108d.common_color_10225, 1);
+        aj.e(aVar.esH, d.C0107d.common_color_10225, 1);
     }
 
-    public boolean aEA() {
-        return this.erd;
+    public boolean aEF() {
+        return this.esB;
     }
 
-    public void gP(boolean z) {
-        this.erd = z;
+    public void gS(boolean z) {
+        this.esB = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a bW(View view) {
+    public a bY(View view) {
         a aVar = new a();
-        aVar.ere = (ViewGroup) view.findViewById(d.g.chat_item);
-        aVar.erf = (HeadImageView) view.findViewById(d.g.chat_head);
-        aVar.erg = (TextView) view.findViewById(d.g.chat_name);
-        aVar.erh = (TextView) view.findViewById(d.g.last_chat_content);
-        aVar.eri = (TextView) view.findViewById(d.g.chat_time);
+        aVar.esC = (ViewGroup) view.findViewById(d.g.chat_item);
+        aVar.esD = (HeadImageView) view.findViewById(d.g.chat_head);
+        aVar.esE = (TextView) view.findViewById(d.g.chat_name);
+        aVar.esF = (TextView) view.findViewById(d.g.last_chat_content);
+        aVar.esG = (TextView) view.findViewById(d.g.chat_time);
         aVar.mLine = view.findViewById(d.g.line);
-        aVar.erj = (TextView) view.findViewById(d.g.new_message);
-        aVar.erk = (ImageView) view.findViewById(d.g.iv_bell);
-        aVar.erl = (ImageView) view.findViewById(d.g.send_status);
-        aVar.erm = (ImageView) view.findViewById(d.g.select_status);
+        aVar.esH = (TextView) view.findViewById(d.g.new_message);
+        aVar.esI = (ImageView) view.findViewById(d.g.iv_bell);
+        aVar.esJ = (ImageView) view.findViewById(d.g.send_status);
+        aVar.esK = (ImageView) view.findViewById(d.g.select_status);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public class a {
-        public ViewGroup ere = null;
-        public HeadImageView erf = null;
-        public TextView erg = null;
-        public TextView erh = null;
-        public TextView eri = null;
-        public TextView erj = null;
+        public ViewGroup esC = null;
+        public HeadImageView esD = null;
+        public TextView esE = null;
+        public TextView esF = null;
+        public TextView esG = null;
+        public TextView esH = null;
         public View mLine = null;
-        public ImageView erk = null;
-        public ImageView erl = null;
-        public ImageView erm = null;
+        public ImageView esI = null;
+        public ImageView esJ = null;
+        public ImageView esK = null;
 
         protected a() {
         }
@@ -249,19 +249,19 @@ public abstract class b extends BaseAdapter {
     public void h(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (aVar != null && imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
             if (a(imMessageCenterShowItemData)) {
-                aVar.erl.setVisibility(0);
+                aVar.esJ.setVisibility(0);
                 if (imMessageCenterShowItemData.getSendStatus() == 2) {
-                    aj.s(aVar.erl, d.f.icon_send_failed_information);
+                    aj.s(aVar.esJ, d.f.icon_send_failed_information);
                     return;
                 } else if (imMessageCenterShowItemData.getSendStatus() == 1) {
-                    aj.s(aVar.erl, d.f.icon_send_in_information);
+                    aj.s(aVar.esJ, d.f.icon_send_in_information);
                     return;
                 } else {
-                    aVar.erl.setVisibility(8);
+                    aVar.esJ.setVisibility(8);
                     return;
                 }
             }
-            aVar.erl.setVisibility(8);
+            aVar.esJ.setVisibility(8);
         }
     }
 }

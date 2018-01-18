@@ -10,46 +10,46 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c.a {
-    private final long gFP;
-    private final String gFQ;
-    private com.baidu.tieba.i.a.e[] gFR;
-    private final int gFm;
-    private final int gFn;
+    private final long guY;
+    private final String guZ;
+    private final int guu;
+    private final int guv;
+    private com.baidu.tieba.i.a.e[] gva;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.i.a.e... eVarArr) {
         super(300);
-        this.gFm = i;
+        this.guu = i;
         this.what = i2;
-        this.gFn = i3;
-        this.gFP = j;
-        this.gFQ = str;
-        this.gFR = eVarArr;
+        this.guv = i3;
+        this.guY = j;
+        this.guZ = str;
+        this.gva = eVarArr;
     }
 
     @Override // com.baidu.tieba.l.c.a, com.baidu.tieba.l.c
-    public JSONObject brv() {
-        JSONObject brv = super.brv();
+    public JSONObject bkO() {
+        JSONObject bkO = super.bkO();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.gFm, this.what, this.gFn, this.gFP).toString()));
-            if (this.gFR != null) {
-                int length = this.gFR.length;
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.guu, this.what, this.guv, this.guY).toString()));
+            if (this.gva != null) {
+                int length = this.gva.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.i.a.e eVar = this.gFR[i];
+                    com.baidu.tieba.i.a.e eVar = this.gva[i];
                     if (eVar != null) {
-                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.pa(eVar.url).toString()));
+                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.pd(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.gFQ)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.gFQ));
+            if (!StringUtils.isNull(this.guZ)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.guZ));
             }
-            brv.put("ext", jSONArray);
+            bkO.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return brv;
+        return bkO;
     }
 
     public static JSONObject b(int i, int i2, int i3, long j) {
@@ -64,8 +64,8 @@ public class b extends c.a {
         }
         try {
             jSONObject.put("player", string);
-            jSONObject.put("what", i2 + "  " + VideoPlatformStatic.ju(i2));
-            jSONObject.put("extra", i3 + "  " + VideoPlatformStatic.ju(i3));
+            jSONObject.put("what", i2 + "  " + VideoPlatformStatic.jq(i2));
+            jSONObject.put("extra", i3 + "  " + VideoPlatformStatic.jq(i3));
             if (j != 0) {
                 jSONObject.put("speed", j);
             }

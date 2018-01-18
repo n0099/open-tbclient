@@ -44,9 +44,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b aAF;
+    private static volatile b aAE;
     private final Context a;
-    private PublicKey aAE;
+    private PublicKey aAD;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -252,7 +252,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.aAE);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.aAD);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -282,7 +282,7 @@ public final class c {
             th = th;
         }
         try {
-            this.aAE = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.aAD = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -392,16 +392,16 @@ public final class c {
     }
 
     private static b ay(Context context) {
-        if (aAF == null) {
+        if (aAE == null) {
             synchronized (b.class) {
-                if (aAF == null) {
+                if (aAE == null) {
                     SystemClock.uptimeMillis();
-                    aAF = new c(context).tM();
+                    aAE = new c(context).tM();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return aAF;
+        return aAE;
     }
 
     public static String b(Context context) {

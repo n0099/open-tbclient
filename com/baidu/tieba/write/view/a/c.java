@@ -11,10 +11,10 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends a {
     private static int mPadding;
-    private TextView hRb;
-    private TextView hRc;
-    private TextView hRd;
-    private TextView hRe;
+    private TextView hGJ;
+    private TextView hGK;
+    private TextView hGL;
+    private TextView hGM;
 
     public c(e eVar) {
         super(eVar);
@@ -25,38 +25,38 @@ public class c extends a {
         return this.mRootView;
     }
 
-    public void q(View.OnClickListener onClickListener) {
-        this.hRb.setTag(0);
-        this.hRc.setTag(1);
-        this.hRd.setTag(2);
-        this.hRe.setTag(3);
-        this.hRb.setOnClickListener(onClickListener);
-        this.hRc.setOnClickListener(onClickListener);
-        this.hRd.setOnClickListener(onClickListener);
-        this.hRe.setOnClickListener(onClickListener);
+    public void r(View.OnClickListener onClickListener) {
+        this.hGJ.setTag(0);
+        this.hGK.setTag(1);
+        this.hGL.setTag(2);
+        this.hGM.setTag(3);
+        this.hGJ.setOnClickListener(onClickListener);
+        this.hGK.setOnClickListener(onClickListener);
+        this.hGL.setOnClickListener(onClickListener);
+        this.hGM.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.bXZ.getPageActivity()).inflate(d.h.pic_rorate_view, (ViewGroup) null);
-        this.hRb = (TextView) this.mRootView.findViewById(d.g.rotate_left);
-        this.hRc = (TextView) this.mRootView.findViewById(d.g.rotate_right);
-        this.hRd = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
-        this.hRe = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
+        this.mRootView = LayoutInflater.from(this.bYg.getPageActivity()).inflate(d.h.pic_rorate_view, (ViewGroup) null);
+        this.hGJ = (TextView) this.mRootView.findViewById(d.g.rotate_left);
+        this.hGK = (TextView) this.mRootView.findViewById(d.g.rotate_right);
+        this.hGL = (TextView) this.mRootView.findViewById(d.g.rotate_left_right);
+        this.hGM = (TextView) this.mRootView.findViewById(d.g.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        aj.r(this.hRb, d.C0108d.cp_cont_j);
-        aj.r(this.hRc, d.C0108d.cp_cont_j);
-        aj.r(this.hRd, d.C0108d.cp_cont_j);
-        aj.r(this.hRe, d.C0108d.cp_cont_j);
-        this.hRb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.hRc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.hRe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.hRd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.hRb.setCompoundDrawablePadding(mPadding);
-        this.hRc.setCompoundDrawablePadding(mPadding);
-        this.hRe.setCompoundDrawablePadding(mPadding);
-        this.hRd.setCompoundDrawablePadding(mPadding);
+        aj.r(this.hGJ, d.C0107d.cp_cont_j);
+        aj.r(this.hGK, d.C0107d.cp_cont_j);
+        aj.r(this.hGL, d.C0107d.cp_cont_j);
+        aj.r(this.hGM, d.C0107d.cp_cont_j);
+        this.hGJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.hGK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.hGM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.hGL.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.hGJ.setCompoundDrawablePadding(mPadding);
+        this.hGK.setCompoundDrawablePadding(mPadding);
+        this.hGM.setCompoundDrawablePadding(mPadding);
+        this.hGL.setCompoundDrawablePadding(mPadding);
     }
 }

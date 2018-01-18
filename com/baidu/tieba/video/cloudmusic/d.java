@@ -6,9 +6,9 @@ public interface d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void auK();
+        void avN();
 
-        void bGL();
+        void bAi();
     }
 
     /* loaded from: classes2.dex */
@@ -17,8 +17,8 @@ public interface d {
 
         void a(CloudMusicData cloudMusicData);
 
-        void nW(boolean z);
+        void mY(boolean z);
 
-        void nX(boolean z);
+        void mZ(boolean z);
     }
 }

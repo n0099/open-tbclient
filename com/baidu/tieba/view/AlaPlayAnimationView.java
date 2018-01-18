@@ -6,37 +6,37 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator hIp;
-    private boolean hIq;
-    private boolean hIr;
+    private ObjectAnimator hxW;
+    private boolean hxX;
+    private boolean hxY;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.hIq = false;
-        this.hIr = false;
+        this.hxX = false;
+        this.hxY = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hIq = false;
-        this.hIr = false;
+        this.hxX = false;
+        this.hxY = false;
         init();
     }
 
     private void init() {
-        this.hIp = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.hIp.setRepeatMode(1);
-        this.hIp.setRepeatCount(-1);
-        this.hIp.setDuration(700L);
+        this.hxW = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.hxW.setRepeatMode(1);
+        this.hxW.setRepeatCount(-1);
+        this.hxW.setDuration(700L);
         setVisibility(8);
-        this.hIq = false;
+        this.hxX = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.hIr) {
+        if (this.hxY) {
             startPlayAnimation();
         }
     }
@@ -44,30 +44,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bKr();
+        bDR();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.hIr = z;
+        this.hxY = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.hIq) {
-            this.hIq = true;
-            if (this.hIp != null) {
+        if (!this.hxX) {
+            this.hxX = true;
+            if (this.hxW != null) {
                 setVisibility(0);
-                this.hIp.start();
+                this.hxW.start();
             }
         }
     }
 
-    public void bKr() {
-        if (this.hIp != null) {
-            this.hIp.setRepeatCount(-1);
-            this.hIp.cancel();
+    public void bDR() {
+        if (this.hxW != null) {
+            this.hxW.setRepeatCount(-1);
+            this.hxW.cancel();
             clearAnimation();
         }
-        this.hIq = false;
+        this.hxX = false;
         setVisibility(8);
     }
 }

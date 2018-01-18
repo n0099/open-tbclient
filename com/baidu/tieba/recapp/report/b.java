@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gPA;
-    private CustomMessageListener gPC = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gEI;
+    private CustomMessageListener gEK = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oI() && b.this.gPB != null) {
-                b.this.gPB.buk();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oI() && b.this.gEJ != null) {
+                b.this.gEJ.bnD();
             }
         }
     };
-    private c gPB = new f();
+    private c gEJ = new f();
 
-    public static b bui() {
-        if (gPA == null) {
+    public static b bnB() {
+        if (gEI == null) {
             synchronized (b.class) {
-                if (gPA == null) {
-                    gPA = new b();
+                if (gEI == null) {
+                    gEI = new b();
                 }
             }
         }
-        return gPA;
+        return gEI;
     }
 
-    private boolean buj() {
+    private boolean bnC() {
         return com.baidu.adp.lib.b.d.mz().an("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gPC);
+        MessageManager.getInstance().registerListener(this.gEK);
     }
 
     public void a(a aVar) {
-        if (buj() && aVar != null && this.gPB != null) {
+        if (bnC() && aVar != null && this.gEJ != null) {
             if (j.oI()) {
-                this.gPB.b(aVar);
+                this.gEJ.b(aVar);
             } else {
-                this.gPB.c(aVar);
+                this.gEJ.c(aVar);
             }
         }
     }

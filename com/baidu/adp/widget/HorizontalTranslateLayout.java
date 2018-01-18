@@ -18,28 +18,28 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final Rect atA;
-    private final Rect atB;
-    private final Paint atC;
+    private final Paint atB;
+    private int atC;
     private int atD;
     private int atE;
-    private int atF;
-    private boolean atG;
-    private final a atH;
-    private final b atI;
-    private final g atJ;
-    private d atK;
-    private f atL;
-    private final List<e> atM;
-    private c atN;
-    private int atq;
+    private boolean atF;
+    private final a atG;
+    private final b atH;
+    private final g atI;
+    private d atJ;
+    private f atK;
+    private final List<e> atL;
+    private c atM;
+    private int atp;
+    private float atr;
     private float ats;
-    private float att;
-    private int atu;
-    private final int atv;
+    private int att;
+    private final int atu;
+    private boolean atv;
     private boolean atw;
-    private boolean atx;
-    private TrackDirection aty;
-    private int atz;
+    private TrackDirection atx;
+    private int aty;
+    private final Rect atz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -86,100 +86,100 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.atC.setColor(i);
+        this.atB.setColor(i);
         invalidate();
     }
 
     public void setProportion(float f2) {
         if (f2 >= -1.0f && f2 <= 1.0f) {
             if (f2 < 0.0f) {
-                this.atu = (int) ((this.ats - this.atq) * (-f2));
+                this.att = (int) ((this.atr - this.atp) * (-f2));
             } else if (f2 > 0.0f) {
-                this.atu = (int) ((this.atq - this.att) * f2);
+                this.att = (int) ((this.atp - this.ats) * f2);
             } else if (f2 == 0.0f) {
-                this.atu = 0;
-                this.atz = 10004;
+                this.att = 0;
+                this.aty = 10004;
             } else if (f2 == -1.0f) {
-                this.ats -= getMeasuredWidth();
-                this.atz = 10000;
+                this.atr -= getMeasuredWidth();
+                this.aty = 10000;
             } else if (f2 == 1.0f) {
-                this.ats = getMeasuredWidth() - this.att;
-                this.atz = 10001;
+                this.atr = getMeasuredWidth() - this.ats;
+                this.aty = 10001;
             }
             invalidate();
         }
     }
 
     public int getLeftOffset() {
-        return (int) this.ats;
+        return (int) this.atr;
     }
 
     public int getRightOffset() {
-        return (int) this.att;
+        return (int) this.ats;
     }
 
     public void setLeftTapBack(boolean z) {
-        this.atw = z;
+        this.atv = z;
     }
 
     public void setRightTapBack(boolean z) {
-        this.atx = z;
+        this.atw = z;
     }
 
     public int getState() {
-        return this.atz;
+        return this.aty;
     }
 
     public void setLeftAnimationListener(d dVar) {
-        this.atK = dVar;
+        this.atJ = dVar;
     }
 
     public void setRightAnimationListener(f fVar) {
-        this.atL = fVar;
+        this.atK = fVar;
     }
 
     public void setHorizontalTrackListener(c cVar) {
-        this.atN = cVar;
+        this.atM = cVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(this.atu, 0.0f);
-        BdLog.d("HorizontalTranslateLayout@dispatchDraw " + this.atu);
-        canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.atC);
+        canvas.translate(this.att, 0.0f);
+        BdLog.d("HorizontalTranslateLayout@dispatchDraw " + this.att);
+        canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.atB);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getLeftTranslate() {
-        return this.atu;
+        return this.att;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aty == TrackDirection.none) {
+        if (this.atx == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.atz == 10004) {
+        if (this.aty == 10004) {
             switch (action) {
                 case 0:
-                    this.atD = x;
-                    this.atE = y;
-                    this.atH.removeMessages(-100);
-                    this.atH.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
-                    this.atH.removeMessages(-101);
-                    this.atH.removeMessages(-105);
+                    this.atC = x;
+                    this.atD = y;
+                    this.atG.removeMessages(-100);
+                    this.atG.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
+                    this.atG.removeMessages(-101);
+                    this.atG.removeMessages(-105);
                     return false;
                 case 1:
                 default:
                     return false;
                 case 2:
                     BdLog.d("HorizontalTranslateLayout@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(-this.atu, 0.0f);
+                    motionEvent.offsetLocation(-this.att, 0.0f);
                     return ap(x, y);
             }
         }
@@ -188,7 +188,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean ap(int i, int i2) {
-        return i2 >= this.atE - this.atv && i2 <= this.atE + this.atv && (i < this.atD - this.atv || i > this.atD + this.atv) && this.atJ.dB(i - this.atD);
+        return i2 >= this.atD - this.atu && i2 <= this.atD + this.atu && (i < this.atC - this.atu || i > this.atC + this.atu) && this.atI.dB(i - this.atC);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -197,33 +197,33 @@ public class HorizontalTranslateLayout extends FrameLayout {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & 255;
-        if (this.atz == 10004) {
+        if (this.aty == 10004) {
             switch (action) {
                 case 1:
                 case 3:
                     BdLog.d("HorizontalTranslateLayout@onTouchEvent up");
-                    this.atG = false;
-                    if (this.atJ.atZ) {
+                    this.atF = false;
+                    if (this.atI.atY) {
                         BdLog.d("HorizontalTranslateLayout@onTouchEvent tracking");
-                        this.atJ.sd();
-                        this.atJ.se();
+                        this.atI.sd();
+                        this.atI.se();
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.atJ.atZ) {
-                        if (!this.atG) {
-                            if (x > this.atD) {
-                                this.atF = this.atD + this.atv;
-                                this.atG = true;
+                    if (this.atI.atY) {
+                        if (!this.atF) {
+                            if (x > this.atC) {
+                                this.atE = this.atC + this.atu;
+                                this.atF = true;
                             } else {
-                                this.atF = this.atD - this.atv;
-                                this.atG = true;
+                                this.atE = this.atC - this.atu;
+                                this.atF = true;
                             }
                         }
-                        this.atJ.dC(this.atF - x);
-                        this.atF = x;
-                        this.atJ.atY.addMovement(motionEvent);
+                        this.atI.dC(this.atE - x);
+                        this.atE = x;
+                        this.atI.atX.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -232,24 +232,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
         }
         BdLog.d("HorizontalTranslateLayout" + String.format("collapse x=%d, y=%d", Integer.valueOf(x), Integer.valueOf(y)));
-        BdLog.d("HorizontalTranslateLayoutleft tap back frame = " + this.atA);
-        BdLog.d("HorizontalTranslateLayoutright tap back frame = " + this.atB);
+        BdLog.d("HorizontalTranslateLayoutleft tap back frame = " + this.atz);
+        BdLog.d("HorizontalTranslateLayoutright tap back frame = " + this.atA);
         switch (action) {
             case 0:
-                if ((this.atz != 10000 || !this.atA.contains(x, y)) && (this.atz != 10001 || !this.atB.contains(x, y))) {
+                if ((this.aty != 10000 || !this.atz.contains(x, y)) && (this.aty != 10001 || !this.atA.contains(x, y))) {
                     return false;
                 }
-                if (!this.atJ.atZ) {
-                    this.atF = x;
-                    this.atJ.dB(x);
+                if (!this.atI.atY) {
+                    this.atE = x;
+                    this.atI.dB(x);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.atJ.atZ) {
-                    this.atJ.sd();
-                    this.atJ.se();
+                if (this.atI.atY) {
+                    this.atI.sd();
+                    this.atI.se();
                     return true;
                 }
                 return true;
@@ -258,10 +258,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.atJ.atZ) {
-            this.atJ.dC(this.atF - x);
-            this.atF = x;
-            this.atJ.atY.addMovement(motionEvent);
+        if (this.atI.atY) {
+            this.atI.dC(this.atE - x);
+            this.atE = x;
+            this.atI.atX.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -271,14 +271,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.ats != -1.0f) {
-                this.atA.set(i, i2, (int) (i + this.ats), i4);
+            if (this.atr != -1.0f) {
+                this.atz.set(i, i2, (int) (i + this.atr), i4);
             }
-            if (this.att != -1.0f) {
-                this.atB.set((int) (i3 - this.att), i2, i3, i4);
+            if (this.ats != -1.0f) {
+                this.atA.set((int) (i3 - this.ats), i2, i3, i4);
             }
         }
-        if (!this.atI.atW && !this.atJ.atZ) {
+        if (!this.atH.atV && !this.atI.atY) {
             rS();
         }
     }
@@ -287,24 +287,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!$assertionsDisabled && i3 < this.ats) {
+        if (!$assertionsDisabled && i3 < this.atr) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!$assertionsDisabled && i3 < this.att) {
+        if (!$assertionsDisabled && i3 < this.ats) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
-        this.atq = getMeasuredWidth();
+        this.atp = getMeasuredWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rS() {
-        switch (this.atz) {
+        switch (this.aty) {
             case 10000:
-                this.atu = (int) (this.ats - getMeasuredWidth());
+                this.att = (int) (this.atr - getMeasuredWidth());
                 invalidate();
                 return;
             case 10001:
-                this.atu = (int) (getMeasuredWidth() - this.att);
+                this.att = (int) (getMeasuredWidth() - this.ats);
                 invalidate();
                 return;
             case 10002:
@@ -312,7 +312,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             default:
                 return;
             case 10004:
-                this.atu = 0;
+                this.att = 0;
                 invalidate();
                 return;
         }
@@ -321,27 +321,27 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends Handler {
-        final /* synthetic */ HorizontalTranslateLayout atP;
+        final /* synthetic */ HorizontalTranslateLayout atO;
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.atP.atI.atW) {
+            if (this.atO.atH.atV) {
                 switch (message.what) {
                     case -105:
-                        this.atP.atI.rW();
+                        this.atO.atH.rW();
                         return;
                     case SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED /* -104 */:
-                        this.atP.atI.rV();
+                        this.atO.atH.rV();
                         return;
                     case -103:
                     case FastRegResult.ERROR_CODE_SEND_SMS_FAILED /* -102 */:
                     default:
                         return;
                     case -101:
-                        this.atP.atI.rU();
+                        this.atO.atH.rU();
                         return;
                     case -100:
-                        this.atP.atI.rT();
+                        this.atO.atH.rT();
                         return;
                 }
             }
@@ -351,65 +351,65 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class g {
-        final /* synthetic */ HorizontalTranslateLayout atP;
-        VelocityTracker atY;
-        boolean atZ;
+        final /* synthetic */ HorizontalTranslateLayout atO;
+        VelocityTracker atX;
+        boolean atY;
+        final int atZ;
         final int aua;
-        final int aub;
 
         boolean dB(int i) {
-            switch (this.atP.aty) {
+            switch (this.atO.atx) {
                 case left:
-                    if (this.atP.atz != 10004 && this.atP.atz != 10000) {
+                    if (this.atO.aty != 10004 && this.atO.aty != 10000) {
                         return false;
                     }
                     break;
                 case right:
-                    if (this.atP.atz != 10004 && this.atP.atz != 10001) {
+                    if (this.atO.aty != 10004 && this.atO.aty != 10001) {
                         return false;
                     }
                     break;
                 case horizontal:
-                    if (this.atP.atN != null) {
-                        this.atP.atN.dA(i);
+                    if (this.atO.atM != null) {
+                        this.atO.atM.dA(i);
                         break;
                     }
                     break;
             }
-            this.atY = VelocityTracker.obtain();
-            this.atZ = true;
+            this.atX = VelocityTracker.obtain();
+            this.atY = true;
             return true;
         }
 
         void sd() {
-            this.atZ = false;
+            this.atY = false;
         }
 
         void dC(int i) {
-            if (this.atZ) {
-                int i2 = this.atP.atu - i;
-                switch (this.atP.aty) {
+            if (this.atY) {
+                int i2 = this.atO.att - i;
+                switch (this.atO.atx) {
                     case left:
                         BdLog.d("HorizontalTranslateLayout@move left");
-                        if (i2 > this.atP.ats - this.atP.getMeasuredWidth() && i2 < 0) {
-                            this.atP.atu -= i;
-                            this.atP.invalidate();
+                        if (i2 > this.atO.atr - this.atO.getMeasuredWidth() && i2 < 0) {
+                            this.atO.att -= i;
+                            this.atO.invalidate();
                             return;
                         }
                         return;
                     case right:
                         BdLog.d("HorizontalTranslateLayout@move right");
-                        if (i2 < this.atP.getMeasuredWidth() - this.atP.att && i2 > 0) {
-                            this.atP.atu -= i;
-                            this.atP.invalidate();
+                        if (i2 < this.atO.getMeasuredWidth() - this.atO.ats && i2 > 0) {
+                            this.atO.att -= i;
+                            this.atO.invalidate();
                             return;
                         }
                         return;
                     case horizontal:
                         BdLog.d("HorizontalTranslateLayout@move horizontal");
-                        if (i2 >= this.atP.ats - this.atP.getMeasuredWidth() && i2 <= this.atP.getMeasuredWidth() - this.atP.att) {
-                            this.atP.atu -= i;
-                            this.atP.invalidate();
+                        if (i2 >= this.atO.atr - this.atO.getMeasuredWidth() && i2 <= this.atO.getMeasuredWidth() - this.atO.ats) {
+                            this.atO.att -= i;
+                            this.atO.invalidate();
                             return;
                         }
                         return;
@@ -422,15 +422,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
         /* JADX INFO: Access modifiers changed from: private */
         public void se() {
             float max;
-            this.atY.computeCurrentVelocity(this.aua);
-            float xVelocity = this.atY.getXVelocity();
+            this.atX.computeCurrentVelocity(this.atZ);
+            float xVelocity = this.atX.getXVelocity();
             BdLog.d("HorizontalTranslateLayout@fling x " + xVelocity);
             if (xVelocity < 0.0f) {
-                max = Math.min(xVelocity, -this.aub);
+                max = Math.min(xVelocity, -this.aua);
             } else {
-                max = Math.max(xVelocity, this.aub);
+                max = Math.max(xVelocity, this.aua);
             }
-            switch (this.atP.aty) {
+            switch (this.atO.atx) {
                 case left:
                     I(max);
                     break;
@@ -441,24 +441,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     H(max);
                     break;
             }
-            this.atY.recycle();
-            this.atY = null;
+            this.atX.recycle();
+            this.atX = null;
         }
 
         private void H(float f) {
             BdLog.d("HorizontalTranslateLayout@horizontalFling");
-            int i = this.atP.atu;
-            if (i <= 0 && i >= this.atP.ats - this.atP.getMeasuredWidth()) {
+            int i = this.atO.att;
+            if (i <= 0 && i >= this.atO.atr - this.atO.getMeasuredWidth()) {
                 if (f < 0.0f) {
-                    this.atP.atI.F(f);
+                    this.atO.atH.F(f);
                 } else {
-                    this.atP.atI.D(f);
+                    this.atO.atH.D(f);
                 }
-            } else if (i >= 0 && i <= this.atP.getMeasuredWidth() - this.atP.att) {
+            } else if (i >= 0 && i <= this.atO.getMeasuredWidth() - this.atO.ats) {
                 if (f < 0.0f) {
-                    this.atP.atI.E(f);
+                    this.atO.atH.E(f);
                 } else {
-                    this.atP.atI.G(f);
+                    this.atO.atH.G(f);
                 }
             }
         }
@@ -466,18 +466,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
         private void I(float f) {
             BdLog.d("HorizontalTranslateLayout@leftFling");
             if (f < 0.0f) {
-                this.atP.atI.F(f);
+                this.atO.atH.F(f);
             } else {
-                this.atP.atI.D(f);
+                this.atO.atH.D(f);
             }
         }
 
         private void J(float f) {
             BdLog.d("HorizontalTranslateLayout@rightFling");
             if (f < 0.0f) {
-                this.atP.atI.E(f);
+                this.atO.atH.E(f);
             } else {
-                this.atP.atI.G(f);
+                this.atO.atH.G(f);
             }
         }
     }
@@ -485,168 +485,168 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        final /* synthetic */ HorizontalTranslateLayout atP;
+        final /* synthetic */ HorizontalTranslateLayout atO;
+        float atP;
         float atQ;
         float atR;
         float atS;
-        float atT;
+        long atT;
         long atU;
-        long atV;
-        boolean atW;
+        boolean atV;
 
         private void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.atQ = ((((float) (uptimeMillis - this.atU)) / 1000.0f) * this.atR) + this.atQ;
-            this.atU = uptimeMillis;
-            this.atV += 16;
+            this.atP = ((((float) (uptimeMillis - this.atT)) / 1000.0f) * this.atQ) + this.atP;
+            this.atT = uptimeMillis;
+            this.atU += 16;
         }
 
         void rT() {
             compute();
-            if (this.atQ <= this.atS) {
-                d dVar = this.atP.atK;
+            if (this.atP <= this.atR) {
+                d dVar = this.atO.atJ;
                 if (dVar != null) {
                     dVar.rY();
                 }
-                this.atW = false;
-                this.atP.atz = 10000;
-                this.atP.rS();
+                this.atV = false;
+                this.atO.aty = 10000;
+                this.atO.rS();
                 return;
             }
-            this.atP.atu = (int) (com.baidu.adp.widget.e.c(this.atS, this.atQ, false) + this.atT);
-            this.atP.invalidate();
-            this.atP.atH.sendEmptyMessageAtTime(-100, this.atV);
+            this.atO.att = (int) (com.baidu.adp.widget.e.c(this.atR, this.atP, false) + this.atS);
+            this.atO.invalidate();
+            this.atO.atG.sendEmptyMessageAtTime(-100, this.atU);
         }
 
         void rU() {
             compute();
-            if (this.atQ >= this.atS) {
-                f fVar = this.atP.atL;
+            if (this.atP >= this.atR) {
+                f fVar = this.atO.atK;
                 if (fVar != null) {
                     fVar.sc();
                 }
-                this.atW = false;
-                this.atP.atz = 10001;
-                this.atP.rS();
+                this.atV = false;
+                this.atO.aty = 10001;
+                this.atO.rS();
                 return;
             }
-            this.atP.atu = (int) (com.baidu.adp.widget.e.c(this.atS, this.atQ, false) + this.atT);
-            this.atP.invalidate();
-            this.atP.atH.sendEmptyMessageAtTime(-101, this.atV);
+            this.atO.att = (int) (com.baidu.adp.widget.e.c(this.atR, this.atP, false) + this.atS);
+            this.atO.invalidate();
+            this.atO.atG.sendEmptyMessageAtTime(-101, this.atU);
         }
 
         void rV() {
             compute();
-            if (this.atQ >= this.atS) {
-                for (e eVar : this.atP.atM) {
+            if (this.atP >= this.atR) {
+                for (e eVar : this.atO.atL) {
                     if (eVar != null) {
                         eVar.sa();
                     }
                 }
-                this.atW = false;
-                this.atP.atz = 10004;
-                this.atP.rS();
+                this.atV = false;
+                this.atO.aty = 10004;
+                this.atO.rS();
                 return;
             }
-            this.atP.atu = (int) (com.baidu.adp.widget.e.c(this.atS, this.atQ, false) + this.atT);
-            this.atP.invalidate();
-            this.atP.atH.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.atV);
+            this.atO.att = (int) (com.baidu.adp.widget.e.c(this.atR, this.atP, false) + this.atS);
+            this.atO.invalidate();
+            this.atO.atG.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.atU);
         }
 
         void rW() {
             compute();
-            if (this.atQ <= this.atS) {
-                for (e eVar : this.atP.atM) {
+            if (this.atP <= this.atR) {
+                for (e eVar : this.atO.atL) {
                     if (eVar != null) {
                         eVar.sa();
                     }
                 }
-                this.atW = false;
-                this.atP.atz = 10004;
-                this.atP.rS();
+                this.atV = false;
+                this.atO.aty = 10004;
+                this.atO.rS();
                 return;
             }
-            this.atP.atu = (int) (com.baidu.adp.widget.e.c(this.atS, this.atQ, false) + this.atT);
-            this.atP.invalidate();
-            this.atP.atH.sendEmptyMessageAtTime(-105, this.atV);
+            this.atO.att = (int) (com.baidu.adp.widget.e.c(this.atR, this.atP, false) + this.atS);
+            this.atO.invalidate();
+            this.atO.atG.sendEmptyMessageAtTime(-105, this.atU);
         }
 
         void D(float f) {
-            for (e eVar : this.atP.atM) {
+            for (e eVar : this.atO.atL) {
                 if (eVar != null) {
                     eVar.rZ();
                 }
             }
-            this.atW = true;
+            this.atV = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.atU = uptimeMillis;
-            this.atV = uptimeMillis + 16;
-            this.atR = f;
-            this.atQ = 0.0f;
-            this.atS = 0 - this.atP.atu;
-            this.atT = this.atP.atu;
-            this.atP.atH.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
-            BdLog.d("Animator@animateTopOpen " + this.atS);
+            this.atT = uptimeMillis;
+            this.atU = uptimeMillis + 16;
+            this.atQ = f;
+            this.atP = 0.0f;
+            this.atR = 0 - this.atO.att;
+            this.atS = this.atO.att;
+            this.atO.atG.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
+            BdLog.d("Animator@animateTopOpen " + this.atR);
             BdLog.d("Animator@animateTopOpen " + f);
-            this.atP.atH.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.atV);
+            this.atO.atG.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.atU);
         }
 
         void E(float f) {
-            for (e eVar : this.atP.atM) {
+            for (e eVar : this.atO.atL) {
                 if (eVar != null) {
                     eVar.rZ();
                 }
             }
-            this.atW = true;
+            this.atV = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.atU = uptimeMillis;
-            this.atV = uptimeMillis + 16;
-            this.atR = f;
-            this.atQ = 0.0f;
-            this.atS = 0 - this.atP.atu;
-            this.atT = this.atP.atu;
-            BdLog.d("Animator@animateBottomOpen " + this.atS);
+            this.atT = uptimeMillis;
+            this.atU = uptimeMillis + 16;
+            this.atQ = f;
+            this.atP = 0.0f;
+            this.atR = 0 - this.atO.att;
+            this.atS = this.atO.att;
+            BdLog.d("Animator@animateBottomOpen " + this.atR);
             BdLog.d("Animator@animateBottomOpen " + f);
-            this.atP.atH.removeMessages(-105);
-            this.atP.atH.sendEmptyMessageAtTime(-105, this.atV);
+            this.atO.atG.removeMessages(-105);
+            this.atO.atG.sendEmptyMessageAtTime(-105, this.atU);
         }
 
         void F(float f) {
-            d dVar = this.atP.atK;
+            d dVar = this.atO.atJ;
             if (dVar != null) {
                 dVar.rX();
             }
-            this.atW = true;
+            this.atV = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.atU = uptimeMillis;
-            this.atV = uptimeMillis + 16;
-            this.atR = f;
-            this.atQ = 0.0f;
-            this.atS = ((-this.atP.getMeasuredWidth()) + this.atP.ats) - this.atP.atu;
-            this.atT = this.atP.atu;
-            BdLog.d("Animator@animateTop " + this.atS);
+            this.atT = uptimeMillis;
+            this.atU = uptimeMillis + 16;
+            this.atQ = f;
+            this.atP = 0.0f;
+            this.atR = ((-this.atO.getMeasuredWidth()) + this.atO.atr) - this.atO.att;
+            this.atS = this.atO.att;
+            BdLog.d("Animator@animateTop " + this.atR);
             BdLog.d("Animator@animateTop " + f);
-            this.atP.atH.removeMessages(-100);
-            this.atP.atH.sendEmptyMessageAtTime(-100, this.atV);
+            this.atO.atG.removeMessages(-100);
+            this.atO.atG.sendEmptyMessageAtTime(-100, this.atU);
         }
 
         void G(float f) {
-            f fVar = this.atP.atL;
+            f fVar = this.atO.atK;
             if (fVar != null) {
                 fVar.sb();
             }
-            this.atW = true;
+            this.atV = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.atU = uptimeMillis;
-            this.atV = uptimeMillis + 16;
-            this.atR = f;
-            this.atQ = 0.0f;
-            this.atS = (this.atP.getMeasuredWidth() - this.atP.att) - this.atP.atu;
-            this.atT = this.atP.atu;
-            BdLog.d("Animator@animateBottom " + this.atS);
+            this.atT = uptimeMillis;
+            this.atU = uptimeMillis + 16;
+            this.atQ = f;
+            this.atP = 0.0f;
+            this.atR = (this.atO.getMeasuredWidth() - this.atO.ats) - this.atO.att;
+            this.atS = this.atO.att;
+            BdLog.d("Animator@animateBottom " + this.atR);
             BdLog.d("Animator@animateBottom " + f);
-            this.atP.atH.removeMessages(-101);
-            this.atP.atH.sendEmptyMessageAtTime(-101, this.atV);
+            this.atO.atG.removeMessages(-101);
+            this.atO.atG.sendEmptyMessageAtTime(-101, this.atU);
         }
     }
 }

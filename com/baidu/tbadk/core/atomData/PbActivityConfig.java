@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -270,16 +270,16 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(be beVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (beVar != null) {
+    public PbActivityConfig createFromThreadCfg(bd bdVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bdVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", beVar.getTid());
-            if (beVar.Ao() != null && !StringUtils.isNull(beVar.Ao().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, beVar.Ao().getId());
+            intent.putExtra("thread_id", bdVar.getTid());
+            if (bdVar.Ag() != null && !StringUtils.isNull(bdVar.Ag().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.Ag().getId());
             }
-            intent.putExtra("is_good", beVar.yT());
-            intent.putExtra("is_top", beVar.yS());
-            intent.putExtra("thread_time", beVar.yR());
+            intent.putExtra("is_good", bdVar.yO());
+            intent.putExtra("is_top", bdVar.yN());
+            intent.putExtra("thread_time", bdVar.yM());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -289,10 +289,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (beVar.yM() == null ? 0L : beVar.yM().getNum()));
-            if (beVar.yX() != null && beVar.yX().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", beVar.yX().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", beVar.yX().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.yH() == null ? 0L : bdVar.yH().getNum()));
+            if (bdVar.yS() != null && bdVar.yS().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bdVar.yS().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bdVar.yS().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

@@ -14,11 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    private String fqx;
+    private String frY;
     private boolean isSuccess = true;
-    private int gGJ = 0;
-    private boolean gFU = false;
-    private List<c> gGK = new ArrayList();
+    private int gvS = 0;
+    private boolean gvd = false;
+    private List<c> gvT = new ArrayList();
 
     static {
         if (f.lk()) {
@@ -27,9 +27,9 @@ public class n {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    d.oZ(g.a.bPf);
-                    d.oZ(g.a.fqu);
-                    d.oZ(g.a.fqv);
+                    d.pc(g.a.bPm);
+                    d.pc(g.a.frV);
+                    d.pc(g.a.frW);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -37,38 +37,38 @@ public class n {
     }
 
     public n(String str) {
-        this.fqx = str;
+        this.frY = str;
     }
 
-    public void brU() {
+    public void bln() {
         this.isSuccess = false;
     }
 
-    public void brV() {
+    public void blo() {
         this.isSuccess = true;
     }
 
-    public void brW() {
-        this.gGJ++;
+    public void blp() {
+        this.gvS++;
     }
 
-    public boolean brX() {
-        return this.gGJ > 0;
+    public boolean blq() {
+        return this.gvS > 0;
     }
 
-    public void brY() {
-        this.gFU = true;
+    public void blr() {
+        this.gvd = true;
     }
 
-    public boolean brZ() {
-        return this.gFU;
+    public boolean bls() {
+        return this.gvd;
     }
 
     public void a(c cVar) {
-        this.gGK.add(cVar);
-        bsb();
+        this.gvT.add(cVar);
+        blu();
         b(cVar);
-        bsa();
+        blt();
     }
 
     private void b(c cVar) {
@@ -82,16 +82,16 @@ public class n {
                     if (oVarArr != null && oVarArr.length == 1 && oVarArr[0] != null) {
                         o oVar = oVarArr[0];
                         synchronized ("debug") {
-                            d.a(new File(g.a.fqw + g.a.fqn + oVar.fqU + g.a.fqn + "debug"), oVar.gGN.brv().toString() + "\n", true);
+                            d.a(new File(g.a.frX + g.a.frO + oVar.fsv + g.a.frO + "debug"), oVar.gvW.bkO().toString() + "\n", true);
                         }
                     }
                     return null;
                 }
-            }.execute(new o(cVar, this.fqx));
+            }.execute(new o(cVar, this.frY));
         }
     }
 
-    private void bsa() {
+    private void blt() {
         if (f.lk()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.n.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -102,26 +102,26 @@ public class n {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            d.a(new File(g.a.fqw + g.a.fqn + eVar.fqU + g.a.fqn + "kpi"), n.b(eVar.isSuccess, eVar.gFT, eVar.gFU).toString(), false);
+                            d.a(new File(g.a.frX + g.a.frO + eVar.fsv + g.a.frO + "kpi"), n.b(eVar.isSuccess, eVar.gvc, eVar.gvd).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.gGJ, this.gFU, this.fqx));
+            }.execute(new e(this.isSuccess, this.gvS, this.gvd, this.frY));
         }
     }
 
-    private void bsb() {
+    private void blu() {
         if (f.lk()) {
-            File file = new File(g.a.fqw + g.a.fqn + this.fqx + g.a.fqn);
+            File file = new File(g.a.frX + g.a.frO + this.frY + g.a.frO);
             if (!file.exists()) {
                 file.mkdir();
             }
         }
     }
 
-    public JSONObject aVk() {
-        return b(this.isSuccess, this.gGJ, this.gFU);
+    public JSONObject aVp() {
+        return b(this.isSuccess, this.gvS, this.gvd);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -136,14 +136,14 @@ public class n {
         return jSONObject;
     }
 
-    public JSONObject aVl() {
+    public JSONObject aVq() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.G(this.gGK)) {
-                int size = this.gGK.size();
+            if (!v.E(this.gvT)) {
+                int size = this.gvT.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.gGK.get(i).brv());
+                    jSONArray.put(this.gvT.get(i).bkO());
                 }
             }
             jSONObject.put("running", jSONArray);

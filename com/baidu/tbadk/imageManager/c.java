@@ -7,22 +7,22 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class c {
-    private static c btY = new c();
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> btZ;
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> bua;
-    private com.baidu.adp.lib.e.a<String, Bitmap> bub;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> buc;
-    private com.baidu.tbadk.widget.a.c.b bud;
+    private static c bui = new c();
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> buj;
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> buk;
+    private com.baidu.adp.lib.e.a<String, Bitmap> bul;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> bum;
+    private com.baidu.tbadk.widget.a.c.b bun;
 
-    public static c Mb() {
-        return btY;
+    public static c LP() {
+        return bui;
     }
 
     private c() {
-        this.btZ = null;
-        this.bua = null;
-        this.bub = null;
-        this.btZ = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
+        this.buj = null;
+        this.buk = null;
+        this.bul = null;
+        this.buj = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -33,7 +33,7 @@ public class c {
                 }
             }
         };
-        this.bua = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
+        this.buk = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -58,7 +58,7 @@ public class c {
                 }
             }
         };
-        this.bub = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
+        this.bul = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -71,52 +71,52 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> ia(int i) {
-        if (this.buc != null && this.bud != null) {
-            if (this.bud.getBlockSize() == i) {
-                return this.buc;
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.a.a.a> hW(int i) {
+        if (this.bum != null && this.bun != null) {
+            if (this.bun.getBlockSize() == i) {
+                return this.bum;
             }
-            this.bud.iK(i);
-            this.buc.clear();
+            this.bun.iG(i);
+            this.bum.clear();
         }
-        if (this.bud == null) {
-            this.bud = new com.baidu.tbadk.widget.a.c.b(i);
+        if (this.bun == null) {
+            this.bun = new com.baidu.tbadk.widget.a.c.b(i);
         }
-        if (this.buc == null) {
-            this.buc = new com.baidu.adp.lib.e.b<>(this.bud, 6, 0);
+        if (this.bum == null) {
+            this.bum = new com.baidu.adp.lib.e.b<>(this.bun, 6, 0);
         }
-        return this.buc;
+        return this.bum;
     }
 
-    public void Mc() {
-        if (this.buc != null) {
-            this.buc.dg(0);
-            this.buc.df(0);
-            this.buc.clear();
-            this.buc = null;
+    public void LQ() {
+        if (this.bum != null) {
+            this.bum.dg(0);
+            this.bum.df(0);
+            this.bum.clear();
+            this.bum = null;
         }
     }
 
-    public int Md() {
-        return this.bua.getMaxSize();
+    public int LR() {
+        return this.buk.getMaxSize();
     }
 
     public void aH(int i, int i2) {
-        ib(i);
-        ic(i2);
-        id(30);
+        hX(i);
+        hY(i2);
+        hZ(30);
     }
 
-    public void ib(int i) {
-        this.btZ.dc(i);
+    public void hX(int i) {
+        this.buj.dc(i);
     }
 
-    public void ic(int i) {
-        this.bua.dc(i);
+    public void hY(int i) {
+        this.buk.dc(i);
     }
 
-    public void id(int i) {
-        this.bub.dc(i);
+    public void hZ(int i) {
+        this.bul.dc(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar) {
@@ -124,20 +124,20 @@ public class c {
     }
 
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.btZ != null) {
-            this.btZ.put(str, aVar);
+        if (aVar != null && this.buj != null) {
+            this.buj.put(str, aVar);
         }
     }
 
-    public boolean ie(int i) {
-        return this.bua.db(i);
+    public boolean ia(int i) {
+        return this.buk.db(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.bua != null) {
+        if (aVar != null && this.buk != null) {
             if (BdLog.isDebugMode()) {
             }
-            this.bua.put(str, aVar);
+            this.buk.put(str, aVar);
         }
     }
 
@@ -145,32 +145,32 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void gu(String str) {
-        this.btZ.remove(str);
-    }
-
     public void gv(String str) {
-        this.bua.remove(str);
+        this.buj.remove(str);
     }
 
-    public com.baidu.adp.widget.a.a gw(String str) {
-        return this.btZ.get(str);
+    public void gw(String str) {
+        this.buk.remove(str);
     }
 
     public com.baidu.adp.widget.a.a gx(String str) {
-        return this.bua.get(str);
+        return this.buj.get(str);
     }
 
-    public void Me() {
-        this.btZ.clear();
-        this.bua.clear();
+    public com.baidu.adp.widget.a.a gy(String str) {
+        return this.buk.get(str);
+    }
+
+    public void LS() {
+        this.buj.clear();
+        this.buk.clear();
     }
 
     public String toString() {
-        return "pic:" + this.bua.toString() + "  photo:" + this.btZ.toString();
+        return "pic:" + this.buk.toString() + "  photo:" + this.buj.toString();
     }
 
     public String lM() {
-        return this.bua.size() + "/" + this.bua.getMaxSize() + "/" + this.bua.evictionCount() + "_" + this.btZ.size() + "/" + this.btZ.getMaxSize() + "/" + this.btZ.evictionCount();
+        return this.buk.size() + "/" + this.buk.getMaxSize() + "/" + this.buk.evictionCount() + "_" + this.buj.size() + "/" + this.buj.getMaxSize() + "/" + this.buj.evictionCount();
     }
 }

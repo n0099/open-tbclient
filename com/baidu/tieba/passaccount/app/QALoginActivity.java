@@ -30,15 +30,15 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class QALoginActivity extends BaseActivity {
-    private BdAsyncTask<?, ?, ?> bPN;
+    private BdAsyncTask<?, ?, ?> bPU;
     private WebView mWebView;
     private String akC = "";
-    private String fyH = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
-    private String fyI = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
-    private boolean fyx = false;
+    private String fAh = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+    private String fAi = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
+    private boolean fzX = false;
     private int mFrom = -1;
-    private final a.InterfaceC0071a aSo = new a.InterfaceC0071a() { // from class: com.baidu.tieba.passaccount.app.QALoginActivity.2
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0071a
+    private final a.InterfaceC0070a aSn = new a.InterfaceC0070a() { // from class: com.baidu.tieba.passaccount.app.QALoginActivity.2
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0070a
         public void cB(String str) {
             if (QALoginActivity.this.getLoadingDialog() == null || !QALoginActivity.this.getLoadingDialog().isShowing()) {
                 QALoginActivity.this.showLoadingDialog(QALoginActivity.this.getPageContext().getString(d.j.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.passaccount.app.QALoginActivity.2.1
@@ -50,7 +50,7 @@ public class QALoginActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0071a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0070a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             QALoginActivity.this.closeLoadingDialog();
@@ -60,13 +60,13 @@ public class QALoginActivity extends BaseActivity {
             }
             p(accountData);
             if (QALoginActivity.this.mFrom == 4) {
-                QALoginActivity.this.TO();
+                QALoginActivity.this.TC();
             } else {
-                QALoginActivity.this.aXA();
+                QALoginActivity.this.aXF();
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0071a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0070a
         public void c(String str, int i, String str2) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             QALoginActivity.this.closeLoadingDialog();
@@ -91,7 +91,7 @@ public class QALoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        this.fyx = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+        this.fzX = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
         initView();
         initListener();
@@ -106,7 +106,7 @@ public class QALoginActivity extends BaseActivity {
     }
 
     public void initData() {
-        this.mWebView.loadUrl(this.fyI);
+        this.mWebView.loadUrl(this.fAi);
     }
 
     public void initListener() {
@@ -124,7 +124,7 @@ public class QALoginActivity extends BaseActivity {
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                if (str.startsWith(QALoginActivity.this.fyH) || str.startsWith("https://tieba.baidu.com")) {
+                if (str.startsWith(QALoginActivity.this.fAh) || str.startsWith("https://tieba.baidu.com")) {
                     String cookie = CookieManager.getInstance().getCookie(str);
                     if (cookie.contains("BDUSS=")) {
                         String[] split = cookie.split("=");
@@ -143,7 +143,7 @@ public class QALoginActivity extends BaseActivity {
                         }
                     }
                     if (QALoginActivity.this.akC != null && QALoginActivity.this.akC.length() > 0) {
-                        QALoginActivity.this.aXB();
+                        QALoginActivity.this.aXG();
                         return;
                     }
                     QALoginActivity.this.showToast("登录失败");
@@ -156,16 +156,16 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXB() {
+    public void aXG() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        if (this.bPN != null) {
-            this.bPN.cancel();
+        if (this.bPU != null) {
+            this.bPU.cancel();
         }
-        this.bPN = com.baidu.tieba.model.b.b("", this.akC, "", null, this.aSo);
+        this.bPU = com.baidu.tieba.model.b.b("", this.akC, "", null, this.aSn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void TO() {
+    public void TC() {
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
@@ -183,11 +183,11 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXA() {
+    public void aXF() {
         int i = 1;
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged();
-        if (this.fyx) {
+        if (this.fzX) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);

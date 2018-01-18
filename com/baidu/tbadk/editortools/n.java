@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<l> bpS;
+    LinkedList<l> bqb;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j(LinkedList<l> linkedList) {
-        this.bpS = linkedList;
+        this.bqb = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -21,41 +21,41 @@ public class n extends com.baidu.tbadk.editortools.view.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e hO(int i) {
+    public e hK(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.bpS.get(i);
+        return (e) this.bqb.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.bpS != null) {
-            return this.bpS.size();
+        if (this.bqb != null) {
+            return this.bqb.size();
         }
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void init(Context context) {
-        hX(4);
-        hY(2);
-        a(new a.InterfaceC0083a() { // from class: com.baidu.tbadk.editortools.n.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0083a
+        hT(4);
+        hU(2);
+        a(new a.InterfaceC0082a() { // from class: com.baidu.tbadk.editortools.n.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0082a
             public View getView(int i, View view, ViewGroup viewGroup) {
-                e hO = n.this.hO(i);
-                if (hO.getLayoutParams() == null) {
-                    hO.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                e hK = n.this.hK(i);
+                if (hK.getLayoutParams() == null) {
+                    hK.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return hO;
+                return hK;
             }
         });
-        LK().c(this);
+        Ly().c(this);
         a(new CommonTabContentView.c() { // from class: com.baidu.tbadk.editortools.n.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
             public void a(View view, int i, long j) {
-                if ((view instanceof e) && n.this.axO != null) {
-                    n.this.axO.bf(view);
+                if ((view instanceof e) && n.this.axN != null) {
+                    n.this.axN.bh(view);
                 }
             }
         });
@@ -63,9 +63,9 @@ public class n extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.bpS != null) {
-            this.bpS.clear();
+        if (this.bqb != null) {
+            this.bqb.clear();
         }
-        this.bpS = null;
+        this.bqb = null;
     }
 }

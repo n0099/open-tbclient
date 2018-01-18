@@ -14,7 +14,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     public l() {
         this.width = 0;
         this.height = 0;
-        DC();
+        Dt();
     }
 
     public l(int i, int i2) {
@@ -25,10 +25,10 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             this.height = i2;
             return;
         }
-        DC();
+        Dt();
     }
 
-    private void DC() {
+    private void Dt() {
         this.width = com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst());
     }
@@ -42,11 +42,11 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gx = com.baidu.tbadk.imageManager.c.Mb().gx(ew(str));
-        if (gx == null || gx.si() == null) {
+        com.baidu.adp.widget.a.a gy = com.baidu.tbadk.imageManager.c.LP().gy(ew(str));
+        if (gy == null || gy.si() == null) {
             return null;
         }
-        return gx;
+        return gy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Mb().c(ew(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.LP().c(ew(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 

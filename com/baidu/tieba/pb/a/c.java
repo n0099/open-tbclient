@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fDe;
-    private View fDf;
+    private a fEE;
+    private View fEF;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fDe = aVar;
+        this.fEE = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.fDf = view;
+        this.fEF = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fDe != null) {
-            return this.fDe.c(this.fDf, motionEvent);
+        if (this.fEE != null) {
+            return this.fEE.c(this.fEF, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fDe != null) {
-            return this.fDe.d(this.fDf, motionEvent);
+        if (this.fEE != null) {
+            return this.fEE.d(this.fEF, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fDe != null) {
-            return this.fDe.e(this.fDf, motionEvent);
+        if (this.fEE != null) {
+            return this.fEE.e(this.fEF, motionEvent);
         }
         return false;
     }
 
-    public void cm(View view) {
-        this.fDf = view;
+    public void co(View view) {
+        this.fEF = view;
     }
 }

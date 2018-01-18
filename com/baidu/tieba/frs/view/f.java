@@ -16,39 +16,39 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.tbadkCore.j;
 /* loaded from: classes2.dex */
 public class f implements View.OnClickListener {
-    private j dQj;
-    private ForumData dQk;
-    private ViewGroup dQl;
-    private View dQm;
-    private TextView dQn;
+    private j dUX;
+    private ForumData dUY;
+    private ViewGroup dUZ;
+    private View dVa;
+    private TextView dVb;
     private Context mContext;
     TbPageContext<FrsActivity> mTbPageContext;
 
     public f(TbPageContext<FrsActivity> tbPageContext, View view) {
-        this.dQl = null;
-        this.dQm = null;
-        this.dQn = null;
+        this.dUZ = null;
+        this.dVa = null;
+        this.dVb = null;
         this.mContext = view.getContext().getApplicationContext();
         this.mTbPageContext = tbPageContext;
-        this.dQm = view.findViewById(d.g.frs_header_divider_ticket);
-        this.dQl = (ViewGroup) view.findViewById(d.g.frs_header_ticket);
-        this.dQn = (TextView) view.findViewById(d.g.frs_header_ticket_text);
-        this.dQl.setOnClickListener(this);
+        this.dVa = view.findViewById(d.g.frs_header_divider_ticket);
+        this.dUZ = (ViewGroup) view.findViewById(d.g.frs_header_ticket);
+        this.dVb = (TextView) view.findViewById(d.g.frs_header_ticket_text);
+        this.dUZ.setOnClickListener(this);
     }
 
     public void changeSkinType(int i) {
-        aj.s(this.dQl, d.f.frs_top_item_bg);
+        aj.s(this.dUZ, d.f.frs_top_item_bg);
     }
 
     public void a(j jVar, ForumData forumData) {
         boolean z;
         boolean z2 = true;
-        this.dQj = jVar;
-        this.dQk = forumData;
+        this.dUX = jVar;
+        this.dUY = forumData;
         String string = this.mContext.getString(d.j.frs_star_ticket_name);
         if (jVar != null) {
-            z = jVar.bAU();
-            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= jVar.bAV()) {
+            z = jVar.buq();
+            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= jVar.bur()) {
                 z2 = false;
             }
         } else {
@@ -58,34 +58,34 @@ public class f implements View.OnClickListener {
             string = forumData.getName() + this.mContext.getString(d.j.forum) + this.mContext.getString(d.j.frs_star_ticket_name);
         }
         if (z) {
-            this.dQm.setVisibility(0);
-            this.dQl.setVisibility(0);
-            gg(z2);
-            this.dQn.setText(string);
+            this.dVa.setVisibility(0);
+            this.dUZ.setVisibility(0);
+            go(z2);
+            this.dVb.setText(string);
             TiebaStatic.log("ticket_show");
         } else {
-            this.dQm.setVisibility(8);
-            this.dQl.setVisibility(8);
+            this.dVa.setVisibility(8);
+            this.dUZ.setVisibility(8);
         }
-        this.dQm.setVisibility(8);
-        this.dQl.setVisibility(8);
+        this.dVa.setVisibility(8);
+        this.dUZ.setVisibility(8);
     }
 
-    private void gg(boolean z) {
+    private void go(boolean z) {
         if (z) {
-            this.dQn.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_news_down_bar_one, 0);
+            this.dVb.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_news_down_bar_one, 0);
         } else {
-            this.dQn.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            this.dVb.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dQl) {
-            if ((this.mTbPageContext == null || ax.be(this.mTbPageContext.getPageActivity())) && this.dQj != null && this.dQk != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.dQk.getId() + TbadkCoreApplication.getCurrentAccount(), this.dQj.bAV());
-                gg(false);
-                com.baidu.tbadk.browser.a.a(this.dQl.getContext(), k.a(this.dQn.getText(), this.mContext.getString(d.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.dQj.bAW())), true, false, true);
+        if (view == this.dUZ) {
+            if ((this.mTbPageContext == null || ax.be(this.mTbPageContext.getPageActivity())) && this.dUX != null && this.dUY != null) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.dUY.getId() + TbadkCoreApplication.getCurrentAccount(), this.dUX.bur());
+                go(false);
+                com.baidu.tbadk.browser.a.a(this.dUZ.getContext(), k.a(this.dVb.getText(), this.mContext.getString(d.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.dUX.bus())), true, false, true);
             }
         }
     }

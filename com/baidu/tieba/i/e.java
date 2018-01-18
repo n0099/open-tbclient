@@ -4,18 +4,18 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void iS(boolean z);
+        void iV(boolean z);
 
         void onChange(boolean z);
 
-        void sk(int i);
+        void sd(int i);
     }
 
     void a(a aVar);
 
-    void aUR();
+    void aUW();
 
-    void aUS();
+    void aUX();
 
-    void aUT();
+    void aUY();
 }

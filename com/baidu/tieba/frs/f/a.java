@@ -14,29 +14,29 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
     private View QX;
-    private boolean dMD;
-    private PopupWindow dME;
+    private boolean dRf;
+    private PopupWindow dRg;
     private TbPageContext mPageContext;
-    private int dMC = d.j.attention_post_update_tip;
+    private int dRe = d.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dMF = new Runnable() { // from class: com.baidu.tieba.frs.f.a.1
+    private Runnable dRh = new Runnable() { // from class: com.baidu.tieba.frs.f.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.QX != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int s = l.s(pageActivity, d.e.ds64);
-                View h = a.this.h(pageActivity, a.this.dMC);
+                View h = a.this.h(pageActivity, a.this.dRe);
                 int[] iArr = new int[2];
                 a.this.QX.getLocationInWindow(iArr);
                 int s2 = l.s(pageActivity, d.e.ds32);
                 int s3 = l.s(pageActivity, d.e.ds16) + (iArr[1] - s);
-                a.this.dME = new PopupWindow(h, -2, s);
-                a.this.dME.showAtLocation(a.this.QX, 53, s2, s3);
+                a.this.dRg = new PopupWindow(h, -2, s);
+                a.this.dRg.showAtLocation(a.this.QX, 53, s2, s3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.dME != null) {
-                            a.this.axN();
+                        if (a.this.dRg != null) {
+                            a.this.ayQ();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dMD = z;
+        this.dRf = z;
     }
 
-    public void bQ(View view) {
+    public void bS(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.QX = view;
-            if (this.dMD) {
-                this.dMC = d.j.attention_post_update_tip;
+            if (this.dRf) {
+                this.dRe = d.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dMD = false;
+                    this.dRf = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dMD = false;
-                this.mHandler.postDelayed(this.dMF, 500L);
+                this.dRf = false;
+                this.mHandler.postDelayed(this.dRh, 500L);
             }
         }
     }
@@ -79,25 +79,25 @@ public class a implements View.OnClickListener {
         textView.setText(i);
         textView.setOnClickListener(this);
         aj.s(textView, d.f.bg_tip_blue_left);
-        aj.r(textView, d.C0108d.cp_cont_i);
+        aj.r(textView, d.C0107d.cp_cont_i);
         textView.setOnClickListener(this);
         return textView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        axN();
+        ayQ();
     }
 
-    public void axN() {
-        if (this.dME != null) {
-            this.dME.dismiss();
-            this.dME = null;
+    public void ayQ() {
+        if (this.dRg != null) {
+            this.dRg.dismiss();
+            this.dRg = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        axN();
+        ayQ();
     }
 }

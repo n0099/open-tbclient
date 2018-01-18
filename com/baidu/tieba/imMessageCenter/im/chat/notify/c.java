@@ -3,20 +3,20 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes2.dex */
 public class c {
-    public static boolean qM(int i) {
+    public static boolean qF(int i) {
         switch (i) {
             case 0:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GR() && !com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GY()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GK() && !com.baidu.tbadk.coreExtra.messageCenter.b.GC().GR()) {
                     return false;
                 }
                 return true;
             case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GQ()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GJ()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GJ().GO()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GH()) {
                     return false;
                 }
                 return true;
@@ -31,13 +31,13 @@ public class c {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (qM(0)) {
+        if (qF(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((qM(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (qM(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((qF(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (qF(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

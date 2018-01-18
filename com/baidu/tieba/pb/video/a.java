@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.m;
 /* loaded from: classes2.dex */
 public class a extends m<b, c> {
-    public View.OnClickListener bKB;
+    public View.OnClickListener bKJ;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,7 +20,7 @@ public class a extends m<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
+    /* renamed from: bw */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -31,21 +31,21 @@ public class a extends m<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cPP != null) {
-            if (this.bKB != null) {
-                cVar.cPP.setOnClickListener(this.bKB);
+        if (cVar != null && cVar.cUr != null) {
+            if (this.bKJ != null) {
+                cVar.cUr.setOnClickListener(this.bKJ);
             }
-            if (cVar.bdE != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.bdE = TbadkCoreApplication.getInst().getSkinType();
-                aj.r(cVar.cPP, d.C0108d.cp_cont_f);
-                aj.s(cVar.cPP, d.f.more_all);
-                aj.s(cVar.bNU, d.C0108d.cp_bg_line_c);
+            if (cVar.bdK != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.bdK = TbadkCoreApplication.getInst().getSkinType();
+                aj.r(cVar.cUr, d.C0107d.cp_cont_f);
+                aj.s(cVar.cUr, d.f.more_all);
+                aj.s(cVar.bOc, d.C0107d.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bKB = onClickListener;
+        this.bKJ = onClickListener;
     }
 }

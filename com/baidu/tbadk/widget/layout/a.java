@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a implements c {
     @Override // com.baidu.tbadk.widget.layout.c
-    public int iL(int i) {
+    public int iH(int i) {
         if (i < 4) {
             return 1;
         }
@@ -20,7 +20,7 @@ public class a implements c {
 
     @Override // com.baidu.tbadk.widget.layout.c
     public int a(b bVar, List<MediaData> list, int i, int i2) {
-        if (v.F(list) > 0) {
+        if (v.D(list) > 0) {
             if (i == 0) {
                 return a(bVar, list, i2);
             }
@@ -36,15 +36,15 @@ public class a implements c {
     }
 
     private int a(b bVar, List<MediaData> list, int i) {
-        if (bVar == null || v.G(list)) {
+        if (bVar == null || v.E(list)) {
             return i;
         }
-        int F = v.F(list);
-        int i2 = F - 3;
-        if (F == 1) {
+        int D = v.D(list);
+        int i2 = D - 3;
+        if (D == 1) {
             bVar.i(list, i);
             return 0;
-        } else if (F == 2 || F == 4 || F == 5) {
+        } else if (D == 2 || D == 4 || D == 5) {
             int i3 = i + 2;
             bVar.i(v.b(list, i, i3), i);
             return i3;
@@ -56,10 +56,10 @@ public class a implements c {
     }
 
     private int b(b bVar, List<MediaData> list, int i) {
-        if (bVar == null || v.G(list)) {
+        if (bVar == null || v.E(list)) {
             return i;
         }
-        if (v.F(list) == 4) {
+        if (v.D(list) == 4) {
             int i2 = i + 2;
             bVar.i(v.b(list, i, i2), i);
             return i2;
@@ -70,12 +70,12 @@ public class a implements c {
     }
 
     private int c(b bVar, List<MediaData> list, int i) {
-        if (bVar == null || v.G(list)) {
+        if (bVar == null || v.E(list)) {
             return i;
         }
-        int F = v.F(list);
+        int D = v.D(list);
         bVar.setImageMaxChildCount(3);
-        int i2 = F - 9;
+        int i2 = D - 9;
         if (i2 > 0) {
             int i3 = i + 3;
             List<MediaData> b = v.b(list, i, i3);
@@ -83,8 +83,8 @@ public class a implements c {
             bVar.b(b, i, true);
             return i3;
         }
-        bVar.i(v.b(list, i, F), i);
+        bVar.i(v.b(list, i, D), i);
         bVar.setExtraCenterText(null);
-        return F;
+        return D;
     }
 }

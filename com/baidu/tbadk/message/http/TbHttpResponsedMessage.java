@@ -54,13 +54,13 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public void logStatInBackground(int i, e eVar) {
         if (eVar.nc().size() > 0) {
             d dVar = eVar.nc().get(eVar.nc().size() - 1);
-            aa.aUM.addAndGet(eVar.nc().size() - 1);
+            aa.aUL.addAndGet(eVar.nc().size() - 1);
             aa.a aVar = new aa.a();
             aVar.mMode = getMode(j.oO());
-            aVar.aUO = dVar.aje;
+            aVar.aUN = dVar.aje;
             aVar.mTime = dVar.ajh;
-            aVar.aUP = dVar.ajg;
-            aVar.aUN = eVar.na().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aVar.aUO = dVar.ajg;
+            aVar.aUM = eVar.na().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             aa.a(aVar);
         }
     }

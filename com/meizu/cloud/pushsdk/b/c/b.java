@@ -13,7 +13,7 @@ public class b extends com.meizu.cloud.pushsdk.b.c.a {
     private String j;
 
     /* loaded from: classes2.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0184a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC0183a<T> {
         private String a;
         private String b;
         private String c;
@@ -64,21 +64,21 @@ public class b extends com.meizu.cloud.pushsdk.b.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0185b extends a<C0185b> {
-        private C0185b() {
+    private static class C0184b extends a<C0184b> {
+        private C0184b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.b.c.a.AbstractC0184a
+        @Override // com.meizu.cloud.pushsdk.b.c.a.AbstractC0183a
         /* renamed from: c */
-        public C0185b a() {
+        public C0184b a() {
             return this;
         }
     }
 
     public static a<?> d() {
-        return new C0185b();
+        return new C0184b();
     }
 
     protected b(a<?> aVar) {

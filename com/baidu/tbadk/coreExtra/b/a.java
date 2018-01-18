@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a beK = null;
-    private boolean beJ;
-    private int beL;
+    private static volatile a beQ = null;
+    private boolean beP;
+    private int beR;
 
     private a() {
-        this.beJ = false;
-        this.beL = 0;
+        this.beP = false;
+        this.beR = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.ab(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.lm()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.beL = Integer.parseInt(content);
+                    this.beR = Integer.parseInt(content);
                 }
-                if (this.beL == 1 || this.beL == 2) {
-                    this.beJ = true;
+                if (this.beR == 1 || this.beR == 2) {
+                    this.beP = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a EQ() {
-        if (beK == null) {
+    public static a EH() {
+        if (beQ == null) {
             synchronized (a.class) {
-                if (beK == null) {
-                    beK = new a();
+                if (beQ == null) {
+                    beQ = new a();
                 }
             }
         }
-        return beK;
+        return beQ;
     }
 
-    public boolean ER() {
-        return this.beJ;
+    public boolean EI() {
+        return this.beP;
     }
 
-    public int ES() {
-        return this.beL;
+    public int EJ() {
+        return this.beR;
     }
 
-    public String ET() {
-        return this.beJ ? "pub_env=" + this.beL + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String EK() {
+        return this.beP ? "pub_env=" + this.beR + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

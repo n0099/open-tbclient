@@ -20,8 +20,8 @@ public final class j {
     /* loaded from: classes.dex */
     static final class a {
         final String a;
-        final BDLocation aCk;
-        final LinkedHashMap<String, Integer> aCl;
+        final BDLocation aCj;
+        final LinkedHashMap<String, Integer> aCk;
         final String b;
         final boolean c;
         final boolean d;
@@ -34,11 +34,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.aCl = null;
+                this.aCk = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.aCk = null;
+                this.aCj = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -84,12 +84,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.aCl = linkedHashMap;
+                                this.aCk = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.aCk = bDLocation;
+                                this.aCj = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -122,12 +122,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.aCl = linkedHashMap;
+            this.aCk = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.aCk = bDLocation;
+            this.aCj = bDLocation;
             this.h = z2;
         }
     }

@@ -12,12 +12,12 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends a {
-    private HorizontalListView hBe;
-    private com.baidu.tieba.write.write.d hRf;
+    private com.baidu.tieba.write.write.d hGN;
+    private HorizontalListView hqH;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.hRf.b(cVar);
+        this.hGN.b(cVar);
     }
 
     public d(e eVar) {
@@ -26,10 +26,10 @@ public class d extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.bXZ.getPageActivity()).inflate(d.h.pic_sticker_view, (ViewGroup) null);
-        this.hBe = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
-        this.hRf = new com.baidu.tieba.write.write.d();
-        this.hBe.setAdapter((ListAdapter) this.hRf);
+        this.mRootView = LayoutInflater.from(this.bYg.getPageActivity()).inflate(d.h.pic_sticker_view, (ViewGroup) null);
+        this.hqH = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
+        this.hGN = new com.baidu.tieba.write.write.d();
+        this.hqH.setAdapter((ListAdapter) this.hGN);
     }
 
     public View getRootView() {
@@ -37,17 +37,17 @@ public class d extends a {
     }
 
     public void onChangeSkinType() {
-        aj.t(this.mRootView, d.C0108d.cp_bg_line_d);
+        aj.t(this.mRootView, d.C0107d.cp_bg_line_d);
     }
 
-    public void ee(List<String> list) {
-        if (!v.G(list)) {
-            this.hRf.setData(list);
-            this.hRf.notifyDataSetChanged();
+    public void dN(List<String> list) {
+        if (!v.E(list)) {
+            this.hGN.setData(list);
+            this.hGN.notifyDataSetChanged();
         }
     }
 
-    public void bNf() {
-        this.hRf.notifyDataSetChanged();
+    public void bGF() {
+        this.hGN.notifyDataSetChanged();
     }
 }

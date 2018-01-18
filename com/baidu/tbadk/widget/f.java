@@ -8,21 +8,21 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f extends ImageSpan {
-    private WeakReference<Drawable> atf;
-    private int bCv;
+    private WeakReference<Drawable> ate;
+    private int bCE;
     private int paddingLeft;
     private int paddingRight;
 
     public f(Drawable drawable) {
         super(drawable);
-        this.bCv = 0;
+        this.bCE = 0;
     }
 
-    public void iz(int i) {
+    public void iv(int i) {
         this.paddingLeft = i;
     }
 
-    public void iA(int i) {
+    public void iw(int i) {
         this.paddingRight = i;
     }
 
@@ -52,27 +52,27 @@ public class f extends ImageSpan {
         Drawable rN = rN();
         if (rN != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - rN.getBounds().bottom) / 2) + i3) - this.bCv);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - rN.getBounds().bottom) / 2) + i3) - this.bCE);
             rN.draw(canvas);
             canvas.restore();
         }
     }
 
     private Drawable rN() {
-        WeakReference<Drawable> weakReference = this.atf;
+        WeakReference<Drawable> weakReference = this.ate;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.atf = new WeakReference<>(drawable2);
+            this.ate = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
     }
 
     public void setVerticalOffset(int i) {
-        this.bCv = i;
+        this.bCE = i;
     }
 }

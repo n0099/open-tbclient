@@ -88,7 +88,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("scr_w", String.valueOf(l.ao(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_h", String.valueOf(l.aq(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_dip", String.valueOf(l.ar(TbadkCoreApplication.getInst().getApp())));
-                if (b.GJ().GM() > 0) {
+                if (b.GC().GF() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -109,11 +109,11 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.n("signmd5", ao.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String BP = this.mNetWork.BP();
-                if (this.mNetWork.Cn().Dl().isRequestSuccess()) {
+                String BH = this.mNetWork.BH();
+                if (this.mNetWork.Cf().Dc().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(BP);
+                        cVar.parserJson(BH);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<i> bdH;
-    private List<i> bdI;
-    private boolean bdJ;
-    private boolean bdK;
-    private int bdM;
-    private int bdL = 2;
-    private int bdN = 1;
+    private List<i> bdN;
+    private List<i> bdO;
+    private boolean bdP;
+    private boolean bdQ;
+    private int bdS;
+    private int bdR = 2;
+    private int bdT = 1;
 
     public d(List<i> list, boolean z, int i) {
-        this.bdM = 2;
-        this.bdH = list;
-        this.bdK = z;
-        this.bdM = i;
-        H(list);
+        this.bdS = 2;
+        this.bdN = list;
+        this.bdQ = z;
+        this.bdS = i;
+        F(list);
     }
 
-    public void H(List<i> list) {
-        if (list != null && list.size() >= this.bdL && list.size() <= this.bdM) {
-            this.bdJ = true;
-        } else if (list.size() > this.bdM && this.bdK) {
-            this.bdJ = true;
+    public void F(List<i> list) {
+        if (list != null && list.size() >= this.bdR && list.size() <= this.bdS) {
+            this.bdP = true;
+        } else if (list.size() > this.bdS && this.bdQ) {
+            this.bdP = true;
         } else {
-            this.bdJ = false;
+            this.bdP = false;
         }
-        this.bdI = Eu();
+        this.bdO = El();
     }
 
-    private List<i> Eu() {
+    private List<i> El() {
         ArrayList arrayList = new ArrayList();
-        if (this.bdH != null) {
-            if (this.bdJ) {
-                if (this.bdH.size() > this.bdM && this.bdH.size() >= this.bdN) {
-                    arrayList.addAll(this.bdH.subList(0, this.bdM));
-                    arrayList.addAll(0, this.bdH.subList(this.bdM - this.bdN, this.bdM));
-                    arrayList.addAll(this.bdH.subList(0, this.bdN));
+        if (this.bdN != null) {
+            if (this.bdP) {
+                if (this.bdN.size() > this.bdS && this.bdN.size() >= this.bdT) {
+                    arrayList.addAll(this.bdN.subList(0, this.bdS));
+                    arrayList.addAll(0, this.bdN.subList(this.bdS - this.bdT, this.bdS));
+                    arrayList.addAll(this.bdN.subList(0, this.bdT));
                 } else {
-                    arrayList.addAll(this.bdH);
-                    arrayList.addAll(0, this.bdH.subList(this.bdH.size() - this.bdN, this.bdH.size()));
-                    arrayList.addAll(this.bdH.subList(0, this.bdN));
+                    arrayList.addAll(this.bdN);
+                    arrayList.addAll(0, this.bdN.subList(this.bdN.size() - this.bdT, this.bdN.size()));
+                    arrayList.addAll(this.bdN.subList(0, this.bdT));
                 }
-            } else if (this.bdH != null && this.bdH.size() > 0 && this.bdH.size() >= this.bdN) {
-                arrayList.addAll(this.bdH.subList(0, this.bdN));
+            } else if (this.bdN != null && this.bdN.size() > 0 && this.bdN.size() >= this.bdT) {
+                arrayList.addAll(this.bdN.subList(0, this.bdT));
             }
         }
         return arrayList;
     }
 
-    public int gH(int i) {
-        if (this.bdJ) {
-            int size = this.bdI.size();
+    public int gE(int i) {
+        if (this.bdP) {
+            int size = this.bdO.size();
             if (i == 0) {
-                return (size - 1) - this.bdN;
+                return (size - 1) - this.bdT;
             }
-            if (i == size - this.bdN) {
-                return this.bdN;
+            if (i == size - this.bdT) {
+                return this.bdT;
             }
             return i;
         }
         return i;
     }
 
-    public int gI(int i) {
-        if (this.bdJ) {
-            return i - this.bdN;
+    public int gF(int i) {
+        if (this.bdP) {
+            return i - this.bdT;
         }
         return i;
     }
 
-    public int Ev() {
-        if (this.bdH == null) {
+    public int Em() {
+        if (this.bdN == null) {
             return 0;
         }
-        return this.bdH.size();
+        return this.bdN.size();
     }
 
-    public int Ew() {
-        if (this.bdJ) {
-            return this.bdN;
+    public int En() {
+        if (this.bdP) {
+            return this.bdT;
         }
         return 0;
     }
 
-    public void gJ(int i) {
-        this.bdM = i;
-        H(this.bdH);
+    public void gG(int i) {
+        this.bdS = i;
+        F(this.bdN);
     }
 
-    public void gK(int i) {
-        this.bdL = i;
-        H(this.bdH);
+    public void gH(int i) {
+        this.bdR = i;
+        F(this.bdN);
     }
 
-    public List<i> Ex() {
-        return this.bdI;
+    public List<i> Eo() {
+        return this.bdO;
     }
 
-    public void gL(int i) {
-        this.bdN = i;
-        H(this.bdH);
+    public void gI(int i) {
+        this.bdT = i;
+        F(this.bdN);
     }
 }

@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean aXt;
+    private boolean aXs;
     private int procType;
 
     public s(boolean z, int i) {
-        this.aXt = true;
+        this.aXs = true;
         this.procType = 0;
-        this.aXt = z;
+        this.aXs = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int Dy() {
+    public int Dp() {
         return this.procType;
     }
 
@@ -35,16 +35,16 @@ public class s extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.aXt;
+        return this.aXs;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dw() {
+    public boolean Dn() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dx() {
+    public boolean Do() {
         return false;
     }
 

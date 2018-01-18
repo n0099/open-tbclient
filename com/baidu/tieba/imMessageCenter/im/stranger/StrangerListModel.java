@@ -20,7 +20,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         super(tbPageContext);
     }
 
-    public void aLE() {
+    public void aLJ() {
         LinkedList linkedList = new LinkedList();
         Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
         while (it.hasNext()) {
@@ -43,9 +43,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData bi = e.aKl().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bi != null) {
-                buildNormalItem.setGroupSetting(bi);
+            PersonalSettingItemData bh = e.aKq().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bh != null) {
+                buildNormalItem.setGroupSetting(bh);
             }
             insertShowData(buildNormalItem, this.mList);
         }

@@ -1,29 +1,31 @@
 package org.aspectj.a.b;
 /* loaded from: classes2.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    Class[] ido;
-    String[] idp;
-    Class[] idq;
+    Class[] inr;
+
+    /* renamed from: int  reason: not valid java name */
+    String[] f0int;
+    Class[] inu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
-        this.ido = clsArr;
-        this.idp = strArr;
-        this.idq = clsArr2;
+        this.inr = clsArr;
+        this.f0int = strArr;
+        this.inu = clsArr2;
     }
 
     public Class[] getParameterTypes() {
-        if (this.ido == null) {
-            this.ido = zG(3);
+        if (this.inr == null) {
+            this.inr = zx(3);
         }
-        return this.ido;
+        return this.inr;
     }
 
     public Class[] getExceptionTypes() {
-        if (this.idq == null) {
-            this.idq = zG(5);
+        if (this.inu == null) {
+            this.inu = zx(5);
         }
-        return this.idq;
+        return this.inu;
     }
 }

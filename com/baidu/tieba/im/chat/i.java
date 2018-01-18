@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.util.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i {
-    BaseActivity cmI;
+    BaseActivity cmR;
     String mUrl;
 
     public i(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.cmI = baseActivity;
+        this.cmR = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.cmI.getPageContext().getString(d.j.save_fail));
+                showToast(this.cmR.getPageContext().getString(d.j.save_fail));
             }
             com.baidu.adp.lib.f.c.nl().a(this.mUrl, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -29,30 +29,30 @@ public class i {
                     if (aVar != null) {
                         i.this.showToast(i.this.l(i.this.mUrl, aVar.sl()));
                     } else {
-                        i.this.showToast(i.this.cmI.getPageContext().getString(d.j.save_fail));
+                        i.this.showToast(i.this.cmR.getPageContext().getString(d.j.save_fail));
                     }
                 }
-            }, this.cmI.getUniqueId());
+            }, this.cmR.getUniqueId());
         } catch (Exception e) {
-            showToast(this.cmI.getPageContext().getString(d.j.save_fail));
+            showToast(this.cmR.getPageContext().getString(d.j.save_fail));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String l(String str, byte[] bArr) {
-        switch (k.a(str, bArr, this.cmI.getPageContext().getPageActivity())) {
+        switch (k.a(str, bArr, this.cmR.getPageContext().getPageActivity())) {
             case -2:
-                return k.BH();
+                return k.Bz();
             case -1:
             default:
-                return this.cmI.getPageContext().getString(d.j.save_fail);
+                return this.cmR.getPageContext().getString(d.j.save_fail);
             case 0:
-                return this.cmI.getPageContext().getString(d.j.save_image_to_album);
+                return this.cmR.getPageContext().getString(d.j.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.cmI.showToast(str);
+        this.cmR.showToast(str);
     }
 }

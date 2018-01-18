@@ -3,12 +3,12 @@ package com.baidu.tieba.VideoCache;
 import android.os.Environment;
 /* loaded from: classes2.dex */
 public class i {
-    public static final String bPf = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bPg = bPf + "/.tieba_video_cache";
-    public static final String bPh = bPg + "/v2";
-    public static final String bPi = bPh + "/";
-    public static final String bPj = bPh + "/files";
-    public static final String bPk = bPj + "/";
-    public static final String bPl = bPi + "server_port";
-    public static final int bPm = "?segment_postion=".length();
+    public static final String bPm = Environment.getExternalStorageDirectory() + "/tieba";
+    public static final String bPn = bPm + "/.tieba_video_cache";
+    public static final String bPo = bPn + "/v2";
+    public static final String bPp = bPo + "/";
+    public static final String bPq = bPo + "/files";
+    public static final String bPr = bPq + "/";
+    public static final String bPs = bPp + "server_port";
+    public static final int bPt = "?segment_postion=".length();
 }

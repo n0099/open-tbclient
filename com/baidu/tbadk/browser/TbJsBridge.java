@@ -43,7 +43,7 @@ public class TbJsBridge {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.biN = Uri.parse(str3);
+            dVar.bje = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }
@@ -57,6 +57,6 @@ public class TbJsBridge {
         intent.putExtra("quan_num", str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        f.f(this.mTbPageContext.getPageActivity(), intent);
+        f.e(this.mTbPageContext.getPageActivity(), intent);
     }
 }

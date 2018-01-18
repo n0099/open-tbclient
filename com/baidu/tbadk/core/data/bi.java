@@ -1,39 +1,46 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bi {
-    private int aPm = 0;
-    private int aPn = 0;
-    private String link = "";
+public class bi extends PostData {
+    public static final BdUniqueId aPp = BdUniqueId.gen();
+    private String aMe;
+    private int position = 0;
+    private String summary;
 
-    public int Aw() {
-        return this.aPm;
+    public String Ap() {
+        return this.aMe;
     }
 
-    public String getLink() {
-        return this.link;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.aMe = topNews.news_link;
+            this.summary = topNews.summary;
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aPm = jSONObject.optInt("is_lpost", 0);
-                this.aPn = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
+                this.aMe = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.aPm = topic.is_lpost.intValue();
-            this.aPn = topic.topic_type.intValue();
-            this.link = topic.link;
-        }
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return aPp;
     }
 }

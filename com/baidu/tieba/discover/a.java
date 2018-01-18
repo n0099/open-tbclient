@@ -20,30 +20,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseFragment implements aj {
-    private b deC;
-    private boolean deD;
+    private b dje;
+    private boolean djf;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean chh = true;
+    private boolean cho = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.deC != null && a.this.deC.XY() != null && a.this.deC.XY().getUrl() != null) {
-                if (a.this.deC.XY().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.deC.Vn();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.dje != null && a.this.dje.XM() != null && a.this.dje.XM().getUrl() != null) {
+                if (a.this.dje.XM().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.dje.Vb();
                 }
             }
         }
     };
-    private CustomMessageListener deE = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener djg = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.WJ();
+                    a.this.Wx();
                 } else {
-                    a.this.WK();
+                    a.this.Wy();
                 }
             }
         }
@@ -51,33 +51,33 @@ public class a extends BaseFragment implements aj {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.deC = new b();
-        return this.deC.a(layoutInflater, viewGroup);
+        this.dje = new b();
+        return this.dje.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.deC.j(getPageContext());
+        this.dje.j(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.deE);
-        z.a(this.deC.XY(), getUniqueId());
+        registerListener(this.djg);
+        z.a(this.dje.XM(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.chh || StringUtils.isNull(this.deC.XY().getUrl())) {
+        if (this.cho || StringUtils.isNull(this.dje.XM().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.deC.loadUrl(iB(this.mUrl));
+                this.dje.loadUrl(iC(this.mUrl));
             } else {
-                this.deC.loadUrl(this.mUrl);
+                this.dje.loadUrl(this.mUrl);
             }
-            this.chh = false;
+            this.cho = false;
         }
     }
 
-    private String iB(String str) {
+    private String iC(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -97,8 +97,8 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.deC != null) {
-            this.deC.onDestroy();
+        if (this.dje != null) {
+            this.dje.onDestroy();
         }
     }
 
@@ -124,32 +124,32 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.chh) {
+        if (!this.cho) {
             if (i == 1) {
-                this.deC.loadUrl(iB(this.mUrl));
+                this.dje.loadUrl(iC(this.mUrl));
             } else {
-                this.deC.loadUrl(this.mUrl);
+                this.dje.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void WI() {
+    public void Ww() {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void WJ() {
-        if (this.deC != null && !this.deD) {
-            this.deD = true;
-            this.deC.anw();
+    public void Wx() {
+        if (this.dje != null && !this.djf) {
+            this.djf = true;
+            this.dje.aoz();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void WK() {
-        if (this.deC != null && this.deD) {
-            this.deD = false;
-            this.deC.anx();
+    public void Wy() {
+        if (this.dje != null && this.djf) {
+            this.djf = false;
+            this.dje.aoA();
         }
     }
 
@@ -166,7 +166,7 @@ public class a extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Ea() {
+    public void DR() {
     }
 
     @Override // com.baidu.tieba.frs.aj

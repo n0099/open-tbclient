@@ -48,16 +48,16 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
     private s mMemberShowIconData;
     private PostTopicData mPostTopicData;
     private final PostPrefixData mPrefixData;
-    private au mRealTimeData;
+    private at mRealTimeData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private bj news_info;
+    private bi news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private bg top_code;
-    private bh top_notice_data;
+    private bf top_code;
+    private bg top_notice_data;
     private String warning_msg;
-    private bn yuleData;
+    private bm yuleData;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -82,18 +82,18 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new bh();
+        this.top_notice_data = new bg();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new v();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new bg();
-        this.news_info = new bj();
+        this.top_code = new bf();
+        this.news_info = new bi();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new s();
-        this.yuleData = new bn();
+        this.yuleData = new bm();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
     }
@@ -245,12 +245,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         this.mSignData = signData;
     }
 
-    public bh getTop_notice_data() {
+    public bg getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(bh bhVar) {
-        this.top_notice_data = bhVar;
+    public void setTop_notice_data(bg bgVar) {
+        this.top_notice_data = bgVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -297,12 +297,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         return this.accelerate_cotent;
     }
 
-    public au getRealTimeData() {
+    public at getRealTimeData() {
         return this.mRealTimeData;
     }
 
-    public void setRealTimeData(au auVar) {
-        this.mRealTimeData = auVar;
+    public void setRealTimeData(at atVar) {
+        this.mRealTimeData = atVar;
     }
 
     public void parserProtobuf(ForumInfo forumInfo) {
@@ -410,7 +410,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
                 this.news_info.a(forumInfo.news_info);
                 RealTime realTime = forumInfo.realtime_data;
                 if (realTime != null) {
-                    this.mRealTimeData = new au();
+                    this.mRealTimeData = new at();
                     this.mRealTimeData.a(realTime);
                 }
                 this.mAcrossForumIcon = forumInfo.across_forum_show;
@@ -647,19 +647,19 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         return this.mPostTopicData;
     }
 
-    public void setTopCode(bg bgVar) {
-        this.top_code = bgVar;
+    public void setTopCode(bf bfVar) {
+        this.top_code = bfVar;
     }
 
-    public void setNewsInfo(bj bjVar) {
-        this.news_info = bjVar;
+    public void setNewsInfo(bi biVar) {
+        this.news_info = biVar;
     }
 
-    public bg getTopCode() {
+    public bf getTopCode() {
         return this.top_code;
     }
 
-    public bj getNewsInfo() {
+    public bi getNewsInfo() {
         return this.news_info;
     }
 
@@ -667,12 +667,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         return this.mMemberShowIconData;
     }
 
-    public bn getYuleData() {
+    public bm getYuleData() {
         return this.yuleData;
     }
 
-    public void setYuleData(bn bnVar) {
-        this.yuleData = bnVar;
+    public void setYuleData(bm bmVar) {
+        this.yuleData = bmVar;
     }
 
     public boolean isGameForumType() {

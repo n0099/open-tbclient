@@ -12,33 +12,33 @@ import java.nio.ByteOrder;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 /* loaded from: classes2.dex */
 public class g {
-    public static boolean hCz = false;
+    public static boolean hsc = false;
 
     /* loaded from: classes2.dex */
     public static class a {
-        public int hCv = 48000;
+        public int hrY = 48000;
         public int channelCount = 1;
-        public int hCt = 16;
-        public int hCA = 0;
+        public int hrW = 16;
+        public int hsd = 0;
 
-        public boolean bIt() {
-            return this.hCA == 1 || this.hCA == 4 || this.hCA == 6 || this.hCA == 9;
+        public boolean bBQ() {
+            return this.hsd == 1 || this.hsd == 4 || this.hsd == 6 || this.hsd == 9;
         }
 
-        public boolean bIu() {
-            return this.hCA == 3 || this.hCA == 4 || this.hCA == 8 || this.hCA == 9;
+        public boolean bBR() {
+            return this.hsd == 3 || this.hsd == 4 || this.hsd == 8 || this.hsd == 9;
         }
 
-        public boolean bIv() {
-            return this.hCA == 5 || this.hCA == 6 || this.hCA == 8 || this.hCA == 9;
+        public boolean bBS() {
+            return this.hsd == 5 || this.hsd == 6 || this.hsd == 8 || this.hsd == 9;
         }
     }
 
-    public static void bIs() {
+    public static void bBP() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            hCz = true;
+            hsc = true;
         } else {
-            hCz = false;
+            hsc = false;
         }
     }
 
@@ -49,16 +49,16 @@ public class g {
         }
         boolean z = true;
         for (int i = 1; i < aVarArr.length; i++) {
-            if (aVar.hCv != aVarArr[i].hCv) {
-                aVarArr[i].hCA++;
+            if (aVar.hrY != aVarArr[i].hrY) {
+                aVarArr[i].hsd++;
                 z = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].hCA += 3;
+                aVarArr[i].hsd += 3;
                 z = false;
             }
-            if (aVar.hCt != aVarArr[i].hCt) {
-                aVarArr[i].hCA += 5;
+            if (aVar.hrW != aVarArr[i].hrW) {
+                aVarArr[i].hsd += 5;
                 z = false;
             }
         }
@@ -66,7 +66,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a uu(String str) {
+    public static a tP(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -90,9 +90,9 @@ public class g {
                 return null;
             }
             a aVar = new a();
-            aVar.hCv = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
+            aVar.hrY = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.hCt = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.hrW = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -174,7 +174,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], hCz);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], hsc);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -204,7 +204,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * 256), hCz);
+                                byte[] a2 = a((short) (bArr[i3] * 256), hsc);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -218,7 +218,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], hCz) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], hsc) / 256);
                             }
                             return bArr3;
                         default:

@@ -5,7 +5,7 @@ public interface a {
 
     void uN();
 
-    void vC();
+    void vB();
 
-    void vD();
+    void vC();
 }

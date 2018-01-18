@@ -18,12 +18,12 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
+    /* renamed from: bu */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fHW.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
-        alVar.F(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.j.fCA) {
-            alVar.h(com.baidu.tieba.pb.data.j.fCA);
+        al alVar = new al(this.fJw.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        alVar.G(this.mCommonClickListener);
+        if (getType() == com.baidu.tieba.pb.data.j.fEa) {
+            alVar.h(com.baidu.tieba.pb.data.j.fEa);
         }
         return alVar;
     }
@@ -35,8 +35,8 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, al alVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, alVar);
         if (alVar != null) {
-            if (getType() == com.baidu.tieba.pb.data.j.fCB) {
-                alVar.n(com.baidu.tieba.pb.data.j.fCB);
+            if (getType() == com.baidu.tieba.pb.data.j.fEb) {
+                alVar.n(com.baidu.tieba.pb.data.j.fEb);
             }
             alVar.a(jVar);
         }
@@ -44,11 +44,11 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fCA);
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fCB);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEa);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEb);
     }
 
-    public void setCommonClickListener(View.OnClickListener onClickListener) {
+    public void l(View.OnClickListener onClickListener) {
         this.mCommonClickListener = onClickListener;
     }
 }

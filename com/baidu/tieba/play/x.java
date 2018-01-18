@@ -8,7 +8,7 @@ public class x {
         com.baidu.tbadk.core.d.a.a("video", -1L, -1, str, 0, "", LoginActivityConfig.ACCOUNT, TbadkCoreApplication.getCurrentAccount(), "origin_url", str2, "is_use_cache", String.valueOf(z ? 1 : 0), "video_size", String.valueOf(i), "video_duration", String.valueOf(i2));
     }
 
-    public static void o(String str, int i, int i2) {
+    public static void m(String str, int i, int i2) {
         com.baidu.tbadk.core.d.a.a("video", -1L, -1, "cache_download", 0, "", LoginActivityConfig.ACCOUNT, TbadkCoreApplication.getCurrentAccount(), "origin_url", str, "current_get_size", String.valueOf(i), "video_size", String.valueOf(i2));
     }
 }

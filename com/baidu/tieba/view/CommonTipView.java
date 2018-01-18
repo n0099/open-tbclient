@@ -112,8 +112,8 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        aj.f(this, d.C0108d.common_color_10260, i);
-        aj.b(this, d.C0108d.cp_cont_g, 1, i);
+        aj.f(this, d.C0107d.common_color_10260, i);
+        aj.b(this, d.C0107d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {

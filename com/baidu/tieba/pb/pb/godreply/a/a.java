@@ -12,99 +12,99 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
-    private ViewGroup aGy;
-    private View.OnClickListener bjw;
-    private b fFf;
-    private int bdE = 3;
-    private final int[] fFe = new int[2];
-    private int fFg = Integer.MIN_VALUE;
-    private int fFh = Integer.MIN_VALUE;
-    private boolean fFi = false;
+    private ViewGroup aGw;
+    private View.OnClickListener bjG;
+    private b fGF;
+    private int bdK = 3;
+    private final int[] fGE = new int[2];
+    private int fGG = Integer.MIN_VALUE;
+    private int fGH = Integer.MIN_VALUE;
+    private boolean fGI = false;
 
-    public void E(View.OnClickListener onClickListener) {
-        this.bjw = onClickListener;
+    public void F(View.OnClickListener onClickListener) {
+        this.bjG = onClickListener;
     }
 
     public void showTip(View view) {
         Context context;
         if (view != null && (context = view.getContext()) != null && (context instanceof Activity)) {
-            if (this.aGy == null) {
-                this.aGy = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
+            if (this.aGw == null) {
+                this.aGw = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
             }
-            if (this.aGy != null) {
-                view.getLocationOnScreen(this.fFe);
+            if (this.aGw != null) {
+                view.getLocationOnScreen(this.fGE);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.fFf == null) {
-                    this.fFf = new b(context);
+                if (this.fGF == null) {
+                    this.fGF = new b(context);
                 }
-                this.fFf.animate().cancel();
-                this.fFf.setAlpha(0.0f);
-                this.fFf.animate().alpha(1.0f).setListener(null).start();
-                this.fFf.setOnClickListener(this.bjw);
-                this.fFf.onChangeSkinType(this.bdE);
-                if (this.fFf.getParent() != null && this.fFf.getParent() != this.aGy) {
-                    ((ViewGroup) this.fFf.getParent()).removeView(this.fFf);
+                this.fGF.animate().cancel();
+                this.fGF.setAlpha(0.0f);
+                this.fGF.animate().alpha(1.0f).setListener(null).start();
+                this.fGF.setOnClickListener(this.bjG);
+                this.fGF.onChangeSkinType(this.bdK);
+                if (this.fGF.getParent() != null && this.fGF.getParent() != this.aGw) {
+                    ((ViewGroup) this.fGF.getParent()).removeView(this.fGF);
                 }
-                if (this.fFf.getParent() == null) {
+                if (this.fGF.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
                     layoutParams.rightMargin = bZ(context);
-                    layoutParams.topMargin = this.fFe[1] + view.getHeight() + bY(context);
+                    layoutParams.topMargin = this.fGE[1] + view.getHeight() + bY(context);
                     layoutParams.addRule(11);
-                    int childCount = this.aGy.getChildCount();
+                    int childCount = this.aGw.getChildCount();
                     int i = -1;
                     for (int i2 = 0; i2 < childCount; i2++) {
-                        View childAt = this.aGy.getChildAt(i2);
+                        View childAt = this.aGw.getChildAt(i2);
                         if (childAt != null && childAt.getId() == d.g.new_pb_list) {
                             i = i2 + 1;
                         }
                     }
-                    if (i > -1 && i <= this.aGy.getChildCount()) {
-                        this.aGy.addView(this.fFf, i, layoutParams);
+                    if (i > -1 && i <= this.aGw.getChildCount()) {
+                        this.aGw.addView(this.fGF, i, layoutParams);
                     }
                 }
-                this.fFf.setVisibility(0);
+                this.fGF.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.fFf != null) {
-            this.fFf.animate().cancel();
-            this.fFf.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
+        if (this.fGF != null) {
+            this.fGF.animate().cancel();
+            this.fGF.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.aZT();
+                    a.this.aZX();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.aZT();
+                    a.this.aZX();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZT() {
-        if (this.fFf != null && this.fFf.getParent() != null && this.fFf.getParent() == this.aGy) {
-            this.fFf.setVisibility(4);
+    public void aZX() {
+        if (this.fGF != null && this.fGF.getParent() != null && this.fGF.getParent() == this.aGw) {
+            this.fGF.setVisibility(4);
         }
     }
 
-    public void cn(View view) {
-        if (aZU()) {
+    public void cp(View view) {
+        if (aZY()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.fFe);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fFf.getLayoutParams();
+            view.getLocationOnScreen(this.fGE);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fGF.getLayoutParams();
             layoutParams.rightMargin = bZ(context);
-            layoutParams.topMargin = this.fFe[1] + view.getHeight() + bY(context);
+            layoutParams.topMargin = this.fGE[1] + view.getHeight() + bY(context);
             layoutParams.addRule(11);
-            this.fFf.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.fFf.getHeight() < l.as(context)[1] && !this.fFi) {
+            this.fGF.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.fGF.getHeight() < l.as(context)[1] && !this.fGI) {
                 c.u(context, true);
-                this.fFi = true;
-                this.fFf.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
+                this.fGI = true;
+                this.fGF.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
@@ -114,28 +114,28 @@ public class a {
         }
     }
 
-    public boolean aZU() {
-        return this.fFf != null && this.fFf.getParent() != null && this.fFf.getParent() == this.aGy && this.fFf.getVisibility() == 0;
+    public boolean aZY() {
+        return this.fGF != null && this.fGF.getParent() != null && this.fGF.getParent() == this.aGw && this.fGF.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.bdE = i;
-        if (this.fFf != null) {
-            this.fFf.onChangeSkinType(i);
+        this.bdK = i;
+        if (this.fGF != null) {
+            this.fGF.onChangeSkinType(i);
         }
     }
 
     private int bY(Context context) {
-        if (this.fFg == Integer.MIN_VALUE) {
-            this.fFg = -l.dip2px(context, 5.0f);
+        if (this.fGG == Integer.MIN_VALUE) {
+            this.fGG = -l.dip2px(context, 5.0f);
         }
-        return this.fFg;
+        return this.fGG;
     }
 
     private int bZ(Context context) {
-        if (this.fFh == Integer.MIN_VALUE) {
-            this.fFh = l.dip2px(context, 17.0f);
+        if (this.fGH == Integer.MIN_VALUE) {
+            this.fGH = l.dip2px(context, 17.0f);
         }
-        return this.fFh;
+        return this.fGH;
     }
 }

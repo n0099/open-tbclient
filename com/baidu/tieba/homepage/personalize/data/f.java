@@ -10,21 +10,21 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements r {
-    private CardGod eeH;
+    private CardGod efW;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.eeH = cardGod;
-            this.mGroupTitle = this.eeH.card_title;
-            if (!v.G(this.eeH.gods)) {
+            this.efW = cardGod;
+            this.mGroupTitle = this.efW.card_title;
+            if (!v.E(this.efW.gods)) {
                 int i = 0;
-                for (User user : this.eeH.gods) {
+                for (User user : this.efW.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
                         if (!StringUtils.isNull(metaData.getUserName())) {
                             i iVar = new i();
-                            iVar.aNy = metaData;
+                            iVar.aNu = metaData;
                             a(iVar);
                             i++;
                         }
@@ -36,30 +36,30 @@ public class f extends h implements r {
         }
     }
 
-    public boolean UH() {
-        return v.F(getDataList()) > 2;
+    public boolean Uv() {
+        return v.D(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.eeH == null || this.eeH.position == null) {
+        if (this.efW == null || this.efW.position == null) {
             return 0;
         }
-        return this.eeH.position.intValue();
+        return this.efW.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean ajP() {
+    public boolean akS() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eD(boolean z) {
+    public void eH(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eE(boolean z) {
+    public void eI(boolean z) {
         this.showBottomDivider = z;
     }
 }

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveHeadlineActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveListActivityConfig;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ab;
@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private static void lP(String str) {
+    private static void lX(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -87,11 +87,11 @@ public class h {
         Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
         if (matcher.find()) {
             if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                lP(decode);
+                lX(decode);
             }
             return matcher.group(2);
         }
-        lP(decode);
+        lX(decode);
         int indexOf = decode.indexOf("kw=");
         if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
             return null;
@@ -99,7 +99,7 @@ public class h {
         return decode.substring(length);
     }
 
-    public static Intent af(Context context, String str) {
+    public static Intent ae(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -110,7 +110,7 @@ public class h {
         return intent;
     }
 
-    public static boolean ag(Context context, String str) {
+    public static boolean af(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -147,41 +147,41 @@ public class h {
         }
     }
 
-    public static void a(com.baidu.tieba.frs.i iVar, be beVar) {
-        if (iVar != null && beVar != null && ax.be(iVar.getActivity())) {
-            iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveHeadlineActivityConfig(iVar.getPageContext().getPageActivity()).createConfig(String.valueOf(iVar.getForumId()), beVar.getTid(), 1)));
+    public static void a(com.baidu.tieba.frs.i iVar, bd bdVar) {
+        if (iVar != null && bdVar != null && ax.be(iVar.getActivity())) {
+            iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveHeadlineActivityConfig(iVar.getPageContext().getPageActivity()).createConfig(String.valueOf(iVar.getForumId()), bdVar.getTid(), 1)));
         }
     }
 
     public static void a(TbPageContext tbPageContext, l lVar) {
         if (tbPageContext != null && lVar != null) {
-            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.aYy().getId(), true, true, true);
+            com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.aYE().getId(), true, true, true);
         }
     }
 
-    public static void a(com.baidu.tieba.frs.i iVar, String str, be beVar, boolean z) {
-        if (iVar != null && beVar != null && str != null) {
-            if (!(beVar == null || beVar.zN())) {
-                PbActivityConfig createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(beVar, iVar.getForumName(), "frs_page", 18003, true, true, z);
+    public static void a(com.baidu.tieba.frs.i iVar, String str, bd bdVar, boolean z) {
+        if (iVar != null && bdVar != null && str != null) {
+            if (!(bdVar == null || bdVar.zG())) {
+                PbActivityConfig createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, iVar.getForumName(), "frs_page", 18003, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
-                createFromThreadCfg.setForumId(String.valueOf(beVar.getFid()));
+                createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
                 createFromThreadCfg.setStartFrom(3);
                 iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
                 return;
             }
-            PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(beVar, iVar.getForumName(), "frs_page", 18003, true, false, z);
+            PbActivityConfig createFromThreadCfg2 = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, iVar.getForumName(), "frs_page", 18003, true, false, z);
             createFromThreadCfg2.setVideo_source("frs");
-            createFromThreadCfg2.setForumId(String.valueOf(beVar.getFid()));
+            createFromThreadCfg2.setForumId(String.valueOf(bdVar.getFid()));
             createFromThreadCfg2.setStartFrom(3);
             iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg2));
         }
     }
 
-    public static void b(com.baidu.tieba.frs.i iVar, String str, be beVar, boolean z) {
-        if (iVar != null && beVar != null && str != null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(beVar, iVar.getForumName(), "frs_page", 18003, false, false, z);
+    public static void b(com.baidu.tieba.frs.i iVar, String str, bd bdVar, boolean z) {
+        if (iVar != null && bdVar != null && str != null) {
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, iVar.getForumName(), "frs_page", 18003, false, false, z);
             createFromThreadCfg.setVideo_source("frs");
-            createFromThreadCfg.setForumId(String.valueOf(beVar.getFid()));
+            createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
             createFromThreadCfg.setStartFrom(3);
             iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
@@ -211,38 +211,38 @@ public class h {
         }
     }
 
-    public static void b(com.baidu.tieba.frs.i iVar, be beVar) {
-        PhotoLiveActivityConfig wQ;
-        if (iVar != null && beVar != null) {
-            if (beVar.getThreadType() == 33 || (beVar instanceof at)) {
-                if (beVar.zu() > 0 && com.baidu.tieba.tbadkCore.util.f.bDl()) {
-                    wQ = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), beVar.getTid()).cG("from_frs").eD(18003).cE(String.valueOf(beVar.zu())).wQ();
+    public static void b(com.baidu.tieba.frs.i iVar, bd bdVar) {
+        PhotoLiveActivityConfig wP;
+        if (iVar != null && bdVar != null) {
+            if (bdVar.getThreadType() == 33 || (bdVar instanceof as)) {
+                if (bdVar.zp() > 0 && com.baidu.tieba.tbadkCore.util.f.bwI()) {
+                    wP = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), bdVar.getTid()).cG("from_frs").eC(18003).cE(String.valueOf(bdVar.zp())).wP();
                 } else {
-                    wQ = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), beVar.getTid()).cG("from_frs").eD(18003).wQ();
+                    wP = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), bdVar.getTid()).cG("from_frs").eC(18003).wP();
                 }
-                iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, wQ));
+                iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, wP));
             }
         }
     }
 
-    public static void a(com.baidu.tieba.frs.i iVar, be beVar, int i, boolean z) {
+    public static void a(com.baidu.tieba.frs.i iVar, bd bdVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
-        if (iVar != null && beVar != null) {
-            if (beVar.zu() > 0 && com.baidu.tieba.tbadkCore.util.f.bDl()) {
-                createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createHistoryCfg(beVar.getTid(), String.valueOf(beVar.zu()), false, true, "frs_page");
+        if (iVar != null && bdVar != null) {
+            if (bdVar.zp() > 0 && com.baidu.tieba.tbadkCore.util.f.bwI()) {
+                createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createHistoryCfg(bdVar.getTid(), String.valueOf(bdVar.zp()), false, true, "frs_page");
             } else {
-                createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(beVar, iVar.getForumName(), "frs_page", 18003, true, false, z);
+                createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, iVar.getForumName(), "frs_page", 18003, true, false, z);
             }
             if (i == 4) {
                 createFromThreadCfg.setVideo_source("floor5");
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(beVar.Ab());
+            createFromThreadCfg.setFromSmartFrs(bdVar.zT());
             createFromThreadCfg.setSmartFrsPosition(i);
-            createFromThreadCfg.setForumId(String.valueOf(beVar.getFid()));
+            createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
             createFromThreadCfg.setStartFrom(3);
-            if (beVar.zO() && createFromThreadCfg.getIntent() != null) {
+            if (bdVar.zH() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             iVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));

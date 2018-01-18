@@ -267,6 +267,7 @@ public class TbConfig {
     public static final boolean MSG_DEFAULT_REPLYME_SWITCH = true;
     public static final String MULTI_FOLLOW = "c/c/user/mfollow";
     public static final int MUTI_IMAGE_MAX_COUNT = 10;
+    public static final String NANI_DEFAULT_H5_PREFIX = "https://nani.baidu.com/n/nani/share/tieba";
     public static final int NAVI_STATE_EDIT = 2;
     public static final int NAVI_STATE_SEARCH = 0;
     public static final int NAVI_STATE_SIGN = 1;
@@ -681,7 +682,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Mb().ib(i);
+            c.LP().hX(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

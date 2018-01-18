@@ -27,24 +27,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends PopupWindow {
-    private View cVP;
-    private int doA;
-    private ViewGroup doy;
-    private AlbumActivity hQQ;
-    private d hQR;
-    private InterfaceC0174a hQS;
+    private View dar;
+    private ViewGroup dsY;
+    private int dta;
+    private InterfaceC0173a hGA;
+    private AlbumActivity hGy;
+    private d hGz;
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0174a {
+    public interface InterfaceC0173a {
         void a(int i, com.baidu.tbadk.album.a aVar);
     }
 
-    public void a(InterfaceC0174a interfaceC0174a) {
-        this.hQS = interfaceC0174a;
+    public void a(InterfaceC0173a interfaceC0173a) {
+        this.hGA = interfaceC0173a;
     }
 
     public a(AlbumActivity albumActivity) {
@@ -52,23 +52,23 @@ public class a extends PopupWindow {
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = a.this.hQR.getItem(i);
-                if (a.this.hQS != null) {
-                    a.this.hQS.a(i, item);
+                com.baidu.tbadk.album.a item = a.this.hGz.getItem(i);
+                if (a.this.hGA != null) {
+                    a.this.hGA.a(i, item);
                 }
-                a.this.aqM();
+                a.this.arP();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.aqM();
+                a.this.arP();
             }
         };
-        this.hQQ = albumActivity;
+        this.hGy = albumActivity;
         setWidth(-1);
         setHeight(-1);
-        setContentView(d(new ArrayList(), com.baidu.tbadk.album.a.aFO));
+        setContentView(d(new ArrayList(), com.baidu.tbadk.album.a.aFN));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -78,36 +78,36 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     private View d(List<com.baidu.tbadk.album.a> list, String str) {
-        BdListView bdListView = new BdListView(this.hQQ.getPageContext().getPageActivity());
+        BdListView bdListView = new BdListView(this.hGy.getPageContext().getPageActivity());
         this.mListView = bdListView;
-        bdListView.setCacheColorHint(this.hQQ.getResources().getColor(17170445));
+        bdListView.setCacheColorHint(this.hGy.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.hQR = new d(this.hQQ);
-        this.hQR.e(list, str);
-        bdListView.setAdapter((ListAdapter) this.hQR);
-        FrameLayout frameLayout = new FrameLayout(this.hQQ.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.hQQ.getPageContext().getPageActivity());
-        this.doy = frameLayout2;
+        this.hGz = new d(this.hGy);
+        this.hGz.e(list, str);
+        bdListView.setAdapter((ListAdapter) this.hGz);
+        FrameLayout frameLayout = new FrameLayout(this.hGy.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.hGy.getPageContext().getPageActivity());
+        this.dsY = frameLayout2;
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
         this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-        this.doy.setOnClickListener(this.mOnClickListener);
-        aj.t(this.cVP, d.C0108d.cp_bg_line_d);
-        aj.t(this.mListView, d.C0108d.cp_bg_line_d);
-        aj.t(this.doy, d.C0108d.black_alpha70);
+        this.dsY.setOnClickListener(this.mOnClickListener);
+        aj.t(this.dar, d.C0107d.cp_bg_line_d);
+        aj.t(this.mListView, d.C0107d.cp_bg_line_d);
+        aj.t(this.dsY, d.C0107d.black_alpha70);
         return frameLayout;
     }
 
     public void e(List<com.baidu.tbadk.album.a> list, String str) {
         int i;
         if (list != null) {
-            this.doA = f(list, str);
+            this.dta = f(list, str);
             if (list.size() <= 5) {
                 i = -2;
             } else {
-                i = this.hQQ.getResources().getDimensionPixelSize(d.e.ds618);
+                i = this.hGy.getResources().getDimensionPixelSize(d.e.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
@@ -116,8 +116,8 @@ public class a extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.hQR.e(list, str);
-            this.hQR.notifyDataSetChanged();
+            this.hGz.e(list, str);
+            this.hGz.notifyDataSetChanged();
         }
     }
 
@@ -135,35 +135,35 @@ public class a extends PopupWindow {
         return -1;
     }
 
-    public void bJ(View view) {
-        this.mListView.setSelection(this.doA);
+    public void bL(View view) {
+        this.mListView.setSelection(this.dta);
         if (Build.VERSION.SDK_INT < 24) {
             if (g.showPopupWindowAsDropDown(this, view)) {
-                aqO();
+                arR();
                 return;
             }
             return;
         }
-        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hQQ.atu() == null || this.hQQ.atu().getVisibility() != 0) ? 0 : this.hQQ.atu().getHeight()) + view.getHeight())) {
-            aqO();
+        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hGy.aux() == null || this.hGy.aux().getVisibility() != 0) ? 0 : this.hGy.aux().getHeight()) + view.getHeight())) {
+            arR();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        aqM();
+        arP();
     }
 
-    public void aqM() {
-        aqP();
+    public void arP() {
+        arS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqN() {
+    public void arQ() {
         super.dismiss();
     }
 
-    private void aqO() {
+    private void arR() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -171,10 +171,10 @@ public class a extends PopupWindow {
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         this.mListView.startAnimation(translateAnimation);
-        this.doy.startAnimation(alphaAnimation);
+        this.dsY.startAnimation(alphaAnimation);
     }
 
-    private void aqP() {
+    private void arS() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -193,19 +193,19 @@ public class a extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.aqN();
+                a.this.arQ();
             }
         });
         this.mListView.startAnimation(translateAnimation);
-        this.doy.startAnimation(alphaAnimation);
+        this.dsY.startAnimation(alphaAnimation);
     }
 
     public void clearAnimation() {
         if (this.mListView != null) {
             this.mListView.clearAnimation();
         }
-        if (this.doy != null) {
-            this.doy.clearAnimation();
+        if (this.dsY != null) {
+            this.dsY.clearAnimation();
         }
     }
 }

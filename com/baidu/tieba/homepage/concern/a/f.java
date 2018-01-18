@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int eaD;
-    private static int eaE;
+    private static int ebN;
+    private static int ebO;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.eaL);
-        eaD = l.s(context, d.e.tbds102);
-        eaE = l.s(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.ebV);
+        ebN = l.s(context, d.e.tbds102);
+        ebO = l.s(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
+    /* renamed from: aN */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), d.h.concern_tip_layout, null);
         a aVar = new a(inflate);
@@ -40,37 +40,37 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.eaF.setText(aVar.aXT);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.eaF.getLayoutParams();
-        if (aVar.eaO) {
-            layoutParams.height = eaE;
-            aVar2.dDx.setVisibility(0);
-        } else if (aVar.eaP) {
-            layoutParams.height = eaD;
+        aVar2.ebP.setText(aVar.aXS);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.ebP.getLayoutParams();
+        if (aVar.ebY) {
+            layoutParams.height = ebO;
+            aVar2.dHY.setVisibility(0);
+        } else if (aVar.ebZ) {
+            layoutParams.height = ebN;
         }
-        ((a) this.viewholder).eaF.setLayoutParams(layoutParams);
+        ((a) this.viewholder).ebP.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes2.dex */
     public class a extends r.a {
-        private int bdE;
-        public View dDx;
-        public TextView eaF;
+        private int bdK;
+        public View dHY;
+        public TextView ebP;
 
         public a(View view) {
             super(view);
-            this.bdE = 3;
-            this.eaF = (TextView) view.findViewById(d.g.concern_tip_txt);
-            this.dDx = view.findViewById(d.g.concern_tip_top_line);
+            this.bdK = 3;
+            this.ebP = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.dHY = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.bdE != i) {
-                aj.t(getView(), d.C0108d.cp_bg_line_e);
-                aj.r(this.eaF, d.C0108d.cp_cont_d);
-                aj.s(this.dDx, d.C0108d.cp_bg_line_e);
+            if (this.bdK != i) {
+                aj.t(getView(), d.C0107d.cp_bg_line_e);
+                aj.r(this.ebP, d.C0107d.cp_cont_d);
+                aj.s(this.dHY, d.C0107d.cp_bg_line_e);
             }
         }
     }

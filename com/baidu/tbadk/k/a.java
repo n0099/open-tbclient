@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b bxm;
-    private InterfaceC0088a bxn = null;
+    private b bxv;
+    private InterfaceC0087a bxw = null;
     private WindowManager mWindowManager;
 
     /* renamed from: com.baidu.tbadk.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0088a {
-        void in(int i);
+    public interface InterfaceC0087a {
+        void ij(int i);
     }
 
     public a(Context context) {
-        this.bxm = null;
+        this.bxv = null;
         this.mWindowManager = null;
-        this.bxm = new b(context);
+        this.bxv = new b(context);
         this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
-    private void NE() {
+    private void Ns() {
         try {
-            this.mWindowManager.removeView(this.bxm);
+            this.mWindowManager.removeView(this.bxv);
         } catch (Throwable th) {
         }
     }
 
-    private void NF() {
+    private void Nt() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.mWindowManager.addView(this.bxm, layoutParams);
+            this.mWindowManager.addView(this.bxv, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,20 +48,20 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        NE();
+        Ns();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        NE();
-        NF();
+        Ns();
+        Nt();
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tbadk.k.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.jP()) {
-                    a.this.bxm.invalidate();
-                    a.this.bxm.post(this);
+                    a.this.bxv.invalidate();
+                    a.this.bxv.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int bxp;
+        private int bxy;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.bxp = 0;
+            this.bxy = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.bxp = 0;
+                this.bxy = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.bxn != null) {
-                    a.this.bxn.in(this.bxp);
+                if (a.this.bxw != null) {
+                    a.this.bxw.ij(this.bxy);
                 } else {
-                    com.baidu.adp.a.a.d.cy(this.bxp);
+                    com.baidu.adp.a.a.d.cy(this.bxy);
                 }
-                this.bxp = 0;
+                this.bxy = 0;
             }
-            this.bxp++;
+            this.bxy++;
         }
     }
 
-    public void a(InterfaceC0088a interfaceC0088a) {
-        if (this.bxn == null) {
-            this.bxn = interfaceC0088a;
+    public void a(InterfaceC0087a interfaceC0087a) {
+        if (this.bxw == null) {
+            this.bxw = interfaceC0087a;
         }
     }
 }

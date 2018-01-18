@@ -14,17 +14,17 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public c aWw;
-        public boolean apO;
-        public JSONObject bgq;
-        public boolean bgr;
-        public BlockPopInfoData bgt;
+        public c aWv;
+        public boolean apN;
+        public JSONObject bgI;
+        public boolean bgJ;
+        public BlockPopInfoData bgK;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean bgp = false;
+        public boolean bgH = false;
         public int status = 0;
 
         public void k(String str, boolean z) {
@@ -32,24 +32,24 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.bgq = jSONObject;
+                    this.bgI = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
                     if (optJSONObject != null) {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.bgp = z2;
+                        this.bgH = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
                         String optString = optJSONObject.optString("block_content");
                         String optString2 = optJSONObject.optString("block_dealurl");
                         String optString3 = optJSONObject.optString("block_confirm");
                         String optString4 = optJSONObject.optString("block_cancel");
                         if (!am.isEmpty(optString) && !am.isEmpty(optString2) && !am.isEmpty(optString3) && !am.isEmpty(optString4)) {
-                            this.bgt = new BlockPopInfoData();
-                            this.bgt.block_info = optString;
-                            this.bgt.ahead_url = optString2;
-                            this.bgt.ahead_info = optString3;
-                            this.bgt.ok_info = optString4;
+                            this.bgK = new BlockPopInfoData();
+                            this.bgK.block_info = optString;
+                            this.bgK.ahead_url = optString2;
+                            this.bgK.ahead_info = optString3;
+                            this.bgK.ok_info = optString4;
                         }
                         this.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
                     }
@@ -68,7 +68,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().apO;
+        return getData().apN;
     }
 
     public boolean isAttention() {

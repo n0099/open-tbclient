@@ -3,7 +3,7 @@ package com.baidu.tbadk.album;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    public List<a> aGm;
-    public List<MediaFileInfo> aGn;
-    public List<VideoFileInfo> aGo;
+    public List<a> aGl;
+    public List<MediaFileInfo> aGm;
+    public List<VideoFileInfo> aGn;
 }

@@ -7,10 +7,10 @@ import android.content.IntentFilter;
 import android.support.v4.app.NotificationCompat;
 /* loaded from: classes.dex */
 public class b {
-    private static b aAL = null;
+    private static b aAK = null;
     private boolean a = false;
     private String b = null;
-    private a aAK = null;
+    private a aAJ = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -69,27 +69,27 @@ public class b {
     public static synchronized b tQ() {
         b bVar;
         synchronized (b.class) {
-            if (aAL == null) {
-                aAL = new b();
+            if (aAK == null) {
+                aAK = new b();
             }
-            bVar = aAL;
+            bVar = aAK;
         }
         return bVar;
     }
 
     public void b() {
-        this.aAK = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.aAK, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.aAJ = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.aAJ, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.aAK != null) {
+        if (this.aAJ != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aAK);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aAJ);
             } catch (Exception e) {
             }
         }
-        this.aAK = null;
+        this.aAJ = null;
     }
 
     public String d() {

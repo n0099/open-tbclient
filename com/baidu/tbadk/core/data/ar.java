@@ -1,91 +1,100 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes.dex */
-public class ar {
-    private ArrayList<UserData> aMs = new ArrayList<>();
-    private ArrayList<UserData> aMt = new ArrayList<>();
-    private am aMu = new am();
-    private int aMv = 0;
+public class ar extends bd {
+    public static final BdUniqueId aMu = BdUniqueId.gen();
+    private List<PhotoLiveCardData> aMv;
     private int aMw = 0;
-    public int aMx;
-    public boolean hasMore;
-    public int pageNum;
+    private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
-    public ArrayList<UserData> yc() {
-        return this.aMs;
+    public void B(List<PhotoLiveCardData> list) {
+        this.aMv = list;
     }
 
-    public ArrayList<UserData> yd() {
-        return this.aMt;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                if (jSONObject.optJSONObject("page") != null) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            UserData userData = new UserData();
-                            userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.aMs.add(userData);
-                        }
-                    }
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            UserData userData2 = new UserData();
-                            userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                            userData2.mAttentionType = 1;
-                            this.aMt.add(userData2);
-                        }
-                    }
-                    this.aMu.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.aMu != null) {
-                        this.pageNum = this.aMu.xV();
-                        this.aMx = this.aMu.xT();
-                        this.hasMore = this.aMu.xX() == 1;
-                    }
-                    this.aMv = jSONObject.optInt("tafriendnum", 0);
-                    this.aMw = jSONObject.optInt("commonfriendnum", 0);
-                    return;
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.aMs.add(userData3);
-                    }
-                }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.aMt.add(userData4);
-                    }
-                }
-                this.pageNum = jSONObject.optInt("pn");
-                this.aMx = jSONObject.optInt("total_follow_num", 0);
-                this.hasMore = jSONObject.optInt("has_more", 0) == 1;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    public void a(bd bdVar, int i) {
+        if (bdVar != null) {
+            a(bdVar.yS());
+            setTitle(bdVar.getTitle());
+            setPhotoLiveCover(bdVar.getPhotoLiveCover());
+            cO(bdVar.yY());
+            cK(bdVar.getTid());
+            v(bdVar.yM());
+            setAddress(bdVar.getAddress());
+            setId(bdVar.getId());
+            setThreadType(bdVar.getThreadType());
+            a(bdVar.yH());
+            eP(bdVar.yK());
+            setPost_num(bdVar.getPost_num());
+            cP(bdVar.getAbstract());
+            cK(bdVar.getTid());
+            setExpressionDatas(bdVar.zm());
+            setShowExpressionViewIndexList(bdVar.zm());
+            setId(bdVar.getId());
+            a(bdVar.xL());
+            this.aOD = bdVar.zp();
+            this.aOE = bdVar.zq();
+            this.aOF = bdVar.zr();
+            if (getShowStyle() < 0) {
+                this.aMw = getRandom(3, i);
             }
         }
+    }
+
+    public int getRandom(int i, int i2) {
+        int nextInt = new Random().nextInt(i);
+        if (nextInt == i2) {
+            return (nextInt + 1) % i;
+        }
+        return nextInt;
+    }
+
+    public void setShowExpressionViewIndexList(ArrayList<com.baidu.tbadk.coreExtra.view.e> arrayList) {
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = -1;
+        int i3 = -1;
+        while (i < size && i < 3) {
+            if (arrayList.get(i) != null) {
+                int random = getRandom(3, -1);
+                if (random == i2 || random == i3) {
+                    random = s(size, i2, i3);
+                }
+                if (i == 0) {
+                    i2 = random;
+                }
+                if (i == 1) {
+                    i3 = random;
+                }
+                this.showExpressionViewIndex.add(Integer.valueOf(random));
+            }
+            i++;
+            i2 = i2;
+        }
+    }
+
+    public ArrayList<Integer> getShowExpressionViewIndex() {
+        return this.showExpressionViewIndex;
+    }
+
+    private int s(int i, int i2, int i3) {
+        for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+            if (i4 != i2 && i4 != i3) {
+                return i4;
+            }
+        }
+        return -1;
+    }
+
+    public int getShowStyle() {
+        return this.aMw;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return aMu;
     }
 }

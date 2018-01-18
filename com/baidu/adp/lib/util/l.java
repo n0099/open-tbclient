@@ -2,7 +2,6 @@ package com.baidu.adp.lib.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
@@ -22,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
@@ -275,22 +273,6 @@ public class l {
         return rect;
     }
 
-    public static int c(Paint paint, String str) {
-        float[] fArr;
-        int i = 0;
-        if (str != null && str.length() > 0) {
-            int length = str.length();
-            paint.getTextWidths(str, new float[length]);
-            int i2 = 0;
-            while (i2 < length) {
-                int ceil = ((int) Math.ceil(fArr[i2])) + i;
-                i2++;
-                i = ceil;
-            }
-        }
-        return i;
-    }
-
     public static String a(TextPaint textPaint, String str, int i) {
         CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i, TextUtils.TruncateAt.END);
         if (ellipsize == null) {
@@ -325,19 +307,6 @@ public class l {
 
     public static int s(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
-    }
-
-    public static boolean K(Context context, String str) {
-        List<PackageInfo> installedPackages;
-        if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
-            return false;
-        }
-        for (int i = 0; i < installedPackages.size(); i++) {
-            if (installedPackages.get(i).packageName.equals(str)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static void oX() {

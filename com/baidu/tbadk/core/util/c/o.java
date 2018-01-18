@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
-    private boolean aXt = true;
+    private boolean aXs = true;
 
     @Override // com.baidu.adp.lib.f.e
     public boolean no() {
-        return com.baidu.tbadk.core.i.wB().wH();
+        return com.baidu.tbadk.core.i.wA().wG();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.Mb().gx(str);
+        return com.baidu.tbadk.imageManager.c.LP().gy(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -108,11 +108,11 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (aVar != null) {
             aVar.ajQ = iVar;
         }
-        byte[] j = iVar.j(str3, !this.aXt);
+        byte[] j = iVar.j(str3, !this.aXs);
         if (j == null && !iVar.nb().ajz) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Mb().ie(TbConfig.getPbImageSize() + j.length);
+        com.baidu.tbadk.imageManager.c.LP().ia(TbConfig.getPbImageSize() + j.length);
         return a(str3, str2, aVar, null, a(BitmapHelper.Bytes2Bitmap(j), i, i2), iVar.isGif || com.baidu.adp.lib.util.l.j(j), iVar, j);
     }
 
@@ -121,7 +121,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Mb().ie(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.LP().ia(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;
@@ -130,13 +130,13 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Mb().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.LP().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel np() {
-        return i.DA().np();
+        return i.Dr().np();
     }
 
     @Override // com.baidu.adp.lib.f.e

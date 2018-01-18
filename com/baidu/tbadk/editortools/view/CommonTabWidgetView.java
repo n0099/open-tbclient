@@ -14,13 +14,13 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private i axO;
-    private CommonTabHorizonScrollView bsZ;
-    private ImageView bta;
+    private i axN;
+    private CommonTabHorizonScrollView bti;
+    private ImageView btj;
 
     /* loaded from: classes.dex */
     public interface a {
-        void hZ(int i);
+        void hV(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -34,27 +34,27 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(i iVar) {
-        this.axO = iVar;
+        this.axN = iVar;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(d.h.common_tab_widget, (ViewGroup) this, true);
-        this.bsZ = (CommonTabHorizonScrollView) findViewById(d.g.privilege_tab_scroll_view);
-        this.bta = (ImageView) findViewById(d.g.privilege_tab_delete);
-        this.bta.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
+        this.bti = (CommonTabHorizonScrollView) findViewById(d.g.privilege_tab_scroll_view);
+        this.btj = (ImageView) findViewById(d.g.privilege_tab_delete);
+        this.btj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CommonTabWidgetView.this.axO != null) {
-                    CommonTabWidgetView.this.axO.b(new com.baidu.tbadk.editortools.a(3, 3, null));
+                if (CommonTabWidgetView.this.axN != null) {
+                    CommonTabWidgetView.this.axN.b(new com.baidu.tbadk.editortools.a(3, 3, null));
                 }
             }
         });
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.view.a> arrayList) {
-        this.bsZ.setDatas(arrayList);
+        this.bti.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -63,33 +63,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(a.b bVar) {
-        this.bsZ.c(bVar);
+        this.bti.c(bVar);
     }
 
     public void setCurrentTab(int i) {
-        this.bsZ.setCurrentTab(i);
+        this.bti.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.bsZ.setOnTabSelectedListener(aVar);
+        this.bti.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.bsZ.reset();
+        this.bti.reset();
     }
 
     public void onChangeSkinType(int i) {
-        aj.t(this, d.C0108d.common_color_10223);
-        this.bsZ.gC(i);
-        aj.c(this.bta, d.f.but_face_close);
-        aj.t(this.bta, d.C0108d.common_color_10224);
+        aj.t(this, d.C0107d.common_color_10223);
+        this.bti.gz(i);
+        aj.c(this.btj, d.f.but_face_close);
+        aj.t(this.btj, d.C0107d.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.bta.setVisibility(0);
+            this.btj.setVisibility(0);
         } else {
-            this.bta.setVisibility(8);
+            this.btj.setVisibility(8);
         }
     }
 }

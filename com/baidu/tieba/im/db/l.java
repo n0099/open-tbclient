@@ -9,20 +9,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a evD;
-    public static String evo = "tb_private_msg_";
+    public static String ewM = "tb_private_msg_";
+    private static a exb;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l aGH() {
+    public static synchronized l aGM() {
         l lVar;
         synchronized (l.class) {
-            if (evD == null) {
-                evD = new l();
+            if (exb == null) {
+                exb = new l();
             }
-            lVar = (l) evD;
+            lVar = (l) exb;
         }
         return lVar;
     }
@@ -42,16 +42,16 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo ai(String str, int i) {
+    public CommonMsgPojo ak(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = evo;
+            ?? r2 = ewM;
             try {
                 try {
-                    cursor = g.aGw().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.aGB().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -81,7 +81,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        mN(str);
+                        mQ(str);
                         n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

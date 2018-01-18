@@ -16,29 +16,29 @@ import com.baidu.tieba.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class e {
-    private a bja;
-    private b bjb;
-    private String bjc = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
-    private String bjd = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.bjc;
+    private a bjr;
+    private b bjs;
+    private String bjt = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
+    private String bju = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.bjt;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.bja = null;
-        this.bjb = null;
+        this.bjr = null;
+        this.bjs = null;
         this.mContext = context;
-        this.bja = aVar;
+        this.bjr = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.bjb = cVar.a(this.mContext, this.bja);
+            this.bjs = cVar.a(this.mContext, this.bjr);
         }
     }
 
     public static boolean bg(Context context) {
-        return Iy();
+        return Ir();
     }
 
-    public static boolean Iy() {
+    public static boolean Ir() {
         return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
     }
 
@@ -47,56 +47,56 @@ public class e {
     }
 
     public void b(d dVar) {
-        if (this.bjb != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, this.bjc);
-            this.bjb.a(a(dVar, "weixin"), 3, false);
+        if (this.bjs != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, this.bjt);
+            this.bjs.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.bjb != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, this.bjc);
-            if (StringUtils.isNull(dVar.biR)) {
+        if (this.bjs != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, this.bjt);
+            if (StringUtils.isNull(dVar.bji)) {
                 dVar.title = dVar.content;
             } else {
-                dVar.title = dVar.biR;
+                dVar.title = dVar.bji;
             }
-            this.bjb.a(a(dVar, "weixin_timeline"), 2, false);
+            this.bjs.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.bjb != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, this.bjc);
-            this.bjb.a(a(dVar, "qqfriend"), 8, true);
+        if (this.bjs != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, this.bjt);
+            this.bjs.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.bjb != null) {
-            dVar.content = b(dVar.content, 80, 32, this.bjc);
-            this.bjb.a(a(dVar, "qzone"), 4, true);
+        if (this.bjs != null) {
+            dVar.content = b(dVar.content, 80, 32, this.bjt);
+            this.bjs.a(a(dVar, "qzone"), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.bjb != null) {
-            dVar.content = b(dVar.content, 140, 20, this.bjc);
-            this.bjb.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.bjs != null) {
+            dVar.content = b(dVar.content, 140, 20, this.bjt);
+            this.bjs.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.bjb != null) {
-            dVar.content = b(dVar.content, 140, 20, this.bjd);
-            this.bjb.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.bjs != null) {
+            dVar.content = b(dVar.content, 140, 20, this.bju);
+            this.bjs.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.bjb != null) {
-            dVar.content = b(dVar.content, 140, 20, this.bjc);
-            this.bjb.a(a(dVar, "renren"), 7, true);
+        if (this.bjs != null) {
+            dVar.content = b(dVar.content, 140, 20, this.bjt);
+            this.bjs.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -112,19 +112,19 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.biN == null || dVar.biN.equals("")) && dVar.Ix() == null) {
+        if ((dVar.bje == null || dVar.bje.equals("")) && dVar.Iq() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             }
-            dVar.biN = Uri.parse(str2);
+            dVar.bje = Uri.parse(str2);
         }
-        if (dVar.biN != null && !dVar.biN.equals("")) {
-            String uri = dVar.biN.toString();
+        if (dVar.bje != null && !dVar.bje.equals("")) {
+            String uri = dVar.bje.toString();
             if (!fp(uri)) {
-                dVar.biN = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
+                dVar.bje = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
-                dVar.biN = Uri.parse(uri);
+                dVar.bje = Uri.parse(uri);
                 aj(uri, "sfc=" + str);
             }
         }
@@ -158,7 +158,7 @@ public class e {
 
     private boolean fp(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (av.Di().em(str)) {
+        if (av.CZ().em(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

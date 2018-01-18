@@ -16,20 +16,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONArray bMi;
-    private HttpMessageListener bMj;
-    private BdUniqueId bMk = BdUniqueId.gen();
-    private BdUniqueId bMl = BdUniqueId.gen();
-    private CustomMessageListener bMm = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private JSONArray bMq;
+    private HttpMessageListener bMr;
+    private BdUniqueId bMs = BdUniqueId.gen();
+    private BdUniqueId bMt = BdUniqueId.gen();
+    private CustomMessageListener bMu = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.ow() && a.this.bMi != null) {
-                a.this.a(a.this.bMi, a.this.bMl);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.ow() && a.this.bMq != null) {
+                a.this.a(a.this.bMq, a.this.bMt);
             }
         }
     };
-    private CustomMessageListener bMn = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener bMv = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,30 +42,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.bMj == null) {
-            this.bMj = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.bMr == null) {
+            this.bMr = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.bMi = null;
+                        a.this.bMq = null;
                     }
                 }
             };
         }
-        this.bMj.setTag(this.bMl);
-        MessageManager.getInstance().registerListener(this.bMj);
-        MessageManager.getInstance().registerListener(this.bMm);
-        this.bMn.setTag(tbPageContext.getUniqueId());
-        this.bMn.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bMn);
+        this.bMr.setTag(this.bMt);
+        MessageManager.getInstance().registerListener(this.bMr);
+        MessageManager.getInstance().registerListener(this.bMu);
+        this.bMv.setTag(tbPageContext.getUniqueId());
+        this.bMv.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bMv);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bMj);
-        MessageManager.getInstance().unRegisterListener(this.bMm);
-        MessageManager.getInstance().unRegisterListener(this.bMn);
-        this.bMi = null;
+        MessageManager.getInstance().unRegisterListener(this.bMr);
+        MessageManager.getInstance().unRegisterListener(this.bMu);
+        MessageManager.getInstance().unRegisterListener(this.bMv);
+        this.bMq = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,14 +74,14 @@ public class a {
             if (j.ow()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.bMk);
+                a(jSONArray, this.bMs);
                 return;
             }
-            if (this.bMi == null) {
-                this.bMi = new JSONArray();
+            if (this.bMq == null) {
+                this.bMq = new JSONArray();
             }
-            if (this.bMi.length() <= 100) {
-                this.bMi.put(jSONObject);
+            if (this.bMq.length() <= 100) {
+                this.bMq.put(jSONObject);
             }
         }
     }

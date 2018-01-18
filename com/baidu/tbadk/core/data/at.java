@@ -1,26 +1,15 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import tbclient.FrsPage.RealTime;
 /* loaded from: classes.dex */
-public class at extends be {
-    public static final BdUniqueId aMB = BdUniqueId.gen();
-    private PhotoLiveCardData aMC;
+public class at {
+    private Long aMz;
+    private String mIcon;
+    private String mUrl;
 
-    public PhotoLiveCardData yg() {
-        return this.aMC;
-    }
-
-    public void a(PhotoLiveCardData photoLiveCardData) {
-        this.aMC = photoLiveCardData;
-    }
-
-    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.i
-    public BdUniqueId getType() {
-        return aMB;
-    }
-
-    @Override // com.baidu.tbadk.core.data.be
-    public String getTid() {
-        return this.aMC != null ? String.valueOf(this.aMC.getThreadId()) : super.getTid();
+    public void a(RealTime realTime) {
+        this.aMz = realTime.task_id;
+        this.mIcon = realTime.icon;
+        this.mUrl = realTime.url;
     }
 }

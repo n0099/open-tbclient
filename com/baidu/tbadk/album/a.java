@@ -4,10 +4,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final String aFO = String.valueOf(Integer.MAX_VALUE);
-    public static final String aFP = String.valueOf(2147483646);
-    private MediaFileInfo aFQ;
-    private List<MediaFileInfo> aFR;
+    public static final String aFN = String.valueOf(Integer.MAX_VALUE);
+    public static final String aFO = String.valueOf(2147483646);
+    private MediaFileInfo aFP;
+    private List<MediaFileInfo> aFQ;
     private String albumId;
     private int count;
     private String name;
@@ -41,25 +41,25 @@ public class a {
     }
 
     public ImageFileInfo va() {
-        if (this.aFQ instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.aFQ;
+        if (this.aFP instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.aFP;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.aFQ = mediaFileInfo;
+        this.aFP = mediaFileInfo;
     }
 
     public MediaFileInfo vb() {
-        return this.aFQ;
+        return this.aFP;
     }
 
     public List<MediaFileInfo> vc() {
-        return this.aFR;
+        return this.aFQ;
     }
 
     public void v(List<MediaFileInfo> list) {
-        this.aFR = list;
+        this.aFQ = list;
     }
 }

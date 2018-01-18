@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean bdA;
-    private boolean bdB;
+    private boolean bdG;
+    private boolean bdH;
     private int mActivePointerId;
     private float mInitialMotionX;
     private float mInitialMotionY;
@@ -19,16 +19,16 @@ public class BdBaseViewPager extends ViewPager {
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.bdA = false;
-        this.bdB = false;
+        this.bdG = false;
+        this.bdH = false;
         this.mActivePointerId = -1;
         initViewPager();
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdA = false;
-        this.bdB = false;
+        this.bdG = false;
+        this.bdH = false;
         this.mActivePointerId = -1;
         initViewPager();
     }
@@ -39,7 +39,7 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.bdA = z;
+        this.bdG = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -48,7 +48,7 @@ public class BdBaseViewPager extends ViewPager {
         if (t(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.bdA) {
+        if (motionEvent.getPointerCount() > 1 && this.bdG) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -64,7 +64,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.bdB) {
+        if (this.bdH) {
             return false;
         }
         if (t(motionEvent)) {
@@ -105,7 +105,7 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bdB) {
+        if (this.bdH) {
             return false;
         }
         switch (motionEvent.getAction() & 255) {
@@ -142,6 +142,6 @@ public class BdBaseViewPager extends ViewPager {
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.bdB = z;
+        this.bdH = z;
     }
 }

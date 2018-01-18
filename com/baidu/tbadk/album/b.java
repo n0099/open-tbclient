@@ -21,9 +21,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private final String aFS = TbConfig.getTempDirName();
-    private a aFT;
-    private c aFU;
+    private final String aFR = TbConfig.getTempDirName();
+    private a aFS;
+    private c aFT;
     private final Context mContext;
 
     /* renamed from: com.baidu.tbadk.album.b$b  reason: collision with other inner class name */
@@ -41,9 +41,9 @@ public class b {
             return false;
         }
         vd();
-        this.aFT = new a(cVar);
-        this.aFT.setPriority(3);
-        this.aFT.execute(new Object[0]);
+        this.aFS = new a(cVar);
+        this.aFS.setPriority(3);
+        this.aFS.execute(new Object[0]);
         return true;
     }
 
@@ -52,33 +52,33 @@ public class b {
             return false;
         }
         ve();
-        this.aFU = new c(str, dVar);
-        this.aFU.setPriority(3);
-        this.aFU.execute(new Void[0]);
+        this.aFT = new c(str, dVar);
+        this.aFT.setPriority(3);
+        this.aFT.execute(new Void[0]);
         return true;
     }
 
     public void vd() {
+        if (this.aFS != null) {
+            this.aFS.cancel();
+            this.aFS = null;
+        }
+    }
+
+    public void ve() {
         if (this.aFT != null) {
             this.aFT.cancel();
             this.aFT = null;
         }
     }
 
-    public void ve() {
-        if (this.aFU != null) {
-            this.aFU.cancel();
-            this.aFU = null;
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, List<com.baidu.tbadk.album.a>> {
-        private final com.baidu.tbadk.album.c aFV;
+        private final com.baidu.tbadk.album.c aFU;
 
         public a(com.baidu.tbadk.album.c cVar) {
-            this.aFV = cVar;
+            this.aFU = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,8 +93,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.aFV != null) {
-                this.aFV.onPreLoad();
+            if (this.aFU != null) {
+                this.aFU.onPreLoad();
             }
         }
 
@@ -104,8 +104,8 @@ public class b {
         /* renamed from: w */
         public void onPostExecute(List<com.baidu.tbadk.album.a> list) {
             super.onPostExecute(list);
-            if (this.aFV != null) {
-                this.aFV.y(list);
+            if (this.aFU != null) {
+                this.aFU.y(list);
             }
         }
     }
@@ -175,7 +175,7 @@ public class b {
                                 imageFileInfo.setFilePath(string3);
                                 aVar.a(imageFileInfo);
                                 aVar.setName(string2);
-                                if (string2 != null && string2.equals(this.aFS)) {
+                                if (string2 != null && string2.equals(this.aFR)) {
                                     list.add(0, aVar);
                                 } else {
                                     list.add(aVar);
@@ -242,12 +242,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final d aFX;
-        private final String aFY;
-        private String aFZ;
-        private List<com.baidu.tbadk.album.a> aGa;
-        private int aGb = 1;
-        private InterfaceC0068b aGc = new InterfaceC0068b() { // from class: com.baidu.tbadk.album.b.c.1
+        private final d aFW;
+        private final String aFX;
+        private String aFY;
+        private List<com.baidu.tbadk.album.a> aFZ;
+        private int aGa = 1;
+        private InterfaceC0068b aGb = new InterfaceC0068b() { // from class: com.baidu.tbadk.album.b.c.1
             @Override // com.baidu.tbadk.album.b.InterfaceC0068b
             public void x(List<ImageFileInfo> list) {
                 c.this.publishProgress(list);
@@ -255,8 +255,8 @@ public class b {
         };
 
         public c(String str, d dVar) {
-            this.aFX = dVar;
-            this.aFY = str;
+            this.aFW = dVar;
+            this.aFX = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -264,23 +264,23 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.aFY)) {
+            if (TextUtils.isEmpty(this.aFX)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.aFY.equals(com.baidu.tbadk.album.a.aFO)) {
-                this.aGa = b.this.vf();
-                if (this.aGa != null) {
-                    for (com.baidu.tbadk.album.a aVar : this.aGa) {
+            if (this.aFX.equals(com.baidu.tbadk.album.a.aFN)) {
+                this.aFZ = b.this.vf();
+                if (this.aFZ != null) {
+                    for (com.baidu.tbadk.album.a aVar : this.aFZ) {
                         String albumId = aVar.getAlbumId();
                         if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.aGc, albumId);
+                            a(arrayList, this.aGb, albumId);
                         }
                     }
                 }
                 return arrayList;
             }
-            a(arrayList, this.aGc, this.aFY);
+            a(arrayList, this.aGb, this.aFX);
             return arrayList;
         }
 
@@ -297,8 +297,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (this.aFX != null) {
-                this.aFX.onPreLoad();
+            if (this.aFW != null) {
+                this.aFW.onPreLoad();
             }
         }
 
@@ -308,8 +308,8 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(List<ImageFileInfo>... listArr) {
             super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.aFX != null) {
-                this.aFX.a(this.aGa, listArr[0], this.aFZ);
+            if (listArr.length > 0 && this.aFW != null) {
+                this.aFW.a(this.aFZ, listArr[0], this.aFY);
             }
         }
 
@@ -319,25 +319,25 @@ public class b {
         /* renamed from: w */
         public void onPostExecute(List<ImageFileInfo> list) {
             super.onPostExecute(list);
-            if (this.aFX != null) {
-                this.aFX.a(this.aGa, list, this.aFZ);
+            if (this.aFW != null) {
+                this.aFW.a(this.aFZ, list, this.aFY);
             }
         }
 
         private void a(List<ImageFileInfo> list, InterfaceC0068b interfaceC0068b) {
             if (list != null && interfaceC0068b != null) {
-                if (this.aGb == 1 || this.aGb == 2) {
-                    if (list.size() / this.aGb > 50) {
+                if (this.aGa == 1 || this.aGa == 2) {
+                    if (list.size() / this.aGa > 50) {
                         if (interfaceC0068b != null) {
                             interfaceC0068b.x(list);
                         }
-                        this.aGb++;
+                        this.aGa++;
                     }
-                } else if (list.size() / this.aGb > 500) {
+                } else if (list.size() / this.aGa > 500) {
                     if (interfaceC0068b != null) {
                         interfaceC0068b.x(list);
                     }
-                    this.aGb++;
+                    this.aGa++;
                 }
             }
         }
@@ -354,7 +354,7 @@ public class b {
                                 int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    this.aFZ = cursor.getString(columnIndex2);
+                                    this.aFY = cursor.getString(columnIndex2);
                                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                                     imageFileInfo.setAlbumnId(str);
                                     imageFileInfo.setFilePath(string);

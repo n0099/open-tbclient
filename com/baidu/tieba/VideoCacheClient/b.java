@@ -12,25 +12,25 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b bPy;
-    private int bPz = 0;
+    private static b bPF;
+    private int bPG = 0;
 
     private b() {
-        a.Tv();
+        a.Tj();
     }
 
-    public static b Ty() {
-        if (bPy == null) {
+    public static b Tm() {
+        if (bPF == null) {
             synchronized (b.class) {
-                if (bPy == null) {
-                    bPy = new b();
+                if (bPF == null) {
+                    bPF = new b();
                 }
             }
         }
-        return bPy;
+        return bPF;
     }
 
-    private static long Tt() {
+    private static long Th() {
         File externalStorageDirectory;
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && externalStorageDirectory.exists() && externalStorageDirectory.canRead() && externalStorageDirectory.canWrite()) {
@@ -44,60 +44,60 @@ public class b implements i {
         }
     }
 
-    private boolean Tz() {
-        d.au(TAG, "sdcard avalible size " + ((Tt() / 1024) / 1024) + "M");
-        return Tt() > 314572800 && getPort() > 0;
+    private boolean Tn() {
+        d.au(TAG, "sdcard avalible size " + ((Th() / 1024) / 1024) + "M");
+        return Th() > 314572800 && getPort() > 0;
     }
 
     public void br(Context context) {
         if (context != null) {
-            e.bt(context).SI();
+            e.bt(context).Sw();
         }
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hE(String str) {
-        if (Tz()) {
-            String hF = hF(str);
-            if (hF == null) {
-                String hC = hC(str);
-                if (hC != null && new File(c.bPk + hC + "/header_downloaded").exists()) {
+    public String hF(String str) {
+        if (Tn()) {
+            String hG = hG(str);
+            if (hG == null) {
+                String hD = hD(str);
+                if (hD != null && new File(c.bPr + hD + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return hF;
+            return hG;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
     public String r(String str, boolean z) {
-        if (Tz()) {
-            String hF = hF(str);
-            if (hF == null) {
-                String hC = hC(str);
-                if (hC != null) {
+        if (Tn()) {
+            String hG = hG(str);
+            if (hG == null) {
+                String hD = hD(str);
+                if (hD != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.bPk + hC + "/header_downloaded").exists()) {
+                    if (new File(c.bPr + hD + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return hF;
+            return hG;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hF(String str) {
-        String hC;
+    public String hG(String str) {
+        String hD;
         File file;
-        if (str == null || !str.contains("/") || (hC = hC(str)) == null || (file = new File(c.bPk + hC + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hD = hD(str)) == null || (file = new File(c.bPr + hD + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -109,18 +109,18 @@ public class b implements i {
     }
 
     @Override // com.baidu.tieba.play.i
-    public void ad(Context context, String str) {
-        e.bt(context).hH(str);
-    }
-
-    @Override // com.baidu.tieba.play.i
-    public void ae(Context context, String str) {
+    public void ac(Context context, String str) {
         e.bt(context).hI(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void hG(String str) {
-        a.Tv().hD(str);
+    public void ad(Context context, String str) {
+        e.bt(context).hJ(str);
+    }
+
+    @Override // com.baidu.tieba.play.i
+    public void hH(String str) {
+        a.Tj().hE(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -128,7 +128,7 @@ public class b implements i {
         e.bt(context).clearCache();
     }
 
-    public static String hC(String str) {
+    public static String hD(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -150,8 +150,8 @@ public class b implements i {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.bPz == 0) {
-            File file = new File(c.bPl);
+        if (this.bPG == 0) {
+            File file = new File(c.bPs);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -195,7 +195,7 @@ public class b implements i {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.bPz;
+                                return this.bPG;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -241,10 +241,10 @@ public class b implements i {
                 }
             }
         }
-        return this.bPz;
+        return this.bPG;
     }
 
-    public void TA() {
-        this.bPz = 0;
+    public void To() {
+        this.bPG = 0;
     }
 }

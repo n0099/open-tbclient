@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fzU;
-    private a.C0155a fzV;
+    private SkinInfo fBu;
+    private a.C0154a fBv;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -39,22 +39,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0155a c0155a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0154a c0154a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fzU != skinInfo && c0155a != null) {
-            this.fzV = c0155a;
-            this.fzV.dV("action_type");
-            this.fzV.ch("obj_id", skinInfo.obj_id);
-            this.fzV.ch("obj_url", skinInfo.url);
-            this.fzV.ch("obj_name", skinInfo.monitor_id);
-            this.fzV.ch("action_type", "VIEW_TRUE");
-            this.fzV.save();
+        if (this.fBu != skinInfo && c0154a != null) {
+            this.fBv = c0154a;
+            this.fBv.dV("action_type");
+            this.fBv.cd("obj_id", skinInfo.obj_id);
+            this.fBv.cd("obj_url", skinInfo.url);
+            this.fBv.cd("obj_name", skinInfo.monitor_id);
+            this.fBv.cd("action_type", "VIEW_TRUE");
+            this.fBv.save();
         }
-        this.fzU = skinInfo;
+        this.fBu = skinInfo;
         int ao = l.ao(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ao;
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fzU != null && !StringUtils.isNull(this.fzU.url)) {
-            if (this.fzV != null) {
-                this.fzV.dV("action_type");
-                this.fzV.ch("action_type", "CLICK");
-                this.fzV.save();
+        if (this.fBu != null && !StringUtils.isNull(this.fBu.url)) {
+            if (this.fBv != null) {
+                this.fBv.dV("action_type");
+                this.fBv.cd("action_type", "CLICK");
+                this.fBv.save();
             }
-            av.Di().c(this.mTbPageContext, new String[]{this.fzU.url});
+            av.CZ().c(this.mTbPageContext, new String[]{this.fBu.url});
         }
     }
 }

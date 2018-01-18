@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class l extends g<m, n> {
-    private final int dyK;
+    private final int dDl;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dyK = (com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.dDl = (com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: aq */
     public n onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.dyK;
+        generateLayoutParamsByParent.height = this.dDl;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new n(inflate);
     }
@@ -35,12 +35,12 @@ public class l extends g<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.atZ() == 6) {
-            nVar.dyN.setText(d.j.attention_no_post_tip);
+        if (mVar.avc() == 6) {
+            nVar.dDo.setText(d.j.attention_no_post_tip);
         } else {
-            nVar.dyN.setText(d.j.no_data_text);
+            nVar.dDo.setText(d.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.aj.e(nVar.dyN, d.C0108d.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.aj.e(nVar.dDo, d.C0107d.cp_cont_d, 1);
         return view;
     }
 }

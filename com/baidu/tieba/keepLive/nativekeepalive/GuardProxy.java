@@ -56,7 +56,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class c implements IGuard {
-        private Parcel eQV;
+        private Parcel eSv;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -70,9 +70,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, GuardConfigurations guardConfigurations) {
-            aNa();
-            ak(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-            aNb();
+            aNf();
+            aj(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+            aNg();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -88,9 +88,9 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonAssistantCreate(final Context context, GuardConfigurations guardConfigurations) {
-            aNa();
-            ak(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            aNb();
+            aNf();
+            aj(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            aNg();
             new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -107,7 +107,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                if (aNb()) {
+                if (aNg()) {
                     if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                         GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                     }
@@ -119,7 +119,7 @@ public class GuardProxy {
             Process.killProcess(Process.myPid());
         }
 
-        private void aNa() {
+        private void aNf() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -142,23 +142,23 @@ public class GuardProxy {
         }
 
         @SuppressLint({"Recycle"})
-        private void ak(Context context, String str) {
+        private void aj(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.eQV = Parcel.obtain();
-            this.eQV.writeInterfaceToken("android.app.IActivityManager");
-            this.eQV.writeStrongBinder(null);
-            intent.writeToParcel(this.eQV, 0);
-            this.eQV.writeString(null);
-            this.eQV.writeInt(0);
+            this.eSv = Parcel.obtain();
+            this.eSv.writeInterfaceToken("android.app.IActivityManager");
+            this.eSv.writeStrongBinder(null);
+            intent.writeToParcel(this.eSv, 0);
+            this.eSv.writeString(null);
+            this.eSv.writeInt(0);
         }
 
-        private boolean aNb() {
+        private boolean aNg() {
             try {
-                if (this.mRemote == null || this.eQV == null) {
+                if (this.mRemote == null || this.eSv == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.eQV, null, 0);
+                this.mRemote.transact(34, this.eSv, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -170,7 +170,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements IGuard {
-        private AlarmManager eQQ;
+        private AlarmManager eSq;
         private PendingIntent yR;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -187,7 +187,7 @@ public class GuardProxy {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME));
             context.startService(intent);
-            aj(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            ai(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
             Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.b.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -208,7 +208,7 @@ public class GuardProxy {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
             context.startService(intent);
-            aj(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            ai(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
             Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.b.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -227,7 +227,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.eQQ.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.yR);
+                this.eSq.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.yR);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -237,9 +237,9 @@ public class GuardProxy {
             Process.killProcess(Process.myPid());
         }
 
-        private void aj(Context context, String str) {
-            if (this.eQQ == null) {
-                this.eQQ = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        private void ai(Context context, String str) {
+            if (this.eSq == null) {
+                this.eSq = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
             if (this.yR == null) {
                 Intent intent = new Intent();
@@ -247,16 +247,16 @@ public class GuardProxy {
                 intent.setFlags(16);
                 this.yR = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.eQQ.cancel(this.yR);
+            this.eSq.cancel(this.yR);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements IGuard {
-        private final String eQO = "bin";
-        private final String eQP = "daemon";
-        private AlarmManager eQQ;
+        private final String eSo = "bin";
+        private final String eSp = "daemon";
+        private AlarmManager eSq;
         private PendingIntent yR;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -271,7 +271,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
             if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
-                aj(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+                ai(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
                 Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.a.1
                     @Override // java.lang.Thread, java.lang.Runnable
                     public void run() {
@@ -302,14 +302,14 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.eQQ.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.yR);
+                this.eSq.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.yR);
                 Process.killProcess(Process.myPid());
             }
         }
 
-        private void aj(Context context, String str) {
-            if (this.eQQ == null) {
-                this.eQQ = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        private void ai(Context context, String str) {
+            if (this.eSq == null) {
+                this.eSq = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             }
             if (this.yR == null) {
                 Intent intent = new Intent();
@@ -317,7 +317,7 @@ public class GuardProxy {
                 intent.setFlags(16);
                 this.yR = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.eQQ.cancel(this.yR);
+            this.eSq.cancel(this.yR);
         }
 
         private boolean bP(Context context) {
@@ -375,9 +375,9 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class d implements IGuard {
-        private final String eQO = "bin";
-        private final String eQP = "daemon";
-        private Parcel eQV;
+        private final String eSo = "bin";
+        private final String eSp = "daemon";
+        private Parcel eSv;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -391,8 +391,8 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
-            aNa();
-            ak(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+            aNf();
+            aj(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
             Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.d.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
@@ -420,7 +420,7 @@ public class GuardProxy {
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
-            if (aNb()) {
+            if (aNg()) {
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -428,7 +428,7 @@ public class GuardProxy {
             }
         }
 
-        private void aNa() {
+        private void aNf() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
@@ -451,23 +451,23 @@ public class GuardProxy {
         }
 
         @SuppressLint({"Recycle"})
-        private void ak(Context context, String str) {
+        private void aj(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.eQV = Parcel.obtain();
-            this.eQV.writeInterfaceToken("android.app.IActivityManager");
-            this.eQV.writeStrongBinder(null);
-            intent.writeToParcel(this.eQV, 0);
-            this.eQV.writeString(null);
-            this.eQV.writeInt(0);
+            this.eSv = Parcel.obtain();
+            this.eSv.writeInterfaceToken("android.app.IActivityManager");
+            this.eSv.writeStrongBinder(null);
+            intent.writeToParcel(this.eSv, 0);
+            this.eSv.writeString(null);
+            this.eSv.writeInt(0);
         }
 
-        private boolean aNb() {
+        private boolean aNg() {
             try {
-                if (this.mRemote == null || this.eQV == null) {
+                if (this.mRemote == null || this.eSv == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.eQV, null, 0);
+                this.mRemote.transact(34, this.eSv, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();

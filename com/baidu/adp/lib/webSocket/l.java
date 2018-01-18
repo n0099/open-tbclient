@@ -1,31 +1,32 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String anJ;
+    private String anI;
     private int aoA;
-    private int aoB;
+    private boolean aoB;
     private boolean aoC;
-    private boolean aoD;
+    private int aov;
     private int aow;
-    private int aox;
+    private boolean aox;
     private boolean aoy;
-    private boolean aoz;
+    private int aoz;
 
     public l() {
-        this.anJ = null;
-        this.aow = 32768;
-        this.aox = 131072;
-        this.aoy = false;
-        this.aoz = true;
+        this.anI = null;
+        this.aov = 32768;
+        this.aow = 131072;
+        this.aox = false;
+        this.aoy = true;
+        this.aoz = 30000;
         this.aoA = 30000;
-        this.aoB = 30000;
+        this.aoB = true;
         this.aoC = true;
-        this.aoD = true;
-        this.anJ = null;
+        this.anI = null;
     }
 
     public l(l lVar) {
-        this.anJ = null;
+        this.anI = null;
+        this.aov = lVar.aov;
         this.aow = lVar.aow;
         this.aox = lVar.aox;
         this.aoy = lVar.aoy;
@@ -33,47 +34,46 @@ public class l {
         this.aoA = lVar.aoA;
         this.aoB = lVar.aoB;
         this.aoC = lVar.aoC;
-        this.aoD = lVar.aoD;
-        this.anJ = lVar.anJ;
+        this.anI = lVar.anI;
     }
 
     public boolean pJ() {
-        return this.aoy;
-    }
-
-    public int pK() {
-        return this.aow;
-    }
-
-    public int pL() {
         return this.aox;
     }
 
+    public int pK() {
+        return this.aov;
+    }
+
+    public int pL() {
+        return this.aow;
+    }
+
     public boolean getTcpNoDelay() {
-        return this.aoz;
+        return this.aoy;
     }
 
     public int pM() {
-        return this.aoA;
+        return this.aoz;
     }
 
     public int pN() {
-        return this.aoB;
+        return this.aoA;
     }
 
     public boolean pO() {
-        return this.aoC;
+        return this.aoB;
     }
 
     public boolean pP() {
-        return this.aoD;
+        return this.aoC;
     }
 
     public String pQ() {
-        return this.anJ;
+        return this.anI;
     }
 
     public void bd(String str) {
-        this.anJ = str;
+        this.anI = str;
     }
 }

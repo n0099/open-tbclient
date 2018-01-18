@@ -16,31 +16,31 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CommonTabHorizonScrollView extends HorizontalScrollView {
-    private c bsM;
-    private int bsN;
-    private CommonTabWidgetView.a bsO;
-    private LinearLayout.LayoutParams bsP;
-    private int bsQ;
-    private int bsR;
-    private TextView bsS;
-    private View bsT;
+    private c bsV;
+    private int bsW;
+    private CommonTabWidgetView.a bsX;
+    private LinearLayout.LayoutParams bsY;
+    private int bsZ;
+    private int bta;
+    private TextView btb;
+    private View btc;
     private List<com.baidu.tbadk.editortools.view.a> mDatas;
 
     public CommonTabHorizonScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bsN = -1;
+        this.bsW = -1;
         init();
     }
 
     public CommonTabHorizonScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bsN = -1;
+        this.bsW = -1;
         init();
     }
 
     public CommonTabHorizonScrollView(Context context) {
         super(context);
-        this.bsN = -1;
+        this.bsW = -1;
         init();
     }
 
@@ -48,21 +48,21 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         removeAllViews();
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.bsM = new c(getContext());
-        this.bsM.setOrientation(0);
-        this.bsM.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.bsM.setBaselineAligned(false);
-        addView(this.bsM);
-        this.bsQ = getResources().getDimensionPixelSize(d.e.ds8);
-        this.bsR = getResources().getDimensionPixelSize(d.e.ds10);
-        this.bsM.setPadding(0, getResources().getDimensionPixelSize(d.e.ds10), 0, 0);
-        this.bsP = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(d.e.ds106), -1);
-        this.bsT = new View(getContext());
+        this.bsV = new c(getContext());
+        this.bsV.setOrientation(0);
+        this.bsV.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.bsV.setBaselineAligned(false);
+        addView(this.bsV);
+        this.bsZ = getResources().getDimensionPixelSize(d.e.ds8);
+        this.bta = getResources().getDimensionPixelSize(d.e.ds10);
+        this.bsV.setPadding(0, getResources().getDimensionPixelSize(d.e.ds10), 0, 0);
+        this.bsY = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(d.e.ds106), -1);
+        this.btc = new View(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
-        this.bsT.setLayoutParams(layoutParams);
-        aj.s(this.bsT, d.f.bg_expression_bar_n);
-        this.bsM.addView(this.bsT);
+        this.btc.setLayoutParams(layoutParams);
+        aj.s(this.btc, d.f.bg_expression_bar_n);
+        this.bsV.addView(this.btc);
     }
 
     public void setDatas(List<com.baidu.tbadk.editortools.view.a> list) {
@@ -77,12 +77,12 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         TbImageView tbImageView = new TbImageView(getContext());
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(-1, -1));
         aj.s(linearLayout, d.f.bg_expression_bar);
-        tbImageView.setPadding(this.bsR, this.bsQ, this.bsR, this.bsQ);
+        tbImageView.setPadding(this.bta, this.bsZ, this.bta, this.bsZ);
         linearLayout.setClickable(true);
         linearLayout.setFocusable(true);
-        aj.c(tbImageView, bVar.bsL);
-        linearLayout.setOnClickListener(new a(this.bsM.getChildCount() - 1));
-        this.bsM.addView(linearLayout, this.bsM.getChildCount() - 1, this.bsP);
+        aj.c(tbImageView, bVar.bsU);
+        linearLayout.setOnClickListener(new a(this.bsV.getChildCount() - 1));
+        this.bsV.addView(linearLayout, this.bsV.getChildCount() - 1, this.bsY);
         return tbImageView;
     }
 
@@ -92,47 +92,47 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void setCurrentTab(int i) {
-        if (i != this.bsN) {
-            if (this.bsN != -1) {
-                LinearLayout linearLayout = (LinearLayout) this.bsM.getChildAt(this.bsN);
+        if (i != this.bsW) {
+            if (this.bsW != -1) {
+                LinearLayout linearLayout = (LinearLayout) this.bsV.getChildAt(this.bsW);
                 if (linearLayout != null) {
                     linearLayout.setSelected(false);
-                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.bsN).LG().bsL);
+                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.bsW).Lu().bsU);
                 } else {
                     return;
                 }
             }
-            this.bsN = i;
-            LinearLayout linearLayout2 = (LinearLayout) this.bsM.getChildAt(this.bsN);
+            this.bsW = i;
+            LinearLayout linearLayout2 = (LinearLayout) this.bsV.getChildAt(this.bsW);
             if (linearLayout2 != null) {
                 linearLayout2.setSelected(true);
-                aj.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.bsN).LG().bsK);
+                aj.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.bsW).Lu().bsT);
             }
         }
     }
 
     public void reset() {
-        this.bsN = -1;
-        this.bsM.removeAllViews();
+        this.bsW = -1;
+        this.bsV.removeAllViews();
     }
 
-    public void gC(int i) {
-        if (this.bsS != null) {
-            aj.s(this.bsS, d.f.icon_news_head_prompt_one);
-            this.bsS.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
+    public void gz(int i) {
+        if (this.btb != null) {
+            aj.s(this.btb, d.f.icon_news_head_prompt_one);
+            this.btb.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
         }
-        int childCount = this.bsM.getChildCount();
+        int childCount = this.bsV.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.bsM.getChildAt(i2);
+            View childAt = this.bsV.getChildAt(i2);
             if (childAt != null) {
                 aj.s(childAt, d.f.bg_expression_bar);
                 if (i2 != childCount - 1) {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
-                        if (i2 == this.bsN) {
-                            aj.c(tbImageView, this.mDatas.get(i2).LG().bsK);
+                        if (i2 == this.bsW) {
+                            aj.c(tbImageView, this.mDatas.get(i2).Lu().bsT);
                         } else {
-                            aj.c(tbImageView, this.mDatas.get(i2).LG().bsL);
+                            aj.c(tbImageView, this.mDatas.get(i2).Lu().bsU);
                         }
                     }
                 } else {
@@ -143,21 +143,21 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void setOnTabSelectedListener(CommonTabWidgetView.a aVar) {
-        this.bsO = aVar;
+        this.bsX = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private final int aTl;
+        private final int aTk;
 
         private a(int i) {
-            this.aTl = i;
+            this.aTk = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CommonTabHorizonScrollView.this.bsO.hZ(this.aTl);
+            CommonTabHorizonScrollView.this.bsX.hV(this.aTk);
         }
     }
 }

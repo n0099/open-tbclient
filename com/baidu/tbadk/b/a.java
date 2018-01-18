@@ -1,83 +1,41 @@
 package com.baidu.tbadk.b;
 
-import android.util.SparseIntArray;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.b.b;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b aGp = null;
-    private static a aGq = null;
-    private static boolean aGr = false;
-    private static String aGs = "";
-    private static transient List<String> aGt = new ArrayList(5);
-
-    /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0069a {
-        private static SparseIntArray aGu = new SparseIntArray();
-
-        static {
-            aGu.put(2, 1);
-            aGu.put(4, 2);
-            aGu.put(8, 3);
-            aGu.put(12, 4);
-            aGu.put(16, 5);
-            aGu.put(20, 6);
-            aGu.put(24, 7);
-        }
-
-        public static int ea(int i) {
-            return aGu.get(i);
-        }
-    }
+    private static b aGo = null;
+    private static a aGp = null;
+    private static boolean aGq = false;
+    private static String aGr = "";
+    private static transient List<String> aGs = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aGq == null) {
+        if (aGp == null) {
             synchronized (a.class) {
-                if (aGq == null) {
-                    aGq = new a();
-                    aGp = b.c(baseFragmentActivity);
+                if (aGp == null) {
+                    aGp = new a();
+                    aGo = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aGp != null) {
-            aGp.a(baseFragmentActivity.getPageContext());
+        } else if (aGo != null) {
+            aGo.a(baseFragmentActivity.getPageContext());
         }
-        if (aGr && aGp != null) {
-            aGp.vz();
-            aGp.vA();
-            aGr = false;
+        if (aGq && aGo != null) {
+            aGo.vy();
+            aGo.vz();
+            aGq = false;
         }
-        return aGq;
-    }
-
-    public static a b(BaseActivity baseActivity) {
-        if (aGq == null) {
-            synchronized (a.class) {
-                if (aGq == null) {
-                    aGq = new a();
-                    aGp = b.c(baseActivity);
-                }
-            }
-        } else if (aGp != null) {
-            aGp.a(baseActivity.getPageContext());
-        }
-        if (aGr && aGp != null) {
-            aGp.vz();
-            aGp.vA();
-            aGr = false;
-        }
-        return aGq;
+        return aGp;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        vu();
+        vt();
         if (z) {
             vo();
         }
@@ -88,109 +46,94 @@ public class a {
         a(aVar);
     }
 
-    public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        vu();
-        if (aGp != null) {
-            aGp.a(tbPageContext, str, str2, str3);
-        }
-    }
-
     public void vo() {
-        vu();
-        if (aGp != null) {
-            aGp.vz();
-            aGr = false;
+        vt();
+        if (aGo != null) {
+            aGo.vy();
+            aGq = false;
         }
     }
 
     public void vp() {
-        vu();
-        if (aGp != null) {
-            aGp.vA();
-            aGr = false;
+        vt();
+        if (aGo != null) {
+            aGo.vz();
+            aGq = false;
         }
     }
 
     public void aI(boolean z) {
-        vu();
-        if (aGp != null) {
-            aGp.aI(z);
+        vt();
+        if (aGo != null) {
+            aGo.aI(z);
         }
-    }
-
-    public boolean vq() {
-        vu();
-        if (aGp != null) {
-            return aGp.vq();
-        }
-        return false;
     }
 
     public void a(b.a aVar) {
-        vu();
-        if (aGp != null) {
-            aGp.c(aVar);
+        vt();
+        if (aGo != null) {
+            aGo.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        vu();
-        if (aGp != null) {
-            if (aGp.vw()) {
-                aGp.c(aVar);
+        vt();
+        if (aGo != null) {
+            if (aGo.vv()) {
+                aGo.c(aVar);
             }
-            aGp.vy();
+            aGo.vx();
         }
     }
 
     public void a(int i, b.a aVar) {
-        vu();
-        if (aGp != null) {
-            if (aGp.vw()) {
-                aGp.c(aVar);
+        vt();
+        if (aGo != null) {
+            if (aGo.vv()) {
+                aGo.c(aVar);
             }
-            aGp.eb(i);
+            aGo.ea(i);
+        }
+    }
+
+    public void vq() {
+        vt();
+        if (aGo != null) {
+            aGo.vq();
+            aGq = true;
         }
     }
 
     public void vr() {
-        vu();
-        if (aGp != null) {
-            aGp.vr();
-            aGr = true;
+        vt();
+        if (aGo != null) {
+            aGo.vr();
         }
     }
 
     public void vs() {
-        vu();
-        if (aGp != null) {
-            aGp.vs();
-        }
-    }
-
-    public void vt() {
-        vu();
-        vs();
+        vt();
         vr();
+        vq();
     }
 
-    private void vu() {
-        if (aGp == null) {
+    private void vt() {
+        if (aGo == null) {
         }
     }
 
-    public static void vv() {
+    public static void vu() {
         try {
-            if (aGp != null) {
-                if (aGq != null) {
-                    aGq.vt();
+            if (aGo != null) {
+                if (aGp != null) {
+                    aGp.vs();
                 }
-                aGp.vx();
-                aGp.vB();
-                aGp = null;
+                aGo.vw();
+                aGo.vA();
+                aGo = null;
             }
-            if (aGq != null) {
-                aGq = null;
+            if (aGp != null) {
+                aGp = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

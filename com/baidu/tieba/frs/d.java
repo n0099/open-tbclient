@@ -10,26 +10,26 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends BaseFragment implements al {
     private static final String TAG = d.class.getSimpleName();
-    private View dwg;
-    private RecyclerView dwh;
+    private View dAH;
+    private RecyclerView dAI;
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.dwg != null && this.dwg.getParent() != null) {
-            ((ViewGroup) this.dwg.getParent()).removeView(this.dwg);
+        if (this.dAH != null && this.dAH.getParent() != null) {
+            ((ViewGroup) this.dAH.getParent()).removeView(this.dAH);
         }
-        return this.dwg;
+        return this.dAH;
     }
 
     public void setView(View view) {
-        this.dwg = view;
-        this.dwh = (RecyclerView) this.dwg.findViewById(d.g.frs_lv_thread);
+        this.dAH = view;
+        this.dAI = (RecyclerView) this.dAH.findViewById(d.g.frs_lv_thread);
     }
 
     @Override // com.baidu.tieba.frs.al
-    public void asH() {
-        if (this.dwh != null) {
-            this.dwh.scrollToPosition(0);
+    public void atK() {
+        if (this.dAI != null) {
+            this.dAI.scrollToPosition(0);
         }
     }
 }

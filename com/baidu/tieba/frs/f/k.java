@@ -5,5 +5,5 @@ import com.baidu.tieba.tbadkCore.l;
 public interface k {
     void a(l lVar, int i);
 
-    boolean nQ(int i);
+    boolean nT(int i);
 }

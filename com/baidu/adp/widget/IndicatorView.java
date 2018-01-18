@@ -12,10 +12,10 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean aus;
-    private int aut;
-    private float auu;
-    private final f auv;
+    private boolean aur;
+    private int aus;
+    private float aut;
+    private final f auu;
     private int mCount;
     private float mPosition;
     private Drawable mSelector;
@@ -31,9 +31,9 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.auv = new a();
+        this.auu = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.aut = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.aus = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
         this.wz = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
         if (this.wz != null) {
@@ -43,21 +43,21 @@ public class IndicatorView extends View {
         if (this.mSelector != null) {
             this.mSelector.setBounds(0, 0, this.mSelector.getIntrinsicWidth(), this.mSelector.getIntrinsicHeight());
         }
-        this.aus = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.aur = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.auv.measure(i, i2);
+        this.auu.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.auv.draw(canvas);
+        this.auu.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.aus = z;
+        this.aur = z;
     }
 
     public void setDrawable(Drawable drawable) {
@@ -81,13 +81,13 @@ public class IndicatorView extends View {
     }
 
     public void setSpacing(int i) {
-        this.aut = i;
+        this.aus = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.aut;
+        return this.aus;
     }
 
     public int getCount() {
@@ -112,16 +112,16 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements f {
-        private float auA;
-        private boolean auB;
-        private final HandlerC0026a auC = new HandlerC0026a();
-        private final int auw;
+        private boolean auA;
+        private final HandlerC0026a auB = new HandlerC0026a();
+        private final int auv;
+        private long auw;
         private long aux;
-        private long auy;
-        private int auz;
+        private int auy;
+        private float auz;
 
         a() {
-            this.auw = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.auv = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.f
@@ -138,7 +138,7 @@ public class IndicatorView extends View {
         private int dD(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = (IndicatorView.this.aut * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.wz.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
+            int max = (IndicatorView.this.aus * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.wz.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
             switch (i2) {
                 case Integer.MIN_VALUE:
                     int min = Math.min(i3, max);
@@ -150,7 +150,7 @@ public class IndicatorView extends View {
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.aut * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
+                    int i4 = (int) ((i3 - (IndicatorView.this.aus * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
                     IndicatorView.this.mSelector.setBounds(0, 0, i4, IndicatorView.this.mSelector.getBounds().height());
                     IndicatorView.this.wz.setBounds(0, 0, i4, IndicatorView.this.wz.getBounds().height());
                     return i3;
@@ -187,13 +187,13 @@ public class IndicatorView extends View {
             int save = canvas.save();
             for (int i = 0; i < IndicatorView.this.mCount; i++) {
                 if (i != 0) {
-                    canvas.translate(IndicatorView.this.wz.getBounds().width() + IndicatorView.this.aut, 0.0f);
+                    canvas.translate(IndicatorView.this.wz.getBounds().width() + IndicatorView.this.aus, 0.0f);
                 }
                 IndicatorView.this.wz.draw(canvas);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.aut) * IndicatorView.this.mPosition, 0.0f);
+            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.aus) * IndicatorView.this.mPosition, 0.0f);
             IndicatorView.this.mSelector.draw(canvas);
             canvas.restoreToCount(save2);
         }
@@ -201,25 +201,25 @@ public class IndicatorView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         public void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.auA = ((((float) (uptimeMillis - this.aux)) / 1000.0f) * this.auz) + this.auA;
-            this.aux = uptimeMillis;
-            this.auy = this.aux + 16;
-            if (this.auz < 0) {
-                if (this.auA < IndicatorView.this.auu) {
-                    IndicatorView.this.mPosition = IndicatorView.this.auu;
-                    this.auB = false;
+            this.auz = ((((float) (uptimeMillis - this.auw)) / 1000.0f) * this.auy) + this.auz;
+            this.auw = uptimeMillis;
+            this.aux = this.auw + 16;
+            if (this.auy < 0) {
+                if (this.auz < IndicatorView.this.aut) {
+                    IndicatorView.this.mPosition = IndicatorView.this.aut;
+                    this.auA = false;
                 } else {
-                    IndicatorView.this.mPosition = this.auA;
-                    this.auC.removeMessages(1000);
-                    this.auC.sendEmptyMessageAtTime(1000, this.auy);
+                    IndicatorView.this.mPosition = this.auz;
+                    this.auB.removeMessages(1000);
+                    this.auB.sendEmptyMessageAtTime(1000, this.aux);
                 }
-            } else if (this.auA > IndicatorView.this.auu) {
-                IndicatorView.this.mPosition = IndicatorView.this.auu;
-                this.auB = false;
+            } else if (this.auz > IndicatorView.this.aut) {
+                IndicatorView.this.mPosition = IndicatorView.this.aut;
+                this.auA = false;
             } else {
-                IndicatorView.this.mPosition = this.auA;
-                this.auC.removeMessages(1000);
-                this.auC.sendEmptyMessageAtTime(1000, this.auy);
+                IndicatorView.this.mPosition = this.auz;
+                this.auB.removeMessages(1000);
+                this.auB.sendEmptyMessageAtTime(1000, this.aux);
             }
             IndicatorView.this.invalidate();
         }

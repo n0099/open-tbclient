@@ -1,21 +1,21 @@
 package com.baidu.tbadk.k;
 /* loaded from: classes.dex */
 public class l extends k {
-    public String aup;
-    public long auq;
-    public boolean bye;
+    public String auo;
+    public long aup;
+    public boolean byn;
     public boolean isSuccess;
 
-    public void NT() {
+    public void NH() {
         t tVar;
-        if (r.Oa().Ob() && (tVar = (t) r.Oa().is(this.mSubType)) != null) {
+        if (r.NO().NP() && (tVar = (t) r.NO().io(this.mSubType)) != null) {
             tVar.a(this, "head");
         }
     }
 
-    public void NU() {
+    public void NI() {
         t tVar;
-        if (r.Oa().Ob() && (tVar = (t) r.Oa().is(this.mSubType)) != null) {
+        if (r.NO().NP() && (tVar = (t) r.NO().io(this.mSubType)) != null) {
             tVar.a(this, "img");
         }
     }

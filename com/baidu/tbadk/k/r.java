@@ -9,54 +9,54 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class r {
-    private static String byM = "tb_perfor_samllflow_time";
-    private static volatile r byP;
-    private long byO;
-    private boolean byK = false;
-    private long byN = 86400;
-    private long byL = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(byM, 0);
+    private static String byV = "tb_perfor_samllflow_time";
+    private static volatile r byY;
+    private long byX;
+    private boolean byT = false;
+    private long byW = 86400;
+    private long byU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(byV, 0);
 
-    public static r Oa() {
-        if (byP == null) {
+    public static r NO() {
+        if (byY == null) {
             synchronized (r.class) {
-                if (byP == null) {
-                    byP = new r();
+                if (byY == null) {
+                    byY = new r();
                 }
             }
         }
-        return byP;
+        return byY;
     }
 
     private r() {
-        this.byO = 0L;
-        this.byO = this.byN;
+        this.byX = 0L;
+        this.byX = this.byW;
     }
 
-    public boolean Ob() {
-        if (!this.byK || (System.currentTimeMillis() - this.byL) / 1000 <= this.byO) {
-            return this.byK;
+    public boolean NP() {
+        if (!this.byT || (System.currentTimeMillis() - this.byU) / 1000 <= this.byX) {
+            return this.byT;
         }
         return false;
     }
 
-    public void cx(boolean z) {
+    public void cv(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.byL || currentTimeMillis - this.byL >= this.byO) {
-                this.byL = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byM, this.byL);
+            if (0 == this.byU || currentTimeMillis - this.byU >= this.byX) {
+                this.byU = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byV, this.byU);
             }
         } else {
-            this.byL = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byM, this.byL);
+            this.byU = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byV, this.byU);
         }
-        this.byK = z;
+        this.byT = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.Og().Oh();
+            s.NU().NV();
         }
     }
 
-    public String Oc() {
+    public String NQ() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class r {
         }
     }
 
-    public final String Od() {
+    public final String NR() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -104,7 +104,7 @@ public class r {
         return "2G";
     }
 
-    public static String ir(int i) {
+    public static String in(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class r {
         return "WIFI";
     }
 
-    public q is(int i) {
-        if (Ob()) {
+    public q io(int i) {
+        if (NP()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -153,7 +153,7 @@ public class r {
 
     public void ad(long j) {
         if (j > 0) {
-            this.byO = j;
+            this.byX = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Oe() {
+    public int NS() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

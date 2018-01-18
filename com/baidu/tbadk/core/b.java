@@ -12,10 +12,10 @@ public class b {
     private int aHI;
     private int aHJ;
     private int aHK;
-    private int aHL;
-    private int aHM;
-    private StringBuffer aHN = new StringBuffer();
-    private String aHs;
+    private StringBuffer aHL = new StringBuffer();
+    private String aHq;
+    private int aHr;
+    private int aHs;
     private int aHt;
     private int aHu;
     private int aHv;
@@ -26,79 +26,79 @@ public class b {
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.aHN.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.aHL.toString() + "]";
     }
 
     public void cw(String str) {
-        this.aHN.append(str).append(" || ");
+        this.aHL.append(str).append(" || ");
     }
 
-    public int wd() {
-        return this.aHH;
-    }
-
-    public void ed(int i) {
-        this.aHH = i;
-    }
-
-    public int we() {
-        return this.aHI;
-    }
-
-    public void ee(int i) {
-        this.aHI = i;
-    }
-
-    public int wf() {
+    public int wc() {
         return this.aHF;
     }
 
-    public void ef(int i) {
+    public void ec(int i) {
         this.aHF = i;
     }
 
-    public int wg() {
+    public int wd() {
         return this.aHG;
     }
 
-    public void eg(int i) {
+    public void ed(int i) {
         this.aHG = i;
     }
 
-    public int wh() {
+    public int we() {
         return this.aHD;
     }
 
-    public void eh(int i) {
+    public void ee(int i) {
         this.aHD = i;
     }
 
-    public int wi() {
+    public int wf() {
         return this.aHE;
     }
 
-    public void ei(int i) {
+    public void ef(int i) {
         this.aHE = i;
+    }
+
+    public int wg() {
+        return this.aHB;
+    }
+
+    public void eg(int i) {
+        this.aHB = i;
+    }
+
+    public int wh() {
+        return this.aHC;
+    }
+
+    public void eh(int i) {
+        this.aHC = i;
     }
 
     public String getId() {
         return this.id;
     }
 
+    public int wi() {
+        return this.aHH;
+    }
+
+    public void ei(int i) {
+        this.aHH = i;
+    }
+
     public int wj() {
-        return this.aHJ;
+        return this.aHI;
     }
 
     public void ej(int i) {
-        this.aHJ = i;
-    }
-
-    public int wk() {
-        return this.aHK;
-    }
-
-    public void ek(int i) {
-        this.aHK = i;
+        this.aHI = i;
     }
 
     public void setId(String str) {
@@ -106,67 +106,75 @@ public class b {
     }
 
     public void cx(String str) {
-        this.aHs = str;
+        this.aHq = str;
+    }
+
+    public int wk() {
+        return this.aHr;
+    }
+
+    public void ek(int i) {
+        this.aHr = i;
     }
 
     public int wl() {
-        return this.aHt;
+        return this.aHs;
     }
 
     public void el(int i) {
-        this.aHt = i;
+        this.aHs = i;
     }
 
     public int wm() {
-        return this.aHu;
-    }
-
-    public void em(int i) {
-        this.aHu = i;
-    }
-
-    public int wn() {
-        return this.aHx;
-    }
-
-    public void en(int i) {
-        this.aHx = i;
-    }
-
-    public int wo() {
-        return this.aHy;
-    }
-
-    public void eo(int i) {
-        this.aHy = i;
-    }
-
-    public int wp() {
         return this.aHv;
     }
 
-    public void ep(int i) {
+    public void em(int i) {
         this.aHv = i;
     }
 
-    public int wq() {
+    public int wn() {
         return this.aHw;
     }
 
-    public void eq(int i) {
+    public void en(int i) {
         this.aHw = i;
     }
 
-    public int wr() {
-        return this.aHA;
+    public int wo() {
+        return this.aHt;
     }
 
-    public int ws() {
-        return this.aHz;
+    public void eo(int i) {
+        this.aHt = i;
+    }
+
+    public int wp() {
+        return this.aHu;
+    }
+
+    public void ep(int i) {
+        this.aHu = i;
+    }
+
+    public int wq() {
+        return this.aHy;
+    }
+
+    public int wr() {
+        return this.aHx;
+    }
+
+    public void eq(int i) {
+        this.aHx = i;
     }
 
     public void er(int i) {
-        this.aHz = i;
+        this.aHy = i;
+    }
+
+    public int ws() {
+        return this.aHA;
     }
 
     public void es(int i) {
@@ -174,34 +182,26 @@ public class b {
     }
 
     public int wt() {
-        return this.aHC;
+        return this.aHz;
     }
 
     public void et(int i) {
-        this.aHC = i;
+        this.aHz = i;
     }
 
     public int wu() {
-        return this.aHB;
+        return this.aHJ;
     }
 
     public void eu(int i) {
-        this.aHB = i;
+        this.aHJ = i;
     }
 
     public int wv() {
-        return this.aHL;
+        return this.aHK;
     }
 
     public void ev(int i) {
-        this.aHL = i;
-    }
-
-    public int ww() {
-        return this.aHM;
-    }
-
-    public void ew(int i) {
-        this.aHM = i;
+        this.aHK = i;
     }
 }

@@ -16,9 +16,9 @@ public class e {
             }
         }
     };
-    private boolean aTp;
+    private boolean aTo;
 
-    public static e BF() {
+    public static e Bx() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void h(String str, int i, int i2) {
-        if (!this.aTp && str != null) {
+        if (!this.aTo && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.aTp = true;
+        this.aTo = true;
         cancel();
     }
 
     public void onResume() {
-        this.aTp = false;
+        this.aTo = false;
     }
 
     public static void cancel() {

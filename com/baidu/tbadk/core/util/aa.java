@@ -4,41 +4,41 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class aa {
-    private static ArrayList<a> aUL = new ArrayList<>();
-    public static AtomicInteger aUM = new AtomicInteger(0);
+    private static ArrayList<a> aUK = new ArrayList<>();
+    public static AtomicInteger aUL = new AtomicInteger(0);
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aUN;
-        public long aUO;
-        public int aUP;
+        public int aUM;
+        public long aUN;
+        public int aUO;
         public int mMode;
         public long mTime;
     }
 
-    public static int fH(int i) {
-        return aUM.getAndSet(i);
+    public static int fF(int i) {
+        return aUL.getAndSet(i);
     }
 
-    public static int fI(int i) {
-        return aUM.addAndGet(i);
+    public static int fG(int i) {
+        return aUL.addAndGet(i);
     }
 
     public static synchronized void a(a aVar) {
         synchronized (aa.class) {
             if (aVar != null) {
-                if (aUL.size() <= 20) {
-                    aUL.add(aVar);
+                if (aUK.size() <= 20) {
+                    aUK.add(aVar);
                 }
             }
         }
     }
 
-    public static synchronized a Cy() {
+    public static synchronized a Cq() {
         a remove;
         synchronized (aa.class) {
-            int size = aUL.size();
-            remove = size > 0 ? aUL.remove(size - 1) : null;
+            int size = aUK.size();
+            remove = size > 0 ? aUK.remove(size - 1) : null;
         }
         return remove;
     }

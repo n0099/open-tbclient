@@ -9,114 +9,114 @@ import com.baidu.tieba.q.b;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class l implements f {
-    private String fqx;
-    private n gGG;
+    private String frY;
+    private n gvP;
 
     public l(String str) {
-        this.fqx = str;
-        this.gGG = new n(str);
+        this.frY = str;
+        this.gvP = new n(str);
     }
 
     @Override // com.baidu.tieba.i.f
     public void i(String str, int i, String str2) {
-        if (rL(str)) {
-            this.gGG.brW();
-            this.gGG.a(new d(i, "record", i, str2));
+        if (rf(str)) {
+            this.gvP.blp();
+            this.gvP.a(new d(i, "record", i, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void j(String str, int i, String str2) {
-        if (rL(str)) {
+        if (rf(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.gGG.brW();
-                this.gGG.a(new d(i, str2, i, VideoPlatformStatic.jv(i)));
+                this.gvP.blp();
+                this.gvP.a(new d(i, str2, i, VideoPlatformStatic.jr(i)));
                 return;
             }
-            this.gGG.a(new d(i, str2, -4399, ""));
+            this.gvP.a(new d(i, str2, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void k(String str, int i, String str2) {
-        if (rL(str)) {
-            this.gGG.brW();
-            this.gGG.a(new d(i, "edit", i, str2));
+        if (rf(str)) {
+            this.gvP.blp();
+            this.gvP.a(new d(i, "edit", i, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void d(String str, int i, int i2, String str2) {
-        if (rL(str)) {
-            this.gGG.brW();
-            this.gGG.brU();
-            this.gGG.brY();
-            this.gGG.a(new d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+        if (rf(str)) {
+            this.gvP.blp();
+            this.gvP.bln();
+            this.gvP.blr();
+            this.gvP.a(new d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public void pc(String str) {
-        if (rL(str)) {
-            this.gGG.brY();
-            this.gGG.a(new d(HttpStatus.SC_MOVED_PERMANENTLY, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+    public void pf(String str) {
+        if (rf(str)) {
+            this.gvP.blr();
+            this.gvP.a(new d(HttpStatus.SC_MOVED_PERMANENTLY, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public void pd(String str) {
-        if (rL(str)) {
-            this.gGG.brY();
-            this.gGG.brV();
-            this.gGG.a(new d(HttpStatus.SC_UNAUTHORIZED, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+    public void pg(String str) {
+        if (rf(str)) {
+            this.gvP.blr();
+            this.gvP.blo();
+            this.gvP.a(new d(HttpStatus.SC_UNAUTHORIZED, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void l(String str, int i, String str2) {
-        if (rL(str)) {
-            this.gGG.brW();
-            this.gGG.brU();
-            this.gGG.brY();
-            this.gGG.a(new d(HttpStatus.SC_PAYMENT_REQUIRED, AlbumActivityConfig.FROM_WRITE, i, str2));
+        if (rf(str)) {
+            this.gvP.blp();
+            this.gvP.bln();
+            this.gvP.blr();
+            this.gvP.a(new d(HttpStatus.SC_PAYMENT_REQUIRED, AlbumActivityConfig.FROM_WRITE, i, str2));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public void pe(String str) {
-        if (rL(str)) {
-            b.bGp().d(this.fqx, b.a(VideoPlatformStatic.TG(), this.gGG.aVk(), this.gGG.aVl()));
+    public void ph(String str) {
+        if (rf(str)) {
+            b.bzM().d(this.frY, b.a(VideoPlatformStatic.Tu(), this.gvP.aVp(), this.gvP.aVq()));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public boolean pf(String str) {
-        if (rL(str)) {
-            return this.gGG.brX();
+    public boolean pi(String str) {
+        if (rf(str)) {
+            return this.gvP.blq();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.i.f
-    public boolean pg(String str) {
-        return this.gGG.brZ();
+    public boolean pj(String str) {
+        return this.gvP.bls();
+    }
+
+    @Override // com.baidu.tieba.i.f
+    public void bz(String str, String str2) {
+        if (rf(str)) {
+            this.gvP.a(new d(HttpStatus.SC_SERVICE_UNAVAILABLE, str2, -4399, ""));
+        }
     }
 
     @Override // com.baidu.tieba.i.f
     public void bA(String str, String str2) {
-        if (rL(str)) {
-            this.gGG.a(new d(HttpStatus.SC_SERVICE_UNAVAILABLE, str2, -4399, ""));
+        if (rf(str)) {
+            this.gvP.a(new d(HttpStatus.SC_NOT_IMPLEMENTED, str2, -4399, ""));
         }
     }
 
-    @Override // com.baidu.tieba.i.f
-    public void bB(String str, String str2) {
-        if (rL(str)) {
-            this.gGG.a(new d(HttpStatus.SC_NOT_IMPLEMENTED, str2, -4399, ""));
-        }
-    }
-
-    private boolean rL(String str) {
-        return (!TextUtils.equals(this.fqx, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.fqx)) ? false : true;
+    private boolean rf(String str) {
+        return (!TextUtils.equals(this.frY, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.frY)) ? false : true;
     }
 }

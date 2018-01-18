@@ -10,44 +10,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a dLM;
-    private boolean dLK = false;
-    private final HashMap<String, ArrayList<e>> dLL = new HashMap<>();
+    private static volatile a dQo;
+    private boolean dQm = false;
+    private final HashMap<String, ArrayList<e>> dQn = new HashMap<>();
 
     private a() {
     }
 
-    public static a axw() {
-        if (dLM == null) {
+    public static a ayz() {
+        if (dQo == null) {
             synchronized (a.class) {
-                if (dLM == null) {
-                    dLM = new a();
+                if (dQo == null) {
+                    dQo = new a();
                 }
             }
         }
-        return dLM;
+        return dQo;
     }
 
-    public String axx() {
+    public String ayA() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long lJ(String str) {
-        e lK;
-        lK = lK(str);
-        return lK != null ? lK.lastTime : 0L;
+    public synchronized long lR(String str) {
+        e lS;
+        lS = lS(str);
+        return lS != null ? lS.lastTime : 0L;
     }
 
     public synchronized void m(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String axx = axx();
-            ArrayList<e> arrayList = this.dLL.get(axx);
+            String ayA = ayA();
+            ArrayList<e> arrayList = this.dQn.get(ayA);
             ArrayList<e> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            e lK = lK(str);
+            e lS = lS(str);
             boolean z = false;
-            if (lK != null) {
-                if (lK.lastTime != j) {
-                    lK.lastTime = j;
+            if (lS != null) {
+                if (lS.lastTime != j) {
+                    lS.lastTime = j;
                     z = true;
                 }
             } else {
@@ -58,13 +58,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(axx, arrayList2);
+                d(ayA, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<e> arrayList) {
-        JSONObject axG;
+        JSONObject ayJ;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -72,26 +72,26 @@ public class a {
             ArrayList<e> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 e eVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(eVar.forumName) && (axG = eVar.axG()) != null) {
-                    jSONArray.put(axG);
+                if (!TextUtils.isEmpty(eVar.forumName) && (ayJ = eVar.ayJ()) != null) {
+                    jSONArray.put(ayJ);
                     arrayList2.add(eVar);
                 }
             }
-            if (!v.G(arrayList2)) {
-                this.dLL.put(str, arrayList2);
-                if (!this.dLK) {
-                    axy();
+            if (!v.E(arrayList2)) {
+                this.dQn.put(str, arrayList2);
+                if (!this.dQm) {
+                    ayB();
                 } else {
-                    lL(jSONArray.toString());
+                    lT(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized e lK(String str) {
+    private synchronized e lS(String str) {
         e eVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<e> arrayList = this.dLL.get(axx());
+            ArrayList<e> arrayList = this.dQn.get(ayA());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -115,37 +115,37 @@ public class a {
         return eVar;
     }
 
-    private void lL(String str) {
-        l<String> axz = axz();
-        if (axz != null) {
-            axz.f("frs_smart_sort_last_time", str);
+    private void lT(String str) {
+        l<String> ayC = ayC();
+        if (ayC != null) {
+            ayC.f("frs_smart_sort_last_time", str);
         }
     }
 
-    public void axy() {
-        l<String> axz = axz();
-        if (axz != null) {
-            axz.a("frs_smart_sort_last_time", new l.a<String>() { // from class: com.baidu.tieba.frs.smartsort.a.1
+    public void ayB() {
+        l<String> ayC = ayC();
+        if (ayC != null) {
+            ayC.a("frs_smart_sort_last_time", new l.a<String>() { // from class: com.baidu.tieba.frs.smartsort.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.cache.l.a
                 /* renamed from: aX */
                 public void g(String str, String str2) {
                     if (str2 != null) {
-                        ArrayList lM = a.this.lM(str2);
-                        a.this.dLL.put(a.this.axx(), lM);
+                        ArrayList lU = a.this.lU(str2);
+                        a.this.dQn.put(a.this.ayA(), lU);
                     }
-                    a.this.dLK = true;
+                    a.this.dQm = true;
                 }
             });
         }
     }
 
-    private l<String> axz() {
-        return com.baidu.tbadk.core.c.a.AE().M("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
+    private l<String> ayC() {
+        return com.baidu.tbadk.core.c.a.Aw().M("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<e> lM(String str) {
+    public ArrayList<e> lU(String str) {
         ArrayList<e> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

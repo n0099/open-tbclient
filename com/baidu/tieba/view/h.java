@@ -9,7 +9,7 @@ public interface h {
 
     void a(Context context, NavigationBar navigationBar);
 
-    void biB();
+    void biC();
 
     void c(float f, boolean z);
 
