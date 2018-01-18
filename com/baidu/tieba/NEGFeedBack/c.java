@@ -9,41 +9,41 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    private long bMw;
-    d bMx;
-    private View.OnClickListener bMy;
-    private int bsG;
-    private int bsH;
+    private long bME;
+    d bMF;
+    private View.OnClickListener bMG;
+    private int bsP;
+    private int bsQ;
     private Context mContext;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(ai aiVar);
+        void a(ah ahVar);
 
-        void a(ai aiVar, CompoundButton compoundButton, boolean z);
+        void a(ah ahVar, CompoundButton compoundButton, boolean z);
 
-        void a(ArrayList<Integer> arrayList, ai aiVar);
+        void a(ArrayList<Integer> arrayList, ah ahVar);
     }
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.bMw = 0L;
-        this.bMy = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
+        this.bME = 0L;
+        this.bMG = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.SD();
+                c.this.Sr();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - c.this.bMw > 500) {
-                    c.this.SC();
+                if (currentTimeMillis - c.this.bME > 500) {
+                    c.this.Sq();
                 }
-                c.this.bMw = currentTimeMillis;
+                c.this.bME = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,46 +51,46 @@ public class c extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.bMx = new d(tbPageContext, this);
-        setOnClickListener(this.bMy);
+        this.bMF = new d(tbPageContext, this);
+        setOnClickListener(this.bMG);
         aj.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.bMx.setUniqueId(bdUniqueId);
+        this.bMF.setUniqueId(bdUniqueId);
     }
 
-    public void SB() {
+    public void Sp() {
         onChangeSkinType();
     }
 
     public void setLeftPadding(int i) {
-        this.bsG = i;
-        setPadding(i, 0, this.bsH, 0);
+        this.bsP = i;
+        setPadding(i, 0, this.bsQ, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SC() {
-        this.bMx.SC();
+    public void Sq() {
+        this.bMF.Sq();
     }
 
-    public void SD() {
-        this.bMx.SD();
+    public void Sr() {
+        this.bMF.Sr();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bMx.onDetachedFromWindow();
+        this.bMF.onDetachedFromWindow();
     }
 
-    public void setData(ai aiVar) {
-        this.bMx.setData(aiVar);
+    public void setData(ah ahVar) {
+        this.bMF.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bMx.setFirstRowSingleColumn(z);
+        this.bMF.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -98,11 +98,11 @@ public class c extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.bMx.setEventCallback(aVar);
+        this.bMF.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bMx.setDefaultReasonArray(strArr);
+        this.bMF.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

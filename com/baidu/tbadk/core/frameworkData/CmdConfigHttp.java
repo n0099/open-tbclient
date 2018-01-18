@@ -76,6 +76,7 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
+    public static final int CMD_FRS_AR_SHARE = 1003391;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;

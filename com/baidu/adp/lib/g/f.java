@@ -8,16 +8,6 @@ import com.baidu.adp.lib.util.BdLog;
 public class f {
     public static boolean e(Context context, Intent intent) {
         try {
-            context.startActivity(intent);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
-
-    public static boolean f(Context context, Intent intent) {
-        try {
             context.startService(intent);
             return true;
         } catch (Exception e) {
@@ -46,7 +36,7 @@ public class f {
         }
     }
 
-    public static boolean g(Context context, Intent intent) {
+    public static boolean f(Context context, Intent intent) {
         try {
             context.stopService(intent);
             return true;
@@ -56,7 +46,7 @@ public class f {
         }
     }
 
-    public static boolean h(Context context, Intent intent) {
+    public static boolean g(Context context, Intent intent) {
         try {
             context.sendBroadcast(intent);
             return true;

@@ -12,10 +12,10 @@ public class g {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String erB;
-        public long erI;
-        public String erJ;
-        public int erK;
+        public String esY;
+        public long etg;
+        public String eth;
+        public int eti;
         public String fid;
         public long picId;
         public String src;
@@ -26,7 +26,7 @@ public class g {
         public int userType;
     }
 
-    public static List<a> b(String str, String str2, long j) {
+    public static List<a> a(String str, String str2, long j) {
         return a(str, str2, null, 0L, j);
     }
 
@@ -58,14 +58,14 @@ public class g {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.erB = optString5;
+                aVar.esY = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.erI = j;
-                    aVar.erJ = userData.getUserId();
-                    aVar.erK = userData.getUserType();
+                    aVar.etg = j;
+                    aVar.eth = userData.getUserId();
+                    aVar.eti = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class MovieExtendsHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mehd";
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_1 = null;
     private long fragmentDuration;
 
     static {
@@ -55,7 +55,7 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
     }
 
     public void setFragmentDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dm(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dW(j)));
         this.fragmentDuration = j;
     }
 }

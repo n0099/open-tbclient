@@ -141,6 +141,7 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_MEMBER_INFO_CACHE = 2003009;
     public static final int CMD_FRS_SELECT_ALA_LIVE_TAB = 2003019;
     public static final int CMD_FRS_SET_COMMON_ACCESS_FORUM = 2003017;
+    public static final int CMD_FRS_SHOW_AR_ENTRY = 2921326;
     public static final int CMD_FRS_TAB_CLICK = 2001624;
     public static final int CMD_FRS_TAB_LIVE_START = 2001607;
     public static final int CMD_GAME_CENTER_CHECK_UPDATE = 2016510;
@@ -397,6 +398,7 @@ public class CmdConfigCustom {
     public static final int CMD_SIGN_REFRESH_SIGN_STATE = 2001222;
     public static final int CMD_SINGLE_BAR_EMOTION = 2001444;
     public static final int CMD_SKIN_TYPE_CHANGE = 2001304;
+    public static final int CMD_SLUMDOG_MILLIONAIRE_SHARE_DIALOG_DISMISS = 2001451;
     public static final int CMD_SPLASH_AD_JUMP_URL = 2921022;
     public static final int CMD_SQUARE_BAR_FOLDER_FIRST_DIR = 2902026;
     public static final int CMD_SQUARE_DAILY_CLASSICLA = 2902021;

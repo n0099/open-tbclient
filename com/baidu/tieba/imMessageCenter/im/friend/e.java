@@ -9,9 +9,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private int eFI;
-    private RequestCommitInviteMessage eLf;
-    private int eLg;
+    private int eHi;
+    private RequestCommitInviteMessage eMF;
+    private int eMG;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,26 +24,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.eFI = intent.getIntExtra("gid", -1);
-            this.eLg = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.eHi = intent.getIntExtra("gid", -1);
+            this.eMG = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.eFI = bundle.getInt("gid", -1);
-            this.eLg = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.eHi = bundle.getInt("gid", -1);
+            this.eMG = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void t(Bundle bundle) {
-        bundle.putInt("gid", this.eFI);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.eLg);
+        bundle.putInt("gid", this.eHi);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.eMG);
     }
 
-    public void nC(String str) {
-        this.eLf = g(this.eFI, this.eLg, str);
-        super.sendMessage(this.eLf);
+    public void nF(String str) {
+        this.eMF = g(this.eHi, this.eMG, str);
+        super.sendMessage(this.eMF);
     }
 
     private RequestCommitInviteMessage g(int i, int i2, String str) {

@@ -11,7 +11,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0136a {
+    public interface InterfaceC0135a {
         void d(String str, String str2, String str3, String str4, String str5);
     }
 

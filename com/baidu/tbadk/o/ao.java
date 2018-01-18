@@ -7,7 +7,7 @@ public class ao extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_strange_clean";
+        return "android_stoken_new";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,9 +28,5 @@ public class ao extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
         return 10;
-    }
-
-    public static boolean nu() {
-        return com.baidu.adp.lib.b.d.mz().an("android_strange_clean") == 1;
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String bJi;
-    private int bJj;
-    private String bJk;
-    private int bJl;
-    private int bJm;
+    private String bJq;
+    private int bJr;
+    private String bJs;
+    private int bJt;
+    private int bJu;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.bJi = pbContent.src;
+            this.bJq = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.bJj = pbContent.e_type.intValue();
-            this.bJk = pbContent.text;
+            this.bJr = pbContent.e_type.intValue();
+            this.bJs = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.bJl = pbContent.count.intValue();
-            this.bJm = pbContent.origin_size.intValue();
+            this.bJt = pbContent.count.intValue();
+            this.bJu = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.bJi;
+        return this.bJq;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class f {
         return this.height;
     }
 
-    public String RA() {
-        return this.bJk;
+    public String Ro() {
+        return this.bJs;
     }
 
-    public boolean RB() {
-        return this.bJj == 15;
+    public boolean Rp() {
+        return this.bJr == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int RC() {
-        return this.bJl;
+    public int Rq() {
+        return this.bJt;
     }
 
-    public void jg(int i) {
-        this.bJl = i;
+    public void jc(int i) {
+        this.bJt = i;
     }
 }

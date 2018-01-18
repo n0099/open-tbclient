@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String Ez() {
+    public static String Eq() {
         return q.pj();
     }
 

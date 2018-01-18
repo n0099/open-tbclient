@@ -146,7 +146,7 @@ public class IntentConfig extends OrmObject {
             } else {
                 arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) aj).getNextPageSourceKeyList();
             }
-            if (!v.G(arrayList)) {
+            if (!v.E(arrayList)) {
                 this.mIntent.putStringArrayListExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arrayList);
             }
         }

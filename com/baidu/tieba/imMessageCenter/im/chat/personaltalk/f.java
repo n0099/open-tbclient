@@ -23,15 +23,15 @@ import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes2.dex */
 public class f {
     private DataRes data;
-    private final BlackListModel eKc;
-    private PersonalTalkSettingActivity eKd;
-    private a eKe;
-    private com.baidu.tbadk.coreExtra.model.a bdv = new com.baidu.tbadk.coreExtra.model.a(null);
+    private final BlackListModel eLC;
+    private PersonalTalkSettingActivity eLD;
+    private a eLE;
+    private com.baidu.tbadk.coreExtra.model.a bdB = new com.baidu.tbadk.coreExtra.model.a(null);
     private boolean isAttention = false;
-    private boolean eKa = false;
-    private boolean eKb = false;
+    private boolean eLA = false;
+    private boolean eLB = false;
     private BdUniqueId tag = BdUniqueId.gen();
-    private com.baidu.adp.framework.listener.c eoY = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
+    private com.baidu.adp.framework.listener.c eqv = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -39,9 +39,9 @@ public class f {
                 switch (socketResponsedMessage.getCmd()) {
                     case 104102:
                         if (socketResponsedMessage instanceof ResponsedMessage) {
-                            f.this.eKd.closeLoadingDialog();
+                            f.this.eLD.closeLoadingDialog();
                             if (socketResponsedMessage.getError() != 0) {
-                                f.this.eKd.showToast(socketResponsedMessage.getErrorString());
+                                f.this.eLD.showToast(socketResponsedMessage.getErrorString());
                             }
                         }
                         if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -49,9 +49,9 @@ public class f {
                             if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                                    f.this.eKa = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                                    if (f.this.eKe != null) {
-                                        f.this.eKe.DN();
+                                    f.this.eLA = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                                    if (f.this.eLE != null) {
+                                        f.this.eLE.DE();
                                         return;
                                     }
                                     return;
@@ -63,18 +63,18 @@ public class f {
                         return;
                     case 205003:
                         if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                            f.this.eKd.hideProgressBar();
-                            f.this.eKd.showToast(socketResponsedMessage.getErrorString());
+                            f.this.eLD.hideProgressBar();
+                            f.this.eLD.showToast(socketResponsedMessage.getErrorString());
                             return;
                         } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                             ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                             if (responseQueryUserInfoMessage.getResData() != null) {
                                 f.this.data = responseQueryUserInfoMessage.getResData();
                                 f.this.isAttention = f.this.data.hasConcerned.intValue() == 1;
-                                f.this.eKa = f.this.data.isBlacklist.intValue() == 1;
-                                f.this.eKd.hideProgressBar();
-                                if (f.this.eKe != null) {
-                                    f.this.eKe.DN();
+                                f.this.eLA = f.this.data.isBlacklist.intValue() == 1;
+                                f.this.eLD.hideProgressBar();
+                                if (f.this.eLE != null) {
+                                    f.this.eLE.DE();
                                     return;
                                 }
                                 return;
@@ -96,22 +96,22 @@ public class f {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (f.this.eKd != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                        f.this.eKd.showToast(updateAttentionMessage.getErrorString());
+                    if (f.this.eLD != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                        f.this.eLD.showToast(updateAttentionMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 f.this.isAttention = updateAttentionMessage.isAttention();
-                if (f.this.eKd != null) {
+                if (f.this.eLD != null) {
                     if (f.this.isAttention) {
-                        f.this.eKd.showToast(d.j.add_success);
+                        f.this.eLD.showToast(d.j.add_success);
                     } else {
-                        f.this.eKd.showToast(d.j.remove_succ);
+                        f.this.eLD.showToast(d.j.remove_succ);
                     }
                 }
-                if (f.this.eKe != null) {
-                    f.this.eKe.DN();
+                if (f.this.eLE != null) {
+                    f.this.eLE.DE();
                 }
             }
         }
@@ -119,36 +119,36 @@ public class f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void DN();
+        void DE();
     }
 
-    public boolean aKV() {
-        return this.eKb;
+    public boolean aLa() {
+        return this.eLB;
     }
 
-    public void hL(boolean z) {
-        this.eKb = z;
+    public void hO(boolean z) {
+        this.eLB = z;
     }
 
-    public DataRes aKW() {
+    public DataRes aLb() {
         return this.data;
     }
 
-    public boolean aKX() {
-        return this.eKa;
+    public boolean aLc() {
+        return this.eLA;
     }
 
     public f(final PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, final long j) {
-        this.eKd = personalTalkSettingActivity;
-        this.eKe = aVar;
-        this.eKc = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.eLD = personalTalkSettingActivity;
+        this.eLE = aVar;
+        this.eLC = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         v.b(new u<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: aLa */
+            /* renamed from: aLf */
             public PersonalSettingItemData doInBackground() {
-                return com.baidu.tieba.im.settingcache.e.aKl().bi(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
+                return com.baidu.tieba.im.settingcache.e.aKq().bh(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
             }
         }, new h<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -156,7 +156,7 @@ public class f {
             /* renamed from: a */
             public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
                 if (personalSettingItemData != null) {
-                    f.this.eKb = personalSettingItemData.isAcceptNotify();
+                    f.this.eLB = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
                 requestQueryUserInfoMessage.setReqUserId(j);
@@ -165,7 +165,7 @@ public class f {
         });
     }
 
-    public void hM(boolean z) {
+    public void hP(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
         requestUpdateMaskInfoMessage.setList(String.valueOf(this.data.id));
@@ -175,29 +175,29 @@ public class f {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public void hN(boolean z) {
-        this.eKd.showLoadingDialog(null);
+    public void hQ(boolean z) {
+        this.eLD.showLoadingDialog(null);
         if (z) {
-            this.eKc.addToBlackList(this.data.id.longValue());
+            this.eLC.addToBlackList(this.data.id.longValue());
         } else {
-            this.eKc.removeFromBlackList(this.data.id.longValue());
+            this.eLC.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.bdv != null) {
-            this.bdv.cancel();
+        if (this.bdB != null) {
+            this.bdB.cancel();
         }
-        if (this.eKc != null) {
-            this.eKc.cancelLoadData();
+        if (this.eLC != null) {
+            this.eLC.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.c aKY() {
-        return this.eoY;
+    public com.baidu.adp.framework.listener.c aLd() {
+        return this.eqv;
     }
 
-    public CustomMessageListener aKZ() {
+    public CustomMessageListener aLe() {
         return this.mCustomListener;
     }
 }

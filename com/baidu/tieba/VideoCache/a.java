@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> bOt = new ArrayList();
-    private long bOu = 0;
+    private List<d> bOB = new ArrayList();
+    private long bOC = 0;
 
-    public List<d> SX() {
-        return this.bOt;
+    public List<d> SL() {
+        return this.bOB;
     }
 
-    public long SY() {
-        return this.bOu;
+    public long SM() {
+        return this.bOC;
     }
 
     public void a(d dVar) {
-        if (this.bOt != null) {
-            this.bOt.add(dVar);
+        if (this.bOB != null) {
+            this.bOB.add(dVar);
             if (dVar != null) {
-                this.bOu += dVar.Th();
+                this.bOC += dVar.SV();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.bOt != null) {
-            this.bOt.remove(dVar);
+        if (this.bOB != null) {
+            this.bOB.remove(dVar);
             if (dVar != null) {
-                this.bOu -= dVar.Th();
+                this.bOC -= dVar.SV();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.bOt != null) {
-            d dVar = this.bOt.get(i);
+        if (this.bOB != null) {
+            d dVar = this.bOB.get(i);
             if (dVar != null) {
-                this.bOu -= dVar.Th();
+                this.bOC -= dVar.SV();
             }
-            this.bOt.remove(i);
+            this.bOB.remove(i);
         }
     }
 
-    public int SZ() {
-        if (this.bOt != null) {
-            return this.bOt.size();
+    public int SN() {
+        if (this.bOB != null) {
+            return this.bOB.size();
         }
         return 0;
     }
 
-    public d jr(int i) {
-        if (this.bOt != null) {
-            return this.bOt.get(i);
+    public d jn(int i) {
+        if (this.bOB != null) {
+            return this.bOB.get(i);
         }
         return null;
     }

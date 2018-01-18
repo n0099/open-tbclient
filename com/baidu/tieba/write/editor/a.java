@@ -14,13 +14,13 @@ import com.baidu.tieba.write.editor.b;
 import com.baidu.tieba.write.editor.c;
 /* loaded from: classes2.dex */
 public class a extends RelativeLayout implements s {
-    private i axO;
-    private int axP;
-    private boolean etk;
-    private b hOY;
-    private StateSwitchView hOZ;
-    private StateSwitchView hPa;
-    private String hyr;
+    private i axN;
+    private int axO;
+    private boolean euI;
+    private b hEG;
+    private StateSwitchView hEH;
+    private StateSwitchView hEI;
+    private String hnU;
     private String mForumId;
     private String mFrom;
 
@@ -30,106 +30,106 @@ public class a extends RelativeLayout implements s {
 
     public a(Context context, String str, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.etk = true;
+        this.euI = true;
         int dimension = (int) context.getResources().getDimension(d.e.ds14);
         setLayoutParams(new ViewGroup.LayoutParams(-1, getResources().getDimensionPixelSize(d.e.ds90)));
         setPadding(dimension, 0, dimension, 0);
         setGravity(16);
-        this.hyr = str;
-        ct(context);
-        cu(context);
-        cv(context);
+        this.hnU = str;
+        cp(context);
+        cq(context);
+        cr(context);
     }
 
-    private void ct(Context context) {
-        this.hOY = new b(context);
-        this.hOY.setId(d.g.editor_id_location);
+    private void cp(Context context) {
+        this.hEG = new b(context);
+        this.hEG.setId(d.g.editor_id_location);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(d.e.ds16);
-        this.hOY.setLocationClickListener(new b.a() { // from class: com.baidu.tieba.write.editor.a.1
+        this.hEG.setLocationClickListener(new b.a() { // from class: com.baidu.tieba.write.editor.a.1
             @Override // com.baidu.tieba.write.editor.b.a
-            public void bMx() {
+            public void bFX() {
                 a.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
 
             @Override // com.baidu.tieba.write.editor.b.a
-            public void bMy() {
+            public void bFY() {
                 a.this.b(new com.baidu.tbadk.editortools.a(20, -1, null));
-                a.this.hOY.hide();
+                a.this.hEG.hide();
             }
         });
-        addView(this.hOY, layoutParams);
+        addView(this.hEG, layoutParams);
     }
 
-    private void cu(Context context) {
-        this.hOZ = new StateSwitchView(context);
-        this.hOZ.setId(d.g.view_write_thread_add_title);
-        this.hOZ.cr(getResources().getString(d.j.write_add_title), getResources().getString(d.j.write_hide_title));
-        this.hOZ.setBackgroundId(d.f.state_switch_bg);
+    private void cq(Context context) {
+        this.hEH = new StateSwitchView(context);
+        this.hEH.setId(d.g.view_write_thread_add_title);
+        this.hEH.cl(getResources().getString(d.j.write_add_title), getResources().getString(d.j.write_hide_title));
+        this.hEH.setBackgroundId(d.f.state_switch_bg);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(d.e.ds16);
         layoutParams.addRule(1, d.g.editor_id_location);
-        this.hOZ.setLayoutParams(layoutParams);
-        this.hOZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.a.2
+        this.hEH.setLayoutParams(layoutParams);
+        this.hEH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.hOZ.getState() == 0) {
+                if (a.this.hEH.getState() == 0) {
                     a.this.b(new com.baidu.tbadk.editortools.a(45, -1, null));
                 } else {
                     a.this.b(new com.baidu.tbadk.editortools.a(53, -1, null));
                 }
-                a.this.hOZ.bMz();
+                a.this.hEH.bFZ();
             }
         });
-        addView(this.hOZ);
+        addView(this.hEH);
     }
 
-    private void cv(Context context) {
-        this.hPa = new StateSwitchView(context);
+    private void cr(Context context) {
+        this.hEI = new StateSwitchView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
-        this.hPa.setLayoutParams(layoutParams);
-        this.hPa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.a.3
+        this.hEI.setLayoutParams(layoutParams);
+        this.hEI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ("from_share_write".equals(a.this.mFrom)) {
-                    if ("1".equals(a.this.hyr)) {
+                    if ("1".equals(a.this.hnU)) {
                         TiebaStatic.log(new ak("c12608").s("obj_locate", 6));
-                    } else if ("2".equals(a.this.hyr)) {
+                    } else if ("2".equals(a.this.hnU)) {
                         TiebaStatic.log(new ak("c12608").s("obj_locate", 5));
                     }
                 }
-                a.this.hPa.bMz();
-                if ("2".equals(a.this.hyr)) {
-                    c.aM(a.this.mForumId, a.this.hPa.getState() == 0 ? 0 : 1);
+                a.this.hEI.bFZ();
+                if ("2".equals(a.this.hnU)) {
+                    c.aO(a.this.mForumId, a.this.hEI.getState() == 0 ? 0 : 1);
                 }
             }
         });
-        if ("1".equals(this.hyr)) {
-            this.hPa.cr(getResources().getString(d.j.public_to_all), getResources().getString(d.j.public_to_me));
-            this.hPa.setBackgroundId(d.f.state_switch_bg);
-        } else if ("2".equals(this.hyr)) {
-            this.hPa.cr(getResources().getString(d.j.display_to_home_page), getResources().getString(d.j.display_to_home_page));
-            this.hPa.de(d.f.icon_share_home_select_ok, d.f.icon_share_home_select);
-            this.hPa.setPadding(this.hPa.getPaddingLeft(), 0, 0, 0);
-            this.hPa.setTextSize(0, getResources().getDimensionPixelSize(d.e.ds28));
+        if ("1".equals(this.hnU)) {
+            this.hEI.cl(getResources().getString(d.j.public_to_all), getResources().getString(d.j.public_to_me));
+            this.hEI.setBackgroundId(d.f.state_switch_bg);
+        } else if ("2".equals(this.hnU)) {
+            this.hEI.cl(getResources().getString(d.j.display_to_home_page), getResources().getString(d.j.display_to_home_page));
+            this.hEI.cX(d.f.icon_share_home_select_ok, d.f.icon_share_home_select);
+            this.hEI.setPadding(this.hEI.getPaddingLeft(), 0, 0, 0);
+            this.hEI.setTextSize(0, getResources().getDimensionPixelSize(d.e.ds28));
         }
-        addView(this.hPa);
+        addView(this.hEI);
     }
 
     public boolean isPrivacy() {
-        return (this.hPa == null || this.hPa.getState() != 0) && this.hPa != null && this.hPa.getState() == 1;
+        return (this.hEI == null || this.hEI.getState() != 0) && this.hEI != null && this.hEI.getState() == 1;
     }
 
-    public void bdC() {
-        if (this.hPa != null) {
-            this.hPa.hideTip();
+    public void bdG() {
+        if (this.hEI != null) {
+            this.hEI.hideTip();
         }
     }
 
-    public void bMv() {
-        if (this.hOZ != null) {
-            this.hOZ.setVisibility(8);
+    public void bFV() {
+        if (this.hEH != null) {
+            this.hEH.setVisibility(8);
         }
     }
 
@@ -137,13 +137,13 @@ public class a extends RelativeLayout implements s {
         this.mFrom = str;
     }
 
-    public void aL(String str, int i) {
-        if ("2".equals(this.hyr)) {
+    public void aN(String str, int i) {
+        if ("2".equals(this.hnU)) {
             this.mForumId = str;
             c.a(str, i, new c.a() { // from class: com.baidu.tieba.write.editor.a.4
                 @Override // com.baidu.tieba.write.editor.c.a
-                public void yQ(int i2) {
-                    a.this.hPa.setState(i2 != 1 ? 0 : 1);
+                public void xt(int i2) {
+                    a.this.hEI.setState(i2 != 1 ? 0 : 1);
                 }
             });
         }
@@ -172,20 +172,20 @@ public class a extends RelativeLayout implements s {
             case 19:
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.d.a)) {
                     com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
-                    if (aVar2 != null && aVar2.bru) {
-                        this.hOY.j(aVar2.state, aVar2.addr);
+                    if (aVar2 != null && aVar2.brD) {
+                        this.hEG.j(aVar2.state, aVar2.addr);
                         return;
                     } else {
-                        this.hOY.hide();
+                        this.hEG.hide();
                         return;
                     }
                 }
                 return;
             case 20:
-                this.hOY.hide();
+                this.hEG.hide();
                 return;
             case 21:
-                this.hOZ.setState(1);
+                this.hEH.setState(1);
                 return;
             case 54:
                 b(new com.baidu.tbadk.editortools.a(55, -1, Boolean.valueOf(isPrivacy())));
@@ -193,41 +193,41 @@ public class a extends RelativeLayout implements s {
         }
     }
 
-    private void bMw() {
+    private void bFW() {
         String string;
         String sharedPrefKeyWithAccount;
-        if (this.hPa != null) {
-            if ("1".equals(this.hyr)) {
+        if (this.hEI != null) {
+            if ("1".equals(this.hnU)) {
                 string = getResources().getString(d.j.privacy_tip_one);
                 sharedPrefKeyWithAccount = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_show_privacy_tip_one");
-            } else if ("2".equals(this.hyr)) {
+            } else if ("2".equals(this.hnU)) {
                 string = getResources().getString(d.j.privacy_tip_two);
                 sharedPrefKeyWithAccount = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_show_privacy_tip_two");
             } else {
                 return;
             }
-            this.hPa.cs(string, sharedPrefKeyWithAccount);
+            this.hEI.cm(string, sharedPrefKeyWithAccount);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void th() {
-        if (this.etk) {
-            this.etk = false;
+        if (this.euI) {
+            this.euI = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, "first"));
         }
         setVisibility(0);
-        bMw();
+        bFW();
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.axP;
+        return this.axO;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void hide() {
-        bdC();
+        bdG();
         setVisibility(8);
     }
 
@@ -237,31 +237,31 @@ public class a extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        if (this.hOZ != null) {
-            this.hOZ.onChangeSkinType(i);
+        if (this.hEH != null) {
+            this.hEH.onChangeSkinType(i);
         }
-        if (this.hOY != null) {
-            this.hOY.onChangeSkinType(i);
+        if (this.hEG != null) {
+            this.hEG.onChangeSkinType(i);
         }
-        if (this.hPa != null) {
-            this.hPa.onChangeSkinType(i);
+        if (this.hEI != null) {
+            this.hEI.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axO != null) {
-            this.axO.b(aVar);
+        if (this.axN != null) {
+            this.axN.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.axO = iVar;
+        this.axN = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.axP = i;
+        this.axO = i;
     }
 }

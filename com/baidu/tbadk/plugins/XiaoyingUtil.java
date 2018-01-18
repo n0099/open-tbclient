@@ -65,9 +65,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.a(context, context.getString(d.j.plugin_xiaoying_install_fail)).AQ();
+                BdToast.a(context, context.getString(d.j.plugin_xiaoying_install_fail)).AI();
             } else if (z && !j.oI()) {
-                BdToast.a(context, context.getString(d.j.neterror)).AQ();
+                BdToast.a(context, context.getString(d.j.neterror)).AI();
             } else if (z) {
                 if (j.oJ()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
@@ -98,7 +98,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(ak).AI();
+            aVar.b(ak).AA();
         }
     }
 
@@ -125,7 +125,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).AI();
+            aVar.b(tbPageContext).AA();
         }
     }
 }

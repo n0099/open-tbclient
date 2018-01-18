@@ -33,9 +33,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e aAR = null;
+    private static e aAQ = null;
     public static String f = "0";
-    private Handler aBc;
+    private Handler aBb;
     private int k = 1;
     private double l = 0.699999988079071d;
     private String m = "3G|4G";
@@ -43,36 +43,36 @@ public class e {
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double aAu = 3.5d;
-    private double aAS = 3.0d;
-    private double aAT = 0.5d;
+    private double aAt = 3.5d;
+    private double aAR = 3.0d;
+    private double aAS = 0.5d;
     private int u = 300;
     private int v = 60;
     private int w = 0;
     private int x = 60;
     private int y = 0;
     private long z = 0;
-    private a aAU = null;
+    private a aAT = null;
     private boolean B = false;
     private boolean C = false;
-    private int aAV = 0;
+    private int aAU = 0;
+    private float aAV = 0.0f;
     private float aAW = 0.0f;
-    private float aAX = 0.0f;
-    private long aAY = 0;
-    private int aAZ = 500;
+    private long aAX = 0;
+    private int aAY = 500;
     long a = 0;
-    Location aBa = null;
-    Location aAp = null;
-    StringBuilder aBb = null;
+    Location aAZ = null;
+    Location aAo = null;
+    StringBuilder aBa = null;
     long e = 0;
-    private byte[] aBd = new byte[4];
-    private byte[] aBe = null;
+    private byte[] aBc = new byte[4];
+    private byte[] aBd = null;
     private int L = 0;
-    private List<Byte> aBf = null;
-    private boolean aBg = false;
+    private List<Byte> aBe = null;
+    private boolean aBf = false;
     int g = 0;
     double h = 116.22345545d;
-    double aBh = 40.245667323d;
+    double aBg = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -114,8 +114,8 @@ public class e {
     }
 
     private e() {
-        this.aBc = null;
-        this.aBc = new Handler();
+        this.aBb = null;
+        this.aBb = new Handler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -229,15 +229,15 @@ public class e {
     private void b(int i) {
         byte[] a2 = a(i);
         for (int i2 = 0; i2 < 4; i2++) {
-            this.aBf.add(Byte.valueOf(a2[i2]));
+            this.aBe.add(Byte.valueOf(a2[i2]));
         }
     }
 
     private void c() {
-        if (this.aBg) {
+        if (this.aBf) {
             return;
         }
-        this.aBg = true;
+        this.aBf = true;
         d(com.baidu.location.h.c.c);
         i();
         d();
@@ -306,13 +306,13 @@ public class e {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.aAu = jSONObject.getDouble("spsh");
+                    this.aAt = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
-                    this.aAS = jSONObject.getDouble("acsh");
+                    this.aAR = jSONObject.getDouble("acsh");
                 }
                 if (jSONObject.has("stspsh")) {
-                    this.aAT = jSONObject.getDouble("stspsh");
+                    this.aAS = jSONObject.getDouble("stspsh");
                 }
                 if (jSONObject.has("drstsh")) {
                     this.u = jSONObject.getInt("drstsh");
@@ -338,20 +338,20 @@ public class e {
     private void d() {
         String[] split = (0 == 0 ? "6.2.3" : null).split("\\.");
         int length = split.length;
-        this.aBd[0] = 0;
-        this.aBd[1] = 0;
-        this.aBd[2] = 0;
-        this.aBd[3] = 0;
+        this.aBc[0] = 0;
+        this.aBc[1] = 0;
+        this.aBc[2] = 0;
+        this.aBc[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
-                this.aBd[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
+                this.aBc[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
             } catch (Exception e) {
             }
         }
-        this.aBe = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.uA().b);
+        this.aBd = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.uA().b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -404,15 +404,15 @@ public class e {
     }
 
     private void e(Location location) {
-        if (System.currentTimeMillis() - this.a < this.aAZ || location == null) {
+        if (System.currentTimeMillis() - this.a < this.aAY || location == null) {
             return;
         }
-        if (location != null && location.hasSpeed() && location.getSpeed() > this.aAW) {
-            this.aAW = location.getSpeed();
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.aAV) {
+            this.aAV = location.getSpeed();
         }
         try {
-            if (this.aBf == null) {
-                this.aBf = new ArrayList();
+            if (this.aBe == null) {
+                this.aBe = new ArrayList();
                 h();
                 f(location);
             } else {
@@ -478,40 +478,40 @@ public class e {
     private boolean e() {
         if (this.B) {
             if (!this.C) {
-                if (this.aAW < this.aAT) {
+                if (this.aAV < this.aAS) {
                     this.C = true;
-                    this.aAV = 0;
-                    this.aAV += this.p;
+                    this.aAU = 0;
+                    this.aAU += this.p;
                     return true;
                 }
                 return true;
-            } else if (this.aAW >= this.aAT) {
-                this.aAV = 0;
+            } else if (this.aAV >= this.aAS) {
+                this.aAU = 0;
                 this.C = false;
                 return true;
             } else {
-                this.aAV += this.p;
-                if (this.aAV <= this.u || System.currentTimeMillis() - this.aAY > this.v * 1000) {
+                this.aAU += this.p;
+                if (this.aAU <= this.u || System.currentTimeMillis() - this.aAX > this.v * 1000) {
                     return true;
                 }
             }
-        } else if (this.aAW >= this.aAu || this.aAX >= this.aAS) {
+        } else if (this.aAV >= this.aAt || this.aAW >= this.aAR) {
             this.B = true;
             return true;
-        } else if (this.w == 1 && System.currentTimeMillis() - this.aAY > this.x * 1000) {
+        } else if (this.w == 1 && System.currentTimeMillis() - this.aAX > this.x * 1000) {
             return true;
         }
         return false;
     }
 
     private void f() {
-        this.aBf = null;
+        this.aBe = null;
         this.e = 0L;
         this.L = 0;
-        this.aBa = null;
-        this.aAp = null;
+        this.aAZ = null;
+        this.aAo = null;
+        this.aAV = 0.0f;
         this.aAW = 0.0f;
-        this.aAX = 0.0f;
     }
 
     private void f(Location location) {
@@ -522,16 +522,16 @@ public class e {
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         if (c > 0) {
-            this.aBf.add((byte) 32);
+            this.aBe.add((byte) 32);
         } else {
-            this.aBf.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+            this.aBe.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
         }
         if (c2 > 0) {
-            this.aBf.add(Byte.MIN_VALUE);
+            this.aBe.add(Byte.MIN_VALUE);
         } else {
-            this.aBf.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+            this.aBe.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
-        this.aBa = location;
+        this.aAZ = location;
     }
 
     private void g() {
@@ -544,14 +544,14 @@ public class e {
             f();
         } else if (!a(com.baidu.location.h.c.c, com.baidu.location.f.getServiceContext())) {
             f();
-        } else if (this.aBf != null) {
-            int size = this.aBf.size();
-            this.aBf.set(0, Byte.valueOf((byte) (size & 255)));
-            this.aBf.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
-            this.aBf.set(3, Byte.valueOf((byte) (this.L & 255)));
+        } else if (this.aBe != null) {
+            int size = this.aBe.size();
+            this.aBe.set(0, Byte.valueOf((byte) (size & 255)));
+            this.aBe.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
+            this.aBe.set(3, Byte.valueOf((byte) (this.L & 255)));
             byte[] bArr = new byte[size];
             for (int i = 0; i < size; i++) {
-                bArr[i] = this.aBf.get(i).byteValue();
+                bArr[i] = this.aBe.get(i).byteValue();
             }
             if (Environment.getExternalStorageState().equals("mounted")) {
                 File file = new File(Environment.getExternalStorageDirectory(), "baidu/tempdata");
@@ -574,7 +574,7 @@ public class e {
                 }
             }
             f();
-            this.aAY = System.currentTimeMillis();
+            this.aAX = System.currentTimeMillis();
         }
     }
 
@@ -582,8 +582,8 @@ public class e {
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.aBa.getLongitude()) * 100000.0d);
-        int latitude = (int) ((location.getLatitude() - this.aBa.getLatitude()) * 100000.0d);
+        int longitude = (int) ((location.getLongitude() - this.aAZ.getLongitude()) * 100000.0d);
+        int latitude = (int) ((location.getLatitude() - this.aAZ.getLatitude()) * 100000.0d);
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         char c3 = longitude > 0 ? (char) 0 : (char) 1;
@@ -591,27 +591,27 @@ public class e {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.aAp = null;
-            this.aAp = this.aBa;
+            this.aAo = null;
+            this.aAo = this.aAZ;
         }
-        this.aBa = location;
-        if (this.aBa != null && this.aAp != null && this.aBa.getTime() > this.aAp.getTime() && this.aBa.getTime() - this.aAp.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.aBa.getTime() - this.aAp.getTime();
+        this.aAZ = location;
+        if (this.aAZ != null && this.aAo != null && this.aAZ.getTime() > this.aAo.getTime() && this.aAZ.getTime() - this.aAo.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            long time = this.aAZ.getTime() - this.aAo.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.aBa.getAltitude(), this.aBa.getLongitude(), this.aAp.getLatitude(), this.aAp.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.aAp.getSpeed() * ((float) time)))) / ((float) (time * time));
-            if (speed > this.aAX) {
-                this.aAX = (float) speed;
+            Location.distanceBetween(this.aAZ.getAltitude(), this.aAZ.getLongitude(), this.aAo.getLatitude(), this.aAo.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.aAo.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.aAW) {
+                this.aAW = (float) speed;
             }
         }
-        this.aBf.add(Byte.valueOf((byte) (abs & 255)));
-        this.aBf.add(Byte.valueOf((byte) (abs2 & 255)));
+        this.aBe.add(Byte.valueOf((byte) (abs & 255)));
+        this.aBe.add(Byte.valueOf((byte) (abs2 & 255)));
         if (c > 0) {
             byte b = c4 > 0 ? (byte) 96 : (byte) 32;
             if (c3 > 0) {
                 b = (byte) (b | Byte.MIN_VALUE);
             }
-            this.aBf.add(Byte.valueOf(b));
+            this.aBe.add(Byte.valueOf(b));
         } else {
             byte bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
             if (c4 > 0) {
@@ -620,44 +620,44 @@ public class e {
             if (c3 > 0) {
                 bearing = (byte) (bearing | Byte.MIN_VALUE);
             }
-            this.aBf.add(Byte.valueOf(bearing));
+            this.aBe.add(Byte.valueOf(bearing));
         }
         if (c2 > 0) {
-            this.aBf.add(Byte.MIN_VALUE);
+            this.aBe.add(Byte.MIN_VALUE);
         } else {
-            this.aBf.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+            this.aBe.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
     }
 
     private void h() {
-        this.aBf.add((byte) 0);
-        this.aBf.add((byte) 0);
+        this.aBe.add((byte) 0);
+        this.aBe.add((byte) 0);
         if (f.equals("0")) {
-            this.aBf.add((byte) 110);
+            this.aBe.add((byte) 110);
         } else {
-            this.aBf.add((byte) 126);
+            this.aBe.add((byte) 126);
         }
-        this.aBf.add((byte) 0);
-        this.aBf.add(Byte.valueOf(this.aBd[0]));
-        this.aBf.add(Byte.valueOf(this.aBd[1]));
-        this.aBf.add(Byte.valueOf(this.aBd[2]));
-        this.aBf.add(Byte.valueOf(this.aBd[3]));
-        int length = this.aBe.length;
-        this.aBf.add(Byte.valueOf((byte) ((length + 1) & 255)));
+        this.aBe.add((byte) 0);
+        this.aBe.add(Byte.valueOf(this.aBc[0]));
+        this.aBe.add(Byte.valueOf(this.aBc[1]));
+        this.aBe.add(Byte.valueOf(this.aBc[2]));
+        this.aBe.add(Byte.valueOf(this.aBc[3]));
+        int length = this.aBd.length;
+        this.aBe.add(Byte.valueOf((byte) ((length + 1) & 255)));
         for (int i = 0; i < length; i++) {
-            this.aBf.add(Byte.valueOf(this.aBe[i]));
+            this.aBe.add(Byte.valueOf(this.aBd[i]));
         }
     }
 
     private void i() {
         if (System.currentTimeMillis() - this.z > 86400000) {
-            if (this.aAU == null) {
-                this.aAU = new a();
+            if (this.aAT == null) {
+                this.aAT = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(com.baidu.location.h.c.uA().a(false));
             stringBuffer.append(com.baidu.location.a.a.ty().c());
-            this.aAU.a(stringBuffer.toString());
+            this.aAT.a(stringBuffer.toString());
         }
         j();
     }
@@ -666,26 +666,26 @@ public class e {
     }
 
     public static e tT() {
-        if (aAR == null) {
-            aAR = new e();
+        if (aAQ == null) {
+            aAQ = new e();
         }
-        return aAR;
+        return aAQ;
     }
 
     public void b() {
-        if (this.aBg) {
-            this.aBg = false;
+        if (this.aBf) {
+            this.aBf = false;
             f();
         }
     }
 
     public void c(Location location) {
-        if (!this.aBg) {
+        if (!this.aBf) {
             c();
         }
         if (this.k == 1 && b.tQ().f() < this.l * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.uq().e()))) {
             if (this.n != 1 || this.y <= this.o) {
-                this.aBc.post(new j(this, location));
+                this.aBb.post(new j(this, location));
             }
         }
     }

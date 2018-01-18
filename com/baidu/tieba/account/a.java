@@ -16,14 +16,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener aZY;
+    private View.OnClickListener aZX;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bPV = false;
+    private boolean bQc = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.aZY = onClickListener;
+        this.aZX = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -68,46 +68,46 @@ public class a extends BaseAdapter {
         View view3;
         Exception exc;
         View view4;
-        C0098a c0098a;
+        C0097a c0097a;
         View view5;
         try {
             try {
                 if (view != null) {
-                    c0098a = (C0098a) view.getTag();
+                    c0097a = (C0097a) view.getTag();
                     view5 = view;
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_item, (ViewGroup) null);
-                    c0098a = new C0098a();
-                    c0098a.bPW = (TextView) view5.findViewById(d.g.account);
-                    c0098a.bPY = (ImageView) view5.findViewById(d.g.active);
-                    c0098a.bPZ = (Button) view5.findViewById(d.g.delete);
-                    c0098a.mLine = view5.findViewById(d.g.account_item_line_layout);
-                    c0098a.bPZ.setOnClickListener(this.aZY);
-                    view5.setTag(c0098a);
+                    c0097a = new C0097a();
+                    c0097a.bQd = (TextView) view5.findViewById(d.g.account);
+                    c0097a.bQf = (ImageView) view5.findViewById(d.g.active);
+                    c0097a.bQg = (Button) view5.findViewById(d.g.delete);
+                    c0097a.mLine = view5.findViewById(d.g.account_item_line_layout);
+                    c0097a.bQg.setOnClickListener(this.aZX);
+                    view5.setTag(c0097a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_add_item, (ViewGroup) null);
-                    c0098a = new C0098a();
-                    c0098a.bPX = (TextView) view5.findViewById(d.g.add_text);
-                    view5.setTag(c0098a);
+                    c0097a = new C0097a();
+                    c0097a.bQe = (TextView) view5.findViewById(d.g.add_text);
+                    view5.setTag(c0097a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0098a.bPY.setVisibility(8);
-                    c0098a.bPZ.setVisibility(8);
-                    c0098a.bPZ.setTag(accountData);
+                    c0097a.bQf.setVisibility(8);
+                    c0097a.bQg.setVisibility(8);
+                    c0097a.bQg.setTag(accountData);
                     if (accountData != null) {
-                        c0098a.bPW.setText(accountData.getAccountNameShow());
+                        c0097a.bQd.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0098a.bPY.setVisibility(0);
+                            c0097a.bQf.setVisibility(0);
                         }
-                        if (this.bPV) {
-                            c0098a.bPZ.setVisibility(0);
+                        if (this.bQc) {
+                            c0097a.bQg.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0098a.mLine.setVisibility(8);
+                        c0097a.mLine.setVisibility(8);
                     } else {
-                        c0098a.mLine.setVisibility(0);
+                        c0097a.mLine.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().aM(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -150,12 +150,12 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void setEditState(boolean z) {
-        this.bPV = z;
+    public void cR(boolean z) {
+        this.bQc = z;
     }
 
-    public boolean TN() {
-        return this.bPV;
+    public boolean TB() {
+        return this.bQc;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -173,14 +173,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0098a {
-        TextView bPW;
-        TextView bPX;
-        ImageView bPY;
-        Button bPZ;
+    private class C0097a {
+        TextView bQd;
+        TextView bQe;
+        ImageView bQf;
+        Button bQg;
         View mLine;
 
-        private C0098a() {
+        private C0097a() {
         }
     }
 }

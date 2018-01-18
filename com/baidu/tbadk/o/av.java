@@ -6,11 +6,6 @@ public class av extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "video_list_weaklock_android";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] mq() {
         return null;
     }
@@ -21,12 +16,17 @@ public class av extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
-        return 0;
+    protected int mt() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
-        return 10;
+    protected String getName() {
+        return "android_video_http_dns_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ms() {
+        return 0;
     }
 }

@@ -15,25 +15,25 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class i implements g {
-    private List<BasicNameValuePair> anH;
-    private String[] anI;
-    protected Handler anO;
-    protected volatile m anP;
-    protected volatile o anQ;
-    protected e.a anR;
-    private URI anS;
+    private List<BasicNameValuePair> anG;
+    private String[] anH;
+    protected Handler anN;
+    protected volatile m anO;
+    protected volatile o anP;
+    protected e.a anQ;
+    private URI anR;
+    private String anS;
     private String anT;
-    private String anU;
-    private int anV;
+    private int anU;
+    private String anV;
     private String anW;
-    private String anX;
-    private g.a anY;
-    protected l anZ;
+    private g.a anX;
+    protected l anY;
+    private boolean anZ = false;
     private boolean aoa = false;
-    private boolean aob = false;
-    private volatile boolean aoc = false;
-    private long aod = 0;
-    private c aoe = null;
+    private volatile boolean aob = false;
+    private long aoc = 0;
+    private c aod = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -47,25 +47,25 @@ public class i implements g {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 e eVar = new e();
-                i.this.anR = eVar.a(i.this.anU, i.this.anV, i.this.anZ, false);
-                if (i.this.aoc) {
+                i.this.anQ = eVar.a(i.this.anT, i.this.anU, i.this.anY, false);
+                if (i.this.aob) {
                     i.this.av(new k.c());
                     return;
                 }
                 try {
-                    if (!i.this.anR.isConnected()) {
+                    if (!i.this.anQ.isConnected()) {
                         i.this.av(new k.e(2, "cannot connect"));
                     } else {
-                        i.this.aod = System.currentTimeMillis() - currentTimeMillis;
+                        i.this.aoc = System.currentTimeMillis() - currentTimeMillis;
                         i.this.pE();
                         i.this.pD();
-                        k.b bVar = new k.b(i.this.anU + ":" + i.this.anV);
-                        bVar.mPath = i.this.anW;
-                        bVar.aoi = i.this.anX;
-                        bVar.aok = i.this.anI;
-                        bVar.aol = i.this.anH;
-                        i.this.anQ.ay(bVar);
-                        if (i.this.aoc) {
+                        k.b bVar = new k.b(i.this.anT + ":" + i.this.anU);
+                        bVar.mPath = i.this.anV;
+                        bVar.aoh = i.this.anW;
+                        bVar.aoj = i.this.anH;
+                        bVar.aok = i.this.anG;
+                        i.this.anP.ay(bVar);
+                        if (i.this.aob) {
                             i.this.av(new k.c());
                         }
                     }
@@ -89,7 +89,7 @@ public class i implements g {
         if (cVar == null) {
             return false;
         }
-        if (this.aoe != null || !isOpen()) {
+        if (this.aod != null || !isOpen()) {
             if (py()) {
             }
             if (cVar != null) {
@@ -98,41 +98,41 @@ public class i implements g {
             }
             return false;
         }
-        this.aoe = cVar;
-        return d(this.aoe);
+        this.aod = cVar;
+        return d(this.aod);
     }
 
     private boolean d(c cVar) {
-        if (this.anQ == null) {
+        if (this.anP == null) {
             av(new k.f(new Exception("mWriter = null")));
             return false;
         }
-        return this.anQ.ay(new k.i(cVar));
+        return this.anP.ay(new k.i(cVar));
     }
 
     public void close(int i, String str) {
-        this.aoa = false;
-        this.aoc = true;
+        this.anZ = false;
+        this.aob = true;
+        if (this.anO != null) {
+            this.anO.quit();
+            this.anO = null;
+        }
         if (this.anP != null) {
             this.anP.quit();
             this.anP = null;
         }
         if (this.anQ != null) {
-            this.anQ.quit();
-            this.anQ = null;
-        }
-        if (this.anR != null) {
             try {
-                this.anR.close();
+                this.anQ.close();
             } catch (Throwable th) {
                 if (py()) {
                     th.printStackTrace();
                 }
             }
-            this.anR = null;
+            this.anQ = null;
         }
-        g.a aVar = this.anY;
-        this.anY = null;
+        g.a aVar = this.anX;
+        this.anX = null;
         if (aVar != null) {
             try {
                 aVar.e(i, str);
@@ -145,46 +145,46 @@ public class i implements g {
     }
 
     public void a(String str, String[] strArr, g.a aVar, l lVar, List<BasicNameValuePair> list) throws WebSocketException {
-        this.aob = true;
-        if (this.anR != null && this.anR.isConnected()) {
+        this.aoa = true;
+        if (this.anQ != null && this.anQ.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.anS = new URI(str);
-            if (!this.anS.getScheme().equals("ws") && !this.anS.getScheme().equals("wss")) {
+            this.anR = new URI(str);
+            if (!this.anR.getScheme().equals("ws") && !this.anR.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.anS.getScheme().equals("wss")) {
+            if (this.anR.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.anT = this.anS.getScheme();
-            if (this.anS.getPort() == -1) {
-                if (this.anT.equals("ws")) {
-                    this.anV = 80;
+            this.anS = this.anR.getScheme();
+            if (this.anR.getPort() == -1) {
+                if (this.anS.equals("ws")) {
+                    this.anU = 80;
                 } else {
-                    this.anV = 443;
+                    this.anU = 443;
                 }
             } else {
-                this.anV = this.anS.getPort();
+                this.anU = this.anR.getPort();
             }
-            if (this.anS.getHost() == null) {
+            if (this.anR.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.anU = this.anS.getHost();
-            if (this.anS.getPath() == null || this.anS.getPath().equals("")) {
-                this.anW = "/";
+            this.anT = this.anR.getHost();
+            if (this.anR.getPath() == null || this.anR.getPath().equals("")) {
+                this.anV = "/";
             } else {
-                this.anW = this.anS.getPath();
+                this.anV = this.anR.getPath();
             }
-            if (this.anS.getQuery() == null || this.anS.getQuery().equals("")) {
-                this.anX = null;
+            if (this.anR.getQuery() == null || this.anR.getQuery().equals("")) {
+                this.anW = null;
             } else {
-                this.anX = this.anS.getQuery();
+                this.anW = this.anR.getQuery();
             }
-            this.anI = strArr;
-            this.anH = list;
-            this.anY = aVar;
-            this.anZ = new l(lVar);
+            this.anH = strArr;
+            this.anG = list;
+            this.anX = aVar;
+            this.anY = new l(lVar);
             new a().start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -193,54 +193,54 @@ public class i implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void av(Object obj) {
-        Message obtainMessage = this.anO.obtainMessage();
+        Message obtainMessage = this.anN.obtainMessage();
         obtainMessage.obj = obj;
-        this.anO.sendMessage(obtainMessage);
+        this.anN.sendMessage(obtainMessage);
     }
 
     protected void pC() {
-        this.anO = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
+        this.anN = new Handler() { // from class: com.baidu.adp.lib.webSocket.i.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.obj instanceof k.s) {
                     k.s sVar = (k.s) message.obj;
-                    if (i.this.anY != null) {
-                        i.this.anY.J(sVar.aov);
+                    if (i.this.anX != null) {
+                        i.this.anX.J(sVar.aou);
                     }
                 } else if (message.obj instanceof k.m) {
                     k.m mVar = (k.m) message.obj;
-                    if (i.this.anY != null) {
-                        i.this.anY.o(mVar.aog);
+                    if (i.this.anX != null) {
+                        i.this.anX.o(mVar.aof);
                     } else if (i.this.py()) {
                         BdLog.d("could not call onRawTextMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.a) {
                     k.a aVar = (k.a) message.obj;
-                    if (i.this.anY != null) {
-                        i.this.anY.b(aVar);
+                    if (i.this.anX != null) {
+                        i.this.anX.b(aVar);
                     } else if (i.this.py()) {
                         BdLog.d("could not call onBinaryMessage() .. handler already NULL");
                     }
                 } else if (message.obj instanceof k.j) {
                     k.C0021k c0021k = new k.C0021k();
-                    c0021k.aog = ((k.j) message.obj).aog;
-                    i.this.anQ.ay(c0021k);
+                    c0021k.aof = ((k.j) message.obj).aof;
+                    i.this.anP.ay(c0021k);
                 } else if (message.obj instanceof k.C0021k) {
                     k.C0021k c0021k2 = (k.C0021k) message.obj;
-                    if (i.this.anY != null) {
-                        i.this.anY.pt();
+                    if (i.this.anX != null) {
+                        i.this.anX.pt();
                     }
                 } else if (message.obj instanceof k.c) {
                     i.this.close(1, null);
                 } else if (message.obj instanceof k.q) {
                     k.q qVar = (k.q) message.obj;
-                    if (qVar.aot) {
-                        if (i.this.anY != null) {
-                            i.this.anY.e(qVar.aou);
-                            i.this.aoa = true;
-                            i.this.aob = false;
-                            if (i.this.anY != null) {
-                                i.this.anY.a(null);
+                    if (qVar.aos) {
+                        if (i.this.anX != null) {
+                            i.this.anX.e(qVar.aot);
+                            i.this.anZ = true;
+                            i.this.aoa = false;
+                            if (i.this.anX != null) {
+                                i.this.anX.a(null);
                                 return;
                             }
                             return;
@@ -248,39 +248,39 @@ public class i implements g {
                         i.this.close(6, "handler already NULL");
                     }
                 } else if (message.obj instanceof k.d) {
-                    SocketException socketException = ((k.d) message.obj).aon;
+                    SocketException socketException = ((k.d) message.obj).aom;
                     i.this.close(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
                 } else if (message.obj instanceof k.l) {
-                    WebSocketException webSocketException = ((k.l) message.obj).aor;
+                    WebSocketException webSocketException = ((k.l) message.obj).aoq;
                     i.this.close(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
                 } else if (message.obj instanceof k.f) {
-                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).aop.toString() + ")");
+                    i.this.close(5, "WebSockets internal error (" + ((k.f) message.obj).aoo.toString() + ")");
                 } else if (message.obj instanceof k.p) {
                     k.p pVar = (k.p) message.obj;
-                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.aoo + ")");
+                    i.this.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.aon + ")");
                 } else if (message.obj instanceof k.e) {
-                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).aoo);
+                    i.this.close(2, "WebSockets connot connect:" + ((k.e) message.obj).aon);
                 } else if (message.obj instanceof k.r) {
-                    if (i.this.anY != null) {
-                        i.this.anY.b(((k.r) message.obj).aos);
+                    if (i.this.anX != null) {
+                        i.this.anX.b(((k.r) message.obj).aor);
                     }
                 } else if (message.obj instanceof k.g) {
-                    i.this.aoe = null;
-                    c cVar = ((k.g) message.obj).aos;
-                    if (i.this.anY != null) {
-                        i.this.anY.c(cVar);
+                    i.this.aod = null;
+                    c cVar = ((k.g) message.obj).aor;
+                    if (i.this.anX != null) {
+                        i.this.anX.c(cVar);
                     }
-                    if (i.this.anY != null) {
-                        i.this.anY.a(cVar);
+                    if (i.this.anX != null) {
+                        i.this.anX.a(cVar);
                     }
                 } else if (message.obj instanceof k.n) {
-                    i.this.aoe = null;
-                    c cVar2 = ((k.n) message.obj).aos;
-                    if (i.this.anY != null) {
-                        i.this.anY.a(2, cVar2);
+                    i.this.aod = null;
+                    c cVar2 = ((k.n) message.obj).aor;
+                    if (i.this.anX != null) {
+                        i.this.anX.a(2, cVar2);
                     }
-                    if (i.this.anY != null) {
-                        i.this.anY.a(cVar2);
+                    if (i.this.anX != null) {
+                        i.this.anX.a(cVar2);
                     }
                 } else {
                     i.this.aw(message.obj);
@@ -295,24 +295,24 @@ public class i implements g {
     protected void pD() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.anQ = new o(handlerThread.getLooper(), this.anO, this.anR, this.anZ);
+        this.anP = new o(handlerThread.getLooper(), this.anN, this.anQ, this.anY);
     }
 
     protected void pE() {
-        this.anP = new m(this.anO, this.anR, this.anZ, "WebSocketReader");
-        this.anP.start();
+        this.anO = new m(this.anN, this.anQ, this.anY, "WebSocketReader");
+        this.anO.start();
     }
 
     public boolean pF() {
-        return this.aoe != null;
+        return this.aod != null;
     }
 
     public boolean isConnecting() {
-        return this.aob;
+        return this.aoa;
     }
 
     public boolean isOpen() {
-        return this.aoa;
+        return this.anZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -321,59 +321,59 @@ public class i implements g {
     }
 
     public void pz() {
-        if (this.anQ != null) {
-            this.anQ.pz();
+        if (this.anP != null) {
+            this.anP.pz();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.anQ != null) {
-            return this.anQ.getUpFlowSize();
+        if (this.anP != null) {
+            return this.anP.getUpFlowSize();
         }
         return 0L;
     }
 
     public void pA() {
-        if (this.anP != null) {
-            this.anP.pA();
+        if (this.anO != null) {
+            this.anO.pA();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.anP != null) {
-            return this.anP.getDownFlowSize();
+        if (this.anO != null) {
+            return this.anO.getDownFlowSize();
         }
         return 0L;
     }
 
     public long pG() {
-        if (this.anR != null) {
-            return this.anR.pr();
+        if (this.anQ != null) {
+            return this.anQ.pr();
         }
         return 0L;
     }
 
     public String pH() {
-        if (this.anR != null) {
-            return this.anR.pq();
+        if (this.anQ != null) {
+            return this.anQ.pq();
         }
         return null;
     }
 
     public long pI() {
-        return this.aod;
+        return this.aoc;
     }
 
     public String pa() {
-        if (this.anR != null) {
-            return this.anR.pa();
+        if (this.anQ != null) {
+            return this.anQ.pa();
         }
         return null;
     }
 
     public String pb() {
-        if (this.anR != null) {
-            return this.anR.pb();
+        if (this.anQ != null) {
+            return this.anQ.pb();
         }
         return null;
     }

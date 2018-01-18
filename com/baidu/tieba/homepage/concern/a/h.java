@@ -15,27 +15,27 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class h extends com.baidu.adp.widget.ListView.a<n, a> {
-    public BdUniqueId bGo;
-    private com.baidu.tieba.homepage.concern.view.c eaI;
-    private v ear;
+    public BdUniqueId bGw;
+    private v ebB;
+    private com.baidu.tieba.homepage.concern.view.c ebS;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ear = new v<n>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
+        this.ebB = new v<n>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, n nVar) {
-                if (view != null && h.this.eaI != null && h.this.eaI.getView() != null && nVar != null && nVar.VW() != null && !StringUtils.isNull(nVar.VW().getTid())) {
+                if (view != null && h.this.ebS != null && h.this.ebS.getView() != null && nVar != null && nVar.VK() != null && !StringUtils.isNull(nVar.VK().getTid())) {
                     ak akVar = new ak("c12352");
-                    if ((h.this.eaI.getHeaderImg() != null && view.getId() == h.this.eaI.getHeaderImg().getId()) || (h.this.eaI.ajb() != null && view.getId() == h.this.eaI.ajb().getId())) {
+                    if ((h.this.ebS.getHeaderImg() != null && view.getId() == h.this.ebS.getHeaderImg().getId()) || (h.this.ebS.ake() != null && view.getId() == h.this.ebS.ake().getId())) {
                         akVar.s("obj_locate", 1);
                     } else {
                         akVar.s("obj_locate", 2);
                     }
                     akVar.s("obj_type", 2);
-                    akVar.ab("tid", nVar.bWT.getTid());
-                    akVar.f(ImageViewerConfig.FORUM_ID, nVar.bWT.getFid());
+                    akVar.ab("tid", nVar.bXa.getTid());
+                    akVar.f(ImageViewerConfig.FORUM_ID, nVar.bXa.getFid());
                     akVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(akVar);
                 }
@@ -47,13 +47,13 @@ public class h extends com.baidu.adp.widget.ListView.a<n, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aM */
+    /* renamed from: aO */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.eaI = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
-        if (this.bGo != null) {
-            this.eaI.j(this.bGo);
+        this.ebS = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
+        if (this.bGw != null) {
+            this.ebS.j(this.bGw);
         }
-        return new a(this.eaI);
+        return new a(this.ebS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,23 +61,23 @@ public class h extends com.baidu.adp.widget.ListView.a<n, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, a aVar) {
-        if (nVar == null || aVar == null || aVar.eaK == null) {
+        if (nVar == null || aVar == null || aVar.ebU == null) {
             return null;
         }
-        nVar.lE(i + 1);
-        s.ajC().a(nVar.kc("c12351"));
-        aVar.eaK.a(nVar);
-        aVar.eaK.b(this.ear);
+        nVar.lH(i + 1);
+        s.akF().a(nVar.kk("c12351"));
+        aVar.ebU.a(nVar);
+        aVar.ebU.b(this.ebB);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends r.a {
-        public com.baidu.tieba.homepage.concern.view.c eaK;
+        public com.baidu.tieba.homepage.concern.view.c ebU;
 
         public a(com.baidu.tieba.homepage.concern.view.c cVar) {
             super(cVar.getView());
-            this.eaK = cVar;
+            this.ebU = cVar;
         }
     }
 }

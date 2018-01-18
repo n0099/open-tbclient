@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a hyG;
-    private b hyH;
-    b.a hyI;
+    private com.baidu.tieba.video.editvideo.data.a hoj;
+    private b hok;
+    b.a hol;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.hyG = aVar;
+        this.hoj = aVar;
     }
 
-    public boolean bHe() {
-        return (this.hyG == null || "normal".equalsIgnoreCase(this.hyG.value)) ? false : true;
+    public boolean bAB() {
+        return (this.hoj == null || "normal".equalsIgnoreCase(this.hoj.value)) ? false : true;
     }
 
-    public void ue(String str) {
-        if ((this.hyH == null || !this.hyH.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bHh = bHh();
+    public void tz(String str) {
+        if ((this.hok == null || !this.hok.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bAE = bAE();
             String str2 = "normal";
-            if (this.hyG != null) {
-                str2 = this.hyG.value;
+            if (this.hoj != null) {
+                str2 = this.hoj.value;
             }
-            this.hyH = new b(this.mContext, str, bHh, str2);
-            if (this.hyI != null) {
-                this.hyH.a(this.hyI);
+            this.hok = new b(this.mContext, str, bAE, str2);
+            if (this.hol != null) {
+                this.hok.a(this.hol);
             }
-            this.hyH.bHi();
+            this.hok.bAF();
         }
     }
 
-    public boolean bHf() {
-        if (this.hyH != null) {
-            return this.hyH.isRunning();
+    public boolean bAC() {
+        if (this.hok != null) {
+            return this.hok.isRunning();
         }
         return false;
     }
 
-    public void bHg() {
-        if (this.hyH != null) {
-            this.hyH.bHj();
+    public void bAD() {
+        if (this.hok != null) {
+            this.hok.bAG();
         }
     }
 
     public void a(b.a aVar) {
-        this.hyI = aVar;
-        if (this.hyH != null) {
-            this.hyH.a(this.hyI);
+        this.hol = aVar;
+        if (this.hok != null) {
+            this.hok.a(this.hol);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> cr(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> cn(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bHh() {
-        return com.baidu.tieba.video.b.hwE + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bAE() {
+        return com.baidu.tieba.video.b.hmh + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

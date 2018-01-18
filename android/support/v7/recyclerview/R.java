@@ -4,17 +4,17 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int layoutManager = 0x7f0101d2;
-        public static final int reverseLayout = 0x7f0101d4;
-        public static final int spanCount = 0x7f0101d3;
-        public static final int stackFromEnd = 0x7f0101d5;
+        public static final int layoutManager = 0x7f0101de;
+        public static final int reverseLayout = 0x7f0101e0;
+        public static final int spanCount = 0x7f0101df;
+        public static final int stackFromEnd = 0x7f0101e1;
     }
 
     /* loaded from: classes.dex */
     public static final class dimen {
-        public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f0803b1;
-        public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f0803b2;
-        public static final int item_touch_helper_swipe_escape_velocity = 0x7f0803b3;
+        public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f0803c4;
+        public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f0803c5;
+        public static final int item_touch_helper_swipe_escape_velocity = 0x7f0803c6;
     }
 
     /* loaded from: classes.dex */

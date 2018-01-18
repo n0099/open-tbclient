@@ -28,7 +28,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
     public static boolean a = false;
-    public static MyReceiver aEU = null;
+    public static MyReceiver aET = null;
     public static String b;
     public static String c;
 
@@ -448,10 +448,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (aEU == null) {
-                    aEU = new MyReceiver().a();
+                if (aET == null) {
+                    aET = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(aEU, intentFilter);
+                context.getApplicationContext().registerReceiver(aET, intentFilter);
                 a = true;
                 return false;
             }

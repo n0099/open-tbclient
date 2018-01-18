@@ -375,22 +375,22 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager aEV;
+        private X509TrustManager aEU;
 
         a(X509TrustManager x509TrustManager) {
-            this.aEV = null;
-            this.aEV = x509TrustManager;
+            this.aEU = null;
+            this.aEU = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.aEV.checkClientTrusted(x509CertificateArr, str);
+            this.aEU.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.aEV.checkServerTrusted(x509CertificateArr, str);
+                this.aEU.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 d.a(e);
                 for (Throwable th = e; th != null; th = th.getCause()) {
@@ -407,7 +407,7 @@ public final class i {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.aEV.getAcceptedIssuers();
+            return this.aEU.getAcceptedIssuers();
         }
     }
 

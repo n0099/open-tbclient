@@ -4,7 +4,7 @@ class a {
     long bitrate;
     String codecPrivateData;
     String fourCC;
-    int hZb;
+    int hWU;
     int height;
     int width;
 }

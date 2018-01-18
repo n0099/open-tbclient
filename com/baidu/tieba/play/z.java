@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class z {
-    private static z gEL = null;
-    private HashMap<String, a> gEM = new HashMap<>();
+    private static z gtS = null;
+    private HashMap<String, a> gtT = new HashMap<>();
 
     private z() {
     }
 
-    public static z bro() {
-        if (gEL == null) {
+    public static z bkH() {
+        if (gtS == null) {
             synchronized (z.class) {
-                if (gEL == null) {
-                    gEL = new z();
+                if (gtS == null) {
+                    gtS = new z();
                 }
             }
         }
-        return gEL;
+        return gtS;
     }
 
-    public void ay(String str, int i) {
-        a aVar = this.gEM.get(str);
+    public void aA(String str, int i) {
+        a aVar = this.gtT.get(str);
         if (aVar == null) {
-            this.gEM.put(str, new a(i, System.currentTimeMillis()));
+            this.gtT.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.gEM.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.gEM.entrySet());
+        if (this.gtT.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.gtT.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.z.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class z {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.gEM.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.gtT.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class z {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gEM.remove(str);
+            this.gtT.remove(str);
         }
     }
 
-    public int rD(String str) {
-        a aVar = this.gEM.get(str);
+    public int qX(String str) {
+        a aVar = this.gtT.get(str);
         if (aVar != null) {
             return aVar.position;
         }

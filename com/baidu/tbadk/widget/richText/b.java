@@ -15,8 +15,8 @@ public class b extends BitmapDrawable {
     private String mKey;
     private Rect lQ = null;
     private Matrix mMatrix = null;
-    private int bIT = 0;
-    private int bIU = 0;
+    private int bJb = 0;
+    private int bJc = 0;
 
     public b(Context context, int i) {
         this.mId = 0;
@@ -45,19 +45,19 @@ public class b extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c Mb = com.baidu.tbadk.imageManager.c.Mb();
-            com.baidu.adp.widget.a.a gx = (Mb == null || this.mKey == null) ? null : Mb.gx(this.mKey);
-            if (gx == null) {
+            com.baidu.tbadk.imageManager.c LP = com.baidu.tbadk.imageManager.c.LP();
+            com.baidu.adp.widget.a.a gy = (LP == null || this.mKey == null) ? null : LP.gy(this.mKey);
+            if (gy == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    gx = new com.baidu.adp.widget.a.a(resBitmap, false, (String) null);
+                    gy = new com.baidu.adp.widget.a.a(resBitmap, false, (String) null);
                 }
-                if (Mb != null && gx != null && this.mKey != null) {
-                    Mb.c(this.mKey, gx);
+                if (LP != null && gy != null && this.mKey != null) {
+                    LP.c(this.mKey, gy);
                 }
-                aVar = gx;
+                aVar = gy;
             } else {
-                aVar = gx;
+                aVar = gy;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
@@ -65,10 +65,10 @@ public class b extends BitmapDrawable {
                 if (width > 0 && height > 0 && this.lQ != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > 0 || width > 0 || this.bIT != 0 || this.bIU != 0) {
+                    if (height > 0 || width > 0 || this.bJb != 0 || this.bJc != 0) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(this.bIT, this.bIU);
+                            this.mMatrix.postTranslate(this.bJb, this.bJc);
                             float f = (this.lQ.right - this.lQ.left) / width;
                             float f2 = (this.lQ.bottom - this.lQ.top) / height;
                             if (f >= f2) {

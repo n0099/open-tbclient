@@ -9,33 +9,33 @@ import com.baidu.adp.lib.util.e;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class FlexibleHorizontalScrollView extends b {
-    private int bFo;
-    private int bFp;
-    private float bFq;
-    private float bFr;
-    private ValueAnimator bFs;
+    private ValueAnimator bFA;
+    private int bFw;
+    private int bFx;
+    private float bFy;
+    private float bFz;
     private float mRatio;
     private int mScreenWidth;
 
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
-        this.bFo = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-        this.bFr = 0.0f;
+        this.bFw = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+        this.bFz = 0.0f;
         init();
     }
 
     public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bFo = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-        this.bFr = 0.0f;
+        this.bFw = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+        this.bFz = 0.0f;
         init();
     }
 
     private void init() {
-        this.bFs = new ValueAnimator();
-        this.bFs.setDuration(200L);
-        this.bFs.setInterpolator(new DecelerateInterpolator());
-        this.bFs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
+        this.bFA = new ValueAnimator();
+        this.bFA.setDuration(200L);
+        this.bFA.setInterpolator(new DecelerateInterpolator());
+        this.bFA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 FlexibleHorizontalScrollView.this.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -43,12 +43,12 @@ public class FlexibleHorizontalScrollView extends b {
         });
         setOverScrollMode(2);
         this.mScreenWidth = e.ao(getContext());
-        this.mRatio = (1.0f * this.bFo) / this.mScreenWidth;
+        this.mRatio = (1.0f * this.bFw) / this.mScreenWidth;
     }
 
     @Override // android.view.View
     protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
-        this.bFp = i5;
+        this.bFx = i5;
         return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
     }
 
@@ -57,56 +57,56 @@ public class FlexibleHorizontalScrollView extends b {
         int i = 0;
         int scrollX = getScrollX();
         float x = getX();
-        if (scrollX > 0 && scrollX < this.bFp && x == 0.0f) {
+        if (scrollX > 0 && scrollX < this.bFx && x == 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
-        int i2 = this.bFo;
+        int i2 = this.bFw;
         switch (action) {
             case 0:
-                if (this.bFs.isRunning()) {
-                    this.bFs.cancel();
+                if (this.bFA.isRunning()) {
+                    this.bFA.cancel();
                 }
-                this.bFq = motionEvent.getRawX();
+                this.bFy = motionEvent.getRawX();
                 break;
             case 1:
             case 3:
                 if (x != 0.0f) {
-                    this.bFr = 0.0f;
-                    this.bFq = 0.0f;
-                    this.bFs.setFloatValues(x, 0.0f);
-                    this.bFs.start();
+                    this.bFz = 0.0f;
+                    this.bFy = 0.0f;
+                    this.bFA.setFloatValues(x, 0.0f);
+                    this.bFA.start();
                     return true;
                 }
                 break;
             case 2:
-                float rawX = motionEvent.getRawX() - this.bFq;
+                float rawX = motionEvent.getRawX() - this.bFy;
                 if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                    this.bFq = motionEvent.getRawX();
+                    this.bFy = motionEvent.getRawX();
                     return true;
                 }
-                if (this.bFr * rawX < 0.0f) {
-                    this.bFr += rawX;
+                if (this.bFz * rawX < 0.0f) {
+                    this.bFz += rawX;
                 } else {
-                    this.bFr += rawX * this.mRatio;
+                    this.bFz += rawX * this.mRatio;
                 }
-                this.bFq = motionEvent.getRawX();
+                this.bFy = motionEvent.getRawX();
                 if (scrollX == 0) {
                     i = 1;
-                } else if (scrollX == this.bFp) {
+                } else if (scrollX == this.bFx) {
                     i = -1;
                 }
                 if (i != 0) {
-                    if (i * this.bFr > i2) {
-                        this.bFr = i * i2;
-                        this.bFq = motionEvent.getRawX();
-                    } else if (i * this.bFr < 0.0f) {
-                        this.bFr = 0.0f;
-                        this.bFq = motionEvent.getRawX();
+                    if (i * this.bFz > i2) {
+                        this.bFz = i * i2;
+                        this.bFy = motionEvent.getRawX();
+                    } else if (i * this.bFz < 0.0f) {
+                        this.bFz = 0.0f;
+                        this.bFy = motionEvent.getRawX();
                         setX(0.0f);
                         return super.onTouchEvent(motionEvent);
                     }
-                    setX(this.bFr);
+                    setX(this.bFz);
                     return true;
                 }
                 break;
@@ -116,8 +116,8 @@ public class FlexibleHorizontalScrollView extends b {
 
     public void setMaxOverScrollDistance(int i) {
         if (i > 0) {
-            this.bFo = i;
-            this.mRatio = (1.0f * this.bFo) / this.mScreenWidth;
+            this.bFw = i;
+            this.mRatio = (1.0f * this.bFw) / this.mScreenWidth;
         }
     }
 }

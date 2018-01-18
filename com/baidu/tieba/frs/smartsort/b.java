@@ -12,86 +12,86 @@ import com.baidu.tieba.frs.i;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class b {
-    private au bZX;
-    private TextView dHi;
-    private final i dKN;
-    private boolean dLO;
-    private int dLP = -1;
-    private int dmX;
+    private au cae;
+    private TextView dLJ;
+    private final i dPp;
+    private boolean dQq;
+    private int dQr = -1;
+    private int dry;
 
     public b(i iVar) {
-        this.dmX = 0;
+        this.dry = 0;
         if (iVar == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dKN = iVar;
+        this.dPp = iVar;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dmX = UtilHelper.getStatusBarHeight();
+            this.dry = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void axB() {
-        if (this.dLO && this.dLP >= 0) {
-            nH(this.dLP);
+    public void ayE() {
+        if (this.dQq && this.dQr >= 0) {
+            nK(this.dQr);
         }
-        this.dLO = false;
+        this.dQq = false;
     }
 
-    public void nG(int i) {
+    public void nJ(int i) {
         if (i >= 0) {
-            ga(true);
-            nI(i);
+            ge(true);
+            nL(i);
             return;
         }
-        ga(false);
-        nI(i);
+        ge(false);
+        nL(i);
     }
 
-    private void nH(int i) {
+    private void nK(int i) {
         FrameLayout frameLayout;
         String string;
-        k asV = this.dKN.asV();
-        if (asV != null && asV.getListView() != null && (frameLayout = (FrameLayout) asV.atN()) != null) {
-            if (this.dHi == null && this.dKN.getPageContext() != null) {
-                this.dHi = new TextView(this.dKN.getPageContext().getPageActivity());
-                this.dHi.setTextSize(0, this.dKN.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.dHi.setGravity(17);
+        k atY = this.dPp.atY();
+        if (atY != null && atY.getListView() != null && (frameLayout = (FrameLayout) atY.auQ()) != null) {
+            if (this.dLJ == null && this.dPp.getPageContext() != null) {
+                this.dLJ = new TextView(this.dPp.getPageContext().getPageActivity());
+                this.dLJ.setTextSize(0, this.dPp.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.dLJ.setGravity(17);
             }
-            if (this.dHi != null) {
+            if (this.dLJ != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_nodata);
                 }
-                this.dHi.setText(string);
+                this.dLJ.setText(string);
             }
-            aj.s(this.dHi, d.C0108d.common_color_10260);
-            aj.r(this.dHi, d.C0108d.cp_cont_g);
+            aj.s(this.dLJ, d.C0107d.common_color_10260);
+            aj.r(this.dLJ, d.C0107d.cp_cont_g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.s(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (asV.atv() != null && asV.atv().getLayoutParams() != null) {
-                layoutParams.topMargin = asV.atv().getLayoutParams().height;
+            if (atY.auy() != null && atY.auy().getLayoutParams() != null) {
+                layoutParams.topMargin = atY.auy().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bZX == null) {
-                this.bZX = new au();
+            if (this.cae == null) {
+                this.cae = new au();
             }
-            this.bZX.a(this.dHi, frameLayout, layoutParams, 2000);
-            this.dLP = -1;
+            this.cae.a(this.dLJ, frameLayout, layoutParams, 2000);
+            this.dQr = -1;
         }
     }
 
-    public void ga(boolean z) {
-        this.dLO = z;
+    public void ge(boolean z) {
+        this.dQq = z;
     }
 
-    public void nI(int i) {
-        this.dLP = i;
+    public void nL(int i) {
+        this.dQr = i;
     }
 
     public void onDestroy() {
-        if (this.bZX != null) {
-            this.bZX.onDestroy();
+        if (this.cae != null) {
+            this.cae.onDestroy();
         }
     }
 }

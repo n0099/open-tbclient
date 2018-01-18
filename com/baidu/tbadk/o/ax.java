@@ -7,7 +7,7 @@ public class ax extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "video_square_middle_page";
+        return "video_middle_page_three";
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -14,18 +14,18 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class x {
-    public int fMd;
+    public int fND;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    private void lP(String str) {
+    private void lX(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> eh = com.baidu.tbadk.core.util.av.eh(str);
         if (eh != null) {
-            this.fMd = 5;
+            this.fND = 5;
             com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
             akVar.ab("obj_locate", eh.get("obj_locate"));
             akVar.s("obj_type", 1);
@@ -68,11 +68,11 @@ public class x {
             if ("mpush".equals(matcher.group(1))) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11895").ab("tid", matcher.group(2)));
             } else {
-                lP(decode);
+                lX(decode);
             }
             return matcher.group(2);
         }
-        lP(decode);
+        lX(decode);
         int indexOf = decode.indexOf("tid=");
         if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
             return null;

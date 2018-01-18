@@ -2,8 +2,8 @@ package com.baidu.tieba.homepage.personalize.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.i;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.ab;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.r;
 import java.util.Collections;
@@ -16,13 +16,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private int eeI = 0;
-    private com.baidu.tieba.homepage.personalize.b.d eeJ = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c eaY = new c();
-    private final int cai = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int efZ = 0;
+    private com.baidu.tieba.homepage.personalize.b.d ega = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c eci = new c();
+    private final int cap = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int aBA() {
-        return this.cai;
+    public int aBF() {
+        return this.cap;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -38,15 +38,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.cai);
+        a(builder, i, this.cap);
         d.e(builder);
         List<r> b = d.b(builder);
-        bS(b);
+        bL(b);
         List<i> m = m(builder.thread_list, b);
-        this.eeJ.bV(m);
+        this.ega.bO(m);
         b.a(builder, m);
-        this.eaY.bLw = m;
-        return this.eaY;
+        this.eci.bLE = m;
+        return this.eci;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,14 +64,14 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.eeI);
+        d.a(z, builder, builder2, i, this.efZ);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
         int i2;
         int i3;
         if (list != null && list2 != null) {
-            int F = v.F(list);
+            int D = v.D(list);
             HashSet hashSet = new HashSet();
             HashSet hashSet2 = new HashSet();
             for (ThreadInfo threadInfo : list) {
@@ -93,11 +93,11 @@ public class a {
                 }
                 i2 = 0;
             } else {
-                int F2 = v.F(list2) - 1;
+                int D2 = v.D(list2) - 1;
                 i2 = 0;
-                while (F2 >= 0) {
-                    this.eeJ.a(z, F2, list, list2);
-                    ThreadInfo threadInfo3 = (ThreadInfo) v.f(list2, F2);
+                while (D2 >= 0) {
+                    this.ega.a(z, D2, list, list2);
+                    ThreadInfo threadInfo3 = (ThreadInfo) v.f(list2, D2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
                             list.add(0, threadInfo3);
@@ -113,17 +113,17 @@ public class a {
                     } else {
                         i3 = i2 + 1;
                     }
-                    F2--;
+                    D2--;
                     i2 = i3;
                 }
             }
-            int F3 = v.F(list);
-            this.eaY.eeL = (F3 - F) - i2;
-            this.eeI = F3 - F;
+            int D3 = v.D(list);
+            this.eci.egc = (D3 - D) - i2;
+            this.efZ = D3 - D;
         }
     }
 
-    private void bS(List<r> list) {
+    private void bL(List<r> list) {
         if (list != null) {
             Collections.sort(list, new Comparator<r>() { // from class: com.baidu.tieba.homepage.personalize.model.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -149,17 +149,17 @@ public class a {
         LinkedList linkedList = new LinkedList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                be beVar = new be();
-                beVar.a(threadInfo);
-                beVar.eY(1);
-                if (!TextUtils.isEmpty(beVar.zT())) {
-                    ac acVar = new ac();
-                    acVar.cJ(beVar.zT());
-                    linkedList.add(acVar);
+                bd bdVar = new bd();
+                bdVar.a(threadInfo);
+                bdVar.eW(1);
+                if (!TextUtils.isEmpty(bdVar.zL())) {
+                    ab abVar = new ab();
+                    abVar.cJ(bdVar.zL());
+                    linkedList.add(abVar);
                 } else {
-                    com.baidu.tieba.card.data.c V = d.V(beVar);
+                    com.baidu.tieba.card.data.c V = d.V(bdVar);
                     if (V != null) {
-                        V.tid = beVar.getTid();
+                        V.tid = bdVar.getTid();
                     }
                     if (V != null && V.isValid()) {
                         linkedList.add(V);
@@ -170,7 +170,7 @@ public class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= v.F(list2)) {
+            if (i2 >= v.D(list2)) {
                 return linkedList;
             }
             r rVar = (r) v.f(list2, i2);
@@ -185,20 +185,20 @@ public class a {
         if (builder != null && builder.thread_list != null) {
             List<ThreadInfo> list = builder.thread_list;
             if (i == 1) {
-                int F = (v.F(list) - i2) + 30;
+                int D = (v.D(list) - i2) + 30;
                 while (true) {
-                    F--;
-                    if (F >= 30) {
-                        if (list.size() > F) {
-                            list.remove(F);
+                    D--;
+                    if (D >= 30) {
+                        if (list.size() > D) {
+                            list.remove(D);
                         }
                     } else {
                         return;
                     }
                 }
             } else {
-                for (int F2 = v.F(list) - 1; F2 >= i2; F2--) {
-                    list.remove(F2);
+                for (int D2 = v.D(list) - 1; D2 >= i2; D2--) {
+                    list.remove(D2);
                 }
             }
         }

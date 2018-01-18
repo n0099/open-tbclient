@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    protected v<T> cNC;
+    protected v<T> cSd;
     public int currentPageType;
     public Context mContext;
     private String mFrom;
+    public int mSkinType;
+    private BdUniqueId mTag;
     public TbPageContext<?> mTbPageContext;
-    public int mSkinType = 3;
-    private BdUniqueId mTag = null;
-    private View mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
+    private View mView;
 
     public abstract void a(T t);
 
@@ -25,8 +25,19 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     public abstract int getLayout();
 
     public a(TbPageContext<?> tbPageContext) {
+        this.mSkinType = 3;
+        this.mTag = null;
         this.mTbPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
+        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
+    }
+
+    public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        this.mSkinType = 3;
+        this.mTag = null;
+        this.mTbPageContext = tbPageContext;
+        this.mContext = tbPageContext.getPageActivity();
+        this.mView = LayoutInflater.from(getContext()).inflate(getLayout(), viewGroup, false);
     }
 
     public BdUniqueId getTag() {
@@ -53,7 +64,7 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mContext;
     }
 
-    public TbPageContext<?> aiX() {
+    public TbPageContext<?> aka() {
         return this.mTbPageContext;
     }
 
@@ -67,10 +78,10 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void b(v<T> vVar) {
-        this.cNC = vVar;
+        this.cSd = vVar;
     }
 
-    public v<T> aiY() {
-        return this.cNC;
+    public v<T> akb() {
+        return this.cSd;
     }
 }

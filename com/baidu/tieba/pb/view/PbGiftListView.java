@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.data.am;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ax;
@@ -19,14 +19,14 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbGiftListView extends FrameLayout {
-    private View dQu;
-    private TbImageView fYc;
-    private TbImageView fYd;
-    private TbImageView fYe;
-    private TbImageView fYf;
-    private TextView fYg;
-    private TextView fYh;
-    private String fYi;
+    private View dVi;
+    private TbImageView fZD;
+    private TbImageView fZE;
+    private TbImageView fZF;
+    private TbImageView fZG;
+    private TextView fZH;
+    private TextView fZI;
+    private String fZJ;
     private Context mContext;
     private long postId;
     private long threadId;
@@ -50,29 +50,29 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.dQu = View.inflate(this.mContext, d.h.pb_gift_list_item, this);
-        this.fYc = (TbImageView) this.dQu.findViewById(d.g.pb_gift_view1);
-        this.fYd = (TbImageView) this.dQu.findViewById(d.g.pb_gift_view2);
-        this.fYe = (TbImageView) this.dQu.findViewById(d.g.pb_gift_view3);
-        this.fYf = (TbImageView) this.dQu.findViewById(d.g.pb_gift_view4);
-        this.fYc.setDefaultBgResource(d.f.transparent_bg);
-        this.fYd.setDefaultBgResource(d.f.transparent_bg);
-        this.fYe.setDefaultBgResource(d.f.transparent_bg);
-        this.fYf.setDefaultBgResource(d.f.transparent_bg);
-        this.fYc.setDefaultResource(d.f.icon_gift_moren);
-        this.fYd.setDefaultResource(d.f.icon_gift_moren);
-        this.fYe.setDefaultResource(d.f.icon_gift_moren);
-        this.fYf.setDefaultResource(d.f.icon_gift_moren);
-        this.fYg = (TextView) this.dQu.findViewById(d.g.pb_gift_number_view);
-        this.fYh = (TextView) this.dQu.findViewById(d.g.pb_gift_send_view);
-        this.fYh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
+        this.dVi = View.inflate(this.mContext, d.h.pb_gift_list_item, this);
+        this.fZD = (TbImageView) this.dVi.findViewById(d.g.pb_gift_view1);
+        this.fZE = (TbImageView) this.dVi.findViewById(d.g.pb_gift_view2);
+        this.fZF = (TbImageView) this.dVi.findViewById(d.g.pb_gift_view3);
+        this.fZG = (TbImageView) this.dVi.findViewById(d.g.pb_gift_view4);
+        this.fZD.setDefaultBgResource(d.f.transparent_bg);
+        this.fZE.setDefaultBgResource(d.f.transparent_bg);
+        this.fZF.setDefaultBgResource(d.f.transparent_bg);
+        this.fZG.setDefaultBgResource(d.f.transparent_bg);
+        this.fZD.setDefaultResource(d.f.icon_gift_moren);
+        this.fZE.setDefaultResource(d.f.icon_gift_moren);
+        this.fZF.setDefaultResource(d.f.icon_gift_moren);
+        this.fZG.setDefaultResource(d.f.icon_gift_moren);
+        this.fZH = (TextView) this.dVi.findViewById(d.g.pb_gift_number_view);
+        this.fZI = (TextView) this.dVi.findViewById(d.g.pb_gift_send_view);
+        this.fZI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.i.ak(PbGiftListView.this.mContext);
                 if (tbPageContext != null) {
                     if (TbadkCoreApplication.isLogin()) {
                         if (!StringUtils.isNull(PbGiftListView.this.toUserName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.fYi, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.fZJ, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
                             return;
                         }
                         return;
@@ -83,76 +83,76 @@ public class PbGiftListView extends FrameLayout {
         });
     }
 
-    public void a(an anVar, String str, String str2, long j, long j2, long j3) {
+    public void a(am amVar, String str, String str2, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
-        this.fYi = str2;
+        this.fZJ = str2;
         this.postId = j3;
         this.threadId = j2;
-        if (anVar == null || anVar.ya() == null || anVar.ya().size() <= 0) {
+        if (amVar == null || amVar.xX() == null || amVar.xX().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (anVar.ya().size() > 4 ? 4 : anVar.ya().size()) {
+        switch (amVar.xX().size() > 4 ? 4 : amVar.xX().size()) {
             case 1:
-                this.fYc.startLoad(anVar.ya().get(0).aLt, 10, false);
-                this.fYc.setVisibility(0);
-                this.fYd.setVisibility(8);
-                this.fYe.setVisibility(8);
-                this.fYf.setVisibility(8);
+                this.fZD.startLoad(amVar.xX().get(0).aLr, 10, false);
+                this.fZD.setVisibility(0);
+                this.fZE.setVisibility(8);
+                this.fZF.setVisibility(8);
+                this.fZG.setVisibility(8);
                 break;
             case 2:
-                this.fYc.startLoad(anVar.ya().get(0).aLt, 10, false);
-                this.fYd.startLoad(anVar.ya().get(1).aLt, 10, false);
-                this.fYc.setVisibility(0);
-                this.fYd.setVisibility(0);
-                this.fYe.setVisibility(8);
-                this.fYf.setVisibility(8);
+                this.fZD.startLoad(amVar.xX().get(0).aLr, 10, false);
+                this.fZE.startLoad(amVar.xX().get(1).aLr, 10, false);
+                this.fZD.setVisibility(0);
+                this.fZE.setVisibility(0);
+                this.fZF.setVisibility(8);
+                this.fZG.setVisibility(8);
                 break;
             case 3:
-                this.fYc.startLoad(anVar.ya().get(0).aLt, 10, false);
-                this.fYd.startLoad(anVar.ya().get(1).aLt, 10, false);
-                this.fYe.startLoad(anVar.ya().get(2).aLt, 10, false);
-                this.fYc.setVisibility(0);
-                this.fYd.setVisibility(0);
-                this.fYe.setVisibility(0);
-                this.fYf.setVisibility(8);
+                this.fZD.startLoad(amVar.xX().get(0).aLr, 10, false);
+                this.fZE.startLoad(amVar.xX().get(1).aLr, 10, false);
+                this.fZF.startLoad(amVar.xX().get(2).aLr, 10, false);
+                this.fZD.setVisibility(0);
+                this.fZE.setVisibility(0);
+                this.fZF.setVisibility(0);
+                this.fZG.setVisibility(8);
                 break;
             case 4:
-                this.fYc.startLoad(anVar.ya().get(0).aLt, 10, false);
-                this.fYd.startLoad(anVar.ya().get(1).aLt, 10, false);
-                this.fYe.startLoad(anVar.ya().get(2).aLt, 10, false);
-                this.fYf.startLoad(anVar.ya().get(3).aLt, 10, false);
-                this.fYc.setVisibility(0);
-                this.fYd.setVisibility(0);
-                this.fYe.setVisibility(0);
-                this.fYf.setVisibility(0);
+                this.fZD.startLoad(amVar.xX().get(0).aLr, 10, false);
+                this.fZE.startLoad(amVar.xX().get(1).aLr, 10, false);
+                this.fZF.startLoad(amVar.xX().get(2).aLr, 10, false);
+                this.fZG.startLoad(amVar.xX().get(3).aLr, 10, false);
+                this.fZD.setVisibility(0);
+                this.fZE.setVisibility(0);
+                this.fZF.setVisibility(0);
+                this.fZG.setVisibility(0);
                 break;
         }
-        if (anVar.xZ() > 0) {
-            this.fYg.setText(String.format(this.mContext.getResources().getString(d.j.gift_counts), Integer.valueOf(anVar.xZ())));
-            this.fYg.setVisibility(0);
+        if (amVar.xW() > 0) {
+            this.fZH.setText(String.format(this.mContext.getResources().getString(d.j.gift_counts), Integer.valueOf(amVar.xW())));
+            this.fZH.setVisibility(0);
         } else {
-            this.fYg.setVisibility(8);
+            this.fZH.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.fYh.setVisibility(8);
+            this.fZI.setVisibility(8);
         } else {
-            this.fYh.setVisibility(0);
+            this.fZI.setVisibility(0);
         }
     }
 
-    public void kZ(boolean z) {
+    public void lb(boolean z) {
         if (z) {
-            this.fYh.setVisibility(0);
+            this.fZI.setVisibility(0);
         } else {
-            this.fYh.setVisibility(8);
+            this.fZI.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        aj.e(this.fYg, d.C0108d.cp_cont_d, 1);
-        aj.e(this.fYh, d.C0108d.cp_link_tip_c, 1);
+        aj.e(this.fZH, d.C0107d.cp_cont_d, 1);
+        aj.e(this.fZI, d.C0107d.cp_link_tip_c, 1);
     }
 
     public long getThreadId() {

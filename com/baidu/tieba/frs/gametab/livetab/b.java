@@ -31,16 +31,16 @@ import com.baidu.tieba.frs.ag;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
-    private FragmentTabHost bUD;
-    private ImageView chc;
-    private a dJr;
+    private FragmentTabHost bUK;
+    private ImageView chj;
+    private a dNT;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private NavigationBar mNavigationBar;
-    private int che = -1;
+    private int chl = -1;
     private final Handler mHandler = new Handler();
-    private CustomMessageListener dGa = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametab.livetab.b.1
+    private CustomMessageListener dKB = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametab.livetab.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,12 +55,12 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
             }
         }
     };
-    private CustomMessageListener dJs = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRA_SWITCH_TO_VIDEO) { // from class: com.baidu.tieba.frs.gametab.livetab.b.2
+    private CustomMessageListener dNU = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRA_SWITCH_TO_VIDEO) { // from class: com.baidu.tieba.frs.gametab.livetab.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.bUD != null && b.this.dJr != null && b.this.dJr.getCount() >= 2) {
-                b.this.bUD.setCurrentTab(1);
+            if (b.this.bUK != null && b.this.dNT != null && b.this.dNT.getCount() >= 2) {
+                b.this.bUK.setCurrentTab(1);
             }
         }
     };
@@ -85,9 +85,9 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         ImageView imageView = (ImageView) addSystemImageButton.findViewById(d.g.widget_navi_back_button);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.s(getPageContext().getPageActivity(), d.e.ds24), 0);
-        this.chc = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.chc.setLayoutParams(layoutParams);
-        this.chc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.livetab.b.4
+        this.chj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.chj.setLayoutParams(layoutParams);
+        this.chj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.livetab.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!StringUtils.isNull(b.this.forumId)) {
@@ -95,18 +95,18 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
                 }
             }
         });
-        XX();
+        XL();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        aj.t(this.mNavigationBar.getBottomLine(), d.C0108d.cp_bg_line_b);
-        this.bUD = new FragmentTabHost(getActivity());
-        this.bUD.setup(getChildFragmentManager());
-        this.bUD.setOnPageChangeListener(this);
-        this.bUD.setTabWidgetViewHeight((int) getResources().getDimension(d.e.ds80));
-        this.bUD.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(d.e.ds12));
-        this.bUD.getFragmentTabWidget().setDviderRectWidth(l.s(getActivity(), d.e.ds64));
-        this.bUD.getFragmentTabWidget().setDviderRectHeight(l.s(getActivity(), d.e.ds4));
-        linearLayout.addView(this.bUD);
+        aj.t(this.mNavigationBar.getBottomLine(), d.C0107d.cp_bg_line_b);
+        this.bUK = new FragmentTabHost(getActivity());
+        this.bUK.setup(getChildFragmentManager());
+        this.bUK.setOnPageChangeListener(this);
+        this.bUK.setTabWidgetViewHeight((int) getResources().getDimension(d.e.ds80));
+        this.bUK.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(d.e.ds12));
+        this.bUK.getFragmentTabWidget().setDviderRectWidth(l.s(getActivity(), d.e.ds64));
+        this.bUK.getFragmentTabWidget().setDviderRectHeight(l.s(getActivity(), d.e.ds4));
+        linearLayout.addView(this.bUK);
         return linearLayout;
     }
 
@@ -119,19 +119,19 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.che < 0) {
-                Vj();
-                this.che = 0;
-                this.bUD.setCurrentTab(0);
+            if (this.chl < 0) {
+                UX();
+                this.chl = 0;
+                this.bUK.setCurrentTab(0);
             }
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("square_jump_tab_name", null);
             if (!TextUtils.isEmpty(string)) {
-                this.bUD.setCurrentTab(lx(string));
+                this.bUK.setCurrentTab(lF(string));
             }
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("square_jump_tab_name", "");
         }
-        if (isAdded() && this.bUD != null && (this.bUD.getCurrentFragment() instanceof BaseFragment)) {
-            ((BaseFragment) this.bUD.getCurrentFragment()).setPrimary(isPrimary());
+        if (isAdded() && this.bUK != null && (this.bUK.getCurrentFragment() instanceof BaseFragment)) {
+            ((BaseFragment) this.bUK.getCurrentFragment()).setPrimary(isPrimary());
         }
         if (!isAdded() || isPrimary()) {
         }
@@ -157,32 +157,32 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.dGa.setSelfListener(true);
-        registerListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, this.dGa, getBaseFragmentActivity().getUniqueId());
-        registerListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, this.dGa, getBaseFragmentActivity().getUniqueId());
-        registerListener(this.dJs);
+        this.dKB.setSelfListener(true);
+        registerListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, this.dKB, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, this.dKB, getBaseFragmentActivity().getUniqueId());
+        registerListener(this.dNU);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bUD != null) {
-            this.bUD.setNeedShowThemeStyle(false);
-            this.bUD.getFragmentTabWidget().setDiverColor(i == 1 ? getResources().getColor(d.C0108d.cp_cont_b_1) : getResources().getColor(d.C0108d.cp_cont_b));
-            this.bUD.onChangeSkinType(i);
-            aj.t(this.bUD.getTabWrapper(), d.C0108d.common_color_10274);
+        if (this.bUK != null) {
+            this.bUK.setNeedShowThemeStyle(false);
+            this.bUK.getFragmentTabWidget().setDiverColor(i == 1 ? getResources().getColor(d.C0107d.cp_cont_b_1) : getResources().getColor(d.C0107d.cp_cont_b));
+            this.bUK.onChangeSkinType(i);
+            aj.t(this.bUK.getTabWrapper(), d.C0107d.common_color_10274);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            aj.t(this.mNavigationBar.getBottomLine(), d.C0108d.cp_bg_line_b);
+            aj.t(this.mNavigationBar.getBottomLine(), d.C0107d.cp_bg_line_b);
         }
-        if (this.chc != null) {
-            aj.a(this.chc, d.f.btn_more_selector_s, d.f.btn_more_selector);
+        if (this.chj != null) {
+            aj.a(this.chj, d.f.btn_more_selector_s, d.f.btn_more_selector);
         }
-        if (this.dJr != null) {
-            int count = this.dJr.getCount();
+        if (this.dNT != null) {
+            int count = this.dNT.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.dJr.getItem(i2);
+                Fragment item = this.dNT.getItem(i2);
                 if (item instanceof BaseFragment) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -194,13 +194,13 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
     public com.baidu.tbadk.pageStayDuration.b getPageStayFilter() {
         return new com.baidu.tbadk.pageStayDuration.b() { // from class: com.baidu.tieba.frs.gametab.livetab.b.5
             @Override // com.baidu.tbadk.pageStayDuration.b
-            public boolean Nq() {
+            public boolean Ne() {
                 return true;
             }
 
             @Override // com.baidu.tbadk.pageStayDuration.b
-            public int Nr() {
-                return e.Nv().Nx();
+            public int Nf() {
+                return e.Nj().Nl();
             }
 
             @Override // com.baidu.tbadk.pageStayDuration.b
@@ -212,10 +212,10 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.bUD == null) {
+        if (this.bUK == null) {
             return null;
         }
-        Fragment currentFragment = this.bUD.getCurrentFragment();
+        Fragment currentFragment = this.bUK.getCurrentFragment();
         if (currentFragment instanceof BaseFragment) {
             ((BaseFragment) currentFragment).getCurrentPageKey();
             return super.getCurrentPageKey();
@@ -223,12 +223,12 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         return null;
     }
 
-    private int lx(String str) {
+    private int lF(String str) {
         return (!"live".equals(str) && "dynamic".equals(str)) ? 1 : 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String kc(int i) {
+    public String jY(int i) {
         switch (i) {
             case 0:
                 return getResources().getString(d.j.frsgame_title);
@@ -239,8 +239,8 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         }
     }
 
-    private void Vj() {
-        this.dJr = new a(getChildFragmentManager());
+    private void UX() {
+        this.dNT = new a(getChildFragmentManager());
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB) { // from class: com.baidu.tieba.frs.gametab.livetab.b.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -248,20 +248,20 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ag)) {
                     ag agVar = (ag) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (agVar.asG() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : agVar.asG()) {
-                            if (bVar.Mz().bvx != null) {
-                                arrayList.add(bVar.Mz().bvx);
+                    if (agVar.atJ() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : agVar.atJ()) {
+                            if (bVar.Mn().bvG != null) {
+                                arrayList.add(bVar.Mn().bvG);
                             }
                         }
                     }
-                    b.this.dJr.ay(arrayList);
-                    int count = b.this.dJr.getCount();
+                    b.this.dNT.aw(arrayList);
+                    int count = b.this.dNT.getCount();
                     for (int i = 0; i < count; i++) {
-                        b.this.a(b.this.dJr.getItem(i), i, b.this.kc(i));
+                        b.this.a(b.this.dNT.getItem(i), i, b.this.jY(i));
                     }
-                    b.this.bUD.BC();
-                    b.this.bUD.fz(0);
+                    b.this.bUK.Bu();
+                    b.this.bUK.fx(0);
                 }
             }
         };
@@ -279,14 +279,14 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         if (fragment != null) {
             FragmentTabHost.c cVar = new FragmentTabHost.c();
             FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-            cVar.aSS = fragment;
+            cVar.aSR = fragment;
             cVar.mType = i;
             fragmentTabIndicator.setText(str);
-            fragmentTabIndicator.bvq = d.C0108d.fragment_tab_host_indicator_text_color;
+            fragmentTabIndicator.bvz = d.C0107d.fragment_tab_host_indicator_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(d.e.fontsize32));
-            fragmentTabIndicator.MA();
-            cVar.aSR = fragmentTabIndicator;
-            this.bUD.a(cVar);
+            fragmentTabIndicator.Mo();
+            cVar.aSQ = fragmentTabIndicator;
+            this.bUK.a(cVar);
         }
     }
 
@@ -296,7 +296,7 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.che = i;
+        this.chl = i;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -309,14 +309,14 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
 
     public void setForumName(String str) {
         this.forumName = str;
-        XX();
+        XL();
     }
 
     public void setForumGameLabel(String str) {
         this.forumGameLabel = str;
     }
 
-    private void XX() {
+    private void XL() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(d.j.forum));
@@ -326,9 +326,9 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         }
     }
 
-    public void XM() {
-        if (this.bUD != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_REFRESH, "LiveTab_" + this.bUD.getCurrentTabIndex()));
+    public void XA() {
+        if (this.bUK != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_REFRESH, "LiveTab_" + this.bUK.getCurrentTabIndex()));
         }
     }
 }

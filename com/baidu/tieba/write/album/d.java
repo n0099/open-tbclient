@@ -17,31 +17,31 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends BaseAdapter {
-    private String dpo;
-    private int dpp;
-    private AlbumActivity hNl;
+    private String dtO;
+    private int dtP;
+    private AlbumActivity hCT;
     private LayoutInflater kh;
     private List<com.baidu.tbadk.album.a> mList;
 
     public d(AlbumActivity albumActivity) {
-        this.hNl = albumActivity;
-        this.kh = LayoutInflater.from(this.hNl.getPageContext().getPageActivity());
-        this.dpp = com.baidu.adp.lib.util.l.ao(this.hNl.getPageContext().getPageActivity()) / 2;
+        this.hCT = albumActivity;
+        this.kh = LayoutInflater.from(this.hCT.getPageContext().getPageActivity());
+        this.dtP = com.baidu.adp.lib.util.l.ao(this.hCT.getPageContext().getPageActivity()) / 2;
     }
 
     public void e(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.dpo = str;
+        this.dtO = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.F(this.mList);
+        return v.D(this.mList);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mB */
+    /* renamed from: mE */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.f(this.mList, i);
     }
@@ -59,11 +59,11 @@ public class d extends BaseAdapter {
         } else {
             view = this.kh.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hNw = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.dps = (TextView) view.findViewById(d.g.item_name);
-            aVar.dpt = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.hNw.setGifIconSupport(false);
-            aVar.hNw.setLongIconSupport(false);
+            aVar.hDe = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.dtS = (TextView) view.findViewById(d.g.item_name);
+            aVar.dtT = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.hDe.setGifIconSupport(false);
+            aVar.hDe.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -72,24 +72,24 @@ public class d extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.dps.setText(com.baidu.adp.lib.util.l.a(aVar.dps.getPaint(), item.getName(), this.dpp) + "(" + item.getCount() + ")");
+                aVar.dtS.setText(com.baidu.adp.lib.util.l.a(aVar.dtS.getPaint(), item.getName(), this.dtP) + "(" + item.getCount() + ")");
             } else {
-                aVar.dps.setText("");
+                aVar.dtS.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dpo)) {
-                aj.c(aVar.dpt, d.f.icon_list_select_ok_n);
-                aVar.dpt.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dtO)) {
+                aj.c(aVar.dtT, d.f.icon_list_select_ok_n);
+                aVar.dtT.setVisibility(0);
             } else {
-                aVar.dpt.setVisibility(8);
+                aVar.dtT.setVisibility(8);
             }
             MediaFileInfo vb = item.vb();
             if (vb instanceof VideoFileInfo) {
-                aVar.hNw.startLoad(((VideoFileInfo) vb).videoPath, 37, false);
+                aVar.hDe.startLoad(((VideoFileInfo) vb).videoPath, 37, false);
             } else if (vb instanceof ImageFileInfo) {
-                aVar.hNw.startLoad(((ImageFileInfo) vb).getFilePath(), 35, false);
+                aVar.hDe.startLoad(((ImageFileInfo) vb).getFilePath(), 35, false);
             }
-            aj.r(aVar.dps, d.C0108d.cp_cont_b);
+            aj.r(aVar.dtS, d.C0107d.cp_cont_b);
             aj.s(view, d.f.addresslist_item_bg);
         }
         return view;
@@ -97,9 +97,9 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     private class a {
-        TextView dps;
-        ImageView dpt;
-        TbImageView hNw;
+        TextView dtS;
+        ImageView dtT;
+        TbImageView hDe;
 
         private a() {
         }

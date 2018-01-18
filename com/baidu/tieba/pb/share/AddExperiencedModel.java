@@ -22,30 +22,30 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        Hk();
+        Hd();
     }
 
-    private void Hk() {
+    private void Hd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
         tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bK(String str, String str2) {
+    public void bJ(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
         sendMessage(httpMessage);
     }
 
-    public static boolean qv(String str) {
+    public static boolean qx(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean qw(String str) {
+    public static boolean qy(String str) {
         String str2;
         boolean z;
-        l<String> M = a.AE().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
+        l<String> M = a.Aw().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
         if (M != null) {
             String str3 = M.get(str);
             String currentDay = UtilHelper.getCurrentDay();

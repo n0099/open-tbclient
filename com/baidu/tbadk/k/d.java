@@ -12,50 +12,50 @@ import com.baidu.tbadk.k.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends k {
-    private static CustomMessageTask bxJ = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
+    private static CustomMessageTask bxS = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<a> customMessage) {
             if (customMessage == null) {
                 return null;
             }
             a data = customMessage.getData();
-            data.bxL = r.Oa().Oc();
-            data.bxM = r.Oa().Oe();
+            data.bxU = r.NO().NQ();
+            data.bxV = r.NO().NS();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
         }
     });
-    private ArrayList<String> bxA;
-    private e bxE;
-    private com.baidu.tbadk.k.a bxF;
-    private int bxG;
-    private ArrayList<String> bxy;
-    private ArrayList<String> bxz;
-    private int bxB = 0;
-    private int bxC = 3;
-    private int bxD = 0;
-    private int bxH = 0;
-    private e.a bxI = new e.a() { // from class: com.baidu.tbadk.k.d.1
+    private ArrayList<String> bxH;
+    private ArrayList<String> bxI;
+    private ArrayList<String> bxJ;
+    private e bxN;
+    private com.baidu.tbadk.k.a bxO;
+    private int bxP;
+    private int bxK = 0;
+    private int bxL = 3;
+    private int bxM = 0;
+    private int bxQ = 0;
+    private e.a bxR = new e.a() { // from class: com.baidu.tbadk.k.d.1
         @Override // com.baidu.tbadk.k.e.a
-        public void in(int i) {
-            d.this.bxE.a((e.a) null);
-            d.this.bxE.stop();
-            d.this.bxG = i;
-            t tVar = (t) r.Oa().is(d.this.mSubType);
+        public void ij(int i) {
+            d.this.bxN.a((e.a) null);
+            d.this.bxN.stop();
+            d.this.bxP = i;
+            t tVar = (t) r.NO().io(d.this.mSubType);
             if (tVar != null) {
                 tVar.h(d.this);
             }
         }
     };
-    private a.InterfaceC0088a bxn = new a.InterfaceC0088a() { // from class: com.baidu.tbadk.k.d.2
-        @Override // com.baidu.tbadk.k.a.InterfaceC0088a
-        public void in(int i) {
-            d.this.bxH++;
-            if (d.this.bxC == d.this.bxH) {
-                d.this.bxF.a((a.InterfaceC0088a) null);
-                d.this.bxF.stop();
-                d.this.NO();
+    private a.InterfaceC0087a bxw = new a.InterfaceC0087a() { // from class: com.baidu.tbadk.k.d.2
+        @Override // com.baidu.tbadk.k.a.InterfaceC0087a
+        public void ij(int i) {
+            d.this.bxQ++;
+            if (d.this.bxL == d.this.bxQ) {
+                d.this.bxO.a((a.InterfaceC0087a) null);
+                d.this.bxO.stop();
+                d.this.NC();
             }
-            d.this.io(i);
+            d.this.ik(i);
         }
     };
     private CustomMessageListener customNormalListener = new CustomMessageListener(CmdConfigCustom.CMD_PERF_SAMPLE) { // from class: com.baidu.tbadk.k.d.4
@@ -64,99 +64,99 @@ public class d extends k {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
-                d.this.bxD++;
-                d.this.gK(aVar.bxL);
-                d.this.ip(aVar.bxM);
-                d.this.NO();
+                d.this.bxM++;
+                d.this.gL(aVar.bxU);
+                d.this.il(aVar.bxV);
+                d.this.NC();
             }
         }
     };
 
     public d() {
-        NI();
+        Nw();
     }
 
     public void onDestroy() {
-        if (this.bxE != null) {
-            this.bxE.a((e.a) null);
+        if (this.bxN != null) {
+            this.bxN.a((e.a) null);
         }
-        if (this.bxF != null) {
-            this.bxF.a((a.InterfaceC0088a) null);
+        if (this.bxO != null) {
+            this.bxO.a((a.InterfaceC0087a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void NH() {
-        if (this.bxB < this.bxC) {
-            this.bxB++;
-            NJ();
-            if (this.bxE == null) {
-                this.bxE = new e();
-                this.bxE.a(this.bxI);
-                this.bxE.start();
+    public void Nv() {
+        if (this.bxK < this.bxL) {
+            this.bxK++;
+            Nx();
+            if (this.bxN == null) {
+                this.bxN = new e();
+                this.bxN.a(this.bxR);
+                this.bxN.start();
             }
-            if (this.bxF == null) {
-                this.bxF = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
-                this.bxF.a(this.bxn);
-                this.bxF.start();
+            if (this.bxO == null) {
+                this.bxO = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
+                this.bxO.a(this.bxw);
+                this.bxO.start();
             }
         }
     }
 
-    private void NI() {
+    private void Nw() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void NJ() {
+    private void Nx() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void io(int i) {
+    public void ik(int i) {
         String valueOf = String.valueOf(i);
-        if (this.bxy == null) {
-            this.bxy = new ArrayList<>();
+        if (this.bxH == null) {
+            this.bxH = new ArrayList<>();
         }
-        this.bxy.add(valueOf);
+        this.bxH.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gK(String str) {
-        if (this.bxz == null) {
-            this.bxz = new ArrayList<>();
+    public void gL(String str) {
+        if (this.bxI == null) {
+            this.bxI = new ArrayList<>();
         }
         if (str != null) {
-            this.bxz.add(str);
+            this.bxI.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ip(int i) {
+    public void il(int i) {
         String valueOf = String.valueOf(i);
-        if (this.bxA == null) {
-            this.bxA = new ArrayList<>();
+        if (this.bxJ == null) {
+            this.bxJ = new ArrayList<>();
         }
-        this.bxA.add(valueOf);
+        this.bxJ.add(valueOf);
     }
 
-    public String NK() {
-        return s(this.bxy);
+    public String Ny() {
+        return s(this.bxH);
     }
 
-    public String NL() {
-        return String.valueOf(this.bxG);
+    public String Nz() {
+        return String.valueOf(this.bxP);
     }
 
-    public String NM() {
-        return s(this.bxz);
+    public String NA() {
+        return s(this.bxI);
     }
 
-    public String NN() {
-        return s(this.bxA);
+    public String NB() {
+        return s(this.bxJ);
     }
 
     private String s(ArrayList<String> arrayList) {
@@ -179,22 +179,22 @@ public class d extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NO() {
+    public void NC() {
         t tVar;
-        if (this.bxD == this.bxC && this.bxC == this.bxH && (tVar = (t) r.Oa().is(this.mSubType)) != null) {
+        if (this.bxM == this.bxL && this.bxL == this.bxQ && (tVar = (t) r.NO().io(this.mSubType)) != null) {
             tVar.g(this);
         }
     }
 
     static {
-        bxJ.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(bxJ);
+        bxS.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(bxS);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String bxL;
-        public int bxM;
+        public String bxU;
+        public int bxV;
 
         public a() {
         }

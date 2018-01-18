@@ -25,13 +25,13 @@ import java.util.zip.ZipFile;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String aRl = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> frq = new HashSet();
-    private static final boolean frr = pr(System.getProperty("java.vm.version"));
+    private static final String aRk = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> fsR = new HashSet();
+    private static final boolean fsS = pu(System.getProperty("java.vm.version"));
 
     public static void bU(Context context) {
         Log.i("MultiDex", "install");
-        if (frr) {
+        if (fsS) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -39,11 +39,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = frq;
-                    synchronized (frq) {
+                    Set<String> set = fsR;
+                    synchronized (fsR) {
                         String str = applicationInfo.sourceDir;
-                        if (!frq.contains(str)) {
-                            frq.add(str);
+                        if (!fsR.contains(str)) {
+                            fsR.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -54,14 +54,14 @@ public final class a {
                                     return;
                                 }
                                 bV(context);
-                                File file = new File(applicationInfo.dataDir, aRl);
+                                File file = new File(applicationInfo.dataDir, aRk);
                                 List<File> a = com.baidu.tieba.k.b.a(context, applicationInfo, file, false);
-                                if (cJ(a)) {
+                                if (cD(a)) {
                                     a(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.k.b.a(context, applicationInfo, file, true);
-                                    if (!cJ(a2)) {
+                                    if (!cD(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     a(classLoader, file, a2);
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean pr(String str) {
+    static boolean pu(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -120,7 +120,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0130a.a(classLoader, list, file);
+                    C0129a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -128,7 +128,7 @@ public final class a {
         }
     }
 
-    private static boolean cJ(List<File> list) {
+    private static boolean cD(List<File> list) {
         for (File file : list) {
             if (!com.baidu.tieba.k.b.G(file)) {
                 return false;
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0130a {
+    public static final class C0129a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.j(classLoader, "pathList").get(classLoader);

@@ -229,7 +229,7 @@ public final class a {
         b aF = b.aF(context);
         Message message = new Message();
         message.what = 8;
-        aF.aFx.aFt.sendMessage(message);
+        aF.aFw.aFs.sendMessage(message);
         com.baidu.sofire.rp.a.b bVar2 = new com.baidu.sofire.rp.a.b();
         bVar2.a = str;
         bVar2.b = str2;
@@ -248,10 +248,10 @@ public final class a {
                     aVar.c.putString("re_con", aVar.a.getString("re_con", "").replace(com.baidu.sofire.rp.a.b.b(bVar), com.baidu.sofire.rp.a.b.b(bVar2)));
                     aVar.c.commit();
                 }
-                com.baidu.sofire.rp.e.a aVar2 = b.aF(context).aFx;
+                com.baidu.sofire.rp.e.a aVar2 = b.aF(context).aFw;
                 Message message2 = new Message();
                 message2.what = 7;
-                aVar2.aFt.sendMessage(message2);
+                aVar2.aFs.sendMessage(message2);
                 return;
             }
             if (!aVar.a.getBoolean("re_net_ins_" + bVar2.e, false)) {
@@ -259,16 +259,16 @@ public final class a {
                 Message message3 = new Message();
                 message3.what = 3;
                 message3.obj = bVar2;
-                aF2.aFx.aFt.sendMessage(message3);
+                aF2.aFw.aFs.sendMessage(message3);
             }
-            com.baidu.sofire.rp.e.a aVar3 = b.aF(context).aFx;
+            com.baidu.sofire.rp.e.a aVar3 = b.aF(context).aFw;
             Message message4 = new Message();
             message4.what = 7;
-            aVar3.aFt.sendMessage(message4);
+            aVar3.aFs.sendMessage(message4);
             b aF3 = b.aF(context);
             Message message5 = new Message();
             message5.what = 2;
-            aF3.aFx.aFt.sendMessage(message5);
+            aF3.aFw.aFs.sendMessage(message5);
         }
     }
 
@@ -301,7 +301,7 @@ public final class a {
             Message message = new Message();
             message.what = 1;
             message.obj = aVar2;
-            aF.aFx.aFt.sendMessage(message);
+            aF.aFw.aFs.sendMessage(message);
         } catch (Exception e) {
             d.a(e);
         }

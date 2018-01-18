@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int aWC;
+    public int aWB;
     public int ajA;
     public String mErrorString;
-    public String aWD = null;
+    public String aWC = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean Cq() {
+    public boolean Ci() {
         return this.ajA == 200;
     }
 
     public boolean isRequestSuccess() {
-        return this.ajA == 200 && this.aWC == 0;
+        return this.ajA == 200 && this.aWB == 0;
     }
 
     public boolean mS() {

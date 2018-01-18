@@ -74,13 +74,13 @@ public abstract class b extends ImageView implements i {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
             this.mArgs.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
-            this.mArgs.apr = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.mArgs.aps = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.mArgs.apq = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.mArgs.apr = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
             this.mArgs.ou = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
-            this.mArgs.apt = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
-            this.mArgs.apu = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.mArgs.apw = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.mArgs.apy = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.mArgs.aps = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
+            this.mArgs.apt = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.mArgs.apv = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.mArgs.apx = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, Integer.MAX_VALUE);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, Integer.MAX_VALUE);
@@ -89,7 +89,7 @@ public abstract class b extends ImageView implements i {
         } else {
             this.mArgs.mRadius = com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f);
             this.mArgs.ou = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
-            this.mArgs.apt = DEFAULT_BORDER_COLOR;
+            this.mArgs.aps = DEFAULT_BORDER_COLOR;
         }
         this.mDrawer = f.qb().dx(this.mDrawerType);
         this.mDrawer.a(this.mArgs);
@@ -148,21 +148,21 @@ public abstract class b extends ImageView implements i {
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.mImage.apo = (BitmapDrawable) getDrawable();
-        this.mImage.apq = getBdImage();
+        this.mImage.apn = (BitmapDrawable) getDrawable();
+        this.mImage.apo = getBdImage();
         if (this.mImage.pZ()) {
-            this.mImage.apq = null;
+            this.mImage.apo = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else if (this.mImage.qa()) {
-            this.mImage.apo = null;
+            this.mImage.apn = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else {
-            this.mImage.apo = null;
-            this.mImage.apq = getDefaultBdImage();
+            this.mImage.apn = null;
+            this.mImage.apo = getDefaultBdImage();
             this.mImage.isDefault = true;
             ImageView.ScaleType scaleType2 = this.mImage.qa() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
@@ -263,8 +263,8 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setIsRound(boolean z) {
-        if (this.mArgs.apr != z) {
-            this.mArgs.apr = z;
+        if (this.mArgs.apq != z) {
+            this.mArgs.apq = z;
             invalidate();
         }
     }
@@ -277,8 +277,8 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.mArgs.aps != z) {
-            this.mArgs.aps = z;
+        if (this.mArgs.apr != z) {
+            this.mArgs.apr = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
@@ -292,30 +292,30 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setBorderColor(int i) {
-        if (this.mArgs.apt != i) {
-            this.mArgs.apt = i;
+        if (this.mArgs.aps != i) {
+            this.mArgs.aps = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.mArgs.apu != z) {
-            this.mArgs.apu = z;
+        if (this.mArgs.apt != z) {
+            this.mArgs.apt = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        if (this.mArgs.apv != z) {
-            this.mArgs.apv = z;
+        if (this.mArgs.apu != z) {
+            this.mArgs.apu = z;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.mArgs.apw != z) {
-            this.mArgs.apw = z;
+        if (this.mArgs.apv != z) {
+            this.mArgs.apv = z;
             invalidate();
         }
     }
@@ -339,7 +339,7 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.mArgs.apx = matrix;
+        this.mArgs.apw = matrix;
         invalidate();
     }
 
@@ -386,8 +386,8 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setForegroundColor(int i) {
-        if (this.mArgs.apy != i) {
-            this.mArgs.apy = i;
+        if (this.mArgs.apx != i) {
+            this.mArgs.apx = i;
             invalidate();
         }
     }

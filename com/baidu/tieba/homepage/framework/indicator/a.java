@@ -23,18 +23,18 @@ import tbclient.Personalized.DataRes;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.core.view.viewpager.a {
     private int currentIndex;
-    private int dxi;
-    private com.baidu.tieba.homepage.concern.b ecc;
-    private com.baidu.tieba.homepage.personalize.b ecd;
-    private BaseFragment ece;
-    private BaseFragment ecf;
-    private aj ecg;
-    private String ech;
-    private String eci;
-    private boolean ecj;
-    private int eck;
-    private s ecl;
-    private b ecm;
+    private int dBJ;
+    private com.baidu.tieba.homepage.concern.b edn;
+    private com.baidu.tieba.homepage.personalize.b edo;
+    private BaseFragment edp;
+    private BaseFragment edq;
+    private aj edr;
+    private String eds;
+    private String edt;
+    private boolean edu;
+    private int edv;
+    private s edw;
+    private b edx;
     private int mChildCount;
     private Context mContext;
 
@@ -42,42 +42,42 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         super(fragmentManager);
         CustomResponsedMessage runTask;
         CustomResponsedMessage runTask2;
-        this.ech = "recommendFrsLastReadTabPositionNamespace";
-        this.eci = "recommendFrsLastReadTabPositionKey";
-        this.ecj = false;
-        this.eck = -1;
+        this.eds = "recommendFrsLastReadTabPositionNamespace";
+        this.edt = "recommendFrsLastReadTabPositionKey";
+        this.edu = false;
+        this.edv = -1;
         this.mChildCount = 0;
         this.currentIndex = -1;
         this.mContext = context;
-        this.ecm = new b();
-        if (this.ecm.oO(0) != -1) {
-            this.ecc = new com.baidu.tieba.homepage.concern.b(context);
-            this.ecc.setCallback(aVar);
+        this.edx = new b();
+        if (this.edx.oH(0) != -1) {
+            this.edn = new com.baidu.tieba.homepage.concern.b(context);
+            this.edn.setCallback(aVar);
         }
-        if (this.ecm.oO(1) != -1) {
-            this.ecd = new com.baidu.tieba.homepage.personalize.b(context);
-            this.ecd.setCallback(bVar);
+        if (this.edx.oH(1) != -1) {
+            this.edo = new com.baidu.tieba.homepage.personalize.b(context);
+            this.edo.setCallback(bVar);
         }
-        if (this.ecm.oO(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, BaseFragment.class)) != null) {
-            this.ece = (BaseFragment) runTask2.getData();
+        if (this.edx.oH(2) != -1 && (runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, BaseFragment.class)) != null) {
+            this.edp = (BaseFragment) runTask2.getData();
         }
-        if (this.ecm.oO(3) != -1 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_ALA_SQUARE_RECOMMEND_FRAGMENT, BaseFragment.class)) != null) {
-            this.ecf = (BaseFragment) runTask.getData();
+        if (this.edx.oH(3) != -1 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_ALA_SQUARE_RECOMMEND_FRAGMENT, BaseFragment.class)) != null) {
+            this.edq = (BaseFragment) runTask.getData();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.a
     public Fragment getItem(int i) {
-        switch (this.ecm.getType(i)) {
+        switch (this.edx.getType(i)) {
             case 0:
-                return this.ecc;
+                return this.edn;
             case 1:
             default:
-                return this.ecd;
+                return this.edo;
             case 2:
-                return this.ece;
+                return this.edp;
             case 3:
-                return this.ecf;
+                return this.edq;
         }
     }
 
@@ -90,12 +90,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return super.getItemPosition(obj);
     }
 
-    public int oH(int i) {
-        return this.ecm.getType(i);
+    public int oA(int i) {
+        return this.edx.getType(i);
     }
 
-    public int oI(int i) {
-        return this.ecm.oO(i);
+    public int oB(int i) {
+        return this.edx.oH(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -106,21 +106,21 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return aAY();
+        return aBa();
     }
 
-    private int aAY() {
+    private int aBa() {
         int i = 0;
-        if (this.ecm.oO(0) != -1 && this.ecc != null) {
+        if (this.edx.oH(0) != -1 && this.edn != null) {
             i = 1;
         }
-        if (this.ecm.oO(1) != -1 && this.ecd != null) {
+        if (this.edx.oH(1) != -1 && this.edo != null) {
             i++;
         }
-        if (this.ecm.oO(2) != -1 && this.ece != null) {
+        if (this.edx.oH(2) != -1 && this.edp != null) {
             i++;
         }
-        if (this.ecm.oO(3) != -1 && this.ecf != null) {
+        if (this.edx.oH(3) != -1 && this.edq != null) {
             return i + 1;
         }
         return i;
@@ -130,74 +130,74 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (obj != null && this.currentIndex != i) {
-            if (this.ecg instanceof BaseFragment) {
-                ((BaseFragment) this.ecg).setPrimary(false);
+            if (this.edr instanceof BaseFragment) {
+                ((BaseFragment) this.edr).setPrimary(false);
             }
             this.currentIndex = i;
-            VoiceManager cq = com.baidu.tieba.tbadkCore.voice.b.cq(this.mContext);
-            if (cq != null) {
-                cq.stopPlay();
+            VoiceManager cm = com.baidu.tieba.tbadkCore.voice.b.cm(this.mContext);
+            if (cm != null) {
+                cm.stopPlay();
             }
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof com.baidu.tieba.homepage.personalize.b) && i == 0) {
-                ((com.baidu.tieba.homepage.personalize.b) obj).XM();
+                ((com.baidu.tieba.homepage.personalize.b) obj).XA();
             }
             if (obj instanceof aj) {
                 ((aj) obj).showFloatingView();
             }
         }
         if (obj instanceof aj) {
-            this.ecg = (aj) obj;
-            this.ecg.setHeaderViewHeight(this.dxi);
-            this.ecg.setRecommendFrsNavigationAnimDispatcher(this.ecl);
+            this.edr = (aj) obj;
+            this.edr.setHeaderViewHeight(this.dBJ);
+            this.edr.setRecommendFrsNavigationAnimDispatcher(this.edw);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return this.ecm.z(this.mContext, i);
+        return this.edx.z(this.mContext, i);
     }
 
     public void setPrimary(boolean z) {
-        if (this.ecg instanceof BaseFragment) {
+        if (this.edr instanceof BaseFragment) {
             if (!z) {
-                int a = v.a(Er(), (BaseFragment) this.ecg);
+                int a = v.a(Ei(), (BaseFragment) this.edr);
                 if (a < 0) {
-                    a = oI(1);
+                    a = oB(1);
                 }
-                oJ(a);
+                oC(a);
                 completePullRefresh();
             }
-            ((BaseFragment) this.ecg).setPrimary(z);
+            ((BaseFragment) this.edr).setPrimary(z);
         }
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
-        this.ecl = sVar;
+        this.edw = sVar;
     }
 
     public void e(View view, int i, int i2, int i3, int i4) {
-        if (this.dxi != i2) {
-            this.dxi = i2;
-            Iterator<Fragment> it = Er().iterator();
+        if (this.dBJ != i2) {
+            this.dBJ = i2;
+            Iterator<Fragment> it = Ei().iterator();
             while (it.hasNext()) {
                 Fragment next = it.next();
                 if (next != null && (next instanceof aj)) {
-                    ((aj) next).setHeaderViewHeight(this.dxi);
+                    ((aj) next).setHeaderViewHeight(this.dBJ);
                 }
             }
         }
     }
 
-    public void oJ(final int i) {
+    public void oC(final int i) {
         com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.a.1
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {
-                l<String> M = com.baidu.tbadk.core.c.a.AE().M(a.this.ech, TbadkCoreApplication.getCurrentAccount());
+                l<String> M = com.baidu.tbadk.core.c.a.Aw().M(a.this.eds, TbadkCoreApplication.getCurrentAccount());
                 if (M != null) {
-                    M.a(a.this.eci, Integer.toString(i), 43200000L);
+                    M.a(a.this.edt, Integer.toString(i), 43200000L);
                     return null;
                 }
                 return null;
@@ -206,99 +206,99 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     public void a(d dVar) {
-        if (!this.ecj) {
-            this.ecj = true;
-            dVar.oF(1);
+        if (!this.edu) {
+            this.edu = true;
+            dVar.oy(1);
         }
     }
 
     private void completePullRefresh() {
-        if (this.ecd != null && this.ecg == this.ecd) {
-            this.ecd.completePullRefresh();
+        if (this.edo != null && this.edr == this.edo) {
+            this.edo.completePullRefresh();
         }
-        if (this.ecc != null && this.ecg == this.ecc) {
-            this.ecc.completePullRefresh();
+        if (this.edn != null && this.edr == this.edn) {
+            this.edn.completePullRefresh();
         }
     }
 
-    public boolean aAZ() {
-        return this.ecc != null;
+    public boolean aBb() {
+        return this.edn != null;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.ecd != null) {
-            this.ecd.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.edo != null) {
+            this.edo.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void l(String str, int i, int i2) {
-        if (i2 == 1 && this.ecd != null && this.ecg == this.ecd) {
-            this.ecd.Y(str, i);
+        if (i2 == 1 && this.edo != null && this.edr == this.edo) {
+            this.edo.aa(str, i);
         }
-        if (i2 == 0 && this.ecc != null) {
-            this.ecc.Y(str, i);
-        }
-    }
-
-    public void aAD() {
-        if (this.ecd != null) {
-            this.ecd.aAD();
+        if (i2 == 0 && this.edn != null) {
+            this.edn.aa(str, i);
         }
     }
 
-    public void aBa() {
-        if (this.ecc != null) {
-            this.ecc.aAD();
+    public void aAF() {
+        if (this.edo != null) {
+            this.edo.aAF();
+        }
+    }
+
+    public void aBc() {
+        if (this.edn != null) {
+            this.edn.aAF();
         }
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
-        if (this.ecd != null) {
-            this.ecd.d(dataRes, z, z2);
+        if (this.edo != null) {
+            this.edo.d(dataRes, z, z2);
         }
     }
 
     public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
-        if (this.ecc != null) {
-            this.ecc.a(dataRes, z);
+        if (this.edn != null) {
+            this.edn.a(dataRes, z);
         }
     }
 
-    public void gC(int i) {
-        if (this.ecg != null) {
-            this.ecg.Ea();
+    public void gz(int i) {
+        if (this.edr != null) {
+            this.edr.DR();
         }
     }
 
-    public void aBb() {
-        if (this.ecg != null) {
-            this.ecg.WI();
+    public void aBd() {
+        if (this.edr != null) {
+            this.edr.Ww();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oK(int i) {
-        Fragment fragment = (Fragment) v.f(Er(), oI(i));
+    public void oD(int i) {
+        Fragment fragment = (Fragment) v.f(Ei(), oB(i));
         if (fragment != null && (fragment instanceof aj)) {
-            ((aj) fragment).WI();
+            ((aj) fragment).Ww();
         }
     }
 
     public aj getCurrentFragment() {
-        return this.ecg;
+        return this.edr;
     }
 
-    public void XM() {
-        switch (oH(this.currentIndex)) {
+    public void XA() {
+        switch (oA(this.currentIndex)) {
             case 0:
-                if (this.ecc != null) {
-                    this.ecc.XM();
+                if (this.edn != null) {
+                    this.edn.XA();
                     return;
                 }
                 return;
             case 1:
-                if (this.ecd != null) {
-                    this.ecd.XM();
+                if (this.edo != null) {
+                    this.edo.XA();
                     return;
                 }
                 return;
@@ -307,32 +307,32 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void oL(int i) {
-        if (i == 1 && this.ecd != null) {
-            this.ecd.aBg();
+    public void oE(int i) {
+        if (i == 1 && this.edo != null) {
+            this.edo.aBi();
         }
     }
 
-    public void oM(int i) {
+    public void oF(int i) {
         if (this.currentIndex == i) {
-            this.eck = -1;
+            this.edv = -1;
         } else {
-            this.eck = i;
+            this.edv = i;
         }
     }
 
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.eck == -1 || (i == this.eck && f == 0.0f)) {
-            Fragment fragment = (Fragment) v.f(Er(), i - 1);
-            Fragment fragment2 = (Fragment) v.f(Er(), i);
-            Fragment fragment3 = (Fragment) v.f(Er(), i + 1);
-            this.eck = -1;
+        if (this.edv == -1 || (i == this.edv && f == 0.0f)) {
+            Fragment fragment = (Fragment) v.f(Ei(), i - 1);
+            Fragment fragment2 = (Fragment) v.f(Ei(), i);
+            Fragment fragment3 = (Fragment) v.f(Ei(), i + 1);
+            this.edv = -1;
             if (f == 0.0f) {
                 if (fragment instanceof aj) {
-                    ((aj) fragment).WK();
+                    ((aj) fragment).Wy();
                 }
                 if (fragment3 instanceof aj) {
-                    ((aj) fragment3).WK();
+                    ((aj) fragment3).Wy();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -342,27 +342,27 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 return;
             }
             if (fragment instanceof aj) {
-                ((aj) fragment).WJ();
+                ((aj) fragment).Wx();
             }
             if (fragment2 instanceof aj) {
-                ((aj) fragment2).WJ();
+                ((aj) fragment2).Wx();
             }
             if (fragment3 instanceof aj) {
-                ((aj) fragment3).WJ();
+                ((aj) fragment3).Wx();
             }
         }
     }
 
     public String getCurrentPageKey() {
-        if (this.ecg instanceof BaseFragment) {
-            return ((BaseFragment) this.ecg).getCurrentPageKey();
+        if (this.edr instanceof BaseFragment) {
+            return ((BaseFragment) this.edr).getCurrentPageKey();
         }
         return null;
     }
 
     public void setVideoThreadId(String str) {
-        if (this.ecf instanceof aj) {
-            ((aj) this.ecf).setVideoThreadId(str);
+        if (this.edq instanceof aj) {
+            ((aj) this.edq).setVideoThreadId(str);
         }
     }
 }

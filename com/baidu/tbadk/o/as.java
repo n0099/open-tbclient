@@ -7,12 +7,12 @@ public class as extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_url_need_cuid";
+        return "android_shouzhu_update";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mq() {
-        return new String[0];
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a

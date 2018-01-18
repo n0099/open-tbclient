@@ -10,22 +10,22 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class d {
-    public static long eeY;
-    private String eeX;
+    public static long egp;
+    private String ego;
 
-    public void bV(List<i> list) {
+    public void bO(List<i> list) {
         com.baidu.tieba.card.data.c cVar;
         int i = 0;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.eeX == null) {
-                this.eeX = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.ego == null) {
+                this.ego = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.eeX)) {
-                String[] split = this.eeX.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.ego)) {
+                String[] split = this.ego.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long c = com.baidu.adp.lib.g.b.c(split[1], 0L);
-                    if (c == 0 || StringUtils.isNull(str) || v.G(list)) {
+                    if (c == 0 || StringUtils.isNull(str) || v.E(list)) {
                         return;
                     }
                     while (true) {
@@ -35,7 +35,7 @@ public class d {
                                 i = i2 + 1;
                             } else {
                                 c cVar2 = new c();
-                                cVar2.eeW = c;
+                                cVar2.egn = c;
                                 if (i2 + 1 < list.size()) {
                                     list.add(i2 + 1, cVar2);
                                     return;
@@ -53,16 +53,16 @@ public class d {
 
     public void a(boolean z, int i, List<ThreadInfo> list, List<ThreadInfo> list2) {
         ThreadInfo threadInfo;
-        if (TbadkCoreApplication.isLogin() && !v.G(list) && i == v.F(list2) - 1 && z && (threadInfo = (ThreadInfo) v.f(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+        if (TbadkCoreApplication.isLogin() && !v.E(list) && i == v.D(list2) - 1 && z && (threadInfo = (ThreadInfo) v.f(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.eeX = null;
-            eeY = threadInfo.tid.longValue();
+            this.ego = null;
+            egp = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<i> list2) {
-        if (j == eeY && !v.G(list) && !v.G(list2)) {
+        if (j == egp && !v.E(list) && !v.E(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -81,7 +81,7 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    eeY = threadInfo.tid.longValue();
+                    egp = threadInfo.tid.longValue();
                     com.baidu.tbadk.util.v.a(new u<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.u
                         public Object doInBackground() {

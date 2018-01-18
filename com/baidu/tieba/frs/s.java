@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class s implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dza = BdUniqueId.gen();
-    private List<MetaData> dyX;
-    private int dyW = 0;
-    private String dyY = "本吧都在关注";
-    private boolean dyZ = false;
+    public static final BdUniqueId dDB = BdUniqueId.gen();
+    private List<MetaData> dDy;
+    private int dDx = 0;
+    private String dDz = "本吧都在关注";
+    private boolean dDA = false;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dza;
+        return dDB;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
-        if (frsPageUserExtend != null && !v.G(frsPageUserExtend.data)) {
+        if (frsPageUserExtend != null && !v.E(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.dyW = frsPageUserExtend.user_extend_storey.intValue();
-            this.dyX = new ArrayList(list.size());
+            this.dDx = frsPageUserExtend.user_extend_storey.intValue();
+            this.dDy = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,34 +33,34 @@ public class s implements com.baidu.adp.widget.ListView.i {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.dyX.add(metaData);
+                        this.dDy.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.dyY = frsPageUserExtend.tips;
+                    this.dDz = frsPageUserExtend.tips;
                     return;
                 }
             }
         }
     }
 
-    public int zZ() {
-        return this.dyW;
+    public int zR() {
+        return this.dDx;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.dyX;
+        return this.dDy;
     }
 
-    public String aud() {
-        return this.dyY;
+    public String avg() {
+        return this.dDz;
     }
 
-    public boolean aue() {
-        return this.dyZ;
+    public boolean avh() {
+        return this.dDA;
     }
 
-    public void fH(boolean z) {
-        this.dyZ = z;
+    public void fL(boolean z) {
+        this.dDA = z;
     }
 }

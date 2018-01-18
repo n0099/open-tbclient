@@ -22,96 +22,96 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private TbRichTextView.h fEA;
-    private com.baidu.tieba.pb.a.c fEB;
-    private final MoreGodReplyModel fEC;
-    private boolean fEs;
-    final PbActivity fEt;
-    private d fEu;
-    private c fEv;
-    private as fEw;
-    private k fEx;
-    private View.OnClickListener fEy;
-    private View.OnClickListener fEz;
+    private boolean fFS;
+    final PbActivity fFT;
+    private d fFU;
+    private c fFV;
+    private as fFW;
+    private k fFX;
+    private View.OnClickListener fFY;
+    private View.OnClickListener fFZ;
+    private TbRichTextView.h fGa;
+    private com.baidu.tieba.pb.a.c fGb;
+    private final MoreGodReplyModel fGc;
     private View.OnLongClickListener onLongClickListener;
-    private BdListView.e cgi = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
+    private BdListView.e cgp = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.godreply.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (!a.this.fEC.DY()) {
-                a.this.fEC.aZJ();
+            if (!a.this.fGc.DP()) {
+                a.this.fGc.aZN();
             }
         }
     };
     private AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.2
-        private int fEG = -1;
+        private int fGg = -1;
 
-        private boolean sJ(int i) {
+        private boolean sC(int i) {
             return i == 2 || i == 1;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (!sJ(this.fEG) && sJ(i) && a.this.fEt != null && a.this.fEt.bad() != null) {
-                a.this.fEt.bad().bdb();
-                a.this.fEt.bad().bdT();
+            if (!sC(this.fGg) && sC(i) && a.this.fFT != null && a.this.fFT.bah() != null) {
+                a.this.fFT.bah().bdf();
+                a.this.fFT.bah().bdX();
             }
-            this.fEG = i;
+            this.fGg = i;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         }
     };
-    private z.a fED = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
+    private z.a fGd = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.3
         @Override // com.baidu.tieba.pb.pb.main.z.a
-        public void i(int i, String str, String str2) {
+        public void h(int i, String str, String str2) {
             if (!StringUtils.isNull(str)) {
-                a.this.fEw.showToast(str);
+                a.this.fFW.showToast(str);
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.z.a
-        public void L(List<PostData> list) {
-            a.this.aZH();
+        public void J(List<PostData> list) {
+            a.this.aZL();
         }
     };
-    private PbActivity.a fEE = new PbActivity.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
+    private PbActivity.a fGe = new PbActivity.a() { // from class: com.baidu.tieba.pb.pb.godreply.a.8
         @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
         public boolean onBackPressed() {
-            a.this.aZE();
+            a.this.aZI();
             return true;
         }
     };
 
     public a(PbActivity pbActivity, as asVar, ViewStub viewStub) {
-        this.fEC = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aZK());
-        this.fEC.a(this.fED);
-        this.fEw = asVar;
-        this.fEt = pbActivity;
-        this.fEu = new d(pbActivity, viewStub);
-        this.fEv = new c(this);
+        this.fGc = new MoreGodReplyModel(pbActivity.getPageContext(), pbActivity.aZO());
+        this.fGc.a(this.fGd);
+        this.fFW = asVar;
+        this.fFT = pbActivity;
+        this.fFU = new d(pbActivity, viewStub);
+        this.fFV = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void j(final Runnable runnable) {
-        this.fEC.cancelLoadData();
-        this.fEt.baQ();
+        this.fGc.cancelLoadData();
+        this.fFT.baU();
         if (!isActive() && runnable != null) {
             runnable.run();
-        } else if (isActive() && !this.fEv.aZM()) {
-            this.fEu.l(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
+        } else if (isActive() && !this.fFV.aZQ()) {
+            this.fFU.l(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fEu.hide();
-                    a.this.fEs = false;
-                    if (a.this.fEt != null) {
-                        if (a.this.fEt.bad() != null) {
-                            a.this.fEt.bad().ky(false);
-                            h bdr = a.this.fEt.bad().bdr();
-                            bdr.a(a.this.fEt.aZK().getPbData(), true);
-                            bdr.notifyDataSetChanged();
+                    a.this.fFU.hide();
+                    a.this.fFS = false;
+                    if (a.this.fFT != null) {
+                        if (a.this.fFT.bah() != null) {
+                            a.this.fFT.bah().kA(false);
+                            h bdv = a.this.fFT.bah().bdv();
+                            bdv.a(a.this.fFT.aZO().getPbData(), true);
+                            bdv.notifyDataSetChanged();
                         }
-                        a.this.fEt.c(a.this.fEE);
+                        a.this.fFT.c(a.this.fGe);
                     }
                     if (runnable != null) {
                         runnable.run();
@@ -121,78 +121,78 @@ public class a {
         }
     }
 
-    void aZE() {
+    void aZI() {
         j(null);
     }
 
     private void ce() {
-        boolean aZO = this.fEu.aZO();
-        this.fEu.show();
-        if (!aZO) {
-            this.fEu.aZP().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
+        boolean aZS = this.fFU.aZS();
+        this.fFU.show();
+        if (!aZS) {
+            this.fFU.aZT().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.aZE();
+                    a.this.aZI();
                 }
             });
-            this.fEu.aZQ().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
+            this.fFU.aZU().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.aZE();
+                    a.this.aZI();
                 }
             });
-            this.fEu.aZS().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
+            this.fFU.aZW().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.godreply.a.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!a.this.fEC.DY()) {
-                        a.this.fEC.aZJ();
+                    if (!a.this.fGc.DP()) {
+                        a.this.fGc.aZN();
                     }
                 }
             });
-            this.fEu.getListView().setOnScrollListener(this.onScrollListener);
+            this.fFU.getListView().setOnScrollListener(this.onScrollListener);
         }
     }
 
-    public void aZF() {
+    public void aZJ() {
         if (!isActive()) {
-            this.fEt.baQ();
-            this.fEs = true;
-            this.fEv.setFullscreen(false);
-            this.fEv.jD(true);
+            this.fFT.baU();
+            this.fFS = true;
+            this.fFV.setFullscreen(false);
+            this.fFV.jG(true);
             ce();
-            aZH();
-            this.fEu.m(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
+            aZL();
+            this.fFU.m(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fEv.jD(false);
+                    a.this.fFV.jG(false);
                 }
             });
-            this.fEt.b(this.fEE);
-            this.fEC.aZJ();
+            this.fFT.b(this.fGe);
+            this.fGc.aZN();
         }
-        this.fEt.bad().bdT();
+        this.fFT.bah().bdX();
     }
 
-    public void aZG() {
+    public void aZK() {
         if (isActive()) {
-            aZH();
+            aZL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZH() {
-        List<i> aZL = this.fEC.aZL();
-        if (aZL != null) {
-            f pbData = this.fEC.aZK().getPbData();
-            this.fEu.show();
-            this.fEu.getListView().setOnSrollToBottomListener(this.cgi);
-            BdTypeListView listView = this.fEu.getListView();
-            this.fEv.DZ();
+    public void aZL() {
+        List<i> aZP = this.fGc.aZP();
+        if (aZP != null) {
+            f pbData = this.fGc.aZO().getPbData();
+            this.fFU.show();
+            this.fFU.getListView().setOnSrollToBottomListener(this.cgp);
+            BdTypeListView listView = this.fFU.getListView();
+            this.fFV.DQ();
             a(listView);
             c(pbData);
-            listView.setData(new ArrayList(aZL));
-            this.fEu.atm().setCenterTextTitle(String.format(this.fEt.getResources().getString(d.j.more_god_reply_count), am.G(pbData.aYM().fCY.size())));
-            this.fEu.jE(this.fEC.ahx());
+            listView.setData(new ArrayList(aZP));
+            this.fFU.aup().setCenterTextTitle(String.format(this.fFT.getResources().getString(d.j.more_god_reply_count), am.H(pbData.aYR().fEy.size())));
+            this.fFU.jH(this.fGc.ahl());
             if (listView.getAdapter() instanceof e) {
                 listView.getAdapter().notifyDataSetChanged();
             }
@@ -200,42 +200,42 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView) {
-        if (this.fEx == null) {
-            this.fEx = new k(this.fEt, PostData.hiG);
-            this.fEx.setDuiEnabled(false);
+        if (this.fFX == null) {
+            this.fFX = new k(this.fFT, PostData.gYg);
+            this.fFX.setDuiEnabled(false);
             ArrayList arrayList = new ArrayList(1);
-            arrayList.add(this.fEx);
+            arrayList.add(this.fFX);
             bdTypeListView.addAdapters(arrayList);
         }
     }
 
     private void c(f fVar) {
-        this.fEx.b(fVar);
-        h bdr = this.fEw.bdr();
-        this.fEx.setFromCDN(bdr.isFromCDN());
-        this.fEx.setHostId(fVar.aYA().yX().getUserId());
-        this.fEx.jA(bdr.bbh());
-        this.fEx.setCommonClickListener(this.fEy);
-        this.fEx.D(this.fEz);
-        this.fEx.setOnImageClickListener(this.fEA);
-        this.fEx.setOnLongClickListener(this.onLongClickListener);
-        this.fEx.setTbGestureDetector(this.fEB);
+        this.fFX.b(fVar);
+        h bdv = this.fFW.bdv();
+        this.fFX.setFromCDN(bdv.isFromCDN());
+        this.fFX.setHostId(fVar.aYG().yS().getUserId());
+        this.fFX.jD(bdv.bbl());
+        this.fFX.l(this.fFY);
+        this.fFX.E(this.fFZ);
+        this.fFX.setOnImageClickListener(this.fGa);
+        this.fFX.setOnLongClickListener(this.onLongClickListener);
+        this.fFX.setTbGestureDetector(this.fGb);
     }
 
     public void onChangeSkinType(int i) {
-        this.fEu.onChangeSkinType(i);
+        this.fFU.onChangeSkinType(i);
     }
 
-    public void setCommonClickListener(View.OnClickListener onClickListener) {
-        this.fEy = onClickListener;
+    public void l(View.OnClickListener onClickListener) {
+        this.fFY = onClickListener;
     }
 
-    public void D(View.OnClickListener onClickListener) {
-        this.fEz = onClickListener;
+    public void E(View.OnClickListener onClickListener) {
+        this.fFZ = onClickListener;
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.fEA = hVar;
+        this.fGa = hVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -243,14 +243,14 @@ public class a {
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.fEB = cVar;
+        this.fGb = cVar;
     }
 
     public boolean isActive() {
-        return this.fEs;
+        return this.fFS;
     }
 
-    public d aZI() {
-        return this.fEu;
+    public d aZM() {
+        return this.fFU;
     }
 }

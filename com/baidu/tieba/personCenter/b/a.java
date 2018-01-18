@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c gfi;
-    private d gfv;
-    private com.baidu.tieba.personCenter.a.a gfw;
-    private com.baidu.tieba.personCenter.a.b gfx;
+    private com.baidu.tieba.personCenter.a.c ggJ;
+    private d ggX;
+    private com.baidu.tieba.personCenter.a.a ggY;
+    private com.baidu.tieba.personCenter.a.b ggZ;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gfv = new d(tbPageContext, f.gga);
-        this.gfw = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gfL);
-        this.gfx = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gfM);
-        this.gfi = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gfZ);
-        this.mAdapters.add(this.gfv);
-        this.mAdapters.add(this.gfw);
-        this.mAdapters.add(this.gfx);
-        this.mAdapters.add(this.gfi);
+        this.ggX = new d(tbPageContext, f.ghC);
+        this.ggY = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.ghn);
+        this.ggZ = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gho);
+        this.ggJ = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.ghB);
+        this.mAdapters.add(this.ggX);
+        this.mAdapters.add(this.ggY);
+        this.mAdapters.add(this.ggZ);
+        this.mAdapters.add(this.ggJ);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void bhu() {
-        this.gfw.bhu();
+    public void bhv() {
+        this.ggY.bhv();
     }
 
-    public void bhv() {
-        this.gfw.destroy();
+    public void bhw() {
+        this.ggY.destroy();
     }
 }

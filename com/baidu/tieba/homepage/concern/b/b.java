@@ -3,37 +3,37 @@ package com.baidu.tieba.homepage.concern.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.i;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.data.b implements i {
-    public static final BdUniqueId eaQ = BdUniqueId.gen();
-    public static final BdUniqueId eaR = BdUniqueId.gen();
-    public be dqg;
-    public c eaS;
-    public int eaT;
+    public static final BdUniqueId eca = BdUniqueId.gen();
+    public static final BdUniqueId ecb = BdUniqueId.gen();
+    public bd duG;
+    public c ecc;
+    public int ecd;
     public boolean isLinkThread = false;
     public MetaData metaData;
 
-    public void aAP() {
+    public void aAR() {
         this.metaData = new MetaData();
-        this.metaData.setPortrait(this.eaS.getPortrait());
-        this.metaData.setName_show(this.eaS.getName());
-        this.metaData.setUserId(this.eaS.getUserId());
-        this.metaData.setIsBigV(this.eaS.isGod());
-        this.metaData.setIsLike(this.eaS.getIsLike());
-        this.metaData.setFansNum(this.eaS.getFansNum());
+        this.metaData.setPortrait(this.ecc.getPortrait());
+        this.metaData.setName_show(this.ecc.getName());
+        this.metaData.setUserId(this.ecc.getUserId());
+        this.metaData.setIsBigV(this.ecc.isGod());
+        this.metaData.setIsLike(this.ecc.getIsLike());
+        this.metaData.setFansNum(this.ecc.getFansNum());
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return this.isLinkThread ? eaR : eaQ;
+        return this.isLinkThread ? ecb : eca;
     }
 
-    public int aAQ() {
-        return this.eaT;
+    public int aAS() {
+        return this.ecd;
     }
 
-    public void oA(int i) {
-        this.eaT = i;
+    public void ot(int i) {
+        this.ecd = i;
     }
 }

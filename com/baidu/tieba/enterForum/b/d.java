@@ -18,13 +18,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends LinearLayout {
-    private LinearLayout chx;
-    private ViewEventCenter dhh;
-    private int dju;
-    private TextView djv;
-    private TextView djw;
-    private ImageView djx;
-    private a djy;
+    private LinearLayout chE;
+    private ViewEventCenter dlJ;
+    private int dnV;
+    private TextView dnW;
+    private TextView dnX;
+    private ImageView dnY;
+    private a dnZ;
 
     public d(Context context) {
         this(context, null);
@@ -35,43 +35,43 @@ public class d extends LinearLayout {
         init();
     }
 
-    public void apj() {
-        if (this.djy == null) {
-            apk();
+    public void aqm() {
+        if (this.dnZ == null) {
+            aqn();
         }
-        if (this.djy.getParent() == null) {
-            addView(this.djy);
+        if (this.dnZ.getParent() == null) {
+            addView(this.dnZ);
         }
     }
 
-    private void apk() {
-        this.djy = new a(getContext());
-        this.djy.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.djy.setNumColumns(2);
-        this.djy.setPadding(this.dju, 0, this.dju, 0);
-        this.djy.setSelector(new ColorDrawable(0));
-        this.djy.setCacheColorHint(0);
-        this.djy.setFadingEdgeLength(0);
-        this.djy.setFocusable(false);
-        this.djy.setFocusableInTouchMode(false);
-        this.djy.setVerticalScrollBarEnabled(false);
+    private void aqn() {
+        this.dnZ = new a(getContext());
+        this.dnZ.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        this.dnZ.setNumColumns(2);
+        this.dnZ.setPadding(this.dnV, 0, this.dnV, 0);
+        this.dnZ.setSelector(new ColorDrawable(0));
+        this.dnZ.setCacheColorHint(0);
+        this.dnZ.setFadingEdgeLength(0);
+        this.dnZ.setFocusable(false);
+        this.dnZ.setFocusableInTouchMode(false);
+        this.dnZ.setVerticalScrollBarEnabled(false);
     }
 
     public void setSelectionFromTop(int i, int i2) {
-        if (this.djy != null) {
-            this.djy.setSelection(i);
-            this.djy.setPadding(this.dju, 0, this.dju, 0);
+        if (this.dnZ != null) {
+            this.dnZ.setSelection(i);
+            this.dnZ.setPadding(this.dnV, 0, this.dnV, 0);
         }
     }
 
     public void setGridAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.djy != null && this.djy.getAdapter() != baseAdapter) {
-            this.djy.setAdapter((ListAdapter) baseAdapter);
+        if (this.dnZ != null && this.dnZ.getAdapter() != baseAdapter) {
+            this.dnZ.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.dhh = viewEventCenter;
+        this.dlJ = viewEventCenter;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -81,29 +81,29 @@ public class d extends LinearLayout {
     }
 
     private void init() {
-        this.dju = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds44);
+        this.dnV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds44);
         LayoutInflater.from(getContext()).inflate(d.h.enter_forum_edit_view, this);
         setOrientation(1);
-        this.chx = (LinearLayout) findViewById(d.g.search_container);
-        this.chx.setVisibility(0);
-        this.djv = (TextView) findViewById(d.g.view_edit_forum_ok);
-        this.djv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.d.1
+        this.chE = (LinearLayout) findViewById(d.g.search_container);
+        this.chE.setVisibility(0);
+        this.dnW = (TextView) findViewById(d.g.view_edit_forum_ok);
+        this.dnW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.dhh != null) {
-                    d.this.dhh.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(3, null, null, null));
+                if (d.this.dlJ != null) {
+                    d.this.dlJ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(3, null, null, null));
                 }
             }
         });
-        this.djw = (TextView) findViewById(d.g.search_text);
-        this.djx = (ImageView) findViewById(d.g.search_icon);
+        this.dnX = (TextView) findViewById(d.g.search_text);
+        this.dnY = (ImageView) findViewById(d.g.search_icon);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.n.a.a(tbPageContext, this);
-        setBackgroundColor(aj.getColor(d.C0108d.cp_bg_line_d));
-        aj.c(this.djx, d.f.icon_input_seach);
-        aj.r(this.djw, d.C0108d.enter_forum_search_text_color);
-        aj.s(this.chx, d.f.enter_forum_search_frame);
+        setBackgroundColor(aj.getColor(d.C0107d.cp_bg_line_d));
+        aj.c(this.dnY, d.f.icon_input_seach);
+        aj.r(this.dnX, d.C0107d.enter_forum_search_text_color);
+        aj.s(this.chE, d.f.enter_forum_search_frame);
     }
 }

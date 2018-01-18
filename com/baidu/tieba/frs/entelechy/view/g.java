@@ -6,7 +6,7 @@ import android.view.ViewStub;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.widget.vote.VoteView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ax;
@@ -15,7 +15,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes2.dex */
 public class g extends i {
-    private VoteView dEh;
+    private VoteView dII;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -29,34 +29,34 @@ public class g extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.dEh = (VoteView) findViewById;
-            this.dEh.setWidth(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds560));
-            this.dEh.setProgressBarHeight(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds20));
-            this.dEh.setDescTextColorResId(d.C0108d.cp_cont_b);
-            this.dEh.setProgressBarTopMargin(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds8));
-            this.dEh.setDescTopMargin(0);
+            this.dII = (VoteView) findViewById;
+            this.dII.setWidth(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds560));
+            this.dII.setProgressBarHeight(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds20));
+            this.dII.setDescTextColorResId(d.C0107d.cp_cont_b);
+            this.dII.setProgressBarTopMargin(com.baidu.adp.lib.util.l.s(getContext(), d.e.ds8));
+            this.dII.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.dEx.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds38);
+                ((ViewGroup.MarginLayoutParams) this.dIY.getLayoutParams()).topMargin = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void nl(int i) {
-        if (this.dEh != null) {
-            this.dEh.onChangeSkinType(i);
+    protected void no(int i) {
+        if (this.dII != null) {
+            this.dII.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
-    protected void P(be beVar) {
-        if (beVar != null && beVar.yJ() != null) {
-            long longValue = beVar.yJ().total_poll.longValue();
+    protected void P(bd bdVar) {
+        if (bdVar != null && bdVar.yE() != null) {
+            long longValue = bdVar.yE().total_poll.longValue();
             if (longValue < 0) {
                 longValue = 0;
             }
-            List<PollOption> list = beVar.yJ().options;
+            List<PollOption> list = bdVar.yE().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -65,18 +65,18 @@ public class g extends i {
                             break;
                         }
                         ax axVar = new ax();
-                        axVar.fL(true);
+                        axVar.fP(true);
                         axVar.a(linkedList.size() + 1, pollOption, longValue);
                         linkedList.add(axVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.dEh.setBoallotsForListView(linkedList);
-                    this.dEh.onChangeSkinType(getSkinType());
-                    this.dEh.setVisibility(0);
+                    this.dII.setBoallotsForListView(linkedList);
+                    this.dII.onChangeSkinType(getSkinType());
+                    this.dII.setVisibility(0);
                     return;
                 }
-                this.dEh.setVisibility(8);
+                this.dII.setVisibility(8);
             }
         }
     }

@@ -6,34 +6,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private ArrayList<UserData> aMs = new ArrayList<>();
-    private ArrayList<UserData> aMt = new ArrayList<>();
-    private am aMu = new am();
-    private int aMv = 0;
-    private int aMw = 0;
+    private ArrayList<UserData> aMo = new ArrayList<>();
+    private ArrayList<UserData> aMp = new ArrayList<>();
+    private al aMq = new al();
+    private int aMr = 0;
+    private int aMs = 0;
+    public int aMt;
+    public boolean hasMore;
+    public int pageNum;
 
-    public void a(am amVar) {
-        this.aMu = amVar;
+    public ArrayList<UserData> xZ() {
+        return this.aMo;
     }
 
-    public am yb() {
-        return this.aMu;
-    }
-
-    public ArrayList<UserData> yc() {
-        return this.aMs;
-    }
-
-    public ArrayList<UserData> yd() {
-        return this.aMt;
-    }
-
-    public int ye() {
-        return this.aMv;
-    }
-
-    public int yf() {
-        return this.aMw;
+    public ArrayList<UserData> ya() {
+        return this.aMp;
     }
 
     public void parserJson(String str) {
@@ -47,27 +34,55 @@ public class aq {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        userData.mAttentionType = 2;
-                        this.aMs.add(userData);
+                if (jSONObject.optJSONObject("page") != null) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            UserData userData = new UserData();
+                            userData.parserJson(optJSONArray.getJSONObject(i));
+                            this.aMo.add(userData);
+                        }
+                    }
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            UserData userData2 = new UserData();
+                            userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                            userData2.mAttentionType = 1;
+                            this.aMp.add(userData2);
+                        }
+                    }
+                    this.aMq.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.aMq != null) {
+                        this.pageNum = this.aMq.xS();
+                        this.aMt = this.aMq.xQ();
+                        this.hasMore = this.aMq.xU() == 1;
+                    }
+                    this.aMr = jSONObject.optInt("tafriendnum", 0);
+                    this.aMs = jSONObject.optInt("commonfriendnum", 0);
+                    return;
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        UserData userData3 = new UserData();
+                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.aMo.add(userData3);
                     }
                 }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        userData2.mAttentionType = 1;
-                        this.aMt.add(userData2);
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        UserData userData4 = new UserData();
+                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
+                        userData4.mAttentionType = 1;
+                        userData4.setHave_attention(1);
+                        this.aMp.add(userData4);
                     }
                 }
-                this.aMu.parserJson(jSONObject.optJSONObject("page"));
-                this.aMv = jSONObject.optInt("tafriendnum", 0);
-                this.aMw = jSONObject.optInt("commonfriendnum", 0);
+                this.pageNum = jSONObject.optInt("pn");
+                this.aMt = jSONObject.optInt("total_follow_num", 0);
+                this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

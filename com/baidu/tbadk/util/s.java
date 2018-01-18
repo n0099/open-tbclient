@@ -3,20 +3,20 @@ package com.baidu.tbadk.util;
 import android.view.View;
 /* loaded from: classes.dex */
 public class s {
-    private r bBb;
-    private View.OnTouchListener bBc;
+    private r bBk;
+    private View.OnTouchListener bBl;
 
-    public r OQ() {
-        return this.bBb;
+    public r OE() {
+        return this.bBk;
     }
 
-    public View.OnTouchListener OR() {
-        return this.bBc;
+    public View.OnTouchListener OF() {
+        return this.bBl;
     }
 
     public void onDestroy() {
-        if (this.bBb != null) {
-            this.bBb.OP();
+        if (this.bBk != null) {
+            this.bBk.OD();
         }
     }
 }

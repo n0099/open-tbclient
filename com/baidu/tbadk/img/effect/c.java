@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c buT = new c();
-    private final HashMap<String, Class<? extends b>> buU = new HashMap<>();
+    private static c bvc = new c();
+    private final HashMap<String, Class<? extends b>> bvd = new HashMap<>();
 
-    public static c Mm() {
-        return buT;
+    public static c Ma() {
+        return bvc;
     }
 
     private c() {
@@ -25,7 +25,7 @@ public class c {
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap b;
         int i;
-        if (bitmap != null && !v.G(list)) {
+        if (bitmap != null && !v.E(list)) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 b a = a(list.get(i2));
@@ -76,14 +76,14 @@ public class c {
         Bitmap bitmap;
         int i;
         int i2 = 0;
-        if (v.G(list)) {
+        if (v.E(list)) {
             return null;
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.gD(imageFileInfo.getFilePath());
+                return a.gE(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,32 +103,32 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap gD = dVar != null ? dVar.gD(str) : null;
+        Bitmap gE = dVar != null ? dVar.gE(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = gD;
+                bitmap = gE;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    gD = bitmap;
+                    gE = bitmap;
                 } else if (bitmap == null) {
-                    gD = a2.gD(str);
+                    gE = a2.gE(str);
                 } else {
-                    gD = a2.b(bitmap, true);
+                    gE = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = gD;
+            bitmap = gE;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
         b k;
-        Class<? extends b> cls = this.buU.get(imageOperation.actionName);
+        Class<? extends b> cls = this.bvd.get(imageOperation.actionName);
         if (cls != null && (k = k(cls)) != null) {
             k.setParams(imageOperation.actionParam);
             return k;
@@ -139,7 +139,7 @@ public class c {
     private void j(Class<? extends b> cls) {
         b k = k(cls);
         if (k != null) {
-            this.buU.put(k.getActionName(), cls);
+            this.bvd.put(k.getActionName(), cls);
         }
     }
 

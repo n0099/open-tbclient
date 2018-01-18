@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DragLayer extends FrameLayout {
-    private c hkI;
-    private b hkm;
+    private b gZN;
+    private c haj;
 
     public DragLayer(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.hkm.onInterceptTouchEvent(motionEvent);
+        return this.gZN.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.hkm.onTouchEvent(motionEvent);
+        return this.gZN.onTouchEvent(motionEvent);
     }
 
     public b getDragController() {
-        return this.hkm;
+        return this.gZN;
     }
 
     public void setDragController(b bVar) {
-        this.hkm = bVar;
+        this.gZN = bVar;
     }
 
     public void setDragObject(c cVar) {
-        this.hkI = cVar;
+        this.haj = cVar;
         invalidate();
     }
 
     public c getDragObject() {
-        return this.hkI;
+        return this.haj;
     }
 
-    public void bCN() {
-        if (this.hkI != null) {
-            if (this.hkI.bCi != null) {
-                this.hkI.bCi.recycle();
-                this.hkI.bCi = null;
+    public void bwj() {
+        if (this.haj != null) {
+            if (this.haj.bCr != null) {
+                this.haj.bCr.recycle();
+                this.haj.bCr = null;
             }
-            this.hkI = null;
+            this.haj = null;
         }
     }
 
@@ -73,14 +73,14 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.hkI != null && this.hkm.hkd) {
-            this.hkI.draw(canvas);
+        if (this.haj != null && this.gZN.gZD) {
+            this.haj.draw(canvas);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bCN();
+        bwj();
     }
 }

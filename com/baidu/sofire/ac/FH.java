@@ -155,13 +155,13 @@ public class FH {
                             if (callback != null) {
                                 callback.onBegin(new Object[0]);
                             }
-                            if (c.this.aFa.dX(i)) {
+                            if (c.this.aEZ.dX(i)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                while (c.this.aFa.dX(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                                while (c.this.aEZ.dX(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
                                     SystemClock.sleep(300L);
                                 }
                             }
-                            if (!c.this.aFa.dX(i)) {
+                            if (!c.this.aEZ.dX(i)) {
                                 if (!c.this.d) {
                                     c.a(3);
                                     c.this.a((Callback) null);
@@ -169,7 +169,7 @@ public class FH {
                                 e aC = e.aC(c.this.a.getApplicationContext());
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 while (System.currentTimeMillis() - currentTimeMillis2 <= 120000) {
-                                    apkInfo2 = c.this.aFa.dW(i);
+                                    apkInfo2 = c.this.aEZ.dW(i);
                                     if (apkInfo2 != null) {
                                         if (aC.cf(apkInfo2.packageName) == null) {
                                             if (apkInfo2.initStatus == -1) {
@@ -307,7 +307,7 @@ public class FH {
         ApkInfo dW;
         com.baidu.sofire.core.e uR;
         try {
-            a aVar = a.aEQ;
+            a aVar = a.aEP;
             if (aVar == null || (dW = aVar.dW(i)) == null || dW.initStatus != 1 || (uR = com.baidu.sofire.core.e.uR()) == null) {
                 return false;
             }

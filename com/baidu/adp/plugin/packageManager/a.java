@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a arc;
-    private c ard;
-    private ArrayList<b> are = new ArrayList<>();
-    private C0022a arf;
+    private static a arb;
+    private c arc;
+    private ArrayList<b> ard = new ArrayList<>();
+    private C0022a are;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a qK() {
-        if (arc == null) {
+        if (arb == null) {
             synchronized (a.class) {
-                if (arc == null) {
-                    arc = new a();
+                if (arb == null) {
+                    arb = new a();
                 }
             }
         }
-        return arc;
+        return arb;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.ard = cVar;
+            this.arc = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.are.iterator();
+                    Iterator<b> it2 = this.ard.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.are.add(next);
+                        this.ard.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qL() {
-        if (this.are.size() != 0 && this.arf == null) {
-            this.arf = new C0022a(this.are.get(0));
-            this.arf.execute(new String[0]);
+        if (this.ard.size() != 0 && this.are == null) {
+            this.are = new C0022a(this.ard.get(0));
+            this.are.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0022a extends BdAsyncTask<String, Integer, Boolean> {
-        private b arg;
+        private b arf;
 
         public C0022a(b bVar) {
-            this.arg = bVar;
+            this.arf = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.arg != null) {
-                return Boolean.valueOf(bo(this.arg.apkPath));
+            if (this.arf != null) {
+                return Boolean.valueOf(bo(this.arf.apkPath));
             }
             return false;
         }
@@ -92,22 +92,22 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0022a) bool);
-            a.this.arf = null;
-            if (a.this.are.size() > 0) {
-                Iterator it = a.this.are.iterator();
+            a.this.are = null;
+            if (a.this.ard.size() > 0) {
+                Iterator it = a.this.ard.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.arg, bVar)) {
-                        a.this.are.remove(bVar);
+                    if (a.this.a(this.arf, bVar)) {
+                        a.this.ard.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.ard != null) {
-                a.this.ard.B(this.arg.packageName, this.arg.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.arc != null) {
+                a.this.arc.B(this.arf.packageName, this.arf.apkPath);
             }
             a.this.qL();
         }

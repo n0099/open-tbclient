@@ -6,15 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int buV = 0;
+    private int bve = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static ImageOperation m13if(int i) {
+    public static ImageOperation ib(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -24,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.buV = Integer.parseInt(str);
+            this.bve = Integer.parseInt(str);
         }
     }
 
@@ -33,18 +32,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Mb().ie(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.buV == 0 || this.buV == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.buV);
+        com.baidu.tbadk.imageManager.c.LP().ia(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.bve == 0 || this.bve == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.bve);
         }
-        if (this.buV == 2 || this.buV == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.buV);
+        if (this.bve == 2 || this.bve == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.bve);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gD(String str) throws Exception {
+    public Bitmap gE(String str) throws Exception {
         int max = Math.max(l.ao(TbadkCoreApplication.getInst().getApp()), l.aq(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

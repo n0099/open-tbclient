@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int cTC = d.C0108d.cp_bg_line_c;
-    private static final int cTD = d.C0108d.cp_bg_line_c;
-    private View cTA;
-    private View cTB;
-    private int cTE;
+    private static final int cYe = d.C0107d.cp_bg_line_c;
+    private static final int cYf = d.C0107d.cp_bg_line_c;
+    private View cYc;
+    private View cYd;
+    private int cYg;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -27,35 +27,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.cTE = cTD;
+        this.cYg = cYf;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cTE = cTD;
+        this.cYg = cYf;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cTE = cTD;
+        this.cYg = cYf;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.card_divider_view, (ViewGroup) this, true);
-        this.cTA = findViewById(d.g.card_divider_top_margin);
+        this.cYc = findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(d.g.card_divider_tv);
-        this.cTB = findViewById(d.g.bottom_line);
+        this.cYd = findViewById(d.g.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        aj.t(this, d.C0108d.cp_bg_line_d);
-        aj.t(this.cTA, d.C0108d.cp_bg_line_c);
-        aj.r(this.mTitle, d.C0108d.cp_cont_d);
-        aj.t(this.cTB, this.cTE);
+        aj.t(this, d.C0107d.cp_bg_line_d);
+        aj.t(this.cYc, d.C0107d.cp_bg_line_c);
+        aj.r(this.mTitle, d.C0107d.cp_cont_d);
+        aj.t(this.cYd, this.cYg);
     }
 
     public void setTitleText(String str) {
@@ -66,34 +66,34 @@ public class CardGroupDividerView extends LinearLayout {
         this.mTitle.setTextSize(i, f);
     }
 
-    public void ake() {
-        if (this.cTA.getVisibility() != 8) {
-            this.cTA.setVisibility(8);
+    public void alh() {
+        if (this.cYc.getVisibility() != 8) {
+            this.cYc.setVisibility(8);
         }
     }
 
-    public void akf() {
-        if (this.cTA.getVisibility() != 0) {
-            this.cTA.setVisibility(0);
+    public void ali() {
+        if (this.cYc.getVisibility() != 0) {
+            this.cYc.setVisibility(0);
         }
     }
 
-    public void akg() {
-        ake();
+    public void alj() {
+        alh();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
-        if (this.cTB.getVisibility() != 0) {
-            this.cTB.setVisibility(0);
-            setDividerColor(cTD);
+        if (this.cYd.getVisibility() != 0) {
+            this.cYd.setVisibility(0);
+            setDividerColor(cYf);
         }
     }
 
     public void z(String str, boolean z) {
         if (z) {
-            akf();
+            ali();
         } else {
-            ake();
+            alh();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);
@@ -101,18 +101,18 @@ public class CardGroupDividerView extends LinearLayout {
             this.mTitle.setVisibility(0);
             this.mTitle.setText(str);
         }
-        if (this.cTB.getVisibility() != 0) {
-            this.cTB.setVisibility(0);
-            setDividerColor(cTC);
+        if (this.cYd.getVisibility() != 0) {
+            this.cYd.setVisibility(0);
+            setDividerColor(cYe);
         }
     }
 
     private void setDividerColor(int i) {
-        this.cTE = i;
-        aj.t(this.cTB, this.cTE);
+        this.cYg = i;
+        aj.t(this.cYd, this.cYg);
     }
 
     public View getBotttomLine() {
-        return this.cTB;
+        return this.cYd;
     }
 }

@@ -11,27 +11,27 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter dhh;
-    private View djA;
-    private TextView djB;
-    private ImageView djC;
-    private View djD;
-    private RelativeLayout.LayoutParams djE;
+    private TextView bcz;
+    private ViewEventCenter dlJ;
+    private View dob;
+    private ImageView dod;
+    private View doe;
+    private RelativeLayout.LayoutParams dof;
     private int ds44;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.ds44 = 0;
-        this.djA = view.findViewById(d.g.container_edit_forum);
-        this.dhh = viewEventCenter;
-        this.djB = (TextView) view.findViewById(d.g.forum_name_view);
-        this.djC = (ImageView) view.findViewById(d.g.delete_forum_view);
-        this.djD = view.findViewById(d.g.divider_left_name);
-        this.djC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.e.1
+        this.dob = view.findViewById(d.g.container_edit_forum);
+        this.dlJ = viewEventCenter;
+        this.bcz = (TextView) view.findViewById(d.g.forum_name_view);
+        this.dod = (ImageView) view.findViewById(d.g.delete_forum_view);
+        this.doe = view.findViewById(d.g.divider_left_name);
+        this.dod.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (e.this.dhh != null) {
-                    e.this.dhh.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, e.this.getData(), null, null));
+                if (e.this.dlJ != null) {
+                    e.this.dlJ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, e.this.getData(), null, null));
                 }
             }
         });
@@ -45,26 +45,26 @@ public class e extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
         super.aI(fVar);
         if (fVar != null) {
             if (fVar.getType() == 1) {
-                aj.e(this.djB, d.C0108d.cp_cont_d, 1);
-                this.djB.setText(d.j.default_personalized_name);
-                aj.s(this.djA, d.C0108d.cp_bg_line_d);
-                this.djC.setVisibility(8);
+                aj.e(this.bcz, d.C0107d.cp_cont_d, 1);
+                this.bcz.setText(d.j.default_personalized_name);
+                aj.s(this.dob, d.C0107d.cp_bg_line_d);
+                this.dod.setVisibility(8);
             } else {
-                aj.e(this.djB, d.C0108d.cp_cont_b, 1);
-                this.djB.setText(fVar.getName());
-                this.djC.setVisibility(0);
-                aj.s(this.djA, d.f.forum_item_bg);
+                aj.e(this.bcz, d.C0107d.cp_cont_b, 1);
+                this.bcz.setText(fVar.getName());
+                this.dod.setVisibility(0);
+                aj.s(this.dob, d.f.forum_item_bg);
             }
-            this.djE = (RelativeLayout.LayoutParams) this.djC.getLayoutParams();
+            this.dof = (RelativeLayout.LayoutParams) this.dod.getLayoutParams();
             if (this.position % 2 == 0) {
-                this.djD.setVisibility(8);
-                this.djE.leftMargin = 0;
+                this.doe.setVisibility(8);
+                this.dof.leftMargin = 0;
             } else {
-                this.djD.setVisibility(0);
-                this.djE.leftMargin = this.ds44;
+                this.doe.setVisibility(0);
+                this.dof.leftMargin = this.ds44;
             }
-            if (this.djC.getVisibility() == 0) {
-                this.djC.setLayoutParams(this.djE);
+            if (this.dod.getVisibility() == 0) {
+                this.dod.setLayoutParams(this.dof);
             }
         }
     }
@@ -72,7 +72,7 @@ public class e extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
     @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
-        aj.s(this.djA, d.f.forum_item_bg);
+        aj.s(this.dob, d.f.forum_item_bg);
         return true;
     }
 }

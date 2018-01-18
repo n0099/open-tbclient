@@ -14,50 +14,50 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends d implements CommonTabWidgetView.a {
-    private ArrayList<com.baidu.tbadk.editortools.view.a> aQH;
-    private i axO;
-    private int axP;
-    private int bdE;
-    private int bpJ;
-    private a bsI;
-    private int bsN;
-    private CommonTabContentView bsV;
-    private CommonTabWidgetView bsW;
-    private boolean bsX;
+    private ArrayList<com.baidu.tbadk.editortools.view.a> aQG;
+    private i axN;
+    private int axO;
+    private int bdK;
+    private int bpS;
+    private a bsR;
+    private int bsW;
+    private CommonTabContentView bte;
+    private CommonTabWidgetView btf;
+    private boolean btg;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     /* loaded from: classes.dex */
     public interface a {
-        void LM();
+        void LA();
 
-        void LN();
+        void LB();
 
         void c(com.baidu.tbadk.editortools.view.a aVar);
     }
 
     public b(Context context) {
         super(context);
-        this.aQH = new ArrayList<>();
-        this.bsN = -1;
-        this.bdE = -1;
-        this.axP = 0;
-        this.bpJ = d.C0108d.common_color_10255;
-        this.bsI = new a() { // from class: com.baidu.tbadk.editortools.view.b.1
+        this.aQG = new ArrayList<>();
+        this.bsW = -1;
+        this.bdK = -1;
+        this.axO = 0;
+        this.bpS = d.C0107d.common_color_10255;
+        this.bsR = new a() { // from class: com.baidu.tbadk.editortools.view.b.1
             @Override // com.baidu.tbadk.editortools.view.b.a
             public void c(com.baidu.tbadk.editortools.view.a aVar) {
                 boolean z;
                 b.this.hideProgressBar();
-                b.this.bsW.reset();
-                b.this.bsW.setDatas(b.this.aQH);
-                int size = b.this.aQH.size();
+                b.this.btf.reset();
+                b.this.btf.setDatas(b.this.aQG);
+                int size = b.this.aQG.size();
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b LG = ((com.baidu.tbadk.editortools.view.a) b.this.aQH.get(i)).LG();
-                    if (LG != null) {
+                    a.b Lu = ((com.baidu.tbadk.editortools.view.a) b.this.aQG.get(i)).Lu();
+                    if (Lu != null) {
                         z = true;
-                        b.this.c(LG);
+                        b.this.c(Lu);
                     } else {
                         z = z2;
                     }
@@ -65,60 +65,60 @@ public class b extends d implements CommonTabWidgetView.a {
                     z2 = z;
                 }
                 if (!z2) {
-                    b.this.bsW.setVisibility(8);
+                    b.this.btf.setVisibility(8);
                 }
-                if (b.this.bsN >= 0) {
-                    b.this.setCurrentTab(b.this.bsN);
+                if (b.this.bsW >= 0) {
+                    b.this.setCurrentTab(b.this.bsW);
                 } else {
                     b.this.setCurrentTab(0);
                 }
             }
 
             @Override // com.baidu.tbadk.editortools.view.b.a
-            public void LM() {
+            public void LA() {
                 b.this.showProgressBar();
             }
 
             @Override // com.baidu.tbadk.editortools.view.b.a
-            public void LN() {
+            public void LB() {
                 b.this.hideProgressBar();
             }
         };
-        this.bsX = false;
+        this.btg = false;
         init(context);
     }
 
     public void b(com.baidu.tbadk.editortools.view.a aVar) {
-        aVar.a(this.bsI);
-        aVar.setEditorTools(this.axO);
-        this.aQH.add(aVar);
+        aVar.a(this.bsR);
+        aVar.setEditorTools(this.axN);
+        this.aQG.add(aVar);
     }
 
     private void init(Context context) {
         this.mContext = context;
         removeAllViews();
         LayoutInflater.from(context).inflate(d.h.common_tab_host, (ViewGroup) this, true);
-        this.bsV = (CommonTabContentView) findViewById(d.g.common_tab_content);
-        this.bsW = (CommonTabWidgetView) findViewById(d.g.common_tab_widget);
+        this.bte = (CommonTabContentView) findViewById(d.g.common_tab_content);
+        this.btf = (CommonTabWidgetView) findViewById(d.g.common_tab_widget);
         this.mProgressBar = (ProgressBar) findViewById(d.g.common_progress);
-        this.bsW.setOnTabSelectedListener(this);
-        this.bsW.setEditorTools(this.axO);
+        this.btf.setOnTabSelectedListener(this);
+        this.btf.setEditorTools(this.axN);
         setOrientation(1);
-        this.bdE = TbadkCoreApplication.getInst().getSkinType();
-        setBackgroundColorId(d.C0108d.cp_bg_line_d);
+        this.bdK = TbadkCoreApplication.getInst().getSkinType();
+        setBackgroundColorId(d.C0107d.cp_bg_line_d);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.bdE) {
-            this.bdE = skinType;
-            onChangeSkinType(this.bdE);
+        if (skinType != this.bdK) {
+            this.bdK = skinType;
+            onChangeSkinType(this.bdK);
         }
-        if (i != 8 && i != 4 && !this.bsX) {
-            this.bsX = true;
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQH.iterator();
+        if (i != 8 && i != 4 && !this.btg) {
+            this.btg = true;
+            Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQG.iterator();
             while (it.hasNext()) {
                 it.next().init(this.mContext);
             }
@@ -127,23 +127,23 @@ public class b extends d implements CommonTabWidgetView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a.b bVar) {
-        this.bsW.c(bVar);
+        this.btf.c(bVar);
     }
 
     public void setShowDelete(boolean z) {
-        this.bsW.setShowDelete(z);
+        this.btf.setShowDelete(z);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.aQH.size()) {
-            this.bsV.a(this.aQH.get(i));
-            this.bsW.setCurrentTab(i);
-            this.bsN = i;
+        if (i >= 0 && i < this.aQG.size()) {
+            this.bte.a(this.aQG.get(i));
+            this.btf.setCurrentTab(i);
+            this.bsW = i;
         }
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void hZ(int i) {
+    public void hV(int i) {
         setCurrentTab(i);
     }
 
@@ -159,15 +159,15 @@ public class b extends d implements CommonTabWidgetView.a {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        aj.g(this, this.bpJ, i);
-        this.bsW.onChangeSkinType(i);
-        this.bsV.onChangeSkinType(i);
+        aj.g(this, this.bpS, i);
+        this.btf.onChangeSkinType(i);
+        this.bte.onChangeSkinType(i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQH.iterator();
+        Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQG.iterator();
         while (it.hasNext()) {
             it.next().exit();
         }
@@ -175,33 +175,33 @@ public class b extends d implements CommonTabWidgetView.a {
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.axO = iVar;
-        if (this.aQH != null && this.aQH.size() != 0) {
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQH.iterator();
+        this.axN = iVar;
+        if (this.aQG != null && this.aQG.size() != 0) {
+            Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQG.iterator();
             while (it.hasNext()) {
-                it.next().setEditorTools(this.axO);
+                it.next().setEditorTools(this.axN);
             }
         }
-        if (this.bsW != null) {
-            this.bsW.setEditorTools(this.axO);
+        if (this.btf != null) {
+            this.btf.setEditorTools(this.axN);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.axO != null) {
-            this.axO.b(aVar);
+        if (this.axN != null) {
+            this.axN.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.axP = i;
+        this.axO = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.axP;
+        return this.axO;
     }
 
     public void init() {
@@ -217,7 +217,7 @@ public class b extends d implements CommonTabWidgetView.a {
     }
 
     public void a(com.baidu.tbadk.editortools.a aVar) {
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQH.iterator();
+        Iterator<com.baidu.tbadk.editortools.view.a> it = this.aQG.iterator();
         while (it.hasNext()) {
             it.next().a(aVar);
         }
@@ -225,6 +225,6 @@ public class b extends d implements CommonTabWidgetView.a {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.bpJ = i;
+        this.bpS = i;
     }
 }

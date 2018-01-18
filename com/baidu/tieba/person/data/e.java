@@ -4,22 +4,22 @@ import com.baidu.adp.widget.ListView.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private ArrayList<i> aQH;
-    private boolean geS = true;
+    private ArrayList<i> aQG;
+    private boolean ggt = true;
 
     public void an(ArrayList<i> arrayList) {
-        this.aQH = arrayList;
+        this.aQG = arrayList;
     }
 
-    public boolean bhq() {
-        return this.geS;
+    public boolean bhr() {
+        return this.ggt;
     }
 
-    public void ld(boolean z) {
-        this.geS = z;
+    public void lf(boolean z) {
+        this.ggt = z;
     }
 
-    public ArrayList<i> bhr() {
-        return this.aQH;
+    public ArrayList<i> bhs() {
+        return this.aQG;
     }
 }

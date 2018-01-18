@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private ObjectAnimator fTA;
-    private TranslateAnimation fTz;
+    private TranslateAnimation fUZ;
+    private ObjectAnimator fVa;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void gE(int i) {
+    public void gB(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.fTz == null) {
-                this.fTz = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.fTz.setDuration(300L);
-                this.fTz.setFillAfter(true);
-                this.fTz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.fUZ == null) {
+                this.fUZ = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.fUZ.setDuration(300L);
+                this.fUZ.setFillAfter(true);
+                this.fUZ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.fTz);
+            startAnimation(this.fUZ);
         } else {
-            if (this.fTA == null) {
-                this.fTA = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.fTA.setDuration(200L);
-                this.fTA.setRepeatCount(1);
-                this.fTA.setRepeatMode(2);
+            if (this.fVa == null) {
+                this.fVa = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.fVa.setDuration(200L);
+                this.fVa.setRepeatCount(1);
+                this.fVa.setRepeatMode(2);
             }
-            this.fTA.start();
+            this.fVa.start();
         }
     }
 
@@ -97,6 +97,6 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
     public void onChangeSkinType(int i) {
         aj.s(this, d.f.bg_concern_host_nav);
         setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_nav_follow), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.r(this, d.C0108d.cp_cont_f);
+        aj.r(this, d.C0107d.cp_cont_f);
     }
 }

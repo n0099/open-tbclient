@@ -10,27 +10,27 @@ import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f aDy;
+    final /* synthetic */ f aDx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.aDy = fVar;
+        this.aDx = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.aDy.h = i.c();
-        this.aDy.b();
-        this.aDy.a();
+        this.aDx.h = i.c();
+        this.aDx.b();
+        this.aDx.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.aDy.i;
+        int i = this.aDx.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.aDy.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.aDx.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod(HttpGet.METHOD_NAME);
@@ -75,8 +75,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.aDy.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.aDy.a(true);
+                this.aDx.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.aDx.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -95,7 +95,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.aDy.j = null;
-        this.aDy.a(false);
+        this.aDx.j = null;
+        this.aDx.a(false);
     }
 }

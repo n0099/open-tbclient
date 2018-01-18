@@ -5,20 +5,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class ad extends PostData {
-    public static final BdUniqueId fNb = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ao fNc;
-    public com.baidu.tbadk.core.data.ao fNd;
-    public com.baidu.tbadk.core.data.ao fNe;
+    public static final BdUniqueId fOB = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.an fOC;
+    public com.baidu.tbadk.core.data.an fOD;
+    public com.baidu.tbadk.core.data.an fOE;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return fNb;
+        return fOB;
     }
 
     public boolean hasData() {
-        if (this.fNc == null || StringUtils.isNull(this.fNc.summary)) {
-            if (this.fNd == null || StringUtils.isNull(this.fNd.summary)) {
-                return (this.fNe == null || StringUtils.isNull(this.fNe.summary)) ? false : true;
+        if (this.fOC == null || StringUtils.isNull(this.fOC.summary)) {
+            if (this.fOD == null || StringUtils.isNull(this.fOD.summary)) {
+                return (this.fOE == null || StringUtils.isNull(this.fOE.summary)) ? false : true;
             }
             return true;
         }

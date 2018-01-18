@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a eGO;
-    private b eGP;
+    private a eIo;
+    private b eIp;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.eGO = new a(str, chatMessage);
-        this.eGO.execute(new Object[0]);
+        this.eIo = new a(str, chatMessage);
+        this.eIo.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.eGP = bVar;
+        this.eIp = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String eGQ;
-        private ChatMessage eGR;
-        private com.baidu.tieba.im.sendmessage.b eGS = new com.baidu.tieba.im.sendmessage.b();
+        private String eIq;
+        private ChatMessage eIr;
+        private com.baidu.tieba.im.sendmessage.b eIs = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.eGQ = str;
-            this.eGR = chatMessage;
+            this.eIq = str;
+            this.eIr = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: A */
         public String doInBackground(Object... objArr) {
             try {
-                return this.eGS.nr(this.eGQ);
+                return this.eIs.nu(this.eIq);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.eGP != null) {
-                VoiceSendModel.this.eGP.a(str, this.eGR);
+            if (VoiceSendModel.this.eIp != null) {
+                VoiceSendModel.this.eIp.a(str, this.eIr);
             }
         }
     }

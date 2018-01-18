@@ -11,11 +11,11 @@ public class a {
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    public static boolean P(Context context, String str) {
+    public static boolean O(Context context, String str) {
         return checkSelfPermission(context, str) == 0;
     }
 
-    public static boolean Q(Context context, String str) {
+    public static boolean P(Context context, String str) {
         return checkSelfPermission(context, str) == -1;
     }
 }

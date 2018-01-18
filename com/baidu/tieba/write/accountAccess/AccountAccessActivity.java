@@ -8,40 +8,40 @@ import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes2.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel brB;
-    private b hMQ;
-    private a hMR;
-    private AccessState hMS;
+    private NewWriteModel brK;
+    private b hCx;
+    private a hCy;
+    private AccessState hCz;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hMQ = new b(this);
+        this.hCx = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.hMS = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.hCz = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.hMS == null) {
+            if (this.mWriteData == null || this.hCz == null) {
                 finish();
                 return;
             }
-            this.brB = new NewWriteModel(this);
-            this.brB.setWriteData(this.mWriteData);
+            this.brK = new NewWriteModel(this);
+            this.brK.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.brB.nC(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.brK.mE(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.hMR = new a(this.hMQ, this.brB);
-            this.hMQ.c(this.hMR);
-            this.hMR.start(bLx());
+            this.hCy = new a(this.hCx, this.brK);
+            this.hCx.c(this.hCy);
+            this.hCy.start(bEX());
         }
     }
 
@@ -59,20 +59,20 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
-            bl blVar = new bl();
-            blVar.aPs = this.mWriteData;
-            blVar.aPv = this.hMR.bLA();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, blVar));
+            bk bkVar = new bk();
+            bkVar.aPr = this.mWriteData;
+            bkVar.aPu = this.hCy.bFa();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, bkVar));
         }
         super.onDestroy();
-        this.hMQ.onDestory();
+        this.hCx.onDestory();
     }
 
-    public String bLx() {
-        if (this.hMS == null || this.hMS.getUserInfo() == null) {
+    public String bEX() {
+        if (this.hCz == null || this.hCz.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hMS.getToken(), this.hMS.getType(), this.hMS.getUserInfo().strMobile, this.hMS.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.hCz.getToken(), this.hCz.getType(), this.hCz.getUserInfo().strMobile, this.hCz.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

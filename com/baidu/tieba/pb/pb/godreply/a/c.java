@@ -5,16 +5,16 @@ import android.content.SharedPreferences;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class c {
-    private static AtomicBoolean fFl;
+    private static AtomicBoolean fGL;
 
     public static boolean ca(Context context) {
         if (context == null) {
             return false;
         }
-        if (fFl == null) {
-            fFl = new AtomicBoolean(context.getSharedPreferences("god_reply_user_tips", 0).getBoolean("has_click_leaderboard", false));
+        if (fGL == null) {
+            fGL = new AtomicBoolean(context.getSharedPreferences("god_reply_user_tips", 0).getBoolean("has_click_leaderboard", false));
         }
-        return fFl.get();
+        return fGL.get();
     }
 
     public static void u(Context context, boolean z) {
@@ -27,9 +27,9 @@ public class c {
                 edit.commit();
             }
         }
-        if (fFl == null) {
-            fFl = new AtomicBoolean();
+        if (fGL == null) {
+            fGL = new AtomicBoolean();
         }
-        fFl.set(z);
+        fGL.set(z);
     }
 }

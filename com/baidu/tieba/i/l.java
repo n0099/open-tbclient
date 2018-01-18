@@ -9,12 +9,12 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.i.k
-    public e pp(String str) {
+    public e ps(String str) {
         return new com.baidu.tieba.j.b(str);
     }
 
     @Override // com.baidu.tieba.i.k
-    public h aVn() {
-        return m.brQ();
+    public h aVs() {
+        return m.blj();
     }
 }

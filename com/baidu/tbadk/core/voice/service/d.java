@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface d {
-    boolean EC();
+    boolean Et();
 
-    void ED();
+    void Eu();
 
     boolean eJ(String str);
 

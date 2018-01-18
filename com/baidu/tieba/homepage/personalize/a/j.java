@@ -14,14 +14,14 @@ public class j extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), q.cTq);
+        super(tbPageContext.getPageActivity(), q.cXS);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: ac */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         r rVar = new r(this.mPageContext);
         rVar.y("c10718", "c10719", "c10742");
@@ -33,9 +33,9 @@ public class j extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, q qVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.akh().a(qVar);
-        aVar.akh().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        s.ajC().a(new ak("c10718").ab("obj_id", String.valueOf(qVar.cTr)));
+        aVar.alk().a(qVar);
+        aVar.alk().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        s.akF().a(new ak("c10718").ab("obj_id", String.valueOf(qVar.cXT)));
         return aVar.getView();
     }
 }

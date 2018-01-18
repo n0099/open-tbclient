@@ -2,82 +2,82 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId cSG = BdUniqueId.gen();
-    public static final BdUniqueId cSH = BdUniqueId.gen();
-    public static String cSI = "";
-    public static String cSJ = "";
-    public static String cSK = "";
-    public static String cSL = "";
-    public static String cSM = "";
-    public static String cSN = "";
-    public static String cSO = "";
-    public be bWT;
-    public boolean cSB = false;
-    public boolean cSP = true;
+    public static final BdUniqueId cXi = BdUniqueId.gen();
+    public static final BdUniqueId cXj = BdUniqueId.gen();
+    public static String cXk = "";
+    public static String cXl = "";
+    public static String cXm = "";
+    public static String cXn = "";
+    public static String cXo = "";
+    public static String cXp = "";
+    public static String cXq = "";
+    public bd bXa;
+    public boolean cXd = false;
+    public boolean cXr = true;
     public int sourceType = 0;
 
-    public n(be beVar) {
-        this.bWT = beVar;
+    public n(bd bdVar) {
+        this.bXa = bdVar;
     }
 
-    public static boolean J(be beVar) {
-        return (beVar == null || beVar.zp() == null) ? false : true;
+    public static boolean J(bd bdVar) {
+        return (bdVar == null || bdVar.zk() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        if (this.bWT == null) {
-            return cSG;
+        if (this.bXa == null) {
+            return cXi;
         }
-        if (this.bWT.zb() || this.bWT.zc()) {
-            return cSH;
+        if (this.bXa.yW() || this.bXa.yX()) {
+            return cXj;
         }
-        return cSG;
+        return cXi;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public be VW() {
-        return this.bWT;
+    public bd VK() {
+        return this.bXa;
     }
 
-    public ak kc(String str) {
+    public ak kk(String str) {
         ak akVar = new ak(str);
-        if (this.bWT != null) {
-            akVar.f(ImageViewerConfig.FORUM_ID, this.bWT.getFid());
-            akVar.ab("tid", this.bWT.getTid());
+        if (this.bXa != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.bXa.getFid());
+            akVar.ab("tid", this.bXa.getTid());
             akVar.s("obj_type", 2);
-            if (this.bWT.yX() != null) {
-                akVar.ab("obj_id", this.bWT.yX().getUserId());
+            if (this.bXa.yS() != null) {
+                akVar.ab("obj_id", this.bXa.yS().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak ajT() {
-        ak t = t(cSL, true);
-        if (t != null && VW() != null) {
-            be VW = VW();
-            t.s("obj_name", VW.Ao() != null && (VW.Ao().bCo() != null || VW.Ao().QV() != null) ? 1 : 0);
-            if (VW.yX() != null) {
-                t.s("ab_type", VW.yX().hadConcerned() ? 1 : 0);
+    public ak akW() {
+        ak t = t(cXn, true);
+        if (t != null && VK() != null) {
+            bd VK = VK();
+            t.s("obj_name", VK.Ag() != null && (VK.Ag().bvK() != null || VK.Ag().QJ() != null) ? 1 : 0);
+            if (VK.yS() != null) {
+                t.s("ab_type", VK.yS().hadConcerned() ? 1 : 0);
             }
         }
         return t;
     }
 
-    public ak K(be beVar) {
-        return (beVar.Ac() == null || beVar.Ac().channelId <= 0) ? t(cSM, true) : t(cSN, true);
+    public ak K(bd bdVar) {
+        return (bdVar.zU() == null || bdVar.zU().channelId <= 0) ? t(cXo, true) : t(cXp, true);
     }
 
-    public ak ajV() {
-        return t(cSJ, true);
+    public ak akY() {
+        return t(cXl, true);
     }
 
-    public ak L(be beVar) {
-        return (beVar.Ac() == null || beVar.Ac().channelId <= 0) ? t(cSI, true) : t(cSO, true);
+    public ak L(bd bdVar) {
+        return (bdVar.zU() == null || bdVar.zU().channelId <= 0) ? t(cXk, true) : t(cXq, true);
     }
 }

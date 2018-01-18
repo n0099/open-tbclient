@@ -9,8 +9,8 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class h {
-    private static h aBo = null;
-    private a aBp = null;
+    private static h aBn = null;
+    private a aBo = null;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -81,10 +81,10 @@ public class h {
     public static synchronized h tW() {
         h hVar;
         synchronized (h.class) {
-            if (aBo == null) {
-                aBo = new h();
+            if (aBn == null) {
+                aBn = new h();
             }
-            hVar = aBo;
+            hVar = aBn;
         }
         return hVar;
     }
@@ -92,10 +92,10 @@ public class h {
     public synchronized void b() {
         if (com.baidu.location.f.isServing && !this.h) {
             try {
-                this.aBp = new a();
+                this.aBo = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                com.baidu.location.f.getServiceContext().registerReceiver(this.aBp, intentFilter);
+                com.baidu.location.f.getServiceContext().registerReceiver(this.aBo, intentFilter);
                 this.e = true;
                 f();
             } catch (Exception e) {
@@ -108,13 +108,13 @@ public class h {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aBp);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aBo);
             } catch (Exception e) {
             }
             this.g = false;
             this.h = false;
             this.f = false;
-            this.aBp = null;
+            this.aBo = null;
         }
     }
 

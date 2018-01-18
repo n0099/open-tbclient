@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long aHj = 86400000;
+    private static long aHh = 86400000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void p(File file) {
@@ -46,13 +46,13 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j = b.getInstance().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - j > a.aHj) {
+                if (currentTimeMillis - j > a.aHh) {
                     new Thread() { // from class: com.baidu.tbadk.f.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.BE();
+                                c.Bw();
                                 a.p(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }

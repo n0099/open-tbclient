@@ -12,27 +12,27 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<VideoTitleData> hQn;
+    private List<VideoTitleData> hFV;
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView blr;
+        public TextView blA;
         public View divider;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.G(this.hQn)) {
+        if (v.E(this.hFV)) {
             return 0;
         }
-        return this.hQn.size();
+        return this.hFV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: yU */
+    /* renamed from: xx */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.f(this.hQn, i);
+        return (VideoTitleData) v.f(this.hFV, i);
     }
 
     @Override // android.widget.Adapter
@@ -46,10 +46,10 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.video_activity_title_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.blr = (TextView) view.findViewById(d.g.title);
+            aVar2.blA = (TextView) view.findViewById(d.g.title);
             aVar2.divider = view.findViewById(d.g.divider_line);
-            aj.r(aVar2.blr, d.C0108d.cp_cont_b);
-            aj.t(aVar2.divider, d.C0108d.cp_bg_line_c);
+            aj.r(aVar2.blA, d.C0107d.cp_cont_b);
+            aj.t(aVar2.divider, d.C0107d.cp_bg_line_c);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,13 +57,13 @@ public class b extends BaseAdapter {
         }
         aj.s(view, d.f.addresslist_item_bg);
         if (getItem(i) != null) {
-            aVar.blr.setText("#" + getItem(i).name + "#");
+            aVar.blA.setText("#" + getItem(i).name + "#");
         }
         return view;
     }
 
-    public void ed(List<VideoTitleData> list) {
-        this.hQn = list;
+    public void dM(List<VideoTitleData> list) {
+        this.hFV = list;
         notifyDataSetChanged();
     }
 }

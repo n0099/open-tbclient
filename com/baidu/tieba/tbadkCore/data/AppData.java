@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.xiaomi.mipush.sdk.Constants;
@@ -92,9 +92,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo nU = com.baidu.tieba.lego.card.b.nU(str);
-        if (nU != null) {
-            ICardInfo viewItem = nU.getViewItem(0, 4);
+        ICardInfo nX = com.baidu.tieba.lego.card.b.nX(str);
+        if (nX != null) {
+            ICardInfo viewItem = nX.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -113,7 +113,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo nU;
+        ICardInfo nX;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -165,8 +165,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.mz().an("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (nU = com.baidu.tieba.lego.card.b.nU(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = nU.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.mz().an("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (nX = com.baidu.tieba.lego.card.b.nX(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = nX.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -181,7 +181,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int wZ() {
+    public int wY() {
         if (this.goods == null) {
             return 25;
         }
@@ -198,19 +198,19 @@ public class AppData extends OrmObject {
             if (this.legoCard == null || !this.goods.c(this.legoCard)) {
                 return 32;
             }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.wB().wH() && !this.legoCard.isNoPicAd()) {
+            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.wA().wG() && !this.legoCard.isNoPicAd()) {
                 return 34;
             }
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!be.aNn.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bd.aNj.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !xa() ? 26 : 0;
+                return !wZ() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !xb() ? 27 : 0;
+                return !xa() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -218,11 +218,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean xa() {
+    public boolean wZ() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean xb() {
+    public boolean xa() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {

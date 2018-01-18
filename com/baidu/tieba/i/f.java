@@ -3,7 +3,7 @@ package com.baidu.tieba.i;
 public interface f {
     void bA(String str, String str2);
 
-    void bB(String str, String str2);
+    void bz(String str, String str2);
 
     void d(String str, int i, int i2, String str2);
 
@@ -15,13 +15,13 @@ public interface f {
 
     void l(String str, int i, String str2);
 
-    void pc(String str);
+    void pf(String str);
 
-    void pd(String str);
+    void pg(String str);
 
-    void pe(String str);
+    void ph(String str);
 
-    boolean pf(String str);
+    boolean pi(String str);
 
-    boolean pg(String str);
+    boolean pj(String str);
 }

@@ -15,10 +15,10 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends LinearLayout {
-    private ViewEventCenter dhh;
-    private LinearLayout djG;
-    private TextView djw;
-    private ImageView djx;
+    private ViewEventCenter dlJ;
+    private TextView dnX;
+    private ImageView dnY;
+    private LinearLayout doh;
 
     public f(Context context) {
         this(context, null);
@@ -30,42 +30,42 @@ public class f extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.dhh = viewEventCenter;
+        this.dlJ = viewEventCenter;
     }
 
     public void init() {
         LayoutInflater.from(getContext()).inflate(d.h.layout_enterforum_search, this);
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.djG = (LinearLayout) findViewById(d.g.search_container);
-        this.djG.setVisibility(0);
-        this.djG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.1
+        this.doh = (LinearLayout) findViewById(d.g.search_container);
+        this.doh.setVisibility(0);
+        this.doh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.b.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.dhh != null) {
+                if (f.this.dlJ != null) {
                     TiebaStatic.log("c10362");
-                    f.this.dhh.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
+                    f.this.dlJ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
                 }
             }
         });
-        this.djw = (TextView) findViewById(d.g.search_text);
-        this.djx = (ImageView) findViewById(d.g.search_icon);
+        this.dnX = (TextView) findViewById(d.g.search_text);
+        this.dnY = (ImageView) findViewById(d.g.search_icon);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.n.a.a(tbPageContext, this);
-        aj.c(this.djx, d.f.icon_input_seach);
-        aj.r(this.djw, d.C0108d.enter_forum_search_text_color);
-        aj.s(this.djG, d.f.enter_forum_search_frame);
+        aj.c(this.dnY, d.f.icon_input_seach);
+        aj.r(this.dnX, d.C0107d.enter_forum_search_text_color);
+        aj.s(this.doh, d.f.enter_forum_search_frame);
     }
 
-    public void mp(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.djG.getLayoutParams();
+    public void ms(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.doh.getLayoutParams();
         layoutParams.topMargin = i;
-        this.djG.setLayoutParams(layoutParams);
+        this.doh.setLayoutParams(layoutParams);
     }
 
     public void setSearchHint(String str) {
-        this.djw.setText(UtilHelper.getFixedText(str, 20));
+        this.dnX.setText(UtilHelper.getFixedText(str, 20));
     }
 }

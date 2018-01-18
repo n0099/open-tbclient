@@ -26,16 +26,16 @@ public class b {
     private static Method f = null;
     private static Method g = null;
     private static Class<?> h = null;
-    private LocationClientOption azK;
-    private InterfaceC0038b azL;
+    private LocationClientOption azJ;
+    private InterfaceC0038b azK;
     private Context b;
     private TelephonyManager c;
     private WifiManager i;
     private String k;
-    private a azI = new a();
-    private d azJ = null;
+    private a azH = new a();
+    private d azI = null;
     private String n = null;
-    c azM = new c();
+    c azL = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -139,8 +139,8 @@ public class b {
                         bDLocation.setLocType(63);
                     }
                     if (bDLocation != null && bDLocation.getLocType() == 161) {
-                        bDLocation.setCoorType(b.this.azK.coorType);
-                        b.this.azL.onReceiveLocation(bDLocation);
+                        bDLocation.setCoorType(b.this.azJ.coorType);
+                        b.this.azK.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                 }
@@ -244,8 +244,8 @@ public class b {
         this.i = null;
         this.k = null;
         this.b = context.getApplicationContext();
-        this.azK = locationClientOption;
-        this.azL = interfaceC0038b;
+        this.azJ = locationClientOption;
+        this.azK = interfaceC0038b;
         String packageName = this.b.getPackageName();
         try {
             this.c = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
@@ -259,9 +259,9 @@ public class b {
             str2 = null;
         }
         if (str2 != null) {
-            this.k = "&prod=" + this.azK.prodName + ":" + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.azJ.prodName + ":" + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.k = "&prod=" + this.azK.prodName + ":" + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.azJ.prodName + ":" + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -305,14 +305,14 @@ public class b {
         }
         try {
             a(this.c.getCellLocation());
-            str = this.azI.b();
+            str = this.azH.b();
         } catch (Exception e2) {
             str = null;
         }
         try {
-            this.azJ = null;
-            this.azJ = new d(this.i.getScanResults());
-            str2 = this.azJ.a(i);
+            this.azI = null;
+            this.azI = new d(this.i.getScanResults());
+            str2 = this.azI.a(i);
         } catch (Exception e3) {
             str2 = null;
         }
@@ -342,7 +342,7 @@ public class b {
                 if (networkOperator.length() >= 3) {
                     int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                     if (intValue < 0) {
-                        intValue = this.azI.c;
+                        intValue = this.azH.c;
                     }
                     aVar.c = intValue;
                 }
@@ -355,7 +355,7 @@ public class b {
                 }
                 int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                 if (intValue2 < 0) {
-                    intValue2 = this.azI.d;
+                    intValue2 = this.azH.d;
                 }
                 aVar.d = intValue2;
             } catch (Exception e2) {
@@ -382,7 +382,7 @@ public class b {
                 try {
                     int intValue3 = ((Integer) g.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue3 < 0) {
-                        intValue3 = this.azI.d;
+                        intValue3 = this.azH.d;
                     }
                     aVar.d = intValue3;
                     aVar.b = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
@@ -393,7 +393,7 @@ public class b {
             }
         }
         if (aVar.d()) {
-            this.azI = aVar;
+            this.azH = aVar;
         }
     }
 
@@ -422,31 +422,31 @@ public class b {
         if (this.n == null) {
             return;
         }
-        if (this.azI == null || this.azI.a() == 1) {
-            if (this.i == null || this.azK.scanSpan < 1000 || this.azK.getAddrType().equals("all") || this.azK.isNeedAptag || this.azK.isNeedAptagd) {
+        if (this.azH == null || this.azH.a() == 1) {
+            if (this.i == null || this.azJ.scanSpan < 1000 || this.azJ.getAddrType().equals("all") || this.azJ.isNeedAptag || this.azJ.isNeedAptagd) {
                 bDLocation = null;
             } else {
                 try {
-                    bDLocation = com.baidu.location.e.a.tX().a(this.azI.c(), this.i.getScanResults(), false);
-                    if (!this.azK.coorType.equals("gcj02")) {
+                    bDLocation = com.baidu.location.e.a.tX().a(this.azH.c(), this.i.getScanResults(), false);
+                    if (!this.azJ.coorType.equals("gcj02")) {
                         double longitude = bDLocation.getLongitude();
                         double latitude = bDLocation.getLatitude();
                         if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
-                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.azK.coorType);
+                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.azJ.coorType);
                             bDLocation.setLongitude(coorEncrypt[0]);
                             bDLocation.setLatitude(coorEncrypt[1]);
-                            bDLocation.setCoorType(this.azK.coorType);
+                            bDLocation.setCoorType(this.azJ.coorType);
                         }
                     }
                     if (bDLocation.getLocType() == 66) {
-                        this.azL.onReceiveLocation(bDLocation);
+                        this.azK.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                     bDLocation = null;
                 }
             }
             if (bDLocation == null) {
-                this.azM.a(this.n);
+                this.azL.a(this.n);
             }
         }
     }

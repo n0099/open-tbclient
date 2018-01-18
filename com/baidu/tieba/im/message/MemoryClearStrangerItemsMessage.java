@@ -15,10 +15,10 @@ public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public List<MemoryModifyVisibilityMessage.a> datas;
+        public List<MemoryModifyVisibilityMessage.a> eDM;
 
         public a(List<MemoryModifyVisibilityMessage.a> list) {
-            this.datas = list;
+            this.eDM = list;
         }
     }
 

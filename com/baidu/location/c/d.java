@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static d aAP = null;
+    private static d aAO = null;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -18,7 +18,7 @@ public class d {
     private String g = "loc.map.baidu.com";
     private String h = "dns.map.baidu.com";
     private int i = 0;
-    private a aAQ = new a();
+    private a aAP = new a();
 
     /* loaded from: classes.dex */
     private class a extends com.baidu.location.h.f {
@@ -232,10 +232,10 @@ public class d {
     }
 
     public static d tS() {
-        if (aAP == null) {
-            aAP = new d();
+        if (aAO == null) {
+            aAO = new d();
         }
-        return aAP;
+        return aAO;
     }
 
     public String b() {
@@ -244,7 +244,7 @@ public class d {
             str = this.g;
         }
         if (System.currentTimeMillis() - this.b > ReportUserInfoModel.TIME_INTERVAL) {
-            this.aAQ.b();
+            this.aAP.b();
         }
         return str;
     }

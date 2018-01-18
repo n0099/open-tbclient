@@ -5,29 +5,29 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int bvT;
-    private boolean bvU = true;
-    private com.baidu.tbadk.mvc.b.a bvV;
-    private com.baidu.tbadk.mvc.d.b bvW;
-    private com.baidu.tbadk.mvc.a.a bvX;
-    private int bvY;
-    private WeakReference<View> bvZ;
+    private int bwc;
+    private boolean bwd = true;
+    private com.baidu.tbadk.mvc.b.a bwe;
+    private com.baidu.tbadk.mvc.d.b bwf;
+    private com.baidu.tbadk.mvc.a.a bwg;
+    private int bwh;
+    private WeakReference<View> bwi;
     private Object extra;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.bvT = i;
-        this.bvV = aVar;
-        this.bvW = bVar;
-        this.bvX = aVar2;
+        this.bwc = i;
+        this.bwe = aVar;
+        this.bwf = bVar;
+        this.bwg = aVar2;
     }
 
-    public int MH() {
-        return this.bvT;
+    public int Mv() {
+        return this.bwc;
     }
 
-    public com.baidu.tbadk.mvc.b.a MI() {
-        return this.bvV;
+    public com.baidu.tbadk.mvc.b.a Mw() {
+        return this.bwe;
     }
 
     public Object getExtra() {
@@ -39,22 +39,22 @@ public class b {
     }
 
     public View getView() {
-        if (this.bvZ != null) {
-            return this.bvZ.get();
+        if (this.bwi != null) {
+            return this.bwi.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.bvZ = new WeakReference<>(view);
+        this.bwi = new WeakReference<>(view);
     }
 
-    public void ii(int i) {
-        this.bvY = i;
+    public void ie(int i) {
+        this.bwh = i;
     }
 
-    public boolean MJ() {
-        return this.bvU;
+    public boolean Mx() {
+        return this.bwd;
     }
 
     public BdUniqueId getUniqueId() {

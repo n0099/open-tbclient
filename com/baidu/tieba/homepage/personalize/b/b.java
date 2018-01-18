@@ -14,12 +14,12 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private v<c> cis;
+    private v<c> ciz;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cis = new v<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.ciz = new v<c>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, c cVar) {
@@ -33,10 +33,10 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aP */
+    /* renamed from: aR */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.personalize.b.a aVar = new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext);
-        aVar.b(this.cis);
+        aVar.b(this.ciz);
         return new a(aVar);
     }
 
@@ -45,18 +45,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        s.ajC().a(new ak("c11272"));
-        aVar.eeV.a(cVar);
+        s.akF().a(new ak("c11272"));
+        aVar.egm.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public class a extends r.a {
-        public com.baidu.tieba.homepage.personalize.b.a eeV;
+        public com.baidu.tieba.homepage.personalize.b.a egm;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.eeV = aVar;
+            this.egm = aVar;
         }
     }
 }

@@ -6,102 +6,102 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 public class b {
-    private String hwY;
-    private a hyI;
-    private String hyJ;
-    private f hyK;
-    private d hyL;
-    private e hyM;
-    private volatile boolean hyN;
-    private volatile boolean hyO;
-    private volatile boolean hyP;
+    private String hmB;
+    private a hol;
+    private String hom;
+    private f hon;
+    private d hoo;
+    private e hop;
+    private volatile boolean hoq;
+    private volatile boolean hor;
+    private volatile boolean hos;
     private Context mContext;
     private String mFilterName;
     private boolean sx = false;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ai(int i, String str);
-
         void aj(int i, String str);
 
-        void tZ(String str);
+        void ak(int i, String str);
+
+        void tu(String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.hyJ = str;
-        this.hwY = str2;
+        this.hom = str;
+        this.hmB = str2;
         this.mFilterName = str3;
     }
 
-    public void bHi() {
+    public void bAF() {
         if (!this.sx) {
             this.sx = true;
-            this.hyN = false;
-            this.hyO = false;
-            this.hyP = false;
+            this.hoq = false;
+            this.hor = false;
+            this.hos = false;
             try {
-                File file = new File(new File(this.hwY).getParent());
+                File file = new File(new File(this.hmB).getParent());
                 if (!file.exists()) {
                     file.mkdirs();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.hyI != null) {
-                    this.hyI.ai(222, com.baidu.tieba.i.a.i(e));
+                if (this.hol != null) {
+                    this.hol.aj(222, com.baidu.tieba.i.a.i(e));
                 }
             }
             try {
-                this.hyM = new e(this.hwY);
-                this.hyK = new f(this.mContext, this.hyJ, this.mFilterName, this.hyM, this.hyI) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.hop = new e(this.hmB);
+                this.hon = new f(this.mContext, this.hom, this.mFilterName, this.hop, this.hol) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
-                    public void bHm() {
-                        b.this.hyN = true;
-                        b.this.bHk();
+                    public void bAJ() {
+                        b.this.hoq = true;
+                        b.this.bAH();
                     }
                 };
-                this.hyK.start();
-                this.hyL = new d(this.mContext, this.hyJ, this.hyM, this.hyI) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.hon.start();
+                this.hoo = new d(this.mContext, this.hom, this.hop, this.hol) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
-                    public void bHm() {
-                        b.this.hyO = true;
-                        b.this.bHk();
+                    public void bAJ() {
+                        b.this.hor = true;
+                        b.this.bAH();
                     }
                 };
-                this.hyL.start();
+                this.hoo.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void bHj() {
-        if (this.hyK != null) {
-            this.hyK.interrupt();
-            this.hyK = null;
+    public void bAG() {
+        if (this.hon != null) {
+            this.hon.interrupt();
+            this.hon = null;
         }
-        if (this.hyL != null) {
-            this.hyL.interrupt();
-            this.hyL = null;
+        if (this.hoo != null) {
+            this.hoo.interrupt();
+            this.hoo = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHk() {
-        if (this.hyN && this.hyO && !this.hyP) {
-            this.hyM.stop();
-            this.hyP = true;
-            bHl();
+    public void bAH() {
+        if (this.hoq && this.hor && !this.hos) {
+            this.hop.stop();
+            this.hos = true;
+            bAI();
         }
     }
 
-    private void bHl() {
-        if (this.hyI != null) {
-            File file = new File(this.hwY);
+    private void bAI() {
+        if (this.hol != null) {
+            File file = new File(this.hmB);
             if (file.exists() && file.length() > 0) {
-                this.hyI.tZ(this.hwY);
+                this.hol.tu(this.hmB);
             } else {
-                this.hyI.ai(223, "Err empty outputFile");
+                this.hol.aj(223, "Err empty outputFile");
             }
         }
         this.sx = false;
@@ -112,6 +112,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.hyI = aVar;
+        this.hol = aVar;
     }
 }

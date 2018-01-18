@@ -1,50 +1,35 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes.dex */
 public class bm {
-    private long aJT;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private int activity_type;
-    private String activity_url;
+    private int aPv = 0;
+    private bl aPw = new bl();
 
-    public String getActivityUrl() {
-        return this.activity_url;
+    public boolean As() {
+        return this.aPv != 0;
     }
 
-    public String Ay() {
-        return this.activity_all_icon;
+    public bl At() {
+        return this.aPw;
     }
 
-    public String Az() {
-        return this.activity_half_icon;
-    }
-
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.aJT = yuleActivity.activity_id.longValue();
-            this.activity_type = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
+    public void a(Yule yule) {
+        if (yule != null) {
+            this.aPv = yule.activity_show.intValue();
+            this.aPw.a(yule.yule_activity);
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aJT = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
+                this.aPv = jSONObject.optInt("activity_show");
+                this.aPw.parserJson(jSONObject.optJSONObject("yule_activity"));
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
     }

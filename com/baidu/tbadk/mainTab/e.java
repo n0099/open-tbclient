@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean bvO;
+    protected boolean bvX;
 
     public e(Context context) {
         super(context);
-        this.bvO = false;
+        this.bvX = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bvO = false;
+        this.bvX = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bvO = false;
+        this.bvX = false;
     }
 
-    public void gC(int i) {
+    public void gz(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void co(boolean z) {
+    public void cm(boolean z) {
     }
 
     public View getContentTv() {
@@ -48,7 +48,7 @@ public abstract class e extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a gF(String str) {
+    public a gG(String str) {
         return null;
     }
 
@@ -80,25 +80,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.bvO = z;
+        this.bvX = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int aiC;
-        public int bvQ;
-        public e bvS;
+        public int bvZ;
+        public e bwb;
         public View view;
-        public boolean bvP = true;
-        public int bvR = d.C0108d.common_color_10225;
+        public boolean bvY = true;
+        public int bwa = d.C0107d.common_color_10225;
 
-        public void gC(int i) {
-            if (this.bvQ != 0) {
-                aj.s(this.view, this.bvQ);
+        public void gz(int i) {
+            if (this.bvZ != 0) {
+                aj.s(this.view, this.bvZ);
             }
             if (this.view instanceof TextView) {
-                if (this.bvR != 0) {
-                    aj.e((TextView) this.view, this.bvR, 1);
+                if (this.bwa != 0) {
+                    aj.e((TextView) this.view, this.bwa, 1);
                 }
                 int e = e((TextView) this.view);
                 if (e > 0 && e < 10) {

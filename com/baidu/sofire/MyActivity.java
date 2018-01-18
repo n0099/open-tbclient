@@ -22,21 +22,21 @@ import java.lang.reflect.Method;
 public class MyActivity extends Activity {
     public static Method aCA;
     public static Method aCB;
-    public static Method aCC;
+    public static Method aCy;
     public static Method aCz;
+    public static Field aEB;
     public static Field aEC;
     public static Field aED;
-    public static Field aEE;
+    public static Method aEE;
     public static Method aEF;
     public static Method aEG;
-    public static Method aEH;
     public static Method l;
-    private Resources aEy;
+    private Resources aEx;
     protected boolean a = false;
-    protected a aEz = new a();
+    protected a aEy = new a();
     protected Activity c = null;
-    protected Configuration aEA = null;
-    protected ActivityInfo aEB = null;
+    protected Configuration aEz = null;
+    protected ActivityInfo aEA = null;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -59,28 +59,28 @@ public class MyActivity extends Activity {
     }
 
     static {
+        aEB = null;
         aEC = null;
         aED = null;
         aEE = null;
         aEF = null;
-        aEG = null;
-        aCz = null;
+        aCy = null;
         l = null;
+        aCz = null;
         aCA = null;
         aCB = null;
-        aCC = null;
-        aEH = null;
-        aEF = e.a((Class<?>) Activity.class, "onCreate", (Class<?>[]) new Class[]{Bundle.class});
-        aEG = e.a((Class<?>) Activity.class, "onPostCreate", (Class<?>[]) new Class[]{Bundle.class});
-        aCz = e.a((Class<?>) Activity.class, "onStart", (Class<?>[]) new Class[0]);
+        aEG = null;
+        aEE = e.a((Class<?>) Activity.class, "onCreate", (Class<?>[]) new Class[]{Bundle.class});
+        aEF = e.a((Class<?>) Activity.class, "onPostCreate", (Class<?>[]) new Class[]{Bundle.class});
+        aCy = e.a((Class<?>) Activity.class, "onStart", (Class<?>[]) new Class[0]);
         l = e.a((Class<?>) Activity.class, "onResume", (Class<?>[]) new Class[0]);
-        aCA = e.a((Class<?>) Activity.class, "onPostResume", (Class<?>[]) new Class[0]);
-        aCB = e.a((Class<?>) Activity.class, "onPause", (Class<?>[]) new Class[0]);
-        aCC = e.a((Class<?>) Activity.class, "onStop", (Class<?>[]) new Class[0]);
-        aEH = e.a((Class<?>) Activity.class, "onDestroy", (Class<?>[]) new Class[0]);
-        aEC = e.d(Activity.class, "mCurrentConfig");
-        aED = e.d(Activity.class, "mConfigChangeFlags");
-        aEE = e.d(Activity.class, "mCalled");
+        aCz = e.a((Class<?>) Activity.class, "onPostResume", (Class<?>[]) new Class[0]);
+        aCA = e.a((Class<?>) Activity.class, "onPause", (Class<?>[]) new Class[0]);
+        aCB = e.a((Class<?>) Activity.class, "onStop", (Class<?>[]) new Class[0]);
+        aEG = e.a((Class<?>) Activity.class, "onDestroy", (Class<?>[]) new Class[0]);
+        aEB = e.d(Activity.class, "mCurrentConfig");
+        aEC = e.d(Activity.class, "mConfigChangeFlags");
+        aED = e.d(Activity.class, "mCalled");
     }
 
     private static boolean a(a aVar, Intent intent) {
@@ -117,14 +117,14 @@ public class MyActivity extends Activity {
                 finish();
                 return;
             }
-            a(this.aEz, getIntent());
-            this.aEz.toString();
-            if (TextUtils.isEmpty(this.aEz.d)) {
+            a(this.aEy, getIntent());
+            this.aEy.toString();
+            if (TextUtils.isEmpty(this.aEy.d)) {
                 super.onCreate(bundle);
                 finish();
                 return;
             }
-            ApkInfo cf = uR.cf(this.aEz.d);
+            ApkInfo cf = uR.cf(this.aEy.d);
             if (cf == null || cf.activities == null) {
                 super.onCreate(bundle);
                 finish();
@@ -139,7 +139,7 @@ public class MyActivity extends Activity {
                     break;
                 }
                 ActivityInfo activityInfo2 = activityInfoArr[i];
-                if (activityInfo2.name.equals(this.aEz.b)) {
+                if (activityInfo2.name.equals(this.aEy.b)) {
                     activityInfo = activityInfo2;
                     break;
                 }
@@ -150,7 +150,7 @@ public class MyActivity extends Activity {
                 finish();
                 return;
             }
-            this.aEB = activityInfo;
+            this.aEA = activityInfo;
             int i2 = activityInfo.theme;
             if (i2 == 0) {
                 i2 = cf.applicationTheme;
@@ -158,7 +158,7 @@ public class MyActivity extends Activity {
             int i3 = i2 == 0 ? 16973829 : i2;
             setTheme(i3);
             this.a = true;
-            Object newInstance = cf.classLoader.loadClass(this.aEz.b).newInstance();
+            Object newInstance = cf.classLoader.loadClass(this.aEy.b).newInstance();
             if (!(newInstance instanceof Activity)) {
                 new StringBuilder().append(newInstance.toString());
                 finish();
@@ -181,12 +181,12 @@ public class MyActivity extends Activity {
                 AssetManager assetManager = new AssetManager();
                 assetManager.addAssetPath(cf.pkgPath);
                 new StringBuilder("p=").append(cf.pkgPath);
-                this.aEy = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                new StringBuilder("r=").append(this.aEy).append(", l=").append(activityInfo.labelRes);
+                this.aEx = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+                new StringBuilder("r=").append(this.aEx).append(", l=").append(activityInfo.labelRes);
                 if (activityInfo.labelRes > 0) {
-                    new StringBuilder().append(this.aEy.getString(activityInfo.labelRes));
+                    new StringBuilder().append(this.aEx.getString(activityInfo.labelRes));
                 }
-                d3.set(activity, this.aEy);
+                d3.set(activity, this.aEx);
             }
             activity.setTheme(i3);
             activity.getTheme().applyStyle(i3, true);
@@ -218,10 +218,10 @@ public class MyActivity extends Activity {
                 if (activityInfo.nonLocalizedLabel != null) {
                     str = activityInfo.nonLocalizedLabel.toString();
                 } else if (activityInfo.labelRes != 0) {
-                    if (this.aEy != null) {
+                    if (this.aEx != null) {
                         new StringBuilder("p= ").append(cf.pkgPath);
-                        new StringBuilder("r=").append(this.aEy).append(", l=").append(activityInfo.labelRes);
-                        str = this.aEy.getString(activityInfo.labelRes);
+                        new StringBuilder("r=").append(this.aEx).append(", l=").append(activityInfo.labelRes);
+                        str = this.aEx.getString(activityInfo.labelRes);
                     } else {
                         str = null;
                     }
@@ -238,10 +238,10 @@ public class MyActivity extends Activity {
             if (d9 != null) {
                 d9.set(window2, obtainStyledAttributes);
             }
-            this.aEz.e.setExtrasClassLoader(cf.classLoader);
-            activity.setIntent(this.aEz.e);
-            if (this.a && aEF != null && this.c != null) {
-                aEF.invoke(newInstance, bundle);
+            this.aEy.e.setExtrasClassLoader(cf.classLoader);
+            activity.setIntent(this.aEy.e);
+            if (this.a && aEE != null && this.c != null) {
+                aEE.invoke(newInstance, bundle);
             }
             super.onCreate(bundle);
         } catch (Throwable th) {
@@ -253,8 +253,8 @@ public class MyActivity extends Activity {
     protected void onPostCreate(Bundle bundle) {
         try {
             super.onPostCreate(bundle);
-            if (this.a && aEG != null && this.c != null) {
-                aEG.invoke(this.c, bundle);
+            if (this.a && aEF != null && this.c != null) {
+                aEF.invoke(this.c, bundle);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -265,8 +265,8 @@ public class MyActivity extends Activity {
     protected void onDestroy() {
         try {
             super.onDestroy();
-            if (this.a && aEH != null && this.c != null) {
-                aEH.invoke(this.c, new Object[0]);
+            if (this.a && aEG != null && this.c != null) {
+                aEG.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -277,8 +277,8 @@ public class MyActivity extends Activity {
     protected void onPause() {
         try {
             super.onPause();
-            if (this.a && aCB != null && this.c != null) {
-                aCB.invoke(this.c, new Object[0]);
+            if (this.a && aCA != null && this.c != null) {
+                aCA.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -301,8 +301,8 @@ public class MyActivity extends Activity {
     protected void onPostResume() {
         try {
             super.onPostResume();
-            if (this.a && aCA != null && this.c != null) {
-                aCA.invoke(this.c, new Object[0]);
+            if (this.a && aCz != null && this.c != null) {
+                aCz.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -313,8 +313,8 @@ public class MyActivity extends Activity {
     protected void onStart() {
         try {
             super.onStart();
-            if (this.a && aCz != null && this.c != null) {
-                aCz.invoke(this.c, new Object[0]);
+            if (this.a && aCy != null && this.c != null) {
+                aCy.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -325,8 +325,8 @@ public class MyActivity extends Activity {
     protected void onStop() {
         try {
             super.onStop();
-            if (this.a && aCC != null && this.c != null) {
-                aCC.invoke(this.c, new Object[0]);
+            if (this.a && aCB != null && this.c != null) {
+                aCB.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d.a(th);
@@ -339,16 +339,16 @@ public class MyActivity extends Activity {
             super.onConfigurationChanged(configuration);
             if (this.a && this.c != null) {
                 if (!a(configuration)) {
-                    aEE.setBoolean(this.c, false);
+                    aED.setBoolean(this.c, false);
                     this.c.onConfigurationChanged(configuration);
-                    boolean z = aEE.getBoolean(this.c);
+                    boolean z = aED.getBoolean(this.c);
                     if (0 != 0 || z) {
-                        aED.setInt(this.c, 0);
-                        aEC.set(this.c, new Configuration(configuration));
+                        aEC.setInt(this.c, 0);
+                        aEB.set(this.c, new Configuration(configuration));
                     }
                 }
-                if (this.aEA != null) {
-                    this.aEA.updateFrom(configuration);
+                if (this.aEz != null) {
+                    this.aEz.updateFrom(configuration);
                 }
             }
         } catch (Throwable th) {
@@ -358,11 +358,11 @@ public class MyActivity extends Activity {
 
     private boolean a(Configuration configuration) {
         try {
-            if (this.aEA == null) {
+            if (this.aEz == null) {
                 return false;
             }
-            Configuration configuration2 = this.aEA;
-            int i = this.aEB.configChanges;
+            Configuration configuration2 = this.aEz;
+            int i = this.aEA.configChanges;
             int diff = configuration2.diff(configuration);
             return diff != 0 && (diff & i) == 0;
         } catch (Throwable th) {

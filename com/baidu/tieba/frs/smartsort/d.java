@@ -12,55 +12,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d dLR;
-    private boolean dLK = false;
-    private final HashMap<String, ArrayList<f>> dLQ = new HashMap<>();
+    private static volatile d dQt;
+    private boolean dQm = false;
+    private final HashMap<String, ArrayList<f>> dQs = new HashMap<>();
 
     private d() {
     }
 
-    public static d axC() {
-        if (dLR == null) {
+    public static d ayF() {
+        if (dQt == null) {
             synchronized (d.class) {
-                if (dLR == null) {
-                    dLR = new d();
+                if (dQt == null) {
+                    dQt = new d();
                 }
             }
         }
-        return dLR;
+        return dQt;
     }
 
-    public String axx() {
+    public String ayA() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     public synchronized void h(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String axx = axx();
-            ArrayList<f> arrayList = this.dLQ.get(axx);
+            String ayA = ayA();
+            ArrayList<f> arrayList = this.dQs.get(ayA);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            f lN = lN(str);
+            f lV = lV(str);
             boolean z = false;
-            if (lN != null) {
-                if (lN.dLU != i) {
-                    lN.dLU = i;
+            if (lV != null) {
+                if (lV.dQw != i) {
+                    lV.dQw = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.dLU = i;
+                fVar.dQw = i;
                 arrayList2.add(fVar);
                 z = true;
             }
             if (z) {
-                f(axx, arrayList2);
+                f(ayA, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<f> arrayList) {
-        JSONObject axG;
+        JSONObject ayJ;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -68,26 +68,26 @@ public class d {
             ArrayList<f> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 f fVar = arrayList.get(i);
-                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (axG = fVar.axG()) != null) {
-                    jSONArray.put(axG);
+                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (ayJ = fVar.ayJ()) != null) {
+                    jSONArray.put(ayJ);
                     arrayList2.add(fVar);
                 }
             }
-            if (!v.G(arrayList2)) {
-                this.dLQ.put(str, arrayList2);
-                if (!this.dLK) {
-                    axD();
+            if (!v.E(arrayList2)) {
+                this.dQs.put(str, arrayList2);
+                if (!this.dQm) {
+                    ayG();
                 } else {
-                    lO(jSONArray.toString());
+                    lW(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized f lN(String str) {
+    public synchronized f lV(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.dLQ.get(axx());
+            ArrayList<f> arrayList = this.dQs.get(ayA());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -111,20 +111,20 @@ public class d {
         return fVar;
     }
 
-    private void lO(String str) {
-        l<String> axz = axz();
-        if (axz != null) {
-            axz.f("frs_sortType", str);
+    private void lW(String str) {
+        l<String> ayC = ayC();
+        if (ayC != null) {
+            ayC.f("frs_sortType", str);
         }
     }
 
-    public void axD() {
+    public void ayG() {
         com.baidu.tbadk.util.v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: axF */
+            /* renamed from: ayI */
             public l<String> doInBackground() {
-                return d.this.axz();
+                return d.this.ayC();
             }
         }, new h<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -138,9 +138,9 @@ public class d {
                         /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dLQ.put(d.this.axx(), d.this.lM(str2));
+                                d.this.dQs.put(d.this.ayA(), d.this.lU(str2));
                             }
-                            d.this.dLK = true;
+                            d.this.dQm = true;
                         }
                     });
                 }
@@ -149,12 +149,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> axz() {
-        return com.baidu.tbadk.core.c.a.AE().M("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    public l<String> ayC() {
+        return com.baidu.tbadk.core.c.a.Aw().M("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> lM(String str) {
+    public ArrayList<f> lU(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -169,8 +169,8 @@ public class d {
         return arrayList;
     }
 
-    public void axE() {
-        lO("");
-        this.dLQ.remove(axx());
+    public void ayH() {
+        lW("");
+        this.dQs.remove(ayA());
     }
 }

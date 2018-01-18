@@ -28,13 +28,13 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class k {
     public static final File amc = Environment.getExternalStorageDirectory();
-    private static final File aTu = TbadkCoreApplication.getInst().getApp().getCacheDir();
+    private static final File aTt = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
     public static boolean lk() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String BH() {
+    public static String Bz() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
             return TbadkCoreApplication.getInst().getApp().getString(d.j.error_no_sdcard);
@@ -65,7 +65,7 @@ public class k {
         return false;
     }
 
-    public static boolean BI() {
+    public static boolean BA() {
         return m12do(amc + "/" + TbConfig.getTempDirName() + "/");
     }
 
@@ -106,7 +106,7 @@ public class k {
     }
 
     public static File dr(String str) {
-        if (BI()) {
+        if (BA()) {
             File file = new File(amc + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -148,14 +148,14 @@ public class k {
     }
 
     public static File du(String str) {
-        if (!BI()) {
+        if (!BA()) {
             return null;
         }
         return new File(amc + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File dv(String str) {
-        if (BI()) {
+        if (BA()) {
             File file = new File(amc + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -175,7 +175,7 @@ public class k {
     }
 
     public static File dw(String str) {
-        if (BI()) {
+        if (BA()) {
             File file = new File(amc + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -713,7 +713,7 @@ public class k {
 
     public static byte[] X(String str, String str2) {
         String str3;
-        if (!BI() || str2 == null) {
+        if (!BA() || str2 == null) {
             return null;
         }
         if (str != null) {
@@ -1319,7 +1319,7 @@ public class k {
     }
 
     public static boolean dC(String str) {
-        if (BI()) {
+        if (BA()) {
             File file = new File(amc + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -1374,11 +1374,11 @@ public class k {
         }
     }
 
-    public static String BJ() {
+    public static String BB() {
         return amc + "/" + TbConfig.getTempDirName() + "/";
     }
 
-    public static String BK() {
+    public static String BC() {
         return amc + "/tieba/download";
     }
 
@@ -1398,7 +1398,7 @@ public class k {
         return false;
     }
 
-    public static long BL() {
+    public static long BD() {
         String absolutePath;
         if (lk()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -1417,13 +1417,13 @@ public class k {
     }
 
     private static String a(int i, String str, boolean z) {
-        if (aTu == null) {
+        if (aTt == null) {
             return null;
         }
-        File[] listFiles = aTu.listFiles();
-        String fC = fC(i);
+        File[] listFiles = aTt.listFiles();
+        String fA = fA(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(fC)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(fA)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -1435,7 +1435,7 @@ public class k {
         return null;
     }
 
-    public static String fC(int i) {
+    public static String fA(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -1467,9 +1467,9 @@ public class k {
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
-            sb.append(BJ());
+            sb.append(BB());
         }
-        sb.append(fC(i));
+        sb.append(fA(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();
@@ -1584,11 +1584,11 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String aTv = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String aTu = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
         public static boolean dH(String str) {
             try {
-                return new File(new StringBuilder().append(aTv).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(aTu).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1598,7 +1598,7 @@ public class k {
 
         public static boolean dI(String str) {
             try {
-                File file = new File(aTv + "/" + str);
+                File file = new File(aTu + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1634,7 +1634,7 @@ public class k {
 
         public static boolean dD(String str) {
             try {
-                File file = new File(aTv + "/" + str);
+                File file = new File(aTu + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1652,7 +1652,7 @@ public class k {
         public static String dJ(String str) {
             String str2 = null;
             try {
-                File file = new File(aTv + "/" + str);
+                File file = new File(aTu + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
@@ -1725,7 +1725,7 @@ public class k {
                 for (int i = 0; dp(str4) && i < 10000; i++) {
                     str4 = ee + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
                 }
-                String str5 = BJ() + str4;
+                String str5 = BB() + str4;
                 com.baidu.adp.lib.util.f.b(new File(str), new File(str5));
                 new w(context).dO(str5);
                 return 0;

@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 public interface o {
     void a(AdvertAppInfo advertAppInfo, String str);
 
-    TbPageContext<?> aiX();
+    TbPageContext<?> aka();
 
-    void atj();
+    void aum();
 
     String getFid();
 

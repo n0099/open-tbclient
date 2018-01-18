@@ -43,9 +43,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bi = b.aKi().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bi != null) {
-                buildNormalItem.setGroupSetting(bi);
+            GroupSettingItemData bh = b.aKn().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bh != null) {
+                buildNormalItem.setGroupSetting(bh);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -63,9 +63,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(4));
-            PersonalSettingItemData bi = e.aKl().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bi != null) {
-                buildNormalItem.setGroupSetting(bi);
+            PersonalSettingItemData bh = e.aKq().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bh != null) {
+                buildNormalItem.setGroupSetting(bh);
             }
             insertShowData(buildNormalItem, this.mList);
         }

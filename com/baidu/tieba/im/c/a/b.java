@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
-    private com.baidu.tieba.im.settingcache.a eHl;
+    private com.baidu.tieba.im.settingcache.a eIL;
     private int mCmd;
 
     public b(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.eHl = aVar;
+        this.eIL = aVar;
         this.mCmd = i;
     }
 
@@ -27,12 +27,12 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        ChatSetting bi = this.eHl.bi(str, data.mId);
-        if (bi == null) {
+        ChatSetting bh = this.eIL.bh(str, data.mId);
+        if (bh == null) {
             return null;
         }
-        bi.setDraft(data.mDraft);
-        this.eHl.a(bi);
+        bh.setDraft(data.mDraft);
+        this.eIL.a(bh);
         return customResponsedMessage;
     }
 }

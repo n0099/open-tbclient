@@ -1,10 +1,10 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class r extends j {
-    private static final r bAb = new r();
+    private static final r bAk = new r();
 
-    public static boolean Ou() {
-        return bAb.nu();
+    public static boolean Oi() {
+        return bAk.nu();
     }
 
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a

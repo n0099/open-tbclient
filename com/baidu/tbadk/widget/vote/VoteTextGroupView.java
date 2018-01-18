@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VoteTextGroupView extends LinearLayout {
-    private List<b> bKD;
-    private int bKE;
-    private com.baidu.tbadk.widget.vote.a bKF;
-    private List<com.baidu.tbadk.widget.vote.a> bKG;
-    private com.baidu.tbadk.widget.vote.b bKp;
+    private List<b> bKL;
+    private int bKM;
+    private com.baidu.tbadk.widget.vote.a bKN;
+    private List<com.baidu.tbadk.widget.vote.a> bKO;
+    private com.baidu.tbadk.widget.vote.b bKx;
     private int mMode;
 
     public void setMode(int i) {
@@ -29,36 +29,36 @@ public class VoteTextGroupView extends LinearLayout {
     }
 
     public void setOnVoteCheckedChangedListener(com.baidu.tbadk.widget.vote.b bVar) {
-        this.bKp = bVar;
+        this.bKx = bVar;
     }
 
     public VoteTextGroupView(Context context) {
         super(context);
         this.mMode = 2;
-        this.bKE = -1;
-        this.bKF = null;
-        this.bKG = new ArrayList();
+        this.bKM = -1;
+        this.bKN = null;
+        this.bKO = new ArrayList();
         init(context);
     }
 
     public VoteTextGroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mMode = 2;
-        this.bKE = -1;
-        this.bKF = null;
-        this.bKG = new ArrayList();
+        this.bKM = -1;
+        this.bKN = null;
+        this.bKO = new ArrayList();
         init(context);
     }
 
     private void init(Context context) {
         setOrientation(1);
         setGravity(1);
-        this.bKD = new ArrayList();
+        this.bKL = new ArrayList();
     }
 
-    public void S(List<com.baidu.tbadk.widget.vote.a> list) {
+    public void Q(List<com.baidu.tbadk.widget.vote.a> list) {
         if (list != null && !list.isEmpty()) {
-            this.bKG = list;
+            this.bKO = list;
             removeAllViews();
             LayoutInflater from = LayoutInflater.from(getContext());
             int size = list.size();
@@ -67,17 +67,17 @@ public class VoteTextGroupView extends LinearLayout {
                 if (aVar != null) {
                     b bVar = new b();
                     View inflate = from.inflate(d.h.vote_text_select_item, (ViewGroup) null);
-                    bVar.bKK = (RelativeLayout) inflate.findViewById(d.g.root_pb_vote);
-                    bVar.bKL = (TextView) inflate.findViewById(d.g.tv_name);
-                    bVar.bKM = (CheckBox) inflate.findViewById(d.g.cb_select);
-                    bVar.bKM.setClickable(false);
+                    bVar.bKS = (RelativeLayout) inflate.findViewById(d.g.root_pb_vote);
+                    bVar.bKT = (TextView) inflate.findViewById(d.g.tv_name);
+                    bVar.bKU = (CheckBox) inflate.findViewById(d.g.cb_select);
+                    bVar.bKU.setClickable(false);
                     inflate.setTag(bVar);
-                    bVar.bKL.setText(UtilHelper.getFixedText(aVar.Kj(), 15, false));
-                    bVar.bKM.setChecked(aVar.isSelected());
-                    bVar.bKK.setOnClickListener(new a(aVar, i));
+                    bVar.bKT.setText(UtilHelper.getFixedText(aVar.JY(), 15, false));
+                    bVar.bKU.setChecked(aVar.isSelected());
+                    bVar.bKS.setOnClickListener(new a(aVar, i));
                     a(TbadkCoreApplication.getInst().getSkinType(), bVar);
                     addView(inflate);
-                    this.bKD.add(bVar);
+                    this.bKL.add(bVar);
                 }
             }
         }
@@ -85,63 +85,63 @@ public class VoteTextGroupView extends LinearLayout {
 
     private void a(int i, b bVar) {
         if (bVar != null) {
-            aj.e(bVar.bKL, d.C0108d.cp_cont_b, 1);
-            bVar.bKM.setButtonDrawable(aj.au(i, d.f.vote_text_check_box));
+            aj.e(bVar.bKT, d.C0107d.cp_cont_b, 1);
+            bVar.bKU.setButtonDrawable(aj.au(i, d.f.vote_text_check_box));
         }
     }
 
     /* loaded from: classes.dex */
     private class a implements View.OnClickListener {
-        private com.baidu.tbadk.widget.vote.a bKH;
-        private int bKI;
+        private com.baidu.tbadk.widget.vote.a bKP;
+        private int bKQ;
 
         public a(com.baidu.tbadk.widget.vote.a aVar, int i) {
-            this.bKH = aVar;
-            this.bKI = i;
+            this.bKP = aVar;
+            this.bKQ = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (VoteTextGroupView.this.bKD != null) {
+            if (VoteTextGroupView.this.bKL != null) {
                 if (VoteTextGroupView.this.mMode == 2) {
-                    if (VoteTextGroupView.this.bKE == -1 && VoteTextGroupView.this.bKG != null) {
-                        int size = VoteTextGroupView.this.bKG.size();
+                    if (VoteTextGroupView.this.bKM == -1 && VoteTextGroupView.this.bKO != null) {
+                        int size = VoteTextGroupView.this.bKO.size();
                         for (int i = 0; i < size; i++) {
-                            com.baidu.tbadk.widget.vote.a aVar = (com.baidu.tbadk.widget.vote.a) VoteTextGroupView.this.bKG.get(i);
-                            if (aVar != null && this.bKI != i) {
-                                ((b) VoteTextGroupView.this.bKD.get(i)).bKM.setChecked(false);
-                                if (VoteTextGroupView.this.bKp != null) {
-                                    VoteTextGroupView.this.bKp.a(aVar, i, false);
+                            com.baidu.tbadk.widget.vote.a aVar = (com.baidu.tbadk.widget.vote.a) VoteTextGroupView.this.bKO.get(i);
+                            if (aVar != null && this.bKQ != i) {
+                                ((b) VoteTextGroupView.this.bKL.get(i)).bKU.setChecked(false);
+                                if (VoteTextGroupView.this.bKx != null) {
+                                    VoteTextGroupView.this.bKx.a(aVar, i, false);
                                 }
                             }
                         }
                     }
-                    for (int i2 = 0; i2 < VoteTextGroupView.this.bKD.size(); i2++) {
-                        b bVar = (b) VoteTextGroupView.this.bKD.get(i2);
-                        if (this.bKI == i2) {
-                            if (this.bKI != VoteTextGroupView.this.bKE && VoteTextGroupView.this.bKE >= 0 && VoteTextGroupView.this.bKE < VoteTextGroupView.this.bKD.size()) {
-                                ((b) VoteTextGroupView.this.bKD.get(VoteTextGroupView.this.bKE)).bKM.setChecked(false);
-                                if (VoteTextGroupView.this.bKp != null) {
-                                    VoteTextGroupView.this.bKp.a(VoteTextGroupView.this.bKF, VoteTextGroupView.this.bKE, false);
+                    for (int i2 = 0; i2 < VoteTextGroupView.this.bKL.size(); i2++) {
+                        b bVar = (b) VoteTextGroupView.this.bKL.get(i2);
+                        if (this.bKQ == i2) {
+                            if (this.bKQ != VoteTextGroupView.this.bKM && VoteTextGroupView.this.bKM >= 0 && VoteTextGroupView.this.bKM < VoteTextGroupView.this.bKL.size()) {
+                                ((b) VoteTextGroupView.this.bKL.get(VoteTextGroupView.this.bKM)).bKU.setChecked(false);
+                                if (VoteTextGroupView.this.bKx != null) {
+                                    VoteTextGroupView.this.bKx.a(VoteTextGroupView.this.bKN, VoteTextGroupView.this.bKM, false);
                                 }
                             }
-                            VoteTextGroupView.this.bKE = this.bKI;
-                            VoteTextGroupView.this.bKF = this.bKH;
-                            boolean isChecked = bVar.bKM.isChecked();
-                            bVar.bKM.setChecked(!isChecked);
-                            if (VoteTextGroupView.this.bKp != null) {
-                                VoteTextGroupView.this.bKp.a(this.bKH, this.bKI, !isChecked);
+                            VoteTextGroupView.this.bKM = this.bKQ;
+                            VoteTextGroupView.this.bKN = this.bKP;
+                            boolean isChecked = bVar.bKU.isChecked();
+                            bVar.bKU.setChecked(!isChecked);
+                            if (VoteTextGroupView.this.bKx != null) {
+                                VoteTextGroupView.this.bKx.a(this.bKP, this.bKQ, !isChecked);
                             }
                         }
                     }
                 } else if (VoteTextGroupView.this.mMode == 1) {
-                    for (int i3 = 0; i3 < VoteTextGroupView.this.bKD.size(); i3++) {
-                        if (i3 == this.bKI) {
-                            b bVar2 = (b) VoteTextGroupView.this.bKD.get(i3);
-                            boolean isChecked2 = bVar2.bKM.isChecked();
-                            bVar2.bKM.setChecked(!isChecked2);
-                            if (VoteTextGroupView.this.bKp != null) {
-                                VoteTextGroupView.this.bKp.a(this.bKH, this.bKI, isChecked2 ? false : true);
+                    for (int i3 = 0; i3 < VoteTextGroupView.this.bKL.size(); i3++) {
+                        if (i3 == this.bKQ) {
+                            b bVar2 = (b) VoteTextGroupView.this.bKL.get(i3);
+                            boolean isChecked2 = bVar2.bKU.isChecked();
+                            bVar2.bKU.setChecked(!isChecked2);
+                            if (VoteTextGroupView.this.bKx != null) {
+                                VoteTextGroupView.this.bKx.a(this.bKP, this.bKQ, isChecked2 ? false : true);
                                 return;
                             }
                             return;
@@ -153,8 +153,8 @@ public class VoteTextGroupView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bKD != null && !this.bKD.isEmpty()) {
-            for (b bVar : this.bKD) {
+        if (this.bKL != null && !this.bKL.isEmpty()) {
+            for (b bVar : this.bKL) {
                 if (bVar != null) {
                     a(i, bVar);
                 }
@@ -165,9 +165,9 @@ public class VoteTextGroupView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public RelativeLayout bKK;
-        public TextView bKL;
-        public CheckBox bKM;
+        public RelativeLayout bKS;
+        public TextView bKT;
+        public CheckBox bKU;
 
         private b() {
         }

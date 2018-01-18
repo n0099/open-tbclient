@@ -14,7 +14,7 @@ public class b {
         this.hide = i;
     }
 
-    public String Iu() {
+    public String In() {
         return this.distance;
     }
 
@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int Iv() {
+    public int Io() {
         return this.hide;
     }
 }
