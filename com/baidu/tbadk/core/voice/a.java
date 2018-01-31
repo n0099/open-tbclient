@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String Eq() {
-        return q.pj();
+    public static String Es() {
+        return q.pk();
     }
 
-    public static String eF(String str) {
+    public static String eM(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String eG(String str) {
+    public static String eN(String str) {
         return k.r(str, 1);
     }
 
-    public static String eH(String str) {
-        return f.aH(eF(str));
+    public static String eO(String str) {
+        return f.aH(eM(str));
     }
 
     public static boolean aM(String str) {

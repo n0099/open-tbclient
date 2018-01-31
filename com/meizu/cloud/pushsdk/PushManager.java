@@ -15,7 +15,7 @@ public class PushManager {
 
     @Deprecated
     public static void register(Context context) {
-        com.meizu.cloud.a.a.db(context);
+        com.meizu.cloud.a.a.cY(context);
         String a = MzSystemUtils.a(context, "com.meizu.cloud");
         com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " start register cloudVersion_name " + a);
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_START_PUSH_REGISTER);
@@ -77,7 +77,7 @@ public class PushManager {
     }
 
     public static void register(Context context, String str, String str2) {
-        com.meizu.cloud.a.a.db(context);
+        com.meizu.cloud.a.a.cY(context);
         b.a(context).a(str, str2);
     }
 

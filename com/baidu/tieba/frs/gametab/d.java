@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.i;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.mainTab.b {
     public d(i iVar) {
-        Mn().bvG = iVar;
+        Mp().bvP = iVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,11 +20,11 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Mm() {
+    public com.baidu.tbadk.mainTab.c Mo() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 1;
-        cVar.bvH = d.j.chosen_pb_title;
-        cVar.bvO = com.baidu.tbadk.mainTab.c.bvM;
+        cVar.bvQ = d.j.chosen_pb_title;
+        cVar.bvX = com.baidu.tbadk.mainTab.c.bvV;
         return cVar;
     }
 
@@ -35,9 +35,9 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bm(Context context) {
-        this.bvx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bvx.setTextSize(2.0f);
-        return this.bvx;
+    public e bj(Context context) {
+        this.bvG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bvG.setTextSize(2.0f);
+        return this.bvG;
     }
 }

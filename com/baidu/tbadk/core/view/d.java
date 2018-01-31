@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
 /* loaded from: classes.dex */
 public class d extends HorizontalScrollView {
-    private a aYW;
+    private a aZe;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -14,7 +14,7 @@ public class d extends HorizontalScrollView {
     }
 
     public void setOnSizeChangeListener(a aVar) {
-        this.aYW = aVar;
+        this.aZe = aVar;
     }
 
     public d(Context context) {
@@ -40,8 +40,8 @@ public class d extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aYW != null) {
-            this.aYW.ax(getMeasuredWidth(), getMeasuredHeight());
+        if (this.aZe != null) {
+            this.aZe.ax(getMeasuredWidth(), getMeasuredHeight());
         }
     }
 }

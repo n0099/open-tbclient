@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int asF;
-    int asG;
-    int asH;
     int asI;
     int asJ;
     int asK;
+    int asL;
+    int asM;
+    int asN;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.asF = i;
-        this.asG = i2;
-        this.asH = i3;
-        this.asI = i4;
-        this.asJ = i5;
-        this.asK = i6;
+        this.asI = i;
+        this.asJ = i2;
+        this.asK = i3;
+        this.asL = i4;
+        this.asM = i5;
+        this.asN = i6;
     }
 
     public String toString() {
-        return this.asF + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.asG + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.asH + " " + this.asI + ":" + this.asJ + ":" + this.asK;
+        return this.asI + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.asJ + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.asK + " " + this.asL + ":" + this.asM + ":" + this.asN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.asF - fVar.asF > 0) {
+        if (this.asI - fVar.asI > 0) {
             return 1;
         }
-        if (this.asF - fVar.asF < 0) {
+        if (this.asI - fVar.asI < 0) {
             return -1;
         }
-        if (this.asG - fVar.asG <= 0) {
-            if (this.asG - fVar.asG < 0) {
+        if (this.asJ - fVar.asJ <= 0) {
+            if (this.asJ - fVar.asJ < 0) {
                 return -1;
             }
-            if (this.asH - fVar.asH <= 0) {
-                if (this.asH - fVar.asH < 0) {
+            if (this.asK - fVar.asK <= 0) {
+                if (this.asK - fVar.asK < 0) {
                     return -1;
                 }
-                if (this.asI - fVar.asI <= 0) {
-                    if (this.asI - fVar.asI < 0) {
+                if (this.asL - fVar.asL <= 0) {
+                    if (this.asL - fVar.asL < 0) {
                         return -1;
                     }
-                    if (this.asJ - fVar.asJ <= 0) {
-                        if (this.asJ - fVar.asJ < 0) {
+                    if (this.asM - fVar.asM <= 0) {
+                        if (this.asM - fVar.asM < 0) {
                             return -1;
                         }
-                        if (this.asK - fVar.asK <= 0) {
-                            return this.asK - fVar.asK < 0 ? -1 : 0;
+                        if (this.asN - fVar.asN <= 0) {
+                            return this.asN - fVar.asN < 0 ? -1 : 0;
                         }
                         return 1;
                     }

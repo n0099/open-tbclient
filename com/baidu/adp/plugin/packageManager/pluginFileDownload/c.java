@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c arO;
-    private b arP;
+    private static volatile c arR;
+    private b arS;
 
-    public static c rl() {
-        if (arO == null) {
+    public static c rm() {
+        if (arR == null) {
             synchronized (c.class) {
-                if (arO == null) {
-                    arO = new c();
+                if (arR == null) {
+                    arR = new c();
                 }
             }
         }
-        return arO;
+        return arR;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.arP != null) {
+        if (bdFileDownloadData != null && this.arS != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.arP.h(bdFileDownloadData);
+            this.arS.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.arP != null) {
+        if (bdFileDownloadData != null && this.arS != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.arP.b(bdFileDownloadData, 1);
+            this.arS.b(bdFileDownloadData, 1);
         }
     }
 
     public void bC(String str) {
-        if (this.arP != null) {
-            this.arP.bB(str);
+        if (this.arS != null) {
+            this.arS.bB(str);
         }
     }
 
     public void a(b bVar) {
-        this.arP = bVar;
+        this.arS = bVar;
     }
 
     public boolean bz(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.arP != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.arP.rk()) {
+        if (this.arS != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.arS.rl()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

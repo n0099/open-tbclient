@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.d;
 /* loaded from: classes2.dex */
 public class a {
-    public boolean dQx = false;
-    public int dQy = 0;
-    public String dQz = null;
-    public int dQA = -1;
-    public int dQB = -1;
+    public boolean dQS = false;
+    public int dQT = 0;
+    public String dQU = null;
+    public int dQV = -1;
+    public int dQW = -1;
 }

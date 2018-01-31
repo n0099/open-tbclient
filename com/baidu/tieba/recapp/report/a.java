@@ -5,119 +5,119 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject cKa;
+    private JSONObject cKn;
     private DownloadStaticsData downloadStaticsData;
     private String extInfo;
-    private int gEA;
-    private int gEB;
-    private String gEC;
-    private String gED;
-    private String gEE;
-    private String gEF;
-    private String gEG;
-    private String gEH;
-    private JSONObject gEq;
-    private int gEr;
-    private int gEs;
-    private long gEt = System.currentTimeMillis() / 1000;
-    private String gEu;
-    private int gEv;
-    private int gEw;
-    private int gEx;
-    private int gEy;
-    private int gEz;
+    private JSONObject gEL;
+    private int gEM;
+    private int gEN;
+    private long gEO = System.currentTimeMillis() / 1000;
+    private String gEP;
+    private int gEQ;
+    private int gER;
+    private int gES;
+    private int gET;
+    private int gEU;
+    private int gEV;
+    private int gEW;
+    private String gEX;
+    private String gEY;
+    private String gEZ;
+    private String gFa;
+    private String gFb;
+    private String gFc;
     private int pageNumber;
     private String placeId;
 
-    public void rH(String str) {
+    public void rO(String str) {
         this.extInfo = str;
     }
 
     public void us(int i) {
-        this.gEr = i;
+        this.gEM = i;
     }
 
     public void ut(int i) {
-        this.gEs = i;
+        this.gEN = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void rI(String str) {
+    public void rP(String str) {
         this.placeId = str;
     }
 
-    public void rJ(String str) {
-        this.gEu = str;
+    public void rQ(String str) {
+        this.gEP = str;
     }
 
     public void uu(int i) {
-        this.gEy = i;
+        this.gET = i;
     }
 
     public void uv(int i) {
-        this.gEz = i;
+        this.gEU = i;
     }
 
     public void uw(int i) {
-        this.gEA = i;
+        this.gEV = i;
     }
 
     public void ux(int i) {
-        this.gEB = i;
+        this.gEW = i;
     }
 
-    public void rK(String str) {
-        this.gEC = str;
+    public void rR(String str) {
+        this.gEX = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.gEs = com.baidu.adp.lib.g.b.h(downloadStaticsData.getAdPosition(), 0);
-            this.gEu = downloadStaticsData.getPrice();
+            this.gEN = com.baidu.adp.lib.g.b.h(downloadStaticsData.getAdPosition(), 0);
+            this.gEP = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void bT(String str, String str2) {
-        if (this.gEq == null) {
-            this.gEq = new JSONObject();
+    public void bS(String str, String str2) {
+        if (this.gEL == null) {
+            this.gEL = new JSONObject();
         }
         try {
-            this.gEq.put(str, str2);
+            this.gEL.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject bnA() {
-        if (this.cKa != null) {
-            return this.cKa;
+    public JSONObject bnB() {
+        if (this.cKn != null) {
+            return this.cKn;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.gEs);
-            jSONObject.put("da_type", this.gEr);
+            jSONObject.put("da_locate", this.gEN);
+            jSONObject.put("da_type", this.gEM);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.gEt);
+            jSONObject.put("origin_time", this.gEO);
             jSONObject.put("da_page_num", this.pageNumber);
-            jSONObject.put("da_price", this.gEu);
+            jSONObject.put("da_price", this.gEP);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.gEv);
-            jSONObject.put("ext3", this.gEx);
-            jSONObject.put("ext2", this.gEw);
-            jSONObject.put("da_ext1", this.gEy);
-            jSONObject.put("da_ext2", this.gEz);
-            jSONObject.put("da_ext3", this.gEA);
-            jSONObject.put("da_ext4", this.gEB);
-            jSONObject.put("da_menu1", this.gED);
-            jSONObject.put("da_menu2", this.gEE);
-            jSONObject.put("da_menu3", this.gEF);
-            jSONObject.put("da_page", this.gEG);
+            jSONObject.put("ext1", this.gEQ);
+            jSONObject.put("ext3", this.gES);
+            jSONObject.put("ext2", this.gER);
+            jSONObject.put("da_ext1", this.gET);
+            jSONObject.put("da_ext2", this.gEU);
+            jSONObject.put("da_ext3", this.gEV);
+            jSONObject.put("da_ext4", this.gEW);
+            jSONObject.put("da_menu1", this.gEY);
+            jSONObject.put("da_menu2", this.gEZ);
+            jSONObject.put("da_menu3", this.gFa);
+            jSONObject.put("da_page", this.gFb);
             jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.gEC);
+            jSONObject.put("lego_extra", this.gEX);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -125,36 +125,36 @@ public class a {
                 jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
                 jSONObject.put("apk_name", this.downloadStaticsData.getApk_name());
             }
-            jSONObject.put("da_area", this.gEH);
+            jSONObject.put("da_area", this.gFc);
         } catch (JSONException e) {
         }
-        if (this.gEq != null) {
+        if (this.gEL != null) {
             try {
-                jSONObject.put("ext", this.gEq);
+                jSONObject.put("ext", this.gEL);
             } catch (Exception e2) {
             }
         }
-        this.cKa = jSONObject;
+        this.cKn = jSONObject;
         return jSONObject;
     }
 
-    public void rL(String str) {
-        this.gED = str;
+    public void rS(String str) {
+        this.gEY = str;
     }
 
-    public void rM(String str) {
-        this.gEE = str;
+    public void rT(String str) {
+        this.gEZ = str;
     }
 
-    public void rN(String str) {
-        this.gEF = str;
+    public void rU(String str) {
+        this.gFa = str;
     }
 
-    public void rO(String str) {
-        this.gEG = str;
+    public void rV(String str) {
+        this.gFb = str;
     }
 
-    public void rP(String str) {
-        this.gEH = str;
+    public void rW(String str) {
+        this.gFc = str;
     }
 }

@@ -1,4 +1,4 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import android.graphics.Bitmap;
 import android.graphics.NinePatch;
@@ -15,39 +15,39 @@ public class p extends a {
         this.procType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.lib.Disk.ops.c er(String str) {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public com.baidu.adp.lib.Disk.ops.c ey(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public com.baidu.adp.widget.a.a a(com.baidu.adp.lib.Disk.ops.c cVar, String str) {
         if (cVar == null || !(cVar instanceof com.baidu.adp.lib.Disk.ops.b)) {
             return null;
@@ -61,24 +61,24 @@ public class p extends a {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
         return BitmapHelper.Bytes2NineBitmap(bArr, rect, sb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean g(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     protected Bitmap a(Bitmap bitmap, int i, int i2) {
         return bitmap;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

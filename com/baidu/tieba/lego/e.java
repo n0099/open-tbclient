@@ -7,7 +7,7 @@ public interface e {
 
     e au(String str, int i);
 
-    e bp(String str, String str2);
+    e bo(String str, String str2);
 
     e t(String str, long j);
 }

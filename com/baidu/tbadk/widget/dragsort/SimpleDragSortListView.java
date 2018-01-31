@@ -8,13 +8,13 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class SimpleDragSortListView extends BdListView {
-    private e bFq;
-    private AttributeSet bFr;
-    private final f bFs;
+    private final f bFA;
+    private e bFy;
+    private AttributeSet bFz;
 
     public SimpleDragSortListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bFs = new f() { // from class: com.baidu.tbadk.widget.dragsort.SimpleDragSortListView.1
+        this.bFA = new f() { // from class: com.baidu.tbadk.widget.dragsort.SimpleDragSortListView.1
             @Override // com.baidu.tbadk.widget.dragsort.f
             public void setAdapter(ListAdapter listAdapter) {
                 SimpleDragSortListView.super.setAdapter(listAdapter);
@@ -60,23 +60,23 @@ public class SimpleDragSortListView extends BdListView {
                 SimpleDragSortListView.super.layoutChildren();
             }
         };
-        this.bFr = attributeSet;
+        this.bFz = attributeSet;
     }
 
     public void setDragSortViewEventDelegate(e eVar) {
-        this.bFq = eVar;
-        eVar.a(this, getContext(), this.bFr);
+        this.bFy = eVar;
+        eVar.a(this, getContext(), this.bFz);
     }
 
     public f getViewSuperMethods() {
-        return this.bFs;
+        return this.bFA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
-        if (this.bFq != null) {
-            this.bFq.setAdapter(listAdapter);
+        if (this.bFy != null) {
+            this.bFy.setAdapter(listAdapter);
         } else {
             super.setAdapter(listAdapter);
         }
@@ -85,8 +85,8 @@ public class SimpleDragSortListView extends BdListView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.bFq != null) {
-            this.bFq.dispatchDraw(canvas);
+        if (this.bFy != null) {
+            this.bFy.dispatchDraw(canvas);
         } else {
             super.dispatchDraw(canvas);
         }
@@ -94,8 +94,8 @@ public class SimpleDragSortListView extends BdListView {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.bFq != null) {
-            this.bFq.onDraw(canvas);
+        if (this.bFy != null) {
+            this.bFy.onDraw(canvas);
         } else {
             super.onDraw(canvas);
         }
@@ -103,18 +103,18 @@ public class SimpleDragSortListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.bFq != null ? this.bFq.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.bFy != null ? this.bFy.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.bFq != null ? this.bFq.onInterceptTouchEvent(motionEvent) : super.onInterceptTouchEvent(motionEvent);
+        return this.bFy != null ? this.bFy.onInterceptTouchEvent(motionEvent) : super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        if (this.bFq != null) {
-            this.bFq.onSizeChanged(i, i2, i3, i4);
+        if (this.bFy != null) {
+            this.bFy.onSizeChanged(i, i2, i3, i4);
         } else {
             super.onSizeChanged(i, i2, i3, i4);
         }
@@ -122,8 +122,8 @@ public class SimpleDragSortListView extends BdListView {
 
     @Override // android.widget.AbsListView, android.view.View, android.view.ViewParent
     public void requestLayout() {
-        if (this.bFq != null) {
-            this.bFq.requestLayout();
+        if (this.bFy != null) {
+            this.bFy.requestLayout();
         } else {
             super.requestLayout();
         }
@@ -132,8 +132,8 @@ public class SimpleDragSortListView extends BdListView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.bFq != null) {
-            this.bFq.onMeasure(i, i2);
+        if (this.bFy != null) {
+            this.bFy.onMeasure(i, i2);
         } else {
             super.onMeasure(i, i2);
         }
@@ -142,8 +142,8 @@ public class SimpleDragSortListView extends BdListView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView
     public void layoutChildren() {
-        if (this.bFq != null) {
-            this.bFq.layoutChildren();
+        if (this.bFy != null) {
+            this.bFy.layoutChildren();
         } else {
             super.layoutChildren();
         }

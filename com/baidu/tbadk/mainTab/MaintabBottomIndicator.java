@@ -19,52 +19,52 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MaintabBottomIndicator extends e {
-    private HashMap<String, e.a> bvF;
-    private int bvK;
-    private int bvO;
-    private View bvP;
-    private View bvQ;
-    private ImageView bvR;
-    private int bvS;
+    private int bvH;
+    private HashMap<String, e.a> bvO;
     private int bvT;
-    private int bvU;
-    private int bvV;
-    private AnimationDrawable bvW;
-    private int bvy;
+    private int bvX;
+    private View bvY;
+    private View bvZ;
+    private ImageView bwa;
+    private int bwb;
+    private int bwc;
+    private int bwd;
+    private int bwe;
+    private AnimationDrawable bwf;
     private ImageView mIconView;
     private TextView rz;
 
     public MaintabBottomIndicator(Context context) {
         super(context);
-        this.bvy = 0;
-        this.bvF = new HashMap<>();
+        this.bvH = 0;
+        this.bvO = new HashMap<>();
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bvy = 0;
-        this.bvF = new HashMap<>();
+        this.bvH = 0;
+        this.bvO = new HashMap<>();
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bvy = 0;
-        this.bvF = new HashMap<>();
+        this.bvH = 0;
+        this.bvO = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.bvP = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.bvY = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.bvP.setLayoutParams(layoutParams);
-        this.bvQ = this.bvP.findViewById(d.g.container_common_item);
-        this.mIconView = (ImageView) this.bvP.findViewById(d.g.view_bottom_icon);
-        this.rz = (TextView) this.bvP.findViewById(d.g.view_bottom_text);
-        this.bvR = (ImageView) this.bvP.findViewById(d.g.view_write_icon);
-        addView(this.bvP);
+        this.bvY.setLayoutParams(layoutParams);
+        this.bvZ = this.bvY.findViewById(d.g.container_common_item);
+        this.mIconView = (ImageView) this.bvY.findViewById(d.g.view_bottom_icon);
+        this.rz = (TextView) this.bvY.findViewById(d.g.view_bottom_text);
+        this.bwa = (ImageView) this.bvY.findViewById(d.g.view_write_icon);
+        addView(this.bvY);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -72,7 +72,7 @@ public class MaintabBottomIndicator extends e {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvF.entrySet();
+        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
         if (entrySet != null && (r5 = entrySet.iterator()) != null) {
             for (Map.Entry<String, e.a> entry : entrySet) {
                 e.a value = entry.getValue();
@@ -95,7 +95,7 @@ public class MaintabBottomIndicator extends e {
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvF.entrySet();
+        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
             while (it.hasNext() && this.mIconView != null) {
                 e.a value = it.next().getValue();
@@ -103,13 +103,13 @@ public class MaintabBottomIndicator extends e {
                     int measuredWidth2 = value.view.getMeasuredWidth();
                     int measuredHeight3 = value.view.getMeasuredHeight();
                     int measuredWidth3 = this.mIconView.getMeasuredWidth();
-                    if (value.bvY) {
+                    if (value.bwh) {
                         measuredWidth = ((measuredWidth3 / 2) + (getMeasuredWidth() / 2)) - (measuredWidth2 / 2);
                     } else {
                         measuredWidth = ((getMeasuredWidth() / 2) - (measuredWidth3 / 2)) + (measuredWidth2 / 2);
                     }
-                    if (this.bvy == 1) {
-                        measuredHeight = this.bvP.getTop() + this.mIconView.getTop();
+                    if (this.bvH == 1) {
+                        measuredHeight = this.bvY.getTop() + this.mIconView.getTop();
                         measuredHeight2 = measuredHeight3 / 2;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
@@ -124,14 +124,14 @@ public class MaintabBottomIndicator extends e {
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTipPosType(int i) {
-        this.bvy = i;
+        this.bvH = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void a(String str, e.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view);
-            this.bvF.put(str, aVar);
+            this.bvO.put(str, aVar);
         }
     }
 
@@ -139,13 +139,13 @@ public class MaintabBottomIndicator extends e {
     public void b(String str, e.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view, -2, -2);
-            this.bvF.put(str, aVar);
+            this.bvO.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public e.a gG(String str) {
-        return this.bvF.get(str);
+    public e.a gN(String str) {
+        return this.bvO.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
@@ -154,29 +154,29 @@ public class MaintabBottomIndicator extends e {
     }
 
     public void setIconResourceId(int i) {
-        this.bvT = i;
+        this.bwc = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextColorResId(int i) {
-        this.bvS = i;
+        this.bwb = i;
     }
 
     public void setShowIconType(int i) {
-        this.bvO = i;
+        this.bvX = i;
     }
 
     public void aK(int i, int i2) {
-        this.bvQ.setVisibility(8);
-        this.bvR.setVisibility(0);
-        aj.c(this.bvR, i);
-        aj.s(this.bvR, i2);
-        this.bvU = i;
-        this.bvV = i2;
+        this.bvZ.setVisibility(8);
+        this.bwa.setVisibility(0);
+        aj.c(this.bwa, i);
+        aj.s(this.bwa, i2);
+        this.bwd = i;
+        this.bwe = i2;
     }
 
     public void setAnimationResId(int i) {
-        this.bvK = i;
+        this.bvT = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -188,7 +188,7 @@ public class MaintabBottomIndicator extends e {
     @Override // com.baidu.tbadk.mainTab.e
     public void gz(int i) {
         super.gz(i);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvF.entrySet();
+        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, e.a> entry : entrySet) {
                 e.a value = entry.getValue();
@@ -197,39 +197,39 @@ public class MaintabBottomIndicator extends e {
                 }
             }
         }
-        if (this.bvO == c.bvL) {
-            aj.c(this.bvR, this.bvU);
-            aj.s(this.bvR, this.bvV);
+        if (this.bvX == c.bvU) {
+            aj.c(this.bwa, this.bwd);
+            aj.s(this.bwa, this.bwe);
             return;
         }
-        if (this.bvS != 0) {
-            aj.r(this.rz, this.bvS);
+        if (this.bwb != 0) {
+            aj.r(this.rz, this.bwb);
         } else {
-            aj.r(this.rz, d.C0107d.cp_cont_f);
+            aj.r(this.rz, d.C0108d.cp_cont_f);
         }
-        if (this.bvT != 0) {
-            aj.c(this.mIconView, this.bvT);
+        if (this.bwc != 0) {
+            aj.c(this.mIconView, this.bwc);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public void cm(boolean z) {
-        super.cm(z);
-        if (this.bvK != 0) {
+    public void cn(boolean z) {
+        super.cn(z);
+        if (this.bvT != 0) {
             if (z) {
-                aj.c(this.mIconView, this.bvK);
-                this.bvW = (AnimationDrawable) this.mIconView.getDrawable();
-                if (this.bvW != null) {
-                    this.bvW.start();
+                aj.c(this.mIconView, this.bvT);
+                this.bwf = (AnimationDrawable) this.mIconView.getDrawable();
+                if (this.bwf != null) {
+                    this.bwf.start();
                     return;
                 }
                 return;
             }
-            if (this.bvW != null) {
-                this.bvW.stop();
+            if (this.bwf != null) {
+                this.bwf.stop();
             }
-            if (this.bvT != 0) {
-                aj.c(this.mIconView, this.bvT);
+            if (this.bwc != 0) {
+                aj.c(this.mIconView, this.bwc);
             }
         }
     }

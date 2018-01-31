@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.voice.service;
 public interface c {
     void EA();
 
-    boolean EB();
+    void EB();
 
-    void Eu();
+    void EC();
 
-    void Ey();
+    boolean ED();
 
-    void Ez();
+    void Ew();
 
-    boolean eM(String str);
+    boolean eT(String str);
 
     void gK(int i);
 
@@ -19,5 +19,5 @@ public interface c {
 
     boolean isPlaying();
 
-    int pl();
+    int pm();
 }

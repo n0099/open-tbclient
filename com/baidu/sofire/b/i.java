@@ -73,7 +73,7 @@ public final class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private HttpURLConnection uP() throws IOException {
+    private HttpURLConnection uQ() throws IOException {
         String str;
         HttpURLConnection httpURLConnection;
         String[] e;
@@ -375,22 +375,22 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager aEU;
+        private X509TrustManager aEX;
 
         a(X509TrustManager x509TrustManager) {
-            this.aEU = null;
-            this.aEU = x509TrustManager;
+            this.aEX = null;
+            this.aEX = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.aEU.checkClientTrusted(x509CertificateArr, str);
+            this.aEX.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.aEU.checkServerTrusted(x509CertificateArr, str);
+                this.aEX.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException e) {
                 d.a(e);
                 for (Throwable th = e; th != null; th = th.getCause()) {
@@ -407,7 +407,7 @@ public final class i {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.aEU.getAcceptedIssuers();
+            return this.aEX.getAcceptedIssuers();
         }
     }
 
@@ -426,7 +426,7 @@ public final class i {
             this.c = HttpPost.METHOD_NAME;
             this.d = str;
             try {
-                httpURLConnection = uP();
+                httpURLConnection = uQ();
                 try {
                     inputStream = a(bArr, httpURLConnection);
                     String a2 = a(inputStream);
@@ -477,7 +477,7 @@ public final class i {
             try {
                 this.c = HttpGet.METHOD_NAME;
                 this.d = str;
-                httpURLConnection = uP();
+                httpURLConnection = uQ();
                 try {
                     inputStream = a(null, httpURLConnection);
                     String a2 = a(inputStream);
@@ -568,7 +568,7 @@ public final class i {
             java.lang.String r1 = "GET"
             r6.c = r1     // Catch: java.lang.Throwable -> L82
             r6.d = r7     // Catch: java.lang.Throwable -> L82
-            java.net.HttpURLConnection r2 = r6.uP()     // Catch: java.lang.Throwable -> L82
+            java.net.HttpURLConnection r2 = r6.uQ()     // Catch: java.lang.Throwable -> L82
             java.io.InputStream r3 = r6.g(r2)     // Catch: java.lang.Throwable -> Le9
             boolean r1 = r6.b(r3, r8)     // Catch: java.lang.Throwable -> Le9
             if (r3 == 0) goto L5e

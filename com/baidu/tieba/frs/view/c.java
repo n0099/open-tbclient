@@ -39,65 +39,65 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public abstract class c {
-    private static HashMap<Integer, String> dUq = new HashMap<>();
-    private static HashSet<Integer> dUr = new HashSet<>();
+    private static HashMap<Integer, String> dUL = new HashMap<>();
+    private static HashSet<Integer> dUM = new HashSet<>();
     protected PopupWindow QK;
-    protected TbPageContext aQp;
-    protected View cHQ;
-    public TextView dAu;
-    protected i dCx;
-    protected int dRK;
-    protected l dSi;
-    protected TextView dTA;
-    protected TextView dTB;
-    protected TextView dTC;
-    protected ImageView dTD;
-    protected View dTE;
-    protected ViewGroup dTF;
-    protected TextView dTG;
-    protected View dTH;
-    protected a dTI;
-    protected ViewGroup dTJ;
-    protected TextView dTK;
-    protected TextView dTL;
-    protected TbImageView dTM;
-    protected LinearLayout dTN;
-    protected bf dTO;
-    protected bi dTP;
-    protected View dTQ;
-    protected TextView dTR;
-    protected TextView dTS;
-    protected ImageView dTT;
-    protected PopupWindow dTU;
-    protected BarImageView dTV;
-    protected UserIconBox dTW;
-    protected ArrayList<com.baidu.tbadk.core.data.g> dTX;
-    protected com.baidu.tieba.frs.e.b dTY;
-    protected f dTZ;
-    protected TextView dTy;
-    protected TextView dTz;
-    protected TextView dUA;
-    protected ai dUa;
-    protected String dUb;
-    protected String dUc;
-    protected String dUd;
-    protected bd dUe;
-    protected int dUf;
-    protected int dUg;
-    protected int dUh;
-    protected int dUi;
-    protected boolean dUj;
-    protected boolean dUk;
-    protected boolean dUl;
-    protected boolean dUm;
-    protected boolean dUn;
-    protected boolean dUo;
-    protected float dUp;
-    protected RelativeLayout dUv;
-    protected RelativeLayout dUw;
-    protected View dUx;
-    protected TextView dUy;
-    protected RelativeLayout dUz;
+    protected TbPageContext aQs;
+    protected View cId;
+    public TextView dAP;
+    protected i dCS;
+    protected l dSD;
+    protected int dSf;
+    protected TextView dTT;
+    protected TextView dTU;
+    protected TextView dTV;
+    protected TextView dTW;
+    protected TextView dTX;
+    protected ImageView dTY;
+    protected View dTZ;
+    protected int dUA;
+    protected int dUB;
+    protected int dUC;
+    protected int dUD;
+    protected boolean dUE;
+    protected boolean dUF;
+    protected boolean dUG;
+    protected boolean dUH;
+    protected boolean dUI;
+    protected boolean dUJ;
+    protected float dUK;
+    protected RelativeLayout dUQ;
+    protected RelativeLayout dUR;
+    protected View dUS;
+    protected TextView dUT;
+    protected RelativeLayout dUU;
+    protected TextView dUV;
+    protected ViewGroup dUa;
+    protected TextView dUb;
+    protected View dUc;
+    protected a dUd;
+    protected ViewGroup dUe;
+    protected TextView dUf;
+    protected TextView dUg;
+    protected TbImageView dUh;
+    protected LinearLayout dUi;
+    protected bf dUj;
+    protected bi dUk;
+    protected View dUl;
+    protected TextView dUm;
+    protected TextView dUn;
+    protected ImageView dUo;
+    protected PopupWindow dUp;
+    protected BarImageView dUq;
+    protected UserIconBox dUr;
+    protected ArrayList<com.baidu.tbadk.core.data.g> dUs;
+    protected com.baidu.tieba.frs.e.b dUt;
+    protected f dUu;
+    protected ai dUv;
+    protected String dUw;
+    protected String dUx;
+    protected String dUy;
+    protected bd dUz;
     protected String mForumId;
     protected String mForumName;
     protected Handler mHandler;
@@ -106,32 +106,32 @@ public abstract class c {
     protected int mMemberType;
     protected View mParent;
     protected TextView mTitleText;
-    protected int dTv = 0;
-    protected int dTw = 0;
-    protected int dTx = 0;
-    private boolean dUs = false;
-    protected HashSet<String> dUt = new HashSet<>();
-    protected final Runnable dUu = new Runnable() { // from class: com.baidu.tieba.frs.view.c.1
+    protected int dTQ = 0;
+    protected int dTR = 0;
+    protected int dTS = 0;
+    private boolean dUN = false;
+    protected HashSet<String> dUO = new HashSet<>();
+    protected final Runnable dUP = new Runnable() { // from class: com.baidu.tieba.frs.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.QK != null && c.this.QK.isShowing() && !c.this.dUk) {
-                com.baidu.adp.lib.g.g.a(c.this.QK, c.this.aQp.getPageActivity());
+            if (c.this.QK != null && c.this.QK.isShowing() && !c.this.dUF) {
+                com.baidu.adp.lib.g.g.a(c.this.QK, c.this.aQs.getPageActivity());
             }
         }
     };
-    protected final View.OnClickListener dUB = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.2
+    protected final View.OnClickListener dUW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.tbadkCore.g gVar;
-            if ((c.this.aQp == null || ax.be(c.this.aQp.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.g) && (gVar = (com.baidu.tieba.tbadkCore.g) view.getTag()) != null && !StringUtils.isNull(gVar.getUrl())) {
+            if ((c.this.aQs == null || ax.bb(c.this.aQs.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.g) && (gVar = (com.baidu.tieba.tbadkCore.g) view.getTag()) != null && !StringUtils.isNull(gVar.getUrl())) {
                 String url = gVar.getUrl();
                 if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    com.baidu.adp.lib.util.l.showToast(c.this.aQp.getPageActivity(), d.j.book_plugin_not_install_tip);
+                    com.baidu.adp.lib.util.l.showToast(c.this.aQs.getPageActivity(), d.j.book_plugin_not_install_tip);
                     return;
                 }
-                av.CZ().c(c.this.aQp, new String[]{url});
-                a.C0154a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.btv(), c.this.dCx.getForumId(), c.this.dCx.getForumName(), null);
-                b.cd("obj_url", gVar.getUrl());
+                av.Da().c(c.this.aQs, new String[]{url});
+                a.C0155a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.btx(), c.this.dCS.getForumId(), c.this.dCS.getForumName(), null);
+                b.cc("obj_url", gVar.getUrl());
                 b.save();
             }
         }
@@ -139,7 +139,7 @@ public abstract class c {
 
     public abstract void a(ForumData forumData, l lVar);
 
-    public abstract void awc();
+    public abstract void awh();
 
     public abstract void changeSkinType(int i);
 
@@ -148,15 +148,15 @@ public abstract class c {
     public abstract void p(View view, boolean z);
 
     static {
-        dUq.put(1, "c0117");
-        dUq.put(2, "c0124");
-        dUq.put(3, "c0125");
-        dUq.put(4, "c0126");
-        dUq.put(5, "c0127");
+        dUL.put(1, "c0117");
+        dUL.put(2, "c0124");
+        dUL.put(3, "c0125");
+        dUL.put(4, "c0126");
+        dUL.put(5, "c0127");
     }
 
-    public boolean azq() {
-        return this.dUj;
+    public boolean azv() {
+        return this.dUE;
     }
 
     public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
@@ -205,10 +205,10 @@ public abstract class c {
         });
     }
 
-    public boolean azr() {
+    public boolean azw() {
         int[] iArr = new int[2];
         try {
-            this.dTT.getLocationOnScreen(iArr);
+            this.dUo.getLocationOnScreen(iArr);
             return iArr[0] >= 160 && iArr[1] >= 105;
         } catch (NullPointerException e) {
             return false;
@@ -219,150 +219,150 @@ public abstract class c {
         return this.mParent;
     }
 
-    public View azs() {
-        return this.dTE;
+    public View azx() {
+        return this.dTZ;
     }
 
-    public View azt() {
-        return this.dTI;
+    public View azy() {
+        return this.dUd;
     }
 
-    public BarImageView azu() {
-        return this.dTV;
+    public BarImageView azz() {
+        return this.dUq;
     }
 
-    public TextView azv() {
+    public TextView azA() {
         return this.mTitleText;
     }
 
-    public TextView azw() {
-        return this.dAu;
+    public TextView azB() {
+        return this.dAP;
     }
 
-    public boolean azg() {
-        return this.dUn;
+    public boolean azl() {
+        return this.dUI;
     }
 
-    public void gm(boolean z) {
-        this.dUm = z;
-        if (this.dUm) {
-            this.dTB.setVisibility(0);
+    public void go(boolean z) {
+        this.dUH = z;
+        if (this.dUH) {
+            this.dTW.setVisibility(0);
         } else {
-            this.dTB.setVisibility(4);
+            this.dTW.setVisibility(4);
         }
     }
 
-    public boolean azh() {
-        return this.dUo;
+    public boolean azm() {
+        return this.dUJ;
     }
 
     public void onDestory() {
-        this.dUk = true;
-        dUr.clear();
+        this.dUF = true;
+        dUM.clear();
     }
 
     public void onStop() {
-        azx();
+        azC();
     }
 
-    public void gf(boolean z) {
+    public void gh(boolean z) {
         if (!z) {
-            azx();
+            azC();
         }
     }
 
-    private void azx() {
-        if (this.dTU != null && this.dTU.isShowing()) {
-            this.dTU.dismiss();
+    private void azC() {
+        if (this.dUp != null && this.dUp.isShowing()) {
+            this.dUp.dismiss();
         }
         if (this.QK != null && this.QK.isShowing()) {
             this.QK.dismiss();
         }
     }
 
-    public void gn(boolean z) {
-        this.dUl = z;
+    public void gp(boolean z) {
+        this.dUG = z;
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
-        this.dUb = str;
+        this.dUw = str;
         this.mLevel = i2;
         if (i == 0) {
-            this.dUj = false;
-            this.dUs = false;
-            this.dUv.setVisibility(0);
-            this.dUw.setVisibility(8);
+            this.dUE = false;
+            this.dUN = false;
+            this.dUQ.setVisibility(0);
+            this.dUR.setVisibility(8);
             return;
         }
-        this.dUj = true;
-        this.dUv.setVisibility(8);
-        this.dUw.setVisibility(0);
-        if (z && !this.dUs) {
-            awd();
-            this.dUs = true;
+        this.dUE = true;
+        this.dUQ.setVisibility(8);
+        this.dUR.setVisibility(0);
+        if (z && !this.dUN) {
+            awi();
+            this.dUN = true;
         }
         c(false, f);
+    }
+
+    protected void awi() {
+    }
+
+    public void od(int i) {
+        if (i == 0) {
+            this.dUE = false;
+            this.dUN = false;
+            this.dUQ.setVisibility(0);
+            this.dUR.setVisibility(8);
+            return;
+        }
+        this.dUE = true;
+        this.dUQ.setVisibility(8);
+        this.dUR.setVisibility(0);
+    }
+
+    public void oe(int i) {
+        if (i == 0) {
+            this.dUI = false;
+            this.dTW.setText(d.j.sign);
+            awd();
+            return;
+        }
+        this.dUI = true;
+        this.dTW.setText(d.j.signed);
+        awc();
     }
 
     protected void awd() {
     }
 
-    public void od(int i) {
-        if (i == 0) {
-            this.dUj = false;
-            this.dUs = false;
-            this.dUv.setVisibility(0);
-            this.dUw.setVisibility(8);
-            return;
-        }
-        this.dUj = true;
-        this.dUv.setVisibility(8);
-        this.dUw.setVisibility(0);
-    }
-
-    public void oe(int i) {
-        if (i == 0) {
-            this.dUn = false;
-            this.dTB.setText(d.j.sign);
-            avY();
-            return;
-        }
-        this.dUn = true;
-        this.dTB.setText(d.j.signed);
-        avX();
-    }
-
-    protected void avY() {
-    }
-
-    protected void avX() {
+    protected void awc() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void awe() {
+    public void awj() {
         if (this.mMemberType != 0) {
-            aj.c(this.dTT, d.f.icon_speed_orange);
+            aj.c(this.dUo, d.f.icon_speed_orange);
         } else {
-            aj.c(this.dTT, d.f.icon_speed_gray);
+            aj.c(this.dUo, d.f.icon_speed_gray);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TextView textView, TextView textView2) {
-        textView.setText(String.valueOf(this.dUi));
-        if (this.dRK >= 10000) {
-            if (this.dRK % 10000 == 0) {
-                textView2.setText(this.aQp.getString(d.j.experience_divider) + String.valueOf(this.dRK / 10000) + this.aQp.getString(d.j.member_count_unit));
+        textView.setText(String.valueOf(this.dUD));
+        if (this.dSf >= 10000) {
+            if (this.dSf % 10000 == 0) {
+                textView2.setText(this.aQs.getString(d.j.experience_divider) + String.valueOf(this.dSf / 10000) + this.aQs.getString(d.j.member_count_unit));
                 return;
             } else {
-                textView2.setText(this.aQp.getString(d.j.experience_divider) + String.valueOf(this.dRK / 10000.0f) + this.aQp.getString(d.j.member_count_unit));
+                textView2.setText(this.aQs.getString(d.j.experience_divider) + String.valueOf(this.dSf / 10000.0f) + this.aQs.getString(d.j.member_count_unit));
                 return;
             }
         }
-        textView2.setText(this.aQp.getString(d.j.experience_divider) + String.valueOf(this.dRK));
+        textView2.setText(this.aQs.getString(d.j.experience_divider) + String.valueOf(this.dSf));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -381,12 +381,12 @@ public abstract class c {
     public void c(boolean z, float f) {
     }
 
-    public void avQ() {
+    public void avV() {
     }
 
     public void x(int i, int i2, int i3, int i4) {
-        if (this.dUz != null) {
-            this.dUz.setPadding(i, i2, i3, i4);
+        if (this.dUU != null) {
+            this.dUU.setPadding(i, i2, i3, i4);
         }
     }
 }

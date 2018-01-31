@@ -28,12 +28,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.aSr, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.aSs, "remote_settings");
-        mProcessMap.put(a.aSt, "bdservice_settings");
-        mProcessMap.put(a.aSu, a.aSx);
-        mProcessMap.put(a.aSv, a.aSy);
-        mProcessMap.put(a.aSw, a.aSz);
+        mProcessMap.put(a.aSu, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.aSv, "remote_settings");
+        mProcessMap.put(a.aSw, "bdservice_settings");
+        mProcessMap.put(a.aSx, a.aSA);
+        mProcessMap.put(a.aSy, a.aSB);
+        mProcessMap.put(a.aSz, a.aSC);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -207,9 +207,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.aSA.length;
+        int length = a.aSD.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.aSA[i])) {
+            if (str.equals(a.aSD[i])) {
                 return true;
             }
         }
@@ -292,7 +292,7 @@ public class b {
                 }
             }
         }
-        return a.aSr;
+        return a.aSu;
     }
 
     public void migrateToNewVersion() {
@@ -333,7 +333,7 @@ public class b {
     }
 
     protected void setValue(final Uri uri, final ContentValues contentValues) {
-        if (l.oY()) {
+        if (l.oZ()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -367,7 +367,7 @@ public class b {
     }
 
     protected void deleteValue(final Uri uri) {
-        if (l.oY()) {
+        if (l.oZ()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */

@@ -14,26 +14,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a aiG = null;
-    public long aiE = 10000;
-    public long aiF = 0;
-    private long aiH = ReportUserInfoModel.TIME_INTERVAL;
-    private boolean aiI = false;
-    private boolean aiJ = false;
-    private boolean aiK = false;
+    private static a aiJ = null;
+    public long aiH = 10000;
+    public long aiI = 0;
+    private long aiK = ReportUserInfoModel.TIME_INTERVAL;
+    private boolean aiL = false;
+    private boolean aiM = false;
+    private boolean aiN = false;
     private int errorCode = 4;
-    private Address aiL = null;
-    private ArrayList<SoftReference<InterfaceC0017a>> aiM = null;
-    private ArrayList<com.baidu.adp.lib.d.b> aiN = new ArrayList<>();
+    private Address aiO = null;
+    private ArrayList<SoftReference<InterfaceC0017a>> aiP = null;
+    private ArrayList<com.baidu.adp.lib.d.b> aiQ = new ArrayList<>();
     private Handler handler = null;
-    private b aiO = new b() { // from class: com.baidu.adp.lib.d.a.1
+    private b aiR = new b() { // from class: com.baidu.adp.lib.d.a.1
         @Override // com.baidu.adp.lib.d.a.b
         public void a(int i, String str, Address address, long j, boolean z) {
-            a.this.aiF = j;
-            a.this.aiL = address;
-            a.this.aiI = z;
+            a.this.aiI = j;
+            a.this.aiO = address;
+            a.this.aiL = z;
             a.this.errorCode = i;
-            a.this.mI();
+            a.this.mJ();
             switch (i) {
                 case 1:
                     if (StringUtils.isNull(str)) {
@@ -78,23 +78,23 @@ public class a {
     private a() {
     }
 
-    public static a mF() {
-        if (aiG == null) {
+    public static a mG() {
+        if (aiJ == null) {
             synchronized (a.class) {
-                if (aiG == null) {
-                    aiG = new a();
+                if (aiJ == null) {
+                    aiJ = new a();
                 }
             }
         }
-        return aiG;
+        return aiJ;
     }
 
     public void a(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.aiN) {
-                if (!this.aiN.contains(bVar)) {
-                    bVar.a(this.aiO);
-                    this.aiN.add(bVar);
+            synchronized (this.aiQ) {
+                if (!this.aiQ.contains(bVar)) {
+                    bVar.a(this.aiR);
+                    this.aiQ.add(bVar);
                 }
             }
         }
@@ -102,25 +102,25 @@ public class a {
 
     public void b(com.baidu.adp.lib.d.b bVar) {
         if (bVar != null) {
-            synchronized (this.aiN) {
+            synchronized (this.aiQ) {
                 bVar.destroy();
-                this.aiN.remove(bVar);
+                this.aiQ.remove(bVar);
             }
         }
     }
 
     public void initial() {
-        this.aiM = new ArrayList<>();
-        mG();
+        this.aiP = new ArrayList<>();
+        mH();
     }
 
-    private void mG() {
+    private void mH() {
         this.handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.baidu.adp.lib.d.a.2
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 0:
-                        a.this.mI();
+                        a.this.mJ();
                         String str = "";
                         switch (a.this.errorCode) {
                             case 1:
@@ -148,28 +148,28 @@ public class a {
         });
     }
 
-    public long mH() {
-        return this.aiE;
+    public long mI() {
+        return this.aiH;
     }
 
-    public Address aj(boolean z) {
+    public Address ak(boolean z) {
         return e(z, false);
     }
 
     public Address e(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.aiF > this.aiH) {
-            this.aiL = null;
+        if (System.currentTimeMillis() - this.aiI > this.aiK) {
+            this.aiO = null;
         }
-        if (this.aiL != null && !z && ((z2 && this.aiI) || !z2)) {
-            return this.aiL;
+        if (this.aiO != null && !z && ((z2 && this.aiL) || !z2)) {
+            return this.aiO;
         }
-        this.aiL = null;
-        if (!this.aiK) {
-            ak(z2);
+        this.aiO = null;
+        if (!this.aiN) {
+            al(z2);
             return null;
-        } else if (this.aiK && z2 && !this.aiJ) {
-            mI();
-            ak(z2);
+        } else if (this.aiN && z2 && !this.aiM) {
+            mJ();
+            al(z2);
             return null;
         } else {
             return null;
@@ -183,24 +183,24 @@ public class a {
     public Address a(boolean z, boolean z2, InterfaceC0017a interfaceC0017a) {
         boolean z3;
         InterfaceC0017a interfaceC0017a2;
-        if (System.currentTimeMillis() - this.aiF > this.aiH) {
-            this.aiL = null;
+        if (System.currentTimeMillis() - this.aiI > this.aiK) {
+            this.aiO = null;
         }
-        if (this.aiL != null && !z && ((z2 && this.aiI) || !z2)) {
+        if (this.aiO != null && !z && ((z2 && this.aiL) || !z2)) {
             if (interfaceC0017a != null) {
-                interfaceC0017a.b(0, "", this.aiL);
+                interfaceC0017a.b(0, "", this.aiO);
             }
-            return this.aiL;
+            return this.aiO;
         }
         if (interfaceC0017a != null) {
-            synchronized (this.aiM) {
+            synchronized (this.aiP) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.aiM.size()) {
+                    if (i >= this.aiP.size()) {
                         z3 = false;
                         break;
                     }
-                    SoftReference<InterfaceC0017a> softReference = this.aiM.get(i);
+                    SoftReference<InterfaceC0017a> softReference = this.aiP.get(i);
                     if (softReference == null || (interfaceC0017a2 = softReference.get()) == null || !interfaceC0017a2.equals(interfaceC0017a)) {
                         i++;
                     } else {
@@ -209,18 +209,18 @@ public class a {
                     }
                 }
                 if (!z3) {
-                    if (this.aiM.size() >= 100) {
-                        this.aiM.remove(0);
+                    if (this.aiP.size() >= 100) {
+                        this.aiP.remove(0);
                     }
-                    this.aiM.add(new SoftReference<>(interfaceC0017a));
+                    this.aiP.add(new SoftReference<>(interfaceC0017a));
                 }
             }
-            if (!this.aiK) {
-                ak(z2);
+            if (!this.aiN) {
+                al(z2);
                 return null;
-            } else if (this.aiK && z2 && !this.aiJ) {
-                mI();
-                ak(z2);
+            } else if (this.aiN && z2 && !this.aiM) {
+                mJ();
+                al(z2);
                 return null;
             }
         }
@@ -229,15 +229,15 @@ public class a {
 
     public void a(InterfaceC0017a interfaceC0017a) {
         InterfaceC0017a interfaceC0017a2;
-        synchronized (this.aiM) {
+        synchronized (this.aiP) {
             int i = 0;
             while (true) {
-                if (i < this.aiM.size()) {
-                    SoftReference<InterfaceC0017a> softReference = this.aiM.get(i);
+                if (i < this.aiP.size()) {
+                    SoftReference<InterfaceC0017a> softReference = this.aiP.get(i);
                     if (softReference == null || (interfaceC0017a2 = softReference.get()) == null || !interfaceC0017a2.equals(interfaceC0017a)) {
                         i++;
                     } else {
-                        this.aiM.remove(softReference);
+                        this.aiP.remove(softReference);
                         break;
                     }
                 } else {
@@ -248,17 +248,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mI() {
+    public void mJ() {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        this.aiK = false;
-        Iterator<com.baidu.adp.lib.d.b> it = this.aiN.iterator();
+        this.aiN = false;
+        Iterator<com.baidu.adp.lib.d.b> it = this.aiQ.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
                 try {
-                    next.mJ();
+                    next.mK();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -266,30 +266,30 @@ public class a {
         }
     }
 
-    private void ak(boolean z) {
+    private void al(boolean z) {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
         this.errorCode = 4;
-        this.aiJ = z;
-        this.aiK = true;
-        if (this.aiN == null || this.aiN.isEmpty()) {
+        this.aiM = z;
+        this.aiN = true;
+        if (this.aiQ == null || this.aiQ.isEmpty()) {
             this.errorCode = 6;
             this.handler.sendMessage(this.handler.obtainMessage(0));
             return;
         }
-        Iterator<com.baidu.adp.lib.d.b> it = this.aiN.iterator();
+        Iterator<com.baidu.adp.lib.d.b> it = this.aiQ.iterator();
         while (it.hasNext()) {
             com.baidu.adp.lib.d.b next = it.next();
             if (next != null) {
                 try {
-                    next.al(z);
+                    next.am(z);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
         }
-        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.aiE);
+        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.aiH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -299,18 +299,18 @@ public class a {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        if (this.aiM != null) {
-            synchronized (this.aiM) {
+        if (this.aiP != null) {
+            synchronized (this.aiP) {
                 while (true) {
                     int i3 = i2;
-                    if (i3 < this.aiM.size()) {
-                        SoftReference<InterfaceC0017a> softReference = this.aiM.get(i3);
+                    if (i3 < this.aiP.size()) {
+                        SoftReference<InterfaceC0017a> softReference = this.aiP.get(i3);
                         if (softReference != null && (interfaceC0017a = softReference.get()) != null) {
                             interfaceC0017a.b(i, str, address);
                         }
                         i2 = i3 + 1;
                     } else {
-                        this.aiM.clear();
+                        this.aiP.clear();
                     }
                 }
             }

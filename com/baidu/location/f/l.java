@@ -29,11 +29,7 @@ public abstract class l {
         return null;
     }
 
-    public WifiInfo uv() {
-        return null;
-    }
-
-    public i uw() {
+    public WifiInfo uw() {
         return null;
     }
 
@@ -42,6 +38,10 @@ public abstract class l {
     }
 
     public i uy() {
+        return null;
+    }
+
+    public i uz() {
         return null;
     }
 }

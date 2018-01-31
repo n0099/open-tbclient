@@ -17,12 +17,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class FileTypeBox extends AbstractBox {
     public static final String TYPE = "ftyp";
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
     private List<String> compatibleBrands;
     private String majorBrand;
     private long minorVersion;

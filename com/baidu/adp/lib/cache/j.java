@@ -3,59 +3,59 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.e;
 /* loaded from: classes.dex */
 public class j<T> extends d<T> {
-    protected final c<T> ahp;
+    protected final c<T> ahs;
 
     public j(c<T> cVar, e eVar, boolean z) {
         super(eVar, z);
-        this.ahp = cVar;
+        this.ahs = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public g<T> Y(String str) {
-        return this.ahp.T(str);
+        return this.ahs.T(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void c(g<T> gVar) {
-        this.ahp.b(gVar);
+        this.ahs.b(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void Z(String str) {
-        this.ahp.U(str);
+        this.ahs.U(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     protected void aa(String str) {
-        this.ahp.c(str, true);
+        this.ahs.c(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void ac(String str) {
-        this.ahp.V(str);
+        this.ahs.V(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void ad(final String str) {
-        if (this.ahe instanceof e.b) {
-            com.baidu.adp.lib.g.h.ns().e(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+        if (this.ahh instanceof e.b) {
+            com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.ahp.X(str);
+                    j.this.ahs.X(str);
                 }
             });
         }
-        if (this.ahe instanceof e.a) {
-            com.baidu.adp.lib.g.h.ns().e(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+        if (this.ahh instanceof e.a) {
+            com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.ahp.W(str);
+                    j.this.ahs.W(str);
                 }
             });
         }
     }
 
-    public c<T> mh() {
-        return this.ahp;
+    public c<T> mi() {
+        return this.ahs;
     }
 }

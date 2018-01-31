@@ -116,16 +116,16 @@ public class DealIntentService extends BdBaseService {
             int i = this.intent.getExtras().getInt("class", -1);
             String stringExtra = this.intent.getStringExtra("link");
             long j = this.intent.getExtras().getLong("task_id");
-            ak ab = new ak("c11703").ab("obj_to", stringExtra).f("task_id", j).ab(Constants.EXTRA_KEY_APP_VERSION, TbConfig.getVersion());
+            ak aa = new ak("c11703").aa("obj_to", stringExtra).f("task_id", j).aa(Constants.EXTRA_KEY_APP_VERSION, TbConfig.getVersion());
             int i2 = this.intent.getExtras().getInt("is_live", -1);
             int i3 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i2 >= 0) {
-                ab.s("is_live", i2);
+                aa.s("is_live", i2);
             }
             if (i3 >= 0) {
-                ab.s("is_live_lcs", i3);
+                aa.s("is_live_lcs", i3);
             }
-            TiebaStatic.log(ab);
+            TiebaStatic.log(aa);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
                 ho(i);
             }
@@ -136,7 +136,7 @@ public class DealIntentService extends BdBaseService {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(500)) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.Bo())) {
+                        if (runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.Bp())) {
                             this.intent.putExtra("class", 5);
                         } else {
                             this.intent.putExtra("class", 21);

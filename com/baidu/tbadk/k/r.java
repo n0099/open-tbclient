@@ -9,54 +9,54 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class r {
-    private static String byV = "tb_perfor_samllflow_time";
-    private static volatile r byY;
-    private long byX;
-    private boolean byT = false;
-    private long byW = 86400;
-    private long byU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(byV, 0);
+    private static String bze = "tb_perfor_samllflow_time";
+    private static volatile r bzh;
+    private long bzg;
+    private boolean bzc = false;
+    private long bzf = 86400;
+    private long bzd = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bze, 0);
 
-    public static r NO() {
-        if (byY == null) {
+    public static r NQ() {
+        if (bzh == null) {
             synchronized (r.class) {
-                if (byY == null) {
-                    byY = new r();
+                if (bzh == null) {
+                    bzh = new r();
                 }
             }
         }
-        return byY;
+        return bzh;
     }
 
     private r() {
-        this.byX = 0L;
-        this.byX = this.byW;
+        this.bzg = 0L;
+        this.bzg = this.bzf;
     }
 
-    public boolean NP() {
-        if (!this.byT || (System.currentTimeMillis() - this.byU) / 1000 <= this.byX) {
-            return this.byT;
+    public boolean NR() {
+        if (!this.bzc || (System.currentTimeMillis() - this.bzd) / 1000 <= this.bzg) {
+            return this.bzc;
         }
         return false;
     }
 
-    public void cv(boolean z) {
+    public void cw(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.byU || currentTimeMillis - this.byU >= this.byX) {
-                this.byU = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byV, this.byU);
+            if (0 == this.bzd || currentTimeMillis - this.bzd >= this.bzg) {
+                this.bzd = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bze, this.bzd);
             }
         } else {
-            this.byU = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(byV, this.byU);
+            this.bzd = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bze, this.bzd);
         }
-        this.byT = z;
+        this.bzc = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.NU().NV();
+            s.NW().NX();
         }
     }
 
-    public String NQ() {
+    public String NS() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class r {
         }
     }
 
-    public final String NR() {
+    public final String NT() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -86,19 +86,19 @@ public class r {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.oI()) {
+        if (!com.baidu.adp.lib.util.j.oJ()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.oJ()) {
+        if (com.baidu.adp.lib.util.j.oK()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.oL()) {
+        if (com.baidu.adp.lib.util.j.oM()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.oM()) {
+        if (com.baidu.adp.lib.util.j.oN()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.oN()) {
+        if (!com.baidu.adp.lib.util.j.oO()) {
             return "N";
         }
         return "2G";
@@ -118,7 +118,7 @@ public class r {
     }
 
     public q io(int i) {
-        if (NP()) {
+        if (NR()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -153,7 +153,7 @@ public class r {
 
     public void ad(long j) {
         if (j > 0) {
-            this.byX = j;
+            this.bzg = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int NS() {
+    public int NU() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

@@ -9,11 +9,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern dol = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern dom = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern doG = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern doH = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String kD(String str) {
-        String replaceAll = str.replaceAll(d.buu, "meme,");
+    public static String kK(String str) {
+        String replaceAll = str.replaceAll(d.buD, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -40,14 +40,14 @@ public class a {
         return sb.toString();
     }
 
-    public static int kE(String str) {
+    public static int kL(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = dol.matcher(str);
+        Matcher matcher = doG.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

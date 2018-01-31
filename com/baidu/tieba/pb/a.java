@@ -11,7 +11,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0135a {
+    public interface InterfaceC0136a {
         void d(String str, String str2, String str3, String str4, String str5);
     }
 
@@ -23,39 +23,39 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            ak ab = new ak("ad_tpoint").ab("obj_id", String.valueOf(j)).ab("obj_name", str);
+            ak aa = new ak("ad_tpoint").aa("obj_id", String.valueOf(j)).aa("obj_name", str);
             if (str3 != null) {
-                ab = ab.ab("page", str3);
+                aa = aa.aa("page", str3);
             }
             if (str4 != null) {
-                ab = ab.ab("loc_param", str4);
+                aa = aa.aa("loc_param", str4);
             }
             if (str5 != null) {
-                ab = ab.ab("action_type", str5);
+                aa = aa.aa("action_type", str5);
             }
             if (str6 != null) {
-                ab = ab.ab("task", str6);
+                aa = aa.aa("task", str6);
             }
             if (str7 != null) {
-                ab = ab.ab("obj_param", str7);
+                aa = aa.aa("obj_param", str7);
             }
             if (str8 != null) {
-                ab = ab.ab(LegoListActivityConfig.PARAMS, str8);
+                aa = aa.aa(LegoListActivityConfig.PARAMS, str8);
             }
             if (str9 != null) {
-                ab = ab.ab(ImageViewerConfig.FORUM_ID, str9);
+                aa = aa.aa(ImageViewerConfig.FORUM_ID, str9);
             }
             if (str10 != null) {
-                ab = ab.ab(ImageViewerConfig.FORUM_NAME, str10);
+                aa = aa.aa(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                ab = ab.ab("tid", str11);
+                aa = aa.aa("tid", str11);
             }
-            ak ab2 = ab.ab("line", "PT").ab("locate", "c0114").s("obj_cpid", 0).s("obj_good_id", 0).ab("obj_throw_type", "BY_POST").ab("client_type", "MOBILE_APP").ab("user_timestamp", String.valueOf(System.currentTimeMillis())).ab("os", "android").ab("os_version", Build.VERSION.RELEASE).ab("log_ver", "1.1");
+            ak aa2 = aa.aa("line", "PT").aa("locate", "c0114").s("obj_cpid", 0).s("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa("client_type", "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", "android").aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
             if (str2 != null) {
-                ab2 = ab2.ab("link", str2);
+                aa2 = aa2.aa("link", str2);
             }
-            TiebaStatic.log(ab2);
+            TiebaStatic.log(aa2);
         }
     }
 }

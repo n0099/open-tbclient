@@ -2,15 +2,15 @@ package com.coloros.mcssdk.e;
 /* loaded from: classes2.dex */
 public abstract class c {
     String appPackage;
-    int hMQ;
-    String hMR;
+    int hNk;
+    String hNl;
 
-    public String bJc() {
-        return this.hMR;
+    public String bJe() {
+        return this.hNl;
     }
 
-    public int bJd() {
-        return this.hMQ;
+    public int bJf() {
+        return this.hNk;
     }
 
     public String getAppPackage() {
@@ -23,11 +23,11 @@ public abstract class c {
         this.appPackage = str;
     }
 
-    public void uK(String str) {
-        this.hMR = str;
+    public void uR(String str) {
+        this.hNl = str;
     }
 
     public void xX(int i) {
-        this.hMQ = i;
+        this.hNk = i;
     }
 }

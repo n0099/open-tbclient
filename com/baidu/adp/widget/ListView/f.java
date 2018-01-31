@@ -6,37 +6,37 @@ import android.view.View;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class f {
-    private int avm;
-    private com.baidu.adp.widget.b.a avn;
-    private boolean avo;
-    a avp;
+    private int avp;
+    private com.baidu.adp.widget.b.a avq;
+    private boolean avr;
+    a avs;
     int mDuration;
     View mView;
-    private int avl = 1;
+    private int avo = 1;
     Handler mHandler = new Handler();
-    Runnable avq = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
+    Runnable avt = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.avp == null) {
+            if (f.this.avs == null) {
                 return;
             }
-            f.this.avp.sE();
+            f.this.avs.sF();
         }
     };
 
     public f(Context context, int i, int i2, int i3) {
-        this.avo = true;
+        this.avr = true;
         int abs = Math.abs(i - i2);
-        this.avm = i2;
-        if (abs < this.avl) {
-            this.avo = false;
+        this.avp = i2;
+        if (abs < this.avo) {
+            this.avr = false;
         }
-        this.avp = new a(context);
+        this.avs = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.avn = aVar;
+        this.avq = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -48,9 +48,9 @@ public class f {
             this.mScroller = new Scroller(context);
         }
 
-        private void sD() {
+        private void sE() {
             if (f.this.mHandler != null) {
-                f.this.mHandler.removeCallbacks(f.this.avq);
+                f.this.mHandler.removeCallbacks(f.this.avt);
             }
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
@@ -78,8 +78,8 @@ public class f {
                     }
                 }
                 if (z) {
-                    f.this.mHandler.removeCallbacks(f.this.avq);
-                    f.this.mHandler.post(f.this.avq);
+                    f.this.mHandler.removeCallbacks(f.this.avt);
+                    f.this.mHandler.post(f.this.avt);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class f {
         public void aq(int i, int i2) {
             if (f.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                sD();
+                sE();
                 this.TC = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 f.this.mView.post(this);
@@ -95,8 +95,8 @@ public class f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void sE() {
-            f.this.mHandler.removeCallbacks(f.this.avq);
+        public void sF() {
+            f.this.mHandler.removeCallbacks(f.this.avt);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
                 this.mScroller.forceFinished(true);
@@ -104,17 +104,17 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.avn != null) {
-                f.this.avn.onOver();
+            if (f.this.avq != null) {
+                f.this.avq.onOver();
             }
         }
     }
 
     public void aJ(View view) {
-        if (this.avo && this.avp != null) {
+        if (this.avr && this.avs != null) {
             this.mView = view;
-            this.avp.aq(Math.abs(this.avm), this.mDuration);
-            this.mHandler.postDelayed(this.avq, this.mDuration);
+            this.avs.aq(Math.abs(this.avp), this.mDuration);
+            this.mHandler.postDelayed(this.avt, this.mDuration);
         }
     }
 
@@ -122,8 +122,8 @@ public class f {
     public boolean move(int i) {
         boolean z = true;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.avm) {
-            paddingTop = this.avm;
+        if (paddingTop <= this.avp) {
+            paddingTop = this.avp;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());

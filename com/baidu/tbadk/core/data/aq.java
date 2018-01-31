@@ -6,21 +6,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private ArrayList<UserData> aMo = new ArrayList<>();
-    private ArrayList<UserData> aMp = new ArrayList<>();
-    private al aMq = new al();
-    private int aMr = 0;
-    private int aMs = 0;
-    public int aMt;
+    private ArrayList<UserData> aMr = new ArrayList<>();
+    private ArrayList<UserData> aMs = new ArrayList<>();
+    private al aMt = new al();
+    private int aMu = 0;
+    private int aMv = 0;
+    public int aMw;
     public boolean hasMore;
     public int pageNum;
 
-    public ArrayList<UserData> xZ() {
-        return this.aMo;
+    public ArrayList<UserData> ya() {
+        return this.aMr;
     }
 
-    public ArrayList<UserData> ya() {
-        return this.aMp;
+    public ArrayList<UserData> yb() {
+        return this.aMs;
     }
 
     public void parserJson(String str) {
@@ -41,7 +41,7 @@ public class aq {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             UserData userData = new UserData();
                             userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.aMo.add(userData);
+                            this.aMr.add(userData);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -49,17 +49,17 @@ public class aq {
                             UserData userData2 = new UserData();
                             userData2.parserJson(optJSONArray2.getJSONObject(i2));
                             userData2.mAttentionType = 1;
-                            this.aMp.add(userData2);
+                            this.aMs.add(userData2);
                         }
                     }
-                    this.aMq.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.aMq != null) {
-                        this.pageNum = this.aMq.xS();
-                        this.aMt = this.aMq.xQ();
-                        this.hasMore = this.aMq.xU() == 1;
+                    this.aMt.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.aMt != null) {
+                        this.pageNum = this.aMt.xT();
+                        this.aMw = this.aMt.xR();
+                        this.hasMore = this.aMt.xV() == 1;
                     }
-                    this.aMr = jSONObject.optInt("tafriendnum", 0);
-                    this.aMs = jSONObject.optInt("commonfriendnum", 0);
+                    this.aMu = jSONObject.optInt("tafriendnum", 0);
+                    this.aMv = jSONObject.optInt("commonfriendnum", 0);
                     return;
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
@@ -68,7 +68,7 @@ public class aq {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         UserData userData3 = new UserData();
                         userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.aMo.add(userData3);
+                        this.aMr.add(userData3);
                     }
                 }
                 if (optJSONArray4 != null) {
@@ -77,11 +77,11 @@ public class aq {
                         userData4.parserJson(optJSONArray4.getJSONObject(i4));
                         userData4.mAttentionType = 1;
                         userData4.setHave_attention(1);
-                        this.aMp.add(userData4);
+                        this.aMs.add(userData4);
                     }
                 }
                 this.pageNum = jSONObject.optInt("pn");
-                this.aMt = jSONObject.optInt("total_follow_num", 0);
+                this.aMw = jSONObject.optInt("total_follow_num", 0);
                 this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);

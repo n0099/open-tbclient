@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c aro;
-    private ArrayList<String> ard = new ArrayList<>();
-    private a arp;
+    private static volatile c arr;
+    private ArrayList<String> arg = new ArrayList<>();
+    private a ars;
 
-    public static c qP() {
-        if (aro == null) {
+    public static c qQ() {
+        if (arr == null) {
             synchronized (c.class) {
-                if (aro == null) {
-                    aro = new c();
+                if (arr == null) {
+                    arr = new c();
                 }
             }
         }
-        return aro;
+        return arr;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.ard.iterator();
+            Iterator<String> it = this.arg.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,17 +45,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.ard.add(pluginSetting.packageName);
+                this.arg.add(pluginSetting.packageName);
             }
-            qL();
+            qM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qL() {
-        if (this.ard.size() > 0 && this.arp == null) {
-            this.arp = new a(this.ard.get(0));
-            this.arp.execute(new String[0]);
+    public void qM() {
+        if (this.arg.size() > 0 && this.ars == null) {
+            this.ars = new a(this.arg.get(0));
+            this.ars.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.arp = null;
-            if (c.this.ard.size() > 0) {
-                Iterator it = c.this.ard.iterator();
+            c.this.ars = null;
+            if (c.this.arg.size() > 0) {
+                Iterator it = c.this.arg.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.ard.remove(str);
+                        c.this.arg.remove(str);
                         break;
                     }
                 }
             }
-            c.this.qL();
+            c.this.qM();
         }
 
         private void bp(String str) {
             File[] listFiles;
-            File rE = Util.rE();
+            File rF = Util.rF();
             String bP = Util.bP(str);
-            if (rE != null && rE.exists() && (listFiles = rE.listFiles()) != null) {
+            if (rF != null && rF.exists() && (listFiles = rF.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bP)) {
                         try {
                             f.k(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.qE().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.qF().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.qE().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.qF().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

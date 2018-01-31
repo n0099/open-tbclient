@@ -1,13 +1,13 @@
 package com.baidu.tieba.VideoCacheClient;
 
-import android.os.Environment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class c {
-    public static final String bPm = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bPn = bPm + "/.tieba_video_cache";
-    public static final String bPo = bPn + "/v2";
-    public static final String bPp = bPo + "/";
-    public static final String bPq = bPo + "/files";
-    public static final String bPr = bPq + "/";
-    public static final String bPs = bPp + "server_port";
+    public static final String bPv = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bPw = bPv + "/.tieba_video_cache";
+    public static final String afl = bPw + "/v2";
+    public static final String bPx = afl + "/";
+    public static final String bPy = afl + "/files";
+    public static final String bPz = bPy + "/";
+    public static final String bPA = bPx + "server_port";
 }

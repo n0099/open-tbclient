@@ -13,96 +13,96 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class b extends h {
-        public String aog;
-        public String aoh;
+        public String aoj;
+        public String aok;
         public String mPath = "/";
-        public String aoi = null;
-        public String[] aoj = null;
-        public List<BasicNameValuePair> aok = null;
+        public String aol = null;
+        public String[] aom = null;
+        public List<BasicNameValuePair> aon = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
-            this.aog = str;
+            this.aoj = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class q extends h {
-        public boolean aos;
-        public Map<String, String> aot;
+        public boolean aov;
+        public Map<String, String> aow;
 
         public q(boolean z, Map<String, String> map) {
-            this.aos = z;
-            this.aot = map;
+            this.aov = z;
+            this.aow = map;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException aom;
+        public SocketException aop;
 
         public d(SocketException socketException) {
-            this.aom = socketException;
+            this.aop = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
-        public String aon;
+        public String aoq;
         public int mStatusCode;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.aon = str;
+            this.aoq = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
-        public String aon;
+        public String aoq;
         public int mStatusCode;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.aon = str;
+            this.aoq = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException aoq;
+        public WebSocketException aot;
 
         public l(WebSocketException webSocketException) {
-            this.aoq = webSocketException;
+            this.aot = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception aoo;
+        public Exception aor;
 
         public f(Exception exc) {
-            this.aoo = exc;
+            this.aor = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String aou;
+        public String aox;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.aou = str;
+            this.aox = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class m extends h {
-        public byte[] aof;
+        public byte[] aoi;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public m(byte[] bArr) {
-            this.aof = bArr;
+            this.aoi = bArr;
         }
     }
 
@@ -110,11 +110,11 @@ public class k {
     public static class a extends h {
         public long acN;
         public long acO;
-        public byte[] aof;
+        public byte[] aoi;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
-            this.aof = bArr;
+            this.aoi = bArr;
             this.acN = j;
             this.acO = j2;
         }
@@ -122,69 +122,69 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c aop;
+        com.baidu.adp.lib.webSocket.c aos;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.aop = cVar;
+            this.aos = cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c extends h {
-        public String aol;
+        public String aoo;
         public int mCode;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c() {
             this.mCode = -1;
-            this.aol = null;
+            this.aoo = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(int i, String str) {
             this.mCode = i;
-            this.aol = str;
+            this.aoo = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] aof;
+        public byte[] aoi;
 
         j() {
-            this.aof = null;
+            this.aoi = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.aof = bArr;
+            this.aoi = bArr;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.k$k  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0021k extends h {
-        public byte[] aof;
+        public byte[] aoi;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0021k() {
-            this.aof = null;
+            this.aoi = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0021k(byte[] bArr) {
-            this.aof = bArr;
+            this.aoi = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c aor;
+        com.baidu.adp.lib.webSocket.c aou;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.aor = null;
-            this.aor = cVar;
+            this.aou = null;
+            this.aou = cVar;
         }
     }
 

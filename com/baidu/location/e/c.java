@@ -6,12 +6,12 @@ import java.util.concurrent.Callable;
 /* loaded from: classes.dex */
 public class c implements Callable<String> {
     final /* synthetic */ String a;
-    final /* synthetic */ a aBB;
+    final /* synthetic */ a aBE;
     final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str, List list) {
-        this.aBB = aVar;
+        this.aBE = aVar;
         this.a = str;
         this.b = list;
     }
@@ -20,9 +20,9 @@ public class c implements Callable<String> {
     @Override // java.util.concurrent.Callable
     /* renamed from: a */
     public String call() {
-        String aG;
-        this.aBB.a(this.a, this.b);
-        aG = this.aBB.aG(true);
-        return aG;
+        String aH;
+        this.aBE.a(this.a, this.b);
+        aH = this.aBE.aH(true);
+        return aH;
     }
 }

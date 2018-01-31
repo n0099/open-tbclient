@@ -1,7 +1,7 @@
 package com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public interface f {
-    void bA(String str, String str2);
+    void by(String str, String str2);
 
     void bz(String str, String str2);
 
@@ -15,13 +15,13 @@ public interface f {
 
     void l(String str, int i, String str2);
 
-    void pf(String str);
+    void pm(String str);
 
-    void pg(String str);
+    void pn(String str);
 
-    void ph(String str);
+    void po(String str);
 
-    boolean pi(String str);
+    boolean pp(String str);
 
-    boolean pj(String str);
+    boolean pq(String str);
 }

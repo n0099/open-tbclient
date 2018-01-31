@@ -14,47 +14,47 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PhotoLiveCoverView extends RelativeLayout {
-    private RelativeLayout blF;
-    private TbImageView blG;
-    private TextView blH;
-    private TextView blI;
-    private TextView blJ;
-    private int blP;
-    private ArrayList<Integer> blQ;
-    private boolean blU;
-    private boolean blf;
-    private boolean blg;
-    private int bmb;
-    private int bmc;
-    private int bmd;
-    private int bme;
-    private int bmf;
-    private int bmg;
-    private int bmh;
-    private int bmi;
+    private RelativeLayout blN;
+    private TbImageView blO;
+    private TextView blP;
+    private TextView blQ;
+    private TextView blR;
+    private int blX;
+    private ArrayList<Integer> blY;
+    private boolean bln;
+    private boolean blo;
+    private boolean bmc;
     private int bmj;
     private int bmk;
     private int bml;
+    private int bmm;
+    private int bmn;
+    private int bmo;
+    private int bmp;
+    private int bmq;
+    private int bmr;
+    private int bms;
+    private int bmt;
     private int size;
 
     public PhotoLiveCoverView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.blP = 0;
-        this.blf = true;
-        this.blg = true;
-        this.blU = true;
-        this.blQ = new ArrayList<>();
-        this.bmb = (int) context.getResources().getDimension(d.e.ds80);
-        this.bmc = (int) context.getResources().getDimension(d.e.ds280);
-        this.bmd = (int) context.getResources().getDimension(d.e.ds170);
-        this.bme = (int) context.getResources().getDimension(d.e.ds320);
-        this.bmf = (int) context.getResources().getDimension(d.e.ds200);
-        this.bmg = (int) context.getResources().getDimension(d.e.ds60);
-        this.bmh = (int) context.getResources().getDimension(d.e.ds120);
-        this.bmi = (int) context.getResources().getDimension(d.e.ds160);
-        this.bmj = (int) context.getResources().getDimension(d.e.ds220);
-        this.bmk = (int) context.getResources().getDimension(d.e.ds240);
-        this.bml = (int) context.getResources().getDimension(d.e.ds180);
+        this.blX = 0;
+        this.bln = true;
+        this.blo = true;
+        this.bmc = true;
+        this.blY = new ArrayList<>();
+        this.bmj = (int) context.getResources().getDimension(d.e.ds80);
+        this.bmk = (int) context.getResources().getDimension(d.e.ds280);
+        this.bml = (int) context.getResources().getDimension(d.e.ds170);
+        this.bmm = (int) context.getResources().getDimension(d.e.ds320);
+        this.bmn = (int) context.getResources().getDimension(d.e.ds200);
+        this.bmo = (int) context.getResources().getDimension(d.e.ds60);
+        this.bmp = (int) context.getResources().getDimension(d.e.ds120);
+        this.bmq = (int) context.getResources().getDimension(d.e.ds160);
+        this.bmr = (int) context.getResources().getDimension(d.e.ds220);
+        this.bms = (int) context.getResources().getDimension(d.e.ds240);
+        this.bmt = (int) context.getResources().getDimension(d.e.ds180);
         this.size = (int) context.getResources().getDimension(d.e.ds8);
         init(context);
     }
@@ -68,47 +68,47 @@ public class PhotoLiveCoverView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.blF = (RelativeLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(d.h.photo_live_card_cover_and_expression, this).findViewById(d.g.photo_live_card_cover_and_expression);
-        IJ();
+        this.blN = (RelativeLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(d.h.photo_live_card_cover_and_expression, this).findViewById(d.g.photo_live_card_cover_and_expression);
+        IL();
     }
 
     public void setData(PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            a(this.blf, this.blg, photoLiveCardData);
+            a(this.bln, this.blo, photoLiveCardData);
         }
     }
 
     private void a(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            if (z && this.blU) {
-                this.blF.setVisibility(0);
+            if (z && this.bmc) {
+                this.blN.setVisibility(0);
                 setCover(photoLiveCardData.getPhotoLiveCover());
                 setExpression(photoLiveCardData);
-            } else if (this.blF != null) {
-                this.blF.setVisibility(8);
+            } else if (this.blN != null) {
+                this.blN.setVisibility(8);
             }
         }
     }
 
-    private void IJ() {
-        if (this.blF != null) {
-            this.blG = (TbImageView) this.blF.findViewById(d.g.live_cover);
-            this.blG.setGifIconSupport(false);
-            IK();
+    private void IL() {
+        if (this.blN != null) {
+            this.blO = (TbImageView) this.blN.findViewById(d.g.live_cover);
+            this.blO.setGifIconSupport(false);
+            IM();
         }
     }
 
-    private void IK() {
-        if (this.blF != null) {
-            this.blH = (TextView) this.blF.findViewById(d.g.first_style_first_expression);
-            this.blI = (TextView) this.blF.findViewById(d.g.first_style_second_expression);
-            this.blJ = (TextView) this.blF.findViewById(d.g.first_style_third_expression);
+    private void IM() {
+        if (this.blN != null) {
+            this.blP = (TextView) this.blN.findViewById(d.g.first_style_first_expression);
+            this.blQ = (TextView) this.blN.findViewById(d.g.first_style_second_expression);
+            this.blR = (TextView) this.blN.findViewById(d.g.first_style_third_expression);
         }
     }
 
     private void setExpression(PhotoLiveCardData photoLiveCardData) {
-        this.blQ.clear();
-        IM();
+        this.blY.clear();
+        IO();
         if (photoLiveCardData != null && photoLiveCardData.getExpressionDatas() != null) {
             int size = photoLiveCardData.getExpressionDatas().size();
             for (int i = 0; i < size && i < 3; i++) {
@@ -117,26 +117,26 @@ public class PhotoLiveCoverView extends RelativeLayout {
                     a(intValue, photoLiveCardData.getExpressionDatas(), i);
                 }
             }
-            IL();
+            IN();
         }
     }
 
-    private void IM() {
-        this.blH.setText("");
-        this.blI.setText("");
-        this.blJ.setText("");
-        if (this.blH.getVisibility() == 8) {
-            this.blH.setVisibility(0);
+    private void IO() {
+        this.blP.setText("");
+        this.blQ.setText("");
+        this.blR.setText("");
+        if (this.blP.getVisibility() == 8) {
+            this.blP.setVisibility(0);
         }
-        if (this.blI.getVisibility() == 8) {
-            this.blI.setVisibility(0);
+        if (this.blQ.getVisibility() == 8) {
+            this.blQ.setVisibility(0);
         }
-        if (this.blJ.getVisibility() == 8) {
-            this.blJ.setVisibility(0);
+        if (this.blR.getVisibility() == 8) {
+            this.blR.setVisibility(0);
         }
-        this.blQ.add(Integer.valueOf(this.blH.getId()));
-        this.blQ.add(Integer.valueOf(this.blI.getId()));
-        this.blQ.add(Integer.valueOf(this.blJ.getId()));
+        this.blY.add(Integer.valueOf(this.blP.getId()));
+        this.blY.add(Integer.valueOf(this.blQ.getId()));
+        this.blY.add(Integer.valueOf(this.blR.getId()));
     }
 
     private void a(e eVar, TextView textView) {
@@ -146,46 +146,46 @@ public class PhotoLiveCoverView extends RelativeLayout {
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(eVar.ak(eVar.getLabelName(), String.valueOf(eVar.IC())));
+            textView.setText(eVar.aj(eVar.getLabelName(), String.valueOf(eVar.IE())));
             hr(textView.getId());
         }
     }
 
     private void a(int i, ArrayList<e> arrayList, int i2) {
         if (i >= 0 && i < 3) {
-            switch (this.blP) {
+            switch (this.blX) {
                 case 0:
-                    a(this.bmb, this.bmc, this.blH);
-                    a(this.bmd, this.bme, this.blI);
-                    a(this.bmf, this.bmg, this.blJ);
+                    a(this.bmj, this.bmk, this.blP);
+                    a(this.bml, this.bmm, this.blQ);
+                    a(this.bmn, this.bmo, this.blR);
                     break;
                 case 1:
-                    a(this.bmg, this.bmh, this.blH);
-                    a(this.bmi, this.bmg, this.blI);
-                    a(this.bmj, this.bme, this.blJ);
+                    a(this.bmo, this.bmp, this.blP);
+                    a(this.bmq, this.bmo, this.blQ);
+                    a(this.bmr, this.bmm, this.blR);
                     break;
                 case 2:
-                    a(this.bmg, this.bmk, this.blH);
-                    a(this.bml, this.bmg, this.blI);
-                    a(this.bmj, this.bme, this.blJ);
+                    a(this.bmo, this.bms, this.blP);
+                    a(this.bmt, this.bmo, this.blQ);
+                    a(this.bmr, this.bmm, this.blR);
                     break;
             }
             if (i == 0) {
-                a(arrayList.get(i2), this.blH);
+                a(arrayList.get(i2), this.blP);
             } else if (i == 1) {
-                a(arrayList.get(i2), this.blI);
+                a(arrayList.get(i2), this.blQ);
             } else if (i == 2) {
-                a(arrayList.get(i2), this.blJ);
+                a(arrayList.get(i2), this.blR);
             }
         }
     }
 
     private void setCover(String str) {
-        this.blG.setVisibility(0);
+        this.blO.setVisibility(0);
         if (!TextUtils.isEmpty(str)) {
-            this.blG.startLoad(str, 10, false);
+            this.blO.startLoad(str, 10, false);
         } else {
-            this.blG.startLoad(null, 10, false);
+            this.blO.startLoad(null, 10, false);
         }
     }
 
@@ -197,27 +197,27 @@ public class PhotoLiveCoverView extends RelativeLayout {
         }
     }
 
-    private void IL() {
-        if (this.blQ.size() != 0) {
-            int size = this.blQ.size();
+    private void IN() {
+        if (this.blY.size() != 0) {
+            int size = this.blY.size();
             for (int i = 0; i < size; i++) {
-                if (this.blQ.get(i).intValue() == this.blH.getId()) {
-                    this.blH.setVisibility(8);
-                } else if (this.blQ.get(i).intValue() == this.blI.getId()) {
-                    this.blI.setVisibility(8);
-                } else if (this.blQ.get(i).intValue() == this.blJ.getId()) {
-                    this.blJ.setVisibility(8);
+                if (this.blY.get(i).intValue() == this.blP.getId()) {
+                    this.blP.setVisibility(8);
+                } else if (this.blY.get(i).intValue() == this.blQ.getId()) {
+                    this.blQ.setVisibility(8);
+                } else if (this.blY.get(i).intValue() == this.blR.getId()) {
+                    this.blR.setVisibility(8);
                 }
             }
         }
     }
 
     private void hr(int i) {
-        if (this.blQ.size() != 0) {
-            int size = this.blQ.size();
+        if (this.blY.size() != 0) {
+            int size = this.blY.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.blQ.get(i2).intValue() == i) {
-                    this.blQ.remove(i2);
+                if (this.blY.get(i2).intValue() == i) {
+                    this.blY.remove(i2);
                     return;
                 }
             }
@@ -229,14 +229,14 @@ public class PhotoLiveCoverView extends RelativeLayout {
     }
 
     public void setShowExpression(boolean z) {
-        this.blg = z;
+        this.blo = z;
     }
 
     public void setShowImage(boolean z) {
-        this.blU = z;
+        this.bmc = z;
     }
 
     public void setChooseStyle(int i) {
-        this.blP = i;
+        this.blX = i;
     }
 }

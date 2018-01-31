@@ -79,7 +79,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.sex_tag = "";
         builder.age_tag = "";
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
-        builder.new_net_type = Integer.valueOf(j.oO());
+        builder.new_net_type = Integer.valueOf(j.oP());
         setNetType(NetMessage.NetType.HTTP);
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);

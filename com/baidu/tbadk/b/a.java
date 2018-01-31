@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b aGo = null;
-    private static a aGp = null;
-    private static boolean aGq = false;
-    private static String aGr = "";
-    private static transient List<String> aGs = new ArrayList(5);
+    private static b aGr = null;
+    private static a aGs = null;
+    private static boolean aGt = false;
+    private static String aGu = "";
+    private static transient List<String> aGv = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aGp == null) {
+        if (aGs == null) {
             synchronized (a.class) {
-                if (aGp == null) {
-                    aGp = new a();
-                    aGo = b.c(baseFragmentActivity);
+                if (aGs == null) {
+                    aGs = new a();
+                    aGr = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aGo != null) {
-            aGo.a(baseFragmentActivity.getPageContext());
+        } else if (aGr != null) {
+            aGr.a(baseFragmentActivity.getPageContext());
         }
-        if (aGq && aGo != null) {
-            aGo.vy();
-            aGo.vz();
-            aGq = false;
+        if (aGt && aGr != null) {
+            aGr.vz();
+            aGr.vA();
+            aGt = false;
         }
-        return aGp;
+        return aGs;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        vt();
+        vu();
         if (z) {
-            vo();
-        }
-        if (z2) {
             vp();
         }
-        aI(z3);
+        if (z2) {
+            vq();
+        }
+        aJ(z3);
         a(aVar);
     }
 
-    public void vo() {
-        vt();
-        if (aGo != null) {
-            aGo.vy();
-            aGq = false;
-        }
-    }
-
     public void vp() {
-        vt();
-        if (aGo != null) {
-            aGo.vz();
-            aGq = false;
-        }
-    }
-
-    public void aI(boolean z) {
-        vt();
-        if (aGo != null) {
-            aGo.aI(z);
-        }
-    }
-
-    public void a(b.a aVar) {
-        vt();
-        if (aGo != null) {
-            aGo.c(aVar);
-        }
-    }
-
-    public void b(b.a aVar) {
-        vt();
-        if (aGo != null) {
-            if (aGo.vv()) {
-                aGo.c(aVar);
-            }
-            aGo.vx();
-        }
-    }
-
-    public void a(int i, b.a aVar) {
-        vt();
-        if (aGo != null) {
-            if (aGo.vv()) {
-                aGo.c(aVar);
-            }
-            aGo.ea(i);
+        vu();
+        if (aGr != null) {
+            aGr.vz();
+            aGt = false;
         }
     }
 
     public void vq() {
-        vt();
-        if (aGo != null) {
-            aGo.vq();
-            aGq = true;
+        vu();
+        if (aGr != null) {
+            aGr.vA();
+            aGt = false;
+        }
+    }
+
+    public void aJ(boolean z) {
+        vu();
+        if (aGr != null) {
+            aGr.aJ(z);
+        }
+    }
+
+    public void a(b.a aVar) {
+        vu();
+        if (aGr != null) {
+            aGr.c(aVar);
+        }
+    }
+
+    public void b(b.a aVar) {
+        vu();
+        if (aGr != null) {
+            if (aGr.vw()) {
+                aGr.c(aVar);
+            }
+            aGr.vy();
+        }
+    }
+
+    public void a(int i, b.a aVar) {
+        vu();
+        if (aGr != null) {
+            if (aGr.vw()) {
+                aGr.c(aVar);
+            }
+            aGr.ea(i);
         }
     }
 
     public void vr() {
-        vt();
-        if (aGo != null) {
-            aGo.vr();
+        vu();
+        if (aGr != null) {
+            aGr.vr();
+            aGt = true;
         }
     }
 
     public void vs() {
-        vt();
-        vr();
-        vq();
-    }
-
-    private void vt() {
-        if (aGo == null) {
+        vu();
+        if (aGr != null) {
+            aGr.vs();
         }
     }
 
-    public static void vu() {
+    public void vt() {
+        vu();
+        vs();
+        vr();
+    }
+
+    private void vu() {
+        if (aGr == null) {
+        }
+    }
+
+    public static void vv() {
         try {
-            if (aGo != null) {
-                if (aGp != null) {
-                    aGp.vs();
+            if (aGr != null) {
+                if (aGs != null) {
+                    aGs.vt();
                 }
-                aGo.vw();
-                aGo.vA();
-                aGo = null;
+                aGr.vx();
+                aGr.vB();
+                aGr = null;
             }
-            if (aGp != null) {
-                aGp = null;
+            if (aGs != null) {
+                aGs = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

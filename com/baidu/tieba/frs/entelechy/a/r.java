@@ -29,12 +29,12 @@ public class r extends com.baidu.adp.widget.ListView.a<k, s> {
     public s onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
         s sVar = new s(inflate);
-        aj.r(sVar.mTitleTv, d.C0107d.cp_cont_b);
-        aj.r(sVar.dHW, d.C0107d.cp_cont_h);
-        aj.c(sVar.dHV, d.f.icon_news_list_prompt);
-        aj.c(sVar.dHX, d.f.icon_index_category_arrow_r);
-        aj.t(sVar.dHY, d.C0107d.cp_bg_line_b);
-        aj.t(sVar.dHZ, d.C0107d.cp_bg_line_b);
+        aj.r(sVar.mTitleTv, d.C0108d.cp_cont_b);
+        aj.r(sVar.dIr, d.C0108d.cp_cont_h);
+        aj.c(sVar.dIq, d.f.icon_news_list_prompt);
+        aj.c(sVar.dIs, d.f.icon_index_category_arrow_r);
+        aj.t(sVar.dIt, d.C0108d.cp_bg_line_b);
+        aj.t(sVar.dIu, d.C0108d.cp_bg_line_b);
         aj.s(inflate, d.f.home_thread_card_item_bg);
         return sVar;
     }
@@ -50,23 +50,23 @@ public class r extends com.baidu.adp.widget.ListView.a<k, s> {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.r.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                TiebaStatic.log(new ak("c12587").ab(ImageViewerConfig.FORUM_ID, r.this.mForumId));
+                TiebaStatic.log(new ak("c12587").aa(ImageViewerConfig.FORUM_ID, r.this.mForumId));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + r.this.mForumId, System.currentTimeMillis());
                 if (kVar != null && !StringUtils.isNull(kVar.url)) {
-                    com.baidu.tbadk.browser.a.R(r.this.mContext, kVar.url);
+                    com.baidu.tbadk.browser.a.Q(r.this.mContext, kVar.url);
                 }
             }
         });
         sVar.mTitleTv.setText(kVar != null ? kVar.text : "");
-        if (bE(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            sVar.dHV.setVisibility(0);
+        if (bG(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            sVar.dIq.setVisibility(0);
         } else {
-            sVar.dHV.setVisibility(8);
+            sVar.dIq.setVisibility(8);
         }
         return sVar.getView();
     }
 
-    private boolean bE(long j) {
+    private boolean bG(long j) {
         if (j == 0) {
             return true;
         }

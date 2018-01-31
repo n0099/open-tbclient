@@ -141,7 +141,7 @@ public class PacketSync {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    at.a().a(b.C0200b.b(bVar.k()));
+                    at.a().a(b.C0201b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());

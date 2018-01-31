@@ -13,15 +13,15 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
     int dataRate;
     List<Entry> entries;
     int numIndSub;

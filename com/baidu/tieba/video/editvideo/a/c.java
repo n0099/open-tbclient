@@ -19,8 +19,8 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends BaseAdapter {
-    public int hog;
-    public String hoh;
+    public int hoA;
+    public String hoB;
     private List<MusicData> mList;
     private e mPageContext;
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            ty(this.hoh);
+            tF(this.hoB);
             notifyDataSetChanged();
         }
     }
@@ -63,16 +63,16 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.hno = (TbImageView) view.findViewById(d.g.music_image);
-            aVar.hnr = (TextView) view.findViewById(d.g.music_title);
-            aVar.hnq = view.findViewById(d.g.music_loading);
-            aVar.hno.setDrawerType(1);
-            aVar.hno.setIsRound(true);
-            aVar.hno.setDefaultBgResource(d.C0107d.transparent);
-            aVar.hno.setDefaultErrorResource(d.f.bg_video_cloudmusic);
-            aVar.hno.setDefaultResource(d.f.bg_video_cloudmusic);
-            aVar.hno.setBorderWidth(l.s(this.mPageContext.getPageActivity(), d.e.ds4));
-            aVar.hno.setBorderColor(aj.getColor(d.C0107d.cp_link_tip_a));
+            aVar.hnI = (TbImageView) view.findViewById(d.g.music_image);
+            aVar.hnL = (TextView) view.findViewById(d.g.music_title);
+            aVar.hnK = view.findViewById(d.g.music_loading);
+            aVar.hnI.setDrawerType(1);
+            aVar.hnI.setIsRound(true);
+            aVar.hnI.setDefaultBgResource(d.C0108d.transparent);
+            aVar.hnI.setDefaultErrorResource(d.f.bg_video_cloudmusic);
+            aVar.hnI.setDefaultResource(d.f.bg_video_cloudmusic);
+            aVar.hnI.setBorderWidth(l.s(this.mPageContext.getPageActivity(), d.e.ds4));
+            aVar.hnI.setBorderColor(aj.getColor(d.C0108d.cp_link_tip_a));
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -81,23 +81,23 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.hno.startLoad(String.valueOf(d.f.icon_video_mute), 24, false);
+                    aVar.hnI.startLoad(String.valueOf(d.f.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.hno.startLoad(String.valueOf(d.f.icon_video_cloudmusic), 24, false);
+                    aVar.hnI.startLoad(String.valueOf(d.f.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.hno.startLoad(musicData.img, 10, false);
+                    aVar.hnI.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.hnq.setVisibility(4);
-            aVar.hnr.setTextColor(aj.getColor(d.C0107d.cp_cont_j));
-            aVar.hnr.setText(musicData.name);
-            b(aVar.hnr, l.s(this.mPageContext.getPageActivity(), d.e.ds120), musicData.name);
-            if (i == this.hog) {
-                aVar.hno.setDrawBorder(true);
+            aVar.hnK.setVisibility(4);
+            aVar.hnL.setTextColor(aj.getColor(d.C0108d.cp_cont_j));
+            aVar.hnL.setText(musicData.name);
+            b(aVar.hnL, l.s(this.mPageContext.getPageActivity(), d.e.ds120), musicData.name);
+            if (i == this.hoA) {
+                aVar.hnI.setDrawBorder(true);
             } else {
-                aVar.hno.setDrawBorder(false);
+                aVar.hnI.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.s(this.mPageContext.getPageActivity(), d.e.ds34), l.s(this.mPageContext.getPageActivity(), d.e.ds44), 0, 0);
@@ -107,10 +107,10 @@ public class c extends BaseAdapter {
                 view.setPadding(l.s(this.mPageContext.getPageActivity(), d.e.ds28), l.s(this.mPageContext.getPageActivity(), d.e.ds44), 0, 0);
             }
             if (this.mPageContext.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().aM(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().aN(TbadkCoreApplication.getInst().getSkinType() == 1);
                 ((BaseActivity) this.mPageContext.getPageActivity()).getLayoutMode().aM(view);
             } else if (this.mPageContext.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().aM(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().aN(TbadkCoreApplication.getInst().getSkinType() == 1);
                 ((BaseFragmentActivity) this.mPageContext.getPageActivity()).getLayoutMode().aM(view);
             }
         }
@@ -118,12 +118,12 @@ public class c extends BaseAdapter {
     }
 
     public void wL(int i) {
-        this.hog = i;
+        this.hoA = i;
         notifyDataSetChanged();
     }
 
-    public void ty(String str) {
-        this.hoh = str;
+    public void tF(String str) {
+        this.hoB = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -134,12 +134,12 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.hog = i;
+            this.hoA = i;
         }
     }
 
-    public int bAA() {
-        return this.hog;
+    public int bAC() {
+        return this.hoA;
     }
 
     public void b(TextView textView, int i, String str) {
@@ -157,9 +157,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public class a {
-        public TbImageView hno;
-        public View hnq;
-        public TextView hnr;
+        public TbImageView hnI;
+        public View hnK;
+        public TextView hnL;
 
         public a() {
         }

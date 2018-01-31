@@ -8,70 +8,70 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
-    private TbPageContext<?> aQp;
-    private View.OnClickListener dzp;
-    private TextView fNE;
-    private TextView fNF;
-    private TextView fNG;
-    private TextView fNH;
-    private TextView fNI;
-    private TextView fNJ;
-    private boolean fNK;
-    private boolean fNL;
+    private TbPageContext<?> aQs;
+    private View.OnClickListener dzK;
+    private TextView fNZ;
+    private TextView fOa;
+    private TextView fOb;
+    private TextView fOc;
+    private TextView fOd;
+    private TextView fOe;
+    private boolean fOf;
+    private boolean fOg;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fNL = false;
-        this.aQp = tbPageContext;
-        this.dzp = onClickListener;
-        bcx();
-    }
-
-    public TextView bcr() {
-        return this.fNE;
-    }
-
-    public TextView bcs() {
-        return this.fNF;
-    }
-
-    public TextView bct() {
-        return this.fNG;
-    }
-
-    public TextView bcu() {
-        return this.fNH;
-    }
-
-    public TextView bcv() {
-        return this.fNJ;
+        this.fOg = false;
+        this.aQs = tbPageContext;
+        this.dzK = onClickListener;
+        bcC();
     }
 
     public TextView bcw() {
-        return this.fNI;
+        return this.fNZ;
     }
 
-    private void bcx() {
-        a(new CharSequence[]{this.aQp.getString(d.j.reply_current_floor), this.aQp.getString(d.j.no_interesting), this.aQp.getString(d.j.mark), this.aQp.getString(d.j.mute), this.aQp.getString(d.j.report_text), this.aQp.getString(d.j.delete)}, new b.InterfaceC0073b() { // from class: com.baidu.tieba.pb.pb.main.y.1
+    public TextView bcx() {
+        return this.fOa;
+    }
+
+    public TextView bcy() {
+        return this.fOb;
+    }
+
+    public TextView bcz() {
+        return this.fOc;
+    }
+
+    public TextView bcA() {
+        return this.fOe;
+    }
+
+    public TextView bcB() {
+        return this.fOd;
+    }
+
+    private void bcC() {
+        a(new CharSequence[]{this.aQs.getString(d.j.reply_current_floor), this.aQs.getString(d.j.no_interesting), this.aQs.getString(d.j.mark), this.aQs.getString(d.j.mute), this.aQs.getString(d.j.report_text), this.aQs.getString(d.j.delete)}, new b.InterfaceC0073b() { // from class: com.baidu.tieba.pb.pb.main.y.1
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0073b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    y.this.dzp.onClick(view);
+                    y.this.dzK.onClick(view);
                 }
             }
         });
-        d(this.aQp);
-        this.fNI = cx(fj(0));
-        this.fNJ = cx(fj(1));
-        this.fNE = cx(fj(2));
-        this.fNF = cx(fj(3));
-        this.fNG = cx(fj(4));
-        this.fNH = cx(fj(5));
+        d(this.aQs);
+        this.fOd = cx(fj(0));
+        this.fOe = cx(fj(1));
+        this.fNZ = cx(fj(2));
+        this.fOa = cx(fj(3));
+        this.fOb = cx(fj(4));
+        this.fOc = cx(fj(5));
     }
 
     public void showDialog() {
-        AD();
+        AE();
     }
 
     private TextView cx(View view) {
@@ -85,24 +85,24 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         return view.findViewById(d.g.line);
     }
 
-    public void kd(boolean z) {
-        this.fNG.setVisibility(z ? 0 : 8);
+    public void kf(boolean z) {
+        this.fOb.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
         return getRootView();
     }
 
-    public void ke(boolean z) {
-        this.fNK = z;
+    public void kg(boolean z) {
+        this.fOf = z;
     }
 
-    public boolean bcy() {
-        return this.fNL;
+    public boolean bcD() {
+        return this.fOg;
     }
 
-    public void kf(boolean z) {
-        this.fNL = z;
+    public void kh(boolean z) {
+        this.fOg = z;
     }
 
     public void refreshUI() {

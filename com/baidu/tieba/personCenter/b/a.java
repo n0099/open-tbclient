@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c ggJ;
-    private d ggX;
-    private com.baidu.tieba.personCenter.a.a ggY;
-    private com.baidu.tieba.personCenter.a.b ggZ;
+    private com.baidu.tieba.personCenter.a.c ghe;
+    private d ghs;
+    private com.baidu.tieba.personCenter.a.a ght;
+    private com.baidu.tieba.personCenter.a.b ghu;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.ggX = new d(tbPageContext, f.ghC);
-        this.ggY = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.ghn);
-        this.ggZ = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gho);
-        this.ggJ = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.ghB);
-        this.mAdapters.add(this.ggX);
-        this.mAdapters.add(this.ggY);
-        this.mAdapters.add(this.ggZ);
-        this.mAdapters.add(this.ggJ);
+        this.ghs = new d(tbPageContext, f.ghX);
+        this.ght = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.ghI);
+        this.ghu = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.ghJ);
+        this.ghe = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.ghW);
+        this.mAdapters.add(this.ghs);
+        this.mAdapters.add(this.ght);
+        this.mAdapters.add(this.ghu);
+        this.mAdapters.add(this.ghe);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void bhv() {
-        this.ggY.bhv();
+    public void bhw() {
+        this.ght.bhw();
     }
 
-    public void bhw() {
-        this.ggY.destroy();
+    public void bhx() {
+        this.ght.destroy();
     }
 }

@@ -25,6 +25,6 @@ public interface g {
 
         void o(byte[] bArr);
 
-        void pt();
+        void pu();
     }
 }

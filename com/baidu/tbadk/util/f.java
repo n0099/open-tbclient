@@ -3,42 +3,43 @@ package com.baidu.tbadk.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f bAO = new f();
-    private b bAP;
-    private a bAQ;
+    private static f bAW = new f();
+    private b bAX;
+    private a bAY;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aQ(boolean z);
+        void aR(boolean z);
     }
 
     private f() {
     }
 
-    public static f Oq() {
-        return bAO;
+    public static f Os() {
+        return bAW;
     }
 
     public void a(a aVar) {
-        this.bAQ = aVar;
-        if (this.bAP != null) {
-            this.bAP.cancel();
+        this.bAY = aVar;
+        if (this.bAX != null) {
+            this.bAX.cancel();
         }
-        this.bAP = new b();
-        this.bAP.setPriority(4);
-        this.bAP.execute(new String[0]);
+        this.bAX = new b();
+        this.bAX.setPriority(4);
+        this.bAX.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Or() {
+    public boolean Ot() {
         int i;
         long j = 0;
-        byte[] aL = com.baidu.adp.lib.util.f.aL("crash_hour_record.log");
+        byte[] dF = com.baidu.tbadk.core.util.k.dF(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (aL != null) {
-            str = new String(aL);
+        if (dF != null) {
+            str = new String(dF);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -68,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.Or());
+            return Boolean.valueOf(f.this.Ot());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bAQ != null && bool != null) {
-                f.this.bAQ.aQ(bool.booleanValue());
+            if (f.this.bAY != null && bool != null) {
+                f.this.bAY.aR(bool.booleanValue());
             }
         }
     }

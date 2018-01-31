@@ -47,12 +47,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.bot == -100) {
+                if (aVar2.boC == -100) {
                     TiebaStatic.log("c12679");
                     com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
                     return;
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.bos;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.boB;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));

@@ -12,86 +12,86 @@ import com.baidu.tieba.frs.i;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class b {
-    private au cae;
-    private TextView dLJ;
-    private final i dPp;
-    private boolean dQq;
-    private int dQr = -1;
-    private int dry;
+    private au cam;
+    private TextView dMe;
+    private final i dPK;
+    private boolean dQL;
+    private int dQM = -1;
+    private int drT;
 
     public b(i iVar) {
-        this.dry = 0;
+        this.drT = 0;
         if (iVar == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dPp = iVar;
+        this.dPK = iVar;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dry = UtilHelper.getStatusBarHeight();
+            this.drT = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void ayE() {
-        if (this.dQq && this.dQr >= 0) {
-            nK(this.dQr);
+    public void ayJ() {
+        if (this.dQL && this.dQM >= 0) {
+            nK(this.dQM);
         }
-        this.dQq = false;
+        this.dQL = false;
     }
 
     public void nJ(int i) {
         if (i >= 0) {
-            ge(true);
+            gg(true);
             nL(i);
             return;
         }
-        ge(false);
+        gg(false);
         nL(i);
     }
 
     private void nK(int i) {
         FrameLayout frameLayout;
         String string;
-        k atY = this.dPp.atY();
-        if (atY != null && atY.getListView() != null && (frameLayout = (FrameLayout) atY.auQ()) != null) {
-            if (this.dLJ == null && this.dPp.getPageContext() != null) {
-                this.dLJ = new TextView(this.dPp.getPageContext().getPageActivity());
-                this.dLJ.setTextSize(0, this.dPp.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.dLJ.setGravity(17);
+        k aud = this.dPK.aud();
+        if (aud != null && aud.getListView() != null && (frameLayout = (FrameLayout) aud.auV()) != null) {
+            if (this.dMe == null && this.dPK.getPageContext() != null) {
+                this.dMe = new TextView(this.dPK.getPageContext().getPageActivity());
+                this.dMe.setTextSize(0, this.dPK.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.dMe.setGravity(17);
             }
-            if (this.dLJ != null) {
+            if (this.dMe != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_nodata);
                 }
-                this.dLJ.setText(string);
+                this.dMe.setText(string);
             }
-            aj.s(this.dLJ, d.C0107d.common_color_10260);
-            aj.r(this.dLJ, d.C0107d.cp_cont_g);
+            aj.s(this.dMe, d.C0108d.common_color_10260);
+            aj.r(this.dMe, d.C0108d.cp_cont_g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.s(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (atY.auy() != null && atY.auy().getLayoutParams() != null) {
-                layoutParams.topMargin = atY.auy().getLayoutParams().height;
+            if (aud.auD() != null && aud.auD().getLayoutParams() != null) {
+                layoutParams.topMargin = aud.auD().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.cae == null) {
-                this.cae = new au();
+            if (this.cam == null) {
+                this.cam = new au();
             }
-            this.cae.a(this.dLJ, frameLayout, layoutParams, 2000);
-            this.dQr = -1;
+            this.cam.a(this.dMe, frameLayout, layoutParams, 2000);
+            this.dQM = -1;
         }
     }
 
-    public void ge(boolean z) {
-        this.dQq = z;
+    public void gg(boolean z) {
+        this.dQL = z;
     }
 
     public void nL(int i) {
-        this.dQr = i;
+        this.dQM = i;
     }
 
     public void onDestroy() {
-        if (this.cae != null) {
-            this.cae.onDestroy();
+        if (this.cam != null) {
+            this.cam.onDestroy();
         }
     }
 }

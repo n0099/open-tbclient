@@ -12,27 +12,27 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<VideoTitleData> hFV;
+    private List<VideoTitleData> hGp;
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView blA;
+        public TextView blI;
         public View divider;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.E(this.hFV)) {
+        if (v.E(this.hGp)) {
             return 0;
         }
-        return this.hFV.size();
+        return this.hGp.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: xx */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.f(this.hFV, i);
+        return (VideoTitleData) v.f(this.hGp, i);
     }
 
     @Override // android.widget.Adapter
@@ -46,10 +46,10 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.video_activity_title_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.blA = (TextView) view.findViewById(d.g.title);
+            aVar2.blI = (TextView) view.findViewById(d.g.title);
             aVar2.divider = view.findViewById(d.g.divider_line);
-            aj.r(aVar2.blA, d.C0107d.cp_cont_b);
-            aj.t(aVar2.divider, d.C0107d.cp_bg_line_c);
+            aj.r(aVar2.blI, d.C0108d.cp_cont_b);
+            aj.t(aVar2.divider, d.C0108d.cp_bg_line_c);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,13 +57,13 @@ public class b extends BaseAdapter {
         }
         aj.s(view, d.f.addresslist_item_bg);
         if (getItem(i) != null) {
-            aVar.blA.setText("#" + getItem(i).name + "#");
+            aVar.blI.setText("#" + getItem(i).name + "#");
         }
         return view;
     }
 
     public void dM(List<VideoTitleData> list) {
-        this.hFV = list;
+        this.hGp = list;
         notifyDataSetChanged();
     }
 }

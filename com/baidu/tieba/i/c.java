@@ -1,19 +1,19 @@
 package com.baidu.tieba.i;
 
-import android.os.Environment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public interface c {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String frO = File.separator;
-        public static final String bPm = Environment.getExternalStorageDirectory() + frO + "tieba";
-        public static final String frP = bPm + frO + ".tieba_video_monitor";
-        public static final String frQ = frP + frO + "v1";
-        public static final String frR = frQ + frO;
-        public static final String frS = bPm + frO + ".tieba_video_monitor_log";
-        public static final String frT = frS + frO + "v1";
-        public static final String frU = frT + frO;
+        public static final String fsj = File.separator;
+        public static final String bPv = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+        public static final String fsk = bPv + fsj + ".tieba_video_monitor";
+        public static final String fsl = fsk + fsj + "v1";
+        public static final String fsm = fsl + fsj;
+        public static final String fsn = bPv + fsj + ".tieba_video_monitor_log";
+        public static final String fso = fsn + fsj + "v1";
+        public static final String fsp = fso + fsj;
     }
 }

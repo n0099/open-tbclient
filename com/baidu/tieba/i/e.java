@@ -4,7 +4,7 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void iV(boolean z);
+        void iX(boolean z);
 
         void onChange(boolean z);
 
@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void aUW();
+    void aVb();
 
-    void aUX();
+    void aVc();
 
-    void aUY();
+    void aVd();
 }

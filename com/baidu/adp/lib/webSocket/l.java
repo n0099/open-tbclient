@@ -1,55 +1,47 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String anI;
-    private int aoA;
+    private String anL;
+    private boolean aoA;
     private boolean aoB;
-    private boolean aoC;
-    private int aov;
-    private int aow;
-    private boolean aox;
-    private boolean aoy;
+    private int aoC;
+    private int aoD;
+    private boolean aoE;
+    private boolean aoF;
+    private int aoy;
     private int aoz;
 
     public l() {
-        this.anI = null;
-        this.aov = 32768;
-        this.aow = 131072;
-        this.aox = false;
-        this.aoy = true;
-        this.aoz = 30000;
-        this.aoA = 30000;
+        this.anL = null;
+        this.aoy = 32768;
+        this.aoz = 131072;
+        this.aoA = false;
         this.aoB = true;
-        this.aoC = true;
-        this.anI = null;
+        this.aoC = 30000;
+        this.aoD = 30000;
+        this.aoE = true;
+        this.aoF = true;
+        this.anL = null;
     }
 
     public l(l lVar) {
-        this.anI = null;
-        this.aov = lVar.aov;
-        this.aow = lVar.aow;
-        this.aox = lVar.aox;
+        this.anL = null;
         this.aoy = lVar.aoy;
         this.aoz = lVar.aoz;
         this.aoA = lVar.aoA;
         this.aoB = lVar.aoB;
         this.aoC = lVar.aoC;
-        this.anI = lVar.anI;
+        this.aoD = lVar.aoD;
+        this.aoE = lVar.aoE;
+        this.aoF = lVar.aoF;
+        this.anL = lVar.anL;
     }
 
-    public boolean pJ() {
-        return this.aox;
-    }
-
-    public int pK() {
-        return this.aov;
+    public boolean pK() {
+        return this.aoA;
     }
 
     public int pL() {
-        return this.aow;
-    }
-
-    public boolean getTcpNoDelay() {
         return this.aoy;
     }
 
@@ -57,23 +49,31 @@ public class l {
         return this.aoz;
     }
 
-    public int pN() {
-        return this.aoA;
-    }
-
-    public boolean pO() {
+    public boolean getTcpNoDelay() {
         return this.aoB;
     }
 
-    public boolean pP() {
+    public int pN() {
         return this.aoC;
     }
 
-    public String pQ() {
-        return this.anI;
+    public int pO() {
+        return this.aoD;
+    }
+
+    public boolean pP() {
+        return this.aoE;
+    }
+
+    public boolean pQ() {
+        return this.aoF;
+    }
+
+    public String pR() {
+        return this.anL;
     }
 
     public void bd(String str) {
-        this.anI = str;
+        this.anL = str;
     }
 }

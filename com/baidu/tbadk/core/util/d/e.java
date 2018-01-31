@@ -1,4 +1,4 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.ao;
 import java.io.File;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.f.e<a> {
-    private final o aXw = new o();
+    private final o aXE = new o();
 
     @Override // com.baidu.adp.lib.f.e
-    public boolean no() {
+    public boolean np() {
         return true;
     }
 
@@ -22,18 +22,22 @@ public class e implements com.baidu.adp.lib.f.e<a> {
         return null;
     }
 
-    private void Dq() {
+    private void Ds() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.Z(true);
+        bVar.ac(true);
+        bVar.ab(false);
         com.baidu.adp.lib.Disk.d.ll().b(bVar);
     }
 
     private DiskFileOperate a(com.baidu.adp.widget.a.a aVar, String str) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.ee(str), DiskFileOperate.Action.WRITE_FORCE);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.ei(str), DiskFileOperate.Action.WRITE_FORCE);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.Z(true);
-        diskFileOperate.setData(aVar.sn());
+        diskFileOperate.ac(true);
+        diskFileOperate.ab(false);
+        diskFileOperate.setData(aVar.so());
         return diskFileOperate;
     }
 
@@ -41,9 +45,9 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        Dq();
-        com.baidu.adp.widget.a.a a2 = this.aXw.a(str, str2, aVar, objArr);
-        if (a2 != null && a2.sn() != null) {
+        Ds();
+        com.baidu.adp.widget.a.a a2 = this.aXE.a(str, str2, aVar, objArr);
+        if (a2 != null && a2.so() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.ll().b(a3) && a3.lz() != null) {
                 return new a(a2, a3.lz().getAbsolutePath());
@@ -56,9 +60,9 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        Dq();
-        com.baidu.adp.widget.a.a a2 = this.aXw.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
-        if (a2 != null && a2.sn() != null) {
+        Ds();
+        com.baidu.adp.widget.a.a a2 = this.aXE.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
+        if (a2 != null && a2.so() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.ll().b(a3) && a3.lz() != null) {
                 return new a(a2, a3.lz().getAbsolutePath());
@@ -69,17 +73,17 @@ public class e implements com.baidu.adp.lib.f.e<a> {
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
-        this.aXw.a(str, obj, objArr);
+        this.aXE.a(str, obj, objArr);
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel np() {
-        return this.aXw.np();
+    public BdAsyncTaskParallel nq() {
+        return this.aXE.nq();
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int nq() {
-        return this.aXw.nq();
+    public int nr() {
+        return this.aXE.nr();
     }
 
     /* loaded from: classes.dex */
@@ -96,11 +100,11 @@ public class e implements com.baidu.adp.lib.f.e<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public com.baidu.adp.widget.a.a aXx;
+        public com.baidu.adp.widget.a.a aXF;
         public String path;
 
         public a(com.baidu.adp.widget.a.a aVar, String str) {
-            this.aXx = aVar;
+            this.aXF = aVar;
             this.path = str;
         }
     }

@@ -1,19 +1,19 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.f.a;
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0018a {
-    private DiskFileOperate aXv = null;
+    private DiskFileOperate aXD = null;
 
     public void f(DiskFileOperate diskFileOperate) {
-        this.aXv = diskFileOperate;
+        this.aXD = diskFileOperate;
     }
 
     @Override // com.baidu.adp.lib.f.a.InterfaceC0018a
     public void cancel() {
-        if (this.aXv != null) {
-            com.baidu.adp.lib.Disk.d.ll().d(this.aXv);
+        if (this.aXD != null) {
+            com.baidu.adp.lib.Disk.d.ll().d(this.aXD);
         }
     }
 }

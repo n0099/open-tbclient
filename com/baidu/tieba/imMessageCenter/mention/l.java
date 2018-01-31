@@ -8,7 +8,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int eOF;
+    private int ePa;
     private String ids;
     private int mPn = 1;
 
@@ -20,32 +20,32 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.eOF = 4;
+        this.ePa = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.eOF = 1;
+        this.ePa = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.eOF;
+        return this.ePa;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Mt() {
+    public HashMap<String, Object> Mv() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.eOF == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.ePa == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cn(boolean z) {
+    public Object co(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
@@ -67,12 +67,12 @@ public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Mq() {
+    public String Ms() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Mr() {
+    public boolean Mt() {
         return true;
     }
 

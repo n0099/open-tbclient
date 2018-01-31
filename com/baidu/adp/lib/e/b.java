@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int ajM;
-    private int ajN;
-    private LinkedList<T> ajO;
-    private c<T> ajP;
+    private int ajP;
+    private int ajQ;
+    private LinkedList<T> ajR;
+    private c<T> ajS;
 
     public b(c<T> cVar, int i, int i2) {
-        this.ajM = 10;
-        this.ajN = 0;
-        this.ajO = null;
-        this.ajP = null;
+        this.ajP = 10;
+        this.ajQ = 0;
+        this.ajR = null;
+        this.ajS = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.ajP = cVar;
-        this.ajM = i;
-        this.ajN = i2;
-        this.ajO = new LinkedList<>();
-        de(this.ajN);
+        this.ajS = cVar;
+        this.ajP = i;
+        this.ajQ = i2;
+        this.ajR = new LinkedList<>();
+        de(this.ajQ);
     }
 
     private void dd(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.ajP.as(this.ajO.poll());
+                    this.ajS.as(this.ajR.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -42,13 +42,13 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.ajP.at(this.ajP.nk());
+                    t = this.ajS.at(this.ajS.nl());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.ajO.offer(t);
+                    this.ajR.offer(t);
                 }
             }
         }
@@ -56,35 +56,35 @@ public class b<T> {
 
     public void df(int i) {
         synchronized (this) {
-            int i2 = i < this.ajN ? this.ajN : i;
+            int i2 = i < this.ajQ ? this.ajQ : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.ajM = i2;
-            dd(this.ajO.size() - this.ajM);
+            this.ajP = i2;
+            dd(this.ajR.size() - this.ajP);
         }
     }
 
     public void dg(int i) {
         synchronized (this) {
-            if (i > this.ajM) {
-                i = this.ajM;
+            if (i > this.ajP) {
+                i = this.ajP;
             }
-            this.ajN = i;
-            de(this.ajN - this.ajO.size());
+            this.ajQ = i;
+            de(this.ajQ - this.ajR.size());
         }
     }
 
-    public T nj() {
+    public T nk() {
         T t = null;
         synchronized (this) {
             try {
-                if (this.ajO.size() > 0) {
-                    t = this.ajP.at(this.ajO.poll());
+                if (this.ajR.size() > 0) {
+                    t = this.ajS.at(this.ajR.poll());
                 } else {
-                    t = this.ajP.at(this.ajP.nk());
+                    t = this.ajS.at(this.ajS.nl());
                 }
-                de(this.ajN - this.ajO.size());
+                de(this.ajQ - this.ajR.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -95,25 +95,25 @@ public class b<T> {
     public void ar(T t) {
         T t2;
         synchronized (this) {
-            if (this.ajO.size() < this.ajM) {
+            if (this.ajR.size() < this.ajP) {
                 try {
-                    t2 = this.ajP.au(t);
+                    t2 = this.ajS.au(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.ajO.offer(t2);
+                    this.ajR.offer(t2);
                 }
             } else {
-                this.ajP.as(t);
+                this.ajS.as(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.ajO.clear();
+            this.ajR.clear();
         }
     }
 }

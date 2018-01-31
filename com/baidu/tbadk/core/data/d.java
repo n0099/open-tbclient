@@ -13,7 +13,7 @@ public class d {
         return this.post_url;
     }
 
-    public String xc() {
+    public String xd() {
         return this.button_text;
     }
 

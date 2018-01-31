@@ -16,11 +16,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView bcu;
-    private TextView bcv;
-    private TextView bcw;
-    private TextView bcx;
-    private ViewGroup bcy;
+    private TbImageView bcC;
+    private TextView bcD;
+    private TextView bcE;
+    private TextView bcF;
+    private ViewGroup bcG;
     private Context mContext;
     private BdUniqueId mTag;
 
@@ -42,15 +42,15 @@ public class ThreadLinkView extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(d.h.link_thread_item, (ViewGroup) this, true);
-        this.bcy = (ViewGroup) inflate.findViewById(d.g.root_layout);
-        this.bcu = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
-        this.bcu.setDefaultBgResource(d.f.icon_card_url_n);
-        this.bcu.setDefaultErrorResource(d.f.icon_card_url_n);
-        this.bcv = (TextView) inflate.findViewById(d.g.link_thread_title);
-        this.bcw = (TextView) inflate.findViewById(d.g.link_thread_abstract);
-        this.bcx = (TextView) inflate.findViewById(d.g.link_thread_url);
-        this.bcu.setLongIconSupport(false);
-        this.bcu.setGifIconSupport(false);
+        this.bcG = (ViewGroup) inflate.findViewById(d.g.root_layout);
+        this.bcC = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
+        this.bcC.setDefaultBgResource(d.f.icon_card_url_n);
+        this.bcC.setDefaultErrorResource(d.f.icon_card_url_n);
+        this.bcD = (TextView) inflate.findViewById(d.g.link_thread_title);
+        this.bcE = (TextView) inflate.findViewById(d.g.link_thread_abstract);
+        this.bcF = (TextView) inflate.findViewById(d.g.link_thread_url);
+        this.bcC.setLongIconSupport(false);
+        this.bcC.setGifIconSupport(false);
         bb(inflate);
     }
 
@@ -59,70 +59,70 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void setData(bd bdVar) {
-        if (bdVar == null || bdVar.Ah() == null || am.isEmpty(bdVar.Ah().getLinkUrl())) {
+        if (bdVar == null || bdVar.Ai() == null || am.isEmpty(bdVar.Ai().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        ad Ah = bdVar.Ah();
-        if (!Ah.xF() && Ah.xE() != ad.aLH) {
+        ad Ai = bdVar.Ai();
+        if (!Ai.xG() && Ai.xF() != ad.aLK) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.bcu.setPageId(this.mTag);
-        if (Ah.xF()) {
-            this.bcx.setVisibility(0);
-            this.bcv.setVisibility(8);
-            this.bcw.setVisibility(8);
-            this.bcx.setText(Ah.getLinkUrl());
-            this.bcu.reset();
+        this.bcC.setPageId(this.mTag);
+        if (Ai.xG()) {
+            this.bcF.setVisibility(0);
+            this.bcD.setVisibility(8);
+            this.bcE.setVisibility(8);
+            this.bcF.setText(Ai.getLinkUrl());
+            this.bcC.reset();
         } else {
-            this.bcx.setVisibility(8);
-            String xB = Ah.xB();
-            String xC = Ah.xC();
-            if (!am.isEmpty(xB)) {
-                this.bcv.setText(xB);
-                this.bcv.setVisibility(0);
-                this.bcw.setVisibility(8);
+            this.bcF.setVisibility(8);
+            String xC = Ai.xC();
+            String xD = Ai.xD();
+            if (!am.isEmpty(xC)) {
+                this.bcD.setText(xC);
+                this.bcD.setVisibility(0);
+                this.bcE.setVisibility(8);
             } else {
-                this.bcv.setVisibility(8);
-                if (!am.isEmpty(xC)) {
-                    this.bcw.setText(xC);
-                    this.bcw.setVisibility(0);
+                this.bcD.setVisibility(8);
+                if (!am.isEmpty(xD)) {
+                    this.bcE.setText(xD);
+                    this.bcE.setVisibility(0);
                 } else {
-                    this.bcw.setVisibility(4);
+                    this.bcE.setVisibility(4);
                 }
             }
-            if (!am.isEmpty(Ah.xD())) {
-                this.bcu.startLoad(Ah.xD(), 10, false);
+            if (!am.isEmpty(Ai.xE())) {
+                this.bcC.startLoad(Ai.xE(), 10, false);
             } else {
-                this.bcu.reset();
+                this.bcC.reset();
             }
         }
-        eD(bdVar.getId());
+        eK(bdVar.getId());
     }
 
     public void onChangeSkinType() {
-        aj.t(this, d.C0107d.cp_bg_line_e);
-        aj.t(this.bcu, d.C0107d.cp_bg_line_b);
+        aj.t(this, d.C0108d.cp_bg_line_e);
+        aj.t(this.bcC, d.C0108d.cp_bg_line_b);
     }
 
-    public void eD(String str) {
-        com.baidu.tieba.card.k.a(this.bcv, str, d.C0107d.cp_cont_j, d.C0107d.cp_cont_d);
-        com.baidu.tieba.card.k.a(this.bcx, str, d.C0107d.cp_cont_j, d.C0107d.cp_cont_d);
-        com.baidu.tieba.card.k.a(this.bcw, str, d.C0107d.cp_cont_j, d.C0107d.cp_cont_d);
+    public void eK(String str) {
+        com.baidu.tieba.card.k.a(this.bcD, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
+        com.baidu.tieba.card.k.a(this.bcF, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
+        com.baidu.tieba.card.k.a(this.bcE, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
     }
 
     private void bb(View view) {
-        if (this.bcy != null && this.bcu != null) {
+        if (this.bcG != null && this.bcC != null) {
             int ao = ((com.baidu.adp.lib.util.l.ao(this.mContext) - (com.baidu.adp.lib.util.l.s(this.mContext, d.e.tbds44) * 2)) - com.baidu.adp.lib.util.l.s(this.mContext, d.e.tbds120)) / 5;
-            ViewGroup.LayoutParams layoutParams = this.bcy.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bcG.getLayoutParams();
             layoutParams.height = ao;
-            this.bcy.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.bcu.getLayoutParams();
+            this.bcG.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.bcC.getLayoutParams();
             layoutParams2.width = ao;
             layoutParams2.height = ao;
-            this.bcu.setLayoutParams(layoutParams2);
+            this.bcC.setLayoutParams(layoutParams2);
         }
     }
 }

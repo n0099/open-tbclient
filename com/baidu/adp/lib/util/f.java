@@ -14,15 +14,15 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String amb = "baidu";
-    public static final File amc = Environment.getExternalStorageDirectory();
-    private static final char amd = File.separatorChar;
+    private static String ame = "baidu";
+    public static final File amf = Environment.getExternalStorageDirectory();
+    private static final char amg = File.separatorChar;
 
     public static boolean lk() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int or() {
+    public static int os() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -38,21 +38,21 @@ public class f {
 
     public static String aG(String str) {
         if (str != null) {
-            return amc + "/" + amb + "/" + str + "/";
+            return amf + "/" + ame + "/" + str + "/";
         }
-        return amc + "/" + amb + "/";
+        return amf + "/" + ame + "/";
     }
 
     public static String q(String str, String str2) {
         if (str != null) {
-            return amc + "/" + amb + "/" + str + "/" + str2;
+            return amf + "/" + ame + "/" + str + "/" + str2;
         }
-        return amc + "/" + amb + "/" + str2;
+        return amf + "/" + ame + "/" + str2;
     }
 
-    public static boolean os() {
+    public static boolean ot() {
         try {
-            StatFs statFs = new StatFs(amc.getPath());
+            StatFs statFs = new StatFs(amf.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -574,7 +574,7 @@ public class f {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (ot()) {
+        if (ou()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -583,8 +583,8 @@ public class f {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean ot() {
-        return amd == '\\';
+    static boolean ou() {
+        return amg == '\\';
     }
 
     public static void n(File file) throws IOException {

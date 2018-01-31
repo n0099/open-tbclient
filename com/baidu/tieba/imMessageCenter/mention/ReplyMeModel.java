@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId eOw;
-    private ReplyMessageActivity eOx;
-    private a eOy;
+    private BdUniqueId eOR;
+    private ReplyMessageActivity eOS;
+    private a eOT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -23,9 +23,9 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
         super(com.baidu.adp.base.i.ak(replyMessageActivity.getPageContext().getPageActivity()));
-        this.eOw = BdUniqueId.gen();
-        this.eOx = replyMessageActivity;
-        aLX();
+        this.eOR = BdUniqueId.gen();
+        this.eOS = replyMessageActivity;
+        aMc();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -34,26 +34,26 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
         checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.c(str2, 0L));
-        checkPostRequestMessage.setTag(this.eOx.getUniqueId());
+        checkPostRequestMessage.setTag(this.eOS.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aLX() {
+    public void aMc() {
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.eOx.showToast(d.j.neterror);
+                    ReplyMeModel.this.eOS.showToast(d.j.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
                 if (checkPostResponseMessage.hasError()) {
                     if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                        ReplyMeModel.this.eOx.showToast(checkPostResponseMessage.getErrorString());
+                        ReplyMeModel.this.eOS.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.eOx.showToast(d.j.neterror);
+                        ReplyMeModel.this.eOS.showToast(d.j.neterror);
                         return;
                     }
                 }
@@ -63,17 +63,17 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    ReplyMeModel.this.eOy.a(forumId, quoteId, repostId, forumName);
+                    ReplyMeModel.this.eOT.a(forumId, quoteId, repostId, forumName);
                 } else if (postState == 0) {
-                    ReplyMeModel.this.eOx.showToast(d.j.thread_delete_tip);
+                    ReplyMeModel.this.eOS.showToast(d.j.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.eOx.showToast(d.j.thread_shield_tip);
+                    ReplyMeModel.this.eOS.showToast(d.j.thread_shield_tip);
                 }
             }
         };
-        cVar.setTag(this.eOx.getUniqueId());
+        cVar.setTag(this.eOS.getUniqueId());
         cVar.setSelfListener(true);
-        this.eOx.registerListener(cVar);
+        this.eOS.registerListener(cVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -87,6 +87,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.eOy = aVar;
+        this.eOT = aVar;
     }
 }

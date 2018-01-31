@@ -3,20 +3,18 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a bqX;
-    private com.baidu.adp.widget.a.a bqY;
+    private com.baidu.adp.widget.a.a brg;
+    private com.baidu.adp.widget.a.a brh;
     private int cols;
     private int rows;
 
-    public abstract boolean KI();
+    public abstract boolean KK();
 
-    public abstract EmotionGroupType KJ();
+    public abstract EmotionGroupType KL();
 
-    public abstract boolean fW(String str);
+    public abstract boolean gd(String str);
 
-    public abstract com.baidu.adp.widget.a.a fX(String str);
-
-    public abstract com.baidu.adp.widget.a.a fY(String str);
+    public abstract com.baidu.adp.widget.a.a ge(String str);
 
     public abstract int getEmotionsCount();
 
@@ -28,28 +26,30 @@ public abstract class c {
 
     public abstract int getWidth();
 
+    public abstract com.baidu.adp.widget.a.a gf(String str);
+
     public abstract String hM(int i);
 
-    public com.baidu.adp.widget.a.a KK() {
-        return this.bqX;
+    public com.baidu.adp.widget.a.a KM() {
+        return this.brg;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.si();
+            aVar.sj();
         }
-        this.bqX = aVar;
+        this.brg = aVar;
     }
 
-    public com.baidu.adp.widget.a.a KL() {
-        return this.bqY;
+    public com.baidu.adp.widget.a.a KN() {
+        return this.brh;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.si();
+            aVar.sj();
         }
-        this.bqY = aVar;
+        this.brh = aVar;
     }
 
     public int getCols() {
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int KM() {
+    public int KO() {
         return this.rows;
     }
 

@@ -6,14 +6,17 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String afq = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String afr = this.afq + "/baidu/";
-    private String afs;
+    private final String afr = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String afs = this.afr + "/baidu/";
+    private String aft;
+    private String afu;
 
     public b() {
-        this.afs = null;
+        this.aft = null;
+        this.afu = null;
         try {
-            this.afs = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.aft = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.afu = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -21,7 +24,7 @@ public class b {
 
     public void P(String str) {
         if (str != null) {
-            this.afr = this.afq + "/" + str + "/";
+            this.afs = this.afr + "/" + str + "/";
         }
     }
 
@@ -29,24 +32,33 @@ public class b {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public String a(String str, boolean z, boolean z2) {
+    public String a(String str, boolean z, boolean z2, boolean z3) {
         String str2;
         if (z2) {
             if (!lk()) {
                 return null;
             }
             if (str != null) {
-                str2 = this.afr + str + "/";
-            } else {
-                str2 = this.afr;
-            }
-        } else if (this.afs == null) {
-            return null;
-        } else {
-            if (str != null) {
                 str2 = this.afs + str + "/";
             } else {
                 str2 = this.afs;
+            }
+        } else if (z3) {
+            if (this.afu == null) {
+                return null;
+            }
+            if (str != null) {
+                str2 = this.afu + str + "/";
+            } else {
+                str2 = this.afu;
+            }
+        } else if (this.aft == null) {
+            return null;
+        } else {
+            if (str != null) {
+                str2 = this.aft + str + "/";
+            } else {
+                str2 = this.aft;
             }
         }
         File file = new File(str2);
@@ -59,16 +71,16 @@ public class b {
         return str2;
     }
 
-    public File a(String str, String str2, boolean z, boolean z2) {
+    public File a(String str, String str2, boolean z, boolean z2, boolean z3) {
         String a;
-        if (str2 == null || (a = a(str, z, z2)) == null) {
+        if (str2 == null || (a = a(str, z, z2, z3)) == null) {
             return null;
         }
         return new File(a + str2);
     }
 
-    public File b(String str, boolean z, boolean z2) {
-        String a = a(str, z, z2);
+    public File b(String str, boolean z, boolean z2, boolean z3) {
+        String a = a(str, z, z2, z3);
         if (a == null) {
             return null;
         }

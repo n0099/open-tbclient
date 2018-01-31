@@ -1,4 +1,4 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
@@ -23,48 +23,48 @@ public class g extends a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a f = super.f(str, str2, objArr);
-        if (f != null && f.si() != null && f.si().isRecycled()) {
+        if (f != null && f.sj() != null && f.sj().isRecycled()) {
             return null;
         }
         return f;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean no() {
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
+    public boolean np() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return this.width;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return this.height;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

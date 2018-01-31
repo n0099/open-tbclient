@@ -14,8 +14,8 @@ import java.util.Scanner;
 public final class h {
     private final List<g> b = new ArrayList();
     private Context d;
-    private static volatile h aDb = null;
-    public static String a = uD().b() + "/baidu/tempdata";
+    private static volatile h aDe = null;
+    public static String a = uE().b() + "/baidu/tempdata";
 
     private h(Context context) {
         this.d = context;
@@ -193,15 +193,15 @@ public final class h {
         return this.b;
     }
 
-    public static h uD() {
-        if (aDb == null) {
+    public static h uE() {
+        if (aDe == null) {
             synchronized (h.class) {
-                if (aDb == null) {
-                    aDb = new h(com.baidu.location.f.getServiceContext());
+                if (aDe == null) {
+                    aDe = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return aDb;
+        return aDe;
     }
 
     public String b() {

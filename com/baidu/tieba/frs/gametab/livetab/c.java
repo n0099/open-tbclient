@@ -9,10 +9,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.af;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
-    private b dNW = new b();
+    private b dOr = new b();
 
     public c() {
-        Mn().bvG = this.dNW;
+        Mp().bvP = this.dOr;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,11 +21,11 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Mm() {
+    public com.baidu.tbadk.mainTab.c Mo() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.bvH = d.j.ala_live;
-        cVar.bvO = com.baidu.tbadk.mainTab.c.bvM;
+        cVar.bvQ = d.j.ala_live;
+        cVar.bvX = com.baidu.tbadk.mainTab.c.bvV;
         return cVar;
     }
 
@@ -36,27 +36,27 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bm(Context context) {
-        this.bvx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bvx.setTextSize(2.0f);
-        return this.bvx;
+    public e bj(Context context) {
+        this.bvG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bvG.setTextSize(2.0f);
+        return this.bvG;
     }
 
     public void setForumId(String str) {
-        if (this.dNW != null) {
-            this.dNW.setForumId(str);
+        if (this.dOr != null) {
+            this.dOr.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.dNW != null) {
-            this.dNW.setForumName(str);
+        if (this.dOr != null) {
+            this.dOr.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.dNW != null) {
-            this.dNW.setForumGameLabel(str);
+        if (this.dOr != null) {
+            this.dOr.setForumGameLabel(str);
         }
     }
 }

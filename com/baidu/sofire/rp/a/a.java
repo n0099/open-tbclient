@@ -11,8 +11,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
     public SharedPreferences a;
-    private SharedPreferences aFn;
-    private SharedPreferences.Editor aFo;
+    private SharedPreferences aFq;
+    private SharedPreferences.Editor aFr;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
     private Context f;
@@ -23,8 +23,8 @@ public final class a {
             this.a = context.getSharedPreferences("re_po_rt", 0);
             this.c = this.a.edit();
             this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.aFn = context.getSharedPreferences("leroadcfg", 0);
-            this.aFo = this.aFn.edit();
+            this.aFq = context.getSharedPreferences("leroadcfg", 0);
+            this.aFr = this.aFq.edit();
         } catch (Throwable th) {
             d.a(th);
         }

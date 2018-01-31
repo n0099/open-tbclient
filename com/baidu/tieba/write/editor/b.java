@@ -12,16 +12,16 @@ import com.baidu.tbadk.editortools.editorinfotool.LocationInfoView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends LinearLayout implements View.OnClickListener {
-    private LocationInfoView hEK;
-    private ImageView hEL;
-    private a hEM;
+    private LocationInfoView hFe;
+    private ImageView hFf;
+    private a hFg;
     private int mSkinType;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bFX();
+        void bFZ();
 
-        void bFY();
+        void bGa();
     }
 
     public b(Context context) {
@@ -40,24 +40,24 @@ public class b extends LinearLayout implements View.OnClickListener {
         setPadding(dimensionPixelSize, 0, 0, 0);
         setGravity(16);
         setOnClickListener(this);
-        this.hEK = new LocationInfoView(getContext());
-        this.hEK.setMaxEms(4);
-        this.hEK.setPadding(0, 0, 0, 0);
-        addView(this.hEK, new LinearLayout.LayoutParams(-2, -2));
-        this.hEL = new ImageView(getContext());
-        this.hEL.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hEL.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
-        addView(this.hEL, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
-        this.hEL.setOnClickListener(this);
+        this.hFe = new LocationInfoView(getContext());
+        this.hFe.setMaxEms(4);
+        this.hFe.setPadding(0, 0, 0, 0);
+        addView(this.hFe, new LinearLayout.LayoutParams(-2, -2));
+        this.hFf = new ImageView(getContext());
+        this.hFf.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hFf.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        addView(this.hFf, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
+        this.hFf.setOnClickListener(this);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         hide();
     }
 
     public void onChangeSkinType(int i) {
-        this.hEK.onChangeSkinType(i);
+        this.hFe.onChangeSkinType(i);
         if (this.mSkinType != i) {
             aj.s(this, d.f.state_switch_bg);
-            aj.c(this.hEL, d.f.icon_edit_close_n);
+            aj.c(this.hFf, d.f.icon_edit_close_n);
             this.mSkinType = i;
         }
     }
@@ -68,7 +68,7 @@ public class b extends LinearLayout implements View.OnClickListener {
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.hEK.j(i, str);
+            this.hFe.j(i, str);
             setVisibility(0);
             return;
         }
@@ -80,16 +80,16 @@ public class b extends LinearLayout implements View.OnClickListener {
     }
 
     public void setLocationClickListener(a aVar) {
-        this.hEM = aVar;
+        this.hFg = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hEM != null) {
-            if (view == this.hEL) {
-                this.hEM.bFY();
+        if (this.hFg != null) {
+            if (view == this.hFf) {
+                this.hFg.bGa();
             } else if (view == this) {
-                this.hEM.bFX();
+                this.hFg.bFZ();
             }
         }
     }

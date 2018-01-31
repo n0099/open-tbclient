@@ -6,40 +6,40 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class ar extends bd {
-    public static final BdUniqueId aMu = BdUniqueId.gen();
-    private List<PhotoLiveCardData> aMv;
-    private int aMw = 0;
+    public static final BdUniqueId aMx = BdUniqueId.gen();
+    private List<PhotoLiveCardData> aMy;
+    private int aMz = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void B(List<PhotoLiveCardData> list) {
-        this.aMv = list;
+        this.aMy = list;
     }
 
     public void a(bd bdVar, int i) {
         if (bdVar != null) {
-            a(bdVar.yS());
+            a(bdVar.yT());
             setTitle(bdVar.getTitle());
             setPhotoLiveCover(bdVar.getPhotoLiveCover());
-            cO(bdVar.yY());
+            cO(bdVar.yZ());
             cK(bdVar.getTid());
-            v(bdVar.yM());
+            v(bdVar.yN());
             setAddress(bdVar.getAddress());
             setId(bdVar.getId());
             setThreadType(bdVar.getThreadType());
-            a(bdVar.yH());
-            eP(bdVar.yK());
+            a(bdVar.yI());
+            eP(bdVar.yL());
             setPost_num(bdVar.getPost_num());
             cP(bdVar.getAbstract());
             cK(bdVar.getTid());
-            setExpressionDatas(bdVar.zm());
-            setShowExpressionViewIndexList(bdVar.zm());
+            setExpressionDatas(bdVar.zn());
+            setShowExpressionViewIndexList(bdVar.zn());
             setId(bdVar.getId());
-            a(bdVar.xL());
-            this.aOD = bdVar.zp();
-            this.aOE = bdVar.zq();
-            this.aOF = bdVar.zr();
+            a(bdVar.xM());
+            this.aOG = bdVar.zq();
+            this.aOH = bdVar.zr();
+            this.aOI = bdVar.zs();
             if (getShowStyle() < 0) {
-                this.aMw = getRandom(3, i);
+                this.aMz = getRandom(3, i);
             }
         }
     }
@@ -90,11 +90,11 @@ public class ar extends bd {
     }
 
     public int getShowStyle() {
-        return this.aMw;
+        return this.aMz;
     }
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return aMu;
+        return aMx;
     }
 }

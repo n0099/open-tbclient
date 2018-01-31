@@ -1,11 +1,11 @@
 package com.baidu.tieba.video;
 /* loaded from: classes2.dex */
 public class a {
-    public float hma;
-    public float hmb;
-    public float hmc;
-    public float hmd;
-    public float hme;
+    public float hmu;
+    public float hmv;
+    public float hmw;
+    public float hmx;
+    public float hmy;
     public int level;
 
     public static a wC(int i) {
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.hma = f;
-        aVar.hmb = f2;
-        aVar.hmc = f3;
-        aVar.hmd = f4;
-        aVar.hme = f5;
+        aVar.hmu = f;
+        aVar.hmv = f2;
+        aVar.hmw = f3;
+        aVar.hmx = f4;
+        aVar.hmy = f5;
         return aVar;
     }
 }

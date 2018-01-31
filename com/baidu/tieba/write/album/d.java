@@ -17,21 +17,21 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends BaseAdapter {
-    private String dtO;
-    private int dtP;
-    private AlbumActivity hCT;
+    private String duj;
+    private int duk;
+    private AlbumActivity hDn;
     private LayoutInflater kh;
     private List<com.baidu.tbadk.album.a> mList;
 
     public d(AlbumActivity albumActivity) {
-        this.hCT = albumActivity;
-        this.kh = LayoutInflater.from(this.hCT.getPageContext().getPageActivity());
-        this.dtP = com.baidu.adp.lib.util.l.ao(this.hCT.getPageContext().getPageActivity()) / 2;
+        this.hDn = albumActivity;
+        this.kh = LayoutInflater.from(this.hDn.getPageContext().getPageActivity());
+        this.duk = com.baidu.adp.lib.util.l.ao(this.hDn.getPageContext().getPageActivity()) / 2;
     }
 
     public void e(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.dtO = str;
+        this.duj = str;
     }
 
     @Override // android.widget.Adapter
@@ -59,11 +59,11 @@ public class d extends BaseAdapter {
         } else {
             view = this.kh.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.hDe = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.dtS = (TextView) view.findViewById(d.g.item_name);
-            aVar.dtT = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.hDe.setGifIconSupport(false);
-            aVar.hDe.setLongIconSupport(false);
+            aVar.hDy = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.dun = (TextView) view.findViewById(d.g.item_name);
+            aVar.duo = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.hDy.setGifIconSupport(false);
+            aVar.hDy.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -72,24 +72,24 @@ public class d extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.dtS.setText(com.baidu.adp.lib.util.l.a(aVar.dtS.getPaint(), item.getName(), this.dtP) + "(" + item.getCount() + ")");
+                aVar.dun.setText(com.baidu.adp.lib.util.l.a(aVar.dun.getPaint(), item.getName(), this.duk) + "(" + item.getCount() + ")");
             } else {
-                aVar.dtS.setText("");
+                aVar.dun.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.dtO)) {
-                aj.c(aVar.dtT, d.f.icon_list_select_ok_n);
-                aVar.dtT.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.duj)) {
+                aj.c(aVar.duo, d.f.icon_list_select_ok_n);
+                aVar.duo.setVisibility(0);
             } else {
-                aVar.dtT.setVisibility(8);
+                aVar.duo.setVisibility(8);
             }
-            MediaFileInfo vb = item.vb();
-            if (vb instanceof VideoFileInfo) {
-                aVar.hDe.startLoad(((VideoFileInfo) vb).videoPath, 37, false);
-            } else if (vb instanceof ImageFileInfo) {
-                aVar.hDe.startLoad(((ImageFileInfo) vb).getFilePath(), 35, false);
+            MediaFileInfo vc = item.vc();
+            if (vc instanceof VideoFileInfo) {
+                aVar.hDy.startLoad(((VideoFileInfo) vc).videoPath, 37, false);
+            } else if (vc instanceof ImageFileInfo) {
+                aVar.hDy.startLoad(((ImageFileInfo) vc).getFilePath(), 35, false);
             }
-            aj.r(aVar.dtS, d.C0107d.cp_cont_b);
+            aj.r(aVar.dun, d.C0108d.cp_cont_b);
             aj.s(view, d.f.addresslist_item_bg);
         }
         return view;
@@ -97,9 +97,9 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     private class a {
-        TextView dtS;
-        ImageView dtT;
-        TbImageView hDe;
+        TextView dun;
+        ImageView duo;
+        TbImageView hDy;
 
         private a() {
         }

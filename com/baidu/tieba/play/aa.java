@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class aa {
-    public String aLe;
-    public String bAT;
-    public String cWM;
-    public String gtV;
-    public String gtW;
-    public String gtX;
-    public String gtY;
-    public String gtZ;
-    public String gua;
+    public String aLh;
+    public String bBb;
+    public String cXh;
+    public String guq;
+    public String gur;
+    public String gus;
+    public String gut;
+    public String guu;
+    public String guv;
     public String mLocate;
     public String mSource;
     public String mType;
@@ -23,57 +23,57 @@ public class aa {
     public ak f(ak akVar) {
         if (akVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                akVar.ab("obj_locate", this.mLocate);
+                akVar.aa("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bAT)) {
-                akVar.ab("tid", this.bAT);
+            if (!StringUtils.isNull(this.bBb)) {
+                akVar.aa("tid", this.bBb);
             }
-            if (!StringUtils.isNull(this.cWM)) {
-                akVar.ab(ImageViewerConfig.FORUM_ID, this.cWM);
+            if (!StringUtils.isNull(this.cXh)) {
+                akVar.aa(ImageViewerConfig.FORUM_ID, this.cXh);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                akVar.ab("uid", this.mUid);
+                akVar.aa("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                akVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+                akVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.gtV)) {
-                akVar.ab("obj_param1", this.gtV);
+            if (!StringUtils.isNull(this.guq)) {
+                akVar.aa("obj_param1", this.guq);
             }
-            if (!StringUtils.isNull(this.gtW)) {
-                akVar.ab("obj_param2", this.gtW);
+            if (!StringUtils.isNull(this.gur)) {
+                akVar.aa("obj_param2", this.gur);
             }
-            if (!StringUtils.isNull(this.gtX)) {
-                akVar.ab("obj_param3", this.gtX);
+            if (!StringUtils.isNull(this.gus)) {
+                akVar.aa("obj_param3", this.gus);
             }
-            if (!StringUtils.isNull(this.aLe)) {
-                akVar.ab("obj_id", this.aLe);
+            if (!StringUtils.isNull(this.aLh)) {
+                akVar.aa("obj_id", this.aLh);
             }
-            if (!StringUtils.isNull(this.gtY)) {
-                akVar.ab("ab_tag", this.gtY);
+            if (!StringUtils.isNull(this.gut)) {
+                akVar.aa("ab_tag", this.gut);
             }
-            if (!StringUtils.isNull(this.gua)) {
-                akVar.ab("topic_type", this.gua);
+            if (!StringUtils.isNull(this.guv)) {
+                akVar.aa("topic_type", this.guv);
             }
         }
         return akVar;
     }
 
-    public aa bkI() {
+    public aa bkJ() {
         aa aaVar = new aa();
         aaVar.mLocate = this.mLocate;
         aaVar.mType = this.mType;
-        aaVar.bAT = this.bAT;
-        aaVar.cWM = this.cWM;
+        aaVar.bBb = this.bBb;
+        aaVar.cXh = this.cXh;
         aaVar.mUid = this.mUid;
         aaVar.mSource = this.mSource;
-        aaVar.gtV = this.gtV;
-        aaVar.gtW = this.gtW;
-        aaVar.gtX = this.gtX;
-        aaVar.aLe = this.aLe;
-        aaVar.gtY = this.gtY;
-        aaVar.gtZ = this.gtZ;
-        aaVar.gua = this.gua;
+        aaVar.guq = this.guq;
+        aaVar.gur = this.gur;
+        aaVar.gus = this.gus;
+        aaVar.aLh = this.aLh;
+        aaVar.gut = this.gut;
+        aaVar.guu = this.guu;
+        aaVar.guv = this.guv;
         return aaVar;
     }
 }

@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.card.s;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.e>> {
-    private BdUniqueId bGw;
-    private com.baidu.tieba.card.e efd;
+    private BdUniqueId bGE;
+    private com.baidu.tieba.card.e efy;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.efQ);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.egl);
         this.mPageContext = tbPageContext;
-        this.efd = new com.baidu.tieba.card.e(this.mPageContext);
-        this.efd.k("c10714", "c10739", "c10712", "c10738");
-        this.efd.setFrom("home");
+        this.efy = new com.baidu.tieba.card.e(this.mPageContext);
+        this.efy.k("c10714", "c10739", "c10712", "c10738");
+        this.efy.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.bGw = bdUniqueId;
-        if (this.efd != null) {
-            this.efd.h(this.bGw);
+        this.bGE = bdUniqueId;
+        if (this.efy != null) {
+            this.efy.h(this.bGE);
         }
     }
 
@@ -32,11 +32,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.alk() == null) {
+        if (aVar.alp() == null) {
             return null;
         }
-        aVar.alk().a(bVar);
-        s.akF().a(new ak("c10714").ab("obj_param3", com.baidu.tieba.card.k.aks()));
+        aVar.alp().a(bVar);
+        s.akK().a(new ak("c10714").aa("obj_param3", com.baidu.tieba.card.k.akx()));
         return aVar.getView();
     }
 
@@ -45,17 +45,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ac */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.efd == null) {
-            this.efd = new com.baidu.tieba.card.e(this.mPageContext);
-            this.efd.h(this.bGw);
-            this.efd.k("c10714", "c10739", "c10712", "c10738");
+        if (this.efy == null) {
+            this.efy = new com.baidu.tieba.card.e(this.mPageContext);
+            this.efy.h(this.bGE);
+            this.efy.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.efd);
+        return new com.baidu.tieba.card.a.a(this.efy);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.efd != null) {
-            this.efd.d(this.mPageContext, i);
+        if (this.efy != null) {
+            this.efy.d(this.mPageContext, i);
         }
     }
 }

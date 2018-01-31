@@ -23,8 +23,8 @@ public class d {
                     BdLog.i("this is reconn time:" + d.this.aek);
                     BdSocketLinkService.startService(true, "time to reconnStragety");
                     d.c(d.this);
-                    if (j.oI()) {
-                        if (d.this.aek >= com.baidu.adp.lib.stats.switchs.a.oa().getMaxAlertCount("alert_im", 3)) {
+                    if (j.oJ()) {
+                        if (d.this.aek >= com.baidu.adp.lib.stats.switchs.a.ob().getMaxAlertCount("alert_im", 3)) {
                             BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.aek) + "_times");
                         }
                     }
@@ -55,7 +55,7 @@ public class d {
         } else if (!this.isRunning) {
             this.isRunning = true;
             this.ael.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.pu().px()) {
+            if (com.baidu.adp.lib.webSocket.h.pv().py()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 L("in Opened");
                 return;

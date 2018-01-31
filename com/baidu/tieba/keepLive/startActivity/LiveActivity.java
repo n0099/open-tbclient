@@ -32,7 +32,7 @@ public class LiveActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        e.nr().postDelayed(new Runnable() { // from class: com.baidu.tieba.keepLive.startActivity.LiveActivity.1
+        e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.keepLive.startActivity.LiveActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 LiveActivity.this.finish();

@@ -10,7 +10,7 @@ public class i extends k {
     }
 
     @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
-    public View su() {
-        return super.su();
+    public View sv() {
+        return super.sv();
     }
 }

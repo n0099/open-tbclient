@@ -454,6 +454,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATE_FRS_LIVE_COUNT = 2001606;
     public static final int CMD_UPDATE_INSTALL_STATUS = 2001434;
     public static final int CMD_UPDATE_PENDANT = 2016485;
+    public static final int CMD_UPDATE_PREPARE_LOCATION_INFO = 2921327;
     public static final int CMD_UPDATE_VERSION_MSG = 2001436;
     public static final int CMD_UPLOAD_FACE_GROUP_FINISH = 2921040;
     public static final int CMD_UPLOAD_FAIL = 2001215;

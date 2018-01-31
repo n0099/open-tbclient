@@ -12,11 +12,11 @@ import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 /* loaded from: classes2.dex */
 public class g {
     public g() {
-        ayx();
-        ayy();
+        ayC();
+        ayD();
     }
 
-    private void ayx() {
+    private void ayC() {
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
         a.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
         a.T(true);
@@ -33,7 +33,7 @@ public class g {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void ayy() {
+    private void ayD() {
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
         a.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
         a.T(true);

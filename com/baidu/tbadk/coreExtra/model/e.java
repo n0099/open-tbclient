@@ -6,24 +6,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String bif;
-    private String bih;
-    private String bii;
-    private String bij;
-    private String bim;
-    private String bin;
     private String bio;
     private String bip;
     private String biq;
     private String bir;
-    private int bhI = 0;
-    private int bhJ = 0;
-    private int bhK = 0;
-    private int bhL = 0;
-    private int bhM = 0;
-    private int bhN = 0;
-    private int bhO = 0;
-    private int bhP = 0;
+    private String biu;
+    private String biv;
+    private String biw;
+    private String bix;
+    private String biy;
+    private String biz;
     private int bhQ = 0;
     private int bhR = 0;
     private int bhS = 0;
@@ -36,19 +28,27 @@ public class e {
     private int bhZ = 0;
     private int bia = 0;
     private int bib = 0;
-    private boolean bic = true;
-    private boolean bie = true;
-    private HashMap<String, String> bik = new HashMap<>();
-    private HashMap<String, String> bil = new HashMap<>();
-    private String bis = null;
-    private String bit = null;
-    private List<b> biu = new ArrayList();
-    private List<a> biv = new ArrayList();
+    private int bic = 0;
+    private int bie = 0;
+    private int bif = 0;
+    private int bih = 0;
+    private int bii = 0;
+    private int bij = 0;
+    private int bik = 0;
+    private int bil = 0;
+    private boolean bim = true;
+    private boolean bin = true;
+    private HashMap<String, String> bis = new HashMap<>();
+    private HashMap<String, String> bit = new HashMap<>();
+    private String biA = null;
+    private String biB = null;
+    private List<b> biC = new ArrayList();
+    private List<a> biD = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public int biw;
-        public int bix;
+        public int biE;
+        public int biF;
         public String content;
         public String groupName;
         public String title;
@@ -57,273 +57,273 @@ public class e {
 
     /* loaded from: classes.dex */
     public static class b {
-        public int biw;
-        public int bix;
-        public String biy;
-        public String biz;
+        public int biE;
+        public int biF;
+        public String biG;
+        public String biH;
         public String content;
         public String title;
         public int unReadCount;
         public int userType;
     }
 
-    public void Ho() {
-        HashMap<String, String> HE = HE();
-        Set<String> keySet = HE.keySet();
+    public void Hq() {
+        HashMap<String, String> HG = HG();
+        Set<String> keySet = HG.keySet();
         if (keySet.size() != 1) {
-            fb(null);
+            fi(null);
         } else {
-            fb(HE.get(keySet.iterator().next()));
+            fi(HG.get(keySet.iterator().next()));
         }
     }
 
-    public void Hp() {
-        HashMap<String, String> HK = HK();
-        Set<String> keySet = HK.keySet();
+    public void Hr() {
+        HashMap<String, String> HM = HM();
+        Set<String> keySet = HM.keySet();
         if (keySet.size() != 1) {
-            fh(null);
+            fo(null);
         } else {
-            fh(HK.get(keySet.iterator().next()));
+            fo(HM.get(keySet.iterator().next()));
         }
-    }
-
-    public int Hq() {
-        return this.bhI;
-    }
-
-    public void gV(int i) {
-        this.bhI = i;
-    }
-
-    public int Hr() {
-        return this.bhL;
-    }
-
-    public void gW(int i) {
-        this.bhL = i;
     }
 
     public int Hs() {
-        return this.bhM;
-    }
-
-    public int Ht() {
         return this.bhQ;
     }
 
-    public void gX(int i) {
+    public void gV(int i) {
         this.bhQ = i;
+    }
+
+    public int Ht() {
+        return this.bhT;
+    }
+
+    public void gW(int i) {
+        this.bhT = i;
     }
 
     public int Hu() {
         return this.bhU;
     }
 
-    public void gY(int i) {
-        this.bhU = i;
-    }
-
     public int Hv() {
-        return this.bhT;
+        return this.bhY;
     }
 
-    public void gZ(int i) {
-        this.bhT = i;
+    public void gX(int i) {
+        this.bhY = i;
     }
 
     public int Hw() {
-        return this.bhI;
-    }
-
-    public int Hx() {
-        return this.bhK;
-    }
-
-    public void ha(int i) {
-        this.bhK = i;
-    }
-
-    public boolean Hy() {
         return this.bic;
     }
 
-    public void bO(boolean z) {
-        this.bic = z;
+    public void gY(int i) {
+        this.bic = i;
     }
 
-    public String Hz() {
-        return this.bif;
+    public int Hx() {
+        return this.bib;
     }
 
-    public void fa(String str) {
-        this.bif = str;
+    public void gZ(int i) {
+        this.bib = i;
     }
 
-    public String HA() {
+    public int Hy() {
+        return this.bhQ;
+    }
+
+    public int Hz() {
+        return this.bhS;
+    }
+
+    public void ha(int i) {
+        this.bhS = i;
+    }
+
+    public boolean HA() {
         return this.bim;
     }
 
-    public void fb(String str) {
-        this.bim = str;
+    public void bP(boolean z) {
+        this.bim = z;
     }
 
-    public void fc(String str) {
-        this.bin = str;
+    public String HB() {
+        return this.bio;
     }
 
-    public int HB() {
-        return this.bhJ;
-    }
-
-    public void hb(int i) {
-        this.bhJ = i;
-    }
-
-    public void fd(String str) {
+    public void fh(String str) {
         this.bio = str;
     }
 
     public String HC() {
-        return this.biq;
+        return this.biu;
     }
 
-    public String HD() {
-        return this.bir;
+    public void fi(String str) {
+        this.biu = str;
     }
 
-    public HashMap<String, String> HE() {
-        return this.bik;
+    public void fj(String str) {
+        this.biv = str;
     }
 
-    public int HF() {
-        return this.bhN;
-    }
-
-    public void hc(int i) {
-        this.bhN = i;
-    }
-
-    public int HG() {
+    public int HD() {
         return this.bhR;
     }
 
-    public void hd(int i) {
+    public void hb(int i) {
         this.bhR = i;
+    }
+
+    public void fk(String str) {
+        this.biw = str;
+    }
+
+    public String HE() {
+        return this.biy;
+    }
+
+    public String HF() {
+        return this.biz;
+    }
+
+    public HashMap<String, String> HG() {
+        return this.bis;
     }
 
     public int HH() {
         return this.bhV;
     }
 
-    public void he(int i) {
+    public void hc(int i) {
         this.bhV = i;
     }
 
-    public void fe(String str) {
-        this.bih = str;
-    }
-
-    public void ff(String str) {
-        this.bii = str;
-    }
-
     public int HI() {
-        return this.bhS;
-    }
-
-    public void hf(int i) {
-        this.bhS = i;
-    }
-
-    public String HJ() {
-        return this.bij;
-    }
-
-    public void fg(String str) {
-        this.bij = str;
-    }
-
-    public HashMap<String, String> HK() {
-        return this.bil;
-    }
-
-    public String HL() {
-        return this.bip;
-    }
-
-    public void fh(String str) {
-        this.bip = str;
-    }
-
-    public int HM() {
-        return this.bhO;
-    }
-
-    public int HN() {
-        return this.bhP;
-    }
-
-    public void hg(int i) {
-        this.bhO = i;
-    }
-
-    public void hh(int i) {
-        this.bhP = i;
-    }
-
-    public void fi(String str) {
-        this.bis = str;
-    }
-
-    public void fj(String str) {
-        this.bit = str;
-    }
-
-    public int HO() {
-        return this.bhX;
-    }
-
-    public void hi(int i) {
-        this.bhX = i;
-    }
-
-    public int HP() {
-        return this.bhY;
-    }
-
-    public void hj(int i) {
-        this.bhY = i;
-    }
-
-    public int HQ() {
         return this.bhZ;
     }
 
-    public void hk(int i) {
+    public void hd(int i) {
         this.bhZ = i;
     }
 
-    public int HR() {
+    public int HJ() {
+        return this.bie;
+    }
+
+    public void he(int i) {
+        this.bie = i;
+    }
+
+    public void fl(String str) {
+        this.bip = str;
+    }
+
+    public void fm(String str) {
+        this.biq = str;
+    }
+
+    public int HK() {
         return this.bia;
     }
 
-    public void hl(int i) {
+    public void hf(int i) {
         this.bia = i;
     }
 
-    public List<b> HS() {
-        return this.biu;
+    public String HL() {
+        return this.bir;
     }
 
-    public List<a> HT() {
-        return this.biv;
+    public void fn(String str) {
+        this.bir = str;
     }
 
-    public int HU() {
-        return this.bib;
+    public HashMap<String, String> HM() {
+        return this.bit;
+    }
+
+    public String HN() {
+        return this.bix;
+    }
+
+    public void fo(String str) {
+        this.bix = str;
+    }
+
+    public int HO() {
+        return this.bhW;
+    }
+
+    public int HP() {
+        return this.bhX;
+    }
+
+    public void hg(int i) {
+        this.bhW = i;
+    }
+
+    public void hh(int i) {
+        this.bhX = i;
+    }
+
+    public void fp(String str) {
+        this.biA = str;
+    }
+
+    public void fq(String str) {
+        this.biB = str;
+    }
+
+    public int HQ() {
+        return this.bih;
+    }
+
+    public void hi(int i) {
+        this.bih = i;
+    }
+
+    public int HR() {
+        return this.bii;
+    }
+
+    public void hj(int i) {
+        this.bii = i;
+    }
+
+    public int HS() {
+        return this.bij;
+    }
+
+    public void hk(int i) {
+        this.bij = i;
+    }
+
+    public int HT() {
+        return this.bik;
+    }
+
+    public void hl(int i) {
+        this.bik = i;
+    }
+
+    public List<b> HU() {
+        return this.biC;
+    }
+
+    public List<a> HV() {
+        return this.biD;
+    }
+
+    public int HW() {
+        return this.bil;
     }
 
     public void hm(int i) {
-        this.bib = i;
+        this.bil = i;
     }
 }

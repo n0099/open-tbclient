@@ -26,7 +26,7 @@ public class DownloadData implements Serializable, Cloneable {
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
     private String app_icon;
-    private transient d bpx;
+    private transient d bpG;
     private String check;
     private String description;
     private DownloadStaticsData downloadStaticsData;
@@ -99,7 +99,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.bpx = null;
+        this.bpG = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -115,7 +115,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.bpx = null;
+        this.bpG = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -132,7 +132,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.bpx = null;
+        this.bpG = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -150,7 +150,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.bpx = null;
+        this.bpG = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -159,7 +159,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.bpx = dVar;
+        this.bpG = dVar;
         this.status = 5;
     }
 
@@ -260,11 +260,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.bpx;
+        return this.bpG;
     }
 
     public void setCallback(d dVar) {
-        this.bpx = dVar;
+        this.bpG = dVar;
     }
 
     public String getStatusMsg() {

@@ -16,16 +16,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
     public static void l(k kVar) {
-        HashMap<Integer, bd> awj;
-        if (kVar != null && kVar.auP() != null && (awj = kVar.auP().awj()) != null) {
+        HashMap<Integer, bd> awo;
+        if (kVar != null && kVar.auU() != null && (awo = kVar.auU().awo()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bd> entry : awj.entrySet()) {
+            for (Map.Entry<Integer, bd> entry : awo.entrySet()) {
                 bd value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.c.a.bmW().p(arrayList);
+            com.baidu.tieba.recapp.c.a.bmX().p(arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.nr().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.e.c.1
+                com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.e.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.auH();
+                        k.this.auM();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

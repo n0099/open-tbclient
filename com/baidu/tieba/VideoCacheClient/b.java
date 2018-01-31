@@ -1,8 +1,8 @@
 package com.baidu.tieba.VideoCacheClient;
 
 import android.content.Context;
-import android.os.Environment;
 import android.os.StatFs;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.play.i;
 import java.io.DataInputStream;
 import java.io.File;
@@ -12,29 +12,29 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b bPF;
-    private int bPG = 0;
+    private static b bPN;
+    private int bPO = 0;
 
     private b() {
-        a.Tj();
+        a.Tl();
     }
 
-    public static b Tm() {
-        if (bPF == null) {
+    public static b To() {
+        if (bPN == null) {
             synchronized (b.class) {
-                if (bPF == null) {
-                    bPF = new b();
+                if (bPN == null) {
+                    bPN = new b();
                 }
             }
         }
-        return bPF;
+        return bPN;
     }
 
-    private static long Th() {
-        File externalStorageDirectory;
+    private static long Tj() {
         try {
-            if ("mounted".equals(Environment.getExternalStorageState()) && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && externalStorageDirectory.exists() && externalStorageDirectory.canRead() && externalStorageDirectory.canWrite()) {
-                StatFs statFs = new StatFs(externalStorageDirectory.getPath());
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
+                StatFs statFs = new StatFs(cacheDir.getPath());
                 return statFs.getAvailableBlocks() * statFs.getBlockSize();
             }
             return 0L;
@@ -44,60 +44,60 @@ public class b implements i {
         }
     }
 
-    private boolean Tn() {
-        d.au(TAG, "sdcard avalible size " + ((Th() / 1024) / 1024) + "M");
-        return Th() > 314572800 && getPort() > 0;
+    private boolean Tp() {
+        d.at(TAG, "sdcard avalible size " + ((Tj() / 1024) / 1024) + "M");
+        return Tj() > 314572800 && getPort() > 0;
     }
 
-    public void br(Context context) {
+    public void bo(Context context) {
         if (context != null) {
-            e.bt(context).Sw();
+            e.bq(context).Sy();
         }
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hF(String str) {
-        if (Tn()) {
-            String hG = hG(str);
-            if (hG == null) {
-                String hD = hD(str);
-                if (hD != null && new File(c.bPr + hD + "/header_downloaded").exists()) {
+    public String hM(String str) {
+        if (Tp()) {
+            String hN = hN(str);
+            if (hN == null) {
+                String hK = hK(str);
+                if (hK != null && new File(c.bPz + hK + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return hG;
+            return hN;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
     public String r(String str, boolean z) {
-        if (Tn()) {
-            String hG = hG(str);
-            if (hG == null) {
-                String hD = hD(str);
-                if (hD != null) {
+        if (Tp()) {
+            String hN = hN(str);
+            if (hN == null) {
+                String hK = hK(str);
+                if (hK != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.bPr + hD + "/header_downloaded").exists()) {
+                    if (new File(c.bPz + hK + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return hG;
+            return hN;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String hG(String str) {
-        String hD;
+    public String hN(String str) {
+        String hK;
         File file;
-        if (str == null || !str.contains("/") || (hD = hD(str)) == null || (file = new File(c.bPr + hD + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hK = hK(str)) == null || (file = new File(c.bPz + hK + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -105,30 +105,30 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void f(Context context, String str, int i) {
-        e.bt(context).J(str, i);
+        e.bq(context).J(str, i);
+    }
+
+    @Override // com.baidu.tieba.play.i
+    public void ab(Context context, String str) {
+        e.bq(context).hP(str);
     }
 
     @Override // com.baidu.tieba.play.i
     public void ac(Context context, String str) {
-        e.bt(context).hI(str);
+        e.bq(context).hQ(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void ad(Context context, String str) {
-        e.bt(context).hJ(str);
+    public void hO(String str) {
+        a.Tl().hL(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void hH(String str) {
-        a.Tj().hE(str);
+    public void bp(Context context) {
+        e.bq(context).clearCache();
     }
 
-    @Override // com.baidu.tieba.play.i
-    public void bs(Context context) {
-        e.bt(context).clearCache();
-    }
-
-    public static String hD(String str) {
+    public static String hK(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -150,8 +150,8 @@ public class b implements i {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.bPG == 0) {
-            File file = new File(c.bPs);
+        if (this.bPO == 0) {
+            File file = new File(c.bPA);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -195,7 +195,7 @@ public class b implements i {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.bPG;
+                                return this.bPO;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -241,10 +241,10 @@ public class b implements i {
                 }
             }
         }
-        return this.bPG;
+        return this.bPO;
     }
 
-    public void To() {
-        this.bPG = 0;
+    public void Tq() {
+        this.bPO = 0;
     }
 }

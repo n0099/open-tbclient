@@ -27,22 +27,22 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener bPL = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener bPT = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.q.e.bzS().bzN();
-            com.baidu.tieba.q.b.bzM().bzN();
+            com.baidu.tieba.q.e.bzU().bzP();
+            com.baidu.tieba.q.b.bzO().bzP();
         }
     };
 
     static {
-        Ts();
-        MessageManager.getInstance().registerListener(bPL);
-        Tt();
+        Tu();
+        MessageManager.getInstance().registerListener(bPT);
+        Tv();
     }
 
-    private static void Ts() {
+    private static void Tu() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<k>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -54,7 +54,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Tt() {
+    private static void Tv() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -73,7 +73,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int hK(String str) {
+    public static int hR(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -168,7 +168,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String hL(String str) {
+    public static String hS(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -196,14 +196,14 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject Tu() {
+    public static JSONObject Tw() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", Tv());
+            jSONObject.put("network", Tx());
             jSONObject.put("osType", "AND");
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -211,20 +211,22 @@ public class VideoPlatformStatic {
             } else {
                 jSONObject.put("uid", "");
             }
-            StringBuilder sb = new StringBuilder();
-            if (com.baidu.adp.lib.d.a.mF().aj(false) != null) {
-                Address aj = com.baidu.adp.lib.d.a.mF().aj(false);
-                if (!StringUtils.isNull(aj.getAdminArea())) {
-                    sb.append(aj.getAdminArea());
+            if (UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+                StringBuilder sb = new StringBuilder();
+                if (com.baidu.adp.lib.d.a.mG().ak(false) != null) {
+                    Address ak = com.baidu.adp.lib.d.a.mG().ak(false);
+                    if (!StringUtils.isNull(ak.getAdminArea())) {
+                        sb.append(ak.getAdminArea());
+                    }
+                    if (!StringUtils.isNull(ak.getSubAdminArea())) {
+                        sb.append(ak.getSubAdminArea());
+                    }
+                    if (!StringUtils.isNull(ak.getSubLocality())) {
+                        sb.append(ak.getSubLocality());
+                    }
                 }
-                if (!StringUtils.isNull(aj.getSubAdminArea())) {
-                    sb.append(aj.getSubAdminArea());
-                }
-                if (!StringUtils.isNull(aj.getSubLocality())) {
-                    sb.append(aj.getSubLocality());
-                }
+                jSONObject.put(Headers.LOCATION, sb.toString());
             }
-            jSONObject.put(Headers.LOCATION, sb.toString());
             jSONObject.put("brand", Build.BRAND);
             jSONObject.put("model", Build.MODEL);
         } catch (Exception e) {
@@ -233,17 +235,17 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String Tv() {
-        if (j.oJ()) {
+    public static String Tx() {
+        if (j.oK()) {
             return "WIFI";
         }
-        if (j.oN()) {
+        if (j.oO()) {
             return "2G";
         }
-        if (j.oM()) {
+        if (j.oN()) {
             return "3G";
         }
-        if (!j.oL() && !j.oI()) {
+        if (!j.oM() && !j.oJ()) {
             return "NONE";
         }
         return "4G";

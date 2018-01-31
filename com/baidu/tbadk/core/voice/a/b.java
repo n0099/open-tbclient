@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a eI(String str) {
+    public static a eP(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.gJ(aVar.error_code);
-        } else if (!k.m12do(k.BB() + "voice")) {
+        } else if (!k.m12do(k.BC() + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.gJ(aVar.error_code);
         } else {
-            String e = s.e(k.dB(str));
+            String e = s.e(k.dH(str));
             if (e == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.gJ(aVar.error_code);
             } else {
                 String b = k.b(e, 1, true);
-                if (k.aa(str, b)) {
+                if (k.Z(str, b)) {
                     aVar.path = b;
                     aVar.md5 = e;
                 } else {
@@ -33,12 +33,12 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return k.aa(str, k.b(str2, 1, true));
+        return k.Z(str, k.b(str2, 1, true));
     }
 
-    public static synchronized void Er() {
+    public static synchronized void Et() {
         synchronized (b.class) {
-            File file = new File(k.BB() + "voice");
+            File file = new File(k.BC() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

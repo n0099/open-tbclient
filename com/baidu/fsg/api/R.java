@@ -387,26 +387,26 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class string {
         public static final int app_name = 0x7f070310;
-        public static final int rim_base__no_network = 0x7f070db1;
-        public static final int rim_base_action_bar_text_close = 0x7f070db2;
-        public static final int rim_base_action_bar_text_refresh = 0x7f070db3;
-        public static final int rim_base_action_bar_text_return = 0x7f070db4;
-        public static final int rim_base_dialog_common_loading_text = 0x7f070db5;
-        public static final int rim_base_get_data_fail = 0x7f070db6;
-        public static final int rim_base_multi_window_close = 0x7f070db7;
-        public static final int rim_base_multi_window_tips = 0x7f070db8;
-        public static final int rim_base_safekeyboard_key_0 = 0x7f070db9;
-        public static final int rim_base_safekeyboard_key_1 = 0x7f070dba;
-        public static final int rim_base_safekeyboard_key_2 = 0x7f070dbb;
-        public static final int rim_base_safekeyboard_key_3 = 0x7f070dbc;
-        public static final int rim_base_safekeyboard_key_4 = 0x7f070dbd;
-        public static final int rim_base_safekeyboard_key_5 = 0x7f070dbe;
-        public static final int rim_base_safekeyboard_key_6 = 0x7f070dbf;
-        public static final int rim_base_safekeyboard_key_7 = 0x7f070dc0;
-        public static final int rim_base_safekeyboard_key_8 = 0x7f070dc1;
-        public static final int rim_base_safekeyboard_key_9 = 0x7f070dc2;
-        public static final int rim_base_safekeyboard_key_X = 0x7f070dc3;
-        public static final int rim_base_safekeyboard_title = 0x7f070dc4;
+        public static final int rim_base__no_network = 0x7f070db5;
+        public static final int rim_base_action_bar_text_close = 0x7f070db6;
+        public static final int rim_base_action_bar_text_refresh = 0x7f070db7;
+        public static final int rim_base_action_bar_text_return = 0x7f070db8;
+        public static final int rim_base_dialog_common_loading_text = 0x7f070db9;
+        public static final int rim_base_get_data_fail = 0x7f070dba;
+        public static final int rim_base_multi_window_close = 0x7f070dbb;
+        public static final int rim_base_multi_window_tips = 0x7f070dbc;
+        public static final int rim_base_safekeyboard_key_0 = 0x7f070dbd;
+        public static final int rim_base_safekeyboard_key_1 = 0x7f070dbe;
+        public static final int rim_base_safekeyboard_key_2 = 0x7f070dbf;
+        public static final int rim_base_safekeyboard_key_3 = 0x7f070dc0;
+        public static final int rim_base_safekeyboard_key_4 = 0x7f070dc1;
+        public static final int rim_base_safekeyboard_key_5 = 0x7f070dc2;
+        public static final int rim_base_safekeyboard_key_6 = 0x7f070dc3;
+        public static final int rim_base_safekeyboard_key_7 = 0x7f070dc4;
+        public static final int rim_base_safekeyboard_key_8 = 0x7f070dc5;
+        public static final int rim_base_safekeyboard_key_9 = 0x7f070dc6;
+        public static final int rim_base_safekeyboard_key_X = 0x7f070dc7;
+        public static final int rim_base_safekeyboard_title = 0x7f070dc8;
     }
 
     /* loaded from: classes.dex */

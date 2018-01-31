@@ -9,12 +9,12 @@ public class c extends j implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Ms() {
+    public String Mu() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gH(String str) {
+    public boolean gO(String str) {
         try {
             j(new JSONObject(str));
             return true;

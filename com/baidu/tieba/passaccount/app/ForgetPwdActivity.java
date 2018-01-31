@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
-    private SapiWebView fzU;
+    private SapiWebView fAp;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,39 +25,39 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ForgetPwdActivity.this.fzU.canGoBack()) {
-                    ForgetPwdActivity.this.fzU.goBack();
+                if (ForgetPwdActivity.this.fAp.canGoBack()) {
+                    ForgetPwdActivity.this.fAp.goBack();
                 } else {
                     ForgetPwdActivity.this.finish();
                 }
             }
         });
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.sapi_forget_password_title));
-        this.fzU = (SapiWebView) findViewById(d.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.fzU);
-        this.fzU.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.2
+        this.fAp = (SapiWebView) findViewById(d.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.fAp);
+        this.fAp.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
-                if (ForgetPwdActivity.this.fzU.canGoBack()) {
-                    ForgetPwdActivity.this.fzU.goBack();
+                if (ForgetPwdActivity.this.fAp.canGoBack()) {
+                    ForgetPwdActivity.this.fAp.goBack();
                 } else {
                     ForgetPwdActivity.this.finish();
                 }
             }
         });
-        this.fzU.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.3
+        this.fAp.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.3
             @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
             public void onSuccess() {
                 ForgetPwdActivity.this.finish();
             }
         });
-        this.fzU.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.4
+        this.fAp.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.tieba.passaccount.app.ForgetPwdActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 ForgetPwdActivity.this.finish();
             }
         });
-        this.fzU.loadForgetPwd();
+        this.fAp.loadForgetPwd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

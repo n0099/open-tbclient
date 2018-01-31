@@ -7,5 +7,5 @@ public interface a {
 
     void b(com.baidu.tieba.write.write.sticker.view.a aVar);
 
-    void bIP();
+    void bIR();
 }

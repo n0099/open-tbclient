@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes2.dex */
 public abstract class m<T, V extends r.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.adp.widget.ListView.k dAP;
-    protected PbActivity fJw;
-    private SparseArray<SoftReference<Drawable>> fKP;
-    private SparseArray<Integer> fKQ;
+    protected com.baidu.adp.widget.ListView.k dBk;
+    protected PbActivity fJR;
+    private SparseArray<SoftReference<Drawable>> fLk;
+    private SparseArray<Integer> fLl;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -23,14 +23,14 @@ public abstract class m<T, V extends r.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.fKP = new SparseArray<>();
-        this.fKQ = new SparseArray<>();
-        ao(pbActivity);
+        this.fLk = new SparseArray<>();
+        this.fLl = new SparseArray<>();
+        ap(pbActivity);
     }
 
-    public void ao(PbActivity pbActivity) {
+    public void ap(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.fJw = pbActivity;
+            this.fJR = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -39,7 +39,7 @@ public abstract class m<T, V extends r.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dAP = (com.baidu.adp.widget.ListView.k) viewGroup;
+        this.dBk = (com.baidu.adp.widget.ListView.k) viewGroup;
         return null;
     }
 
@@ -49,26 +49,26 @@ public abstract class m<T, V extends r.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        Integer num = this.fKQ.get(i);
+        Integer num = this.fLl.get(i);
         if (num != null) {
             return num.intValue();
         }
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-        this.fKQ.put(i, Integer.valueOf(dimensionPixelSize));
+        this.fLl.put(i, Integer.valueOf(dimensionPixelSize));
         return dimensionPixelSize;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Drawable getDrawable(int i) {
         Drawable drawable;
-        SoftReference<Drawable> softReference = this.fKP.get(i);
+        SoftReference<Drawable> softReference = this.fLk.get(i);
         if (softReference == null) {
             drawable = null;
         } else {
             drawable = softReference.get();
         }
         if (drawable == null && (drawable = com.baidu.tbadk.core.util.aj.getDrawable(i)) != null) {
-            this.fKP.put(i, new SoftReference<>(drawable));
+            this.fLk.put(i, new SoftReference<>(drawable));
         }
         return drawable;
     }

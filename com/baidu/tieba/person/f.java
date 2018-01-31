@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.c {
-    TextView bQs;
-    TextView dbA;
-    TextView fNY;
-    TextView gfQ;
-    TextView gfR;
-    TextView gfS;
-    View gfT;
-    View gfU;
-    View gfV;
-    View gfW;
-    View gfX;
+    TextView bQA;
+    TextView dbV;
+    TextView fOt;
+    TextView ggj;
+    TextView ggk;
+    TextView ggl;
+    View ggm;
+    View ggn;
+    View ggo;
+    View ggp;
+    View ggq;
     TbPageContext mPageContext;
     View mView;
 
@@ -32,34 +32,34 @@ public class f extends com.baidu.adp.base.c {
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.person_info_more_view, (ViewGroup) null);
-        this.gfQ = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_friend);
-        this.gfQ.setOnClickListener(onClickListener);
-        this.fNY = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_report);
-        this.fNY.setOnClickListener(onClickListener);
-        this.gfR = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_black);
-        this.gfR.setOnClickListener(onClickListener);
-        this.gfS = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_mute);
-        this.gfT = this.mView.findViewById(d.g.person_info_more_view_item_line_mute);
-        this.gfS.setOnClickListener(onClickListener);
-        this.dbA = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_cancel);
-        this.dbA.setOnClickListener(onClickListener);
-        this.bQs = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_username);
-        this.gfU = this.mView.findViewById(d.g.person_info_more_view_item_line_username);
-        this.gfV = this.mView.findViewById(d.g.person_info_more_view_item_line_friend);
-        this.gfW = this.mView.findViewById(d.g.person_info_more_view_item_line_report);
-        this.gfX = this.mView.findViewById(d.g.person_info_more_view_item_line_black);
+        this.ggj = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_friend);
+        this.ggj.setOnClickListener(onClickListener);
+        this.fOt = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_report);
+        this.fOt.setOnClickListener(onClickListener);
+        this.ggk = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_black);
+        this.ggk.setOnClickListener(onClickListener);
+        this.ggl = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_mute);
+        this.ggm = this.mView.findViewById(d.g.person_info_more_view_item_line_mute);
+        this.ggl.setOnClickListener(onClickListener);
+        this.dbV = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_cancel);
+        this.dbV.setOnClickListener(onClickListener);
+        this.bQA = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_username);
+        this.ggn = this.mView.findViewById(d.g.person_info_more_view_item_line_username);
+        this.ggo = this.mView.findViewById(d.g.person_info_more_view_item_line_friend);
+        this.ggp = this.mView.findViewById(d.g.person_info_more_view_item_line_report);
+        this.ggq = this.mView.findViewById(d.g.person_info_more_view_item_line_black);
     }
 
     public void O(boolean z, boolean z2) {
         if (z) {
-            this.gfQ.setText(d.j.remove_friend);
+            this.ggj.setText(d.j.remove_friend);
         } else {
-            this.gfQ.setText(d.j.frs_recommend_friend_item_add);
+            this.ggj.setText(d.j.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.gfR.setText(d.j.remove_block_chat);
+            this.ggk.setText(d.j.remove_block_chat);
         } else {
-            this.gfR.setText(d.j.block_chat_message);
+            this.ggk.setText(d.j.block_chat_message);
         }
     }
 
@@ -67,58 +67,58 @@ public class f extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public View bhm() {
-        return this.gfQ;
-    }
-
     public View bhn() {
-        return this.gfR;
+        return this.ggj;
     }
 
     public View bho() {
-        return this.gfS;
+        return this.ggk;
     }
 
     public View bhp() {
-        return this.fNY;
+        return this.ggl;
+    }
+
+    public View bhq() {
+        return this.fOt;
     }
 
     public void tE(int i) {
-        this.gfS.setVisibility(0);
-        this.gfX.setVisibility(0);
+        this.ggl.setVisibility(0);
+        this.ggq.setVisibility(0);
         if (i == 0) {
-            this.gfS.setText(this.mPageContext.getResources().getString(d.j.mute));
+            this.ggl.setText(this.mPageContext.getResources().getString(d.j.mute));
         } else if (i == 1) {
-            this.gfS.setText(this.mPageContext.getResources().getString(d.j.un_mute));
+            this.ggl.setText(this.mPageContext.getResources().getString(d.j.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bQs.setVisibility(0);
-            this.gfU.setVisibility(0);
-            this.bQs.setText(String.format(this.mPageContext.getResources().getString(d.j.more_info_username), str));
+            this.bQA.setVisibility(0);
+            this.ggn.setVisibility(0);
+            this.bQA.setText(String.format(this.mPageContext.getResources().getString(d.j.more_info_username), str));
         }
     }
 
     public void onChangeSkinType() {
-        aj.s(this.mView, d.C0107d.cp_bg_line_d_alpha90);
-        aj.r(this.gfR, d.C0107d.cp_link_tip_a);
-        aj.s(this.gfR, d.f.more_pop_item_bg_selector);
-        aj.r(this.gfQ, d.C0107d.cp_link_tip_a);
-        aj.s(this.gfQ, d.f.more_pop_item_bg_selector);
-        aj.r(this.fNY, d.C0107d.cp_link_tip_a);
-        aj.s(this.fNY, d.f.more_pop_item_bg_selector);
-        aj.r(this.gfS, d.C0107d.cp_link_tip_a);
-        aj.s(this.gfS, d.f.more_pop_item_bg_selector);
-        aj.t(this.gfV, d.C0107d.cp_bg_line_b);
-        aj.t(this.gfW, d.C0107d.cp_bg_line_b);
-        aj.t(this.gfX, d.C0107d.cp_bg_line_b);
-        aj.t(this.gfU, d.C0107d.cp_bg_line_b);
-        aj.t(this.gfT, d.C0107d.cp_bg_line_b);
-        aj.s(this.dbA, d.f.person_more_pop_item_bg_selector);
-        aj.r(this.dbA, d.f.person_more_pop_cancel_text_selector);
-        aj.s(this.bQs, d.f.more_pop_item_bg_selector);
-        aj.r(this.bQs, d.C0107d.cp_cont_d);
+        aj.s(this.mView, d.C0108d.cp_bg_line_d_alpha90);
+        aj.r(this.ggk, d.C0108d.cp_link_tip_a);
+        aj.s(this.ggk, d.f.more_pop_item_bg_selector);
+        aj.r(this.ggj, d.C0108d.cp_link_tip_a);
+        aj.s(this.ggj, d.f.more_pop_item_bg_selector);
+        aj.r(this.fOt, d.C0108d.cp_link_tip_a);
+        aj.s(this.fOt, d.f.more_pop_item_bg_selector);
+        aj.r(this.ggl, d.C0108d.cp_link_tip_a);
+        aj.s(this.ggl, d.f.more_pop_item_bg_selector);
+        aj.t(this.ggo, d.C0108d.cp_bg_line_b);
+        aj.t(this.ggp, d.C0108d.cp_bg_line_b);
+        aj.t(this.ggq, d.C0108d.cp_bg_line_b);
+        aj.t(this.ggn, d.C0108d.cp_bg_line_b);
+        aj.t(this.ggm, d.C0108d.cp_bg_line_b);
+        aj.s(this.dbV, d.f.person_more_pop_item_bg_selector);
+        aj.r(this.dbV, d.f.person_more_pop_cancel_text_selector);
+        aj.s(this.bQA, d.f.more_pop_item_bg_selector);
+        aj.r(this.bQA, d.C0108d.cp_cont_d);
     }
 }

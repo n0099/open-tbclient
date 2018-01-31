@@ -23,22 +23,22 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class e {
-    private final d aBL;
-    private Long aBM;
-    private final SQLiteDatabase aBP;
-    private final SQLiteDatabase aBQ;
+    private final d aBO;
+    private Long aBP;
+    private final SQLiteDatabase aBS;
+    private final SQLiteDatabase aBT;
     private int b;
     private double c;
     private double d;
     private boolean p = false;
-    private final c aBN = new c(this, true);
-    private final c aBO = new c(this, false);
-    private StringBuffer aBW = new StringBuffer();
-    private StringBuffer aBR = null;
-    private StringBuffer aBS = null;
-    private HashSet<Long> aBT = new HashSet<>();
-    private ConcurrentHashMap<Long, Integer> aBU = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Long, String> aBV = new ConcurrentHashMap<>();
+    private final c aBQ = new c(this, true);
+    private final c aBR = new c(this, false);
+    private StringBuffer aBZ = new StringBuffer();
+    private StringBuffer aBU = null;
+    private StringBuffer aBV = null;
+    private HashSet<Long> aBW = new HashSet<>();
+    private ConcurrentHashMap<Long, Integer> aBX = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, String> aBY = new ConcurrentHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -62,21 +62,21 @@ public final class e {
     /* loaded from: classes.dex */
     public class b extends Thread {
         private String a;
-        private Long aBX;
-        private BDLocation aBY;
-        private BDLocation aBZ;
-        private LinkedHashMap<String, Integer> aCa;
-        private BDLocation azE;
+        private Long aCa;
+        private BDLocation aCb;
+        private BDLocation aCc;
+        private LinkedHashMap<String, Integer> aCd;
+        private BDLocation azH;
         private String g;
 
         private b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
             this.a = str;
-            this.aBX = l;
-            this.aBY = bDLocation;
-            this.azE = bDLocation2;
-            this.aBZ = bDLocation3;
+            this.aCa = l;
+            this.aCb = bDLocation;
+            this.azH = bDLocation2;
+            this.aCc = bDLocation3;
             this.g = str2;
-            this.aCa = linkedHashMap;
+            this.aCd = linkedHashMap;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -87,30 +87,30 @@ public final class e {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.a, this.aBX, this.aBY);
-                e.this.aBR = null;
-                e.this.aBS = null;
-                e.this.a(this.aCa);
-                e.this.a(this.aBZ, this.aBY, this.azE, this.a, this.aBX);
+                e.this.a(this.a, this.aCa, this.aCb);
+                e.this.aBU = null;
+                e.this.aBV = null;
+                e.this.a(this.aCd);
+                e.this.a(this.aCc, this.aCb, this.azH, this.a, this.aCa);
                 if (this.g != null) {
-                    e.this.aBL.ua().a(this.g);
+                    e.this.aBO.ub().a(this.g);
                 }
             } catch (Exception e) {
             }
-            this.aCa = null;
+            this.aCd = null;
             this.a = null;
             this.g = null;
-            this.aBX = null;
-            this.aBY = null;
-            this.azE = null;
-            this.aBZ = null;
+            this.aCa = null;
+            this.aCb = null;
+            this.azH = null;
+            this.aCc = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public final class c extends com.baidu.location.h.f {
-        private e aCc;
+        private e aCf;
         private String b;
         private final String c;
         private String d;
@@ -122,7 +122,7 @@ public final class e {
         private long t = -1;
 
         c(e eVar, boolean z) {
-            this.aCc = eVar;
+            this.aCf = eVar;
             if (z) {
                 this.c = TrackLoadSettingsAtom.TYPE;
             } else {
@@ -165,7 +165,7 @@ public final class e {
                 this.d = h();
             }
             if (this.d == null && (this.s == -1 || this.s + 86400000 <= System.currentTimeMillis())) {
-                if (e.this.aBL.ub().a()) {
+                if (e.this.aBO.uc().a()) {
                     this.d = j();
                 } else {
                     this.d = k();
@@ -181,7 +181,7 @@ public final class e {
             try {
                 jSONObject = new JSONObject();
                 jSONObject.put("type", "0");
-                jSONObject.put("cuid", com.baidu.location.h.c.uA().b);
+                jSONObject.put("cuid", com.baidu.location.h.c.uB().b);
                 jSONObject.put("ver", "1");
                 jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
             } catch (Exception e) {
@@ -221,7 +221,7 @@ public final class e {
                     jSONObject3 = new JSONObject();
                     jSONObject = new JSONObject();
                     try {
-                        cursor = e.this.aBQ.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "CL", 5, 50), null);
+                        cursor = e.this.aBT.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "CL", 5, 50), null);
                     } catch (Exception e) {
                         cursor = null;
                         cursor2 = null;
@@ -289,7 +289,7 @@ public final class e {
                     }
                     jSONObject3.put("cell", jSONArray);
                     i = count;
-                    cursor2 = e.this.aBQ.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
+                    cursor2 = e.this.aBT.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToFirst()) {
@@ -323,7 +323,7 @@ public final class e {
                         }
                     }
                     jSONObject.put("type", "1");
-                    jSONObject.put("cuid", com.baidu.location.h.c.uA().b);
+                    jSONObject.put("cuid", com.baidu.location.h.c.uB().b);
                     jSONObject.put("ver", "1");
                     jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                     if (i == 0 || i2 != 0) {
@@ -361,11 +361,11 @@ public final class e {
                 }
             }
             i = 0;
-            cursor2 = e.this.aBQ.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
+            cursor2 = e.this.aBT.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
             if (cursor2 != null) {
             }
             jSONObject.put("type", "1");
-            jSONObject.put("cuid", com.baidu.location.h.c.uA().b);
+            jSONObject.put("cuid", com.baidu.location.h.c.uB().b);
             jSONObject.put("ver", "1");
             jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
             if (i == 0) {
@@ -390,7 +390,7 @@ public final class e {
                 try {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
-                    jSONObject.put("cuid", com.baidu.location.h.c.uA().b);
+                    jSONObject.put("cuid", com.baidu.location.h.c.uB().b);
                     jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                     this.s = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -407,13 +407,13 @@ public final class e {
         private String k() {
             JSONObject jSONObject;
             try {
-                JSONObject b = e.this.aBL.ub().b();
+                JSONObject b = e.this.aBO.uc().b();
                 if (b != null) {
                     jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "3");
                         jSONObject.put("ver", "1");
-                        jSONObject.put("cuid", com.baidu.location.h.c.uA().b);
+                        jSONObject.put("cuid", com.baidu.location.h.c.uB().b);
                         jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                         jSONObject.put("rgc", b);
                         this.s = System.currentTimeMillis();
@@ -442,7 +442,7 @@ public final class e {
             Cursor cursor2 = null;
             boolean z = true;
             try {
-                cursor = e.this.aBP.rawQuery("SELECT COUNT(*) FROM AP;", null);
+                cursor = e.this.aBS.rawQuery("SELECT COUNT(*) FROM AP;", null);
             } catch (Exception e) {
                 cursor = null;
             } catch (Throwable th) {
@@ -450,7 +450,7 @@ public final class e {
                 cursor = null;
             }
             try {
-                cursor2 = e.this.aBP.rawQuery("SELECT COUNT(*) FROM CL", null);
+                cursor2 = e.this.aBS.rawQuery("SELECT COUNT(*) FROM CL", null);
                 if (cursor != null && cursor.moveToFirst() && cursor2 != null && cursor2.moveToFirst()) {
                     if (cursor.getInt(0) == 0) {
                     }
@@ -524,7 +524,7 @@ public final class e {
             if (!f() || this.f) {
                 return;
             }
-            e.this.aBO.g();
+            e.this.aBR.g();
         }
     }
 
@@ -532,9 +532,9 @@ public final class e {
     public e(d dVar) {
         SQLiteDatabase sQLiteDatabase;
         SQLiteDatabase sQLiteDatabase2 = null;
-        this.aBL = dVar;
+        this.aBO = dVar;
         try {
-            File file = new File(this.aBL.c(), "ofl_location.db");
+            File file = new File(this.aBO.c(), "ofl_location.db");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -542,27 +542,27 @@ public final class e {
         } catch (Exception e) {
             sQLiteDatabase = null;
         }
-        this.aBP = sQLiteDatabase;
-        if (this.aBP != null) {
+        this.aBS = sQLiteDatabase;
+        if (this.aBS != null) {
             try {
-                this.aBP.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
-                this.aBP.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
+                this.aBS.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
+                this.aBS.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
             } catch (Exception e2) {
             }
         }
         try {
-            File file2 = new File(this.aBL.c(), "ofl_statistics.db");
+            File file2 = new File(this.aBO.c(), "ofl_statistics.db");
             if (!file2.exists()) {
                 file2.createNewFile();
             }
             sQLiteDatabase2 = SQLiteDatabase.openOrCreateDatabase(file2, (SQLiteDatabase.CursorFactory) null);
         } catch (Exception e3) {
         }
-        this.aBQ = sQLiteDatabase2;
-        if (this.aBQ != null) {
+        this.aBT = sQLiteDatabase2;
+        if (this.aBT != null) {
             try {
-                this.aBQ.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY, originid VARCHAR(15), frequency INTEGER DEFAULT 0);");
-                this.aBQ.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY, originid VARCHAR(40), frequency INTEGER DEFAULT 0);");
+                this.aBT.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY, originid VARCHAR(15), frequency INTEGER DEFAULT 0);");
+                this.aBT.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY, originid VARCHAR(40), frequency INTEGER DEFAULT 0);");
             } catch (Exception e4) {
             }
         }
@@ -666,7 +666,7 @@ public final class e {
         double d4;
         double d5;
         int min;
-        this.aBW.setLength(0);
+        this.aBZ.setLength(0);
         double d6 = 0.0d;
         double d7 = 0.0d;
         if (bDLocation != null) {
@@ -694,13 +694,13 @@ public final class e {
             }
             Long encode3 = Jni.encode3(key);
             if (encode3 != null) {
-                this.aBV.put(encode3, key);
+                this.aBY.put(encode3, key);
                 if (z5) {
                     z5 = false;
                 } else {
                     stringBuffer.append(',');
                 }
-                this.aBU.put(encode3, value);
+                this.aBX.put(encode3, value);
                 stringBuffer.append(encode3);
             }
             z4 = z5;
@@ -708,7 +708,7 @@ public final class e {
         }
         Cursor cursor2 = null;
         try {
-            cursor = this.aBP.rawQuery(String.format(Locale.US, "SELECT * FROM AP WHERE id IN (%s) AND timestamp+%d>%d;", stringBuffer, 7776000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
+            cursor = this.aBS.rawQuery(String.format(Locale.US, "SELECT * FROM AP WHERE id IN (%s) AND timestamp+%d>%d;", stringBuffer, 7776000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
         } catch (Exception e) {
             z2 = false;
             d = 0.0d;
@@ -747,19 +747,19 @@ public final class e {
                     int i6 = cursor.getInt(3);
                     double d10 = cursor.getDouble(4);
                     int i7 = cursor.getInt(5);
-                    this.aBT.add(valueOf);
+                    this.aBW.add(valueOf);
                     if (i7 + 604800 < System.currentTimeMillis() / 1000) {
-                        if (this.aBW.length() > 0) {
-                            this.aBW.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        if (this.aBZ.length() > 0) {
+                            this.aBZ.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
-                        this.aBW.append(String.format(Locale.US, "(%d,\"%s\",%d)", valueOf, this.aBV.get(valueOf), 100000));
+                        this.aBZ.append(String.format(Locale.US, "(%d,\"%s\",%d)", valueOf, this.aBY.get(valueOf), 100000));
                     }
                     if (d10 <= 0.0d) {
                         cursor.moveToNext();
                     } else if (d8 <= 0.0d || d9 <= 0.0d || i6 <= 0 || i6 >= 1000) {
                         cursor.moveToNext();
                     } else if (!z || a(d7, d6, d9, d8) <= 10000.0d) {
-                        arrayList.add(new a(d8, d9, Math.exp((Math.min(100, Math.max(30, this.aBU.get(valueOf).intValue())) > 70 ? ((min - 70) / 30.0d) + 1.0d : ((min - 70) / 50.0d) + 1.0d) * Math.pow(Math.max(50.0d, i6), 0.6d) * (-0.065d)), null));
+                        arrayList.add(new a(d8, d9, Math.exp((Math.min(100, Math.max(30, this.aBX.get(valueOf).intValue())) > 70 ? ((min - 70) / 30.0d) + 1.0d : ((min - 70) / 50.0d) + 1.0d) * Math.pow(Math.max(50.0d, i6), 0.6d) * (-0.065d)), null));
                         cursor.moveToNext();
                     } else {
                         cursor.moveToNext();
@@ -899,8 +899,8 @@ public final class e {
             String format = String.format(Locale.US, "UPDATE CL SET cl = 0 WHERE id = %d;", l);
             String format2 = String.format(Locale.US, "INSERT OR REPLACE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000);
             try {
-                this.aBP.execSQL(format);
-                this.aBQ.execSQL(format2);
+                this.aBS.execSQL(format);
+                this.aBT.execSQL(format2);
             } catch (Exception e) {
             }
         }
@@ -908,10 +908,10 @@ public final class e {
             return;
         }
         try {
-            String format3 = String.format("UPDATE AP SET cl = 0 WHERE id In (%s);", this.aBR.toString());
-            String format4 = String.format("INSERT OR REPLACE INTO AP VALUES %s;", this.aBS.toString());
-            this.aBP.execSQL(format3);
-            this.aBQ.execSQL(format4);
+            String format3 = String.format("UPDATE AP SET cl = 0 WHERE id In (%s);", this.aBU.toString());
+            String format4 = String.format("INSERT OR REPLACE INTO AP VALUES %s;", this.aBV.toString());
+            this.aBS.execSQL(format3);
+            this.aBT.execSQL(format4);
         } catch (Exception e2) {
         }
     }
@@ -921,21 +921,21 @@ public final class e {
         if (str != null) {
             if (bDLocation != null) {
                 try {
-                    this.aBP.execSQL(String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l));
+                    this.aBS.execSQL(String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l));
                 } catch (Exception e) {
                 }
             } else {
                 String format = String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",0);", l, str);
                 String format2 = String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l);
                 try {
-                    this.aBQ.execSQL(format);
-                    this.aBQ.execSQL(format2);
+                    this.aBT.execSQL(format);
+                    this.aBT.execSQL(format2);
                 } catch (Exception e2) {
                 }
             }
             if (this.p) {
                 try {
-                    this.aBQ.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000));
+                    this.aBT.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000));
                 } catch (Exception e3) {
                 }
             }
@@ -944,7 +944,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3) {
-        this.aBN.a(str, str2, str3);
+        this.aBQ.a(str, str2, str3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -954,28 +954,28 @@ public final class e {
         if (linkedHashMap == null || linkedHashMap.size() <= 0) {
             return;
         }
-        this.aBR = new StringBuffer();
-        this.aBS = new StringBuffer();
+        this.aBU = new StringBuffer();
+        this.aBV = new StringBuffer();
         StringBuffer stringBuffer = new StringBuffer();
         StringBuffer stringBuffer2 = new StringBuffer();
-        if (this.aBU != null && this.aBU.keySet() != null) {
+        if (this.aBX != null && this.aBX.keySet() != null) {
             boolean z3 = true;
             boolean z4 = true;
-            for (Long l : this.aBU.keySet()) {
+            for (Long l : this.aBX.keySet()) {
                 try {
-                    if (this.aBT.contains(l)) {
+                    if (this.aBW.contains(l)) {
                         if (z4) {
                             z4 = false;
                         } else {
-                            this.aBR.append(',');
-                            this.aBS.append(',');
+                            this.aBU.append(',');
+                            this.aBV.append(',');
                         }
-                        this.aBR.append(l);
-                        this.aBS.append('(').append(l).append(',').append('\"').append(this.aBV.get(l)).append('\"').append(',').append(100000).append(')');
+                        this.aBU.append(l);
+                        this.aBV.append('(').append(l).append(',').append('\"').append(this.aBY.get(l)).append('\"').append(',').append(100000).append(')');
                         z = z3;
                         z2 = z4;
                     } else {
-                        String str = this.aBV.get(l);
+                        String str = this.aBY.get(l);
                         if (z3) {
                             z3 = false;
                         } else {
@@ -996,23 +996,23 @@ public final class e {
             }
         }
         try {
-            this.aBP.execSQL(String.format(Locale.US, "UPDATE AP SET frequency=frequency+1 WHERE id IN(%s)", this.aBR.toString()));
+            this.aBS.execSQL(String.format(Locale.US, "UPDATE AP SET frequency=frequency+1 WHERE id IN(%s)", this.aBU.toString()));
         } catch (Exception e2) {
         }
-        if (this.aBW != null && this.aBW.length() > 0) {
+        if (this.aBZ != null && this.aBZ.length() > 0) {
             if (stringBuffer2.length() > 0) {
                 stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            stringBuffer2.append(this.aBW);
+            stringBuffer2.append(this.aBZ);
         }
         try {
             String format = String.format("INSERT OR IGNORE INTO AP VALUES %s;", stringBuffer2.toString());
             String format2 = String.format("UPDATE AP SET frequency=frequency+1 WHERE id in (%s);", stringBuffer.toString());
             if (stringBuffer2.length() > 0) {
-                this.aBQ.execSQL(format);
+                this.aBT.execSQL(format);
             }
             if (stringBuffer.length() > 0) {
-                this.aBQ.execSQL(format2);
+                this.aBT.execSQL(format2);
             }
         } catch (Exception e3) {
         }
@@ -1020,7 +1020,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String[] strArr) {
-        this.aBL.uc().a(strArr);
+        this.aBO.ud().a(strArr);
     }
 
     private BDLocation b(Long l) {
@@ -1031,11 +1031,11 @@ public final class e {
         double d = 0.0d;
         double d2 = 0.0d;
         boolean z = false;
-        if (this.aBM == null || !this.aBM.equals(l)) {
+        if (this.aBP == null || !this.aBP.equals(l)) {
             Cursor cursor2 = null;
             try {
                 try {
-                    Cursor rawQuery = this.aBP.rawQuery(String.format(Locale.US, "SELECT * FROM CL WHERE id = %d AND timestamp + %d > %d;", l, 15552000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
+                    Cursor rawQuery = this.aBS.rawQuery(String.format(Locale.US, "SELECT * FROM CL WHERE id = %d AND timestamp + %d > %d;", l, 15552000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
                     if (rawQuery != null) {
                         try {
                             if (rawQuery.moveToFirst() && rawQuery.getDouble(rawQuery.getColumnIndex("cl")) > 0.0d) {
@@ -1054,7 +1054,7 @@ public final class e {
                                 this.c = d;
                                 this.d = d2;
                                 this.b = i;
-                                this.aBM = l;
+                                this.aBP = l;
                             }
                         } catch (Throwable th2) {
                             cursor = rawQuery;
@@ -1121,19 +1121,19 @@ public final class e {
         int i2 = 0;
         if (aVar.c) {
             String str2 = aVar.b;
-            LinkedHashMap<String, Integer> linkedHashMap = aVar.aCk;
+            LinkedHashMap<String, Integer> linkedHashMap = aVar.aCn;
             int i3 = aVar.f;
-            BDLocation bDLocation3 = aVar.aCj;
+            BDLocation bDLocation3 = aVar.aCm;
             BDLocation bDLocation4 = null;
             long j = Long.MIN_VALUE;
-            if (str2 != null && this.aBP != null && (j = Jni.encode3(str2)) != null) {
+            if (str2 != null && this.aBS != null && (j = Jni.encode3(str2)) != null) {
                 bDLocation4 = b(j);
             }
             BDLocation bDLocation5 = null;
-            if (linkedHashMap != null && linkedHashMap.size() > 0 && this.aBP != null) {
-                this.aBU.clear();
-                this.aBT.clear();
-                this.aBV.clear();
+            if (linkedHashMap != null && linkedHashMap.size() > 0 && this.aBS != null) {
+                this.aBX.clear();
+                this.aBW.clear();
+                this.aBY.clear();
                 bDLocation5 = a(linkedHashMap, bDLocation4, i3);
             }
             Double d2 = null;
@@ -1181,8 +1181,8 @@ public final class e {
                     d = null;
                     bDLocation = bDLocation2;
                 }
-                if (aVar.e && this.aBL.uc().l() && d5 != null && d != null) {
-                    bDLocation.setAddr(this.aBL.ub().b(d.doubleValue(), d5.doubleValue()));
+                if (aVar.e && this.aBO.ud().l() && d5 != null && d != null) {
+                    bDLocation.setAddr(this.aBO.uc().b(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z && aVar.e && bDLocation.getAddrStr() == null) {
                     d5 = null;
@@ -1193,7 +1193,7 @@ public final class e {
                 if ((aVar.d && !aVar.h) || d5 == null || d == null) {
                     list = null;
                 } else {
-                    List<Poi> c2 = this.aBL.ub().c(d.doubleValue(), d5.doubleValue());
+                    List<Poi> c2 = this.aBO.uc().c(d.doubleValue(), d5.doubleValue());
                     if (aVar.d) {
                         bDLocation.setPoiList(c2);
                     }
@@ -1238,7 +1238,7 @@ public final class e {
                     bDLocation = bDLocation2;
                 }
                 if (aVar.e) {
-                    bDLocation.setAddr(this.aBL.ub().b(d.doubleValue(), d5.doubleValue()));
+                    bDLocation.setAddr(this.aBO.uc().b(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z) {
                     d5 = null;
@@ -1248,7 +1248,7 @@ public final class e {
                 }
                 if (aVar.d) {
                 }
-                List<Poi> c22 = this.aBL.ub().c(d.doubleValue(), d5.doubleValue());
+                List<Poi> c22 = this.aBO.uc().c(d.doubleValue(), d5.doubleValue());
                 if (aVar.d) {
                 }
                 list = c22;
@@ -1278,11 +1278,11 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.aBO.b();
+        this.aBR.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteDatabase ue() {
-        return this.aBQ;
+    public SQLiteDatabase uf() {
+        return this.aBT;
     }
 }

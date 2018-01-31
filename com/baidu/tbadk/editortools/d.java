@@ -7,12 +7,12 @@ public abstract class d {
 
     protected abstract void b(f fVar);
 
-    protected abstract f bi(Context context);
+    protected abstract f bf(Context context);
 
-    public f bh(Context context) {
-        f bi = bi(context);
-        a(bi);
-        b(bi);
-        return bi;
+    public f be(Context context) {
+        f bf = bf(context);
+        a(bf);
+        b(bf);
+        return bf;
     }
 }

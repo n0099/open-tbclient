@@ -175,12 +175,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* renamed from: com.baidu.tieba.horizonalList.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ContextMenu$ContextMenuInfoC0116a implements ContextMenu.ContextMenuInfo {
+    public static class ContextMenu$ContextMenuInfoC0117a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
         public View targetView;
 
-        public ContextMenu$ContextMenuInfoC0116a(View view, int i, long j) {
+        public ContextMenu$ContextMenuInfoC0117a(View view, int i, long j) {
             this.targetView = view;
             this.position = i;
             this.id = j;
@@ -398,7 +398,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable eht = null;
+        private Parcelable ehO = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -409,9 +409,9 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             a.this.mDataChanged = true;
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = a.this.getAdapter().getCount();
-            if (a.this.getAdapter().hasStableIds() && this.eht != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
-                a.this.onRestoreInstanceState(this.eht);
-                this.eht = null;
+            if (a.this.getAdapter().hasStableIds() && this.ehO != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
+                a.this.onRestoreInstanceState(this.ehO);
+                this.ehO = null;
             } else {
                 a.this.rememberSyncState();
             }
@@ -423,7 +423,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             a.this.mDataChanged = true;
             if (a.this.getAdapter().hasStableIds()) {
-                this.eht = a.this.onSaveInstanceState();
+                this.ehO = a.this.onSaveInstanceState();
             }
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = 0;

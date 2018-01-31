@@ -22,131 +22,131 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.c;
 /* loaded from: classes2.dex */
 public class a {
-    private final NewWriteModel hCA;
-    private final b hCx;
-    private boolean hCB = false;
-    private final NewWriteModel.d brY = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
+    private final b hCR;
+    private final NewWriteModel hCU;
+    private boolean hCV = false;
+    private final NewWriteModel.d bsh = new NewWriteModel.d() { // from class: com.baidu.tieba.write.accountAccess.a.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, t tVar, WriteData writeData, AntiData antiData) {
-            if (a.this.hCx != null && a.this.hCA != null && a.this.hCA.getWriteData() != null) {
-                a.this.hCx.showPostThreadLoadingView(false);
-                WriteData writeData2 = writeData == null ? a.this.hCA.getWriteData() : writeData;
+            if (a.this.hCR != null && a.this.hCU != null && a.this.hCU.getWriteData() != null) {
+                a.this.hCR.showPostThreadLoadingView(false);
+                WriteData writeData2 = writeData == null ? a.this.hCU.getWriteData() : writeData;
                 if (z) {
-                    a.this.hCB = true;
+                    a.this.hCV = true;
                     if (writeData2.getIsStory() != 1 && (writeData2.getType() != 0 || writeData2.isUserFeedback())) {
                         if (postWriteCallBackData == null) {
-                            c.e(a.this.hCx.getContext().getActivity(), a.this.hCx.getContext().getResources().getString(d.j.send_success), null, null);
+                            c.e(a.this.hCR.getContext().getActivity(), a.this.hCR.getContext().getResources().getString(d.j.send_success), null, null);
                         } else {
-                            c.e(a.this.hCx.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                            c.e(a.this.hCR.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                         }
                     }
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    BaseActivity context = a.this.hCx.getContext();
-                    a.this.hCx.getContext();
+                    BaseActivity context = a.this.hCR.getContext();
+                    a.this.hCR.getContext();
                     context.setResult(-1, intent);
-                    a.this.hCx.getContext().finish();
-                } else if (writeData2 != null && tVar != null && !TextUtils.isEmpty(tVar.Fz())) {
+                    a.this.hCR.getContext().finish();
+                } else if (writeData2 != null && tVar != null && !TextUtils.isEmpty(tVar.FB())) {
                     writeData2.setVcodeMD5(tVar.getVcode_md5());
                     writeData2.setVcodeUrl(tVar.getVcode_pic_url());
-                    writeData2.setVcodeExtra(tVar.FA());
-                    a.this.hCx.getContext().setVisible(false);
-                    if (com.baidu.tbadk.p.a.hg(tVar.Fz())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.hCx.getContext().getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, false, tVar.Fz())));
+                    writeData2.setVcodeExtra(tVar.FC());
+                    a.this.hCR.getContext().setVisible(false);
+                    if (com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.hCR.getContext().getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, false, tVar.FB())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.hCx.getContext().getActivity(), writeData2, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.hCR.getContext().getActivity(), writeData2, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    BaseActivity context2 = a.this.hCx.getContext();
-                    a.this.hCx.getContext();
+                    BaseActivity context2 = a.this.hCR.getContext();
+                    a.this.hCR.getContext();
                     context2.setResult(0, intent2);
-                    a.this.hCx.getContext().finish();
+                    a.this.hCR.getContext().finish();
                 } else {
                     if (postWriteCallBackData != null) {
-                        c.e(a.this.hCx.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                        BaseActivity context3 = a.this.hCx.getContext();
-                        a.this.hCx.getContext();
+                        c.e(a.this.hCR.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                        BaseActivity context3 = a.this.hCR.getContext();
+                        a.this.hCR.getContext();
                         context3.setResult(0, null);
                     }
-                    a.this.hCx.getContext().finish();
+                    a.this.hCR.getContext().finish();
                 }
             }
         }
     };
 
     public a(b bVar, NewWriteModel newWriteModel) {
-        this.hCx = bVar;
-        this.hCA = newWriteModel;
-        newWriteModel.b(this.brY);
+        this.hCR = bVar;
+        this.hCU = newWriteModel;
+        newWriteModel.b(this.bsh);
     }
 
-    public boolean ub(String str) {
-        if (this.hCx == null || str == null) {
+    public boolean ui(String str) {
+        if (this.hCR == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.hCx.getContext().finish();
+            this.hCR.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.hCx.H(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.hCx.bFb() != this.hCx.iR()) {
-                this.hCx.setRatio(this.hCx.bFb());
-                this.hCx.bFc();
+            this.hCR.H(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.hCR.bFd() != this.hCR.iR()) {
+                this.hCR.setRatio(this.hCR.bFd());
+                this.hCR.bFe();
             }
-            this.hCx.getWebView().setVisibility(0);
+            this.hCR.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            bEZ();
+            bFb();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.hCx.getContext().finish();
-            av.CZ().c(this.hCx.getContext().getPageContext(), new String[]{"feedback:"});
+            this.hCR.getContext().finish();
+            av.Da().c(this.hCR.getContext().getPageContext(), new String[]{"feedback:"});
             return true;
         } else {
             return true;
         }
     }
 
-    public void bEY() {
-        if (this.hCx != null) {
-            this.hCx.showWebViewDelay(500);
+    public void bFa() {
+        if (this.hCR != null) {
+            this.hCR.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.hCx != null) {
-            this.hCx.showWebLoadingView(true);
-            this.hCx.showWebView(false);
-            this.hCx.getWebView().loadUrl(str);
+        if (this.hCR != null) {
+            this.hCR.showWebLoadingView(true);
+            this.hCR.showWebView(false);
+            this.hCR.getWebView().loadUrl(str);
         }
     }
 
     public void onPostThreadCancle() {
-        if (this.hCx != null) {
-            this.hCx.showPostThreadLoadingView(false);
+        if (this.hCR != null) {
+            this.hCR.showPostThreadLoadingView(false);
         }
     }
 
-    private void bEZ() {
-        this.hCB = false;
-        if (this.hCx != null && this.hCA != null) {
-            if (!l.oZ()) {
-                this.hCx.getContext().showToast(d.j.neterror);
-                this.hCx.getContext().finish();
+    private void bFb() {
+        this.hCV = false;
+        if (this.hCR != null && this.hCU != null) {
+            if (!l.pa()) {
+                this.hCR.getContext().showToast(d.j.neterror);
+                this.hCR.getContext().finish();
                 return;
             }
-            this.hCx.showPostThreadLoadingView(true);
-            this.hCA.startPostWrite();
+            this.hCR.showPostThreadLoadingView(true);
+            this.hCU.startPostWrite();
         }
     }
 
-    public boolean bFa() {
-        return this.hCB;
+    public boolean bFc() {
+        return this.hCV;
     }
 }

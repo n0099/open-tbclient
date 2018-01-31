@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface a {
-    void Vz();
+    void VB();
 
     void i(boolean z, boolean z2, boolean z3);
 

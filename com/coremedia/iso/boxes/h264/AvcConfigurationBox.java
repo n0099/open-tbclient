@@ -22,35 +22,35 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static final String TYPE = "avcC";
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0205a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_9 = null;
     public AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     static {
@@ -211,7 +211,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setHasExts(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.ok(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.om(z)));
         this.avcDecoderConfigurationRecord.hasExts = z;
     }
 

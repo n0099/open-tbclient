@@ -10,57 +10,57 @@ import com.baidu.tbadk.core.util.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String bjq = k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int aPe;
-    public String bjc;
-    public String bjh;
-    public String bji;
-    public int bjl;
-    private Bundle bjo;
+    public static final String bjy = k.amf + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int aPh;
+    public String bjk;
+    public String bjp;
+    public String bjq;
+    public int bjt;
+    private Bundle bjw;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String price;
     public String tid;
     public String uid;
-    public boolean biU = false;
-    public boolean biV = false;
-    public boolean biW = false;
-    public boolean biX = false;
-    public boolean biY = false;
-    public boolean biZ = false;
-    public boolean bja = false;
-    public String bjb = "";
-    public int bjj = 0;
-    public int bjk = 3;
-    public boolean bjm = false;
-    public boolean bjp = true;
+    public boolean bjc = false;
+    public boolean bjd = false;
+    public boolean bje = false;
+    public boolean bjf = false;
+    public boolean bjg = false;
+    public boolean bjh = false;
+    public boolean bji = false;
+    public String bjj = "";
+    public int bjr = 0;
+    public int bjs = 3;
+    public boolean bju = false;
+    public boolean bjx = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String bjd = null;
-    public Uri bje = null;
-    public Location bjf = null;
-    private WeakReference<Bitmap> bjn = null;
-    public String bjg = null;
+    public String bjl = null;
+    public Uri bjm = null;
+    public Location bjn = null;
+    private WeakReference<Bitmap> bjv = null;
+    public String bjo = null;
     public String extData = null;
 
-    public Bundle Ip() {
-        return this.bjo;
+    public Bundle Ir() {
+        return this.bjw;
     }
 
     public void h(Bundle bundle) {
-        this.bjo = bundle;
+        this.bjw = bundle;
     }
 
-    public Bitmap Iq() {
+    public Bitmap Is() {
         Bitmap bitmap;
-        if (this.bjn == null || (bitmap = this.bjn.get()) == null || bitmap.isRecycled()) {
+        if (this.bjv == null || (bitmap = this.bjv.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void h(Bitmap bitmap) {
-        this.bjn = new WeakReference<>(bitmap);
+        this.bjv = new WeakReference<>(bitmap);
     }
 }

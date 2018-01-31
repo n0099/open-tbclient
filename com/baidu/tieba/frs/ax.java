@@ -4,40 +4,40 @@ import com.baidu.tieba.d;
 import tbclient.PollOption;
 /* loaded from: classes2.dex */
 public class ax implements com.baidu.tbadk.widget.vote.a {
-    private int dEw = -1;
-    private String dEx = null;
-    private int bpd = 0;
-    private boolean dEy = false;
-    private int[] dEz = {d.f.icon_grade_vote_num1, d.f.icon_grade_vote_num2, d.f.icon_grade_vote_num3};
-    private int[] dEA = {d.f.icon_grade_vote_no1, d.f.icon_grade_vote_no2, d.f.icon_grade_vote_no3};
+    private int dER = -1;
+    private String dES = null;
+    private int bpm = 0;
+    private boolean dET = false;
+    private int[] dEU = {d.f.icon_grade_vote_num1, d.f.icon_grade_vote_num2, d.f.icon_grade_vote_num3};
+    private int[] dEV = {d.f.icon_grade_vote_no1, d.f.icon_grade_vote_no2, d.f.icon_grade_vote_no3};
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Kb() {
-        return this.dEw;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String JY() {
-        return this.dEx;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String JZ() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Kc() {
-        return this.bpd;
+    public int Kd() {
+        return this.dER;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Ka() {
-        return this.bpd + "%";
+        return this.dES;
     }
 
-    public void fP(boolean z) {
-        this.dEy = z;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Kb() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Ke() {
+        return this.bpm;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Kc() {
+        return this.bpm + "%";
+    }
+
+    public void fR(boolean z) {
+        this.dET = z;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -46,31 +46,31 @@ public class ax implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void a(int i, PollOption pollOption, long j) {
-        int[] iArr = this.dEy ? this.dEz : this.dEA;
+        int[] iArr = this.dET ? this.dEU : this.dEV;
         switch (i) {
             case 1:
-                this.dEw = iArr[0];
+                this.dER = iArr[0];
                 break;
             case 2:
-                this.dEw = iArr[1];
+                this.dER = iArr[1];
                 break;
             case 3:
-                this.dEw = iArr[2];
+                this.dER = iArr[2];
                 break;
             default:
-                this.dEw = -1;
+                this.dER = -1;
                 break;
         }
-        this.dEx = pollOption.text;
+        this.dES = pollOption.text;
         if (j > 0) {
-            this.bpd = (int) ((pollOption.num.longValue() * 100) / j);
+            this.bpm = (int) ((pollOption.num.longValue() * 100) / j);
         } else {
-            this.bpd = 0;
+            this.bpm = 0;
         }
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Kd() {
+    public String Kf() {
         return null;
     }
 

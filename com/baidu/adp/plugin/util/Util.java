@@ -26,7 +26,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean rD() {
+    public static boolean rE() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -61,16 +61,16 @@ public final class Util {
     }
 
     public static final boolean u(long j) {
-        long rF = rF();
+        long rG = rG();
         if (j <= 0) {
-            return rF <= 0 || rF >= 31457280;
+            return rG <= 0 || rG >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < rF;
+        return (j2 <= 31457280 ? j2 : 31457280L) < rG;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -205,14 +205,14 @@ public final class Util {
     }
 
     public static File bO(String str) {
-        PluginSetting br = PluginPackageManager.qR().br(str);
+        PluginSetting br = PluginPackageManager.qS().br(str);
         if (br == null || br.apkPath == null || br.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(br.apkPath.substring(0, br.apkPath.length() - ".apk".length()));
     }
 
-    public static File rE() {
+    public static File rF() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -346,10 +346,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return rE() + File.separator + e(pluginSetting);
+        return rF() + File.separator + e(pluginSetting);
     }
 
-    public static long rF() {
+    public static long rG() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

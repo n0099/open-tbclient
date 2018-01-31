@@ -13,7 +13,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private ImageView doA;
+    private ImageView doV;
     private int mImageWidth;
 
     public a(Context context) {
@@ -32,42 +32,42 @@ public class a extends LinearLayout {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.doA = new GifView(getContext());
-                ((GifView) this.doA).setSupportNoImage(false);
+                this.doV = new GifView(getContext());
+                ((GifView) this.doV).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.doA.setTag(gifInfo.mSharpText);
-                ((GifView) this.doA).a(gifInfo);
+                this.doV.setTag(gifInfo.mSharpText);
+                ((GifView) this.doV).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.doA, layoutParams);
+                addView(this.doV, layoutParams);
                 return;
             }
-            c.nl().a(str, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.view.a.1
+            c.nm().a(str, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.view.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.a.a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            a.this.doA = new GifView(a.this.getContext());
-                            ((GifView) a.this.doA).setSupportNoImage(false);
+                            a.this.doV = new GifView(a.this.getContext());
+                            ((GifView) a.this.doV).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            a.this.doA.setTag(gifInfo2.mSharpText);
-                            ((GifView) a.this.doA).a(gifInfo2);
+                            a.this.doV.setTag(gifInfo2.mSharpText);
+                            ((GifView) a.this.doV).a(gifInfo2);
                         } else {
-                            a.this.doA = new TbImageView(a.this.getContext());
-                            ((TbImageView) a.this.doA).setGifIconSupport(false);
-                            aVar.a(a.this.doA);
+                            a.this.doV = new TbImageView(a.this.getContext());
+                            ((TbImageView) a.this.doV).setGifIconSupport(false);
+                            aVar.a(a.this.doV);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(a.this.mImageWidth, a.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        a.this.addView(a.this.doA, layoutParams2);
+                        a.this.addView(a.this.doV, layoutParams2);
                     }
                 }
             }, null);

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 public class f {
     private static UserData mUserData;
 
-    public static UserData atL() {
+    public static UserData atQ() {
         return mUserData;
     }
 
@@ -38,12 +38,12 @@ public class f {
         }
     }
 
-    public static boolean atM() {
-        UserData atL = atL();
-        if (atL == null) {
+    public static boolean atR() {
+        UserData atQ = atQ();
+        if (atQ == null) {
             return false;
         }
-        switch (atL.getIs_manager()) {
+        switch (atQ.getIs_manager()) {
             case 1:
                 return true;
             default:

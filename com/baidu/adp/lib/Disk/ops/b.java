@@ -39,12 +39,12 @@ public class b extends c {
     */
     public boolean h(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.afU.i(bArr)) {
-            long j = this.afU.afX;
+        if (bArr != null && this.afX.i(bArr)) {
+            long j = this.afX.aga;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.afU.afX;
+                long j3 = this.afX.aga;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {
@@ -52,13 +52,13 @@ public class b extends c {
                 }
             }
             ByteArrayInputStream byteArrayInputStream2 = j2;
-            if (this.afT == null) {
-                this.afT = new BitmapFactory.Options();
-                this.afT.inDither = false;
+            if (this.afW == null) {
+                this.afW = new BitmapFactory.Options();
+                this.afW.inDither = false;
                 int i3 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                this.afT.inScreenDensity = i3;
-                this.afT.inTargetDensity = i3;
-                ?? r2 = this.afT;
+                this.afW.inScreenDensity = i3;
+                this.afW.inTargetDensity = i3;
+                ?? r2 = this.afW;
                 ((BitmapFactory.Options) r2).inDensity = i3;
                 byteArrayInputStream2 = r2;
             }
@@ -67,7 +67,7 @@ public class b extends c {
                 try {
                     byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                     try {
-                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.lQ, this.afT);
+                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.lQ, this.afW);
                         com.baidu.adp.lib.g.a.d(byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                     } catch (Error e) {

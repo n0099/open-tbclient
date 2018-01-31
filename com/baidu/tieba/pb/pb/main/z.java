@@ -15,22 +15,22 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class z {
-    private PbModel fHy;
-    private a fId;
-    protected final com.baidu.adp.framework.listener.a fNO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.z.1
+    private PbModel fHT;
+    private a fIy;
+    protected final com.baidu.adp.framework.listener.a fOj = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.z.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == z.this.fNN) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == z.this.fOi) {
                     if (responsedMessage instanceof LookMoreHttpResMessage) {
                         LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                         List<PostData> data = lookMoreHttpResMessage.getData();
                         String errorString = lookMoreHttpResMessage.getErrorString();
                         int error = lookMoreHttpResMessage.getError();
                         if (error != 0) {
-                            z.this.fId.h(error, errorString, "");
+                            z.this.fIy.h(error, errorString, "");
                         } else if (!com.baidu.tbadk.core.util.v.E(data)) {
-                            z.this.fId.J(data);
+                            z.this.fIy.J(data);
                         }
                     } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                         LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -38,16 +38,16 @@ public class z {
                         String errorString2 = lookMoreSocketResMessage.getErrorString();
                         int error2 = lookMoreSocketResMessage.getError();
                         if (error2 != 0) {
-                            z.this.fId.h(error2, errorString2, "");
+                            z.this.fIy.h(error2, errorString2, "");
                         } else if (data2 != null) {
-                            z.this.fId.J(data2);
+                            z.this.fIy.J(data2);
                         }
                     }
                 }
             }
         }
     };
-    private final BdUniqueId fNN = BdUniqueId.gen();
+    private final BdUniqueId fOi = BdUniqueId.gen();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -57,21 +57,21 @@ public class z {
     }
 
     public z(PbModel pbModel, BaseActivity baseActivity) {
-        this.fHy = pbModel;
-        Hd();
-        MessageManager.getInstance().registerListener(this.fNO);
-        this.fId = null;
+        this.fHT = pbModel;
+        Hf();
+        MessageManager.getInstance().registerListener(this.fOj);
+        this.fIy = null;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fNO);
+        MessageManager.getInstance().unRegisterListener(this.fOj);
     }
 
     public void b(a aVar) {
-        this.fId = aVar;
+        this.fIy = aVar;
     }
 
-    private void Hd() {
+    private void Hf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, com.baidu.tieba.tbadkCore.a.a.aI(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
         tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -79,17 +79,17 @@ public class z {
     }
 
     public void cP(List<Long> list) {
-        if (this.fHy != null && this.fHy.getPbData() != null) {
+        if (this.fHT != null && this.fHT.getPbData() != null) {
             int ao = com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst());
             int aq = com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst());
             LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.fHy.fMn, 0L)));
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.fHT.fMI, 0L)));
             lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.h(this.fHy.mStType, 0));
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.h(this.fHT.mStType, 0));
             lookMoreReqMessage.setWith_floor(1);
             lookMoreReqMessage.setScr_w(ao);
             lookMoreReqMessage.setScr_h(aq);
-            lookMoreReqMessage.setTag(this.fNN);
+            lookMoreReqMessage.setTag(this.fOi);
             MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }

@@ -12,48 +12,48 @@ import com.baidu.tbadk.k.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends k {
-    private static CustomMessageTask bxS = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
+    private static CustomMessageTask byb = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.k.d.3
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<a> customMessage) {
             if (customMessage == null) {
                 return null;
             }
             a data = customMessage.getData();
-            data.bxU = r.NO().NQ();
-            data.bxV = r.NO().NS();
+            data.byd = r.NQ().NS();
+            data.bye = r.NQ().NU();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
         }
     });
-    private ArrayList<String> bxH;
-    private ArrayList<String> bxI;
-    private ArrayList<String> bxJ;
-    private e bxN;
-    private com.baidu.tbadk.k.a bxO;
-    private int bxP;
-    private int bxK = 0;
-    private int bxL = 3;
-    private int bxM = 0;
-    private int bxQ = 0;
-    private e.a bxR = new e.a() { // from class: com.baidu.tbadk.k.d.1
+    private ArrayList<String> bxQ;
+    private ArrayList<String> bxR;
+    private ArrayList<String> bxS;
+    private e bxW;
+    private com.baidu.tbadk.k.a bxX;
+    private int bxY;
+    private int bxT = 0;
+    private int bxU = 3;
+    private int bxV = 0;
+    private int bxZ = 0;
+    private e.a bya = new e.a() { // from class: com.baidu.tbadk.k.d.1
         @Override // com.baidu.tbadk.k.e.a
         public void ij(int i) {
-            d.this.bxN.a((e.a) null);
-            d.this.bxN.stop();
-            d.this.bxP = i;
-            t tVar = (t) r.NO().io(d.this.mSubType);
+            d.this.bxW.a((e.a) null);
+            d.this.bxW.stop();
+            d.this.bxY = i;
+            t tVar = (t) r.NQ().io(d.this.mSubType);
             if (tVar != null) {
                 tVar.h(d.this);
             }
         }
     };
-    private a.InterfaceC0087a bxw = new a.InterfaceC0087a() { // from class: com.baidu.tbadk.k.d.2
-        @Override // com.baidu.tbadk.k.a.InterfaceC0087a
+    private a.InterfaceC0088a bxF = new a.InterfaceC0088a() { // from class: com.baidu.tbadk.k.d.2
+        @Override // com.baidu.tbadk.k.a.InterfaceC0088a
         public void ij(int i) {
-            d.this.bxQ++;
-            if (d.this.bxL == d.this.bxQ) {
-                d.this.bxO.a((a.InterfaceC0087a) null);
-                d.this.bxO.stop();
-                d.this.NC();
+            d.this.bxZ++;
+            if (d.this.bxU == d.this.bxZ) {
+                d.this.bxX.a((a.InterfaceC0088a) null);
+                d.this.bxX.stop();
+                d.this.NE();
             }
             d.this.ik(i);
         }
@@ -64,52 +64,52 @@ public class d extends k {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
-                d.this.bxM++;
-                d.this.gL(aVar.bxU);
-                d.this.il(aVar.bxV);
-                d.this.NC();
+                d.this.bxV++;
+                d.this.gS(aVar.byd);
+                d.this.il(aVar.bye);
+                d.this.NE();
             }
         }
     };
 
     public d() {
-        Nw();
+        Ny();
     }
 
     public void onDestroy() {
-        if (this.bxN != null) {
-            this.bxN.a((e.a) null);
+        if (this.bxW != null) {
+            this.bxW.a((e.a) null);
         }
-        if (this.bxO != null) {
-            this.bxO.a((a.InterfaceC0087a) null);
+        if (this.bxX != null) {
+            this.bxX.a((a.InterfaceC0088a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void Nv() {
-        if (this.bxK < this.bxL) {
-            this.bxK++;
-            Nx();
-            if (this.bxN == null) {
-                this.bxN = new e();
-                this.bxN.a(this.bxR);
-                this.bxN.start();
+    public void Nx() {
+        if (this.bxT < this.bxU) {
+            this.bxT++;
+            Nz();
+            if (this.bxW == null) {
+                this.bxW = new e();
+                this.bxW.a(this.bya);
+                this.bxW.start();
             }
-            if (this.bxO == null) {
-                this.bxO = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
-                this.bxO.a(this.bxw);
-                this.bxO.start();
+            if (this.bxX == null) {
+                this.bxX = new com.baidu.tbadk.k.a(TbadkCoreApplication.getInst().getContext());
+                this.bxX.a(this.bxF);
+                this.bxX.start();
             }
         }
     }
 
-    private void Nw() {
+    private void Ny() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Nx() {
+    private void Nz() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -118,45 +118,45 @@ public class d extends k {
     /* JADX INFO: Access modifiers changed from: private */
     public void ik(int i) {
         String valueOf = String.valueOf(i);
-        if (this.bxH == null) {
-            this.bxH = new ArrayList<>();
+        if (this.bxQ == null) {
+            this.bxQ = new ArrayList<>();
         }
-        this.bxH.add(valueOf);
+        this.bxQ.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gL(String str) {
-        if (this.bxI == null) {
-            this.bxI = new ArrayList<>();
+    public void gS(String str) {
+        if (this.bxR == null) {
+            this.bxR = new ArrayList<>();
         }
         if (str != null) {
-            this.bxI.add(str);
+            this.bxR.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void il(int i) {
         String valueOf = String.valueOf(i);
-        if (this.bxJ == null) {
-            this.bxJ = new ArrayList<>();
+        if (this.bxS == null) {
+            this.bxS = new ArrayList<>();
         }
-        this.bxJ.add(valueOf);
-    }
-
-    public String Ny() {
-        return s(this.bxH);
-    }
-
-    public String Nz() {
-        return String.valueOf(this.bxP);
+        this.bxS.add(valueOf);
     }
 
     public String NA() {
-        return s(this.bxI);
+        return s(this.bxQ);
     }
 
     public String NB() {
-        return s(this.bxJ);
+        return String.valueOf(this.bxY);
+    }
+
+    public String NC() {
+        return s(this.bxR);
+    }
+
+    public String ND() {
+        return s(this.bxS);
     }
 
     private String s(ArrayList<String> arrayList) {
@@ -179,22 +179,22 @@ public class d extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NC() {
+    public void NE() {
         t tVar;
-        if (this.bxM == this.bxL && this.bxL == this.bxQ && (tVar = (t) r.NO().io(this.mSubType)) != null) {
+        if (this.bxV == this.bxU && this.bxU == this.bxZ && (tVar = (t) r.NQ().io(this.mSubType)) != null) {
             tVar.g(this);
         }
     }
 
     static {
-        bxS.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(bxS);
+        byb.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(byb);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String bxU;
-        public int bxV;
+        public String byd;
+        public int bye;
 
         public a() {
         }

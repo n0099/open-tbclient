@@ -11,13 +11,8 @@ public class ak extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mq() {
+    protected String[] mr() {
         return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int mr() {
-        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -27,10 +22,15 @@ public class ak extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int mu() {
         return 10;
     }
 
-    public static boolean nu() {
-        return com.baidu.adp.lib.b.d.mz().an("android_gif_autoplay") == 1;
+    public static boolean nv() {
+        return com.baidu.adp.lib.b.d.mA().an("android_gif_autoplay") == 1;
     }
 }

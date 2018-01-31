@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType dlt;
-    private int dlu;
-    private int dlv;
-    private com.baidu.tbadk.editortools.emotiontool.c dlw;
-    private int dlx;
-    private int dly;
+    private EmotionGroupType dlO;
+    private int dlP;
+    private int dlQ;
+    private com.baidu.tbadk.editortools.emotiontool.c dlR;
+    private int dlS;
+    private int dlT;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dlw = cVar;
+        this.dlR = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c apb() {
-        return this.dlw;
+    public com.baidu.tbadk.editortools.emotiontool.c apg() {
+        return this.dlR;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dlt = emotionGroupType;
+        this.dlO = emotionGroupType;
     }
 
-    public EmotionGroupType apc() {
-        return this.dlt;
+    public EmotionGroupType aph() {
+        return this.dlO;
     }
 
     public void hU(int i) {
@@ -43,39 +43,39 @@ public class d {
         this.column = i;
     }
 
-    public int apd() {
+    public int api() {
         return this.column;
     }
 
     public void mi(int i) {
-        this.dly = i;
+        this.dlT = i;
     }
 
-    public int ape() {
-        return this.dly;
+    public int apj() {
+        return this.dlT;
     }
 
     public void mj(int i) {
-        this.dlx = i;
+        this.dlS = i;
     }
 
-    public int apf() {
-        return this.dlx;
+    public int apk() {
+        return this.dlS;
     }
 
     public void mk(int i) {
-        this.dlu = i;
+        this.dlP = i;
     }
 
-    public int apg() {
-        return this.dlu;
+    public int apl() {
+        return this.dlP;
     }
 
     public void ml(int i) {
         this.startIndex = i;
     }
 
-    public int aph() {
+    public int apm() {
         return this.startIndex;
     }
 
@@ -92,10 +92,10 @@ public class d {
     }
 
     public void mm(int i) {
-        this.dlv = i;
+        this.dlQ = i;
     }
 
-    public int api() {
-        return this.dlv;
+    public int apn() {
+        return this.dlQ;
     }
 }

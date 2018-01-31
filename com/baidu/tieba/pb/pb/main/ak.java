@@ -20,10 +20,10 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bu */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fJw.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        al alVar = new al(this.fJR.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
         alVar.G(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.j.fEa) {
-            alVar.h(com.baidu.tieba.pb.data.j.fEa);
+        if (getType() == com.baidu.tieba.pb.data.j.fEv) {
+            alVar.h(com.baidu.tieba.pb.data.j.fEv);
         }
         return alVar;
     }
@@ -35,8 +35,8 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, al alVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, alVar);
         if (alVar != null) {
-            if (getType() == com.baidu.tieba.pb.data.j.fEb) {
-                alVar.n(com.baidu.tieba.pb.data.j.fEb);
+            if (getType() == com.baidu.tieba.pb.data.j.fEw) {
+                alVar.n(com.baidu.tieba.pb.data.j.fEw);
             }
             alVar.a(jVar);
         }
@@ -44,8 +44,8 @@ public class ak extends m<com.baidu.tieba.pb.data.j, al> {
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEa);
-        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEb);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEv);
+        MessageManager.getInstance().unRegisterListener(com.baidu.tieba.pb.data.j.fEw);
     }
 
     public void l(View.OnClickListener onClickListener) {

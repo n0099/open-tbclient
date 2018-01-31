@@ -6,17 +6,18 @@ import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
-    private OperateType afF;
-    protected boolean afG;
-    protected Action afH;
-    private volatile boolean afI;
-    private boolean afJ;
-    private File afK;
+    private OperateType afH;
+    protected boolean afI;
+    protected Action afJ;
+    private volatile boolean afK;
     private boolean afL;
-    private int afM;
-    private String afN;
-    private String afO;
-    private e.a afP;
+    private File afM;
+    private boolean afN;
+    private boolean afO;
+    private int afP;
+    private String afQ;
+    private String afR;
+    private e.a afS;
     protected volatile byte[] mData;
     protected volatile Object mLock;
     protected String mName;
@@ -44,49 +45,51 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.afF = OperateType.MUST_SUCCESS;
-        this.afG = false;
-        this.afH = Action.READ;
+        this.afH = OperateType.MUST_SUCCESS;
+        this.afI = false;
+        this.afJ = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.afI = false;
-        this.afJ = true;
-        this.mOutputStream = null;
-        this.afK = null;
+        this.afK = false;
         this.afL = true;
-        this.afM = 0;
-        this.afN = null;
-        this.afO = null;
-        this.afP = null;
+        this.mOutputStream = null;
+        this.afM = null;
+        this.afN = true;
+        this.afO = false;
+        this.afP = 0;
+        this.afQ = null;
+        this.afR = null;
+        this.afS = null;
         this.mPath = str;
         this.mName = str2;
-        this.afH = action;
+        this.afJ = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.afF = OperateType.MUST_SUCCESS;
-        this.afG = false;
-        this.afH = Action.READ;
+        this.afH = OperateType.MUST_SUCCESS;
+        this.afI = false;
+        this.afJ = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.afI = false;
-        this.afJ = true;
-        this.mOutputStream = null;
-        this.afK = null;
+        this.afK = false;
         this.afL = true;
-        this.afM = 0;
-        this.afN = null;
-        this.afO = null;
-        this.afP = null;
+        this.mOutputStream = null;
+        this.afM = null;
+        this.afN = true;
+        this.afO = false;
+        this.afP = 0;
+        this.afQ = null;
+        this.afR = null;
+        this.afS = null;
         this.mPath = str;
         this.mName = str2;
-        this.afN = str3;
-        this.afO = str4;
-        this.afH = action;
+        this.afQ = str3;
+        this.afR = str4;
+        this.afJ = action;
     }
 
     public void ao(Object obj) {
@@ -122,7 +125,7 @@ public class DiskFileOperate {
     }
 
     public Action lt() {
-        return this.afH;
+        return this.afJ;
     }
 
     public boolean h(byte[] bArr) {
@@ -134,19 +137,19 @@ public class DiskFileOperate {
     }
 
     public boolean isSuccess() {
-        return this.afI;
+        return this.afK;
     }
 
     public void setSuccess(boolean z) {
-        this.afI = z;
+        this.afK = z;
     }
 
     public void Z(boolean z) {
-        this.afG = z;
+        this.afI = z;
     }
 
     public String lv() {
-        if (this.afG && this.mName != null) {
+        if (this.afI && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
@@ -161,37 +164,37 @@ public class DiskFileOperate {
     }
 
     public String lw() {
-        if (this.afG && this.afO != null) {
-            int hashCode = this.afO.hashCode();
+        if (this.afI && this.afR != null) {
+            int hashCode = this.afR.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.afN == null) {
+            if (this.afQ == null) {
                 return String.valueOf(i);
             }
-            return this.afN + "/" + i;
+            return this.afQ + "/" + i;
         }
-        return this.afN;
+        return this.afQ;
     }
 
     public OperateType lx() {
-        return this.afF;
+        return this.afH;
     }
 
     public void a(OperateType operateType) {
-        this.afF = operateType;
+        this.afH = operateType;
     }
 
     public void W(boolean z) {
     }
 
     public boolean ly() {
-        return this.afJ;
+        return this.afL;
     }
 
     public void aa(boolean z) {
-        this.afJ = z;
+        this.afL = z;
     }
 
     protected void finalize() throws Throwable {
@@ -226,42 +229,50 @@ public class DiskFileOperate {
     }
 
     public File lz() {
-        return this.afK;
+        return this.afM;
     }
 
     public void f(File file) {
-        this.afK = file;
+        this.afM = file;
     }
 
     public boolean lA() {
-        return this.afL;
+        return this.afN;
     }
 
     public void ab(boolean z) {
-        this.afL = z;
+        this.afN = z;
+    }
+
+    public void ac(boolean z) {
+        this.afO = z;
+    }
+
+    public boolean lB() {
+        return this.afO;
     }
 
     public boolean lm() {
         return com.baidu.adp.lib.Disk.d.ll().b(this);
     }
 
-    public int lB() {
-        return this.afM;
+    public int lC() {
+        return this.afP;
     }
 
     public void cP(int i) {
-        this.afM = i;
-    }
-
-    public String lC() {
-        return this.afN;
+        this.afP = i;
     }
 
     public String lD() {
-        return this.afO;
+        return this.afQ;
     }
 
-    public e.a lE() {
-        return this.afP;
+    public String lE() {
+        return this.afR;
+    }
+
+    public e.a lF() {
+        return this.afS;
     }
 }

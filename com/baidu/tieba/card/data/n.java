@@ -6,78 +6,78 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId cXi = BdUniqueId.gen();
-    public static final BdUniqueId cXj = BdUniqueId.gen();
-    public static String cXk = "";
-    public static String cXl = "";
-    public static String cXm = "";
-    public static String cXn = "";
-    public static String cXo = "";
-    public static String cXp = "";
-    public static String cXq = "";
-    public bd bXa;
-    public boolean cXd = false;
-    public boolean cXr = true;
+    public static final BdUniqueId cXD = BdUniqueId.gen();
+    public static final BdUniqueId cXE = BdUniqueId.gen();
+    public static String cXF = "";
+    public static String cXG = "";
+    public static String cXH = "";
+    public static String cXI = "";
+    public static String cXJ = "";
+    public static String cXK = "";
+    public static String cXL = "";
+    public bd bXi;
+    public boolean cXy = false;
+    public boolean cXM = true;
     public int sourceType = 0;
 
     public n(bd bdVar) {
-        this.bXa = bdVar;
+        this.bXi = bdVar;
     }
 
     public static boolean J(bd bdVar) {
-        return (bdVar == null || bdVar.zk() == null) ? false : true;
+        return (bdVar == null || bdVar.zl() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        if (this.bXa == null) {
-            return cXi;
+        if (this.bXi == null) {
+            return cXD;
         }
-        if (this.bXa.yW() || this.bXa.yX()) {
-            return cXj;
+        if (this.bXi.yX() || this.bXi.yY()) {
+            return cXE;
         }
-        return cXi;
+        return cXD;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd VK() {
-        return this.bXa;
+    public bd VM() {
+        return this.bXi;
     }
 
-    public ak kk(String str) {
+    public ak kr(String str) {
         ak akVar = new ak(str);
-        if (this.bXa != null) {
-            akVar.f(ImageViewerConfig.FORUM_ID, this.bXa.getFid());
-            akVar.ab("tid", this.bXa.getTid());
+        if (this.bXi != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.bXi.getFid());
+            akVar.aa("tid", this.bXi.getTid());
             akVar.s("obj_type", 2);
-            if (this.bXa.yS() != null) {
-                akVar.ab("obj_id", this.bXa.yS().getUserId());
+            if (this.bXi.yT() != null) {
+                akVar.aa("obj_id", this.bXi.yT().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak akW() {
-        ak t = t(cXn, true);
-        if (t != null && VK() != null) {
-            bd VK = VK();
-            t.s("obj_name", VK.Ag() != null && (VK.Ag().bvK() != null || VK.Ag().QJ() != null) ? 1 : 0);
-            if (VK.yS() != null) {
-                t.s("ab_type", VK.yS().hadConcerned() ? 1 : 0);
+    public ak alb() {
+        ak t = t(cXI, true);
+        if (t != null && VM() != null) {
+            bd VM = VM();
+            t.s("obj_name", VM.Ah() != null && (VM.Ah().bvM() != null || VM.Ah().QL() != null) ? 1 : 0);
+            if (VM.yT() != null) {
+                t.s("ab_type", VM.yT().hadConcerned() ? 1 : 0);
             }
         }
         return t;
     }
 
     public ak K(bd bdVar) {
-        return (bdVar.zU() == null || bdVar.zU().channelId <= 0) ? t(cXo, true) : t(cXp, true);
+        return (bdVar.zV() == null || bdVar.zV().channelId <= 0) ? t(cXJ, true) : t(cXK, true);
     }
 
-    public ak akY() {
-        return t(cXl, true);
+    public ak ald() {
+        return t(cXG, true);
     }
 
     public ak L(bd bdVar) {
-        return (bdVar.zU() == null || bdVar.zU().channelId <= 0) ? t(cXk, true) : t(cXq, true);
+        return (bdVar.zV() == null || bdVar.zV().channelId <= 0) ? t(cXF, true) : t(cXL, true);
     }
 }

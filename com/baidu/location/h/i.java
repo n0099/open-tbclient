@@ -25,15 +25,15 @@ public class i {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String aDc = "http://loc.map.baidu.com/sdk.php";
+    private static String aDf = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String aDd = "http://loc.map.baidu.com/user_err.php";
-    private static String aDe = "http://loc.map.baidu.com/oqur.php";
-    private static String aDf = "http://loc.map.baidu.com/tcu.php";
-    private static String aDg = "http://loc.map.baidu.com/rtbu.php";
-    private static String aDh = "http://loc.map.baidu.com/iofd.php";
-    private static String aDi = "https://sapi.skyhookwireless.com/wps2/location";
-    private static String aDj = "http://loc.map.baidu.com/wloc";
+    private static String aDg = "http://loc.map.baidu.com/user_err.php";
+    private static String aDh = "http://loc.map.baidu.com/oqur.php";
+    private static String aDi = "http://loc.map.baidu.com/tcu.php";
+    private static String aDj = "http://loc.map.baidu.com/rtbu.php";
+    private static String aDk = "http://loc.map.baidu.com/iofd.php";
+    private static String aDl = "https://sapi.skyhookwireless.com/wps2/location";
+    private static String aDm = "http://loc.map.baidu.com/wloc";
     public static String f = "no";
     public static boolean g = false;
     public static boolean h = false;
@@ -43,10 +43,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
-    public static double aAq = 0.0d;
-    public static double aAr = 0.0d;
-    public static double aAs = 0.0d;
     public static double aAt = 0.0d;
+    public static double aAu = 0.0d;
+    public static double aAv = 0.0d;
+    public static double aAw = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -58,20 +58,20 @@ public class i {
     public static int A = 3;
     public static int B = 10;
     public static int C = 2;
-    public static int aAU = 7;
+    public static int aAX = 7;
     public static int E = 20;
     public static int F = 70;
-    public static int aDk = 120;
+    public static int aDn = 120;
     public static float H = 2.0f;
     public static float I = 10.0f;
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float aDl = 0.9f;
+    public static float aDo = 0.9f;
     public static int N = 10000;
-    public static float aDm = 0.5f;
-    public static float aDn = 0.0f;
-    public static float aDo = 0.1f;
+    public static float aDp = 0.5f;
+    public static float aDq = 0.0f;
+    public static float aDr = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -80,22 +80,22 @@ public class i {
     public static int W = 420000;
     public static boolean X = true;
     public static boolean Y = true;
-    public static int aDp = 20;
+    public static int aDs = 20;
     public static int aa = 300;
     public static int ab = 1000;
     public static long ac = 900000;
-    public static long aDq = 420000;
-    public static long aDr = 180000;
-    public static long aDs = 0;
-    public static long aDt = 15;
-    public static long aDu = ReportUserInfoModel.TIME_INTERVAL;
+    public static long aDt = 420000;
+    public static long aDu = 180000;
+    public static long aDv = 0;
+    public static long aDw = 15;
+    public static long aDx = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float aDv = 6.0f;
-    public static float aDw = 10.0f;
+    public static float aDy = 6.0f;
+    public static float aDz = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
@@ -138,7 +138,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.ul().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.um().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -153,20 +153,20 @@ public class i {
                 stringBuffer.append(i3);
             }
         }
-        String a2 = c.uA().a(i2 == 0);
+        String a2 = c.uB().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.tQ().d();
+        String d2 = com.baidu.location.c.b.tR().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.uq().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.ur().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -179,9 +179,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < aDv && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
+                if (speed < aDy && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= aDw || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= aDz || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -262,11 +262,11 @@ public class i {
     }
 
     public static String c() {
-        return aDc;
+        return aDf;
     }
 
     public static String d() {
-        return aDf;
+        return aDi;
     }
 
     public static boolean d(BDLocation bDLocation) {

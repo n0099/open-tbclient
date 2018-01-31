@@ -6,20 +6,11 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class s extends q {
-    private static s bzz = null;
-    private boolean byZ = false;
-    private boolean bza = false;
-    private boolean bzb = false;
-    private boolean bzc = false;
-    private long bzd = -1;
-    private long bze = -1;
-    private long bzf = -1;
-    private long bzg = -1;
-    private long bzh = -1;
-    private long bzi = -1;
-    private long bzj = -1;
-    private long bzk = -1;
-    private long bzl = -1;
+    private static s bzI = null;
+    private boolean bzi = false;
+    private boolean bzj = false;
+    private boolean bzk = false;
+    private boolean bzl = false;
     private long bzm = -1;
     private long bzn = -1;
     private long bzo = -1;
@@ -33,120 +24,129 @@ public class s extends q {
     private long bzw = -1;
     private long bzx = -1;
     private long bzy = -1;
+    private long bzz = -1;
+    private long bzA = -1;
+    private long bzB = -1;
+    private long bzC = -1;
+    private long bzD = -1;
+    private long bzE = -1;
+    private long bzF = -1;
+    private long bzG = -1;
+    private long bzH = -1;
 
-    public boolean NT() {
-        return this.bza;
-    }
-
-    public void cw(boolean z) {
-        this.byZ = z;
-    }
-
-    public void ae(long j) {
-        this.bzd = j;
+    public boolean NV() {
+        return this.bzj;
     }
 
     public void cx(boolean z) {
-        this.bzc = z;
+        this.bzi = z;
     }
 
-    public void af(long j) {
-        this.bze = j;
-    }
-
-    public void ag(long j) {
-        this.bzf = j;
-    }
-
-    public void ah(long j) {
-        this.bzg = j;
-    }
-
-    public void ai(long j) {
-        this.bzk = j;
-    }
-
-    public void aj(long j) {
-        this.bzj = j;
-    }
-
-    public void ak(long j) {
-        this.bzh = j;
-    }
-
-    public void al(long j) {
-        this.bzi = j;
-    }
-
-    public void am(long j) {
-        this.bzw = j;
-    }
-
-    public void an(long j) {
-        this.bzt = j;
-    }
-
-    public void ao(long j) {
-        this.bzu = j;
-    }
-
-    public void ap(long j) {
-        this.bzv = j;
-    }
-
-    public void aq(long j) {
-        this.bzx = j;
-    }
-
-    public void ar(long j) {
-        this.bzy = j;
-        this.bza = true;
-    }
-
-    public void as(long j) {
-        this.bzl = j;
-    }
-
-    public void at(long j) {
+    public void ae(long j) {
         this.bzm = j;
     }
 
-    public void au(long j) {
-        this.bzo = j;
+    public void cy(boolean z) {
+        this.bzl = z;
     }
 
-    public void av(long j) {
+    public void af(long j) {
         this.bzn = j;
     }
 
-    public void aw(long j) {
+    public void ag(long j) {
+        this.bzo = j;
+    }
+
+    public void ah(long j) {
         this.bzp = j;
     }
 
-    public void ax(long j) {
-        this.bzq = j;
+    public void ai(long j) {
+        this.bzt = j;
     }
 
-    public void ay(long j) {
-        this.bzr = j;
-    }
-
-    public void az(long j) {
+    public void aj(long j) {
         this.bzs = j;
     }
 
-    public static s NU() {
-        if (bzz == null) {
+    public void ak(long j) {
+        this.bzq = j;
+    }
+
+    public void al(long j) {
+        this.bzr = j;
+    }
+
+    public void am(long j) {
+        this.bzF = j;
+    }
+
+    public void an(long j) {
+        this.bzC = j;
+    }
+
+    public void ao(long j) {
+        this.bzD = j;
+    }
+
+    public void ap(long j) {
+        this.bzE = j;
+    }
+
+    public void aq(long j) {
+        this.bzG = j;
+    }
+
+    public void ar(long j) {
+        this.bzH = j;
+        this.bzj = true;
+    }
+
+    public void as(long j) {
+        this.bzu = j;
+    }
+
+    public void at(long j) {
+        this.bzv = j;
+    }
+
+    public void au(long j) {
+        this.bzx = j;
+    }
+
+    public void av(long j) {
+        this.bzw = j;
+    }
+
+    public void aw(long j) {
+        this.bzy = j;
+    }
+
+    public void ax(long j) {
+        this.bzz = j;
+    }
+
+    public void ay(long j) {
+        this.bzA = j;
+    }
+
+    public void az(long j) {
+        this.bzB = j;
+    }
+
+    public static s NW() {
+        if (bzI == null) {
             synchronized (s.class) {
-                if (bzz == null) {
-                    bzz = new s();
+                if (bzI == null) {
+                    bzI = new s();
                 }
             }
         }
-        return bzz;
+        return bzI;
     }
 
-    public void NV() {
+    public void NX() {
         long j;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VR_GET_PAGE_TIME, (Class) null);
         if (runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) {
@@ -154,77 +154,62 @@ public class s extends q {
         } else {
             j = ((Long) runTask.getData()).longValue();
         }
-        long j2 = (this.bzy - this.bzd) - j;
-        if (j2 > 0 && !this.bzb && r.NO().NP()) {
-            this.bzb = true;
-            long j3 = this.bze - this.bzd;
-            long j4 = this.bzw - this.bzd;
+        long j2 = (this.bzH - this.bzm) - j;
+        if (j2 > 0 && !this.bzk && r.NQ().NR()) {
+            this.bzk = true;
+            long j3 = this.bzn - this.bzm;
+            long j4 = this.bzF - this.bzm;
             long j5 = -1;
-            if (this.bzu > 0) {
-                j5 = this.bzv - this.bzu;
+            if (this.bzD > 0) {
+                j5 = this.bzE - this.bzD;
             }
-            long j6 = this.bzy - this.bzx;
-            com.baidu.adp.lib.stats.a nm = nm();
-            nm.append("procname", "main");
-            nm.append("appc", String.valueOf(j3));
-            nm.append("loadclass", String.valueOf(this.bzf));
-            nm.append("sapiinit", String.valueOf(this.bzg));
-            nm.append("acctinit", String.valueOf(this.bzh));
-            nm.append("iminit", String.valueOf(this.bzi));
-            nm.append("plugininit", String.valueOf(this.bzj));
-            nm.append("patchloaded", String.valueOf(this.bzk));
-            nm.append("naslibinit", String.valueOf(this.bzl));
-            nm.append("websocketinit", String.valueOf(this.bzm));
-            nm.append("settinginit", String.valueOf(this.bzn));
-            nm.append("toastinit", String.valueOf(this.bzo));
-            nm.append("tiebastaticinit", String.valueOf(this.bzp));
-            nm.append("locationinit", String.valueOf(this.bzq));
-            nm.append("cdninit", String.valueOf(this.bzr));
-            nm.append("messagesetinit", String.valueOf(this.bzs));
-            nm.append("logores", String.valueOf(j4));
-            if (this.bzt > 0 && this.bzu > 0 && j5 > 0) {
-                nm.append("adc", String.valueOf(this.bzt));
-                nm.append("adshow", String.valueOf(j5));
-                nm.append("hasad", "1");
+            long j6 = this.bzH - this.bzG;
+            com.baidu.adp.lib.stats.a nn = nn();
+            nn.append("procname", "main");
+            nn.append("appc", String.valueOf(j3));
+            nn.append("loadclass", String.valueOf(this.bzo));
+            nn.append("sapiinit", String.valueOf(this.bzp));
+            nn.append("acctinit", String.valueOf(this.bzq));
+            nn.append("iminit", String.valueOf(this.bzr));
+            nn.append("plugininit", String.valueOf(this.bzs));
+            nn.append("patchloaded", String.valueOf(this.bzt));
+            nn.append("naslibinit", String.valueOf(this.bzu));
+            nn.append("websocketinit", String.valueOf(this.bzv));
+            nn.append("settinginit", String.valueOf(this.bzw));
+            nn.append("toastinit", String.valueOf(this.bzx));
+            nn.append("tiebastaticinit", String.valueOf(this.bzy));
+            nn.append("locationinit", String.valueOf(this.bzz));
+            nn.append("cdninit", String.valueOf(this.bzA));
+            nn.append("messagesetinit", String.valueOf(this.bzB));
+            nn.append("logores", String.valueOf(j4));
+            if (this.bzC > 0 && this.bzD > 0 && j5 > 0) {
+                nn.append("adc", String.valueOf(this.bzC));
+                nn.append("adshow", String.valueOf(j5));
+                nn.append("hasad", "1");
             } else {
-                nm.append("hasad", "0");
+                nn.append("hasad", "0");
             }
-            nm.append("tabc", String.valueOf(j6));
-            nm.append("costt", String.valueOf(j2));
-            nm.append("newinst", this.byZ ? "1" : "0");
-            nm.h("pluginloadsync", Boolean.valueOf(this.bzc));
-            BdStatisticsManager.getInstance().performance("startt", nm);
-            vA();
+            nn.append("tabc", String.valueOf(j6));
+            nn.append("costt", String.valueOf(j2));
+            nn.append("newinst", this.bzi ? "1" : "0");
+            nn.h("pluginloadsync", Boolean.valueOf(this.bzl));
+            BdStatisticsManager.getInstance().performance("startt", nn);
+            vB();
         }
     }
 
     public void aA(long j) {
-        if (r.NO().NP() && j > 0) {
-            com.baidu.adp.lib.stats.a nm = nm();
-            nm.append("procname", "remote");
-            nm.append("costt", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("startt", nm);
+        if (r.NQ().NR() && j > 0) {
+            com.baidu.adp.lib.stats.a nn = nn();
+            nn.append("procname", "remote");
+            nn.append("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", nn);
         }
     }
 
-    private void vA() {
-        this.byZ = false;
-        this.bza = false;
-        this.bzd = -1L;
-        this.bze = -1L;
-        this.bzf = -1L;
-        this.bzg = -1L;
-        this.bzh = -1L;
-        this.bzi = -1L;
-        this.bzj = -1L;
-        this.bzk = -1L;
-        this.bzw = -1L;
-        this.bzu = -1L;
-        this.bzv = -1L;
-        this.bzt = -1L;
-        this.bzx = -1L;
-        this.bzy = -1L;
-        this.bzl = -1L;
+    private void vB() {
+        this.bzi = false;
+        this.bzj = false;
         this.bzm = -1L;
         this.bzn = -1L;
         this.bzo = -1L;
@@ -232,5 +217,20 @@ public class s extends q {
         this.bzq = -1L;
         this.bzr = -1L;
         this.bzs = -1L;
+        this.bzt = -1L;
+        this.bzF = -1L;
+        this.bzD = -1L;
+        this.bzE = -1L;
+        this.bzC = -1L;
+        this.bzG = -1L;
+        this.bzH = -1L;
+        this.bzu = -1L;
+        this.bzv = -1L;
+        this.bzw = -1L;
+        this.bzx = -1L;
+        this.bzy = -1L;
+        this.bzz = -1L;
+        this.bzA = -1L;
+        this.bzB = -1L;
     }
 }

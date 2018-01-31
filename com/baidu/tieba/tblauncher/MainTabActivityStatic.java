@@ -21,13 +21,13 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static int hcU = 0;
+    private static int hdo = 0;
 
     static {
-        atB();
-        bxy();
-        bxx();
+        atG();
+        bxA();
         bxz();
+        bxB();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.START_GO_HOME) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,7 +38,7 @@ public class MainTabActivityStatic {
                 }
             }
         });
-        av.CZ().a(new av.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+        av.Da().a(new av.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -73,8 +73,8 @@ public class MainTabActivityStatic {
             return 0;
         }
         int msgChat = newsNotifyMessage.getMsgChat();
-        int msgReplyme = (((com.baidu.tbadk.coreExtra.messageCenter.b.GC().GJ() ? newsNotifyMessage.getMsgReplyme() : 0) + msgChat) + (com.baidu.tbadk.coreExtra.messageCenter.b.GC().GH() ? newsNotifyMessage.getMsgAtme() : 0)) - newsNotifyMessage.getMsgStrangerChat();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GW()) {
+        int msgReplyme = (((com.baidu.tbadk.coreExtra.messageCenter.b.GE().GL() ? newsNotifyMessage.getMsgReplyme() : 0) + msgChat) + (com.baidu.tbadk.coreExtra.messageCenter.b.GE().GJ() ? newsNotifyMessage.getMsgAtme() : 0)) - newsNotifyMessage.getMsgStrangerChat();
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GY()) {
             msgReplyme -= newsNotifyMessage.getMsgOfficialMerge();
         }
         return msgReplyme;
@@ -84,14 +84,14 @@ public class MainTabActivityStatic {
     public static void h(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
             int a = a((NewsNotifyMessage) responsedMessage);
-            if (a > hcU) {
+            if (a > hdo) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, true));
             }
-            hcU = a;
+            hdo = a;
         }
     }
 
-    private static void atB() {
+    private static void atG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -105,7 +105,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bxx() {
+    private static void bxz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -120,7 +120,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bxy() {
+    private static void bxA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -134,8 +134,8 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bxz() {
-        av.CZ().a(new av.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
+    private static void bxB() {
+        av.Da().a(new av.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.tbadk.core.util.av.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

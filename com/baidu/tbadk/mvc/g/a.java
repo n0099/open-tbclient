@@ -14,53 +14,53 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.o;
 /* loaded from: classes.dex */
 public class a extends b implements o {
-    private TbPageContextSupport<?> bxe;
-    private View bxf;
+    private TbPageContextSupport<?> bxn;
+    private View bxo;
     private int padding;
     private TextView rz = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View aGH = null;
+    private View aGK = null;
 
     public a(TbPageContextSupport<?> tbPageContextSupport) {
-        this.bxe = null;
-        this.bxe = tbPageContextSupport;
-        this.padding = this.bxe.getPageContext().getResources().getDimensionPixelSize(d.e.ds16);
+        this.bxn = null;
+        this.bxn = tbPageContextSupport;
+        this.padding = this.bxn.getPageContext().getResources().getDimensionPixelSize(d.e.ds16);
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public View su() {
-        this.aGH = LayoutInflater.from(this.bxe.getPageContext().getPageActivity()).inflate(d.h.new_pb_list_more, (ViewGroup) null);
-        this.aGH.setPadding(0, this.padding, 0, this.padding);
-        this.rz = (TextView) this.aGH.findViewById(d.g.pb_more_text);
-        this.bxf = this.aGH.findViewById(d.g.pb_more_view);
-        this.bxf.setVisibility(8);
-        this.mProgressBar = (ProgressBar) this.aGH.findViewById(d.g.progress);
-        b(this.bxe.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.bxf.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.aGH;
+    public View sv() {
+        this.aGK = LayoutInflater.from(this.bxn.getPageContext().getPageActivity()).inflate(d.h.new_pb_list_more, (ViewGroup) null);
+        this.aGK.setPadding(0, this.padding, 0, this.padding);
+        this.rz = (TextView) this.aGK.findViewById(d.g.pb_more_text);
+        this.bxo = this.aGK.findViewById(d.g.pb_more_view);
+        this.bxo.setVisibility(8);
+        this.mProgressBar = (ProgressBar) this.aGK.findViewById(d.g.progress);
+        b(this.bxn.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.bxo.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.aGK;
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.bxe.getPageContext().getLayoutMode().aM(this.bxf);
+        this.bxn.getPageContext().getLayoutMode().aM(this.bxo);
         return true;
     }
 
     public void hide() {
-        this.bxf.setVisibility(8);
-        this.aGH.setPadding(0, 0, 0, 0);
+        this.bxo.setVisibility(8);
+        this.aGK.setPadding(0, 0, 0, 0);
     }
 
-    public void th() {
-        this.bxf.setVisibility(0);
-        this.aGH.setPadding(0, this.padding, 0, this.padding);
+    public void ti() {
+        this.bxo.setVisibility(0);
+        this.aGK.setPadding(0, this.padding, 0, this.padding);
     }
 
     public void ig(int i) {
         this.mProgressBar.setVisibility(0);
         this.rz.setText(i);
-        this.bxf.setVisibility(0);
+        this.bxo.setVisibility(0);
     }
 
     public void ih(int i) {
@@ -71,7 +71,7 @@ public class a extends b implements o {
     @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.aGH);
+            this.mOnClickListener.onClick(this.aGK);
         }
     }
 }

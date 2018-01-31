@@ -13,7 +13,7 @@ public final class a {
         return new Byte(b);
     }
 
-    public static Object dW(long j) {
+    public static Object dY(long j) {
         return new Long(j);
     }
 
@@ -25,7 +25,7 @@ public final class a {
         return new Double(d);
     }
 
-    public static Object ok(boolean z) {
+    public static Object om(boolean z) {
         return new Boolean(z);
     }
 }

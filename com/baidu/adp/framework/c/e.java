@@ -30,7 +30,7 @@ public class e {
         if (this.aeZ == null || this.aeZ.length != 3) {
             return 0;
         }
-        switch (j.oO()) {
+        switch (j.oP()) {
             case 1:
                 return this.aeZ[2];
             case 2:

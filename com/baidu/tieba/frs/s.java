@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class s implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId dDB = BdUniqueId.gen();
-    private List<MetaData> dDy;
-    private int dDx = 0;
-    private String dDz = "本吧都在关注";
-    private boolean dDA = false;
+    public static final BdUniqueId dDW = BdUniqueId.gen();
+    private List<MetaData> dDT;
+    private int dDS = 0;
+    private String dDU = "本吧都在关注";
+    private boolean dDV = false;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dDB;
+        return dDW;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !v.E(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.dDx = frsPageUserExtend.user_extend_storey.intValue();
-            this.dDy = new ArrayList(list.size());
+            this.dDS = frsPageUserExtend.user_extend_storey.intValue();
+            this.dDT = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,34 +33,34 @@ public class s implements com.baidu.adp.widget.ListView.i {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.dDy.add(metaData);
+                        this.dDT.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.dDz = frsPageUserExtend.tips;
+                    this.dDU = frsPageUserExtend.tips;
                     return;
                 }
             }
         }
     }
 
-    public int zR() {
-        return this.dDx;
+    public int zS() {
+        return this.dDS;
     }
 
     public List<MetaData> getUserInfo() {
-        return this.dDy;
+        return this.dDT;
     }
 
-    public String avg() {
-        return this.dDz;
+    public String avl() {
+        return this.dDU;
     }
 
-    public boolean avh() {
-        return this.dDA;
+    public boolean avm() {
+        return this.dDV;
     }
 
-    public void fL(boolean z) {
-        this.dDA = z;
+    public void fN(boolean z) {
+        this.dDV = z;
     }
 }

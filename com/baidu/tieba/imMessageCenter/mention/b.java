@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 /* loaded from: classes2.dex */
 public class b extends l {
     @Override // com.baidu.tieba.imMessageCenter.mention.l, com.baidu.tbadk.mvc.b.e
-    public String Mq() {
+    public String Ms() {
         return "tb_user_atme";
     }
 
@@ -12,7 +12,7 @@ public class b extends l {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.l, com.baidu.tbadk.mvc.b.e
-    public boolean Mr() {
+    public boolean Mt() {
         return false;
     }
 }

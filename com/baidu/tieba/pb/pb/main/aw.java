@@ -11,7 +11,7 @@ public class aw {
         this.mPageContext = tbPageContext;
     }
 
-    public void i(String str, byte[] bArr) {
+    public void j(String str, byte[] bArr) {
         new a(str, bArr).execute(new String[0]);
     }
 
@@ -34,7 +34,7 @@ public class aw {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, aw.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.Bz();
+                    return com.baidu.tbadk.core.util.k.BA();
                 case -1:
                 default:
                     return aw.this.mPageContext.getString(d.j.save_fail);

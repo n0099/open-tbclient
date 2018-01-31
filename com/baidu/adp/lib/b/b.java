@@ -3,13 +3,13 @@ package com.baidu.adp.lib.b;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
-    private int ahO;
-    private a ahR;
+    private int ahR;
+    private a ahU;
     private String mName;
-    private int ahQ = 0;
-    private String[] ahT = null;
-    private int ahP = 0;
-    private String[] ahU = null;
+    private int ahT = 0;
+    private String[] ahW = null;
+    private int ahS = 0;
+    private String[] ahX = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,53 +18,53 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.ahR = null;
-        this.ahO = 0;
+        this.ahU = null;
+        this.ahR = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.ahR = aVar;
-        this.ahO = i;
+        this.ahU = aVar;
+        this.ahR = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.ahQ = i;
-        this.ahT = strArr;
-        this.ahP = i2;
+        this.ahT = i;
+        this.ahW = strArr;
+        this.ahS = i2;
     }
 
     public void g(String[] strArr) {
-        this.ahU = strArr;
+        this.ahX = strArr;
     }
 
-    public String[] mu() {
-        return this.ahU;
+    public String[] mv() {
+        return this.ahX;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int mt() {
-        return this.ahQ;
-    }
-
-    public String[] mw() {
+    public int mu() {
         return this.ahT;
     }
 
-    public int ms() {
-        return this.ahP;
+    public String[] mx() {
+        return this.ahW;
     }
 
-    public int mr() {
-        return this.ahO;
+    public int mt() {
+        return this.ahS;
+    }
+
+    public int ms() {
+        return this.ahR;
     }
 
     public void n(int i, boolean z) {
-        if (this.ahR != null) {
-            this.ahR.a(this.mName, i, z);
+        if (this.ahU != null) {
+            this.ahU.a(this.mName, i, z);
         }
     }
 }

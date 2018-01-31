@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float htc;
-    private int htd;
-    private j hte;
+    private float htw;
+    private int htx;
+    private j hty;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(j jVar) {
-        this.hte = jVar;
+        this.hty = jVar;
     }
 
     public boolean o(MotionEvent motionEvent) {
-        if (this.hte == null || !this.hte.isRecording()) {
+        if (this.hty == null || !this.hty.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float v = v(motionEvent);
-                        int i = (int) ((v - this.htc) / 10.0f);
+                        int i = (int) ((v - this.htw) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.htd;
+                            int i2 = i + this.htx;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.htc = v;
+                            this.htw = v;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.htc = v(motionEvent);
+                    this.htw = v(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.htd = i;
+                this.htx = i;
             }
         }
     }

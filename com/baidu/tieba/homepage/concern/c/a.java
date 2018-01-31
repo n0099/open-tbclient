@@ -14,8 +14,8 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c eci = new c();
-    private final int cap = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final c ecD = new c();
+    private final int cax = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -51,7 +51,7 @@ public class a {
                     k kVar = new k(bdVar);
                     if (kVar != null) {
                         kVar.tid = bdVar.getTid();
-                        kVar.kh("3");
+                        kVar.ko("3");
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -60,7 +60,7 @@ public class a {
                     l lVar2 = new l();
                     if (lVar2 != null) {
                         lVar2.threadData = bdVar;
-                        lVar2.kh(lVar2.threadData.isLinkThread() ? "4" : "1");
+                        lVar2.ko(lVar2.threadData.isLinkThread() ? "4" : "1");
                         lVar2.isLinkThread = false;
                     }
                     if (lVar2.threadData != null && lVar2.isValid() && !StringUtils.isNull(lVar2.threadData.getId()) && !"0".equals(lVar2.threadData.getTid())) {
@@ -69,8 +69,8 @@ public class a {
                 }
             }
         }
-        this.eci.bLE = linkedList;
-        return this.eci;
+        this.ecD.bLM = linkedList;
+        return this.ecD;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -97,7 +97,7 @@ public class a {
                     }
                 }
             }
-            this.eci.egc = v.D(list) - D;
+            this.ecD.egx = v.D(list) - D;
         }
     }
 

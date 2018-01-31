@@ -4,21 +4,21 @@ import android.media.AudioRecord;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class b {
-    private static b hVp;
-    private boolean hVq;
+    private static b hVJ;
+    private boolean hVK;
     private AudioRecord mAudioRecord;
-    private static final int[] hVm = {1, 0, 5, 7, 6};
-    public static int hVn = 48000;
+    private static final int[] hVG = {1, 0, 5, 7, 6};
+    public static int hVH = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int hVo = 24;
+    public static int hVI = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(hVn, 16, 2);
-        int i = SAMPLES_PER_FRAME * hVo;
+        int minBufferSize = AudioRecord.getMinBufferSize(hVH, 16, 2);
+        int i = SAMPLES_PER_FRAME * hVI;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : hVm) {
+        for (int i2 : hVG) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, hVn, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, hVH, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -29,8 +29,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.hVq) {
-            this.hVq = true;
+        if (!this.hVK) {
+            this.hVK = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -47,11 +47,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (hVp != null && !hVp.bLT()) {
-                hVp.release();
+            if (hVJ != null && !hVJ.bLV()) {
+                hVJ.release();
             }
             this.mAudioRecord.startRecording();
-            hVp = this;
+            hVJ = this;
         }
     }
 
@@ -61,11 +61,11 @@ public class b {
         }
     }
 
-    public boolean bLT() {
-        return this.hVq;
+    public boolean bLV() {
+        return this.hVK;
     }
 
-    public AudioRecord bLU() {
+    public AudioRecord bLW() {
         return this.mAudioRecord;
     }
 }

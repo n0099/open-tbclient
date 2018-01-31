@@ -7,11 +7,11 @@ public abstract class b {
 
     public abstract void onClick();
 
-    public abstract View su();
+    public abstract View sv();
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = su();
+            this.mView = sv();
         }
         return this.mView;
     }

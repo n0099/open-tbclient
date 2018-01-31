@@ -5,9 +5,9 @@ import com.baidu.adp.lib.d.a;
 public interface b {
     void a(a.b bVar);
 
-    void al(boolean z);
+    void am(boolean z);
 
     void destroy();
 
-    void mJ();
+    void mK();
 }

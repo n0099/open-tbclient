@@ -20,29 +20,29 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* loaded from: classes2.dex */
 public class t extends com.baidu.tbadk.editortools.f {
-    private LocationModel brJ;
-    private int brP;
-    private LocationModel.a brW;
-    private LocationModel.b brX;
+    private LocationModel brS;
+    private int brY;
+    private LocationModel.a bsf;
+    private LocationModel.b bsg;
     private BaseActivity<?> mContext;
     private PbEditorData.ThreadData mThreadData;
     private VoiceData.VoiceModel mVoiceModel;
 
     public t(com.baidu.tbadk.editortools.i iVar) {
         super(iVar);
-        this.brP = 0;
-        this.brW = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
+        this.brY = 0;
+        this.bsf = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void Lj() {
+            public void Ll() {
                 t.this.mContext.showToast(d.j.no_network_guide);
                 t.this.b(0, false, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void gi(String str) {
+            public void gp(String str) {
                 BaseActivity baseActivity = t.this.mContext;
                 if (StringUtils.isNull(str)) {
-                    str = t.this.Ku().getContext().getString(d.j.location_fail);
+                    str = t.this.Kw().getContext().getString(d.j.location_fail);
                 }
                 baseActivity.showToast(str);
                 t.this.b(0, false, null);
@@ -50,21 +50,21 @@ public class t extends com.baidu.tbadk.editortools.f {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bwl())) {
-                    t.this.b(2, true, aVar.bwl());
+                if (aVar != null && !StringUtils.isNull(aVar.bwn())) {
+                    t.this.b(2, true, aVar.bwn());
                 } else {
-                    gi(null);
+                    gp(null);
                 }
             }
         };
-        this.brX = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
+        this.bsg = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void Lk() {
+            public void Lm() {
                 t.this.b(0, false, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void gj(String str) {
+            public void gq(String str) {
                 t.this.b(2, true, str);
             }
         };
@@ -74,7 +74,7 @@ public class t extends com.baidu.tbadk.editortools.f {
         this.mContext = baseActivity;
     }
 
-    public void KT() {
+    public void KV() {
         if (this.mThreadData != null && !StringUtils.isNull(this.mThreadData.getAuthorName()) && this.mThreadData.getAuthorId() > 0) {
             String valueOf = String.valueOf(this.mThreadData.getAuthorId());
             if (valueOf == null || valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
@@ -100,34 +100,34 @@ public class t extends com.baidu.tbadk.editortools.f {
         }
     }
 
-    public void KU() {
+    public void KW() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.mContext.getActivity())));
     }
 
-    public void KV() {
+    public void KX() {
         if (!UtilHelper.isSystemLocationProviderEnabled(this.mContext.getActivity())) {
             this.mContext.showToast(d.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
+            KY();
+        } else if (this.brS.bwv()) {
             KW();
-        } else if (this.brJ.bwt()) {
-            KU();
         } else {
-            this.brJ.mC(false);
+            this.brS.mE(false);
             b(1, true, null);
-            this.brJ.bwr();
+            this.brS.bwt();
         }
     }
 
-    private void KW() {
+    private void KY() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getActivity());
         aVar.fb(d.j.location_app_permission_prompt).a(d.j.isopen, new a.b() { // from class: com.baidu.tieba.pb.pb.main.t.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (com.baidu.adp.lib.util.j.oI()) {
+                if (com.baidu.adp.lib.util.j.oJ()) {
                     t.this.b(1, true, null);
-                    t.this.brJ.agj();
+                    t.this.brS.agm();
                 } else {
-                    t.this.brW.Lj();
+                    t.this.bsf.Ll();
                 }
                 aVar2.dismiss();
             }
@@ -138,17 +138,17 @@ public class t extends com.baidu.tbadk.editortools.f {
                 aVar2.dismiss();
             }
         }).b(this.mContext.getPageContext());
-        aVar.AA();
+        aVar.AB();
     }
 
-    public void KX() {
-        if (this.brJ.agf()) {
-            if (this.brJ.bwt()) {
-                this.brW.a(com.baidu.tieba.tbadkCore.location.c.bwp().getLocationData());
+    public void KZ() {
+        if (this.brS.agi()) {
+            if (this.brS.bwv()) {
+                this.bsf.a(com.baidu.tieba.tbadkCore.location.c.bwr().getLocationData());
                 return;
             }
-            if (com.baidu.adp.lib.util.l.oZ()) {
-                this.brJ.bwr();
+            if (com.baidu.adp.lib.util.l.pa()) {
+                this.brS.bwt();
             }
             b(0, true, null);
             return;
@@ -157,14 +157,14 @@ public class t extends com.baidu.tbadk.editortools.f {
     }
 
     public void c(BaseActivity baseActivity) {
-        this.brJ = new LocationModel(baseActivity);
-        this.brJ.a(this.brW);
-        this.brJ.a(this.brX);
-        if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && Ku() != null) {
-            Ku().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
+        this.brS = new LocationModel(baseActivity);
+        this.brS.a(this.bsf);
+        this.brS.a(this.bsg);
+        if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && Kw() != null) {
+            Kw().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.brJ.agf() && Ku() != null) {
-            Ku().b(new com.baidu.tbadk.editortools.a(20, 8, null));
+        if (!this.brS.agi() && Kw() != null) {
+            Kw().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
     }
 
@@ -176,15 +176,15 @@ public class t extends com.baidu.tbadk.editortools.f {
         this.mVoiceModel = voiceModel;
     }
 
-    public int Lb() {
-        return this.brP;
+    public int Ld() {
+        return this.brY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, boolean z, String str) {
-        this.brP = i;
-        if (Ku() != null) {
-            Ku().b(new com.baidu.tbadk.editortools.a(19, 8, new com.baidu.tbadk.editortools.d.a(i, z, str)));
+        this.brY = i;
+        if (Kw() != null) {
+            Kw().b(new com.baidu.tbadk.editortools.a(19, 8, new com.baidu.tbadk.editortools.d.a(i, z, str)));
         }
     }
 

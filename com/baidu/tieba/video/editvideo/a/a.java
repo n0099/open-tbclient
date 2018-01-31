@@ -14,13 +14,13 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0158a hnY;
+    private InterfaceC0159a hos;
     private List<PendantData> mList;
     private e mPageContext;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0158a {
+    public interface InterfaceC0159a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,87 +59,87 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.hoa = (TextView) view.findViewById(d.g.cover_text);
-            bVar.hob = (TbImageView) view.findViewById(d.g.pendant_image);
-            bVar.hoc = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
-            bVar.hob.setDefaultBgResource(d.C0107d.transparent);
-            bVar.hob.setDefaultErrorResource(d.C0107d.cp_cont_i);
-            bVar.hob.setDefaultResource(d.C0107d.cp_cont_i);
+            bVar.hou = (TextView) view.findViewById(d.g.cover_text);
+            bVar.hov = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.how = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.hov.setDefaultBgResource(d.C0108d.transparent);
+            bVar.hov.setDefaultErrorResource(d.C0108d.cp_cont_i);
+            bVar.hov.setDefaultResource(d.C0108d.cp_cont_i);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hnY != null) {
+                    if (a.this.hos != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.hob.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.hob.getTag();
+                        if (bVar2.hov.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.hov.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.hnY.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.hos.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
                 }
             });
-            view.setBackgroundColor(aj.getColor(d.C0107d.cp_bg_line_d));
+            view.setBackgroundColor(aj.getColor(d.C0108d.cp_bg_line_d));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.hob.setTag(Integer.valueOf(i));
+            bVar.hov.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.hoa.setVisibility(0);
-                    bVar.hob.setVisibility(8);
-                    bVar.hoc.setVisibility(8);
-                    bVar.hoa.setTextColor(aj.getColor(d.C0107d.cp_cont_e));
-                    bVar.hoa.setText("No");
-                    bVar.hoa.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hou.setVisibility(0);
+                    bVar.hov.setVisibility(8);
+                    bVar.how.setVisibility(8);
+                    bVar.hou.setTextColor(aj.getColor(d.C0108d.cp_cont_e));
+                    bVar.hou.setText("No");
+                    bVar.hou.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.hoa.setVisibility(0);
-                    bVar.hob.setVisibility(8);
-                    bVar.hoc.setVisibility(8);
-                    bVar.hoa.setTextColor(aj.getColor(d.C0107d.cp_cont_g));
-                    bVar.hoa.setText("T");
-                    bVar.hoa.setBackgroundColor(aj.getColor(d.C0107d.cp_link_tip_a));
+                    bVar.hou.setVisibility(0);
+                    bVar.hov.setVisibility(8);
+                    bVar.how.setVisibility(8);
+                    bVar.hou.setTextColor(aj.getColor(d.C0108d.cp_cont_g));
+                    bVar.hou.setText("T");
+                    bVar.hou.setBackgroundColor(aj.getColor(d.C0108d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.hoa.setVisibility(0);
-                    bVar.hob.setVisibility(8);
-                    bVar.hoc.setVisibility(8);
-                    bVar.hoa.setTextColor(aj.getColor(d.C0107d.cp_cont_g));
-                    bVar.hoa.setText("T");
-                    bVar.hoa.setBackgroundColor(aj.getColor(d.C0107d.cp_cont_d));
+                    bVar.hou.setVisibility(0);
+                    bVar.hov.setVisibility(8);
+                    bVar.how.setVisibility(8);
+                    bVar.hou.setTextColor(aj.getColor(d.C0108d.cp_cont_g));
+                    bVar.hou.setText("T");
+                    bVar.hou.setBackgroundColor(aj.getColor(d.C0108d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.hoa.setVisibility(0);
-                    bVar.hob.setVisibility(8);
-                    bVar.hoc.setVisibility(8);
-                    bVar.hoa.setTextColor(aj.getColor(d.C0107d.cp_cont_d));
-                    bVar.hoa.setText("T");
-                    bVar.hoa.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hou.setVisibility(0);
+                    bVar.hov.setVisibility(8);
+                    bVar.how.setVisibility(8);
+                    bVar.hou.setTextColor(aj.getColor(d.C0108d.cp_cont_d));
+                    bVar.hou.setText("T");
+                    bVar.hou.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.hoa.setVisibility(8);
-                    bVar.hob.setVisibility(0);
-                    bVar.hoc.setVisibility(8);
-                    bVar.hob.startLoad(pendantData.img, 10, false);
+                    bVar.hou.setVisibility(8);
+                    bVar.hov.setVisibility(0);
+                    bVar.how.setVisibility(8);
+                    bVar.hov.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0158a interfaceC0158a) {
-        this.hnY = interfaceC0158a;
+    public void a(InterfaceC0159a interfaceC0159a) {
+        this.hos = interfaceC0159a;
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public TextView hoa;
-        public TbImageView hob;
-        public ProgressBar hoc;
+        public TextView hou;
+        public TbImageView hov;
+        public ProgressBar how;
 
         public b() {
         }

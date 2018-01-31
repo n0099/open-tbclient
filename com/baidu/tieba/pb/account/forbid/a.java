@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String fBJ = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String fCe = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -21,30 +21,30 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
-        new C0137a(str, str2, str3, str4, str5, str6, str7, bVar).execute(new String[0]);
+        new C0138a(str, str2, str3, str4, str5, str6, str7, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0137a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String aol;
-        private WeakReference<b> bQH;
-        private String fBK;
+    private static class C0138a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String aoo;
+        private WeakReference<b> bQP;
+        private String fCf;
         private String mForumId;
         private String mForumName;
         private String mPostId;
         private String mThreadId;
         private String mUserName;
 
-        public C0137a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
+        public C0138a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.fBK = str6;
-            this.aol = str7;
+            this.fCf = str6;
+            this.aoo = str7;
             this.mPostId = str5;
-            this.bQH = new WeakReference<>(bVar);
+            this.bQP = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -53,20 +53,20 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: x */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.fBJ);
-            xVar.n("day", this.fBK);
+            x xVar = new x(a.fCe);
+            xVar.n("day", this.fCf);
             xVar.n("un", this.mUserName);
             xVar.n(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.n("word", this.mForumName);
             xVar.n("z", this.mThreadId);
-            xVar.n("reason", this.aol);
+            xVar.n("reason", this.aoo);
             xVar.n("ntn", "banid");
             xVar.n("post_id", this.mPostId);
-            xVar.Cf().Db().mIsNeedTbs = true;
-            String BH = xVar.BH();
-            if (xVar.Cf().Dc().isRequestSuccess()) {
+            xVar.Cg().Dc().mIsNeedTbs = true;
+            String BI = xVar.BI();
+            if (xVar.Cg().Dd().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(BH, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(BI, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -75,7 +75,7 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = xVar.Cj();
+            forbidResultData2.error_code = xVar.Ck();
             forbidResultData2.error_msg = xVar.getErrorString();
             return forbidResultData2;
         }
@@ -86,7 +86,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.bQH.get();
+            b bVar = this.bQP.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && am.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

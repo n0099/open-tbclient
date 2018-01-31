@@ -15,113 +15,113 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout bmo;
-    protected TextView bmp;
-    protected TextView bmq;
-    protected ImageView bmu;
-    protected LinearLayout eQU;
-    protected TextView eQV;
+    protected ImageView bmC;
+    protected LinearLayout bmw;
+    protected TextView bmx;
+    protected TextView bmy;
+    protected LinearLayout eRp;
+    protected TextView eRq;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        IO();
+        IQ();
         d(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        IO();
+        IQ();
     }
 
     public void displayTip() {
-        if (this.bmq != null) {
-            this.bmq.setVisibility(0);
+        if (this.bmy != null) {
+            this.bmy.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.bmq != null) {
-            this.bmq.setVisibility(8);
+        if (this.bmy != null) {
+            this.bmy.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.bmq != null) {
-            this.bmq.setTextColor(i);
+        if (this.bmy != null) {
+            this.bmy.setTextColor(i);
         }
     }
 
     public void hideArrow() {
-        this.bmu.setVisibility(8);
+        this.bmC.setVisibility(8);
     }
 
     public void displayArrow() {
-        this.bmu.setVisibility(0);
+        this.bmC.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.bmu.setImageResource(i);
+        this.bmC.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eQU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eRp.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(d.e.ds26);
-            this.eQU.setLayoutParams(layoutParams);
-            this.eQV.setText("");
-            this.eQV.setVisibility(8);
+            this.eRp.setLayoutParams(layoutParams);
+            this.eRq.setText("");
+            this.eRq.setVisibility(8);
             return;
         }
-        this.eQU.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eQU.getLayoutParams();
+        this.eRp.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eRp.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(d.e.ds10);
-        this.eQU.setLayoutParams(layoutParams2);
-        this.eQV.setText(str);
-        this.eQV.setVisibility(0);
+        this.eRp.setLayoutParams(layoutParams2);
+        this.eRq.setText(str);
+        this.eRq.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void setStatus(int i) {
         if (i == 1) {
-            this.bmp.setTextColor(getResources().getColor(d.C0107d.cp_cont_b));
+            this.bmx.setTextColor(getResources().getColor(d.C0108d.cp_cont_b));
         } else if (i == 2) {
-            this.bmp.setTextColor(getResources().getColor(d.C0107d.cp_link_tip_d));
+            this.bmx.setTextColor(getResources().getColor(d.C0108d.cp_link_tip_d));
         } else if (i == 3) {
-            this.bmp.setTextColor(getResources().getColor(d.C0107d.cp_cont_e));
+            this.bmx.setTextColor(getResources().getColor(d.C0108d.cp_cont_e));
         }
     }
 
     public void setText(String str) {
-        this.bmp.setText(str);
+        this.bmx.setText(str);
     }
 
     public void setText(int i) {
-        this.bmp.setText(i);
+        this.bmx.setText(i);
     }
 
     public void setTip(String str) {
-        this.bmq.setText(str);
+        this.bmy.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.bmq.getText();
+        return this.bmy.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.bmq.setBackgroundDrawable(drawable);
+        this.bmy.setBackgroundDrawable(drawable);
     }
 
-    protected void IO() {
+    protected void IQ() {
         LayoutInflater.from(this.mContext).inflate(d.h.image_problem_item_view, (ViewGroup) this, true);
-        this.bmo = (LinearLayout) findViewById(d.g.container);
-        this.bmp = (TextView) findViewById(d.g.text);
-        this.bmq = (TextView) findViewById(d.g.tip);
-        this.bmu = (ImageView) findViewById(d.g.arrow2);
-        this.eQU = (LinearLayout) findViewById(d.g.ll_container);
-        this.eQV = (TextView) findViewById(d.g.tv_help);
+        this.bmw = (LinearLayout) findViewById(d.g.container);
+        this.bmx = (TextView) findViewById(d.g.text);
+        this.bmy = (TextView) findViewById(d.g.tip);
+        this.bmC = (ImageView) findViewById(d.g.arrow2);
+        this.eRp = (LinearLayout) findViewById(d.g.ll_container);
+        this.eRq = (TextView) findViewById(d.g.tv_help);
     }
 
     protected void d(AttributeSet attributeSet) {
@@ -131,20 +131,20 @@ public class ImageProblemItemView extends FrameLayout {
         String string2 = obtainStyledAttributes.getString(d.l.TbSettingView_settingTip);
         int color2 = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTipColor, -1);
         if (string != null) {
-            this.bmp.setText(string);
+            this.bmx.setText(string);
         }
         if (color > -1) {
-            this.bmp.setTextColor(color);
+            this.bmx.setTextColor(color);
         }
         if (string2 != null) {
-            this.bmq.setText(string2);
+            this.bmy.setText(string2);
         }
         if (color2 > -1) {
-            this.bmq.setTextColor(color2);
+            this.bmy.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.bmo.setClickable(false);
-        this.bmo.setFocusable(false);
-        this.bmu.setVisibility(4);
+        this.bmw.setClickable(false);
+        this.bmw.setFocusable(false);
+        this.bmC.setVisibility(4);
     }
 }

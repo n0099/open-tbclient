@@ -21,33 +21,33 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter eNP;
-    private e eOb;
-    private boolean eOc = false;
-    private CustomMessageListener dOa = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
+    private ViewEventCenter eOk;
+    private e eOw;
+    private boolean eOx = false;
+    private CustomMessageListener dOv = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (g.this.eOb != null) {
-                    g.this.eOb.hU(true);
+                if (g.this.eOw != null) {
+                    g.this.eOw.hW(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (g.this.eOb != null) {
-                    g.this.eOb.awz();
-                    g.this.eOb.F(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (g.this.eOw != null) {
+                    g.this.eOw.awE();
+                    g.this.eOw.F(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener eNQ = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
+    private CustomMessageListener eOl = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (g.this.eOb != null) {
-                    g.this.eOb.onNewIntent(intent);
+                if (g.this.eOw != null) {
+                    g.this.eOw.onNewIntent(intent);
                 }
             }
         }
@@ -55,28 +55,28 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eOb = new e(this);
+        this.eOw = new e(this);
         if (bundle != null) {
-            this.eOb.n(bundle);
+            this.eOw.n(bundle);
         } else {
-            this.eOb.n(null);
+            this.eOw.n(null);
         }
-        View XH = this.eOb.XH();
-        this.eOb.hW(this.eOc);
-        this.eOb.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        Nd().addEventDelegate(this);
-        registerListener(this.dOa);
-        registerListener(this.eNQ);
+        View XJ = this.eOw.XJ();
+        this.eOw.hY(this.eOx);
+        this.eOw.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        Nf().addEventDelegate(this);
+        registerListener(this.dOv);
+        registerListener(this.eOl);
         TiebaStatic.log(new ak("c11941"));
-        return XH;
+        return XJ;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && R(getActivity().getIntent())) {
-            this.eOb.onNewIntent(getActivity().getIntent());
+            this.eOw.onNewIntent(getActivity().getIntent());
         } else {
-            this.eOb.awz();
+            this.eOw.awE();
         }
         super.onViewCreated(view, bundle);
     }
@@ -86,7 +86,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Mu() {
+    public boolean Mw() {
         return false;
     }
 
@@ -95,17 +95,17 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return bVar == null;
     }
 
-    public ViewEventCenter Nd() {
-        if (this.eNP == null) {
-            this.eNP = new ViewEventCenter();
+    public ViewEventCenter Nf() {
+        if (this.eOk == null) {
+            this.eOk = new ViewEventCenter();
         }
-        return this.eNP;
+        return this.eOk;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.eOb != null) {
-            this.eOb.b(getPageContext(), i);
+        if (this.eOw != null) {
+            this.eOw.b(getPageContext(), i);
         }
     }
 
@@ -145,10 +145,10 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     public void onDestroy() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, false));
         super.onDestroy();
-        this.eOb.onActivityDestroy();
+        this.eOw.onActivityDestroy();
     }
 
-    public void hX(boolean z) {
-        this.eOc = z;
+    public void hZ(boolean z) {
+        this.eOx = z;
     }
 }

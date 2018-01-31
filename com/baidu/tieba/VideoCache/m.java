@@ -1,20 +1,20 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Environment;
 import android.os.StatFs;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long hB(String str) {
+    public static long hI(String str) {
         long j;
         long j2 = 0;
-        long hC = hC(str);
+        long hJ = hJ(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.bPr + str);
+            File file = new File(i.bPz + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + hC;
+        return j + j2 + hJ;
     }
 
-    public static long hC(String str) {
+    public static long hJ(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.bPr + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.bPz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,12 +43,9 @@ public class m {
         return j;
     }
 
-    public static long Th() {
-        if ("mounted".equals(Environment.getExternalStorageState())) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            return statFs.getAvailableBlocks() * statFs.getBlockSize();
-        }
-        return 0L;
+    public static long Tj() {
+        StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
+        return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
 
     public static synchronized long h(File file) {
@@ -82,7 +79,7 @@ public class m {
         }
     }
 
-    public static String hD(String str) {
+    public static String hK(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

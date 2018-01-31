@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class MultiConcernModel extends BdBaseModel {
-    com.baidu.adp.framework.listener.a dcv;
-    private a dnc;
+    com.baidu.adp.framework.listener.a dcQ;
+    private a dnx;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void C(int i, String str);
+        void E(int i, String str);
     }
 
     public MultiConcernModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.dcv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
+        this.dcQ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
-                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.dnc != null) {
-                        MultiConcernModel.this.dnc.C(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.dnx != null) {
+                        MultiConcernModel.this.dnx.E(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -32,7 +32,7 @@ public class MultiConcernModel extends BdBaseModel {
         setUniqueId(BdUniqueId.gen());
         com.baidu.tieba.tbadkCore.a.a.a(309470, MultiConcernSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309470, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, "c/f/recommtag/multiConcern", MultiConcernHttpResponseMessage.class, false, false, false, false);
-        registerListener(this.dcv);
+        registerListener(this.dcQ);
     }
 
     public void E(ArrayList<Long> arrayList) {
@@ -45,7 +45,7 @@ public class MultiConcernModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.dnc = aVar;
+        this.dnx = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

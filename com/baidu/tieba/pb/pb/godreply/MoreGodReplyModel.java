@@ -14,26 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
-    private final PbModel fGi;
-    private int fGj;
-    private int fGk;
-    private z.a fGl;
-    private final z.a fGm;
+    private final PbModel fGD;
+    private int fGE;
+    private int fGF;
+    private z.a fGG;
+    private final z.a fGH;
     private boolean isLoading;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.fGj = -1;
-        this.fGk = -1;
-        this.fGm = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.fGE = -1;
+        this.fGF = -1;
+        this.fGH = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.z.a
             public void J(List<PostData> list) {
                 MoreGodReplyModel.this.isLoading = false;
-                n aYR = MoreGodReplyModel.this.fGi.getPbData().aYR();
-                if (aYR != null) {
-                    List<PostData> list2 = aYR.fEx;
+                n aYW = MoreGodReplyModel.this.fGD.getPbData().aYW();
+                if (aYW != null) {
+                    List<PostData> list2 = aYW.fES;
                     int size = list2.size();
                     if (!v.E(list)) {
                         for (PostData postData : list) {
@@ -42,26 +42,26 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.fGi.a(MoreGodReplyModel.this.fGi.getPbData(), size);
+                    MoreGodReplyModel.this.fGD.a(MoreGodReplyModel.this.fGD.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.fGj > 0) {
-                    MoreGodReplyModel.this.fGk = MoreGodReplyModel.this.fGj;
+                if (MoreGodReplyModel.this.fGE > 0) {
+                    MoreGodReplyModel.this.fGF = MoreGodReplyModel.this.fGE;
                 }
-                if (MoreGodReplyModel.this.fGl != null) {
-                    MoreGodReplyModel.this.fGl.J(list);
+                if (MoreGodReplyModel.this.fGG != null) {
+                    MoreGodReplyModel.this.fGG.J(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.z.a
             public void h(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.fGl != null) {
-                    MoreGodReplyModel.this.fGl.h(i, str, str2);
+                if (MoreGodReplyModel.this.fGG != null) {
+                    MoreGodReplyModel.this.fGG.h(i, str, str2);
                 }
             }
         };
-        this.fGi = pbModel;
-        this.fGi.bcf().b(this.fGm);
+        this.fGD = pbModel;
+        this.fGD.bck().b(this.fGH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,52 +81,52 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean aZN() {
-        n aYR;
-        f pbData = this.fGi.getPbData();
-        if (pbData == null || (aYR = pbData.aYR()) == null) {
+    public boolean aZS() {
+        n aYW;
+        f pbData = this.fGD.getPbData();
+        if (pbData == null || (aYW = pbData.aYW()) == null) {
             return false;
         }
-        if (this.fGk < 0) {
-            this.fGk = aYR.getCount();
+        if (this.fGF < 0) {
+            this.fGF = aYW.getCount();
         }
-        List<Long> list = aYR.fEy;
+        List<Long> list = aYW.fET;
         int size = list.size();
-        int i = this.fGk;
-        if (size <= i || aYR.fEx.size() >= 100) {
+        int i = this.fGF;
+        if (size <= i || aYW.fES.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.fGj = min;
+        this.fGE = min;
         this.isLoading = true;
-        this.fGi.bcf().cP(list.subList(i, min));
+        this.fGD.bck().cP(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
 
-    public boolean DP() {
+    public boolean DR() {
         return this.isLoading;
     }
 
-    public PbModel aZO() {
-        return this.fGi;
+    public PbModel aZT() {
+        return this.fGD;
     }
 
-    public List<i> aZP() {
-        f pbData = this.fGi.getPbData();
-        if (pbData == null || pbData.aYR() == null || v.E(pbData.aYR().fEx)) {
+    public List<i> aZU() {
+        f pbData = this.fGD.getPbData();
+        if (pbData == null || pbData.aYW() == null || v.E(pbData.aYW().fES)) {
             return null;
         }
-        n aYR = pbData.aYR();
+        n aYW = pbData.aYW();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = aYR.fEx;
+        List<PostData> list = aYW.fES;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.gYQ = i < size + (-1);
+                postData.gZk = i < size + (-1);
             }
             i++;
         }
@@ -145,19 +145,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(z.a aVar) {
-        this.fGl = aVar;
+        this.fGG = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ahl() {
-        n aYR;
-        f pbData = this.fGi.getPbData();
-        if (pbData == null || (aYR = pbData.aYR()) == null) {
+    public boolean aho() {
+        n aYW;
+        f pbData = this.fGD.getPbData();
+        if (pbData == null || (aYW = pbData.aYW()) == null) {
             return false;
         }
-        if (this.fGk < 0) {
-            this.fGk = aYR.getCount();
+        if (this.fGF < 0) {
+            this.fGF = aYW.getCount();
         }
-        return aYR.fEy.size() > this.fGk && aYR.fEx.size() < 100;
+        return aYW.fET.size() > this.fGF && aYW.fES.size() < 100;
     }
 }

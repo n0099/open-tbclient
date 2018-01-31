@@ -7,5 +7,5 @@ public interface c<T> {
 
     T au(T t);
 
-    T nk();
+    T nl();
 }

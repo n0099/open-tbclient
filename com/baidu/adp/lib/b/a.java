@@ -3,11 +3,11 @@ package com.baidu.adp.lib.b;
 import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected String[] ahN;
-    protected int ahO = 0;
-    protected int ahP = 1;
-    protected int ahQ = 10;
-    protected b.a ahR = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] ahQ;
+    protected int ahR = 0;
+    protected int ahS = 1;
+    protected int ahT = 10;
+    protected b.a ahU = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
             a.this.cQ(i);
@@ -19,35 +19,35 @@ public abstract class a {
 
     protected abstract String getName();
 
-    protected abstract String[] mq();
-
-    protected abstract int mr();
+    protected abstract String[] mr();
 
     protected abstract int ms();
 
     protected abstract int mt();
 
-    protected String[] mu() {
+    protected abstract int mu();
+
+    protected String[] mv() {
         return null;
     }
 
-    protected void mv() {
-        b bVar = new b(this.mName, this.ahO, this.ahR);
-        bVar.a(this.ahQ, this.ahN, this.ahP);
-        bVar.g(mu());
-        d.mz().a(bVar);
+    protected void mw() {
+        b bVar = new b(this.mName, this.ahR, this.ahU);
+        bVar.a(this.ahT, this.ahQ, this.ahS);
+        bVar.g(mv());
+        d.mA().a(bVar);
     }
 
     public a() {
         initData();
-        mv();
+        mw();
     }
 
     protected void initData() {
         this.mName = getName();
-        this.ahN = mq();
-        this.ahO = mr();
-        this.ahP = ms();
-        this.ahQ = mt();
+        this.ahQ = mr();
+        this.ahR = ms();
+        this.ahS = mt();
+        this.ahT = mu();
     }
 }

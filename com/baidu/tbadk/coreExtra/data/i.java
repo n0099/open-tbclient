@@ -1,31 +1,31 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class i {
-    private long bfw;
-    private int bfx;
+    private long bfE;
+    private int bfF;
     private String mMd5;
 
-    public String Fl() {
+    public String Fn() {
         return this.mMd5;
     }
 
-    public void eN(String str) {
+    public void eU(String str) {
         this.mMd5 = str;
     }
 
     public long getTotalLength() {
-        return this.bfw;
+        return this.bfE;
     }
 
     public void Y(long j) {
-        this.bfw = j;
+        this.bfE = j;
     }
 
-    public int Fm() {
-        return this.bfx;
+    public int Fo() {
+        return this.bfF;
     }
 
     public void gN(int i) {
-        this.bfx = i;
+        this.bfF = i;
     }
 }

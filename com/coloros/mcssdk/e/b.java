@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c {
-    public static final String hML = null;
+    public static final String hNf = null;
     private int adY;
     private String content;
-    private String hMM;
-    private String hMN;
-    private String hMO;
-    private String hMP;
+    private String hNg;
+    private String hNh;
+    private String hNi;
+    private String hNj;
     private String params;
     private int responseCode = -2;
 
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.uN(jSONObject.getString(str3));
+                    eVar.uU(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hMM = str;
+        this.hNg = str;
     }
 
     public void setContent(String str) {
@@ -75,11 +75,11 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hMQ + ",taskID:" + this.hMR + ",appPackage:" + this.appPackage + ",appKey:" + this.hMM + ",appSecret:" + this.hMN + ",registerID:" + this.hMO + ",sdkVersion:" + this.hMP + ",command:" + this.adY + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hNk + ",taskID:" + this.hNl + ",appPackage:" + this.appPackage + ",appKey:" + this.hNg + ",appSecret:" + this.hNh + ",registerID:" + this.hNi + ",sdkVersion:" + this.hNj + ",command:" + this.adY + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void uJ(String str) {
-        this.hMN = str;
+    public void uQ(String str) {
+        this.hNh = str;
     }
 
     public void xV(int i) {

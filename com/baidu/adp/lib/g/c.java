@@ -11,13 +11,13 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends Resources {
-    private static final ColorStateList akk = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+    private static final ColorStateList akn = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private boolean Ef;
-    private Resources akl;
+    private Resources ako;
 
     public c(Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.akl = resources;
+        this.ako = resources;
         this.Ef = false;
     }
 
@@ -28,7 +28,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.akl.getDrawable(i);
+                    return this.ako.getDrawable(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.Ef)) {
                         throw e;
@@ -56,7 +56,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.akl.getString(i);
+                    return this.ako.getString(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.Ef)) {
                         throw e;
@@ -90,7 +90,7 @@ public class c extends Resources {
         while (true) {
             if (i3 < 3) {
                 try {
-                    i2 = this.akl.getColor(i);
+                    i2 = this.ako.getColor(i);
                     break;
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.Ef)) {
@@ -119,7 +119,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.akl.getColorStateList(i);
+                    return this.ako.getColorStateList(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.Ef)) {
                         throw e;
@@ -133,7 +133,7 @@ public class c extends Resources {
                 }
             } else {
                 i("colorstatelist", i);
-                return akk;
+                return akn;
             }
             i2 = i3 + 1;
         }
@@ -142,18 +142,18 @@ public class c extends Resources {
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        return this.akl.openRawResource(i);
+        return this.ako.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        return this.akl.openRawResource(i, typedValue);
+        return this.ako.openRawResource(i, typedValue);
     }
 
     private final void i(String str, int i) {
         String str2 = null;
         try {
-            str2 = this.akl.getResourceEntryName(i);
+            str2 = this.ako.getResourceEntryName(i);
         } catch (Exception e) {
         }
         try {

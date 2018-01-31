@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements j {
-    private boolean avg;
+    private boolean avj;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -36,7 +36,7 @@ public class e extends BaseAdapter implements j {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.avg = false;
+        this.avj = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
@@ -44,7 +44,7 @@ public class e extends BaseAdapter implements j {
         if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
             z = true;
         }
-        this.avg = z;
+        this.avj = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.e.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -95,7 +95,7 @@ public class e extends BaseAdapter implements j {
 
     @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.j
     public void notifyDataSetChanged() {
-        if (com.baidu.adp.lib.util.l.oY()) {
+        if (com.baidu.adp.lib.util.l.oZ()) {
             super.notifyDataSetChanged();
         }
     }
@@ -149,7 +149,7 @@ public class e extends BaseAdapter implements j {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.avg = z;
+                this.avj = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -168,7 +168,7 @@ public class e extends BaseAdapter implements j {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.avg = z;
+                this.avj = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -263,7 +263,7 @@ public class e extends BaseAdapter implements j {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.avg && this.mAdapter.areAllItemsEnabled();
+            return this.avj && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -322,7 +322,7 @@ public class e extends BaseAdapter implements j {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return sC();
+                return sD();
             }
             return view4;
         }
@@ -343,7 +343,7 @@ public class e extends BaseAdapter implements j {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return sC();
+                return sD();
             }
             return view3;
         }
@@ -354,12 +354,12 @@ public class e extends BaseAdapter implements j {
             view2 = null;
         }
         if (view2 == null) {
-            return sC();
+            return sD();
         }
         return view2;
     }
 
-    private View sC() {
+    private View sD() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);

@@ -105,7 +105,7 @@ public class BdSocketLinkService extends BdBaseService {
                 }
                 z = BdSocketLinkService.connStateCallBack.d(i, null);
             }
-            if (!z && i != 1 && l.oZ()) {
+            if (!z && i != 1 && l.pa()) {
                 BdSocketLinkService.reConnStra.start("onClose:" + i + ":" + str);
             }
         }
@@ -136,7 +136,7 @@ public class BdSocketLinkService extends BdBaseService {
         mHandler.removeMessages(1);
         mHandler.sendEmptyMessageDelayed(1, com.baidu.adp.framework.c.c.kY().kZ().la());
         try {
-            return h.pu().pv();
+            return h.pv().pw();
         } catch (Throwable th) {
             connCallback.e(LINK_ERROR_CODE_CONNECT, "open error");
             BdLog.e(th.getMessage());
@@ -145,8 +145,8 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void init() {
-        h.pu().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.kC(), null, com.baidu.adp.framework.client.socket.h.kD());
-        h.pu().a(connCallback);
+        h.pv().a(com.baidu.adp.framework.client.socket.h.getUrl(), com.baidu.adp.framework.client.socket.h.kC(), null, com.baidu.adp.framework.client.socket.h.kD());
+        h.pv().a(connCallback);
     }
 
     public static void close(String str) {
@@ -158,27 +158,27 @@ public class BdSocketLinkService extends BdBaseService {
             i.a(MODULE_NAME, 0, 0, IntentConfig.CLOSE, i, str);
             i.kE();
             mHandler.removeMessages(1);
-            h.pu().close(i, str);
+            h.pv().close(i, str);
         }
     }
 
     public boolean isIdle() {
-        return h.pu().pw();
+        return h.pv().px();
     }
 
     public static boolean sendMessage(com.baidu.adp.lib.webSocket.c cVar) {
-        if (cVar != null && h.pu().px() && h.pu().pw()) {
-            return h.pu().sendMessage(cVar);
+        if (cVar != null && h.pv().py() && h.pv().px()) {
+            return h.pv().sendMessage(cVar);
         }
         return false;
     }
 
     public static boolean isClose() {
-        return (h.pu().px() || h.pu().isConnecting()) ? false : true;
+        return (h.pv().py() || h.pv().isConnecting()) ? false : true;
     }
 
     public static boolean isOpen() {
-        return h.pu().px();
+        return h.pv().py();
     }
 
     public static boolean isAvailable() {
@@ -225,7 +225,7 @@ public class BdSocketLinkService extends BdBaseService {
                 BdLog.w("进行重连" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);
-            } else if (!h.pu().px() && !h.pu().isConnecting()) {
+            } else if (!h.pv().py() && !h.pv().isConnecting()) {
                 BdLog.w("进行连接" + stringExtra);
                 close(stringExtra);
                 open(stringExtra);

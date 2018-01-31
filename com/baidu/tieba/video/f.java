@@ -16,53 +16,53 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class f {
-    private String hmA;
-    private String hmB;
-    private File hmC;
-    private File hmD;
-    private c hmE;
-    private IVideoConvertService hmz;
+    private IVideoConvertService hmT;
+    private String hmU;
+    private String hmV;
+    private File hmW;
+    private File hmX;
+    private c hmY;
     private Context mContext;
-    public static final String hmm = b.hmh;
+    public static final String hmG = b.hmB;
     private static final String TAG = f.class.getSimpleName();
-    private int hmG = -3;
-    private boolean hmH = false;
-    private boolean hmI = false;
-    private int hmJ = 1;
-    private ServiceConnection hmK = new ServiceConnection() { // from class: com.baidu.tieba.video.f.1
+    private int hna = -3;
+    private boolean hnb = false;
+    private boolean hnc = false;
+    private int hnd = 1;
+    private ServiceConnection hne = new ServiceConnection() { // from class: com.baidu.tieba.video.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            f.this.hmz = IVideoConvertService.Stub.asInterface(iBinder);
-            if (f.this.hmI) {
-                f.this.bAd();
+            f.this.hmT = IVideoConvertService.Stub.asInterface(iBinder);
+            if (f.this.hnc) {
+                f.this.bAf();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (f.this.hmI) {
-                if (!f.this.hmH && f.this.hmG == -3 && f.this.hmE != null) {
-                    f.this.hmE.onConvertFailed();
+            if (f.this.hnc) {
+                if (!f.this.hnb && f.this.hna == -3 && f.this.hmY != null) {
+                    f.this.hmY.onConvertFailed();
                 }
-                f.this.hmI = false;
+                f.this.hnc = false;
             }
-            f.this.hmz = null;
+            f.this.hmT = null;
         }
     };
-    private a hmF = new a();
+    private a hmZ = new a();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     public void setConvertType(int i) {
-        this.hmJ = i;
+        this.hnd = i;
     }
 
     public void destroy() {
-        this.hmH = true;
+        this.hnb = true;
         abortConvert();
-        bAc();
+        bAe();
     }
 
     private void startService() {
@@ -73,59 +73,59 @@ public class f {
         }
     }
 
-    private void Sw() {
+    private void Sy() {
         if (this.mContext != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.mContext.bindService(intent, this.hmK, 1);
+            this.mContext.bindService(intent, this.hne, 1);
         }
     }
 
-    private void bAc() {
-        if (this.hmz != null && this.mContext != null) {
-            this.mContext.unbindService(this.hmK);
+    private void bAe() {
+        if (this.hmT != null && this.mContext != null) {
+            this.mContext.unbindService(this.hne);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAd() {
+    public void bAf() {
         int i = -1;
         try {
-            this.hmz.setIVideoConvertListener(this.hmF);
-            this.hmz.setConvertType(this.hmJ);
-            i = this.hmz.doConvert(this.hmA, this.hmB);
+            this.hmT.setIVideoConvertListener(this.hmZ);
+            this.hmT.setConvertType(this.hnd);
+            i = this.hmT.doConvert(this.hmU, this.hmV);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (this.hmE != null) {
+        if (this.hmY != null) {
             if (i == 0) {
-                this.hmE.bAa();
+                this.hmY.bAc();
             } else {
-                this.hmE.wD(i);
+                this.hmY.wD(i);
             }
         }
     }
 
-    public void ch(String str, String str2) {
-        this.hmI = true;
-        this.hmH = false;
-        this.hmG = -3;
-        this.hmA = str;
-        this.hmB = str2;
-        this.hmC = new File(this.hmA);
-        this.hmD = new File(this.hmB);
-        if (this.hmz == null) {
+    public void cg(String str, String str2) {
+        this.hnc = true;
+        this.hnb = false;
+        this.hna = -3;
+        this.hmU = str;
+        this.hmV = str2;
+        this.hmW = new File(this.hmU);
+        this.hmX = new File(this.hmV);
+        if (this.hmT == null) {
             startService();
-            Sw();
+            Sy();
             return;
         }
-        bAd();
+        bAf();
     }
 
     public boolean isConvertRunning() {
         try {
-            if (this.hmz != null) {
-                if (this.hmz.isConvertRunning()) {
+            if (this.hmT != null) {
+                if (this.hmT.isConvertRunning()) {
                     return true;
                 }
             }
@@ -136,9 +136,9 @@ public class f {
     }
 
     public void abortConvert() {
-        if (this.hmz != null) {
+        if (this.hmT != null) {
             try {
-                this.hmz.abortConvert();
+                this.hmT.abortConvert();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -153,42 +153,42 @@ public class f {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            f.this.hmG = 1;
-            if (f.this.hmE != null) {
-                f.this.hmE.onConvertSuccess();
+            f.this.hna = 1;
+            if (f.this.hmY != null) {
+                f.this.hmY.onConvertSuccess();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (f.this.hmE != null) {
-                f.this.hmE.onConvertFailed();
+            if (f.this.hmY != null) {
+                f.this.hmY.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i) throws RemoteException {
-            if (f.this.hmE != null) {
-                f.this.hmE.onConvertProgress(i);
+            if (f.this.hmY != null) {
+                f.this.hmY.onConvertProgress(i);
             }
-            if ((f.this.hmC != null && !f.this.hmC.exists()) || (f.this.hmD != null && !f.this.hmD.exists())) {
+            if ((f.this.hmW != null && !f.this.hmW.exists()) || (f.this.hmX != null && !f.this.hmX.exists())) {
                 f.this.abortConvert();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (f.this.hmE != null) {
-                f.this.hmE.onConvertAborted();
+            if (f.this.hmY != null) {
+                f.this.hmY.onConvertAborted();
             }
         }
     }
 
     public void a(c cVar) {
-        this.hmE = cVar;
+        this.hmY = cVar;
     }
 
-    public static String tq(String str) {
+    public static String tx(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
@@ -212,7 +212,7 @@ public class f {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int tr(String str) {
+    public static int ty(String str) {
         int i = 0;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -237,8 +237,8 @@ public class f {
         }
     }
 
-    public static boolean bAe() {
-        File file = new File(hmm);
+    public static boolean bAg() {
+        File file = new File(hmG);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {
                 file.delete();

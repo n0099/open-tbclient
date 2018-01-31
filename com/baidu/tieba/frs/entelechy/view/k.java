@@ -12,8 +12,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.m;
 /* loaded from: classes2.dex */
 public class k extends j {
-    private TextView cTe;
-    private ThreadLinkView cUI;
+    private TextView cTz;
+    private ThreadLinkView cVd;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,9 +27,9 @@ public class k extends j {
     @Override // com.baidu.tieba.frs.entelechy.view.j
     protected void bz(View view) {
         if (view != null) {
-            this.cUI = (ThreadLinkView) view.findViewById(d.g.link_thread_root);
-            this.cUI.setTag(getTag());
-            this.cTe = (TextView) view.findViewById(d.g.card_home_page_normal_thread_title);
+            this.cVd = (ThreadLinkView) view.findViewById(d.g.link_thread_root);
+            this.cVd.setTag(getTag());
+            this.cTz = (TextView) view.findViewById(d.g.card_home_page_normal_thread_title);
         }
     }
 
@@ -39,38 +39,38 @@ public class k extends j {
     public void a(bd bdVar) {
         if (bdVar != null) {
             super.a(bdVar);
-            if ((StringUtils.isNull(bdVar.getTitle()) && (bdVar.yQ() == null || bdVar.yQ().size() == 0)) || bdVar.zi() == 1) {
+            if ((StringUtils.isNull(bdVar.getTitle()) && (bdVar.yR() == null || bdVar.yR().size() == 0)) || bdVar.zj() == 1) {
                 bdVar.h(false, true);
-                if (bdVar.zs() == null || StringUtils.isNull(bdVar.zs().toString())) {
-                    this.cTe.setVisibility(8);
+                if (bdVar.zt() == null || StringUtils.isNull(bdVar.zt().toString())) {
+                    this.cTz.setVisibility(8);
                 } else {
-                    this.cTe.setVisibility(0);
-                    this.cTe.setText(bdVar.zs());
+                    this.cTz.setVisibility(0);
+                    this.cTz.setText(bdVar.zt());
                 }
             } else {
-                this.cTe.setVisibility(0);
-                bdVar.aNn = 0;
-                bdVar.h(false, bdVar.zN());
-                SpannableStringBuilder zs = bdVar.zs();
-                this.cTe.setOnTouchListener(new m(zs));
-                this.cTe.setText(zs);
-                com.baidu.tieba.card.k.a(this.cTe, bdVar.getId(), d.C0107d.cp_cont_b, d.C0107d.cp_cont_d);
+                this.cTz.setVisibility(0);
+                bdVar.aNq = 0;
+                bdVar.h(false, bdVar.zO());
+                SpannableStringBuilder zt = bdVar.zt();
+                this.cTz.setOnTouchListener(new m(zt));
+                this.cTz.setText(zt);
+                com.baidu.tieba.card.k.a(this.cTz, bdVar.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             }
-            this.cUI.setData(this.aXU);
+            this.cVd.setData(this.aYc);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.j, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.cUI.onChangeSkinType();
+        this.cVd.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.view.j
-    public void akg() {
-        super.akg();
-        com.baidu.tieba.card.k.a(this.cTe, this.aXU.getId(), d.C0107d.cp_cont_b, d.C0107d.cp_cont_d);
-        this.cUI.eD(this.aXU.getId());
+    public void akl() {
+        super.akl();
+        com.baidu.tieba.card.k.a(this.cTz, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
+        this.cVd.eK(this.aYc.getId());
     }
 }

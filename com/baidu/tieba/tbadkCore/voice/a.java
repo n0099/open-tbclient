@@ -16,7 +16,7 @@ public interface a {
 
     void stopRecord();
 
-    void tj();
+    void tk();
 
-    boolean tk();
+    boolean tl();
 }

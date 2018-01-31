@@ -11,22 +11,22 @@ public class w extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mr() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected int ms() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mq() {
+    protected int mt() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] mr() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int mu() {
         return 10;
     }
 }

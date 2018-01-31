@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class av {
-    private static av aWg = new av() { // from class: com.baidu.tbadk.core.util.av.1
+    private static av aWj = new av() { // from class: com.baidu.tbadk.core.util.av.1
     };
-    private static final Pattern aWj = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> aWh;
-    private c aWi;
+    private static final Pattern aWm = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> aWk;
+    private c aWl;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class av {
 
     private av() {
         this.mListeners = new LinkedList();
-        this.aWh = new ConcurrentHashMap<>();
-        this.aWi = null;
+        this.aWk = new ConcurrentHashMap<>();
+        this.aWl = null;
     }
 
-    public static SpannableString T(Context context, String str) {
+    public static SpannableString S(Context context, String str) {
         int start;
-        Matcher matcher = aWj.matcher(str);
+        Matcher matcher = aWm.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -63,15 +63,15 @@ public class av {
         return spannableString;
     }
 
-    public static av CZ() {
-        return aWg;
+    public static av Da() {
+        return aWj;
     }
 
     public void a(final a aVar) {
-        if (com.baidu.adp.lib.util.l.oY()) {
+        if (com.baidu.adp.lib.util.l.oZ()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.g.e.nr().post(new Runnable() { // from class: com.baidu.tbadk.core.util.av.2
+            com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tbadk.core.util.av.2
                 @Override // java.lang.Runnable
                 public void run() {
                     av.this.b(aVar);
@@ -88,7 +88,7 @@ public class av {
     }
 
     public void a(c cVar) {
-        this.aWi = cVar;
+        this.aWl = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,9 +101,9 @@ public class av {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.aWh.get(el(str));
+        b bVar = this.aWk.get(ep(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, ek(ej(str)));
+            bVar.a(tbPageContext, eo(en(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
@@ -121,9 +121,9 @@ public class av {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.aWh.get(el(str2));
+        b bVar = this.aWk.get(ep(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, ek(ej(str2)));
+            bVar.a(tbPageContext, eo(en(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -138,7 +138,7 @@ public class av {
                 break;
             }
         }
-        if (!z3 && this.aWi != null) {
+        if (!z3 && this.aWl != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -149,7 +149,7 @@ public class av {
         return z4;
     }
 
-    public static Map<String, String> eh(String str) {
+    public static Map<String, String> el(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class av {
         return null;
     }
 
-    public static String ei(String str) {
+    public static String em(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +175,7 @@ public class av {
         return split[1];
     }
 
-    public static String ej(String str) {
+    public static String en(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +193,7 @@ public class av {
         }
     }
 
-    private Map<String, String> ek(String str) {
+    private Map<String, String> eo(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -217,7 +217,7 @@ public class av {
         return hashMap;
     }
 
-    private String el(String str) {
+    private String ep(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -239,21 +239,21 @@ public class av {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (aWj.matcher(str2).find()) {
-            this.aWi.a(tbPageContext, str, str2, z, dVar, z2);
+        if (aWm.matcher(str2).find()) {
+            this.aWl.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String el = el(str);
-            if (!StringUtils.isNull(el)) {
-                this.aWh.put(el, bVar);
+            String ep = ep(str);
+            if (!StringUtils.isNull(ep)) {
+                this.aWk.put(ep, bVar);
             }
         }
     }
 
-    public boolean em(String str) {
-        return aWj.matcher(str).find();
+    public boolean eq(String str) {
+        return aWm.matcher(str).find();
     }
 }

@@ -290,7 +290,7 @@ public class PhotoLiveCardData implements Serializable {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
                         com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
                         eVar.hp(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
-                        eVar.fu(zhiBoInfoTW.labelInfo.get(i).labelId);
+                        eVar.fB(zhiBoInfoTW.labelInfo.get(i).labelId);
                         eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
                         this.expressionList.add(eVar);
                     }

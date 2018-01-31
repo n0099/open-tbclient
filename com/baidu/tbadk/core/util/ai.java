@@ -16,15 +16,15 @@ public class ai {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.Bz());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.Bz());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
                 }
             } else {
-                File dv = k.dv("camera.jpg");
-                if (dv != null) {
+                File dx = k.dx("camera.jpg");
+                if (dx != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(dv, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(dx, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
@@ -41,16 +41,16 @@ public class ai {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.Bz());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.Bz());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
                     return;
                 } else {
                     return;
                 }
             }
-            String str2 = k.amc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = k.amf + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
             if (k.m12do(str2)) {
                 File file = new File(str2 + "/" + str);
