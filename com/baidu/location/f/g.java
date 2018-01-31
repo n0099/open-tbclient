@@ -30,7 +30,7 @@ public abstract class g {
         return false;
     }
 
-    public Location us() {
+    public Location ut() {
         return null;
     }
 }

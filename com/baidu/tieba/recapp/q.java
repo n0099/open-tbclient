@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class q implements p {
-    public static final AtomicReference<p> gzV = new AtomicReference<>(null);
-    private static final p gzW = new q();
+    public static final AtomicReference<p> gAq = new AtomicReference<>(null);
+    private static final p gAr = new q();
 
-    public static p bmR() {
-        p pVar = gzV.get();
-        return pVar == null ? gzW : pVar;
+    public static p bmS() {
+        p pVar = gAq.get();
+        return pVar == null ? gAr : pVar;
     }
 
     @Override // com.baidu.tieba.recapp.p
@@ -49,43 +49,43 @@ public class q implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public k bmL() {
+    public k bmM() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public m bmM() {
+    public m bmN() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public h ce(Context context) {
+    public h cb(Context context) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public com.baidu.tieba.n.a bmN() {
+    public com.baidu.tieba.n.a bmO() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public i bmO() {
+    public i bmP() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public List<AppData> bmP() {
+    public List<AppData> bmQ() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public void bmQ() {
+    public void bmR() {
         BdLog.e("recapp plugin install failed!");
     }
 }

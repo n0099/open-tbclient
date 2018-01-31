@@ -6,36 +6,36 @@ import com.baidu.adp.lib.stats.b.i;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private String akP;
-    protected String akZ;
-    protected String alb;
-    protected i alc;
-    private StringBuffer akQ = new StringBuffer();
-    private StringBuffer akR = new StringBuffer();
-    private int akS = 0;
-    private int akT = 0;
-    private long akJ = 0;
-    private long akU = 0;
-    protected long akV = 0;
-    private long akW = 0;
+    private String akS;
+    protected String alc;
+    protected String ale;
+    protected i alf;
+    private StringBuffer akT = new StringBuffer();
+    private StringBuffer akU = new StringBuffer();
+    private int akV = 0;
+    private int akW = 0;
+    private long akM = 0;
     private long akX = 0;
-    protected int akY = 50;
-    protected final String ala = ".log";
-    protected boolean mUseSdCard = true;
+    protected long akY = 0;
+    private long akZ = 0;
+    private long ala = 0;
+    protected int alb = 50;
+    protected final String ald = ".log";
+    protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.alc = iVar;
+        this.alf = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.akQ.append(aVar.toString());
-                    this.akQ.append("\r\n");
-                    this.akS++;
+                    this.akT.append(aVar.toString());
+                    this.akT.append("\r\n");
+                    this.akV++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -43,19 +43,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.alc != null) {
-            this.alc.g(this);
+        if (this.alf != null) {
+            this.alf.g(this);
         }
-        this.akJ = System.currentTimeMillis();
+        this.akM = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.akR.append(aVar.toString());
-                    this.akR.append("\r\n");
-                    this.akT++;
+                    this.akU.append(aVar.toString());
+                    this.akU.append("\r\n");
+                    this.akW++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -63,51 +63,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.alc != null) {
-            this.alc.g(this);
+        if (this.alf != null) {
+            this.alf.g(this);
         }
-        this.akU = System.currentTimeMillis();
-    }
-
-    public int nG() {
-        return this.akS;
+        this.akX = System.currentTimeMillis();
     }
 
     public int nH() {
-        return this.akT;
-    }
-
-    public long nI() {
         return this.akV;
     }
 
-    public void q(long j) {
-        this.akV = j;
+    public int nI() {
+        return this.akW;
     }
 
     public long nJ() {
-        return this.akJ;
+        return this.akY;
+    }
+
+    public void q(long j) {
+        this.akY = j;
     }
 
     public long nK() {
-        return this.akU;
+        return this.akM;
     }
 
-    public String nL() {
-        if (TextUtils.isEmpty(this.alb)) {
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(this.akZ);
-            sb.append(BdStatisticsManager.getInstance().getProcessName());
-            sb.append("Writing");
-            sb.append(".log");
-            this.alb = sb.toString();
-        }
-        return this.alb;
+    public long nL() {
+        return this.akX;
     }
 
     public String nM() {
+        if (TextUtils.isEmpty(this.ale)) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(this.alc);
+            sb.append(BdStatisticsManager.getInstance().getProcessName());
+            sb.append("Writing");
+            sb.append(".log");
+            this.ale = sb.toString();
+        }
+        return this.ale;
+    }
+
+    public String nN() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.akZ);
+        sb.append(this.alc);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -115,74 +115,74 @@ public class a {
         return sb.toString();
     }
 
-    public long nN() {
-        return this.akW;
+    public long nO() {
+        return this.akZ;
     }
 
-    public long nO() {
-        return this.akX;
+    public long nP() {
+        return this.ala;
     }
 
     public void r(long j) {
-        this.akW = j;
+        this.akZ = j;
     }
 
     public void s(long j) {
-        this.akX = j;
-    }
-
-    public synchronized void nP() {
-        this.akQ = new StringBuffer();
-        this.akS = 0;
-        this.akW = 0L;
+        this.ala = j;
     }
 
     public synchronized void nQ() {
-        this.akR = new StringBuffer();
-        this.akT = 0;
-        this.akX = 0L;
+        this.akT = new StringBuffer();
+        this.akV = 0;
+        this.akZ = 0L;
+    }
+
+    public synchronized void nR() {
+        this.akU = new StringBuffer();
+        this.akW = 0;
+        this.ala = 0L;
     }
 
     public void ax(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.akP = str;
+            this.akS = str;
         }
     }
 
-    public String nR() {
-        return this.akP;
+    public String nS() {
+        return this.akS;
     }
 
-    public boolean nS() {
+    public boolean nT() {
         return this.isUploading;
     }
 
-    public void ao(boolean z) {
+    public void ap(boolean z) {
         this.isUploading = z;
     }
 
-    public String nT() {
+    public String nU() {
         return "omp";
     }
 
-    public StringBuffer nU() {
-        return this.akQ;
-    }
-
     public StringBuffer nV() {
-        return this.akR;
+        return this.akT;
     }
 
-    public boolean nW() {
-        return this.mUseSdCard;
+    public StringBuffer nW() {
+        return this.akU;
     }
 
     public boolean nX() {
+        return this.mUseSdCard;
+    }
+
+    public boolean nY() {
         return this.mMustSuccess;
     }
 
-    public String nY() {
-        return this.akZ;
+    public String nZ() {
+        return this.alc;
     }
 
     public static String ay(String str) {

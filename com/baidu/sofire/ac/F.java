@@ -36,7 +36,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            ApkInfo apkInfo = e.uR().a.get(str);
+            ApkInfo apkInfo = e.uS().a.get(str);
             if (apkInfo == null) {
                 return null;
             }
@@ -52,20 +52,20 @@ public class F implements FI {
         try {
             new StringBuilder().append(str).append(", ").append(intentFilter).append(", ").append(str2).append(", ").append(str3);
             if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                e uR = e.uR();
-                new StringBuilder("h=").append(uR);
-                if (uR != null) {
-                    uR.a(new f(str, intentFilter, str2, str3));
+                e uS = e.uS();
+                new StringBuilder("h=").append(uS);
+                if (uS != null) {
+                    uS.a(new f(str, intentFilter, str2, str3));
                     new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
                     if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                        a aVar = a.aEP;
+                        a aVar = a.aES;
                         new StringBuilder("d=").append(aVar);
                         if (aVar != null) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("r", (Integer) 1);
                             contentValues.put("b", str2);
                             contentValues.put(Info.kBaiduTimeKey, str3);
-                            aVar.aEO.update("pgn", contentValues, "p=?", new String[]{str});
+                            aVar.aER.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
                 }
@@ -77,10 +77,10 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        e uR;
+        e uS;
         try {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (uR = e.uR()) != null) {
-                uR.b(new f(str, intentFilter, str2, str3));
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && (uS = e.uS()) != null) {
+                uS.b(new f(str, intentFilter, str2, str3));
             }
         } catch (Throwable th) {
             d.a(th);
@@ -96,14 +96,14 @@ public class F implements FI {
                     callback.onEnd(new Object[0]);
                 }
             } else {
-                e uR = e.uR();
-                if (uR == null) {
+                e uS = e.uS();
+                if (uS == null) {
                     if (callback != null) {
                         callback.onEnd(new Object[0]);
                     }
                 } else {
-                    ApkInfo cf = uR.cf(str2);
-                    if (uR.cf(str) == null || cf == null) {
+                    ApkInfo cf = uS.cf(str2);
+                    if (uS.cf(str) == null || cf == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                         }
@@ -125,7 +125,7 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
         try {
-            c uQ = c.uQ();
+            c uR = c.uR();
             new StringBuilder().append(str);
             new c.AnonymousClass4(str).start();
         } catch (Throwable th) {
@@ -216,8 +216,8 @@ public class F implements FI {
     public String gs(String str) {
         ApkInfo cf;
         try {
-            e uR = e.uR();
-            if (uR != null && (cf = uR.cf(str)) != null) {
+            e uS = e.uS();
+            if (uS != null && (cf = uS.cf(str)) != null) {
                 return cf.libPath;
             }
             return "";
@@ -245,12 +245,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void s(int i, boolean z) {
         try {
-            a aVar = a.aEP;
+            a aVar = a.aES;
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(NotifyType.SOUND, Integer.valueOf(i2));
-                aVar.aEO.update("pgn", contentValues, "k=" + i + " and n=1", null);
+                aVar.aER.update("pgn", contentValues, "k=" + i + " and n=1", null);
             }
         } catch (Throwable th) {
             d.a(th);
@@ -260,12 +260,12 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         try {
-            a aVar = a.aEP;
+            a aVar = a.aES;
             if (aVar != null) {
                 int i = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(NotifyType.SOUND, Integer.valueOf(i));
-                aVar.aEO.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                aVar.aER.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable th) {
             d.a(th);

@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
 public class aq extends com.baidu.tbadk.core.view.userLike.c {
-    private String bAT;
-    public boolean fPX;
-    private int fPY;
+    private String bBb;
+    public boolean fQs;
+    private int fQt;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public aq(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.fPX = false;
+        this.fQs = false;
         this.isBigV = false;
-        this.fPY = 0;
-        this.fPY = i;
+        this.fQt = 0;
+        this.fQt = i;
         this.mPageContext = tbPageContext;
-        if (this.fPY == 1) {
+        if (this.fQt == 1) {
             super.setFromType("4");
-        } else if (this.fPY == 3) {
+        } else if (this.fQt == 3) {
             super.setFromType("5");
         } else {
             super.setFromType("0");
@@ -30,10 +30,10 @@ public class aq extends com.baidu.tbadk.core.view.userLike.c {
     }
 
     public void cK(String str) {
-        this.bAT = str;
+        this.bBb = str;
     }
 
-    private int bcY() {
+    private int bdd() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -63,24 +63,24 @@ public class aq extends com.baidu.tbadk.core.view.userLike.c {
     public void onClick(View view) {
         int i;
         int i2 = 2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bcY()).ab("obj_id", this.bdz != null ? this.bdz.getUserId() : "").ab("tid", this.bAT));
-        if (this.fPY == 1) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bdd()).aa("obj_id", this.bdH != null ? this.bdH.getUserId() : "").aa("tid", this.bBb));
+        if (this.fQt == 1) {
             i = 3;
         } else {
-            i = this.fPY == 3 ? 2 : 0;
+            i = this.fQt == 3 ? 2 : 0;
         }
         TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12507").s("obj_locate", i));
         super.onClick(view);
-        if (this.fPX && this.bdz != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11924").ab("obj_id", this.bdz.getUserId()));
+        if (this.fQs && this.bdH != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11924").aa("obj_id", this.bdH.getUserId()));
         }
-        if (this.isBigV && this.bdz != null) {
-            if (this.fPY == 1) {
+        if (this.isBigV && this.bdH != null) {
+            if (this.fQt == 1) {
                 i2 = 1;
-            } else if (this.fPY != 2) {
+            } else if (this.fQt != 2) {
                 i2 = 0;
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12150").s("obj_locate", i2).ab("obj_id", this.bdz.getUserId()));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12150").s("obj_locate", i2).aa("obj_id", this.bdH.getUserId()));
         }
     }
 }

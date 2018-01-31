@@ -27,7 +27,7 @@ public final class g {
             switch (c) {
                 case 1:
                     String str3 = str + "\r\n{libpath=" + cf.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.uR().cf(str2).libPath.split(":")) {
+                    for (String str4 : com.baidu.sofire.core.e.uS().cf(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {

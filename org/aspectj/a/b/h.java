@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h inX = new h();
-    static h inY;
-    static h inZ;
-    boolean inO = true;
-    boolean inP = true;
-    boolean inQ = false;
-    boolean inR = false;
-    boolean inS = false;
-    boolean inT = true;
-    boolean inU = true;
-    boolean inV = true;
-    int inW;
+    static h ior = new h();
+    static h ios;
+    static h iot;
+    boolean ioi = true;
+    boolean ioj = true;
+    boolean iok = false;
+    boolean iol = false;
+    boolean iom = false;
+    boolean ion = true;
+    boolean ioo = true;
+    boolean iop = true;
+    int ioq;
 
     h() {
     }
 
     static {
-        inX.inO = true;
-        inX.inP = false;
-        inX.inQ = false;
-        inX.inR = false;
-        inX.inS = true;
-        inX.inT = false;
-        inX.inU = false;
-        inX.inW = 0;
-        inY = new h();
-        inY.inO = true;
-        inY.inP = true;
-        inY.inQ = false;
-        inY.inR = false;
-        inY.inS = false;
-        inX.inW = 1;
-        inZ = new h();
-        inZ.inO = false;
-        inZ.inP = true;
-        inZ.inQ = false;
-        inZ.inR = true;
-        inZ.inS = false;
-        inZ.inV = false;
-        inZ.inW = 2;
+        ior.ioi = true;
+        ior.ioj = false;
+        ior.iok = false;
+        ior.iol = false;
+        ior.iom = true;
+        ior.ion = false;
+        ior.ioo = false;
+        ior.ioq = 0;
+        ios = new h();
+        ios.ioi = true;
+        ios.ioj = true;
+        ios.iok = false;
+        ios.iol = false;
+        ios.iom = false;
+        ior.ioq = 1;
+        iot = new h();
+        iot.ioi = false;
+        iot.ioj = true;
+        iot.iok = false;
+        iot.iol = true;
+        iot.iom = false;
+        iot.iop = false;
+        iot.ioq = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wM(String str) {
+    public String wT(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String zz(int i) {
-        if (this.inR) {
+        if (this.iol) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String wN(String str) {
+    String wU(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return wN(str).replace('$', '.');
+            return wU(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String o(Class cls) {
-        return b(cls, cls.getName(), this.inO);
+        return b(cls, cls.getName(), this.ioi);
     }
 
     public String e(Class cls, String str) {
-        return b(cls, str, this.inS);
+        return b(cls, str, this.iom);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.inP) {
+            if (!this.ioj) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.inQ && clsArr != null && clsArr.length != 0) {
+        if (this.iok && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

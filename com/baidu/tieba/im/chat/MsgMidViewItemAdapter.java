@@ -18,8 +18,8 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        aVar.aEv().setData(chatMessage);
-        this.mPageContext.getLayoutMode().aM(false);
+        aVar.aEA().setData(chatMessage);
+        this.mPageContext.getLayoutMode().aN(false);
         this.mPageContext.getLayoutMode().aM(view);
         return view;
     }

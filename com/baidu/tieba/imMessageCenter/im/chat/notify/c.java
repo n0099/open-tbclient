@@ -6,17 +6,17 @@ public class c {
     public static boolean qF(int i) {
         switch (i) {
             case 0:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GK() && !com.baidu.tbadk.coreExtra.messageCenter.b.GC().GR()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GM() && !com.baidu.tbadk.coreExtra.messageCenter.b.GE().GT()) {
                     return false;
                 }
                 return true;
             case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GJ()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GL()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GC().GH()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GJ()) {
                     return false;
                 }
                 return true;

@@ -15,7 +15,7 @@ import java.net.URLDecoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class z {
-    public static String ar(String str, String str2) {
+    public static String aq(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -33,7 +33,7 @@ public class z {
         return "";
     }
 
-    public static String as(String str, String str2) {
+    public static String ar(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -66,7 +66,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle he(String str) {
+    public static Bundle hl(String str) {
         URL url;
         String query;
         String[] split;
@@ -96,17 +96,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String bBt;
+        public String bBB;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.bBt = "";
+            this.bBB = "";
             this.BDUSS = str;
-            this.bBt = str2;
+            this.bBB = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bBt != null ? this.bBt.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bBB != null ? this.bBB.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +122,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.bBt == null ? aVar.bBt == null : this.bBt.equals(aVar.bBt);
+                return this.bBB == null ? aVar.bBB == null : this.bBB.equals(aVar.bBB);
             }
             return false;
         }

@@ -9,34 +9,34 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
 public class b extends r.a {
-    private int bdK;
-    private HTypeListView buc;
-    private com.baidu.tieba.a.b bud;
+    private int bdS;
+    private HTypeListView bum;
+    private com.baidu.tieba.a.b bun;
     private View mBottomLine;
     private TbPageContext mPageContext;
 
     public b(View view, TbPageContext tbPageContext) {
         super(view);
-        this.bdK = 3;
+        this.bdS = 3;
         this.mPageContext = tbPageContext;
-        this.buc = (HTypeListView) view.findViewById(d.g.follow_live_list);
+        this.bum = (HTypeListView) view.findViewById(d.g.follow_live_list);
         this.mBottomLine = view.findViewById(d.g.follow_live_bottom_line);
-        this.buc.setSelector(d.f.transparent_bg);
-        this.bud = new com.baidu.tieba.a.b(this.mPageContext, this.buc);
+        this.bum.setSelector(d.f.transparent_bg);
+        this.bun = new com.baidu.tieba.a.b(this.mPageContext, this.bum);
     }
 
     public void a(com.baidu.tbadk.data.b bVar) {
         if (bVar != null) {
-            this.bud.setDatas(bVar.getList());
+            this.bun.setDatas(bVar.getList());
         }
     }
 
-    public void LN() {
-        if (this.bdK != TbadkCoreApplication.getInst().getSkinType()) {
-            this.bdK = TbadkCoreApplication.getInst().getSkinType();
-            aj.t(this.buc, d.C0107d.cp_bg_line_d);
-            aj.t(this.mBottomLine, d.C0107d.cp_bg_line_c);
-            this.bud.notifyDataSetChanged();
+    public void LP() {
+        if (this.bdS != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bdS = TbadkCoreApplication.getInst().getSkinType();
+            aj.t(this.bum, d.C0108d.cp_bg_line_d);
+            aj.t(this.mBottomLine, d.C0108d.cp_bg_line_c);
+            this.bun.notifyDataSetChanged();
         }
     }
 }

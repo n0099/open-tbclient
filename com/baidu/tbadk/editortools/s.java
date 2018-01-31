@@ -15,5 +15,5 @@ public interface s extends b {
 
     void setToolId(int i);
 
-    void th();
+    void ti();
 }

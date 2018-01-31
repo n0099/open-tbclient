@@ -15,33 +15,33 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class UserRecommendLayout extends LinearLayout {
-    private View.OnClickListener dHQ;
-    private View.OnClickListener dHR;
-    private int dVq;
-    private int dVr;
-    private com.baidu.adp.lib.e.b<h> dVs;
-    private final ViewGroup.OnHierarchyChangeListener dVt;
+    private View.OnClickListener dIl;
+    private View.OnClickListener dIm;
+    private int dVL;
+    private int dVM;
+    private com.baidu.adp.lib.e.b<h> dVN;
+    private final ViewGroup.OnHierarchyChangeListener dVO;
     private TbPageContext pageContext;
 
     public UserRecommendLayout(Context context) {
         super(context);
-        this.dVr = 0;
-        this.dHQ = null;
-        this.dHR = null;
-        this.dVs = null;
-        this.dVt = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
+        this.dVM = 0;
+        this.dIl = null;
+        this.dIm = null;
+        this.dVN = null;
+        this.dVO = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof h) && UserRecommendLayout.this.dVs != null) {
+                if ((view2 instanceof h) && UserRecommendLayout.this.dVN != null) {
                     h hVar = (h) view2;
                     if (hVar.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) {
                         ((com.baidu.tbadk.core.view.userLike.c) hVar.getTag()).unRegisterListener(UserRecommendLayout.this.pageContext.getUniqueId());
                     }
-                    UserRecommendLayout.this.dVs.ar((h) view2);
+                    UserRecommendLayout.this.dVN.ar((h) view2);
                 }
             }
         };
@@ -50,23 +50,23 @@ public class UserRecommendLayout extends LinearLayout {
 
     public UserRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dVr = 0;
-        this.dHQ = null;
-        this.dHR = null;
-        this.dVs = null;
-        this.dVt = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
+        this.dVM = 0;
+        this.dIl = null;
+        this.dIm = null;
+        this.dVN = null;
+        this.dVO = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof h) && UserRecommendLayout.this.dVs != null) {
+                if ((view2 instanceof h) && UserRecommendLayout.this.dVN != null) {
                     h hVar = (h) view2;
                     if (hVar.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) {
                         ((com.baidu.tbadk.core.view.userLike.c) hVar.getTag()).unRegisterListener(UserRecommendLayout.this.pageContext.getUniqueId());
                     }
-                    UserRecommendLayout.this.dVs.ar((h) view2);
+                    UserRecommendLayout.this.dVN.ar((h) view2);
                 }
             }
         };
@@ -80,7 +80,7 @@ public class UserRecommendLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.dVt);
+        setOnHierarchyChangeListener(this.dVO);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -95,8 +95,8 @@ public class UserRecommendLayout extends LinearLayout {
 
     public void setData(List<MetaData> list) {
         if (!v.E(list)) {
-            int ao = ((com.baidu.adp.lib.util.e.ao(getContext()) - (getPaddingLeft() * 2)) - (this.dVr * 2)) / 3;
-            this.dVq = this.dVr + ao;
+            int ao = ((com.baidu.adp.lib.util.e.ao(getContext()) - (getPaddingLeft() * 2)) - (this.dVM * 2)) / 3;
+            this.dVL = this.dVM + ao;
             int i = 0;
             int childCount = getChildCount();
             while (i < childCount && i < list.size()) {
@@ -115,13 +115,13 @@ public class UserRecommendLayout extends LinearLayout {
             while (true) {
                 int i3 = i2;
                 if (i3 < list.size()) {
-                    h nj = this.dVs.nj();
-                    if (nj.getParent() != null) {
-                        ((ViewGroup) nj.getParent()).removeView(nj);
+                    h nk = this.dVN.nk();
+                    if (nk.getParent() != null) {
+                        ((ViewGroup) nk.getParent()).removeView(nk);
                     }
-                    a(nj, i3, ao);
-                    a(nj, list.get(i3));
-                    addView(nj);
+                    a(nk, i3, ao);
+                    a(nk, list.get(i3));
+                    addView(nk);
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -140,7 +140,7 @@ public class UserRecommendLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.dVr;
+            layoutParams.leftMargin = this.dVM;
         }
         hVar.setLayoutParams(layoutParams);
     }
@@ -164,30 +164,30 @@ public class UserRecommendLayout extends LinearLayout {
         cVar.setFromType("7");
         hVar.getLikeBtn().setTag(cVar);
         cVar.a(metaData);
-        hVar.getLikeBtn().setAfterOnClickListener(this.dHQ);
+        hVar.getLikeBtn().setAfterOnClickListener(this.dIl);
         hVar.getHeaderView().setData(metaData);
-        hVar.getHeaderView().setAfterClickListener(this.dHR);
+        hVar.getHeaderView().setAfterClickListener(this.dIm);
         hVar.setIsGod(metaData.isGod());
         hVar.onChangeSkinType(skinType);
     }
 
     public int getChildItemWidth() {
-        return this.dVq;
+        return this.dVL;
     }
 
     public void setViewPool(com.baidu.adp.lib.e.b<h> bVar) {
-        this.dVs = bVar;
+        this.dVN = bVar;
     }
 
     public void setItemSpace(int i) {
-        this.dVr = i;
+        this.dVM = i;
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {
-        this.dHQ = onClickListener;
+        this.dIl = onClickListener;
     }
 
     public void setAfterHeaderLickListener(View.OnClickListener onClickListener) {
-        this.dHR = onClickListener;
+        this.dIm = onClickListener;
     }
 }

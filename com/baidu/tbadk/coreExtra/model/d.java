@@ -18,19 +18,19 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int bhG;
+    private int bhO;
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int bhE = 0;
-    private int bhF = 0;
-    private VersionData bhx = new VersionData();
-    private k bhy = new k();
-    private l bhz = new l();
-    private CombineDownload bhA = new CombineDownload();
-    private p bhB = new p();
-    private u bhC = new u();
-    private m bhH = new m();
-    private com.baidu.tbadk.coreExtra.data.d bhD = new com.baidu.tbadk.coreExtra.data.d();
+    private int bhM = 0;
+    private int bhN = 0;
+    private VersionData bhF = new VersionData();
+    private k bhG = new k();
+    private l bhH = new l();
+    private CombineDownload bhI = new CombineDownload();
+    private p bhJ = new p();
+    private u bhK = new u();
+    private m bhP = new m();
+    private com.baidu.tbadk.coreExtra.data.d bhL = new com.baidu.tbadk.coreExtra.data.d();
     private com.baidu.tbadk.coreExtra.data.c mAdAdSense = new com.baidu.tbadk.coreExtra.data.c();
     private final com.baidu.tbadk.coreExtra.data.b mActivitySwitch = new com.baidu.tbadk.coreExtra.data.b();
 
@@ -45,19 +45,19 @@ public class d {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bhx.parserJson(jSONObject.optJSONObject(ClientCookie.VERSION_ATTR));
-                this.bhy.parserJson(jSONObject.optJSONObject("client"));
+                this.bhF.parserJson(jSONObject.optJSONObject(ClientCookie.VERSION_ATTR));
+                this.bhG.parserJson(jSONObject.optJSONObject("client"));
                 com.baidu.tbadk.core.util.d.setIp(jSONObject.optString("client_ip", null));
-                this.bhz.parserJson(jSONObject.optJSONObject("config"));
-                this.bhC.parserJson(jSONObject.optJSONObject("wl_config"));
-                this.bhH.parserJson(jSONObject.optJSONObject("consume_path"));
-                TbadkCoreApplication.getInst().setConsumePathData(this.bhH);
+                this.bhH.parserJson(jSONObject.optJSONObject("config"));
+                this.bhK.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.bhP.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.getInst().setConsumePathData(this.bhP);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.bhF = jSONObject.optInt("is_uninterest");
-                this.bhG = jSONObject.optInt("first_time_motivate");
-                this.bhA.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.bhB.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.bhE = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.bhN = jSONObject.optInt("is_uninterest");
+                this.bhO = jSONObject.optInt("first_time_motivate");
+                this.bhI.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.bhJ.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.bhM = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.getInst().getFaceShopVersion()) {
@@ -70,7 +70,7 @@ public class d {
                 }
                 new b().h(jSONObject.optJSONObject("dis_adv_config"));
                 new WhiteListData().saveJson(jSONObject.optJSONArray("whitelist"));
-                this.bhD.parserJson(jSONObject.optJSONObject("app_entrance"));
+                this.bhL.parserJson(jSONObject.optJSONObject("app_entrance"));
                 this.mAdAdSense.parserJson(jSONObject.optJSONObject("ad_adsense"));
                 TbadkCoreApplication.getInst().saveKeepLiveSwitch(jSONObject.optInt("android_keepalive") == 0);
                 f.parserJson(jSONObject.optJSONObject("video_report_config"));
@@ -81,44 +81,44 @@ public class d {
         }
     }
 
-    public l Hf() {
-        return this.bhz;
+    public l Hh() {
+        return this.bhH;
     }
 
-    public String Hg() {
+    public String Hi() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload Hh() {
-        return this.bhA;
+    public CombineDownload Hj() {
+        return this.bhI;
     }
 
-    public VersionData Hi() {
-        return this.bhx;
+    public VersionData Hk() {
+        return this.bhF;
     }
 
-    public k Hj() {
-        return this.bhy;
+    public k Hl() {
+        return this.bhG;
     }
 
-    public u Hk() {
-        return this.bhC;
+    public u Hm() {
+        return this.bhK;
     }
 
-    public com.baidu.tbadk.coreExtra.data.d Hl() {
-        return this.bhD;
+    public com.baidu.tbadk.coreExtra.data.d Hn() {
+        return this.bhL;
     }
 
     public com.baidu.tbadk.coreExtra.data.c getAdAdSense() {
         return this.mAdAdSense;
     }
 
-    public int Hm() {
-        return this.bhF;
+    public int Ho() {
+        return this.bhN;
     }
 
-    public boolean Hn() {
-        return this.bhG == 1;
+    public boolean Hp() {
+        return this.bhO == 1;
     }
 
     public com.baidu.tbadk.coreExtra.data.b getActivitySwitch() {

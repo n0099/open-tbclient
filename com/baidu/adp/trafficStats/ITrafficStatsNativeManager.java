@@ -6,35 +6,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class ITrafficStatsNativeManager extends OrmObject {
-    private static volatile ITrafficStatsNativeManager asM = null;
-    private static ArrayList<a> asN = new ArrayList<>();
+    private static volatile ITrafficStatsNativeManager asP = null;
+    private static ArrayList<a> asQ = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static ITrafficStatsNativeManager rG() {
-        if (asM == null) {
+    public static ITrafficStatsNativeManager rH() {
+        if (asP == null) {
             BdLog.e("trafficStatsManaer");
-            asM = new ITrafficStatsNativeManager() { // from class: com.baidu.adp.trafficStats.ITrafficStatsNativeManager.1
+            asP = new ITrafficStatsNativeManager() { // from class: com.baidu.adp.trafficStats.ITrafficStatsNativeManager.1
                 @Override // com.baidu.adp.trafficStats.ITrafficStatsNativeManager
                 public void a(String str, long j, long j2, String str2) {
-                    if (ITrafficStatsNativeManager.asN.size() < 30) {
-                        ITrafficStatsNativeManager.asN.add(new a(str, j, j2, str2));
+                    if (ITrafficStatsNativeManager.asQ.size() < 30) {
+                        ITrafficStatsNativeManager.asQ.add(new a(str, j, j2, str2));
                     }
                 }
             };
         }
-        return asM;
+        return asP;
     }
 
     public static void a(ITrafficStatsNativeManager iTrafficStatsNativeManager) {
-        asM = iTrafficStatsNativeManager;
-        if (asM != null) {
-            Iterator<a> it = asN.iterator();
+        asP = iTrafficStatsNativeManager;
+        if (asP != null) {
+            Iterator<a> it = asQ.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                asM.a(next.contentType, next.asO, next.asP, next.url);
+                asP.a(next.contentType, next.asR, next.asS, next.url);
             }
-            asN.clear();
+            asQ.clear();
         }
     }
 
@@ -44,15 +44,15 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
 
     /* loaded from: classes.dex */
     class a {
-        public long asO;
-        public long asP;
+        public long asR;
+        public long asS;
         public String contentType;
         public String url;
 
         public a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.asO = j;
-            this.asP = j2;
+            this.asR = j;
+            this.asS = j2;
             this.url = str2;
         }
     }

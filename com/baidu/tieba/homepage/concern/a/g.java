@@ -16,30 +16,30 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a.a<t>> {
-    public BdUniqueId bGw;
-    private l cSs;
-    private t dHJ;
-    private v ebB;
+    public BdUniqueId bGE;
+    private l cSN;
+    private t dIe;
+    private v ebW;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ebB = new v<be>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
+        this.ebW = new v<be>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, be beVar) {
-                l lVar = g.this.cSs;
-                if (view != null && g.this.dHJ != null && g.this.dHJ.getView() != null && lVar != null && lVar.VK() != null && !StringUtils.isNull(lVar.VK().getTid())) {
+                l lVar = g.this.cSN;
+                if (view != null && g.this.dIe != null && g.this.dIe.getView() != null && lVar != null && lVar.VM() != null && !StringUtils.isNull(lVar.VM().getTid())) {
                     ak akVar = new ak("c12352");
-                    if ((g.this.dHJ.getHeaderImg() != null && view.getId() == g.this.dHJ.getHeaderImg().getId()) || (g.this.dHJ.ake() != null && view.getId() == g.this.dHJ.ake().getId())) {
+                    if ((g.this.dIe.getHeaderImg() != null && view.getId() == g.this.dIe.getHeaderImg().getId()) || (g.this.dIe.akj() != null && view.getId() == g.this.dIe.akj().getId())) {
                         akVar.s("obj_locate", 1);
                     } else {
                         akVar.s("obj_locate", 2);
                     }
                     akVar.s("obj_type", 5);
-                    akVar.ab("tid", lVar.threadData.getTid());
+                    akVar.aa("tid", lVar.threadData.getTid());
                     akVar.f(ImageViewerConfig.FORUM_ID, lVar.threadData.getFid());
-                    akVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
+                    akVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(akVar);
                 }
             }
@@ -52,19 +52,19 @@ public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ac */
     public com.baidu.tieba.card.a.a<t> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dHJ = new t(this.mPageContext);
-        this.dHJ.j(this.bGw);
-        this.dHJ.eC(false);
-        this.dHJ.setIsFromConcern(true);
-        this.dHJ.b(this.ebB);
-        this.dHJ.currentPageType = 1;
-        if (this.dHJ.ciL != null) {
-            this.dHJ.ciL.bbP = 1;
+        this.dIe = new t(this.mPageContext);
+        this.dIe.j(this.bGE);
+        this.dIe.eE(false);
+        this.dIe.setIsFromConcern(true);
+        this.dIe.b(this.ebW);
+        this.dIe.currentPageType = 1;
+        if (this.dIe.ciT != null) {
+            this.dIe.ciT.bbX = 1;
         }
-        if (this.dHJ.cVw != null) {
-            this.dHJ.cVw.cVZ = 1;
+        if (this.dIe.cVR != null) {
+            this.dIe.cVR.cWu = 1;
         }
-        return new com.baidu.tieba.card.a.a<>(this.dHJ);
+        return new com.baidu.tieba.card.a.a<>(this.dIe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, com.baidu.tieba.card.a.a<t> aVar) {
-        if (lVar == null || aVar == null || aVar.alk() == null) {
+        if (lVar == null || aVar == null || aVar.alp() == null) {
             return null;
         }
-        this.cSs = lVar;
+        this.cSN = lVar;
         lVar.lH(i + 1);
-        s.akF().a(lVar.kk("c12351"));
-        be beVar = new be(lVar.VK());
+        s.akK().a(lVar.kr("c12351"));
+        be beVar = new be(lVar.VM());
         beVar.stType = "personalize_page";
-        beVar.aPd = 1;
-        beVar.aPe = 4;
-        aVar.alk().a(beVar);
+        beVar.aPg = 1;
+        beVar.aPh = 4;
+        aVar.alp().a(beVar);
         return aVar.getView();
     }
 }

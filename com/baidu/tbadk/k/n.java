@@ -3,104 +3,104 @@ package com.baidu.tbadk.k;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends q {
-    public static int byH = 100;
-    public static int byI = 10;
+    public static int byQ = 100;
+    public static int byR = 10;
 
-    public static void NM() {
-        if (r.NO().NP()) {
-            if (b.byM > byI) {
-                b.NG();
+    public static void NO() {
+        if (r.NQ().NR()) {
+            if (b.byV > byR) {
+                b.NI();
             }
-            if (a.byJ > byI) {
-                a.NG();
+            if (a.byS > byR) {
+                a.NI();
             }
         }
     }
 
     public static void e(boolean z, boolean z2, boolean z3) {
-        a.byJ++;
+        a.byS++;
         if (z2) {
-            a.byK++;
+            a.byT++;
         } else if (z3) {
-            a.byL++;
+            a.byU++;
         }
-        if (a.byJ > byH) {
-            a.NG();
+        if (a.byS > byQ) {
+            a.NI();
         }
     }
 
     public void c(i iVar) {
-        if (r.NO().NP()) {
-            if (b.byM < byH) {
-                b.byN += iVar.aiV;
-                b.byO += iVar.asP;
-                b.byP += iVar.bye;
-                b.byQ += iVar.byf;
-                b.byS += iVar.aup;
-                b.byR += iVar.bxV;
-                b.byM++;
+        if (r.NQ().NR()) {
+            if (b.byV < byQ) {
+                b.byW += iVar.aiY;
+                b.byX += iVar.asS;
+                b.byY += iVar.byn;
+                b.byZ += iVar.byo;
+                b.bzb += iVar.aus;
+                b.bza += iVar.bye;
+                b.byV++;
                 return;
             }
-            b.NG();
+            b.NI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int byJ;
-        public static int byK;
-        public static int byL;
+        public static int byS;
+        public static int byT;
+        public static int byU;
 
-        public static void NG() {
-            com.baidu.adp.lib.stats.a nm = q.nm();
-            nm.append("action", "imbusy");
-            nm.append("totalNum", String.valueOf(byJ));
-            nm.append("tfailNum", String.valueOf(byK));
-            nm.append("qfailNum", String.valueOf(byL));
-            BdStatisticsManager.getInstance().performance("im", nm);
+        public static void NI() {
+            com.baidu.adp.lib.stats.a nn = q.nn();
+            nn.append("action", "imbusy");
+            nn.append("totalNum", String.valueOf(byS));
+            nn.append("tfailNum", String.valueOf(byT));
+            nn.append("qfailNum", String.valueOf(byU));
+            BdStatisticsManager.getInstance().performance("im", nn);
             resetData();
         }
 
         public static void resetData() {
-            byJ = 0;
-            byK = 0;
-            byL = 0;
+            byS = 0;
+            byT = 0;
+            byU = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int byM;
-        public static long byN;
-        public static long byO;
-        public static long byP;
-        public static int byQ;
-        public static int byR;
-        public static long byS;
+        public static int byV;
+        public static long byW;
+        public static long byX;
+        public static long byY;
+        public static int byZ;
+        public static int bza;
+        public static long bzb;
 
-        public static void NG() {
-            com.baidu.adp.lib.stats.a nm = q.nm();
-            nm.append("action", "imcost");
-            nm.append("dect", String.valueOf(byN));
-            nm.append("dlsize", String.valueOf(byO));
-            nm.append("dbt", String.valueOf(byP));
-            nm.append("pnum", String.valueOf(byQ));
-            nm.append("reqcost", String.valueOf(byS));
-            nm.append("cpu", String.valueOf(byR));
-            nm.append("totalNum", String.valueOf(byM));
-            BdStatisticsManager.getInstance().performance("im", nm);
-            NN();
+        public static void NI() {
+            com.baidu.adp.lib.stats.a nn = q.nn();
+            nn.append("action", "imcost");
+            nn.append("dect", String.valueOf(byW));
+            nn.append("dlsize", String.valueOf(byX));
+            nn.append("dbt", String.valueOf(byY));
+            nn.append("pnum", String.valueOf(byZ));
+            nn.append("reqcost", String.valueOf(bzb));
+            nn.append("cpu", String.valueOf(bza));
+            nn.append("totalNum", String.valueOf(byV));
+            BdStatisticsManager.getInstance().performance("im", nn);
+            NP();
         }
 
-        public static void NN() {
-            byM = 0;
-            byN = 0L;
-            byO = 0L;
-            byP = 0L;
-            byQ = 0;
-            byR = 0;
+        public static void NP() {
+            byV = 0;
+            byW = 0L;
+            byX = 0L;
+            byY = 0L;
+            byZ = 0;
+            bza = 0;
         }
     }
 }

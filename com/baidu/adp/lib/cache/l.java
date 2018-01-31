@@ -9,19 +9,19 @@ public interface l<T> {
 
     /* loaded from: classes.dex */
     public static class b<T> {
-        public long ahA;
-        public long ahl;
+        public long ahD;
+        public long aho;
         public String key;
         public T value;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String mk();
+        String ml();
 
-        k<T> ml();
+        k<T> mm();
 
-        void mm();
+        void mn();
     }
 
     void a(String str, a<T> aVar);

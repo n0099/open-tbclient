@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int ebN;
-    private static int ebO;
+    private static int eci;
+    private static int ecj;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.ebV);
-        ebN = l.s(context, d.e.tbds102);
-        ebO = l.s(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.ecq);
+        eci = l.s(context, d.e.tbds102);
+        ecj = l.s(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,37 +40,37 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.ebP.setText(aVar.aXS);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.ebP.getLayoutParams();
-        if (aVar.ebY) {
-            layoutParams.height = ebO;
-            aVar2.dHY.setVisibility(0);
-        } else if (aVar.ebZ) {
-            layoutParams.height = ebN;
+        aVar2.eck.setText(aVar.aYa);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.eck.getLayoutParams();
+        if (aVar.ect) {
+            layoutParams.height = ecj;
+            aVar2.dIt.setVisibility(0);
+        } else if (aVar.ecu) {
+            layoutParams.height = eci;
         }
-        ((a) this.viewholder).ebP.setLayoutParams(layoutParams);
+        ((a) this.viewholder).eck.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes2.dex */
     public class a extends r.a {
-        private int bdK;
-        public View dHY;
-        public TextView ebP;
+        private int bdS;
+        public View dIt;
+        public TextView eck;
 
         public a(View view) {
             super(view);
-            this.bdK = 3;
-            this.ebP = (TextView) view.findViewById(d.g.concern_tip_txt);
-            this.dHY = view.findViewById(d.g.concern_tip_top_line);
+            this.bdS = 3;
+            this.eck = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.dIt = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.bdK != i) {
-                aj.t(getView(), d.C0107d.cp_bg_line_e);
-                aj.r(this.ebP, d.C0107d.cp_cont_d);
-                aj.s(this.dHY, d.C0107d.cp_bg_line_e);
+            if (this.bdS != i) {
+                aj.t(getView(), d.C0108d.cp_bg_line_e);
+                aj.r(this.eck, d.C0108d.cp_cont_d);
+                aj.s(this.dIt, d.C0108d.cp_bg_line_e);
             }
         }
     }

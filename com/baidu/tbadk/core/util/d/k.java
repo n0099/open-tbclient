@@ -1,4 +1,4 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,44 +11,44 @@ public class k extends a {
         this.procType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gy = com.baidu.tbadk.imageManager.c.LP().gy(str);
-        if (gy == null || gy.si() == null) {
+        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str);
+        if (gF == null || gF.sj() == null) {
             return null;
         }
-        return gy;
+        return gF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         Bitmap decodeFile;
@@ -58,8 +58,8 @@ public class k extends a {
         return new com.baidu.adp.widget.a.a(decodeFile, false);
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

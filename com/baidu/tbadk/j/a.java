@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View bvh;
-    private boolean bvi;
+    protected View bvq;
+    private boolean bvr;
 
     public a(View view) {
-        this.bvh = view;
+        this.bvq = view;
     }
 
-    public boolean Mb() {
-        return this.bvi;
+    public boolean Md() {
+        return this.bvr;
     }
 
     public void j(View view, boolean z) {
-        if (view != null && this.bvh != null && this.bvh.getParent() == null) {
-            this.bvi = true;
-            d.bl(view).a(view, this.bvh, z);
-            Mc();
+        if (view != null && this.bvq != null && this.bvq.getParent() == null) {
+            this.bvr = true;
+            d.bl(view).a(view, this.bvq, z);
+            Me();
         }
     }
 
     public void bk(View view) {
-        if (view != null && this.bvh != null && this.bvh.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.bvq != null && this.bvq.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Md();
-                ((ViewGroup) view).removeView(this.bvh);
-                this.bvi = false;
+                Mf();
+                ((ViewGroup) view).removeView(this.bvq);
+                this.bvr = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Mc() {
+    public void Me() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Md() {
+    public void Mf() {
     }
 }

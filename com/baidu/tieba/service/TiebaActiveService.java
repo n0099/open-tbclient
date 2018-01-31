@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File dv = k.dv(TbConfig.CHANNEL_FILE);
-                if (dv != null) {
-                    FileWriter fileWriter = new FileWriter(dv);
+                File dx = k.dx(TbConfig.CHANNEL_FILE);
+                if (dx != null) {
+                    FileWriter fileWriter = new FileWriter(dx);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x gHW;
+        x gIr;
 
         private a() {
-            this.gHW = null;
+            this.gIr = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String BH;
+            String BI;
             try {
-                this.gHW = new x("http://114.113.149.3:8086/partnersService");
-                this.gHW.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.gHW.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.gHW.n("model", Build.MODEL);
-                this.gHW.n("edition", TbConfig.getVersion());
-                this.gHW.n("system", Build.VERSION.SDK);
-                this.gHW.Cf().Db().De().mIsBaiduServer = false;
-                BH = this.gHW.BH();
+                this.gIr = new x("http://114.113.149.3:8086/partnersService");
+                this.gIr.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.gIr.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.gIr.n("model", Build.MODEL);
+                this.gIr.n("edition", TbConfig.getVersion());
+                this.gIr.n("system", Build.VERSION.SDK);
+                this.gIr.Cg().Dc().Df().mIsBaiduServer = false;
+                BI = this.gIr.BI();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.gHW.Ci()) {
-                return BH;
+            if (this.gIr.Cj()) {
+                return BI;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.gHW != null) {
-                this.gHW.mR();
+            if (this.gIr != null) {
+                this.gIr.mS();
             }
             super.cancel(true);
         }

@@ -42,7 +42,7 @@ public class g {
                 this.abJ = new HashSet<>();
             }
             if (this.abJ.contains(str)) {
-                com.baidu.adp.plugin.b.a.qE().f("plugin_load", "repeat_inject_res", str, str2);
+                com.baidu.adp.plugin.b.a.qF().f("plugin_load", "repeat_inject_res", str, str2);
             }
             this.abJ.add(str);
         }

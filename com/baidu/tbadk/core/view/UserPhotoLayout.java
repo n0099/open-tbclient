@@ -32,9 +32,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface d {
-        int Ef();
+        int Eh();
 
-        com.baidu.adp.lib.e.b<HeadImageView> Eg();
+        com.baidu.adp.lib.e.b<HeadImageView> Ei();
 
         ListView getListView();
     }
@@ -76,9 +76,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(d.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.Eg();
+            this.mUserPhotoPool = dVar.Ei();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.Ef());
+                this.mTbRecyclerListener = new c(dVar.Eh());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -218,8 +218,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         return new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<HeadImageView>() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Ee */
-            public HeadImageView nk() {
+            /* renamed from: Eg */
+            public HeadImageView nl() {
                 return new HeadImageView(context);
             }
 
@@ -256,7 +256,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.nj();
+            headImageView = this.mUserPhotoPool.nk();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

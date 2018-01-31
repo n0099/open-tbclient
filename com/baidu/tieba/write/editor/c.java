@@ -24,7 +24,7 @@ public class c {
                     @Override // com.baidu.tbadk.util.u
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> cW = com.baidu.tbadk.core.c.a.Aw().cW("tb.write_privacy_state_space" + currentAccount);
+                        l<String> cW = com.baidu.tbadk.core.c.a.Ax().cW("tb.write_privacy_state_space" + currentAccount);
                         if (cW != null) {
                             i2 = com.baidu.adp.lib.g.b.h(cW.get(str), i);
                         }
@@ -48,7 +48,7 @@ public class c {
         l<String> cW;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (cW = com.baidu.tbadk.core.c.a.Aw().cW("tb.write_privacy_state_space" + currentAccount)) != null) {
+            if (!StringUtils.isNull(currentAccount) && (cW = com.baidu.tbadk.core.c.a.Ax().cW("tb.write_privacy_state_space" + currentAccount)) != null) {
                 cW.f(str, String.valueOf(i));
             }
         }

@@ -15,5 +15,5 @@ public interface k<T> {
 
     void m(String str, String str2);
 
-    e ma();
+    e mb();
 }

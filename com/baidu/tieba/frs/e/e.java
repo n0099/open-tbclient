@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes2.dex */
 public class e {
     public static boolean a(com.baidu.tieba.frs.i iVar, String str, String str2, boolean z) {
-        if (z && iVar != null && !TextUtils.isEmpty(str) && iVar.isAdded() && h.af(TbadkCoreApplication.getInst().getApplicationContext(), iVar.getActivity().getClass().getName())) {
+        if (z && iVar != null && !TextUtils.isEmpty(str) && iVar.isAdded() && h.ae(TbadkCoreApplication.getInst().getApplicationContext(), iVar.getActivity().getClass().getName())) {
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra(ImageViewerConfig.FORUM_NAME, str);

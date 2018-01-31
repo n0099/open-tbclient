@@ -61,7 +61,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        l.oX();
+        l.oY();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.lg())) {
                 i.a("queue", socketMessage, 0, "sendMessage", h.adz, "duplicate message be removed");
@@ -248,7 +248,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.acX != null) {
             this.acX.jX();
         }
-        if (!l.oZ() || c.g(this.acU) || c.g(this.acT) || c.g(this.acS) || !BdSocketLinkService.isAvailable()) {
+        if (!l.pa() || c.g(this.acU) || c.g(this.acT) || c.g(this.acS) || !BdSocketLinkService.isAvailable()) {
             kw();
             return false;
         }
@@ -287,7 +287,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     @Override // com.baidu.adp.framework.client.socket.link.a
     public void a(k.a aVar) {
         byte[] bArr;
-        if (aVar != null && (bArr = aVar.aof) != null) {
+        if (aVar != null && (bArr = aVar.aoi) != null) {
             this.acY = System.currentTimeMillis();
             try {
                 com.baidu.adp.framework.client.socket.coder.c e = com.baidu.adp.framework.client.socket.coder.b.kN().e(bArr);
@@ -316,7 +316,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
             } catch (CoderException e2) {
-                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.oa().getMaxAlertCount("alert_protobuf", 2);
+                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.ob().getMaxAlertCount("alert_protobuf", 2);
                 int i = this.acZ + 1;
                 this.acZ = i;
                 if (i >= maxAlertCount) {

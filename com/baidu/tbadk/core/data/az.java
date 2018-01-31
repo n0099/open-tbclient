@@ -3,52 +3,52 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class az extends bd {
-    public static final BdUniqueId aMQ = BdUniqueId.gen();
-    private PhotoLiveCardData aMR;
+    public static final BdUniqueId aMT = BdUniqueId.gen();
+    private PhotoLiveCardData aMU;
 
     public PhotoLiveCardData b(bd bdVar, int i) {
-        if (this.aMR == null) {
+        if (this.aMU == null) {
             if (bdVar == null) {
                 return null;
             }
-            this.aMR = new PhotoLiveCardData();
-            MetaData yS = bdVar.yS();
-            if (yS != null) {
-                this.aMR.setAuthorName(yS.getUserName());
-                this.aMR.setAuthorPortrait(yS.getPortrait());
-                this.aMR.setFansNum(yS.getFansNum());
-                this.aMR.setNickName(yS.getFansNickName());
-                this.aMR.setAuthorId(yS.getUserId());
-                this.aMR.setGodInfo(yS.getGodInfo());
+            this.aMU = new PhotoLiveCardData();
+            MetaData yT = bdVar.yT();
+            if (yT != null) {
+                this.aMU.setAuthorName(yT.getUserName());
+                this.aMU.setAuthorPortrait(yT.getPortrait());
+                this.aMU.setFansNum(yT.getFansNum());
+                this.aMU.setNickName(yT.getFansNickName());
+                this.aMU.setAuthorId(yT.getUserId());
+                this.aMU.setGodInfo(yT.getGodInfo());
             }
-            PraiseData yH = bdVar.yH();
-            if (yH != null) {
-                this.aMR.setPraiseNum((int) yH.getNum());
+            PraiseData yI = bdVar.yI();
+            if (yI != null) {
+                this.aMU.setPraiseNum((int) yI.getNum());
             }
-            this.aMR.setDiscussNum(bdVar.yK());
-            this.aMR.setPostNum(bdVar.getPost_num());
-            this.aMR.setTitle(bdVar.getTitle());
-            this.aMR.setLastModifiedTime(bdVar.yM());
-            this.aMR.setPhotoLiveCover(bdVar.getPhotoLiveCover());
-            this.aMR.setContent(bdVar.getAbstract());
-            this.aMR.setThreadId(com.baidu.adp.lib.g.b.c(bdVar.getTid(), 0L));
-            this.aMR.setHeadlive(bdVar.isHeadLive());
-            this.aMR.setExpressionDatas(bdVar.zm());
-            if (this.aMR.getShowStyle() < 0) {
-                PhotoLiveCardData photoLiveCardData = this.aMR;
-                this.aMR.setShowStyle(PhotoLiveCardData.getRandom(3, i));
+            this.aMU.setDiscussNum(bdVar.yL());
+            this.aMU.setPostNum(bdVar.getPost_num());
+            this.aMU.setTitle(bdVar.getTitle());
+            this.aMU.setLastModifiedTime(bdVar.yN());
+            this.aMU.setPhotoLiveCover(bdVar.getPhotoLiveCover());
+            this.aMU.setContent(bdVar.getAbstract());
+            this.aMU.setThreadId(com.baidu.adp.lib.g.b.c(bdVar.getTid(), 0L));
+            this.aMU.setHeadlive(bdVar.isHeadLive());
+            this.aMU.setExpressionDatas(bdVar.zn());
+            if (this.aMU.getShowStyle() < 0) {
+                PhotoLiveCardData photoLiveCardData = this.aMU;
+                this.aMU.setShowStyle(PhotoLiveCardData.getRandom(3, i));
             }
-            this.aMR.setShowExpressionViewIndexList(this.aMR.getExpressionDatas());
+            this.aMU.setShowExpressionViewIndexList(this.aMU.getExpressionDatas());
         }
         cK(bdVar.getTid());
         setId(bdVar.getId());
         setThreadType(bdVar.getThreadType());
-        cO(bdVar.yY());
-        return this.aMR;
+        cO(bdVar.yZ());
+        return this.aMU;
     }
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return aMQ;
+        return aMT;
     }
 }

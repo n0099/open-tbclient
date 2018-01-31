@@ -4,27 +4,27 @@ public class a {
 
     /* renamed from: com.baidu.tieba.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0101a {
+    public static class C0102a {
         double x;
         double y;
 
-        public C0101a() {
+        public C0102a() {
         }
 
-        public C0101a(double d, double d2) {
+        public C0102a(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
     }
 
-    public static C0101a a(C0101a c0101a, C0101a c0101a2, C0101a c0101a3, C0101a c0101a4, double d) {
-        if (d < 0.0d || d > 1.0d || c0101a == null || c0101a2 == null || c0101a3 == null || c0101a4 == null) {
+    public static C0102a a(C0102a c0102a, C0102a c0102a2, C0102a c0102a3, C0102a c0102a4, double d) {
+        if (d < 0.0d || d > 1.0d || c0102a == null || c0102a2 == null || c0102a3 == null || c0102a4 == null) {
             return null;
         }
-        C0101a c0101a5 = new C0101a();
-        c0101a5.x = a(c0101a.x, c0101a2.x, c0101a3.x, c0101a4.x, d);
-        c0101a5.y = a(c0101a.y, c0101a2.y, c0101a3.y, c0101a4.y, d);
-        return c0101a5;
+        C0102a c0102a5 = new C0102a();
+        c0102a5.x = a(c0102a.x, c0102a2.x, c0102a3.x, c0102a4.x, d);
+        c0102a5.y = a(c0102a.y, c0102a2.y, c0102a3.y, c0102a4.y, d);
+        return c0102a5;
     }
 
     public static double a(double d, double d2, double d3, double d4, double d5) {
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static double a(int i, float f, float f2) {
-        C0101a a = a(new C0101a(0.0d, 0.0d), new C0101a(0.0d, f2), new C0101a(f - f2, f), new C0101a(f, f), ((i % f) + 1.0f) / f);
+        C0102a a = a(new C0102a(0.0d, 0.0d), new C0102a(0.0d, f2), new C0102a(f - f2, f), new C0102a(f, f), ((i % f) + 1.0f) / f);
         if (a == null) {
             return 0.0d;
         }

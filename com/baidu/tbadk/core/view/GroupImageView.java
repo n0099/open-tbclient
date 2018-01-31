@@ -19,7 +19,7 @@ public class GroupImageView extends com.baidu.tbadk.widget.b {
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = d.f.transparent_bg;
-        this.mDefaultBgId = d.C0107d.cp_bg_line_e;
+        this.mDefaultBgId = d.C0108d.cp_bg_line_e;
         init();
     }
 

@@ -125,15 +125,15 @@ public class FileDownloader extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            File du;
+            File dw;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new x(this.mUrl);
                     bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.Cj() == -2) {
+                    if (bool.booleanValue() || this.mNetWork.Ck() == -2) {
                         break;
-                    } else if (!this.mNetWork.Cf().Dc().mS()) {
+                    } else if (!this.mNetWork.Cg().Dd().mT()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -143,10 +143,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dC(this.mFile);
+                k.dI(this.mFile);
                 File dr = k.dr(this.mFile + ".tmp");
-                if (dr != null && (du = k.du(this.mFile)) != null) {
-                    if (!dr.renameTo(du)) {
+                if (dr != null && (dw = k.dw(this.mFile)) != null) {
+                    if (!dr.renameTo(dw)) {
                     }
                 }
             }
@@ -159,7 +159,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.mR();
+                this.mNetWork.mS();
             }
         }
 

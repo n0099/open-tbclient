@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
-    private AlbumActivity hCT;
-    private Map<Integer, Boolean> hDd = new HashMap();
+    private AlbumActivity hDn;
+    private Map<Integer, Boolean> hDx = new HashMap();
     private LayoutInflater kh;
     private List<ImageFileInfo> mList;
 
     public c(AlbumActivity albumActivity) {
-        this.hCT = albumActivity;
-        this.kh = LayoutInflater.from(this.hCT.getPageContext().getPageActivity());
+        this.hDn = albumActivity;
+        this.kh = LayoutInflater.from(this.hDn.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,10 +49,10 @@ public class c extends PagerAdapter {
     }
 
     public boolean xn(int i) {
-        if (this.hDd.get(Integer.valueOf(i)) == null) {
+        if (this.hDx.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hDd.get(Integer.valueOf(i)).booleanValue();
+        return this.hDx.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -76,10 +76,10 @@ public class c extends PagerAdapter {
         if (sp != null) {
             tbImageView2.startLoad(sp.getFilePath(), 35, false, true);
             tbImageView.startLoad(sp.getFilePath(), 36, false);
-            this.hDd.put(Integer.valueOf(i), true);
+            this.hDx.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        aj.t(inflate, d.C0107d.cp_bg_line_d);
+        aj.t(inflate, d.C0108d.cp_bg_line_d);
         return inflate;
     }
 }

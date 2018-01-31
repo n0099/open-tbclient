@@ -5,12 +5,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId ghB = BdUniqueId.gen();
-    public String dXH;
-    public UserData fDt;
-    public Bundle ghA;
-    public boolean ghy = false;
-    public g ghz;
+    public static BdUniqueId ghW = BdUniqueId.gen();
+    public String dYc;
+    public UserData fDO;
+    public boolean ghT = false;
+    public g ghU;
+    public Bundle ghV;
     public int iconId;
     public int itemId;
     public String title;
@@ -18,6 +18,6 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return ghB;
+        return ghW;
     }
 }

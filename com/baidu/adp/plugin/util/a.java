@@ -21,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0025a {
-        public boolean asB;
+        public boolean asE;
         public String mErrMsg;
     }
 
@@ -123,14 +123,14 @@ public class a {
                 declaredMethod.invoke(aA, str2, null);
                 Object m = m(aC(aA), aC(aA2));
                 if (m instanceof File[]) {
-                    Arrays.sort((File[]) m, rC());
+                    Arrays.sort((File[]) m, rD());
                     list = m;
                 } else {
                     boolean z2 = m instanceof List;
                     list = m;
                     if (z2) {
                         List list4 = (List) m;
-                        Collections.sort(list4, rC());
+                        Collections.sort(list4, rD());
                         list = list4;
                     }
                 }
@@ -144,14 +144,14 @@ public class a {
                 a(aA, aA.getClass(), "dexElements", z ? m(aB(aA), aB(aA2)) : m(aB(aA2), aB(aA)));
                 Object m2 = m(aC(aA), aC(aA2));
                 if (m2 instanceof File[]) {
-                    Arrays.sort((File[]) m2, rC());
+                    Arrays.sort((File[]) m2, rD());
                     list3 = m2;
                 } else {
                     boolean z3 = m2 instanceof List;
                     list3 = m2;
                     if (z3) {
                         List list5 = (List) m2;
-                        Collections.sort(list5, rC());
+                        Collections.sort(list5, rD());
                         list3 = list5;
                     }
                 }
@@ -165,14 +165,14 @@ public class a {
                 a(aA, aA.getClass(), "dexElements", z ? m(aB(aA), aB(aA2)) : m(aB(aA2), aB(aA)));
                 Object m3 = m(aC(aA), aC(aA2));
                 if (m3 instanceof File[]) {
-                    Arrays.sort((File[]) m3, rC());
+                    Arrays.sort((File[]) m3, rD());
                     list2 = m3;
                 } else {
                     boolean z4 = m3 instanceof List;
                     list2 = m3;
                     if (z4) {
                         List list6 = (List) m3;
-                        Collections.sort(list6, rC());
+                        Collections.sort(list6, rD());
                         list2 = list6;
                     }
                 }
@@ -276,7 +276,7 @@ public class a {
 
     private static C0025a a(boolean z, Throwable th) {
         C0025a c0025a = new C0025a();
-        c0025a.asB = z;
+        c0025a.asE = z;
         c0025a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0025a;
     }
@@ -313,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> rC() {
+    private static final Comparator<File> rD() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

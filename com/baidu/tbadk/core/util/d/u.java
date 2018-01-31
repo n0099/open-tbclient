@@ -1,4 +1,4 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 /* loaded from: classes.dex */
 public class u extends a {
     private int procType;
@@ -7,33 +7,33 @@ public class u extends a {
         this.procType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

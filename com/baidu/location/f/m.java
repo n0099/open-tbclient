@@ -9,8 +9,8 @@ public class m {
     private String d;
     private boolean c = false;
     private boolean e = false;
-    private double aAm = 0.0d;
-    private double aBA = 0.0d;
+    private double aAp = 0.0d;
+    private double aBD = 0.0d;
     public int b = 0;
 
     public m(List<String> list, String str, String str2, String str3) {
@@ -45,8 +45,8 @@ public class m {
             }
             if (!split[2].equals("") && !split[split.length - 3].equals("") && !split[split.length - 2].equals("") && !split[split.length - 1].equals("")) {
                 try {
-                    this.aAm = Double.valueOf(split[split.length - 3]).doubleValue();
-                    this.aBA = Double.valueOf(split[split.length - 2]).doubleValue();
+                    this.aAp = Double.valueOf(split[split.length - 3]).doubleValue();
+                    this.aBD = Double.valueOf(split[split.length - 2]).doubleValue();
                 } catch (Exception e) {
                 }
                 this.e = true;
@@ -60,10 +60,10 @@ public class m {
     }
 
     public double b() {
-        return this.aAm;
+        return this.aAp;
     }
 
     public double c() {
-        return this.aBA;
+        return this.aBD;
     }
 }

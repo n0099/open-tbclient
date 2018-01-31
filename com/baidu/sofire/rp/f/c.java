@@ -5,7 +5,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public final class c {
-    private static final c aFz = new c();
+    private static final c aFC = new c();
     private HandlerThread a = new HandlerThread("rp_th", 10);
     private Handler b;
 
@@ -14,7 +14,7 @@ public final class c {
         this.b = new Handler(this.a.getLooper());
     }
 
-    public static Looper uS() {
-        return aFz.b.getLooper();
+    public static Looper uT() {
+        return aFC.b.getLooper();
     }
 }

@@ -61,7 +61,7 @@ public class o {
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
                     builder.z_id = FH.gz(TbadkCoreApplication.getInst());
                 }
-                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.oO());
+                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.oP());
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

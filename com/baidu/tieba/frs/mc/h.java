@@ -4,24 +4,24 @@ import com.baidu.tieba.frs.ap;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class h {
-    protected final k dBi;
-    protected final FrsModelController dBq;
-    protected final com.baidu.tieba.frs.f.f dBr;
-    protected final com.baidu.tieba.frs.i dPp;
-    protected final com.baidu.tieba.frs.f.k dQj;
-    protected final ap dQk;
-    protected final c dQl;
+    protected final k dBD;
+    protected final FrsModelController dBL;
+    protected final com.baidu.tieba.frs.f.f dBM;
+    protected final com.baidu.tieba.frs.i dPK;
+    protected final com.baidu.tieba.frs.f.k dQE;
+    protected final ap dQF;
+    protected final c dQG;
 
     public h(com.baidu.tieba.frs.i iVar) {
         if (iVar == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.dPp = iVar;
-        this.dBr = this.dPp.atV();
-        this.dBi = this.dPp.atY();
-        this.dQj = this.dPp.atW();
-        this.dBq = this.dPp.atT();
-        this.dQk = this.dPp.atX();
-        this.dQl = this.dPp.atU();
+        this.dPK = iVar;
+        this.dBM = this.dPK.aua();
+        this.dBD = this.dPK.aud();
+        this.dQE = this.dPK.aub();
+        this.dBL = this.dPK.atY();
+        this.dQF = this.dPK.auc();
+        this.dQG = this.dPK.atZ();
     }
 }

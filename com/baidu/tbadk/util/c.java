@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] Op() {
+    public static String[] Or() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gP = a.gP(str);
-                if (gP != null && !StringUtils.isNull(gP.forumName)) {
-                    arrayList.add(gP.forumName);
+                a gW = a.gW(str);
+                if (gW != null && !StringUtils.isNull(gW.forumName)) {
+                    arrayList.add(gW.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -64,7 +64,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a gP(String str) {
+        public static a gW(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

@@ -8,24 +8,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class v {
-    private int aLa;
-    private String aLb;
-    private String aLc;
     private int aLd;
     private String aLe;
-    public String aLf;
-    public float aLg;
-    public boolean aLh = true;
+    private String aLf;
+    private int aLg;
+    private String aLh;
+    public String aLi;
+    public float aLj;
+    public boolean aLk = true;
     private String mTagName;
     private int mType;
     private String mValue;
 
-    public int xu() {
-        return this.aLa;
+    public int xv() {
+        return this.aLd;
     }
 
-    public String xv() {
-        return this.aLb;
+    public String xw() {
+        return this.aLe;
     }
 
     public String getValue() {
@@ -36,22 +36,22 @@ public class v {
         return this.mType;
     }
 
-    public String xw() {
-        return this.aLe;
+    public String xx() {
+        return this.aLh;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aLa = jSONObject.optInt("bannerType");
-                this.aLb = jSONObject.optString("bannerUrl");
+                this.aLd = jSONObject.optInt("bannerType");
+                this.aLe = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.aLc = jSONObject.optString("desc");
-                this.aLd = jSONObject.optInt("template_id");
-                this.aLe = jSONObject.optString("obj_id");
+                this.aLf = jSONObject.optString("desc");
+                this.aLg = jSONObject.optInt("template_id");
+                this.aLh = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
-                this.aLf = jSONObject.optString("tag_name_url");
+                this.aLi = jSONObject.optString("tag_name_url");
                 cI(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -61,15 +61,15 @@ public class v {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.aLa = banner.banner_type.intValue();
-            this.aLb = banner.banner_url;
+            this.aLd = banner.banner_type.intValue();
+            this.aLe = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.aLc = banner.desc;
-            this.aLd = banner.template_id.intValue();
-            this.aLe = banner.obj_id;
+            this.aLf = banner.desc;
+            this.aLg = banner.template_id.intValue();
+            this.aLh = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.aLf = banner.tag_name_url;
+            this.aLi = banner.tag_name_url;
             cI(banner.tag_name_wh);
         }
     }
@@ -82,7 +82,7 @@ public class v {
                     int h = com.baidu.adp.lib.g.b.h(split[0], 1);
                     int h2 = com.baidu.adp.lib.g.b.h(split[1], 1);
                     if (h2 != 0) {
-                        this.aLg = h / h2;
+                        this.aLj = h / h2;
                     }
                 }
             } catch (Exception e) {
@@ -95,6 +95,6 @@ public class v {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.aLa == 1 || this.aLa == 4 || this.aLa == 2 || this.aLa == 3 : this.mType == 2 && !StringUtils.isNull(this.aLc);
+        return this.mType == 1 ? this.aLd == 1 || this.aLd == 4 || this.aLd == 2 || this.aLd == 3 : this.mType == 2 && !StringUtils.isNull(this.aLf);
     }
 }

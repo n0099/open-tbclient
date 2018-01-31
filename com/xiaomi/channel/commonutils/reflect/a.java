@@ -11,7 +11,7 @@ public class a {
 
     /* renamed from: com.xiaomi.channel.commonutils.reflect.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0193a<T> {
+    public static class C0194a<T> {
         public final Class<? extends T> a;
         public final T b;
     }
@@ -160,10 +160,10 @@ public class a {
                 return clsArr;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0193a)) {
+            if (obj == null || !(obj instanceof C0194a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((C0193a) obj).a;
+                clsArr[i2] = ((C0194a) obj).a;
             }
             i = i2 + 1;
         }
@@ -185,10 +185,10 @@ public class a {
                 return objArr2;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0193a)) {
+            if (obj == null || !(obj instanceof C0194a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((C0193a) obj).b;
+                objArr2[i2] = ((C0194a) obj).b;
             }
             i = i2 + 1;
         }

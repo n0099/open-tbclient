@@ -9,77 +9,77 @@ import com.baidu.tieba.e.a;
 /* loaded from: classes2.dex */
 public class c {
     private static final int TOUCH_SLOP = l.s(TbadkCoreApplication.getInst(), d.e.ds20);
-    private boolean fGo;
-    private boolean fGp;
-    private final a fGq;
-    private final com.baidu.tieba.e.b fGr;
-    private a.InterfaceC0108a fGs = new a.InterfaceC0108a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.e.a.InterfaceC0108a
+    private boolean fGJ;
+    private boolean fGK;
+    private final a fGL;
+    private final com.baidu.tieba.e.b fGM;
+    private a.InterfaceC0109a fGN = new a.InterfaceC0109a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aY(int i, int i2) {
-            if (c.this.fGq.isActive() && !c.this.aZQ() && c.this.fGq.aZM().aZV() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.fGq.j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+            if (c.this.fGL.isActive() && !c.this.aZV() && c.this.fGL.aZR().baa() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.fGL.j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.jG(false);
+                        c.this.jI(false);
                     }
                 });
-                c.this.jG(true);
+                c.this.jI(true);
                 c.this.setFullscreen(false);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0108a
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aZ(int i, int i2) {
-            if (c.this.fGq.isActive() && !c.this.aZQ() && !c.this.isFullscreen()) {
-                c.this.jG(true);
+            if (c.this.fGL.isActive() && !c.this.aZV() && !c.this.isFullscreen()) {
+                c.this.jI(true);
                 c.this.setFullscreen(true);
-                c.this.fGq.aZM().k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+                c.this.fGL.aZR().k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.jG(false);
+                        c.this.jI(false);
                     }
                 });
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0108a
+        @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void ba(int i, int i2) {
         }
     };
-    private View.OnTouchListener fGt = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener fGO = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.fGr.onTouchEvent(motionEvent);
+            c.this.fGM.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.fGq = aVar;
-        this.fGr = new com.baidu.tieba.e.b(aVar.fFT.getPageContext().getPageActivity());
-        this.fGr.a(this.fGs);
+        this.fGL = aVar;
+        this.fGM = new com.baidu.tieba.e.b(aVar.fGo.getPageContext().getPageActivity());
+        this.fGM.a(this.fGN);
     }
 
-    public void DQ() {
-        d aZM = this.fGq.aZM();
-        if (aZM.aZS()) {
-            aZM.getListView().setOnTouchListener(this.fGt);
+    public void DS() {
+        d aZR = this.fGL.aZR();
+        if (aZR.aZX()) {
+            aZR.getListView().setOnTouchListener(this.fGO);
         }
     }
 
-    public boolean aZQ() {
-        return this.fGo;
+    public boolean aZV() {
+        return this.fGJ;
     }
 
-    public void jG(boolean z) {
-        this.fGo = z;
+    public void jI(boolean z) {
+        this.fGJ = z;
     }
 
     public boolean isFullscreen() {
-        return this.fGp;
+        return this.fGK;
     }
 
     public void setFullscreen(boolean z) {
-        this.fGp = z;
+        this.fGK = z;
     }
 }

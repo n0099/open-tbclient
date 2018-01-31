@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private boolean gtg;
-    private boolean gth;
-    private Runnable gti = new Runnable() { // from class: com.baidu.tieba.play.r.1
+    private boolean gtB;
+    private boolean gtC;
+    private Runnable gtD = new Runnable() { // from class: com.baidu.tieba.play.r.1
         @Override // java.lang.Runnable
         public void run() {
-            r.this.gtg = false;
+            r.this.gtB = false;
         }
     };
-    private Runnable gtj = new Runnable() { // from class: com.baidu.tieba.play.r.2
+    private Runnable gtE = new Runnable() { // from class: com.baidu.tieba.play.r.2
         @Override // java.lang.Runnable
         public void run() {
-            r.this.gth = false;
+            r.this.gtC = false;
         }
     };
 
     public void onPrepared() {
-        this.gth = true;
-        com.baidu.adp.lib.g.e.nr().postDelayed(this.gtj, 500L);
-    }
-
-    public void bkq() {
-        this.gtg = true;
+        this.gtC = true;
+        com.baidu.adp.lib.g.e.ns().postDelayed(this.gtE, 500L);
     }
 
     public void bkr() {
-        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gti);
-        com.baidu.adp.lib.g.e.nr().postDelayed(this.gti, 500L);
-    }
-
-    public void a(int i, int i2, com.baidu.tieba.i.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.gtg && !this.gth) {
-            iVar.aVg();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.gtg && !this.gth) {
-            iVar.aVh();
-            this.gtg = false;
-            this.gth = false;
-            bks();
-        }
+        this.gtB = true;
     }
 
     public void bks() {
-        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gti);
-        com.baidu.adp.lib.g.e.nr().removeCallbacks(this.gtj);
+        com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gtD);
+        com.baidu.adp.lib.g.e.ns().postDelayed(this.gtD, 500L);
+    }
+
+    public void a(int i, int i2, com.baidu.tieba.i.i iVar) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.gtB && !this.gtC) {
+            iVar.aVl();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.gtB && !this.gtC) {
+            iVar.aVm();
+            this.gtB = false;
+            this.gtC = false;
+            bkt();
+        }
+    }
+
+    public void bkt() {
+        com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gtD);
+        com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gtE);
     }
 }

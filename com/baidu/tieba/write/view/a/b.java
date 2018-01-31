@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends a {
-    public LinearLayout hGI;
+    public LinearLayout hHc;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -16,8 +16,8 @@ public class b extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.bYg.getPageActivity()).inflate(d.h.pic_filter_view, (ViewGroup) null);
-        this.hGI = (LinearLayout) this.mRootView.findViewById(d.g.filters_layout);
+        this.mRootView = LayoutInflater.from(this.bYo.getPageActivity()).inflate(d.h.pic_filter_view, (ViewGroup) null);
+        this.hHc = (LinearLayout) this.mRootView.findViewById(d.g.filters_layout);
     }
 
     public View getRootView() {

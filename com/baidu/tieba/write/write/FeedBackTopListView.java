@@ -22,7 +22,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<bd> hIh;
+    private ArrayList<bd> hIB;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -34,7 +34,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.hIh = null;
+        this.hIB = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -50,14 +50,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.hIh = new ArrayList<>(arrayList.subList(0, 3));
+            this.hIB = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.hIh = arrayList;
+            this.hIB = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.hIh.size()) {
-                addView(d(this.hIh.get(i2), i2));
+            if (i2 < this.hIB.size()) {
+                addView(d(this.hIB.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -75,7 +75,7 @@ public class FeedBackTopListView extends LinearLayout {
         inflate.findViewById(d.g.frs_top_divider);
         final String tid = bdVar.getTid();
         textView.setText(bdVar.getTitle());
-        this.mPageContext.getLayoutMode().aM(this.mSkinType == 1);
+        this.mPageContext.getLayoutMode().aN(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().aM(inflate);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) aj.getDrawable(d.f.icon_notice);
         aj.s(linearLayout, d.f.bg_frs_top_middle_selector);
@@ -90,7 +90,7 @@ public class FeedBackTopListView extends LinearLayout {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, bdVar.getTid()).cE(bdVar.zj()).wP()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, bdVar.getTid()).cE(bdVar.zk()).wQ()));
             }
         });
         return inflate;

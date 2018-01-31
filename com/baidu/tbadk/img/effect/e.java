@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int bve = 0;
+    private int bvn = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -23,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.bve = Integer.parseInt(str);
+            this.bvn = Integer.parseInt(str);
         }
     }
 
@@ -32,18 +32,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.LP().ia(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.bve == 0 || this.bve == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.bve);
+        com.baidu.tbadk.imageManager.c.LR().ia(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.bvn == 0 || this.bvn == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.bvn);
         }
-        if (this.bve == 2 || this.bve == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.bve);
+        if (this.bvn == 2 || this.bvn == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.bvn);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gE(String str) throws Exception {
+    public Bitmap gL(String str) throws Exception {
         int max = Math.max(l.ao(TbadkCoreApplication.getInst().getApp()), l.aq(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

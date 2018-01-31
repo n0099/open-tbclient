@@ -1088,26 +1088,26 @@ public final class R {
         public static final int prompt = 0x7f070d2c;
         public static final int prompt_close_debug = 0x7f070d2d;
         public static final int prompt_switch = 0x7f070d2e;
-        public static final int rom_too_small = 0x7f070dc6;
+        public static final int rom_too_small = 0x7f070dca;
         public static final int search_menu_title = 0x7f070013;
-        public static final int send_error = 0x7f070e7d;
-        public static final int share_to = 0x7f070ec7;
-        public static final int static_log = 0x7f070f4b;
+        public static final int send_error = 0x7f070e81;
+        public static final int share_to = 0x7f070ecb;
+        public static final int static_log = 0x7f070f4f;
         public static final int status_bar_notification_info_overflow = 0x7f070014;
-        public static final int switch_debug = 0x7f070f6d;
-        public static final int switch_ok = 0x7f070f6e;
-        public static final int tiebaDebug = 0x7f070ff4;
-        public static final int title_activity_main = 0x7f07101e;
-        public static final int voice_err_create_file_fail = 0x7f0710e2;
-        public static final int voice_err_file_fail = 0x7f0710e3;
-        public static final int voice_err_init_fail = 0x7f0710e4;
-        public static final int voice_err_load_lib_fail = 0x7f0710e7;
-        public static final int voice_err_no_file = 0x7f0710e8;
-        public static final int voice_err_other = 0x7f0710e9;
-        public static final int voice_err_play = 0x7f0710ea;
-        public static final int voice_err_sdcard_nospace = 0x7f0710eb;
-        public static final int voice_record_short_tip = 0x7f0710f1;
-        public static final int voice_record_timeout_tip = 0x7f0710f2;
+        public static final int switch_debug = 0x7f070f71;
+        public static final int switch_ok = 0x7f070f72;
+        public static final int tiebaDebug = 0x7f070ff8;
+        public static final int title_activity_main = 0x7f071022;
+        public static final int voice_err_create_file_fail = 0x7f0710e6;
+        public static final int voice_err_file_fail = 0x7f0710e7;
+        public static final int voice_err_init_fail = 0x7f0710e8;
+        public static final int voice_err_load_lib_fail = 0x7f0710eb;
+        public static final int voice_err_no_file = 0x7f0710ec;
+        public static final int voice_err_other = 0x7f0710ed;
+        public static final int voice_err_play = 0x7f0710ee;
+        public static final int voice_err_sdcard_nospace = 0x7f0710ef;
+        public static final int voice_record_short_tip = 0x7f0710f5;
+        public static final int voice_record_timeout_tip = 0x7f0710f6;
     }
 
     /* loaded from: classes.dex */

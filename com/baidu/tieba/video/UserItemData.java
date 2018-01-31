@@ -22,10 +22,10 @@ public class UserItemData implements Parcelable {
     };
     public String agree_num;
     public String fans_num;
-    public String hmv;
-    public String hmw;
-    public String hmx;
-    public String hmy;
+    public String hmP;
+    public String hmQ;
+    public String hmR;
+    public String hmS;
     public String intro;
     public String is_follow;
     public String name_show;
@@ -34,7 +34,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String bAb() {
+    public String bAd() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.hmv);
-        parcel.writeString(this.hmw);
+        parcel.writeString(this.hmP);
+        parcel.writeString(this.hmQ);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.hmx);
-        parcel.writeString(this.hmy);
+        parcel.writeString(this.hmR);
+        parcel.writeString(this.hmS);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.hmv = parcel.readString();
-        this.hmw = parcel.readString();
+        this.hmP = parcel.readString();
+        this.hmQ = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.hmx = parcel.readString();
-        this.hmy = parcel.readString();
+        this.hmR = parcel.readString();
+        this.hmS = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

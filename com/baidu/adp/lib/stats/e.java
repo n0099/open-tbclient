@@ -9,9 +9,9 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e akH;
-    private HashMap<String, a> akF = new HashMap<>();
-    private HashMap<String, b> akG = new HashMap<>();
+    private static e akK;
+    private HashMap<String, a> akI = new HashMap<>();
+    private HashMap<String, b> akJ = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -19,8 +19,8 @@ public class e {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.am(false);
                         aVar.an(false);
+                        aVar.ao(false);
                         aVar.di(0);
                         aVar.p(System.currentTimeMillis());
                         return;
@@ -32,15 +32,15 @@ public class e {
         }
     };
 
-    public static e nx() {
-        if (akH == null) {
+    public static e ny() {
+        if (akK == null) {
             synchronized (e.class) {
-                if (akH == null) {
-                    akH = new e();
+                if (akK == null) {
+                    akK = new e();
                 }
             }
         }
-        return akH;
+        return akK;
     }
 
     public e() {
@@ -48,65 +48,65 @@ public class e {
         bVar.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
         bVar.dk(120000);
         bVar.dl(500);
-        this.akG.put("net", bVar);
-        this.akG.put("op", bVar);
-        this.akG.put("stat", bVar);
-        this.akG.put("crash", bVar);
-        this.akG.put("pfmonitor", bVar);
+        this.akJ.put("net", bVar);
+        this.akJ.put("op", bVar);
+        this.akJ.put("stat", bVar);
+        this.akJ.put("crash", bVar);
+        this.akJ.put("pfmonitor", bVar);
         b bVar2 = new b();
         bVar2.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
         bVar2.dk(120000);
         bVar2.dl(TbConfig.POST_IMAGE_SMALL);
-        this.akG.put("file", bVar2);
-        this.akG.put("db", bVar2);
-        this.akG.put("img", bVar2);
-        this.akG.put("voice", bVar2);
-        this.akG.put("error", bVar2);
+        this.akJ.put("file", bVar2);
+        this.akJ.put("db", bVar2);
+        this.akJ.put("img", bVar2);
+        this.akJ.put("voice", bVar2);
+        this.akJ.put("error", bVar2);
         b bVar3 = new b();
         bVar3.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
         bVar3.dk(120000);
         bVar3.dl(TbConfig.POST_IMAGE_SMALL);
-        this.akG.put("dbg", bVar3);
+        this.akJ.put("dbg", bVar3);
     }
 
     public synchronized boolean aw(String str) {
         a aVar;
         boolean z;
-        b bVar = this.akG.get(str);
+        b bVar = this.akJ.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.akF.get(str);
+            a aVar2 = this.akI.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
+                aVar3.ao(false);
                 aVar3.an(false);
-                aVar3.am(false);
                 aVar3.p(currentTimeMillis);
-                this.akF.put(str, aVar3);
+                this.akI.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.ny()) {
+            if (aVar.nz()) {
                 z = true;
             } else {
-                if (aVar.nC()) {
-                    aVar.di(aVar.nA() + 1);
-                    if (currentTimeMillis - aVar.nz() < bVar.nE()) {
-                        if (aVar.nA() >= bVar.nF()) {
-                            aVar.am(true);
+                if (aVar.nD()) {
+                    aVar.di(aVar.nB() + 1);
+                    if (currentTimeMillis - aVar.nA() < bVar.nF()) {
+                        if (aVar.nB() >= bVar.nG()) {
+                            aVar.an(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.an(false);
+                        aVar.ao(false);
                         aVar.di(0);
                         aVar.p(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.nB() < bVar.nD()) {
-                    aVar.an(true);
+                } else if (currentTimeMillis - aVar.nC() < bVar.nE()) {
+                    aVar.ao(true);
                     aVar.o(currentTimeMillis);
                 } else {
                     aVar.p(currentTimeMillis);
@@ -128,35 +128,35 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long akJ;
-        private long akK;
-        private boolean akL;
+        private long akM;
+        private long akN;
+        private boolean akO;
         private int mCount;
         private boolean sx;
 
         private a() {
             this.sx = false;
             this.mCount = 0;
-            this.akL = false;
+            this.akO = false;
         }
 
-        public boolean ny() {
-            return this.akL;
+        public boolean nz() {
+            return this.akO;
         }
 
-        public void am(boolean z) {
-            this.akL = z;
+        public void an(boolean z) {
+            this.akO = z;
         }
 
-        public long nz() {
-            return this.akK;
+        public long nA() {
+            return this.akN;
         }
 
         public void o(long j) {
-            this.akK = j;
+            this.akN = j;
         }
 
-        public int nA() {
+        public int nB() {
             return this.mCount;
         }
 
@@ -164,19 +164,19 @@ public class e {
             this.mCount = i;
         }
 
-        public long nB() {
-            return this.akJ;
+        public long nC() {
+            return this.akM;
         }
 
         public void p(long j) {
-            this.akJ = j;
+            this.akM = j;
         }
 
-        public boolean nC() {
+        public boolean nD() {
             return this.sx;
         }
 
-        public void an(boolean z) {
+        public void ao(boolean z) {
             this.sx = z;
         }
     }
@@ -184,35 +184,35 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int akM;
-        private int akN;
-        private int akO;
+        private int akP;
+        private int akQ;
+        private int akR;
 
         private b() {
         }
 
-        public int nD() {
-            return this.akM;
+        public int nE() {
+            return this.akP;
         }
 
         public void dj(int i) {
-            this.akM = i;
-        }
-
-        public int nE() {
-            return this.akN;
-        }
-
-        public void dk(int i) {
-            this.akN = i;
+            this.akP = i;
         }
 
         public int nF() {
-            return this.akO;
+            return this.akQ;
+        }
+
+        public void dk(int i) {
+            this.akQ = i;
+        }
+
+        public int nG() {
+            return this.akR;
         }
 
         public void dl(int i) {
-            this.akO = i;
+            this.akR = i;
         }
     }
 }

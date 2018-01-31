@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.c.b> {
     }
 
     @Override // com.baidu.tieba.i.a.c
-    public void aVx() {
+    public void aVC() {
         cC(this.list);
     }
 }

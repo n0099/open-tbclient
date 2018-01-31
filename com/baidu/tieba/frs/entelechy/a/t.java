@@ -12,27 +12,27 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.play.aa;
 /* loaded from: classes2.dex */
 public class t extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy.view.a>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.d.c {
-    private v<bd> ciz;
-    private com.baidu.tieba.frs.entelechy.view.a dIa;
+    private v<bd> ciH;
+    private com.baidu.tieba.frs.entelechy.view.a dIv;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.ciz = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.t.1
+        this.ciH = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.t.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
                 if (view != null && bdVar != null) {
-                    if (view.getId() == d.g.layout_root || (t.this.dIa.ciL != null && t.this.dIa.ciL.getCommentContainer() != null && view.getId() == t.this.dIa.ciL.getCommentContainer().getId())) {
-                        com.baidu.tieba.frs.d.b.ayK().a(com.baidu.tieba.frs.d.c.dQJ, bdVar, 1);
+                    if (view.getId() == d.g.layout_root || (t.this.dIv.ciT != null && t.this.dIv.ciT.getCommentContainer() != null && view.getId() == t.this.dIv.ciT.getCommentContainer().getId())) {
+                        com.baidu.tieba.frs.d.b.ayP().a(com.baidu.tieba.frs.d.c.dRe, bdVar, 1);
                         t.this.O(bdVar);
                     } else if (view.getId() == d.g.card_home_page_normal_thread_user_name || view.getId() == d.g.card_home_page_normal_thread_user_header) {
-                        com.baidu.tieba.frs.d.b.ayK().a(com.baidu.tieba.frs.d.c.dQJ, bdVar, 2);
+                        com.baidu.tieba.frs.d.b.ayP().a(com.baidu.tieba.frs.d.c.dRe, bdVar, 2);
                     } else if (view.getId() == d.g.header_divider) {
-                        com.baidu.tieba.frs.e.g.a(com.baidu.tieba.frs.d.c.dQJ, bdVar.zr());
+                        com.baidu.tieba.frs.e.g.a(com.baidu.tieba.frs.d.c.dRe, bdVar.zs());
                     } else if (view.getId() == d.g.frame_video) {
-                        com.baidu.tieba.frs.d.b.ayK().a(com.baidu.tieba.frs.d.c.dQJ, bdVar, 4);
+                        com.baidu.tieba.frs.d.b.ayP().a(com.baidu.tieba.frs.d.c.dRe, bdVar, 4);
                         t.this.O(bdVar);
                     } else if (view.getId() == d.g.card_god_reply_layout) {
                         t.this.O(bdVar);
@@ -48,10 +48,10 @@ public class t extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: av */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dIa = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
-        this.dIa.j(this.mPageId);
-        this.dIa.setForumName(this.mForumName);
-        return new a(this.dIa);
+        this.dIv = new com.baidu.tieba.frs.entelechy.view.a(this.mPageContext, this.mPageId);
+        this.dIv.j(this.mPageId);
+        this.dIv.setForumName(this.mForumName);
+        return new a(this.dIv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,19 +59,19 @@ public class t extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.alk() == null) {
+        if (aVar == null || aVar.alp() == null) {
             return null;
         }
-        com.baidu.tieba.frs.f.a(aVar.alk().akG(), this.dAN);
-        aVar.alk().setVideoStatsData(M(bdVar));
-        aVar.alk().a(bdVar);
-        aVar.alk().setForumName(this.mForumName);
-        aVar.alk().b(this.ciz);
-        com.baidu.tieba.frs.d.b.ayK().a(dQJ, bdVar);
-        com.baidu.tieba.frs.d.b.ayK().R(bdVar);
+        com.baidu.tieba.frs.f.a(aVar.alp().akL(), this.dBi);
+        aVar.alp().setVideoStatsData(M(bdVar));
+        aVar.alp().a(bdVar);
+        aVar.alp().setForumName(this.mForumName);
+        aVar.alp().b(this.ciH);
+        com.baidu.tieba.frs.d.b.ayP().a(dRe, bdVar);
+        com.baidu.tieba.frs.d.b.ayP().R(bdVar);
         if (bdVar != null) {
-            TiebaStatic.log(new ak("c12125").ab("tid", bdVar.getId()).s("obj_locate", atN() ? 2 : 1).f("obj_id", bdVar.zl() != null ? bdVar.zl().live_id : -1L).s("obj_type", 1));
-            bdVar.zO();
+            TiebaStatic.log(new ak("c12125").aa("tid", bdVar.getId()).s("obj_locate", atS() ? 2 : 1).f("obj_id", bdVar.zm() != null ? bdVar.zm().live_id : -1L).s("obj_type", 1));
+            bdVar.zP();
         }
         return aVar.getView();
     }
@@ -81,15 +81,15 @@ public class t extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
             return null;
         }
         aa aaVar = new aa();
-        aaVar.mLocate = bdVar.zK() ? "3" : "2";
-        aaVar.cWM = dQJ.dQz;
-        aaVar.bAT = bdVar.getTid();
+        aaVar.mLocate = bdVar.zL() ? "3" : "2";
+        aaVar.cXh = dRe.dQU;
+        aaVar.bBb = bdVar.getTid();
         aaVar.mSource = bdVar.mRecomSource;
-        aaVar.gtV = bdVar.aOF;
-        aaVar.gtW = bdVar.mRecomWeight;
-        aaVar.gtY = bdVar.mRecomAbTag;
-        if (bdVar.zk() != null) {
-            aaVar.gtZ = bdVar.zk().video_md5;
+        aaVar.guq = bdVar.aOI;
+        aaVar.gur = bdVar.mRecomWeight;
+        aaVar.gut = bdVar.mRecomAbTag;
+        if (bdVar.zl() != null) {
+            aaVar.guu = bdVar.zl().video_md5;
         }
         return aaVar;
     }
@@ -101,6 +101,6 @@ public class t extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(bd bdVar) {
-        TiebaStatic.log(new ak("c12126").ab("tid", bdVar.getId()).s("obj_locate", atN() ? 2 : 1).f("obj_id", bdVar.zl() == null ? -1L : bdVar.zl().live_id).s("obj_type", 1));
+        TiebaStatic.log(new ak("c12126").aa("tid", bdVar.getId()).s("obj_locate", atS() ? 2 : 1).f("obj_id", bdVar.zm() == null ? -1L : bdVar.zm().live_id).s("obj_type", 1));
     }
 }

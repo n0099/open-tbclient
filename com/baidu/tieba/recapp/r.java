@@ -1,12 +1,9 @@
 package com.baidu.tieba.recapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
@@ -15,7 +12,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.distribute.a;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
@@ -30,9 +26,9 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.aJk;
-        if (StringUtils.isNull(str) && advertAppInfo.aJv != null) {
-            str = advertAppInfo.aJv.userName;
+        String str = advertAppInfo.aJn;
+        if (StringUtils.isNull(str) && advertAppInfo.aJy != null) {
+            str = advertAppInfo.aJy.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -48,20 +44,20 @@ public class r {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.Ke().b(advertAppInfo);
-        String str2 = advertAppInfo.aJk;
+        a.Kg().b(advertAppInfo);
+        String str2 = advertAppInfo.aJn;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bmW().a(advertAppInfo.aJo, advertAppInfo.aJn, str2, i, com.baidu.tieba.recapp.c.a.rx(advertAppInfo.aJo).intValue(), null, true, false, true, advertAppInfo.aJv.userPortrait, downloadStaticsData, advertAppInfo.aJv.userName);
+        com.baidu.tieba.recapp.c.a.bmX().a(advertAppInfo.aJr, advertAppInfo.aJq, str2, i, com.baidu.tieba.recapp.c.a.rE(advertAppInfo.aJr).intValue(), null, true, false, true, advertAppInfo.aJy.userPortrait, downloadStaticsData, advertAppInfo.aJy.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bmW().i(advertAppInfo.aJn, advertAppInfo.aJo, true);
+        com.baidu.tieba.recapp.c.a.bmX().i(advertAppInfo.aJq, advertAppInfo.aJr, true);
     }
 
-    public static final void an(Context context, String str) {
+    public static final void am(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
@@ -100,18 +96,7 @@ public class r {
         return false;
     }
 
-    public static boolean z(Activity activity) {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
-        }
-        boolean aY = ab.aY(activity);
-        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-            return false;
-        }
-        return aY;
-    }
-
-    public static List<String> cf(Context context) {
+    public static List<String> cc(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -185,11 +170,11 @@ public class r {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        q.bmR().sendFRS(z, str, str2, str3, list, str4);
+        q.bmS().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        q.bmR().a(z, str, str2, str3, str4, list, str5);
+        q.bmS().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -208,14 +193,14 @@ public class r {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bmO = q.bmR().bmO();
-        if (bmO == null) {
+        i bmP = q.bmS().bmP();
+        if (bmP == null) {
             return false;
         }
-        if (bmO.hP(str)) {
-            bmO.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bmP.hW(str)) {
+            bmP.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bmO.c(tbPageContext.getPageActivity(), strArr);
+        return bmP.c(tbPageContext.getPageActivity(), strArr);
     }
 }

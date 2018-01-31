@@ -45,7 +45,7 @@ public class f extends android.support.a.a.e {
     private boolean tu;
 
     /* renamed from: tv  reason: collision with root package name */
-    private boolean f1tv;
+    private boolean f0tv;
     private Drawable.ConstantState tw;
     private final float[] tz;
 
@@ -130,7 +130,7 @@ public class f extends android.support.a.a.e {
     }
 
     f() {
-        this.f1tv = true;
+        this.f0tv = true;
         this.tz = new float[9];
         this.tA = new Matrix();
         this.tB = new Rect();
@@ -138,7 +138,7 @@ public class f extends android.support.a.a.e {
     }
 
     f(C0001f c0001f) {
-        this.f1tv = true;
+        this.f0tv = true;
         this.tz = new float[9];
         this.tA = new Matrix();
         this.tB = new Rect();
@@ -201,7 +201,7 @@ public class f extends android.support.a.a.e {
                 }
                 this.tB.offsetTo(0, 0);
                 this.tr.s(min, min2);
-                if (!this.f1tv) {
+                if (!this.f0tv) {
                     this.tr.r(min, min2);
                 } else if (!this.tr.cT()) {
                     this.tr.r(min, min2);
@@ -533,7 +533,7 @@ public class f extends android.support.a.a.e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void q(boolean z) {
-        this.f1tv = z;
+        this.f0tv = z;
     }
 
     private boolean cN() {

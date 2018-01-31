@@ -14,11 +14,11 @@ import com.baidu.tbadk.widget.richText.f;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d {
-    public TextView fVC;
+    public TextView fVX;
     private TbPageContext mPageContext;
     private int mSkinType = 3;
-    private int fVD = 0;
-    private CustomMessageListener fVE = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.d.1
+    private int fVY = 0;
+    private CustomMessageListener fVZ = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -32,35 +32,35 @@ public class d {
 
     public d(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
-        this.fVC = (TextView) view.findViewById(d.g.pb_list_video_item_play_count);
+        this.fVX = (TextView) view.findViewById(d.g.pb_list_video_item_play_count);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        tbPageContext.registerListener(this.fVE);
+        tbPageContext.registerListener(this.fVZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(f fVar) {
         if (fVar != null) {
-            this.fVD++;
-            fVar.jc(this.fVD);
+            this.fVY++;
+            fVar.jc(this.fVY);
         }
     }
 
     public void d(f fVar) {
-        if (this.fVC != null && fVar != null) {
-            if (fVar.Rq() < this.fVD) {
-                fVar.jc(this.fVD);
+        if (this.fVX != null && fVar != null) {
+            if (fVar.Rs() < this.fVY) {
+                fVar.jc(this.fVY);
             } else {
-                this.fVD = fVar.Rq();
+                this.fVY = fVar.Rs();
             }
-            this.fVC.setText(am.C(this.fVD));
+            this.fVX.setText(am.C(this.fVY));
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.fVC.setCompoundDrawablesWithIntrinsicBounds(d.f.icon_pb_video_num_gray, 0, 0, 0);
-            this.fVC.setCompoundDrawablePadding(l.s(this.mPageContext.getPageActivity(), d.e.ds12));
-            aj.e(this.fVC, d.C0107d.cp_cont_c, 1);
+            this.fVX.setCompoundDrawablesWithIntrinsicBounds(d.f.icon_pb_video_num_gray, 0, 0, 0);
+            this.fVX.setCompoundDrawablePadding(l.s(this.mPageContext.getPageActivity(), d.e.ds12));
+            aj.e(this.fVX, d.C0108d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }

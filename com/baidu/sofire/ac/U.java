@@ -191,10 +191,10 @@ public class U extends Thread {
                         if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                             sMonitorNetworkWhenUpgradeNoNet = true;
                             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                            if (com.baidu.sofire.b.d.aET == null) {
-                                com.baidu.sofire.b.d.aET = new MyReceiver().a();
+                            if (com.baidu.sofire.b.d.aEW == null) {
+                                com.baidu.sofire.b.d.aEW = new MyReceiver().a();
                             }
-                            this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aET, intentFilter);
+                            this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEW, intentFilter);
                         }
                         if (this.mEndReason == 0) {
                             this.mEndReason = 3;
@@ -202,8 +202,8 @@ public class U extends Thread {
                         throw new NetworkErrorException("no internet");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (com.baidu.sofire.b.d.aET != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.b.d.a)) {
-                        this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.b.d.aET);
+                    if (com.baidu.sofire.b.d.aEW != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.b.d.a)) {
+                        this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.b.d.aEW);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
                     com.baidu.sofire.b.d.a = false;
@@ -215,12 +215,12 @@ public class U extends Thread {
                             sRetryPingTimesCount++;
                         }
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (com.baidu.sofire.b.d.aET == null) {
-                            com.baidu.sofire.b.d.aET = new MyReceiver().a();
+                        if (com.baidu.sofire.b.d.aEW == null) {
+                            com.baidu.sofire.b.d.aEW = new MyReceiver().a();
                         } else {
-                            com.baidu.sofire.b.d.aET.a();
+                            com.baidu.sofire.b.d.aEW.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aET, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEW, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                         if (this.mEndReason == 0) {
                             this.mEndReason = 4;
@@ -823,12 +823,12 @@ public class U extends Thread {
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (com.baidu.sofire.b.d.aET == null) {
-                        com.baidu.sofire.b.d.aET = new MyReceiver().a();
+                    if (com.baidu.sofire.b.d.aEW == null) {
+                        com.baidu.sofire.b.d.aEW = new MyReceiver().a();
                     } else {
-                        com.baidu.sofire.b.d.aET.a();
+                        com.baidu.sofire.b.d.aEW.a();
                     }
-                    this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aET, intentFilter);
+                    this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEW, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             }
@@ -888,12 +888,12 @@ public class U extends Thread {
                     }
                     if (!sMonitorNetworkWhenUpgradeNoNet) {
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (com.baidu.sofire.b.d.aET == null) {
-                            com.baidu.sofire.b.d.aET = new MyReceiver().a();
+                        if (com.baidu.sofire.b.d.aEW == null) {
+                            com.baidu.sofire.b.d.aEW = new MyReceiver().a();
                         } else {
-                            com.baidu.sofire.b.d.aET.a();
+                            com.baidu.sofire.b.d.aEW.a();
                         }
-                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aET, intentFilter2);
+                        this.context.getApplicationContext().registerReceiver(com.baidu.sofire.b.d.aEW, intentFilter2);
                         sMonitorNetworkWhenUpgradeNoNet = true;
                     }
                 }

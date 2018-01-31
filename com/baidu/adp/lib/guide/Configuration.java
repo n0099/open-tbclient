@@ -13,11 +13,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.aic = parcel.readInt();
-            configuration.aid = parcel.readInt();
-            configuration.aie = parcel.readInt();
-            configuration.aif = parcel.readByte() == 1;
-            configuration.aig = parcel.readByte() == 1;
+            configuration.aif = parcel.readInt();
+            configuration.aig = parcel.readInt();
+            configuration.aih = parcel.readInt();
+            configuration.aii = parcel.readByte() == 1;
+            configuration.aij = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -28,17 +28,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean aib;
+    boolean aie;
     View yH = null;
     int mAlpha = 255;
-    int aic = -1;
-    int aid = -1;
-    int aie = 17170444;
-    boolean aif = true;
-    boolean aig = false;
-    boolean aih = false;
-    int aii = -1;
-    int aij = -1;
+    int aif = -1;
+    int aig = -1;
+    int aih = 17170444;
+    boolean aii = true;
+    boolean aij = false;
+    boolean aik = false;
+    int ail = -1;
+    int aim = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.aic);
-        parcel.writeInt(this.aid);
-        parcel.writeInt(this.aie);
-        parcel.writeByte((byte) (this.aif ? 1 : 0));
-        parcel.writeByte((byte) (this.aig ? 1 : 0));
+        parcel.writeInt(this.aif);
+        parcel.writeInt(this.aig);
+        parcel.writeInt(this.aih);
+        parcel.writeByte((byte) (this.aii ? 1 : 0));
+        parcel.writeByte((byte) (this.aij ? 1 : 0));
     }
 }

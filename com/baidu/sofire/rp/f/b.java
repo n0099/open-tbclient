@@ -8,39 +8,39 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
 public final class b {
-    private static Lock aFx = new ReentrantLock();
-    private static b aFy = null;
-    public com.baidu.sofire.rp.e.a aFw;
+    private static Lock aFA = new ReentrantLock();
+    private static b aFB = null;
+    public com.baidu.sofire.rp.e.a aFz;
 
     private b(Context context) {
-        this.aFw = new com.baidu.sofire.rp.e.a(context);
+        this.aFz = new com.baidu.sofire.rp.e.a(context);
     }
 
     public static b aF(Context context) {
-        if (aFy != null) {
-            return aFy;
+        if (aFB != null) {
+            return aFB;
         }
         try {
-            aFx.lock();
-            if (aFy == null) {
-                aFy = new b(context);
+            aFA.lock();
+            if (aFB == null) {
+                aFB = new b(context);
             }
-            return aFy;
+            return aFB;
         } finally {
-            aFx.unlock();
+            aFA.unlock();
         }
     }
 
     public final void a() {
-        com.baidu.sofire.rp.e.a aVar = this.aFw;
-        if (aVar.aFv == null) {
-            aVar.aFv = new Receiver();
+        com.baidu.sofire.rp.e.a aVar = this.aFz;
+        if (aVar.aFy == null) {
+            aVar.aFy = new Receiver();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.b.r.p");
-        aVar.c.getApplicationContext().registerReceiver(aVar.aFv, intentFilter);
+        aVar.c.getApplicationContext().registerReceiver(aVar.aFy, intentFilter);
         Message message = new Message();
         message.what = 5;
-        aVar.aFs.sendMessage(message);
+        aVar.aFv.sendMessage(message);
     }
 }

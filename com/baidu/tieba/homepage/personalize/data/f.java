@@ -10,21 +10,21 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements r {
-    private CardGod efW;
+    private CardGod egr;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.efW = cardGod;
-            this.mGroupTitle = this.efW.card_title;
-            if (!v.E(this.efW.gods)) {
+            this.egr = cardGod;
+            this.mGroupTitle = this.egr.card_title;
+            if (!v.E(this.egr.gods)) {
                 int i = 0;
-                for (User user : this.efW.gods) {
+                for (User user : this.egr.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
                         if (!StringUtils.isNull(metaData.getUserName())) {
                             i iVar = new i();
-                            iVar.aNu = metaData;
+                            iVar.aNx = metaData;
                             a(iVar);
                             i++;
                         }
@@ -36,30 +36,30 @@ public class f extends h implements r {
         }
     }
 
-    public boolean Uv() {
+    public boolean Ux() {
         return v.D(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.efW == null || this.efW.position == null) {
+        if (this.egr == null || this.egr.position == null) {
             return 0;
         }
-        return this.efW.position.intValue();
+        return this.egr.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean akS() {
+    public boolean akX() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eH(boolean z) {
+    public void eJ(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eI(boolean z) {
+    public void eK(boolean z) {
         this.showBottomDivider = z;
     }
 }

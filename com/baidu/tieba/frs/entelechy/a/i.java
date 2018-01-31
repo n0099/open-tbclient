@@ -12,33 +12,33 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.play.aa;
 /* loaded from: classes2.dex */
 public class i extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy.view.d>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.d.c {
-    public static int dHr = 5;
-    public static int dHs = 10;
-    public static int dHt = 15;
-    private v<bd> ciz;
+    public static int dHM = 5;
+    public static int dHN = 10;
+    public static int dHO = 15;
+    private v<bd> ciH;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(bd bdVar, String str) {
         if (bdVar != null) {
-            int zR = bdVar.zR();
+            int zS = bdVar.zS();
             ak akVar = new ak(str);
-            akVar.ab("obj_locate", nk(zR));
-            akVar.ab("tid", bdVar.getTid());
+            akVar.aa("obj_locate", nk(zS));
+            akVar.aa("tid", bdVar.getTid());
             akVar.s("obj_type", 2);
             TiebaStatic.log(akVar);
         }
     }
 
     private String nk(int i) {
-        if (i == dHr) {
+        if (i == dHM) {
             return "3";
         }
-        if (i == dHs) {
+        if (i == dHN) {
             return "10";
         }
-        if (i != dHt) {
+        if (i != dHO) {
             return "";
         }
         return "11";
@@ -47,7 +47,7 @@ public class i extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.ciz = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
+        this.ciH = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
@@ -59,7 +59,7 @@ public class i extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
                     } else if (view.getId() == d.g.image_user || view.getId() == d.g.pendant_image_user) {
                         i.this.e(bdVar, "c10241");
                     } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.e.g.a(com.baidu.tieba.frs.d.c.dQJ, bdVar.zr());
+                        com.baidu.tieba.frs.e.g.a(com.baidu.tieba.frs.d.c.dRe, bdVar.zs());
                     }
                 }
             }
@@ -82,14 +82,14 @@ public class i extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
         aa aaVar = null;
         if (bdVar != null) {
             aaVar = new aa();
-            aaVar.mLocate = nk(bdVar.zR());
-            aaVar.cWM = dQJ.dQz;
-            aaVar.bAT = bdVar.getTid();
-            aaVar.gtY = bdVar.mRecomAbTag;
-            if (bdVar.zk() != null) {
-                aaVar.gtZ = bdVar.zk().video_md5;
+            aaVar.mLocate = nk(bdVar.zS());
+            aaVar.cXh = dRe.dQU;
+            aaVar.bBb = bdVar.getTid();
+            aaVar.gut = bdVar.mRecomAbTag;
+            if (bdVar.zl() != null) {
+                aaVar.guu = bdVar.zl().video_md5;
             }
-            bdVar.zO();
+            bdVar.zP();
         }
         return aaVar;
     }
@@ -99,12 +99,12 @@ public class i extends com.baidu.tieba.frs.g<bd, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, a aVar) {
-        if (aVar == null || aVar.alk() == null) {
+        if (aVar == null || aVar.alp() == null) {
             return null;
         }
-        aVar.alk().setVideoStatsData(M(bdVar));
-        aVar.alk().a(bdVar);
-        aVar.alk().b(this.ciz);
+        aVar.alp().setVideoStatsData(M(bdVar));
+        aVar.alp().a(bdVar);
+        aVar.alp().b(this.ciH);
         return aVar.getView();
     }
 

@@ -1,24 +1,24 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean aXs;
-    private boolean aXt;
-    private boolean aXu;
+    private boolean aXA;
+    private boolean aXB;
+    private boolean aXC;
     private int procType;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3, int i) {
         this.width = 0;
-        this.aXs = true;
-        this.aXt = false;
-        this.aXu = false;
+        this.aXA = true;
+        this.aXB = false;
+        this.aXC = false;
         this.procType = 0;
-        this.aXs = z;
-        this.aXt = z2;
-        this.aXu = z3;
+        this.aXA = z;
+        this.aXB = z2;
+        this.aXC = z3;
         this.procType = i;
         this.width = com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
@@ -29,33 +29,33 @@ public class b extends a {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return this.width;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return (int) (this.width * this.scale);
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aXs;
+        return this.aXA;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
-        return this.aXu;
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
+        return this.aXC;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
-        return this.aXt;
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
+        return this.aXB;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

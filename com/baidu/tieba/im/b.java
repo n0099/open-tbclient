@@ -21,11 +21,11 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     public static void init() {
-        aDI();
-        aDJ();
+        aDN();
+        aDO();
     }
 
-    private static void aDI() {
+    private static void aDN() {
         c.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         c.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(202009, PushResponseMessage.class, false);
@@ -39,7 +39,7 @@ public class b {
         c.b(104104, ResponseCheckUserMaskMessage.class, false);
     }
 
-    private static boolean aDJ() {
+    private static boolean aDO() {
         MessageManager.getInstance().addResponsedMessageRule(new j(202006) { // from class: com.baidu.tieba.im.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.g

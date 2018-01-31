@@ -7,9 +7,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class w {
-    private long dFG;
+    private long dGb;
     private int duration;
-    private String gts;
+    private String gtN;
     private String videoMd5;
     private String videoUrl;
 
@@ -28,8 +28,8 @@ public class w {
                     }
                     VideoDesc next = it.next();
                     if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.oJ()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.oK()) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.oK()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.oL()) {
                                 videoDesc = next;
                                 break;
                             }
@@ -44,17 +44,17 @@ public class w {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.dFG = videoInfo.video_length.intValue();
+                    this.dGb = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.gts = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.gtN = videoInfo.video_width + "x" + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.dFG = videoInfo.video_length.intValue();
+            this.dGb = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.gts = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.gtN = videoInfo.video_width + "x" + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -69,15 +69,15 @@ public class w {
         }
     }
 
-    public long bkz() {
-        return this.dFG;
+    public long bkA() {
+        return this.dGb;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bkA() {
-        return this.gts;
+    public String bkB() {
+        return this.gtN;
     }
 }

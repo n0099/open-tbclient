@@ -595,19 +595,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream dA = k.dA(str);
-                BitmapFactory.decodeStream(dA, null, options);
+                InputStream dG = k.dG(str);
+                BitmapFactory.decodeStream(dG, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.d(dA);
+                com.baidu.adp.lib.util.n.d(dG);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream dA2 = k.dA(str);
-                        decodeStream = BitmapFactory.decodeStream(dA2, null, options);
-                        com.baidu.adp.lib.util.n.d(dA2);
+                        InputStream dG2 = k.dG(str);
+                        decodeStream = BitmapFactory.decodeStream(dG2, null, options);
+                        com.baidu.adp.lib.util.n.d(dG2);
                     }
                 }
             }
@@ -1062,30 +1062,6 @@ public class BitmapHelper {
             }
         }
         return bitmap2;
-    }
-
-    public static Bitmap scaleBitmap(Bitmap bitmap, float f, float f2) {
-        Bitmap createBitmap;
-        if (bitmap == null) {
-            return null;
-        }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (width <= 0 || height <= 0) {
-            return null;
-        }
-        synchronized (lockForSyncImageDecoder) {
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f2);
-            createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (createBitmap == null) {
-                createBitmap = bitmap;
-            }
-            if (bitmap != createBitmap) {
-                bitmap.recycle();
-            }
-        }
-        return createBitmap;
     }
 
     public static Bitmap rotateBitmapBydegree(Bitmap bitmap, int i) {

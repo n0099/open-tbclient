@@ -5,60 +5,60 @@ import com.baidu.adp.lib.util.j;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gZo;
-    private final int gZp = 10;
-    private final int gZq = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    public String gZr = null;
-    public boolean aXa = false;
+    private com.baidu.adp.lib.stats.a gZI;
+    private final int gZJ = 10;
+    private final int gZK = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    public String gZL = null;
+    public boolean aXd = false;
 
     public b(String str) {
         ab(str, false);
     }
 
     public void ab(String str, boolean z) {
-        this.gZr = str;
-        this.aXa = z;
-        this.gZo = new com.baidu.adp.lib.stats.a("dbg");
+        this.gZL = str;
+        this.aXd = z;
+        this.gZI = new com.baidu.adp.lib.stats.a("dbg");
         c.j(str, getNetType(), z);
     }
 
     public void start() {
-        this.gZo.nv();
+        this.gZI.nw();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bwb;
-        if (this.gZo != null && (bwb = bwb()) != null) {
+        e bwd;
+        if (this.gZI != null && (bwd = bwd()) != null) {
             if (z) {
-                if (bwb.gZw != null) {
-                    bwb.gZw.num++;
+                if (bwd.gZQ != null) {
+                    bwd.gZQ.num++;
                     if (z2) {
-                        bwb.gZw.gZt += j2;
-                        bwb.gZw.size += j;
+                        bwd.gZQ.gZN += j2;
+                        bwd.gZQ.size += j;
                     } else {
-                        bwb.gZw.gZu++;
+                        bwd.gZQ.gZO++;
                     }
                 } else {
                     return;
                 }
-            } else if (bwb.gZx != null) {
-                bwb.gZx.num++;
+            } else if (bwd.gZR != null) {
+                bwd.gZR.num++;
                 if (z2) {
-                    bwb.gZx.gZt += j3;
-                    bwb.gZx.size += j;
+                    bwd.gZR.gZN += j3;
+                    bwd.gZR.size += j;
                     j2 = j3;
                 } else {
-                    bwb.gZx.gZu++;
+                    bwd.gZR.gZO++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gZo = null;
+            this.gZI = null;
             if (z2) {
-                c.a(bwb, 10);
+                c.a(bwd, 10);
             }
-            if (this.gZr == "frsStat") {
+            if (this.gZL == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append("act", "frs");
@@ -75,34 +75,34 @@ public class b {
     }
 
     public void destory() {
-        e bwb;
-        if (this.gZo != null && (bwb = bwb()) != null && bwb.gZy != null) {
-            long nw = this.gZo.nw();
-            if (nw > 3000) {
-                d dVar = bwb.gZy;
-                dVar.gZt = nw + dVar.gZt;
-                bwb.gZy.num++;
-                c.a(bwb, 10);
+        e bwd;
+        if (this.gZI != null && (bwd = bwd()) != null && bwd.gZS != null) {
+            long nx = this.gZI.nx();
+            if (nx > 3000) {
+                d dVar = bwd.gZS;
+                dVar.gZN = nx + dVar.gZN;
+                bwd.gZS.num++;
+                c.a(bwd, 10);
             }
         }
     }
 
-    private e bwb() {
-        return c.k(this.gZr, getNetType(), this.aXa);
+    private e bwd() {
+        return c.k(this.gZL, getNetType(), this.aXd);
     }
 
     private String getNetType() {
-        int oO = j.oO();
-        if (oO == 0) {
+        int oP = j.oP();
+        if (oP == 0) {
             return "N";
         }
-        if (oO == 1) {
+        if (oP == 1) {
             return "WIFI";
         }
-        if (oO == 3) {
+        if (oP == 3) {
             return "3G";
         }
-        if (oO != 2) {
+        if (oP != 2) {
             return "N";
         }
         return "2G";

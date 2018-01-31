@@ -3,44 +3,44 @@ package com.baidu.adp.b.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable apn;
-    public com.baidu.adp.widget.a.a apo;
+    public BitmapDrawable apr;
+    public com.baidu.adp.widget.a.a aps;
     public volatile boolean isDefault = true;
 
-    public boolean pZ() {
-        return (this.apn == null || this.apn.getBitmap() == null || this.apn.getBitmap().isRecycled()) ? false : true;
+    public boolean qa() {
+        return (this.apr == null || this.apr.getBitmap() == null || this.apr.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean qa() {
-        return this.apo != null && this.apo.sj();
+    public boolean qb() {
+        return this.aps != null && this.aps.sk();
     }
 
     public boolean isAvailable() {
-        return pZ() || qa();
+        return qa() || qb();
     }
 
     public int getWidth() {
-        if (pZ()) {
-            return this.apn.getIntrinsicWidth();
-        }
         if (qa()) {
-            return this.apo.getWidth();
+            return this.apr.getIntrinsicWidth();
+        }
+        if (qb()) {
+            return this.aps.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (pZ()) {
-            return this.apn.getIntrinsicHeight();
-        }
         if (qa()) {
-            return this.apo.getHeight();
+            return this.apr.getIntrinsicHeight();
+        }
+        if (qb()) {
+            return this.aps.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.apo = null;
-        this.apn = null;
+        this.aps = null;
+        this.apr = null;
     }
 }

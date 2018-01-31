@@ -19,7 +19,7 @@ public class UegWebViewActivity extends TbWebViewActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mView != null) {
-            this.mView.vQ();
+            this.mView.vR();
         }
     }
 
@@ -42,7 +42,7 @@ public class UegWebViewActivity extends TbWebViewActivity {
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if ("callNativeSMS".equals(str2)) {
-                    uj(str3);
+                    uq(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("copyToClipboard".equals(str2)) {
@@ -50,7 +50,7 @@ public class UegWebViewActivity extends TbWebViewActivity {
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("setBlockPopInfo".equals(str2)) {
-                    uk(str3);
+                    ur(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else {
@@ -60,7 +60,7 @@ public class UegWebViewActivity extends TbWebViewActivity {
             return false;
         }
 
-        private void uj(String str) {
+        private void uq(String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 UtilHelper.smsTo(UegWebViewActivity.this.getActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -77,7 +77,7 @@ public class UegWebViewActivity extends TbWebViewActivity {
             }
         }
 
-        private void uk(String str) {
+        private void ur(String str) {
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 JSONObject jSONObject = new JSONObject(str);

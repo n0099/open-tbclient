@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes.dex */
 public class av {
-    private String aMC;
-    private List<a> aMD = new ArrayList();
+    private String aMF;
+    private List<a> aMG = new ArrayList();
 
-    public String yf() {
-        return StringUtils.isNull(this.aMC) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.aMC;
+    public String yg() {
+        return StringUtils.isNull(this.aMF) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.aMF;
     }
 
-    public com.baidu.tieba.card.data.p yg() {
+    public com.baidu.tieba.card.data.p yh() {
         com.baidu.tieba.card.data.p pVar = new com.baidu.tieba.card.data.p();
         ArrayList arrayList = null;
-        pVar.cXv = yf();
-        if (this.aMD != null) {
+        pVar.cXQ = yg();
+        if (this.aMG != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.aMD) {
+            for (a aVar : this.aMG) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.yi());
+                    arrayList2.add(aVar.yj());
                 }
             }
             arrayList = arrayList2;
         }
-        pVar.cXw = arrayList;
+        pVar.cXR = arrayList;
         return pVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.aMC = recomTopicInfo.recom_title;
+            this.aMF = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.D(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.aMD.add(aVar);
+                            this.aMG.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class av {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.yh() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.yi() <= 0;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        private long aME;
-        private String aMF;
-        private long aMG;
-        private String aMH;
+        private long aMH;
         private String aMI;
+        private long aMJ;
+        private String aMK;
+        private String aML;
         private int tag;
         private int type;
 
-        public long yh() {
-            return this.aME;
+        public long yi() {
+            return this.aMH;
         }
 
         public String getTopicName() {
-            return this.aMF;
+            return this.aMI;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
-                this.aME = recomTopicList.topic_id.longValue();
-                this.aMF = recomTopicList.topic_name;
+                this.aMH = recomTopicList.topic_id.longValue();
+                this.aMI = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.aMG = recomTopicList.discuss_num.longValue();
+                this.aMJ = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.aMH = recomTopicList.topic_desc;
-                this.aMI = recomTopicList.topic_pic;
+                this.aMK = recomTopicList.topic_desc;
+                this.aML = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.o yi() {
+        public com.baidu.tieba.card.data.o yj() {
             com.baidu.tieba.card.data.o oVar = new com.baidu.tieba.card.data.o();
             oVar.tag = this.tag;
-            oVar.desc = this.aMH;
-            oVar.aME = this.aME;
-            oVar.aMF = this.aMF;
+            oVar.desc = this.aMK;
+            oVar.aMH = this.aMH;
+            oVar.aMI = this.aMI;
             return oVar;
         }
     }

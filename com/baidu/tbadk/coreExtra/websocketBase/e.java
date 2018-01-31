@@ -8,17 +8,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean bnY = false;
-    private int bnZ = 0;
+    private boolean boh = false;
+    private int boi = 0;
 
-    public void fD(String str) {
+    public void fK(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.bnY = false;
-        this.bnZ = 0;
+        this.boh = false;
+        this.boi = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -49,7 +49,7 @@ public class e {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.bnY = true;
+                                this.boh = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,23 +80,23 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.bnY && i4 > 0) {
-                    this.bnZ = i3 / i4;
+                if (this.boh && i4 > 0) {
+                    this.boi = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.bnY;
+        return this.boh;
     }
 
-    public int JA() {
-        return this.bnZ;
+    public int JC() {
+        return this.boi;
     }
 
     private int getTimeout() {
-        switch (j.oO()) {
+        switch (j.oP()) {
             case 1:
                 return PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
             case 2:

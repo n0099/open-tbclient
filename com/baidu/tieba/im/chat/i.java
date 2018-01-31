@@ -6,53 +6,53 @@ import com.baidu.tbadk.core.util.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i {
-    BaseActivity cmR;
+    BaseActivity cmZ;
     String mUrl;
 
     public i(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.cmR = baseActivity;
+        this.cmZ = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.cmR.getPageContext().getString(d.j.save_fail));
+                showToast(this.cmZ.getPageContext().getString(d.j.save_fail));
             }
-            com.baidu.adp.lib.f.c.nl().a(this.mUrl, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.im.chat.i.1
+            com.baidu.adp.lib.f.c.nm().a(this.mUrl, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        i.this.showToast(i.this.l(i.this.mUrl, aVar.sl()));
+                        i.this.showToast(i.this.m(i.this.mUrl, aVar.sm()));
                     } else {
-                        i.this.showToast(i.this.cmR.getPageContext().getString(d.j.save_fail));
+                        i.this.showToast(i.this.cmZ.getPageContext().getString(d.j.save_fail));
                     }
                 }
-            }, this.cmR.getUniqueId());
+            }, this.cmZ.getUniqueId());
         } catch (Exception e) {
-            showToast(this.cmR.getPageContext().getString(d.j.save_fail));
+            showToast(this.cmZ.getPageContext().getString(d.j.save_fail));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String l(String str, byte[] bArr) {
-        switch (k.a(str, bArr, this.cmR.getPageContext().getPageActivity())) {
+    public String m(String str, byte[] bArr) {
+        switch (k.a(str, bArr, this.cmZ.getPageContext().getPageActivity())) {
             case -2:
-                return k.Bz();
+                return k.BA();
             case -1:
             default:
-                return this.cmR.getPageContext().getString(d.j.save_fail);
+                return this.cmZ.getPageContext().getString(d.j.save_fail);
             case 0:
-                return this.cmR.getPageContext().getString(d.j.save_image_to_album);
+                return this.cmZ.getPageContext().getString(d.j.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.cmR.showToast(str);
+        this.cmZ.showToast(str);
     }
 }

@@ -7,8 +7,8 @@ import java.nio.ByteBuffer;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int ans;
-    private final int ant;
+    private final int anv;
+    private final int anw;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -16,9 +16,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.ans = i;
-        this.ant = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.ans);
+        this.anv = i;
+        this.anw = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.anv);
         this.mBuffer.clear();
     }
 
@@ -42,7 +42,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.ant) + 1) * this.ant);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.anw) + 1) * this.anw);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -75,7 +75,7 @@ public class a extends OutputStream {
         write(str.getBytes(HTTP.UTF_8));
     }
 
-    public synchronized void po() throws IOException {
+    public synchronized void pp() throws IOException {
         write(13);
         write(10);
     }

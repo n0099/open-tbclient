@@ -25,19 +25,19 @@ import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class l {
-    private static float amI;
-    static int amJ;
-    static int amK;
-    private static String amN;
-    static boolean amH = false;
-    private static Toast amL = null;
-    private static a amM = null;
+    private static float amL;
+    static int amM;
+    static int amN;
+    private static String amQ;
+    static boolean amK = false;
+    private static Toast amO = null;
+    private static a amP = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.amL != null) {
-                l.amL.cancel();
+            if (l.amO != null) {
+                l.amO.cancel();
             }
         }
     };
@@ -46,7 +46,7 @@ public class l {
     public interface a {
         void aZ(String str);
 
-        View pf();
+        View pg();
     }
 
     public static void ap(Context context) {
@@ -55,74 +55,74 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            amJ = displayMetrics.heightPixels;
-            amK = displayMetrics.widthPixels;
+            amM = displayMetrics.heightPixels;
+            amN = displayMetrics.widthPixels;
         } else {
-            amJ = displayMetrics.widthPixels;
-            amK = displayMetrics.heightPixels;
+            amM = displayMetrics.widthPixels;
+            amN = displayMetrics.heightPixels;
         }
-        amI = displayMetrics.density;
-        amH = true;
+        amL = displayMetrics.density;
+        amK = true;
     }
 
     public static int ao(Context context) {
-        if (!amH) {
+        if (!amK) {
             ap(context);
         }
-        return amJ;
+        return amM;
     }
 
     public static int aq(Context context) {
-        if (!amH) {
+        if (!amK) {
             ap(context);
         }
-        return amK;
+        return amN;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!amH) {
+        if (!amK) {
             ap(context);
         }
-        return (int) ((amI * f) + 0.5f);
+        return (int) ((amL * f) + 0.5f);
     }
 
     public static float ar(Context context) {
-        if (!amH) {
+        if (!amK) {
             ap(context);
         }
-        return amI;
+        return amL;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (amL == null) {
-                if (amM == null || amM.pf() == null) {
-                    amL = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (amO == null) {
+                if (amP == null || amP.pg() == null) {
+                    amO = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    amL = new Toast(BdBaseApplication.getInst().getApp());
-                    amL.setDuration(0);
-                    amM.aZ(str);
-                    amL.setView(amM.pf());
+                    amO = new Toast(BdBaseApplication.getInst().getApp());
+                    amO.setDuration(0);
+                    amP.aZ(str);
+                    amO.setView(amP.pg());
                 }
-                amL.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                amO.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(amN)) {
-                    if (amM == null || amM.pf() == null) {
-                        amL.setText(str);
+                if (!str.equals(amQ)) {
+                    if (amP == null || amP.pg() == null) {
+                        amO.setText(str);
                     } else {
-                        amM.aZ(str);
+                        amP.aZ(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                amL.setGravity(17, 0, dip2px);
+                amO.setGravity(17, 0, dip2px);
             }
-            amN = str;
+            amQ = str;
             mHandler.postDelayed(mRunnable, i);
-            amL.show();
+            amO.show();
         }
     }
 
@@ -309,9 +309,9 @@ public class l {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static void oX() {
+    public static void oY() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (oY() ? false : true) {
+            if (oZ() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -328,12 +328,12 @@ public class l {
         }
     }
 
-    public static boolean oY() {
+    public static boolean oZ() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean oZ() {
-        return j.oI();
+    public static boolean pa() {
+        return j.oJ();
     }
 
     public static void a(Context context, final View view, int i, int i2, int i3, int i4) {
@@ -356,7 +356,7 @@ public class l {
         });
     }
 
-    public static String pa() {
+    public static String pb() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -389,7 +389,7 @@ public class l {
         return str;
     }
 
-    public static String pb() {
+    public static String pc() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -422,7 +422,7 @@ public class l {
         return str;
     }
 
-    public static boolean pc() {
+    public static boolean pd() {
         String aY;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (aY = aY(str)) != null && aY.length() >= 3) {
@@ -445,11 +445,11 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a pd() {
-        return amM;
+    public static a pe() {
+        return amP;
     }
 
     public static void a(a aVar) {
-        amM = aVar;
+        amP = aVar;
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
     private String labelName = "";
-    private int bkK = 0;
-    private boolean bkL = false;
+    private int bkS = 0;
+    private boolean bkT = false;
     private String labelId = "";
-    private int bkM = 0;
-    private boolean bkN = false;
-    private int bkO = aj.getColor(d.C0107d.cp_cont_i);
-    private int bkP = aj.getColor(d.C0107d.cp_link_tip_d);
+    private int bkU = 0;
+    private boolean bkV = false;
+    private int bkW = aj.getColor(d.C0108d.cp_cont_i);
+    private int bkX = aj.getColor(d.C0108d.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -25,29 +25,29 @@ public class e {
     }
 
     public void hp(int i) {
-        this.bkK = i;
+        this.bkS = i;
     }
 
-    public int IC() {
-        return this.bkK;
+    public int IE() {
+        return this.bkS;
     }
 
-    public void fu(String str) {
+    public void fB(String str) {
         this.labelId = str;
     }
 
-    public SpannableStringBuilder ak(String str, String str2) {
+    public SpannableStringBuilder aj(String str, String str2) {
         String str3 = str + "(" + am.H(com.baidu.adp.lib.g.b.c(str2, 0L)) + ")";
         if (com.baidu.adp.lib.g.b.c(str2, 0L) > 0) {
             str = str3;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (com.baidu.adp.lib.g.b.c(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkO), 0, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkW), 0, str.length(), 33);
         } else {
             int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkO), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkP), indexOf, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkW), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.bkX), indexOf, str.length(), 33);
         }
         return spannableStringBuilder;
     }

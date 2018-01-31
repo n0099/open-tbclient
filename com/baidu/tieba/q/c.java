@@ -10,12 +10,12 @@ public class c {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.na().setUrl(str);
-        eVar.na().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.na().d("", bArr);
+        eVar.nb().setUrl(str);
+        eVar.nb().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.nb().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).o(3, -1, -1);
-        int i = eVar.nb().responseCode;
-        byte[] bArr2 = eVar.nb().ajC;
+        int i = eVar.nc().responseCode;
+        byte[] bArr2 = eVar.nc().ajF;
         if (bArr2 == null || i != 200) {
             return false;
         }

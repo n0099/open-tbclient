@@ -7,7 +7,7 @@ public class f implements d {
     @Override // com.baidu.tbadk.download.d
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            g.Kr().b(downloadData);
+            g.Kt().b(downloadData);
         }
     }
 
@@ -32,7 +32,7 @@ public class f implements d {
     @Override // com.baidu.tbadk.download.d
     public void onFileDownloadSucceed(DownloadData downloadData) {
         if (downloadData != null) {
-            g.Kr().b(downloadData);
+            g.Kt().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getPath());
             }
@@ -41,7 +41,7 @@ public class f implements d {
 
     @Override // com.baidu.tbadk.download.d
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        g.Kr().k(downloadData);
-        g.Kr().b(downloadData);
+        g.Kt().k(downloadData);
+        g.Kt().b(downloadData);
     }
 }

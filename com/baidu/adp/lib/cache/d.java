@@ -4,8 +4,8 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final boolean ahd;
-    protected final e ahe;
+    protected final boolean ahg;
+    protected final e ahh;
 
     public abstract g<T> Y(String str);
 
@@ -16,12 +16,12 @@ public abstract class d<T> implements k<T> {
     public abstract void c(g<T> gVar);
 
     public d(e eVar, boolean z) {
-        this.ahe = eVar;
-        this.ahd = z;
+        this.ahh = eVar;
+        this.ahg = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.ahd) {
+        if (this.ahg) {
             return str + "@" + str2;
         }
         return str2;
@@ -34,14 +34,14 @@ public abstract class d<T> implements k<T> {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (Y.ahl < System.currentTimeMillis()) {
+        } else if (Y.aho < System.currentTimeMillis()) {
             aa(h);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.ahe.mb()) {
-                Y.ahk = System.currentTimeMillis();
+            if (this.ahh.mc()) {
+                Y.ahn = System.currentTimeMillis();
                 c(Y);
             }
             if (BdLog.isDebugMode()) {
@@ -68,20 +68,20 @@ public abstract class d<T> implements k<T> {
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
         bVar.value = j.value;
-        bVar.ahl = j.ahl;
-        bVar.ahA = j.ahj;
+        bVar.aho = j.aho;
+        bVar.ahD = j.ahm;
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void a(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.ahh = h(str, str2);
-        gVar.ahi = str;
-        gVar.ahl = j;
+        gVar.ahk = h(str, str2);
+        gVar.ahl = str;
+        gVar.aho = j;
         gVar.value = t;
-        gVar.ahk = System.currentTimeMillis();
-        gVar.ahj = System.currentTimeMillis();
+        gVar.ahn = System.currentTimeMillis();
+        gVar.ahm = System.currentTimeMillis();
         c(gVar);
     }
 
@@ -91,7 +91,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e ma() {
-        return this.ahe;
+    public e mb() {
+        return this.ahh;
     }
 }

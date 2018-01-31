@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gEI;
-    private CustomMessageListener gEK = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gFd;
+    private CustomMessageListener gFf = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oI() && b.this.gEJ != null) {
-                b.this.gEJ.bnD();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oJ() && b.this.gFe != null) {
+                b.this.gFe.bnE();
             }
         }
     };
-    private c gEJ = new f();
+    private c gFe = new f();
 
-    public static b bnB() {
-        if (gEI == null) {
+    public static b bnC() {
+        if (gFd == null) {
             synchronized (b.class) {
-                if (gEI == null) {
-                    gEI = new b();
+                if (gFd == null) {
+                    gFd = new b();
                 }
             }
         }
-        return gEI;
+        return gFd;
     }
 
-    private boolean bnC() {
-        return com.baidu.adp.lib.b.d.mz().an("ad_log_open") != 0;
+    private boolean bnD() {
+        return com.baidu.adp.lib.b.d.mA().an("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gEK);
+        MessageManager.getInstance().registerListener(this.gFf);
     }
 
     public void a(a aVar) {
-        if (bnC() && aVar != null && this.gEJ != null) {
-            if (j.oI()) {
-                this.gEJ.b(aVar);
+        if (bnD() && aVar != null && this.gFe != null) {
+            if (j.oJ()) {
+                this.gFe.b(aVar);
             } else {
-                this.gEJ.c(aVar);
+                this.gFe.c(aVar);
             }
         }
     }

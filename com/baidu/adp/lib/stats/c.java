@@ -6,9 +6,9 @@ public class c {
     public String akC;
     public String akD;
     public String akE;
-    public String aku;
-    public String akv;
-    public String akw;
+    public String akF;
+    public String akG;
+    public String akH;
     public String akx;
     public String aky;
     public String akz;

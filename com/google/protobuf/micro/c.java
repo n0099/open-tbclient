@@ -9,7 +9,7 @@ public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hWP;
+    private final OutputStream hXj;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -19,28 +19,28 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hWP = outputStream;
+        this.hXj = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hWP = null;
+        this.hXj = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
     }
 
     public static int W(int i, boolean z) {
-        return yK(i) + ob(z);
+        return yK(i) + od(z);
     }
 
     public static c a(OutputStream outputStream, int i) {
         return new c(outputStream, new byte[i]);
     }
 
-    public static int ar(int i, String str) {
+    public static int at(int i, String str) {
         return yK(i) + b(str);
     }
 
@@ -86,10 +86,10 @@ public final class c {
     }
 
     private void d() {
-        if (this.hWP == null) {
+        if (this.hXj == null) {
             throw new a();
         }
-        this.hWP.write(this.a, 0, this.c);
+        this.hXj.write(this.a, 0, this.c);
         this.c = 0;
     }
 
@@ -97,15 +97,15 @@ public final class c {
         return yK(i) + d(i2);
     }
 
-    public static int ds(long j) {
-        return du(j);
-    }
-
-    public static int dt(long j) {
-        return du(j);
-    }
-
     public static int du(long j) {
+        return dw(j);
+    }
+
+    public static int dv(long j) {
+        return dw(j);
+    }
+
+    public static int dw(long j) {
         if (((-128) & j) == 0) {
             return 1;
         }
@@ -138,18 +138,18 @@ public final class c {
     }
 
     public static int l(int i, long j) {
-        return yK(i) + ds(j);
+        return yK(i) + du(j);
     }
 
     public static int m(int i, long j) {
-        return yK(i) + dt(j);
+        return yK(i) + dv(j);
     }
 
     public static c n(byte[] bArr, int i, int i2) {
         return new c(bArr, i, i2);
     }
 
-    public static int ob(boolean z) {
+    public static int od(boolean z) {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.hWP != null) {
+        if (this.hXj != null) {
             d();
         }
     }
@@ -243,7 +243,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hWP == null) {
+        if (this.hXj == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -286,7 +286,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hWP.write(bArr, i4, i5);
+            this.hXj.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);

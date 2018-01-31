@@ -1,45 +1,45 @@
-package com.baidu.tbadk.core.util.c;
+package com.baidu.tbadk.core.util.d;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class t extends a {
-    private boolean aXs;
+    private boolean aXA;
     private int procType;
 
     public t(boolean z, int i) {
-        this.aXs = true;
+        this.aXA = true;
         this.procType = 0;
-        this.aXs = z;
+        this.aXA = z;
         this.procType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
         return com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst().getApp());
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
         return com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst().getApp());
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
+    @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aXs;
+        return this.aXA;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Dn() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dp() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public boolean Do() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean Dq() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public int Dp() {
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Dr() {
         return this.procType;
     }
 }

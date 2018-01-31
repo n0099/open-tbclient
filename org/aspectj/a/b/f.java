@@ -4,21 +4,21 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 abstract class f implements org.aspectj.lang.c {
-    int inG;
-    String inH;
-    Class inI;
-    a inJ;
-    private String inK;
-    ClassLoader inw = null;
+    ClassLoader inQ = null;
+    int ioa;
+    String iob;
+    Class ioc;
+    a iod;
+    private String ioe;
     String name;
-    private static boolean djs = true;
+    private static boolean djN = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] inL = new Class[0];
+    static Class[] iof = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public interface a {
-        void as(int i, String str);
+        void au(int i, String str);
 
         String zy(int i);
     }
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.inG = -1;
-        this.inG = i;
+        this.ioa = -1;
+        this.ioa = i;
         this.name = str;
-        this.inI = cls;
+        this.ioc = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (djs) {
-            if (this.inJ == null) {
+        if (djN) {
+            if (this.iod == null) {
                 try {
-                    this.inJ = new b();
+                    this.iod = new b();
                 } catch (Throwable th) {
-                    djs = false;
+                    djN = false;
                 }
             } else {
-                str = this.inJ.zy(hVar.inW);
+                str = this.iod.zy(hVar.ioq);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (djs) {
-            this.inJ.as(hVar.inW, str);
+        if (djN) {
+            this.iod.au(hVar.ioq, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.inY);
+        return a(h.ios);
     }
 
     public int getModifiers() {
-        if (this.inG == -1) {
-            this.inG = zv(0);
+        if (this.ioa == -1) {
+            this.ioa = zv(0);
         }
-        return this.inG;
+        return this.ioa;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class bRK() {
-        if (this.inI == null) {
-            this.inI = zw(2);
+    public Class bRM() {
+        if (this.ioc == null) {
+            this.ioc = zw(2);
         }
-        return this.inI;
+        return this.ioc;
     }
 
-    public String bRL() {
-        if (this.inH == null) {
-            this.inH = bRK().getName();
+    public String bRN() {
+        if (this.iob == null) {
+            this.iob = bRM().getName();
         }
-        return this.inH;
+        return this.iob;
     }
 
-    private ClassLoader bRM() {
-        if (this.inw == null) {
-            this.inw = getClass().getClassLoader();
+    private ClassLoader bRO() {
+        if (this.inQ == null) {
+            this.inQ = getClass().getClassLoader();
         }
-        return this.inw;
+        return this.inQ;
     }
 
     String zu(int i) {
         int i2 = 0;
-        int indexOf = this.inK.indexOf(45);
+        int indexOf = this.ioe.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.inK.indexOf(45, i2);
+            indexOf = this.ioe.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.inK.length();
+            indexOf = this.ioe.length();
         }
-        return this.inK.substring(i2, indexOf);
+        return this.ioe.substring(i2, indexOf);
     }
 
     int zv(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class zw(int i) {
-        return org.aspectj.a.b.b.b(zu(i), bRM());
+        return org.aspectj.a.b.b.b(zu(i), bRO());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bRM());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bRO());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b implements a {
-        private SoftReference inM;
+        private SoftReference iog;
 
         public b() {
-            bRO();
+            bRQ();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String zy(int i) {
-            String[] bRN = bRN();
-            if (bRN == null) {
+            String[] bRP = bRP();
+            if (bRP == null) {
                 return null;
             }
-            return bRN[i];
+            return bRP[i];
         }
 
         @Override // org.aspectj.a.b.f.a
-        public void as(int i, String str) {
-            String[] bRN = bRN();
-            if (bRN == null) {
-                bRN = bRO();
+        public void au(int i, String str) {
+            String[] bRP = bRP();
+            if (bRP == null) {
+                bRP = bRQ();
             }
-            bRN[i] = str;
+            bRP[i] = str;
         }
 
-        private String[] bRN() {
-            return (String[]) this.inM.get();
+        private String[] bRP() {
+            return (String[]) this.iog.get();
         }
 
-        private String[] bRO() {
+        private String[] bRQ() {
             String[] strArr = new String[3];
-            this.inM = new SoftReference(strArr);
+            this.iog = new SoftReference(strArr);
             return strArr;
         }
     }

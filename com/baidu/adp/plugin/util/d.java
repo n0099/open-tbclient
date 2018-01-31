@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> asC = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> asF = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        asC.put(Boolean.class, Boolean.TYPE);
-        asC.put(Byte.class, Byte.TYPE);
-        asC.put(Character.class, Character.TYPE);
-        asC.put(Short.class, Short.TYPE);
-        asC.put(Integer.class, Integer.TYPE);
-        asC.put(Float.class, Float.TYPE);
-        asC.put(Long.class, Long.TYPE);
-        asC.put(Double.class, Double.TYPE);
-        asC.put(Boolean.TYPE, Boolean.TYPE);
-        asC.put(Byte.TYPE, Byte.TYPE);
-        asC.put(Character.TYPE, Character.TYPE);
-        asC.put(Short.TYPE, Short.TYPE);
-        asC.put(Integer.TYPE, Integer.TYPE);
-        asC.put(Float.TYPE, Float.TYPE);
-        asC.put(Long.TYPE, Long.TYPE);
-        asC.put(Double.TYPE, Double.TYPE);
+        asF.put(Boolean.class, Boolean.TYPE);
+        asF.put(Byte.class, Byte.TYPE);
+        asF.put(Character.class, Character.TYPE);
+        asF.put(Short.class, Short.TYPE);
+        asF.put(Integer.class, Integer.TYPE);
+        asF.put(Float.class, Float.TYPE);
+        asF.put(Long.class, Long.TYPE);
+        asF.put(Double.class, Double.TYPE);
+        asF.put(Boolean.TYPE, Boolean.TYPE);
+        asF.put(Byte.TYPE, Byte.TYPE);
+        asF.put(Character.TYPE, Character.TYPE);
+        asF.put(Short.TYPE, Short.TYPE);
+        asF.put(Integer.TYPE, Integer.TYPE);
+        asF.put(Float.TYPE, Float.TYPE);
+        asF.put(Long.TYPE, Long.TYPE);
+        asF.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (asC.containsKey(clsArr[i]) && asC.get(clsArr[i]).equals(asC.get(clsArr2[i]))) {
+                if (asF.containsKey(clsArr[i]) && asF.get(clsArr[i]).equals(asF.get(clsArr2[i]))) {
                     return true;
                 }
             }

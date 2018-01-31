@@ -15,10 +15,10 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes2.dex */
 public class f extends i {
-    private FrsPicVoteLayout dIE;
-    private FrsPicVotePhotoFrame dIF;
-    private FrsPicVotePhotoFrame dIG;
-    private FrsPicVotePhotoFrame dIH;
+    private FrsPicVoteLayout dIZ;
+    private FrsPicVotePhotoFrame dJa;
+    private FrsPicVotePhotoFrame dJb;
+    private FrsPicVotePhotoFrame dJc;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -32,27 +32,27 @@ public class f extends i {
             findViewById = ((ViewStub) this.mRootView.findViewById(d.g.pic_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.dIE = (FrsPicVoteLayout) findViewById;
+            this.dIZ = (FrsPicVoteLayout) findViewById;
             int s = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds20);
-            if (this.dIE.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dIE.getLayoutParams()).topMargin = s;
+            if (this.dIZ.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.dIZ.getLayoutParams()).topMargin = s;
             }
-            if (this.dIY.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.dIY.getLayoutParams()).topMargin = s;
+            if (this.dJt.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.dJt.getLayoutParams()).topMargin = s;
             }
-            this.dIF = (FrsPicVotePhotoFrame) this.dIE.findViewById(d.g.frs_pic_vote_photoframe_1);
-            this.dIG = (FrsPicVotePhotoFrame) this.dIE.findViewById(d.g.frs_pic_vote_photoframe_2);
-            this.dIH = (FrsPicVotePhotoFrame) this.dIE.findViewById(d.g.frs_pic_vote_photoframe_3);
-            this.dIF.setPageId(getTag());
-            this.dIG.setPageId(getTag());
-            this.dIH.setPageId(getTag());
+            this.dJa = (FrsPicVotePhotoFrame) this.dIZ.findViewById(d.g.frs_pic_vote_photoframe_1);
+            this.dJb = (FrsPicVotePhotoFrame) this.dIZ.findViewById(d.g.frs_pic_vote_photoframe_2);
+            this.dJc = (FrsPicVotePhotoFrame) this.dIZ.findViewById(d.g.frs_pic_vote_photoframe_3);
+            this.dJa.setPageId(getTag());
+            this.dJb.setPageId(getTag());
+            this.dJc.setPageId(getTag());
             int s2 = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds64);
             int s3 = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds32);
             int s4 = com.baidu.adp.lib.util.l.s(getContext(), d.e.ds4);
-            a(this.dIF, s2, s3, s4);
-            a(this.dIG, s2, s3, s4);
-            a(this.dIH, s2, s3, s4);
-            awF();
+            a(this.dJa, s2, s3, s4);
+            a(this.dJb, s2, s3, s4);
+            a(this.dJc, s2, s3, s4);
+            awK();
         }
     }
 
@@ -66,42 +66,42 @@ public class f extends i {
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void no(int i) {
-        awF();
-        this.dIF.onChangeSkinType(i);
-        this.dIG.onChangeSkinType(i);
-        this.dIH.onChangeSkinType(i);
+        awK();
+        this.dJa.onChangeSkinType(i);
+        this.dJb.onChangeSkinType(i);
+        this.dJc.onChangeSkinType(i);
     }
 
-    private void awF() {
-        this.dIF.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
-        this.dIG.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
-        this.dIH.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));
+    private void awK() {
+        this.dJa.setGrade(aj.getDrawable(d.f.pic_grade_vote_num1));
+        this.dJb.setGrade(aj.getDrawable(d.f.pic_grade_vote_num2));
+        this.dJc.setGrade(aj.getDrawable(d.f.pic_grade_vote_num3));
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.i
     protected void P(bd bdVar) {
-        if (bdVar != null && bdVar.yE() != null) {
-            List<PollOption> list = bdVar.yE().options;
-            if (!com.baidu.tbadk.core.i.wA().wG() || v.E(list)) {
-                this.dIE.setVisibility(8);
+        if (bdVar != null && bdVar.yF() != null) {
+            List<PollOption> list = bdVar.yF().options;
+            if (!com.baidu.tbadk.core.i.wB().wH() || v.E(list)) {
+                this.dIZ.setVisibility(8);
                 return;
             }
-            this.dIE.setVisibility(0);
-            this.dIF.setVisibility(0);
-            this.dIG.setVisibility(0);
+            this.dIZ.setVisibility(0);
+            this.dJa.setVisibility(0);
+            this.dJb.setVisibility(0);
             int size = list.size() >= 3 ? 3 : list.size();
-            this.dIH.setVisibility(size == 3 ? 0 : 4);
+            this.dJc.setVisibility(size == 3 ? 0 : 4);
             if (size >= 1) {
                 PollOption pollOption = list.get(0);
-                this.dIF.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), bdVar.yE().total_poll.longValue());
+                this.dJa.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), bdVar.yF().total_poll.longValue());
             }
             if (size >= 2) {
                 PollOption pollOption2 = list.get(1);
-                this.dIG.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), bdVar.yE().total_poll.longValue());
+                this.dJb.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), bdVar.yF().total_poll.longValue());
             }
             if (size >= 3) {
                 PollOption pollOption3 = list.get(2);
-                this.dIH.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), bdVar.yE().total_poll.longValue());
+                this.dJc.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), bdVar.yF().total_poll.longValue());
             }
         }
     }

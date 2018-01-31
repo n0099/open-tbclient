@@ -12,11 +12,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        bka();
         bkb();
+        bkc();
     }
 
-    private static void bka() {
+    private static void bkb() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -24,7 +24,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bkb() {
+    private static void bkc() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -48,7 +48,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (aaVar != null) {
-            httpMessage.addParam("video_md5", aaVar.gtZ);
+            httpMessage.addParam("video_md5", aaVar.guu);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -58,16 +58,16 @@ public class l {
 
     private static void a(HttpMessage httpMessage, aa aaVar) {
         if (httpMessage != null && aaVar != null) {
-            httpMessage.addParam("tid", aaVar.bAT);
-            httpMessage.addParam(ImageViewerConfig.FORUM_ID, aaVar.cWM);
-            httpMessage.addParam("obj_to", aaVar.gtV);
-            httpMessage.addParam("obj_id", aaVar.aLe);
-            httpMessage.addParam("obj_param3", aaVar.gtW);
+            httpMessage.addParam("tid", aaVar.bBb);
+            httpMessage.addParam(ImageViewerConfig.FORUM_ID, aaVar.cXh);
+            httpMessage.addParam("obj_to", aaVar.guq);
+            httpMessage.addParam("obj_id", aaVar.aLh);
+            httpMessage.addParam("obj_param3", aaVar.gur);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, aaVar.mSource);
             httpMessage.addParam("obj_locate", aaVar.mLocate);
-            httpMessage.addParam("obj_param1", aaVar.gtX);
-            if (!StringUtils.isNull(aaVar.gua)) {
-                httpMessage.addParam("topic_type", aaVar.gua);
+            httpMessage.addParam("obj_param1", aaVar.gus);
+            if (!StringUtils.isNull(aaVar.guv)) {
+                httpMessage.addParam("topic_type", aaVar.guv);
             }
         }
     }

@@ -5,14 +5,14 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class at {
-    private static String aWd;
-    private static String aWe;
-    private static final HashMap<String, String> aWf = new HashMap<>();
+    private static String aWg;
+    private static String aWh;
+    private static final HashMap<String, String> aWi = new HashMap<>();
 
-    public static void ef(String str) {
-        aWe = str;
+    public static void ej(String str) {
+        aWh = str;
         if (TextUtils.isEmpty(str)) {
-            aWd = str;
+            aWg = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -20,21 +20,21 @@ public class at {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (aWf != null) {
-            str2 = aWf.get(str);
+        if (aWi != null) {
+            str2 = aWi.get(str);
         }
         if (str2 == null) {
-            str2 = eg(str);
-            if (aWf != null) {
-                aWf.put(str, str2);
+            str2 = ek(str);
+            if (aWi != null) {
+                aWi.put(str, str2);
             }
         }
         if (str2 != null) {
-            aWd = str2 + System.currentTimeMillis();
+            aWg = str2 + System.currentTimeMillis();
         }
     }
 
-    private static String eg(String str) {
+    private static String ek(String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = str.length();
             if ((str.toLowerCase().endsWith(PushConstants.INTENT_ACTIVITY_NAME) || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
@@ -45,11 +45,11 @@ public class at {
         return str;
     }
 
-    public static String CV() {
-        return aWd;
+    public static String CW() {
+        return aWg;
     }
 
-    public static String CW() {
-        return aWe;
+    public static String CX() {
+        return aWh;
     }
 }

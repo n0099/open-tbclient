@@ -8,7 +8,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class o extends ImageSpan {
-    private WeakReference<Drawable> ate;
+    private WeakReference<Drawable> ath;
 
     public o(Drawable drawable) {
         super(drawable);
@@ -16,7 +16,7 @@ public class o extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = rN().getBounds();
+        Rect bounds = rO().getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -33,22 +33,22 @@ public class o extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable rN = rN();
+        Drawable rO = rO();
         canvas.save();
-        canvas.translate(f, ((i5 - rN.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-        rN.draw(canvas);
+        canvas.translate(f, ((i5 - rO.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        rO.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable rN() {
-        WeakReference<Drawable> weakReference = this.ate;
+    private Drawable rO() {
+        WeakReference<Drawable> weakReference = this.ath;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.ate = new WeakReference<>(drawable2);
+            this.ath = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

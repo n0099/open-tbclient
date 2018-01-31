@@ -14,7 +14,7 @@ import java.util.Locale;
 public class j {
     private int B;
     long a = 0;
-    private a aAy;
+    private a aAB;
     private static ArrayList<String> b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
     private static ArrayList<String> d = new ArrayList<>();
@@ -23,23 +23,23 @@ public class j {
     private static final String g = com.baidu.location.h.h.a + "/yom.dat";
     private static final String h = com.baidu.location.h.h.a + "/yol.dat";
     private static final String i = com.baidu.location.h.h.a + "/yor.dat";
-    private static File aAp = null;
+    private static File aAs = null;
     private static int k = 8;
     private static int l = 8;
     private static int m = 16;
     private static int n = 1024;
-    private static double aAq = 0.0d;
-    private static double aAr = 0.1d;
-    private static double aAs = 30.0d;
-    private static double aAt = 100.0d;
+    private static double aAt = 0.0d;
+    private static double aAu = 0.1d;
+    private static double aAv = 30.0d;
+    private static double aAw = 100.0d;
     private static int s = 0;
     private static int t = 64;
     private static int u = 128;
-    private static Location aAu = null;
-    private static Location aAv = null;
-    private static Location aAw = null;
-    private static com.baidu.location.f.i aAx = null;
-    private static j aAz = null;
+    private static Location aAx = null;
+    private static Location aAy = null;
+    private static Location aAz = null;
+    private static com.baidu.location.f.i aAA = null;
+    private static j aAC = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -126,9 +126,9 @@ public class j {
     }
 
     private j() {
-        this.aAy = null;
+        this.aAB = null;
         this.B = 0;
-        this.aAy = new a();
+        this.aAB = new a();
         this.B = 0;
     }
 
@@ -285,15 +285,15 @@ public class j {
     }
 
     public static void a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, Location location, String str) {
-        BDLocation aF;
+        BDLocation aG;
         String str2;
         String a2;
-        if (com.baidu.location.c.c.tR().a) {
+        if (com.baidu.location.c.c.tS().a) {
             if (com.baidu.location.h.i.s != 3 || a(location, iVar) || a(location, false)) {
-                if (com.baidu.location.e.a.tX().aF(true).getLocType() == 66) {
-                    str = str + String.format(Locale.CHINA, "&ofrt=%f|%f|%d", Double.valueOf(aF.getLongitude()), Double.valueOf(aF.getLatitude()), Integer.valueOf((int) aF.getRadius()));
+                if (com.baidu.location.e.a.tY().aG(true).getLocType() == 66) {
+                    str = str + String.format(Locale.CHINA, "&ofrt=%f|%f|%d", Double.valueOf(aG.getLongitude()), Double.valueOf(aG.getLatitude()), Integer.valueOf((int) aG.getRadius()));
                 }
-                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.tY().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.tY().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.tZ().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.tZ().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
                 if (a3 == null || a3.getLocType() == 67) {
                     str2 = str + String.format(Locale.CHINA, "&ofl=%s|0", "1");
                 } else {
@@ -312,35 +312,35 @@ public class j {
                     String a4 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 1);
                     if (a4 != null) {
                         c(Jni.encode(a4));
-                        aAv = location;
-                        aAu = location;
+                        aAy = location;
+                        aAx = location;
                         if (iVar != null) {
-                            aAx = iVar;
+                            aAA = iVar;
                         }
                     }
                 } else if (iVar != null && iVar.h() && a(location, iVar)) {
-                    if (!b(location) && !com.baidu.location.f.b.ul().d()) {
+                    if (!b(location) && !com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=1" + str2;
-                    } else if (!b(location) && com.baidu.location.f.b.ul().d()) {
+                    } else if (!b(location) && com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.ul().d()) {
+                    } else if (com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=2" + str2;
                     }
                     String a5 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 2);
                     if (a5 != null) {
                         d(Jni.encode(a5));
-                        aAw = location;
-                        aAu = location;
+                        aAz = location;
+                        aAx = location;
                         if (iVar != null) {
-                            aAx = iVar;
+                            aAA = iVar;
                         }
                     }
                 } else {
-                    if (!b(location) && !com.baidu.location.f.b.ul().d()) {
+                    if (!b(location) && !com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=1" + str2;
-                    } else if (!b(location) && com.baidu.location.f.b.ul().d()) {
+                    } else if (!b(location) && com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.ul().d()) {
+                    } else if (com.baidu.location.f.b.um().d()) {
                         str2 = "&cfr=2" + str2;
                     }
                     if (!a(location, iVar)) {
@@ -350,9 +350,9 @@ public class j {
                         return;
                     }
                     e(Jni.encode(a2));
-                    aAu = location;
+                    aAx = location;
                     if (iVar != null) {
-                        aAx = iVar;
+                        aAA = iVar;
                     }
                 }
             }
@@ -390,18 +390,18 @@ public class j {
     }
 
     private static boolean a(Location location, com.baidu.location.f.i iVar) {
-        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(aAx)) {
+        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(aAA)) {
             return false;
         }
-        if (aAw == null) {
-            aAw = location;
+        if (aAz == null) {
+            aAz = location;
             return true;
         }
         return true;
     }
 
     public static boolean a(Location location, boolean z) {
-        return com.baidu.location.f.e.a(aAu, location, z);
+        return com.baidu.location.f.e.a(aAx, location, z);
     }
 
     public static boolean a(String str, List<String> list) {
@@ -482,12 +482,12 @@ public class j {
         if (location == null) {
             return false;
         }
-        if (aAv == null || aAu == null) {
-            aAv = location;
+        if (aAy == null || aAx == null) {
+            aAy = location;
             return true;
         }
-        double distanceTo = location.distanceTo(aAv);
-        return ((double) location.distanceTo(aAu)) > ((distanceTo * ((double) com.baidu.location.h.i.aDo)) + ((((double) com.baidu.location.h.i.aDn) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
+        double distanceTo = location.distanceTo(aAy);
+        return ((double) location.distanceTo(aAx)) > ((distanceTo * ((double) com.baidu.location.h.i.aDr)) + ((((double) com.baidu.location.h.i.aDq) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
     }
 
     private static void c(String str) {
@@ -541,14 +541,14 @@ public class j {
                         e2.printStackTrace();
                         i3 = -5;
                     }
-                    if (aAp == null) {
-                        aAp = new File(e);
-                        if (!aAp.exists()) {
-                            aAp = null;
+                    if (aAs == null) {
+                        aAs = new File(e);
+                        if (!aAs.exists()) {
+                            aAs = null;
                             i3 = -2;
                         }
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(aAp, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(aAs, "rw");
                     if (randomAccessFile.length() < 1) {
                         randomAccessFile.close();
                         i3 = -3;
@@ -665,20 +665,20 @@ public class j {
         return null;
     }
 
-    public static synchronized j tL() {
+    public static synchronized j tM() {
         j jVar;
         synchronized (j.class) {
-            if (aAz == null) {
-                aAz = new j();
+            if (aAC == null) {
+                aAC = new j();
             }
-            jVar = aAz;
+            jVar = aAC;
         }
         return jVar;
     }
 
     public void c() {
-        if (com.baidu.location.f.k.uz().g()) {
-            this.aAy.b();
+        if (com.baidu.location.f.k.uA().g()) {
+            this.aAB.b();
         }
     }
 }

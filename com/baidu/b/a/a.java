@@ -14,7 +14,7 @@ public class a extends com.baidu.b.b.a {
     }
 
     public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (com.baidu.b.a.uO()) {
+        if (com.baidu.b.a.uP()) {
             b.requestPermissions(activity, strArr, i);
         } else if (activity instanceof InterfaceC0036a) {
             a(activity, strArr, i, (InterfaceC0036a) activity);
@@ -22,7 +22,7 @@ public class a extends com.baidu.b.b.a {
     }
 
     public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0036a interfaceC0036a) {
-        if (com.baidu.b.a.uO()) {
+        if (com.baidu.b.a.uP()) {
             b.requestPermissions(activity, strArr, i);
         } else if (!activity.isFinishing() && interfaceC0036a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.b.a.a.1
@@ -39,5 +39,12 @@ public class a extends com.baidu.b.b.a {
                 }
             });
         }
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        if (com.baidu.b.a.uP()) {
+            return b.shouldShowRequestPermissionRationale(activity, str);
+        }
+        return false;
     }
 }

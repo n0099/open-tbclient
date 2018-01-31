@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> aGt = null;
-    protected static boolean aGv = false;
-    protected String aGr = "183322726";
-    protected boolean aGu = true;
-    protected transient List<String> aGs = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> aGw = null;
+    protected static boolean aGy = false;
+    protected String aGu = "183322726";
+    protected boolean aGx = true;
+    protected transient List<String> aGv = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,10 +30,10 @@ public abstract class b {
     public abstract void vA();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vq();
+    public abstract void vB();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vw();
+    public abstract void vr();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void vx();
@@ -55,29 +55,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (aGt == null) {
-            aGt = new WeakReference<>(tbPageContext);
+        if (aGw == null) {
+            aGw = new WeakReference<>(tbPageContext);
             return;
         }
-        aGt.clear();
-        aGt = null;
-        aGt = new WeakReference<>(tbPageContext);
+        aGw.clear();
+        aGw = null;
+        aGw = new WeakReference<>(tbPageContext);
     }
 
-    public boolean vv() {
-        return aGv;
+    public boolean vw() {
+        return aGy;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aI(boolean z) {
-        this.aGu = z;
+    public void aJ(boolean z) {
+        this.aGx = z;
     }
 
-    public void vr() {
-        if (aGt != null) {
-            aGt.get();
-            aGt.clear();
-            aGt = null;
+    public void vs() {
+        if (aGw != null) {
+            aGw.get();
+            aGw.clear();
+            aGw = null;
         }
     }
 }

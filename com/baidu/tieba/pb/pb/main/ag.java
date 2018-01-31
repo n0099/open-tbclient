@@ -18,7 +18,7 @@ public class ag extends m<ad, af> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bs */
     public af onCreateViewHolder(ViewGroup viewGroup) {
-        return new af(this.fJw.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_page_news, viewGroup, false));
+        return new af(this.fJR.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

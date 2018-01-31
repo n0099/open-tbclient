@@ -10,25 +10,25 @@ import java.util.List;
 public interface u {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int ave();
+    int avj();
 
-    HashMap<Integer, bd> awj();
-
-    void awk();
-
-    int awl();
-
-    int awm();
-
-    int awn();
-
-    int awo();
+    HashMap<Integer, bd> awo();
 
     void awp();
 
+    int awq();
+
+    int awr();
+
+    int aws();
+
+    int awt();
+
+    void awu();
+
     void b(ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    void fT(boolean z);
+    void fV(boolean z);
 
     List<com.baidu.adp.widget.ListView.i> getDatas();
 

@@ -14,73 +14,73 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a extends com.baidu.tieba.frs.view.c {
-    protected o dCm;
-    protected g dGa;
-    protected TextView dGb;
-    protected ViewGroup dGc;
+    protected o dCH;
+    protected g dGv;
+    protected TextView dGw;
+    protected ViewGroup dGx;
 
-    public void avO() {
-        this.dGb = (TextView) this.dTE.findViewById(d.g.top_item_type);
-        this.dGb.setText(TbadkCoreApplication.getInst().getString(d.j.game));
-        this.dTI = new com.baidu.tieba.frs.view.a(this.dCx.getContext());
-        this.dTI.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.dTI.setOrientation(1);
-        this.dTI.setPadding(0, 0, 0, l.s(this.aQp.getPageActivity(), d.e.tbds16));
-        this.dGa = new g(this.dCx);
-        this.dGa.a(this.dUt);
-        this.dTI.setAdapter(this.dGa);
+    public void avT() {
+        this.dGw = (TextView) this.dTZ.findViewById(d.g.top_item_type);
+        this.dGw.setText(TbadkCoreApplication.getInst().getString(d.j.game));
+        this.dUd = new com.baidu.tieba.frs.view.a(this.dCS.getContext());
+        this.dUd.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dUd.setOrientation(1);
+        this.dUd.setPadding(0, 0, 0, l.s(this.aQs.getPageActivity(), d.e.tbds16));
+        this.dGv = new g(this.dCS);
+        this.dGv.a(this.dUO);
+        this.dUd.setAdapter(this.dGv);
     }
 
     public void a(o oVar) {
-        this.dCm = oVar;
+        this.dCH = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void bj(List<com.baidu.tieba.tbadkCore.g> list) {
-        if (this.dCx != null && this.dCx.auq() != null && this.dGa != null) {
+        if (this.dCS != null && this.dCS.auv() != null && this.dGv != null) {
             ArrayList arrayList = new ArrayList();
-            List<i> buM = this.dCx.auq().buM();
-            if (buM != null) {
-                for (int i = 0; i < v.D(buM) && arrayList.size() < 2; i++) {
-                    i iVar = (i) v.f(buM, i);
+            List<i> buO = this.dCS.auv().buO();
+            if (buO != null) {
+                for (int i = 0; i < v.D(buO) && arrayList.size() < 2; i++) {
+                    i iVar = (i) v.f(buO, i);
                     if (iVar instanceof bd) {
                         arrayList.add(iVar);
                     }
                 }
             }
-            if (this.dGa instanceof com.baidu.tieba.frs.d.c) {
-                g gVar = this.dGa;
-                if (com.baidu.tieba.frs.d.c.dQJ != null && this.dCx.auq() != null) {
-                    if (this.dCx.auq().gVC == 1) {
-                        com.baidu.tieba.frs.d.c.dQJ.dQx = true;
+            if (this.dGv instanceof com.baidu.tieba.frs.d.c) {
+                g gVar = this.dGv;
+                if (com.baidu.tieba.frs.d.c.dRe != null && this.dCS.auv() != null) {
+                    if (this.dCS.auv().gVW == 1) {
+                        com.baidu.tieba.frs.d.c.dRe.dQS = true;
                     } else {
-                        com.baidu.tieba.frs.d.c.dQJ.dQx = false;
+                        com.baidu.tieba.frs.d.c.dRe.dQS = false;
                     }
-                    if (this.dCx.auq().aYE() != null) {
-                        com.baidu.tieba.frs.d.c.dQJ.dQz = this.dCx.auq().aYE().getId();
+                    if (this.dCS.auv().aYJ() != null) {
+                        com.baidu.tieba.frs.d.c.dRe.dQU = this.dCS.auv().aYJ().getId();
                     }
                 }
             }
             if (!v.E(list)) {
                 arrayList.add(list.get(0));
             }
-            this.dGa.c(this.dCm);
-            this.dGa.setData(arrayList);
-            this.dGa.notifyDataSetChanged();
+            this.dGv.c(this.dCH);
+            this.dGv.setData(arrayList);
+            this.dGv.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void avP() {
-        if (this.dGa != null) {
-            this.dGa.notifyDataSetChanged();
+    public void avU() {
+        if (this.dGv != null) {
+            this.dGv.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void avQ() {
-        if (this.dGa != null) {
-            this.dGa.notifyDataSetChanged();
+    public void avV() {
+        if (this.dGv != null) {
+            this.dGv.notifyDataSetChanged();
         }
     }
 }

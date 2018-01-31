@@ -6,22 +6,22 @@ public class c extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mq() {
+    protected String[] mr() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mr() {
+    protected int ms() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
+    protected int mt() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
+    protected int mu() {
         return 10;
     }
 

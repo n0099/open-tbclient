@@ -9,31 +9,31 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ao extends m<com.baidu.tieba.pb.data.l, ap> {
-    private View.OnTouchListener bBl;
-    private com.baidu.tieba.pb.a.c bJG;
-    private FrameLayout bZY;
-    private com.baidu.tieba.pb.view.d fPM;
-    public boolean fPN;
+    private View.OnTouchListener bBt;
+    private com.baidu.tieba.pb.a.c bJO;
+    private FrameLayout cag;
+    private com.baidu.tieba.pb.view.d fQh;
+    public boolean fQi;
     private View.OnClickListener mClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ao(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.bBl = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
+        this.bBt = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (ao.this.fPM != null) {
-                    return ao.this.fPM.onTouch(view, motionEvent);
+                if (ao.this.fQh != null) {
+                    return ao.this.fQh.onTouch(view, motionEvent);
                 }
                 return false;
             }
         };
-        this.bZY = new FrameLayout(pbActivity.getPageContext().getPageActivity());
+        this.cag = new FrameLayout(pbActivity.getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.bZY.setBackgroundResource(d.C0107d.transparent);
-        this.bZY.setTag("PraiseContainerView");
-        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.bZY, layoutParams);
-        this.fPM = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.bZY);
+        this.cag.setBackgroundResource(d.C0108d.transparent);
+        this.cag.setTag("PraiseContainerView");
+        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.cag, layoutParams);
+        this.fQh = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.cag);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,9 +42,9 @@ public class ao extends m<com.baidu.tieba.pb.data.l, ap> {
     /* renamed from: bv */
     public ap onCreateViewHolder(ViewGroup viewGroup) {
         ap apVar = new ap(LayoutInflater.from(this.mContext).inflate(d.h.layout_thread_praise_item, viewGroup, false));
-        if (this.bJG != null && apVar.mRootView != null) {
+        if (this.bJO != null && apVar.mRootView != null) {
             apVar.mRootView.setClickable(true);
-            apVar.mRootView.setOnTouchListener(this.bJG);
+            apVar.mRootView.setOnTouchListener(this.bJO);
         }
         return apVar;
     }
@@ -56,26 +56,26 @@ public class ao extends m<com.baidu.tieba.pb.data.l, ap> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, ap apVar) {
         super.onFillViewHolder(i, view, viewGroup, lVar, apVar);
         if (lVar != null && apVar != null) {
-            apVar.fPV.setOnClickListener(this.mClickListener);
-            apVar.fPT.setOnClickListener(this.mClickListener);
+            apVar.fQq.setOnClickListener(this.mClickListener);
+            apVar.fQo.setOnClickListener(this.mClickListener);
             apVar.b(lVar);
-            apVar.fPR.setTag(d.g.pb_main_thread_praise_data, lVar);
-            apVar.fPR.setTag(d.g.pb_main_thread_praise_view, apVar);
-            ((ap) this.viewholder).fPS.setTag(d.g.pb_main_thread_praise_view, apVar);
-            apVar.fPP.setTag(d.g.pb_main_thread_praise_view, apVar);
-            if (this.fPM != null) {
-                this.fPM.setAnchorView(apVar.fPP);
-                this.fPM.cG(((ap) this.viewholder).fPS);
-                this.fPM.setOnTouchListener(this.bBl);
+            apVar.fQm.setTag(d.g.pb_main_thread_praise_data, lVar);
+            apVar.fQm.setTag(d.g.pb_main_thread_praise_view, apVar);
+            ((ap) this.viewholder).fQn.setTag(d.g.pb_main_thread_praise_view, apVar);
+            apVar.fQk.setTag(d.g.pb_main_thread_praise_view, apVar);
+            if (this.fQh != null) {
+                this.fQh.setAnchorView(apVar.fQk);
+                this.fQh.cG(((ap) this.viewholder).fQn);
+                this.fQh.setOnTouchListener(this.bBt);
             } else {
-                apVar.fPR.setOnClickListener(this.mClickListener);
+                apVar.fQm.setOnClickListener(this.mClickListener);
             }
-            apVar.fPS.setOnClickListener(this.mClickListener);
-            apVar.fPQ.setOnClickListener(this.mClickListener);
-            if (this.fPN) {
-                apVar.bcX();
+            apVar.fQn.setOnClickListener(this.mClickListener);
+            apVar.fQl.setOnClickListener(this.mClickListener);
+            if (this.fQi) {
+                apVar.bdc();
             } else {
-                apVar.bcW();
+                apVar.bdb();
             }
         }
         return view;
@@ -83,24 +83,24 @@ public class ao extends m<com.baidu.tieba.pb.data.l, ap> {
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
-        if (this.fPM != null) {
-            this.fPM.setOnClickListener(onClickListener);
+        if (this.fQh != null) {
+            this.fQh.setOnClickListener(onClickListener);
         }
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.bJG = cVar;
+        this.bJO = cVar;
     }
 
     public void sJ(int i) {
-        if (i == 3 && this.fJw != null && this.bZY != null) {
-            this.bZY.removeAllViews();
-            ((FrameLayout) this.fJw.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bZY);
+        if (i == 3 && this.fJR != null && this.cag != null) {
+            this.cag.removeAllViews();
+            ((FrameLayout) this.fJR.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.cag);
         }
-        this.fPM.sJ(i);
+        this.fQh.sJ(i);
     }
 
     public void m(boolean z, int i) {
-        this.fPM.n(z, i);
+        this.fQh.n(z, i);
     }
 }

@@ -34,11 +34,11 @@ public class MyService extends Service {
                         MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
                         MyService.a(MyService.this);
                     } else {
-                        com.baidu.sofire.core.e uR = com.baidu.sofire.core.e.uR();
-                        if (uR == null) {
+                        com.baidu.sofire.core.e uS = com.baidu.sofire.core.e.uS();
+                        if (uS == null) {
                             MyService.a(MyService.this);
                         } else {
-                            ApkInfo cf = uR.cf(stringExtra);
+                            ApkInfo cf = uS.cf(stringExtra);
                             new StringBuilder("i=").append(cf);
                             if (cf == null) {
                                 MyService.a(MyService.this);

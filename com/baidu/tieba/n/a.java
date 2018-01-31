@@ -3,11 +3,11 @@ package com.baidu.tieba.n;
 public interface a {
     void a(long j, String str, String str2, long j2);
 
+    void av(String str, String str2);
+
     void aw(String str, String str2);
 
     void ax(String str, String str2);
-
-    void ay(String str, String str2);
 
     void b(long j, String str, String str2);
 

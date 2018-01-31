@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.util.LocalViewSize;
 /* loaded from: classes.dex */
 public class a {
     public static void init() {
-        com.baidu.tieba.im.memorycache.b.aIV();
-        com.baidu.tieba.im.pushNotify.a.aJX();
-        LocalViewSize.BY().an(TbadkCoreApplication.getInst().getContext());
-        com.baidu.tieba.im.a.b.aJx().init(TbadkCoreApplication.getInst().getContext());
-        com.baidu.tieba.im.pushNotify.b.aJY().open();
-        com.baidu.tieba.im.push.a.aJP();
-        com.baidu.tieba.im.sendmessage.a.aKk();
+        com.baidu.tieba.im.memorycache.b.aJa();
+        com.baidu.tieba.im.pushNotify.a.aKc();
+        LocalViewSize.BZ().an(TbadkCoreApplication.getInst().getContext());
+        com.baidu.tieba.im.a.b.aJC().init(TbadkCoreApplication.getInst().getContext());
+        com.baidu.tieba.im.pushNotify.b.aKd().open();
+        com.baidu.tieba.im.push.a.aJU();
+        com.baidu.tieba.im.sendmessage.a.aKp();
     }
 }

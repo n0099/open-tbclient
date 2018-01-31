@@ -8,31 +8,31 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class l extends c {
     public bd threadData;
-    public static String cWQ = "";
-    public static String cWR = "";
-    public static String cWS = "";
-    public static String cWT = "";
-    public static String cWU = "";
-    public static String cWV = "";
-    public static String cWW = "";
-    public static String cWX = "";
-    public static String cWY = "";
-    public static String cWZ = "";
-    public static String cXa = "";
+    public static String cXl = "";
+    public static String cXm = "";
+    public static String cXn = "";
+    public static String cXo = "";
+    public static String cXp = "";
+    public static String cXq = "";
+    public static String cXr = "";
+    public static String cXs = "";
+    public static String cXt = "";
+    public static String cXu = "";
+    public static String cXv = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId cXb = BdUniqueId.gen();
-    public static final BdUniqueId aMZ = BdUniqueId.gen();
-    public static final BdUniqueId aNf = BdUniqueId.gen();
-    public boolean cXc = false;
+    public static final BdUniqueId cXw = BdUniqueId.gen();
+    public static final BdUniqueId aNc = BdUniqueId.gen();
+    public static final BdUniqueId aNi = BdUniqueId.gen();
+    public boolean cXx = false;
     public boolean isLinkThread = false;
-    public boolean cXd = false;
-    public boolean brt = true;
+    public boolean cXy = false;
+    public boolean brC = true;
 
     public static boolean J(bd bdVar) {
         if (bdVar == null) {
             return false;
         }
-        return bdVar.getType() == bd.aMY || bdVar.getType() == bd.aNa || bdVar.getType() == bd.aMZ || bdVar.getType() == bd.aNf;
+        return bdVar.getType() == bd.aNb || bdVar.getType() == bd.aNd || bdVar.getType() == bd.aNc || bdVar.getType() == bd.aNi;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
@@ -40,73 +40,73 @@ public class l extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.cXc) {
-            return cXb;
+        if (this.cXx) {
+            return cXw;
         }
         if (this.isLinkThread) {
-            return aMZ;
+            return aNc;
         }
         if (this.threadData.isShareThread) {
-            return aNf;
+            return aNi;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd VK() {
+    public bd VM() {
         return this.threadData;
     }
 
-    public boolean akV() {
-        return (this.threadData == null || v.D(this.threadData.zh()) == 0) ? false : true;
+    public boolean ala() {
+        return (this.threadData == null || v.D(this.threadData.zi()) == 0) ? false : true;
     }
 
-    public ak akW() {
-        bd VK;
-        if (this.cXc) {
+    public ak alb() {
+        bd VM;
+        if (this.cXx) {
             ak akVar = new ak("c11003");
-            if (VK() != null && (VK = VK()) != null) {
-                akVar.ab("tid", VK.getTid());
-                if (VK.yS() != null) {
-                    akVar.s("ab_type", VK.yS().hadConcerned() ? 1 : 0);
+            if (VM() != null && (VM = VM()) != null) {
+                akVar.aa("tid", VM.getTid());
+                if (VM.yT() != null) {
+                    akVar.s("ab_type", VM.yT().hadConcerned() ? 1 : 0);
                 }
             }
             return akVar;
-        } else if (akV()) {
-            ak ki = ki(cWV);
-            if (ki != null && VK() != null) {
-                bd VK2 = VK();
-                ki.s("obj_name", VK2.Ag() != null && (VK2.Ag().bvK() != null || VK2.Ag().QJ() != null) ? 1 : 0);
-                if (VK2.yS() != null) {
-                    ki.s("ab_type", VK2.yS().hadConcerned() ? 1 : 0);
+        } else if (ala()) {
+            ak kp = kp(cXq);
+            if (kp != null && VM() != null) {
+                bd VM2 = VM();
+                kp.s("obj_name", VM2.Ah() != null && (VM2.Ah().bvM() != null || VM2.Ah().QL() != null) ? 1 : 0);
+                if (VM2.yT() != null) {
+                    kp.s("ab_type", VM2.yT().hadConcerned() ? 1 : 0);
                 }
             }
-            return ki;
+            return kp;
         } else {
-            ak ki2 = ki(cWQ);
-            if (ki2 != null) {
-                ki2.ab("ab_tag", akP()).ab("ab_action", "show");
-                if (VK() != null) {
-                    bd VK3 = VK();
-                    boolean z = (VK3.Ag() == null || (VK3.Ag().bvK() == null && VK3.Ag().QJ() == null)) ? false : true;
-                    ki2.s("obj_name", z ? 1 : 0);
-                    if (z && VK3.Ag().bvK() != null && VK3.Ag().bvK().QB() != null && VK3.Ag().bvK().QB().size() > 0) {
-                        ki2.s("obj_to", VK3.Ag().gYN ? 2 : 1);
+            ak kp2 = kp(cXl);
+            if (kp2 != null) {
+                kp2.aa("ab_tag", akU()).aa("ab_action", "show");
+                if (VM() != null) {
+                    bd VM3 = VM();
+                    boolean z = (VM3.Ah() == null || (VM3.Ah().bvM() == null && VM3.Ah().QL() == null)) ? false : true;
+                    kp2.s("obj_name", z ? 1 : 0);
+                    if (z && VM3.Ah().bvM() != null && VM3.Ah().bvM().QD() != null && VM3.Ah().bvM().QD().size() > 0) {
+                        kp2.s("obj_to", VM3.Ah().gZh ? 2 : 1);
                     }
-                    if (VK3.yS() != null) {
-                        ki2.s("ab_type", VK3.yS().hadConcerned() ? 1 : 0);
+                    if (VM3.yT() != null) {
+                        kp2.s("ab_type", VM3.yT().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return ki2;
+            return kp2;
         }
     }
 
-    public ak kk(String str) {
+    public ak kr(String str) {
         ak akVar = new ak(str);
         if (akVar != null && this.threadData != null) {
             akVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
-            akVar.ab("tid", this.threadData.getTid());
+            akVar.aa("tid", this.threadData.getTid());
             int i = 1;
             if (this.threadData.isLinkThread()) {
                 i = 4;
@@ -114,100 +114,100 @@ public class l extends c {
                 i = 5;
             }
             akVar.s("obj_type", i);
-            akVar.ab("obj_id", this.threadData.yS().getUserId());
+            akVar.aa("obj_id", this.threadData.yT().getUserId());
         }
         return akVar;
     }
 
-    public ak kl(String str) {
-        ak ki = ki(str);
-        if (ki != null) {
-            ki.ab("ab_tag", akP()).ab("ab_action", "show");
-            if (VK() != null) {
-                bd VK = VK();
-                boolean z = (VK.Ag() == null || (VK.Ag().bvK() == null && VK.Ag().QJ() == null)) ? false : true;
-                ki.s("obj_name", z ? 1 : 0);
-                if (z && VK.Ag().bvK() != null && VK.Ag().bvK().QB() != null && VK.Ag().bvK().QB().size() > 0) {
-                    ki.s("obj_to", VK.Ag().gYN ? 2 : 1);
+    public ak ks(String str) {
+        ak kp = kp(str);
+        if (kp != null) {
+            kp.aa("ab_tag", akU()).aa("ab_action", "show");
+            if (VM() != null) {
+                bd VM = VM();
+                boolean z = (VM.Ah() == null || (VM.Ah().bvM() == null && VM.Ah().QL() == null)) ? false : true;
+                kp.s("obj_name", z ? 1 : 0);
+                if (z && VM.Ah().bvM() != null && VM.Ah().bvM().QD() != null && VM.Ah().bvM().QD().size() > 0) {
+                    kp.s("obj_to", VM.Ah().gZh ? 2 : 1);
                 }
             }
         }
-        return ki;
+        return kp;
     }
 
-    public ak km(String str) {
-        ak ki = ki(str);
-        if (ki != null) {
-            ki.ab("ab_tag", akP()).ab("ab_action", "click");
+    public ak kt(String str) {
+        ak kp = kp(str);
+        if (kp != null) {
+            kp.aa("ab_tag", akU()).aa("ab_action", "click");
         }
-        return ki;
+        return kp;
     }
 
-    public ak akX() {
-        if (akV()) {
-            return ki(cWW);
+    public ak alc() {
+        if (ala()) {
+            return kp(cXr);
         }
-        ak ki = ki(cWR);
-        if (ki != null) {
-            ki.ab("ab_tag", akP()).ab("ab_action", "click");
-            return ki;
+        ak kp = kp(cXm);
+        if (kp != null) {
+            kp.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kp;
         }
-        return ki;
+        return kp;
     }
 
-    public ak akY() {
-        if (akV()) {
-            return ki(cWX);
+    public ak ald() {
+        if (ala()) {
+            return kp(cXs);
         }
-        ak W = W(cWS, 0);
+        ak W = W(cXn, 0);
         if (W != null) {
-            W.ab("ab_tag", akP()).ab("ab_action", "click");
+            W.aa("ab_tag", akU()).aa("ab_action", "click");
             return W;
         }
         return W;
     }
 
-    public ak akZ() {
-        if (akV()) {
-            return ki(cWY);
+    public ak ale() {
+        if (ala()) {
+            return kp(cXt);
         }
-        ak ki = ki(cWT);
-        if (ki != null) {
-            ki.ab("ab_tag", akP()).ab("ab_action", "click");
-            return ki;
+        ak kp = kp(cXo);
+        if (kp != null) {
+            kp.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kp;
         }
-        return ki;
+        return kp;
     }
 
-    public ak ala() {
-        if (akV()) {
-            return ki(cWZ);
+    public ak alf() {
+        if (ala()) {
+            return kp(cXu);
         }
-        ak ki = ki(cWU);
-        if (ki != null) {
-            ki.ab("ab_tag", akP()).ab("ab_action", "click");
-            return ki;
+        ak kp = kp(cXp);
+        if (kp != null) {
+            kp.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kp;
         }
-        return ki;
+        return kp;
     }
 
-    public ak alb() {
-        return ki(cXa);
+    public ak alg() {
+        return kp(cXv);
     }
 
-    public ak kn(String str) {
-        return ki(str);
+    public ak ku(String str) {
+        return kp(str);
     }
 
-    public ak ko(String str) {
-        ak ki = ki(str);
-        if (this.threadData != null && this.threadData.yS() != null) {
-            ki.s("ab_type", this.threadData.yS().hadConcerned() ? 1 : 0);
+    public ak kv(String str) {
+        ak kp = kp(str);
+        if (this.threadData != null && this.threadData.yT() != null) {
+            kp.s("ab_type", this.threadData.yT().hadConcerned() ? 1 : 0);
         }
-        return ki;
+        return kp;
     }
 
-    public ak kp(String str) {
-        return ki(str);
+    public ak kw(String str) {
+        return kp(str);
     }
 }

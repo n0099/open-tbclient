@@ -37,7 +37,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
             if (!isToShow(imMessageCenterPojo)) {
                 if (aVar != null) {
-                    aVar.aEE();
+                    aVar.aEJ();
                     return;
                 }
                 return;
@@ -62,7 +62,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             removeItem(imMessageCenterPojo);
             if (aVar != null) {
-                aVar.aEE();
+                aVar.aEJ();
             }
         }
     }
@@ -71,7 +71,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         this.mList.clear();
         if (list == null) {
             if (aVar != null) {
-                aVar.aEE();
+                aVar.aEJ();
                 return;
             }
             return;
@@ -137,7 +137,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
                 if (aVar != null) {
-                    aVar.aEE();
+                    aVar.aEJ();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new MemoryModifyVisibilityMessage.a(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
             }
@@ -173,7 +173,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             }
         });
         if (aVar != null) {
-            aVar.aEE();
+            aVar.aEJ();
         }
     }
 }

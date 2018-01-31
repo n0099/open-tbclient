@@ -17,22 +17,22 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class e {
-    private h gZj;
-    private Surface hVP;
-    private c hVi;
-    private MediaCodec hVj;
-    private int hVk;
-    private boolean hVl;
+    private h gZD;
+    private c hVC;
+    private MediaCodec hVD;
+    private int hVE;
+    private boolean hVF;
+    private Surface hWj;
     private MediaCodec.BufferInfo mBufferInfo;
-    private Bundle hVQ = new Bundle();
-    private long hVR = 0;
-    private boolean hVL = false;
+    private Bundle hWk = new Bundle();
+    private long hWl = 0;
+    private boolean hWf = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.gZj = kVar.aVs();
+            this.gZD = kVar.aVx();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -40,78 +40,78 @@ public class e {
         createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.hVj = MediaCodec.createEncoderByType("video/avc");
-        this.hVj.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.hVP = this.hVj.createInputSurface();
-        this.hVj.start();
+        this.hVD = MediaCodec.createEncoderByType("video/avc");
+        this.hVD.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.hWj = this.hVD.createInputSurface();
+        this.hVD.start();
         if (Build.VERSION.SDK_INT >= 19) {
-            this.hVQ.putInt("request-sync", 0);
-            this.hVj.setParameters(this.hVQ);
+            this.hWk.putInt("request-sync", 0);
+            this.hVD.setParameters(this.hWk);
         }
-        this.hVk = -1;
-        this.hVl = false;
-        this.hVi = cVar;
+        this.hVE = -1;
+        this.hVF = false;
+        this.hVC = cVar;
     }
 
     public synchronized void requestStop() {
-        this.hVL = true;
+        this.hWf = true;
     }
 
     public Surface getInputSurface() {
-        return this.hVP;
+        return this.hWj;
     }
 
     public void release() {
-        if (this.hVj != null) {
-            this.hVj.stop();
-            this.hVj.release();
-            this.hVj = null;
+        if (this.hVD != null) {
+            this.hVD.stop();
+            this.hVD.release();
+            this.hVD = null;
         }
-        if (this.hVi != null) {
+        if (this.hVC != null) {
             try {
-                this.hVi.stop();
+                this.hVC.stop();
             } catch (IllegalStateException e) {
-                if (this.gZj != null) {
-                    this.gZj.R(17, com.baidu.tieba.i.a.i(e));
+                if (this.gZD != null) {
+                    this.gZD.T(17, com.baidu.tieba.i.a.i(e));
                 }
             }
-            this.hVi = null;
+            this.hVC = null;
         }
     }
 
-    public void oa(boolean z) throws Exception {
+    public void oc(boolean z) throws Exception {
         if (z) {
-            this.hVj.signalEndOfInputStream();
+            this.hVD.signalEndOfInputStream();
         }
-        ByteBuffer[] outputBuffers = this.hVj.getOutputBuffers();
+        ByteBuffer[] outputBuffers = this.hVD.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.hVj.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+            int dequeueOutputBuffer = this.hVD.dequeueOutputBuffer(this.mBufferInfo, 10000L);
             if (dequeueOutputBuffer == -1) {
                 if (!z) {
                     return;
                 }
             } else if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.hVj.getOutputBuffers();
+                outputBuffers = this.hVD.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (this.hVl) {
+                if (this.hVF) {
                     throw new RuntimeException("format changed twice");
                 }
-                MediaFormat outputFormat = this.hVj.getOutputFormat();
+                MediaFormat outputFormat = this.hVD.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.hVk = this.hVi.addTrack(outputFormat);
-                if (!this.hVi.start()) {
-                    synchronized (this.hVi) {
-                        while (!this.hVi.isStarted() && !this.hVL) {
+                this.hVE = this.hVC.addTrack(outputFormat);
+                if (!this.hVC.start()) {
+                    synchronized (this.hVC) {
+                        while (!this.hVC.isStarted() && !this.hWf) {
                             try {
-                                this.hVi.wait(100L);
+                                this.hVC.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.hVL) {
-                    this.hVl = true;
+                if (!this.hWf) {
+                    this.hVF = true;
                 } else {
                     return;
                 }
@@ -126,17 +126,17 @@ public class e {
                     this.mBufferInfo.size = 0;
                 }
                 if (this.mBufferInfo.size != 0) {
-                    if (!this.hVl) {
+                    if (!this.hVF) {
                         throw new RuntimeException("muxer hasn't started");
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.hVi.writeSampleData(this.hVk, byteBuffer, this.mBufferInfo);
+                    this.hVC.writeSampleData(this.hVE, byteBuffer, this.mBufferInfo);
                 }
-                this.hVj.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.hVR >= 500) {
-                    this.hVj.setParameters(this.hVQ);
-                    this.hVR = System.currentTimeMillis();
+                this.hVD.releaseOutputBuffer(dequeueOutputBuffer, false);
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.hWl >= 500) {
+                    this.hVD.setParameters(this.hWk);
+                    this.hWl = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

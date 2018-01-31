@@ -14,13 +14,13 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<MetaData> aQG;
-    private TbCheckBox.a eMm;
-    private AtListActivity hIa;
-    private boolean hIc;
+    private ArrayList<MetaData> aQJ;
+    private TbCheckBox.a eMH;
+    private AtListActivity hIu;
+    private boolean hIw;
     private final Context mContext;
-    private b hIb = null;
-    private ViewGroup cmX = null;
+    private b hIv = null;
+    private ViewGroup cnf = null;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -29,40 +29,40 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.hIb = bVar;
+        this.hIv = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.hIc = true;
-        this.hIa = atListActivity;
-        this.mContext = this.hIa.getPageContext().getContext();
-        this.hIc = z;
+        this.hIw = true;
+        this.hIu = atListActivity;
+        this.mContext = this.hIu.getPageContext().getContext();
+        this.hIw = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(ArrayList<MetaData> arrayList) {
-        this.aQG = arrayList;
+        this.aQJ = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.eMm = aVar;
+        this.eMH = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aQG == null) {
+        if (this.aQJ == null) {
             return 0;
         }
-        return this.aQG.size();
+        return this.aQJ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: xK */
     public MetaData getItem(int i) {
-        if (this.aQG != null && i < this.aQG.size()) {
-            return this.aQG.get(i);
+        if (this.aQJ != null && i < this.aQJ.size()) {
+            return this.aQJ.get(i);
         }
         return null;
     }
@@ -74,72 +74,72 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0174a c0174a;
-        if (this.cmX == null) {
-            this.cmX = viewGroup;
+        C0175a c0175a;
+        if (this.cnf == null) {
+            this.cnf = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
-            c0174a = a(view != null ? view.getTag() : null, item);
+            c0175a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0174a = null;
+            c0175a = null;
         }
-        if (c0174a != null) {
-            return c0174a.rootView;
+        if (c0175a != null) {
+            return c0175a.rootView;
         }
         return null;
     }
 
-    private C0174a a(Object obj, MetaData metaData) {
-        C0174a c0174a;
+    private C0175a a(Object obj, MetaData metaData) {
+        C0175a c0175a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0174a = bHi();
+            c0175a = bHk();
         } else {
-            c0174a = (C0174a) obj;
+            c0175a = (C0175a) obj;
         }
-        if (this.hIb != null) {
-            this.hIb.a(c0174a.rootView, metaData);
+        if (this.hIv != null) {
+            this.hIv.a(c0175a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0174a.cPN.setText(metaData.getName_show());
-        c0174a.eMp.setTagData(metaData);
-        c0174a.eLV.setTag(portrait);
-        if (this.hIc) {
-            c0174a.eMp.setVisibility(0);
+        c0175a.cQi.setText(metaData.getName_show());
+        c0175a.eMK.setTagData(metaData);
+        c0175a.eMq.setTag(portrait);
+        if (this.hIw) {
+            c0175a.eMK.setVisibility(0);
         } else {
-            c0174a.eMp.setVisibility(8);
+            c0175a.eMK.setVisibility(8);
         }
-        c0174a.eLV.startLoad(portrait, 12, false);
-        this.hIa.getPageContext().getLayoutMode().aM(skinType == 1);
-        this.hIa.getPageContext().getLayoutMode().aM(c0174a.rootView);
-        return c0174a;
+        c0175a.eMq.startLoad(portrait, 12, false);
+        this.hIu.getPageContext().getLayoutMode().aN(skinType == 1);
+        this.hIu.getPageContext().getLayoutMode().aM(c0175a.rootView);
+        return c0175a;
     }
 
-    private C0174a bHi() {
-        C0174a c0174a = new C0174a();
-        c0174a.rootView = LayoutInflater.from(this.mContext).inflate(d.h.invite_friend_list_item, (ViewGroup) null);
-        c0174a.eLV = (HeadImageView) c0174a.rootView.findViewById(d.g.photo);
-        c0174a.eLV.setIsRound(false);
-        c0174a.cPN = (TextView) c0174a.rootView.findViewById(d.g.txt_user_name);
-        c0174a.eMp = (TbCheckBox) c0174a.rootView.findViewById(d.g.ckb_select);
-        if (this.eMm != null) {
-            c0174a.eMp.setStatedChangedListener(this.eMm);
+    private C0175a bHk() {
+        C0175a c0175a = new C0175a();
+        c0175a.rootView = LayoutInflater.from(this.mContext).inflate(d.h.invite_friend_list_item, (ViewGroup) null);
+        c0175a.eMq = (HeadImageView) c0175a.rootView.findViewById(d.g.photo);
+        c0175a.eMq.setIsRound(false);
+        c0175a.cQi = (TextView) c0175a.rootView.findViewById(d.g.txt_user_name);
+        c0175a.eMK = (TbCheckBox) c0175a.rootView.findViewById(d.g.ckb_select);
+        if (this.eMH != null) {
+            c0175a.eMK.setStatedChangedListener(this.eMH);
         }
-        c0174a.rootView.setTag(c0174a);
-        return c0174a;
+        c0175a.rootView.setTag(c0175a);
+        return c0175a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0174a {
-        public TextView cPN;
-        public HeadImageView eLV;
-        public TbCheckBox eMp;
+    public class C0175a {
+        public TextView cQi;
+        public TbCheckBox eMK;
+        public HeadImageView eMq;
         public View rootView;
 
-        private C0174a() {
+        private C0175a() {
         }
     }
 }

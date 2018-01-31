@@ -10,54 +10,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.a erj;
-    protected b erk;
-    protected long erq;
-    private boolean ers;
-    private boolean ert;
-    protected int eru;
+    protected com.baidu.adp.lib.c.a erF;
+    protected b erG;
+    protected long erM;
+    private boolean erN;
+    private boolean erO;
+    protected int erP;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.erj = null;
-        this.erk = null;
-        this.erq = 0L;
-        this.ers = false;
-        this.ert = false;
+        this.erF = null;
+        this.erG = null;
+        this.erM = 0L;
+        this.erN = false;
+        this.erO = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.erj = aVar;
+        this.erF = aVar;
     }
 
     public void setOnItemViewLongClickListener(b bVar) {
-        this.erk = bVar;
+        this.erG = bVar;
     }
 
-    private void aEs() {
-        this.erq = System.currentTimeMillis() / 1000;
+    private void aEx() {
+        this.erM = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aEt() {
-        return this.ers;
+    public boolean aEy() {
+        return this.erN;
     }
 
-    public void gO(boolean z) {
-        this.ers = z;
+    public void gQ(boolean z) {
+        this.erN = z;
     }
 
-    public boolean aEu() {
-        return this.ert;
+    public boolean aEz() {
+        return this.erO;
     }
 
-    public void gP(boolean z) {
-        this.ert = z;
+    public void gR(boolean z) {
+        this.erO = z;
     }
 
     public void pG(int i) {
-        this.eru = i;
+        this.erP = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,21 +68,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aEs();
+        aEx();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends r.a {
-        private T erv;
+        private T erQ;
 
         public a(View view, T t) {
             super(view);
-            this.erv = t;
+            this.erQ = t;
         }
 
-        public T aEv() {
-            return this.erv;
+        public T aEA() {
+            return this.erQ;
         }
     }
 }

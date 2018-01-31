@@ -9,10 +9,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long alo = 0;
-    public String alp = null;
+    public long alr = 0;
+    public String als = null;
 
-    public boolean oe() {
+    public boolean of() {
         String str = null;
         d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
         dVar.ab(false);
@@ -26,8 +26,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.alo = jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            this.alp = jSONObject.getString("data");
+            this.alr = jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            this.als = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }

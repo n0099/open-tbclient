@@ -7,64 +7,64 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class y {
-    private ViewGroup gtt;
-    private ImageView gtu;
-    private VideoLoadingProgressView gtv;
-    ObjectAnimator gtw;
-    ObjectAnimator gtx;
-    ObjectAnimator gty;
+    private ViewGroup gtO;
+    private ImageView gtP;
+    private VideoLoadingProgressView gtQ;
+    ObjectAnimator gtR;
+    ObjectAnimator gtS;
+    ObjectAnimator gtT;
 
     public y(ViewGroup viewGroup) {
-        this.gtt = viewGroup;
-        this.gtu = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
-        this.gtv = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
+        this.gtO = viewGroup;
+        this.gtP = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
+        this.gtQ = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.gtw = ObjectAnimator.ofFloat(this.gtu, "alpha", 1.0f, 0.5f);
-        this.gtx = ObjectAnimator.ofFloat(this.gtu, "alpha", 0.5f, 0.0f);
-        this.gty = ObjectAnimator.ofFloat(this.gtv, "alpha", 1.0f, 0.0f);
-        this.gtw.setDuration(300L);
-        this.gtx.setDuration(300L);
-        this.gty.setDuration(300L);
+        this.gtR = ObjectAnimator.ofFloat(this.gtP, "alpha", 1.0f, 0.5f);
+        this.gtS = ObjectAnimator.ofFloat(this.gtP, "alpha", 0.5f, 0.0f);
+        this.gtT = ObjectAnimator.ofFloat(this.gtQ, "alpha", 1.0f, 0.0f);
+        this.gtR.setDuration(300L);
+        this.gtS.setDuration(300L);
+        this.gtT.setDuration(300L);
     }
 
     public void startLoading() {
-        bkE();
-        this.gtu.setAlpha(1.0f);
-        this.gtv.setAlpha(1.0f);
-        this.gtt.setVisibility(0);
-        this.gtv.startLoading();
-        this.gtw.start();
-    }
-
-    public void bkB() {
-        bkE();
-        this.gtv.bkB();
+        bkF();
+        this.gtP.setAlpha(1.0f);
+        this.gtQ.setAlpha(1.0f);
+        this.gtO.setVisibility(0);
+        this.gtQ.startLoading();
+        this.gtR.start();
     }
 
     public void bkC() {
-        bkE();
-        this.gtx.start();
-        this.gty.start();
+        bkF();
+        this.gtQ.bkC();
     }
 
     public void bkD() {
-        bkE();
-        this.gtt.setVisibility(8);
-        this.gtv.bkD();
+        bkF();
+        this.gtS.start();
+        this.gtT.start();
     }
 
-    private void bkE() {
-        this.gtw.cancel();
-        this.gtx.cancel();
-        this.gty.cancel();
+    public void bkE() {
+        bkF();
+        this.gtO.setVisibility(8);
+        this.gtQ.bkE();
+    }
+
+    private void bkF() {
+        this.gtR.cancel();
+        this.gtS.cancel();
+        this.gtT.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.gtv != null) {
-            this.gtv.setLoadingAnimationListener(aVar);
+        if (this.gtQ != null) {
+            this.gtQ.setLoadingAnimationListener(aVar);
         }
     }
 }

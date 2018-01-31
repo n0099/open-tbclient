@@ -18,12 +18,12 @@ public final class e extends c {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
             dVar.xX(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.uK(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
+            dVar.uR(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
             dVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra("description")));
-            dVar.uM(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.uL(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
+            dVar.uT(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
+            dVar.uS(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
             return dVar;
         } catch (Exception e) {

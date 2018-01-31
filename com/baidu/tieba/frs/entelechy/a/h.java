@@ -18,14 +18,14 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class h extends com.baidu.tieba.frs.g<CardHListViewData, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> implements com.baidu.tieba.card.u, com.baidu.tieba.frs.d.c {
-    private v dHp;
+    private v dHK;
     private String mForumName;
 
-    public static void bD(long j) {
-        if (j > 0 && dQJ != null && !TextUtils.isEmpty(dQJ.dQz)) {
+    public static void bF(long j) {
+        if (j > 0 && dRe != null && !TextUtils.isEmpty(dRe.dQU)) {
             ak akVar = new ak("c11958");
             akVar.f("tid", j);
-            akVar.ab(ImageViewerConfig.FORUM_ID, dQJ.dQz);
+            akVar.aa(ImageViewerConfig.FORUM_ID, dRe.dQU);
             TiebaStatic.log(akVar);
         }
     }
@@ -33,7 +33,7 @@ public class h extends com.baidu.tieba.frs.g<CardHListViewData, com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dHp = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.dHK = new v<CardHListViewData>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, CardHListViewData cardHListViewData, Object obj) {
@@ -45,7 +45,7 @@ public class h extends com.baidu.tieba.frs.g<CardHListViewData, com.baidu.tieba.
                             createNormalCfg.setForumId(String.valueOf(cardHListViewNormalItemData.forumId));
                             createNormalCfg.setStartFrom(3);
                             h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                            h.bD(cardHListViewNormalItemData.threadId);
+                            h.bF(cardHListViewNormalItemData.threadId);
                         }
                     } else if (view.getId() == d.g.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
                         h.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(h.this.mContext).createNormalCfg(String.valueOf(((CardHListViewNormalItemData) obj).forumName), FrsActivityConfig.FRS_TO_PB)));
@@ -70,11 +70,11 @@ public class h extends com.baidu.tieba.frs.g<CardHListViewData, com.baidu.tieba.
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.alk() == null) {
+        if (aVar == null || aVar.alp() == null) {
             return null;
         }
-        aVar.alk().a(cardHListViewData);
-        aVar.alk().b(this.dHp);
+        aVar.alp().a(cardHListViewData);
+        aVar.alp().b(this.dHK);
         return aVar.getView();
     }
 

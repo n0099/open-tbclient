@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class x {
-    private a gXr;
+    private a gXL;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -26,17 +26,17 @@ public class x {
     }
 
     public void a(a aVar) {
-        this.gXr = aVar;
+        this.gXL = aVar;
     }
 
     public void u(String str, long j) {
-        new b(str, j, this.mFrom, this.gXr).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.gXL).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private WeakReference<a> gXs;
+        private WeakReference<a> gXM;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -45,10 +45,10 @@ public class x {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.gXs = null;
+            this.gXM = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.gXs = new WeakReference<>(aVar);
+            this.gXM = new WeakReference<>(aVar);
             this.mFrom = str2;
             setPriority(3);
         }
@@ -66,9 +66,9 @@ public class x {
                     this.mNetwork.n("kw", this.mForumName);
                     this.mNetwork.n("favo_type", "1");
                     this.mNetwork.n("st_type", this.mFrom);
-                    this.mNetwork.Cf().Db().mIsNeedTbs = true;
-                    this.mNetwork.BH();
-                    if (this.mNetwork.Cf().Dc().isRequestSuccess()) {
+                    this.mNetwork.Cg().Dc().mIsNeedTbs = true;
+                    this.mNetwork.BI();
+                    if (this.mNetwork.Cg().Dd().isRequestSuccess()) {
                         i = 1;
                         return i;
                     }
@@ -86,12 +86,12 @@ public class x {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.gXs != null) {
+            if (this.gXM != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.gXs.get();
+                a aVar2 = this.gXM.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.Cf().Dc().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.Cg().Dd().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.n(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
@@ -101,7 +101,7 @@ public class x {
                         aVar2.o(this.mForumName, this.mForumId);
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.Ci() ? this.mNetwork.getErrorString() : this.mNetwork.Cl();
+                            aVar.errorMessage = this.mNetwork.Cj() ? this.mNetwork.getErrorString() : this.mNetwork.Cm();
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));

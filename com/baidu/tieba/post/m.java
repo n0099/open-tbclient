@@ -8,123 +8,123 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class m implements h {
-    private String frY;
-    private String frZ;
-    private HashMap<String, f> gvQ;
+    private String fst;
+    private String fsu;
+    private HashMap<String, f> gwl;
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final h gvR = new m();
+        private static final h gwm = new m();
     }
 
-    public static h blj() {
-        return a.gvR;
+    public static h blk() {
+        return a.gwm;
     }
 
     private m() {
-        this.gvQ = new HashMap<>();
+        this.gwl = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aUZ() {
-        this.frY = UUID.randomUUID().toString();
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void R(int i, String str) {
-        blk().i(this.frY, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void S(int i, String str) {
-        blk().j(this.frY, i, str);
+    public void aVe() {
+        this.fst = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.i.h
     public void T(int i, String str) {
-        blk().k(this.frY, i, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void aVa() {
-        blk().pf(this.frY);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void h(int i, int i2, String str) {
-        blk().d(this.frY, i, i2, str);
-    }
-
-    @Override // com.baidu.tieba.i.h
-    public void aVb() {
-        blk().pg(this.frY);
-        ph(this.frY);
+        bll().i(this.fst, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
     public void U(int i, String str) {
-        blk().l(this.frY, i, str);
+        bll().j(this.fst, i, str);
     }
 
     @Override // com.baidu.tieba.i.h
-    public void pk(String str) {
-        if (!StringUtils.isNull(this.frZ)) {
-            if (pi(this.frZ) || pj(this.frZ)) {
-                ph(this.frZ);
+    public void V(int i, String str) {
+        bll().k(this.fst, i, str);
+    }
+
+    @Override // com.baidu.tieba.i.h
+    public void aVf() {
+        bll().pm(this.fst);
+    }
+
+    @Override // com.baidu.tieba.i.h
+    public void h(int i, int i2, String str) {
+        bll().d(this.fst, i, i2, str);
+    }
+
+    @Override // com.baidu.tieba.i.h
+    public void aVg() {
+        bll().pn(this.fst);
+        po(this.fst);
+    }
+
+    @Override // com.baidu.tieba.i.h
+    public void W(int i, String str) {
+        bll().l(this.fst, i, str);
+    }
+
+    @Override // com.baidu.tieba.i.h
+    public void pr(String str) {
+        if (!StringUtils.isNull(this.fsu)) {
+            if (pp(this.fsu) || pq(this.fsu)) {
+                po(this.fsu);
             } else {
-                d.pe(this.frZ);
-                this.gvQ.remove(this.frY);
+                d.pl(this.fsu);
+                this.gwl.remove(this.fst);
             }
-            aUZ();
-            blk().bz(this.frZ, str);
-            this.frZ = null;
+            aVe();
+            bll().by(this.fsu, str);
+            this.fsu = null;
         }
     }
 
     @Override // com.baidu.tieba.i.h
-    public void aVc() {
-        this.frZ = this.frY;
+    public void aVh() {
+        this.fsu = this.fst;
     }
 
     @Override // com.baidu.tieba.i.h
-    public void pl(String str) {
-        blk().bA(this.frY, str);
-        if (pi(this.frY) || pj(this.frY)) {
-            ph(this.frY);
+    public void ps(String str) {
+        bll().bz(this.fst, str);
+        if (pp(this.fst) || pq(this.fst)) {
+            po(this.fst);
         } else {
-            d.pe(this.frY);
-            this.gvQ.remove(this.frY);
+            d.pl(this.fst);
+            this.gwl.remove(this.fst);
         }
-        this.frY = null;
+        this.fst = null;
     }
 
-    public boolean pi(String str) {
-        return blk().pi(str);
+    public boolean pp(String str) {
+        return bll().pp(str);
     }
 
-    public boolean pj(String str) {
-        return blk().pj(str);
+    public boolean pq(String str) {
+        return bll().pq(str);
     }
 
-    public void ph(String str) {
-        f fVar = this.gvQ.get(str);
+    public void po(String str) {
+        f fVar = this.gwl.get(str);
         if (fVar != null) {
-            fVar.ph(str);
-            this.gvQ.remove(str);
+            fVar.po(str);
+            this.gwl.remove(str);
         }
     }
 
-    private f blk() {
-        f fVar = this.gvQ.get(this.frY);
+    private f bll() {
+        f fVar = this.gwl.get(this.fst);
         if (fVar == null) {
-            return bll();
+            return blm();
         }
         return fVar;
     }
 
-    private f bll() {
-        l lVar = new l(this.frY);
-        this.gvQ.put(this.frY, lVar);
+    private f blm() {
+        l lVar = new l(this.fst);
+        this.gwl.put(this.fst, lVar);
         return lVar;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.adp.lib.stats.base;
 /* loaded from: classes.dex */
 public class c {
-    public long ald;
-    public long ale;
+    public long alg;
+    public long alh;
     public String mFileName;
 
     public c(String str, long j, long j2) {
         this.mFileName = str;
-        this.ald = j;
-        this.ale = j2;
+        this.alg = j;
+        this.alh = j2;
     }
 }

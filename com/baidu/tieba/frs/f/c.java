@@ -10,24 +10,24 @@ import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes2.dex */
 public class c {
-    private final com.baidu.tieba.frs.i dCx;
-    private a dRv;
+    private final com.baidu.tieba.frs.i dCS;
+    private a dRQ;
 
     public c(com.baidu.tieba.frs.i iVar) {
-        this.dCx = iVar;
+        this.dCS = iVar;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.dCx != null && this.dCx.auq() != null && this.dCx.auq().aYE() != null && !StringUtils.isNull(this.dCx.auq().aYE().getName()) && this.dCx.auq().gWp != null && ayX() && this.dRv == null) {
-            this.dRv = new a();
-            this.dRv.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.dCS != null && this.dCS.auv() != null && this.dCS.auv().aYJ() != null && !StringUtils.isNull(this.dCS.auv().aYJ().getName()) && this.dCS.auv().gWJ != null && azc() && this.dRQ == null) {
+            this.dRQ = new a();
+            this.dRQ.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayX() {
-        PopInfo popInfo = this.dCx.auq().gWp;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.dCx.auq().gWp.if_pop.intValue() == 0) ? false : true;
+    public boolean azc() {
+        PopInfo popInfo = this.dCS.auv().gWJ;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.dCS.auv().gWJ.if_pop.intValue() == 0) ? false : true;
     }
 
     /* loaded from: classes2.dex */
@@ -39,8 +39,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            l<String> cW = com.baidu.tbadk.core.c.a.Aw().cW("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.dCx.auq().aYE().getName());
+            l<String> cW = com.baidu.tbadk.core.c.a.Ax().cW("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(c.this.dCS.auv().aYJ().getName());
             if (cW.get(encode) == null) {
                 cW.e(encode, "1");
                 return true;
@@ -52,12 +52,12 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.ayX() && c.this.dCx.isAdded()) {
-                final PopInfo popInfo = c.this.dCx.auq().gWp;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.dCx.getActivity());
+            if (bool.booleanValue() && c.this.azc() && c.this.dCS.isAdded()) {
+                final PopInfo popInfo = c.this.dCS.auv().gWJ;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.dCS.getActivity());
                 aVar.cY(popInfo.title);
                 aVar.cZ(popInfo.v_title);
-                aVar.Ax();
+                aVar.Ay();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.f.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -71,13 +71,13 @@ public class c {
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        av.CZ().c(c.this.dCx.getPageContext(), new String[]{popInfo.ahead_url});
+                        av.Da().c(c.this.dCS.getPageContext(), new String[]{popInfo.ahead_url});
                         if (aVar2 != null) {
                             aVar2.dismiss();
                         }
                     }
                 });
-                aVar.b(c.this.dCx.getPageContext()).AA();
+                aVar.b(c.this.dCS.getPageContext()).AB();
             }
         }
     }

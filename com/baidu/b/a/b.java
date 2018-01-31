@@ -19,4 +19,8 @@ public class b {
         }
         activity.requestPermissions(strArr, i);
     }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        return activity.shouldShowRequestPermissionRationale(str);
+    }
 }

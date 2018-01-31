@@ -11,38 +11,38 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.horizonalList.widget.f {
-    public BarImageView cSv;
-    public TextView cSw;
-    public EntelechyUserLikeButton cSx;
-    private com.baidu.tieba.card.data.e cSy;
+    public BarImageView cSQ;
+    public TextView cSR;
+    public EntelechyUserLikeButton cSS;
+    private com.baidu.tieba.card.data.e cST;
     private int mSkinType;
 
     public d(View view) {
         super(view);
-        this.cSv = null;
-        this.cSw = null;
-        this.cSx = null;
+        this.cSQ = null;
+        this.cSR = null;
+        this.cSS = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void a(com.baidu.tieba.horizonalList.widget.d dVar) {
         if (dVar != null && (dVar instanceof com.baidu.tieba.card.data.e)) {
-            this.cSy = (com.baidu.tieba.card.data.e) dVar;
-            this.cSv.setTag(this.cSy.forumAvatar);
-            this.cSv.setTag(d.g.tag_forum_name, this.cSy.forumName);
-            this.cSv.startLoad(this.cSy.forumAvatar, 15, false);
-            this.cSw.setText(am.getFixedText(this.cSy.forumName, 4, true) + getView().getContext().getResources().getString(d.j.forum));
-            this.cSw.setTag(d.g.tag_forum_name, this.cSy.forumName);
-            this.cSx.setTag(d.g.tag_forum_id, Long.valueOf(this.cSy.forumId));
-            this.cSx.setTag(d.g.tag_forum_name, this.cSy.forumName);
-            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cSy.forumId));
-            getView().setTag(d.g.tag_forum_name, this.cSy.forumName);
-            a(this.cSx, this.cSy.isLiked);
-            this.cSv.setOnClickListener(this.bjG);
-            this.cSx.setOnClickListener(this.bjG);
-            this.cSw.setOnClickListener(this.bjG);
-            getView().setOnClickListener(this.bjG);
+            this.cST = (com.baidu.tieba.card.data.e) dVar;
+            this.cSQ.setTag(this.cST.forumAvatar);
+            this.cSQ.setTag(d.g.tag_forum_name, this.cST.forumName);
+            this.cSQ.startLoad(this.cST.forumAvatar, 15, false);
+            this.cSR.setText(am.getFixedText(this.cST.forumName, 4, true) + getView().getContext().getResources().getString(d.j.forum));
+            this.cSR.setTag(d.g.tag_forum_name, this.cST.forumName);
+            this.cSS.setTag(d.g.tag_forum_id, Long.valueOf(this.cST.forumId));
+            this.cSS.setTag(d.g.tag_forum_name, this.cST.forumName);
+            getView().setTag(d.g.tag_forum_id, Long.valueOf(this.cST.forumId));
+            getView().setTag(d.g.tag_forum_name, this.cST.forumName);
+            a(this.cSS, this.cST.isLiked);
+            this.cSQ.setOnClickListener(this.bjO);
+            this.cSS.setOnClickListener(this.bjO);
+            this.cSR.setOnClickListener(this.bjO);
+            getView().setOnClickListener(this.bjO);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -50,20 +50,20 @@ public class d extends com.baidu.tieba.horizonalList.widget.f {
     @Override // com.baidu.tieba.horizonalList.widget.f
     public com.baidu.tieba.horizonalList.widget.f bA(View view) {
         d dVar = new d(view);
-        dVar.cSv = (BarImageView) view.findViewById(d.g.forum_avatar);
-        dVar.cSv.setGifIconSupport(false);
-        dVar.cSw = (TextView) view.findViewById(d.g.m_forum_name_textview);
-        dVar.cSx = (EntelechyUserLikeButton) view.findViewById(d.g.forum_add_love);
-        dVar.eiq = 16908308;
+        dVar.cSQ = (BarImageView) view.findViewById(d.g.forum_avatar);
+        dVar.cSQ.setGifIconSupport(false);
+        dVar.cSR = (TextView) view.findViewById(d.g.m_forum_name_textview);
+        dVar.cSS = (EntelechyUserLikeButton) view.findViewById(d.g.forum_add_love);
+        dVar.eiL = 16908308;
         return dVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.f
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.t(getView(), d.C0107d.cp_bg_line_d);
-            aj.r(this.cSw, d.C0107d.cp_cont_b);
-            a(this.cSx, this.cSy.isLiked);
+            aj.t(getView(), d.C0108d.cp_bg_line_d);
+            aj.r(this.cSR, d.C0108d.cp_cont_b);
+            a(this.cSS, this.cST.isLiked);
         }
         this.mSkinType = i;
     }
@@ -72,7 +72,7 @@ public class d extends com.baidu.tieba.horizonalList.widget.f {
     private void a(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
         if (entelechyUserLikeButton != null) {
             entelechyUserLikeButton.setTag(d.g.forum_follow, Boolean.valueOf(z));
-            entelechyUserLikeButton.bt(z);
+            entelechyUserLikeButton.bu(z);
         }
     }
 }

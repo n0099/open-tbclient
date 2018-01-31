@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class m {
-    public static int dK(String str) {
+    public static int dP(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;
@@ -32,13 +32,13 @@ public class m {
 
     public static void a(final TbPageContext<?> tbPageContext, String str) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && !StringUtils.isNull(str)) {
-            PluginPackageManager.PluginStatus bA = PluginPackageManager.qR().bA("com.baidu.tieba.pluginCookeryGod");
+            PluginPackageManager.PluginStatus bA = PluginPackageManager.qS().bA("com.baidu.tieba.pluginCookeryGod");
             if (TbadkCoreApplication.getInst().getIntentClass(CookeryGodHallActivityConfig.class) != null && bA != PluginPackageManager.PluginStatus.FORBIDDEN) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
             } else if (bA == PluginPackageManager.PluginStatus.NROMAL) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
             } else if (bA == PluginPackageManager.PluginStatus.UNINSTALLED || bA == PluginPackageManager.PluginStatus.DISABLE) {
-                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.rn().ro() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.rn().ro().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
+                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ro().rp() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ro().rp().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
                     tbPageContext.showToast(d.j.plugin_config_no_tip);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(tbPageContext.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));

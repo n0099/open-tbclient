@@ -3,6 +3,6 @@ package com.baidu.tieba.quickWebView.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    public ArrayList<String> gzg;
-    public boolean gzh;
+    public ArrayList<String> gzB;
+    public boolean gzC;
 }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.c;
 public interface a {
     void ck(String str);
 
-    void uN();
-
-    void vB();
+    void uO();
 
     void vC();
+
+    void vD();
 }

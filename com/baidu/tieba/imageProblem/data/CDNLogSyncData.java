@@ -10,59 +10,59 @@ import com.baidu.tbadk.core.util.s;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean aKn;
-    private int aKo;
-    private int aKp;
-    private int aKq = 25;
-    private int aKr = 25;
-    private int aKs = 10;
+    private boolean aKq;
+    private int aKr;
+    private int aKs;
+    private int aKt = 25;
+    private int aKu = 25;
+    private int aKv = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.aKq;
+        return this.aKt;
     }
 
     public void setSuccRank(int i) {
-        this.aKq = i;
+        this.aKt = i;
     }
 
     public int getErrRank() {
-        return this.aKr;
+        return this.aKu;
     }
 
     public void setErrRank(int i) {
-        this.aKr = i;
+        this.aKu = i;
     }
 
     public int getSlowRank() {
-        return this.aKs;
+        return this.aKv;
     }
 
     public void setSlowRank(int i) {
-        this.aKs = i;
+        this.aKv = i;
     }
 
     public boolean ismSwitch() {
-        return this.aKn;
+        return this.aKq;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.aKn != z) {
-            a nm = s.nm();
-            nm.append("act", "fallback");
-            nm.append("result", z ? "1" : "0");
-            nm.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", nm);
+        if (this.aKq != z) {
+            a nn = s.nn();
+            nn.append("act", "fallback");
+            nn.append("result", z ? "1" : "0");
+            nn.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", nn);
         }
-        this.aKn = z;
+        this.aKq = z;
     }
 
     public int getSlowNumber() {
-        return this.aKo;
+        return this.aKr;
     }
 
     public void setSlowNumber(int i) {
-        this.aKo = i;
+        this.aKr = i;
     }
 
     public int getTime() {
@@ -74,11 +74,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.aKp;
+        return this.aKs;
     }
 
     public void setErrNumber(int i) {
-        this.aKp = i;
+        this.aKs = i;
     }
 
     public void parseJson(String str) {
@@ -87,7 +87,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.aKn = false;
+            this.aKq = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -96,30 +96,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.aKn = true;
+                    this.aKq = true;
                 } else {
-                    this.aKn = false;
+                    this.aKq = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.aKp = optJSONObject.optInt("num");
+                    this.aKs = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.aKo = optJSONObject2.optInt("num");
+                    this.aKr = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.aKq = optJSONObject3.optInt("succ");
-                    this.aKr = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.aKs = optJSONObject3.optInt("slow");
+                    this.aKt = optJSONObject3.optInt("succ");
+                    this.aKu = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.aKv = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.aKo <= 0 || this.aKp <= 0) {
-                    this.aKn = false;
+                if (this.time <= 0 || this.aKr <= 0 || this.aKs <= 0) {
+                    this.aKq = false;
                 }
             } catch (Exception e) {
-                this.aKn = false;
+                this.aKq = false;
                 BdLog.e(e.getMessage());
             }
         }

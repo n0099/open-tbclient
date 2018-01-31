@@ -11,75 +11,75 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class l implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId fEh = BdUniqueId.gen();
-    public long dFs;
-    private long fEi;
-    private boolean fEj;
-    private ArrayList<MuteUser> fEk;
-    public int fEf = -1;
-    private boolean fEl = false;
-    private boolean fEm = false;
-    private int fEn = 1;
+    public static final BdUniqueId fEC = BdUniqueId.gen();
+    public long dFN;
+    private long fED;
+    private boolean fEE;
+    private ArrayList<MuteUser> fEF;
+    public int fEA = -1;
+    private boolean fEG = false;
+    private boolean fEH = false;
+    private int fEI = 1;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return fEh;
+        return fEC;
     }
 
     public void a(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.fEi = dataRes.thread.agree.agree_num.longValue();
-                this.fEj = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.fEf = dataRes.thread.agree.agree_type.intValue();
+                this.fED = dataRes.thread.agree.agree_num.longValue();
+                this.fEE = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.fEA = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.fEk == null) {
-                this.fEk = new ArrayList<>();
+            if (this.fEF == null) {
+                this.fEF = new ArrayList<>();
             }
-            this.fEk.clear();
+            this.fEF.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.fEk.add(muteUser);
+                        this.fEF.add(muteUser);
                     }
                 }
             }
             if (dataRes.thread != null) {
-                this.dFs = dataRes.thread.share_num.longValue();
-                this.fEm = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+                this.dFN = dataRes.thread.share_num.longValue();
+                this.fEH = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
             }
         }
     }
 
-    public long aZl() {
-        return this.fEi;
+    public long aZq() {
+        return this.fED;
     }
 
-    public boolean aZm() {
-        return this.fEm;
+    public boolean aZr() {
+        return this.fEH;
     }
 
-    public boolean aZn() {
-        return this.fEj;
+    public boolean aZs() {
+        return this.fEE;
     }
 
-    public ArrayList<MuteUser> aZo() {
-        return this.fEk;
+    public ArrayList<MuteUser> aZt() {
+        return this.fEF;
     }
 
     public void sx(int i) {
-        if (!this.fEj) {
+        if (!this.fEE) {
             sz(i);
             return;
         }
-        this.fEf = i;
-        this.fEj = true;
+        this.fEA = i;
+        this.fEE = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.fEk.iterator();
+            Iterator<MuteUser> it = this.fEF.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -91,11 +91,11 @@ public class l implements com.baidu.adp.widget.ListView.i {
     }
 
     public void sy(int i) {
-        this.fEn = i;
+        this.fEI = i;
     }
 
-    public int aZp() {
-        return this.fEn;
+    public int aZu() {
+        return this.fEI;
     }
 
     public void sz(int i) {
@@ -107,35 +107,35 @@ public class l implements com.baidu.adp.widget.ListView.i {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.fEk == null) {
-                this.fEk = new ArrayList<>();
+            if (this.fEF == null) {
+                this.fEF = new ArrayList<>();
             }
-            this.fEk.add(0, muteUser);
-            if (this.fEi < 0) {
-                this.fEi = 0L;
+            this.fEF.add(0, muteUser);
+            if (this.fED < 0) {
+                this.fED = 0L;
             }
-            this.fEi++;
-            this.fEj = true;
-            this.fEf = i;
+            this.fED++;
+            this.fEE = true;
+            this.fEA = i;
         }
     }
 
-    public void aZq() {
+    public void aZv() {
         if (TbadkCoreApplication.isLogin()) {
-            this.fEi--;
-            if (this.fEi < 0) {
-                this.fEi = 0L;
+            this.fED--;
+            if (this.fED < 0) {
+                this.fED = 0L;
             }
-            this.fEj = false;
-            this.fEf = -1;
-            if (!v.E(this.fEk)) {
+            this.fEE = false;
+            this.fEA = -1;
+            if (!v.E(this.fEF)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.fEk.iterator();
+                    Iterator<MuteUser> it = this.fEF.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.fEk.remove(next);
+                            this.fEF.remove(next);
                             return;
                         }
                     }
@@ -144,11 +144,11 @@ public class l implements com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public void jC(boolean z) {
-        this.fEl = z;
+    public void jE(boolean z) {
+        this.fEG = z;
     }
 
-    public boolean aZr() {
-        return this.fEl;
+    public boolean aZw() {
+        return this.fEG;
     }
 }

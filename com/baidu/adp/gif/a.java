@@ -14,7 +14,7 @@ public interface a {
 
         public C0015a() {
             this.afj = 0;
-            if (NSGif.afl) {
+            if (NSGif.afm) {
                 this.afj = 0;
             } else {
                 this.afj = 1;

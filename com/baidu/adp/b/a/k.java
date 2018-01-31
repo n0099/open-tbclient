@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class k extends c {
-    private a apH;
-    protected Path apF = new Path();
-    protected Paint apG = null;
-    protected boolean apI = false;
+    private a apK;
+    protected Path apI = new Path();
+    protected Paint apJ = null;
+    protected boolean apL = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.apH != null && (a2 = this.apH.a(pX())) != null) {
-            this.apF.set(a2);
-            if (this.apG == null) {
-                this.apG = new Paint();
-                this.apG.setStyle(Paint.Style.STROKE);
-                this.apG.setAntiAlias(true);
-                this.apG.setColor(637534208);
-                this.apG.setDither(true);
-                this.apG.setStrokeWidth(2.0f);
+        if (this.apK != null && (a2 = this.apK.a(pY())) != null) {
+            this.apI.set(a2);
+            if (this.apJ == null) {
+                this.apJ = new Paint();
+                this.apJ.setStyle(Paint.Style.STROKE);
+                this.apJ.setAntiAlias(true);
+                this.apJ.setColor(637534208);
+                this.apJ.setDither(true);
+                this.apJ.setStrokeWidth(2.0f);
             }
-            qc();
+            qd();
         }
     }
 
     @Override // com.baidu.adp.b.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.apI) {
-            canvas.drawPath(this.apF, this.apG);
-            if (this.apH != null) {
-                this.apH.h(canvas);
+        if (this.apL) {
+            canvas.drawPath(this.apI, this.apJ);
+            if (this.apK != null) {
+                this.apK.h(canvas);
             }
         }
-    }
-
-    public void qc() {
     }
 
     public void qd() {
     }
 
-    public void a(a aVar) {
-        this.apH = aVar;
+    public void qe() {
     }
 
-    public void ar(boolean z) {
-        this.apI = z;
+    public void a(a aVar) {
+        this.apK = aVar;
+    }
+
+    public void as(boolean z) {
+        this.apL = z;
     }
 }

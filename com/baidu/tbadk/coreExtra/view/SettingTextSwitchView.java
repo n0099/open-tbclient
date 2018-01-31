@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
-    private LinearLayout bmo;
-    private TextView bmp;
-    protected TextView bmq;
-    private BdSwitchView bmr;
+    private LinearLayout bmw;
+    private TextView bmx;
+    protected TextView bmy;
+    private BdSwitchView bmz;
     private final Context mContext;
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        IN();
+        IP();
         d(attributeSet);
         hs(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -32,71 +32,71 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        IN();
+        IP();
         hs(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        IN();
+        IP();
         d(attributeSet);
         hs(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
-        return this.bmo;
+        return this.bmw;
     }
 
     public void hs(int i) {
-        this.bmr.a(aj.fO(d.f.bg_switch_open), aj.fO(d.f.bg_switch_close), aj.fO(d.f.btn_handle));
-        aj.e(this.bmp, d.C0107d.cp_cont_b, 1);
-        if (this.bmq != null) {
-            aj.e(this.bmq, d.C0107d.cp_cont_d, 1);
+        this.bmz.a(aj.fO(d.f.bg_switch_open), aj.fO(d.f.bg_switch_close), aj.fO(d.f.btn_handle));
+        aj.e(this.bmx, d.C0108d.cp_cont_b, 1);
+        if (this.bmy != null) {
+            aj.e(this.bmy, d.C0108d.cp_cont_d, 1);
         }
+    }
+
+    public void rM() {
+        this.bmz.rM();
+        this.bmz.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_close));
     }
 
     public void rL() {
-        this.bmr.rL();
-        this.bmr.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_close));
+        this.bmz.rL();
+        this.bmz.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_open));
     }
 
-    public void rK() {
-        this.bmr.rK();
-        this.bmr.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_open));
+    public void ay(boolean z) {
+        this.bmz.ay(z);
+        this.bmz.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_close));
     }
 
     public void ax(boolean z) {
-        this.bmr.ax(z);
-        this.bmr.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_close));
-    }
-
-    public void aw(boolean z) {
-        this.bmr.aw(z);
-        this.bmr.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_open));
+        this.bmz.ax(z);
+        this.bmz.setContentDescription(this.mContext.getString(d.j.talk_message_tip) + this.mContext.getString(d.j.talk_open));
     }
 
     public void setText(String str) {
-        this.bmp.setText(str);
+        this.bmx.setText(str);
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.bmr.setOnSwitchStateChangeListener(aVar);
+        this.bmz.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void IN() {
+    private void IP() {
         LayoutInflater.from(this.mContext).inflate(d.h.setting_text_switch_view, (ViewGroup) this, true);
-        this.bmo = (LinearLayout) findViewById(d.g.container);
-        this.bmp = (TextView) findViewById(d.g.text);
-        this.bmr = (BdSwitchView) findViewById(d.g.button);
-        this.bmr.setFocusable(true);
-        this.bmq = (TextView) findViewById(d.g.tip);
-        if (this.bmq != null) {
-            this.bmq.setVisibility(8);
+        this.bmw = (LinearLayout) findViewById(d.g.container);
+        this.bmx = (TextView) findViewById(d.g.text);
+        this.bmz = (BdSwitchView) findViewById(d.g.button);
+        this.bmz.setFocusable(true);
+        this.bmy = (TextView) findViewById(d.g.tip);
+        if (this.bmy != null) {
+            this.bmy.setVisibility(8);
         }
-        setTag(this.bmr);
-        this.bmo.setClickable(false);
-        this.bmo.setFocusable(false);
+        setTag(this.bmz);
+        this.bmw.setClickable(false);
+        this.bmw.setFocusable(false);
     }
 
     private void d(AttributeSet attributeSet) {
@@ -106,66 +106,66 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(d.l.TbSettingView_settingTextSize, -1.0f);
         String string2 = obtainStyledAttributes.getString(d.l.TbSettingView_settingTip);
         int color2 = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTipColor, -1);
-        if (this.bmq != null && string2 != null) {
-            this.bmq.setVisibility(0);
-            this.bmq.setText(string2);
+        if (this.bmy != null && string2 != null) {
+            this.bmy.setVisibility(0);
+            this.bmy.setText(string2);
             if (color2 > -1) {
-                this.bmq.setTextColor(color2);
+                this.bmy.setTextColor(color2);
             }
         }
         if (string != null) {
-            this.bmp.setText(string);
+            this.bmx.setText(string);
         }
         if (color > -1) {
-            this.bmp.setTextColor(color);
+            this.bmx.setTextColor(color);
         }
         if (dimension > -1.0f) {
-            this.bmp.setTextSize(0, dimension);
+            this.bmx.setTextSize(0, dimension);
         }
-        this.bmo.setClickable(false);
-        this.bmo.setFocusable(false);
+        this.bmw.setClickable(false);
+        this.bmw.setFocusable(false);
         obtainStyledAttributes.recycle();
     }
 
     public void setTip(String str) {
-        if (str != null && this.bmq != null) {
+        if (str != null && this.bmy != null) {
             displayTip();
-            this.bmq.setText(str);
+            this.bmy.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.bmq != null) {
+        if (i != -1 && this.bmy != null) {
             displayTip();
-            this.bmq.setText(i);
+            this.bmy.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.bmq != null) {
-            this.bmq.setTextColor(i);
+        if (this.bmy != null) {
+            this.bmy.setTextColor(i);
         }
     }
 
     public void displayTip() {
-        if (this.bmq != null) {
-            this.bmq.setVisibility(8);
+        if (this.bmy != null) {
+            this.bmy.setVisibility(8);
         }
     }
 
     public void setTextLeftMargin(int i) {
-        if (this.bmp.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bmp.getLayoutParams();
+        if (this.bmx.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bmx.getLayoutParams();
             layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(i);
-            this.bmp.setLayoutParams(layoutParams);
+            this.bmx.setLayoutParams(layoutParams);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.bmr;
+        return this.bmz;
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
-        this.bmr = bdSwitchView;
+        this.bmz = bdSwitchView;
     }
 }

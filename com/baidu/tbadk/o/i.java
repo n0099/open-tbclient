@@ -16,13 +16,8 @@ public class i extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] mq() {
+    protected String[] mr() {
         return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int mr() {
-        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -32,6 +27,11 @@ public class i extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int mu() {
         return 10;
     }
 }

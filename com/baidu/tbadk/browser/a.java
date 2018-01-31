@@ -39,7 +39,7 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void Q(Context context, String str) {
+    public static void P(Context context, String str) {
         b(context, true, str);
     }
 
@@ -68,7 +68,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        vF();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -88,7 +88,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        vF();
+        vG();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -105,11 +105,11 @@ public class a {
         }
     }
 
-    public static void R(Context context, String str) {
-        Q(context, str);
+    public static void Q(Context context, String str) {
+        P(context, str);
     }
 
-    public static void S(Context context, String str) {
+    public static void R(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -158,7 +158,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.wH().cA(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.wI().cA(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -186,7 +186,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void vF() {
+    private static void vG() {
         new ag("open_webview", true).start();
     }
 }

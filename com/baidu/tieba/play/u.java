@@ -1,23 +1,23 @@
 package com.baidu.tieba.play;
 
-import android.os.Environment;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final String bPm = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String bPn = bPm + "/.tieba_video_cache";
-    public static final String bPo = bPn + "/v2";
-    public static final String bPp = bPo + "/";
-    public static final String bPq = bPo + "/files";
-    public static final String bPr = bPq + "/";
+    public static final String bPv = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bPw = bPv + "/.tieba_video_cache";
+    public static final String afl = bPw + "/v2";
+    public static final String bPx = afl + "/";
+    public static final String bPy = afl + "/files";
+    public static final String bPz = bPy + "/";
 
-    private static long hC(String str) {
+    private static long hJ(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bPr + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(bPz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class u {
         return j;
     }
 
-    private static String hD(String str) {
+    private static String hK(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class u {
         return substring;
     }
 
-    public static long qW(String str) {
+    public static long rd(String str) {
         try {
-            String hD = hD(str);
-            if (StringUtils.isNULL(hD)) {
+            String hK = hK(str);
+            if (StringUtils.isNULL(hK)) {
                 return 0L;
             }
-            return hC(hD);
+            return hJ(hK);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

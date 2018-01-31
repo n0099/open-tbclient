@@ -6,43 +6,43 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection aUn;
-    private String aUo;
-    private String[] aUp;
-    private String[] aUq;
-    private boolean aUr;
-    private a aUs;
+    private MediaScannerConnection aUq;
+    private String aUr;
+    private String[] aUs;
+    private String[] aUt;
+    private boolean aUu;
+    private a aUv;
     private int length;
     private Context mContext;
     private String mPath;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cd();
+        void Ce();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.aUn = new MediaScannerConnection(this.mContext, this);
+        this.aUq = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void dO(String str) {
+    public void dT(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.aUo = "image/jpeg";
+        this.aUr = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.aUo = "image/gif";
+            this.aUr = "image/gif";
         }
-        this.aUn.connect();
+        this.aUq.connect();
     }
 
-    public void dP(String str) {
+    public void dU(String str) {
         this.mPath = str;
-        this.aUo = dQ(str);
-        this.aUn.connect();
+        this.aUr = dV(str);
+        this.aUq.connect();
     }
 
-    private String dQ(String str) {
+    private String dV(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -52,37 +52,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aUo)) {
-            this.aUn.scanFile(this.mPath, this.aUo);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aUr)) {
+            this.aUq.scanFile(this.mPath, this.aUr);
         }
-        if (this.aUp != null && this.aUq != null && this.aUp.length == this.aUq.length) {
-            int length = this.aUp.length;
+        if (this.aUs != null && this.aUt != null && this.aUs.length == this.aUt.length) {
+            int length = this.aUs.length;
             for (int i = 0; i < length; i++) {
-                this.aUn.scanFile(this.aUp[i], this.aUq[i]);
+                this.aUq.scanFile(this.aUs[i], this.aUt[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aUo) && str.equals(this.mPath)) {
-            this.aUn.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aUr) && str.equals(this.mPath)) {
+            this.aUq.disconnect();
             this.mPath = null;
-            this.aUo = null;
-            this.aUr = true;
-        } else if (this.aUp != null && this.aUq != null && this.aUp.length == this.aUq.length) {
+            this.aUr = null;
+            this.aUu = true;
+        } else if (this.aUs != null && this.aUt != null && this.aUs.length == this.aUt.length) {
             this.length--;
             if (this.length == 0) {
-                this.aUn.disconnect();
-                this.aUp = null;
-                this.aUq = null;
-                this.aUr = true;
+                this.aUq.disconnect();
+                this.aUs = null;
+                this.aUt = null;
+                this.aUu = true;
             } else {
-                this.aUr = false;
+                this.aUu = false;
             }
         }
-        if (this.aUr && this.aUs != null) {
-            this.aUs.Cd();
+        if (this.aUu && this.aUv != null) {
+            this.aUv.Ce();
         }
     }
 }

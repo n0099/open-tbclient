@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bj {
-    public int aPq;
+    public int aPt;
     public String channelAvatar;
     public long channelId;
     public String channelName;

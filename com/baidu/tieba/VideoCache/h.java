@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String aFG;
-    private String bPg;
-    private boolean bPh;
-    private long bPi = -1;
-    private long bPj = -1;
-    private long bPk = 0;
-    private long bPl = 0;
+    private String aFJ;
+    private String bPp;
+    private boolean bPq;
+    private long bPr = -1;
+    private long bPs = -1;
+    private long bPt = 0;
+    private long bPu = 0;
 
-    public String SZ() {
-        return this.bPg;
+    public String Tb() {
+        return this.bPp;
     }
 
-    public void hy(String str) {
-        this.bPg = str;
+    public void hF(String str) {
+        this.bPp = str;
     }
 
-    public String Ta() {
-        return this.aFG;
+    public String Tc() {
+        return this.aFJ;
     }
 
-    public void hz(String str) {
-        this.aFG = str;
+    public void hG(String str) {
+        this.aFJ = str;
     }
 
-    public boolean Tb() {
-        return this.bPh;
+    public boolean Td() {
+        return this.bPq;
     }
 
-    public void cQ(boolean z) {
-        this.bPh = z;
-    }
-
-    public long Tc() {
-        return this.bPi;
-    }
-
-    public void aE(long j) {
-        this.bPi = j;
-    }
-
-    public long Td() {
-        return this.bPj;
-    }
-
-    public void aF(long j) {
-        this.bPj = j;
-    }
-
-    public long getTotalLength() {
-        return this.bPk;
-    }
-
-    public void Y(long j) {
-        this.bPk = j;
-    }
-
-    public void aG(long j) {
-        this.bPl = j;
+    public void cR(boolean z) {
+        this.bPq = z;
     }
 
     public long Te() {
-        return this.bPl;
+        return this.bPr;
+    }
+
+    public void aE(long j) {
+        this.bPr = j;
+    }
+
+    public long Tf() {
+        return this.bPs;
+    }
+
+    public void aF(long j) {
+        this.bPs = j;
+    }
+
+    public long getTotalLength() {
+        return this.bPt;
+    }
+
+    public void Y(long j) {
+        this.bPt = j;
+    }
+
+    public void aG(long j) {
+        this.bPu = j;
+    }
+
+    public long Tg() {
+        return this.bPu;
     }
 }
