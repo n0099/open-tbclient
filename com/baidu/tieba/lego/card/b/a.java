@@ -54,7 +54,7 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0131a og(String str) {
+        public static C0131a oh(String str) {
             if (TextUtils.isEmpty(str)) {
                 return new C0131a();
             }
@@ -66,7 +66,7 @@ public interface a {
             }
         }
 
-        public void oh(String str) {
+        public void oi(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray("pics");

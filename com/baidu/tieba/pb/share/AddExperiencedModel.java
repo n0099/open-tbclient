@@ -38,11 +38,11 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean qE(String str) {
+    public static boolean qF(String str) {
         return b.c(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean qF(String str) {
+    public static boolean qG(String str) {
         String str2;
         boolean z;
         l<String> M = a.Ax().M("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());

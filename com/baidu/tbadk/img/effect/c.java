@@ -83,7 +83,7 @@ public class c {
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.gL(imageFileInfo.getFilePath());
+                return a.gM(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,25 +103,25 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap gL = dVar != null ? dVar.gL(str) : null;
+        Bitmap gM = dVar != null ? dVar.gM(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = gL;
+                bitmap = gM;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    gL = bitmap;
+                    gM = bitmap;
                 } else if (bitmap == null) {
-                    gL = a2.gL(str);
+                    gM = a2.gM(str);
                 } else {
-                    gL = a2.b(bitmap, true);
+                    gM = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = gL;
+            bitmap = gM;
         }
         return bitmap;
     }

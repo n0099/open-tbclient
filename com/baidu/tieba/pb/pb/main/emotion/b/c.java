@@ -21,7 +21,7 @@ public class c {
     };
     private Handler mHandler = new Handler();
 
-    public void qy(String str) {
+    public void qz(String str) {
         if (TextUtils.isEmpty(str)) {
             this.fUJ = "";
             return;

@@ -26,7 +26,7 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
         this.aUq = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void dT(String str) {
+    public void dU(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
         this.aUr = "image/jpeg";
@@ -36,13 +36,13 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
         this.aUq.connect();
     }
 
-    public void dU(String str) {
+    public void dV(String str) {
         this.mPath = str;
-        this.aUr = dV(str);
+        this.aUr = dW(str);
         this.aUq.connect();
     }
 
-    private String dV(String str) {
+    private String dW(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";

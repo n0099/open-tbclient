@@ -28,7 +28,7 @@ public interface u {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    void fV(boolean z);
+    void fW(boolean z);
 
     List<com.baidu.adp.widget.ListView.i> getDatas();
 

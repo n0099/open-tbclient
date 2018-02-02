@@ -14,7 +14,7 @@ public class c extends j implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gO(String str) {
+    public boolean gP(String str) {
         try {
             j(new JSONObject(str));
             return true;

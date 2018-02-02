@@ -20,7 +20,7 @@ public class b {
 
         void ch(String str, String str2);
 
-        void tz(String str);
+        void tA(String str);
     }
 
     private b() {
@@ -37,20 +37,20 @@ public class b {
         return hpi;
     }
 
-    public String tJ(String str) {
-        String ei = ao.ei(str);
-        if (ei == null) {
+    public String tK(String str) {
+        String ej = ao.ej(str);
+        if (ej == null) {
             return null;
         }
         if (this.hpd == null) {
             this.hpd = new HashMap<>();
             bAZ();
             if (this.hpd.size() > 0) {
-                return this.hpd.get(ei);
+                return this.hpd.get(ej);
             }
             return null;
         }
-        return this.hpd.get(ei);
+        return this.hpd.get(ej);
     }
 
     public void bAZ() {
@@ -71,8 +71,8 @@ public class b {
     }
 
     public void a(String str, final String str2, final a aVar) {
-        String ei;
-        if (!TextUtils.isEmpty(str2) && (ei = ao.ei(str2)) != null) {
+        String ej;
+        if (!TextUtils.isEmpty(str2) && (ej = ao.ej(str2)) != null) {
             if (this.hpe != null) {
                 e.Ko().o(this.hpe.getUrl(), true);
             }
@@ -84,7 +84,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(com.baidu.tieba.video.b.hmD + ei + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(com.baidu.tieba.video.b.hmD + ej + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -135,7 +135,7 @@ public class b {
                         b.this.hpe = null;
                     }
                     if (aVar != null) {
-                        aVar.tz(str3);
+                        aVar.tA(str3);
                     }
                 }
             });

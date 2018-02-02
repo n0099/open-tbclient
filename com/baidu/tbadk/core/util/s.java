@@ -173,7 +173,7 @@ public class s {
         String str5;
         if (com.baidu.adp.lib.util.l.pa() && dVar != null) {
             String str6 = "";
-            boolean gY = com.baidu.tbadk.util.i.gY(str2);
+            boolean gZ = com.baidu.tbadk.util.i.gZ(str2);
             boolean z5 = false;
             if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
                 z5 = true;
@@ -192,10 +192,10 @@ public class s {
                 z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().aHh);
             }
             boolean z6 = false;
-            if (gY && z5) {
+            if (gZ && z5) {
                 z6 = com.baidu.tbadk.core.util.a.e.getInstance().isShouldCDNFallBack();
             }
-            if (gY && oK && z6) {
+            if (gZ && oK && z6) {
                 if (z) {
                     p.getInstance().insertNormalData(j, str);
                 } else {
@@ -205,7 +205,7 @@ public class s {
                     }
                 }
             }
-            if (gY) {
+            if (gZ) {
                 aTR = str;
             }
             boolean z7 = false;
@@ -213,7 +213,7 @@ public class s {
                 z7 = true;
             }
             synchronized (syncLock) {
-                r a2 = a(oK, gY, str2, z7);
+                r a2 = a(oK, gZ, str2, z7);
                 boolean z8 = aTO.aTT;
                 if (a2 != null) {
                     a2.num++;
@@ -261,10 +261,10 @@ public class s {
             if (TextUtils.isEmpty(str6)) {
                 str6 = t.BX().BY();
             }
-            if (!gY || !TextUtils.isEmpty("")) {
+            if (!gZ || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
-                str4 = t.BX().dS(str);
+                str4 = t.BX().dT(str);
             }
             if (!TextUtils.isEmpty("")) {
                 str5 = "";
@@ -293,7 +293,7 @@ public class s {
             aVar.append(NotificationCompat.CATEGORY_STATUS, String.valueOf(dVar.ajo));
             aVar.append("up", String.valueOf(dVar.ajg));
             aVar.append("down", String.valueOf(dVar.ajh));
-            aVar.append("isCDN", gY ? "1" : "0");
+            aVar.append("isCDN", gZ ? "1" : "0");
             aVar.append("isWebp", bool.booleanValue() ? "1" : "0");
             aVar.append("isMobileProxy", z3 ? "1" : "0");
             aVar.append("exception", dVar.ajm);
@@ -308,7 +308,7 @@ public class s {
                 aVar.append("tracecode2", dVar.ajs);
             }
             BdStatisticsManager.getInstance().debug("img", aVar);
-            if (gY && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
+            if (gZ && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
                 aTO.aTS++;
             }
         }
@@ -341,7 +341,7 @@ public class s {
                 str = t.BX().BY();
             }
             if (aTR != null && TextUtils.isEmpty("")) {
-                str2 = t.BX().dS(aTR);
+                str2 = t.BX().dT(aTR);
             }
             if (TextUtils.isEmpty("")) {
                 str3 = BP();
@@ -427,7 +427,7 @@ public class s {
         }
     }
 
-    public static void dR(String str) {
+    public static void dS(String str) {
         com.baidu.adp.lib.stats.a nn = nn();
         nn.append("act", "assistant");
         nn.append("content", str);
@@ -526,7 +526,7 @@ public class s {
     public static void a(boolean z, String str, String str2, String str3, String str4, String str5, long j, boolean z2) {
         String str6 = "";
         if (str != null) {
-            str6 = t.BX().dS(str);
+            str6 = t.BX().dT(str);
         }
         String BP = BP();
         String ip = d.getIp();

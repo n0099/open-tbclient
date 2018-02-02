@@ -197,7 +197,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nl(final boolean z) {
+    public void nm(final boolean z) {
         if (this.hty.getProgress() >= 100) {
             if (this.hwr != null) {
                 this.hwr.bCZ();
@@ -220,12 +220,12 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 @Override // com.baidu.tieba.video.record.o, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (VideoControllerLayout.this.hty.getStatus() == 6 || VideoControllerLayout.this.hty.isRecording()) {
-                        VideoControllerLayout.this.nm(z);
+                        VideoControllerLayout.this.nn(z);
                     }
                 }
             });
         } else {
-            nm(z);
+            nn(z);
         }
         if (this.hty != null) {
             this.hty.startRecord();
@@ -259,7 +259,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nm(boolean z) {
+    public void nn(boolean z) {
         if (this.hvz != null && this.hvz.isRunning()) {
             this.hvz.cancel();
         }
@@ -279,7 +279,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
         this.hvy.start();
         if (this.hty.getStatus() != 6) {
-            this.hwm.nm(z);
+            this.hwm.nn(z);
         }
     }
 
@@ -341,7 +341,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                         public void run() {
                             if (VideoControllerLayout.this.hwp && VideoControllerLayout.this.hwo == currentTimeMillis) {
                                 TiebaStatic.log("c12297");
-                                VideoControllerLayout.this.nl(true);
+                                VideoControllerLayout.this.nm(true);
                             }
                         }
                     }, 200L);
@@ -360,7 +360,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     stopRecord();
                     return;
                 } else if (this.hty.getStatus() != 8) {
-                    nl(false);
+                    nm(false);
                     return;
                 } else {
                     return;
@@ -405,7 +405,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         if (this.hwy.getVisibility() == 0) {
             a((o) null);
         }
-        nm(false);
+        nn(false);
         this.hwm.getLayer1().setVisibility(8);
         this.hwm.getTvTip().setText(getResources().getText(d.j.video_record_button_cancel));
         this.hwm.getTvTip().setVisibility(0);

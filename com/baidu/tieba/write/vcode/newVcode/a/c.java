@@ -112,7 +112,7 @@ public class c implements b {
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public boolean onUrlLoad(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.jsMethodForInit = com.baidu.tbadk.p.a.hm(str);
+            this.jsMethodForInit = com.baidu.tbadk.p.a.hn(str);
             if (this.jsMethodForInit != null && this.hCU.getWriteData() != null) {
                 this.hGe.runJsMethod(this.jsMethodForInit, "'" + this.hCU.getWriteData().getVcodeUrl() + "'");
                 return true;
@@ -124,7 +124,7 @@ public class c implements b {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return dealJsSubmit(com.baidu.tbadk.p.a.hm(str));
+            return dealJsSubmit(com.baidu.tbadk.p.a.hn(str));
         } else {
             return false;
         }
@@ -189,11 +189,11 @@ public class c implements b {
             return false;
         }
         this.jsMethodForChangeVCode = split[0];
-        us(split[1]);
+        ut(split[1]);
         return true;
     }
 
-    private void us(String str) {
+    private void ut(String str) {
         this.hCV = false;
         if (!l.pa()) {
             this.hGe.getContext().showToast(d.j.neterror);

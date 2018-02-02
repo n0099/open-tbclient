@@ -147,7 +147,7 @@ public class b implements u {
         this.dGN = nVar;
         a(iVar, nVar);
         this.dHi = new HashMap<>();
-        fV(z);
+        fW(z);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v43, resolved type: com.baidu.tieba.frs.i */
@@ -382,7 +382,7 @@ public class b implements u {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.u
-    public void fV(boolean z) {
+    public void fW(boolean z) {
         if (this.dHk != z) {
             this.dHk = z;
         }

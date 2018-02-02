@@ -96,7 +96,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                         if (WriteImageActivity.this.gjr && WriteImageActivity.this.gjk != null && !WriteImageActivity.this.gjk.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            if (WriteImageActivity.this.uJ(str)) {
+                            if (WriteImageActivity.this.uK(str)) {
                                 intent.putExtra("change", true);
                                 intent.putExtra("file_name", str);
                             } else {
@@ -286,7 +286,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                             if (WriteImageActivity.this.gjr && WriteImageActivity.this.gjk != null && !WriteImageActivity.this.gjk.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.uJ(str)) {
+                                if (WriteImageActivity.this.uK(str)) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {
@@ -322,7 +322,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.gjr) {
                             if (WriteImageActivity.this.gjk != null && !WriteImageActivity.this.gjk.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.uJ(str)) {
+                                if (WriteImageActivity.this.uK(str)) {
                                     intent2.putExtra("change", true);
                                     intent2.putExtra("file_name", str);
                                 } else {
@@ -343,7 +343,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 Intent intent3 = new Intent();
                 if (WriteImageActivity.this.gjr && WriteImageActivity.this.gjk != null && !WriteImageActivity.this.gjk.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    if (WriteImageActivity.this.uJ(str2)) {
+                    if (WriteImageActivity.this.uK(str2)) {
                         intent3.putExtra("filename", str2);
                     }
                 }
@@ -402,7 +402,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                     if ((WriteImageActivity.this.mBitmap != null || WriteImageActivity.this.gjk != null) && view.getTag() != null) {
                         WriteImageActivity.this.gjr = false;
-                        WriteImageActivity.this.uI(view.getTag().toString());
+                        WriteImageActivity.this.uJ(view.getTag().toString());
                     }
                 }
             }
@@ -422,7 +422,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uI(String str) {
+    public void uJ(String str) {
         if (this.hKB != null) {
             this.hKB.cancel();
         }
@@ -518,7 +518,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean uJ(String str) {
+    public boolean uK(String str) {
         try {
             k.a(TbConfig.LOCAL_PIC_DIR, str, this.gjk, 90);
             this.mImage.setImageDrawable(null);
@@ -556,7 +556,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 ImageView imageView2 = (ImageView) inflate2.findViewById(d.g.filter_immage);
                 TextView textView2 = (TextView) inflate2.findViewById(d.g.filter_text);
                 textView2.setText(substring2);
-                imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.a.fx(substring));
+                imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.a.fy(substring));
                 imageView2.setTag(textView2);
                 int i3 = i2 + 1;
                 if (substring.equals("normal")) {
@@ -566,7 +566,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                             if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                                 WriteImageActivity.this.mImage.setImageBitmap(WriteImageActivity.this.mBitmap);
                                 WriteImageActivity.this.gjr = false;
-                                WriteImageActivity.this.qO(substring);
+                                WriteImageActivity.this.qP(substring);
                                 WriteImageActivity.this.gjn = i2;
                             }
                         }
@@ -577,8 +577,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (WriteImageActivity.this.mProgress.getVisibility() != 0 && !substring.equals(WriteImageActivity.this.gjp)) {
-                                WriteImageActivity.this.uI(substring);
-                                WriteImageActivity.this.qO(substring);
+                                WriteImageActivity.this.uJ(substring);
+                                WriteImageActivity.this.qP(substring);
                                 WriteImageActivity.this.gjn = i2;
                             }
                         }
@@ -591,12 +591,12 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 i++;
                 i2 = i3;
             }
-            qO("normal");
+            qP("normal");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qO(String str) {
+    public void qP(String str) {
         ImageView imageView;
         if (str != null) {
             if (this.gjp != null && (imageView = this.gjt.get(this.gjp)) != null) {
@@ -645,7 +645,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         WriteImageActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.write.WriteImageActivity.a.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                WriteImageActivity.this.qO("normal");
+                                WriteImageActivity.this.qP("normal");
                             }
                         }, 500L);
                         WriteImageActivity.this.showToast(d.j.plugin_config_not_found);
@@ -655,7 +655,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         WriteImageActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.write.WriteImageActivity.a.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                WriteImageActivity.this.qO("normal");
+                                WriteImageActivity.this.qP("normal");
                             }
                         }, 500L);
                         cancel();
@@ -676,7 +676,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         WriteImageActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.write.WriteImageActivity.a.5
                             @Override // java.lang.Runnable
                             public void run() {
-                                WriteImageActivity.this.qO("normal");
+                                WriteImageActivity.this.qP("normal");
                             }
                         }, 500L);
                         cancel();

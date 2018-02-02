@@ -149,7 +149,7 @@ public class b extends com.baidu.tieba.card.a<l> {
                     b.this.akg().a(view2, b.this.cSN);
                 }
                 if (b.this.cSN != null && b.this.cSN.threadData != null) {
-                    k.kj(b.this.cSN.threadData.getId());
+                    k.kk(b.this.cSN.threadData.getId());
                     b.this.akl();
                 }
             }
@@ -219,7 +219,7 @@ public class b extends com.baidu.tieba.card.a<l> {
         }
         this.ecE.setData(lVar.threadData);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (!akk() && k.kk(this.cSN.threadData.getId())) {
+        if (!akk() && k.kl(this.cSN.threadData.getId())) {
             akl();
         }
         this.ecE.setUserAfterClickListener(this.bcm);
@@ -242,11 +242,11 @@ public class b extends com.baidu.tieba.card.a<l> {
         ArrayList<VoiceData.VoiceModel> zi = lVar.threadData.zi();
         if (com.baidu.tbadk.core.util.v.E(zi)) {
             this.cUt.setVisibility(8);
-            eF(false);
+            eG(false);
             z = false;
         } else {
             this.cUt.setVisibility(0);
-            eF(true);
+            eG(true);
             VoiceData.VoiceModel voiceModel = zi.get(0);
             this.cUt.setVoiceModel(voiceModel);
             this.cUt.setTag(voiceModel);
@@ -304,7 +304,7 @@ public class b extends com.baidu.tieba.card.a<l> {
         awL();
     }
 
-    private void eF(boolean z) {
+    private void eG(boolean z) {
         if (this.cUw != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cUw.getLayoutParams();
             if (z) {
@@ -409,7 +409,7 @@ public class b extends com.baidu.tieba.card.a<l> {
     public void akA() {
         if (this.cSN != null && this.cSN.threadData != null) {
             if (!akk()) {
-                k.kj(this.cSN.threadData.getId());
+                k.kk(this.cSN.threadData.getId());
                 k.a(this.mTitle, this.cSN.VM().getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
                 k.a(this.cUv, this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
             }

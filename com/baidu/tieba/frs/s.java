@@ -60,7 +60,7 @@ public class s implements com.baidu.adp.widget.ListView.i {
         return this.dDV;
     }
 
-    public void fN(boolean z) {
+    public void fO(boolean z) {
         this.dDV = z;
     }
 }

@@ -5,7 +5,7 @@ public abstract class d {
     String hsr;
     int hss;
 
-    public abstract void tU(String str);
+    public abstract void tV(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
@@ -20,7 +20,7 @@ public abstract class d {
         this.channelCount = i;
     }
 
-    public static d tV(String str) {
+    public static d tW(String str) {
         return new a(str);
     }
 }

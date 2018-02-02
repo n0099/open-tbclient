@@ -40,12 +40,12 @@ public class MsgReplyCardView extends g {
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0128a nP = a.nP(chatMessage.getContent());
+            a.C0128a nQ = a.nQ(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.eNu.setText(a(nP, valueOf));
-            this.eNv.setText(nP.eNc);
-            this.eNw.setText(b(nP, valueOf));
-            this.eNx.setText(nP.bjk + this.mContext.getString(d.j.forum));
+            this.eNu.setText(a(nQ, valueOf));
+            this.eNv.setText(nQ.eNc);
+            this.eNw.setText(b(nQ, valueOf));
+            this.eNx.setText(nQ.bjk + this.mContext.getString(d.j.forum));
         }
     }
 

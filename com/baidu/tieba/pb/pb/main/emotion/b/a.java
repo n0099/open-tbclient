@@ -105,7 +105,7 @@ public class a extends LinearLayout implements EmotionView.a {
                         a.this.fUA = new c();
                         a.this.fUA.a(a.this.doS);
                     }
-                    a.this.fUA.qy(trim);
+                    a.this.fUA.qz(trim);
                 }
             }
         };
@@ -152,18 +152,18 @@ public class a extends LinearLayout implements EmotionView.a {
                 int i5 = i4 - i3;
                 int length = 30 - (spanned.length() - i5);
                 String obj = spanned.toString();
-                int hi = w.hi(obj);
+                int hj = w.hj(obj);
                 if (i5 > 0) {
                     int i6 = i3;
                     while (i6 < i5 + i3 && obj.length() < i6) {
-                        int e = hi - w.e(obj.charAt(i6));
+                        int e = hj - w.e(obj.charAt(i6));
                         i6++;
-                        hi = e;
+                        hj = e;
                     }
                 } else {
-                    hi += w.hi(charSequence.toString());
+                    hj += w.hj(charSequence.toString());
                 }
-                if (hi > 30 || length <= 0) {
+                if (hj > 30 || length <= 0) {
                     return "";
                 }
                 if (length >= i2 - i) {
@@ -211,7 +211,7 @@ public class a extends LinearLayout implements EmotionView.a {
                 return false;
             case 1:
                 if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.fUs && I(motionEvent)) {
-                    kI(true);
+                    kJ(true);
                     break;
                 }
                 break;
@@ -291,14 +291,14 @@ public class a extends LinearLayout implements EmotionView.a {
                 int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                 if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                     if (rawX > 0) {
-                        kI(false);
+                        kJ(false);
                     } else {
-                        kI(true);
+                        kJ(true);
                     }
                 } else if (layoutParams.leftMargin > 0.4d * this.mScreenWidth) {
-                    kI(false);
+                    kJ(false);
                 } else {
-                    kI(true);
+                    kJ(true);
                 }
                 this.mVelocityTracker.clear();
                 this.mVelocityTracker.recycle();
@@ -379,7 +379,7 @@ public class a extends LinearLayout implements EmotionView.a {
         }
     }
 
-    public void kI(boolean z) {
+    public void kJ(boolean z) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
         if (layoutParams.leftMargin <= 0) {
             setCanShowEmotionPreview(true);
@@ -397,8 +397,8 @@ public class a extends LinearLayout implements EmotionView.a {
         ct(i, i2);
     }
 
-    public void kJ(boolean z) {
-        kI(true);
+    public void kK(boolean z) {
+        kJ(true);
         if (z) {
             e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.a.7
                 @Override // java.lang.Runnable

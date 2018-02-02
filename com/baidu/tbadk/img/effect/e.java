@@ -43,7 +43,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gL(String str) throws Exception {
+    public Bitmap gM(String str) throws Exception {
         int max = Math.max(l.ao(TbadkCoreApplication.getInst().getApp()), l.aq(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

@@ -183,10 +183,10 @@ public class e extends m<PostData, f> implements View.OnClickListener {
                 layoutParams.topMargin = 0;
                 fVar.fFP.setLayoutParams(layoutParams);
                 fVar.fFP.setPadding(0, 0, 0, 0);
-                fVar.fFP.hr(null);
+                fVar.fFP.hs(null);
             } else {
                 sparseArray.put(d.g.tag_richtext_bg, postData.getBimg_url());
-                fVar.fFP.hr(postData.getBimg_url());
+                fVar.fFP.hs(postData.getBimg_url());
                 if (postData.bvJ() == 1) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) fVar.fFP.getLayoutParams();
                     layoutParams2.topMargin = getDimensionPixelSize(d.e.ds16);
@@ -305,7 +305,7 @@ public class e extends m<PostData, f> implements View.OnClickListener {
                     this.fFt.J(this.fFs.aYX(), z8);
                     this.fFt.Q(this.fFs.aYL());
                 }
-                this.fFt.qB(postData.getId());
+                this.fFt.qC(postData.getId());
                 fVar.fFT.setVisibility(0);
                 fVar.fFT.a(postData, view);
                 fVar.fFT.setChildOnClickListener(this.mCommonClickListener);
@@ -325,14 +325,14 @@ public class e extends m<PostData, f> implements View.OnClickListener {
                 String name_show = postData.yT().getName_show();
                 int i2 = 0;
                 if (!StringUtils.isNull(postData.yT().getSealPrefix())) {
-                    i2 = w.hi(postData.yT().getSealPrefix()) + 2;
+                    i2 = w.hj(postData.yT().getSealPrefix()) + 2;
                 }
-                int hi = w.hi(name_show);
+                int hj = w.hj(name_show);
                 if (i2 > 0) {
-                    if (hi > 12) {
+                    if (hj > 12) {
                         name_show = w.j(name_show, 0, 14) + "...";
                     }
-                } else if (hi > 14) {
+                } else if (hj > 14) {
                     name_show = w.j(name_show, 0, 14) + "...";
                 }
                 if (i2 > 0) {
@@ -369,11 +369,11 @@ public class e extends m<PostData, f> implements View.OnClickListener {
                         fVar.fFL.setVisibility(0);
                     }
                 }
-                int hi2 = w.hi(postData.yT().getName_show());
-                if (hi2 >= 14 && fVar.fFK.getVisibility() == 0 && fVar.fFO.getVisibility() == 0) {
+                int hj2 = w.hj(postData.yT().getName_show());
+                if (hj2 >= 14 && fVar.fFK.getVisibility() == 0 && fVar.fFO.getVisibility() == 0) {
                     i3 = 3;
                 }
-                int i4 = (StringUtils.isNull(postData.yT().getSealPrefix()) || hi2 < 12 || fVar.fFK.getVisibility() != 0 || fVar.fFO.getVisibility() != 0) ? i3 : i3 - 1;
+                int i4 = (StringUtils.isNull(postData.yT().getSealPrefix()) || hj2 < 12 || fVar.fFK.getVisibility() != 0 || fVar.fFO.getVisibility() != 0) ? i3 : i3 - 1;
                 this.fFu = postData.yT().getIconInfo();
                 this.eAh = postData.yT().getTShowInfoNew();
                 if (fVar.dUr != null) {
@@ -389,7 +389,7 @@ public class e extends m<PostData, f> implements View.OnClickListener {
             if (postData != null && postData.yT() != null && postData.yT().getPendantData() != null && !StringUtils.isNull(postData.yT().getPendantData().xu())) {
                 fVar.fFJ.setVisibility(4);
                 fVar.fFI.setVisibility(0);
-                fVar.fFI.eG(postData.yT().getPendantData().xu());
+                fVar.fFI.eH(postData.yT().getPendantData().xu());
                 fVar.fFI.getHeadView().startLoad(portrait, 28, false);
                 fVar.fFI.setTag(d.g.tag_user_id, postData.yT().getUserId());
                 fVar.fFI.setTag(d.g.tag_user_name, postData.yT().getUserName());
@@ -670,11 +670,11 @@ public class e extends m<PostData, f> implements View.OnClickListener {
         this.fFp = i;
     }
 
-    public void jF(boolean z) {
+    public void jG(boolean z) {
         this.fFq = z;
     }
 
-    public void jG(boolean z) {
+    public void jH(boolean z) {
         this.fFr = z;
     }
 

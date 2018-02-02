@@ -29,7 +29,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void tO(String str) {
+    public void tP(String str) {
         if (this.hrP != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
@@ -96,9 +96,9 @@ public class a extends BaseAdapter {
         if (this.hrP != null && this.hrP.size() > i) {
             localVideoInfoView.a(this.hrP.get(i));
         } else if (i == 0 && this.hrQ) {
-            localVideoInfoView.nf(true);
+            localVideoInfoView.ng(true);
         } else {
-            localVideoInfoView.nf(false);
+            localVideoInfoView.ng(false);
         }
         return view2;
     }

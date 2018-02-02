@@ -85,7 +85,7 @@ public class c {
         this.hyl = aVar;
     }
 
-    public void ub(String str) {
+    public void uc(String str) {
         if (this.hyi != null) {
             this.hyi.mFrom = str;
         }

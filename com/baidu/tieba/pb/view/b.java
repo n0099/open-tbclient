@@ -15,7 +15,7 @@ public class b extends com.baidu.adp.widget.ListView.b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ((PbActivity) b.this.mPageContext.getOrignalPage()).skipToLoginActivity();
-            ((PbActivity) b.this.mPageContext.getOrignalPage()).jP(true);
+            ((PbActivity) b.this.mPageContext.getOrignalPage()).jQ(true);
         }
     };
     private TbPageContext<PbActivity> mPageContext;

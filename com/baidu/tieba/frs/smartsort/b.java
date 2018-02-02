@@ -39,11 +39,11 @@ public class b {
 
     public void nJ(int i) {
         if (i >= 0) {
-            gg(true);
+            gh(true);
             nL(i);
             return;
         }
-        gg(false);
+        gh(false);
         nL(i);
     }
 
@@ -81,7 +81,7 @@ public class b {
         }
     }
 
-    public void gg(boolean z) {
+    public void gh(boolean z) {
         this.dQL = z;
     }
 

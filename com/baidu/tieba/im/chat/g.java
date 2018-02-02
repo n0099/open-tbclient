@@ -298,11 +298,11 @@ public class g extends b<MsglistActivity<?>> {
         j.a(this.mContext.getContext(), view, this.esh, this.esi, this.esj, chatMessage, str);
     }
 
-    public void gS(boolean z) {
+    public void gT(boolean z) {
         this.esl = z;
     }
 
-    public void gT(boolean z) {
+    public void gU(boolean z) {
         this.esm = z;
     }
 

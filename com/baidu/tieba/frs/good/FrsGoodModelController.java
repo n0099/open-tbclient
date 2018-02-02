@@ -91,7 +91,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean eR(boolean z) {
+    public boolean eS(boolean z) {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.dPb), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -154,7 +154,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
                 this.dPb = frsRequestData;
                 this.mPn = this.dPb.getPn();
                 this.dBw = this.dPb.getKw();
-                this.dOZ.lT(this.dBw);
+                this.dOZ.lU(this.dBw);
                 this.dOZ.setFrom(this.mFrom);
                 this.dOZ.setPn(this.mPn);
                 this.dOZ.setFlag(this.mFlag);
@@ -298,7 +298,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public void my(int i) {
         this.dPe = i;
-        eR(true);
+        eS(true);
     }
 
     public boolean axX() {

@@ -19,7 +19,7 @@ public interface h {
 
     void h(int i, int i2, String str);
 
-    void pr(String str);
-
     void ps(String str);
+
+    void pt(String str);
 }

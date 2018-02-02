@@ -52,7 +52,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.e.a.bnx().rN(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.e.a.bnx().rO(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {

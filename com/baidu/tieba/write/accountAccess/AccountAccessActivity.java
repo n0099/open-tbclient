@@ -37,7 +37,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             this.brT = new NewWriteModel(this);
             this.brT.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.brT.mG(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.brT.mH(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
             this.hCS = new a(this.hCR, this.brT);
             this.hCR.c(this.hCS);

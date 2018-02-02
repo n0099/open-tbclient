@@ -136,7 +136,7 @@ public class d {
 
         void aAQ();
 
-        void mr(String str);
+        void ms(String str);
 
         void onError(int i, String str);
     }
@@ -145,7 +145,7 @@ public class d {
         this.mIsBackground = z;
     }
 
-    public void fJ(boolean z) {
+    public void fK(boolean z) {
         this.mIsBackground = z;
     }
 
@@ -184,7 +184,7 @@ public class d {
     public void VX() {
         if (!DR() && this.hasMore && this.ebJ != null) {
             setIsLoading(true);
-            this.ebJ.mr(this.pageTag);
+            this.ebJ.ms(this.pageTag);
         }
     }
 
@@ -211,7 +211,7 @@ public class d {
         aAU();
     }
 
-    public void gy(boolean z) {
+    public void gz(boolean z) {
         if (z) {
             this.ebM.notifyDataSetChanged();
         }

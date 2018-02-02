@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.card.a
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, m mVar) {
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (view != null && b.this.efz != null && b.this.efz.getView() != null && b.this.efz.cUE != null && mVar != null && mVar.VM() != null && !StringUtils.isNull(mVar.VM().getTid())) {
                     if (view.getId() != b.this.efz.getView().getId()) {
                         if (b.this.efz.akE() == null || view.getId() != b.this.efz.akE().getId()) {

@@ -188,7 +188,7 @@ public class f {
         this.hmY = cVar;
     }
 
-    public static String tx(String str) {
+    public static String ty(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
@@ -212,7 +212,7 @@ public class f {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int ty(String str) {
+    public static int tz(String str) {
         int i = 0;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {

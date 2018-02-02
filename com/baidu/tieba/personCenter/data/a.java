@@ -18,7 +18,7 @@ public class a {
         return this.ghD;
     }
 
-    public void qN(String str) {
+    public void qO(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

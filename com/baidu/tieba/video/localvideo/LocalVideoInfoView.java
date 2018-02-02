@@ -77,7 +77,7 @@ public class LocalVideoInfoView extends RelativeLayout {
         }
     }
 
-    public void nf(boolean z) {
+    public void ng(boolean z) {
         this.hrN = true;
         if (z) {
             this.bmC.setScaleType(ImageView.ScaleType.CENTER);

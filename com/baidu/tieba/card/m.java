@@ -169,7 +169,7 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
         } else {
             this.cUE.cUJ.setVisibility(8);
         }
-        if (k.kk(this.cUD.bXi.getId())) {
+        if (k.kl(this.cUD.bXi.getId())) {
             aj.e(this.cUE.cTz, d.C0108d.cp_cont_d, 1);
         } else {
             aj.e(this.cUE.cTz, d.C0108d.cp_cont_b, 1);
@@ -199,17 +199,17 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.card.data.m> {
 
     private void akC() {
         if (this.cUD != null && this.cUD.bXi != null) {
-            k.kj(this.cUD.bXi.getId());
+            k.kk(this.cUD.bXi.getId());
             if (!akD()) {
                 UtilHelper.showToast(this.mPageContext.getPageActivity(), d.j.plugin_config_not_found);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.cUD.bXi.getTid()).cE(this.cUD.bXi.zk()).cH(this.cUD.akT()).cF(k.yJ()).wQ()));
-            kl(this.cUD.bXi.getTid());
+            km(this.cUD.bXi.getTid());
         }
     }
 
-    public void kl(final String str) {
+    public void km(final String str) {
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.card.m.1
             @Override // java.lang.Runnable
             public void run() {

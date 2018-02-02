@@ -126,7 +126,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                     } else {
                         SignData signData2 = signMessage.signData;
                         if (signData2.forumId != null && signData2.forumId.equals(auv.aYJ().getId())) {
-                            f.this.mf(name);
+                            f.this.mg(name);
                             auv.d(signData2);
                             signData2.forumId = auv.aYJ().getId();
                             signData2.forumName = auv.aYJ().getName();
@@ -185,7 +185,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                         } else if (!ax.bb(f.this.mContext.getPageActivity())) {
                             TiebaStatic.log(new ak("c10517").s("obj_locate", 1).aa(ImageViewerConfig.FORUM_ID, f.this.dPK.getForumId()));
                         } else {
-                            f.this.gj(true);
+                            f.this.gk(true);
                         }
                     }
                 } else if (id == d.g.tv_sign) {
@@ -203,7 +203,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                 } else if (id == d.g.frs_header_games) {
                     if (ax.bb(f.this.mContext.getPageActivity()) && auv != null && auv.btP() != null) {
                         String btP = auv.btP();
-                        if (m.dP(btP) == 3) {
+                        if (m.dQ(btP) == 3) {
                             m.a(f.this.dPK.getPageContext(), btP);
                         } else {
                             av.Da().a((TbPageContext) f.this.getPageContext(), new String[]{btP}, true);
@@ -270,9 +270,9 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public void gh(boolean z) {
+    public void gi(boolean z) {
         if (this.dSe != null) {
-            this.dSe.gh(z);
+            this.dSe.gi(z);
         }
     }
 
@@ -285,7 +285,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
         return true;
     }
 
-    public void gi(boolean z) {
+    public void gj(boolean z) {
         if (z) {
             if (this.dSe != null) {
                 this.dDz.removeHeaderView(this.dSe.azx());
@@ -379,10 +379,10 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                 if (forumData.getSignData() != null) {
                     this.dSe.oe(forumData.getSignData().is_signed);
                     if (forumData.getSignData().forum_rank == -2) {
-                        this.dSe.go(false);
+                        this.dSe.gp(false);
                         return;
                     }
-                    this.dSe.go(true);
+                    this.dSe.gp(true);
                     this.dSe.oe(forumData.getSignData().is_signed);
                 }
             }
@@ -404,10 +404,10 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
     public void nO(int i) {
         if (i > 1) {
             if (this.dSe != null) {
-                this.dSe.gp(false);
+                this.dSe.gq(false);
             }
         } else if (this.dSe != null) {
-            this.dSe.gp(true);
+            this.dSe.gq(true);
         }
     }
 
@@ -472,7 +472,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
             if (forumData != null) {
                 this.dSe.a(i, forumData.getLevelName(), forumData.getUser_level(), a(forumData), z);
                 if (forumData.getSignData() != null && forumData.getSignData().forum_rank == -2) {
-                    this.dSe.go(false);
+                    this.dSe.gp(false);
                 }
             }
         }
@@ -547,7 +547,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.i */
     /* JADX WARN: Multi-variable type inference failed */
-    public void gj(boolean z) {
+    public void gk(boolean z) {
         if (this.dPK != null) {
             l auv = this.dPK.auv();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -624,7 +624,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mf(String str) {
+    public void mg(String str) {
         if (this.dPK.atY() != null && this.dPK.atY().ayk() != null) {
             com.baidu.tieba.tbadkCore.c.btv().aa(com.baidu.tieba.tbadkCore.c.btv().d(str, this.dPK.atY().ayk().XH(), this.dPK.atY().ayk().getIsGood(), this.dPK.atY().ayk().getCategoryId()), false);
         }
@@ -663,7 +663,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                             f.this.dPK.showToast(f.this.cSY.getErrorString());
                         }
                     } else {
-                        f.this.mf(name);
+                        f.this.mg(name);
                         rVar.setLike(1);
                         auv.c(rVar);
                         auv.dm(rVar.bty());
@@ -690,7 +690,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                     String name = auv.aYJ().getName();
                     String id = auv.aYJ().getId();
                     if (j == com.baidu.adp.lib.g.b.c(id, 0L) && TextUtils.equals(name, str)) {
-                        f.this.mf(str);
+                        f.this.mg(str);
                         auv.aYJ().setLike(0);
                         f.this.nP(0);
                         f.this.dPK.aU(true);

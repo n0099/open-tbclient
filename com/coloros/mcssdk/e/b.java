@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.uU(jSONObject.getString(str3));
+                    eVar.uV(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -78,7 +78,7 @@ public class b extends c {
         return "type:4105,messageID:" + this.hNk + ",taskID:" + this.hNl + ",appPackage:" + this.appPackage + ",appKey:" + this.hNg + ",appSecret:" + this.hNh + ",registerID:" + this.hNi + ",sdkVersion:" + this.hNj + ",command:" + this.adY + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void uQ(String str) {
+    public void uR(String str) {
         this.hNh = str;
     }
 

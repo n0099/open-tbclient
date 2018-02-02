@@ -59,9 +59,9 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.dmx.fq(true);
+                        CoreSearchRequestStatic.dmx.fr(true);
                     } else {
-                        CoreSearchRequestStatic.dmx.fp(true);
+                        CoreSearchRequestStatic.dmx.fq(true);
                     }
                 }
             }

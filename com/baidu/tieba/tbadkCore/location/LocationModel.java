@@ -40,14 +40,14 @@ public class LocationModel extends BdBaseModel {
 
         void a(com.baidu.tieba.tbadkCore.location.a aVar);
 
-        void gp(String str);
+        void gq(String str);
     }
 
     /* loaded from: classes.dex */
     public interface b {
         void Lm();
 
-        void gq(String str);
+        void gr(String str);
     }
 
     private void agn() {
@@ -62,7 +62,7 @@ public class LocationModel extends BdBaseModel {
                         if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
                             str = httpResponsedMessage.getErrorString();
                         }
-                        LocationModel.this.haK.gp(str);
+                        LocationModel.this.haK.gq(str);
                         return;
                     }
                     return;
@@ -103,7 +103,7 @@ public class LocationModel extends BdBaseModel {
                     if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
                         str = socketResponsedMessage.getErrorString();
                     }
-                    LocationModel.this.haK.gp(str);
+                    LocationModel.this.haK.gq(str);
                 }
             }
         };
@@ -117,7 +117,7 @@ public class LocationModel extends BdBaseModel {
                 }
                 BdLog.i("mGetLonAndLatCallback error!");
                 if (LocationModel.this.haK != null) {
-                    LocationModel.this.haK.gp(str);
+                    LocationModel.this.haK.gq(str);
                 }
             }
         };
@@ -128,15 +128,15 @@ public class LocationModel extends BdBaseModel {
                 if (customResponsedMessage instanceof ResponsedSelectLocation) {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
-                        LocationModel.this.mE(false);
+                        LocationModel.this.mF(false);
                         LocationModel.this.ce(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         if (LocationModel.this.haL != null) {
-                            LocationModel.this.haL.gq(responsedSelectLocation.getName());
+                            LocationModel.this.haL.gr(responsedSelectLocation.getName());
                             return;
                         }
                         return;
                     }
-                    LocationModel.this.mE(true);
+                    LocationModel.this.mF(true);
                     if (LocationModel.this.haL != null) {
                         LocationModel.this.haL.Lm();
                     }
@@ -160,7 +160,7 @@ public class LocationModel extends BdBaseModel {
     public void c(com.baidu.tieba.tbadkCore.location.a aVar) {
         if (aVar == null) {
             if (this.haK != null) {
-                this.haK.gp(null);
+                this.haK.gq(null);
                 return;
             }
             return;
@@ -198,15 +198,15 @@ public class LocationModel extends BdBaseModel {
             }
             if (StringUtils.isNull(aVar.bwn())) {
                 if (bwo.size() >= 1) {
-                    aVar.sF(bwo.get(0).getName());
-                    aVar.sG(bwo.get(0).bwp());
+                    aVar.sG(bwo.get(0).getName());
+                    aVar.sH(bwo.get(0).bwp());
                     return;
                 }
                 return;
             }
             for (a.C0157a c0157a : bwo) {
                 if (aVar.bwn().equals(c0157a.getName())) {
-                    aVar.sG(c0157a.bwp());
+                    aVar.sH(c0157a.bwp());
                     return;
                 }
             }
@@ -222,16 +222,16 @@ public class LocationModel extends BdBaseModel {
         return (bwu() || locationData == null || StringUtils.isNull(locationData.bwn())) ? false : true;
     }
 
-    public void mE(boolean z) {
-        c.bwr().mD(z);
+    public void mF(boolean z) {
+        c.bwr().mE(z);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("no_longer_show_address", c.bwr().bws());
     }
 
     public void ce(String str, String str2) {
         com.baidu.tieba.tbadkCore.location.a locationData = c.bwr().getLocationData();
         if (locationData != null) {
-            locationData.sF(str);
-            locationData.sG(str2);
+            locationData.sG(str);
+            locationData.sH(str2);
         }
     }
 

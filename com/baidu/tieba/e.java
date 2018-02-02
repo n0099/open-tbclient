@@ -56,9 +56,9 @@ public class e extends Dialog {
 
         void SJ();
 
-        void cP(boolean z);
-
         void cQ(boolean z);
+
+        void cR(boolean z);
 
         void stopService();
     }
@@ -143,14 +143,13 @@ public class e extends Dialog {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log("c10003");
-                e.this.bOj.setEnabled(false);
                 e.this.bOa = true;
                 if (e.this.bNZ) {
                     Drawable drawable2 = aj.getDrawable(d.f.btn_dailog_choose_d);
                     drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
                     e.this.bOh.setCompoundDrawables(drawable2, null, null, null);
                 }
-                e.this.bOu.cP(e.this.bNZ);
+                e.this.bOu.cQ(e.this.bNZ);
             }
         });
         this.bOl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.2
@@ -162,7 +161,7 @@ public class e extends Dialog {
                     TiebaStatic.log("c10009");
                 }
                 e.this.bOl.setEnabled(false);
-                e.this.bOu.cQ(e.this.bNZ);
+                e.this.bOu.cR(e.this.bNZ);
             }
         });
         this.bOi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.3
@@ -252,6 +251,10 @@ public class e extends Dialog {
         this.bOt.setVisibility(0);
         this.bOf.setVisibility(0);
         this.bOf.setText(this.bOg + i + "%");
+    }
+
+    public void cP(boolean z) {
+        this.bOj.setEnabled(z);
     }
 
     @Override // android.app.Dialog

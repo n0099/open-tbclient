@@ -262,7 +262,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
             }
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (com.baidu.tieba.card.k.kk(this.aYc.getId())) {
+        if (com.baidu.tieba.card.k.kl(this.aYc.getId())) {
             com.baidu.tieba.card.k.a(this.mTitle, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cUv, this.aYc.getId(), d.C0108d.cp_cont_c, d.C0108d.cp_cont_d);
         }
@@ -573,7 +573,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
     public void akA() {
         PbActivityConfig createFromThreadCfg;
         if (this.aYc != null) {
-            com.baidu.tieba.card.k.kj(this.aYc.getId());
+            com.baidu.tieba.card.k.kk(this.aYc.getId());
             com.baidu.tieba.card.k.a(this.mTitle, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cUv, this.aYc.getId(), d.C0108d.cp_cont_c, d.C0108d.cp_cont_d);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_AD_FRS_THREAD_CLICKED, this.aYc));
@@ -604,7 +604,7 @@ public class e extends com.baidu.tieba.card.a<bd> implements u {
                     }
                 }
             } else {
-                t.hh(this.aYc.getId());
+                t.hi(this.aYc.getId());
                 boolean z = this.aYc.getType() != bd.aNb;
                 if (this.aYc.zq() > 0 && com.baidu.tieba.tbadkCore.util.f.bwK()) {
                     createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createHistoryCfg(this.aYc.getTid(), String.valueOf(this.aYc.zq()), false, z, "frs_page");

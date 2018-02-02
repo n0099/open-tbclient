@@ -113,32 +113,32 @@ public class h extends LinearLayout {
             this.bad = cVar.bad;
             switch (cVar.baj) {
                 case CREATE:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion03.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion03_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion03.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion03_1.png");
                     break;
                 case NODATA:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion05.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion05_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion05.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion05_1.png");
                     break;
                 case FINDBAR:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion01.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion01_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion01.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion01_1.png");
                     break;
                 case EMOTION:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion02.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion02_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion02.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion02_1.png");
                     break;
                 case GIFT:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion07.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion07_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion07.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion07_1.png");
                     break;
                 case SINGALL:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion06.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion06_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion06.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion06_1.png");
                     break;
                 case WEBVIEW:
-                    this.aZZ = com.baidu.tbadk.util.b.Oq().gV("pic_emotion08.png");
-                    this.baa = com.baidu.tbadk.util.b.Oq().gV("pic_emotion08_1.png");
+                    this.aZZ = com.baidu.tbadk.util.b.Oq().gW("pic_emotion08.png");
+                    this.baa = com.baidu.tbadk.util.b.Oq().gW("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aZS.getLayoutParams();

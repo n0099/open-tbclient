@@ -86,7 +86,7 @@ public class h {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.h.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean mG(String str) {
+            public boolean mH(String str) {
                 return true;
             }
         }, false);

@@ -73,36 +73,36 @@ public class l extends c {
             }
             return akVar;
         } else if (ala()) {
-            ak kp = kp(cXq);
-            if (kp != null && VM() != null) {
+            ak kq = kq(cXq);
+            if (kq != null && VM() != null) {
                 bd VM2 = VM();
-                kp.s("obj_name", VM2.Ah() != null && (VM2.Ah().bvM() != null || VM2.Ah().QL() != null) ? 1 : 0);
+                kq.s("obj_name", VM2.Ah() != null && (VM2.Ah().bvM() != null || VM2.Ah().QL() != null) ? 1 : 0);
                 if (VM2.yT() != null) {
-                    kp.s("ab_type", VM2.yT().hadConcerned() ? 1 : 0);
+                    kq.s("ab_type", VM2.yT().hadConcerned() ? 1 : 0);
                 }
             }
-            return kp;
+            return kq;
         } else {
-            ak kp2 = kp(cXl);
-            if (kp2 != null) {
-                kp2.aa("ab_tag", akU()).aa("ab_action", "show");
+            ak kq2 = kq(cXl);
+            if (kq2 != null) {
+                kq2.aa("ab_tag", akU()).aa("ab_action", "show");
                 if (VM() != null) {
                     bd VM3 = VM();
                     boolean z = (VM3.Ah() == null || (VM3.Ah().bvM() == null && VM3.Ah().QL() == null)) ? false : true;
-                    kp2.s("obj_name", z ? 1 : 0);
+                    kq2.s("obj_name", z ? 1 : 0);
                     if (z && VM3.Ah().bvM() != null && VM3.Ah().bvM().QD() != null && VM3.Ah().bvM().QD().size() > 0) {
-                        kp2.s("obj_to", VM3.Ah().gZh ? 2 : 1);
+                        kq2.s("obj_to", VM3.Ah().gZh ? 2 : 1);
                     }
                     if (VM3.yT() != null) {
-                        kp2.s("ab_type", VM3.yT().hadConcerned() ? 1 : 0);
+                        kq2.s("ab_type", VM3.yT().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return kp2;
+            return kq2;
         }
     }
 
-    public ak kr(String str) {
+    public ak ks(String str) {
         ak akVar = new ak(str);
         if (akVar != null && this.threadData != null) {
             akVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
@@ -119,45 +119,45 @@ public class l extends c {
         return akVar;
     }
 
-    public ak ks(String str) {
-        ak kp = kp(str);
-        if (kp != null) {
-            kp.aa("ab_tag", akU()).aa("ab_action", "show");
+    public ak kt(String str) {
+        ak kq = kq(str);
+        if (kq != null) {
+            kq.aa("ab_tag", akU()).aa("ab_action", "show");
             if (VM() != null) {
                 bd VM = VM();
                 boolean z = (VM.Ah() == null || (VM.Ah().bvM() == null && VM.Ah().QL() == null)) ? false : true;
-                kp.s("obj_name", z ? 1 : 0);
+                kq.s("obj_name", z ? 1 : 0);
                 if (z && VM.Ah().bvM() != null && VM.Ah().bvM().QD() != null && VM.Ah().bvM().QD().size() > 0) {
-                    kp.s("obj_to", VM.Ah().gZh ? 2 : 1);
+                    kq.s("obj_to", VM.Ah().gZh ? 2 : 1);
                 }
             }
         }
-        return kp;
+        return kq;
     }
 
-    public ak kt(String str) {
-        ak kp = kp(str);
-        if (kp != null) {
-            kp.aa("ab_tag", akU()).aa("ab_action", "click");
+    public ak ku(String str) {
+        ak kq = kq(str);
+        if (kq != null) {
+            kq.aa("ab_tag", akU()).aa("ab_action", "click");
         }
-        return kp;
+        return kq;
     }
 
     public ak alc() {
         if (ala()) {
-            return kp(cXr);
+            return kq(cXr);
         }
-        ak kp = kp(cXm);
-        if (kp != null) {
-            kp.aa("ab_tag", akU()).aa("ab_action", "click");
-            return kp;
+        ak kq = kq(cXm);
+        if (kq != null) {
+            kq.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kq;
         }
-        return kp;
+        return kq;
     }
 
     public ak ald() {
         if (ala()) {
-            return kp(cXs);
+            return kq(cXs);
         }
         ak W = W(cXn, 0);
         if (W != null) {
@@ -169,45 +169,45 @@ public class l extends c {
 
     public ak ale() {
         if (ala()) {
-            return kp(cXt);
+            return kq(cXt);
         }
-        ak kp = kp(cXo);
-        if (kp != null) {
-            kp.aa("ab_tag", akU()).aa("ab_action", "click");
-            return kp;
+        ak kq = kq(cXo);
+        if (kq != null) {
+            kq.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kq;
         }
-        return kp;
+        return kq;
     }
 
     public ak alf() {
         if (ala()) {
-            return kp(cXu);
+            return kq(cXu);
         }
-        ak kp = kp(cXp);
-        if (kp != null) {
-            kp.aa("ab_tag", akU()).aa("ab_action", "click");
-            return kp;
+        ak kq = kq(cXp);
+        if (kq != null) {
+            kq.aa("ab_tag", akU()).aa("ab_action", "click");
+            return kq;
         }
-        return kp;
+        return kq;
     }
 
     public ak alg() {
-        return kp(cXv);
-    }
-
-    public ak ku(String str) {
-        return kp(str);
+        return kq(cXv);
     }
 
     public ak kv(String str) {
-        ak kp = kp(str);
-        if (this.threadData != null && this.threadData.yT() != null) {
-            kp.s("ab_type", this.threadData.yT().hadConcerned() ? 1 : 0);
-        }
-        return kp;
+        return kq(str);
     }
 
     public ak kw(String str) {
-        return kp(str);
+        ak kq = kq(str);
+        if (this.threadData != null && this.threadData.yT() != null) {
+            kq.s("ab_type", this.threadData.yT().hadConcerned() ? 1 : 0);
+        }
+        return kq;
+    }
+
+    public ak kx(String str) {
+        return kq(str);
     }
 }

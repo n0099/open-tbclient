@@ -43,7 +43,7 @@ public class a {
                 if (!a.this.bPL) {
                     String Tm = a.this.Tm();
                     if (Tm != null && !Tm.isEmpty()) {
-                        File file = new File(c.bPz + b.hK(Tm) + "/header_downloaded");
+                        File file = new File(c.bPz + b.hL(Tm) + "/header_downloaded");
                         if (file.exists()) {
                             d.at(a.TAG, "header exists " + Tm);
                         } else {
@@ -264,7 +264,7 @@ public class a {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void hL(String str) {
+    public synchronized void hM(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

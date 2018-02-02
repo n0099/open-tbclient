@@ -25,9 +25,9 @@ public interface e {
 
         void bAh();
 
-        void nb(boolean z);
-
         void nc(boolean z);
+
+        void nd(boolean z);
 
         void wG(int i);
 

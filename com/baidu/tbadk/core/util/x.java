@@ -368,14 +368,14 @@ public class x {
         return fC(3);
     }
 
-    public String dW(String str) throws IOException {
+    public String dX(String str) throws IOException {
         byte[] bArr;
         try {
-            InputStream dG = k.dG(str);
+            InputStream dH = k.dH(str);
             byte[] bArr2 = new byte[5120];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
             while (true) {
-                int read = dG.read(bArr2);
+                int read = dH.read(bArr2);
                 if (read == -1) {
                     break;
                 }

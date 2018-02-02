@@ -69,7 +69,7 @@ public class a extends BaseFragment implements aj {
         super.onPrimary();
         if (this.chw || StringUtils.isNull(this.djz.XO().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.djz.loadUrl(iJ(this.mUrl));
+                this.djz.loadUrl(iK(this.mUrl));
             } else {
                 this.djz.loadUrl(this.mUrl);
             }
@@ -77,7 +77,7 @@ public class a extends BaseFragment implements aj {
         }
     }
 
-    private String iJ(String str) {
+    private String iK(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -126,7 +126,7 @@ public class a extends BaseFragment implements aj {
         super.onChangeSkinType(i);
         if (!this.chw) {
             if (i == 1) {
-                this.djz.loadUrl(iJ(this.mUrl));
+                this.djz.loadUrl(iK(this.mUrl));
             } else {
                 this.djz.loadUrl(this.mUrl);
             }

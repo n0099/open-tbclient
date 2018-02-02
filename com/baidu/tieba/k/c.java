@@ -66,7 +66,7 @@ public class c {
                 this.ftt = new Runnable() { // from class: com.baidu.tieba.k.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.pC(c.this.mContext.getString(d.j.data_init));
+                        c.this.pD(c.this.mContext.getString(d.j.data_init));
                     }
                 };
             }
@@ -106,7 +106,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pC(String str) {
+    public void pD(String str) {
         if (this.ftr == null) {
             this.ftr = new b(this.mContext);
             this.ftr.setTextSize(1, 18.0f);

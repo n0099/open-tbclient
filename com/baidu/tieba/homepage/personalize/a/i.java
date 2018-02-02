@@ -68,7 +68,7 @@ public class i extends com.baidu.adp.widget.ListView.a<n, d<com.baidu.tieba.card
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, n nVar) {
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (i.this.efH != null && nVar != null && nVar.VM() != null && !StringUtils.isNull(nVar.VM().getTid()) && i.this.efM != null && i.this.efM.getView() != null) {
                     if (nVar.VM().aPa > 0) {
                         TiebaStatic.log(nVar.K(nVar.VM()));

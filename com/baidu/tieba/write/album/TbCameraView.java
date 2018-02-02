@@ -96,7 +96,7 @@ public class TbCameraView extends TextureView {
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (TbCameraView.this) {
-                    TbCameraView.this.nA(TbCameraView.this.hkQ);
+                    TbCameraView.this.nB(TbCameraView.this.hkQ);
                 }
             }
         };
@@ -141,7 +141,7 @@ public class TbCameraView extends TextureView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void nA(boolean z) {
+    public void nB(boolean z) {
         Camera.CameraInfo cameraInfo;
         int numberOfCameras;
         int i = 0;

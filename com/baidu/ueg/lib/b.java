@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.uL(str));
+        return decode(d.uM(str));
     }
 
     public byte[] decode(byte[] bArr) {

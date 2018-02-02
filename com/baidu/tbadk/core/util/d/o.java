@@ -22,7 +22,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.LR().gF(str);
+        return com.baidu.tbadk.imageManager.c.LR().gG(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(str2), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(str2), DiskFileOperate.Action.READ);
         if (cVar == null) {
             return null;
         }
@@ -64,7 +64,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr) {
         if (bitmap != null || bArr != null) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str2, bArr);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.Z(true);
             cVar.setData(bArr);

@@ -37,7 +37,7 @@ public class g extends a {
         this.bvq.setOnClickListener(null);
     }
 
-    public void gM(String str) {
+    public void gN(String str) {
         if (str == null) {
             this.bvz.setVisibility(8);
             return;

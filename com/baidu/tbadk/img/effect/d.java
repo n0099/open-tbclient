@@ -41,7 +41,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gL(String str) throws Exception {
+    public Bitmap gM(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

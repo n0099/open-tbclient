@@ -130,17 +130,17 @@ public class b extends BaseFragment {
                     if (customMessage != null && imMessageCenterShowItemData != null) {
                         imMessageCenterShowItemData.setUnReadCount(0);
                         if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
-                            com.baidu.tieba.im.db.d.aGD().mZ("apply_join_group");
+                            com.baidu.tieba.im.db.d.aGD().na("apply_join_group");
                         } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
-                            com.baidu.tieba.im.db.d.aGD().mZ("group_intro_change");
-                            com.baidu.tieba.im.db.d.aGD().mZ("group_name_change");
-                            com.baidu.tieba.im.db.d.aGD().mZ("group_notice_change");
-                            com.baidu.tieba.im.db.d.aGD().mZ("group_level_up");
-                            com.baidu.tieba.im.db.d.aGD().mZ("dismiss_group");
-                            com.baidu.tieba.im.db.d.aGD().mZ("kick_out");
-                            com.baidu.tieba.im.db.d.aGD().mZ("group_activitys_change");
+                            com.baidu.tieba.im.db.d.aGD().na("group_intro_change");
+                            com.baidu.tieba.im.db.d.aGD().na("group_name_change");
+                            com.baidu.tieba.im.db.d.aGD().na("group_notice_change");
+                            com.baidu.tieba.im.db.d.aGD().na("group_level_up");
+                            com.baidu.tieba.im.db.d.aGD().na("dismiss_group");
+                            com.baidu.tieba.im.db.d.aGD().na("kick_out");
+                            com.baidu.tieba.im.db.d.aGD().na("group_activitys_change");
                         } else if (imMessageCenterShowItemData.getOwnerName().equals("6")) {
-                            com.baidu.tieba.im.db.d.aGD().mZ("live_notify");
+                            com.baidu.tieba.im.db.d.aGD().na("live_notify");
                         }
                     }
                     return null;
@@ -276,7 +276,7 @@ public class b extends BaseFragment {
 
     private void initData() {
         this.eLs = new ImMessageCenterModel();
-        hP(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
+        hQ(com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void bJ(View view) {
@@ -287,8 +287,8 @@ public class b extends BaseFragment {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_shut_down_validate", true);
-                b.this.hP(false);
-                b.this.hN(false);
+                b.this.hQ(false);
+                b.this.hO(false);
             }
         });
         this.eLv = (BdListView) view.findViewById(d.g.chat_list_content);
@@ -304,7 +304,7 @@ public class b extends BaseFragment {
         this.eLv.startPullRefresh();
         this.bYY = (NoNetworkView) this.dyl.findViewById(d.g.view_no_network);
         if (!this.mIsLogin) {
-            hO(true);
+            hP(true);
         }
     }
 
@@ -382,9 +382,9 @@ public class b extends BaseFragment {
         super.onUserChanged(z);
         aLa();
         if (!z) {
-            hO(true);
+            hP(true);
         } else {
-            hO(false);
+            hP(false);
         }
     }
 
@@ -420,7 +420,7 @@ public class b extends BaseFragment {
         this.eLz.d(this.eLt.getPageContext());
     }
 
-    public void hN(boolean z) {
+    public void hO(boolean z) {
         if (z) {
             if (aLd() && this.eLy.getVisibility() != 0) {
                 this.eLy.setVisibility(0);
@@ -430,7 +430,7 @@ public class b extends BaseFragment {
         }
     }
 
-    public void hO(boolean z) {
+    public void hP(boolean z) {
         if (z) {
             if (this.mNoDataView == null) {
                 aLa();
@@ -449,7 +449,7 @@ public class b extends BaseFragment {
         return this.eLC;
     }
 
-    public void hP(boolean z) {
+    public void hQ(boolean z) {
         this.eLC = z;
     }
 

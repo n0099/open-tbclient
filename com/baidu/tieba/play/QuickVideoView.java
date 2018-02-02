@@ -150,7 +150,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // java.lang.Runnable
             public void run() {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.iY(false);
+                    QuickVideoView.this.gsm.iZ(false);
                 }
             }
         };
@@ -184,7 +184,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
                 QuickVideoView.this.bkg();
-                QuickVideoView.this.lG(false);
+                QuickVideoView.this.lH(false);
                 if (QuickVideoView.this.gsi != null) {
                     QuickVideoView.this.gsi.release();
                 }
@@ -197,7 +197,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                     }
                 }
                 QuickVideoView.this.gsw = null;
-                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource())) {
+                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.px(QuickVideoView.this.getLocateSource())) {
                     QuickVideoView.this.gsm = null;
                 }
                 return false;
@@ -249,9 +249,9 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         this.gsV = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                QuickVideoView.this.lG(true);
+                QuickVideoView.this.lH(true);
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource());
                     QuickVideoView.this.gsm = null;
                 }
                 if (!QuickVideoView.this.gst || QuickVideoView.this.gsq == null) {
@@ -347,7 +347,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.px(str);
+                    QuickVideoView.this.gsm.py(str);
                 }
             }
         };
@@ -393,7 +393,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                         QuickVideoView.this.gsq.bjZ();
                     }
                     if (QuickVideoView.this.gsm != null) {
-                        QuickVideoView.this.gsm.pu(QuickVideoView.this.getLocateSource());
+                        QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
                         QuickVideoView.this.gsm = null;
                     }
                     QuickVideoView.this.bkg();
@@ -435,7 +435,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // java.lang.Runnable
             public void run() {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.iY(false);
+                    QuickVideoView.this.gsm.iZ(false);
                 }
             }
         };
@@ -469,7 +469,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
                 QuickVideoView.this.bkg();
-                QuickVideoView.this.lG(false);
+                QuickVideoView.this.lH(false);
                 if (QuickVideoView.this.gsi != null) {
                     QuickVideoView.this.gsi.release();
                 }
@@ -482,7 +482,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                     }
                 }
                 QuickVideoView.this.gsw = null;
-                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource())) {
+                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.px(QuickVideoView.this.getLocateSource())) {
                     QuickVideoView.this.gsm = null;
                 }
                 return false;
@@ -534,9 +534,9 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         this.gsV = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                QuickVideoView.this.lG(true);
+                QuickVideoView.this.lH(true);
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource());
                     QuickVideoView.this.gsm = null;
                 }
                 if (!QuickVideoView.this.gst || QuickVideoView.this.gsq == null) {
@@ -632,7 +632,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.px(str);
+                    QuickVideoView.this.gsm.py(str);
                 }
             }
         };
@@ -678,7 +678,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                         QuickVideoView.this.gsq.bjZ();
                     }
                     if (QuickVideoView.this.gsm != null) {
-                        QuickVideoView.this.gsm.pu(QuickVideoView.this.getLocateSource());
+                        QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
                         QuickVideoView.this.gsm = null;
                     }
                     QuickVideoView.this.bkg();
@@ -720,7 +720,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // java.lang.Runnable
             public void run() {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.iY(false);
+                    QuickVideoView.this.gsm.iZ(false);
                 }
             }
         };
@@ -754,7 +754,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // android.view.TextureView.SurfaceTextureListener
             public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
                 QuickVideoView.this.bkg();
-                QuickVideoView.this.lG(false);
+                QuickVideoView.this.lH(false);
                 if (QuickVideoView.this.gsi != null) {
                     QuickVideoView.this.gsi.release();
                 }
@@ -767,7 +767,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                     }
                 }
                 QuickVideoView.this.gsw = null;
-                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource())) {
+                if (QuickVideoView.this.gsm != null && QuickVideoView.this.gsm.px(QuickVideoView.this.getLocateSource())) {
                     QuickVideoView.this.gsm = null;
                 }
                 return false;
@@ -819,9 +819,9 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         this.gsV = new g.a() { // from class: com.baidu.tieba.play.QuickVideoView.11
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
-                QuickVideoView.this.lG(true);
+                QuickVideoView.this.lH(true);
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
+                    QuickVideoView.this.gsm.pw(QuickVideoView.this.getLocateSource());
                     QuickVideoView.this.gsm = null;
                 }
                 if (!QuickVideoView.this.gst || QuickVideoView.this.gsq == null) {
@@ -917,7 +917,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             @Override // com.baidu.tieba.play.g.d
             public void onHandleOppoError(String str) {
                 if (QuickVideoView.this.gsm != null) {
-                    QuickVideoView.this.gsm.px(str);
+                    QuickVideoView.this.gsm.py(str);
                 }
             }
         };
@@ -963,7 +963,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                         QuickVideoView.this.gsq.bjZ();
                     }
                     if (QuickVideoView.this.gsm != null) {
-                        QuickVideoView.this.gsm.pu(QuickVideoView.this.getLocateSource());
+                        QuickVideoView.this.gsm.pv(QuickVideoView.this.getLocateSource());
                         QuickVideoView.this.gsm = null;
                     }
                     QuickVideoView.this.bkg();
@@ -1012,7 +1012,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             this.gsy.bkO();
         }
         if (TextUtils.isEmpty(str)) {
-            com.baidu.tieba.play.c.e.rj(str2);
+            com.baidu.tieba.play.c.e.rk(str2);
             if (gsl != null) {
                 this.gsm = gsl.I(this.bBb, str, "");
                 if (this.gsm != null) {
@@ -1042,20 +1042,20 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 this.gsm.aVi();
             }
             if (this.gsq != null) {
-                str = this.gsq.hM(str);
+                str = this.gsq.hN(str);
                 if (this.gsq.bjY() != null) {
                     this.gsq.bjY().setPlayer(this);
                 }
-                if (gsl != null && rb(str)) {
-                    this.gsn = gsl.pz(str);
+                if (gsl != null && rc(str)) {
+                    this.gsn = gsl.pA(str);
                 }
                 if (this.gsn != null) {
                     this.gsn.a(new com.baidu.tieba.play.b.a(this.bBb, this.gsB, this.gsm));
                     this.gsn.aVb();
                 }
-                ra(str);
+                rb(str);
             }
-            if (!com.baidu.adp.lib.util.j.oJ() && !rb(str)) {
+            if (!com.baidu.adp.lib.util.j.oJ() && !rc(str)) {
                 if (this.bNw != null) {
                     this.bNw.onError(this.gsi, -10000, -10000);
                     return;
@@ -1084,7 +1084,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     private void setVideoURI(Uri uri, Map<String, String> map) {
         if (i(uri) != null) {
-            this.gsm.pt(uri.toString());
+            this.gsm.pu(uri.toString());
         }
         bke();
         this.gsr = true;
@@ -1117,7 +1117,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gsX);
     }
 
-    private void ra(String str) {
+    private void rb(String str) {
         this.gsM = 0;
         this.gsN = 0;
         this.gsO = 0;
@@ -1131,7 +1131,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    QuickVideoView.this.gsN = (int) u.rd(QuickVideoView.this.gsB);
+                    QuickVideoView.this.gsN = (int) u.re(QuickVideoView.this.gsB);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -1152,7 +1152,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lG(boolean z) {
+    public void lH(boolean z) {
         if (this.gcG == gsJ && this.gsi != null) {
             this.gcG = gsK;
             this.gsP = this.gsi.getDuration();
@@ -1165,7 +1165,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             }
             if (this.gsO > 0) {
                 if (this.gsL == gsG) {
-                    this.gsN = (int) u.rd(this.gsB);
+                    this.gsN = (int) u.re(this.gsB);
                     if (this.gsM > 0) {
                         long j = (this.gsM * (this.gsO / 1000)) / 8;
                         if (this.gsQ < 0) {
@@ -1205,7 +1205,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     public void stopPlayback() {
         bkg();
-        lG(false);
+        lH(false);
         if (this.gsy != null) {
             this.gsy.clear();
         }
@@ -1216,7 +1216,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
             this.gsq.onStop();
         }
         com.baidu.tieba.play.a.b.bkL().a((b.InterfaceC0147b) null);
-        if (this.gsm != null && this.gsm.pw(getLocateSource())) {
+        if (this.gsm != null && this.gsm.px(getLocateSource())) {
             this.gsm = null;
         }
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gsX);
@@ -1259,7 +1259,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         if (this.gsq != null && !StringUtils.isNull(this.gsq.bjR())) {
             String uri = this.mUri.toString();
             if (!uri.contains(HttpHost.DEFAULT_SCHEME_NAME)) {
-                com.baidu.tieba.play.c.a.ri(uri);
+                com.baidu.tieba.play.c.a.rj(uri);
             }
             this.mUri = Uri.parse(this.gsq.bjR());
         }
@@ -1562,7 +1562,7 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
         com.baidu.tieba.play.b.b.a(this.gsm, j);
     }
 
-    public static boolean rb(String str) {
+    public static boolean rc(String str) {
         return (StringUtils.isNull(str) || str.contains(HttpHost.DEFAULT_SCHEME_NAME)) ? false : true;
     }
 

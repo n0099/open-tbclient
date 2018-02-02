@@ -112,7 +112,7 @@ public class NewWriteModel extends BdBaseModel {
         this.mPageContext = null;
     }
 
-    public void mG(boolean z) {
+    public void mH(boolean z) {
         this.hcb = z;
     }
 
@@ -243,7 +243,7 @@ public class NewWriteModel extends BdBaseModel {
             com.baidu.tieba.tbadkCore.writeModel.b bVar;
             JSONArray jSONArray;
             if (!this.isCanceled) {
-                com.baidu.tbadk.imageManager.d.gG(NewWriteModel.this.mData.getContent());
+                com.baidu.tbadk.imageManager.d.gH(NewWriteModel.this.mData.getContent());
                 this.cOK = new com.baidu.tieba.tbadkCore.c.a();
                 this.cOK.a(this.gZD);
                 this.cOK.a(NewWriteModel.this.hcc);
@@ -329,8 +329,8 @@ public class NewWriteModel extends BdBaseModel {
                     bVar.setThreadId(str4);
                     bVar.setPostId(str5);
                     bVar.setIsCopyTWZhibo(i2);
-                    bVar.sT(str6);
-                    bVar.sU(str7);
+                    bVar.sU(str6);
+                    bVar.sV(str7);
                     bVar.setActivityDialog(customDialogData);
                     bVar.setVideoId(str8);
                     return bVar;
@@ -501,12 +501,12 @@ public class NewWriteModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: l */
         public ImageUploadResult doInBackground(Void... voidArr) {
-            boolean dL = com.baidu.tbadk.core.util.k.dL(NewWriteModel.this.cOJ);
+            boolean dM = com.baidu.tbadk.core.util.k.dM(NewWriteModel.this.cOJ);
             if (this.isCanceled) {
                 return null;
             }
             if (NewWriteModel.this.hbX == null || NewWriteModel.this.hbX.length <= 0) {
-                if (TextUtils.isEmpty(NewWriteModel.this.cOJ) || !dL) {
+                if (TextUtils.isEmpty(NewWriteModel.this.cOJ) || !dM) {
                     return null;
                 }
                 Uri parse = Uri.parse(NewWriteModel.this.cOJ);

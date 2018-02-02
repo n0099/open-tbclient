@@ -41,7 +41,7 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.eNb);
     }
 
-    public void nM(String str) {
+    public void nN(String str) {
         this.eNa = g(this.eHD, this.eNb, str);
         super.sendMessage(this.eNa);
     }

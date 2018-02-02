@@ -190,9 +190,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         } else if (FrsActivityConfig.FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(this.mSource)) {
             nH(6);
         } else {
-            com.baidu.tieba.frs.smartsort.f mc = com.baidu.tieba.frs.smartsort.d.ayK().mc(this.dBw);
-            if (mc != null) {
-                nH(mc.dQR);
+            com.baidu.tieba.frs.smartsort.f md = com.baidu.tieba.frs.smartsort.d.ayK().md(this.dBw);
+            if (md != null) {
+                nH(md.dQR);
             } else {
                 nH(-1);
             }
@@ -276,7 +276,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.dPP.mT(i);
         this.dPa.a(frsRequestData);
         this.mType = i;
-        frsRequestData.sq(this.dPK.auy() ? "1" : "2");
+        frsRequestData.ss(this.dPK.auy() ? "1" : "2");
         if (this.dQd) {
             frsRequestData.setObjSource(String.valueOf(com.baidu.tieba.frs.e.f.nM(this.dQc)));
         } else {
@@ -608,7 +608,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         public Void doInBackground(Object... objArr) {
             int h;
             CustomResponsedMessage runTask;
-            if (this.needCache && com.baidu.tieba.tbadkCore.c.btv().so(this.dQk)) {
+            if (this.needCache && com.baidu.tieba.tbadkCore.c.btv().sp(this.dQk)) {
                 if (!com.baidu.tieba.tbadkCore.c.btv().isSameDay(TbadkCoreApplication.getCurrentAccount() + this.dQk)) {
                     com.baidu.tieba.tbadkCore.c.btv().getResponseData().aYJ().getSignData().is_signed = 0;
                 }
@@ -901,7 +901,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.dQc = i;
     }
 
-    public void ge(boolean z) {
+    public void gf(boolean z) {
         this.dQd = z;
     }
 
@@ -958,7 +958,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.dPK.sendMessage(requestIncrForumAccessCountNetMessage);
     }
 
-    public void lU(final String str) {
+    public void lV(final String str) {
         v.a(new u<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.2
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {
@@ -968,7 +968,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }, null);
     }
 
-    public void lV(final String str) {
+    public void lW(final String str) {
         v.a(new u<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.3
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {
@@ -978,7 +978,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }, null);
     }
 
-    public void lW(final String str) {
+    public void lX(final String str) {
         v.a(new u<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.4
             @Override // com.baidu.tbadk.util.u
             public Object doInBackground() {

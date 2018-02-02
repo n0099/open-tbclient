@@ -192,7 +192,7 @@ public class i extends a<com.baidu.tieba.card.data.k> {
         }
         lD(this.cTD.VM().aPd);
         d(this.aQs, TbadkCoreApplication.getInst().getSkinType());
-        if (k.kk(this.cTD.threadData.getId())) {
+        if (k.kl(this.cTD.threadData.getId())) {
             aj.e(this.mTextTitle, d.C0108d.cp_cont_d, 1);
         } else {
             aj.e(this.mTextTitle, d.C0108d.cp_cont_b, 1);
@@ -229,7 +229,7 @@ public class i extends a<com.baidu.tieba.card.data.k> {
             akg().a(view, this.cTD);
         }
         if (this.cTD != null && this.cTD.VM() != null && this.cTD.VM().zm() != null) {
-            k.kj(this.cTD.threadData.getId());
+            k.kk(this.cTD.threadData.getId());
             k.a(this.mTextTitle, this.cTD.threadData.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.cTD.VM().zm());

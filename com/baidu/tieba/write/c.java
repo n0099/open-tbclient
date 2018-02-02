@@ -90,7 +90,7 @@ public class c {
         this.hvE = forumWriteData;
     }
 
-    public void uh(String str) {
+    public void ui(String str) {
         if ("3".equals(str)) {
             this.writeCallFrom = "1";
         } else {
@@ -305,7 +305,7 @@ public class c {
         }
     }
 
-    public void nu(boolean z) {
+    public void nv(boolean z) {
         if (!this.hCy && this.hCA && this.hCB && this.mRootView != null) {
             this.hCv.clearAnimation();
             this.hCy = true;

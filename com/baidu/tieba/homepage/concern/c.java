@@ -50,7 +50,7 @@ public class c extends FrameLayout {
     public interface a {
         void B(boolean z, boolean z2);
 
-        void ms(String str);
+        void mt(String str);
 
         void onPullToRefresh();
     }
@@ -101,9 +101,9 @@ public class c extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.d.a
-            public void mr(String str) {
+            public void ms(String str) {
                 if (c.this.ebB != null) {
-                    c.this.ebB.ms(str);
+                    c.this.ebB.mt(str);
                 }
             }
 
@@ -112,7 +112,7 @@ public class c extends FrameLayout {
                 c.this.z(false, false);
                 if (i == 1) {
                     if (c.this.ebC != null) {
-                        c.this.gx(c.this.ebC.hasMore());
+                        c.this.gy(c.this.ebC.hasMore());
                     }
                     if (j.oJ()) {
                         c.this.pageContext.showToast(str);
@@ -130,7 +130,7 @@ public class c extends FrameLayout {
             @Override // com.baidu.tieba.homepage.concern.d.a
             public void A(boolean z, boolean z2) {
                 if (c.this.ebC != null) {
-                    c.this.gx(c.this.ebC.hasMore());
+                    c.this.gy(c.this.ebC.hasMore());
                 }
                 c.this.ebl.setVisibility(0);
                 c.this.z(z, z2);
@@ -212,7 +212,7 @@ public class c extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gx(boolean z) {
+    public void gy(boolean z) {
         if (this.bYZ != null) {
             if (z) {
                 this.bYZ.DO();
@@ -299,7 +299,7 @@ public class c extends FrameLayout {
             });
         }
         this.refreshView.id(getContext().getResources().getDimensionPixelSize(d.e.ds280));
-        this.refreshView.gM(str);
+        this.refreshView.gN(str);
         this.refreshView.j(view, z);
         this.refreshView.Ml();
     }
@@ -367,13 +367,13 @@ public class c extends FrameLayout {
     public void aAO() {
         setViewForeground(false);
         if (this.ebC != null) {
-            this.ebC.fJ(false);
+            this.ebC.fK(false);
         }
     }
 
     public void setViewForeground(boolean z) {
         if (this.ebC != null) {
-            this.ebC.gy(z);
+            this.ebC.gz(z);
         }
     }
 
@@ -402,7 +402,7 @@ public class c extends FrameLayout {
 
     public void aAP() {
         if (this.ebC != null) {
-            this.ebC.fJ(true);
+            this.ebC.fK(true);
         }
     }
 

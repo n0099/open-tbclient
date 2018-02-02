@@ -49,16 +49,16 @@ public class b implements c.a {
                     b.a aVar4 = bVar.gHo.get(10);
                     if (b.this.ghv.bhC() != null) {
                         if (aVar2 != null) {
-                            b.this.ghv.bhC().li(aVar2.fbP);
+                            b.this.ghv.bhC().lj(aVar2.fbP);
                         }
                         if (aVar != null) {
-                            b.this.ghv.bhC().ll(aVar.fbP);
+                            b.this.ghv.bhC().lm(aVar.fbP);
                         }
                         if (aVar3 != null) {
-                            b.this.ghv.bhC().lk(aVar3.fbP);
+                            b.this.ghv.bhC().ll(aVar3.fbP);
                         }
                         if (aVar4 != null) {
-                            b.this.ghv.bhC().lj(aVar4.fbP);
+                            b.this.ghv.bhC().lk(aVar4.fbP);
                         }
                     }
                     b.a aVar5 = bVar.gHo.get(5);
@@ -79,7 +79,7 @@ public class b implements c.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.m.a.bnP().lU(false);
+                com.baidu.tieba.m.a.bnP().lV(false);
             }
         }
     };

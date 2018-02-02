@@ -29,7 +29,7 @@ public class a {
     private int pageNumber;
     private String placeId;
 
-    public void rO(String str) {
+    public void rP(String str) {
         this.extInfo = str;
     }
 
@@ -45,11 +45,11 @@ public class a {
         this.pageNumber = i;
     }
 
-    public void rP(String str) {
+    public void rQ(String str) {
         this.placeId = str;
     }
 
-    public void rQ(String str) {
+    public void rR(String str) {
         this.gEP = str;
     }
 
@@ -69,7 +69,7 @@ public class a {
         this.gEW = i;
     }
 
-    public void rR(String str) {
+    public void rS(String str) {
         this.gEX = str;
     }
 
@@ -138,23 +138,23 @@ public class a {
         return jSONObject;
     }
 
-    public void rS(String str) {
+    public void rT(String str) {
         this.gEY = str;
     }
 
-    public void rT(String str) {
+    public void rU(String str) {
         this.gEZ = str;
     }
 
-    public void rU(String str) {
+    public void rV(String str) {
         this.gFa = str;
     }
 
-    public void rV(String str) {
+    public void rW(String str) {
         this.gFb = str;
     }
 
-    public void rW(String str) {
+    public void rX(String str) {
         this.gFc = str;
     }
 }

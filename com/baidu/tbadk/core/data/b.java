@@ -14,13 +14,13 @@ public class b {
     public static void a(b bVar, int i, boolean z) {
         if (bVar != null && !bVar.aIU) {
             com.baidu.tieba.recapp.report.a ah = com.baidu.tieba.recapp.report.e.ah(z ? 13 : 3, i, bVar.pn);
-            ah.rV(bVar.aIP);
+            ah.rW(bVar.aIP);
             ah.bS("isCache", String.valueOf(bVar.aIQ));
-            ah.rS(bVar.aIR);
-            ah.rT(bVar.aIS);
-            ah.rU(bVar.fid);
+            ah.rT(bVar.aIR);
+            ah.rU(bVar.aIS);
+            ah.rV(bVar.fid);
             ah.bS("vc", bVar.aIT);
-            ah.rO(bVar.extensionInfo);
+            ah.rP(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(ah);
             bVar.aIU = true;
         }
@@ -30,13 +30,13 @@ public class b {
         b bVar;
         if (advertAppInfo != null && (bVar = advertAppInfo.advertAppContext) != null && !bVar.aIU) {
             com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.e.c(advertAppInfo, 3, bVar.pn);
-            c.rV(bVar.aIP);
+            c.rW(bVar.aIP);
             c.bS("isCache", bVar.aIQ);
-            c.rS(bVar.aIR);
-            c.rT(bVar.aIS);
-            c.rU(bVar.fid);
+            c.rT(bVar.aIR);
+            c.rU(bVar.aIS);
+            c.rV(bVar.fid);
             c.bS("vc", bVar.aIT);
-            c.rO(bVar.extensionInfo);
+            c.rP(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(c);
             bVar.aIU = true;
         }
@@ -45,12 +45,12 @@ public class b {
     public static void b(b bVar, int i, boolean z) {
         if (bVar != null && !bVar.aIU) {
             com.baidu.tieba.recapp.report.a ah = com.baidu.tieba.recapp.report.e.ah(z ? 13 : 3, i, bVar.pn);
-            ah.rV(bVar.aIP);
-            ah.rS(bVar.aIR);
-            ah.rT(bVar.aIS);
-            ah.rU(bVar.fid);
+            ah.rW(bVar.aIP);
+            ah.rT(bVar.aIR);
+            ah.rU(bVar.aIS);
+            ah.rV(bVar.fid);
             ah.bS("vc", bVar.aIT);
-            ah.rO(bVar.extensionInfo);
+            ah.rP(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(ah);
             bVar.aIU = true;
         }
@@ -67,7 +67,7 @@ public class b {
                 i = 103;
             }
             com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.e.c(lVar, i);
-            c.rO(bVar.extensionInfo);
+            c.rP(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(c);
             bVar.aIU = true;
         }
@@ -76,8 +76,8 @@ public class b {
     public static void c(b bVar, int i, boolean z) {
         if (bVar != null && !bVar.aIU) {
             com.baidu.tieba.recapp.report.a ah = com.baidu.tieba.recapp.report.e.ah(z ? 13 : 3, i, bVar.pn);
-            ah.rV(bVar.aIP);
-            ah.rO(bVar.extensionInfo);
+            ah.rW(bVar.aIP);
+            ah.rP(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(ah);
             bVar.aIU = true;
         }
@@ -88,7 +88,7 @@ public class b {
             dVar.akY().aIP = dVar.akY().advertAppContext.aIP;
             com.baidu.tbadk.distribute.a.Kg().a(dVar.akY(), "", 0L, dVar.akY().aIP, "show", dVar.akY().advertAppContext.pn);
             com.baidu.tieba.recapp.report.a d = com.baidu.tieba.recapp.report.e.d(dVar.akY(), 3, dVar.akY().advertAppContext.pn);
-            d.rO(dVar.akY().advertAppContext.extensionInfo);
+            d.rP(dVar.akY().advertAppContext.extensionInfo);
             com.baidu.tieba.recapp.report.b.bnC().a(d);
             dVar.akY().advertAppContext.aIU = true;
         }

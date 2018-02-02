@@ -50,7 +50,7 @@ public class c {
                     if (cursor.moveToFirst()) {
                         iVar = new com.baidu.tbadk.coreExtra.data.i();
                         try {
-                            iVar.eU(str);
+                            iVar.eV(str);
                             iVar.gN(cursor.getInt(3));
                             iVar.Y(cursor.getLong(2));
                         } catch (Exception e2) {

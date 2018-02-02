@@ -30,7 +30,7 @@ public class d {
         return exm;
     }
 
-    public void mZ(String str) {
+    public void na(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
@@ -65,7 +65,7 @@ public class d {
         return i2;
     }
 
-    public int na(String str) {
+    public int nb(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
@@ -139,7 +139,7 @@ public class d {
                                     if (convertToValidateItemData != null) {
                                         for (ValidateItemData validateItemData : linkedList2) {
                                             if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                                nc(validateItemData.getNotice_id());
+                                                nd(validateItemData.getNotice_id());
                                             }
                                         }
                                     }
@@ -245,7 +245,7 @@ public class d {
         return linkedList2;
     }
 
-    public GroupNewsPojo nb(String str) {
+    public GroupNewsPojo nc(String str) {
         Throwable th;
         Cursor cursor;
         GroupNewsPojo groupNewsPojo;
@@ -296,7 +296,7 @@ public class d {
         return groupNewsPojo2;
     }
 
-    public boolean nc(String str) {
+    public boolean nd(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {

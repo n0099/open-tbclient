@@ -138,11 +138,11 @@ public class b {
         this.bht = z;
     }
 
-    public void fe(String str) {
+    public void ff(String str) {
         this.bhu = str;
     }
 
-    public void ff(String str) {
+    public void fg(String str) {
         this.bhv = str;
     }
 

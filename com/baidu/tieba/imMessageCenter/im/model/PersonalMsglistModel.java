@@ -318,7 +318,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return this.eNc;
     }
 
-    public void nN(String str) {
+    public void nO(String str) {
         this.eNc = str;
     }
 
@@ -377,7 +377,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return -1L;
     }
 
-    public void nO(final String str) {
+    public void nP(final String str) {
         v.b(new u<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u

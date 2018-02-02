@@ -75,9 +75,9 @@ class d extends Thread {
         MediaCodec mediaCodec6;
         MediaExtractor mediaExtractor3;
         MediaFormat trackFormat;
-        MediaCodecInfo tH = tH("audio/mp4a-latm");
+        MediaCodecInfo tI = tI("audio/mp4a-latm");
         try {
-            if (tH != null) {
+            if (tI != null) {
                 try {
                     mediaExtractor3 = bAN();
                     try {
@@ -89,7 +89,7 @@ class d extends Thread {
                         a(trackFormat, mediaFormat, "sample-rate", 48000);
                         a(trackFormat, mediaFormat, "channel-count", 1);
                         a(trackFormat, mediaFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
-                        mediaCodec5 = a(tH, mediaFormat);
+                        mediaCodec5 = a(tI, mediaFormat);
                     } catch (Exception e) {
                         e = e;
                         mediaCodec5 = null;
@@ -471,7 +471,7 @@ class d extends Thread {
         }
     }
 
-    private static MediaCodecInfo tH(String str) {
+    private static MediaCodecInfo tI(String str) {
         int codecCount = MediaCodecList.getCodecCount();
         for (int i = 0; i < codecCount; i++) {
             MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);

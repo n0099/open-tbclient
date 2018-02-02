@@ -243,7 +243,7 @@ public abstract class c {
         return this.dUI;
     }
 
-    public void go(boolean z) {
+    public void gp(boolean z) {
         this.dUH = z;
         if (this.dUH) {
             this.dTW.setVisibility(0);
@@ -265,7 +265,7 @@ public abstract class c {
         azC();
     }
 
-    public void gh(boolean z) {
+    public void gi(boolean z) {
         if (!z) {
             azC();
         }
@@ -280,7 +280,7 @@ public abstract class c {
         }
     }
 
-    public void gp(boolean z) {
+    public void gq(boolean z) {
         this.dUG = z;
     }
 

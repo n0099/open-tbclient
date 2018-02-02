@@ -158,7 +158,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!AccountActivity.this.bPV.TD()) {
-                    AccountActivity.this.bPV.cS(true);
+                    AccountActivity.this.bPV.cT(true);
                     AccountActivity.this.bPX.setText(d.j.done);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         aj.e(AccountActivity.this.bPX, d.C0108d.navi_op_text, 1);
@@ -168,7 +168,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     AccountActivity.this.bPV.notifyDataSetChanged();
                     return;
                 }
-                AccountActivity.this.bPV.cS(false);
+                AccountActivity.this.bPV.cT(false);
                 AccountActivity.this.bPX.setText(d.j.edit);
                 aj.e(AccountActivity.this.bPX, d.C0108d.navi_op_text, 1);
                 AccountActivity.this.bPV.notifyDataSetChanged();
@@ -224,12 +224,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void k(AccountData accountData) {
         if (this.bPZ == null) {
-            hT("account changed");
+            hU("account changed");
             showLoadingDialog(getPageContext().getString(d.j.account_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.6
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
-                    AccountActivity.this.hU("account changed");
+                    AccountActivity.this.hV("account changed");
                     AccountActivity.this.bPZ = null;
                 }
             });
@@ -349,14 +349,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if (this.bQa == null) {
             final boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
-                hT("account delete");
+                hU("account delete");
             }
             showLoadingDialog(getPageContext().getString(d.j.deleting), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.7
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
                     if (z2) {
-                        AccountActivity.this.hU("account delete cancel");
+                        AccountActivity.this.hV("account delete cancel");
                     }
                     AccountActivity.this.bQa = null;
                 }
@@ -473,7 +473,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void hT(String str) {
+    private void hU(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().kw();
         BdSocketLinkService.setAvailable(false);
@@ -481,7 +481,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hU(String str) {
+    public void hV(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);

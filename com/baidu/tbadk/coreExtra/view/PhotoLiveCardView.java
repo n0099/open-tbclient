@@ -286,7 +286,7 @@ public class PhotoLiveCardView extends FrameLayout {
     private void a(TextView textView, long j) {
         if (textView != null && this.bmd) {
             com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.sO(String.valueOf(j))) {
+            if (readThreadHistory != null && readThreadHistory.sP(String.valueOf(j))) {
                 aj.e(textView, d.C0108d.cp_cont_c, 1);
             } else {
                 aj.e(textView, d.C0108d.cp_cont_b, 1);
@@ -333,7 +333,7 @@ public class PhotoLiveCardView extends FrameLayout {
                     }
                 }
                 this.bly.setTag(photoLiveCardData);
-                fC(photoLiveCardData.getAuthorPortrait());
+                fD(photoLiveCardData.getAuthorPortrait());
                 setUserName(photoLiveCardData.getAuthorName());
                 setNickName(photoLiveCardData.getNickName());
                 setFansNum(photoLiveCardData.getFansNum());
@@ -560,7 +560,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
         String trim = str.trim();
         this.blT.setVisibility(0);
-        if (w.hi(trim) > 12) {
+        if (w.hj(trim) > 12) {
             trim = w.j(trim, 0, 12) + "...";
         }
         this.blT.setText(trim + TbadkCoreApplication.getInst().getResources().getString(d.j.forum));
@@ -617,7 +617,7 @@ public class PhotoLiveCardView extends FrameLayout {
         return spannableStringBuilder;
     }
 
-    private void fC(String str) {
+    private void fD(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.bly.startLoad(str, 12, false);
         } else {
@@ -632,7 +632,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
         this.blB.setVisibility(0);
         String trim = str.trim();
-        if (w.hi(trim) > 14) {
+        if (w.hj(trim) > 14) {
             trim = w.j(trim, 0, 14) + "...";
         }
         this.blB.setText(trim);

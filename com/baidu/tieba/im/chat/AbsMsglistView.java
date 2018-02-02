@@ -225,8 +225,8 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.c<MsglistActivit
         this.mPrgLisMsg.setVisibility(8);
         this.mAdapter = new h(msglistActivity.getPageContext(), this.mLisMsg);
         setNeedShowName();
-        this.mAdapter.gS(this.mNeedShowName);
-        this.mAdapter.gT(isPersonal());
+        this.mAdapter.gT(this.mNeedShowName);
+        this.mAdapter.gU(isPersonal());
         this.mAdapter.a(msglistActivity);
         this.mAdapter.setOnItemViewLongClickListener(msglistActivity);
         this.mLisMsg.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.chat.AbsMsglistView.3

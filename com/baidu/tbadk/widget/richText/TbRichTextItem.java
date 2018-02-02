@@ -172,7 +172,7 @@ public class TbRichTextItem extends OrmObject {
         }
         SpannableString spannableString = new SpannableString(text);
         c cVar = new c(this.mType, text);
-        cVar.hq(this.bJx.getLink());
+        cVar.hr(this.bJx.getLink());
         spannableString.setSpan(cVar, 0, text.length() - 1, 33);
         return spannableString;
     }
@@ -186,18 +186,18 @@ public class TbRichTextItem extends OrmObject {
 
     private SpannableString x(ArrayList<b> arrayList) {
         String text;
-        int ga;
-        a.C0085a gA;
+        int gb;
+        a.C0085a gB;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.bJx != null && this.bJx.getText() != null && this.bJx.getLink() != null && (ga = TbFaceManager.LQ().ga((text = this.bJx.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.LQ().gc(text) + ")";
+        if (this.mType == 4 && this.bJx != null && this.bJx.getText() != null && this.bJx.getLink() != null && (gb = TbFaceManager.LQ().gb((text = this.bJx.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.LQ().gd(text) + ")";
             spannableString = new SpannableString(str + " ");
-            b bVar = new b(TbadkCoreApplication.getInst().getContext(), ga);
+            b bVar = new b(TbadkCoreApplication.getInst().getContext(), gb);
             if (arrayList != null) {
                 arrayList.add(bVar);
             }
-            if (TbFaceManager.LQ().gA(text) != null) {
-                int width = (int) (0.5d * gA.getWidth());
+            if (TbFaceManager.LQ().gB(text) != null) {
+                int width = (int) (0.5d * gB.getWidth());
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
@@ -325,7 +325,7 @@ public class TbRichTextItem extends OrmObject {
                     }
                     this.bJx = new TbRichTextCommInfo(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.LQ().ga(this.bJx.getText()) <= 0) {
+                        if (TbFaceManager.LQ().gb(this.bJx.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.getInst().getString(d.j.editor_express) + "]";
@@ -384,9 +384,9 @@ public class TbRichTextItem extends OrmObject {
             } else {
                 this.bJx = new TbRichTextCommInfo(jSONObject);
                 if (this.mType == 4) {
-                    int ga = TbFaceManager.LQ().ga(this.bJx.getText());
+                    int gb = TbFaceManager.LQ().gb(this.bJx.getText());
                     String optString = jSONObject.optString("c");
-                    if (ga <= 0) {
+                    if (gb <= 0) {
                         this.mType = 1;
                         if (StringUtils.isNull(optString)) {
                             str = "[" + TbadkCoreApplication.getInst().getString(d.j.editor_express) + "]";

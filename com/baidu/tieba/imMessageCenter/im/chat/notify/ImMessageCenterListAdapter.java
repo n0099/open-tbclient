@@ -47,10 +47,10 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.a.b {
         if (pI != null && String.valueOf(String.valueOf(2)).equals(pI.getOwnerName())) {
             if (pI.getUnReadCount() >= 30) {
                 if (this.eLH != null) {
-                    this.eLH.hN(true);
+                    this.eLH.hO(true);
                 }
             } else if (this.eLH != null) {
-                this.eLH.hN(false);
+                this.eLH.hO(false);
             }
         }
         return super.getView(i, view, viewGroup);

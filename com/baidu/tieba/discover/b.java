@@ -154,7 +154,7 @@ public class b {
             this.mRefreshView.onChangeSkinType();
         }
         this.djD.setVisibility(8);
-        this.mRefreshView.gM(string);
+        this.mRefreshView.gN(string);
         this.mRefreshView.j(this.mRootView, false);
         this.mRefreshView.Ml();
         this.mRefreshView.id(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds280));
@@ -172,11 +172,11 @@ public class b {
             this.djD.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.b.3
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    b.this.iK(str);
+                    b.this.iL(str);
                     if (StringUtils.isNull(str) || str.contains("jump_webview_type=2")) {
                         return false;
                     }
-                    if (b.this.iL(str)) {
+                    if (b.this.iM(str)) {
                         return true;
                     }
                     av.Da().c(b.this.mPageContext, new String[]{str});
@@ -210,18 +210,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iK(String str) {
+    public void iL(String str) {
         if (!StringUtils.isNull(str) && str.contains("squaresearch:")) {
             TiebaStatic.log(new ak("c10378").s("obj_type", 2));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean iL(String str) {
-        return iM(str) || iN(str) || iO(str) || iP(str) || iQ(str) || iR(str) || iS(str) || iT(str);
+    public boolean iM(String str) {
+        return iN(str) || iO(str) || iP(str) || iQ(str) || iR(str) || iS(str) || iT(str) || iU(str);
     }
 
-    private boolean iM(String str) {
+    private boolean iN(String str) {
         if (str.contains("tieba://lego?")) {
             if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
                 l.showToast(this.mPageContext.getPageActivity(), d.j.plugin_install_fail);
@@ -233,7 +233,7 @@ public class b {
         return false;
     }
 
-    private boolean iN(String str) {
+    private boolean iO(String str) {
         if (str.contains("nohead:url") || str.contains("booktown")) {
             av.Da().a(this.mPageContext, new String[]{"http://dushu.m.baidu.com/?from=tieba&jump=open_full_screen_web_page&nonavigationbar=1"}, true);
             return true;
@@ -241,7 +241,7 @@ public class b {
         return false;
     }
 
-    private boolean iO(String str) {
+    private boolean iP(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("http://tieba.baidu.com/mo/q/newhotmessage?") || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?")) {
             String aq = z.aq(str, "topic_id=");
             String aq2 = z.aq(str, "topic_name=");
@@ -263,7 +263,7 @@ public class b {
         }
     }
 
-    private boolean iP(String str) {
+    private boolean iQ(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("forumsquarelist")) {
             return false;
         }
@@ -275,7 +275,7 @@ public class b {
         return true;
     }
 
-    private boolean iQ(String str) {
+    private boolean iR(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("membercenter:")) {
             return false;
         }
@@ -287,7 +287,7 @@ public class b {
         return true;
     }
 
-    private boolean iR(String str) {
+    private boolean iS(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("dressupcenter:")) {
             return false;
         }
@@ -299,7 +299,7 @@ public class b {
         return true;
     }
 
-    private boolean iS(String str) {
+    private boolean iT(String str) {
         if (str.contains("beautypic:") && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -323,7 +323,7 @@ public class b {
         return false;
     }
 
-    private boolean iT(String str) {
+    private boolean iU(String str) {
         if (str.contains("share:")) {
             String aW = k.aW(str);
             if (aW.contains("data=")) {

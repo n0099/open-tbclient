@@ -332,7 +332,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     private void i(bd bdVar) {
         if (this.bci != null && bdVar != null) {
             if (!StringUtils.isNull(this.aYc.yT().getName_show())) {
-                this.bci.setText(eL(this.aYc.yT().getName_show()));
+                this.bci.setText(eM(this.aYc.yT().getName_show()));
             }
             Ec();
             if (this.mFrom == 3) {
@@ -513,7 +513,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         return this.bci;
     }
 
-    protected String eL(String str) {
+    protected String eM(String str) {
         return am.e(str, 14, "...");
     }
 

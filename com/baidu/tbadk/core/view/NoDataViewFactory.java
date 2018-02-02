@@ -182,12 +182,12 @@ public class NoDataViewFactory {
             private int bap = -1;
             private int bao = 0;
 
-            public a eI(String str) {
+            public a eJ(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a eJ(String str) {
+            public a eK(String str) {
                 this.aKQ = str;
                 return this;
             }
@@ -204,29 +204,29 @@ public class NoDataViewFactory {
 
         public static d aB(int i, int i2) {
             a aVar = new a();
-            aVar.eJ(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.eK(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.go(i2);
             return aVar.DF();
         }
 
         public static d gn(int i) {
-            return eH(TbadkCoreApplication.getInst().getResources().getString(i));
+            return eI(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d aC(int i, int i2) {
             return ad(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d eH(String str) {
+        public static d eI(String str) {
             a aVar = new a();
-            aVar.eJ(str);
+            aVar.eK(str);
             return aVar.DF();
         }
 
         public static d ad(String str, String str2) {
             a aVar = new a();
-            aVar.eJ(str);
-            aVar.eI(str2);
+            aVar.eK(str);
+            aVar.eJ(str2);
             return aVar.DF();
         }
     }

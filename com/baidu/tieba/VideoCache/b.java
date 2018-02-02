@@ -26,9 +26,9 @@ public class b {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
-                    dVar.hy(file2.getName());
-                    dVar.aC(hv(file2.getAbsolutePath()));
-                    dVar.aD(m.hI(file2.getName()));
+                    dVar.hz(file2.getName());
+                    dVar.aC(hw(file2.getAbsolutePath()));
+                    dVar.aD(m.hJ(file2.getName()));
                     this.bOM.a(dVar);
                 }
             }
@@ -41,7 +41,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hv(String str) {
+    private long hw(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -138,11 +138,11 @@ public class b {
         return j;
     }
 
-    public void hw(String str) {
+    public void hx(String str) {
         d dVar;
-        String hK = m.hK(str);
-        if (hK != null && !hK.isEmpty()) {
-            hx(hK);
+        String hL = m.hL(str);
+        if (hL != null && !hL.isEmpty()) {
+            hy(hL);
             if (this.bOM != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
@@ -152,7 +152,7 @@ public class b {
                         break;
                     }
                     d jn = this.bOM.jn((this.bOM.SP() - 1) - i);
-                    if (jn != null && jn.getFileName() != null && jn.getFileName().equals(hK)) {
+                    if (jn != null && jn.getFileName() != null && jn.getFileName().equals(hL)) {
                         dVar = jn;
                         break;
                     }
@@ -162,12 +162,12 @@ public class b {
                     this.bOM.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.hy(hK);
+                    dVar.hz(hL);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                g(hK, currentTimeMillis2);
+                g(hL, currentTimeMillis2);
                 dVar.aC(currentTimeMillis2);
-                dVar.aD(m.hI(hK));
+                dVar.aD(m.hJ(hL));
                 this.bOM.a(dVar);
                 j.at(TAG, "total cache size: " + ((this.bOM.SO() / 1024) / 1024) + "M list size " + this.bOM.SP());
                 if (this.bOM.SO() > 629145600) {
@@ -187,7 +187,7 @@ public class b {
 
     private boolean SR() {
         d jn = this.bOM.jn(0);
-        if (jn == null || !(e.SY().hz(jn.getFileName()) || e.SY().hB(jn.getFileName()))) {
+        if (jn == null || !(e.SY().hA(jn.getFileName()) || e.SY().hC(jn.getFileName()))) {
             this.bOM.remove(0);
             if (jn != null) {
                 File file = new File(i.bPz + jn.getFileName());
@@ -231,7 +231,7 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.SY().hz(dVar.getFileName()) && !e.SY().hB(dVar.getFileName()))) {
+                if (dVar == null || (!e.SY().hA(dVar.getFileName()) && !e.SY().hC(dVar.getFileName()))) {
                     this.bOM.b(dVar);
                     if (dVar != null) {
                         File file = new File(i.bPz + dVar.getFileName());
@@ -244,7 +244,7 @@ public class b {
         }
     }
 
-    private void hx(String str) {
+    private void hy(String str) {
         File[] listFiles;
         if (str != null) {
             try {

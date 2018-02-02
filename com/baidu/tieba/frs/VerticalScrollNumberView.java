@@ -47,7 +47,7 @@ public class VerticalScrollNumberView extends LinearLayout {
         int i2 = i < 0 ? 0 : i;
         String valueOf = String.valueOf(i2 <= 999999999 ? i2 : 999999999);
         for (int i3 = 0; i3 != valueOf.length(); i3++) {
-            lA(StringUtils.string("0\n", Character.valueOf(valueOf.charAt(i3))));
+            lB(StringUtils.string("0\n", Character.valueOf(valueOf.charAt(i3))));
         }
         int i4 = 0;
         for (int childCount = getChildCount() - 1; childCount != 0; childCount--) {
@@ -65,7 +65,7 @@ public class VerticalScrollNumberView extends LinearLayout {
         }
     }
 
-    private void lA(String str) {
+    private void lB(String str) {
         ScrollTextView scrollTextView = new ScrollTextView(this.mContext);
         scrollTextView.setText(str);
         scrollTextView.setGravity(17);

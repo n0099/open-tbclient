@@ -187,7 +187,7 @@ public class b {
 
     public void a(com.baidu.tieba.frs.d.a aVar, bd bdVar, int i) {
         if (aVar != null && aVar.dQS && bdVar != null && bdVar.getTid() != null) {
-            s.akK().eH(true);
+            s.akK().eI(true);
             ak akVar = new ak("c11438");
             akVar.aa(ImageViewerConfig.FORUM_ID, aVar.dQU);
             akVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bdVar.mRecomSource);

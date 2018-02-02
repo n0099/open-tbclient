@@ -7,7 +7,7 @@ public interface c {
 
     boolean awz();
 
-    void fW(boolean z);
+    void fX(boolean z);
 
     void onChangeSkinType(int i);
 

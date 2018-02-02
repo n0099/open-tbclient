@@ -11,11 +11,11 @@ public interface i {
 
     void f(Context context, String str, int i);
 
-    String hM(String str);
-
     String hN(String str);
 
-    void hO(String str);
+    String hO(String str);
+
+    void hP(String str);
 
     String r(String str, boolean z);
 }

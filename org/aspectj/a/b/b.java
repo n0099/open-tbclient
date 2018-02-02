@@ -43,9 +43,9 @@ public final class b {
                 return cls;
             } catch (ClassNotFoundException e) {
                 if (inT == null) {
-                    Class wS = wS("java.lang.ClassNotFoundException");
-                    inT = wS;
-                    return wS;
+                    Class wT = wT("java.lang.ClassNotFoundException");
+                    inT = wT;
+                    return wT;
                 }
                 return inT;
             }
@@ -53,7 +53,7 @@ public final class b {
         return cls2;
     }
 
-    static Class wS(String str) {
+    static Class wT(String str) {
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e) {

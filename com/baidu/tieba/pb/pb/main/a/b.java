@@ -63,14 +63,14 @@ public class b {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void jR(boolean z);
+        void jS(boolean z);
     }
 
     public void a(a aVar) {
         this.fIN = aVar;
     }
 
-    public void fO(boolean z) {
+    public void fP(boolean z) {
         this.bBr = z;
     }
 
@@ -80,7 +80,7 @@ public class b {
         this.auR = view3;
         this.fUZ = this.auR.findViewById(d.g.sticky_view);
         avx();
-        fQ(false);
+        fR(false);
     }
 
     private void beB() {
@@ -96,12 +96,12 @@ public class b {
                 if (b.this.fUY != null) {
                     b.this.fUY.clearAnimation();
                     if (b.this.fVd) {
-                        b.this.fQ(false);
+                        b.this.fR(false);
                     } else {
-                        b.this.fQ(true);
+                        b.this.fR(true);
                     }
                     if (b.this.fIN != null) {
-                        b.this.fIN.jR(false);
+                        b.this.fIN.jS(false);
                     }
                     b.this.auR.clearAnimation();
                 }
@@ -176,9 +176,9 @@ public class b {
                 if (b.this.fUY != null) {
                     b.this.fUY.clearAnimation();
                     b.this.fUY.setVisibility(0);
-                    b.this.fQ(false);
+                    b.this.fR(false);
                     if (b.this.fIN != null) {
-                        b.this.fIN.jR(true);
+                        b.this.fIN.jS(true);
                     }
                 }
             }
@@ -252,10 +252,10 @@ public class b {
             if (z2) {
                 this.fUY.setVisibility(8);
                 if (this.fVd) {
-                    fQ(false);
+                    fR(false);
                     return;
                 } else {
-                    fQ(true);
+                    fR(true);
                     return;
                 }
             }
@@ -308,7 +308,7 @@ public class b {
     public void hideFloatingView() {
         if (this.dEy) {
             if (this.bnf) {
-                fQ(true);
+                fR(true);
             } else if (this.fUY != null && !this.fVc && !this.fSB && beD()) {
                 Log.i("PbView", "hideFloatingView: startDragDown");
                 OE();
@@ -319,7 +319,7 @@ public class b {
     public void showFloatingView() {
         if (this.dEy) {
             if (this.bnf) {
-                fQ(true);
+                fR(true);
             } else if (this.fUY != null && !beD()) {
                 Log.i("PbView", "showFloatingView: startDragUp");
                 OD();
@@ -331,11 +331,11 @@ public class b {
         return this.fUY.getVisibility() == 0 && this.fUY.getY() >= 0.0f;
     }
 
-    public void kK(boolean z) {
+    public void kL(boolean z) {
         this.fVc = z;
     }
 
-    public void kL(boolean z) {
+    public void kM(boolean z) {
         this.fSB = z;
     }
 
@@ -360,7 +360,7 @@ public class b {
         }
         if (this.dEy && !this.fVc && !this.fSB) {
             if (this.bnf) {
-                fQ(true);
+                fR(true);
             } else if (absListView != null && i == 0) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
                 if (firstVisiblePosition > this.bBq) {
@@ -395,15 +395,15 @@ public class b {
                 ViewGroup.LayoutParams layoutParams = this.dDt.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
                 this.dDt.setLayoutParams(layoutParams);
-                fQ(true);
+                fR(true);
                 return;
             }
-            fQ(false);
+            fR(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fQ(boolean z) {
+    public void fR(boolean z) {
         if (this.dDt != null) {
             if (this.dEx && z && this.dDt.getVisibility() != 0) {
                 this.dDt.setVisibility(0);

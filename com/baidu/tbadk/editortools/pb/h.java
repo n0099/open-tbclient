@@ -82,7 +82,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                 if (z) {
                     WriteData writeData2 = h.this.brT.getWriteData();
                     h.this.brT.setWriteData(null);
-                    h.this.brT.mG(false);
+                    h.this.brT.mH(false);
                     h.this.mVoiceModel = null;
                     if (writeData2 != null && writeData2 != null && writeData2.getType() == 2) {
                         h.this.bsD.KP();
@@ -93,7 +93,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                     writeData.setVcodeMD5(tVar.getVcode_md5());
                     writeData.setVcodeUrl(tVar.getVcode_pic_url());
                     writeData.setVcodeExtra(tVar.FC());
-                    if (com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                    if (com.baidu.tbadk.p.a.ho(tVar.FB())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(h.this.Fj().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData, false, tVar.FB())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(h.this.Fj().getPageActivity(), writeData, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
@@ -129,7 +129,7 @@ public class h extends com.baidu.tbadk.editortools.f {
     public void b(WriteData writeData) {
         if (writeData != null) {
             this.brQ = writeData.getContent();
-            gv(this.brQ);
+            gw(this.brQ);
         }
     }
 
@@ -141,7 +141,7 @@ public class h extends com.baidu.tbadk.editortools.f {
         return this.aQs;
     }
 
-    public void gm(String str) {
+    public void gn(String str) {
         this.brQ = str;
     }
 
@@ -165,7 +165,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                 public void a(WriteData writeData) {
                     if (writeData != null && !StringUtils.isNull(writeData.getContent())) {
                         h.this.brQ = writeData.getContent();
-                        h.this.gv(h.this.brQ);
+                        h.this.gw(h.this.brQ);
                     }
                 }
             });
@@ -194,7 +194,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                     cj(true);
                     WriteData writeData = this.brT.getWriteData();
                     this.brT.setWriteData(null);
-                    this.brT.mG(false);
+                    this.brT.mH(false);
                     if (writeData != null && writeData != null && writeData.getType() == 2) {
                         this.bsD.KP();
                         return;
@@ -220,7 +220,7 @@ public class h extends com.baidu.tbadk.editortools.f {
 
     public void Ln() {
         if (this.brT.getWriteData() == null) {
-            this.brT.setWriteData(this.bsD.gh(this.bsD.KQ()));
+            this.brT.setWriteData(this.bsD.gi(this.bsD.KQ()));
         }
         if (this.brT.getWriteData() != null) {
             this.brT.getWriteData().setContent(this.brQ);
@@ -278,7 +278,7 @@ public class h extends com.baidu.tbadk.editortools.f {
                 TiebaStatic.log(new ak("c12534").s("obj_locate", ap.a.aWa));
             }
         } else if (i == 230277 || i == 230278) {
-            gr(str);
+            gt(str);
         } else {
             Fj().showToast(str);
         }
@@ -306,7 +306,7 @@ public class h extends com.baidu.tbadk.editortools.f {
         }
     }
 
-    private void gr(String str) {
+    private void gt(String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(Fj().getPageActivity());
         aVar.cZ(str);
         aVar.b(d.j.know, new a.b() { // from class: com.baidu.tbadk.editortools.pb.h.5
@@ -336,21 +336,21 @@ public class h extends com.baidu.tbadk.editortools.f {
         this.bsE = z;
     }
 
-    public void gt(String str) {
+    public void gu(String str) {
         ck(true);
         Kw().ti();
         if (str != null && str.length() != 0) {
-            gv(Fj().getResources().getString(d.j.reply_sub_floor).replace("%s", str));
+            gw(Fj().getResources().getString(d.j.reply_sub_floor).replace("%s", str));
         } else {
-            gv("");
+            gw("");
         }
         TiebaStatic.eventStat(Fj().getPageActivity(), "subpb_write", "subpbclick", 1, new Object[0]);
     }
 
-    private void gu(String str) {
+    private void gv(String str) {
         ck(true);
         Kw().ti();
-        gv(str);
+        gw(str);
         TiebaStatic.eventStat(Fj().getPageActivity(), "subpb_write", "subpbclick", 1, new Object[0]);
     }
 
@@ -377,34 +377,34 @@ public class h extends com.baidu.tbadk.editortools.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gv(String str) {
+    public void gw(String str) {
         if (Kw() != null) {
             Kw().b(new com.baidu.tbadk.editortools.a(6, 27, str));
         }
     }
 
-    public void gw(String str) {
+    public void gx(String str) {
         String string = TbadkCoreApplication.getInst().getResources().getString(d.j.reply_sub_floor);
         String str2 = "^" + string.replace("%s", ".+") + "$";
         if (am.isEmpty(this.brQ) || this.brQ.matches(str2)) {
             if (this.bsC != null) {
                 if (Pattern.compile(string.replace("%s", str)).matcher(this.bsC).lookingAt()) {
-                    gu(this.bsC);
+                    gv(this.bsC);
                     return;
                 } else {
-                    gt(str);
+                    gu(str);
                     return;
                 }
             }
-            gt(str);
+            gu(str);
             return;
         }
         Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(this.brQ);
         this.bsC = this.brQ;
         if (matcher.lookingAt()) {
-            gu(this.brQ);
+            gv(this.brQ);
         } else {
-            gt(str);
+            gu(str);
         }
     }
 

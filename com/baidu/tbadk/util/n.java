@@ -44,7 +44,7 @@ public class n {
             Thread thread = new Thread();
             thread.setName("NativeCrashThread");
             xVar.a(thread, (Throwable) new Exception(str), true);
-            n.hc(str2);
+            n.hd(str2);
         }
 
         @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
@@ -53,7 +53,7 @@ public class n {
                 if (n.bBg.indexOf(str) >= 0) {
                     return false;
                 }
-                if (!n.hd(str) && !n.he(str) && !n.ao(str, TbadkCoreApplication.getInst().getApp().getApplicationInfo().sourceDir)) {
+                if (!n.he(str) && !n.hf(str) && !n.ao(str, TbadkCoreApplication.getInst().getApp().getApplicationInfo().sourceDir)) {
                     n.bBg.add(str);
                     return false;
                 }
@@ -74,7 +74,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void hc(String str) {
+    public static void hd(String str) {
         int i;
         int i2;
         int i3;
@@ -125,7 +125,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean hd(String str) {
+    public static boolean he(String str) {
         if ("libpluginhook.so".equals(str)) {
             com.baidu.adp.plugin.b.a.qF().bn("plugin_patch_native_crashed");
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0) + 1);
@@ -135,7 +135,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean he(String str) {
+    public static boolean hf(String str) {
         PluginSettings rr = com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().rr();
         if (rr == null) {
             return false;

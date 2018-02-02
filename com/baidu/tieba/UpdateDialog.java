@@ -178,10 +178,10 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(boolean z, boolean z2, boolean z3) {
+    public boolean f(boolean z, boolean z2, boolean z3) {
         if (!k.lk()) {
             showToast(k.BA());
-            return;
+            return false;
         }
         Activity pageActivity = getPageContext().getPageActivity();
         if (this.bOI == null) {
@@ -189,28 +189,30 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
         this.bOI.Do();
         this.bOI.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (!this.bOI.u(pageActivity)) {
-            this.bOB = z;
-            this.bOC = z2;
-            this.bOD = z3;
-            Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
-            intent.addFlags(268435456);
-            if (z && this.bOE != null && URLUtil.isNetworkUrl(this.bOE.getUrl()) && !TextUtils.isEmpty(this.bOE.getApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.bOE.getUrl());
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.bOE);
-                intent.putExtra("MD5_RSA_tieba_apk", this.bOE.getApkMD5RSA());
-            }
-            if (z2 && URLUtil.isNetworkUrl(this.bOF) && !TextUtils.isEmpty(this.bOE.getAsApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.bOE);
-                intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.bOF);
-                intent.putExtra("MD5_RSA_as_apk", this.bOE.getAsApkMD5RSA());
-            }
-            if (z3 && this.mCombineDownload != null && URLUtil.isNetworkUrl(this.mCombineDownload.getAppUrl()) && !TextUtils.isEmpty(this.mCombineDownload.getApkMD5RSA())) {
-                intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.mCombineDownload.getAppUrl());
-                intent.putExtra("MD5_RSA_other_apk", this.mCombineDownload.getApkMD5RSA());
-            }
-            getPageContext().getPageActivity().startService(intent);
+        if (this.bOI.u(pageActivity)) {
+            return false;
         }
+        this.bOB = z;
+        this.bOC = z2;
+        this.bOD = z3;
+        Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
+        intent.addFlags(268435456);
+        if (z && this.bOE != null && URLUtil.isNetworkUrl(this.bOE.getUrl()) && !TextUtils.isEmpty(this.bOE.getApkMD5RSA())) {
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.bOE.getUrl());
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.bOE);
+            intent.putExtra("MD5_RSA_tieba_apk", this.bOE.getApkMD5RSA());
+        }
+        if (z2 && URLUtil.isNetworkUrl(this.bOF) && !TextUtils.isEmpty(this.bOE.getAsApkMD5RSA())) {
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.bOE);
+            intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.bOF);
+            intent.putExtra("MD5_RSA_as_apk", this.bOE.getAsApkMD5RSA());
+        }
+        if (z3 && this.mCombineDownload != null && URLUtil.isNetworkUrl(this.mCombineDownload.getAppUrl()) && !TextUtils.isEmpty(this.mCombineDownload.getApkMD5RSA())) {
+            intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.mCombineDownload.getAppUrl());
+            intent.putExtra("MD5_RSA_other_apk", this.mCombineDownload.getApkMD5RSA());
+        }
+        getPageContext().getPageActivity().startService(intent);
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -235,18 +237,20 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
 
         @Override // com.baidu.tieba.e.a
-        public void cP(boolean z) {
+        public void cQ(boolean z) {
             UpdateDialog.this.bOa = true;
-            UpdateDialog.this.f(true, false, z && g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
-            UpdateDialog.this.showToast(d.j.download_begin_tip);
-            if (!UpdateDialog.this.bOb) {
-                UpdateDialog.this.bOG.dismiss();
-                UpdateDialog.this.finish();
+            if (UpdateDialog.this.f(true, false, z && g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload))) {
+                UpdateDialog.this.bOG.cP(false);
+                UpdateDialog.this.showToast(d.j.download_begin_tip);
+                if (!UpdateDialog.this.bOb) {
+                    UpdateDialog.this.bOG.dismiss();
+                    UpdateDialog.this.finish();
+                }
             }
         }
 
         @Override // com.baidu.tieba.e.a
-        public void cQ(boolean z) {
+        public void cR(boolean z) {
             boolean z2 = true;
             if (UpdateDialog.this.SM()) {
                 UpdateDialog.this.bOG.dismiss();

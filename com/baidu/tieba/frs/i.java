@@ -170,7 +170,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         public void a(int i, int i2, at atVar, ArrayList<com.baidu.adp.widget.ListView.i> arrayList) {
             i.this.aug();
             if (i.this.dBT != null) {
-                i.this.dBM.gi(i.this.dBT.nj(i));
+                i.this.dBM.gj(i.this.dBT.nj(i));
             }
             d.a aVar = new d.a();
             if (atVar != null) {
@@ -221,7 +221,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         @Override // com.baidu.tieba.frs.ak
         public void a(int i, int i2, aq aqVar) {
             if (i != 1) {
-                com.baidu.tieba.card.s.akK().eH(false);
+                com.baidu.tieba.card.s.akK().eI(false);
             }
             i.this.aus();
             i.this.dBL.a(i, i2, aqVar);
@@ -239,7 +239,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         @Override // com.baidu.tieba.frs.f.i.b
         public void hV(int i) {
             if (i != 1) {
-                com.baidu.tieba.card.s.akK().eH(false);
+                com.baidu.tieba.card.s.akK().eI(false);
             }
             i.this.aus();
             com.baidu.tieba.frs.d.c.dRe.dQV = i;
@@ -378,7 +378,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             i.this.aug();
             i.this.dBH = true;
             if (aVar != null && aVar.isSuccess) {
-                i.this.dBD.auU().fV(com.baidu.tbadk.core.util.an.CK().CM());
+                i.this.dBD.auU().fW(com.baidu.tbadk.core.util.an.CK().CM());
                 i.dBE = 0L;
                 i.dBF = 0L;
                 i.dBG = 0;
@@ -621,7 +621,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 i.this.dBJ.im(1000);
             }
             if (i == 0) {
-                com.baidu.tieba.card.s.akK().eH(true);
+                com.baidu.tieba.card.s.akK().eI(true);
                 i.this.dBD.bw(this.dCL, this.bXz);
             }
             if (i.this.dCh != null) {
@@ -685,7 +685,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 if (i.this.dBi == null || v.E(i.this.dBi.getThreadList())) {
                     i.this.hideNetRefreshView(i.this.dBD.aep());
                     i.this.showLoadingView(i.this.dBD.aep(), true);
-                    i.this.dBD.fH(false);
+                    i.this.dBD.fI(false);
                     i.this.refresh();
                     return;
                 }
@@ -882,7 +882,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         if (this.dCg == null) {
             this.dCg = new com.baidu.tieba.frs.view.b(getPageContext(), getNetRefreshListener());
         }
-        this.dCg.gM(str);
+        this.dCg.gN(str);
         this.dCg.bw(list);
         this.dCg.j(view, z);
     }
@@ -907,9 +907,9 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     public void aug() {
         hideLoadingView(this.dBD.aep());
         if (!this.dBD.auw()) {
-            this.dBD.fI(false);
+            this.dBD.fJ(false);
         } else {
-            this.dBD.fI(true);
+            this.dBD.fJ(true);
         }
         if (this.dBD.auF() instanceof com.baidu.tieba.frs.tab.a) {
             ((com.baidu.tieba.frs.tab.a) this.dBD.auF()).ayR();
@@ -1005,7 +1005,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             this.dBi.buy();
             this.dBi.buv();
             if (this.dBD.auU().k(com.baidu.tieba.g.b.dWa)) {
-                this.dBi.mx(z2);
+                this.dBi.my(z2);
             }
             if (TbadkCoreApplication.isLogin() && (!this.dBL.ayz() || this.dBL.isNetFirstLoad)) {
                 this.dBi.buM();
@@ -1058,7 +1058,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                     this.dBi.bux();
                 }
                 boolean E = v.E(this.dBi.bul());
-                this.dBD.fF(E);
+                this.dBD.fG(E);
                 if (!E) {
                     if (this.dCh == null) {
                         this.dCh = new com.baidu.tieba.frs.f.e(this, (NoPressedRelativeLayout) this.mRootView);
@@ -1112,7 +1112,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 this.dBD.auI();
                 this.dBD.x(true, false);
                 if (this.dBi.aYJ() != null) {
-                    this.dBD.lz(this.dBi.aYJ().getWarningMsg());
+                    this.dBD.lA(this.dBi.aYJ().getWarningMsg());
                 }
                 if (this.dBi != null && this.dBi.buo() != null && com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_guide", 0L) == 0) {
                     com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.i.8
@@ -1150,20 +1150,20 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
 
     private void aul() {
         if (this.dBL != null) {
-            ly(this.dBL.ayl());
+            lz(this.dBL.ayl());
         } else {
-            ly("normal_page");
+            lz("normal_page");
         }
     }
 
-    private void ly(String str) {
-        fC("frs_page".equals(str));
+    private void lz(String str) {
+        fD("frs_page".equals(str));
         if (this.dBT != null) {
             this.dBT.a(this.dBM, this.dBD, this.dBi);
         }
     }
 
-    public void fC(boolean z) {
+    public void fD(boolean z) {
         if (this.dBY != null) {
             this.dBY.a(this.dBD, z);
         }
@@ -1243,7 +1243,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         }
         if (!auy()) {
             this.dBR = new ap(getActivity(), this.dBD, this.dBM);
-            this.dBR.fP(true);
+            this.dBR.fQ(true);
         }
         this.dBC = getVoiceManager();
         if (this.dBC != null) {
@@ -1277,7 +1277,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         registerListener(this.dCJ);
         registerListener(this.dCy);
         registerListener(this.dCo);
-        this.dBD.fH(false);
+        this.dBD.fI(false);
         if (!auy()) {
             showLoadingView(this.dBD.aep(), true);
             this.dBL.B(3, true);
@@ -1395,7 +1395,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             this.dBC.onDestory(getPageContext());
         }
         this.dBC = null;
-        com.baidu.tieba.card.s.akK().eH(false);
+        com.baidu.tieba.card.s.akK().eI(false);
         if (this.dBi != null && this.dBi.aYJ() != null) {
             ae.avp().bE(com.baidu.adp.lib.g.b.c(this.dBi.aYJ().getId(), 0L));
         }
@@ -1478,7 +1478,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             this.dBD.auM();
             this.dBD.onResume();
         }
-        this.dBO.gf(true);
+        this.dBO.gg(true);
         this.dBK = true;
         if (dBu) {
             dBu = false;
@@ -1488,7 +1488,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         if (this.dBC != null) {
             this.dBC.onResume(getPageContext());
         }
-        this.dBD.fJ(false);
+        this.dBD.fK(false);
         registerListener(this.dCD);
         if (this.dCi) {
             refresh(6);
@@ -1618,7 +1618,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 com.baidu.adp.lib.g.h.nt().e(new Runnable() { // from class: com.baidu.tieba.frs.i.19
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.sI(i.this.dBw);
+                        com.baidu.tieba.tbadkCore.util.a.sJ(i.this.dBw);
                     }
                 });
                 break;
@@ -1632,7 +1632,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         try {
             if (this.dBi != null) {
                 this.dBD.WP();
-                this.dBD.fE(this.dBL.ayq());
+                this.dBD.fF(this.dBL.ayq());
                 if (com.baidu.tieba.frs.f.f.i(this.dBi) && !com.baidu.tieba.frs.f.f.h(this.dBi)) {
                     this.dBD.avb();
                 }
@@ -1677,13 +1677,13 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.dBO.gf(false);
+        this.dBO.gg(false);
         this.dBK = false;
         this.dBD.onPause();
         if (this.dBC != null) {
             this.dBC.onPause(getPageContext());
         }
-        this.dBD.fJ(true);
+        this.dBD.fK(true);
         if (this.dBV != null) {
             this.dBV.ayV();
         }
@@ -1693,7 +1693,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        com.baidu.tieba.card.s.akK().eH(false);
+        com.baidu.tieba.card.s.akK().eI(false);
         if (this.dBi != null && this.dBi.aYJ() != null && getPageContext() != null && getPageContext().getPageActivity() != null) {
             com.baidu.tbadk.distribute.a.Kg().a(getPageContext().getPageActivity(), "frs", this.dBi.aYJ().getId(), 0L);
         }
@@ -1711,7 +1711,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && this.dBM != null) {
-            this.dBM.gh(isPrimary());
+            this.dBM.gi(isPrimary());
         }
     }
 
@@ -1831,8 +1831,8 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                                 com.baidu.tbadk.browser.a.P(i.this.getPageContext().getPageActivity(), bdVar.zb());
                             } else {
                                 com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                                if (readThreadHistory != null && !readThreadHistory.sO(bdVar.getId())) {
-                                    readThreadHistory.sN(bdVar.getId());
+                                if (readThreadHistory != null && !readThreadHistory.sP(bdVar.getId())) {
+                                    readThreadHistory.sO(bdVar.getId());
                                 }
                                 final String zb = bdVar.zb();
                                 if (zb == null || zb.equals("")) {
@@ -1892,7 +1892,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         if (com.baidu.adp.lib.util.l.pa()) {
             hideNetRefreshView(this.dBD.aep());
             showLoadingView(this.dBD.aep(), true);
-            this.dBD.fH(false);
+            this.dBD.fI(false);
             this.dBL.B(3, true);
         }
     }
@@ -1931,7 +1931,7 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     }
 
     @Override // com.baidu.tieba.frs.loadmore.FrsLoadMoreModel.a
-    public void lm(String str) {
+    public void ln(String str) {
         Wl();
         showToast(str);
     }
@@ -2018,9 +2018,9 @@ public class i extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         return pageStayDurationItem;
     }
 
-    public void fD(boolean z) {
+    public void fE(boolean z) {
         if (this.dBR != null) {
-            this.dBR.fP(z);
+            this.dBR.fQ(z);
         }
     }
 

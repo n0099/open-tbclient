@@ -241,7 +241,7 @@ public class b {
                     int ak = b.this.ak(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && ak <= 0) {
                         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_will_begin);
-                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.fR(downloadData.getAction()), false);
+                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.fS(downloadData.getAction()), false);
                     } else {
                         b.this.c(downloadData);
                     }
@@ -258,12 +258,12 @@ public class b {
     public void c(DownloadData downloadData) {
         if (downloadData != null && downloadData.isNeedNotify()) {
             int ak = ak(downloadData.getId(), downloadData.getName());
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, ak, ak + "%", downloadData.getName(), fR(downloadData.getAction()), false);
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, ak, ak + "%", downloadData.getName(), fS(downloadData.getAction()), false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PendingIntent fR(String str) {
+    public PendingIntent fS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -273,7 +273,7 @@ public class b {
         return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
     }
 
-    public boolean fS(String str) {
+    public boolean fT(String str) {
         for (DownloadData downloadData : e.Ko().rl()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
@@ -294,9 +294,9 @@ public class b {
         return 0;
     }
 
-    public void fT(String str) {
+    public void fU(String str) {
         if (!StringUtils.isNull(str)) {
-            e.Ko().fV(str);
+            e.Ko().fW(str);
         }
     }
 
@@ -308,7 +308,7 @@ public class b {
         return -1L;
     }
 
-    public boolean fU(String str) {
+    public boolean fV(String str) {
         return (TextUtils.isEmpty(str) || k.dr(new StringBuilder().append(str.replace(".", "_")).append(".apk").toString()) == null) ? false : true;
     }
 }

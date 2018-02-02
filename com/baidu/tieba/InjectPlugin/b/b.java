@@ -120,7 +120,7 @@ public class b extends g {
         return this.bLT;
     }
 
-    public void hs(String str) {
+    public void ht(String str) {
         this.bLT = str;
     }
 
@@ -128,7 +128,7 @@ public class b extends g {
         return this.bLU;
     }
 
-    public void ht(String str) {
+    public void hu(String str) {
         this.bLU = str;
     }
 
@@ -136,7 +136,7 @@ public class b extends g {
         return this.bLV;
     }
 
-    public void hu(String str) {
+    public void hv(String str) {
         this.bLV = str;
     }
 }

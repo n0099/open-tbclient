@@ -276,8 +276,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.e.a.bnx().mN(valueOf);
-                        com.baidu.tieba.recapp.e.a.bnx().mM(valueOf2);
+                        com.baidu.tieba.recapp.e.a.bnx().mO(valueOf);
+                        com.baidu.tieba.recapp.e.a.bnx().mN(valueOf2);
                         com.baidu.tieba.recapp.e.a.bnx().cN(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
@@ -512,7 +512,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             if (isMainProcess(true)) {
                 fixOppoTimeout();
                 MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(true));
-                at.ej(null);
+                at.ek(null);
                 TiebaStatic.save();
                 com.baidu.adp.lib.g.f.g(getContext(), new Intent(TbConfig.getBroadcastActionOtherProcessSwitchFrontBackground()));
             }
@@ -1882,7 +1882,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 this.isUserChanged = false;
                 String str = i + ".apk";
                 try {
-                    com.baidu.tbadk.core.util.aj.dZ(str);
+                    com.baidu.tbadk.core.util.aj.ea(str);
                     PackageInfo dv = com.baidu.tbadk.core.util.k.dv(str);
                     if (dv == null || dv.applicationInfo == null || dv.applicationInfo.metaData == null) {
                         setSkinType(0);
@@ -2137,12 +2137,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        com.baidu.adp.widget.a.a gz = TbFaceManager.LQ().gz(str);
-        if (gz != null) {
-            this.mFaces.put(str, new SoftReference<>(gz));
-            return gz;
+        com.baidu.adp.widget.a.a gA = TbFaceManager.LQ().gA(str);
+        if (gA != null) {
+            this.mFaces.put(str, new SoftReference<>(gA));
+            return gA;
         }
-        return gz;
+        return gA;
     }
 
     private static void initSocket() {
@@ -2454,16 +2454,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public void setActiveVersion(String str) {
         if (!am.isEmpty(str) && !"null".equals(str)) {
-            k.a.dE("/package.last");
-            k.a.dN("/package.last/" + str);
+            k.a.dF("/package.last");
+            k.a.dO("/package.last/" + str);
         }
     }
 
     public boolean getIsFirstUse() {
-        if (k.a.dM("/package.cur/" + TbConfig.getVersion())) {
+        if (k.a.dN("/package.cur/" + TbConfig.getVersion())) {
             return false;
         }
-        setActiveVersion(k.a.dO("/package.cur"));
+        setActiveVersion(k.a.dP("/package.cur"));
         return true;
     }
 
@@ -2825,16 +2825,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public String getActiveVersion() {
-        String dO;
-        if (!k.a.dM("/package.last")) {
-            dO = TbadkSettings.getInst().loadString("active_version", "");
+        String dP;
+        if (!k.a.dN("/package.last")) {
+            dP = TbadkSettings.getInst().loadString("active_version", "");
         } else {
-            dO = k.a.dO("/package.last");
+            dP = k.a.dP("/package.last");
         }
-        if (ACTIVE_CLEAR_TAG.equals(dO)) {
+        if (ACTIVE_CLEAR_TAG.equals(dP)) {
             return null;
         }
-        return dO;
+        return dP;
     }
 
     public void clearActiveVersion() {
@@ -3053,8 +3053,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void setUsed() {
-        k.a.dE("/package.cur");
-        k.a.dN("/package.cur/" + TbConfig.getVersion());
+        k.a.dF("/package.cur");
+        k.a.dO("/package.cur/" + TbConfig.getVersion());
     }
 
     public com.baidu.tieba.tbadkCore.util.e getReadThreadHistory() {

@@ -48,7 +48,7 @@ public class a {
         return this.dVY;
     }
 
-    public void mj(String str) {
+    public void mk(String str) {
         this.dVY = str;
     }
 
@@ -56,7 +56,7 @@ public class a {
         return this.dVZ;
     }
 
-    public void mk(String str) {
+    public void ml(String str) {
         this.dVZ = str;
     }
 }

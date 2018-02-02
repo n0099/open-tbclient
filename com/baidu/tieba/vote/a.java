@@ -198,7 +198,7 @@ public class a extends c<PbActivity> {
             bjv();
             if (this.hzQ.getVoteType() == 1) {
                 if (this.hzQ.getStatus() == 2 || this.hzQ.getIsPolled() == 1) {
-                    np(z);
+                    nq(z);
                 } else {
                     bEa();
                 }
@@ -241,7 +241,7 @@ public class a extends c<PbActivity> {
         }
     }
 
-    private void np(boolean z) {
+    private void nq(boolean z) {
         if (this.hzJ != null && this.hzQ != null) {
             this.hzK = (VotePhotoGroupView) this.hzJ.findViewById(d.g.picvote_view);
             this.hzL = (VoteTextGroupView) this.hzJ.findViewById(d.g.textvote_view);

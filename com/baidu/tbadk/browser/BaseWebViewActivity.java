@@ -177,7 +177,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     private void initData() {
-        Map<String, String> el;
+        Map<String, String> em;
         Intent intent = getIntent();
         if (intent != null) {
             String dataString = intent.getDataString();
@@ -187,8 +187,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     if (decode.startsWith("//")) {
                         decode = decode.substring(2);
                     }
-                    if (!StringUtils.isNull(decode) && (el = av.el(decode)) != null) {
-                        this.mUrl = el.get("url");
+                    if (!StringUtils.isNull(decode) && (em = av.em(decode)) != null) {
+                        this.mUrl = em.get("url");
                         this.mIsShowNavBar = true;
                     } else {
                         return;

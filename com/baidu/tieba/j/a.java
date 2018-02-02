@@ -30,7 +30,7 @@ public class a {
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0129a {
-        void iZ(boolean z);
+        void ja(boolean z);
     }
 
     /* loaded from: classes2.dex */
@@ -88,7 +88,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.pA(strArr[0]));
+                    return Integer.valueOf(a.pB(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public static int pA(String str) {
+    public static int pB(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -176,7 +176,7 @@ public class a {
     public static void a(String str, String str2, final InterfaceC0129a interfaceC0129a) {
         if (interfaceC0129a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0129a.iZ(false);
+                interfaceC0129a.ja(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.j.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class a {
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
                         if (InterfaceC0129a.this != null) {
-                            InterfaceC0129a.this.iZ(bool.booleanValue());
+                            InterfaceC0129a.this.ja(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);

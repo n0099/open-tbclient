@@ -64,7 +64,7 @@ public class ap extends r.a {
             this.fQr = lVar.aZr();
             bda();
             if (lVar.dFN > 0) {
-                if (com.baidu.tbadk.core.util.am.ef(com.baidu.tbadk.core.util.am.E(lVar.dFN)) >= 6) {
+                if (com.baidu.tbadk.core.util.am.eg(com.baidu.tbadk.core.util.am.E(lVar.dFN)) >= 6) {
                     this.fQq.setPadding((int) getView().getResources().getDimension(d.e.ds40), 0, (int) getView().getResources().getDimension(d.e.ds40), 0);
                 }
                 this.fQq.setText(com.baidu.tbadk.core.util.am.E(lVar.dFN));

@@ -12,7 +12,7 @@ public class o {
         return this.bfX;
     }
 
-    public void eX(String str) {
+    public void eY(String str) {
         this.bfX = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
@@ -20,7 +20,7 @@ public class o {
         return this.bfY;
     }
 
-    public void eY(String str) {
+    public void eZ(String str) {
         this.bfY = com.baidu.adp.lib.g.b.h(str, 0);
     }
 
@@ -28,7 +28,7 @@ public class o {
         return this.bfZ;
     }
 
-    public void eZ(String str) {
+    public void fa(String str) {
         this.bfZ = com.baidu.adp.lib.g.b.h(str, 0);
     }
 }

@@ -52,11 +52,11 @@ public class h {
 
     private void initAdapters() {
         this.esu = new MsgLeftViewItemAdapter(this.aQs, ChatMessage.TYPE_MSG_LEFT);
+        this.esu.gS(true);
         this.esu.gR(true);
-        this.esu.gQ(true);
         this.esv = new MsgRightViewItemAdapter(this.aQs, ChatMessage.TYPE_MSG_RIGHT);
+        this.esv.gS(true);
         this.esv.gR(true);
-        this.esv.gQ(true);
         this.esw = new MsgMidViewItemAdapter(this.aQs, ChatMessage.TYPE_MSG_MID);
         this.mAdapters.add(this.esu);
         this.mAdapters.add(this.esv);
@@ -73,15 +73,15 @@ public class h {
         this.aQs.registerListener(this.esx);
     }
 
-    public void gS(boolean z) {
+    public void gT(boolean z) {
         if (this.esu != null) {
-            this.esu.gS(z);
+            this.esu.gT(z);
         }
     }
 
-    public void gT(boolean z) {
+    public void gU(boolean z) {
         if (this.esv != null) {
-            this.esv.gT(z);
+            this.esv.gU(z);
         }
     }
 

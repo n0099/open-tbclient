@@ -92,7 +92,7 @@ public class HeadPendantView extends FrameLayout {
         super.onMeasure(i, i2);
     }
 
-    public void eG(String str) {
+    public void eH(String str) {
         if (this.aZa != null) {
             if (!StringUtils.isNull(str)) {
                 this.aZd = true;

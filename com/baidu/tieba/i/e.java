@@ -4,7 +4,7 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void iX(boolean z);
+        void iY(boolean z);
 
         void onChange(boolean z);
 

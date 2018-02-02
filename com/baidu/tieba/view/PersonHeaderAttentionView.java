@@ -267,7 +267,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements g {
     }
 
     @Override // com.baidu.tieba.view.g
-    public void no(boolean z) {
+    public void np(boolean z) {
         if (this.hzs != null) {
             if (z) {
                 this.hzs.setVisibility(0);

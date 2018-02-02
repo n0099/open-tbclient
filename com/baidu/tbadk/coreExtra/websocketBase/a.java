@@ -68,7 +68,7 @@ public class a {
         return this.bnB;
     }
 
-    public void fG(String str) {
+    public void fH(String str) {
         if (!TiebaIMConfig.defaultUrl.equals(str)) {
             this.bnB = str;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("KeyOfSharedPrefValidIp", str);
@@ -77,7 +77,7 @@ public class a {
 
     public List<String> Jn() {
         if (this.bnC == null) {
-            this.bnC = fH(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefIpList", null));
+            this.bnC = fI(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefIpList", null));
         }
         return this.bnC;
     }
@@ -100,7 +100,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> fH(String str) {
+    public List<String> fI(String str) {
         String[] split;
         ArrayList arrayList = null;
         if (str != null && str.length() > 0 && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
@@ -134,13 +134,13 @@ public class a {
                     JSONObject jSONObject = new JSONObject(BI);
                     if (jSONObject.optInt("error_code") == 0) {
                         String optString = jSONObject.optString("urls");
-                        a.this.bnC = a.this.fH(optString);
+                        a.this.bnC = a.this.fI(optString);
                         if (a.this.bnC != null && a.this.bnC.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i = 0; i < a.this.bnC.size(); i++) {
                                 String str2 = (String) a.this.bnC.get(i);
                                 e eVar = new e();
-                                eVar.fK(str2);
+                                eVar.fL(str2);
                                 if (eVar.isSucc()) {
                                     hashMap.put(str2, Integer.valueOf(eVar.JC()));
                                 }

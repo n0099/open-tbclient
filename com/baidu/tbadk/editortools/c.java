@@ -52,7 +52,7 @@ public class c extends ImageView implements l {
         setVisibility(8);
     }
 
-    public void fY(String str) {
+    public void fZ(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -100,7 +100,7 @@ public class c extends ImageView implements l {
             if (aVar.data == null) {
                 Kv();
             } else if (aVar.data instanceof String) {
-                fY((String) aVar.data);
+                fZ((String) aVar.data);
             }
         }
     }

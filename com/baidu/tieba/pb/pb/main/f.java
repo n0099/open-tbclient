@@ -20,7 +20,7 @@ public class f extends at {
         this.fHm.setVisibility(8);
     }
 
-    public void jK(boolean z) {
+    public void jL(boolean z) {
         if (this.fHm != null) {
             if (z) {
                 this.fHm.setText(d.j.push);
@@ -41,9 +41,9 @@ public class f extends at {
         if (bdVar != null && bdVar.zo() != null) {
             int status = bdVar.zo().getStatus();
             if (status == 1) {
-                jK(true);
+                jL(true);
             } else if (status == 2) {
-                jK(false);
+                jL(false);
             }
         }
     }

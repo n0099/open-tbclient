@@ -58,7 +58,7 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void tQ(String str) {
+    public void tR(String str) {
         this.hsl = str;
     }
 
@@ -78,7 +78,7 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void ng(boolean z) {
+    public void nh(boolean z) {
         this.hasLoaded = z;
     }
 

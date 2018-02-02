@@ -42,7 +42,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                     if (com.baidu.adp.lib.util.j.oJ()) {
                         h.this.dPK.refresh();
                         if (h.this.dBD != null) {
-                            h.this.dPK.fD(true);
+                            h.this.dPK.fE(true);
                         } else {
                             return;
                         }
@@ -60,7 +60,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                     if (h.this.dBD != null && h.this.dBD.auE() != null) {
                         h.this.dBD.auE().aCG();
                     }
-                    h.this.dPK.fD(false);
+                    h.this.dPK.fE(false);
                     com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.h.3.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -81,7 +81,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                     }
                     if (h.this.dBD != null && h.this.dQF != null && h.this.dBM != null && h.this.dBP != null) {
                         h.this.dPK.auk();
-                        h.this.dPK.fD(true);
+                        h.this.dPK.fE(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
                         if (h.this.dPK.aud() != null) {
                             h.this.dPK.aud().cM(false);
@@ -112,7 +112,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
                 if (h.this.dBD != null && h.this.dBD.auE() != null) {
                     h.this.dBD.auE().aCG();
                 }
-                s.akK().eH(false);
+                s.akK().eI(false);
                 l auv = h.this.dPK.auv();
                 if (h.this.dBD != null && auv != null && h.this.dBL != null) {
                     if (com.baidu.adp.lib.util.j.oJ()) {
@@ -140,7 +140,7 @@ public class h extends com.baidu.tieba.frs.mc.h {
 
     public void a(com.baidu.tieba.frs.k kVar, boolean z) {
         if (kVar != null) {
-            kVar.fM(z);
+            kVar.fN(z);
             kVar.a(this.baZ);
             kVar.a(this.bbb);
             kVar.a(this.bba);

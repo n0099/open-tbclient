@@ -139,7 +139,7 @@ public class g {
         }
     }
 
-    private PendingIntent fR(String str) {
+    private PendingIntent fS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class g {
             if (downloadData.isNeedNotify()) {
                 int process = downloadData.getProcess();
                 String str = String.valueOf(downloadData.getLength() / 1000) + "K/" + String.valueOf(downloadData.getSize() / 1000) + "K";
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_fail_tip), process, process + "%", string, fR(downloadData.getAction()), false);
+                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_fail_tip), process, process + "%", string, fS(downloadData.getAction()), false);
             }
         }
     }
@@ -184,7 +184,7 @@ public class g {
         return 0;
     }
 
-    public boolean fW(String str) {
+    public boolean fX(String str) {
         for (DownloadData downloadData : e.Ko().rl()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
@@ -193,7 +193,7 @@ public class g {
         return false;
     }
 
-    public boolean fX(String str) {
+    public boolean fY(String str) {
         for (DownloadData downloadData : e.Ko().rl()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
@@ -215,7 +215,7 @@ public class g {
             int ak = ak(downloadData.getId(), downloadData.getName());
             String str2 = ak + "%";
             if (downloadData != null && ak >= 0) {
-                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_cancel), ak, str2, downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_cancel), fR(downloadData.getAction()), false);
+                NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_cancel), ak, str2, downloadData.getName() + TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.download_cancel), fS(downloadData.getAction()), false);
             }
         }
     }

@@ -13,7 +13,7 @@ public class e {
         this.hbj = i;
     }
 
-    public void sN(String str) {
+    public void sO(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
@@ -54,7 +54,7 @@ public class e {
         }
     }
 
-    public boolean sO(String str) {
+    public boolean sP(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
@@ -68,7 +68,7 @@ public class e {
         }
     }
 
-    public boolean sP(String str) {
+    public boolean sQ(String str) {
         try {
             return this.hbk.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {

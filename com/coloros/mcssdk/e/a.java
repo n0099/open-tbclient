@@ -53,14 +53,14 @@ public class a extends c {
         return sb.toString();
     }
 
-    public void uO(String str) {
+    public void uP(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         this.hNb = str;
     }
 
-    public void uP(String str) {
+    public void uQ(String str) {
         this.hNc = str;
     }
 

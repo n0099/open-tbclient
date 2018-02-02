@@ -79,7 +79,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         TbCameraView bFo = bFo();
         if (bFo != null) {
             bFo.setVisibility(0);
-            bFo.nA(false);
+            bFo.nB(false);
         }
         if (this.hDp != null && this.hDp.bFM() != null) {
             this.hDp.bFM().bFR();
@@ -131,12 +131,12 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     public void onDestroy() {
     }
 
-    public void nw(boolean z) {
+    public void nx(boolean z) {
         if (this.hDq != null) {
-            this.hDq.nw(z);
+            this.hDq.nx(z);
         }
         if (this.hDp != null) {
-            this.hDp.nw(z);
+            this.hDp.nx(z);
         }
     }
 

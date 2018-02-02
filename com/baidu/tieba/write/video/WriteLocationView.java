@@ -42,7 +42,7 @@ public class WriteLocationView extends LocationInfoView {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void gp(String str) {
+            public void gq(String str) {
                 BaseActivity baseActivity = WriteLocationView.this.mBaseActivity;
                 if (StringUtils.isNull(str)) {
                     str = WriteLocationView.this.mBaseActivity.getResources().getString(d.j.location_fail);
@@ -56,7 +56,7 @@ public class WriteLocationView extends LocationInfoView {
                 if (aVar != null && !StringUtils.isNull(aVar.bwn())) {
                     WriteLocationView.this.c(2, true, aVar.bwn());
                 } else {
-                    gp(null);
+                    gq(null);
                 }
             }
         };
@@ -67,12 +67,12 @@ public class WriteLocationView extends LocationInfoView {
                 if (customResponsedMessage instanceof ResponsedSelectLocation) {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
-                        WriteLocationView.this.brS.mE(false);
+                        WriteLocationView.this.brS.mF(false);
                         WriteLocationView.this.brS.ce(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         WriteLocationView.this.c(2, true, responsedSelectLocation.getName());
                         return;
                     }
-                    WriteLocationView.this.brS.mE(true);
+                    WriteLocationView.this.brS.mF(true);
                     WriteLocationView.this.c(0, true, null);
                 }
             }
@@ -119,7 +119,7 @@ public class WriteLocationView extends LocationInfoView {
         } else if (this.brS.bwv()) {
             KW();
         } else {
-            this.brS.mE(false);
+            this.brS.mF(false);
             c(1, true, null);
             this.brS.bwt();
         }

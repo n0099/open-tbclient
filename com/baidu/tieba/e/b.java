@@ -10,7 +10,7 @@ public class b extends com.baidu.tieba.e.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void fk(boolean z);
+        void fl(boolean z);
     }
 
     public b(Context context) {
@@ -42,10 +42,10 @@ public class b extends com.baidu.tieba.e.a {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (!this.dkM && scaleFactor > 1.0f) {
                     this.dkM = true;
-                    b.this.dkL.fk(true);
+                    b.this.dkL.fl(true);
                 } else if (!this.dkM && scaleFactor > 0.0f && scaleFactor < 1.0f) {
                     this.dkM = true;
-                    b.this.dkL.fk(false);
+                    b.this.dkL.fl(false);
                 }
             }
             return true;

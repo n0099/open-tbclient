@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class m {
-    public static int dP(String str) {
+    public static int dQ(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;

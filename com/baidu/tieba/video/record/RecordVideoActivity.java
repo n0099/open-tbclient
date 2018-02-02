@@ -222,7 +222,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
             this.hoj.cancelLoadData();
         }
         if (this.gZD != null) {
-            this.gZD.ps("record");
+            this.gZD.pt("record");
         }
     }
 
@@ -359,7 +359,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
                 }
 
                 @Override // com.baidu.tieba.video.record.m.a
-                public void tz(String str) {
+                public void tA(String str) {
                     if (RecordVideoActivity.this.hvl != null) {
                         StickerItem stickerItem = new StickerItem();
                         stickerItem.id = -1;
@@ -399,7 +399,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
             this.hvJ.onResume();
         }
         if (this.gZD != null) {
-            this.gZD.pr("album");
+            this.gZD.ps("album");
         }
     }
 
@@ -974,7 +974,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
     public void a(StickerItem stickerItem) {
         if (stickerItem != null) {
             this.hvI = stickerItem;
-            this.hvH.tZ(stickerItem.resource);
+            this.hvH.ua(stickerItem.resource);
             if (stickerItem.id == -1) {
                 if (this.htH != null) {
                     this.htH.setSticker(null);
@@ -987,9 +987,9 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
                 this.hvt.Q(1, false);
                 return;
             }
-            String tX = this.hvH.tX(stickerItem.resource);
-            if (!StringUtils.isNull(tX)) {
-                a(stickerItem, tX);
+            String tY = this.hvH.tY(stickerItem.resource);
+            if (!StringUtils.isNull(tY)) {
+                a(stickerItem, tY);
                 if (this.hvl != null) {
                     this.hvl.setDownLoadSticker(null);
                 }
@@ -997,7 +997,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
                 if (this.hvl != null) {
                     this.hvl.setDownLoadSticker(stickerItem);
                 }
-                this.hvH.tY(stickerItem.resource);
+                this.hvH.tZ(stickerItem.resource);
             }
             this.hvt.Q(1, true);
         }
@@ -1045,9 +1045,9 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
             String stringExtra = intent.getStringExtra("music_resource");
             String stringExtra2 = intent.getStringExtra("music_id");
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                String tI = com.baidu.tieba.video.editvideo.model.a.bAV().tI(stringExtra);
-                if (this.hvJ != null && !TextUtils.isEmpty(tI)) {
-                    this.hvJ.ci(tI, stringExtra2);
+                String tJ = com.baidu.tieba.video.editvideo.model.a.bAV().tJ(stringExtra);
+                if (this.hvJ != null && !TextUtils.isEmpty(tJ)) {
+                    this.hvJ.ci(tJ, stringExtra2);
                     this.hvl.bCo();
                 }
             }
@@ -1078,7 +1078,7 @@ public class RecordVideoActivity extends BaseActivity implements RecordLayout.a,
     }
 
     @Override // com.baidu.tieba.video.record.g.a
-    public void nj(boolean z) {
+    public void nk(boolean z) {
         if (this.hty != null && (this.hty.getStatus() == 1 || this.hty.getStatus() == 3 || this.hty.getStatus() == 4)) {
             if (!z && this.hvN) {
                 this.hvr.bCN();

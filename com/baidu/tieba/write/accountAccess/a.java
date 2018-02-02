@@ -53,7 +53,7 @@ public class a {
                     writeData2.setVcodeUrl(tVar.getVcode_pic_url());
                     writeData2.setVcodeExtra(tVar.FC());
                     a.this.hCR.getContext().setVisible(false);
-                    if (com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                    if (com.baidu.tbadk.p.a.ho(tVar.FB())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.hCR.getContext().getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, false, tVar.FB())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.hCR.getContext().getActivity(), writeData2, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
@@ -86,7 +86,7 @@ public class a {
         newWriteModel.b(this.bsh);
     }
 
-    public boolean ui(String str) {
+    public boolean uj(String str) {
         if (this.hCR == null || str == null) {
             return false;
         }

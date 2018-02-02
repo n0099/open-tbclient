@@ -26,8 +26,8 @@ public class b implements i {
             this.dWb = new ArrayList();
             if (!StringUtils.isNull(this.dWc)) {
                 a aVar = new a();
-                aVar.mj(this.dWc);
-                aVar.mk(this.dWd);
+                aVar.mk(this.dWc);
+                aVar.ml(this.dWd);
                 this.dWb.add(aVar);
             }
             if (!v.E(esport.billboard)) {

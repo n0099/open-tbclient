@@ -118,13 +118,13 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
     private a.InterfaceC0174a hEd = new a.InterfaceC0174a() { // from class: com.baidu.tieba.write.album.k.7
         @Override // com.baidu.tieba.write.view.a.InterfaceC0174a
         public void a(int i, com.baidu.tbadk.album.a aVar) {
-            List<MediaFileInfo> ul;
+            List<MediaFileInfo> um;
             if (k.this.hDa != null && aVar != null) {
                 String albumId = aVar.getAlbumId();
                 String name = aVar.getName();
-                if (albumId != null && !albumId.equals(k.this.hDa.bFD()) && (ul = k.this.hDa.ul(albumId)) != null) {
-                    k.this.hDa.uj(albumId);
-                    k.this.hEb.setData(ul);
+                if (albumId != null && !albumId.equals(k.this.hDa.bFD()) && (um = k.this.hDa.um(albumId)) != null) {
+                    k.this.hDa.uk(albumId);
+                    k.this.hEb.setData(um);
                     k.this.mTitleText.setText(name);
                     k.this.hEa.smoothScrollToPosition(0);
                 }
@@ -200,13 +200,13 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
         this.hDt = this.mView.findViewById(d.g.layout_bottom);
         this.hDv = (TextView) this.mView.findViewById(d.g.original_select_btn);
         this.hDu = (TextView) this.mView.findViewById(d.g.next_step);
-        this.hDa.uj(com.baidu.tbadk.album.a.aFQ);
+        this.hDa.uk(com.baidu.tbadk.album.a.aFQ);
         this.mTitleText.setText(this.hDn.getPageContext().getString(d.j.album_all_media));
         this.mNoDataView = NoDataViewFactory.a(this.hDn.getPageContext().getPageActivity(), this.dmF, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.aC(d.j.album_list_no_data, d.j.album_list_no_data_1), null);
         this.hEa = (TransparentHeadGridView) this.mView.findViewById(d.g.gv_image_list);
         this.hEa.setSelector(d.C0108d.transparent);
         this.hEb = new j(this.hDn, this.hDa);
-        this.hEb.nz(this.hDn.bFj() != 1);
+        this.hEb.nA(this.hDn.bFj() != 1);
         this.hEa.setAdapter((ListAdapter) this.hEb);
         this.hEa.setOuterOnScrollListener(this);
         this.hEb.a(this.hDL);
@@ -287,7 +287,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
             } else {
                 bFK();
             }
-            nw(this.hDa.isOriginalImg());
+            nx(this.hDa.isOriginalImg());
         }
     }
 
@@ -311,8 +311,8 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
                 if (k.this.hDa != null && gVar != null) {
                     k.this.hDa.c(gVar);
                     String bFD = k.this.hDa.bFD();
-                    k.this.hDa.uj(bFD);
-                    k.this.hEb.setData(k.this.hDa.ul(bFD));
+                    k.this.hDa.uk(bFD);
+                    k.this.hEb.setData(k.this.hDa.um(bFD));
                     k.this.hEa.smoothScrollToPosition(0);
                     k.this.bFJ();
                 }
@@ -344,7 +344,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
         if (this.hDa != null) {
-            nw(this.hDa.isOriginalImg());
+            nx(this.hDa.isOriginalImg());
         }
     }
 
@@ -402,7 +402,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
     }
 
     @Override // com.baidu.tieba.write.album.f.a
-    public void ny(boolean z) {
+    public void nz(boolean z) {
         Wy();
     }
 
@@ -421,9 +421,9 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.hEb.jr(true);
+            this.hEb.js(true);
         } else if (this.hEb.isScroll()) {
-            this.hEb.jr(false);
+            this.hEb.js(false);
         }
     }
 
@@ -455,7 +455,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener, f.a
         return this.hDv;
     }
 
-    public void nw(boolean z) {
+    public void nx(boolean z) {
         if (this.hDn != null && this.hDv != null) {
             this.hDv.setText(this.hDn.getResources().getString(d.j.original_img));
             if (z) {

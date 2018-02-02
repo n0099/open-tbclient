@@ -174,7 +174,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.hwP.notifyDataSetChanged();
         setListViewSelection(0);
         if (getVisibility() == 0) {
-            nn(true);
+            no(true);
             return;
         }
         this.hwN.setVisibility(0);
@@ -298,7 +298,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 runnable.run();
             } else if (this.hwN.getVisibility() == 0) {
                 runnable.run();
-                nn(false);
+                no(false);
             } else {
                 bDF();
                 this.mHandler.postDelayed(runnable, 250L);
@@ -348,7 +348,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.hwZ.start();
     }
 
-    private void nn(boolean z) {
+    private void no(boolean z) {
         if (z) {
             if (this.hxb != null && this.hxb.isRunning()) {
                 this.hxb.cancel();

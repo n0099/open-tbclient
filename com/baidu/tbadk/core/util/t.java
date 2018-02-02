@@ -31,7 +31,7 @@ public class t {
         return this.aUl;
     }
 
-    public String dS(String str) {
+    public String dT(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.aUk > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");

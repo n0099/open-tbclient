@@ -42,7 +42,7 @@ public class e {
         TiebaStatic.log(new ak("c12029").s("obj_type", i2).s("obj_param1", j.oK() ? 0 : 1).s("obj_param2", i3));
     }
 
-    public static void rj(String str) {
+    public static void rk(String str) {
         TiebaStatic.log(new ak("c12026").aa("tid", str));
     }
 

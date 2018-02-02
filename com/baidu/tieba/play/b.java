@@ -11,7 +11,7 @@ public class b implements Runnable {
         this.dDs = mVar;
     }
 
-    public void fK(boolean z) {
+    public void fL(boolean z) {
         this.dDk = z;
     }
 
@@ -23,7 +23,7 @@ public class b implements Runnable {
         this.bXz = i;
     }
 
-    public void il(boolean z) {
+    public void im(boolean z) {
         this.eWI = z;
     }
 

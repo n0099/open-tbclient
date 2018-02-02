@@ -70,8 +70,8 @@ public class t extends a<be> {
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (t.this.cWm != null && t.this.cWm.threadData != null) {
                     String id = t.this.cWm.threadData.getId();
-                    k.kj(id);
-                    t.this.km(id);
+                    k.kk(id);
+                    t.this.kn(id);
                 }
             }
         };
@@ -118,8 +118,8 @@ public class t extends a<be> {
                     t.this.akg().a(view2, t.this.cWm);
                 }
                 if (t.this.cWm != null && t.this.cWm.threadData != null) {
-                    k.kj(t.this.cWm.threadData.getId());
-                    t.this.km(t.this.cWm.threadData.getId());
+                    k.kk(t.this.cWm.threadData.getId());
+                    t.this.kn(t.this.cWm.threadData.getId());
                 }
             }
         });
@@ -132,8 +132,8 @@ public class t extends a<be> {
                     t.this.akg().a(view2, t.this.cWm);
                 }
                 if (t.this.cWm != null && t.this.cWm.threadData != null) {
-                    k.kj(t.this.cWm.threadData.getId());
-                    t.this.km(t.this.cWm.threadData.getId());
+                    k.kk(t.this.cWm.threadData.getId());
+                    t.this.kn(t.this.cWm.threadData.getId());
                 }
             }
         });
@@ -219,7 +219,7 @@ public class t extends a<be> {
         lD(bdVar.aPd);
         setPageUniqueId(getTag());
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        km(bdVar.getId());
+        kn(bdVar.getId());
     }
 
     private void A(bd bdVar) {
@@ -273,13 +273,13 @@ public class t extends a<be> {
         return this.cSM.bcI;
     }
 
-    public void eI(boolean z) {
+    public void eJ(boolean z) {
         if (this.cWk != null) {
             this.cWk.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void eE(boolean z) {
+    public void eF(boolean z) {
         this.cUx = z;
     }
 
@@ -290,23 +290,23 @@ public class t extends a<be> {
     private void akA() {
         if (this.cWm != null && this.cWm.threadData != null) {
             bd bdVar = this.cWm.threadData;
-            k.kj(bdVar.getId());
-            km(bdVar.getId());
+            k.kk(bdVar.getId());
+            kn(bdVar.getId());
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bdVar, null, this.cWm.stType, 18003, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(bdVar.getFid()));
             createFromThreadCfg.setForumName(bdVar.yZ());
             createFromThreadCfg.setStartFrom(this.currentPageType);
             createFromThreadCfg.setIsShareThread(true);
-            k.kj(bdVar.getTid());
+            k.kk(bdVar.getTid());
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void km(String str) {
+    public void kn(String str) {
         k.a(this.mTitle, str, d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
         k.a(this.cUv, str, d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
-        this.cVR.setReadState(k.kk(str));
+        this.cVR.setReadState(k.kl(str));
     }
 
     public void H(bd bdVar) {

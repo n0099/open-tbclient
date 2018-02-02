@@ -73,7 +73,7 @@ public class b extends h {
                     return;
                 }
                 if (rVar.isLike() == 1) {
-                    auv.su(rVar.getFid());
+                    auv.sv(rVar.getFid());
                     this.dBM.f(auv);
                     this.dQE.a(auv, this.dBL.ayv());
                 }

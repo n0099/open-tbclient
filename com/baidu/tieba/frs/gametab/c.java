@@ -117,8 +117,8 @@ public class c implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b {
                         if (aVar != null) {
                             for (int i = 0; i < c.this.dNZ.avq().size(); i++) {
                                 FragmentTabHost.c fy = c.this.bUS.fy(i);
-                                if (fy.mType != 99 && fy.mType != 1 && fy.mType != c.this.bUS.getCurrentTabType() && fy.mType == aVar.getTabId() && aVar.axB() && fy.aST.gN(String.valueOf(fy.mType)) != null) {
-                                    fy.aST.gN(String.valueOf(fy.mType)).view.setVisibility(0);
+                                if (fy.mType != 99 && fy.mType != 1 && fy.mType != c.this.bUS.getCurrentTabType() && fy.mType == aVar.getTabId() && aVar.axB() && fy.aST.gO(String.valueOf(fy.mType)) != null) {
+                                    fy.aST.gO(String.valueOf(fy.mType)).view.setVisibility(0);
                                 }
                             }
                         }
@@ -349,11 +349,11 @@ public class c implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b {
                             }
                             if (fy.mType != 99) {
                                 TiebaStatic.log(new ak("c12334").s("obj_locate", c.this.b(fy)).aa(ImageViewerConfig.FORUM_ID, str));
-                                if (fy.mType != 1 && fy.aST.gN(String.valueOf(fy.mType)) != null) {
-                                    if (!(fy.aST.gN(String.valueOf(fy.mType)).view.getVisibility() == 0)) {
+                                if (fy.mType != 1 && fy.aST.gO(String.valueOf(fy.mType)) != null) {
+                                    if (!(fy.aST.gO(String.valueOf(fy.mType)).view.getVisibility() == 0)) {
                                         return true;
                                     }
-                                    fy.aST.gN(String.valueOf(fy.mType)).view.setVisibility(8);
+                                    fy.aST.gO(String.valueOf(fy.mType)).view.setVisibility(8);
                                     if (fy.mType == 2 && (fy.aSU instanceof com.baidu.tieba.frs.gametab.livetab.b)) {
                                         ((com.baidu.tieba.frs.gametab.livetab.b) fy.aSU).XC();
                                     } else if (fy.mType == 3) {
@@ -676,10 +676,10 @@ public class c implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_ENTERFORUM_GUIDE));
             if (this.dNW == null) {
                 this.dNW = new com.baidu.tieba.write.c(this.dNU.getPageContext(), this.bYN, "frs");
-                this.dNW.uh("2");
+                this.dNW.ui("2");
             }
             this.dNW.a(this.dNV.auz());
-            this.dNW.nu(false);
+            this.dNW.nv(false);
         }
     }
 
@@ -700,7 +700,7 @@ public class c implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b {
                 }
                 if (xH.getIfpost() == 0 && !StringUtils.isNull(xH.getForbid_info())) {
                     String forbid_info = xH.getForbid_info();
-                    if (com.baidu.tbadk.core.util.am.eg(forbid_info) > 14) {
+                    if (com.baidu.tbadk.core.util.am.eh(forbid_info) > 14) {
                         forbid_info = com.baidu.tbadk.core.util.am.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
                     }
                     BdToast b = BdToast.b(this.dNV.getPageContext().getPageActivity(), forbid_info, d.f.icon_toast_game_error);

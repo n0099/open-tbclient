@@ -474,7 +474,7 @@ public class c implements TabLayout.OnTabSelectedListener {
         this.dDc.setNextPage(null);
     }
 
-    public void gd(boolean z) {
+    public void ge(boolean z) {
         this.dOP.setVisibility(z ? 0 : 8);
     }
 
@@ -487,7 +487,7 @@ public class c implements TabLayout.OnTabSelectedListener {
                 if (!this.dOU) {
                     this.dOV = intValue;
                     this.dOy.nD(this.dOV);
-                    s.akK().eH(false);
+                    s.akK().eI(false);
                 }
             }
             if (tab.getCustomView() != null) {

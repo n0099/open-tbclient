@@ -44,7 +44,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         return this.erN;
     }
 
-    public void gQ(boolean z) {
+    public void gR(boolean z) {
         this.erN = z;
     }
 
@@ -52,7 +52,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         return this.erO;
     }
 
-    public void gR(boolean z) {
+    public void gS(boolean z) {
         this.erO = z;
     }
 

@@ -443,8 +443,8 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
                 aVar = null;
             } else {
                 String str = (String) tag;
-                com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str);
-                aVar = gF == null ? com.baidu.tbadk.imageManager.c.LR().gE(str) : gF;
+                com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(str);
+                aVar = gG == null ? com.baidu.tbadk.imageManager.c.LR().gF(str) : gG;
             }
         } else {
             aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.nm().a(this.mUrl, this.mType, new Object[0]);
@@ -825,14 +825,14 @@ public class TbImageView extends com.baidu.adp.b.a.b implements View.OnClickList
 
     public int getGifIconWidth() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.hp(getContext().getString(d.j.icon_tag_gif));
+            return (int) this.mTagDrawer.hq(getContext().getString(d.j.icon_tag_gif));
         }
         return -1;
     }
 
     public int getGifIconHeight() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.ho(getContext().getString(d.j.icon_tag_gif));
+            return (int) this.mTagDrawer.hp(getContext().getString(d.j.icon_tag_gif));
         }
         return -1;
     }

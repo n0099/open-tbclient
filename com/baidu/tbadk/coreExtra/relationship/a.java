@@ -40,7 +40,7 @@ public class a implements TbCheckBox.b {
         return this.mUserId;
     }
 
-    public void ft(String str) {
+    public void fu(String str) {
         this.biW = str;
     }
 
@@ -56,7 +56,7 @@ public class a implements TbCheckBox.b {
         return this.biX;
     }
 
-    public void fu(String str) {
+    public void fv(String str) {
         this.biY = str;
     }
 

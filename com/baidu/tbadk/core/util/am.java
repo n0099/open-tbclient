@@ -576,7 +576,7 @@ public class am extends com.baidu.adp.lib.util.k {
         return new SimpleDateFormat(str).format(date2);
     }
 
-    public static String ee(String str) {
+    public static String ef(String str) {
         return isEmpty(str) ? "" : "\u202d" + str + "\u202c";
     }
 
@@ -652,7 +652,7 @@ public class am extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static int ef(String str) {
+    public static int eg(String str) {
         int i = 0;
         if (str != null) {
             int length = str.length();
@@ -701,7 +701,7 @@ public class am extends com.baidu.adp.lib.util.k {
         return ((float) j) >= aVI ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / aVI)) : ((float) j) >= aVJ / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / aVJ)) : TbadkCoreApplication.getInst().getString(d.j.less_than_zero_dot_one_k);
     }
 
-    public static int eg(String str) {
+    public static int eh(String str) {
         int i = 0;
         if (str != null && str.length() > 0) {
             int length = str.length();
@@ -880,7 +880,7 @@ public class am extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static String eh(String str) {
+    public static String ei(String str) {
         return str != null ? str.trim() : "";
     }
 

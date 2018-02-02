@@ -148,12 +148,12 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         this.hbQ.setCertainColumnCount(getAudioVoiceColumnCount());
         if (i == 3) {
             this.mProgress.setVisibility(4);
-            mF(true);
+            mG(true);
             this.hbQ.start();
             return;
         }
         this.hbQ.to();
-        mF(false);
+        mG(false);
         if (i == 1) {
             if (this.eKs != null) {
                 this.hbN.setText(VoiceManager.formatVoiceTime(this.eKs.duration));
@@ -189,7 +189,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    private void mF(boolean z) {
+    private void mG(boolean z) {
         if (this.eKo != null) {
             if (z) {
                 aj.c(this.eKo, d.f.icon_voice_stop);

@@ -230,9 +230,9 @@ public class TiebaSyncService extends BdBaseService {
                 u Hm = TiebaSyncService.this.mModel.Hm();
                 if (Hm != null) {
                     TbadkCoreApplication.getInst().setActivityPrizeData(Hm.getActivityPrizeData());
-                    TbadkCoreApplication.getInst().getListItemRule().eX(Hm.FK());
-                    TbadkCoreApplication.getInst().getListItemRule().eZ(Hm.FM());
-                    TbadkCoreApplication.getInst().getListItemRule().eY(Hm.FL());
+                    TbadkCoreApplication.getInst().getListItemRule().eY(Hm.FK());
+                    TbadkCoreApplication.getInst().getListItemRule().fa(Hm.FM());
+                    TbadkCoreApplication.getInst().getListItemRule().eZ(Hm.FL());
                     TbadkCoreApplication.getInst().setUseNewResign(Hm.FV());
                     TbadkCoreApplication.getInst().setUegVoiceWarning(Hm.getUegVoiceWarning());
                     TbadkCoreApplication.getInst().setUrlText(Hm.Gd());

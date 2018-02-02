@@ -362,11 +362,11 @@ public class b {
                                     if (file.exists() && file.isFile() && file.length() > 0) {
                                         boolean z = false;
                                         boolean z2 = false;
-                                        if (string.toLowerCase().endsWith(".gif") && k.dA(string)) {
+                                        if (string.toLowerCase().endsWith(".gif") && k.dB(string)) {
                                             if (com.baidu.adp.lib.util.f.h(file) <= 3145728) {
                                                 z = true;
                                             }
-                                        } else if (k.dB(string)) {
+                                        } else if (k.dC(string)) {
                                             z2 = true;
                                         }
                                         imageFileInfo.setIsGif(z);

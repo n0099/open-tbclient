@@ -103,7 +103,7 @@ public class a {
         }
     }
 
-    public static SpannableString gT(String str) {
+    public static SpannableString gU(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }

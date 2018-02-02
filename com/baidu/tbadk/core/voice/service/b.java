@@ -28,7 +28,7 @@ public class b {
         this.ber = str2;
     }
 
-    public j eR(String str) {
+    public j eS(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
@@ -51,7 +51,7 @@ public class b {
         i dm = com.baidu.tbadk.core.util.c.dm(e);
         if (dm == null) {
             dm = new i();
-            dm.eU(e);
+            dm.eV(e);
             dm.gN(0);
             dm.Y(file.length());
         }
@@ -61,7 +61,7 @@ public class b {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                dm.eU(audioInfoData.getVoiceId());
+                dm.eV(audioInfoData.getVoiceId());
                 this.bep.b(dm);
             } else {
                 this.bep.setErrorCode(audioInfoData.getErrorCode());

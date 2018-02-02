@@ -15,7 +15,7 @@ public class w {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int hi(String str) {
+    public static int hj(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -30,7 +30,7 @@ public class w {
         return i;
     }
 
-    public static int hj(String str) {
+    public static int hk(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class w {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += hi(substring);
+                i += hj(substring);
             }
         }
         return i;
     }
 
-    public static int hk(String str) {
+    public static int hl(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class w {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (hk(substring) > i) {
+            if (hl(substring) > i) {
                 break;
             }
             i2++;
@@ -80,7 +80,7 @@ public class w {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (hi(str) > i) {
+        if (hj(str) > i) {
             return j(str, 0, i - 2) + "...";
         }
         return str;
@@ -90,7 +90,7 @@ public class w {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (hi(str) > i) {
+        if (hj(str) > i) {
             return j(str, 0, i);
         }
         return str;
@@ -162,7 +162,7 @@ public class w {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (hj(substring) > i) {
+            if (hk(substring) > i) {
                 break;
             }
             i2++;

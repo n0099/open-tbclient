@@ -142,7 +142,7 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
-    public void ld(boolean z) {
+    public void le(boolean z) {
         if (z) {
             this.gad.setVisibility(0);
         } else {

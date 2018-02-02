@@ -421,7 +421,7 @@ public class SubPbModel extends DataModel {
         return true;
     }
 
-    public void qC(String str) {
+    public void qD(String str) {
         if (!TextUtils.isEmpty(str) && this.fVh != null && this.fVh.aZC() != null) {
             ArrayList<PostData> aZC = this.fVh.aZC();
             int size = aZC.size();
@@ -594,7 +594,7 @@ public class SubPbModel extends DataModel {
         return "hot_topic".equals(getStType());
     }
 
-    public void kY(boolean z) {
+    public void kZ(boolean z) {
         this.fEQ = z;
     }
 
@@ -606,7 +606,7 @@ public class SubPbModel extends DataModel {
         return this.fXK;
     }
 
-    public void qD(String str) {
+    public void qE(String str) {
         this.fXK = str;
     }
 
@@ -615,7 +615,7 @@ public class SubPbModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData gh(String str) {
+    public WriteData gi(String str) {
         if (this.fVh == null || this.fVh.aZF() == null || this.fVh.VM() == null || this.fVh.aZy() == null) {
             return null;
         }
@@ -644,7 +644,7 @@ public class SubPbModel extends DataModel {
         return this.fXV;
     }
 
-    public void kZ(boolean z) {
+    public void la(boolean z) {
         this.fXV = z;
     }
 

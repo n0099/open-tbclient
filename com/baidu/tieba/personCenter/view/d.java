@@ -240,7 +240,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 36:
                 TiebaStatic.log(new ak("c12524").s("obj_locate", this.giD.itemId));
-                qM(this.giD.dYc);
+                qN(this.giD.dYc);
                 return;
             case 37:
                 TiebaStatic.log(new ak("c12523").s("obj_locate", 24));
@@ -282,7 +282,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         }
     }
 
-    private void qL(String str) {
+    private void qM(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
@@ -298,10 +298,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         }
     }
 
-    private void qM(String str) {
+    private void qN(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                qL(str);
+                qM(str);
             } else if (str.startsWith("nohead:url")) {
                 av.Da().c(this.mTbPageContext, new String[]{str.replaceFirst("nohead:url=", "") + (str.contains("?") ? "&" : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {

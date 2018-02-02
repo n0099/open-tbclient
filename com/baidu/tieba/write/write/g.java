@@ -47,10 +47,10 @@ public class g {
         this.mTbPageContext = tbPageContext;
         this.hKX = cVar;
         this.dpQ = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(d.h.write_multi_imgs_activity, (ViewGroup) null);
-        dQ(z);
+        dR(z);
     }
 
-    private void dQ(boolean z) {
+    private void dR(boolean z) {
         this.hKT = (BdBaseViewPager) this.dpQ.findViewById(d.g.write_multi_imgs_viewpager);
         this.hKU = (StickerLayout) this.dpQ.findViewById(d.g.stickers_container);
         Resources resources = this.mTbPageContext.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.mTbPageContext.getResources();
@@ -87,7 +87,7 @@ public class g {
         this.hKS.getRootView().setVisibility(8);
         this.hqB.addView(this.hKR.getRootView());
         this.hKR.getRootView().setVisibility(8);
-        nL(z);
+        nM(z);
     }
 
     public void B(Bitmap bitmap) {
@@ -103,7 +103,7 @@ public class g {
         this.hKU.a(bitmap, this.hKX);
     }
 
-    private void nL(final boolean z) {
+    private void nM(final boolean z) {
         this.cnr = (FragmentTabWidget) this.dpQ.findViewById(d.g.tab_widget);
         Resources resources = this.mTbPageContext.getResources();
         String[] stringArray = z ? resources.getStringArray(d.b.edit_pic_tab) : resources.getStringArray(d.b.edit_pic_no_fliter_tab);
@@ -191,7 +191,7 @@ public class g {
                     if (g.this.hIN != null) {
                         g.this.hIN.dismiss();
                     }
-                    g.this.nM(true);
+                    g.this.nN(true);
                 }
             });
             this.hIN.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.write.write.g.5
@@ -200,7 +200,7 @@ public class g {
                     if (g.this.hIN != null) {
                         g.this.hIN.dismiss();
                     }
-                    g.this.nM(false);
+                    g.this.nN(false);
                 }
             });
             this.hIN.b(this.mTbPageContext);
@@ -209,7 +209,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nM(boolean z) {
+    public void nN(boolean z) {
         if (this.mTbPageContext != null && this.mTbPageContext.getOrignalPage() != null) {
             this.mTbPageContext.getOrignalPage().a(z, this.hKW);
         }

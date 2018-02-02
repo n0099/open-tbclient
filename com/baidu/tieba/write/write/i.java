@@ -72,7 +72,7 @@ public class i {
                 String bIK = i.this.hLq.bIK();
                 if (i.hLp.matcher(bIK).matches()) {
                     i.this.bIv();
-                    i.this.hLr.uo(bIK);
+                    i.this.hLr.up(bIK);
                     i.this.hLq.a(null, true);
                     return;
                 }
@@ -95,9 +95,9 @@ public class i {
         public void afterTextChanged(Editable editable) {
             if (i.this.fWB != null) {
                 if (!i.this.fWB.bER()) {
-                    i.this.nB(false);
+                    i.this.nC(false);
                 }
-                i.this.fWB.nt(false);
+                i.this.fWB.nu(false);
             }
         }
     };
@@ -135,7 +135,7 @@ public class i {
             i.this.hLq.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 i.this.fWB.av(null);
-                i.this.fWB.ns(false);
+                i.this.fWB.nt(false);
                 if (z) {
                     String errorString = postWriteCallBackData.getErrorString();
                     String preMsg = postWriteCallBackData.getPreMsg();
@@ -152,9 +152,9 @@ public class i {
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     i.this.aQs.showToast(postWriteCallBackData.getErrorString());
                     i.this.fWB.av(postWriteCallBackData.getSensitiveWords());
-                    i.this.fWB.ug(postWriteCallBackData.getErrorString());
+                    i.this.fWB.uh(postWriteCallBackData.getErrorString());
                     if (!v.E(i.this.fWB.bEO())) {
-                        i.this.nB(true);
+                        i.this.nC(true);
                     }
                 } else if ((tVar == null || writeData == null || tVar.getVcode_pic_url() == null || AntiHelper.f(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
                     i.this.hLq.k(postWriteCallBackData);
@@ -162,7 +162,7 @@ public class i {
                     writeData.setVcodeMD5(tVar.getVcode_md5());
                     writeData.setVcodeUrl(tVar.getVcode_pic_url());
                     writeData.setVcodeExtra(tVar.FC());
-                    if (!com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                    if (!com.baidu.tbadk.p.a.ho(tVar.FB())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(i.this.aQs.getPageActivity(), writeData, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
                         return;
                     }
@@ -259,12 +259,12 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nB(boolean z) {
+    public void nC(boolean z) {
         if (this.hLq.bIF() != null && this.hLq.bID() != null) {
             int selectionEnd = this.hLq.bIF().getSelectionEnd();
             SpannableStringBuilder b = this.fWB.b(this.hLq.bIF().getText());
             if (b != null) {
-                this.fWB.nt(true);
+                this.fWB.nu(true);
                 this.hLq.bIF().setText(b);
                 if (z && this.fWB.bEP() >= 0) {
                     this.hLq.bIF().requestFocus();
@@ -272,7 +272,7 @@ public class i {
                 } else {
                     this.hLq.bIF().setSelection(selectionEnd);
                 }
-                this.fWB.ns(this.fWB.bEP() >= 0);
+                this.fWB.nt(this.fWB.bEP() >= 0);
             }
         }
     }
@@ -280,7 +280,7 @@ public class i {
     public boolean bIy() {
         if (this.fWB.bEQ()) {
             this.aQs.showToast(this.fWB.bES());
-            nB(true);
+            nC(true);
             return true;
         }
         return false;
@@ -342,7 +342,7 @@ public class i {
                         this.aQs.showToast(postWriteCallBackData.getErrorString());
                         this.fWB.av(postWriteCallBackData.getSensitiveWords());
                         if (!v.E(this.fWB.bEO())) {
-                            nB(true);
+                            nC(true);
                             return;
                         }
                         return;

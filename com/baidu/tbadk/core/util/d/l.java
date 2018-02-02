@@ -42,11 +42,11 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(eD(str));
-        if (gF == null || gF.sj() == null) {
+        com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(eE(str));
+        if (gG == null || gG.sj() == null) {
             return null;
         }
-        return gF;
+        return gG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,13 +56,13 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eC(str);
+        return eD(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.LR().c(eD(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.LR().c(eE(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -83,7 +83,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return 1;
     }
 
-    public com.baidu.adp.widget.a.a eC(String str) {
+    public com.baidu.adp.widget.a.a eD(String str) {
         com.baidu.adp.widget.a.a aVar;
         try {
             if (str.toLowerCase().endsWith(".gif")) {
@@ -97,7 +97,7 @@ public class l implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         }
     }
 
-    public String eD(String str) {
+    public String eE(String str) {
         ImageOperation aI = com.baidu.tbadk.img.effect.d.aI(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");

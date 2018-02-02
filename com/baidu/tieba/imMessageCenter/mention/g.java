@@ -30,7 +30,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
                 if (g.this.eOw != null) {
-                    g.this.eOw.hW(true);
+                    g.this.eOw.hX(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (g.this.eOw != null) {
@@ -62,7 +62,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             this.eOw.n(null);
         }
         View XJ = this.eOw.XJ();
-        this.eOw.hY(this.eOx);
+        this.eOw.hZ(this.eOx);
         this.eOw.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         Nf().addEventDelegate(this);
         registerListener(this.dOv);
@@ -148,7 +148,7 @@ public class g extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         this.eOw.onActivityDestroy();
     }
 
-    public void hZ(boolean z) {
+    public void ia(boolean z) {
         this.eOx = z;
     }
 }

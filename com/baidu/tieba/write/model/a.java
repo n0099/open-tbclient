@@ -69,7 +69,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.hFs);
     }
 
-    public void uo(String str) {
+    public void up(String str) {
         this.aKP = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);

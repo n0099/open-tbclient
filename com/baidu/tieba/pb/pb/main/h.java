@@ -231,7 +231,7 @@ public class h {
             if (z2) {
                 bbp();
                 if (fVar != null) {
-                    fVar.jD(false);
+                    fVar.jE(false);
                 }
             }
             if (this.postList == null) {
@@ -249,8 +249,8 @@ public class h {
                 this.fKb.setFromCDN(this.mIsFromCDN);
                 this.fKb.setHostId(this.mHostId);
                 this.fKb.sB(this.fFp);
-                this.fKb.jF(this.fFq);
-                this.fKb.jG(this.fFr);
+                this.fKb.jG(this.fFq);
+                this.fKb.jH(this.fFr);
                 this.fKb.l(this.mCommonClickListener);
                 this.fKb.E(this.fFv);
                 this.fKb.setOnImageClickListener(this.bJN);
@@ -258,7 +258,7 @@ public class h {
                 this.fJS.b(fVar);
                 this.fJS.setFromCDN(this.mIsFromCDN);
                 this.fJS.sB(this.fFp);
-                this.fJS.jF(this.fFq);
+                this.fJS.jG(this.fFq);
                 this.fJS.l(this.mCommonClickListener);
                 this.fJS.E(this.fFv);
                 this.fJS.setOnImageClickListener(this.bJN);
@@ -267,7 +267,7 @@ public class h {
                 this.fJW.b(fVar);
                 this.fJW.setFromCDN(this.mIsFromCDN);
                 this.fJW.setHostId(this.mHostId);
-                this.fJW.jF(this.fFq);
+                this.fJW.jG(this.fFq);
                 this.fJW.l(this.mCommonClickListener);
                 this.fJW.E(this.fFv);
                 this.fJW.setOnImageClickListener(this.bJN);
@@ -287,9 +287,9 @@ public class h {
                         next.setFromCDN(this.mIsFromCDN);
                         next.setHostId(this.mHostId);
                         next.sB(this.fFp);
-                        next.jF(this.fFq);
-                        next.jG(this.fFr);
-                        next.jH(this.fKk);
+                        next.jG(this.fFq);
+                        next.jH(this.fFr);
+                        next.jI(this.fKk);
                         next.l(this.mCommonClickListener);
                         next.E(this.fFv);
                         next.setOnImageClickListener(this.bJN);
@@ -380,23 +380,23 @@ public class h {
                     z6 = false;
                 } else {
                     com.baidu.tbadk.core.util.v.a(arrayList, d, fVar.aZh());
-                    fVar.aZh().jE((b(arrayList, d) || z5) ? false : true);
+                    fVar.aZh().jF((b(arrayList, d) || z5) ? false : true);
                     z6 = true;
                     z5 = true;
                 }
                 if (z4 && (bbl = bbl()) != null && d >= 0) {
                     com.baidu.tbadk.core.util.v.a(arrayList, d + 1, bbl);
                 }
-                this.fJS.jX(!z5);
+                this.fJS.jY(!z5);
                 boolean z7 = (this.fJR.aZT() == null || postData2 == null || postData2.getId() == null || !postData2.getId().equals(this.fJR.aZT().getPostId())) ? false : true;
                 if (this.fKg && !z7) {
                     arrayList.remove(postData2);
                     this.fKg = false;
                 }
                 if (z6 && (com.baidu.tbadk.core.util.v.f(arrayList, 0) instanceof com.baidu.tieba.pb.data.l)) {
-                    jW(false);
+                    jX(false);
                 } else {
-                    jW(true);
+                    jX(true);
                 }
                 if (this.mListView != null) {
                     this.mListView.setData(arrayList);
@@ -427,7 +427,7 @@ public class h {
             return null;
         }
         com.baidu.tieba.tbadkCore.data.l lVar = new com.baidu.tieba.tbadkCore.data.l();
-        lVar.sD(bcv);
+        lVar.sE(bcv);
         b(lVar);
         return lVar;
     }
@@ -842,15 +842,15 @@ public class h {
         return this.fFq;
     }
 
-    public void jF(boolean z) {
+    public void jG(boolean z) {
         this.fFq = z;
     }
 
-    public void jG(boolean z) {
+    public void jH(boolean z) {
         this.fFr = z;
     }
 
-    public void jH(boolean z) {
+    public void jI(boolean z) {
         this.fKk = z;
     }
 
@@ -934,19 +934,19 @@ public class h {
         }
     }
 
-    public void jS(boolean z) {
+    public void jT(boolean z) {
         this.fKh = z;
     }
 
-    public void jT(boolean z) {
+    public void jU(boolean z) {
         this.fKi = z;
     }
 
-    public void jU(boolean z) {
+    public void jV(boolean z) {
         this.fKg = z;
     }
 
-    public void jV(boolean z) {
+    public void jW(boolean z) {
         this.fKj = z;
     }
 
@@ -954,7 +954,7 @@ public class h {
         return this.fJT;
     }
 
-    public void jW(boolean z) {
+    public void jX(boolean z) {
         if (this.fJT != null) {
             this.fJT.fQi = z;
         }

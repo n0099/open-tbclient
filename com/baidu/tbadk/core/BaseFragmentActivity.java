@@ -28,7 +28,6 @@ import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -41,12 +40,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -194,7 +191,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.gP(getCurrentPageKey());
+            this.pageStayDurationItem.gQ(getCurrentPageKey());
         }
         this.pageStayDurationItem.O(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
@@ -207,12 +204,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (!ab.aX(this) && bundle != null) {
-            getWindow().getDecorView().setBackgroundColor(-1);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(this, (Intent) null)));
-            finish();
-            return;
-        }
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new com.baidu.adp.widget.d(getPageContext().getPageActivity());
             this.mSwipeBackLayout.p(getPageContext().getPageActivity());
@@ -235,7 +226,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        at.ej(getClass().getName());
+        at.ek(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
@@ -290,7 +281,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        at.ej(getClass().getName());
+        at.ek(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {

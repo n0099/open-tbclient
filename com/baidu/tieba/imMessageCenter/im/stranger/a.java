@@ -28,7 +28,7 @@ public class a {
         public int type;
     }
 
-    public static C0128a nP(String str) {
+    public static C0128a nQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

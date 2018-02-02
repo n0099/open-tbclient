@@ -127,8 +127,8 @@ public class d extends com.baidu.adp.base.c {
         if (musicData != null && !TextUtils.isEmpty(musicData.resource)) {
             this.hrp = musicData.id;
             this.hoh.bAB();
-            String tI = com.baidu.tieba.video.editvideo.model.a.bAV().tI(musicData.resource);
-            if (TextUtils.isEmpty(tI)) {
+            String tJ = com.baidu.tieba.video.editvideo.model.a.bAV().tJ(musicData.resource);
+            if (TextUtils.isEmpty(tJ)) {
                 if (view != null) {
                     final c.a aVar = (c.a) view.getTag();
                     aVar.hnK.setVisibility(0);
@@ -143,7 +143,7 @@ public class d extends com.baidu.adp.base.c {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0160a
-                        public void tz(String str) {
+                        public void tA(String str) {
                             aVar.hnK.setVisibility(4);
                             l.showToast(d.this.mContext.getPageActivity(), str);
                             if (d.this.gZD != null) {
@@ -168,7 +168,7 @@ public class d extends com.baidu.adp.base.c {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0160a
-                    public void tz(String str) {
+                    public void tA(String str) {
                         l.showToast(d.this.mContext.getPageActivity(), str);
                         if (d.this.gZD != null) {
                             d.this.gZD.V(HttpStatus.SC_PARTIAL_CONTENT, str);
@@ -181,7 +181,7 @@ public class d extends com.baidu.adp.base.c {
                 });
                 return;
             }
-            aL(tI, i);
+            aL(tJ, i);
         }
     }
 
@@ -303,7 +303,7 @@ public class d extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    public void nd(boolean z) {
+    public void ne(boolean z) {
         if (z) {
             this.hrg.setVisibility(0);
             if (this.hrq && this.hnA == null && !TextUtils.isEmpty(this.hrk)) {
@@ -361,7 +361,7 @@ public class d extends com.baidu.adp.base.c {
             this.hrp = intent.getStringExtra(EditVideoActivityConfig.MUSIC_ID_KEY);
             this.hrk = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
             if (this.hrf != null) {
-                this.hrf.tF(this.hrp);
+                this.hrf.tG(this.hrp);
                 this.hrn = this.hrf.bAC();
                 this.hrl = this.hrn;
                 this.hrm = this.hrn;

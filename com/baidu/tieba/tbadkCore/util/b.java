@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class b {
     private static String fWl = "tbgametype";
 
-    public static String sL(String str) {
+    public static String sM(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;

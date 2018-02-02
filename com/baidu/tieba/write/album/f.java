@@ -22,13 +22,13 @@ public class f {
     private Runnable hDG = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.nx(false);
+            f.this.ny(false);
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ny(boolean z);
+        void nz(boolean z);
     }
 
     public static f bFG() {
@@ -74,17 +74,17 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void ag(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            nx(true);
+            ny(true);
             return;
         }
         this.handler.removeCallbacks(this.hDG);
         this.handler.postDelayed(this.hDG, 2000L);
     }
 
-    public void nx(boolean z) {
+    public void ny(boolean z) {
         Iterator<a> it = this.sB.iterator();
         while (it.hasNext()) {
-            it.next().ny(z);
+            it.next().nz(z);
         }
     }
 

@@ -12,13 +12,13 @@ public class e {
         a aVar = new a();
         aVar.ut(com.baidu.adp.lib.g.b.h(advertAppInfo.adPosition, 0));
         aVar.us(i);
-        aVar.rQ(advertAppInfo.price);
-        aVar.rO(advertAppInfo.extensionInfo);
+        aVar.rR(advertAppInfo.price);
+        aVar.rP(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.rS(advertAppInfo.aJA);
-        aVar.rT(advertAppInfo.aJB);
-        aVar.rU(advertAppInfo.aJC);
-        aVar.rV(advertAppInfo.aIP);
+        aVar.rT(advertAppInfo.aJA);
+        aVar.rU(advertAppInfo.aJB);
+        aVar.rV(advertAppInfo.aJC);
+        aVar.rW(advertAppInfo.aIP);
         return aVar;
     }
 
@@ -29,13 +29,13 @@ public class e {
         a aVar = new a();
         aVar.ut(advertAppInfo.aJs);
         aVar.us(i);
-        aVar.rQ(advertAppInfo.price);
-        aVar.rO(advertAppInfo.extensionInfo);
+        aVar.rR(advertAppInfo.price);
+        aVar.rP(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.rS(advertAppInfo.aJA);
-        aVar.rT(advertAppInfo.aJB);
-        aVar.rU(advertAppInfo.aJC);
-        aVar.rV(advertAppInfo.aIP);
+        aVar.rT(advertAppInfo.aJA);
+        aVar.rU(advertAppInfo.aJB);
+        aVar.rV(advertAppInfo.aJC);
+        aVar.rW(advertAppInfo.aIP);
         return aVar;
     }
 
@@ -65,14 +65,14 @@ public class e {
         AppData bvx = lVar.bvx();
         a aVar = new a();
         aVar.ut(com.baidu.adp.lib.g.b.h(bvx.pos_name, 0));
-        aVar.rO(bvx.ext_info);
+        aVar.rP(bvx.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
         aVar.us(i);
-        aVar.rQ(bvx.price);
-        aVar.rS(lVar.aJA);
-        aVar.rT(lVar.aJB);
-        aVar.rU(lVar.forumId);
-        aVar.rV("PB");
+        aVar.rR(bvx.price);
+        aVar.rT(lVar.aJA);
+        aVar.rU(lVar.aJB);
+        aVar.rV(lVar.forumId);
+        aVar.rW("PB");
         return aVar;
     }
 
@@ -84,9 +84,9 @@ public class e {
         if (i6 != -1 && i == 32) {
             c.ux(i6);
         }
-        c.rV(advertAppInfo.aIP);
+        c.rW(advertAppInfo.aIP);
         if (i == 2) {
-            c.rR("video");
+            c.rS("video");
         }
         return c;
     }
@@ -98,10 +98,10 @@ public class e {
     public static a b(String str, int i, String str2, String str3) {
         a aVar = new a();
         aVar.us(i);
-        aVar.rP(str2);
-        aVar.rV("HOMEPAGE");
-        aVar.rO(str);
-        aVar.rW(str3);
+        aVar.rQ(str2);
+        aVar.rW("HOMEPAGE");
+        aVar.rP(str);
+        aVar.rX(str3);
         return aVar;
     }
 

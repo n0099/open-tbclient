@@ -115,7 +115,7 @@ public class MyAudioRecorder implements d {
         }
     }
 
-    public boolean eS(String str) {
+    public boolean eT(String str) {
         try {
             if (this.beE == State.INITIALIZING) {
                 this.filePath = str;
@@ -247,8 +247,8 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean eQ(String str) {
-        if (eS(str)) {
+    public boolean eR(String str) {
+        if (eT(str)) {
             return prepare();
         }
         return false;

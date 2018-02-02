@@ -19,7 +19,7 @@ public class l implements f {
 
     @Override // com.baidu.tieba.i.f
     public void i(String str, int i, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.blq();
             this.gwk.a(new d(i, "record", i, str2));
         }
@@ -27,7 +27,7 @@ public class l implements f {
 
     @Override // com.baidu.tieba.i.f
     public void j(String str, int i, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
                 this.gwk.blq();
                 this.gwk.a(new d(i, str2, i, VideoPlatformStatic.jr(i)));
@@ -39,7 +39,7 @@ public class l implements f {
 
     @Override // com.baidu.tieba.i.f
     public void k(String str, int i, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.blq();
             this.gwk.a(new d(i, "edit", i, str2));
         }
@@ -47,7 +47,7 @@ public class l implements f {
 
     @Override // com.baidu.tieba.i.f
     public void d(String str, int i, int i2, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.blq();
             this.gwk.blo();
             this.gwk.bls();
@@ -56,16 +56,16 @@ public class l implements f {
     }
 
     @Override // com.baidu.tieba.i.f
-    public void pm(String str) {
-        if (rm(str)) {
+    public void pn(String str) {
+        if (rn(str)) {
             this.gwk.bls();
             this.gwk.a(new d(HttpStatus.SC_MOVED_PERMANENTLY, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public void pn(String str) {
-        if (rm(str)) {
+    public void po(String str) {
+        if (rn(str)) {
             this.gwk.bls();
             this.gwk.blp();
             this.gwk.a(new d(HttpStatus.SC_UNAUTHORIZED, AlbumActivityConfig.FROM_WRITE, -4399, ""));
@@ -74,7 +74,7 @@ public class l implements f {
 
     @Override // com.baidu.tieba.i.f
     public void l(String str, int i, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.blq();
             this.gwk.blo();
             this.gwk.bls();
@@ -83,40 +83,40 @@ public class l implements f {
     }
 
     @Override // com.baidu.tieba.i.f
-    public void po(String str) {
-        if (rm(str)) {
+    public void pp(String str) {
+        if (rn(str)) {
             b.bzO().d(this.fst, b.a(VideoPlatformStatic.Tw(), this.gwk.aVu(), this.gwk.aVv()));
         }
     }
 
     @Override // com.baidu.tieba.i.f
-    public boolean pp(String str) {
-        if (rm(str)) {
+    public boolean pq(String str) {
+        if (rn(str)) {
             return this.gwk.blr();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.i.f
-    public boolean pq(String str) {
+    public boolean pr(String str) {
         return this.gwk.blt();
     }
 
     @Override // com.baidu.tieba.i.f
     public void by(String str, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.a(new d(HttpStatus.SC_SERVICE_UNAVAILABLE, str2, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.i.f
     public void bz(String str, String str2) {
-        if (rm(str)) {
+        if (rn(str)) {
             this.gwk.a(new d(HttpStatus.SC_NOT_IMPLEMENTED, str2, -4399, ""));
         }
     }
 
-    private boolean rm(String str) {
+    private boolean rn(String str) {
         return (!TextUtils.equals(this.fst, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.fst)) ? false : true;
     }
 }

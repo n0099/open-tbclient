@@ -46,7 +46,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public interface a {
         void J(ArrayList<com.baidu.adp.widget.ListView.i> arrayList);
 
-        void lm(String str);
+        void ln(String str);
     }
 
     public FrsLoadMoreModel(com.baidu.tieba.frs.loadmore.a aVar, i iVar) {
@@ -67,7 +67,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 if (FrsLoadMoreModel.this.dPv != null) {
                     FrsLoadMoreModel.this.isLoading = false;
                     if (responsedMessage == null) {
-                        FrsLoadMoreModel.this.dPv.lm(FrsLoadMoreModel.this.dPv.getPageContext().getString(d.j.neterror));
+                        FrsLoadMoreModel.this.dPv.ln(FrsLoadMoreModel.this.dPv.getPageContext().getString(d.j.neterror));
                     } else if (responsedMessage.getError() == 0) {
                         l auv = FrsLoadMoreModel.this.dPv.auv();
                         if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
@@ -90,9 +90,9 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                         }
                         FrsLoadMoreModel.this.loadIndex++;
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        FrsLoadMoreModel.this.dPv.lm(responsedMessage.getErrorString());
+                        FrsLoadMoreModel.this.dPv.ln(responsedMessage.getErrorString());
                     } else {
-                        FrsLoadMoreModel.this.dPv.lm(FrsLoadMoreModel.this.dPv.getPageContext().getString(d.j.neterror));
+                        FrsLoadMoreModel.this.dPv.ln(FrsLoadMoreModel.this.dPv.getPageContext().getString(d.j.neterror));
                     }
                 }
             }

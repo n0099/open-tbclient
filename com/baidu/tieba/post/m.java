@@ -47,7 +47,7 @@ public class m implements h {
 
     @Override // com.baidu.tieba.i.h
     public void aVf() {
-        bll().pm(this.fst);
+        bll().pn(this.fst);
     }
 
     @Override // com.baidu.tieba.i.h
@@ -57,8 +57,8 @@ public class m implements h {
 
     @Override // com.baidu.tieba.i.h
     public void aVg() {
-        bll().pn(this.fst);
-        po(this.fst);
+        bll().po(this.fst);
+        pp(this.fst);
     }
 
     @Override // com.baidu.tieba.i.h
@@ -67,12 +67,12 @@ public class m implements h {
     }
 
     @Override // com.baidu.tieba.i.h
-    public void pr(String str) {
+    public void ps(String str) {
         if (!StringUtils.isNull(this.fsu)) {
-            if (pp(this.fsu) || pq(this.fsu)) {
-                po(this.fsu);
+            if (pq(this.fsu) || pr(this.fsu)) {
+                pp(this.fsu);
             } else {
-                d.pl(this.fsu);
+                d.pm(this.fsu);
                 this.gwl.remove(this.fst);
             }
             aVe();
@@ -87,29 +87,29 @@ public class m implements h {
     }
 
     @Override // com.baidu.tieba.i.h
-    public void ps(String str) {
+    public void pt(String str) {
         bll().bz(this.fst, str);
-        if (pp(this.fst) || pq(this.fst)) {
-            po(this.fst);
+        if (pq(this.fst) || pr(this.fst)) {
+            pp(this.fst);
         } else {
-            d.pl(this.fst);
+            d.pm(this.fst);
             this.gwl.remove(this.fst);
         }
         this.fst = null;
-    }
-
-    public boolean pp(String str) {
-        return bll().pp(str);
     }
 
     public boolean pq(String str) {
         return bll().pq(str);
     }
 
-    public void po(String str) {
+    public boolean pr(String str) {
+        return bll().pr(str);
+    }
+
+    public void pp(String str) {
         f fVar = this.gwl.get(str);
         if (fVar != null) {
-            fVar.po(str);
+            fVar.pp(str);
             this.gwl.remove(str);
         }
     }

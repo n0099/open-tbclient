@@ -66,7 +66,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle hl(String str) {
+    public static Bundle hm(String str) {
         URL url;
         String query;
         String[] split;

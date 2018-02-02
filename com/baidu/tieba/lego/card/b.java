@@ -89,7 +89,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo oe(String str) {
+    public static ICardInfo og(String str) {
         try {
             ICardInfo D = D(new JSONObject(str));
             if (D != null) {

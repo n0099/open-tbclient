@@ -50,7 +50,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
                 if (c.this.akg() != null) {
                     c.this.akg().a(view, c.this.cSN);
                 }
-                c.this.eB(view == c.this.cSK);
+                c.this.eC(view == c.this.cSK);
             }
         };
         this.bcm = new View.OnClickListener() { // from class: com.baidu.tieba.card.c.4
@@ -100,7 +100,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
                     c.this.akg().a(view2, c.this.cSN);
                 }
                 if (c.this.cSN != null && c.this.cSN.threadData != null) {
-                    k.kj(c.this.cSN.threadData.getId());
+                    k.kk(c.this.cSN.threadData.getId());
                     if (!c.this.akk()) {
                         c.this.akl();
                     }
@@ -117,7 +117,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
                     c.this.akg().a(view2, c.this.cSN);
                 }
                 if (c.this.cSN != null && c.this.cSN.threadData != null) {
-                    k.kj(c.this.cSN.threadData.getId());
+                    k.kk(c.this.cSN.threadData.getId());
                     if (!c.this.akk()) {
                         c.this.akl();
                     }
@@ -175,7 +175,7 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
         }
         this.ciS.setData(lVar.threadData);
         this.cSK.setData(lVar.threadData.Ah());
-        if (!akk() && k.kk(this.cSN.threadData.getId())) {
+        if (!akk() && k.kl(this.cSN.threadData.getId())) {
             akl();
         }
         this.ciS.setUserAfterClickListener(this.bcm);
@@ -240,10 +240,10 @@ public abstract class c extends a<com.baidu.tieba.card.data.l> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eB(boolean z) {
+    public void eC(boolean z) {
         if (this.cSN != null && this.cSN.threadData != null) {
             if (!akk()) {
-                k.kj(this.cSN.threadData.getId());
+                k.kk(this.cSN.threadData.getId());
                 akl();
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(this.cSN.threadData, null, k.yJ(), 18003, true, false, false).addLocateParam(this.cSN.akT());

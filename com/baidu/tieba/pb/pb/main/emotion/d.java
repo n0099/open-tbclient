@@ -136,7 +136,7 @@ public class d extends BaseAdapter {
                 if (d.this.fyu != null) {
                     for (String str : d.this.fyu) {
                         if (!TextUtils.isEmpty(str)) {
-                            com.baidu.tbadk.imageManager.c.LR().gD(str);
+                            com.baidu.tbadk.imageManager.c.LR().gE(str);
                         }
                     }
                     return true;

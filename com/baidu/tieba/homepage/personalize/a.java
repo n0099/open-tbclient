@@ -49,7 +49,7 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.gC(true);
+            a.this.gD(true);
         }
     };
 
@@ -100,7 +100,7 @@ public class a {
                         a.this.eer.setCurrentTab(0);
                         return;
                     }
-                    a.this.gC(false);
+                    a.this.gD(false);
                     TiebaStatic.log(new ak("c12632").s("obj_locate", 1));
                 }
             });
@@ -113,7 +113,7 @@ public class a {
         }
     }
 
-    public void gC(boolean z) {
+    public void gD(boolean z) {
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.eev);
         if (this.ees != null) {
             if (this.eet != null) {

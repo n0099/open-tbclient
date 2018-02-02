@@ -205,7 +205,7 @@ public class m {
         }
     }
 
-    public void ok(String str) {
+    public void ol(String str) {
         this.eYS = str;
     }
 
@@ -219,7 +219,7 @@ public class m {
                     f fVar = (f) childAt.getTag();
                     if (fVar.isPlayStarted()) {
                         rg(fVar.getCurrentPosition());
-                        ok(fVar.getPlayUrl());
+                        ol(fVar.getPlayUrl());
                         this.eYV = childAt;
                         this.eYW = fVar.isPlaying();
                         fVar.stopPlay();
@@ -274,13 +274,13 @@ public class m {
         com.baidu.adp.lib.g.e.ns().removeCallbacks(this.gse);
         this.gse.qY(i);
         this.gse.qZ(i2);
-        this.gse.fK(z);
-        this.gse.il(z2);
-        this.eYY.il(z2);
+        this.gse.fL(z);
+        this.gse.im(z2);
+        this.eYY.im(z2);
         com.baidu.adp.lib.g.e.ns().postDelayed(this.gse, 500L);
     }
 
-    public void in(boolean z) {
+    public void io(boolean z) {
         this.cwQ = z;
     }
 }

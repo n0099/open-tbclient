@@ -116,7 +116,7 @@ public class f {
             }
             f.this.eff.Nx();
             if (i == 0) {
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (this.ebS) {
                     f.this.aBA();
                 }
@@ -334,7 +334,7 @@ public class f {
             if (customResponsedMessage != null && f.this.eeZ != null && v.D(f.this.eeZ.thread_list) != 0) {
                 String str = (String) customResponsedMessage.getData();
                 f.this.e(str, f.this.mDataList);
-                f.this.mu(str);
+                f.this.mv(str);
                 if (f.this.eeE != null) {
                     f.this.eeE.am(new ArrayList(f.this.mDataList));
                 }
@@ -353,7 +353,7 @@ public class f {
         void onSuccess();
     }
 
-    public void gD(boolean z) {
+    public void gE(boolean z) {
         this.efl = z;
         if (this.efd != null && !z) {
             this.efd.hideTip();
@@ -378,10 +378,10 @@ public class f {
         this.mIsBackground = z;
     }
 
-    public void fJ(boolean z) {
+    public void fK(boolean z) {
         this.mIsBackground = z;
         if (this.dDs != null) {
-            this.dDs.in(!z);
+            this.dDs.io(!z);
             if (z) {
                 this.dDs.aCG();
             } else if (this.efg) {
@@ -472,7 +472,7 @@ public class f {
         }
         if (this.efh) {
             if (this.eaa) {
-                if (gE(false)) {
+                if (gF(false)) {
                     bQ(3, this.efc);
                 } else if (this.efi > 0) {
                     bQ(2, this.efc);
@@ -532,7 +532,7 @@ public class f {
         aAU();
     }
 
-    public void gy(boolean z) {
+    public void gz(boolean z) {
         if (z) {
             this.eeE.notifyDataSetChanged();
         }
@@ -577,7 +577,7 @@ public class f {
     }
 
     public boolean aBx() {
-        if (gE(false)) {
+        if (gF(false)) {
             if (this.mListView != null) {
                 this.mListView.setSelection(0);
                 this.mListView.startPullRefresh();
@@ -782,7 +782,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mu(String str) {
+    public void mv(String str) {
         if (!TextUtils.isEmpty(str) && this.eeZ != null && this.eeZ.banner_list != null && this.eeZ.banner_list.app != null && this.eeZ.banner_list.app.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (App app : this.eeZ.banner_list.app) {
@@ -819,10 +819,10 @@ public class f {
     }
 
     private boolean aBz() {
-        return gE(true);
+        return gF(true);
     }
 
-    private boolean gE(boolean z) {
+    private boolean gF(boolean z) {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("recommend_frs_refresh_time", 0L);
         return j == 0 ? z : Math.abs(System.currentTimeMillis() - j) > this.eeW;
     }
@@ -1073,7 +1073,7 @@ public class f {
         return this.dDs;
     }
 
-    public void gF(boolean z) {
+    public void gG(boolean z) {
         this.efg = z;
     }
 
@@ -1106,7 +1106,7 @@ public class f {
         }, new h<String>() { // from class: com.baidu.tieba.homepage.personalize.f.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
-            /* renamed from: mv */
+            /* renamed from: mw */
             public void onReturnDataInUI(String str) {
                 if (eVar != null) {
                     eVar.oy(com.baidu.adp.lib.g.b.h(str, 0));

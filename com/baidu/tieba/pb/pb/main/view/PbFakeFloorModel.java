@@ -94,7 +94,7 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData gh(String str) {
+    public WriteData gi(String str) {
         if (this.fVh == null || this.fVh.aZF() == null || this.fVh.VM() == null || this.fVh.aZy() == null) {
             return null;
         }
@@ -133,7 +133,7 @@ public class PbFakeFloorModel extends DataModel {
         if (postData != null) {
             this.fVh.aZy().s(postData);
             this.fVh.aZy().t(postData);
-            this.fVh.aZy().mz(true);
+            this.fVh.aZy().mA(true);
         }
     }
 

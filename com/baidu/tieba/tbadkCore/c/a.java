@@ -143,9 +143,9 @@ public class a {
                         b bVar = new b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                         bVar.x("type", 1);
                         String r = k.r(voice, 1);
-                        j eR = bVar.eR(r);
-                        if (eR != null && eR.isSuccess()) {
-                            i Fp = eR.Fp();
+                        j eS = bVar.eS(r);
+                        if (eS != null && eS.isSuccess()) {
+                            i Fp = eS.Fp();
                             if (Fp != null) {
                                 String Fn = Fp.Fn();
                                 com.baidu.tbadk.core.voice.a.b.renameFile(writeData.getVoice(), Fn);
@@ -153,18 +153,18 @@ public class a {
                                 str = Fn;
                             } else {
                                 com.baidu.tbadk.core.util.j jVar = new com.baidu.tbadk.core.util.j();
-                                jVar.h("ErrCode", Integer.valueOf(eR.getErrorCode()));
-                                jVar.h("ErrMsg", eR.getErrorString());
+                                jVar.h("ErrCode", Integer.valueOf(eS.getErrorCode()));
+                                jVar.h("ErrMsg", eS.getErrorString());
                                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", jVar.toString());
-                                this.mErrorData.setError_code(eR.getErrorCode());
-                                this.mErrorData.setError_msg(eR.getErrorString());
+                                this.mErrorData.setError_code(eS.getErrorCode());
+                                this.mErrorData.setError_msg(eS.getErrorString());
                             }
                         } else {
                             com.baidu.tbadk.core.util.j jVar2 = new com.baidu.tbadk.core.util.j();
                             jVar2.h("audioFile", r);
                             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", jVar2.toString());
-                            this.mErrorData.setError_code(eR.getErrorCode());
-                            this.mErrorData.setError_msg(eR.getErrorString());
+                            this.mErrorData.setError_code(eS.getErrorCode());
+                            this.mErrorData.setError_msg(eS.getErrorString());
                         }
                     }
                     if (!this.isCancelled) {
@@ -285,7 +285,7 @@ public class a {
                                 str2 = writeData.getVoteInfo().buildWriteContent();
                             }
                             com.baidu.tbadk.core.util.h.dn(str2);
-                            this.mNetwork.n("content", com.baidu.tieba.face.a.kK(str2));
+                            this.mNetwork.n("content", com.baidu.tieba.face.a.kL(str2));
                             this.mNetwork.n("reply_uid", writeData.getReplyId());
                             if (!TextUtils.isEmpty(writeData.getMemeText())) {
                                 this.mNetwork.n("meme_text", writeData.getMemeText());

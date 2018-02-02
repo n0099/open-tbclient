@@ -120,7 +120,7 @@ public class q {
         return arrayList;
     }
 
-    public static boolean sy(String str) {
+    public static boolean sz(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 
@@ -140,7 +140,7 @@ public class q {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        if (av.Da().eq(str)) {
+        if (av.Da().er(str)) {
             av.Da().a(tbPageContext, strArr, true);
             return true;
         }

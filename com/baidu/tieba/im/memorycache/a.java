@@ -28,14 +28,14 @@ public class a {
         }
     }
 
-    public ImMessageCenterPojo nv(String str) {
+    public ImMessageCenterPojo nw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return this.eEA.get(str);
     }
 
-    public boolean nw(String str) {
+    public boolean nx(String str) {
         return (TextUtils.isEmpty(str) || this.eEA.remove(str) == null) ? false : true;
     }
 }

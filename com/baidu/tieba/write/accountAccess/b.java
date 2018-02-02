@@ -98,7 +98,7 @@ public class b {
                             b.this.hCS.bFa();
                             return true;
                         }
-                        return b.this.hCS.ui(str);
+                        return b.this.hCS.uj(str);
                     }
 
                     @Override // android.webkit.WebViewClient

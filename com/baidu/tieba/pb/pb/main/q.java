@@ -368,7 +368,7 @@ public class q extends m<PostData, r> implements View.OnClickListener {
                     this.fFt.Q(this.fFs.aYL());
                 }
             }
-            this.fFt.qB(postData.getId());
+            this.fFt.qC(postData.getId());
         }
         rVar.fFP.setLinkTextColor(com.baidu.tbadk.core.util.aj.getColor(d.C0108d.cp_link_tip_c));
         if (this.fFq) {
@@ -521,7 +521,7 @@ public class q extends m<PostData, r> implements View.OnClickListener {
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
                 rVar.fFP.setLayoutParams(layoutParams);
-                rVar.fFP.hr(null);
+                rVar.fFP.hs(null);
                 this.fLv = false;
                 a(rVar, postData, view, i);
                 return;
@@ -663,7 +663,7 @@ public class q extends m<PostData, r> implements View.OnClickListener {
         this.fFp = i;
     }
 
-    public void jF(boolean z) {
+    public void jG(boolean z) {
         this.fFq = z;
     }
 
@@ -691,7 +691,7 @@ public class q extends m<PostData, r> implements View.OnClickListener {
         this.fKE = cVar;
     }
 
-    public void jX(boolean z) {
+    public void jY(boolean z) {
         this.fLu = z;
     }
 

@@ -36,7 +36,7 @@ public class c {
         return cVar;
     }
 
-    public int mS(String str) {
+    public int mT(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -66,7 +66,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r4v1 */
     /* JADX WARN: Type inference failed for: r4v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r4v5 */
-    public long mT(String str) {
+    public long mU(String str) {
         Cursor cursor;
         long j;
         Cursor cursor2 = null;
@@ -101,7 +101,7 @@ public class c {
                         try {
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
                             e.printStackTrace();
-                            mX(str);
+                            mY(str);
                             n.i(cursor2);
                             return 0L;
                         } catch (Throwable th) {
@@ -159,7 +159,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo mU(String str) {
+    public CommonMsgPojo mV(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -194,7 +194,7 @@ public class c {
                         e = e;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
-                        mX(str);
+                        mY(str);
                         n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -343,7 +343,7 @@ public class c {
                             e2 = e3;
                             e2.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e2, "GroupMsgDao.getAll", new Object[0]);
-                            mX(str);
+                            mY(str);
                             n.i(cursor);
                             return linkedList;
                         } catch (Exception e4) {
@@ -498,7 +498,7 @@ public class c {
             }
             for (ImMessageCenterPojo imMessageCenterPojo : list) {
                 if (!linkedList.contains("tb_group_msg_" + imMessageCenterPojo.getGid())) {
-                    mX(imMessageCenterPojo.getGid());
+                    mY(imMessageCenterPojo.getGid());
                 }
             }
         }
@@ -532,10 +532,10 @@ public class c {
         }
     }
 
-    public boolean mV(String str) {
+    public boolean mW(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                g.aGG().ne("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+                g.aGG().nf("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
             } catch (Exception e) {
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
@@ -544,12 +544,12 @@ public class c {
         return false;
     }
 
-    public boolean mY(String str) {
+    public boolean mZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            g.aGG().ne("delete from " + ("tb_group_msg_" + str));
+            g.aGG().nf("delete from " + ("tb_group_msg_" + str));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -558,9 +558,9 @@ public class c {
         }
     }
 
-    public void mX(String str) {
+    public void mY(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.aGG().ne("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
+            g.aGG().nf("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
         }
     }
 

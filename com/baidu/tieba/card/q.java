@@ -156,7 +156,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         this.cVX = new p.a() { // from class: com.baidu.tieba.card.q.8
             @Override // com.baidu.tieba.card.p.a
             public void setPrivacy(boolean z) {
-                q.this.eG(z);
+                q.this.eH(z);
             }
         };
         this.cVY = new View.OnClickListener() { // from class: com.baidu.tieba.card.q.9
@@ -351,7 +351,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             } else if (cardPersonDynamicThreadData.from == 1) {
                 this.cVB.setVisibility(0);
             }
-            eG(cardPersonDynamicThreadData.isPrivacy);
+            eH(cardPersonDynamicThreadData.isPrivacy);
             this.cVC.setVisibility(0);
             this.cVC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.q.3
                 @Override // android.view.View.OnClickListener
@@ -374,7 +374,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         VoiceData.VoiceModel[] voiceModelArr = cardPersonDynamicThreadData.cYf;
         if (voiceModelArr != null && voiceModelArr.length > 0) {
             this.cUt.setVisibility(0);
-            eF(true);
+            eG(true);
             VoiceData.VoiceModel voiceModel = voiceModelArr[0];
             this.cUt.setVoiceModel(voiceModel);
             this.cUt.setTag(voiceModel);
@@ -385,7 +385,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             this.cUt.bwR();
         } else {
             this.cUt.setVisibility(8);
-            eF(false);
+            eG(false);
         }
         MediaData[] mediaDataArr = cardPersonDynamicThreadData.cYe;
         aj.s(this.cVI, d.C0108d.transparent);
@@ -446,7 +446,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             this.cUw.setVisibility(8);
             if (this.cVi.threadData.zm() != null && this.cVi.threadData.zm().user_info != null && this.cVi.cXW == 60) {
                 String str = this.cVi.threadData.zm().user_info.user_name;
-                if (com.baidu.tbadk.util.w.hj(str) > 14) {
+                if (com.baidu.tbadk.util.w.hk(str) > 14) {
                     str = com.baidu.tbadk.util.w.I(str, 14) + "...";
                 }
                 this.cVJ.setText(k.aF(str + ":", this.cVi.threadData.getTitle()));
@@ -530,7 +530,7 @@ public class q extends a<CardPersonDynamicThreadData> {
         c(cardPersonDynamicThreadData);
     }
 
-    private void eF(boolean z) {
+    private void eG(boolean z) {
         if (this.cUw != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cUw.getLayoutParams();
             if (z) {
@@ -586,7 +586,7 @@ public class q extends a<CardPersonDynamicThreadData> {
                 return;
             }
             if (!isHost()) {
-                k.kj(this.cVi.threadId);
+                k.kk(this.cVi.threadId);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.cVi.threadData.zm());
@@ -601,7 +601,7 @@ public class q extends a<CardPersonDynamicThreadData> {
     public void akI() {
         if (this.cVi != null && this.cVi.threadData != null && this.cVi.threadData.zm() != null && this.cVi.threadData.zm().share_info != null) {
             if (!isHost()) {
-                k.kj(this.cVi.threadId);
+                k.kk(this.cVi.threadId);
             }
             if (this.cVi.threadData.zm().share_info.record_tid <= 0) {
                 akH();
@@ -619,7 +619,7 @@ public class q extends a<CardPersonDynamicThreadData> {
     public void akA() {
         if (this.cVi != null) {
             if (!isHost()) {
-                k.kj(this.cVi.threadId);
+                k.kk(this.cVi.threadId);
                 k.a(this.mTitle, this.cVi.threadId, d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
                 k.a(this.cUv, this.cVi.threadId, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
             }
@@ -645,7 +645,7 @@ public class q extends a<CardPersonDynamicThreadData> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eG(boolean z) {
+    public void eH(boolean z) {
         if (this.cVB != null) {
             if (z) {
                 this.cVB.setText(d.j.privacy);
@@ -766,7 +766,7 @@ public class q extends a<CardPersonDynamicThreadData> {
             if (labelInfoArr[i] != null) {
                 eVar.hp(labelInfoArr[i].labelHot);
                 eVar.setLabelName(labelInfoArr[i].labelName);
-                eVar.fB(labelInfoArr[i].LabelId);
+                eVar.fC(labelInfoArr[i].LabelId);
                 arrayList.add(eVar);
             }
         }

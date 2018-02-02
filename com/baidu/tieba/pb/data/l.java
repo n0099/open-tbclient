@@ -144,7 +144,7 @@ public class l implements com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public void jE(boolean z) {
+    public void jF(boolean z) {
         this.fEG = z;
     }
 

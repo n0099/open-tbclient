@@ -54,7 +54,7 @@ public class d extends BaseAdapter {
         this.mSelectedPosition = i;
     }
 
-    public int qA(String str) {
+    public int qB(String str) {
         if (this.aQJ == null) {
             return -1;
         }
@@ -403,14 +403,14 @@ public class d extends BaseAdapter {
                                 if (bvM.hasAppendTime && QK2 != 0 && bvM.appendLength <= QK2.length()) {
                                     QK2.delete(QK2.length() - bvM.appendLength, QK2.length());
                                 }
-                                String ee = am.ee(str2);
+                                String ef = am.ef(str2);
                                 if (QK2 != null) {
-                                    QK2.append((CharSequence) ee);
+                                    QK2.append((CharSequence) ef);
                                 }
                                 bvM.hasAppendTime = true;
-                                bvM.appendLength = ee.length();
+                                bvM.appendLength = ef.length();
                                 tbRichTextData = tbRichTextData2;
-                                str = ee;
+                                str = ef;
                             }
                         }
                         str2 = str3;
@@ -418,20 +418,20 @@ public class d extends BaseAdapter {
                         if (bvM.hasAppendTime) {
                             QK2.delete(QK2.length() - bvM.appendLength, QK2.length());
                         }
-                        String ee2 = am.ee(str2);
+                        String ef2 = am.ef(str2);
                         if (QK2 != null) {
                         }
                         bvM.hasAppendTime = true;
-                        bvM.appendLength = ee2.length();
+                        bvM.appendLength = ef2.length();
                         tbRichTextData = tbRichTextData2;
-                        str = ee2;
+                        str = ef2;
                     } else if (bvM.hasAppendTime) {
                         tbRichTextData = tbRichTextData2;
                         str = "";
                     } else {
                         String z2 = am.z(postData.getTime());
                         tbRichTextData = new TbRichTextData(1);
-                        str = am.ee(z2);
+                        str = am.ef(z2);
                         tbRichTextData.append(str);
                         bvM.hasAppendTime = true;
                         bvM.appendLength = str.length();
@@ -457,15 +457,15 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void kW(boolean z) {
+    public void kX(boolean z) {
         this.fXr = z;
     }
 
-    public void kX(boolean z) {
+    public void kY(boolean z) {
         this.bqG = z;
     }
 
-    public void qB(String str) {
+    public void qC(String str) {
         this.mPostId = str;
     }
 }

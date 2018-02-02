@@ -67,22 +67,22 @@ public class g implements Runnable {
     */
     private synchronized void Ta() {
         File file;
-        long hE;
+        long hF;
         File[] fileArr;
         int i;
         long j;
         long h;
         long j2;
         j.at(TAG, "merge ...");
-        String hK = m.hK(this.bON);
-        if (hK != null && !hK.isEmpty() && ((file = new File(i.bPz + hK + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.bPz + hK + "/completed.temp");
+        String hL = m.hL(this.bON);
+        if (hL != null && !hL.isEmpty() && ((file = new File(i.bPz + hL + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.bPz + hL + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.bPz + hK + "/segments");
+            File file3 = new File(i.bPz + hL + "/segments");
             if (file3 != null && file3.exists()) {
-                hE = hE(hK);
+                hF = hF(hL);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -129,7 +129,7 @@ public class g implements Runnable {
             }
             if (j + h == j2) {
             }
-        } else if (m.h(fileArr[i]) + j == hE) {
+        } else if (m.h(fileArr[i]) + j == hF) {
             i++;
         }
     }
@@ -243,7 +243,7 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hE(String str) {
+    private long hF(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;

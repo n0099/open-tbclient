@@ -141,7 +141,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         this.mEmotionList = new ArrayList();
         if (!TextUtils.isEmpty(this.fye)) {
             this.fxW.setText(this.fye);
-            pM(this.fye);
+            pN(this.fye);
         }
     }
 
@@ -191,7 +191,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     public void onClick(View view) {
                         PbSearchEmotionActivity.this.fxW.setText(str);
                         PbSearchEmotionActivity.this.fxW.setSelection(str.length());
-                        PbSearchEmotionActivity.this.pM(str);
+                        PbSearchEmotionActivity.this.pN(str);
                         TiebaStatic.log("c12178");
                     }
                 });
@@ -210,7 +210,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pM(String str) {
+    public void pN(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (!j.oJ()) {
                 showToast(d.j.neterror);
@@ -324,12 +324,12 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void kM(String str) {
-        pM(str);
+    public void kN(String str) {
+        pN(str);
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.a
-    public void kN(String str) {
+    public void kO(String str) {
         if (this.mEmotionList != null && str.length() == 0) {
             this.mEmotionList.clear();
             if (this.fTO != null) {

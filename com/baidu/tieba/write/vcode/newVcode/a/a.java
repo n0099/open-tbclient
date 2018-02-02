@@ -80,7 +80,7 @@ public class a implements b {
             this.hGe.runJsMethod("handleFreshCaptcha", "'" + writeData.getVcodeUrl() + "','" + writeData.getVcodeExtra().slideImg + "','" + writeData.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
-            us(com.baidu.tbadk.p.a.hm(str));
+            ut(com.baidu.tbadk.p.a.hn(str));
             return true;
         } else if (str.contains("objc:finish")) {
             this.hCV = true;
@@ -158,7 +158,7 @@ public class a implements b {
         return this.hCV;
     }
 
-    private void us(String str) {
+    private void ut(String str) {
         this.hCV = false;
         if (!l.pa()) {
             this.hGe.getContext().showToast(d.j.neterror);

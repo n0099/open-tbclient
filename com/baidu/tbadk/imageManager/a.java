@@ -7,11 +7,11 @@ public interface a {
 
     C0085a T(Context context, String str);
 
-    int ga(String str);
-
     int gb(String str);
 
-    String gc(String str);
+    int gc(String str);
+
+    String gd(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

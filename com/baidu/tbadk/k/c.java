@@ -21,7 +21,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         bxL += " -s " + str;
     }
 
-    public void gR(String str) {
+    public void gS(String str) {
         String[] split = str.split("\n");
         int i = 0;
         while (true) {
@@ -32,7 +32,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
                     if (it.hasNext()) {
                         Map.Entry<String, b> next = it.next();
                         if (split[i2].contains(next.getKey().toString())) {
-                            next.getValue().gQ(split[i2]);
+                            next.getValue().gR(split[i2]);
                             break;
                         }
                     }
@@ -105,7 +105,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
-                        c.this.gR(str);
+                        c.this.gS(str);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

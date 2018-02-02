@@ -75,7 +75,7 @@ public class u extends com.baidu.tbadk.editortools.d {
                                         return;
                                 }
                             case 20:
-                                com.baidu.tieba.tbadkCore.location.c.bwr().mD(true);
+                                com.baidu.tieba.tbadkCore.location.c.bwr().mE(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 32:
@@ -206,7 +206,7 @@ public class u extends com.baidu.tbadk.editortools.d {
         this.mThreadData = threadData;
     }
 
-    public void ka(boolean z) {
+    public void kb(boolean z) {
         this.fMu = z;
     }
 }

@@ -19,7 +19,7 @@ public class l extends PostData {
         this.gYx = new AppData(app);
     }
 
-    public void sD(String str) {
+    public void sE(String str) {
         this.gYx = new AppData(str);
     }
 

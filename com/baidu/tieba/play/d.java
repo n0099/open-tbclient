@@ -21,7 +21,7 @@ public interface d {
 
     void cL(long j);
 
-    String hM(String str);
+    String hN(String str);
 
     void onCompletion();
 

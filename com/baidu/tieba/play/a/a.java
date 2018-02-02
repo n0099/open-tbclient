@@ -12,7 +12,7 @@ public class a {
     private long gux;
     private long mStartTime = System.currentTimeMillis();
 
-    public a rf(String str) {
+    public a rg(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;

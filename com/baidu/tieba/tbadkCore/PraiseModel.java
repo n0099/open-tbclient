@@ -22,7 +22,7 @@ public class PraiseModel extends BdBaseModel {
     public interface a {
         void H(int i, String str);
 
-        void ig(String str);
+        void ih(String str);
     }
 
     static {
@@ -48,7 +48,7 @@ public class PraiseModel extends BdBaseModel {
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.gXE.ig(praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.gXE.ih(praiseResponseMessage.getErrMsg());
                     } else if (PraiseModel.this.gXE != null) {
                         PraiseModel.this.gXE.H(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }

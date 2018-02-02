@@ -164,7 +164,7 @@ public class CDNIPDirectConnect extends e {
         if (str == null || str.length() == 0 || str2 == null || str2.length() == 0 || str3 == null || str3.length() == 0) {
             return null;
         }
-        if (i.gY(str)) {
+        if (i.gZ(str)) {
             try {
                 System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
                 URL url = new URL(str);
@@ -208,11 +208,11 @@ public class CDNIPDirectConnect extends e {
         if (str == null) {
             return null;
         }
-        if (str2 != null && !str2.contains("hiphotos") && i.gX(str)) {
+        if (str2 != null && !str2.contains("hiphotos") && i.gY(str)) {
             try {
                 System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
                 URL url = new URL(str);
-                String host = i.gY(str) ? "tbcdn.hiphotos.baidu.com" : url.getHost();
+                String host = i.gZ(str) ? "tbcdn.hiphotos.baidu.com" : url.getHost();
                 HttpGet httpGet = new HttpGet(url.getProtocol() + "://" + str2 + url.getPath());
                 httpGet.addHeader(HTTP.TARGET_HOST, host);
                 return httpGet;
@@ -243,7 +243,7 @@ public class CDNIPDirectConnect extends e {
     @Override // com.baidu.tbadk.core.util.a.e
     public void result(String str, String str2, boolean z, boolean z2, boolean z3) {
         int i;
-        if (!i.gZ(str)) {
+        if (!i.ha(str)) {
             if (z2 || !z) {
                 if (!z) {
                     if (CDNProblemUploader.getInstance().getmCdnLogData() != null) {

@@ -27,17 +27,17 @@ public interface i {
 
     void i(int i, int i2, String str);
 
-    void iY(boolean z);
-
-    void pt(String str);
+    void iZ(boolean z);
 
     void pu(String str);
 
-    String pv(String str);
+    void pv(String str);
 
-    boolean pw(String str);
+    String pw(String str);
 
-    void px(String str);
+    boolean px(String str);
+
+    void py(String str);
 
     void se(int i);
 

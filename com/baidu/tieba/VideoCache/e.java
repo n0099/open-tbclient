@@ -70,7 +70,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean hz(String str) {
+    public synchronized boolean hA(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -81,7 +81,7 @@ public class e {
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.hK(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.hL(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -108,7 +108,7 @@ public class e {
         this.bPm.remove(cVar);
     }
 
-    public synchronized void hA(String str) {
+    public synchronized void hB(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
@@ -145,7 +145,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean hB(String str) {
+    public synchronized boolean hC(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -156,7 +156,7 @@ public class e {
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.hK(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.hL(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -175,7 +175,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void hC(String str) {
+    public synchronized void hD(String str) {
         if (str != null) {
             Iterator<Map.Entry<String, c>> it = this.bPk.entrySet().iterator();
             while (true) {

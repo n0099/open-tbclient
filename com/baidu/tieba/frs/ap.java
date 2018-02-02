@@ -49,22 +49,22 @@ public class ap {
         @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aY(int i, int i2) {
             if (Z(i2)) {
-                ap.this.fO(false);
+                ap.this.fP(false);
                 ap.this.showFloatingView();
             }
             if (ap.this.dEu != null) {
-                ap.this.dEu.fK(true);
+                ap.this.dEu.fL(true);
             }
         }
 
         @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aZ(int i, int i2) {
             if (Z(i2)) {
-                ap.this.fO(true);
+                ap.this.fP(true);
                 ap.this.hideFloatingView();
             }
             if (ap.this.dEu != null) {
-                ap.this.dEu.fK(false);
+                ap.this.dEu.fL(false);
             }
         }
 
@@ -82,11 +82,11 @@ public class ap {
         return this.ckT;
     }
 
-    public void fO(boolean z) {
+    public void fP(boolean z) {
         this.bBr = z;
     }
 
-    public void fP(boolean z) {
+    public void fQ(boolean z) {
         this.dEy = z;
     }
 
@@ -173,14 +173,14 @@ public class ap {
                 ViewGroup.LayoutParams layoutParams = auC.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
                 auC.setLayoutParams(layoutParams);
-                fQ(true);
+                fR(true);
                 return;
             }
-            fQ(false);
+            fR(false);
         }
     }
 
-    private void fQ(boolean z) {
+    private void fR(boolean z) {
         if (this.dEu != null && this.dEu.auC() != null) {
             View auC = this.dEu.auC();
             if (this.dEx && z && auC.getVisibility() != 0) {

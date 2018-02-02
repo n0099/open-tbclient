@@ -12,7 +12,7 @@ public class f {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean mG(String str) {
+            public boolean mH(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
         }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0119a() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.f.2

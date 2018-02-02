@@ -130,7 +130,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         this.fOx.removeCallbacks(this.bvw);
     }
 
-    public void ki(boolean z) {
+    public void kj(boolean z) {
         if (z) {
             this.fOt.setVisibility(0);
         } else {
@@ -147,7 +147,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         this.fOu.setVisibility(8);
     }
 
-    public void kj(boolean z) {
+    public void kk(boolean z) {
         this.fNZ.setVisibility(z ? 0 : 8);
     }
 
@@ -178,15 +178,15 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         }
     }
 
-    public void kk(boolean z) {
+    public void kl(boolean z) {
         this.fOn.setVisibility(z ? 0 : 8);
     }
 
-    public void kl(boolean z) {
+    public void km(boolean z) {
         this.fOm.setVisibility(z ? 0 : 8);
     }
 
-    public void km(boolean z) {
+    public void kn(boolean z) {
         this.fOo.setVisibility(z ? 0 : 8);
     }
 
@@ -209,7 +209,7 @@ public class aa extends com.baidu.adp.base.c<PbActivity> {
         }
     }
 
-    public void kn(boolean z) {
+    public void ko(boolean z) {
         this.fOl.setVisibility(z ? 0 : 8);
     }
 

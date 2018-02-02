@@ -36,7 +36,7 @@ public class e extends com.baidu.adp.a.a.a {
             try {
                 c.a(this.byf, new b() { // from class: com.baidu.tbadk.k.e.2
                     @Override // com.baidu.tbadk.k.b
-                    public void gQ(String str) {
+                    public void gR(String str) {
                         for (int i = 0; i < e.this.byg.length; i++) {
                             if (str.contains(e.this.byg[i])) {
                                 e.this.bxY++;

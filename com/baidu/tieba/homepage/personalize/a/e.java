@@ -28,7 +28,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (view != null && e.this.efE != null && e.this.efE.getView() != null && lVar != null && lVar.VM() != null && !StringUtils.isNull(lVar.VM().getTid())) {
                     if (view.getId() != e.this.efE.getView().getId()) {
                         if (e.this.efE.getHeaderImg() == null || view.getId() != e.this.efE.getHeaderImg().getId()) {
@@ -36,7 +36,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                                 if (e.this.efE.ciT == null || e.this.efE.ciT.getBarNameTv() == null || view.getId() != e.this.efE.ciT.getBarNameTv().getId()) {
                                     if (e.this.efE.cSM == null || e.this.efE.cSM.bcH == null || view.getId() != e.this.efE.cSM.bcH.getId()) {
                                         if (e.this.efE.aki() != null && view.getId() == e.this.efE.aki().getId()) {
-                                            TiebaStatic.log(lVar.ku("c12202"));
+                                            TiebaStatic.log(lVar.kv("c12202"));
                                             return;
                                         }
                                         return;
@@ -47,13 +47,13 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                                 TiebaStatic.log(lVar.ald());
                                 return;
                             }
-                            TiebaStatic.log(lVar.kt("c12191"));
+                            TiebaStatic.log(lVar.ku("c12191"));
                             return;
                         }
-                        TiebaStatic.log(lVar.kt("c12191"));
+                        TiebaStatic.log(lVar.ku("c12191"));
                         return;
                     }
-                    TiebaStatic.log(lVar.kt("c12192"));
+                    TiebaStatic.log(lVar.ku("c12192"));
                 }
             }
         };
@@ -87,7 +87,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         lVar.lH(i + 1);
-        s.akK().a(lVar.ks("c12190"));
+        s.akK().a(lVar.kt("c12190"));
         if (lVar.threadData != null) {
             lVar.threadData.aPd = this.cardShowType;
         }

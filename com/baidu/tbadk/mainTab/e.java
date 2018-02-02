@@ -48,7 +48,7 @@ public abstract class e extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a gN(String str) {
+    public a gO(String str) {
         return null;
     }
 

@@ -32,11 +32,11 @@ public class a {
         return gEK;
     }
 
-    public void mM(String str) {
+    public void mN(String str) {
         this.longitude = str;
     }
 
-    public void mN(String str) {
+    public void mO(String str) {
         this.latitude = str;
     }
 
@@ -56,11 +56,11 @@ public class a {
         return this.gEI;
     }
 
-    public void rM(String str) {
+    public void rN(String str) {
         this.gEI = str;
     }
 
-    public void rN(String str) {
+    public void rO(String str) {
         this.gEJ = str;
     }
 

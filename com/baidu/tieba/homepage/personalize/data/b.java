@@ -47,12 +47,12 @@ public class b extends com.baidu.tieba.card.data.g implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eJ(boolean z) {
+    public void eK(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eK(boolean z) {
+    public void eL(boolean z) {
         this.showBottomDivider = z;
     }
 

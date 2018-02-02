@@ -28,12 +28,12 @@ public class p extends b implements r {
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eJ(boolean z) {
+    public void eK(boolean z) {
         this.cXO = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void eK(boolean z) {
+    public void eL(boolean z) {
         this.cXP = z;
     }
 }

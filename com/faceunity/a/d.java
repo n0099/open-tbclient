@@ -288,7 +288,7 @@ public class d {
     public void a(float[] fArr, long j) {
         if (this.hVX != 0) {
             try {
-                this.hVQ.oc(false);
+                this.hVQ.od(false);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -307,7 +307,7 @@ public class d {
     public void handleStopRecording() {
         Log.d("TextureMovieEncoder", "handleStopRecording");
         try {
-            this.hVQ.oc(true);
+            this.hVQ.od(true);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

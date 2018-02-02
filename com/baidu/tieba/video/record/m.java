@@ -61,7 +61,7 @@ public class m {
             }
             m.this.x(downloadData);
             if (m.this.hwg != null && m.this.hwh.equals(downloadData.getUrl())) {
-                m.this.hwg.tz(str);
+                m.this.hwg.tA(str);
             }
         }
     };
@@ -72,23 +72,23 @@ public class m {
 
         void ch(String str, String str2);
 
-        void tz(String str);
+        void tA(String str);
     }
 
     static {
         hwe = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String tX(String str) {
-        String ei = ao.ei(str);
-        if (ei == null) {
+    public String tY(String str) {
+        String ej = ao.ej(str);
+        if (ej == null) {
             return null;
         }
         if (this.hpd == null) {
             this.hpd = new HashMap<>();
             bDu();
         }
-        return this.hpd.get(ei);
+        return this.hpd.get(ej);
     }
 
     public void bDu() {
@@ -110,16 +110,16 @@ public class m {
         }
     }
 
-    public void tY(String str) {
+    public void tZ(String str) {
         if (TextUtils.isEmpty(str) || StringUtils.isNull(hwe)) {
             if (this.hwg != null) {
-                this.hwg.tz("");
+                this.hwg.tA("");
                 return;
             }
             return;
         }
-        String ei = ao.ei(str);
-        if (ei != null) {
+        String ej = ao.ej(str);
+        if (ej != null) {
             File file = new File(hwe);
             if (!file.exists()) {
                 file.mkdirs();
@@ -128,11 +128,11 @@ public class m {
             if (this.hwf == null) {
                 this.hwf = new ArrayList();
             }
-            if (!fW(str)) {
+            if (!fX(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(hwe + "/" + ei + str2);
+                downloadData.setPath(hwe + "/" + ej + str2);
                 downloadData.setCallback(this.hwi);
                 this.hwf.add(downloadData);
                 com.baidu.tbadk.download.e.Ko().f(downloadData);
@@ -140,7 +140,7 @@ public class m {
         }
     }
 
-    private boolean fW(String str) {
+    private boolean fX(String str) {
         if (v.E(this.hwf) || str == null) {
             return false;
         }
@@ -176,7 +176,7 @@ public class m {
         this.hwg = aVar;
     }
 
-    public void tZ(String str) {
+    public void ua(String str) {
         if (str == null) {
             this.hwh = "";
         } else {

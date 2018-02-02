@@ -192,7 +192,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     public final void d(T t) {
-        s.akK().df(true);
+        s.akK().dg(true);
         f(t);
     }
 

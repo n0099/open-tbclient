@@ -14,19 +14,19 @@ public class a {
         return q.pk();
     }
 
-    public static String eM(String str) {
+    public static String eN(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String eN(String str) {
+    public static String eO(String str) {
         return k.r(str, 1);
     }
 
-    public static String eO(String str) {
-        return f.aH(eM(str));
+    public static String eP(String str) {
+        return f.aH(eN(str));
     }
 
     public static boolean aM(String str) {

@@ -54,14 +54,14 @@ public class r extends a {
         if (this.aXQ) {
             return null;
         }
-        com.baidu.adp.widget.a.a gE = com.baidu.tbadk.imageManager.c.LR().gE(str);
-        if (gE != null) {
-            gE.aup.aur = "memory";
-            gE.aup.aus = 0L;
-            gE.aup.aut = true;
-            return gE;
+        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str);
+        if (gF != null) {
+            gF.aup.aur = "memory";
+            gF.aup.aus = 0L;
+            gF.aup.aut = true;
+            return gF;
         }
-        return gE;
+        return gF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

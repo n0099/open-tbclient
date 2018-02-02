@@ -100,7 +100,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         initUI();
         initData(bundle);
         if (this.hGi != null) {
-            ut(this.hGi.getVcodeUrl());
+            uu(this.hGi.getVcodeUrl());
         }
     }
 
@@ -209,14 +209,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         this.mImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.oldVcode.VcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VcodeActivity.this.ut(null);
+                VcodeActivity.this.uu(null);
             }
         });
         this.mProgressBar = (ProgressBar) findViewById(d.g.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ut(String str) {
+    public void uu(String str) {
         if (this.hGk != null) {
             this.hGk.cancel();
         }
@@ -594,7 +594,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         if (tVar2.getVcode_pic_url() != null && VcodeActivity.this.hGi != null) {
                             VcodeActivity.this.hGi.setVcodeMD5(tVar2.getVcode_md5());
                             VcodeActivity.this.hGi.setVcodeUrl(tVar2.getVcode_pic_url());
-                            VcodeActivity.this.ut(VcodeActivity.this.hGi.getVcodeUrl());
+                            VcodeActivity.this.uu(VcodeActivity.this.hGi.getVcodeUrl());
                         }
                         VcodeActivity.this.mEdit.setText((CharSequence) null);
                     } else if (this.mData != null && this.mNetwork.Ck() == 227001) {

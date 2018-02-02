@@ -49,7 +49,7 @@ public class g extends GLSurfaceView implements h {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void nj(boolean z);
+        void nk(boolean z);
     }
 
     public g(Context context, i iVar) {
@@ -335,7 +335,7 @@ public class g extends GLSurfaceView implements h {
                     this.htX.sendEmptyMessage(1);
                 }
                 if (this.htT.htL != null) {
-                    this.htT.htL.nj(faceunity.fuIsTracking() > 0);
+                    this.htT.htL.nk(faceunity.fuIsTracking() > 0);
                 }
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "color_level", this.mFacebeautyColorLevel);
                 faceunity.fuItemSetParam(this.mFacebeautyItem, "blur_level", this.mFacebeautyBlurLevel);

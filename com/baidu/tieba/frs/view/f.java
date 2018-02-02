@@ -60,7 +60,7 @@ public class f implements View.OnClickListener {
         if (z) {
             this.dVv.setVisibility(0);
             this.dVu.setVisibility(0);
-            gq(z2);
+            gr(z2);
             this.dVw.setText(string);
             TiebaStatic.log("ticket_show");
         } else {
@@ -71,7 +71,7 @@ public class f implements View.OnClickListener {
         this.dVu.setVisibility(8);
     }
 
-    private void gq(boolean z) {
+    private void gr(boolean z) {
         if (z) {
             this.dVw.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_news_down_bar_one, 0);
         } else {
@@ -84,7 +84,7 @@ public class f implements View.OnClickListener {
         if (view == this.dVu) {
             if ((this.mTbPageContext == null || ax.bb(this.mTbPageContext.getPageActivity())) && this.dVs != null && this.dVt != null) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.dVt.getId() + TbadkCoreApplication.getCurrentAccount(), this.dVs.but());
-                gq(false);
+                gr(false);
                 com.baidu.tbadk.browser.a.a(this.dVu.getContext(), k.a(this.dVw.getText(), this.mContext.getString(d.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.dVs.buu())), true, false, true);
             }
         }

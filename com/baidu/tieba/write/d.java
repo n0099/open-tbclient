@@ -49,7 +49,7 @@ public class d extends LinearLayout {
         this.cyx.setTextColor(i);
     }
 
-    public void nv(boolean z) {
+    public void nw(boolean z) {
         if (z) {
             this.hCK.setVisibility(0);
         } else {

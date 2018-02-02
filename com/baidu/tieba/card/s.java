@@ -31,7 +31,7 @@ public class s {
         }
     }
 
-    public void df(boolean z) {
+    public void dg(boolean z) {
         if (com.baidu.tbadk.core.util.v.D(this.bVi) != 0) {
             for (ak akVar : this.bVi) {
                 if (akVar != null) {
@@ -47,7 +47,7 @@ public class s {
         }
     }
 
-    public void eH(boolean z) {
+    public void eI(boolean z) {
         if (com.baidu.tbadk.core.util.v.D(this.bVi) != 0) {
             for (ak akVar : this.bVi) {
                 if (akVar != null) {

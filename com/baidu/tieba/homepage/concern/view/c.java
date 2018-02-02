@@ -98,7 +98,7 @@ public class c extends com.baidu.tieba.card.a<n> {
                         c.this.akg().a(view, c.this.cTV);
                     }
                     if (c.this.cTV.bXi != null) {
-                        k.kj(c.this.cTV.bXi.getId());
+                        k.kk(c.this.cTV.bXi.getId());
                         c.this.akl();
                     }
                 }
@@ -247,7 +247,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         }
         if (this.cTV != null && this.cTV.bXi != null) {
             if (!akk()) {
-                k.kj(this.cTV.bXi.getId());
+                k.kk(this.cTV.bXi.getId());
                 k.a(this.mTextTitle, this.cTV.bXi.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.aQs.getPageActivity()).createFromThreadCfg(this.cTV.bXi, null, k.yJ(), 18003, true, false, false).addLocateParam(this.cTV.akT());
@@ -269,7 +269,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         }
         this.ciR.setVisibility(0);
         akv();
-        if (!akk() && k.kk(this.cTV.bXi.getId())) {
+        if (!akk() && k.kl(this.cTV.bXi.getId())) {
             k.a(this.mTextTitle, this.cTV.bXi.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             k.a(this.cSK.getGodReplyContent(), this.cTV.VM().getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
         }
@@ -317,7 +317,7 @@ public class c extends com.baidu.tieba.card.a<n> {
         this.cSK.setData(this.cTV.VM().Ah());
         this.cSK.onChangeSkinType();
         d(this.aQs, TbadkCoreApplication.getInst().getSkinType());
-        if (k.kk(this.cTV.bXi.getId())) {
+        if (k.kl(this.cTV.bXi.getId())) {
             aj.e(this.mTextTitle, d.C0108d.cp_cont_d, 1);
         } else {
             aj.e(this.mTextTitle, d.C0108d.cp_cont_b, 1);

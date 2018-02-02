@@ -56,13 +56,13 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
         this.fTE = list;
     }
 
-    public void qu(String str) {
+    public void qv(String str) {
         if (!TextUtils.isEmpty(str) && !v.E(this.fTE) && this.fTE.contains(str)) {
-            qv(str);
+            qw(str);
         }
     }
 
-    private void qv(String str) {
+    private void qw(String str) {
         if (!TextUtils.isEmpty(str) && !str.equals(this.fTH)) {
             this.fTH = str;
             if (this.fTG == null) {

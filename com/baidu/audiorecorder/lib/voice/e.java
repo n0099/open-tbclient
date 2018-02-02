@@ -109,7 +109,7 @@ public class e extends LinearLayout implements com.baidu.adp.lib.voice.f, s {
             }
         }
         if (this.mModel != null) {
-            com.baidu.tbadk.core.voice.a.aM(com.baidu.tbadk.core.voice.a.eN(this.mModel.voiceId));
+            com.baidu.tbadk.core.voice.a.aM(com.baidu.tbadk.core.voice.a.eO(this.mModel.voiceId));
         }
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (recorderManager != null && recorderManager.tl()) {

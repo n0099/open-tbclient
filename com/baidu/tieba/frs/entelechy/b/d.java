@@ -11,7 +11,7 @@ public interface d {
 
     boolean awF();
 
-    void fE(boolean z);
+    void fF(boolean z);
 
     void onChangeSkinType(int i);
 }

@@ -347,7 +347,7 @@ public class as {
         public int fzq;
     }
 
-    public void kq(boolean z) {
+    public void kr(boolean z) {
         this.fSy = z;
         if (this.fQG != null) {
             this.fSz = this.fQG.getHeaderViewsCount();
@@ -447,7 +447,7 @@ public class as {
         reset();
         bdh();
         this.fSw.bbv();
-        kC(false);
+        kD(false);
     }
 
     private void reset() {
@@ -481,7 +481,7 @@ public class as {
         return this.fRS;
     }
 
-    public void kr(boolean z) {
+    public void ks(boolean z) {
         if (this.fRN != null && this.fRO != null) {
             this.fRO.setText(d.j.draft_to_send);
             if (z) {
@@ -493,12 +493,12 @@ public class as {
             this.fRS = true;
             if (this.fSm != null && !this.fSL.isActive()) {
                 this.fSm.setVisibility(0);
-                kw(true);
+                kx(true);
             }
         }
     }
 
-    public void ks(boolean z) {
+    public void kt(boolean z) {
         if (this.fRN != null && this.fRO != null) {
             this.fRO.setText(d.j.reply_floor_host);
             if (z) {
@@ -510,7 +510,7 @@ public class as {
             this.fRS = true;
             if (this.fSm != null && !this.fSL.isActive()) {
                 this.fSm.setVisibility(0);
-                kw(true);
+                kx(true);
             }
         }
     }
@@ -577,10 +577,10 @@ public class as {
             for (int i = 0; i < this.fNb.aYN().size() && (postData = this.fNb.aYN().get(i)) != null && postData.yT() != null && !StringUtils.isNull(postData.yT().getUserId()); i++) {
                 if (this.fNb.aYN().get(i).yT().getUserId().equals(tbRichText.getAuthorId())) {
                     if (this.fSL != null && this.fSL.isActive()) {
-                        kC(false);
+                        kD(false);
                     }
                     if (this.fSm != null) {
-                        this.fSm.kJ(true);
+                        this.fSm.kK(true);
                     }
                     this.fSU = postData.yT().getName_show();
                     return;
@@ -858,7 +858,7 @@ public class as {
                 as.this.fRn.notifyDataSetChanged();
                 as.this.fSw.bbv();
                 as.this.axQ.IG();
-                as.this.kC(false);
+                as.this.kD(false);
             }
         });
         if (this.fJR.aZT() != null && !StringUtils.isNull(this.fJR.aZT().bcp())) {
@@ -884,7 +884,7 @@ public class as {
         this.fJR.registerListener(this.fSV);
         this.fJR.registerListener(this.fSW);
         bdp();
-        kw(false);
+        kx(false);
     }
 
     private void bdp() {
@@ -915,7 +915,7 @@ public class as {
     public void a(com.baidu.tieba.pb.pb.main.emotion.a.a aVar, final com.baidu.tieba.pb.pb.main.emotion.a aVar2) {
         if (this.fSm == null) {
             this.fSm = new com.baidu.tieba.pb.pb.main.emotion.b.a(this.fJR.getPageContext().getPageActivity());
-            kw(true);
+            kx(true);
             this.fSm.a(this.dmF, aVar, this.fRN.getVisibility() == 0);
             this.fSm.setOnEmotionClickListener(new a.InterfaceC0142a() { // from class: com.baidu.tieba.pb.pb.main.as.3
                 @Override // com.baidu.tieba.pb.pb.main.emotion.b.a.InterfaceC0142a
@@ -1039,8 +1039,8 @@ public class as {
         }
     }
 
-    public void kt(boolean z) {
-        this.fQC.kt(z);
+    public void ku(boolean z) {
+        this.fQC.ku(z);
         if (z && this.fRX) {
             this.dGi.setText(this.fJR.getResources().getString(d.j.click_load_more));
             this.fQG.setNextPage(this.dGi);
@@ -1078,7 +1078,7 @@ public class as {
                             }
                             as.this.fSK.b(as.this.axQ);
                         }
-                        as.this.fSK.qu(substring);
+                        as.this.fSK.qv(substring);
                     }
                 }
             }
@@ -1087,9 +1087,9 @@ public class as {
             public void afterTextChanged(Editable editable) {
                 if (as.this.fJR.fHZ != null && as.this.fJR.fHZ.bet() != null) {
                     if (!as.this.fJR.fHZ.bet().bER()) {
-                        as.this.fJR.fHZ.kG(false);
+                        as.this.fJR.fHZ.kH(false);
                     }
-                    as.this.fJR.fHZ.bet().nt(false);
+                    as.this.fJR.fHZ.bet().nu(false);
                 }
             }
         });
@@ -1104,10 +1104,10 @@ public class as {
 
     public void S(String str, boolean z) {
         this.fRT = z;
-        ku(TbadkCoreApplication.getInst().getSkinType() == 1);
+        kv(TbadkCoreApplication.getInst().getSkinType() == 1);
     }
 
-    private void ku(boolean z) {
+    private void kv(boolean z) {
         if (this.fRR != null) {
             if (this.fRT) {
                 com.baidu.tbadk.core.util.aj.s(this.fRR, d.f.pb_praise_already_click_selector);
@@ -1123,7 +1123,7 @@ public class as {
         return this.fRR;
     }
 
-    public void kv(boolean z) {
+    public void kw(boolean z) {
         if (this.fQG != null && this.bmx != null && this.dDt != null) {
             if (z) {
                 if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -1142,7 +1142,7 @@ public class as {
             }
             AbsListView.LayoutParams layoutParams2 = (AbsListView.LayoutParams) this.bmx.getLayoutParams();
             if (layoutParams2 != null) {
-                layoutParams2.height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT) + kE(true);
+                layoutParams2.height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT) + kF(true);
                 this.bmx.setLayoutParams(layoutParams2);
             }
             bdO();
@@ -1498,7 +1498,7 @@ public class as {
         bdQ();
     }
 
-    private void kw(boolean z) {
+    private void kx(boolean z) {
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.fRO.getLayoutParams();
         marginLayoutParams.rightMargin = z ? this.fJR.getResources().getDimensionPixelSize(d.e.ds130) : this.fJR.getResources().getDimensionPixelSize(d.e.ds34);
         this.fRO.setLayoutParams(marginLayoutParams);
@@ -1727,7 +1727,7 @@ public class as {
             this.fQM.setVisibility(8);
             if (fVar.aYL() != null && fVar.aYL().zG() && fVar.aYL().zl() != null) {
                 this.fSA = true;
-                this.fQC.kS(this.fSA);
+                this.fQC.kT(this.fSA);
                 this.fQC.mNavigationBar.hideBottomLine();
                 if (this.fQw == null) {
                     this.fQw = new com.baidu.tieba.pb.video.i(this.fJR, this.fQC, fVar.aYL().zl(), this.fQx);
@@ -1737,12 +1737,12 @@ public class as {
                     this.fQw.a(fVar.aYL().zl(), fVar.aYL(), fVar.getForumId());
                     this.fQw.startPlay();
                 } else {
-                    this.fQw.qG(fVar.getForumId());
+                    this.fQw.qH(fVar.getForumId());
                 }
                 if (fVar.aYM() != null && fVar.aYM().size() >= 1) {
                     bd bdVar = fVar.aYM().get(0);
                     this.fQw.ae(bdVar);
-                    this.fQw.qH(bdVar.getTitle());
+                    this.fQw.qI(bdVar.getTitle());
                 }
                 this.fQw.b(b, fVar.aYL(), fVar.aZh());
                 this.fQA = false;
@@ -1770,14 +1770,14 @@ public class as {
                     this.fQG.addHeaderView(this.fQK, 2);
                 }
                 if (this.fQw != null) {
-                    this.fQC.kM(false);
-                    this.fQC.kO(TbadkCoreApplication.isLogin());
+                    this.fQC.kN(false);
+                    this.fQC.kP(TbadkCoreApplication.isLogin());
                     this.fQw.tf(TbadkCoreApplication.getInst().getSkinType());
                 }
                 bdO();
             } else {
                 this.fSA = false;
-                this.fQC.kS(this.fSA);
+                this.fQC.kT(this.fSA);
                 if (this.fQw != null) {
                     this.fQG.removeHeaderView(this.fQw.bfY());
                 }
@@ -1791,7 +1791,7 @@ public class as {
                 }
             }
             if (this.fJR.bal() != null) {
-                this.fJR.bal().kK(this.fSA);
+                this.fJR.bal().kL(this.fSA);
             }
             if (this.fQw != null) {
                 this.fQw.I(this.fTc);
@@ -1939,7 +1939,7 @@ public class as {
                                 this.fQR.getHeadView().setUserId(b.yT().getUserId());
                                 this.fQR.getHeadView().setUserName(b.yT().getUserName());
                                 this.fQR.getHeadView().setOnClickListener(this.fTc);
-                                this.fQR.eG(b.yT().getPendantData().xu());
+                                this.fQR.eH(b.yT().getPendantData().xu());
                             } else {
                                 UtilHelper.showHeadImageViewBigV(this.fQT, b.yT());
                                 this.fQT.setVisibility(0);
@@ -2129,7 +2129,7 @@ public class as {
         }
     }
 
-    public void kx(boolean z) {
+    public void ky(boolean z) {
         if (z) {
             bdK();
         } else {
@@ -2142,7 +2142,7 @@ public class as {
 
     public void bdK() {
         if (this.fQC != null && !this.fSC) {
-            this.fQC.kT(!StringUtils.isNull(this.fJR.bat()));
+            this.fQC.kU(!StringUtils.isNull(this.fJR.bat()));
             this.fSC = true;
         }
     }
@@ -2191,7 +2191,7 @@ public class as {
         if (eVar != null) {
             this.fQC.beM();
             if (!StringUtils.isNull(eVar.forumName)) {
-                this.fQC.nZ(eVar.forumName);
+                this.fQC.oa(eVar.forumName);
             }
             String string = this.fJR.getResources().getString(d.j.thread_delete_by);
             String str = "";
@@ -2250,7 +2250,7 @@ public class as {
             if (this.fSO == null) {
                 this.fSO = new ac(this.fJR.getPageContext(), this.dSJ);
             }
-            this.fSO.qm(fVar.aYQ());
+            this.fSO.qn(fVar.aYQ());
             if (this.fJR.baK()) {
                 if (this.fRr == null) {
                     this.fRr = new com.baidu.tieba.pb.view.i(this.fJR.getPageContext());
@@ -2278,11 +2278,11 @@ public class as {
                 afb();
             }
             bdQ();
-            this.fRn.jG(this.fFr);
-            this.fRn.jH(false);
-            this.fRn.jS(i == 5);
-            this.fRn.jT(i == 6);
-            this.fRn.jU(z2 && this.fTb);
+            this.fRn.jH(this.fFr);
+            this.fRn.jI(false);
+            this.fRn.jT(i == 5);
+            this.fRn.jU(i == 6);
+            this.fRn.jV(z2 && this.fTb);
             this.fRn.a(fVar, false);
             this.fRn.notifyDataSetChanged();
             if (this.fJR.baY()) {
@@ -2313,9 +2313,9 @@ public class as {
                     S(str, fVar.aYL().yI().getIsLike() == 1);
                 }
                 if (fVar.aYL().aPc != null && fVar.aYL().aPc.isDeleted) {
-                    this.fQC.kN(true);
+                    this.fQC.kO(true);
                 } else {
-                    this.fQC.kN(false);
+                    this.fQC.kO(false);
                 }
             }
             if (this.fJR.isLogin()) {
@@ -2421,7 +2421,7 @@ public class as {
                 bde();
                 this.fSy = false;
                 if (i3 == 0) {
-                    kq(true);
+                    kr(true);
                 }
             }
             if (this.fQy != null) {
@@ -2460,7 +2460,7 @@ public class as {
         this.fQG.addHeaderView(this.bmx, 0);
     }
 
-    public void ky(boolean z) {
+    public void kz(boolean z) {
         this.fRI = z;
     }
 
@@ -2479,9 +2479,9 @@ public class as {
     public void p(com.baidu.tieba.pb.data.f fVar) {
         if (fVar != null && this.fRW != null && this.fRW.yT() != null && this.fQC != null) {
             this.fSB = !this.fSA;
-            this.fQC.kM(this.fSB);
+            this.fQC.kN(this.fSB);
             if (this.fJR.bal() != null) {
-                this.fJR.bal().kL(this.fSB);
+                this.fJR.bal().kM(this.fSB);
             }
             bdP();
             if (this.fSB) {
@@ -2710,7 +2710,7 @@ public class as {
         return this.bxo;
     }
 
-    public void qn(String str) {
+    public void qo(String str) {
         if (this.dGi != null) {
             this.dGi.setText(str);
         }
@@ -2795,7 +2795,7 @@ public class as {
         this.fJR.showToast(str);
     }
 
-    public boolean kz(boolean z) {
+    public boolean kA(boolean z) {
         if (this.axQ == null || !this.axQ.Kz()) {
             return false;
         }
@@ -2940,11 +2940,11 @@ public class as {
         }
     }
 
-    public void jF(boolean z) {
-        this.fRn.jF(z);
+    public void jG(boolean z) {
+        this.fRn.jG(z);
     }
 
-    public void kA(boolean z) {
+    public void kB(boolean z) {
         this.fRL = z;
     }
 
@@ -2988,7 +2988,7 @@ public class as {
             if (this.fRo != null) {
                 this.fRo.c(this.fJR.getPageContext());
             }
-            ky(this.fRI);
+            kz(this.fRI);
             this.fRn.notifyDataSetChanged();
             if (this.fRr != null) {
                 this.fRr.gv(i);
@@ -3007,7 +3007,7 @@ public class as {
                     aVar.Dw();
                 }
             }
-            ku(i == 1);
+            kv(i == 1);
             bdv();
             UtilHelper.setStatusBarBackground(this.dDt, i);
             UtilHelper.setStatusBarBackground(this.fSg, i);
@@ -3083,7 +3083,7 @@ public class as {
         }
     }
 
-    public void kB(boolean z) {
+    public void kC(boolean z) {
         this.fRn.setIsFromCDN(z);
     }
 
@@ -3155,13 +3155,13 @@ public class as {
         }
     }
 
-    public void kC(boolean z) {
+    public void kD(boolean z) {
         if (this.fRN != null) {
-            kA(this.fJR.bah().La());
+            kB(this.fJR.bah().La());
             if (this.fRL) {
-                kr(z);
-            } else {
                 ks(z);
+            } else {
+                kt(z);
             }
         }
     }
@@ -3172,7 +3172,7 @@ public class as {
             this.fRS = false;
             if (this.fSm != null) {
                 this.fSm.setVisibility(8);
-                kw(false);
+                kx(false);
             }
             beq();
         }
@@ -3331,7 +3331,7 @@ public class as {
         }
     }
 
-    public void qo(String str) {
+    public void qp(String str) {
         if (str.contains("_")) {
             str = str.replace("_", "\n");
         }
@@ -3396,8 +3396,8 @@ public class as {
         return this.fSQ;
     }
 
-    public void jK(boolean z) {
-        this.fQL.jK(z);
+    public void jL(boolean z) {
+        this.fQL.jL(z);
     }
 
     private void bek() {
@@ -3426,7 +3426,7 @@ public class as {
         this.fQK.setVisibility(0);
     }
 
-    public void kD(boolean z) {
+    public void kE(boolean z) {
         this.fSQ = z;
     }
 
@@ -3443,13 +3443,13 @@ public class as {
         }
     }
 
-    public void qp(String str) {
+    public void qq(String str) {
         if (this.fQD != null) {
             this.fQD.setTitle(str);
         }
     }
 
-    private int kE(boolean z) {
+    private int kF(boolean z) {
         if (this.fSb == null || this.fSb.getVisibility() != 0 || !z) {
             return 0;
         }
@@ -3468,7 +3468,7 @@ public class as {
         return false;
     }
 
-    public void qq(String str) {
+    public void qr(String str) {
         this.fRO.performClick();
         if (!StringUtils.isNull(str) && this.fJR.bah() != null && this.fJR.bah().KU() != null && this.fJR.bah().KU().getInputView() != null) {
             EditText inputView = this.fJR.bah().KU().getInputView();
@@ -3491,8 +3491,8 @@ public class as {
             }
             this.fJR.aut();
             this.fRm.setVisibility(8);
-            this.fQC.kP(false);
-            this.fJR.jQ(false);
+            this.fQC.kQ(false);
+            this.fJR.jR(false);
             if (this.fQw != null) {
                 if (configuration.orientation == 1) {
                     beh().setVisibility(0);
@@ -3513,7 +3513,7 @@ public class as {
         }
     }
 
-    public void kF(boolean z) {
+    public void kG(boolean z) {
         this.fQA = z;
     }
 
@@ -3536,8 +3536,8 @@ public class as {
         }
     }
 
-    public void jV(boolean z) {
-        this.fRn.jV(z);
+    public void jW(boolean z) {
+        this.fRn.jW(z);
     }
 
     public void bep() {

@@ -77,6 +77,6 @@ public class a implements e.a {
     }
 
     @Override // com.baidu.tieba.i.e.a
-    public void iX(boolean z) {
+    public void iY(boolean z) {
     }
 }

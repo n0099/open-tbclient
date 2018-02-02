@@ -120,7 +120,7 @@ public class b {
         return this.eHK;
     }
 
-    public void ny(String str) {
+    public void nz(String str) {
         this.eHK = str;
     }
 }

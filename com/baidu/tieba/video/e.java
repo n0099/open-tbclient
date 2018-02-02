@@ -58,7 +58,7 @@ public class e {
                 public void onClick(View view) {
                     e.this.hideTip();
                     if (e.this.fMo != null && !StringUtils.isNull(e.this.fMo.getVideoid())) {
-                        e.this.hmM.tw(e.this.fMo.getVideoid());
+                        e.this.hmM.tx(e.this.fMo.getVideoid());
                         e.this.hmM.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.e.2.1
                             @Override // com.baidu.adp.base.d
                             public void ak(Object obj) {

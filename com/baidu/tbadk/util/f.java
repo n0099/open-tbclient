@@ -36,10 +36,10 @@ public class f {
     public boolean Ot() {
         int i;
         long j = 0;
-        byte[] dF = com.baidu.tbadk.core.util.k.dF(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+        byte[] dG = com.baidu.tbadk.core.util.k.dG(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (dF != null) {
-            str = new String(dF);
+        if (dG != null) {
+            str = new String(dG);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {

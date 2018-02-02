@@ -54,17 +54,17 @@ public class ac {
 
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String ei = ao.ei(str);
-            al.CF().X(str2, ei);
+            String ej = ao.ej(str);
+            al.CF().X(str2, ej);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int ed = al.CF().ed(ei);
-                    if (ed > 0) {
+                    int ee = al.CF().ee(ej);
+                    if (ee > 0) {
                         if (z) {
-                            Bitmap dD = al.CF().dD(ei);
-                            com.baidu.tbadk.imageManager.c.LR().ia(ed);
-                            if (dD != null) {
-                                a(str, dD, z2, al.CF().ec(ei), z3, ei);
+                            Bitmap dE = al.CF().dE(ej);
+                            com.baidu.tbadk.imageManager.c.LR().ia(ee);
+                            if (dE != null) {
+                                a(str, dE, z2, al.CF().ed(ej), z3, ej);
                             }
                         }
                     }

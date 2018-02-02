@@ -61,7 +61,7 @@ public class c extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    public void nd(boolean z) {
+    public void ne(boolean z) {
     }
 
     public void onPause() {

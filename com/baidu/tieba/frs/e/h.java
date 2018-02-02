@@ -41,23 +41,23 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private static void me(String str) {
+    private static void mf(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> el = av.el(str);
-        if (el != null) {
+        Map<String, String> em = av.em(str);
+        if (em != null) {
             ak akVar = new ak("c10320");
-            akVar.aa("obj_locate", el.get("obj_locate"));
+            akVar.aa("obj_locate", em.get("obj_locate"));
             akVar.s("obj_type", 1);
-            akVar.aa(ImageViewerConfig.FORUM_NAME, el.get("kw"));
-            akVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, el.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            akVar.aa("obj_param2", el.get("obj_param2"));
+            akVar.aa(ImageViewerConfig.FORUM_NAME, em.get("kw"));
+            akVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, em.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            akVar.aa("obj_param2", em.get("obj_param2"));
             akVar.s("obj_to", 2);
-            akVar.aa("obj_id", el.get("bdid"));
-            if (!am.isEmpty(el.get("ext_log"))) {
+            akVar.aa("obj_id", em.get("bdid"));
+            if (!am.isEmpty(em.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(el.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(em.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
@@ -87,11 +87,11 @@ public class h {
         Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
         if (matcher.find()) {
             if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                me(decode);
+                mf(decode);
             }
             return matcher.group(2);
         }
-        me(decode);
+        mf(decode);
         int indexOf = decode.indexOf("kw=");
         if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
             return null;

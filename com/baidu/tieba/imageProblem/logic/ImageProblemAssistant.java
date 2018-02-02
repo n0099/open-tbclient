@@ -282,7 +282,7 @@ public class ImageProblemAssistant {
     }
 
     public void fix() {
-        s.dR(this.amk.toString());
+        s.dS(this.amk.toString());
         if (this.eRm) {
             try {
                 x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);

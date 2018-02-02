@@ -28,7 +28,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -38,14 +37,12 @@ import com.baidu.adp.widget.d;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.ax;
@@ -145,12 +142,6 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (!ab.aX(this) && bundle != null) {
-            getWindow().getDecorView().setBackgroundColor(-1);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(this, (Intent) null)));
-            finish();
-            return;
-        }
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new d(getPageContext().getPageActivity());
             this.mSwipeBackLayout.p(getPageContext().getPageActivity());
@@ -178,7 +169,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        at.ej(getClass().getName());
+        at.ek(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -692,7 +683,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
             this.pageStayDurationItem.O(getCurrentPageSourceKeyList());
-            this.pageStayDurationItem.gP(getCurrentPageKey());
+            this.pageStayDurationItem.gQ(getCurrentPageKey());
         }
         return this.pageStayDurationItem;
     }
@@ -706,7 +697,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        at.ej(getClass().getName());
+        at.ek(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -1045,7 +1036,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mRefreshView = new g(getPageContext().getContext(), onClickListener);
         }
         this.mRefreshView.setTitle(str);
-        this.mRefreshView.gM(str2);
+        this.mRefreshView.gN(str2);
         this.mRefreshView.setButtonText(str3);
         this.mRefreshView.j(view, z);
         this.mRefreshView.Ml();
@@ -1079,7 +1070,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mRefreshView == null) {
             this.mRefreshView = new g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.gM(str);
+        this.mRefreshView.gN(str);
         this.mRefreshView.j(view, z);
         this.mRefreshView.Mm();
     }

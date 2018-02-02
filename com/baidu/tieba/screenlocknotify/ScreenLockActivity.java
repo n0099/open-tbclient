@@ -84,11 +84,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 }
                 if (data.customGroupType == 1) {
                     MessageUtils.createGroupChatMessage(1, ScreenLockActivity.this.gHx.getInputMsg(), com.baidu.adp.lib.g.b.c(data.groupId, 0L));
-                    com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fd(data.groupId);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fe(data.groupId);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 1)));
                 } else if (data.customGroupType == 2) {
                     MessageUtils.createPersonalChatMessage(1, ScreenLockActivity.this.gHx.getInputMsg(), com.baidu.adp.lib.g.b.c(data.groupId, 0L), data.userName, data.gHY);
-                    com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fd(data.groupId);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fe(data.groupId);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 2)));
                     MessageUtils.sendHasReadMessage(data.groupId, 2);
                 }
@@ -290,7 +290,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             a(bof);
         }
         if (this.gHx != null) {
-            this.gHx.lW(this.gHs.getCount() == 0);
+            this.gHx.lX(this.gHs.getCount() == 0);
         }
     }
 

@@ -123,7 +123,7 @@ public class c {
         this.hdq = mainTabActivity;
     }
 
-    public void mJ(boolean z) {
+    public void mK(boolean z) {
         this.bUS = (FragmentTabHost) this.hdq.findViewById(d.g.tab_host);
         this.bUS.setup(this.hdq.getSupportFragmentManager());
         this.bUS.setOnTabSelectionListener(this.hdx);
@@ -181,7 +181,7 @@ public class c {
         switchNaviBarStatus(z);
     }
 
-    public void sX(final String str) {
+    public void sY(final String str) {
         if (StringUtils.isNull(str)) {
             this.hdt.setVisibility(8);
             return;
@@ -193,7 +193,7 @@ public class c {
                     this.hdy = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.9
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.sX(str);
+                            c.this.sY(str);
                         }
                     };
                 }
@@ -232,7 +232,7 @@ public class c {
         return this.hdr != null && this.hdr.getVisibility() == 0;
     }
 
-    public void mK(boolean z) {
+    public void mL(boolean z) {
         if (this.hdr != null) {
             if (z) {
                 this.hdr.setVisibility(0);
@@ -346,7 +346,7 @@ public class c {
             this.hdr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.12
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.mN(false);
+                    c.this.mO(false);
                     c.this.hds.setVisibility(8);
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("game_is_show_tip", false);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
@@ -419,7 +419,7 @@ public class c {
         }
     }
 
-    public void mL(boolean z) {
+    public void mM(boolean z) {
         if (z) {
             this.dmG.setVisibility(0);
             this.Ue.setVisibility(8);
@@ -429,24 +429,24 @@ public class c {
         this.Ue.setVisibility(0);
     }
 
-    public void mM(boolean z) {
+    public void mN(boolean z) {
         if (bxD()) {
             if (z) {
                 if (this.hds.getVisibility() != 0) {
                     this.hds.setVisibility(0);
-                    mN(true);
+                    mO(true);
                     aj.c(this.hds, d.f.icon_news_down_bar_one);
                     return;
                 }
                 return;
             }
-            mN(false);
+            mO(false);
             this.hds.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mN(boolean z) {
+    public void mO(boolean z) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hdr.getLayoutParams();
         if (layoutParams != null) {
             if (z) {
@@ -477,7 +477,7 @@ public class c {
         this.bUS.setViewPagerScrollable(false);
     }
 
-    public void jd(boolean z) {
+    public void je(boolean z) {
         this.fuG = z;
         if (!this.fuG) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", false);
@@ -555,7 +555,7 @@ public class c {
         g.b(this.hdv);
     }
 
-    public void sY(String str) {
+    public void sZ(String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.hdq.getActivity());
         aVar.cZ(str);
         aVar.a(d.j.close, new a.b() { // from class: com.baidu.tieba.tblauncher.c.6

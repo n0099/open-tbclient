@@ -59,7 +59,7 @@ public class p extends com.baidu.tieba.frs.g<bd, com.baidu.tieba.card.a.a<com.ba
         this.dIe = new com.baidu.tieba.card.t(this.mPageContext);
         this.dIe.j(this.mPageId);
         this.dIe.currentPageType = 3;
-        this.dIe.eE(false);
+        this.dIe.eF(false);
         if (this.dIe.ciT != null) {
             this.dIe.ciT.bbX = 3;
         }

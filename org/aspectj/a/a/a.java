@@ -25,7 +25,7 @@ public final class a {
         return new Double(d);
     }
 
-    public static Object om(boolean z) {
+    public static Object on(boolean z) {
         return new Boolean(z);
     }
 }

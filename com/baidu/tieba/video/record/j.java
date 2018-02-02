@@ -30,7 +30,7 @@ public class j {
             ImageView imageView2 = (ImageView) this.huf.findViewById(d.g.flash_switch);
             this.huS = (ProgressView) this.huf.findViewById(d.g.video_progress_view);
             this.huS.setListener(new AnonymousClass1());
-            if (!com.baidu.tieba.video.record.a.nh(true)) {
+            if (!com.baidu.tieba.video.record.a.ni(true)) {
                 imageView2.setVisibility(4);
             }
             if (!com.baidu.tieba.video.record.a.c(recordVideoActivity.getPackageManager())) {

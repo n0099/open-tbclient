@@ -278,7 +278,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout implements Vi
 
     private void aV(View view) {
         if (this.aYc != null && this.mContext != null) {
-            com.baidu.tieba.card.k.kj(this.aYc.getTid());
+            com.baidu.tieba.card.k.kk(this.aYc.getTid());
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.aYc, null, this.mStType, 0, true, false, false).addLocateParam("");
             addLocateParam.setForumId(String.valueOf(this.aYc.getFid()));
             addLocateParam.setForumName(this.aYc.yZ());

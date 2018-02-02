@@ -119,12 +119,12 @@ public class i {
         };
         this.hut = new g.a() { // from class: com.baidu.tieba.video.record.i.2
             @Override // com.baidu.tieba.video.record.g.a
-            public void nj(final boolean z) {
+            public void nk(final boolean z) {
                 if (i.this.htL != null) {
                     com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tieba.video.record.i.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.this.htL.nj(z);
+                            i.this.htL.nk(z);
                         }
                     });
                 }
@@ -369,11 +369,11 @@ public class i {
         this.hun.setPreviewFpsRange(iArr2[0], iArr2[1]);
     }
 
-    public void nk(boolean z) {
+    public void nl(boolean z) {
         try {
-            if (!com.baidu.tieba.video.record.a.nh(z)) {
+            if (!com.baidu.tieba.video.record.a.ni(z)) {
                 z = !z;
-                if (!com.baidu.tieba.video.record.a.nh(z)) {
+                if (!com.baidu.tieba.video.record.a.ni(z)) {
                     bCE();
                 }
             }
@@ -501,14 +501,14 @@ public class i {
             bCF();
             gVar.bCq();
             this.hum = this.hum == 0 ? 1 : 0;
-            nk(this.hum == 1);
+            nl(this.hum == 1);
             gVar.bCr();
             gVar.setIsChangingCamera(false);
         } else if (this.hup != null && (this.hup instanceof n)) {
             ((n) this.hup).j(this.mCamera);
             bCF();
             this.hum = this.hum == 0 ? 1 : 0;
-            nk(this.hum == 1);
+            nl(this.hum == 1);
             startPreview();
         }
     }
@@ -586,7 +586,7 @@ public class i {
     }
 
     public void onResume() {
-        nk(this.hum == 1);
+        nl(this.hum == 1);
         if (this.hup != null && (this.hup instanceof g)) {
             ((g) this.hup).onResume();
         }

@@ -15,16 +15,16 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class k {
-    public static void kj(String str) {
+    public static void kk(String str) {
         com.baidu.tieba.tbadkCore.util.e readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.sP(str)) {
-            readThreadHistory.sN(str);
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.sQ(str)) {
+            readThreadHistory.sO(str);
         }
     }
 
-    public static boolean kk(String str) {
+    public static boolean kl(String str) {
         com.baidu.tieba.tbadkCore.util.e readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.sO(str)) ? false : true;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.sP(str)) ? false : true;
     }
 
     public static String akx() {
@@ -37,7 +37,7 @@ public class k {
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (kk(str)) {
+            if (kl(str)) {
                 aj.r(textView, i2);
             } else {
                 aj.r(textView, i);

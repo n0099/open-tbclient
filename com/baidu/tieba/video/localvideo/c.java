@@ -281,9 +281,9 @@ public class c extends com.baidu.adp.base.c {
         this.hrU.invalidate();
     }
 
-    public void tP(String str) {
+    public void tQ(String str) {
         if (this.hrT != null) {
-            this.hrT.tO(str);
+            this.hrT.tP(str);
         }
     }
 
@@ -415,7 +415,7 @@ public class c extends com.baidu.adp.base.c {
                                     throw th;
                                 }
                             }
-                            dVar.ng(true);
+                            dVar.nh(true);
                             publishProgress(1);
                             if (frameAtTime != null) {
                                 try {

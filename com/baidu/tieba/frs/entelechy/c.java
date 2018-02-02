@@ -426,15 +426,15 @@ public class c extends a {
         }
         if (this.dUa != null && this.dUb != null) {
             if (this.dSD != null && this.dSD.btM()) {
-                if (m.dP(this.dSD.btP()) == 1 && !n.aTH) {
+                if (m.dQ(this.dSD.btP()) == 1 && !n.aTH) {
                     this.dUa.setVisibility(8);
                 } else {
                     this.dUa.setVisibility(0);
                     if (!TextUtils.isEmpty(this.dSD.getGameName()) && !TextUtils.isEmpty(this.dSD.getGameName().trim())) {
                         this.dUb.setText(UtilHelper.getFixedText(this.dSD.getGameName(), 10));
-                        String sL = com.baidu.tieba.tbadkCore.util.b.sL(this.dSD.btP());
-                        if (!StringUtils.isNull(sL)) {
-                            TiebaStatic.eventStat(this.aQs.getPageActivity(), "game_show", "show", 1, "dev_id", sL, "ref_id", "1000601", "ref_type", "603");
+                        String sM = com.baidu.tieba.tbadkCore.util.b.sM(this.dSD.btP());
+                        if (!StringUtils.isNull(sM)) {
+                            TiebaStatic.eventStat(this.aQs.getPageActivity(), "game_show", "show", 1, "dev_id", sM, "ref_id", "1000601", "ref_type", "603");
                         }
                     } else {
                         this.dUb.setText(this.aQs.getResources().getString(d.j.frsgame_title));

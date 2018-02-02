@@ -20,7 +20,7 @@ public class d {
     private d() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a rA(String str) {
+    public com.baidu.tieba.quickWebView.data.a rB(String str) {
         if (this.gzz == null) {
             return null;
         }

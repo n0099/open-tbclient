@@ -58,7 +58,7 @@ public class g {
         }
     }
 
-    public boolean ne(String str) {
+    public boolean nf(String str) {
         SQLiteDatabase aGE = f.aGE();
         if (aGE == null) {
             return false;

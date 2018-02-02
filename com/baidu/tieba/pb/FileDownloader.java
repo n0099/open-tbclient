@@ -143,7 +143,7 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dI(this.mFile);
+                k.dJ(this.mFile);
                 File dr = k.dr(this.mFile + ".tmp");
                 if (dr != null && (dw = k.dw(this.mFile)) != null) {
                     if (!dr.renameTo(dw)) {

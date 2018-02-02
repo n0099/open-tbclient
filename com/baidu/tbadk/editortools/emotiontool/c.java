@@ -12,9 +12,7 @@ public abstract class c {
 
     public abstract EmotionGroupType KL();
 
-    public abstract boolean gd(String str);
-
-    public abstract com.baidu.adp.widget.a.a ge(String str);
+    public abstract boolean ge(String str);
 
     public abstract int getEmotionsCount();
 
@@ -27,6 +25,8 @@ public abstract class c {
     public abstract int getWidth();
 
     public abstract com.baidu.adp.widget.a.a gf(String str);
+
+    public abstract com.baidu.adp.widget.a.a gg(String str);
 
     public abstract String hM(int i);
 

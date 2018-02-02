@@ -269,7 +269,7 @@ public class k extends m<PostData, l> implements View.OnClickListener {
                 public void onClick(View view) {
                     boolean z = lVar.fLf.getVisibility() == 8;
                     k.this.a(lVar, !z);
-                    postData.my(z ? false : true);
+                    postData.mz(z ? false : true);
                     k.this.b(lVar, postData);
                     if (k.this.fJR.bam() != null && k.this.fJR.bam().beh() != null && k.this.fJR.bam().getListView() != null && !z && lVar.getView().getTop() < k.this.fJR.bam().beh().getMeasuredHeight()) {
                         k.this.fJR.bam().getListView().setSelectionFromTop(com.baidu.tbadk.core.util.v.a(k.this.fJR.bam().getListView().getData(), postData) + k.this.fJR.bam().getListView().getHeaderViewsCount(), k.this.fJR.bam().beh().getMeasuredHeight());
@@ -357,13 +357,13 @@ public class k extends m<PostData, l> implements View.OnClickListener {
             layoutParams.topMargin = 0;
             lVar.fKS.setLayoutParams(layoutParams);
             lVar.fKS.setPadding(0, 0, 0, 0);
-            lVar.fKS.hr(null);
+            lVar.fKS.hs(null);
         } else {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) lVar.fKS.getLayoutParams();
             layoutParams2.topMargin = getDimensionPixelSize(d.e.ds20);
             layoutParams2.bottomMargin = getDimensionPixelSize(d.e.ds20);
             lVar.fKS.setLayoutParams(layoutParams2);
-            lVar.fKS.hr(postData.getBimg_url());
+            lVar.fKS.hs(postData.getBimg_url());
         }
         lVar.fKS.setTextViewOnTouchListener(this.fKF);
         lVar.fKS.setTextViewCheckSelection(false);
@@ -443,7 +443,7 @@ public class k extends m<PostData, l> implements View.OnClickListener {
                     lVar.fKX.getHeadView().startLoad(portrait, 28, false);
                     lVar.fKX.getHeadView().setUserId(postData.yT().getUserId());
                     lVar.fKX.getHeadView().setUserName(postData.yT().getUserName());
-                    lVar.fKX.eG(postData.yT().getPendantData().xu());
+                    lVar.fKX.eH(postData.yT().getPendantData().xu());
                 } else {
                     UtilHelper.showHeadImageViewBigV(lVar.fKR, postData.yT());
                     lVar.fKR.setUserId(postData.yT().getUserId());
@@ -504,14 +504,14 @@ public class k extends m<PostData, l> implements View.OnClickListener {
                 i3 -= 2;
             }
             String name_show2 = postData.yT().getName_show();
-            int hj = com.baidu.tbadk.util.w.hj(name_show2);
+            int hk = com.baidu.tbadk.util.w.hk(name_show2);
             if (!StringUtils.isNull(postData.yT().getSealPrefix())) {
-                if (hj > i3 - 2) {
+                if (hk > i3 - 2) {
                     str = com.baidu.tbadk.util.w.I(name_show2, i3 - 2) + "...";
                 }
                 str = name_show2;
             } else {
-                if (hj > i3) {
+                if (hk > i3) {
                     str = com.baidu.tbadk.util.w.I(name_show2, i3) + "...";
                 }
                 str = name_show2;
@@ -718,7 +718,7 @@ public class k extends m<PostData, l> implements View.OnClickListener {
             if (!this.fFq) {
                 lVar.fKS.getLayoutStrategy().iQ(d.f.icon_click);
             } else {
-                lVar.fKS.hr(null);
+                lVar.fKS.hs(null);
                 lVar.fKS.setBackgroundDrawable(null);
                 lVar.fKS.getLayoutStrategy().iQ(d.f.transparent_bg);
             }
@@ -774,7 +774,7 @@ public class k extends m<PostData, l> implements View.OnClickListener {
                         this.fFt.Q(this.fFs.aYL());
                     }
                 }
-                this.fFt.qB(postData.getId());
+                this.fFt.qC(postData.getId());
                 lVar.fKU.setSubPbAdapter(this.fFt);
                 lVar.fKU.setVisibility(0);
                 lVar.fKU.a(postData, view);
@@ -887,7 +887,7 @@ public class k extends m<PostData, l> implements View.OnClickListener {
         this.mHostId = str;
     }
 
-    public void jF(boolean z) {
+    public void jG(boolean z) {
         this.fFq = z;
     }
 

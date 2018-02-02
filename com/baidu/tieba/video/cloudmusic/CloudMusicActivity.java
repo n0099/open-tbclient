@@ -117,7 +117,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
-    public void na(boolean z) {
+    public void nb(boolean z) {
         if (z && this.mRootView != null) {
             showLoadingView(this.mRootView, false, l.s(getPageContext().getPageActivity(), d.e.ds400));
         } else {
@@ -145,7 +145,7 @@ public class CloudMusicActivity extends BaseFragmentActivity implements d.b {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
-    public void nb(boolean z) {
+    public void nc(boolean z) {
         if (z) {
             this.mNoDataView.setVisibility(0);
         } else {

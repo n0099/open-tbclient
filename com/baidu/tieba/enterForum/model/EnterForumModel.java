@@ -119,7 +119,7 @@ public class EnterForumModel extends BdBaseModel {
         }
     }
 
-    public boolean fp(boolean z) {
+    public boolean fq(boolean z) {
         cancelLoadData();
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(z ? 1 : 0));
@@ -133,7 +133,7 @@ public class EnterForumModel extends BdBaseModel {
         return true;
     }
 
-    public boolean fq(boolean z) {
+    public boolean fr(boolean z) {
         aqe();
         return true;
     }

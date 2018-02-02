@@ -13,7 +13,7 @@ public class h {
         return this.bPp;
     }
 
-    public void hF(String str) {
+    public void hG(String str) {
         this.bPp = str;
     }
 
@@ -21,7 +21,7 @@ public class h {
         return this.aFJ;
     }
 
-    public void hG(String str) {
+    public void hH(String str) {
         this.aFJ = str;
     }
 
@@ -29,7 +29,7 @@ public class h {
         return this.bPq;
     }
 
-    public void cR(boolean z) {
+    public void cS(boolean z) {
         this.bPq = z;
     }
 

@@ -51,7 +51,7 @@ public class d extends h {
                     String str = (String) customResponsedMessage.getData();
                     if (!StringUtils.isNull(str) && d.this.dPK.auv() != null) {
                         l auv = d.this.dPK.auv();
-                        auv.ag(auv.sw(str));
+                        auv.ag(auv.sx(str));
                         d.this.dBD.a(auv.getThreadList(), auv);
                         if (com.baidu.tieba.tbadkCore.c.btv() != null) {
                             com.baidu.tieba.tbadkCore.c.btv().aa(d.this.dPK.getForumName(), false);
@@ -73,13 +73,13 @@ public class d extends h {
                     String str3 = eVar.forumName;
                     if (eVar.haX == 4) {
                         l auv = d.this.dPK.auv();
-                        bd sw = auv.sw(str);
-                        auv.ag(sw);
+                        bd sx = auv.sx(str);
+                        auv.ag(sx);
                         List<com.baidu.adp.widget.ListView.i> buO = auv.buO();
                         if (buO == null) {
                             buO = new ArrayList<>();
                         }
-                        buO.add(0, sw);
+                        buO.add(0, sx);
                         d.this.dBD.a(auv.getThreadList(), auv);
                         d.this.dBM.f(auv);
                     }
