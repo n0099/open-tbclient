@@ -173,7 +173,7 @@ public class c extends PagerAdapter {
         fVar.setIsCdn(this.bkq);
         fVar.setOnSizeChangedListener(this.bkh);
         viewGroup.addView(fVar, 0);
-        fVar.setAssistUrl(fz(str));
+        fVar.setAssistUrl(fA(str));
         fVar.n(str, this.bkr);
         fVar.setGifMaxUseableMem(this.bkj);
         fVar.setTag(String.valueOf(i));
@@ -219,7 +219,7 @@ public class c extends PagerAdapter {
         }
     }
 
-    private ImageUrlData fz(String str) {
+    private ImageUrlData fA(String str) {
         if (TextUtils.isEmpty(str) || this.bke == null) {
             return null;
         }

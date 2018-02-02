@@ -790,7 +790,7 @@ public class bd extends com.baidu.tieba.card.data.b implements com.baidu.adp.wid
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
                                 eVar.hp(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                                eVar.fB(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                                eVar.fC(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.aNQ.add(eVar);
                             }

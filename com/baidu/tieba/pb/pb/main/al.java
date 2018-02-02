@@ -74,7 +74,7 @@ public class al extends r.a {
                     al.this.fQa.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.oJ() && view2 != null && (view2.getTag() instanceof Boolean)) {
-                    al.this.ko(!((Boolean) view2.getTag()).booleanValue());
+                    al.this.kp(!((Boolean) view2.getTag()).booleanValue());
                 }
             }
         };
@@ -130,12 +130,12 @@ public class al extends r.a {
             this.fPY.add(this.fPP);
             this.fPS = view.findViewById(d.g.divider_with_reply_title);
             this.fPT = view.findViewById(d.g.divider_bottom);
-            ko(true);
+            kp(true);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void ko(boolean z) {
+    public void kp(boolean z) {
         this.fPZ = z ? 0 : 1;
         this.fPQ.setVisibility(0);
         if (this.fPZ == 1) {
@@ -145,7 +145,7 @@ public class al extends r.a {
         }
     }
 
-    public void kp(boolean z) {
+    public void kq(boolean z) {
         if (z) {
             this.fPP.setSelected(true);
             this.fPO.setSelected(false);
@@ -197,8 +197,8 @@ public class al extends r.a {
                 this.fPO.setText(TbadkCoreApplication.getInst().getString(d.j.all_reply));
                 this.fPQ.setVisibility(0);
                 this.fPP.setVisibility(0);
-                kp(jVar.fEz);
-                ko(jVar.bud);
+                kq(jVar.fEz);
+                kp(jVar.bud);
                 this.fPT.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

@@ -27,7 +27,7 @@ import org.apache.http.cookie.ClientCookie;
 public final class a {
     private static final String aRn = "code_cache" + File.separator + "secondary-dexes";
     private static final Set<String> ftm = new HashSet();
-    private static final boolean ftn = pB(System.getProperty("java.vm.version"));
+    private static final boolean ftn = pC(System.getProperty("java.vm.version"));
 
     public static void bR(Context context) {
         Log.i("MultiDex", "install");
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean pB(String str) {
+    static boolean pC(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);

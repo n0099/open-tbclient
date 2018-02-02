@@ -35,7 +35,7 @@ public class BlackListItemData extends AbstractImageProvider {
         return this.ewY;
     }
 
-    public void mR(String str) {
+    public void mS(String str) {
         this.ewY = str;
     }
 }

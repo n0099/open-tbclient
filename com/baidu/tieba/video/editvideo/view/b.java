@@ -169,8 +169,8 @@ public class b extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    public void nd(boolean z) {
-        this.hqZ.nd(z);
+    public void ne(boolean z) {
+        this.hqZ.ne(z);
         if (z) {
             this.hqV.seekTo(this.hqV.getCurrentPosition());
         }

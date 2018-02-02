@@ -84,7 +84,7 @@ public class q extends com.baidu.tieba.frs.g<com.baidu.tieba.frs.s, a> {
                         com.baidu.tieba.card.s.akK().a(new ak("c12530").aa("obj_id", metaData.getUserId()));
                     }
                 }
-                sVar.fN(true);
+                sVar.fO(true);
             }
         }
         return aVar.getView();

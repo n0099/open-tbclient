@@ -241,7 +241,7 @@ public class y implements q {
         return bArr;
     }
 
-    public void dX(String str) {
+    public void dY(String str) {
         this.aUw.Dd().aWE = -1;
         if (str != null) {
             try {
@@ -280,7 +280,7 @@ public class y implements q {
             e = e4;
         }
         try {
-            dX(str);
+            dY(str);
             return str;
         } catch (Exception e5) {
             e2 = e5;
@@ -358,7 +358,7 @@ public class y implements q {
                 str = new String(nc.ajF, "utf-8");
                 try {
                     if (this.aUw.Dc().Df().mIsBaiduServer && this.aUw.Dc().Df().aXd) {
-                        dX(str);
+                        dY(str);
                     }
                     aa.a aVar = new aa.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.oP());
@@ -473,7 +473,7 @@ public class y implements q {
             } else {
                 str = new String(a.ajF, HTTP.UTF_8);
                 try {
-                    dX(str);
+                    dY(str);
                     TiebaStatic.net(this.aUw);
                     return str;
                 } catch (BdHttpCancelException e4) {
@@ -531,7 +531,7 @@ public class y implements q {
             if (this.aUC.isCanceled()) {
                 return false;
             }
-            return this.aUC.a(this.aUw.Dc().Df().mUrl, (z ? new File(str) : k.dy(str)).getAbsolutePath(), false, i2, i3, -1, -1, Cp(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.y.1
+            return this.aUC.a(this.aUw.Dc().Df().mUrl, (z ? new File(str) : k.dz(str)).getAbsolutePath(), false, i2, i3, -1, -1, Cp(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.y.1
                 int aUD = 0;
                 int aUE = 0;
                 int aUF = 0;

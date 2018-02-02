@@ -105,7 +105,7 @@ public class b {
         return this.hcg;
     }
 
-    public void sT(String str) {
+    public void sU(String str) {
         this.hcg = str;
     }
 
@@ -113,7 +113,7 @@ public class b {
         return this.hch;
     }
 
-    public void sU(String str) {
+    public void sV(String str) {
         this.hch = str;
     }
 

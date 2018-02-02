@@ -15,13 +15,13 @@ public interface f {
 
     void l(String str, int i, String str2);
 
-    void pm(String str);
-
     void pn(String str);
 
     void po(String str);
 
-    boolean pp(String str);
+    void pp(String str);
 
     boolean pq(String str);
+
+    boolean pr(String str);
 }

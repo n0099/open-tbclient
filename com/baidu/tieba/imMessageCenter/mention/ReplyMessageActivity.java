@@ -204,7 +204,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void onListPullRefresh(boolean z) {
-        this.ePl.eR(z);
+        this.ePl.eS(z);
     }
 
     public ViewEventCenter Nf() {

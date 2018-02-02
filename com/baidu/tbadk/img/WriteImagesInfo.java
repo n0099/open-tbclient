@@ -164,7 +164,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(com.baidu.tbadk.core.util.k.dB(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(com.baidu.tbadk.core.util.k.dC(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }

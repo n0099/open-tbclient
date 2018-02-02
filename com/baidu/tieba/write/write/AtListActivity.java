@@ -70,14 +70,14 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     private final Runnable hIr = new Runnable() { // from class: com.baidu.tieba.write.write.AtListActivity.1
         @Override // java.lang.Runnable
         public void run() {
-            AtListActivity.this.uC(k.a(AtListActivity.this.rE.getText(), ""));
+            AtListActivity.this.uD(k.a(AtListActivity.this.rE.getText(), ""));
         }
     };
     private NoNetworkView.a hfL = new NoNetworkView.a() { // from class: com.baidu.tieba.write.write.AtListActivity.6
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void bq(boolean z) {
             if (z) {
-                AtListActivity.this.uC(null);
+                AtListActivity.this.uD(null);
             }
         }
     };
@@ -89,7 +89,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         setContentView(d.h.at_list_activity);
         initData(bundle);
         initUI();
-        uC(null);
+        uD(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -381,7 +381,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uC(String str) {
+    public void uD(String str) {
         if (!isFinishing()) {
             this.hIk.setData(null);
             if (this.hIh != null) {
@@ -576,7 +576,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return null;
             }
             com.baidu.tieba.write.a.b bVar = new com.baidu.tieba.write.a.b();
-            bVar.un(BI);
+            bVar.uo(BI);
             return bVar;
         }
 

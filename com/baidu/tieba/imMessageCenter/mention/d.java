@@ -59,7 +59,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         this.bYY.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void bq(boolean z) {
-                d.this.hU(z);
+                d.this.hV(z);
             }
         });
         this.eOf.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
@@ -103,7 +103,7 @@ public class d extends com.baidu.adp.base.c<AtMessageActivity> {
         }
     }
 
-    public void hU(boolean z) {
+    public void hV(boolean z) {
         BdListViewHelper.a(this.IZ, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.oJ());
         if (z && this.eOf != null && this.eOf.getWrappedAdapter() != null && this.eOf.getWrappedAdapter().getCount() <= 0) {
             com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.mention.d.3

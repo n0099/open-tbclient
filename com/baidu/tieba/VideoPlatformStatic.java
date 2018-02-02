@@ -73,7 +73,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int hR(String str) {
+    public static int hS(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -168,7 +168,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String hS(String str) {
+    public static String hT(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }

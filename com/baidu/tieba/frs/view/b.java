@@ -58,7 +58,7 @@ public class b extends com.baidu.tbadk.j.a {
         this.dTE = (TextView) this.bvq.findViewById(d.g.local_tip_tv);
     }
 
-    public void gM(String str) {
+    public void gN(String str) {
         if (str == null) {
             this.bvz.setVisibility(8);
             return;

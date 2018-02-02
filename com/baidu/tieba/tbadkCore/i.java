@@ -332,7 +332,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.gVW = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.e.a.bnx().rN(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.e.a.bnx().rO(dataRes.asp_shown_info);
                 this.gWF = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i7 = 0; i7 < dataRes.card_shipin_new.size(); i7++) {
@@ -538,7 +538,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gVZ;
     }
 
-    public void mv(boolean z) {
+    public void mw(boolean z) {
         this.gVZ = z;
     }
 
@@ -546,7 +546,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gWa;
     }
 
-    public void ss(String str) {
+    public void st(String str) {
         this.gWa = str;
     }
 
@@ -586,7 +586,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gWd;
     }
 
-    public void mw(boolean z) {
+    public void mx(boolean z) {
         this.gWd = z;
     }
 
@@ -630,7 +630,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         return this.gWj;
     }
 
-    public void st(String str) {
+    public void su(String str) {
         this.gWj = str;
     }
 
@@ -674,7 +674,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         this.gWp = list;
     }
 
-    public void su(String str) {
+    public void sv(String str) {
         if (this.gWp != null && str != null) {
             for (FeedForumData feedForumData : this.gWp) {
                 if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(str)) {
@@ -693,7 +693,7 @@ public class i implements com.baidu.tbadk.mvc.b.c {
         this.gWq = list;
     }
 
-    public void sv(String str) {
+    public void sw(String str) {
         this.gWr = str;
     }
 

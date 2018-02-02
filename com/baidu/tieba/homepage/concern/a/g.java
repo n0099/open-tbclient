@@ -54,7 +54,7 @@ public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
     public com.baidu.tieba.card.a.a<t> onCreateViewHolder(ViewGroup viewGroup) {
         this.dIe = new t(this.mPageContext);
         this.dIe.j(this.bGE);
-        this.dIe.eE(false);
+        this.dIe.eF(false);
         this.dIe.setIsFromConcern(true);
         this.dIe.b(this.ebW);
         this.dIe.currentPageType = 1;
@@ -77,7 +77,7 @@ public class g extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
         }
         this.cSN = lVar;
         lVar.lH(i + 1);
-        s.akK().a(lVar.kr("c12351"));
+        s.akK().a(lVar.ks("c12351"));
         be beVar = new be(lVar.VM());
         beVar.stType = "personalize_page";
         beVar.aPg = 1;

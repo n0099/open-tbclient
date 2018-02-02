@@ -16,9 +16,9 @@ public class a implements b {
     }
 
     @Override // com.baidu.tbadk.h.b
-    public void gy(String str) {
+    public void gz(String str) {
         if (this.buh != null) {
-            this.buh.gy(str);
+            this.buh.gz(str);
         }
     }
 

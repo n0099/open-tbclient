@@ -75,7 +75,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                 if (l.this.akg() != null) {
                     l.this.akg().a(view, l.this.cSN);
                 }
-                l.this.eB(view == l.this.cSK);
+                l.this.eC(view == l.this.cSK);
             }
         };
         this.cUz = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.5
@@ -151,7 +151,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                     l.this.akg().a(view2, l.this.cSN);
                 }
                 if (l.this.cSN != null && l.this.cSN.threadData != null) {
-                    k.kj(l.this.cSN.threadData.getId());
+                    k.kk(l.this.cSN.threadData.getId());
                     if (!l.this.akk()) {
                         k.a(l.this.mTitle, l.this.cSN.VM().getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
                         k.a(l.this.cUv, l.this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
@@ -174,7 +174,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
                     l.this.akg().a(view2, l.this.cSN);
                 }
                 if (l.this.cSN != null && l.this.cSN.threadData != null) {
-                    k.kj(l.this.cSN.threadData.getId());
+                    k.kk(l.this.cSN.threadData.getId());
                     if (!l.this.akk()) {
                         k.a(l.this.mTitle, l.this.cSN.VM().getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
                         k.a(l.this.cUv, l.this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
@@ -260,7 +260,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
         this.ciS.setData(lVar.threadData);
         this.cSK.setFromCDN(this.aXA);
         this.cSK.setData(lVar.threadData.Ah());
-        if (!akk() && k.kk(this.cSN.threadData.getId())) {
+        if (!akk() && k.kl(this.cSN.threadData.getId())) {
             k.a(this.mTitle, this.cSN.VM().getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             k.a(this.cUv, this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
             k.a(this.cSK.getGodReplyContent(), this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
@@ -461,14 +461,14 @@ public class l extends a<com.baidu.tieba.card.data.l> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void akA() {
-        eB(false);
+        eC(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eB(boolean z) {
+    public void eC(boolean z) {
         if (this.cSN != null && this.cSN.threadData != null) {
             if (!akk()) {
-                k.kj(this.cSN.threadData.getId());
+                k.kk(this.cSN.threadData.getId());
                 k.a(this.mTitle, this.cSN.VM().getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
                 k.a(this.cUv, this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
                 k.a(this.cSK.getGodReplyContent(), this.cSN.threadData.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
@@ -480,7 +480,7 @@ public class l extends a<com.baidu.tieba.card.data.l> {
             if (z) {
                 addLocateParam.setJumpGodReply(true);
             }
-            k.kj(this.cSN.VM().getTid());
+            k.kk(this.cSN.VM().getTid());
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, addLocateParam));
         }
     }
@@ -507,13 +507,13 @@ public class l extends a<com.baidu.tieba.card.data.l> {
         return true;
     }
 
-    public void eD(boolean z) {
+    public void eE(boolean z) {
         if (this.cSL != null) {
             this.cSL.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void eE(boolean z) {
+    public void eF(boolean z) {
         this.cUx = z;
     }
 

@@ -19,19 +19,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean mH(String str) {
+    public static boolean mI(String str) {
         return !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str);
     }
 
-    public static boolean mI(String str) {
+    public static boolean mJ(String str) {
         return !TextUtils.isEmpty(str) && str.equals("apply_join_group");
     }
 
-    public static boolean mJ(String str) {
+    public static boolean mK(String str) {
         return !TextUtils.isEmpty(str) && str.equals("live_v_notify");
     }
 
-    public static boolean mK(String str) {
+    public static boolean mL(String str) {
         return !TextUtils.isEmpty(str) && str.equals("live_notify");
     }
 
@@ -54,7 +54,7 @@ public class g {
                         j = parseLong;
                     }
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next)) {
-                        if (mH(next.getCmd())) {
+                        if (mI(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo3 == null) {
                                 GroupNewsPojo groupNewsPojo6 = groupNewsPojo5;
@@ -75,7 +75,7 @@ public class g {
                             groupNewsPojo3 = groupNewsPojo;
                             groupNewsPojo4 = groupNewsPojo2;
                             groupNewsPojo5 = next;
-                        } else if (mK(next.getCmd())) {
+                        } else if (mL(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo5 == null) {
                                 groupNewsPojo2 = groupNewsPojo4;
@@ -93,7 +93,7 @@ public class g {
                             groupNewsPojo4 = groupNewsPojo2;
                             groupNewsPojo5 = next;
                         } else {
-                            if (mI(next.getCmd())) {
+                            if (mJ(next.getCmd())) {
                                 linkedList.add(next);
                                 if (groupNewsPojo4 == null) {
                                     groupNewsPojo = groupNewsPojo3;
@@ -211,7 +211,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.g.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean mG(String str) {
+            public boolean mH(String str) {
                 return true;
             }
         }, false);

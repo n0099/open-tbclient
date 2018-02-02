@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String up(String str) {
+    private String uq(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -87,7 +87,7 @@ public class a extends BaseAdapter {
         } else {
             c0170a = (C0170a) obj;
         }
-        c0170a.hFB.setText(up(hotTopicBussinessData.mForumName));
+        c0170a.hFB.setText(uq(hotTopicBussinessData.mForumName));
         c0170a.hFA.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         aj.s(c0170a.mRootView, d.f.select_forum_item_bg);
         aj.r(c0170a.hFB, d.C0108d.cp_cont_b);

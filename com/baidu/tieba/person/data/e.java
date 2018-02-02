@@ -15,7 +15,7 @@ public class e {
         return this.ggM;
     }
 
-    public void lh(boolean z) {
+    public void li(boolean z) {
         this.ggM = z;
     }
 

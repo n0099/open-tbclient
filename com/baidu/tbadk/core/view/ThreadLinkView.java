@@ -99,7 +99,7 @@ public class ThreadLinkView extends RelativeLayout {
                 this.bcC.reset();
             }
         }
-        eK(bdVar.getId());
+        eL(bdVar.getId());
     }
 
     public void onChangeSkinType() {
@@ -107,7 +107,7 @@ public class ThreadLinkView extends RelativeLayout {
         aj.t(this.bcC, d.C0108d.cp_bg_line_b);
     }
 
-    public void eK(String str) {
+    public void eL(String str) {
         com.baidu.tieba.card.k.a(this.bcD, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
         com.baidu.tieba.card.k.a(this.bcF, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);
         com.baidu.tieba.card.k.a(this.bcE, str, d.C0108d.cp_cont_j, d.C0108d.cp_cont_d);

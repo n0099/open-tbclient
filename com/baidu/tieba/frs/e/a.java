@@ -17,12 +17,12 @@ public class a {
             bVar2.V(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.hs(forumData.getFirst_class());
-                bVar2.ht(forumData.getSecond_class());
+                bVar2.ht(forumData.getFirst_class());
+                bVar2.hu(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.hu(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.hv(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.cN(z);
             bVar2.ji(i);

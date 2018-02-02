@@ -24,9 +24,9 @@ public class ax {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (qs(str)) {
+            if (qt(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (qt(str)) {
+            } else if (qu(str)) {
                 com.baidu.tbadk.core.util.av.Da().a(tbPageContext, new String[]{str}, true);
             } else {
                 com.baidu.tbadk.core.util.av.Da().c(tbPageContext, new String[]{str});
@@ -34,24 +34,24 @@ public class ax {
         }
     }
 
-    public static boolean qr(String str) {
+    public static boolean qs(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean qs(String str) {
-        Map<String, String> el;
-        if (!TextUtils.isEmpty(str) && (el = com.baidu.tbadk.core.util.av.el(com.baidu.tbadk.core.util.av.em(str))) != null) {
-            String str2 = el.get("url");
+    private boolean qt(String str) {
+        Map<String, String> em;
+        if (!TextUtils.isEmpty(str) && (em = com.baidu.tbadk.core.util.av.em(com.baidu.tbadk.core.util.av.en(str))) != null) {
+            String str2 = em.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return qs(com.baidu.adp.lib.util.k.aW(str2));
+                return qt(com.baidu.adp.lib.util.k.aW(str2));
             }
-            String str3 = el.get("tbgametype");
+            String str3 = em.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
         return false;
     }
 
-    private boolean qt(String str) {
+    private boolean qu(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

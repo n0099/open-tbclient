@@ -17,8 +17,8 @@ public interface d {
 
         void a(CloudMusicData cloudMusicData);
 
-        void na(boolean z);
-
         void nb(boolean z);
+
+        void nc(boolean z);
     }
 }

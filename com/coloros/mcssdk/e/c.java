@@ -23,7 +23,7 @@ public abstract class c {
         this.appPackage = str;
     }
 
-    public void uR(String str) {
+    public void uS(String str) {
         this.hNl = str;
     }
 

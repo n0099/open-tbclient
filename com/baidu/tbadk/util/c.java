@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gW = a.gW(str);
-                if (gW != null && !StringUtils.isNull(gW.forumName)) {
-                    arrayList.add(gW.forumName);
+                a gX = a.gX(str);
+                if (gX != null && !StringUtils.isNull(gX.forumName)) {
+                    arrayList.add(gX.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -64,7 +64,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a gW(String str) {
+        public static a gX(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

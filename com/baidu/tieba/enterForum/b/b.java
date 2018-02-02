@@ -83,7 +83,7 @@ public class b {
             });
         }
         this.refreshView.id(this.dnT.getPageContext().getContext().getResources().getDimensionPixelSize(d.e.ds280));
-        this.refreshView.gM(this.dnT.getString(d.j.neterror));
+        this.refreshView.gN(this.dnT.getString(d.j.neterror));
         this.mRootView = view;
         this.refreshView.j(view, true);
         this.refreshView.Ml();

@@ -1744,10 +1744,10 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.b.a.i 
 
     public void a(String str, e eVar) {
         this.bKe = eVar;
-        hr(str);
+        hs(str);
     }
 
-    public void hr(String str) {
+    public void hs(String str) {
         BdUniqueId bdUniqueId;
         boolean z;
         if (TextUtils.isEmpty(str)) {
@@ -1807,7 +1807,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.b.a.i 
 
     @Override // com.baidu.adp.b.a.i
     public void refresh() {
-        hr(this.mUrl);
+        hs(this.mUrl);
     }
 
     public void setTextViewOnClickListener(View.OnClickListener onClickListener) {

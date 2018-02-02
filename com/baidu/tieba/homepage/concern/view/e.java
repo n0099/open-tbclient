@@ -41,7 +41,7 @@ public class e extends d {
     @Override // com.baidu.tieba.homepage.concern.view.d
     public void akl() {
         super.akl();
-        this.cVd.eK(this.bXU.getId());
+        this.cVd.eL(this.bXU.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a

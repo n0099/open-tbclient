@@ -270,7 +270,7 @@ public class h extends com.baidu.tieba.card.a<ar> {
         }
         b.a(this.dJe, this.dJf.cTs);
         aj.e(this.dJf.dJm, d.C0108d.cp_cont_d, 1);
-        if (com.baidu.tieba.card.k.kk(this.dJe.getTid())) {
+        if (com.baidu.tieba.card.k.kl(this.dJe.getTid())) {
             aj.e(this.dJf.cTz, d.C0108d.cp_cont_d, 1);
             aj.e(this.dJf.dJl, d.C0108d.cp_cont_d, 1);
             return;
@@ -333,7 +333,7 @@ public class h extends com.baidu.tieba.card.a<ar> {
     private void akC() {
         PhotoLiveActivityConfig wQ;
         if (this.dJe != null) {
-            com.baidu.tieba.card.k.kj(this.dJe.getTid());
+            com.baidu.tieba.card.k.kk(this.dJe.getTid());
             if (!akD()) {
                 UtilHelper.showToast(this.mPageContext.getPageActivity(), d.j.plugin_config_not_found);
                 return;
@@ -344,11 +344,11 @@ public class h extends com.baidu.tieba.card.a<ar> {
                 wQ = new PhotoLiveActivityConfig.a(this.mPageContext.getPageActivity(), this.dJe.getTid()).cG("from_frs").eC(18003).wQ();
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, wQ));
-            kl(this.dJe.getTid());
+            km(this.dJe.getTid());
         }
     }
 
-    public void kl(final String str) {
+    public void km(final String str) {
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.entelechy.view.h.2
             @Override // java.lang.Runnable
             public void run() {

@@ -62,7 +62,7 @@ public class z {
         }
     }
 
-    public int re(String str) {
+    public int rf(String str) {
         a aVar = this.guo.get(str);
         if (aVar != null) {
             return aVar.position;

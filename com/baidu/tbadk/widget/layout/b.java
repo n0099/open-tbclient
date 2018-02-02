@@ -69,10 +69,10 @@ public class b extends ViewGroup {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.isLongPic() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), b.this.aXA ? 13 : 14));
-                    if (gF != null) {
-                        i2 = gF.getWidth();
-                        i = gF.getHeight();
+                    com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), b.this.aXA ? 13 : 14));
+                    if (gG != null) {
+                        i2 = gG.getWidth();
+                        i = gG.getHeight();
                     } else {
                         i = 0;
                     }

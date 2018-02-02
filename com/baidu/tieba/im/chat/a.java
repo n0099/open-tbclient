@@ -299,16 +299,16 @@ public class a {
 
     private static SpannableString b(ArrayList<b> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int ga = TbFaceManager.LQ().ga(str);
-        if (ga != 0) {
+        int gb = TbFaceManager.LQ().gb(str);
+        if (gb != 0) {
             spannableString = new SpannableString(str2 + " ");
-            b bVar = new b(TbadkCoreApplication.getInst(), ga);
+            b bVar = new b(TbadkCoreApplication.getInst(), gb);
             if (arrayList != null) {
                 arrayList.add(bVar);
             }
-            a.C0085a gA = TbFaceManager.LQ().gA(str);
-            if (gA != null) {
-                int width = (int) (0.5d * gA.getWidth());
+            a.C0085a gB = TbFaceManager.LQ().gB(str);
+            if (gB != null) {
+                int width = (int) (0.5d * gB.getWidth());
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));

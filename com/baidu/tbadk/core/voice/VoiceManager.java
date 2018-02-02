@@ -387,14 +387,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                 };
             }
-            Object eN = com.baidu.tbadk.core.voice.a.eN(voiceModel.getId());
-            if (eN == null) {
+            Object eO = com.baidu.tbadk.core.voice.a.eO(voiceModel.getId());
+            if (eO == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                eN = com.baidu.adp.lib.f.c.nm().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                eO = com.baidu.adp.lib.f.c.nm().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && eN == null) {
+            if (voiceModel.isLocal && eO == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
@@ -405,8 +405,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     jVar.h("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", jVar.toString());
-            } else if (eN != null) {
-                setPlaying(voiceModel, (String) eN);
+            } else if (eO != null) {
+                setPlaying(voiceModel, (String) eO);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();

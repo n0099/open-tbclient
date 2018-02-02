@@ -44,11 +44,11 @@ public class b {
         this.guA = interfaceC0147b;
     }
 
-    public boolean rg(String str) {
+    public boolean rh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (rh(str) && this.guy.bkK().size() > this.guB) {
+        if (ri(str) && this.guy.bkK().size() > this.guB) {
             if (this.guA != null) {
                 InterfaceC0147b interfaceC0147b = this.guA;
                 List<String> bkK = this.guy.bkK();
@@ -71,7 +71,7 @@ public class b {
         }
     }
 
-    private boolean rh(String str) {
+    private boolean ri(String str) {
         return (this.guy == null || TextUtils.isEmpty(str) || !str.equals(this.guy.getHost()) || v.E(this.guy.bkK()) || this.guy.cM(System.currentTimeMillis()) || this.guy.bkK().size() <= this.guB) ? false : true;
     }
 
@@ -190,7 +190,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.rf(stringBuffer.toString()));
+                            publishProgress(aVar.rg(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();

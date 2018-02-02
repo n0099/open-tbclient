@@ -21,7 +21,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void gA(boolean z);
+        void gB(boolean z);
     }
 
     /* loaded from: classes2.dex */
@@ -85,7 +85,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                     } else if ((responsedMessage instanceof CheckRedNotifySocketResMessage) && (checkRedNotifySocketResMessage = (CheckRedNotifySocketResMessage) responsedMessage) != null) {
                         z2 = checkRedNotifySocketResMessage.isShowRedNotify();
                     }
-                    ConcernNetModel.this.ecA.gA(z2);
+                    ConcernNetModel.this.ecA.gB(z2);
                     if (z2 && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                         ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
                     }
@@ -107,14 +107,14 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.ecA = aVar;
     }
 
-    public void mt(String str) {
+    public void mu(String str) {
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
         sendMessage(concernPageRequestMessage);
     }
 
-    public void gz(boolean z) {
+    public void gA(boolean z) {
         CheckRedNotifyReqMessage checkRedNotifyReqMessage = new CheckRedNotifyReqMessage();
         checkRedNotifyReqMessage.setTag(getUniqueId());
         checkRedNotifyReqMessage.reqUnreadTipAfterFinish = z;

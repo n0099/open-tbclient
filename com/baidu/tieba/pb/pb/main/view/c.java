@@ -125,7 +125,7 @@ public class c {
         this.fVJ = (ImageView) this.bAy.findViewById(d.g.widget_navi_back_button);
     }
 
-    public void kM(boolean z) {
+    public void kN(boolean z) {
         NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
         this.fSB = z;
         if (this.fVz == null && this.fVA == null) {
@@ -168,13 +168,13 @@ public class c {
         }
     }
 
-    public void kt(boolean z) {
+    public void ku(boolean z) {
         if (this.fVy != null) {
             this.fVy.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void kN(boolean z) {
+    public void kO(boolean z) {
         this.fVQ = z;
         beG();
     }
@@ -199,7 +199,7 @@ public class c {
         }
     }
 
-    public void kO(boolean z) {
+    public void kP(boolean z) {
         if (this.fVz != null && !z) {
             this.fVz.setVisibility(8);
         }
@@ -209,23 +209,23 @@ public class c {
         return this.mNavigationBar;
     }
 
-    public void kP(boolean z) {
+    public void kQ(boolean z) {
         if (z) {
             this.bAy.setVisibility(0);
         } else {
             this.bAy.setVisibility(8);
         }
-        kR(z);
+        kS(z);
     }
 
-    public void nZ(String str) {
+    public void oa(String str) {
         if (!TextUtils.isEmpty(str) && !this.fSB) {
             this.fVx.setText(this.fJR.getResources().getString(d.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
-            kR(true);
+            kS(true);
             i.wB().cz(str);
             return;
         }
-        kR(false);
+        kS(false);
     }
 
     public void a(MetaData metaData, View.OnClickListener onClickListener) {
@@ -238,9 +238,9 @@ public class c {
             this.fVF.getHeadView().setUserName(metaData.getUserName());
             this.fVF.getHeadView().setOnClickListener(onClickListener);
             if (metaData.getPendantData() != null && !StringUtils.isNull(metaData.getPendantData().xu())) {
-                this.fVF.eG(metaData.getPendantData().xu());
+                this.fVF.eH(metaData.getPendantData().xu());
             } else {
-                this.fVF.eG(null);
+                this.fVF.eH(null);
             }
         }
     }
@@ -282,11 +282,11 @@ public class c {
             } else {
                 this.fVH.showAtLocation(this.fJR.findViewById(d.g.pb_layout), 17, 0, 0);
             }
-            this.fVI.ki(abVar == null ? false : abVar.fOF);
-            this.fVI.kk(abVar == null ? false : abVar.fOL);
-            this.fVI.kl(abVar == null ? false : abVar.fOM);
-            this.fVI.km(abVar == null ? false : abVar.fON);
-            this.fVI.kn(abVar == null ? true : abVar.fOU);
+            this.fVI.kj(abVar == null ? false : abVar.fOF);
+            this.fVI.kl(abVar == null ? false : abVar.fOL);
+            this.fVI.km(abVar == null ? false : abVar.fOM);
+            this.fVI.kn(abVar == null ? false : abVar.fON);
+            this.fVI.ko(abVar == null ? true : abVar.fOU);
             if (abVar == null) {
                 this.fVI.K(false, false);
                 this.fVI.L(false, false);
@@ -303,7 +303,7 @@ public class c {
             boolean z5 = abVar == null ? false : abVar.fOI;
             boolean z6 = abVar == null ? false : abVar.fOO;
             boolean z7 = abVar == null ? false : abVar.fOP;
-            this.fVI.kj(abVar == null ? false : abVar.fOG);
+            this.fVI.kk(abVar == null ? false : abVar.fOG);
             this.fVI.J(z4, z3);
             this.fVI.M(z5, z);
             this.fVI.N(z7, z6);
@@ -311,7 +311,7 @@ public class c {
                 this.fVI.fOB = abVar.fOV;
                 if (abVar.fOV) {
                     this.fVI.bcJ().setText(d.j.report_text);
-                    this.fVI.km(false);
+                    this.fVI.kn(false);
                 }
             }
             j(z, z2, z3);
@@ -432,7 +432,7 @@ public class c {
 
     public void beN() {
         this.fVJ.setVisibility(0);
-        kR(false);
+        kS(false);
         if (this.fVy != null) {
             this.fVy.setVisibility(8);
         }
@@ -441,9 +441,9 @@ public class c {
         }
     }
 
-    public void kQ(boolean z) {
+    public void kR(boolean z) {
         this.fVJ.setVisibility(0);
-        kR(z);
+        kS(z);
         if (TbadkCoreApplication.isLogin()) {
             if (this.fVz != null) {
                 this.fVz.setVisibility(0);
@@ -462,7 +462,7 @@ public class c {
         }
     }
 
-    public void kR(boolean z) {
+    public void kS(boolean z) {
         if (!this.fSB && z && !"".equals(this.fVx.getText().toString())) {
             this.fVx.setVisibility(0);
         } else {
@@ -470,15 +470,15 @@ public class c {
         }
     }
 
-    public void kS(boolean z) {
+    public void kT(boolean z) {
         this.fVK = z;
     }
 
-    public void kT(boolean z) {
+    public void kU(boolean z) {
         if (!this.fVK || TbadkCoreApplication.isLogin() || z) {
             if (z) {
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("call_fan_guide", false)) {
-                    kT(false);
+                    kU(false);
                     return;
                 }
             } else if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_share", false)) {

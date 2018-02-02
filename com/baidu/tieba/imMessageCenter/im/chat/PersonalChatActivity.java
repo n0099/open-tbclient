@@ -106,7 +106,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 PersonalChatActivity.this.eKQ = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
                 if (PersonalChatActivity.this.eKQ != null && (user = ((PersonalMsglistModel) PersonalChatActivity.this.esH).getUser()) != null) {
                     PersonalChatActivity.this.esG.refreshPersonalHeadFooter(user.getUserName(), PersonalChatActivity.this.eKQ);
-                    PersonalChatActivity.this.eKP = PersonalChatActivity.this.nK(am.x(PersonalChatActivity.this.eKQ.getTime()));
+                    PersonalChatActivity.this.eKP = PersonalChatActivity.this.nL(am.x(PersonalChatActivity.this.eKQ.getTime()));
                     if (PersonalChatActivity.this.eKP != 0) {
                         PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.eKU, PersonalChatActivity.this.eKP);
                     }
@@ -203,7 +203,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
     }
 
-    public long nK(String str) {
+    public long nL(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
@@ -262,7 +262,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
         ChatStatusManager.getInst().setIsOpen(0, true);
         String curId = ChatStatusManager.getInst().getCurId(0);
-        com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fd(curId);
+        com.baidu.tbadk.coreExtra.messageCenter.a.Gh().fe(curId);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 2)));
         if (this.esH != null && (this.esH instanceof PersonalMsglistModel)) {
             ((PersonalMsglistModel) this.esH).aLJ();
@@ -313,7 +313,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 aKU();
             }
             if (!TextUtils.isEmpty(this.eKS.aLI())) {
-                this.eKS.nO(this.eKS.aLI());
+                this.eKS.nP(this.eKS.aLI());
             }
         }
     }
@@ -381,7 +381,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
     public void a(View view, int i, int i2, long j) {
-        a.C0128a nP;
+        a.C0128a nQ;
         ChatMessage msg;
         String L;
         super.a(view, i, i2, j);
@@ -401,15 +401,15 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 return;
             case 14:
                 ChatMessage msg3 = this.esH.getMsg(i2);
-                if (msg3 != null && msg3.getContent() != null && (nP = com.baidu.tieba.imMessageCenter.im.stranger.a.nP(msg3.getContent())) != null) {
-                    if (nP.threadType == 33) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), nP.threadId).wQ()));
+                if (msg3 != null && msg3.getContent() != null && (nQ = com.baidu.tieba.imMessageCenter.im.stranger.a.nQ(msg3.getContent())) != null) {
+                    if (nQ.threadType == 33) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), nQ.threadId).wQ()));
                         return;
-                    } else if (nP.type == 1) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(nP.threadId, nP.postId, null, false)));
+                    } else if (nQ.type == 1) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(nQ.threadId, nQ.postId, null, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(nP.threadId, nP.postId, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(nQ.threadId, nQ.postId, null)));
                         return;
                     }
                 }
@@ -426,7 +426,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         aEa();
         ((PersonalMsglistModel) this.esH).setIsFriend(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FRIEND));
         ((PersonalMsglistModel) this.esH).setFollowStatus(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FOLLOW));
-        ((PersonalMsglistModel) this.esH).nN(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        ((PersonalMsglistModel) this.esH).nO(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -436,7 +436,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         aEa();
         ((PersonalMsglistModel) this.esH).setIsFriend(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FRIEND, 1));
         ((PersonalMsglistModel) this.esH).setFollowStatus(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FOLLOW, 1));
-        ((PersonalMsglistModel) this.esH).nN(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        ((PersonalMsglistModel) this.esH).nO(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

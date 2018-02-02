@@ -7,9 +7,8 @@ import android.util.Log;
 import android.view.Surface;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public class h implements SurfaceTexture.OnFrameAvailableListener {
+class h implements SurfaceTexture.OnFrameAvailableListener {
     private boolean hoW;
     private String hoX;
     private com.faceunity.gles.c hoZ;

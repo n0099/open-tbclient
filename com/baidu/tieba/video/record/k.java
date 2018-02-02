@@ -79,11 +79,11 @@ public class k implements j.a {
             }
             this.isDownLoading = false;
             this.hrp = musicData.id;
-            String tI = com.baidu.tieba.video.editvideo.model.a.bAV().tI(musicData.resource);
+            String tJ = com.baidu.tieba.video.editvideo.model.a.bAV().tJ(musicData.resource);
             if (obj != null && (obj instanceof d.a)) {
                 this.mPosition = ((d.a) obj).position;
             }
-            if (TextUtils.isEmpty(tI)) {
+            if (TextUtils.isEmpty(tJ)) {
                 if (obj instanceof d.a) {
                     final d.a aVar = (d.a) obj;
                     aVar.mProgressBar.setVisibility(0);
@@ -106,7 +106,7 @@ public class k implements j.a {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0160a
-                        public void tz(String str) {
+                        public void tA(String str) {
                             if (aVar.position == k.this.mPosition) {
                                 k.this.isDownLoading = false;
                                 aVar.mProgressBar.setVisibility(4);
@@ -141,7 +141,7 @@ public class k implements j.a {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0160a
-                    public void tz(String str) {
+                    public void tA(String str) {
                         com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), str);
                         if (k.this.gZD != null) {
                             k.this.gZD.T(3, str);
@@ -154,7 +154,7 @@ public class k implements j.a {
                 });
                 return;
             }
-            a(tI, musicData);
+            a(tJ, musicData);
         }
     }
 

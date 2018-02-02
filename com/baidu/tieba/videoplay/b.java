@@ -62,7 +62,7 @@ public class b extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.hye.gl(true)) {
+        if (this.hye.gm(true)) {
             if (this.hye.azt() < 0) {
                 this.hye.xb(i);
             } else if (this.hye.azt() == i) {

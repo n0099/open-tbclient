@@ -122,7 +122,7 @@ public class h {
             return new i(209, TbadkCoreApplication.getInst().getString(d.j.illegal_argument));
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str4 = com.baidu.tieba.video.b.hmB + (ao.ei(str + str2 + str3) + "/");
+        String str4 = com.baidu.tieba.video.b.hmB + (ao.ej(str + str2 + str3) + "/");
         new File(str4).mkdirs();
         File file = new File(str3);
         file.mkdirs();
@@ -185,8 +185,8 @@ public class h {
         final String str4 = str2 + "temp_" + System.currentTimeMillis();
         File[] fileArr = new File[strArr.length];
         try {
-            g.a tW = g.tW(strArr[0]);
-            if (tW == null) {
+            g.a tX = g.tX(strArr[0]);
+            if (tX == null) {
                 return false;
             }
             g.a aVar2 = new g.a();
@@ -194,22 +194,22 @@ public class h {
             boolean z2 = true;
             while (i < strArr.length) {
                 if (i != 0) {
-                    g.a tW2 = g.tW(strArr[i]);
-                    if (tW2 == null) {
+                    g.a tX2 = g.tX(strArr[i]);
+                    if (tX2 == null) {
                         return false;
                     }
-                    z = g.a(tW, tW2);
-                    aVar = tW2;
+                    z = g.a(tX, tX2);
+                    aVar = tX2;
                 } else {
                     z = z2;
                     aVar = aVar2;
                 }
                 String str5 = str2 + "temp_" + i + "_" + System.currentTimeMillis();
-                if (new b(strArr[i]).a(str5, z, tW, aVar) != null) {
+                if (new b(strArr[i]).a(str5, z, tX, aVar) != null) {
                     if (!z && i != 0 && aVar.bBS()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean e = g.e(str5, str3, aVar.hss, tW.hss);
+                        boolean e = g.e(str5, str3, aVar.hss, tX.hss);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -257,10 +257,10 @@ public class h {
                 }
             });
             bBV.a(fileArr);
-            d tV = d.tV(str4);
-            tV.setSampleRate(tW.hss);
-            tV.setChannelCount(tW.channelCount);
-            tV.tU(str);
+            d tW = d.tW(str4);
+            tW.setSampleRate(tX.hss);
+            tW.setChannelCount(tX.channelCount);
+            tW.tV(str);
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();

@@ -25,7 +25,7 @@ public class b {
 
         void am(int i, String str);
 
-        void tB(String str);
+        void tC(String str);
     }
 
     public b(Context context, String str, String str2, String str3) {
@@ -99,7 +99,7 @@ public class b {
         if (this.hoF != null) {
             File file = new File(this.hmV);
             if (file.exists() && file.length() > 0) {
-                this.hoF.tB(this.hmV);
+                this.hoF.tC(this.hmV);
             } else {
                 this.hoF.al(223, "Err empty outputFile");
             }

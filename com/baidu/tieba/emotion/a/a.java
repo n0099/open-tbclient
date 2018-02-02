@@ -33,7 +33,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        return c.LR().gF(F(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+        return c.LR().gG(F(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,13 +59,13 @@ public class a implements e<com.baidu.adp.widget.a.a> {
             return null;
         }
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> apr = g.app().apr();
-        if (g.app().kH(valueOf2) && valueOf3.booleanValue() && !new File(g.app().G(valueOf2, true)).exists()) {
+        if (g.app().kI(valueOf2) && valueOf3.booleanValue() && !new File(g.app().G(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (g.app().kJ(valueOf2) && valueOf3.booleanValue()) {
+        if (g.app().kK(valueOf2) && valueOf3.booleanValue()) {
             String G = g.app().G(valueOf2, true);
-            valueOf = g.app().kI(valueOf2);
+            valueOf = g.app().kJ(valueOf2);
             if (!new File(k.amf + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + G).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
@@ -78,9 +78,9 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                             break;
                         }
                         com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                        if (next.gd(valueOf2)) {
+                        if (next.ge(valueOf2)) {
                             if (next.KK()) {
-                                aVar2 = next.gf(valueOf2);
+                                aVar2 = next.gg(valueOf2);
                             } else {
                                 aVar2 = a(next.getGroupId(), G2, aVar);
                             }
@@ -91,7 +91,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                     }
                 } else {
                     String G3 = g.app().G(valueOf2, false);
-                    if (booleanValue && g.app().kJ(valueOf2)) {
+                    if (booleanValue && g.app().kK(valueOf2)) {
                         G3.replaceFirst("s_", "d_");
                     }
                     Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = apr.iterator();
@@ -102,10 +102,10 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                             break;
                         }
                         com.baidu.tbadk.editortools.emotiontool.c next2 = it2.next();
-                        if (!next2.gd(valueOf2)) {
+                        if (!next2.ge(valueOf2)) {
                             aVar3 = aVar4;
                         } else if (next2.KK()) {
-                            aVar3 = next2.ge(valueOf2);
+                            aVar3 = next2.gf(valueOf2);
                         } else {
                             Bitmap b2 = b(next2.getGroupId(), G3, aVar);
                             if (b2 == null) {
@@ -168,7 +168,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                         break;
                     }
                     com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                    if (next.gd(valueOf2)) {
+                    if (next.ge(valueOf2)) {
                         aVar2 = a(next.getGroupId(), G, aVar);
                         break;
                     }

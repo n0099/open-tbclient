@@ -14,7 +14,7 @@ public class ab extends com.baidu.tieba.card.data.b {
     }
 
     public void xA() {
-        this.aLI = com.baidu.tieba.lego.card.b.oe(this.card);
+        this.aLI = com.baidu.tieba.lego.card.b.og(this.card);
         this.aLH = this.aLI != null;
     }
 

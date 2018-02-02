@@ -12,7 +12,7 @@ public class e {
         return "subscribeId:" + this.hNo + ",content:" + this.content;
     }
 
-    public void uU(String str) {
+    public void uV(String str) {
         this.hNo = str;
     }
 }

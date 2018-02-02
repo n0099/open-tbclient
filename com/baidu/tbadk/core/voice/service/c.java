@@ -11,7 +11,7 @@ public interface c {
 
     void Ew();
 
-    boolean eT(String str);
+    boolean eU(String str);
 
     void gK(int i);
 

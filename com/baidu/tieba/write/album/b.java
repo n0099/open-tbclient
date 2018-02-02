@@ -68,7 +68,7 @@ public class b extends BaseFragment {
                 } else {
                     b.this.hDv.setVisibility(8);
                 }
-                b.this.nw(b.this.hDa.isOriginalImg());
+                b.this.nx(b.this.hDa.isOriginalImg());
             }
         }
 
@@ -146,7 +146,7 @@ public class b extends BaseFragment {
             }
             this.hDr.setData(bFE);
             this.qW.setCurrentItem(this.btf, false);
-            nw(this.hDa.isOriginalImg());
+            nx(this.hDa.isOriginalImg());
         }
     }
 
@@ -172,7 +172,7 @@ public class b extends BaseFragment {
         com.baidu.tbadk.n.a.a(getPageContext(), this.aGK);
         aj.b(this.mBackBtn, d.f.icon_return_bg_s, d.f.icon_return_bg, i);
         if (this.hDa != null) {
-            nw(this.hDa.isOriginalImg());
+            nx(this.hDa.isOriginalImg());
         }
         if (this.hDr != null) {
             this.hDr.notifyDataSetChanged();
@@ -210,12 +210,12 @@ public class b extends BaseFragment {
         return this.hDv;
     }
 
-    public void nw(boolean z) {
+    public void nx(boolean z) {
         long j;
         if (this.hDn != null && this.hDv != null) {
             if (this.hDr != null) {
                 ImageFileInfo sp = this.hDr.sp(this.btf);
-                j = sp != null ? com.baidu.tbadk.core.util.k.dJ(sp.getFilePath()) : 0L;
+                j = sp != null ? com.baidu.tbadk.core.util.k.dK(sp.getFilePath()) : 0L;
             } else {
                 j = 0;
             }

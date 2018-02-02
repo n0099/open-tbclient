@@ -12,7 +12,7 @@ public class f {
         return this.gYg;
     }
 
-    public void sC(String str) {
+    public void sD(String str) {
         this.gYg = str;
     }
 }

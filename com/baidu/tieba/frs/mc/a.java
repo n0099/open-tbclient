@@ -61,7 +61,7 @@ public class a extends h {
     }
 
     private void c(int i, Intent intent) {
-        bd sw;
+        bd sx;
         PostWriteCallBackData postWriteCallBackData;
         l auv = this.dPK.auv();
         switch (i) {
@@ -69,7 +69,7 @@ public class a extends h {
                 this.dPK.mS(0);
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_INITED /* 11002 */:
-                this.dBM.gj(true);
+                this.dBM.gk(true);
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_REG /* 11011 */:
                 com.baidu.tieba.frs.e.h.a(this.dPK, this.dPK.getThreadId(), this.dPK.bXU, this.dPK.auf());
@@ -115,10 +115,10 @@ public class a extends h {
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (sw = auv.sw(stringExtra)) != null) {
+                if (stringExtra != null && (sx = auv.sx(stringExtra)) != null) {
                     if (intExtra == 2) {
-                        sw.eS(intent.getIntExtra("good_data", 0));
-                        sw.zC();
+                        sx.eS(intent.getIntExtra("good_data", 0));
+                        sx.zC();
                     }
                     a(auv, intent, stringExtra);
                     return;
@@ -248,9 +248,9 @@ public class a extends h {
             this.dPC = new com.baidu.tieba.d.d(this.dPK.getPageContext(), (NavigationBarCoverTip) this.dPK.getView().findViewById(d.g.navigation_cover_tip));
         }
         if (this.dPK.auv() != null && this.dPK.auv().aYJ() != null && this.dPK.auv().aYJ().isLike() == 1) {
-            this.dPC.eU(true);
+            this.dPC.eV(true);
         } else {
-            this.dPC.eU(false);
+            this.dPC.eV(false);
         }
         this.dPC.b(postWriteCallBackData);
     }

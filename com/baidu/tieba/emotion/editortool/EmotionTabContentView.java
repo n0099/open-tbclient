@@ -763,8 +763,8 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                 }
                                 nVar.setName(hM);
                                 nVar.a(apg.KL());
-                                nVar.eV(apg.getGroupName());
-                                nVar.eW(apg.getGroupId());
+                                nVar.eW(apg.getGroupName());
+                                nVar.eX(apg.getGroupId());
                                 nVar.setWidth(apg.getWidth());
                                 nVar.setHeight(apg.getHeight());
                                 EmotionTabContentView.this.axQ.b(new com.baidu.tbadk.editortools.a(24, -1, nVar));

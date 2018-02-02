@@ -78,15 +78,15 @@ public class e extends com.baidu.tieba.card.a<f> {
             this.mUserData = fVar.fDO;
             String portrait = this.mUserData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                String dQ = o.dQ(portrait);
-                this.giF.getHeadView().setUrl(dQ);
-                this.giF.getHeadView().startLoad(dQ, 25, false);
+                String dR = o.dR(portrait);
+                this.giF.getHeadView().setUrl(dR);
+                this.giF.getHeadView().startLoad(dR, 25, false);
             } else {
                 this.giF.getHeadView().startLoad(String.valueOf(d.f.pic_mycenter_avatar_def_i), 24, false);
             }
             h pendantData = this.mUserData.getPendantData();
             if (pendantData != null) {
-                this.giF.eG(pendantData.xu());
+                this.giF.eH(pendantData.xu());
             }
             if (this.giF.Dy()) {
                 this.giF.getHeadView().setShowV(false);

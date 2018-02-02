@@ -250,10 +250,10 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     private void k(List<com.baidu.adp.widget.ListView.i> list, List<com.baidu.adp.widget.ListView.i> list2) {
         if (!v.E(list) && !v.E(list2)) {
-            long lY = a.ayE().lY(this.dPK.getForumName());
+            long lZ = a.ayE().lZ(this.dPK.getForumName());
             r rVar = new r();
-            if (lY > 0) {
-                rVar.bD(lY);
+            if (lZ > 0) {
+                rVar.bD(lZ);
             } else {
                 rVar.bD(System.currentTimeMillis());
             }

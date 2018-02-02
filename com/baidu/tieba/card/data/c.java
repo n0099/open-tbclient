@@ -35,7 +35,7 @@ public abstract class c extends b implements ae {
         this.cXb = i;
     }
 
-    public void kn(String str) {
+    public void ko(String str) {
         this.cXc = str;
     }
 
@@ -63,7 +63,7 @@ public abstract class c extends b implements ae {
         return this.cXd;
     }
 
-    public void ko(String str) {
+    public void kp(String str) {
         this.cXd = str;
     }
 
@@ -83,7 +83,7 @@ public abstract class c extends b implements ae {
         return this.cXf;
     }
 
-    public ak kp(String str) {
+    public ak kq(String str) {
         return t(str, false);
     }
 

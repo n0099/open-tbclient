@@ -8,11 +8,11 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.f fVar);
 
-    void jF(boolean z);
-
     void jG(boolean z);
 
     void jH(boolean z);
+
+    void jI(boolean z);
 
     void l(View.OnClickListener onClickListener);
 

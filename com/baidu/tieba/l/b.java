@@ -38,7 +38,7 @@ public class b extends c.a {
                 for (int i = 0; i < length; i++) {
                     com.baidu.tieba.i.a.e eVar = this.gvv[i];
                     if (eVar != null) {
-                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.pk(eVar.url).toString()));
+                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.pl(eVar.url).toString()));
                     }
                 }
             }

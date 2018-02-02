@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.k;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a eP(String str) {
+    public static a eQ(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
@@ -14,7 +14,7 @@ public class b {
             aVar.error_code = 7;
             aVar.error_msg = a.gJ(aVar.error_code);
         } else {
-            String e = s.e(k.dH(str));
+            String e = s.e(k.dI(str));
             if (e == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.gJ(aVar.error_code);

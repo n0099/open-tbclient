@@ -54,7 +54,7 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
             case 12289:
                 a.bJb().bJc().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.bJb().uM(bVar.getContent());
+                    a.bJb().uN(bVar.getContent());
                     return;
                 }
                 return;

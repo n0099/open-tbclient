@@ -104,7 +104,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    PersonalTalkSettingActivity.this.eLQ.hS(false);
+                    PersonalTalkSettingActivity.this.eLQ.hT(false);
                 }
             }).b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -125,7 +125,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.u
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(l.aGR().mW(String.valueOf(PersonalTalkSettingActivity.this.userId)));
+                            return Boolean.valueOf(l.aGR().mX(String.valueOf(PersonalTalkSettingActivity.this.userId)));
                         }
                     }, new h<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.5.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -153,7 +153,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar4) {
                     aVar4.dismiss();
                     TiebaStatic.log("personalchat_morepage_addblack");
-                    PersonalTalkSettingActivity.this.eLQ.hS(true);
+                    PersonalTalkSettingActivity.this.eLQ.hT(true);
                 }
             }).b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.6
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -193,20 +193,20 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
             closeLoadingDialog();
             showLoadingDialog(null);
-            this.eLQ.hR(z);
+            this.eLQ.hS(z);
             return;
         }
         closeLoadingDialog();
         showLoadingDialog(null);
-        this.eLQ.hR(z);
+        this.eLQ.hS(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D(boolean z, final boolean z2) {
         if (z) {
             boolean aLf = this.eLQ.aLf();
-            this.eLQ.hQ(z2);
-            this.eLP.hT(z2);
+            this.eLQ.hR(z2);
+            this.eLP.hU(z2);
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivity.10
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -230,7 +230,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             @Override // java.lang.Runnable
             public void run() {
                 PersonalTalkSettingActivity.this.eLP.a((BdSwitchView.a) null);
-                PersonalTalkSettingActivity.this.eLP.hT(!z2);
+                PersonalTalkSettingActivity.this.eLP.hU(!z2);
                 PersonalTalkSettingActivity.this.eLP.a(PersonalTalkSettingActivity.this);
             }
         }, 500L);

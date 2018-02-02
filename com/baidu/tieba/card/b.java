@@ -158,7 +158,7 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
         }
     }
 
-    public void eA(boolean z) {
+    public void eB(boolean z) {
         if (this.cSI != null) {
             this.cSI.setVisibility(z ? 0 : 8);
         }

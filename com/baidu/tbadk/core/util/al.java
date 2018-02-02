@@ -19,7 +19,7 @@ public class al {
         return alVar;
     }
 
-    public String eb(String str) {
+    public String ec(String str) {
         if (str == null) {
             return null;
         }
@@ -30,35 +30,35 @@ public class al {
         return "image/" + (j % 20);
     }
 
-    public Bitmap dD(String str) {
+    public Bitmap dE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return k.W(eb(str), str);
+        return k.W(ec(str), str);
     }
 
-    public boolean ec(String str) {
+    public boolean ed(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return k.V(eb(str), str);
+        return k.V(ec(str), str);
     }
 
-    public int ed(String str) {
+    public int ee(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) k.U(eb(str), str);
+        return (int) k.U(ec(str), str);
     }
 
     public boolean X(String str, String str2) {
         String str3 = k.amf + "/" + TbConfig.getTempDirName() + "/";
         if (!k.m12do(str3)) {
-            k.dK(str3);
+            k.dL(str3);
         }
-        String str4 = str3 + eb(str2);
+        String str4 = str3 + ec(str2);
         if (!k.m12do(str4)) {
-            k.dK(str4);
+            k.dL(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -69,7 +69,7 @@ public class al {
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            k.d(eb(str), str, bArr);
+            k.d(ec(str), str, bArr);
         }
     }
 

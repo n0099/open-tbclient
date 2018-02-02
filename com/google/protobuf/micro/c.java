@@ -33,7 +33,7 @@ public final class c {
     }
 
     public static int W(int i, boolean z) {
-        return yK(i) + od(z);
+        return yK(i) + oe(z);
     }
 
     public static c a(OutputStream outputStream, int i) {
@@ -149,7 +149,7 @@ public final class c {
         return new c(bArr, i, i2);
     }
 
-    public static int od(boolean z) {
+    public static int oe(boolean z) {
         return 1;
     }
 

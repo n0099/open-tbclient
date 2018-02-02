@@ -46,7 +46,7 @@ public class y {
     }
 
     public static boolean p(int i, String str) {
-        if (!am.isEmpty(com.baidu.tieba.play.t.hN(str))) {
+        if (!am.isEmpty(com.baidu.tieba.play.t.hO(str))) {
             if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
                 return false;
             }

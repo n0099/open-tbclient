@@ -12,7 +12,7 @@ public class a {
     public static final Pattern doG = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
     public static final Pattern doH = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String kK(String str) {
+    public static String kL(String str) {
         String replaceAll = str.replaceAll(d.buD, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
@@ -40,7 +40,7 @@ public class a {
         return sb.toString();
     }
 
-    public static int kL(String str) {
+    public static int kM(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;

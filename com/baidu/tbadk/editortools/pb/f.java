@@ -207,7 +207,7 @@ public class f extends LinearLayout implements View.OnClickListener, s {
         }
     }
 
-    private void gg(String str) {
+    private void gh(String str) {
         if (!StringUtils.isNull(str)) {
             this.bsm.getText().insert(this.bsm.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
@@ -227,7 +227,7 @@ public class f extends LinearLayout implements View.OnClickListener, s {
     private void a(n nVar) {
         if (nVar != null && !TextUtils.isEmpty(nVar.getName()) && !TextUtils.isEmpty(nVar.getUrl())) {
             String obj = this.bsm.getText().toString();
-            if (this.brI && com.baidu.tieba.face.a.kL(obj) >= 10 && getContext() != null) {
+            if (this.brI && com.baidu.tieba.face.a.kM(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.By().showToast(d.j.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), nVar, this.bsm);
@@ -238,7 +238,7 @@ public class f extends LinearLayout implements View.OnClickListener, s {
     private void b(n nVar) {
         if (!this.brH || nVar.Ft() == EmotionGroupType.LOCAL) {
             String obj = this.bsm.getText().toString();
-            if (this.brI && com.baidu.tieba.face.a.kL(obj) >= 10 && getContext() != null) {
+            if (this.brI && com.baidu.tieba.face.a.kM(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.By().showToast(d.j.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), nVar, this.bsm);
@@ -447,7 +447,7 @@ public class f extends LinearLayout implements View.OnClickListener, s {
                     break;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        gg((String) aVar.data);
+                        gh((String) aVar.data);
                         break;
                     }
                     break;

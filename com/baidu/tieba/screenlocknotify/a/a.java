@@ -55,7 +55,7 @@ public class a extends LinearLayout {
         this.gIg.setText(uG(eVar.gHX));
     }
 
-    public void lW(boolean z) {
+    public void lX(boolean z) {
         if (z) {
             this.gIj.setVisibility(0);
             this.mLine.setVisibility(8);

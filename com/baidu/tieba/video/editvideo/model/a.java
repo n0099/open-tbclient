@@ -21,7 +21,7 @@ public class a {
 
         void ch(String str, String str2);
 
-        void tz(String str);
+        void tA(String str);
     }
 
     private a() {
@@ -38,20 +38,20 @@ public class a {
         return hpc;
     }
 
-    public String tI(String str) {
-        String ei = ao.ei(str);
-        if (ei == null) {
+    public String tJ(String str) {
+        String ej = ao.ej(str);
+        if (ej == null) {
             return null;
         }
         if (this.hpd == null) {
             this.hpd = new HashMap<>();
             bAW();
             if (this.hpd.size() > 0) {
-                return this.hpd.get(ei);
+                return this.hpd.get(ej);
             }
             return null;
         }
-        return this.hpd.get(ei);
+        return this.hpd.get(ej);
     }
 
     public void bAW() {
@@ -72,8 +72,8 @@ public class a {
     }
 
     public void a(String str, final String str2, final InterfaceC0160a interfaceC0160a) {
-        String ei;
-        if (!TextUtils.isEmpty(str2) && (ei = ao.ei(str2)) != null) {
+        String ej;
+        if (!TextUtils.isEmpty(str2) && (ej = ao.ej(str2)) != null) {
             if (this.hpe != null) {
                 if (!str2.equals(this.hpe.getUrl())) {
                     e.Ko().o(this.hpe.getUrl(), true);
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(com.baidu.tieba.video.b.hmz + ei + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(com.baidu.tieba.video.b.hmz + ej + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -140,7 +140,7 @@ public class a {
                         a.this.hpe = null;
                     }
                     if (interfaceC0160a != null) {
-                        interfaceC0160a.tz(str3);
+                        interfaceC0160a.tA(str3);
                     }
                 }
             });

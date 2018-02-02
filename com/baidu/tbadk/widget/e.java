@@ -96,11 +96,11 @@ public class e {
         invalidate();
     }
 
-    public float ho(String str) {
+    public float hp(String str) {
         return l.b(this.bDb, str).height() + this.bDi;
     }
 
-    public float hp(String str) {
+    public float hq(String str) {
         return l.a(this.bDb, str) + this.bDj;
     }
 

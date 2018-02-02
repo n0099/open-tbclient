@@ -434,9 +434,9 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
             akg().a(view, this.aYc);
         }
         if (this.aYc != null) {
-            com.baidu.tieba.card.k.kj(this.aYc.getId());
+            com.baidu.tieba.card.k.kk(this.aYc.getId());
             aj.e(this.mTextTitle, d.C0108d.cp_cont_d, 1);
-            t.hh(this.aYc.getId());
+            t.hi(this.aYc.getId());
             if (this.aYc.zq() > 0 && com.baidu.tieba.tbadkCore.util.f.bwK()) {
                 PbActivityConfig createHistoryCfg = new PbActivityConfig(this.aQs.getPageActivity()).createHistoryCfg(this.aYc.getTid(), String.valueOf(this.aYc.zq()), false, true, "frs_page");
                 createHistoryCfg.setVideo_source(this.aYc.zL() ? "floor5" : "frs");
@@ -610,7 +610,7 @@ public class a extends com.baidu.tieba.card.a<bd> implements u {
         this.cTH.setText(String.format(this.aQs.getResources().getString(d.j.play_count), am.J(this.aYc.zl().play_count.intValue())));
         this.cSK.setData(this.aYc.Ah());
         this.cSK.onChangeSkinType();
-        if (com.baidu.tieba.card.k.kk(this.aYc.getId())) {
+        if (com.baidu.tieba.card.k.kl(this.aYc.getId())) {
             aj.e(this.mTextTitle, d.C0108d.cp_cont_d, 1);
             com.baidu.tieba.card.k.a(this.cSK.getGodReplyContent(), this.aYc.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
         } else {

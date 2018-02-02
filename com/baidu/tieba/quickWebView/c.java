@@ -110,7 +110,7 @@ public class c {
                 bmw = c.this.bmv();
             }
             if (bmw != null && !TextUtils.isEmpty(bmw.gzw) && bmw.gzx != null && bmw.gzx.size() != 0) {
-                c.ry(bmw.gzy);
+                c.rz(bmw.gzy);
                 return bmw;
             }
             return null;
@@ -489,7 +489,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ry(String str) {
+    public static void rz(String str) {
         String[] list;
         if (!TextUtils.isEmpty(str)) {
             String str2 = gzt + "bdtbWCache";

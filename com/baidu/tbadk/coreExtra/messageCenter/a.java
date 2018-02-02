@@ -595,7 +595,7 @@ public class a {
         return this.bhc.HR();
     }
 
-    public void fc(String str) {
+    public void fd(String str) {
         if (TextUtils.isEmpty(str)) {
             Gm();
             return;
@@ -613,7 +613,7 @@ public class a {
         }
     }
 
-    public void fd(String str) {
+    public void fe(String str) {
         if (TextUtils.isEmpty(str)) {
             Gm();
             return;

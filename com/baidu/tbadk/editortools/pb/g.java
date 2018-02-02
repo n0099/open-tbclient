@@ -78,7 +78,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                     if (dVar != null && dVar.Kw() != null && aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                dVar.gm((String) aVar.data);
+                                dVar.gn((String) aVar.data);
                                 g.this.bsw = false;
                                 return;
                             case 5:
@@ -187,7 +187,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                                 }
                             case 20:
                                 dVar.Kw().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.c.bwr().mD(true);
+                                com.baidu.tieba.tbadkCore.location.c.bwr().mE(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 27:

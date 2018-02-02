@@ -25,7 +25,7 @@ public class f {
         public void e(Map<String, String> map) {
             if (f.this.bok >= 5) {
                 i.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.Jk().fG(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.Jk().fH(com.baidu.adp.framework.client.socket.h.getUrl());
                 a.Jk().Jo();
             }
             f.this.bok = 0;
@@ -100,7 +100,7 @@ public class f {
         com.baidu.adp.lib.webSocket.h.pv().a(this.boo);
     }
 
-    public static String fL(String str) {
+    public static String fM(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -120,7 +120,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fM(final String str) {
+    public void fN(final String str) {
         String JE = JE();
         if (JE == null) {
             if (!a.Jk().Jp()) {
@@ -130,7 +130,7 @@ public class f {
                         f.this.currentIndex = 0;
                         f.this.bnC = a.Jk().Jn();
                         if (f.this.bnC != null) {
-                            f.this.fM(str);
+                            f.this.fN(str);
                         } else {
                             f.this.bon = false;
                         }
@@ -140,7 +140,7 @@ public class f {
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
             JF();
-        } else if (fL(JE) == null) {
+        } else if (fM(JE) == null) {
             JF();
         } else {
             this.bon = false;
@@ -168,7 +168,7 @@ public class f {
             this.bon = true;
             if (this.bol) {
                 this.bol = false;
-                b.Js().fI(TiebaIMConfig.url);
+                b.Js().fJ(TiebaIMConfig.url);
             }
             b.Js().Jt();
             if (!this.bom) {
@@ -179,7 +179,7 @@ public class f {
                         if (z) {
                             f.this.bnC = a.Jk().Jn();
                             if (f.this.bnC != null) {
-                                f.this.fM("change ip to reconnect with DNS' failed.");
+                                f.this.fN("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
                                 a.Jk().a(new a.InterfaceC0080a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.3.1
@@ -188,7 +188,7 @@ public class f {
                                         f.this.currentIndex = 0;
                                         f.this.bnC = a.Jk().Jn();
                                         if (f.this.bnC != null) {
-                                            f.this.fM("change ip to reconnect with DNS' failed.");
+                                            f.this.fN("change ip to reconnect with DNS' failed.");
                                         } else {
                                             f.this.bon = false;
                                         }
@@ -204,7 +204,7 @@ public class f {
                 this.bom = true;
                 return;
             }
-            fM("change ip to reconnect with DNS' failed.");
+            fN("change ip to reconnect with DNS' failed.");
         }
     }
 }

@@ -37,7 +37,7 @@ public class c {
         return cVar;
     }
 
-    public boolean so(String str) {
+    public boolean sp(String str) {
         if (this.cay != null && str != null) {
             byte[] bArr = this.cay.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {

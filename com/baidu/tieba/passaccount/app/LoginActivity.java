@@ -71,7 +71,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 if (bcVar.aMZ == 0) {
                     LoginActivity.this.aXJ();
                 } else {
-                    LoginActivity.this.pQ(bcVar.errorMsg);
+                    LoginActivity.this.pR(bcVar.errorMsg);
                 }
             }
         }
@@ -237,7 +237,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (i2 == 230013) {
                 aXJ();
             } else if (i2 == 230014 && intent != null) {
-                pQ(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
+                pR(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
             }
         } else if (i == 230015) {
             if (i2 == -1) {
@@ -272,7 +272,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pQ(String str) {
+    public void pR(String str) {
         if (TextUtils.isEmpty(str)) {
             str = getResources().getString(d.j.social_login_error);
         }

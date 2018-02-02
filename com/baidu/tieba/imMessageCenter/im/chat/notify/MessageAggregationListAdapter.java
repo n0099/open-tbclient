@@ -112,10 +112,10 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             if (item != null && String.valueOf(String.valueOf(2)).equals(item.getOwnerName())) {
                 if (item.getUnReadCount() >= 30) {
                     if (this.eLH != null) {
-                        this.eLH.hN(true);
+                        this.eLH.hO(true);
                     }
                 } else if (this.eLH != null) {
-                    this.eLH.hN(false);
+                    this.eLH.hO(false);
                 }
             }
             b.a aVar3 = view != null ? (b.a) view.getTag() : null;

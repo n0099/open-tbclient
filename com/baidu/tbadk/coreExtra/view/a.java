@@ -37,7 +37,7 @@ public class a extends HorizontalScrollView {
     /* renamed from: com.baidu.tbadk.coreExtra.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0079a {
-        void fy(String str);
+        void fz(String str);
     }
 
     public a(TbPageContextSupport tbPageContextSupport, InterfaceC0079a interfaceC0079a, String str) {
@@ -126,7 +126,7 @@ public class a extends HorizontalScrollView {
                 imageView.setBackgroundResource(d.f.bg_choose_filter);
                 textView.setSelected(true);
             }
-            imageView.setImageResource(fx(substring));
+            imageView.setImageResource(fy(substring));
             this.bjU[i2] = imageView;
             linearLayout.addView(inflate);
             i++;
@@ -163,7 +163,7 @@ public class a extends HorizontalScrollView {
             textView.setSelected(true);
             this.bjZ = (String) textView.getTag();
             if (this.bjX != null) {
-                this.bjX.fy(this.bjZ);
+                this.bjX.fz(this.bjZ);
             }
         }
     }
@@ -198,7 +198,7 @@ public class a extends HorizontalScrollView {
         }
     }
 
-    public static int fx(String str) {
+    public static int fy(String str) {
         if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
             return 0;
         }

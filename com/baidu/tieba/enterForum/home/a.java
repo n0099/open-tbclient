@@ -93,7 +93,7 @@ public class a extends BaseFragment {
         this.dmD.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.a.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void bq(boolean z) {
-                a.this.dmy.fm(z);
+                a.this.dmy.fn(z);
             }
         });
         this.dmF.addView(this.dmy.getView(), 0);
@@ -172,7 +172,7 @@ public class a extends BaseFragment {
 
     private void apI() {
         if (this.dmy != null) {
-            this.dmy.fo(true);
+            this.dmy.fp(true);
         }
     }
 

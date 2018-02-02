@@ -254,10 +254,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bf(final String str, String str2) {
-        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str);
+        com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(str);
         final String str3 = str2 + 10;
-        if (gF != null && gF.sk()) {
-            e(str3, gF);
+        if (gG != null && gG.sk()) {
+            e(str3, gG);
         } else {
             new BdAsyncTask<Void, Void, Bitmap>() { // from class: com.baidu.tieba.im.sendmessage.a.9
                 /* JADX DEBUG: Method merged with bridge method */
@@ -280,7 +280,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, com.baidu.adp.widget.a.a aVar) {
         com.baidu.tbadk.imageManager.c.LR().c(str, aVar);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(str), DiskFileOperate.Action.WRITE);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.Z(true);
         cVar.setData(aVar.sm());

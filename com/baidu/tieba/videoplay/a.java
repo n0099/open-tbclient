@@ -600,7 +600,7 @@ public class a extends BaseFragment {
         super.onResume();
         this.mRootView.setSystemUiVisibility(4);
         if (this.hxP != null && !StringUtils.isNull(this.hxP.video_url)) {
-            ua(this.hxP.video_url);
+            ub(this.hxP.video_url);
             this.bCE = true;
             if (this.mIsVisible) {
                 aOR();
@@ -650,7 +650,7 @@ public class a extends BaseFragment {
         }
     }
 
-    private void ua(String str) {
+    private void ub(String str) {
         if (this.hxz != null) {
             this.hxz.setRecoveryState(0);
             this.hxz.bN(str, this.hxP.thread_id);

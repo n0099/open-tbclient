@@ -300,7 +300,7 @@ public class d extends FrameLayout {
                     if (d.this.eeM.auE() != null) {
                         d.this.eeM.auE().aCG();
                     }
-                    d.this.eeM.gF(false);
+                    d.this.eeM.gG(false);
                 }
             }
         });
@@ -322,7 +322,7 @@ public class d extends FrameLayout {
             @Override // com.baidu.tbadk.core.view.j.a
             public void i(View view, boolean z) {
                 if (d.this.eeM != null) {
-                    d.this.eeM.gF(true);
+                    d.this.eeM.gG(true);
                     d.this.eeM.aBw();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
@@ -357,7 +357,7 @@ public class d extends FrameLayout {
 
     public void setIsUnreadTipShow(boolean z) {
         if (this.eeM != null) {
-            this.eeM.gD(!z);
+            this.eeM.gE(!z);
         }
         this.eeR = z;
     }
@@ -443,7 +443,7 @@ public class d extends FrameLayout {
             });
         }
         this.refreshView.id(getContext().getResources().getDimensionPixelSize(d.e.ds280));
-        this.refreshView.gM(str);
+        this.refreshView.gN(str);
         this.refreshView.j(view, z);
         this.refreshView.Ml();
     }
@@ -499,7 +499,7 @@ public class d extends FrameLayout {
     public void aAO() {
         setViewForeground(false);
         if (this.eeM != null) {
-            this.eeM.fJ(false);
+            this.eeM.fK(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("show_is_uninterest_tag", 0);
@@ -511,7 +511,7 @@ public class d extends FrameLayout {
 
     public void setViewForeground(boolean z) {
         if (this.eeM != null) {
-            this.eeM.gy(z);
+            this.eeM.gz(z);
         }
     }
 
@@ -529,7 +529,7 @@ public class d extends FrameLayout {
             if (this.ebl.isRefreshDone()) {
                 if (this.eeM != null && this.eeM.auE() != null) {
                     this.eeM.auE().aCG();
-                    this.eeM.gF(false);
+                    this.eeM.gG(false);
                 }
                 this.ebl.startPullRefresh();
             }
@@ -575,9 +575,9 @@ public class d extends FrameLayout {
 
     public void aAP() {
         if (this.eeM != null) {
-            this.eeM.fJ(true);
+            this.eeM.fK(true);
         }
-        com.baidu.tieba.card.s.akK().df(false);
+        com.baidu.tieba.card.s.akK().dg(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
     }
 

@@ -109,7 +109,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void gp(String str) {
+            public void gq(String str) {
                 BaseActivity baseActivity = d.this.mContext;
                 if (StringUtils.isNull(str)) {
                     str = d.this.Kw().getContext().getString(d.j.location_fail);
@@ -123,7 +123,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                 if (aVar != null && !StringUtils.isNull(aVar.bwn())) {
                     d.this.b(2, true, aVar.bwn());
                 } else {
-                    gp(null);
+                    gq(null);
                 }
             }
         };
@@ -134,7 +134,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void gq(String str) {
+            public void gr(String str) {
                 d.this.b(2, true, str);
             }
         };
@@ -158,7 +158,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                     writeData2.setVcodeMD5(tVar.getVcode_md5());
                     writeData2.setVcodeUrl(tVar.getVcode_pic_url());
                     writeData2.setVcodeExtra(tVar.FC());
-                    if (com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                    if (com.baidu.tbadk.p.a.ho(tVar.FB())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(d.this.mContext.getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, false, tVar.FB())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(d.this.mContext.getActivity(), writeData2, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
@@ -175,7 +175,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
             @Override // com.baidu.adp.base.d
             public void ak(Object obj) {
                 if (obj instanceof Bitmap) {
-                    d.this.brT.mG(true);
+                    d.this.brT.mH(true);
                 }
             }
         };
@@ -207,7 +207,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         return this.bse;
     }
 
-    public void gj(String str) {
+    public void gk(String str) {
         if (this.bse == null && Kw() != null) {
             this.bse = (e) Kw().hJ(27);
         }
@@ -308,10 +308,10 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                     if (intent != null) {
                         if (intent.getBooleanExtra(WriteImageActivityConfig.DELET_FLAG, false)) {
                             Le();
-                            this.brT.mG(false);
+                            this.brT.mH(false);
                             return;
                         }
-                        this.brU.gi(intent.getStringExtra("file_name"));
+                        this.brU.gj(intent.getStringExtra("file_name"));
                         return;
                     }
                     return;
@@ -328,7 +328,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                         writeData.deleteUploadedTempImages();
                     }
                     this.brT.setWriteData(null);
-                    this.brT.mG(false);
+                    this.brT.mH(false);
                     this.mVoiceModel = null;
                     this.mVideoInfo = null;
                     if (!TextUtils.isEmpty(this.mThreadId)) {
@@ -372,7 +372,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                     return;
                 case 25004:
                     if (intent != null) {
-                        gn(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        go(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                         return;
                     }
                     return;
@@ -421,7 +421,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         } else if (this.brS.bwv()) {
             KW();
         } else {
-            this.brS.mE(false);
+            this.brS.mF(false);
             b(1, true, null);
             this.brS.bwt();
         }
@@ -480,7 +480,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
 
     public void resetData() {
         this.brT.setWriteData(null);
-        this.brT.mG(false);
+        this.brT.mH(false);
         this.mVoiceModel = null;
         this.mVideoInfo = null;
         this.writeImagesInfo.clear();
@@ -573,7 +573,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         b(intent, true);
     }
 
-    public void gk(String str) {
+    public void gl(String str) {
         WriteData writeData = this.brT.getWriteData();
         if (writeData == null) {
             writeData = new WriteData(1);
@@ -585,7 +585,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         u.c(str, writeData);
     }
 
-    public void gl(String str) {
+    public void gm(String str) {
         u.a(str, this);
     }
 
@@ -611,7 +611,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
             }
             if (!am.isEmpty(writeData.getContent()) && am.isEmpty(this.brQ)) {
                 this.brQ = writeData.getContent();
-                go(this.brQ);
+                gp(this.brQ);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_LOAD_DRAFT));
         }
@@ -630,7 +630,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                 Kw().b(new com.baidu.tbadk.editortools.a(2, 10, null));
             }
             this.brQ = writeData.getContent();
-            go(this.brQ);
+            gp(this.brQ);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_LOAD_DRAFT));
         }
     }
@@ -677,7 +677,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
     public void a(String str, WriteData writeData) {
         boolean z = true;
         if (this.brT.getWriteData() == null) {
-            this.brT.setWriteData(this.brV.gh(str));
+            this.brT.setWriteData(this.brV.gi(str));
         }
         if (this.brT.getWriteData() != null) {
             if (this.bsc) {
@@ -693,7 +693,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
             }
             this.brT.getWriteData().setWriteImagesInfo(this.writeImagesInfo);
             this.brT.getWriteData().setVideoInfo(this.mVideoInfo);
-            this.brT.mG(this.writeImagesInfo.size() > 0);
+            this.brT.mH(this.writeImagesInfo.size() > 0);
             WriteData writeData2 = this.brT.getWriteData();
             if (this.brS == null || !this.brS.agi()) {
                 z = false;
@@ -730,7 +730,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         return this.mContext;
     }
 
-    public void gm(String str) {
+    public void gn(String str) {
         this.brQ = str;
     }
 
@@ -758,7 +758,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         }
     }
 
-    public void gn(String str) {
+    public void go(String str) {
         if (Kw() != null) {
             Kw().b(new com.baidu.tbadk.editortools.a(44, 27, str));
         }
@@ -778,7 +778,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         }
     }
 
-    private void go(String str) {
+    private void gp(String str) {
         if (Kw() != null) {
             Kw().b(new com.baidu.tbadk.editortools.a(6, 27, str));
         }
@@ -821,9 +821,9 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
         if (!StringUtils.isNull(this.brQ)) {
             this.brQ = "";
         }
-        go("");
+        gp("");
         this.brT.setWriteData(null);
-        this.brT.mG(false);
+        this.brT.mH(false);
     }
 
     public boolean Lh() {
@@ -853,7 +853,7 @@ public class d extends com.baidu.tbadk.editortools.f implements u.a {
                     public void afterTextChanged(Editable editable) {
                         if (editable != null) {
                             String obj = editable.toString();
-                            if (!StringUtils.isNull(obj) && w.hi(obj) > i) {
+                            if (!StringUtils.isNull(obj) && w.hj(obj) > i) {
                                 String j = w.j(obj, 0, i - 1);
                                 inputView.setText(j);
                                 inputView.setSelection(inputView.getText().length());

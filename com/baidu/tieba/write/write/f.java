@@ -36,7 +36,7 @@ public class f {
                 f.this.hKK.a(f.this.mWriteImagesInfo);
                 f.this.hKK.notifyDataSetChanged();
                 if (v.E(f.this.mWriteImagesInfo.getChosedFiles()) && f.this.aQs.getOrignalPage() != 0) {
-                    ((WriteActivity) f.this.aQs.getOrignalPage()).ef(false);
+                    ((WriteActivity) f.this.aQs.getOrignalPage()).eg(false);
                 }
             }
         }
@@ -81,7 +81,7 @@ public class f {
         this.brq.Mb();
     }
 
-    public void nz(boolean z) {
-        this.hKK.nz(z);
+    public void nA(boolean z) {
+        this.hKK.nA(z);
     }
 }

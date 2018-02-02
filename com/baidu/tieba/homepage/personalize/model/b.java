@@ -24,24 +24,24 @@ public class b {
             for (int i = 0; i < D; i++) {
                 i iVar = (i) v.f(list, i);
                 if (iVar instanceof r) {
-                    ((r) iVar).eJ(true);
+                    ((r) iVar).eK(true);
                 }
                 i iVar2 = (i) v.f(list, i + 1);
                 if ((iVar instanceof r) && (iVar2 instanceof r)) {
                     r rVar = (r) iVar;
                     r rVar2 = (r) iVar2;
                     if (rVar.akX()) {
-                        rVar2.eJ(false);
+                        rVar2.eK(false);
                         if (rVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            rVar.eK(false);
+                            rVar.eL(false);
                         }
                     }
                 }
                 if (iVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
                     if ((iVar2 instanceof r) || (iVar2 instanceof h)) {
-                        ((com.baidu.tieba.homepage.personalize.b.c) iVar).eK(true);
+                        ((com.baidu.tieba.homepage.personalize.b.c) iVar).eL(true);
                     } else {
-                        ((com.baidu.tieba.homepage.personalize.b.c) iVar).eK(false);
+                        ((com.baidu.tieba.homepage.personalize.b.c) iVar).eL(false);
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class b {
                 if ((iVar instanceof com.baidu.tieba.card.data.c) && (VM = (cVar = (com.baidu.tieba.card.data.c) iVar).VM()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(VM.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.kn(threadPersonalized.abtest_tag);
+                    cVar.ko(threadPersonalized.abtest_tag);
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
                         SparseArray<String> sparseArray = new SparseArray<>();

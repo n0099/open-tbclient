@@ -146,15 +146,15 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     }
 
     public static void a(String str, byte[] bArr, boolean z, com.baidu.adp.lib.f.a aVar) {
-        String eA = eA(str);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(eA == null ? str : eA), DiskFileOperate.Action.WRITE_FORCE);
+        String eB = eB(str);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(eB == null ? str : eB), DiskFileOperate.Action.WRITE_FORCE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.Z(true);
         cVar.ad(z);
         cVar.ab(false);
         cVar.ac(true);
-        if (eA != null) {
-            cVar.ae(eB(str));
+        if (eB != null) {
+            cVar.ae(eC(str));
         } else {
             cVar.ae(true);
         }
@@ -168,9 +168,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     }
 
     public static byte[] a(String str, com.baidu.adp.lib.f.a aVar) {
-        String eA = eA(str);
+        String eB = eB(str);
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(eA == null ? str : eA), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(eB == null ? str : eB), DiskFileOperate.Action.READ);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.Z(true);
         cVar.aa(true);
@@ -195,7 +195,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
                 }
             }
             if (cVar.isSuccess()) {
-                if (eA == null || cVar.lH() || !eB(str)) {
+                if (eB == null || cVar.lH() || !eC(str)) {
                     return cVar.lI();
                 }
                 return null;
@@ -205,16 +205,16 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return null;
     }
 
-    public static boolean ez(String str) {
-        String eA = eA(str);
-        if (eA != null) {
-            str = eA;
+    public static boolean eA(String str) {
+        String eB = eB(str);
+        if (eB != null) {
+            str = eB;
         }
-        String ei = ao.ei(str);
-        if (TextUtils.isEmpty(ei)) {
+        String ej = ao.ej(str);
+        if (TextUtils.isEmpty(ej)) {
             return false;
         }
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ei, DiskFileOperate.Action.INFO);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ej, DiskFileOperate.Action.INFO);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.Z(true);
         cVar.ab(false);
@@ -232,12 +232,12 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return 1;
     }
 
-    private static String eA(String str) {
+    private static String eB(String str) {
         int i;
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.i.gY(str)) {
+        if (com.baidu.tbadk.util.i.gZ(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -260,9 +260,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return null;
     }
 
-    private static boolean eB(String str) {
+    private static boolean eC(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.i.gY(str)) {
+        if (str != null && com.baidu.tbadk.util.i.gZ(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

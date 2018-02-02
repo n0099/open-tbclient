@@ -80,7 +80,7 @@ public class g extends BaseAdapter implements com.baidu.tieba.frs.d.c {
                 if ((iVar instanceof bd) && (bdVar = (bd) iVar) != null) {
                     com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null) {
-                        readThreadHistory.sN(bdVar.getId());
+                        readThreadHistory.sO(bdVar.getId());
                         aj.r(aVar.dVF, d.C0108d.cp_cont_c);
                     }
                     g.this.dVx.a(view, bdVar, BdUniqueId.gen(), null, g.this.dVz ? aVar.position + 1 : aVar.position, 0L);
@@ -199,14 +199,14 @@ public class g extends BaseAdapter implements com.baidu.tieba.frs.d.c {
             aVar.dVD.setOnClickListener(this.csl);
             aVar.dVD.setOnLongClickListener(this.dVB);
             com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            a(aVar, readThreadHistory != null && readThreadHistory.sO(bdVar.getId()));
+            a(aVar, readThreadHistory != null && readThreadHistory.sP(bdVar.getId()));
         }
     }
 
     private void a(a aVar, com.baidu.tieba.tbadkCore.g gVar) {
-        String mh = mh(gVar.aSk());
+        String mi = mi(gVar.aSk());
         aVar.dVF.setText(gVar.getTitle());
-        aVar.dVE.setText(mh);
+        aVar.dVE.setText(mi);
         if (gVar.aZo() != 0) {
             aVar.dVG.setVisibility(0);
             if (gVar.aZo() == -1) {
@@ -238,7 +238,7 @@ public class g extends BaseAdapter implements com.baidu.tieba.frs.d.c {
         }
     }
 
-    private String mh(String str) {
+    private String mi(String str) {
         if (TextUtils.isEmpty(str) || str.trim().length() == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.top_announcement);
         }

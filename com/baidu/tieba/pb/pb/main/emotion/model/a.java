@@ -43,7 +43,7 @@ public class a {
                 writeData2.setVcodeMD5(tVar.getVcode_md5());
                 writeData2.setVcodeUrl(tVar.getVcode_pic_url());
                 writeData2.setVcodeExtra(tVar.FC());
-                if (com.baidu.tbadk.p.a.hn(tVar.FB())) {
+                if (com.baidu.tbadk.p.a.ho(tVar.FB())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.cmZ.getPageContext().getPageActivity(), 25017, writeData2, false, tVar.FB())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.cmZ.getPageContext().getPageActivity(), writeData2, 25017)));
@@ -119,7 +119,7 @@ public class a {
         boolean z = true;
         if (emotionImageData != null && fVar != null) {
             if (this.brT.getWriteData() == null && pbModel != null) {
-                this.brT.setWriteData(pbModel.gh(null));
+                this.brT.setWriteData(pbModel.gi(null));
             }
             if (this.brT.getWriteData() != null) {
                 if (fVar.aYL().Ad()) {
@@ -146,7 +146,7 @@ public class a {
                 if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
                     this.brT.getWriteData().setContent(str);
                 } else {
-                    this.brT.getWriteData().setContent(qx(emotionImageData.getAuthorNameShow()) + str);
+                    this.brT.getWriteData().setContent(qy(emotionImageData.getAuthorNameShow()) + str);
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
                     this.brT.getWriteData().setMemeContSign(emotionImageData.getMemeContSign());
@@ -161,7 +161,7 @@ public class a {
         }
     }
 
-    private String qx(String str) {
+    private String qy(String str) {
         return "@" + str + " ";
     }
 

@@ -76,7 +76,7 @@ public class a {
                         if (a.this.dCS.atY() != null && a.this.dCS.aud() != null) {
                             a.this.dCS.atY().nH(zVar.dEk);
                             a.this.dCS.aud().startPullRefresh();
-                            a.this.dCS.atY().ge(true);
+                            a.this.dCS.atY().gf(true);
                             com.baidu.tieba.frs.smartsort.d.ayK().h(a.this.dCS.atY().getForumName(), zVar.dEk, zVar.name);
                             return;
                         }
@@ -103,7 +103,7 @@ public class a {
         return this.dIx;
     }
 
-    public void lF(String str) {
+    public void lG(String str) {
         this.dIx.setText(str);
     }
 
@@ -181,7 +181,7 @@ public class a {
             z zVar3 = this.dIy.get(0);
             if (zVar3 != null) {
                 nl(zVar3.dEk);
-                lF(zVar3.name);
+                lG(zVar3.name);
                 if (this.dCS != null && this.dCS.atY() != null) {
                     this.dCS.atY().nH(zVar3.dEk);
                     return;
@@ -210,20 +210,20 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                lF(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
+                lG(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
                 return;
             }
             z zVar4 = this.dIy.get(0);
             if (zVar4 != null) {
                 nl(zVar4.dEk);
-                lF(zVar4.name);
+                lG(zVar4.name);
                 if (this.dCS != null && this.dCS.atY() != null) {
                     this.dCS.atY().nH(zVar4.dEk);
                 }
             }
         } else if (zVar != null) {
             nl(zVar.dEk);
-            lF(zVar.name);
+            lG(zVar.name);
             if (this.dCS != null && this.dCS.atY() != null) {
                 this.dCS.atY().nH(zVar.dEk);
             }

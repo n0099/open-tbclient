@@ -121,7 +121,7 @@ public class e {
         }
         if (dVar.bjm != null && !dVar.bjm.equals("")) {
             String uri = dVar.bjm.toString();
-            if (!fw(uri)) {
+            if (!fx(uri)) {
                 dVar.bjm = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 dVar.bjm = Uri.parse(uri);
@@ -156,9 +156,9 @@ public class e {
         return str + "&" + str2;
     }
 
-    private boolean fw(String str) {
+    private boolean fx(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (av.Da().eq(str)) {
+        if (av.Da().er(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

@@ -141,7 +141,7 @@ public class a {
         return "1.0.1";
     }
 
-    public void uM(String str) {
+    public void uN(String str) {
         this.hMV = str;
     }
 }

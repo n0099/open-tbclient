@@ -38,10 +38,10 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
                     if (ax.bb(d.this.dCS.getPageContext().getPageActivity()) && !d.this.dOe.bzN() && !d.this.axJ()) {
                         if (d.this.dNW == null) {
                             d.this.dNW = new com.baidu.tieba.write.c(d.this.dCS.getPageContext(), d.this.dRF, "frs");
-                            d.this.dNW.uh("2");
+                            d.this.dNW.ui("2");
                         }
                         d.this.dNW.a(d.this.dCS.auz());
-                        d.this.dNW.nu(false);
+                        d.this.dNW.nv(false);
                     }
                 }
             });
@@ -49,7 +49,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
-    public void fE(boolean z) {
+    public void fF(boolean z) {
         if (this.dRV != null && z != this.dRU) {
             this.dRU = z;
             this.dRV.setVisibility(z ? 0 : 8);
@@ -101,7 +101,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
                     }
                     if (xH.getIfpost() == 0 && !StringUtils.isNull(xH.getForbid_info())) {
                         String forbid_info = xH.getForbid_info();
-                        if (am.eg(forbid_info) > 14) {
+                        if (am.eh(forbid_info) > 14) {
                             forbid_info = am.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
                         }
                         BdToast b = BdToast.b(this.dCS.getPageContext().getPageActivity(), forbid_info, d.f.icon_toast_game_error);

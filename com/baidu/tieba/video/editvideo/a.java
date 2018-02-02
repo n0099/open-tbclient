@@ -17,9 +17,9 @@ public interface a {
 
     void finishPage();
 
-    void qI(String str);
+    void qJ(String str);
 
     void s(Bitmap bitmap);
 
-    void tA(String str);
+    void tB(String str);
 }

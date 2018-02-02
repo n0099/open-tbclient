@@ -37,7 +37,7 @@ public class c {
         return this.haJ;
     }
 
-    public void mD(boolean z) {
+    public void mE(boolean z) {
         this.haJ = z;
     }
 }

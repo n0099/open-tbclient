@@ -73,7 +73,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean eR(boolean z) {
+    public boolean eS(boolean z) {
         if (this.eOX.DR() || !aLS()) {
             return false;
         }

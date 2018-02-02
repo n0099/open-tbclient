@@ -428,7 +428,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         }
     }
 
-    public bd sw(String str) {
+    public bd sx(String str) {
         if (this.threadList == null) {
             return null;
         }
@@ -468,13 +468,13 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         }
         c(iVar.xH());
         a(iVar.btL());
-        mv(iVar.btH());
-        ss(iVar.btI());
+        mw(iVar.btH());
+        st(iVar.btI());
         c(iVar.aYJ());
         setGameName(iVar.getGameName());
-        st(iVar.btP());
+        su(iVar.btP());
         a(iVar.btJ());
-        mw(iVar.btM());
+        mx(iVar.btM());
         sw(iVar.aYY());
         dl(iVar.btO());
         vC(iVar.btT());
@@ -490,7 +490,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
         dk(iVar.btQ());
         vD(iVar.btY());
         dn(iVar.btV());
-        sv(iVar.btW());
+        sw(iVar.btW());
         af(iVar.btX());
         a(iVar.btZ());
         vE(iVar.buc());
@@ -553,7 +553,7 @@ public class l extends i implements com.baidu.tbadk.mvc.b.l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void mx(boolean z) {
+    public void my(boolean z) {
         boolean z2;
         boolean z3 = false;
         if (!com.baidu.tbadk.core.util.v.E(this.threadList)) {

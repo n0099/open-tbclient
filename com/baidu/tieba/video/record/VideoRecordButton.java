@@ -84,7 +84,7 @@ public class VideoRecordButton extends FrameLayout {
         }
     }
 
-    public void nm(boolean z) {
+    public void nn(boolean z) {
         if (this.hxs != null && this.hxs.isRunning()) {
             this.hxs.cancel();
         }

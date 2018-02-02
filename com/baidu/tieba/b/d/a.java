@@ -395,7 +395,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
             if (this.cRD == null || this.cRD == EGL10.EGL_NO_CONTEXT) {
                 this.cRD = null;
-                kd("createContext");
+                ke("createContext");
             }
             this.cRB = null;
         }
@@ -494,7 +494,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        private void kd(String str) {
+        private void ke(String str) {
             S(str, this.cRz.eglGetError());
         }
 

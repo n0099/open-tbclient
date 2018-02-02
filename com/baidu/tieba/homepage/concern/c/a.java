@@ -51,7 +51,7 @@ public class a {
                     k kVar = new k(bdVar);
                     if (kVar != null) {
                         kVar.tid = bdVar.getTid();
-                        kVar.ko("3");
+                        kVar.kp("3");
                     }
                     if (kVar != null && kVar.isValid()) {
                         linkedList.add(kVar);
@@ -60,7 +60,7 @@ public class a {
                     l lVar2 = new l();
                     if (lVar2 != null) {
                         lVar2.threadData = bdVar;
-                        lVar2.ko(lVar2.threadData.isLinkThread() ? "4" : "1");
+                        lVar2.kp(lVar2.threadData.isLinkThread() ? "4" : "1");
                         lVar2.isLinkThread = false;
                     }
                     if (lVar2.threadData != null && lVar2.isValid() && !StringUtils.isNull(lVar2.threadData.getId()) && !"0".equals(lVar2.threadData.getTid())) {

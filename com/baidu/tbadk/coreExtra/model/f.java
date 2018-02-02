@@ -49,17 +49,17 @@ public class f {
             biS = jSONObject.optString("android_debug_type");
             if (!StringUtils.isNull(biS)) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_debug_type", biS);
-                fr(biS);
+                fs(biS);
             }
             biM = jSONObject.optString("step_cache_strategy");
             if (!StringUtils.isNull(biM)) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_step_cache_strategy", biM);
-                fs(biM);
+                ft(biM);
             }
         }
     }
 
-    private static void fr(String str) {
+    private static void fs(String str) {
         if (!StringUtils.isNull(str)) {
             if (mDebugParamsMap == null) {
                 mDebugParamsMap = new HashMap();
@@ -75,7 +75,7 @@ public class f {
         }
     }
 
-    private static void fs(String str) {
+    private static void ft(String str) {
         if (!StringUtils.isNull(str)) {
             if (biN == null) {
                 biN = new HashMap();
@@ -114,7 +114,7 @@ public class f {
         if (StringUtils.isNull(string)) {
             return "";
         }
-        fr(string);
+        fs(string);
         return string;
     }
 
@@ -149,7 +149,7 @@ public class f {
         if (StringUtils.isNull(string)) {
             return "";
         }
-        fs(string);
+        ft(string);
         return string;
     }
 

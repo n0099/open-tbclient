@@ -75,7 +75,7 @@ public abstract class a {
             }
             d dVar2 = new d();
             if (xVar.Cg().Dd().isRequestSuccess()) {
-                dVar2.videoUrl = sS(BL);
+                dVar2.videoUrl = sT(BL);
                 return dVar2;
             }
             if (xVar.Cg().Dd().Cj()) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String sS(String str) {
+    private String sT(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

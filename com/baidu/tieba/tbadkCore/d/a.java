@@ -128,8 +128,8 @@ public class a {
             }
         }
 
-        public void ea(String str) {
-            this.eTN.ea(str);
+        public void eb(String str) {
+            this.eTN.eb(str);
         }
     }
 }

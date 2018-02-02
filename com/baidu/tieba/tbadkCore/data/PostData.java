@@ -163,7 +163,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         }
     }
 
-    public void sE(String str) {
+    public void sF(String str) {
         if (this.gYO != null && !StringUtils.isNull(str)) {
             Iterator<PostData> it = this.gYO.iterator();
             while (it.hasNext()) {
@@ -176,7 +176,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         }
     }
 
-    public void my(boolean z) {
+    public void mz(boolean z) {
         this.gZq = z;
     }
 
@@ -184,7 +184,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         return this.gZq;
     }
 
-    public void mz(boolean z) {
+    public void mA(boolean z) {
         this.gYN = z;
     }
 
@@ -248,7 +248,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         return this.gYW;
     }
 
-    public void mA(boolean z) {
+    public void mB(boolean z) {
         this.gYW = z;
     }
 
@@ -305,7 +305,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         return this.aOv;
     }
 
-    public void mB(boolean z) {
+    public void mC(boolean z) {
         this.gZo = z;
     }
 
@@ -533,10 +533,10 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(d.j.voice_str));
                     } else if (next.getType() == 2) {
-                        String gc = TbFaceManager.LQ().gc(next.getText());
-                        if (gc != null) {
+                        String gd = TbFaceManager.LQ().gd(next.getText());
+                        if (gd != null) {
                             sb.append("[");
-                            sb.append(gc);
+                            sb.append(gd);
                             sb.append("]");
                         }
                     } else if (next.getType() == 11 && !com.baidu.tbadk.core.util.am.isEmpty(next.bvt())) {
@@ -993,7 +993,7 @@ public class PostData implements com.baidu.adp.widget.ListView.i, ae {
         return this.dFO;
     }
 
-    public void mC(boolean z) {
+    public void mD(boolean z) {
         this.dFO = z;
     }
 

@@ -46,7 +46,7 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String wT(String str) {
+    public String wU(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -60,7 +60,7 @@ class h {
         return "";
     }
 
-    String wU(String str) {
+    String wV(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,7 +73,7 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return wU(str).replace('$', '.');
+            return wV(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }

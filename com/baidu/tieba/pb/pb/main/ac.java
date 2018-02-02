@@ -28,7 +28,7 @@ public class ac {
         this.aQK.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
     }
 
-    public void qm(String str) {
+    public void qn(String str) {
         if (this.dSJ != null) {
             if (com.baidu.tbadk.core.util.am.isEmpty(str) || this.dSK > 0) {
                 onDestory();

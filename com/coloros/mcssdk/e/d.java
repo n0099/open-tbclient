@@ -23,11 +23,11 @@ public class d extends c {
         return "messageID:" + this.hNk + ",taskID:" + this.hNl + ",globalID:" + this.hNm + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.hNn;
     }
 
-    public void uS(String str) {
+    public void uT(String str) {
         this.hNm = str;
     }
 
-    public void uT(String str) {
+    public void uU(String str) {
         this.hNn = str;
     }
 }

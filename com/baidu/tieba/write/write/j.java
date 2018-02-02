@@ -186,7 +186,7 @@ public class j {
                     this.hLy.startLoad(aVar.hEQ, 10, false);
                     this.hLE.setText(aVar.aLL);
                     this.hLF.setText(aVar.aLM);
-                    if (am.eg(aVar.aLL) > 30) {
+                    if (am.eh(aVar.aLL) > 30) {
                         this.hLE.setMaxLines(2);
                         this.hLF.setMaxLines(1);
                     } else {

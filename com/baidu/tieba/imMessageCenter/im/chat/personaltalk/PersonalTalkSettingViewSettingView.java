@@ -34,7 +34,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         aj.t(this.eMi.getView(), d.C0108d.common_color_10163);
     }
 
-    public void hT(boolean z) {
+    public void hU(boolean z) {
         if (z) {
             this.eMi.ax(false);
         } else {

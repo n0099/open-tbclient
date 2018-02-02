@@ -375,7 +375,7 @@ public class af {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pull_image_num");
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_day");
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("pullview_background_color_night");
-        dY(str);
+        dZ(str);
         File Cy = Cy();
         if (d(Cy, str2)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("pull_image_url", str);
@@ -387,7 +387,7 @@ public class af {
         deleteDir(Cy);
     }
 
-    private void dY(String str) {
+    private void dZ(String str) {
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
         try {
             HttpResponse execute = defaultHttpClient.execute(new HttpGet(str));

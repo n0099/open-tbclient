@@ -7,10 +7,10 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long hI(String str) {
+    public static long hJ(String str) {
         long j;
         long j2 = 0;
-        long hJ = hJ(str);
+        long hK = hK(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
@@ -25,10 +25,10 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + hJ;
+        return j + j2 + hK;
     }
 
-    public static long hJ(String str) {
+    public static long hK(String str) {
         File file;
         File file2;
         File[] listFiles;
@@ -79,7 +79,7 @@ public class m {
         }
     }
 
-    public static String hK(String str) {
+    public static String hL(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

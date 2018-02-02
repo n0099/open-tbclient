@@ -118,7 +118,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             @Override // com.baidu.tieba.card.v
             public void a(View view, l lVar) {
                 if (lVar != null && lVar.VM() != null) {
-                    k.kj(lVar.VM().getTid());
+                    k.kk(lVar.VM().getTid());
                 }
             }
         };
@@ -150,7 +150,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             return null;
         }
         lVar.lH(i + 1);
-        s.akK().a(lVar.kr("c12351"));
+        s.akK().a(lVar.ks("c12351"));
         aVar.alp().a(lVar);
         aVar.alp().b(this.ebW);
         return aVar.getView();

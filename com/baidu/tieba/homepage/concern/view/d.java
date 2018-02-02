@@ -79,7 +79,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == d.g.thread_info_commont_container && d.this.bXU != null) {
-                    k.kj(d.this.bXU.getId());
+                    k.kk(d.this.bXU.getId());
                     d.this.akl();
                 }
             }
@@ -155,7 +155,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
                 this.ecK.setText(aAY);
             }
             this.bXU = bVar.dvb;
-            if (k.kk(this.bXU.getId())) {
+            if (k.kl(this.bXU.getId())) {
                 akl();
             }
             this.ciT.setData(this.bXU);
@@ -186,7 +186,7 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     public void akA() {
         if (this.ecP != null && this.bXU != null) {
-            k.kj(this.bXU.getId());
+            k.kk(this.bXU.getId());
             akl();
             PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.bXU.getId(), this.bXU.zk(), k.yJ(), 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);

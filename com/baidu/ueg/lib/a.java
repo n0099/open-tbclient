@@ -233,7 +233,7 @@ public class a extends b {
         return bArr;
     }
 
-    public static byte[] uK(String str) {
+    public static byte[] uL(String str) {
         return new a().decode(str);
     }
 

@@ -61,11 +61,11 @@ public class ShareFromGameCenter extends LinearLayout {
     public void a(ShareFromGameCenterMsgData shareFromGameCenterMsgData, boolean z) {
         if (shareFromGameCenterMsgData != null) {
             this.eJZ = shareFromGameCenterMsgData;
-            hK(z);
+            hL(z);
         }
     }
 
-    private void hK(boolean z) {
+    private void hL(boolean z) {
         if (z) {
             this.eKk.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.selector_msg_text_bubble_me));
             this.mTitle.setTextColor(this.mContext.getResources().getColor(d.C0108d.cp_cont_g));
@@ -107,7 +107,7 @@ public class ShareFromGameCenter extends LinearLayout {
         this.eKj.setDefaultResource(d.f.icon);
         this.eKj.setAutoChangeStyle(false);
         this.eKj.startLoad(this.eJZ.getShareSourceIcon(), 10, false);
-        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.sL(this.eJZ.getShareSourceUrl()), "ref_id", "2000801");
+        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.sM(this.eJZ.getShareSourceUrl()), "ref_id", "2000801");
     }
 
     public LinearLayout getTail() {

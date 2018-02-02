@@ -93,7 +93,7 @@ public class f {
         return linkedList;
     }
 
-    public static void nd(String str) {
+    public static void ne(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 g.aGG().aGH();

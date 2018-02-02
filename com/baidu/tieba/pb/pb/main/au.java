@@ -20,12 +20,12 @@ public class au {
         this.fTw.xh(d.C0108d.cp_cont_h_alpha85);
     }
 
-    public void kG(boolean z) {
+    public void kH(boolean z) {
         if (this.fTx != null && this.fTx.getText() != null) {
             int selectionEnd = this.fTx.getSelectionEnd();
             SpannableStringBuilder b = this.fTv.b(this.fTx.getText());
             if (b != null) {
-                this.fTv.nt(true);
+                this.fTv.nu(true);
                 this.fTx.setText(b);
                 if (z && this.fTv.bEP() >= 0) {
                     this.fTx.requestFocus();
@@ -33,17 +33,17 @@ public class au {
                 } else {
                     this.fTx.setSelection(selectionEnd);
                 }
-                this.fTv.ns(this.fTv.bEP() >= 0);
+                this.fTv.nt(this.fTv.bEP() >= 0);
             }
         }
     }
 
-    public void kH(boolean z) {
+    public void kI(boolean z) {
         if (this.fTy != null && this.fTy.getText() != null) {
             int selectionEnd = this.fTy.getSelectionEnd();
             SpannableStringBuilder b = this.fTw.b(this.fTy.getText());
             if (b != null) {
-                this.fTw.nt(true);
+                this.fTw.nu(true);
                 this.fTy.setText(b);
                 if (z && this.fTw.bEP() >= 0) {
                     this.fTy.requestFocus();
@@ -51,29 +51,29 @@ public class au {
                 } else {
                     this.fTy.setSelection(selectionEnd);
                 }
-                this.fTw.ns(this.fTw.bEP() >= 0);
+                this.fTw.nt(this.fTw.bEP() >= 0);
             }
         }
     }
 
     public void ber() {
-        this.fTw.ug(null);
+        this.fTw.uh(null);
         this.fTw.av(null);
-        this.fTw.ns(false);
+        this.fTw.nt(false);
     }
 
     public void bes() {
-        this.fTv.ug(null);
+        this.fTv.uh(null);
         this.fTv.av(null);
-        this.fTv.ns(false);
+        this.fTv.nt(false);
     }
 
     public void e(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.fTv.av(postWriteCallBackData.getSensitiveWords());
-            this.fTv.ug(postWriteCallBackData.getErrorString());
+            this.fTv.uh(postWriteCallBackData.getErrorString());
             if (!com.baidu.tbadk.core.util.v.E(this.fTv.bEO())) {
-                kG(true);
+                kH(true);
                 this.fMo = postWriteCallBackData;
             }
         }
@@ -82,9 +82,9 @@ public class au {
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.fTw.av(postWriteCallBackData.getSensitiveWords());
-            this.fTw.ug(postWriteCallBackData.getErrorString());
+            this.fTw.uh(postWriteCallBackData.getErrorString());
             if (!com.baidu.tbadk.core.util.v.E(this.fTw.bEO())) {
-                kH(true);
+                kI(true);
             }
         }
     }
@@ -106,10 +106,10 @@ public class au {
         this.fTv.onChangeSkinType();
         this.fTw.onChangeSkinType();
         if (this.fTv.bEQ()) {
-            kG(false);
+            kH(false);
         }
         if (this.fTw.bEQ()) {
-            kH(false);
+            kI(false);
         }
     }
 

@@ -30,7 +30,7 @@ public abstract class a {
         this.exi = cls;
     }
 
-    public int mS(String str) {
+    public int mT(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -54,7 +54,7 @@ public abstract class a {
         return i;
     }
 
-    public long mT(String str) {
+    public long mU(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
@@ -68,7 +68,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                mX(str);
+                mY(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -94,7 +94,7 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo mU(String str) {
+    public CommonMsgPojo mV(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -133,7 +133,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        mX(str);
+                        mY(str);
                         n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -199,7 +199,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            mX(str);
+                            mY(str);
                             n.i(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -294,7 +294,7 @@ public abstract class a {
                             try {
                                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                                 e2.printStackTrace();
-                                mX(valueOf);
+                                mY(valueOf);
                                 n.i(cursor2);
                                 return linkedList;
                             } catch (Throwable th2) {
@@ -382,7 +382,7 @@ public abstract class a {
             this.exj = aGy();
         }
         if (!this.exj.contains(valueOf)) {
-            mX(valueOf);
+            mY(valueOf);
             this.exj.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
@@ -486,7 +486,7 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    mX(next);
+                    mY(next);
                 }
             }
         }
@@ -521,7 +521,7 @@ public abstract class a {
         }
     }
 
-    public boolean mV(String str) {
+    public boolean mW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -541,10 +541,10 @@ public abstract class a {
                 }
             }
         }
-        return g.aGG().ne("DROP TABLE IF EXISTS " + (this.exh + str));
+        return g.aGG().nf("DROP TABLE IF EXISTS " + (this.exh + str));
     }
 
-    public boolean mW(String str) {
+    public boolean mX(String str) {
         try {
             d(Long.parseLong(str), true);
             return true;
@@ -554,9 +554,9 @@ public abstract class a {
         }
     }
 
-    public synchronized void mX(String str) {
+    public synchronized void mY(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.aGG().ne("CREATE TABLE IF NOT EXISTS " + (this.exh + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            g.aGG().nf("CREATE TABLE IF NOT EXISTS " + (this.exh + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 

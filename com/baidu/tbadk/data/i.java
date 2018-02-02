@@ -17,7 +17,7 @@ public class i implements com.baidu.adp.widget.ListView.i {
         return this.bpi;
     }
 
-    public void fP(String str) {
+    public void fQ(String str) {
         this.bpi = str;
     }
 
@@ -25,7 +25,7 @@ public class i implements com.baidu.adp.widget.ListView.i {
         return this.bpj;
     }
 
-    public void fQ(String str) {
+    public void fR(String str) {
         this.bpj = str;
     }
 

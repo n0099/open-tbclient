@@ -55,7 +55,7 @@ public class i implements a.InterfaceC0018a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] et(String str) {
+    private final byte[] eu(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         try {
             try {
@@ -140,8 +140,8 @@ public class i implements a.InterfaceC0018a {
         }
     }
 
-    public byte[] eu(String str) {
-        return et(str);
+    public byte[] ev(String str) {
+        return eu(str);
     }
 
     private boolean Dm() {
@@ -168,7 +168,7 @@ public class i implements a.InterfaceC0018a {
         int i2 = 0;
         if (!this.mUseHttpClient) {
             try {
-                byte[] et = et(str);
+                byte[] eu = eu(str);
                 int i3 = aXn + 1;
                 aXn = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
@@ -188,7 +188,7 @@ public class i implements a.InterfaceC0018a {
                     aXn = 0;
                     aXp = 0;
                 }
-                if (et == null) {
+                if (eu == null) {
                     return null;
                 }
                 if (this.aXg != null && this.aXg.nc().ajE != null) {
@@ -210,7 +210,7 @@ public class i implements a.InterfaceC0018a {
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
                             this.aXr = false;
                             i = i2;
-                            return (this.aXq || (!z && i == 0) || !new String(et, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? et : copyOfRange(et, 23, et.length);
+                            return (this.aXq || (!z && i == 0) || !new String(eu, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? eu : copyOfRange(eu, 23, eu.length);
                         }
                         this.aXr = true;
                     }

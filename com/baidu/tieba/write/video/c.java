@@ -192,9 +192,9 @@ public class c {
             public void afterTextChanged(Editable editable) {
                 if (c.this.hGH != null) {
                     if (!c.this.hGH.bER()) {
-                        c.this.nB(false);
+                        c.this.nC(false);
                     }
-                    c.this.hGH.nt(false);
+                    c.this.hGH.nu(false);
                 }
             }
         });
@@ -231,22 +231,22 @@ public class c {
         }
     }
 
-    public void uw(String str) {
+    public void ux(String str) {
         int i;
         int i2 = 0;
-        Bitmap sc = sc(str);
-        if (sc != null && sc.getHeight() != 0) {
-            if (sc.getHeight() <= 0) {
+        Bitmap sd = sd(str);
+        if (sd != null && sd.getHeight() != 0) {
+            if (sd.getHeight() <= 0) {
                 i = 0;
-            } else if (sc.getWidth() / sc.getHeight() > l.ao(this.hGB) / l.s(this.hGB, d.e.ds440)) {
+            } else if (sd.getWidth() / sd.getHeight() > l.ao(this.hGB) / l.s(this.hGB, d.e.ds440)) {
                 i = l.ao(this.hGB);
-                if (sc.getWidth() > 0) {
-                    i2 = (int) ((i / sc.getWidth()) * sc.getHeight());
+                if (sd.getWidth() > 0) {
+                    i2 = (int) ((i / sd.getWidth()) * sd.getHeight());
                 }
             } else {
                 int s = l.s(this.hGB, d.e.ds440);
-                if (sc.getWidth() > 0) {
-                    i = (int) ((s / sc.getHeight()) * sc.getWidth());
+                if (sd.getWidth() > 0) {
+                    i = (int) ((s / sd.getHeight()) * sd.getWidth());
                     i2 = s;
                 } else {
                     i = 0;
@@ -257,11 +257,11 @@ public class c {
             layoutParams.height = i2;
             layoutParams.width = i;
             this.hrX.setLayoutParams(layoutParams);
-            this.hrX.setImageBitmap(sc);
+            this.hrX.setImageBitmap(sd);
         }
     }
 
-    private Bitmap sc(String str) {
+    private Bitmap sd(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -337,7 +337,7 @@ public class c {
             String videoPath = videoInfo.getVideoPath();
             String thumbPath = videoInfo.getThumbPath();
             if (!StringUtils.isNull(thumbPath)) {
-                uw(thumbPath);
+                ux(thumbPath);
                 this.hrX.setVisibility(0);
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.video.c.7
                     @Override // java.lang.Runnable
@@ -381,7 +381,7 @@ public class c {
         }
     }
 
-    public void ux(String str) {
+    public void uy(String str) {
         if (StringUtils.isNull(str)) {
             this.mNavigationBar.setCenterTextTitle(this.hGB.getResources().getString(d.j.post_to_home_page));
             bGy();
@@ -428,25 +428,25 @@ public class c {
 
     public void bGA() {
         this.hGH.av(null);
-        this.hGH.ns(false);
+        this.hGH.nt(false);
     }
 
     public void i(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.hGH.av(postWriteCallBackData.getSensitiveWords());
-            this.hGH.ug(postWriteCallBackData.getErrorString());
+            this.hGH.uh(postWriteCallBackData.getErrorString());
             if (!v.E(this.hGH.bEO())) {
-                nB(true);
+                nC(true);
             }
         }
     }
 
-    public void nB(boolean z) {
+    public void nC(boolean z) {
         if (this.hGD.getText() != null) {
             int selectionEnd = this.hGD.getSelectionEnd();
             SpannableStringBuilder b = this.hGH.b(this.hGD.getText());
             if (b != null) {
-                this.hGH.nt(true);
+                this.hGH.nu(true);
                 this.hGD.setText(b);
                 if (z && this.hGH.bEP() >= 0) {
                     this.hGD.requestFocus();
@@ -454,7 +454,7 @@ public class c {
                 } else {
                     this.hGD.setSelection(selectionEnd);
                 }
-                this.hGH.ns(this.hGH.bEP() >= 0);
+                this.hGH.nt(this.hGH.bEP() >= 0);
             }
         }
     }
@@ -463,7 +463,7 @@ public class c {
         return this.hGH;
     }
 
-    public void nC(boolean z) {
+    public void nD(boolean z) {
         if (z) {
             this.hGI.setVisibility(8);
             this.hGG.setVisibility(0);

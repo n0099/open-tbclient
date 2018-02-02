@@ -71,6 +71,6 @@ public class k extends j {
     public void akl() {
         super.akl();
         com.baidu.tieba.card.k.a(this.cTz, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
-        this.cVd.eK(this.aYc.getId());
+        this.cVd.eL(this.aYc.getId());
     }
 }

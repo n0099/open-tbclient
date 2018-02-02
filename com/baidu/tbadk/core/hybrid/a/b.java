@@ -30,7 +30,7 @@ public class b extends o {
             g gVar = new g();
             gVar.setActivityId(optInt);
             gVar.hz(optInt2);
-            gVar.fO(optString);
+            gVar.fP(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, gVar));
         }
     }

@@ -253,7 +253,7 @@ public class a {
         inst.saveBoolean(append.append(TbadkCoreApplication.getCurrentAccount()).toString(), !this.gGX);
     }
 
-    public void lU(boolean z) {
+    public void lV(boolean z) {
         this.isPrimary = z;
     }
 
@@ -288,7 +288,7 @@ public class a {
         bnU();
     }
 
-    public void lV(boolean z) {
+    public void lW(boolean z) {
         if (z) {
             SparseArray sparseArray = new SparseArray();
             sparseArray.append(4, new b.a(this.gGO, this.gGW));
@@ -356,7 +356,7 @@ public class a {
                     this.gGS = z;
                     break;
             }
-            lV(true);
+            lW(true);
             bnW();
         }
     }

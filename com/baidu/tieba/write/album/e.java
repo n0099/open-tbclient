@@ -115,12 +115,12 @@ public class e {
         return this.duj;
     }
 
-    public void uj(String str) {
+    public void uk(String str) {
         this.duj = str;
-        uk(str);
+        ul(str);
     }
 
-    private void uk(String str) {
+    private void ul(String str) {
         if (this.hDD != null && !StringUtils.isNull(str)) {
             for (com.baidu.tbadk.album.a aVar : this.hDD) {
                 if (aVar != null && TextUtils.equals(str, aVar.getAlbumId())) {
@@ -146,7 +146,7 @@ public class e {
         return this.hDD;
     }
 
-    public List<MediaFileInfo> ul(String str) {
+    public List<MediaFileInfo> um(String str) {
         if (this.hDD == null || StringUtils.isNull(str)) {
             return null;
         }
@@ -159,7 +159,7 @@ public class e {
     }
 
     public boolean Ne() {
-        return v.E(ul(com.baidu.tbadk.album.a.aFQ));
+        return v.E(um(com.baidu.tbadk.album.a.aFQ));
     }
 
     public void c(com.baidu.tbadk.album.g gVar) {

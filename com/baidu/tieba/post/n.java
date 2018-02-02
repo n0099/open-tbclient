@@ -27,9 +27,9 @@ public class n {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    d.pj(g.a.bPv);
-                    d.pj(g.a.fsq);
-                    d.pj(g.a.fsr);
+                    d.pk(g.a.bPv);
+                    d.pk(g.a.fsq);
+                    d.pk(g.a.fsr);
                     return null;
                 }
             }.execute(new Void[0]);

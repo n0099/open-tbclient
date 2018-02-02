@@ -80,7 +80,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
                 if (l.this.akg() != null) {
                     l.this.akg().a(view, l.this.aYc);
                 }
-                l.this.eB(view == l.this.cSK);
+                l.this.eC(view == l.this.cSK);
             }
         };
         this.cUz = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.l.4
@@ -216,7 +216,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         this.cSK.onChangeSkinType();
-        if (!akk() && com.baidu.tieba.card.k.kk(this.aYc.getId())) {
+        if (!akk() && com.baidu.tieba.card.k.kl(this.aYc.getId())) {
             com.baidu.tieba.card.k.a(this.mTitle, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cUv, this.aYc.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cSK.getGodReplyContent(), this.aYc.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
@@ -278,7 +278,7 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
                                 akg.bLL = true;
                                 akg.a(view, l.this.aYc);
                             }
-                            l.this.eB(false);
+                            l.this.eC(false);
                             return;
                         }
                         if (akg != null) {
@@ -418,9 +418,9 @@ public class l extends com.baidu.tieba.card.a<bd> implements u {
         }
     }
 
-    protected void eB(boolean z) {
+    protected void eC(boolean z) {
         if (this.aYc != null) {
-            com.baidu.tieba.card.k.kj(this.aYc.getId());
+            com.baidu.tieba.card.k.kk(this.aYc.getId());
             com.baidu.tieba.card.k.a(this.mTitle, this.aYc.getId(), d.C0108d.cp_cont_b, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cUv, this.aYc.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);
             com.baidu.tieba.card.k.a(this.cSK.getGodReplyContent(), this.aYc.getId(), d.C0108d.cp_cont_f, d.C0108d.cp_cont_d);

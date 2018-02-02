@@ -31,13 +31,13 @@ public class WriteMultiImgsActivity extends BaseActivity {
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public void bHo() {
                 WriteMultiImgsActivity.this.hKO.bIn();
-                WriteMultiImgsActivity.this.hKO.nN(true);
+                WriteMultiImgsActivity.this.hKO.nO(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public void bHp() {
                 WriteMultiImgsActivity.this.hKO.bIo();
-                WriteMultiImgsActivity.this.hKO.nN(false);
+                WriteMultiImgsActivity.this.hKO.nO(false);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
@@ -72,7 +72,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             bundle.putInt("OutState_Current_Index", this.hKO.hLa.getCurrentIndex());
             bundle.putInt("OutState_Write_Entrance", this.hKO.bIr());
             bundle.putSerializable("OutState_Write_Info_Data", this.hKO.auz());
-            this.hKO.hLa.nF(true);
+            this.hKO.hLa.nG(true);
             if (this.hKO.bIt() != null) {
                 bundle.putString("OutState_Write_Img_Info", this.hKO.bIt().toJsonString());
             }

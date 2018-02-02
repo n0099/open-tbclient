@@ -32,7 +32,7 @@ public class k {
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.bPE.hw((String) message.obj);
+                    k.this.bPE.hx((String) message.obj);
                 }
             } else if (message.what == 5 && k.this.bPE != null) {
                 k.this.bPE.clearCache();
@@ -66,7 +66,7 @@ public class k {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hH(String str) {
+    public void hI(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
@@ -77,7 +77,7 @@ public class k {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void hw(String str) {
+    public void hx(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

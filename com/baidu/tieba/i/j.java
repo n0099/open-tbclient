@@ -63,15 +63,15 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void pt(String str) {
-        py(str);
+    public void pu(String str) {
+        pz(str);
         this.fsx.add(new com.baidu.tieba.l.a(1));
         this.mCurrentState = 1;
     }
 
-    private void py(String str) {
+    private void pz(String str) {
         if (!StringUtils.isNull(str)) {
-            this.fsw = VideoPlatformStatic.hR(str);
+            this.fsw = VideoPlatformStatic.hS(str);
             if (this.fsw != 0) {
                 this.fsI = true;
             }
@@ -96,7 +96,7 @@ public class j implements i {
     @Override // com.baidu.tieba.i.i
     public void a(int i, String str, int i2, int i3, int i4, String str2, int i5) {
         this.fsC = System.currentTimeMillis();
-        py(str);
+        pz(str);
         this.fsx.add(new com.baidu.tieba.l.e(4, i, i2, i3, i4, str2, i5));
         this.mCurrentState = 2;
     }
@@ -172,9 +172,9 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void pu(String str) {
+    public void pv(String str) {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
-            this.mSource = VideoPlatformStatic.hS(str);
+            this.mSource = VideoPlatformStatic.hT(str);
             aVt();
             this.fsx.add(new com.baidu.tieba.l.a(HttpStatus.SC_RESET_CONTENT));
             this.mCurrentState = 8;
@@ -183,11 +183,11 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public String pv(String str) {
+    public String pw(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1) {
             return this.fst;
         }
-        this.mSource = VideoPlatformStatic.hS(str);
+        this.mSource = VideoPlatformStatic.hT(str);
         aVt();
         this.fsy.put("stallDuration", Long.valueOf(this.fsG));
         this.fsx.add(new com.baidu.tieba.l.a(HttpStatus.SC_PARTIAL_CONTENT));
@@ -197,11 +197,11 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public boolean pw(String str) {
+    public boolean px(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1 || this.mCurrentState == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.hS(str);
+        this.mSource = VideoPlatformStatic.hT(str);
         aVt();
         this.fsx.add(new com.baidu.tieba.l.a(HttpStatus.SC_MULTI_STATUS));
         this.mCurrentState = 7;
@@ -252,7 +252,7 @@ public class j implements i {
         this.fsJ = false;
         this.fsK = z;
         this.mError = i3;
-        this.mSource = VideoPlatformStatic.hS(str);
+        this.mSource = VideoPlatformStatic.hT(str);
         aVt();
         if (!v.E(this.fsB)) {
             int size = this.fsB.size();
@@ -286,7 +286,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void px(String str) {
+    public void py(String str) {
         this.fsM = str;
     }
 
@@ -450,7 +450,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.i.i
-    public void iY(boolean z) {
+    public void iZ(boolean z) {
         this.fsJ = z;
     }
 

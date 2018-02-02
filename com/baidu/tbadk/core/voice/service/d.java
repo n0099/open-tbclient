@@ -5,7 +5,7 @@ public interface d {
 
     void Ew();
 
-    boolean eQ(String str);
+    boolean eR(String str);
 
     boolean isRecording();
 }

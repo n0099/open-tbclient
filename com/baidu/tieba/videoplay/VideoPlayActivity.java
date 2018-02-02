@@ -95,7 +95,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             }
         });
         this.hxv.a(this.hxw, this.bXc, this.lQ);
-        this.hxv.ub(this.mFrom);
+        this.hxv.uc(this.mFrom);
     }
 
     private void initData() {

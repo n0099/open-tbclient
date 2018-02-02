@@ -28,12 +28,12 @@ public class an {
                 this.fQg = new com.baidu.tieba.d.b(this.fJR.getPageContext(), view);
                 this.fQg.lV(d.f.bg_tip_blue_up_left);
                 this.fQg.lU(16);
-                this.fQg.eT(true);
+                this.fQg.eU(true);
                 this.fQg.lY(57);
                 this.fQg.lZ(-10);
             }
             this.fQg.lW(5000);
-            this.fQg.ky(str);
+            this.fQg.kz(str);
             bG(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12504"));
         }

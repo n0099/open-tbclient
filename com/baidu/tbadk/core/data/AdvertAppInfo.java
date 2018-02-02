@@ -162,7 +162,7 @@ public class AdvertAppInfo extends bd {
     }
 
     public void a(App app) {
-        ICardInfo oe;
+        ICardInfo og;
         if (app != null) {
             this.aJD = app;
             this.aJE = new AppData(app);
@@ -202,8 +202,8 @@ public class AdvertAppInfo extends bd {
                     }
                 }
             }
-            if (com.baidu.adp.lib.b.d.mA().an("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.aJy.lego_card) && (oe = com.baidu.tieba.lego.card.b.oe(this.aJy.lego_card)) != null) {
-                ICardInfo viewItem = oe.getViewItem(0, 1);
+            if (com.baidu.adp.lib.b.d.mA().an("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.aJy.lego_card) && (og = com.baidu.tieba.lego.card.b.og(this.aJy.lego_card)) != null) {
+                ICardInfo viewItem = og.getViewItem(0, 1);
                 if (viewItem instanceof ILegoAdvert) {
                     this.legoCard = (ILegoAdvert) viewItem;
                     this.legoCard.setAdvertAppInfo(this);

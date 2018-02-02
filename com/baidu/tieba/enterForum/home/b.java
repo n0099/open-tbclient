@@ -114,7 +114,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
             if (AntiHelper.vQ(b.this.cSY.getErrorCode())) {
                 AntiHelper.an(b.this.bSa.getPageContext().getPageActivity(), b.this.cSY.getErrorString());
             } else if (obj != null) {
-                b.this.dmO.fp(!StringUtils.isNull(b.this.dmR));
+                b.this.dmO.fq(!StringUtils.isNull(b.this.dmR));
             } else if (!StringUtils.isNull(b.this.cSY.getErrorString())) {
                 l.showToast(TbadkCoreApplication.getInst(), b.this.cSY.getErrorString());
             }
@@ -164,7 +164,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     private j.b baZ = new j.b() { // from class: com.baidu.tieba.enterForum.home.b.5
         @Override // com.baidu.tbadk.core.view.j.b
         public void onListPullRefresh(boolean z) {
-            b.this.dmO.fp(!StringUtils.isNull(b.this.dmR));
+            b.this.dmO.fq(!StringUtils.isNull(b.this.dmR));
             TbadkCoreApplication.getInst().setLikeBarChanged(false);
         }
     };
@@ -346,7 +346,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         }
     }
 
-    public void fl(boolean z) {
+    public void fm(boolean z) {
         if (this.mWaitingDialog == null) {
             apQ();
         }
@@ -364,7 +364,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void fm(boolean z) {
+    public void fn(boolean z) {
         if (this.dmN != null && this.dmM != null) {
             if (z) {
                 if (this.dmM.isPrimary() && this.dmM.isResumed()) {
@@ -437,7 +437,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
 
     public void VB() {
         if (this.dmN != null) {
-            fn(false);
+            fo(false);
         }
     }
 
@@ -465,7 +465,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         }
     }
 
-    public void fn(boolean z) {
+    public void fo(boolean z) {
         boolean z2;
         boolean z3;
         if (!this.dmU && this.dmO != null && this.dmN != null) {
@@ -504,17 +504,17 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    com.baidu.tieba.tbadkCore.util.a.sH(currentAccount);
+                    com.baidu.tieba.tbadkCore.util.a.sI(currentAccount);
                 }
                 this.dmN.notifyDataSetChanged();
             }
             if (z2 || z4) {
                 Mb();
                 if (z4) {
-                    this.dmO.fp(StringUtils.isNull(this.dmR) ? false : true);
+                    this.dmO.fq(StringUtils.isNull(this.dmR) ? false : true);
                 } else if (z2) {
-                    this.dmO.fq(!StringUtils.isNull(this.dmR));
-                    this.dmO.fp(StringUtils.isNull(this.dmR) ? false : true);
+                    this.dmO.fr(!StringUtils.isNull(this.dmR));
+                    this.dmO.fq(StringUtils.isNull(this.dmR) ? false : true);
                 }
             }
         }
@@ -572,7 +572,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.fl(false);
+            b.this.fm(false);
             if (this.mNetwork != null) {
                 if (this.mNetwork.Cg().Dd().isRequestSuccess()) {
                     b.this.dmT = true;
@@ -601,7 +601,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            b.this.fl(true);
+            b.this.fm(true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -739,7 +739,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         return this.bSa.getUniqueId();
     }
 
-    public void fo(boolean z) {
+    public void fp(boolean z) {
         int i = 1;
         if (this.dmN != null && this.dmM != null) {
             boolean z2 = this.dmN.apS() && this.dmM.isPrimary();

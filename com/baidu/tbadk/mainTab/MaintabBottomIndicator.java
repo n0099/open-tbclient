@@ -144,7 +144,7 @@ public class MaintabBottomIndicator extends e {
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public e.a gN(String str) {
+    public e.a gO(String str) {
         return this.bvO.get(str);
     }
 

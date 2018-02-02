@@ -30,7 +30,7 @@ public class d {
         return Math.abs(LV().hashCode()) + "";
     }
 
-    public static void gG(String str) {
+    public static void gH(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);

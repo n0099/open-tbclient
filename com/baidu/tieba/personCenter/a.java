@@ -74,7 +74,7 @@ public class a extends BaseFragment {
                     xVar.n("user_id", TbadkCoreApplication.getCurrentAccount());
                     String BI = xVar.BI();
                     com.baidu.tieba.personCenter.data.a aVar = new com.baidu.tieba.personCenter.data.a();
-                    aVar.qN(BI);
+                    aVar.qO(BI);
                     if (aVar.getErrorCode() == 0 && aVar.Nb() > 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP_SHOW, true));
                         return null;
@@ -116,7 +116,7 @@ public class a extends BaseFragment {
         if (isAdded()) {
             com.baidu.tieba.m.a.bnP().bnV();
         }
-        com.baidu.tieba.m.a.bnP().lU(isPrimary());
+        com.baidu.tieba.m.a.bnP().lV(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

@@ -97,14 +97,14 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 ViewGroup.LayoutParams layoutParams = this.dDt.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
                 this.dDt.setLayoutParams(layoutParams);
-                fQ(true);
+                fR(true);
                 return;
             }
-            fQ(false);
+            fR(false);
         }
     }
 
-    private void fQ(boolean z) {
+    private void fR(boolean z) {
         if (this.dDt != null) {
             if (this.dEx && z && this.dDt.getVisibility() != 0) {
                 this.dDt.setVisibility(0);
@@ -315,7 +315,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     public void bFi() {
         if (this.hDa != null && this.hDb != null) {
-            this.hDb.nw(this.hDa.isOriginalImg());
+            this.hDb.nx(this.hDa.isOriginalImg());
         }
     }
 

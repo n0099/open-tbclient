@@ -42,9 +42,9 @@ public class c {
     };
     private ConcernNetModel.a edD = new ConcernNetModel.a() { // from class: com.baidu.tieba.homepage.framework.c.3
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.a
-        public void gA(boolean z) {
+        public void gB(boolean z) {
             if (c.this.ebh != null) {
-                c.this.ebh.gB(z);
+                c.this.ebh.gC(z);
             }
         }
     };
@@ -62,7 +62,7 @@ public class c {
 
         void c(tbclient.Userlike.DataRes dataRes, boolean z);
 
-        void gB(boolean z);
+        void gC(boolean z);
     }
 
     public c(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
@@ -81,15 +81,15 @@ public class c {
         }
     }
 
-    public void mt(String str) {
+    public void mu(String str) {
         if (this.edA != null) {
-            this.edA.mt(str);
+            this.edA.mu(str);
         }
     }
 
-    public void gz(boolean z) {
+    public void gA(boolean z) {
         if (this.edA != null) {
-            this.edA.gz(z);
+            this.edA.gA(z);
         }
     }
 

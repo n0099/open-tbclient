@@ -27,7 +27,7 @@ public class b implements e {
     @Override // com.baidu.tieba.i.e
     public void aVb() {
         if (f.HZ()) {
-            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rb(this.mLocalPath)) {
+            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rc(this.mLocalPath)) {
                 if (this.ftk != null) {
                     this.ftk.sd(2);
                     return;
@@ -52,7 +52,7 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     public void aVD() {
         if (f.HZ()) {
-            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rb(this.mLocalPath)) {
+            if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rc(this.mLocalPath)) {
                 if (this.ftk != null) {
                     this.ftk.onChange(false);
                     return;
@@ -61,7 +61,7 @@ public class b implements e {
             }
             a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0129a() { // from class: com.baidu.tieba.j.b.2
                 @Override // com.baidu.tieba.j.a.InterfaceC0129a
-                public void iZ(boolean z) {
+                public void ja(boolean z) {
                     if (b.this.fti && z) {
                         b.this.ftj = true;
                     }
@@ -78,7 +78,7 @@ public class b implements e {
         if (f.HZ()) {
             if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fti || !this.ftj) {
                 if (this.ftk != null) {
-                    this.ftk.iX(false);
+                    this.ftk.iY(false);
                     return;
                 }
                 return;
@@ -100,7 +100,7 @@ public class b implements e {
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
                     if (b.this.ftk != null) {
-                        b.this.ftk.iX(bool.booleanValue());
+                        b.this.ftk.iY(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -109,7 +109,7 @@ public class b implements e {
 
     @Override // com.baidu.tieba.i.e
     public void aVd() {
-        if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rb(this.mLocalPath)) {
+        if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.rc(this.mLocalPath)) {
             if (this.ftk != null) {
                 this.ftk.sd(2);
                 return;
@@ -123,9 +123,9 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int pA = a.pA(str);
-                    publishProgress(new c(1, pA));
-                    if (pA == 1) {
+                    int pB = a.pB(str);
+                    publishProgress(new c(1, pB));
+                    if (pB == 1) {
                         boolean bA = a.bA(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
                         cVarArr[0] = new c(2, bA ? 1 : 0);
@@ -158,7 +158,7 @@ public class b implements e {
                             b.this.ftk.onChange(cVar.value == 1);
                         }
                     } else if (cVar.type == 3 && b.this.ftk != null) {
-                        b.this.ftk.iX(cVar.value == 1);
+                        b.this.ftk.iY(cVar.value == 1);
                     }
                 }
             }

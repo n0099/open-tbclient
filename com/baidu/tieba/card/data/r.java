@@ -3,9 +3,9 @@ package com.baidu.tieba.card.data;
 public interface r extends com.baidu.adp.widget.ListView.i {
     boolean akX();
 
-    void eJ(boolean z);
-
     void eK(boolean z);
+
+    void eL(boolean z);
 
     int getPosition();
 }

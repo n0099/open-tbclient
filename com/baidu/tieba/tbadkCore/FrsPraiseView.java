@@ -84,7 +84,7 @@ public class FrsPraiseView extends LinearLayout {
             this.mThreadId = str;
             this.mPostId = str2;
             this.gVR = praiseData;
-            mu(z);
+            mv(z);
         }
     }
 
@@ -96,7 +96,7 @@ public class FrsPraiseView extends LinearLayout {
         this.gVS = z;
     }
 
-    private void mu(boolean z) {
+    private void mv(boolean z) {
         long num = this.gVR.getNum();
         this.gVQ.setVisibility(8);
         this.gVP.setVisibility(8);
@@ -106,16 +106,16 @@ public class FrsPraiseView extends LinearLayout {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
                         this.gVP.setVisibility(0);
-                        this.gVP.setText(sp(user.get(0).getName_show()));
+                        this.gVP.setText(sq(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
                         this.gVP.setVisibility(0);
-                        this.gVP.setText(sp(user.get(0).getName_show()));
+                        this.gVP.setText(sq(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
                         this.gVQ.setVisibility(0);
-                        this.gVQ.setText("、" + sp(user.get(1).getName_show()));
+                        this.gVQ.setText("、" + sq(user.get(1).getName_show()));
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class FrsPraiseView extends LinearLayout {
         }
     }
 
-    private String sp(String str) {
+    private String sq(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }

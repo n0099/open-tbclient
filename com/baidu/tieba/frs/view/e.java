@@ -86,14 +86,14 @@ public class e extends LinearLayout {
     }
 
     private void DG() {
-        this.bLb.setText(ek(this.dVr.getName()));
+        this.bLb.setText(el(this.dVr.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.dVr.getImageUrl());
         this.dVo.startLoad(this.dVr.getImageUrl(), 15, false);
         this.dVq.setText(am.H(this.dVr.getMemberNum()));
         this.dVp.setText(am.H(this.dVr.getPostNum()));
     }
 
-    private String ek(String str) {
+    private String el(String str) {
         return am.k(str, 18) + this.context.getString(d.j.forum);
     }
 }

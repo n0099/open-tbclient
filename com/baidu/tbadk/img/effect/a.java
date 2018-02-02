@@ -18,7 +18,7 @@ public class a extends b {
         return "filter";
     }
 
-    public static ImageOperation gK(String str) {
+    public static ImageOperation gL(String str) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "filter";
         imageOperation.actionParam = str;

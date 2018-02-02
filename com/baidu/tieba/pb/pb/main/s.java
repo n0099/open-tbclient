@@ -69,7 +69,7 @@ public class s {
             }
         }
         this.fLU.setReplyId(str);
-        this.fLU.gw(str2);
+        this.fLU.gx(str2);
         if (this.fLU.Li()) {
             this.fLU.a((PostWriteCallBackData) null);
         }

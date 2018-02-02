@@ -41,8 +41,8 @@ public class m extends a {
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str3);
-        if (gF == null) {
+        com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(str3);
+        if (gG == null) {
             Bitmap fO = aj.fO(com.baidu.adp.lib.g.b.h(str2, 0));
             if (fO == null) {
                 return null;
@@ -51,7 +51,7 @@ public class m extends a {
             com.baidu.tbadk.imageManager.c.LR().c(str3, aVar);
             return aVar;
         }
-        return gF;
+        return gG;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

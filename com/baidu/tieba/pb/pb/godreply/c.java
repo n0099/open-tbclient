@@ -20,10 +20,10 @@ public class c {
                 c.this.fGL.j(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.jI(false);
+                        c.this.jJ(false);
                     }
                 });
-                c.this.jI(true);
+                c.this.jJ(true);
                 c.this.setFullscreen(false);
             }
         }
@@ -31,12 +31,12 @@ public class c {
         @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aZ(int i, int i2) {
             if (c.this.fGL.isActive() && !c.this.aZV() && !c.this.isFullscreen()) {
-                c.this.jI(true);
+                c.this.jJ(true);
                 c.this.setFullscreen(true);
                 c.this.fGL.aZR().k(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.jI(false);
+                        c.this.jJ(false);
                     }
                 });
             }
@@ -71,7 +71,7 @@ public class c {
         return this.fGJ;
     }
 
-    public void jI(boolean z) {
+    public void jJ(boolean z) {
         this.fGJ = z;
     }
 

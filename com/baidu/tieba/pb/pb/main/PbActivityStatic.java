@@ -232,11 +232,11 @@ public class PbActivityStatic {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEARCH_JUMP_PB, lowerCase));
                     return 0;
                 } else if (lowerCase.contains("bookcover:")) {
-                    Map<String, String> el = com.baidu.tbadk.core.util.av.el(lowerCase.substring("bookcover:".length()));
-                    if (el == null || el.size() <= 0) {
+                    Map<String, String> em = com.baidu.tbadk.core.util.av.em(lowerCase.substring("bookcover:".length()));
+                    if (em == null || em.size() <= 0) {
                         return 0;
                     }
-                    if (com.baidu.adp.lib.g.b.h(el.get("book_type"), 1) == 3) {
+                    if (com.baidu.adp.lib.g.b.h(em.get("book_type"), 1) == 3) {
                         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
                             com.baidu.adp.lib.util.l.showToast(tbPageContext.getPageActivity(), d.j.manga_plugin_not_install_tip);
                             return 0;

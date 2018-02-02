@@ -45,7 +45,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (LocalVideoActivity.this.hrt != null) {
-                    LocalVideoActivity.this.hrt.tP(str);
+                    LocalVideoActivity.this.hrt.tQ(str);
                 }
             }
         }
@@ -87,19 +87,19 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REMOVE_NOT_EXSIT_VIDEO, bBL));
                                         return;
                                     } else {
-                                        int ty = e.ty(bBL);
+                                        int tz = e.tz(bBL);
                                         if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
                                             d bBM = LocalVideoActivity.this.hrt.bBM();
                                             if (bBM != null) {
                                                 LocalVideoActivity.this.hrt.avA();
                                                 LocalVideoActivity.this.hrw = bBM.getVideoPath();
-                                                LocalVideoActivity.this.ne(false);
+                                                LocalVideoActivity.this.nf(false);
                                                 return;
                                             }
                                             return;
-                                        } else if (ty >= 1500000) {
+                                        } else if (tz >= 1500000) {
                                             if (LocalVideoActivity.this.bAg()) {
-                                                File file = new File(com.baidu.tieba.video.d.hmG, "tieba_" + e.tx(bBL) + "_tiebaconverting.mp4");
+                                                File file = new File(com.baidu.tieba.video.d.hmG, "tieba_" + e.ty(bBL) + "_tiebaconverting.mp4");
                                                 LocalVideoActivity.this.hrw = file.getAbsolutePath();
                                                 bBA.setConvertType(1);
                                                 bBA.cg(bBL, LocalVideoActivity.this.hrw);
@@ -115,10 +115,10 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                                                 if (bBM2.getDuration() >= 15000) {
                                                     LocalVideoActivity.this.hrt.avA();
                                                     LocalVideoActivity.this.hrw = bBM2.getVideoPath();
-                                                    LocalVideoActivity.this.ne(false);
+                                                    LocalVideoActivity.this.nf(false);
                                                     return;
                                                 }
-                                                File file2 = new File(com.baidu.tieba.video.d.hmG, "tieba_" + e.tx(bBL) + "_tiebaconverting.mp4");
+                                                File file2 = new File(com.baidu.tieba.video.d.hmG, "tieba_" + e.ty(bBL) + "_tiebaconverting.mp4");
                                                 LocalVideoActivity.this.hrw = file2.getAbsolutePath();
                                                 bBA.setConvertType(2);
                                                 bBA.cg(bBL, LocalVideoActivity.this.hrw);
@@ -174,13 +174,13 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
                     }
                     LocalVideoActivity.this.bBC();
                     if (!LocalVideoActivity.this.hrx && LocalVideoActivity.this.hrt.bBM() != null) {
-                        d tS = e.tS(LocalVideoActivity.this.hrw);
+                        d tT = e.tT(LocalVideoActivity.this.hrw);
                         VideoInfo videoInfo = new VideoInfo();
                         videoInfo.setVideoPath(LocalVideoActivity.this.hrw);
-                        videoInfo.setVideoDuration(((int) tS.getDuration()) / 1000);
-                        videoInfo.setVideoWidth(tS.getVideoWidth());
-                        videoInfo.setVideoHeight(tS.getVideoHeight());
-                        videoInfo.setVideoLength(new File(tS.getVideoPath()).length());
+                        videoInfo.setVideoDuration(((int) tT.getDuration()) / 1000);
+                        videoInfo.setVideoWidth(tT.getVideoWidth());
+                        videoInfo.setVideoHeight(tT.getVideoHeight());
+                        videoInfo.setVideoLength(new File(tT.getVideoPath()).length());
                         videoInfo.setVideoType(2);
                         videoInfo.setIsCompressedVideo(true);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditVideoActivityConfig(LocalVideoActivity.this, "1", LocalVideoActivity.this.mForumName, LocalVideoActivity.this.mForumId, LocalVideoActivity.this.hof, videoInfo)));
@@ -307,14 +307,14 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ne(boolean z) {
-        d tS = e.tS(this.hrw);
+    public void nf(boolean z) {
+        d tT = e.tT(this.hrw);
         VideoInfo videoInfo = new VideoInfo();
         videoInfo.setVideoPath(this.hrw);
-        videoInfo.setVideoDuration(((int) tS.getDuration()) / 1000);
-        videoInfo.setVideoWidth(tS.getVideoWidth());
-        videoInfo.setVideoHeight(tS.getVideoHeight());
-        videoInfo.setVideoLength(new File(tS.getVideoPath()).length());
+        videoInfo.setVideoDuration(((int) tT.getDuration()) / 1000);
+        videoInfo.setVideoWidth(tT.getVideoWidth());
+        videoInfo.setVideoHeight(tT.getVideoHeight());
+        videoInfo.setVideoLength(new File(tT.getVideoPath()).length());
         videoInfo.setVideoType(2);
         videoInfo.setIsCompressedVideo(z);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditVideoActivityConfig(this, "1", this.mForumName, this.mForumId, this.hof, videoInfo)));
@@ -369,7 +369,7 @@ public class LocalVideoActivity extends BaseActivity<LocalVideoActivity> {
             this.hrt.bBK();
         }
         if (this.hry && !TextUtils.isEmpty(this.hrw) && new File(this.hrw).exists()) {
-            ne(true);
+            nf(true);
         }
     }
 

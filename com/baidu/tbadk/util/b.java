@@ -12,7 +12,7 @@ public class b {
         return bAR;
     }
 
-    public String gV(String str) {
+    public String gW(String str) {
         String str2;
         if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
             str2 = "hdpi";

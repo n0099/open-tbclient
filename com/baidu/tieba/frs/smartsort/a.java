@@ -32,10 +32,10 @@ public class a {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long lY(String str) {
-        e lZ;
-        lZ = lZ(str);
-        return lZ != null ? lZ.lastTime : 0L;
+    public synchronized long lZ(String str) {
+        e ma;
+        ma = ma(str);
+        return ma != null ? ma.lastTime : 0L;
     }
 
     public synchronized void m(String str, long j) {
@@ -43,11 +43,11 @@ public class a {
             String ayF = ayF();
             ArrayList<e> arrayList = this.dQI.get(ayF);
             ArrayList<e> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            e lZ = lZ(str);
+            e ma = ma(str);
             boolean z = false;
-            if (lZ != null) {
-                if (lZ.lastTime != j) {
-                    lZ.lastTime = j;
+            if (ma != null) {
+                if (ma.lastTime != j) {
+                    ma.lastTime = j;
                     z = true;
                 }
             } else {
@@ -82,13 +82,13 @@ public class a {
                 if (!this.dQH) {
                     ayG();
                 } else {
-                    ma(jSONArray.toString());
+                    mb(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized e lZ(String str) {
+    private synchronized e ma(String str) {
         e eVar;
         if (!TextUtils.isEmpty(str)) {
             ArrayList<e> arrayList = this.dQI.get(ayF());
@@ -115,7 +115,7 @@ public class a {
         return eVar;
     }
 
-    private void ma(String str) {
+    private void mb(String str) {
         l<String> ayH = ayH();
         if (ayH != null) {
             ayH.f("frs_smart_sort_last_time", str);
@@ -131,8 +131,8 @@ public class a {
                 /* renamed from: aW */
                 public void g(String str, String str2) {
                     if (str2 != null) {
-                        ArrayList mb = a.this.mb(str2);
-                        a.this.dQI.put(a.this.ayF(), mb);
+                        ArrayList mc = a.this.mc(str2);
+                        a.this.dQI.put(a.this.ayF(), mc);
                     }
                     a.this.dQH = true;
                 }
@@ -145,7 +145,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<e> mb(String str) {
+    public ArrayList<e> mc(String str) {
         ArrayList<e> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

@@ -55,7 +55,7 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     public com.baidu.tbadk.mainTab.c Mo() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         g gVar = new g();
-        gVar.hZ(true);
+        gVar.ia(true);
         cVar.bvP = gVar;
         cVar.type = 3;
         cVar.bvQ = d.j.my_message;

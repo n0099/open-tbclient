@@ -82,8 +82,8 @@ class f extends Thread {
         Exception exc2;
         Exception exc3;
         int i;
-        MediaCodecInfo tH = tH("video/avc");
-        if (tH != null) {
+        MediaCodecInfo tI = tI("video/avc");
+        if (tI != null) {
             try {
                 mediaExtractor2 = bAN();
                 try {
@@ -104,7 +104,7 @@ class f extends Thread {
                     a(trackFormat, createVideoFormat, "frame-rate", 20);
                     a(trackFormat, createVideoFormat, "i-frame-interval", 1);
                     AtomicReference<Surface> atomicReference = new AtomicReference<>();
-                    mediaCodec = a(tH, createVideoFormat, atomicReference);
+                    mediaCodec = a(tI, createVideoFormat, atomicReference);
                     try {
                         gVar = new g(atomicReference.get());
                         try {
@@ -641,7 +641,7 @@ class f extends Thread {
         }
     }
 
-    private static MediaCodecInfo tH(String str) {
+    private static MediaCodecInfo tI(String str) {
         int codecCount = MediaCodecList.getCodecCount();
         for (int i = 0; i < codecCount; i++) {
             MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);

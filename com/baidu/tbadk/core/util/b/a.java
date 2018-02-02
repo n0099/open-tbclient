@@ -19,9 +19,9 @@ public class a {
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0075a {
-        void ew(String str);
-
         void ex(String str);
+
+        void ey(String str);
     }
 
     public void a(InterfaceC0075a interfaceC0075a) {
@@ -68,7 +68,7 @@ public class a {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.aX(false);
         aVar.fa(d.j.request_permission_default_title);
-        aVar.fb(ev(str));
+        aVar.fb(ew(str));
         aVar.a(d.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -79,7 +79,7 @@ public class a {
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
                 if (a.this.aXv != null) {
-                    a.this.aXv.ex(str);
+                    a.this.aXv.ey(str);
                 }
             }
         }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
@@ -87,7 +87,7 @@ public class a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
                 if (a.this.aXv != null) {
-                    a.this.aXv.ew(str);
+                    a.this.aXv.ex(str);
                 }
             }
         }).b(i.ak(activity));
@@ -105,7 +105,7 @@ public class a {
         }
     }
 
-    private int ev(String str) {
+    private int ew(String str) {
         if (TextUtils.isEmpty(str)) {
             return d.j.request_permission_default_text;
         }

@@ -141,7 +141,7 @@ public class d implements com.baidu.tieba.person.b {
         return this.mUserData;
     }
 
-    public void li(boolean z) {
+    public void lj(boolean z) {
         if (this.ghM != null) {
             if (this.ghM.ghU == null) {
                 this.ghM.ghU = new g();
@@ -150,7 +150,7 @@ public class d implements com.baidu.tieba.person.b {
         }
     }
 
-    public void lj(boolean z) {
+    public void lk(boolean z) {
         if (this.ghP != null) {
             if (this.ghP.ghU == null) {
                 this.ghP.ghU = new g();
@@ -159,7 +159,7 @@ public class d implements com.baidu.tieba.person.b {
         }
     }
 
-    public void lk(boolean z) {
+    public void ll(boolean z) {
         if (this.ghO != null) {
             if (this.ghO.ghU == null) {
                 this.ghO.ghU = new g();
@@ -168,7 +168,7 @@ public class d implements com.baidu.tieba.person.b {
         }
     }
 
-    public void ll(boolean z) {
+    public void lm(boolean z) {
         if (this.ghS != null) {
             this.ghS.ghH = z;
         }
@@ -185,7 +185,7 @@ public class d implements com.baidu.tieba.person.b {
             this.ghR.add(this.ghQ);
             bhA();
             bhB();
-            com.baidu.tieba.m.a.bnP().lV(true);
+            com.baidu.tieba.m.a.bnP().lW(true);
         }
     }
 
@@ -201,7 +201,7 @@ public class d implements com.baidu.tieba.person.b {
             this.ghR.add(this.ghQ);
             bhA();
             bhB();
-            com.baidu.tieba.m.a.bnP().lV(true);
+            com.baidu.tieba.m.a.bnP().lW(true);
         }
     }
 

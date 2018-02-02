@@ -210,7 +210,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.eMy.aLG();
             if (view.getId() == this.eMy.aLz()) {
                 showLoadingDialog();
-                this.eMz.nM(this.eMy.aLB());
+                this.eMz.nN(this.eMy.aLB());
             }
         }
     }

@@ -85,7 +85,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         return view.findViewById(d.g.line);
     }
 
-    public void kf(boolean z) {
+    public void kg(boolean z) {
         this.fOb.setVisibility(z ? 0 : 8);
     }
 
@@ -93,7 +93,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         return getRootView();
     }
 
-    public void kg(boolean z) {
+    public void kh(boolean z) {
         this.fOf = z;
     }
 
@@ -101,7 +101,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
         return this.fOg;
     }
 
-    public void kh(boolean z) {
+    public void ki(boolean z) {
         this.fOg = z;
     }
 

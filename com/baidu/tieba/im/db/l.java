@@ -81,7 +81,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        mX(str);
+                        mY(str);
                         n.i(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

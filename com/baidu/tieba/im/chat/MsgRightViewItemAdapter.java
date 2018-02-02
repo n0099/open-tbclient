@@ -15,7 +15,7 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
         this.erY = false;
     }
 
-    public void gT(boolean z) {
+    public void gU(boolean z) {
         this.erY = z;
     }
 
@@ -36,7 +36,7 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
         MsgrightView aEA = aVar.aEA();
         aEA.pG(this.erP);
-        aEA.gT(this.erY);
+        aEA.gU(this.erY);
         chatMessage.getCacheData().setIs_left(0);
         aEA.a(this.erF);
         aEA.setOnItemViewLongClickListener(this.erG);

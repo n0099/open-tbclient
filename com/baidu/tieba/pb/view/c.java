@@ -136,7 +136,7 @@ public class c extends RelativeLayout {
         aj.r(this.fZN, d.C0108d.cp_cont_i);
     }
 
-    public void lc(boolean z) {
+    public void ld(boolean z) {
         if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.fZV) {
             this.fZV = true;
             ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);

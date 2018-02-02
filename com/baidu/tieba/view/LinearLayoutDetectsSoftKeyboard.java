@@ -14,7 +14,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void iu(boolean z);
+        void iv(boolean z);
     }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
@@ -37,17 +37,17 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > com.baidu.adp.lib.util.l.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.hzn.iu(z);
+                    this.hzn.iv(z);
                 }
                 z = false;
-                this.hzn.iu(z);
+                this.hzn.iv(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.hzn.iu(z);
+                    this.hzn.iv(z);
                 }
                 z = false;
-                this.hzn.iu(z);
+                this.hzn.iv(z);
             }
         }
         super.onMeasure(i, i2);

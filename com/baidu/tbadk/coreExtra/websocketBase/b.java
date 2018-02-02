@@ -17,18 +17,18 @@ public class b {
     }
 
     public void Jt() {
-        fJ("kLCSError=1");
+        fK("kLCSError=1");
     }
 
     public void ht(int i) {
-        fJ("kNetStatus=" + i);
+        fK("kNetStatus=" + i);
     }
 
-    public void fI(String str) {
-        fJ("kNewIpResult=" + str);
+    public void fJ(String str) {
+        fK("kNewIpResult=" + str);
     }
 
-    private void fJ(String str) {
+    private void fK(String str) {
         i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.aIg, str);
     }
 }

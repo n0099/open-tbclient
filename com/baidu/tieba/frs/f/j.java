@@ -38,7 +38,7 @@ public class j {
         this.aQK.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void lz(String str) {
+    public void lA(String str) {
         String str2;
         if (!am.isEmpty(str) && this.dSJ != null && this.dPK.isPrimary() && this.dSK <= 0) {
             this.dSK++;

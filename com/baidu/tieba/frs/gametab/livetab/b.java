@@ -126,7 +126,7 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
             }
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("square_jump_tab_name", null);
             if (!TextUtils.isEmpty(string)) {
-                this.bUS.setCurrentTab(lM(string));
+                this.bUS.setCurrentTab(lN(string));
             }
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("square_jump_tab_name", "");
         }
@@ -223,7 +223,7 @@ public class b extends BaseFragment implements ViewPager.OnPageChangeListener {
         return null;
     }
 
-    private int lM(String str) {
+    private int lN(String str) {
         return (!"live".equals(str) && "dynamic".equals(str)) ? 1 : 0;
     }
 

@@ -88,7 +88,7 @@ public class h implements b.a, com.baidu.tieba.write.write.model.a {
                             h.this.bOI.Do();
                             h.this.bOI.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                             if (!h.this.bOI.u(pageActivity)) {
-                                h.this.hLa.nF(false);
+                                h.this.hLa.nG(false);
                                 if (h.this.hIM != null) {
                                     if (h.this.hLe == null || h.this.hLe.getChosedFiles() == null || h.this.hLe.getChosedFiles().size() <= 0 || !h.this.hLe.isOriginalImg() || h.this.hLc <= 0 || !h.this.bIs()) {
                                         h.this.hIM.b(true, h.this.hLe);
@@ -209,7 +209,7 @@ public class h implements b.a, com.baidu.tieba.write.write.model.a {
         return this.hLe;
     }
 
-    public void nN(boolean z) {
+    public void nO(boolean z) {
         if (bHu()) {
             this.hIM.hKT.setmDisallowSlip(true);
         } else {
@@ -220,7 +220,7 @@ public class h implements b.a, com.baidu.tieba.write.write.model.a {
     @Override // com.baidu.tieba.write.write.b.a
     public void bHp() {
         bIo();
-        nN(false);
+        nO(false);
     }
 
     @Override // com.baidu.tieba.write.write.b.a

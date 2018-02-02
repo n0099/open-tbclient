@@ -68,12 +68,12 @@ public class e extends RelativeLayout implements l {
         }
     }
 
-    public void fY(String str) {
-        fZ(str);
+    public void fZ(String str) {
+        ga(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fZ(String str) {
+    private void ga(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.aTs = str;
             if (this.mTip == null) {
@@ -108,7 +108,7 @@ public class e extends RelativeLayout implements l {
             if (aVar.data == null) {
                 Kv();
             } else if (aVar.data instanceof String) {
-                fY((String) aVar.data);
+                fZ((String) aVar.data);
             }
         }
     }

@@ -58,7 +58,7 @@ public abstract class j extends com.baidu.tieba.card.a<bd> implements u {
                 if (j.this.akg() != null) {
                     j.this.akg().a(view, j.this.aYc);
                 }
-                j.this.eB(view == j.this.cSK);
+                j.this.eC(view == j.this.cSK);
             }
         };
         this.bcm = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.j.3
@@ -154,7 +154,7 @@ public abstract class j extends com.baidu.tieba.card.a<bd> implements u {
             getView().setVisibility(0);
             getView().setOnClickListener(this.cSO);
         }
-        if (!akk() && com.baidu.tieba.card.k.kk(this.aYc.getId())) {
+        if (!akk() && com.baidu.tieba.card.k.kl(this.aYc.getId())) {
             akl();
         }
         this.dII.T(this.aYc);
@@ -213,9 +213,9 @@ public abstract class j extends com.baidu.tieba.card.a<bd> implements u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eB(boolean z) {
+    public void eC(boolean z) {
         if (this.aYc != null) {
-            com.baidu.tieba.card.k.kj(this.aYc.getId());
+            com.baidu.tieba.card.k.kk(this.aYc.getId());
             akl();
             m zN = this.aYc.zN();
             if (zN != null) {

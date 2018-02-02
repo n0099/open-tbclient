@@ -28,15 +28,15 @@ public class t {
             }
             return str;
         } else if (gtL && gtK && bky() != null) {
-            return bky().hM(str);
+            return bky().hN(str);
         } else {
             return str;
         }
     }
 
-    public static String hN(String str) {
+    public static String hO(String str) {
         if (bky() != null) {
-            return bky().hN(str);
+            return bky().hO(str);
         }
         return null;
     }
@@ -59,9 +59,9 @@ public class t {
         }
     }
 
-    public static void hO(String str) {
+    public static void hP(String str) {
         if (gtL && gtK && bky() != null) {
-            bky().hO(str);
+            bky().hP(str);
         }
     }
 
@@ -71,7 +71,7 @@ public class t {
         }
     }
 
-    public static void lI(boolean z) {
+    public static void lJ(boolean z) {
         gtK = z;
     }
 

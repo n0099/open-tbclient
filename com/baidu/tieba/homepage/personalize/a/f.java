@@ -43,7 +43,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         } else if (view instanceof TbImageView) {
             TiebaStatic.log(lVar.alf());
         } else if (this.efG.aki() != null && view.getId() == this.efG.aki().getId()) {
-            TiebaStatic.log(lVar.ku("c10760"));
+            TiebaStatic.log(lVar.kv("c10760"));
         }
     }
 
@@ -133,7 +133,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (view != null && f.this.efG != null && f.this.efG.getView() != null && f.this.efH != null && lVar != null && lVar.VM() != null && !StringUtils.isNull(lVar.VM().getTid())) {
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.g.bM(com.baidu.adp.lib.g.b.c(lVar.VM().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.g.bL(com.baidu.adp.lib.g.b.c(lVar.VM().getTid(), 0L));

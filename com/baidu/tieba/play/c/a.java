@@ -75,7 +75,7 @@ public class a {
             return false;
         }
         com.baidu.tieba.play.a.b.bkL().a(new C0148a(this.mHandler, this.guL, i, uri, gVar, i2, i3, i4));
-        return com.baidu.tieba.play.a.b.bkL().rg(uri.getHost());
+        return com.baidu.tieba.play.a.b.bkL().rh(uri.getHost());
     }
 
     private boolean bkN() {
@@ -186,7 +186,7 @@ public class a {
         }
     }
 
-    public static void ri(String str) {
+    public static void rj(String str) {
         if (!StringUtils.isNull(str)) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.play.c.a.1
                 /* JADX DEBUG: Method merged with bridge method */

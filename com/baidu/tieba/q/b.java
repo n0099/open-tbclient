@@ -54,15 +54,15 @@ public class b {
         if (bzQ != null) {
             for (File file : bzQ) {
                 String name = file.getName();
-                JSONObject tr = tr(file.getAbsolutePath() + g.a.fsj + "kpi");
-                if (tr == null) {
-                    com.baidu.tieba.i.d.pl(name);
+                JSONObject ts = ts(file.getAbsolutePath() + g.a.fsj + "kpi");
+                if (ts == null) {
+                    com.baidu.tieba.i.d.pm(name);
                 } else {
-                    JSONObject ts = ts(file.getAbsolutePath() + g.a.fsj + "debug");
-                    if (ts == null) {
-                        com.baidu.tieba.i.d.pl(name);
+                    JSONObject tt = tt(file.getAbsolutePath() + g.a.fsj + "debug");
+                    if (tt == null) {
+                        com.baidu.tieba.i.d.pm(name);
                     } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.Tw(), tr, ts)));
+                        arrayList.add(new a(name, a(VideoPlatformStatic.Tw(), ts, tt)));
                     }
                 }
             }
@@ -70,7 +70,7 @@ public class b {
         return arrayList;
     }
 
-    private static JSONObject tr(String str) {
+    private static JSONObject ts(String str) {
         File file = new File(str);
         if (file.exists()) {
             try {
@@ -94,10 +94,10 @@ public class b {
         return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
     }
 
-    private static JSONObject ts(String str) {
+    private static JSONObject tt(String str) {
         if (!StringUtils.isNull(str) && new File(str).exists()) {
             try {
-                return new JSONObject().put("running", g(com.baidu.tieba.i.d.pk(str)));
+                return new JSONObject().put("running", g(com.baidu.tieba.i.d.pl(str)));
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -159,7 +159,7 @@ public class b {
     public void a(a aVar) {
         try {
             c.f(c.Q(aVar.cKn), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.i.d.pl(aVar.fsQ);
+            com.baidu.tieba.i.d.pm(aVar.fsQ);
         } catch (Exception e) {
             e.printStackTrace();
         }

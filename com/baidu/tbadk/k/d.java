@@ -65,7 +65,7 @@ public class d extends k {
             a aVar;
             if (customResponsedMessage != null && (aVar = (a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == d.this.mId) {
                 d.this.bxV++;
-                d.this.gS(aVar.byd);
+                d.this.gT(aVar.byd);
                 d.this.il(aVar.bye);
                 d.this.NE();
             }
@@ -125,7 +125,7 @@ public class d extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gS(String str) {
+    public void gT(String str) {
         if (this.bxR == null) {
             this.bxR = new ArrayList<>();
         }

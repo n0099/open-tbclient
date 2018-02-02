@@ -30,7 +30,7 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean eT(String str) {
+    public boolean eU(String str) {
         this.errorNo = -1;
         if (!this.beP) {
             this.beQ = true;

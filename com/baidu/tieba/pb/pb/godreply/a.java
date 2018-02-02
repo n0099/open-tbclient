@@ -106,7 +106,7 @@ public class a {
                     a.this.fGn = false;
                     if (a.this.fGo != null) {
                         if (a.this.fGo.bam() != null) {
-                            a.this.fGo.bam().kC(false);
+                            a.this.fGo.bam().kD(false);
                             h bdA = a.this.fGo.bam().bdA();
                             bdA.a(a.this.fGo.aZT().getPbData(), true);
                             bdA.notifyDataSetChanged();
@@ -158,13 +158,13 @@ public class a {
             this.fGo.baZ();
             this.fGn = true;
             this.fGq.setFullscreen(false);
-            this.fGq.jI(true);
+            this.fGq.jJ(true);
             ce();
             aZQ();
             this.fGp.m(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.a.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fGq.jI(false);
+                    a.this.fGq.jJ(false);
                 }
             });
             this.fGo.b(this.fGz);
@@ -192,7 +192,7 @@ public class a {
             c(pbData);
             listView.setData(new ArrayList(aZU));
             this.fGp.auu().setCenterTextTitle(String.format(this.fGo.getResources().getString(d.j.more_god_reply_count), am.H(pbData.aYW().fET.size())));
-            this.fGp.jJ(this.fGx.aho());
+            this.fGp.jK(this.fGx.aho());
             if (listView.getAdapter() instanceof e) {
                 listView.getAdapter().notifyDataSetChanged();
             }
@@ -214,7 +214,7 @@ public class a {
         h bdA = this.fGr.bdA();
         this.fGs.setFromCDN(bdA.isFromCDN());
         this.fGs.setHostId(fVar.aYL().yT().getUserId());
-        this.fGs.jF(bdA.bbq());
+        this.fGs.jG(bdA.bbq());
         this.fGs.l(this.fGt);
         this.fGs.E(this.fGu);
         this.fGs.setOnImageClickListener(this.fGv);

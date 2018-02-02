@@ -56,13 +56,13 @@ public class SelectCoverModel extends BdBaseModel {
                         if (TextUtils.isEmpty(msg)) {
                             msg = TbadkCoreApplication.getInst().getResources().getString(d.j.video_ueg_fail);
                         }
-                        SelectCoverModel.this.hpl.qI(msg);
+                        SelectCoverModel.this.hpl.qJ(msg);
                     } else {
                         String errorString = httpResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
                             errorString = TbadkCoreApplication.getInst().getResources().getString(d.j.video_fail);
                         }
-                        SelectCoverModel.this.hpl.qI(errorString);
+                        SelectCoverModel.this.hpl.qJ(errorString);
                         if (SelectCoverModel.this.gZD != null) {
                             SelectCoverModel.this.gZD.V(HttpStatus.SC_CREATED, errorString);
                         }
@@ -108,7 +108,7 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    public void qK(String str) {
+    public void qL(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
@@ -137,7 +137,7 @@ public class SelectCoverModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass3) str2);
-                    SelectCoverModel.this.hpl.tA(str2);
+                    SelectCoverModel.this.hpl.tB(str2);
                 }
             }.execute(new Void[0]);
         }

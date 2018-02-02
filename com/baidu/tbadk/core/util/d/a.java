@@ -37,13 +37,13 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(str);
-        if (gF != null) {
-            gF.aup.aur = "memory";
-            gF.aup.aus = 0L;
-            gF.aup.aut = true;
+        com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(str);
+        if (gG != null) {
+            gG.aup.aur = "memory";
+            gG.aup.aus = 0L;
+            gG.aup.aut = true;
         }
-        return gF;
+        return gG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,23 +53,23 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
         com.baidu.adp.lib.stats.a nn = com.baidu.tbadk.core.util.s.nn();
         nn.nw();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c ey = ey(ao.ei(str2));
-        if (ey == null) {
+        com.baidu.adp.lib.Disk.ops.c ez = ez(ao.ej(str2));
+        if (ez == null) {
             return null;
         }
-        ey.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        ey.ab(false);
-        ey.Z(true);
-        ey.ac(true);
-        ey.aa(false);
-        ey.ao(bArr);
+        ez.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        ez.ab(false);
+        ez.Z(true);
+        ez.ac(true);
+        ez.aa(false);
+        ez.ao(bArr);
         if (aVar != null) {
             d dVar = new d();
-            dVar.f(ey);
+            dVar.f(ez);
             aVar.ajT = dVar;
         }
         boolean oK = com.baidu.adp.lib.util.j.oK();
-        if (!com.baidu.adp.lib.Disk.d.ll().c(ey)) {
+        if (!com.baidu.adp.lib.Disk.d.ll().c(ez)) {
             com.baidu.tbadk.core.util.s.a(nn, str2, false, nn.nx(), oK);
             return null;
         }
@@ -83,7 +83,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = ey.isSuccess() ? a(ey, str2) : null;
+        com.baidu.adp.widget.a.a a = ez.isSuccess() ? a(ez, str2) : null;
         if (a != null) {
             com.baidu.tbadk.core.util.s.a(nn, str2, true, nn.nx(), oK);
         } else {
@@ -224,7 +224,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
         if (g(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
             if (!iVar.aXr) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(str2), DiskFileOperate.Action.WRITE);
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.Z(true);
                 cVar.setData(bArr);
@@ -279,7 +279,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.adp.lib.Disk.ops.c ey(String str) {
+    public com.baidu.adp.lib.Disk.ops.c ez(String str) {
         return new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -328,7 +328,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
 
     public static boolean v(String str, int i) {
         com.baidu.adp.lib.Disk.ops.c cVar;
-        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ei(com.baidu.adp.lib.f.c.nm().g(str, i)), DiskFileOperate.Action.INFO)) == null) {
+        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ao.ej(com.baidu.adp.lib.f.c.nm().g(str, i)), DiskFileOperate.Action.INFO)) == null) {
             return false;
         }
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -344,11 +344,11 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.
             return null;
         }
         String g = com.baidu.adp.lib.f.c.nm().g(str, i);
-        String ei = ao.ei(g);
+        String ej = ao.ej(g);
         if (i == 38) {
-            return j.a(ei, (com.baidu.adp.lib.f.a) null, str, "AbstractImageLoaderProc.loadBdImageFromLocal");
+            return j.a(ej, (com.baidu.adp.lib.f.a) null, str, "AbstractImageLoaderProc.loadBdImageFromLocal");
         }
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ei, DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ej, DiskFileOperate.Action.READ);
         if (cVar != null) {
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.Z(true);

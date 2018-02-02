@@ -123,7 +123,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                     String selectedFilter = this.hIJ[this.btf].getSelectedFilter();
                     if (selectedFilter != null && !selectedFilter.equals("normal")) {
                         ImageFileInfo cloneWithoutFilterAction = imageFileInfo.cloneWithoutFilterAction(false);
-                        cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gK(selectedFilter));
+                        cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gL(selectedFilter));
                         c0177b.i(cloneWithoutFilterAction);
                         return;
                     }
@@ -181,12 +181,12 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0079a
-    public void fy(String str) {
+    public void fz(String str) {
         if (checkValid()) {
             if (str != null && !str.equals("normal")) {
                 this.hIF.bIn();
                 ImageFileInfo cloneWithoutFilterAction = this.hIG[this.btf].cloneWithoutFilterAction(false);
-                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gK(str));
+                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gL(str));
                 this.hII[this.btf].i(cloneWithoutFilterAction);
                 return;
             }
@@ -231,7 +231,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
             if (selectedFilter != null && !selectedFilter.equals("normal")) {
                 ImageFileInfo cloneWithoutFilterAction = this.hIG[this.btf].cloneWithoutFilterAction(false);
                 if (cloneWithoutFilterAction != null) {
-                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gK(selectedFilter));
+                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gL(selectedFilter));
                     if (this.hII != null) {
                         this.hII[this.btf].i(cloneWithoutFilterAction);
                     }
@@ -289,7 +289,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nF(boolean z) {
+    public void nG(boolean z) {
         Bitmap bitmap;
         Bitmap a2;
         String selectedFilter;
@@ -300,7 +300,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                 if (imageFileInfo != null) {
                     this.hIG[i].applayRotatePageActionToPersistAction(imageFileInfo);
                     if (this.hIJ[i] != null && (selectedFilter = this.hIJ[i].getSelectedFilter()) != null && !selectedFilter.equals("normal")) {
-                        this.hIG[i].addPersistAction(com.baidu.tbadk.img.effect.a.gK(selectedFilter));
+                        this.hIG[i].addPersistAction(com.baidu.tbadk.img.effect.a.gL(selectedFilter));
                     }
                 }
             }
@@ -421,11 +421,11 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                     c(imageFileInfo, a);
                     return;
                 }
-                nG(false);
+                nH(false);
                 this.hIR.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.b.b.2
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-                        C0177b.this.nG(true);
+                        C0177b.this.nH(true);
                         C0177b.this.c(imageFileInfo, aVar);
                         if (b.this.hIM != null) {
                             b.this.hIM.bGH();
@@ -449,7 +449,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void nG(boolean z) {
+        public void nH(boolean z) {
             if (z) {
                 if (this.gTH.getVisibility() != 8) {
                     if (b.this.hIH != null) {

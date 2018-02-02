@@ -79,11 +79,11 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
             com.baidu.tbadk.data.h pendantData = yT.getPendantData();
             if (zV != null && zV.channelId > 0) {
-                eG(null);
+                eH(null);
             } else if (pendantData != null) {
-                eG(bdVar.yT().getPendantData().xu());
+                eH(bdVar.yT().getPendantData().xu());
             } else {
-                eG(null);
+                eH(null);
             }
         }
     }

@@ -47,9 +47,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String gc = TbFaceManager.LQ().gc(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(gc)) {
-                        sb.append("#(" + gc + ")");
+                    String gd = TbFaceManager.LQ().gd(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(gd)) {
+                        sb.append("#(" + gd + ")");
                     }
                 }
             }

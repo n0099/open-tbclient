@@ -12,7 +12,7 @@ public class u {
     public static final String bPy = afl + "/files";
     public static final String bPz = bPy + "/";
 
-    private static long hJ(String str) {
+    private static long hK(String str) {
         File file;
         File file2;
         File[] listFiles;
@@ -27,7 +27,7 @@ public class u {
         return j;
     }
 
-    private static String hK(String str) {
+    private static String hL(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class u {
         return substring;
     }
 
-    public static long rd(String str) {
+    public static long re(String str) {
         try {
-            String hK = hK(str);
-            if (StringUtils.isNULL(hK)) {
+            String hL = hL(str);
+            if (StringUtils.isNULL(hL)) {
                 return 0L;
             }
-            return hJ(hK);
+            return hK(hL);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

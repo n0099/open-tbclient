@@ -132,9 +132,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                 PbFullScreenEditorActivity.this.bbF();
                 if (PbFullScreenEditorActivity.this.fHZ != null && PbFullScreenEditorActivity.this.fHZ.bet() != null) {
                     if (!PbFullScreenEditorActivity.this.fHZ.bet().bER()) {
-                        PbFullScreenEditorActivity.this.fHZ.kG(false);
+                        PbFullScreenEditorActivity.this.fHZ.kH(false);
                     }
-                    PbFullScreenEditorActivity.this.fHZ.bet().nt(false);
+                    PbFullScreenEditorActivity.this.fHZ.bet().nu(false);
                 }
             }
         });
@@ -230,7 +230,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
             this.fMa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity.8
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PbFullScreenEditorActivity.this.jZ(true);
+                    PbFullScreenEditorActivity.this.ka(true);
                 }
             });
         }
@@ -241,7 +241,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         if (intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA) instanceof PbEditorData) {
             this.fMn = (PbEditorData) intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
             if (this.fMn != null) {
-                jY(this.fMn.getEditorType() == 1);
+                jZ(this.fMn.getEditorType() == 1);
                 final String disableVoiceMessage = this.fMn.getDisableVoiceMessage();
                 if (!TextUtils.isEmpty(disableVoiceMessage) && this.bpW != null) {
                     com.baidu.tbadk.editortools.l hH = this.bpW.hH(6);
@@ -289,10 +289,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         bbF();
     }
 
-    private void jY(boolean z) {
+    private void jZ(boolean z) {
         this.fMk = (LinearLayout) findViewById(d.g.editbar_container);
         this.fMl = new u();
-        this.fMl.ka(z);
+        this.fMl.kb(z);
         this.fMm = (t) this.fMl.be(this.mContext);
         this.bpW = this.fMm.Kw();
         this.fMm.b(this);
@@ -315,10 +315,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        jZ(false);
+        ka(false);
     }
 
-    public void jZ(boolean z) {
+    public void ka(boolean z) {
         Intent intent = new Intent();
         if (this.fMn == null) {
             this.fMn = new PbEditorData();
@@ -330,7 +330,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
         if (z) {
             if (this.fHZ != null && this.fHZ.bet() != null && this.fHZ.bet().bEQ()) {
                 showToast(this.fHZ.bet().bES());
-                this.fHZ.kG(true);
+                this.fHZ.kH(true);
                 return;
             }
             setResult(-1, intent);
@@ -398,7 +398,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                     return;
                 case 25004:
                     if (intent != null) {
-                        this.fMd.gg(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        this.fMd.gh(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                         return;
                     }
                     return;
@@ -520,7 +520,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
     /* JADX INFO: Access modifiers changed from: private */
     public void bbE() {
         if (this.fMm.getVoiceModel() != null) {
-            com.baidu.tbadk.core.voice.a.aM(com.baidu.tbadk.core.voice.a.eN(this.fMm.getVoiceModel().voiceId));
+            com.baidu.tbadk.core.voice.a.aM(com.baidu.tbadk.core.voice.a.eO(this.fMm.getVoiceModel().voiceId));
         }
         this.fMm.setVoiceModel(null);
         this.fMg.setVisibility(8);

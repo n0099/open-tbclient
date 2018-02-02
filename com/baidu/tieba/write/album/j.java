@@ -258,7 +258,7 @@ public class j extends BaseAdapter {
         return this.fyo;
     }
 
-    public void jr(boolean z) {
+    public void js(boolean z) {
         this.fyo = z;
     }
 
@@ -339,7 +339,7 @@ public class j extends BaseAdapter {
         this.hDN = aVar;
     }
 
-    public void nz(boolean z) {
+    public void nA(boolean z) {
         if (this.hDI != z) {
             this.hDI = z;
             notifyDataSetChanged();

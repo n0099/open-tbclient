@@ -120,7 +120,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                         b.this.Ee().setSelection(0);
                     }
                     if (b.this.dOK) {
-                        b.this.gc(false);
+                        b.this.gd(false);
                     } else if (b.this.dOH != null) {
                         b.this.dOH.startPullRefresh();
                     }
@@ -250,7 +250,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         public void onListPullRefresh(boolean z) {
             TiebaStatic.eventStat(b.this.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
             if (com.baidu.adp.lib.util.j.oJ()) {
-                b.this.gc(true);
+                b.this.gd(true);
             } else {
                 b.this.dOH.cM(false);
             }
@@ -269,7 +269,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             }
             b.this.dBJ.Nx();
             if (i == 0) {
-                s.akK().eH(true);
+                s.akK().eI(true);
             }
         }
     };
@@ -297,8 +297,8 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 if (bdVar.zE() == null || bdVar.zE().getGroup_id() == 0 || ax.bb(b.this.getActivity())) {
                     if ((bdVar.zx() != 1 && bdVar.zx() != 2) || ax.bb(b.this.getActivity())) {
                         e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                        if (readThreadHistory != null && !readThreadHistory.sO(bdVar.getId())) {
-                            readThreadHistory.sN(bdVar.getId());
+                        if (readThreadHistory != null && !readThreadHistory.sP(bdVar.getId())) {
+                            readThreadHistory.sO(bdVar.getId());
                             if (b.this.dOH != null) {
                                 b.this.dOH.auM();
                             }
@@ -353,19 +353,19 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     }
 
     private void Vc() {
-        this.dOH.gd(false);
+        this.dOH.ge(false);
         showLoadingView(this.dOH.axT(), true, getResources().getDimensionPixelSize(d.e.ds250));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Vd() {
-        this.dOH.gd(true);
+        this.dOH.ge(true);
         hideLoadingView(this.dOH.axT());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(d.a aVar) {
-        this.dOH.gd(true);
+        this.dOH.ge(true);
         this.dOH.axU().setEnabled(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPAND_BAR_HEADER, true));
         this.dOH.alU();
@@ -380,9 +380,9 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
             this.mRefreshView.Mj().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         if (aVar != null) {
-            this.mRefreshView.gM(getPageContext().getResources().getString(d.j.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
+            this.mRefreshView.gN(getPageContext().getResources().getString(d.j.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
         } else {
-            this.mRefreshView.gM(null);
+            this.mRefreshView.gN(null);
         }
         this.mRefreshView.onChangeSkinType();
         if (!this.dOK) {
@@ -392,7 +392,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     }
 
     private void WG() {
-        this.dOH.gd(true);
+        this.dOH.ge(true);
         this.dOH.axU().setEnabled(true);
         if (this.mRefreshView != null) {
             this.dOH.getListView().removeHeaderView(this.mRefreshView.Mj());
@@ -402,7 +402,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gc(boolean z) {
+    public void gd(boolean z) {
         aus();
         if (this.dOK) {
             WG();
@@ -459,7 +459,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     public void onLazyLoad() {
         super.onLazyLoad();
         if (com.baidu.adp.lib.util.j.oJ()) {
-            gc(false);
+            gd(false);
         } else {
             c((d.a) null);
         }
@@ -500,7 +500,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         if (this.dOH != null) {
             this.dOH.onDestroy();
         }
-        s.akK().eH(false);
+        s.akK().eI(false);
         super.onDestroy();
         try {
             if (this.dBJ != null) {
@@ -530,22 +530,22 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
-        bd sw;
+        bd sx;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
                 case 18003:
                     this.dOH.axS().notifyDataSetChanged();
                     String stringExtra = intent.getStringExtra("tid");
-                    if (stringExtra != null && (sw = this.dBi.sw(stringExtra)) != null) {
+                    if (stringExtra != null && (sx = this.dBi.sx(stringExtra)) != null) {
                         int intExtra = intent.getIntExtra("type", -1);
                         if (intExtra == 2) {
-                            sw.eS(intent.getIntExtra("good_data", 0));
-                            sw.zC();
-                            gc(false);
+                            sx.eS(intent.getIntExtra("good_data", 0));
+                            sx.zC();
+                            gd(false);
                             return;
                         } else if (intExtra == 0) {
-                            this.dBi.ag(sw);
+                            this.dBi.ag(sx);
                             ArrayList<i> threadList = this.dBi.getThreadList();
                             if (threadList != null && threadList.size() <= 0) {
                                 threadList.add(new m());
@@ -623,7 +623,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
                 h.nt().e(new Runnable() { // from class: com.baidu.tieba.frs.good.b.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.sI(b.this.dBw);
+                        com.baidu.tieba.tbadkCore.util.a.sJ(b.this.dBw);
                     }
                 });
                 break;
@@ -677,7 +677,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        s.akK().eH(false);
+        s.akK().eI(false);
         if (this.dBi != null && this.dBi.aYJ() != null) {
             com.baidu.tbadk.distribute.a.Kg().a(getPageContext().getPageActivity(), "frs", this.dBi.aYJ().getId(), 0L);
         }
@@ -831,7 +831,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.oJ()) {
-            gc(false);
+            gd(false);
         }
     }
 
@@ -844,7 +844,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
         return this.dOF;
     }
 
-    public void lT(String str) {
+    public void lU(String str) {
         this.dBw = str;
     }
 
@@ -884,7 +884,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     }
 
     @Override // com.baidu.tieba.frs.loadmore.FrsLoadMoreModel.a
-    public void lm(String str) {
+    public void ln(String str) {
         Wl();
     }
 
@@ -967,7 +967,7 @@ public class b extends BaseFragment implements BdListView.e, a.InterfaceC0036a, 
     public void nD(int i) {
         this.mTabId = i;
         if (com.baidu.adp.lib.util.j.oJ()) {
-            gc(false);
+            gd(false);
         } else {
             c((d.a) null);
         }

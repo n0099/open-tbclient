@@ -21,14 +21,14 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.LR().gF(str);
+        return com.baidu.tbadk.imageManager.c.LR().gG(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        return a(ao.ei(str2), aVar, str2, "ImageLoaderProc.getFromLocal");
+        return a(ao.ej(str2), aVar, str2, "ImageLoaderProc.getFromLocal");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String ei = ao.ei(str2);
+            String ej = ao.ej(str2);
             com.baidu.tbadk.imageManager.c.LR().ia(TbConfig.getPbImageSize() + bArr.length);
             boolean j3 = com.baidu.adp.lib.util.l.j(bArr);
             if (!NSGif.afm || !j3) {
@@ -92,7 +92,7 @@ public class j implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
                 }
                 aVar2 = new com.baidu.adp.widget.a.a(Bytes2Bitmap, false, str);
             }
-            com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(TbConfig.IMAGE_CACHE_DIR_NAME, ei, DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(TbConfig.IMAGE_CACHE_DIR_NAME, ej, DiskFileOperate.Action.WRITE);
             aVar3.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             aVar3.Z(true);
             aVar3.setData(bArr);

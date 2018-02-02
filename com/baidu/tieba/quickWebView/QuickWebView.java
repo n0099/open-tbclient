@@ -98,7 +98,7 @@ public class QuickWebView extends BaseWebView {
         this.mJsBridge.a(new a(context, this.gzb));
     }
 
-    public void lO(boolean z) {
+    public void lP(boolean z) {
         if (z) {
             ca(this.mContext);
         }
@@ -170,7 +170,7 @@ public class QuickWebView extends BaseWebView {
             this.gzc = false;
             String str2 = str + (str.contains("?") ? "&" : "?") + "_webview_time=" + System.currentTimeMillis();
             if (ai.Oj()) {
-                str = rx(str2);
+                str = ry(str2);
             }
             str = str2;
         }
@@ -178,10 +178,10 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:71:0x01cd -> B:6:0x001d). Please submit an issue!!! */
-    private String rx(String str) {
+    private String ry(String str) {
         URL url;
         String path;
-        com.baidu.tieba.quickWebView.data.a rA;
+        com.baidu.tieba.quickWebView.data.a rB;
         boolean z;
         String[] split;
         String str2 = null;
@@ -189,10 +189,10 @@ public class QuickWebView extends BaseWebView {
         try {
             url = new URL(str);
             path = url.getPath();
-            rA = d.bmA().rA(path);
+            rB = d.bmA().rB(path);
         } catch (MalformedURLException e) {
         }
-        if (rA != null && !rA.gzC) {
+        if (rB != null && !rB.gzC) {
             String BC = c.bmt().BC();
             String str3 = BC + path + ".html";
             File file = new File(str3);
@@ -209,7 +209,7 @@ public class QuickWebView extends BaseWebView {
             } catch (MalformedURLException e2) {
                 str2 = str4;
             }
-            if (rA.gzB != null && rA.gzB.size() != 0) {
+            if (rB.gzB != null && rB.gzB.size() != 0) {
                 if (!TextUtils.isEmpty(query) && (split = query.split("&")) != null) {
                     for (String str5 : split) {
                         String[] split2 = str5.split("=");
@@ -220,7 +220,7 @@ public class QuickWebView extends BaseWebView {
                 }
                 hashMap.put("{client_version}", TbConfig.getVersion());
                 hashMap.put("{client_type}", "2");
-                Iterator<String> it = rA.gzB.iterator();
+                Iterator<String> it = rB.gzB.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     StringBuilder sb = new StringBuilder();

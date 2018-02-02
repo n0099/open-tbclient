@@ -94,7 +94,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 aKY();
                 return;
             case WAIT:
-                hL(z);
+                hM(z);
                 return;
             case AGREE:
                 String str = "";
@@ -104,7 +104,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 h(z, str);
                 return;
             case PASS:
-                hM(z);
+                hN(z);
                 return;
             default:
                 return;
@@ -120,7 +120,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.eLj.setText(d.j.add_friend_button);
     }
 
-    private void hL(boolean z) {
+    private void hM(boolean z) {
         if (this.eLd.aKT().aLK() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
@@ -214,7 +214,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.eLj.setText(d.j.add_friend_agree_button);
     }
 
-    private void hM(boolean z) {
+    private void hN(boolean z) {
         aKX();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);

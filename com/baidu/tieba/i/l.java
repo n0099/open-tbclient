@@ -9,7 +9,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.i.k
-    public e pz(String str) {
+    public e pA(String str) {
         return new com.baidu.tieba.j.b(str);
     }
 

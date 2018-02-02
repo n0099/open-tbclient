@@ -15,7 +15,7 @@ public class b {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.LR().gF(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.LR().gG(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -80,9 +80,9 @@ public class b {
                     this.buT.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.a.a gF = com.baidu.tbadk.imageManager.c.LR().gF(poll.buN.toCachedKey(poll.buP));
-                    if (gF != null) {
-                        poll.buQ = gF;
+                    com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(poll.buN.toCachedKey(poll.buP));
+                    if (gG != null) {
+                        poll.buQ = gG;
                         poll.buR = true;
                     } else {
                         Bitmap b = b.this.b(poll.buN, poll.buP);

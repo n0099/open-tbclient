@@ -26,14 +26,14 @@ public class b {
         @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aY(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && Z(i2)) {
-                b.this.fO(false);
+                b.this.fP(false);
             }
         }
 
         @Override // com.baidu.tieba.e.a.InterfaceC0109a
         public void aZ(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && Z(i2)) {
-                b.this.fO(true);
+                b.this.fP(true);
             }
         }
 
@@ -90,7 +90,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fO(boolean z) {
+    public void fP(boolean z) {
         this.bBr = z;
         if (this.dNS) {
             p(!this.bBr, true);

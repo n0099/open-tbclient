@@ -13,7 +13,7 @@ public class SnapChatMsgHelper extends b {
             String bAV = ChatStatusManager.getInst().getCurId(3);
 
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean mG(String str) {
+            public boolean mH(String str) {
                 return !TextUtils.isEmpty(str) && this.eva && str.equals(this.bAV);
             }
         }, false);

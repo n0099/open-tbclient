@@ -47,7 +47,7 @@ public class ThreadSkinView extends TbImageView {
         this.mTbPageContext = tbPageContext;
         if (this.fBP != skinInfo && c0155a != null) {
             this.fBQ = c0155a;
-            this.fBQ.ea("action_type");
+            this.fBQ.eb("action_type");
             this.fBQ.cc("obj_id", skinInfo.obj_id);
             this.fBQ.cc("obj_url", skinInfo.url);
             this.fBQ.cc("obj_name", skinInfo.monitor_id);
@@ -83,7 +83,7 @@ public class ThreadSkinView extends TbImageView {
     public void onClick(View view) {
         if (this.fBP != null && !StringUtils.isNull(this.fBP.url)) {
             if (this.fBQ != null) {
-                this.fBQ.ea("action_type");
+                this.fBQ.eb("action_type");
                 this.fBQ.cc("action_type", "CLICK");
                 this.fBQ.save();
             }

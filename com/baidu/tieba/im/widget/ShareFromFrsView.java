@@ -64,7 +64,7 @@ public class ShareFromFrsView extends LinearLayout {
     }
 
     private void DG() {
-        this.bLb.setText(ek(this.dVr.getName()));
+        this.bLb.setText(el(this.dVr.getName()));
         this.dVo.setDefaultResource(d.f.icon_default_ba_120);
         this.dVo.setAutoChangeStyle(false);
         this.dVo.startLoad(this.dVr.getImageUrl(), 10, false);
@@ -72,7 +72,7 @@ public class ShareFromFrsView extends LinearLayout {
         this.eKf.setText(am.H(this.dVr.getPostNum()));
     }
 
-    private String ek(String str) {
+    private String el(String str) {
         return am.k(str, 8) + this.context.getString(d.j.forum);
     }
 }

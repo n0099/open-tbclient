@@ -31,7 +31,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.v
             public void a(View view, be beVar) {
                 com.baidu.tieba.card.data.l lVar = h.this.cSN;
-                s.akK().df(true);
+                s.akK().dg(true);
                 if (view != null && h.this.dIe != null && h.this.dIe.getView() != null && lVar != null && lVar.VM() != null && !StringUtils.isNull(lVar.VM().getTid())) {
                     if (view.getId() != h.this.dIe.getView().getId()) {
                         if (h.this.dIe.getHeaderImg() == null || view.getId() != h.this.dIe.getHeaderImg().getId()) {
@@ -48,7 +48,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         TiebaStatic.log(lVar.ale());
                         return;
                     }
-                    TiebaStatic.log(lVar.kw("c12642"));
+                    TiebaStatic.log(lVar.kx("c12642"));
                 }
             }
         };
@@ -87,7 +87,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
         this.cSN = lVar;
         lVar.lH(i + 1);
-        s.akK().a(lVar.kv("c12641"));
+        s.akK().a(lVar.kw("c12641"));
         if (lVar.aLY != null && lVar.aLY.size() > 0) {
             lVar.VM().a(lVar.aLY);
         }

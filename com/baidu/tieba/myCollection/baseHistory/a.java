@@ -193,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void pF(String str) {
+    public void pG(String str) {
         this.threadName = str;
     }
 
@@ -205,7 +205,7 @@ public class a implements f {
         return this.postID;
     }
 
-    public void pG(String str) {
+    public void pH(String str) {
         this.postID = str;
     }
 
@@ -213,7 +213,7 @@ public class a implements f {
         return this.isHostOnly;
     }
 
-    public void jm(boolean z) {
+    public void jn(boolean z) {
         this.isHostOnly = z;
     }
 
@@ -221,7 +221,7 @@ public class a implements f {
         return this.isSquence;
     }
 
-    public void jn(boolean z) {
+    public void jo(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void pH(String str) {
+    public void pI(String str) {
         this.liveId = str;
     }
 
@@ -260,7 +260,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gO(String str) {
+    public boolean gP(String str) {
         if (str != null) {
             try {
                 return K(new JSONObject(str));

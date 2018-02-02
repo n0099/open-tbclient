@@ -44,7 +44,7 @@ public class n extends c {
         return this.bXi;
     }
 
-    public ak kr(String str) {
+    public ak ks(String str) {
         ak akVar = new ak(str);
         if (this.bXi != null) {
             akVar.f(ImageViewerConfig.FORUM_ID, this.bXi.getFid());

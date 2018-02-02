@@ -60,7 +60,7 @@ public class c extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void hq(String str) {
+    public void hr(String str) {
         this.bJv = str;
     }
 

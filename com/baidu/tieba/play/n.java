@@ -44,7 +44,7 @@ public class n implements d {
             if (n.this.bko()) {
                 t.ab(n.this.mContext, n.this.gtb);
             } else if (!n.this.gtc) {
-                t.hO(n.this.gtb);
+                t.hP(n.this.gtb);
             }
         }
     };
@@ -69,7 +69,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public String hM(String str) {
+    public String hN(String str) {
         this.gtj = com.baidu.tbadk.coreExtra.model.f.Ih();
         this.gtk = com.baidu.tbadk.coreExtra.model.f.Ii();
         this.gtl = com.baidu.tbadk.coreExtra.model.f.Ij();
@@ -229,14 +229,14 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public boolean bjS() {
-        return t.hN(this.gtb) != null;
+        return t.hO(this.gtb) != null;
     }
 
     public void bkl() {
         this.gtc = true;
     }
 
-    public void rc(String str) {
+    public void rd(String str) {
         this.gta = str;
     }
 

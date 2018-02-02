@@ -36,7 +36,7 @@ public class ax implements com.baidu.tbadk.widget.vote.a {
         return this.bpm + "%";
     }
 
-    public void fR(boolean z) {
+    public void fS(boolean z) {
         this.dET = z;
     }
 

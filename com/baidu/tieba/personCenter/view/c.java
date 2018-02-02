@@ -118,7 +118,7 @@ public class c {
                 });
             }
             this.refreshView.id(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
-            this.refreshView.gM(this.mPageContext.getString(d.j.neterror));
+            this.refreshView.gN(this.mPageContext.getString(d.j.neterror));
             this.refreshView.j(this.giv, false);
             this.refreshView.Ml();
             this.refreshView.onChangeSkinType();

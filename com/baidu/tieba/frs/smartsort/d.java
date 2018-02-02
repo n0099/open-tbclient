@@ -39,11 +39,11 @@ public class d {
             String ayF = ayF();
             ArrayList<f> arrayList = this.dQN.get(ayF);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            f mc = mc(str);
+            f md = md(str);
             boolean z = false;
-            if (mc != null) {
-                if (mc.dQR != i) {
-                    mc.dQR = i;
+            if (md != null) {
+                if (md.dQR != i) {
+                    md.dQR = i;
                     z = true;
                 }
             } else {
@@ -78,13 +78,13 @@ public class d {
                 if (!this.dQH) {
                     ayL();
                 } else {
-                    md(jSONArray.toString());
+                    me(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized f mc(String str) {
+    public synchronized f md(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
             ArrayList<f> arrayList = this.dQN.get(ayF());
@@ -111,7 +111,7 @@ public class d {
         return fVar;
     }
 
-    private void md(String str) {
+    private void me(String str) {
         l<String> ayH = ayH();
         if (ayH != null) {
             ayH.f("frs_sortType", str);
@@ -138,7 +138,7 @@ public class d {
                         /* renamed from: aW */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dQN.put(d.this.ayF(), d.this.mb(str2));
+                                d.this.dQN.put(d.this.ayF(), d.this.mc(str2));
                             }
                             d.this.dQH = true;
                         }
@@ -154,7 +154,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> mb(String str) {
+    public ArrayList<f> mc(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -170,7 +170,7 @@ public class d {
     }
 
     public void ayM() {
-        md("");
+        me("");
         this.dQN.remove(ayF());
     }
 }

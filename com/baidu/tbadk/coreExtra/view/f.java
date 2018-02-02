@@ -628,7 +628,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
         this.bmN = false;
         this.bnd = Je();
         this.bmG.setVisibility(8);
-        if (fD(str)) {
+        if (fE(str)) {
             b(str, z, false);
         }
     }
@@ -652,14 +652,14 @@ public class f extends RelativeLayout implements View.OnClickListener {
     }
 
     private boolean bR(boolean z) {
-        String ei;
+        String ej;
         if (!this.bne || z) {
             this.bne = true;
             if (!this.bnd || this.bnc == null || StringUtils.isNull(this.bnc.originalUrl, true) || this.bnc.originalSize < 0 || Build.VERSION.SDK_INT < 10) {
                 return false;
             }
-            String str = this.bnb + al.CF().eb(ei) + "/" + ao.ei(this.bnc.originalUrl);
-            final int[] dC = k.dC(str);
+            String str = this.bnb + al.CF().ec(ej) + "/" + ao.ej(this.bnc.originalUrl);
+            final int[] dD = k.dD(str);
             this.bmJ.setVisibility(0);
             if (this.bmK == null) {
                 this.bmK = new SubsamplingScaleImageView.OnImageEventListener() { // from class: com.baidu.tbadk.coreExtra.view.f.12
@@ -672,10 +672,10 @@ public class f extends RelativeLayout implements View.OnClickListener {
 
                     @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
                     public void onImageLoaded() {
-                        if (f.this.bnc.isLongPic && dC[0] > 0) {
+                        if (f.this.bnc.isLongPic && dD[0] > 0) {
                             f.this.bmF.onDestroy();
-                            final float measuredWidth = (f.this.getMeasuredWidth() * 1.0f) / dC[0];
-                            final PointF pointF = new PointF((dC[0] * 1.0f) / 2.0f, 0.0f);
+                            final float measuredWidth = (f.this.getMeasuredWidth() * 1.0f) / dD[0];
+                            final PointF pointF = new PointF((dD[0] * 1.0f) / 2.0f, 0.0f);
                             f.this.bmJ.setScaleAndCenter(measuredWidth, pointF);
                             f.this.bmJ.setMaxScale(2.0f * measuredWidth);
                             f.this.bmJ.setDoubleTapZoomScale(2.0f * measuredWidth);
@@ -752,8 +752,8 @@ public class f extends RelativeLayout implements View.OnClickListener {
         bR(false);
     }
 
-    private boolean fD(String str) {
-        return j.oJ() || com.baidu.tbadk.core.util.d.c.ez(str);
+    private boolean fE(String str) {
+        return j.oJ() || com.baidu.tbadk.core.util.d.c.eA(str);
     }
 
     private void setThumbBitmapToView(com.baidu.adp.widget.a.a aVar) {
@@ -783,7 +783,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
     }
 
     private void b(String str, boolean z, boolean z2) {
-        if (fE(str)) {
+        if (fF(str)) {
             if (z2 || (!this.bmO && !this.bmN)) {
                 if (!z2 || !bR(true)) {
                     this.bmO = true;
@@ -834,7 +834,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
         }, false);
     }
 
-    private boolean fE(String str) {
+    private boolean fF(String str) {
         return !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith("https://"));
     }
 
@@ -964,9 +964,9 @@ public class f extends RelativeLayout implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bmG) {
             if (!(this.bmG.getTag() instanceof Boolean) || ((Boolean) this.bmG.getTag()).booleanValue()) {
-                final String ei = ao.ei(this.bnc.originalUrl);
+                final String ej = ao.ej(this.bnc.originalUrl);
                 if (this.bnc.originalProcess >= 0) {
-                    com.baidu.tbadk.download.e.Ko().z(ei, 13);
+                    com.baidu.tbadk.download.e.Ko().z(ej, 13);
                     this.bnc.originalProcess = -1;
                     Jf();
                     return;
@@ -976,9 +976,9 @@ public class f extends RelativeLayout implements View.OnClickListener {
                 }
                 com.baidu.adp.base.e<?> ak = i.ak(this.mContext);
                 if (ak == null) {
-                    fF(ei);
+                    fG(ej);
                 } else if (!j.oJ() || j.oK() || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("original_img_down_tip", false)) {
-                    fF(ei);
+                    fG(ej);
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("original_img_down_tip", true);
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ak.getPageActivity());
@@ -987,7 +987,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar.dismiss();
-                            f.this.fF(ei);
+                            f.this.fG(ej);
                         }
                     });
                     aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.f.5
@@ -1006,7 +1006,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fF(String str) {
+    public void fG(String str) {
         if (this.bnc != null) {
             this.bnc.originalProcess = 0;
         }
@@ -1016,7 +1016,7 @@ public class f extends RelativeLayout implements View.OnClickListener {
         downloadData.setStatus(1);
         downloadData.setUrl(this.bnc.originalUrl);
         downloadData.setType(13);
-        downloadData.setPath(this.bnb + al.CF().eb(str) + "/" + str);
+        downloadData.setPath(this.bnb + al.CF().ec(str) + "/" + str);
         downloadData.setCallback(new com.baidu.tbadk.download.d() { // from class: com.baidu.tbadk.coreExtra.view.f.6
             @Override // com.baidu.tbadk.download.d
             public boolean onPreDownload(DownloadData downloadData2) {
@@ -1066,8 +1066,8 @@ public class f extends RelativeLayout implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean Je() {
         if (this.bnc != null && !StringUtils.isNull(this.bnc.originalUrl, true) && this.bnc.originalSize >= 0 && !this.bnc.isBlockedPic) {
-            String ei = ao.ei(this.bnc.originalUrl);
-            File file = new File(this.bnb + al.CF().eb(ei) + "/" + ei);
+            String ej = ao.ej(this.bnc.originalUrl);
+            File file = new File(this.bnb + al.CF().ec(ej) + "/" + ej);
             if (file != null && file.exists()) {
                 this.bnc.originalProcess = 100;
                 return true;

@@ -145,19 +145,19 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void gC(String str) {
+    public void gD(String str) {
         this.bus.remove(str);
     }
 
-    public void gD(String str) {
+    public void gE(String str) {
         this.but.remove(str);
     }
 
-    public com.baidu.adp.widget.a.a gE(String str) {
+    public com.baidu.adp.widget.a.a gF(String str) {
         return this.bus.get(str);
     }
 
-    public com.baidu.adp.widget.a.a gF(String str) {
+    public com.baidu.adp.widget.a.a gG(String str) {
         return this.but.get(str);
     }
 

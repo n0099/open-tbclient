@@ -184,7 +184,7 @@ public class e extends BaseAdapter {
         return view;
     }
 
-    public void nz(boolean z) {
+    public void nA(boolean z) {
         this.hDI = z;
     }
 }

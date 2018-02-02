@@ -77,16 +77,16 @@ class f implements Runnable {
                 if (readLine != null && readLine.contains(HttpGet.METHOD_NAME) && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        hVar.hF(split[1]);
+                        hVar.hG(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    hVar.hG(URLDecoder.decode(str));
+                    hVar.hH(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
-                    hVar.cR(true);
+                    hVar.cS(true);
                     String[] split2 = readLine.split(":");
                     String str2 = (split2 == null || split2.length <= 1) ? "" : split2[1];
                     String substring2 = (str2 == null || (lastIndexOf = str2.lastIndexOf("bytes=") + 6) < 0 || lastIndexOf > str2.length()) ? str2 : str2.substring(lastIndexOf);
@@ -121,16 +121,16 @@ class f implements Runnable {
     }
 
     private boolean a(h hVar, PrintStream printStream) {
-        int hD = hD(hVar.Tc());
-        if (hD <= 0) {
+        int hE = hE(hVar.Tc());
+        if (hE <= 0) {
             return false;
         }
-        hVar.Y(hD);
+        hVar.Y(hE);
         if (hVar.Te() < 0) {
             hVar.aE(0L);
         }
         if (hVar.Tf() < 0) {
-            hVar.aF(hD - 1);
+            hVar.aF(hE - 1);
         }
         long Te = hVar.Te();
         long Tf = hVar.Tf();
@@ -144,7 +144,7 @@ class f implements Runnable {
         printStream.println("Accept-Ranges: bytes");
         printStream.println("Content-Length: " + ((Tf - Te) + 1));
         if (hVar.Td()) {
-            printStream.println("Content-Range: bytes " + Te + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Tf + "/" + hD);
+            printStream.println("Content-Range: bytes " + Te + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Tf + "/" + hE);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -157,17 +157,17 @@ class f implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int hD(String str) {
+    private int hE(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String hK = m.hK(str);
-        if (hK == null || hK.isEmpty()) {
+        String hL = m.hL(str);
+        if (hL == null || hL.isEmpty()) {
             return 0;
         }
-        File file = new File(i.bPz + hK);
+        File file = new File(i.bPz + hL);
         if (!file.exists()) {
             file.mkdir();
         }

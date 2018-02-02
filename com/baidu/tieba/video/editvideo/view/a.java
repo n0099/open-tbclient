@@ -127,29 +127,29 @@ public class a extends com.baidu.adp.base.c {
                             a.this.hqy.getRootView().setVisibility(0);
                             a.this.hqz.getRootView().setVisibility(8);
                             a.this.hqA.getRootView().setVisibility(8);
-                            a.this.hqy.nd(true);
-                            a.this.hqz.nd(false);
-                            a.this.hqA.nd(false);
+                            a.this.hqy.ne(true);
+                            a.this.hqz.ne(false);
+                            a.this.hqA.ne(false);
                             break;
                         case 1:
                             a.this.hqA.getRootView().setVisibility(0);
                             a.this.hqz.getRootView().setVisibility(8);
                             a.this.hqy.getRootView().setVisibility(8);
-                            a.this.hqy.nd(false);
+                            a.this.hqy.ne(false);
                             if (TextUtils.isEmpty(a.this.hqz.bBs())) {
-                                a.this.hqz.nd(false);
+                                a.this.hqz.ne(false);
                             } else {
-                                a.this.hqz.nd(true);
+                                a.this.hqz.ne(true);
                             }
-                            a.this.hqA.nd(true);
+                            a.this.hqA.ne(true);
                             break;
                         case 2:
                             a.this.hqz.getRootView().setVisibility(0);
                             a.this.hqy.getRootView().setVisibility(8);
                             a.this.hqA.getRootView().setVisibility(8);
-                            a.this.hqy.nd(false);
-                            a.this.hqz.nd(true);
-                            a.this.hqA.nd(false);
+                            a.this.hqy.ne(false);
+                            a.this.hqz.ne(true);
+                            a.this.hqA.ne(false);
                             break;
                     }
                     a.this.mCurrentTabIndex = i2;

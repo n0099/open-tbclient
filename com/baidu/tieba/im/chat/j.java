@@ -90,7 +90,7 @@ public class j {
                         aVar = null;
                     } else {
                         try {
-                            aVar = com.baidu.tbadk.imageManager.c.LR().gF(b);
+                            aVar = com.baidu.tbadk.imageManager.c.LR().gG(b);
                             try {
                                 if (aVar == null) {
                                     Bitmap f = ac.Cs().f(com.baidu.adp.lib.util.d.or().aF(b));

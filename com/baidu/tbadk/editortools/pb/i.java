@@ -45,7 +45,7 @@ public class i extends com.baidu.tbadk.editortools.d {
                     if (aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                hVar.gm((String) aVar.data);
+                                hVar.gn((String) aVar.data);
                                 i.this.bsw = false;
                                 return;
                             case 5:

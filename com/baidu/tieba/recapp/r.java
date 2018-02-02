@@ -49,7 +49,7 @@ public class r {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bmX().a(advertAppInfo.aJr, advertAppInfo.aJq, str2, i, com.baidu.tieba.recapp.c.a.rE(advertAppInfo.aJr).intValue(), null, true, false, true, advertAppInfo.aJy.userPortrait, downloadStaticsData, advertAppInfo.aJy.userName);
+        com.baidu.tieba.recapp.c.a.bmX().a(advertAppInfo.aJr, advertAppInfo.aJq, str2, i, com.baidu.tieba.recapp.c.a.rF(advertAppInfo.aJr).intValue(), null, true, false, true, advertAppInfo.aJy.userPortrait, downloadStaticsData, advertAppInfo.aJy.userName);
         return true;
     }
 
@@ -197,7 +197,7 @@ public class r {
         if (bmP == null) {
             return false;
         }
-        if (bmP.hW(str)) {
+        if (bmP.hX(str)) {
             bmP.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }

@@ -39,7 +39,7 @@ public class t extends com.baidu.tbadk.editortools.f {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void gp(String str) {
+            public void gq(String str) {
                 BaseActivity baseActivity = t.this.mContext;
                 if (StringUtils.isNull(str)) {
                     str = t.this.Kw().getContext().getString(d.j.location_fail);
@@ -53,7 +53,7 @@ public class t extends com.baidu.tbadk.editortools.f {
                 if (aVar != null && !StringUtils.isNull(aVar.bwn())) {
                     t.this.b(2, true, aVar.bwn());
                 } else {
-                    gp(null);
+                    gq(null);
                 }
             }
         };
@@ -64,7 +64,7 @@ public class t extends com.baidu.tbadk.editortools.f {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void gq(String str) {
+            public void gr(String str) {
                 t.this.b(2, true, str);
             }
         };
@@ -112,7 +112,7 @@ public class t extends com.baidu.tbadk.editortools.f {
         } else if (this.brS.bwv()) {
             KW();
         } else {
-            this.brS.mE(false);
+            this.brS.mF(false);
             b(1, true, null);
             this.brS.bwt();
         }

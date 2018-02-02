@@ -32,7 +32,7 @@ public class e implements com.baidu.adp.lib.f.e<a> {
     }
 
     private DiskFileOperate a(com.baidu.adp.widget.a.a aVar, String str) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.ei(str), DiskFileOperate.Action.WRITE_FORCE);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, ao.ej(str), DiskFileOperate.Action.WRITE_FORCE);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.Z(true);
         diskFileOperate.ac(true);

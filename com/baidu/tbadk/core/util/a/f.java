@@ -159,7 +159,7 @@ public class f implements a.InterfaceC0018a {
                         }
                         if (aWP != null && aWP.length() > 0) {
                             this.aWT = true;
-                            if (er(aWP) && j.oV()) {
+                            if (es(aWP) && j.oV()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
                                 sb.append(aWP);
@@ -232,7 +232,7 @@ public class f implements a.InterfaceC0018a {
         }
     }
 
-    private boolean er(String str) {
+    private boolean es(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
@@ -385,7 +385,7 @@ public class f implements a.InterfaceC0018a {
                 this.aWO.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
                     boolean oK8 = j.oK();
-                    if ((oK8 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                    if ((oK8 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                         long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                         if (oK8) {
                             z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -458,7 +458,7 @@ public class f implements a.InterfaceC0018a {
                             this.aWO.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean oK9 = j.oK();
-                                if ((oK9 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                if ((oK9 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                     long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                                     if (oK9) {
                                         z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -483,7 +483,7 @@ public class f implements a.InterfaceC0018a {
                             this.aWO.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean oK10 = j.oK();
-                                if ((oK10 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                if ((oK10 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                     long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
                                     if (oK10) {
                                         z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -511,7 +511,7 @@ public class f implements a.InterfaceC0018a {
                     this.aWO.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean oK11 = j.oK();
-                        if ((oK11 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                        if ((oK11 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                             long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
                             if (oK11) {
                                 z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -562,7 +562,7 @@ public class f implements a.InterfaceC0018a {
                             this.aWO.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean oK12 = j.oK();
-                                if ((oK12 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                if ((oK12 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                     long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
                                     if (oK12) {
                                         z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -606,7 +606,7 @@ public class f implements a.InterfaceC0018a {
                                     this.aWO.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         oK7 = j.oK();
-                                        if ((oK7 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                        if ((oK7 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                             long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!oK7) {
                                                 z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -637,7 +637,7 @@ public class f implements a.InterfaceC0018a {
                                         this.aWO.b(dVar);
                                         if ((str != null || str.length() == 0) && c != null) {
                                             oK6 = j.oK();
-                                            if ((oK6 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                            if ((oK6 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                                 long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
                                                 if (!oK6) {
                                                     z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -664,7 +664,7 @@ public class f implements a.InterfaceC0018a {
                                         this.aWO.b(dVar);
                                         if ((str != null || str.length() == 0) && c != null) {
                                             oK5 = j.oK();
-                                            if ((oK5 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                            if ((oK5 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                                 long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
                                                 if (!oK5) {
                                                     z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -693,7 +693,7 @@ public class f implements a.InterfaceC0018a {
                                     this.aWO.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         oK4 = j.oK();
-                                        if ((oK4 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                        if ((oK4 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                             long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!oK4) {
                                                 z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -722,7 +722,7 @@ public class f implements a.InterfaceC0018a {
                                     this.aWO.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         oK3 = j.oK();
-                                        if ((oK3 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                        if ((oK3 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                             long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!oK3) {
                                                 z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -751,7 +751,7 @@ public class f implements a.InterfaceC0018a {
                                     this.aWO.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         oK2 = j.oK();
-                                        if ((oK2 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                        if ((oK2 ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                             long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!oK2) {
                                                 z2 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -780,7 +780,7 @@ public class f implements a.InterfaceC0018a {
                                     this.aWO.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         oK = j.oK();
-                                        if ((oK ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+                                        if ((oK ? dVar.ajp != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                                             long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!oK) {
                                                 z = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -816,7 +816,7 @@ public class f implements a.InterfaceC0018a {
                                     ITrafficStatsNativeManager.rH().c(TbConfig.TMP_PIC_DIR_NAME, dVar.ajg, dVar.ajh);
                                 }
                                 if (execute.getFirstHeader("ginfo") != null && (value = execute.getFirstHeader("ginfo").getValue()) != null && value.length() > 0) {
-                                    es(value);
+                                    et(value);
                                     break;
                                 }
                                 break;
@@ -961,7 +961,7 @@ public class f implements a.InterfaceC0018a {
         this.aWO.b(dVar);
         if ((str == null || str.length() == 0) && c != null) {
             boolean oK13 = j.oK();
-            if ((oK13 ? dVar.ajp != null || z11 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gX(c) && z16) {
+            if ((oK13 ? dVar.ajp != null || z11 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gY(c) && z16) {
                 long currentTimeMillis15 = System.currentTimeMillis() - currentTimeMillis;
                 if (oK13) {
                     z12 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().aHd);
@@ -977,7 +977,7 @@ public class f implements a.InterfaceC0018a {
         this.aWO.nc().ajF = bArr7;
     }
 
-    private void es(String str) {
+    private void et(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str) && !str.equals(aWV) && (System.currentTimeMillis() - aWX) - (BdStatisticsManager.UPLOAD_TIMER_INTERVAL * (aWW / 3)) >= 0) {
             aWW++;

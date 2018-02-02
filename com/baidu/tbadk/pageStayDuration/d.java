@@ -26,7 +26,7 @@ public class d {
         return this.bxs;
     }
 
-    public void gP(String str) {
+    public void gQ(String str) {
         this.bxs = str;
     }
 

@@ -586,13 +586,13 @@ public class PbModel extends DataModel {
 
     public boolean bbT() {
         if (this.fMO && this.fNb.xZ().xV() == 0) {
-            kb(true);
+            kc(true);
             return true;
         }
         return false;
     }
 
-    public void qc(String str) {
+    public void qd(String str) {
         if (!StringUtils.isNull(str)) {
             this.fMI = str;
             this.fMK = null;
@@ -1333,7 +1333,7 @@ public class PbModel extends DataModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(com.baidu.tieba.pb.data.f fVar) {
-        fVar.qb(this.fNb.aZc());
+        fVar.qc(this.fNb.aZc());
         this.fNb = fVar;
         sO(fVar.xZ().xT());
     }
@@ -1364,7 +1364,7 @@ public class PbModel extends DataModel {
         return sQ(6);
     }
 
-    public boolean kb(boolean z) {
+    public boolean kc(boolean z) {
         if (this.fMI == null || this.fNb == null) {
             return false;
         }
@@ -1374,7 +1374,7 @@ public class PbModel extends DataModel {
         return false;
     }
 
-    public boolean kc(boolean z) {
+    public boolean kd(boolean z) {
         if (this.fMI == null || this.fNb == null) {
             return false;
         }
@@ -1384,7 +1384,7 @@ public class PbModel extends DataModel {
         return false;
     }
 
-    public boolean qh(String str) {
+    public boolean qi(String str) {
         this.fMM = !this.fMM;
         this.fMK = str;
         TiebaStatic.log(new com.baidu.tbadk.core.util.ak("pb_onlyowner_click").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0));
@@ -1437,7 +1437,7 @@ public class PbModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData gh(String str) {
+    public WriteData gi(String str) {
         if (this.fNb == null || this.fNb.aYL() == null || this.fNb.aYJ() == null) {
             return null;
         }
@@ -1530,13 +1530,13 @@ public class PbModel extends DataModel {
         return str;
     }
 
-    public void kd(boolean z) {
+    public void ke(boolean z) {
         if (this.fNb != null) {
             this.fNb.aI(z);
         }
     }
 
-    public void ke(boolean z) {
+    public void kf(boolean z) {
         this.fNm = z;
     }
 
@@ -1558,7 +1558,7 @@ public class PbModel extends DataModel {
         return MQ();
     }
 
-    public boolean qi(String str) {
+    public boolean qj(String str) {
         if (getPbData() == null || getPbData().aYL() == null || getPbData().aYL().yT() == null || StringUtils.isNull(str)) {
             return false;
         }
@@ -1630,7 +1630,7 @@ public class PbModel extends DataModel {
         return this.fNr;
     }
 
-    public void qj(String str) {
+    public void qk(String str) {
         this.fNr = str;
     }
 
@@ -1665,8 +1665,8 @@ public class PbModel extends DataModel {
         this.fNI = i;
     }
 
-    public void qk(String str) {
-        if ((!this.fMM || qi(TbadkCoreApplication.getCurrentAccount())) && this.fNb.aYN() != null) {
+    public void ql(String str) {
+        if ((!this.fMM || qj(TbadkCoreApplication.getCurrentAccount())) && this.fNb.aYN() != null) {
             this.fNb.xZ().eJ(1);
             if (this.fNb.xZ().xV() == 0) {
                 this.fNb.xZ().eJ(1);
@@ -1731,7 +1731,7 @@ public class PbModel extends DataModel {
         return this.fNO;
     }
 
-    public void ql(String str) {
+    public void qm(String str) {
         this.fNO = str;
     }
 }

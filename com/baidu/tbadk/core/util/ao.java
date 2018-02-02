@@ -76,7 +76,7 @@ public class ao {
         return null;
     }
 
-    public static String ei(String str) {
+    public static String ej(String str) {
         return com.baidu.adp.lib.util.s.ba(str);
     }
 }

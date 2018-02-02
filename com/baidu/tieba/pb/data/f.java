@@ -89,7 +89,7 @@ public class f {
         return this.fDS;
     }
 
-    public void jD(boolean z) {
+    public void jE(boolean z) {
         this.fDS = z;
     }
 
@@ -241,7 +241,7 @@ public class f {
         return null;
     }
 
-    public void qa(String str) {
+    public void qb(String str) {
         if (this.bXi != null) {
             this.bXi.cR(str);
         }
@@ -262,7 +262,7 @@ public class f {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.e.a.bnx().rN(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.e.a.bnx().rO(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -520,7 +520,7 @@ public class f {
         return this.fEf;
     }
 
-    public void qb(String str) {
+    public void qc(String str) {
         this.fEf = str;
     }
 

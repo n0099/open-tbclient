@@ -152,7 +152,7 @@ public class d {
         if (!this.bkx.isShowing()) {
             this.bky.setText((CharSequence) null);
             IC();
-            fA(null);
+            fB(null);
             if (this.mPhoneNum == null || this.mPhoneNum.length() <= 0) {
                 this.bkL.setText("Hi," + this.aQs.getString(d.j.bar_friend));
             } else {
@@ -171,9 +171,9 @@ public class d {
     public void IA() {
         String obj = this.bky.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            fA(this.aQs.getString(d.j.input_name));
+            fB(this.aQs.getString(d.j.input_name));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            fA(this.aQs.getString(d.j.input_alias_limit_length_tip));
+            fB(this.aQs.getString(d.j.input_alias_limit_length_tip));
         } else {
             if (this.bkH != null) {
                 this.bkH.cancel();
@@ -195,10 +195,10 @@ public class d {
 
     public void o(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            fA(this.aQs.getString(d.j.suggest_no_name));
+            fB(this.aQs.getString(d.j.suggest_no_name));
             return;
         }
-        fA(this.aQs.getString(d.j.suggest_some_names));
+        fB(this.aQs.getString(d.j.suggest_some_names));
         int size = arrayList.size();
         this.bkz.clearCheck();
         this.bkA.clearCheck();
@@ -257,7 +257,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fA(String str) {
+    public void fB(String str) {
         if (str == null) {
             this.bkI.setVisibility(4);
             this.bkI.setText((CharSequence) null);
@@ -307,7 +307,7 @@ public class d {
             d.this.bkK.setVisibility(8);
             d.this.bkJ.setEnabled(true);
             if (hVar == null) {
-                d.this.fA(this.mNetwork.getErrorString());
+                d.this.fB(this.mNetwork.getErrorString());
             } else if (hVar.getUser().getUserName() != null) {
                 d.this.ID();
                 TbadkCoreApplication.setCurrentAccount(d.this.bkM, d.this.aQs.getPageActivity());
@@ -324,7 +324,7 @@ public class d {
         public void onPreExecute() {
             d.this.bkK.setVisibility(0);
             d.this.bkJ.setEnabled(false);
-            d.this.fA(null);
+            d.this.fB(null);
             d.this.IC();
             super.onPreExecute();
         }
@@ -435,23 +435,23 @@ public class d {
             super.onPostExecute(hVar);
             this.bkR.bkH = null;
             if (!this.mNetwork.Cj()) {
-                this.bkR.fA(this.mNetwork.getErrorString());
+                this.bkR.fB(this.mNetwork.getErrorString());
             } else if (this.mNetwork.Ck() == 0) {
-                this.bkR.fA(this.bkR.aQs.getString(d.j.name_not_use));
+                this.bkR.fB(this.bkR.aQs.getString(d.j.name_not_use));
             } else if (this.mNetwork.Ck() == 36) {
-                this.bkR.fA(this.mNetwork.getErrorString());
+                this.bkR.fB(this.mNetwork.getErrorString());
                 if (hVar != null) {
                     this.bkR.o(hVar.Fm());
                 }
             } else {
-                this.bkR.fA(this.mNetwork.getErrorString());
+                this.bkR.fB(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.bkR.fA(null);
+            this.bkR.fB(null);
             this.bkR.IC();
             super.onPreExecute();
         }

@@ -37,7 +37,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void uD(String str) {
+    public void uE(String str) {
         if (this.hIA == null) {
             this.hIA = new a();
             this.hIA.setPriority(3);

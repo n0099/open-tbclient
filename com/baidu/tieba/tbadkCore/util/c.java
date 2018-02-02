@@ -13,7 +13,7 @@ public class c extends e {
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        sN(str);
+        sO(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {

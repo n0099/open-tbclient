@@ -28,7 +28,7 @@ public class d extends e {
         this.hbh = new HashMap<>();
     }
 
-    public long sM(String str) {
+    public long sN(String str) {
         long longValue;
         try {
             synchronized (this) {

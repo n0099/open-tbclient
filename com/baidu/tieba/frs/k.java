@@ -305,7 +305,7 @@ public class k {
         }
         if (this.dDn == null) {
             this.dDn = aVar.b(this.dCS, this.dCT);
-            fG(true);
+            fH(true);
         }
         if (this.dDt == null) {
             this.dDt = this.dCS.mRootView.findViewById(d.g.statebar_view);
@@ -333,9 +333,9 @@ public class k {
         }
     }
 
-    public void lz(String str) {
+    public void lA(String str) {
         if (this.dDo != null) {
-            this.dDo.lz(str);
+            this.dDo.lA(str);
         }
     }
 
@@ -351,10 +351,10 @@ public class k {
         return this.dDn;
     }
 
-    public void fE(boolean z) {
+    public void fF(boolean z) {
         boolean z2 = z && v.E(this.dCS.auv().bul());
         if (this.dDm != null) {
-            this.dDm.fE(z2);
+            this.dDm.fF(z2);
         }
     }
 
@@ -368,7 +368,7 @@ public class k {
         }
     }
 
-    public void fF(boolean z) {
+    public void fG(boolean z) {
         this.dDw = z;
         if (!this.dDw && this.dDn != null) {
             this.dDn.x(false, false);
@@ -380,7 +380,7 @@ public class k {
             this.dDn.x(false, false);
         }
         this.dCX.setVisibility(8);
-        fE(false);
+        fF(false);
         this.dDc.setVisibility(8);
         this.dDz.setVisibility(8);
     }
@@ -390,14 +390,14 @@ public class k {
             this.dDn.x(true, false);
         }
         this.dCX.setVisibility(0);
-        fE(true);
+        fF(true);
         this.dDc.setVisibility(0);
         this.dDz.setVisibility(0);
     }
 
-    public void fG(boolean z) {
+    public void fH(boolean z) {
         if (this.dDn != null) {
-            this.dDn.fW(z);
+            this.dDn.fX(z);
         }
     }
 
@@ -438,7 +438,7 @@ public class k {
         }
     }
 
-    public void fH(boolean z) {
+    public void fI(boolean z) {
         if (this.dDn != null) {
             if (z) {
                 x(false, true);
@@ -681,7 +681,7 @@ public class k {
             this.bYZ.setTextColor(com.baidu.tbadk.core.util.aj.getColor(d.C0108d.cp_cont_d));
             this.bYZ.gv(i);
         }
-        fL(false);
+        fM(false);
         if (this.dDn != null) {
             this.dDn.onChangeSkinType(i);
         }
@@ -708,7 +708,7 @@ public class k {
         this.dDe.setRefreshing(true);
     }
 
-    public void fI(boolean z) {
+    public void fJ(boolean z) {
         if (z) {
             this.dDe.setRefreshing(false);
         } else {
@@ -888,14 +888,14 @@ public class k {
         }
     }
 
-    public void fJ(boolean z) {
+    public void fK(boolean z) {
         if (this.dDs != null) {
             if (z) {
-                this.dDs.in(false);
+                this.dDs.io(false);
                 this.dDs.aCG();
                 return;
             }
-            this.dDs.in(true);
+            this.dDs.io(true);
             this.dDs.c(this.dCL, this.bXz, this.dDk, true);
         }
     }
@@ -911,7 +911,7 @@ public class k {
         this.bXz = i2;
     }
 
-    public void fK(boolean z) {
+    public void fL(boolean z) {
         this.dDk = z;
     }
 
@@ -940,7 +940,7 @@ public class k {
         }
     }
 
-    private void fL(boolean z) {
+    private void fM(boolean z) {
         boolean i = com.baidu.tieba.frs.f.f.i(this.dCS.auv());
         boolean h = com.baidu.tieba.frs.f.f.h(this.dCS.auv());
         if (this.mNavigationBar != null && this.mNavigationBar.getBarBgView() != null) {
@@ -965,7 +965,7 @@ public class k {
         avc();
     }
 
-    public void fM(boolean z) {
+    public void fN(boolean z) {
     }
 
     public void mX(int i) {

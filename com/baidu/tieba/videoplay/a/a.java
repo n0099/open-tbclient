@@ -21,7 +21,7 @@ public class a {
         return this.dTy;
     }
 
-    public boolean gl(boolean z) {
+    public boolean gm(boolean z) {
         boolean z2 = b.getInstance().getBoolean("nani_key_is_show_download_nani_panel", true);
         boolean z3 = b.getInstance().getBoolean("nani_key_is_activate_app", false);
         String string = b.getInstance().getString("nani_key_download_link_url", null);
@@ -32,15 +32,15 @@ public class a {
             case 1:
                 return true;
             case 2:
-                return gm(z);
-            case 3:
                 return gn(z);
+            case 3:
+                return go(z);
             default:
                 return false;
         }
     }
 
-    private boolean gm(boolean z) {
+    private boolean gn(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);
@@ -50,7 +50,7 @@ public class a {
         return j <= 0 || System.currentTimeMillis() - j >= 86400000;
     }
 
-    private boolean gn(boolean z) {
+    private boolean go(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);

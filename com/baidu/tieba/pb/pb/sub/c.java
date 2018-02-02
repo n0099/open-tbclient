@@ -157,9 +157,9 @@ public class c {
     private com.baidu.tieba.pb.a.c bJO = new com.baidu.tieba.pb.a.c(new c.a() { // from class: com.baidu.tieba.pb.pb.sub.c.2
         @Override // com.baidu.tieba.pb.a.c.a
         public boolean c(View view, MotionEvent motionEvent) {
-            c.this.fZ(false);
+            c.this.ga(false);
             c.this.bR(view);
-            c.this.fZ(true);
+            c.this.ga(true);
             return true;
         }
 
@@ -194,7 +194,7 @@ public class c {
                         String str2 = (String) sparseArray.get(d.g.tag_photo_userid);
                         if (str != null) {
                             c.this.ePd.setReplyId(str2);
-                            c.this.ePd.gw(str);
+                            c.this.ePd.gx(str);
                         }
                     }
                     c.this.beW();
@@ -248,7 +248,7 @@ public class c {
         this.fWI = new d(this.fWJ.getPageContext().getPageActivity());
         this.fWI.H(this.fFv);
         this.fWI.setIsFromCDN(this.mIsFromCDN);
-        this.fWI.kW(true);
+        this.fWI.kX(true);
         this.avm.setAdapter((ListAdapter) this.fWI);
         this.fWV = new e(this.fWJ.getPageContext());
         this.fWY = this.fWV.getView();
@@ -307,7 +307,7 @@ public class c {
         this.fWH.setOnClickListener(this.mCommonClickListener);
     }
 
-    public void gb(boolean z) {
+    public void gc(boolean z) {
         if (this.dsn != null && this.dsn.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.dsn.getLayoutParams();
             if (z) {
@@ -504,7 +504,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fZ(final boolean z) {
+    public void ga(final boolean z) {
         if (this.avm != null) {
             if (!z) {
                 this.avm.setEnabled(z);
@@ -600,9 +600,9 @@ public class c {
     public void beW() {
         if (this.fWm != null) {
             if ((!beZ() && this.fWY != null && this.fWY.isShown()) || v.E(this.fXc)) {
-                this.fWm.kZ(false);
+                this.fWm.la(false);
             } else {
-                this.fWm.kZ(true);
+                this.fWm.la(true);
             }
         }
     }
@@ -619,7 +619,7 @@ public class c {
     public void n(PostData postData) {
         int i;
         if (postData != null) {
-            postData.mA(true);
+            postData.mB(true);
             PostData postData2 = new PostData();
             postData2.setPostType(52);
             if (!beZ() && this.fWY != null && this.fWY.isShown()) {
@@ -679,7 +679,7 @@ public class c {
         this.fWV.DM();
     }
 
-    public void jF(boolean z) {
+    public void jG(boolean z) {
         this.fFq = z;
     }
 
@@ -696,7 +696,7 @@ public class c {
         String userId;
         if (mVar != null) {
             if (this.bqG && this.fWH != null) {
-                this.fWI.kX(true);
+                this.fWI.kY(true);
                 this.fWH.setVisibility(8);
                 this.avm.removeHeaderView(this.fWH);
                 this.fXi = 1;
@@ -847,7 +847,7 @@ public class c {
     private void c(MetaData metaData) {
         if (metaData != null) {
             String name_show = metaData.getName_show();
-            if ((!StringUtils.isNull(metaData.getSealPrefix()) ? k.aX(metaData.getSealPrefix()) + 2 : 0) + w.hi(name_show) > 14) {
+            if ((!StringUtils.isNull(metaData.getSealPrefix()) ? k.aX(metaData.getSealPrefix()) + 2 : 0) + w.hj(name_show) > 14) {
                 name_show = w.j(name_show, 0, 14) + "...";
             }
             if (!StringUtils.isNull(metaData.getSealPrefix())) {
@@ -958,7 +958,7 @@ public class c {
         this.fXe.setVisibility(8);
     }
 
-    public void lH(String str) {
+    public void lI(String str) {
         b(NoDataViewFactory.d.ad(str, this.fWJ.getPageContext().getString(d.j.refresh_view_title_text)));
         if (this.fWA != null) {
             this.fWA.cC(this.fCh);
@@ -1131,7 +1131,7 @@ public class c {
         }
     }
 
-    public void kV(boolean z) {
+    public void kW(boolean z) {
         if (this.fIa != null && this.fIa.bcw() != null) {
             if (z) {
                 this.fIa.bcw().setText(d.j.remove_mark);
@@ -1210,14 +1210,14 @@ public class c {
         return this.fXg;
     }
 
-    public void qz(String str) {
-        int qA = this.fWI.qA(str);
-        if (qA > -1) {
-            this.fWI.th(qA);
-            if (qA > 2) {
-                this.avm.setSelection(qA - 2);
+    public void qA(String str) {
+        int qB = this.fWI.qB(str);
+        if (qB > -1) {
+            this.fWI.th(qB);
+            if (qB > 2) {
+                this.avm.setSelection(qB - 2);
             } else {
-                this.avm.setSelection(qA);
+                this.avm.setSelection(qB);
             }
             this.avm.invalidate();
         }

@@ -186,10 +186,17 @@ public class k {
     }
 
     public static File dy(String str) {
-        return dz(new File(aTw + "/" + str).getAbsolutePath());
+        if (!BB()) {
+            return null;
+        }
+        return dA(new File(amf + "/" + TbConfig.getTempDirName() + "/" + str).getAbsolutePath());
     }
 
     public static File dz(String str) {
+        return dA(new File(aTw + "/" + str).getAbsolutePath());
+    }
+
+    public static File dA(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -309,7 +316,7 @@ public class k {
         return z;
     }
 
-    public static boolean dA(String str) {
+    public static boolean dB(String str) {
         InputStream g;
         boolean z = false;
         if (!StringUtils.isNull(str)) {
@@ -329,17 +336,17 @@ public class k {
         return z;
     }
 
-    public static boolean dB(String str) {
-        int[] dC = dC(str);
-        if (dC[0] == 0 || dC[1] == 0) {
+    public static boolean dC(String str) {
+        int[] dD = dD(str);
+        if (dD[0] == 0 || dD[1] == 0) {
             return false;
         }
         float ar = com.baidu.adp.lib.util.l.ar(TbadkCoreApplication.getInst());
-        float f = dC[1] / dC[0];
-        return ((float) dC[0]) * ar >= 100.0f && f >= 3.0f && f <= 50.0f;
+        float f = dD[1] / dD[0];
+        return ((float) dD[0]) * ar >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static int[] dC(String str) {
+    public static int[] dD(String str) {
         FileInputStream fileInputStream;
         int[] iArr = new int[2];
         if (!StringUtils.isNull(str)) {
@@ -542,10 +549,10 @@ public class k {
         } else {
             str3 = amf + "/" + TbConfig.getTempDirName() + "/";
         }
-        return dD(str3 + str2);
+        return dE(str3 + str2);
     }
 
-    public static Bitmap dD(String str) {
+    public static Bitmap dE(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -1219,7 +1226,7 @@ public class k {
         return str2;
     }
 
-    public static boolean dE(String str) {
+    public static boolean dF(String str) {
         try {
             File file = new File(amf + "/" + TbConfig.getTempDirName() + "/" + str);
             if (file.exists()) {
@@ -1236,7 +1243,7 @@ public class k {
         }
     }
 
-    public static byte[] dF(String str) {
+    public static byte[] dG(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -1313,11 +1320,11 @@ public class k {
         return c(str, str2, false);
     }
 
-    public static InputStream dG(String str) {
+    public static InputStream dH(String str) {
         return r(dr(str));
     }
 
-    public static InputStream dH(String str) {
+    public static InputStream dI(String str) {
         File file = new File(str);
         try {
             try {
@@ -1345,7 +1352,7 @@ public class k {
         return null;
     }
 
-    public static boolean dI(String str) {
+    public static boolean dJ(String str) {
         if (BB()) {
             File file = new File(amf + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
@@ -1556,7 +1563,7 @@ public class k {
         return sb.toString();
     }
 
-    public static long dJ(String str) {
+    public static long dK(String str) {
         if (StringUtils.isNull(str)) {
             return 0L;
         }
@@ -1652,7 +1659,7 @@ public class k {
         return j;
     }
 
-    public static void dK(String str) {
+    public static void dL(String str) {
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -1667,7 +1674,7 @@ public class k {
     public static class a {
         public static final String aTx = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-        public static boolean dM(String str) {
+        public static boolean dN(String str) {
             try {
                 return new File(new StringBuilder().append(aTx).append("/").append(str).toString()).exists();
             } catch (Exception e) {
@@ -1677,7 +1684,7 @@ public class k {
             }
         }
 
-        public static boolean dN(String str) {
+        public static boolean dO(String str) {
             try {
                 File file = new File(aTx + "/" + str);
                 if (file.exists()) {
@@ -1713,7 +1720,7 @@ public class k {
             }
         }
 
-        public static boolean dE(String str) {
+        public static boolean dF(String str) {
             try {
                 File file = new File(aTx + "/" + str);
                 if (file.exists()) {
@@ -1730,7 +1737,7 @@ public class k {
             }
         }
 
-        public static String dO(String str) {
+        public static String dP(String str) {
             String str2 = null;
             try {
                 File file = new File(aTx + "/" + str);
@@ -1769,15 +1776,15 @@ public class k {
                 bArr = com.baidu.adp.lib.util.d.or().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            String ei = ao.ei(str);
-            if (ei != null) {
-                String str3 = ei + str2;
+            String ej = ao.ej(str);
+            if (ej != null) {
+                String str3 = ej + str2;
                 for (int i = 0; dp(str3) && i < 10000; i++) {
-                    str3 = ei + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+                    str3 = ej + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
                 String h = h(str3, bArr);
                 if (h != null) {
-                    new w(context).dT(h);
+                    new w(context).dU(h);
                     return 0;
                 }
                 return -2;
@@ -1795,20 +1802,20 @@ public class k {
             return -1;
         }
         try {
-            if (!dA(str)) {
+            if (!dB(str)) {
                 str3 = ".jpg";
             } else {
                 str3 = ".gif";
             }
-            String ei = ao.ei(str2);
-            if (ei != null) {
-                String str4 = ei + str3;
+            String ej = ao.ej(str2);
+            if (ej != null) {
+                String str4 = ej + str3;
                 for (int i = 0; dp(str4) && i < 10000; i++) {
-                    str4 = ei + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
+                    str4 = ej + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
                 }
                 String str5 = BC() + str4;
                 com.baidu.adp.lib.util.f.b(new File(str), new File(str5));
-                new w(context).dT(str5);
+                new w(context).dU(str5);
                 return 0;
             }
             return -1;
@@ -1872,7 +1879,7 @@ public class k {
         }
     }
 
-    public static boolean dL(String str) {
+    public static boolean dM(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

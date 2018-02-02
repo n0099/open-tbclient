@@ -198,16 +198,16 @@ public class CoverPendantDragView extends FrameLayout {
                         editable.delete(a2.length() + obj.lastIndexOf(a2), obj.length());
                         l.showToast(CoverPendantDragView.this.getContext(), d.j.cover_text_length_max_tips);
                     }
-                } else if (w.hk(obj) < 20) {
+                } else if (w.hl(obj) < 20) {
                     if (obj.length() > CoverPendantDragView.this.hpF.getText().length()) {
-                        CoverPendantDragView.this.tL(obj);
+                        CoverPendantDragView.this.tM(obj);
                     } else {
-                        CoverPendantDragView.this.tK(obj);
+                        CoverPendantDragView.this.tL(obj);
                     }
                 } else {
                     String F = w.F(obj, 20);
                     editable.delete(obj.lastIndexOf(F) + F.length(), obj.length());
-                    CoverPendantDragView.this.tL(F);
+                    CoverPendantDragView.this.tM(F);
                     l.showToast(CoverPendantDragView.this.getContext(), d.j.cover_pendant_length_max_tips);
                 }
                 CoverPendantDragView.this.hpF.setText(editable.toString());
@@ -238,20 +238,20 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tK(String str) {
+    public void tL(String str) {
         TextPaint paint = this.hpG.getPaint();
         float measureText = paint.measureText(str);
         while (this.hpG.getLineCount() == 1 && this.hpG.getTextSize() < this.hpZ * this.gDH && measureText < this.hqg * this.gDH) {
             setTextSize(0, this.hpG.getTextSize() + 1.0f);
             measureText = paint.measureText(str);
         }
-        if (w.hk(str) <= w.hk(getResources().getString(d.j.cover_hint)) && this.hpG.getTextSize() != this.hpZ * this.gDH) {
+        if (w.hl(str) <= w.hl(getResources().getString(d.j.cover_hint)) && this.hpG.getTextSize() != this.hpZ * this.gDH) {
             setTextSize(0, this.hpZ * this.gDH);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tL(String str) {
+    public void tM(String str) {
         TextPaint paint = this.hpG.getPaint();
         float measureText = paint.measureText(str);
         while (this.hpG.getTextSize() > ((this.hqf * this.gDH) / 2.0f) - (this.hqi * this.gDH) && measureText > this.hqg * this.gDH) {
@@ -273,7 +273,7 @@ public class CoverPendantDragView extends FrameLayout {
     public String a(TextPaint textPaint, String str) {
         float measureText = textPaint.measureText(str);
         while (str.length() > 0 && measureText > this.mVideoWidth - l.s(getContext(), d.e.ds120)) {
-            str = w.I(str, w.hj(str) - 1);
+            str = w.I(str, w.hk(str) - 1);
             measureText = textPaint.measureText(str);
         }
         return str;
@@ -511,8 +511,8 @@ public class CoverPendantDragView extends FrameLayout {
                     break;
                 default:
                     blw();
-                    String tJ = com.baidu.tieba.video.editvideo.model.b.bAY().tJ(pendantData.resource);
-                    if (TextUtils.isEmpty(tJ)) {
+                    String tK = com.baidu.tieba.video.editvideo.model.b.bAY().tK(pendantData.resource);
+                    if (TextUtils.isEmpty(tK)) {
                         if (view != null && (view.getTag() instanceof a.b)) {
                             a.b bVar = (a.b) view.getTag();
                             bVar.how.setVisibility(0);
@@ -520,7 +520,7 @@ public class CoverPendantDragView extends FrameLayout {
                             break;
                         }
                     } else {
-                        a(tJ, pendantData);
+                        a(tK, pendantData);
                         break;
                     }
                     break;
@@ -693,12 +693,12 @@ public class CoverPendantDragView extends FrameLayout {
                 bBe();
                 bBf();
             } else {
-                if (w.hk(text) > 20) {
+                if (w.hl(text) > 20) {
                     text = w.F(text, 20);
                     this.hpG.setText(text);
                     this.hpF.setText(text);
                 }
-                tL(text);
+                tM(text);
             }
         }
         this.hpF.setIncludeFontPadding(false);
@@ -738,7 +738,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void nd(boolean z) {
+    public void ne(boolean z) {
         if (this.hpJ != 0) {
             if (z) {
                 bBh();
@@ -793,7 +793,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void tz(String str) {
+        public void tA(String str) {
             if (this.hqo != null && this.hqo.get() != null) {
                 this.hqo.get().how.setVisibility(8);
             }

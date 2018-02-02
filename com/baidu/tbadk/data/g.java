@@ -25,7 +25,7 @@ public class g {
         return this.activityNum;
     }
 
-    public void fO(String str) {
+    public void fP(String str) {
         this.activityNum = str;
     }
 }

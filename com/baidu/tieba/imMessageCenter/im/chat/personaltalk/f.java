@@ -126,7 +126,7 @@ public class f {
         return this.eLW;
     }
 
-    public void hQ(boolean z) {
+    public void hR(boolean z) {
         this.eLW = z;
     }
 
@@ -165,7 +165,7 @@ public class f {
         });
     }
 
-    public void hR(boolean z) {
+    public void hS(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
         requestUpdateMaskInfoMessage.setList(String.valueOf(this.data.id));
@@ -175,7 +175,7 @@ public class f {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public void hS(boolean z) {
+    public void hT(boolean z) {
         this.eLY.showLoadingDialog(null);
         if (z) {
             this.eLX.addToBlackList(this.data.id.longValue());

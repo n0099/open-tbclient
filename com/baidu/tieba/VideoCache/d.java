@@ -9,7 +9,7 @@ public class d {
         return this.fileName;
     }
 
-    public void hy(String str) {
+    public void hz(String str) {
         this.fileName = str;
     }
 

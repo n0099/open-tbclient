@@ -121,7 +121,7 @@ public class a extends BaseFragment implements BdListView.f, a.b, e.b {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.e.b
-    public void nb(boolean z) {
+    public void nc(boolean z) {
         if (z) {
             this.mNoDataView.setVisibility(0);
         } else {
@@ -142,7 +142,7 @@ public class a extends BaseFragment implements BdListView.f, a.b, e.b {
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.e.b
-    public void nc(boolean z) {
+    public void nd(boolean z) {
         if (this.bYZ != null) {
             if (z) {
                 if (this.bYZ.getView().getParent() == null) {

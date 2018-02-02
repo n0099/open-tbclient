@@ -27,7 +27,7 @@ public class a {
         return (this.hoD == null || "normal".equalsIgnoreCase(this.hoD.value)) ? false : true;
     }
 
-    public void tG(String str) {
+    public void tH(String str) {
         if ((this.hoE == null || !this.hoE.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
             String bAG = bAG();
             String str2 = "normal";

@@ -29,7 +29,7 @@ public class n {
         return this.pname;
     }
 
-    public void eV(String str) {
+    public void eW(String str) {
         this.pname = str;
     }
 
@@ -37,7 +37,7 @@ public class n {
         return this.pid;
     }
 
-    public void eW(String str) {
+    public void eX(String str) {
         this.pid = str;
     }
 

@@ -141,7 +141,7 @@ public class b {
         }
     }
 
-    public void ky(String str) {
+    public void kz(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
@@ -199,7 +199,7 @@ public class b {
         this.ddF = onClickListener;
     }
 
-    public void eT(boolean z) {
+    public void eU(boolean z) {
         this.ddG = z;
     }
 

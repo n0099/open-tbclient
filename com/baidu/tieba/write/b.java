@@ -109,7 +109,7 @@ public class b {
         return this.hCe;
     }
 
-    public void ns(boolean z) {
+    public void nt(boolean z) {
         this.hCf = z;
     }
 
@@ -117,7 +117,7 @@ public class b {
         return this.hCf;
     }
 
-    public void nt(boolean z) {
+    public void nu(boolean z) {
         this.hCg = z;
     }
 
@@ -125,7 +125,7 @@ public class b {
         return this.hCg;
     }
 
-    public void ug(String str) {
+    public void uh(String str) {
         this.hCa = str;
     }
 

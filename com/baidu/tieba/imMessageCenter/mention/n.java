@@ -67,9 +67,9 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
                 n.this.ePh = j3;
                 if (n.this.ePd != null) {
                     if (!n.this.ePe.getIsFloor() || n.this.ePe.getReplyer() == null) {
-                        n.this.ePd.gt(null);
+                        n.this.ePd.gu(null);
                     } else {
-                        n.this.ePd.gt(n.this.ePe.getReplyer().getName_show());
+                        n.this.ePd.gu(n.this.ePe.getReplyer().getName_show());
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         this.bYY.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.n.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void bq(boolean z) {
-                n.this.hU(z);
+                n.this.hV(z);
             }
         });
         this.ePc = new ReplyMeModel(this.eOS);
@@ -158,7 +158,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
             }
 
             @Override // com.baidu.tbadk.editortools.pb.DataModel
-            public WriteData gh(String str) {
+            public WriteData gi(String str) {
                 WriteData writeData = new WriteData();
                 writeData.setForumId(n.this.mForumId);
                 writeData.setForumName(n.this.ePf);
@@ -338,7 +338,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         }
     }
 
-    public void hU(boolean z) {
+    public void hV(boolean z) {
         BdListViewHelper.a(this.IZ, BdListViewHelper.HeadType.DEFAULT, z);
         if (z && this.ePb != null && this.ePb.getWrappedAdapter() != null && this.ePb.getWrappedAdapter().getCount() <= 0) {
             com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.mention.n.8

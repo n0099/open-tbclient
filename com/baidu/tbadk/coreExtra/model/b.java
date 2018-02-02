@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fg(str2);
+                        fh(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fg(str2);
+                        fh(str2);
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void fg(String str) {
+    public void fh(String str) {
         String Ha = Ha();
         if (!TextUtils.equals(Ha, str) || !isFileExist(Ha)) {
             af(str, Ha);
@@ -87,13 +87,13 @@ public class b {
     }
 
     private boolean isFileExist(String str) {
-        File dr = k.dr(ao.ei(str));
+        File dr = k.dr(ao.ej(str));
         return dr != null && dr.exists() && dr.isFile();
     }
 
     private void af(String str, String str2) {
         if (j.oK()) {
-            new a(str, ao.ei(str), str2).execute(new String[0]);
+            new a(str, ao.ej(str), str2).execute(new String[0]);
         }
     }
 
@@ -121,10 +121,10 @@ public class b {
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(k.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.bhz) && !this.bhz.equals(this.bhA)) {
-                        k.dI(ao.ei(this.bhA));
+                        k.dJ(ao.ej(this.bhA));
                     }
                 } else {
-                    k.dI(this.mFile + ".tmp");
+                    k.dJ(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }

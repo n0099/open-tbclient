@@ -70,14 +70,14 @@ public class g {
         this.eMg.setVisibility(8);
     }
 
-    public void hT(boolean z) {
-        this.eMh.hT(z);
+    public void hU(boolean z) {
+        this.eMh.hU(z);
     }
 
     public void e(f fVar) {
         if (fVar != null) {
             k(fVar.aLh(), fVar.aLg().sex.intValue());
-            hT(fVar.aLf());
+            hU(fVar.aLf());
             a(fVar.aLg());
             f(fVar);
         }

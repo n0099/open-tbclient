@@ -157,7 +157,7 @@ public class c {
                         c.this.grt.setVisibility(0);
                         c.this.grr.setVisibility(8);
                         if (c.this.grB != null) {
-                            c.this.grB.fU(false);
+                            c.this.grB.fV(false);
                         }
                     }
                     c.this.eWN.showProgress();
@@ -183,7 +183,7 @@ public class c {
             c.this.grr.setVisibility(8);
             c.this.grr.setProgress(c.this.grr.getMax());
             if (c.this.grB != null) {
-                c.this.grB.fU(false);
+                c.this.grB.fV(false);
             }
             if (c.this.ejR) {
                 c.this.eWU.setVisibility(0);
@@ -197,7 +197,7 @@ public class c {
                 c.this.grt.setVisibility(8);
             }
             if (c.this.bYP == null || c.this.bYP.getDuration() > 150000) {
-                c.this.lB(false);
+                c.this.lC(false);
             } else {
                 c.this.gru.setVisibility(0);
             }
@@ -210,7 +210,7 @@ public class c {
             if (!c.this.ejR && c.this.bYP != null && c.this.bYP.getDuration() <= 150000) {
                 if (!c.this.grN) {
                     if (c.this.grD != null) {
-                        c.this.grD.lb(true);
+                        c.this.grD.lc(true);
                     }
                     c.this.bL(c.this.bON, c.this.bBb);
                     return;
@@ -289,7 +289,7 @@ public class c {
                     }
                 } else if (view.getId() == c.this.gru.getId()) {
                     if (c.this.grD != null) {
-                        c.this.grD.lb(false);
+                        c.this.grD.lc(false);
                     }
                     c.this.bL(c.this.bON, c.this.bBb);
                 } else if (view.getId() != c.this.eWT.getId() && view.getId() != c.this.grs.getId()) {
@@ -425,17 +425,17 @@ public class c {
     public interface InterfaceC0149c {
         void avI();
 
-        void fU(boolean z);
+        void fV(boolean z);
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        void lF(boolean z);
+        void lG(boolean z);
     }
 
     /* loaded from: classes.dex */
     public interface e {
-        void fT(boolean z);
+        void fU(boolean z);
     }
 
     /* loaded from: classes.dex */
@@ -450,7 +450,7 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface h {
-        void lb(boolean z);
+        void lc(boolean z);
     }
 
     /* loaded from: classes.dex */
@@ -592,7 +592,7 @@ public class c {
         this.eWL.setSystemUiVisibility(0);
     }
 
-    public void ly(boolean z) {
+    public void lz(boolean z) {
         this.grI = z;
         bjE();
     }
@@ -803,7 +803,7 @@ public class c {
                 this.bYP.setRecoveryState(1);
             }
             if (this.cTP != null && this.eWN != null) {
-                this.mStartPosition = z.bkI().re(this.bON);
+                this.mStartPosition = z.bkI().rf(this.bON);
                 this.eWN.aU(this.mStartPosition, this.cTP.getDuration());
                 if (this.mStartPosition != 0) {
                     if (this.bYP != null) {
@@ -939,7 +939,7 @@ public class c {
                 this.grA.avF();
             }
             if (this.bat == 3 && this.grB != null) {
-                this.grB.fU(false);
+                this.grB.fV(false);
             } else if (!this.eXc && this.eWU != null) {
                 this.eWU.clearAnimation();
                 this.eWU.setVisibility(4);
@@ -1101,7 +1101,7 @@ public class c {
         }
     }
 
-    public void lz(boolean z) {
+    public void lA(boolean z) {
         if (this.bYP != null) {
             this.bYP.setNeedRecovery(z);
         }
@@ -1135,12 +1135,12 @@ public class c {
         z.bkI().aA(this.bON, this.bYP.getCurrentPosition());
     }
 
-    public void lA(boolean z) {
+    public void lB(boolean z) {
         this.grJ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lB(boolean z) {
+    public void lC(boolean z) {
         if (this.eWU != null) {
             this.eWO.setVisibility(0);
             this.cWI.setVisibility(0);
@@ -1158,7 +1158,7 @@ public class c {
     }
 
     public void aCi() {
-        lB(true);
+        lC(true);
     }
 
     public boolean bjJ() {
@@ -1191,7 +1191,7 @@ public class c {
         this.grC = fVar;
     }
 
-    public void qH(String str) {
+    public void qI(String str) {
         this.fYX = str;
     }
 
@@ -1213,7 +1213,7 @@ public class c {
             }
             if (date.getYear() != date2.getYear() || date.getMonth() != date2.getMonth() || date.getDay() != date2.getDay()) {
                 if (this.grH != null) {
-                    this.grH.fT(false);
+                    this.grH.fU(false);
                     return;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aQs.getPageActivity());
@@ -1229,7 +1229,7 @@ public class c {
                         }
                         aVar2.dismiss();
                         if (dVar != null) {
-                            dVar.lF(false);
+                            dVar.lG(false);
                         }
                     }
                 });
@@ -1242,7 +1242,7 @@ public class c {
                 aVar.b(this.aQs).AB();
                 return;
             } else if (this.grH != null) {
-                this.grH.fT(true);
+                this.grH.fU(true);
                 return;
             } else {
                 if (!this.grq) {
@@ -1255,7 +1255,7 @@ public class c {
                     bL(str, str2);
                 }
                 if (dVar != null) {
-                    dVar.lF(true);
+                    dVar.lG(true);
                     return;
                 }
                 return;
@@ -1267,7 +1267,7 @@ public class c {
             bL(str, str2);
         }
         if (dVar != null) {
-            dVar.lF(true);
+            dVar.lG(true);
         }
         if (this.grG != null) {
             this.grG.avG();
@@ -1278,7 +1278,7 @@ public class c {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("video_list_confirm_play_in_mobile_net", System.currentTimeMillis());
     }
 
-    public void oj(String str) {
+    public void ok(String str) {
         this.eWX.startLoad(str, 17, false);
     }
 
@@ -1292,7 +1292,7 @@ public class c {
         this.eXu.unregister(this.aQs.getPageActivity());
     }
 
-    public void qZ(String str) {
+    public void ra(String str) {
         this.eXb.setText(str);
     }
 
@@ -1306,7 +1306,7 @@ public class c {
             this.eWU.setVisibility(0);
             this.grt.setVisibility(0);
             if (this.grB != null) {
-                this.grB.fU(true);
+                this.grB.fV(true);
             }
             this.grr.setVisibility(8);
             this.dFs.setAnimationListener(this.eXB);
@@ -1338,7 +1338,7 @@ public class c {
             this.eWU.setVisibility(0);
             this.grt.setVisibility(0);
             if (this.grB != null) {
-                this.grB.fU(false);
+                this.grB.fV(false);
             }
             this.grr.setVisibility(8);
             this.dFt.setAnimationListener(this.eXC);
@@ -1353,7 +1353,7 @@ public class c {
             this.grt.setVisibility(0);
             this.grr.setVisibility(8);
             if (this.grB != null) {
-                this.grB.fU(false);
+                this.grB.fV(false);
             }
         }
     }
@@ -1391,7 +1391,7 @@ public class c {
                 this.grt.setVisibility(0);
                 this.grr.setVisibility(8);
                 if (this.grB != null) {
-                    this.grB.fU(false);
+                    this.grB.fV(false);
                 }
             }
         }
@@ -1401,7 +1401,7 @@ public class c {
         this.mStartPosition = i2;
     }
 
-    public void lC(boolean z) {
+    public void lD(boolean z) {
         if (this.clg != null) {
             if (this.eWT != null || this.grs != null) {
                 this.eWT.setVisibility(z ? 0 : 8);
@@ -1412,7 +1412,7 @@ public class c {
                 layoutParams.rightMargin = com.baidu.adp.lib.util.l.s(this.aQs.getPageActivity(), d.e.tbds52);
                 this.eWN.setLayoutParams(layoutParams);
             }
-            this.clg.lH(z);
+            this.clg.lI(z);
         }
     }
 
@@ -1452,11 +1452,11 @@ public class c {
         this.grH = eVar;
     }
 
-    public void lD(boolean z) {
+    public void lE(boolean z) {
         this.grN = z;
     }
 
-    public void lE(boolean z) {
+    public void lF(boolean z) {
         this.grz = z;
     }
 

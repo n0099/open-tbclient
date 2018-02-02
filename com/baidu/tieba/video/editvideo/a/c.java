@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            tF(this.hoB);
+            tG(this.hoB);
             notifyDataSetChanged();
         }
     }
@@ -122,7 +122,7 @@ public class c extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void tF(String str) {
+    public void tG(String str) {
         this.hoB = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;

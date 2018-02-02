@@ -15,7 +15,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void gS(boolean z) {
+    public void gT(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -36,7 +36,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
         MsgleftView aEA = aVar.aEA();
         aEA.pG(this.erP);
-        aEA.gS(this.mNeedShowName);
+        aEA.gT(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
         aEA.a(this.erF);
         aEA.setOnItemViewLongClickListener(this.erG);

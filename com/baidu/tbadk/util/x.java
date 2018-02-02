@@ -192,9 +192,9 @@ public class x implements Thread.UncaughtExceptionHandler {
         try {
             if (r1 != 0) {
                 try {
-                    File dz = com.baidu.tbadk.core.util.k.dz(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str);
-                    if (dz != null && dz.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
-                        fileWriter = new FileWriter(dz, true);
+                    File dA = com.baidu.tbadk.core.util.k.dA(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str);
+                    if (dA != null && dA.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
+                        fileWriter = new FileWriter(dA, true);
                         try {
                             a(fileWriter, am.CI(), (String) null);
                             a(fileWriter, "tieba_crash_new_info", (String) null);
@@ -361,10 +361,10 @@ public class x implements Thread.UncaughtExceptionHandler {
         int i;
         long j = 0;
         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log";
-        byte[] dF = com.baidu.tbadk.core.util.k.dF(str);
+        byte[] dG = com.baidu.tbadk.core.util.k.dG(str);
         String str2 = null;
-        if (dF != null) {
-            str2 = new String(dF);
+        if (dG != null) {
+            str2 = new String(dG);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str2)) {
@@ -401,10 +401,10 @@ public class x implements Thread.UncaughtExceptionHandler {
         }
         int CJ = am.CJ();
         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_upload_info.log";
-        byte[] dF = com.baidu.tbadk.core.util.k.dF(str);
+        byte[] dG = com.baidu.tbadk.core.util.k.dG(str);
         String str2 = null;
-        if (dF != null) {
-            str2 = new String(dF);
+        if (dG != null) {
+            str2 = new String(dG);
         }
         if (TextUtils.isEmpty(str2)) {
             i = CJ;

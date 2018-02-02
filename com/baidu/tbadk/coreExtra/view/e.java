@@ -32,7 +32,7 @@ public class e {
         return this.bkS;
     }
 
-    public void fB(String str) {
+    public void fC(String str) {
         this.labelId = str;
     }
 

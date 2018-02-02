@@ -173,7 +173,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void fW(boolean z) {
+    public void fX(boolean z) {
         this.dRJ = z;
         if (this.dRM != null) {
             if (z) {

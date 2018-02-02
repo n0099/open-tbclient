@@ -127,7 +127,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
                 if (data.booleanValue()) {
                     RecommendFrsControlFragment.this.eds = false;
                 } else if (TbadkCoreApplication.isLogin() && !RecommendFrsControlFragment.this.eds) {
-                    RecommendFrsControlFragment.this.edk.gz(false);
+                    RecommendFrsControlFragment.this.edk.gA(false);
                 }
             }
         }
@@ -156,12 +156,12 @@ public class RecommendFrsControlFragment extends BaseFragment {
     private c.a edv = new c.a() { // from class: com.baidu.tieba.homepage.framework.RecommendFrsControlFragment.9
         @Override // com.baidu.tieba.homepage.concern.c.a
         public void onPullToRefresh() {
-            RecommendFrsControlFragment.this.edk.mt("");
+            RecommendFrsControlFragment.this.edk.mu("");
         }
 
         @Override // com.baidu.tieba.homepage.concern.c.a
-        public void ms(String str) {
-            RecommendFrsControlFragment.this.edk.mt(str);
+        public void mt(String str) {
+            RecommendFrsControlFragment.this.edk.mu(str);
         }
 
         @Override // com.baidu.tieba.homepage.concern.c.a
@@ -178,7 +178,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
                 }
                 RecommendFrsControlFragment.this.edn = false;
             } else if (z2) {
-                RecommendFrsControlFragment.this.edk.gz(false);
+                RecommendFrsControlFragment.this.edk.gA(false);
             }
         }
     };
@@ -211,7 +211,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
             if (this.dBU == null) {
                 this.dBU = new com.baidu.tbadk.h.a(getPageContext());
             }
-            this.dBU.gy(updateAttentionMessage.getData().toUid);
+            this.dBU.gz(updateAttentionMessage.getData().toUid);
         }
     }
 
@@ -281,7 +281,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         a.aAZ().setCreateTime(System.currentTimeMillis() - a.aAZ().ou(1));
         if (TbadkCoreApplication.isLogin() && this.edj.getCurrentIndex() != 0) {
-            this.edk.gz(System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), 0L));
+            this.edk.gA(System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), 0L));
         }
     }
 
@@ -358,7 +358,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
             }
 
             @Override // com.baidu.tieba.homepage.framework.c.a
-            public void gB(boolean z) {
+            public void gC(boolean z) {
                 if (RecommendFrsControlFragment.this.edj != null) {
                     RecommendFrsControlFragment.this.edj.setShowConcernRedTip(z);
                     if (!RecommendFrsControlFragment.this.isPrimary() || !z) {
