@@ -6,8 +6,11 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
+    public static final String DEFAULT_CONFIG = "";
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer allowEggs;
+    @ProtoField(tag = 4, type = Message.Datatype.STRING)
+    public final String config;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<GroupMsg> groupMsg;
     @ProtoField(tag = 3)
@@ -29,16 +32,24 @@ public final class DataRes extends Message {
                 this.allowEggs = builder.allowEggs;
             }
             this.userMsg = builder.userMsg;
-            return;
+            if (builder.config == null) {
+                this.config = "";
+                return;
+            } else {
+                this.config = builder.config;
+                return;
+            }
         }
         this.groupMsg = immutableCopyOf(builder.groupMsg);
         this.allowEggs = builder.allowEggs;
         this.userMsg = builder.userMsg;
+        this.config = builder.config;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer allowEggs;
+        public String config;
         public List<GroupMsg> groupMsg;
         public UserMsgs userMsg;
 
@@ -51,6 +62,7 @@ public final class DataRes extends Message {
                 this.groupMsg = DataRes.copyOf(dataRes.groupMsg);
                 this.allowEggs = dataRes.allowEggs;
                 this.userMsg = dataRes.userMsg;
+                this.config = dataRes.config;
             }
         }
 

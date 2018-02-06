@@ -5,7 +5,7 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class n {
-    final a QV;
+    final a QU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -16,7 +16,7 @@ public class n {
     }
 
     public n(a aVar) {
-        this.QV = aVar;
+        this.QU = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,76 +54,76 @@ public class n {
         boolean z;
         c.b bVar3;
         boolean z2 = false;
-        if (bVar.Mr < bVar.Mt) {
-            z = bVar2.Mr == bVar.Mr && bVar2.Mt == bVar.Mt - bVar.Mr;
-        } else if (bVar2.Mr == bVar.Mt + 1 && bVar2.Mt == bVar.Mr - bVar.Mt) {
+        if (bVar.Mq < bVar.Ms) {
+            z = bVar2.Mq == bVar.Mq && bVar2.Ms == bVar.Ms - bVar.Mq;
+        } else if (bVar2.Mq == bVar.Ms + 1 && bVar2.Ms == bVar.Mq - bVar.Ms) {
             z2 = true;
             z = true;
         } else {
             z = false;
             z2 = true;
         }
-        if (bVar.Mt < bVar2.Mr) {
-            bVar2.Mr--;
-        } else if (bVar.Mt < bVar2.Mr + bVar2.Mt) {
-            bVar2.Mt--;
+        if (bVar.Ms < bVar2.Mq) {
+            bVar2.Mq--;
+        } else if (bVar.Ms < bVar2.Mq + bVar2.Ms) {
+            bVar2.Ms--;
             bVar.cmd = 2;
-            bVar.Mt = 1;
-            if (bVar2.Mt == 0) {
+            bVar.Ms = 1;
+            if (bVar2.Ms == 0) {
                 list.remove(i2);
-                this.QV.g(bVar2);
+                this.QU.g(bVar2);
                 return;
             }
             return;
         }
-        if (bVar.Mr <= bVar2.Mr) {
-            bVar2.Mr++;
+        if (bVar.Mq <= bVar2.Mq) {
+            bVar2.Mq++;
             bVar3 = null;
-        } else if (bVar.Mr < bVar2.Mr + bVar2.Mt) {
-            bVar3 = this.QV.a(2, bVar.Mr + 1, (bVar2.Mr + bVar2.Mt) - bVar.Mr, null);
-            bVar2.Mt = bVar.Mr - bVar2.Mr;
+        } else if (bVar.Mq < bVar2.Mq + bVar2.Ms) {
+            bVar3 = this.QU.a(2, bVar.Mq + 1, (bVar2.Mq + bVar2.Ms) - bVar.Mq, null);
+            bVar2.Ms = bVar.Mq - bVar2.Mq;
         } else {
             bVar3 = null;
         }
         if (z) {
             list.set(i, bVar2);
             list.remove(i2);
-            this.QV.g(bVar);
+            this.QU.g(bVar);
             return;
         }
         if (z2) {
             if (bVar3 != null) {
-                if (bVar.Mr > bVar3.Mr) {
-                    bVar.Mr -= bVar3.Mt;
+                if (bVar.Mq > bVar3.Mq) {
+                    bVar.Mq -= bVar3.Ms;
                 }
-                if (bVar.Mt > bVar3.Mr) {
-                    bVar.Mt -= bVar3.Mt;
+                if (bVar.Ms > bVar3.Mq) {
+                    bVar.Ms -= bVar3.Ms;
                 }
             }
-            if (bVar.Mr > bVar2.Mr) {
-                bVar.Mr -= bVar2.Mt;
+            if (bVar.Mq > bVar2.Mq) {
+                bVar.Mq -= bVar2.Ms;
             }
-            if (bVar.Mt > bVar2.Mr) {
-                bVar.Mt -= bVar2.Mt;
+            if (bVar.Ms > bVar2.Mq) {
+                bVar.Ms -= bVar2.Ms;
             }
         } else {
             if (bVar3 != null) {
-                if (bVar.Mr >= bVar3.Mr) {
-                    bVar.Mr -= bVar3.Mt;
+                if (bVar.Mq >= bVar3.Mq) {
+                    bVar.Mq -= bVar3.Ms;
                 }
-                if (bVar.Mt >= bVar3.Mr) {
-                    bVar.Mt -= bVar3.Mt;
+                if (bVar.Ms >= bVar3.Mq) {
+                    bVar.Ms -= bVar3.Ms;
                 }
             }
-            if (bVar.Mr >= bVar2.Mr) {
-                bVar.Mr -= bVar2.Mt;
+            if (bVar.Mq >= bVar2.Mq) {
+                bVar.Mq -= bVar2.Ms;
             }
-            if (bVar.Mt >= bVar2.Mr) {
-                bVar.Mt -= bVar2.Mt;
+            if (bVar.Ms >= bVar2.Mq) {
+                bVar.Ms -= bVar2.Ms;
             }
         }
         list.set(i, bVar2);
-        if (bVar.Mr != bVar.Mt) {
+        if (bVar.Mq != bVar.Ms) {
             list.set(i2, bVar);
         } else {
             list.remove(i2);
@@ -135,19 +135,19 @@ public class n {
 
     private void b(List<c.b> list, int i, c.b bVar, int i2, c.b bVar2) {
         int i3 = 0;
-        if (bVar.Mt < bVar2.Mr) {
+        if (bVar.Ms < bVar2.Mq) {
             i3 = -1;
         }
-        if (bVar.Mr < bVar2.Mr) {
+        if (bVar.Mq < bVar2.Mq) {
             i3++;
         }
-        if (bVar2.Mr <= bVar.Mr) {
-            bVar.Mr += bVar2.Mt;
+        if (bVar2.Mq <= bVar.Mq) {
+            bVar.Mq += bVar2.Ms;
         }
-        if (bVar2.Mr <= bVar.Mt) {
-            bVar.Mt += bVar2.Mt;
+        if (bVar2.Mq <= bVar.Ms) {
+            bVar.Ms += bVar2.Ms;
         }
-        bVar2.Mr = i3 + bVar2.Mr;
+        bVar2.Mq = i3 + bVar2.Mq;
         list.set(i, bVar2);
         list.set(i2, bVar);
     }
@@ -155,28 +155,28 @@ public class n {
     void c(List<c.b> list, int i, c.b bVar, int i2, c.b bVar2) {
         c.b bVar3;
         c.b bVar4 = null;
-        if (bVar.Mt < bVar2.Mr) {
-            bVar2.Mr--;
+        if (bVar.Ms < bVar2.Mq) {
+            bVar2.Mq--;
             bVar3 = null;
-        } else if (bVar.Mt < bVar2.Mr + bVar2.Mt) {
-            bVar2.Mt--;
-            bVar3 = this.QV.a(4, bVar.Mr, 1, bVar2.Ms);
+        } else if (bVar.Ms < bVar2.Mq + bVar2.Ms) {
+            bVar2.Ms--;
+            bVar3 = this.QU.a(4, bVar.Mq, 1, bVar2.Mr);
         } else {
             bVar3 = null;
         }
-        if (bVar.Mr <= bVar2.Mr) {
-            bVar2.Mr++;
-        } else if (bVar.Mr < bVar2.Mr + bVar2.Mt) {
-            int i3 = (bVar2.Mr + bVar2.Mt) - bVar.Mr;
-            bVar4 = this.QV.a(4, bVar.Mr + 1, i3, bVar2.Ms);
-            bVar2.Mt -= i3;
+        if (bVar.Mq <= bVar2.Mq) {
+            bVar2.Mq++;
+        } else if (bVar.Mq < bVar2.Mq + bVar2.Ms) {
+            int i3 = (bVar2.Mq + bVar2.Ms) - bVar.Mq;
+            bVar4 = this.QU.a(4, bVar.Mq + 1, i3, bVar2.Mr);
+            bVar2.Ms -= i3;
         }
         list.set(i2, bVar);
-        if (bVar2.Mt > 0) {
+        if (bVar2.Ms > 0) {
             list.set(i, bVar2);
         } else {
             list.remove(i);
-            this.QV.g(bVar2);
+            this.QU.g(bVar2);
         }
         if (bVar3 != null) {
             list.add(i, bVar3);

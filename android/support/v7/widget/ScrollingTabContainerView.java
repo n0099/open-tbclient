@@ -32,15 +32,15 @@ import android.widget.Toast;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
-    private static final Interpolator TV = new DecelerateInterpolator();
-    Runnable TM;
-    private b TO;
-    LinearLayoutCompat TP;
-    private Spinner TQ;
-    private boolean TR;
+    private static final Interpolator TU = new DecelerateInterpolator();
+    Runnable TL;
+    private b TM;
+    LinearLayoutCompat TO;
+    private Spinner TP;
+    private boolean TQ;
+    int TR;
     int TS;
-    int TT;
-    private int TU;
+    private int TT;
     private int mContentHeight;
     protected final VisibilityAnimListener mVisAnimListener;
     protected ViewPropertyAnimatorCompat mVisibilityAnim;
@@ -51,9 +51,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         setHorizontalScrollBarEnabled(false);
         ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(context);
         setContentHeight(actionBarPolicy.getTabContainerHeight());
-        this.TT = actionBarPolicy.getStackedTabMaxWidth();
-        this.TP = hu();
-        addView(this.TP, new ViewGroup.LayoutParams(-2, -1));
+        this.TS = actionBarPolicy.getStackedTabMaxWidth();
+        this.TO = hu();
+        addView(this.TO, new ViewGroup.LayoutParams(-2, -1));
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
@@ -62,24 +62,24 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         int mode = View.MeasureSpec.getMode(i);
         boolean z2 = mode == 1073741824;
         setFillViewport(z2);
-        int childCount = this.TP.getChildCount();
+        int childCount = this.TO.getChildCount();
         if (childCount > 1 && (mode == 1073741824 || mode == Integer.MIN_VALUE)) {
             if (childCount > 2) {
-                this.TS = (int) (View.MeasureSpec.getSize(i) * 0.4f);
+                this.TR = (int) (View.MeasureSpec.getSize(i) * 0.4f);
             } else {
-                this.TS = View.MeasureSpec.getSize(i) / 2;
+                this.TR = View.MeasureSpec.getSize(i) / 2;
             }
-            this.TS = Math.min(this.TS, this.TT);
+            this.TR = Math.min(this.TR, this.TS);
         } else {
-            this.TS = -1;
+            this.TR = -1;
         }
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, 1073741824);
-        if (z2 || !this.TR) {
+        if (z2 || !this.TQ) {
             z = false;
         }
         if (z) {
-            this.TP.measure(0, makeMeasureSpec);
-            if (this.TP.getMeasuredWidth() > View.MeasureSpec.getSize(i)) {
+            this.TO.measure(0, makeMeasureSpec);
+            if (this.TO.getMeasuredWidth() > View.MeasureSpec.getSize(i)) {
                 hs();
             } else {
                 ht();
@@ -91,51 +91,51 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         super.onMeasure(i, makeMeasureSpec);
         int measuredWidth2 = getMeasuredWidth();
         if (z2 && measuredWidth != measuredWidth2) {
-            setTabSelected(this.TU);
+            setTabSelected(this.TT);
         }
     }
 
     private boolean hr() {
-        return this.TQ != null && this.TQ.getParent() == this;
+        return this.TP != null && this.TP.getParent() == this;
     }
 
     public void setAllowCollapse(boolean z) {
-        this.TR = z;
+        this.TQ = z;
     }
 
     private void hs() {
         if (!hr()) {
-            if (this.TQ == null) {
-                this.TQ = hv();
+            if (this.TP == null) {
+                this.TP = hv();
             }
-            removeView(this.TP);
-            addView(this.TQ, new ViewGroup.LayoutParams(-2, -1));
-            if (this.TQ.getAdapter() == null) {
-                this.TQ.setAdapter((SpinnerAdapter) new a());
+            removeView(this.TO);
+            addView(this.TP, new ViewGroup.LayoutParams(-2, -1));
+            if (this.TP.getAdapter() == null) {
+                this.TP.setAdapter((SpinnerAdapter) new a());
             }
-            if (this.TM != null) {
-                removeCallbacks(this.TM);
-                this.TM = null;
+            if (this.TL != null) {
+                removeCallbacks(this.TL);
+                this.TL = null;
             }
-            this.TQ.setSelection(this.TU);
+            this.TP.setSelection(this.TT);
         }
     }
 
     private boolean ht() {
         if (hr()) {
-            removeView(this.TQ);
-            addView(this.TP, new ViewGroup.LayoutParams(-2, -1));
-            setTabSelected(this.TQ.getSelectedItemPosition());
+            removeView(this.TP);
+            addView(this.TO, new ViewGroup.LayoutParams(-2, -1));
+            setTabSelected(this.TP.getSelectedItemPosition());
         }
         return false;
     }
 
     public void setTabSelected(int i) {
-        this.TU = i;
-        int childCount = this.TP.getChildCount();
+        this.TT = i;
+        int childCount = this.TO.getChildCount();
         int i2 = 0;
         while (i2 < childCount) {
-            View childAt = this.TP.getChildAt(i2);
+            View childAt = this.TO.getChildAt(i2);
             boolean z = i2 == i;
             childAt.setSelected(z);
             if (z) {
@@ -143,8 +143,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
             i2++;
         }
-        if (this.TQ != null && i >= 0) {
-            this.TQ.setSelection(i);
+        if (this.TP != null && i >= 0) {
+            this.TP.setSelection(i);
         }
     }
 
@@ -173,7 +173,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         super.onConfigurationChanged(configuration);
         ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(getContext());
         setContentHeight(actionBarPolicy.getTabContainerHeight());
-        this.TT = actionBarPolicy.getStackedTabMaxWidth();
+        this.TS = actionBarPolicy.getStackedTabMaxWidth();
     }
 
     public void animateToVisibility(int i) {
@@ -186,46 +186,46 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
             ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
             alpha.setDuration(200L);
-            alpha.setInterpolator(TV);
+            alpha.setInterpolator(TU);
             alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
             alpha.start();
             return;
         }
         ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
         alpha2.setDuration(200L);
-        alpha2.setInterpolator(TV);
+        alpha2.setInterpolator(TU);
         alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
         alpha2.start();
     }
 
     public void animateToTab(int i) {
-        final View childAt = this.TP.getChildAt(i);
-        if (this.TM != null) {
-            removeCallbacks(this.TM);
+        final View childAt = this.TO.getChildAt(i);
+        if (this.TL != null) {
+            removeCallbacks(this.TL);
         }
-        this.TM = new Runnable() { // from class: android.support.v7.widget.ScrollingTabContainerView.1
+        this.TL = new Runnable() { // from class: android.support.v7.widget.ScrollingTabContainerView.1
             @Override // java.lang.Runnable
             public void run() {
                 ScrollingTabContainerView.this.smoothScrollTo(childAt.getLeft() - ((ScrollingTabContainerView.this.getWidth() - childAt.getWidth()) / 2), 0);
-                ScrollingTabContainerView.this.TM = null;
+                ScrollingTabContainerView.this.TL = null;
             }
         };
-        post(this.TM);
+        post(this.TL);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.TM != null) {
-            post(this.TM);
+        if (this.TL != null) {
+            post(this.TL);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.TM != null) {
-            removeCallbacks(this.TM);
+        if (this.TL != null) {
+            removeCallbacks(this.TL);
         }
     }
 
@@ -236,68 +236,68 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             cVar.setLayoutParams(new AbsListView.LayoutParams(-1, this.mContentHeight));
         } else {
             cVar.setFocusable(true);
-            if (this.TO == null) {
-                this.TO = new b();
+            if (this.TM == null) {
+                this.TM = new b();
             }
-            cVar.setOnClickListener(this.TO);
+            cVar.setOnClickListener(this.TM);
         }
         return cVar;
     }
 
     public void addTab(ActionBar.Tab tab, boolean z) {
         c a2 = a(tab, false);
-        this.TP.addView(a2, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
-        if (this.TQ != null) {
-            ((a) this.TQ.getAdapter()).notifyDataSetChanged();
+        this.TO.addView(a2, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
+        if (this.TP != null) {
+            ((a) this.TP.getAdapter()).notifyDataSetChanged();
         }
         if (z) {
             a2.setSelected(true);
         }
-        if (this.TR) {
+        if (this.TQ) {
             requestLayout();
         }
     }
 
     public void addTab(ActionBar.Tab tab, int i, boolean z) {
         c a2 = a(tab, false);
-        this.TP.addView(a2, i, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
-        if (this.TQ != null) {
-            ((a) this.TQ.getAdapter()).notifyDataSetChanged();
+        this.TO.addView(a2, i, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
+        if (this.TP != null) {
+            ((a) this.TP.getAdapter()).notifyDataSetChanged();
         }
         if (z) {
             a2.setSelected(true);
         }
-        if (this.TR) {
+        if (this.TQ) {
             requestLayout();
         }
     }
 
     public void updateTab(int i) {
-        ((c) this.TP.getChildAt(i)).update();
-        if (this.TQ != null) {
-            ((a) this.TQ.getAdapter()).notifyDataSetChanged();
+        ((c) this.TO.getChildAt(i)).update();
+        if (this.TP != null) {
+            ((a) this.TP.getAdapter()).notifyDataSetChanged();
         }
-        if (this.TR) {
+        if (this.TQ) {
             requestLayout();
         }
     }
 
     public void removeTabAt(int i) {
-        this.TP.removeViewAt(i);
-        if (this.TQ != null) {
-            ((a) this.TQ.getAdapter()).notifyDataSetChanged();
+        this.TO.removeViewAt(i);
+        if (this.TP != null) {
+            ((a) this.TP.getAdapter()).notifyDataSetChanged();
         }
-        if (this.TR) {
+        if (this.TQ) {
             requestLayout();
         }
     }
 
     public void removeAllTabs() {
-        this.TP.removeAllViews();
-        if (this.TQ != null) {
-            ((a) this.TQ.getAdapter()).notifyDataSetChanged();
+        this.TO.removeAllViews();
+        if (this.TP != null) {
+            ((a) this.TP.getAdapter()).notifyDataSetChanged();
         }
-        if (this.TR) {
+        if (this.TQ) {
             requestLayout();
         }
     }
@@ -314,17 +314,17 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class c extends LinearLayoutCompat implements View.OnLongClickListener {
-        private final int[] TY;
-        private ActionBar.Tab TZ;
+        private final int[] TX;
+        private ActionBar.Tab TY;
         private View mCustomView;
         private ImageView mIconView;
         private TextView rz;
 
         public c(Context context, ActionBar.Tab tab, boolean z) {
             super(context, null, R.attr.actionBarTabStyle);
-            this.TY = new int[]{16842964};
-            this.TZ = tab;
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, this.TY, R.attr.actionBarTabStyle, 0);
+            this.TX = new int[]{16842964};
+            this.TY = tab;
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, null, this.TX, R.attr.actionBarTabStyle, 0);
             if (obtainStyledAttributes.hasValue(0)) {
                 setBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
             }
@@ -336,7 +336,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         public void a(ActionBar.Tab tab) {
-            this.TZ = tab;
+            this.TY = tab;
             update();
         }
 
@@ -366,13 +366,13 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
         public void onMeasure(int i, int i2) {
             super.onMeasure(i, i2);
-            if (ScrollingTabContainerView.this.TS > 0 && getMeasuredWidth() > ScrollingTabContainerView.this.TS) {
-                super.onMeasure(View.MeasureSpec.makeMeasureSpec(ScrollingTabContainerView.this.TS, 1073741824), i2);
+            if (ScrollingTabContainerView.this.TR > 0 && getMeasuredWidth() > ScrollingTabContainerView.this.TR) {
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(ScrollingTabContainerView.this.TR, 1073741824), i2);
             }
         }
 
         public void update() {
-            ActionBar.Tab tab = this.TZ;
+            ActionBar.Tab tab = this.TY;
             View customView = tab.getCustomView();
             if (customView != null) {
                 ViewParent parent = customView.getParent();
@@ -450,14 +450,14 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             int width = getWidth();
             int height = getHeight();
             int i = context.getResources().getDisplayMetrics().widthPixels;
-            Toast makeText = Toast.makeText(context, this.TZ.getContentDescription(), 0);
+            Toast makeText = Toast.makeText(context, this.TY.getContentDescription(), 0);
             makeText.setGravity(49, (iArr[0] + (width / 2)) - (i / 2), height);
             makeText.show();
             return true;
         }
 
         public ActionBar.Tab hw() {
-            return this.TZ;
+            return this.TY;
         }
     }
 
@@ -469,12 +469,12 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return ScrollingTabContainerView.this.TP.getChildCount();
+            return ScrollingTabContainerView.this.TO.getChildCount();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            return ((c) ScrollingTabContainerView.this.TP.getChildAt(i)).hw();
+            return ((c) ScrollingTabContainerView.this.TO.getChildAt(i)).hw();
         }
 
         @Override // android.widget.Adapter
@@ -501,9 +501,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ((c) view).hw().select();
-            int childCount = ScrollingTabContainerView.this.TP.getChildCount();
+            int childCount = ScrollingTabContainerView.this.TO.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                View childAt = ScrollingTabContainerView.this.TP.getChildAt(i);
+                View childAt = ScrollingTabContainerView.this.TO.getChildAt(i);
                 childAt.setSelected(childAt == view);
             }
         }
@@ -511,14 +511,14 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
     /* loaded from: classes2.dex */
     protected class VisibilityAnimListener implements ViewPropertyAnimatorListener {
-        private int JT;
+        private int JS;
         private boolean mCanceled = false;
 
         protected VisibilityAnimListener() {
         }
 
         public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
-            this.JT = i;
+            this.JS = i;
             ScrollingTabContainerView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
             return this;
         }
@@ -533,7 +533,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         public void onAnimationEnd(View view) {
             if (!this.mCanceled) {
                 ScrollingTabContainerView.this.mVisibilityAnim = null;
-                ScrollingTabContainerView.this.setVisibility(this.JT);
+                ScrollingTabContainerView.this.setVisibility(this.JS);
             }
         }
 

@@ -14,6 +14,7 @@ public class ForumWriteData implements Serializable {
     public int mem_type;
     public final PostPrefixData prefixData;
     public int privateThread;
+    public String specialForumType;
     public PostTopicData topicData;
     public String writeCallFrom;
     public int categoryId = -1;

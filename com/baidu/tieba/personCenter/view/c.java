@@ -19,13 +19,13 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.f;
 /* loaded from: classes.dex */
 public class c {
-    private NoNetworkView bYY;
-    private PluginErrorTipView dmE;
-    private com.baidu.tieba.personCenter.b.c gis;
-    private f git;
-    private View giu;
-    private FrameLayout giv;
-    private a giw;
+    private NoNetworkView cbj;
+    private PluginErrorTipView dpv;
+    private com.baidu.tieba.personCenter.b.c gkc;
+    private f gkd;
+    private View gke;
+    private FrameLayout gkf;
+    private a gkg;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
@@ -35,47 +35,47 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void cH(View view);
+        void cG(View view);
     }
 
     public c(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         if (view != null) {
             this.mPageContext = tbPageContext;
-            this.bYY = (NoNetworkView) view.findViewById(d.g.person_center_no_network_view);
+            this.cbj = (NoNetworkView) view.findViewById(d.g.person_center_no_network_view);
             this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_center_navigation_bar);
-            this.dmE = (PluginErrorTipView) view.findViewById(d.g.person_center_plugin_error_tip_view);
-            this.giv = (FrameLayout) view.findViewById(d.g.layout_container);
+            this.dpv = (PluginErrorTipView) view.findViewById(d.g.person_center_plugin_error_tip_view);
+            this.gkf = (FrameLayout) view.findViewById(d.g.layout_container);
             this.mNavigationBar.showBottomLine();
             this.mListView = (BdTypeListView) view.findViewById(d.g.person_center_listview);
             AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(d.e.ds200));
-            this.giu = new View(tbPageContext.getPageActivity());
-            this.giu.setLayoutParams(layoutParams);
-            this.mListView.addFooterView(this.giu);
-            this.gis = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
-            this.git = new f(1);
+            this.gke = new View(tbPageContext.getPageActivity());
+            this.gke.setLayoutParams(layoutParams);
+            this.mListView.addFooterView(this.gke);
+            this.gkc = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
+            this.gkd = new f(1);
         }
     }
 
     public void b(com.baidu.tieba.personCenter.data.d dVar) {
         if (dVar != null) {
-            this.gis.b(dVar);
+            this.gkc.b(dVar);
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("clicked_blue_tip", false) || dVar.getUserData() == null || dVar.getUserData().getPersonPrivate() == null) {
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.gis.notifyDataSetChanged();
+        this.gkc.notifyDataSetChanged();
     }
 
-    public void ae(int i, String str) {
+    public void ac(int i, String str) {
         this.mPageContext.showToast(str);
     }
 
     public void initView() {
         FrameLayout.LayoutParams layoutParams;
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.mine));
-        this.git.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
+        this.gkd.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
         View bottomLine = this.mNavigationBar.getBottomLine();
         if (bottomLine != null) {
             if (bottomLine.getLayoutParams() instanceof FrameLayout.LayoutParams) {
@@ -86,62 +86,62 @@ public class c {
             }
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.git.biD();
-        this.git.setOnViewResponseListener(null);
+        this.gkd.bjN();
+        this.gkd.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean aAM() {
+    public boolean aCg() {
         if (this.refreshView != null) {
-            return this.refreshView.Md();
+            return this.refreshView.MJ();
         }
         return false;
     }
 
     public void a(a aVar) {
-        this.giw = aVar;
+        this.gkg = aVar;
     }
 
-    public void XR() {
-        if (!aAM()) {
+    public void XM() {
+        if (!aCg()) {
             if (this.refreshView == null) {
                 this.refreshView = new g(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.ox()) {
-                            c.this.WG();
-                            if (c.this.giw != null) {
-                                c.this.giw.cH(view);
+                            c.this.XN();
+                            if (c.this.gkg != null) {
+                                c.this.gkg.cG(view);
                             }
                         }
                     }
                 });
             }
-            this.refreshView.id(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
-            this.refreshView.gN(this.mPageContext.getString(d.j.neterror));
-            this.refreshView.j(this.giv, false);
-            this.refreshView.Ml();
+            this.refreshView.ib(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
+            this.refreshView.gW(this.mPageContext.getString(d.j.neterror));
+            this.refreshView.j(this.gkf, false);
+            this.refreshView.MR();
             this.refreshView.onChangeSkinType();
         }
     }
 
-    public void WG() {
+    public void XN() {
         if (this.refreshView != null) {
-            this.refreshView.bk(this.giv);
+            this.refreshView.bk(this.gkf);
             this.refreshView = null;
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aj.r(this.mTitle, d.C0108d.cp_cont_b);
-            aj.t(this.giu, d.C0108d.cp_bg_line_d);
-            aj.t(this.mListView, d.C0108d.cp_bg_line_d);
+            aj.r(this.mTitle, d.C0140d.cp_cont_b);
+            aj.t(this.gke, d.C0140d.cp_bg_line_d);
+            aj.t(this.mListView, d.C0140d.cp_bg_line_d);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
-            this.gis.onChangeSkinType();
-            this.bYY.onChangeSkinType(this.mPageContext, i);
-            this.dmE.onChangeSkinType(this.mPageContext, i);
-            this.git.onChangeSkinType(i);
+            this.gkc.onChangeSkinType();
+            this.cbj.onChangeSkinType(this.mPageContext, i);
+            this.dpv.onChangeSkinType(this.mPageContext, i);
+            this.gkd.onChangeSkinType(i);
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
             }
@@ -150,24 +150,24 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.gis != null) {
-            this.gis.bhx();
+        if (this.gkc != null) {
+            this.gkc.biH();
         }
     }
 
-    public void K(int i, boolean z) {
-        this.git.K(i, z);
+    public void Q(int i, boolean z) {
+        this.gkd.Q(i, z);
     }
 
-    public void bhw() {
-        if (this.gis != null) {
-            this.gis.bhw();
+    public void biG() {
+        if (this.gkc != null) {
+            this.gkc.biG();
         }
     }
 
-    public void bhx() {
-        if (this.gis != null) {
-            this.gis.bhx();
+    public void biH() {
+        if (this.gkc != null) {
+            this.gkc.biH();
         }
     }
 }

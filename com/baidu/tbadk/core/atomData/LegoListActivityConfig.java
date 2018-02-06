@@ -56,7 +56,7 @@ public class LegoListActivityConfig extends IntentConfig {
         if (!TextUtils.isEmpty(str3)) {
             intent.putExtra(NEXT_PAGE, str3);
         }
-        intent.putExtra(IS_FROM, str4);
+        intent.putExtra("source", str4);
         return this;
     }
 }

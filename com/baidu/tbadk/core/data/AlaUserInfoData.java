@@ -21,6 +21,7 @@ public class AlaUserInfoData extends OrmObject {
     public double lat;
     public long level_exp;
     public int level_id;
+    public String level_name;
     public long live_id;
     public int live_status;
     public double lng;
@@ -50,6 +51,7 @@ public class AlaUserInfoData extends OrmObject {
                 this.is_official = jSONObject.optInt("is_official");
                 this.verify_status = jSONObject.optString("verify_status");
                 this.level_id = jSONObject.optInt("level_id");
+                this.level_name = jSONObject.optString("level_name");
                 this.great_anchor_icon = jSONObject.optString("great_anchor_icon");
                 this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
                 this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");

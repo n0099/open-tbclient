@@ -10,11 +10,11 @@ public abstract class VolumeProviderCompat {
     public static final int VOLUME_CONTROL_ABSOLUTE = 2;
     public static final int VOLUME_CONTROL_FIXED = 0;
     public static final int VOLUME_CONTROL_RELATIVE = 1;
+    private final int yV;
     private final int yW;
-    private final int yX;
-    private int yY;
-    private Callback yZ;
-    private Object za;
+    private int yX;
+    private Callback yY;
+    private Object yZ;
 
     /* loaded from: classes2.dex */
     public static abstract class Callback {
@@ -28,31 +28,31 @@ public abstract class VolumeProviderCompat {
     }
 
     public VolumeProviderCompat(int i, int i2, int i3) {
-        this.yW = i;
-        this.yX = i2;
-        this.yY = i3;
+        this.yV = i;
+        this.yW = i2;
+        this.yX = i3;
     }
 
     public final int getCurrentVolume() {
-        return this.yY;
-    }
-
-    public final int getVolumeControl() {
-        return this.yW;
-    }
-
-    public final int getMaxVolume() {
         return this.yX;
     }
 
+    public final int getVolumeControl() {
+        return this.yV;
+    }
+
+    public final int getMaxVolume() {
+        return this.yW;
+    }
+
     public final void setCurrentVolume(int i) {
-        this.yY = i;
+        this.yX = i;
         Object volumeProvider = getVolumeProvider();
         if (volumeProvider != null) {
             VolumeProviderCompatApi21.c(volumeProvider, i);
         }
-        if (this.yZ != null) {
-            this.yZ.onVolumeChanged(this);
+        if (this.yY != null) {
+            this.yY.onVolumeChanged(this);
         }
     }
 
@@ -63,14 +63,14 @@ public abstract class VolumeProviderCompat {
     }
 
     public void setCallback(Callback callback) {
-        this.yZ = callback;
+        this.yY = callback;
     }
 
     public Object getVolumeProvider() {
-        if (this.za != null || Build.VERSION.SDK_INT < 21) {
-            return this.za;
+        if (this.yZ != null || Build.VERSION.SDK_INT < 21) {
+            return this.yZ;
         }
-        this.za = VolumeProviderCompatApi21.a(this.yW, this.yX, this.yY, new VolumeProviderCompatApi21.Delegate() { // from class: android.support.v4.media.VolumeProviderCompat.1
+        this.yZ = VolumeProviderCompatApi21.a(this.yV, this.yW, this.yX, new VolumeProviderCompatApi21.Delegate() { // from class: android.support.v4.media.VolumeProviderCompat.1
             @Override // android.support.v4.media.VolumeProviderCompatApi21.Delegate
             public void onSetVolumeTo(int i) {
                 VolumeProviderCompat.this.onSetVolumeTo(i);
@@ -81,6 +81,6 @@ public abstract class VolumeProviderCompat {
                 VolumeProviderCompat.this.onAdjustVolume(i);
             }
         });
-        return this.za;
+        return this.yZ;
     }
 }

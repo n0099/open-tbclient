@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.e;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
@@ -11,7 +12,6 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class x implements Runnable {
@@ -40,7 +40,7 @@ public class x implements Runnable {
         InputStream inputStream = null;
         try {
             try {
-                com.baidu.android.pushservice.f.a a = com.baidu.android.pushservice.f.b.a(d, HttpPost.METHOD_NAME, c());
+                com.baidu.android.pushservice.f.a a = com.baidu.android.pushservice.f.b.a(d, "POST", c());
                 int b2 = a.b();
                 inputStream = a.a();
                 if (b2 == 200) {
@@ -96,7 +96,7 @@ public class x implements Runnable {
         if (com.baidu.android.pushservice.h.f()) {
             hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(b.getBytes(), 1), "utf-8"));
         } else {
-            hashMap.put("device_id", b);
+            hashMap.put(com.baidu.ar.util.Constants.HTTP_DEVICE_ID, b);
         }
         hashMap.put("device_name", Build.MODEL);
         int b2 = com.baidu.android.pushservice.j.m.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
@@ -116,7 +116,7 @@ public class x implements Runnable {
         jSONObject.put("screen_width", b3[1]);
         String str = Build.MODEL;
         if (str.length() > 128) {
-            str = str.substring(0, 127);
+            str = str.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
         }
         jSONObject.put("model", str);
         jSONObject.put("isroot", com.baidu.android.pushservice.j.p.a(this.a) ? 1 : 0);
@@ -124,7 +124,7 @@ public class x implements Runnable {
         jSONObject.put("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
         String str2 = Build.MANUFACTURER;
         if (str2.length() > 128) {
-            str2 = str2.substring(0, 127);
+            str2 = str2.substring(0, TransportMediator.KEYCODE_MEDIA_PAUSE);
         }
         jSONObject.put("manufacturer", str2);
         hashMap.put(LoginActivityConfig.INFO, jSONObject.toString());

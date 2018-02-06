@@ -7,7 +7,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 class q {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean de(String str) {
+    public static boolean dp(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -27,7 +27,7 @@ class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean df(String str) {
+    public static boolean dq(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }

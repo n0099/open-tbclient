@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a implements c {
     @Override // com.baidu.tbadk.widget.layout.c
-    public int iH(int i) {
+    public int iE(int i) {
         if (i < 4) {
             return 1;
         }
@@ -80,7 +80,7 @@ public class a implements c {
             int i3 = i + 3;
             List<MediaData> b = v.b(list, i, i3);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-            bVar.b(b, i, true);
+            bVar.c(b, i, true);
             return i3;
         }
         bVar.i(v.b(list, i, D), i);

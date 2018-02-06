@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.richmedia.c;
+import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,7 +72,7 @@ public class MediaListActivity extends Activity {
                 }
                 String str2 = a2.e;
                 if (a2.f.length() > 0) {
-                    String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(".")) + "/index.html";
+                    String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(Constants.DOT)) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
                     int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
@@ -222,7 +223,7 @@ public class MediaListActivity extends Activity {
                 }
                 String str6 = a3.e;
                 if (a3.f.length() > 0) {
-                    String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(".")) + "/index.html";
+                    String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(Constants.DOT)) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
                     int A = p.A(MediaListActivity.this, MediaListActivity.this.getPackageName());

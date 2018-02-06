@@ -3,24 +3,23 @@ package com.baidu.adp.lib.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d amc = null;
+    private static d amb = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config amd = Bitmap.Config.RGB_565;
+    private Bitmap.Config amc = Bitmap.Config.RGB_565;
 
     public static synchronized d or() {
         d dVar;
         synchronized (d.class) {
-            if (amc == null) {
-                amc = new d();
+            if (amb == null) {
+                amb = new d();
             }
-            dVar = amc;
+            dVar = amb;
         }
         return dVar;
     }
@@ -68,29 +67,6 @@ public class d {
             if (createBitmap != bitmap) {
                 bitmap.recycle();
             }
-            return createBitmap;
-        }
-        return bitmap;
-    }
-
-    public Bitmap getResizedBitmap(Bitmap bitmap, int i, int i2) {
-        float f;
-        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
-            return null;
-        }
-        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (i2 / height < i / width) {
-                f = i / width;
-            } else {
-                f = i2 / height;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f);
-            matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
             return createBitmap;
         }
         return bitmap;

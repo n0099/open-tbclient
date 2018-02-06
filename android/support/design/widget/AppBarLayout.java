@@ -136,7 +136,7 @@ public class AppBarLayout extends LinearLayout {
                 break;
             }
         }
-        g(z);
+        i(z);
     }
 
     private void aT() {
@@ -329,7 +329,7 @@ public class AppBarLayout extends LinearLayout {
         return mergeDrawableStates(onCreateDrawableState, iArr);
     }
 
-    private boolean g(boolean z) {
+    private boolean i(boolean z) {
         if (this.kL != z) {
             this.kL = z;
             refreshDrawableState();
@@ -338,7 +338,7 @@ public class AppBarLayout extends LinearLayout {
         return false;
     }
 
-    boolean h(boolean z) {
+    boolean j(boolean z) {
         if (this.kM != z) {
             this.kM = z;
             refreshDrawableState();
@@ -833,7 +833,7 @@ public class AppBarLayout extends LinearLayout {
                         z = (-i) >= (c.getBottom() - minimumHeight) - appBarLayout.getTopInset();
                     }
                 }
-                if (appBarLayout.h(z) && Build.VERSION.SDK_INT >= 11 && c(coordinatorLayout, appBarLayout)) {
+                if (appBarLayout.j(z) && Build.VERSION.SDK_INT >= 11 && c(coordinatorLayout, appBarLayout)) {
                     appBarLayout.jumpDrawablesToCurrentState();
                 }
             }

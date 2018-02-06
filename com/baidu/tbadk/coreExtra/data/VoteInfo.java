@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -94,7 +93,7 @@ public class VoteInfo extends OrmObject implements Serializable {
                 VoteOption voteOption = this.mOptions.get(i);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("text", voteOption.text);
-                jSONObject2.put(TbConfig.TMP_PIC_DIR_NAME, voteOption.serverCode);
+                jSONObject2.put("image", voteOption.serverCode);
                 jSONArray.put(i, jSONObject2);
             }
             jSONObject.put("options", jSONArray);

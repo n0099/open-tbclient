@@ -6,19 +6,19 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d aeg = null;
-    private SecretKey aeh = null;
-    private byte[] aei = null;
+    private static d aee = null;
+    private SecretKey aef = null;
+    private byte[] aeg = null;
 
     public static d kO() {
-        if (aeg == null) {
+        if (aee == null) {
             synchronized (d.class) {
-                if (aeg == null) {
-                    aeg = new d();
+                if (aee == null) {
+                    aee = new d();
                 }
             }
         }
-        return aeg;
+        return aee;
     }
 
     public void f(byte[] bArr) {
@@ -29,12 +29,12 @@ public class d {
             for (int i = 0; i < dq.length(); i++) {
                 bArr2[i] = (byte) dq.charAt(i);
             }
-            this.aeh = u.bb(dq);
-            this.aei = u.b(m, bArr2);
+            this.aef = u.bb(dq);
+            this.aeg = u.b(m, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.aeh = null;
-            this.aei = new byte[0];
+            this.aef = null;
+            this.aeg = new byte[0];
         }
     }
 
@@ -42,10 +42,10 @@ public class d {
     }
 
     public byte[] kP() {
-        return this.aei;
+        return this.aeg;
     }
 
     public SecretKey getSecretKey() {
-        return this.aeh;
+        return this.aef;
     }
 }

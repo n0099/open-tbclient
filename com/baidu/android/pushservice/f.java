@@ -23,7 +23,6 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -254,7 +253,7 @@ public class f {
                         hashMap.put("uid", com.baidu.android.pushservice.k.e.a(context));
                         hashMap.put("bccs_apikey", s);
                         hashMap.put("data", jSONArray.toString());
-                        com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str + "/boxmessage?type=message&action=setting", HttpPost.METHOD_NAME, hashMap);
+                        com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str + "/boxmessage?type=message&action=setting", "POST", hashMap);
                         if (a2.b() != 200) {
                             if (syncCallback != null) {
                                 syncCallback.onSyncResult(-1);
@@ -368,7 +367,7 @@ public class f {
         Long valueOf = Long.valueOf(sharedPreferences.getLong("currbindtime", 0L));
         String string = sharedPreferences.getString("access_token", "");
         String string2 = sharedPreferences.getString("secret_key", "");
-        Long valueOf2 = Long.valueOf(sharedPreferences.getLong("version_code", 0L));
+        Long valueOf2 = Long.valueOf(sharedPreferences.getLong(com.baidu.ar.util.Constants.HTTP_VERSION_CODE, 0L));
         if (Long.valueOf(System.currentTimeMillis()).longValue() - valueOf.longValue() > 43200000) {
             sharedPreferences.edit().clear().commit();
             return false;

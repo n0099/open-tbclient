@@ -15,7 +15,7 @@ public class c {
         eVar.nb().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).o(3, -1, -1);
         int i = eVar.nc().responseCode;
-        byte[] bArr2 = eVar.nc().ajF;
+        byte[] bArr2 = eVar.nc().ajE;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static byte[] dA(List<String> list) {
+    public static byte[] dG(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] Q(JSONObject jSONObject) {
+    public static byte[] V(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

@@ -1,4 +1,6 @@
 package com.xiaomi.push.thrift;
+
+import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public enum a {
     TCP_CONN_FAIL(1),
@@ -11,15 +13,15 @@ public enum a {
     CHANNEL_ONLINE_RATE(8),
     GSLB_REQUEST_SUCCESS(10000),
     GSLB_TCP_NOACCESS(10101),
-    GSLB_TCP_NETUNREACH(10102),
-    GSLB_TCP_CONNREFUSED(10103),
-    GSLB_TCP_NOROUTETOHOST(10104),
-    GSLB_TCP_TIMEOUT(10105),
-    GSLB_TCP_INVALARG(10106),
-    GSLB_TCP_UKNOWNHOST(10107),
+    GSLB_TCP_NETUNREACH(Constants.REQUEST_APPBAR),
+    GSLB_TCP_CONNREFUSED(Constants.REQUEST_QQ_SHARE),
+    GSLB_TCP_NOROUTETOHOST(Constants.REQUEST_QZONE_SHARE),
+    GSLB_TCP_TIMEOUT(Constants.REQUEST_QQ_FAVORITES),
+    GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
+    GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
     GSLB_ERR(10999),
-    CONN_SUCCESS(20000),
+    CONN_SUCCESS(com.baidu.ar.util.Constants.HTTP_CONNECT_TIMEOUT),
     CONN_TCP_NOACCESS(20101),
     CONN_TCP_NETUNREACH(20102),
     CONN_TCP_CONNREFUSED(20103),
@@ -87,23 +89,23 @@ public enum a {
                 return GSLB_REQUEST_SUCCESS;
             case 10101:
                 return GSLB_TCP_NOACCESS;
-            case 10102:
+            case Constants.REQUEST_APPBAR /* 10102 */:
                 return GSLB_TCP_NETUNREACH;
-            case 10103:
+            case Constants.REQUEST_QQ_SHARE /* 10103 */:
                 return GSLB_TCP_CONNREFUSED;
-            case 10104:
+            case Constants.REQUEST_QZONE_SHARE /* 10104 */:
                 return GSLB_TCP_NOROUTETOHOST;
-            case 10105:
+            case Constants.REQUEST_QQ_FAVORITES /* 10105 */:
                 return GSLB_TCP_TIMEOUT;
-            case 10106:
+            case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
                 return GSLB_TCP_INVALARG;
-            case 10107:
+            case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
                 return GSLB_TCP_UKNOWNHOST;
             case 10199:
                 return GSLB_TCP_ERR_OTHER;
             case 10999:
                 return GSLB_ERR;
-            case 20000:
+            case com.baidu.ar.util.Constants.HTTP_CONNECT_TIMEOUT /* 20000 */:
                 return CONN_SUCCESS;
             case 20101:
                 return CONN_TCP_NOACCESS;

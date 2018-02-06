@@ -4,34 +4,34 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class d {
     private int column;
-    private EmotionGroupType dlO;
-    private int dlP;
-    private int dlQ;
-    private com.baidu.tbadk.editortools.emotiontool.c dlR;
-    private int dlS;
-    private int dlT;
+    private EmotionGroupType doF;
+    private int doG;
+    private int doH;
+    private com.baidu.tbadk.editortools.emotiontool.c doI;
+    private int doJ;
+    private int doK;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dlR = cVar;
+        this.doI = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c apg() {
-        return this.dlR;
+    public com.baidu.tbadk.editortools.emotiontool.c apV() {
+        return this.doI;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dlO = emotionGroupType;
+        this.doF = emotionGroupType;
     }
 
-    public EmotionGroupType aph() {
-        return this.dlO;
+    public EmotionGroupType apW() {
+        return this.doF;
     }
 
-    public void hU(int i) {
+    public void hS(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class d {
         return this.row;
     }
 
-    public void hT(int i) {
+    public void hR(int i) {
         this.column = i;
     }
 
-    public int api() {
+    public int apX() {
         return this.column;
     }
 
+    public void mf(int i) {
+        this.doK = i;
+    }
+
+    public int apY() {
+        return this.doK;
+    }
+
+    public void mg(int i) {
+        this.doJ = i;
+    }
+
+    public int apZ() {
+        return this.doJ;
+    }
+
+    public void mh(int i) {
+        this.doG = i;
+    }
+
+    public int aqa() {
+        return this.doG;
+    }
+
     public void mi(int i) {
-        this.dlT = i;
-    }
-
-    public int apj() {
-        return this.dlT;
-    }
-
-    public void mj(int i) {
-        this.dlS = i;
-    }
-
-    public int apk() {
-        return this.dlS;
-    }
-
-    public void mk(int i) {
-        this.dlP = i;
-    }
-
-    public int apl() {
-        return this.dlP;
-    }
-
-    public void ml(int i) {
         this.startIndex = i;
     }
 
-    public int apm() {
+    public int aqb() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class d {
         return this.index;
     }
 
-    public void mm(int i) {
-        this.dlQ = i;
+    public void mj(int i) {
+        this.doH = i;
     }
 
-    public int apn() {
-        return this.dlQ;
+    public int aqc() {
+        return this.doH;
     }
 }

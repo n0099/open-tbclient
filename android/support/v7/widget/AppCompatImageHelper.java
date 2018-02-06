@@ -11,19 +11,19 @@ import android.widget.ImageView;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class AppCompatImageHelper {
-    private final ImageView Na;
+    private final ImageView MZ;
 
     public AppCompatImageHelper(ImageView imageView) {
-        this.Na = imageView;
+        this.MZ = imageView;
     }
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
         TintTypedArray tintTypedArray = null;
         try {
-            Drawable drawable = this.Na.getDrawable();
-            if (drawable == null && (resourceId = (tintTypedArray = TintTypedArray.obtainStyledAttributes(this.Na.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0)).getResourceId(R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.Na.getContext(), resourceId)) != null) {
-                this.Na.setImageDrawable(drawable);
+            Drawable drawable = this.MZ.getDrawable();
+            if (drawable == null && (resourceId = (tintTypedArray = TintTypedArray.obtainStyledAttributes(this.MZ.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0)).getResourceId(R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.MZ.getContext(), resourceId)) != null) {
+                this.MZ.setImageDrawable(drawable);
             }
             if (drawable != null) {
                 DrawableUtils.g(drawable);
@@ -37,18 +37,18 @@ public class AppCompatImageHelper {
 
     public void setImageResource(int i) {
         if (i != 0) {
-            Drawable drawable = AppCompatResources.getDrawable(this.Na.getContext(), i);
+            Drawable drawable = AppCompatResources.getDrawable(this.MZ.getContext(), i);
             if (drawable != null) {
                 DrawableUtils.g(drawable);
             }
-            this.Na.setImageDrawable(drawable);
+            this.MZ.setImageDrawable(drawable);
             return;
         }
-        this.Na.setImageDrawable(null);
+        this.MZ.setImageDrawable(null);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean hasOverlappingRendering() {
-        return Build.VERSION.SDK_INT < 21 || !(this.Na.getBackground() instanceof RippleDrawable);
+        return Build.VERSION.SDK_INT < 21 || !(this.MZ.getBackground() instanceof RippleDrawable);
     }
 }

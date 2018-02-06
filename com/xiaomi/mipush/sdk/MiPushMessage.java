@@ -51,12 +51,12 @@ public class MiPushMessage implements PushMessageHandler.a {
         miPushMessage.userAccount = bundle.getString(KEY_USER_ACCOUNT);
         miPushMessage.topic = bundle.getString(KEY_TOPIC);
         miPushMessage.content = bundle.getString("content");
-        miPushMessage.description = bundle.getString(KEY_DESC);
+        miPushMessage.description = bundle.getString("description");
         miPushMessage.title = bundle.getString("title");
         miPushMessage.isNotified = bundle.getBoolean(KEY_NOTIFIED);
         miPushMessage.notifyId = bundle.getInt(KEY_NOTIFY_ID);
         miPushMessage.notifyType = bundle.getInt(KEY_NOTIFY_TYPE);
-        miPushMessage.category = bundle.getString(KEY_CATEGORY);
+        miPushMessage.category = bundle.getString("category");
         miPushMessage.extra = (HashMap) bundle.getSerializable("extra");
         return miPushMessage;
     }
@@ -200,7 +200,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         }
         bundle.putString("content", this.content);
         if (!TextUtils.isEmpty(this.description)) {
-            bundle.putString(KEY_DESC, this.description);
+            bundle.putString("description", this.description);
         }
         if (!TextUtils.isEmpty(this.title)) {
             bundle.putString("title", this.title);
@@ -209,7 +209,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         bundle.putInt(KEY_NOTIFY_ID, this.notifyId);
         bundle.putInt(KEY_NOTIFY_TYPE, this.notifyType);
         if (!TextUtils.isEmpty(this.category)) {
-            bundle.putString(KEY_CATEGORY, this.category);
+            bundle.putString("category", this.category);
         }
         if (this.extra != null) {
             bundle.putSerializable("extra", this.extra);

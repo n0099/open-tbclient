@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
+import com.baidu.fsg.biometrics.base.d.k;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -204,7 +205,7 @@ public class DrawerLayout extends ViewGroup implements DrawerLayoutImpl {
     public DrawerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mChildAccessibilityDelegate = new ChildAccessibilityDelegate();
-        this.mScrimColor = -1728053248;
+        this.mScrimColor = k.a;
         this.mScrimPaint = new Paint();
         this.mFirstLayout = true;
         this.mLockModeLeft = 3;

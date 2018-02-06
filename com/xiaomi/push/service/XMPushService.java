@@ -20,6 +20,7 @@ import android.os.Parcelable;
 import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.network.HostManager;
@@ -915,7 +916,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
     }
 
     private boolean l() {
-        if (System.currentTimeMillis() - this.f < 30000) {
+        if (System.currentTimeMillis() - this.f < StatisticConfig.MIN_UPLOAD_INTERVAL) {
             return false;
         }
         return com.xiaomi.channel.commonutils.network.d.e(this);

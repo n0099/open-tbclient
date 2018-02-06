@@ -12,6 +12,6 @@ public class GroupLevelActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("group_id", j);
-        intent.putExtra(IS_MEM, z);
+        intent.putExtra("is_mem", z);
     }
 }

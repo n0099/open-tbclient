@@ -1,7 +1,7 @@
 package com.baidu.location.f;
 /* loaded from: classes.dex */
 public final class f {
-    public static g uu() {
-        return e.us();
+    public static g vg() {
+        return e.ve();
     }
 }

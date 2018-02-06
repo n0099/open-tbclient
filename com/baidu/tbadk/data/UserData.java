@@ -4,7 +4,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.am;
@@ -268,17 +267,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             i iVar = new i();
-            iVar.fQ(getPortraitH());
-            iVar.fR(getPortrait());
-            iVar.bU(true);
+            iVar.fZ(getPortraitH());
+            iVar.ga(getPortrait());
+            iVar.bY(true);
             this.mPhotoAlbum.add(iVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         i iVar2 = new i();
-                        iVar2.fQ(userPics.big);
-                        iVar2.fR(userPics.small);
-                        iVar2.bU(false);
+                        iVar2.fZ(userPics.big);
+                        iVar2.ga(userPics.small);
+                        iVar2.bY(false);
                         this.mPhotoAlbum.add(iVar2);
                     }
                 }
@@ -438,7 +437,7 @@ public class UserData extends MetaData {
                 this.bg_pic = jSONObject.optString("bg_pic");
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
-                this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
+                this.is_mem = jSONObject.optInt("is_mem");
                 JSONObject optJSONObject = jSONObject.optJSONObject("vipInfo");
                 if (optJSONObject != null) {
                     this.vipInfo = new UserVipInfoData();
@@ -475,9 +474,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 i iVar = new i();
-                iVar.fQ(getPortraitH());
-                iVar.fR(getPortrait());
-                iVar.bU(true);
+                iVar.fZ(getPortraitH());
+                iVar.ga(getPortrait());
+                iVar.bY(true);
                 this.mPhotoAlbum.add(iVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -486,9 +485,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             i iVar2 = new i();
-                            iVar2.fQ(jSONObject2.optString("big"));
-                            iVar2.fR(jSONObject2.optString("small"));
-                            iVar2.bU(false);
+                            iVar2.fZ(jSONObject2.optString("big"));
+                            iVar2.ga(jSONObject2.optString("small"));
+                            iVar2.bY(false);
                             this.mPhotoAlbum.add(iVar2);
                         }
                     }

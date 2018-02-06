@@ -24,7 +24,7 @@ public class aw {
         return this.uid;
     }
 
-    public String yk() {
+    public String yL() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class aw {
         return this.portrait;
     }
 
-    public String yl() {
+    public String yM() {
         return this.institute;
     }
 

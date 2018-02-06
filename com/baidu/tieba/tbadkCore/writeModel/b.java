@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -9,10 +10,11 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String hcg;
-    private String hch;
+    private String heu;
+    private String hev;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
+    private ContriInfo mContriInfo;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -29,19 +31,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean bwU() {
+    public boolean bye() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bwV() {
+    public boolean byf() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bwW() {
+    public boolean byg() {
         return this.errorCode == 3250012;
     }
 
-    public boolean bwX() {
+    public boolean byh() {
         return this.errorCode == 227001;
     }
 
@@ -57,7 +59,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData aZG() {
+    public AntiData bbl() {
         return this.antiData;
     }
 
@@ -101,20 +103,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String bwY() {
-        return this.hcg;
+    public String byi() {
+        return this.heu;
     }
 
-    public void sU(String str) {
-        this.hcg = str;
+    public void tb(String str) {
+        this.heu = str;
     }
 
-    public String bwZ() {
-        return this.hch;
+    public String byj() {
+        return this.hev;
     }
 
-    public void sV(String str) {
-        this.hch = str;
+    public void tc(String str) {
+        this.hev = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -143,5 +145,13 @@ public class b {
 
     public void setVideoId(String str) {
         this.videoId = str;
+    }
+
+    public ContriInfo getContriInfo() {
+        return this.mContriInfo;
+    }
+
+    public void setContriInfo(ContriInfo contriInfo) {
+        this.mContriInfo = contriInfo;
     }
 }

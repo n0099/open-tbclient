@@ -1,152 +1,96 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tieba.d;
-import java.util.ArrayList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class y extends com.baidu.tbadk.core.dialog.b {
-    private TbPageContext<?> aQs;
-    private View.OnClickListener dzK;
-    private TextView fNZ;
-    private TextView fOa;
-    private TextView fOb;
-    private TextView fOc;
-    private TextView fOd;
-    private TextView fOe;
-    private boolean fOf;
-    private boolean fOg;
-
-    public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.fOg = false;
-        this.aQs = tbPageContext;
-        this.dzK = onClickListener;
-        bcC();
-    }
-
-    public TextView bcw() {
-        return this.fNZ;
-    }
-
-    public TextView bcx() {
-        return this.fOa;
-    }
-
-    public TextView bcy() {
-        return this.fOb;
-    }
-
-    public TextView bcz() {
-        return this.fOc;
-    }
-
-    public TextView bcA() {
-        return this.fOe;
-    }
-
-    public TextView bcB() {
-        return this.fOd;
-    }
-
-    private void bcC() {
-        a(new CharSequence[]{this.aQs.getString(d.j.reply_current_floor), this.aQs.getString(d.j.no_interesting), this.aQs.getString(d.j.mark), this.aQs.getString(d.j.mute), this.aQs.getString(d.j.report_text), this.aQs.getString(d.j.delete)}, new b.InterfaceC0073b() { // from class: com.baidu.tieba.pb.pb.main.y.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0073b
-            public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-                if (bVar != null && view != null) {
-                    bVar.dismiss();
-                    y.this.dzK.onClick(view);
-                }
-            }
-        });
-        d(this.aQs);
-        this.fOd = cx(fj(0));
-        this.fOe = cx(fj(1));
-        this.fNZ = cx(fj(2));
-        this.fOa = cx(fj(3));
-        this.fOb = cx(fj(4));
-        this.fOc = cx(fj(5));
-    }
-
-    public void showDialog() {
-        AE();
-    }
-
-    private TextView cx(View view) {
-        return (TextView) view.findViewById(d.g.dialog_item_btn);
-    }
-
-    private View cy(View view) {
-        if (view == null) {
-            return null;
-        }
-        return view.findViewById(d.g.line);
-    }
-
-    public void kg(boolean z) {
-        this.fOb.setVisibility(z ? 0 : 8);
-    }
-
-    public View getView() {
-        return getRootView();
-    }
-
-    public void kh(boolean z) {
-        this.fOf = z;
-    }
-
-    public boolean bcD() {
-        return this.fOg;
-    }
-
-    public void ki(boolean z) {
-        this.fOg = z;
-    }
-
-    public void refreshUI() {
-        View view;
-        TextView cx;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View fj = fj(i);
-            if (fj != null) {
-                TextView cx2 = cx(fj(i));
-                View cy = cy(fj(i));
-                if (cx2 != null) {
-                    if (cx2.getVisibility() == 8) {
-                        cy.setVisibility(8);
-                    } else {
-                        arrayList.add(fj);
-                        if (z) {
-                            cy.setVisibility(8);
-                            com.baidu.tbadk.core.util.aj.s(fj, d.f.dialog_single_button_bg_selector);
-                            z = false;
-                        } else {
-                            cy.setVisibility(0);
+public class y {
+    private a fLI;
+    private PbModel fLd;
+    protected final com.baidu.adp.framework.listener.a fRr = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.y.1
+        @Override // com.baidu.adp.framework.listener.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage != null) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == y.this.fRq) {
+                    if (responsedMessage instanceof LookMoreHttpResMessage) {
+                        LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                        List<PostData> data = lookMoreHttpResMessage.getData();
+                        String errorString = lookMoreHttpResMessage.getErrorString();
+                        int error = lookMoreHttpResMessage.getError();
+                        if (error != 0) {
+                            y.this.fLI.h(error, errorString, "");
+                        } else if (!com.baidu.tbadk.core.util.v.E(data)) {
+                            y.this.fLI.L(data);
+                        }
+                    } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                        LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                        List<PostData> data2 = lookMoreSocketResMessage.getData();
+                        String errorString2 = lookMoreSocketResMessage.getErrorString();
+                        int error2 = lookMoreSocketResMessage.getError();
+                        if (error2 != 0) {
+                            y.this.fLI.h(error2, errorString2, "");
+                        } else if (data2 != null) {
+                            y.this.fLI.L(data2);
                         }
                     }
                 }
             }
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
-            }
-            View fj2 = fj(i2);
-            if (fj2 == null || (cx = cx(fj(i2))) == null || cx.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.aj.s(fj2, d.f.dialog_single_button_first_bg_selector);
-                break;
-            }
-        }
-        if (com.baidu.tbadk.core.util.v.D(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.aj.s(view, d.f.dialog_single_button_only_one_bg_selector);
+    };
+    private final BdUniqueId fRq = BdUniqueId.gen();
+
+    /* loaded from: classes2.dex */
+    public interface a {
+        void L(List<PostData> list);
+
+        void h(int i, String str, String str2);
+    }
+
+    public y(PbModel pbModel, BaseActivity baseActivity) {
+        this.fLd = pbModel;
+        HQ();
+        MessageManager.getInstance().registerListener(this.fRr);
+        this.fLI = null;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.fRr);
+    }
+
+    public void b(a aVar) {
+        this.fLI = aVar;
+    }
+
+    private void HQ() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, com.baidu.tieba.tbadkCore.a.a.aJ(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        com.baidu.tieba.tbadkCore.a.a.c(309446, LookMoreSocketResMessage.class, false);
+    }
+
+    public void cV(List<Long> list) {
+        if (this.fLd != null && this.fLd.getPbData() != null) {
+            int ao = com.baidu.adp.lib.util.l.ao(TbadkCoreApplication.getInst());
+            int aq = com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst());
+            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.c(this.fLd.fPR, 0L)));
+            lookMoreReqMessage.setPost_id(list);
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.h(this.fLd.mStType, 0));
+            lookMoreReqMessage.setWith_floor(1);
+            lookMoreReqMessage.setScr_w(ao);
+            lookMoreReqMessage.setScr_h(aq);
+            lookMoreReqMessage.setTag(this.fRq);
+            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }
 }

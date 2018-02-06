@@ -1,9 +1,11 @@
 package com.baidu.location.h;
+
+import com.baidu.ar.util.Constants;
 /* loaded from: classes.dex */
 public class b {
     public static String a = "baidu_location_service";
     public static int b = 12000;
-    public static int c = 20000;
+    public static int c = Constants.HTTP_CONNECT_TIMEOUT;
     public static int d = 1;
     public static int e = 2;
     public static int f = 3;

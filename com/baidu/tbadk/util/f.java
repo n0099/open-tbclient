@@ -6,40 +6,40 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f bAW = new f();
-    private b bAX;
-    private a bAY;
+    private static f bDa = new f();
+    private b bDb;
+    private a bDc;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aR(boolean z);
+        void aU(boolean z);
     }
 
     private f() {
     }
 
-    public static f Os() {
-        return bAW;
+    public static f OX() {
+        return bDa;
     }
 
     public void a(a aVar) {
-        this.bAY = aVar;
-        if (this.bAX != null) {
-            this.bAX.cancel();
+        this.bDc = aVar;
+        if (this.bDb != null) {
+            this.bDb.cancel();
         }
-        this.bAX = new b();
-        this.bAX.setPriority(4);
-        this.bAX.execute(new String[0]);
+        this.bDb = new b();
+        this.bDb.setPriority(4);
+        this.bDb.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ot() {
+    public boolean OY() {
         int i;
         long j = 0;
-        byte[] dG = com.baidu.tbadk.core.util.k.dG(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+        byte[] dR = com.baidu.tbadk.core.util.k.dR(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (dG != null) {
-            str = new String(dG);
+        if (dR != null) {
+            str = new String(dR);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -69,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.Ot());
+            return Boolean.valueOf(f.this.OY());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bAY != null && bool != null) {
-                f.this.bAY.aR(bool.booleanValue());
+            if (f.this.bDc != null && bool != null) {
+                f.this.bDc.aU(bool.booleanValue());
             }
         }
     }

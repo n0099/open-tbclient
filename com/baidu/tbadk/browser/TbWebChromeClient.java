@@ -11,7 +11,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.g.g;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
@@ -64,7 +63,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
+        if (this.mActivity == null || !com.baidu.adp.lib.g.g.a(this.mActivity.getPageContext())) {
             return true;
         }
         return super.onJsAlert(webView, str, str2, jsResult);
@@ -72,7 +71,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
+        if (this.mActivity == null || !com.baidu.adp.lib.g.g.a(this.mActivity.getPageContext())) {
             return true;
         }
         return super.onJsBeforeUnload(webView, str, str2, jsResult);
@@ -80,7 +79,7 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
+        if (this.mActivity == null || !com.baidu.adp.lib.g.g.a(this.mActivity.getPageContext())) {
             return true;
         }
         return super.onJsConfirm(webView, str, str2, jsResult);

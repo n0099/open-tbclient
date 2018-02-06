@@ -24,7 +24,6 @@ public class WriteData extends OrmObject implements Serializable {
     public static final int SHARE_SDK = 3;
     public static int SHARE_SDK_LOCAL_IMAGE = 1;
     public static int SHARE_SDK_NET_IMAGE = 0;
-    public static final int STORY = 8;
     public static final int UPDATE_PHOTO_LIVE = 5;
     public static final int VIDEO_REVIEW_TYPE_DEFAULT = 0;
     public static final int VIDEO_REVIEW_TYPE_NEED = 1;

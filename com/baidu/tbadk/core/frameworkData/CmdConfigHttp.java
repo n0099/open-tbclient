@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.frameworkData;
 /* loaded from: classes.dex */
 public class CmdConfigHttp {
+    public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int ATME_HTTP_CMD = 1002210;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
@@ -53,10 +54,6 @@ public class CmdConfigHttp {
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
-    public static final int CMD_COOKERY_BET = 1003069;
-    public static final int CMD_COOKER_GAME_RESULT = 1003049;
-    public static final int CMD_COOKER_RANK_LIST = 1003044;
-    public static final int CMD_COOKER_RESULT_RECORD = 1003050;
     public static final int CMD_CREATE_BOOK_PAY_ORDER = 1003162;
     public static final int CMD_CUSTOM_ALS = 1003195;
     public static final int CMD_DEBUG_ONLINE_DEV = 1003085;

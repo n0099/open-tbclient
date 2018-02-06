@@ -21,8 +21,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public abstract class AppCompatDelegate {
-    private static int Co = -1;
-    private static boolean Cp = false;
+    private static int Cn = -1;
+    private static boolean Co = false;
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
     public static final int FEATURE_SUPPORT_ACTION_BAR_OVERLAY = 109;
@@ -124,7 +124,7 @@ public abstract class AppCompatDelegate {
             case 0:
             case 1:
             case 2:
-                Co = i;
+                Cn = i;
                 return;
             default:
                 Log.d("AppCompatDelegate", "setDefaultNightMode() called with an unknown mode");
@@ -133,14 +133,14 @@ public abstract class AppCompatDelegate {
     }
 
     public static int getDefaultNightMode() {
-        return Co;
+        return Cn;
     }
 
     public static void setCompatVectorFromResourcesEnabled(boolean z) {
-        Cp = z;
+        Co = z;
     }
 
     public static boolean isCompatVectorFromResourcesEnabled() {
-        return Cp;
+        return Co;
     }
 }

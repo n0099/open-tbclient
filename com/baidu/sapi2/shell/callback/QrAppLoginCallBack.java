@@ -2,7 +2,7 @@ package com.baidu.sapi2.shell.callback;
 
 import com.baidu.sapi2.shell.response.QrAppLoginResponse;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public abstract class QrAppLoginCallBack implements SapiCallBack<QrAppLoginResponse> {
     public abstract void onBdussInvalid();
 

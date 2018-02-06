@@ -1,7 +1,6 @@
 package com.baidu.tbadk;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -16,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
@@ -41,13 +39,13 @@ import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.view.b;
 import com.baidu.tbadk.j.f;
 import com.baidu.tbadk.j.g;
 import com.baidu.tbadk.pageStayDuration.a;
@@ -84,8 +82,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     private com.baidu.tbadk.pageStayDuration.d pageStayDurationItem;
     private List<PopupWindow> popupWindowList;
     private com.baidu.adp.lib.g.c resourcesWrapper;
-    protected ProgressDialog mWaitingDialog = null;
-    private b mListMenu = null;
+    protected b mWaitingDialog = null;
+    private com.baidu.tbadk.core.dialog.b mListMenu = null;
     private final Handler mSafeHandler = new Handler();
     protected int mSkinType = 3;
     private final com.baidu.tbadk.core.view.c mGuidPage = null;
@@ -97,7 +95,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     private int mMaxHeight = 0;
     private int mPreHeight = 0;
     private int mAboveKeyboardHeight = 0;
-    private final CustomMessageListener nightResourcesChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.BaseActivity.3
+    private final CustomMessageListener nightResourcesChangeListener = new CustomMessageListener(2005017) { // from class: com.baidu.tbadk.BaseActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -107,7 +105,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             }
         }
     };
-    private final CustomMessageListener skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.BaseActivity.4
+    private final CustomMessageListener skinTypeChangeListener = new CustomMessageListener(2001304) { // from class: com.baidu.tbadk.BaseActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -144,7 +142,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onCreate(Bundle bundle) {
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new d(getPageContext().getPageActivity());
-            this.mSwipeBackLayout.p(getPageContext().getPageActivity());
+            this.mSwipeBackLayout.r(getPageContext().getPageActivity());
             this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK) {
                 this.mSwipeBackLayout.setSwipeBackEnabled(false);
@@ -156,7 +154,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
-        this.customToast = e.By();
+        this.customToast = e.BR();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -169,7 +167,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        at.ek(getClass().getName());
+        au.ev(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -279,7 +277,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
             adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.g.w(getPageContext().getPageActivity());
+            this.mKeyboardAdjust = com.baidu.tbadk.core.view.g.x(getPageContext().getPageActivity());
         }
     }
 
@@ -349,7 +347,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.Dx();
+            this.mGuidPage.DR();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -456,22 +454,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(d.j.Waiting);
             }
-            this.mWaitingDialog = new ProgressDialog(getPageContext().getPageActivity());
-            this.mWaitingDialog.setTitle("");
-            this.mWaitingDialog.setMessage(str);
-            this.mWaitingDialog.setIndeterminate(true);
-            if (onCancelListener != null) {
-                this.mWaitingDialog.setOnCancelListener(onCancelListener);
-            }
+            this.mWaitingDialog = new b(getPageContext());
+            this.mWaitingDialog.eR(str);
+            this.mWaitingDialog.d(onCancelListener);
+            this.mWaitingDialog.br(false);
             this.mWaitingDialog.setCancelable(z);
-            com.baidu.adp.lib.g.g.a(this.mWaitingDialog, getPageContext().getPageActivity());
-            Window window = this.mWaitingDialog.getWindow();
-            if (window != null) {
-                window.setBackgroundDrawableResource(d.C0108d.common_color_10022);
-                if (window.getDecorView() != null) {
-                    window.getDecorView().setBackgroundResource(d.C0108d.common_color_10022);
-                }
-            }
+            this.mWaitingDialog.bq(true);
         }
     }
 
@@ -479,7 +467,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mWaitingDialog != null) {
             try {
                 if (this.mWaitingDialog.isShowing()) {
-                    com.baidu.adp.lib.g.g.b(this.mWaitingDialog, getPageContext());
+                    this.mWaitingDialog.bq(false);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -488,25 +476,25 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    public ProgressDialog getLoadingDialog() {
+    public b getLoadingDialog() {
         return this.mWaitingDialog;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).AJ();
+        BdToast.b(getPageContext().getContext(), str, i).Bc();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).AJ();
+        BdToast.a(getPageContext().getContext(), str, i, i2).Bc();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).AJ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).Bc();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).AJ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).Bc();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -581,28 +569,28 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         ShowSoftKeyPadDelay(view, SHOW_SOFT_KEYBOARD_DELAY);
     }
 
-    protected b newListMenu(String[] strArr, b.InterfaceC0073b interfaceC0073b) {
-        this.mListMenu = new b(getPageContext().getPageActivity());
-        this.mListMenu.da(TbadkCoreApplication.getInst().getResources().getString(d.j.operation));
-        this.mListMenu.a(strArr, interfaceC0073b);
+    protected com.baidu.tbadk.core.dialog.b newListMenu(String[] strArr, b.InterfaceC0096b interfaceC0096b) {
+        this.mListMenu = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
+        this.mListMenu.dl(TbadkCoreApplication.getInst().getResources().getString(d.j.operation));
+        this.mListMenu.a(strArr, interfaceC0096b);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public b createListMenu(String[] strArr, b.InterfaceC0073b interfaceC0073b) {
-        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0073b);
+    public com.baidu.tbadk.core.dialog.b createListMenu(String[] strArr, b.InterfaceC0096b interfaceC0096b) {
+        return this.mListMenu != null ? this.mListMenu : newListMenu(strArr, interfaceC0096b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public b getListMenu() {
+    public com.baidu.tbadk.core.dialog.b getListMenu() {
         return this.mListMenu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showListMenu() {
         if (this.mListMenu != null) {
-            this.mListMenu.AE();
+            this.mListMenu.AX();
         }
     }
 
@@ -621,12 +609,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.ac(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Nl().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            com.baidu.tbadk.pageStayDuration.e.NR().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         this.customToast.onPause();
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND, this));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -665,7 +653,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().Ng()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().NM()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -682,8 +670,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.O(getCurrentPageSourceKeyList());
-            this.pageStayDurationItem.gQ(getCurrentPageKey());
+            this.pageStayDurationItem.Q(getCurrentPageSourceKeyList());
+            this.pageStayDurationItem.gZ(getCurrentPageKey());
         }
         return this.pageStayDurationItem;
     }
@@ -697,7 +685,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        at.ek(getClass().getName());
+        au.ev(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -705,7 +693,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             onUserChanged(this.mIsLogin);
         }
         if (TbadkCoreApplication.getInst().canSendForegroundMessage()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND, this));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, this));
         }
     }
 
@@ -731,7 +719,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         onResourceRecycle();
     }
 
-    protected void onResourceRecycle() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onResourceRecycle() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -746,10 +735,13 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mSwipeBackLayout.onChangeSkinType(i);
         }
         if (this.mKeyboardAdjust != null) {
-            this.mKeyboardAdjust.gg(i);
+            this.mKeyboardAdjust.gi(i);
         }
         if (this.mUseStyleImmersiveSticky) {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
+        }
+        if (this.mListMenu != null) {
+            this.mListMenu.c(getPageContext());
         }
     }
 
@@ -1010,7 +1002,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Md();
+        return this.loadingView.MJ();
     }
 
     public void hideLoadingView(View view) {
@@ -1036,33 +1028,34 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mRefreshView = new g(getPageContext().getContext(), onClickListener);
         }
         this.mRefreshView.setTitle(str);
-        this.mRefreshView.gN(str2);
+        this.mRefreshView.gW(str2);
         this.mRefreshView.setButtonText(str3);
         this.mRefreshView.j(view, z);
-        this.mRefreshView.Ml();
+        this.mRefreshView.MR();
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
-        setNetRefreshViewEmotionMarginTop(l.s(getApplicationContext(), d.e.ds300));
+        setNetRefreshViewEmotionMarginTop(l.t(getApplicationContext(), d.e.ds300));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNetRefreshViewEmotionMarginTop(int i) {
-        if (this.mRefreshView != null && this.mRefreshView.Md()) {
-            this.mRefreshView.id(i);
+        if (this.mRefreshView != null && this.mRefreshView.MJ()) {
+            this.mRefreshView.ib(i);
         }
     }
 
     @Deprecated
     protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.mRefreshView != null && this.mRefreshView.Md() && this.mRefreshView.Mj() != null && (this.mRefreshView.Mj().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.mRefreshView.Mj().getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, z);
+        if (this.mRefreshView != null && this.mRefreshView.MJ() && this.mRefreshView.MP() != null && (this.mRefreshView.MP().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.mRefreshView.MP().getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
 
-    protected void setNetRefreshLayoutMarginTop(boolean z) {
-        if (this.mRefreshView != null && this.mRefreshView.Md() && this.mRefreshView.Mj() != null && (this.mRefreshView.Mj().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.mRefreshView.Mj().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setNetRefreshLayoutMarginTop(boolean z) {
+        if (this.mRefreshView != null && this.mRefreshView.MJ() && this.mRefreshView.MP() != null && (this.mRefreshView.MP().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.mRefreshView.MP().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 
@@ -1070,9 +1063,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mRefreshView == null) {
             this.mRefreshView = new g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.gN(str);
+        this.mRefreshView.gW(str);
         this.mRefreshView.j(view, z);
-        this.mRefreshView.Mm();
+        this.mRefreshView.MS();
     }
 
     public void showNetRefreshView(View view, String str) {
@@ -1093,7 +1086,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.mRefreshView == null) {
             this.mRefreshView = new g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.id(i);
+        this.mRefreshView.ib(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -1103,19 +1096,20 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return this.netRefreshListener;
     }
 
-    protected void onNetRefreshButtonClicked() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onNetRefreshButtonClicked() {
     }
 
     public void skipToRegisterActivity() {
-        ax.aZ(getPageContext().getPageActivity());
+        ay.aY(getPageContext().getPageActivity());
     }
 
     public void skipToLoginActivity() {
-        ax.ba(getPageContext().getPageActivity());
+        ay.aZ(getPageContext().getPageActivity());
     }
 
     public boolean checkUpIsLogin() {
-        return ax.bb(getPageContext().getPageActivity());
+        return ay.ba(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1151,7 +1145,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     public void setActivityBgTransparent() {
         if (this.mSwipeBackLayout != null) {
-            this.mSwipeBackLayout.sJ();
+            this.mSwipeBackLayout.sH();
         }
     }
 
@@ -1195,13 +1189,13 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (Build.VERSION.SDK_INT >= 23) {
             if (Settings.canDrawOverlays(getBaseContext())) {
                 if (eVar != null) {
-                    eVar.aP(true);
+                    eVar.aS(true);
                 }
             } else {
                 this.mPermissionCallback = eVar;
                 if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("key_is_window_permission_dialog_shown", false)) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
-                    aVar.aX(false);
+                    aVar.ba(false);
                     aVar.fa(d.j.request_permission_default_title);
                     aVar.fb(d.j.request_window_permission_default_text);
                     aVar.a(d.j.isopen, new a.b() { // from class: com.baidu.tbadk.BaseActivity.6
@@ -1215,7 +1209,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                             } catch (Exception e) {
                                 BaseActivity.this.showToast(d.j.request_window_permission_default_text_by_yourself);
                                 if (BaseActivity.this.mPermissionCallback != null) {
-                                    BaseActivity.this.mPermissionCallback.aP(false);
+                                    BaseActivity.this.mPermissionCallback.aS(false);
                                 }
                             }
                         }
@@ -1224,22 +1218,22 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
                             if (BaseActivity.this.mPermissionCallback != null) {
-                                BaseActivity.this.mPermissionCallback.aP(false);
+                                BaseActivity.this.mPermissionCallback.aS(false);
                             }
                         }
                     }).b(getPageContext());
-                    aVar.AB();
+                    aVar.AU();
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_is_window_permission_dialog_shown", true);
                     return false;
                 } else if (this.mPermissionCallback != null) {
-                    this.mPermissionCallback.aP(false);
+                    this.mPermissionCallback.aS(false);
                     return false;
                 } else {
                     return false;
                 }
             }
         } else if (eVar != null) {
-            eVar.aP(true);
+            eVar.aS(true);
         }
         return true;
     }
@@ -1249,7 +1243,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (this.mPermissionCallback != null && Build.VERSION.SDK_INT >= 23 && i == 12016) {
-            this.mPermissionCallback.aP(Settings.canDrawOverlays(getBaseContext()));
+            this.mPermissionCallback.aS(Settings.canDrawOverlays(getBaseContext()));
             this.mPermissionCallback = null;
         }
     }

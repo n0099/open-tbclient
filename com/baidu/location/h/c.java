@@ -4,10 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c aCX = null;
+    private static c aEv = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -22,11 +23,11 @@ public class c {
         }
     }
 
-    public static c uB() {
-        if (aCX == null) {
-            aCX = new c();
+    public static c vn() {
+        if (aEv == null) {
+            aEv = new c();
         }
-        return aCX;
+        return aEv;
     }
 
     public String a(boolean z) {
@@ -82,13 +83,13 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float tD = com.baidu.location.a.f.tC().tD();
-        if (tD != 0.0f) {
+        float e2 = com.baidu.location.a.f.uq().e();
+        if (e2 != 0.0f) {
             stringBuffer.append("&altv=");
-            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(tD)));
+            stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(e2)));
         }
         stringBuffer.append("&resid=");
-        stringBuffer.append("12");
+        stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK);
         if (z) {
@@ -153,7 +154,7 @@ public class c {
         stringBuffer.append("&prod=");
         stringBuffer.append(d + ":" + c);
         stringBuffer.append("&resid=");
-        stringBuffer.append("12");
+        stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
         return stringBuffer.toString();
     }
 }

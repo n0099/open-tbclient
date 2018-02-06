@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 abstract class e extends Drawable implements TintAwareDrawable {
-    Drawable tp;
+    Drawable tq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static TypedArray a(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
@@ -23,8 +23,8 @@ abstract class e extends Drawable implements TintAwareDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, PorterDuff.Mode mode) {
-        if (this.tp != null) {
-            this.tp.setColorFilter(i, mode);
+        if (this.tq != null) {
+            this.tq.setColorFilter(i, mode);
         } else {
             super.setColorFilter(i, mode);
         }
@@ -32,21 +32,21 @@ abstract class e extends Drawable implements TintAwareDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public ColorFilter getColorFilter() {
-        if (this.tp != null) {
-            return DrawableCompat.getColorFilter(this.tp);
+        if (this.tq != null) {
+            return DrawableCompat.getColorFilter(this.tq);
         }
         return null;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        return this.tp != null ? this.tp.setLevel(i) : super.onLevelChange(i);
+        return this.tq != null ? this.tq.setLevel(i) : super.onLevelChange(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        if (this.tp != null) {
-            this.tp.setBounds(rect);
+        if (this.tq != null) {
+            this.tq.setBounds(rect);
         } else {
             super.onBoundsChange(rect);
         }
@@ -54,43 +54,43 @@ abstract class e extends Drawable implements TintAwareDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspot(float f, float f2) {
-        if (this.tp != null) {
-            DrawableCompat.setHotspot(this.tp, f, f2);
+        if (this.tq != null) {
+            DrawableCompat.setHotspot(this.tq, f, f2);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        if (this.tp != null) {
-            DrawableCompat.setHotspotBounds(this.tp, i, i2, i3, i4);
+        if (this.tq != null) {
+            DrawableCompat.setHotspotBounds(this.tq, i, i2, i3, i4);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        if (this.tp != null) {
-            this.tp.setFilterBitmap(z);
+        if (this.tq != null) {
+            this.tq.setFilterBitmap(z);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
-        if (this.tp != null) {
-            DrawableCompat.jumpToCurrentState(this.tp);
+        if (this.tq != null) {
+            DrawableCompat.jumpToCurrentState(this.tq);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void applyTheme(Resources.Theme theme) {
-        if (this.tp != null) {
-            DrawableCompat.applyTheme(this.tp, theme);
+        if (this.tq != null) {
+            DrawableCompat.applyTheme(this.tq, theme);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        if (this.tp != null) {
-            this.tp.clearColorFilter();
+        if (this.tq != null) {
+            this.tq.clearColorFilter();
         } else {
             super.clearColorFilter();
         }
@@ -98,38 +98,38 @@ abstract class e extends Drawable implements TintAwareDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public Drawable getCurrent() {
-        return this.tp != null ? this.tp.getCurrent() : super.getCurrent();
+        return this.tq != null ? this.tq.getCurrent() : super.getCurrent();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumWidth() {
-        return this.tp != null ? this.tp.getMinimumWidth() : super.getMinimumWidth();
+        return this.tq != null ? this.tq.getMinimumWidth() : super.getMinimumWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumHeight() {
-        return this.tp != null ? this.tp.getMinimumHeight() : super.getMinimumHeight();
+        return this.tq != null ? this.tq.getMinimumHeight() : super.getMinimumHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        return this.tp != null ? this.tp.getPadding(rect) : super.getPadding(rect);
+        return this.tq != null ? this.tq.getPadding(rect) : super.getPadding(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int[] getState() {
-        return this.tp != null ? this.tp.getState() : super.getState();
+        return this.tq != null ? this.tq.getState() : super.getState();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Region getTransparentRegion() {
-        return this.tp != null ? this.tp.getTransparentRegion() : super.getTransparentRegion();
+        return this.tq != null ? this.tq.getTransparentRegion() : super.getTransparentRegion();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setChangingConfigurations(int i) {
-        if (this.tp != null) {
-            this.tp.setChangingConfigurations(i);
+        if (this.tq != null) {
+            this.tq.setChangingConfigurations(i);
         } else {
             super.setChangingConfigurations(i);
         }
@@ -137,6 +137,6 @@ abstract class e extends Drawable implements TintAwareDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public boolean setState(int[] iArr) {
-        return this.tp != null ? this.tp.setState(iArr) : super.setState(iArr);
+        return this.tq != null ? this.tq.setState(iArr) : super.setState(iArr);
     }
 }

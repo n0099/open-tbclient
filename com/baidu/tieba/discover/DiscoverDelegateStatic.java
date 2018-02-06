@@ -8,7 +8,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
@@ -19,22 +18,22 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private static boolean isAdded = false;
 
     static {
-        new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
+        new CustomMessageListener(2007002) { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Mp;
+                c MV;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (Mp = discoverDelegateStatic.Mp()) != null) {
-                        Mp.bvP.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (MV = discoverDelegateStatic.MV()) != null) {
+                        MV.bxZ.setArguments(new Bundle());
                     }
                 }
             }
         };
         if (!isAdded) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007013));
         }
     }
 
@@ -44,28 +43,28 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Mo() {
+    public c MU() {
         c cVar = new c();
-        cVar.bvP = new a();
+        cVar.bxZ = new a();
         cVar.type = 10;
-        cVar.bvQ = d.j.home_discover;
-        cVar.bvR = d.f.s_icon_tabbar_discover;
+        cVar.bya = d.j.home_discover;
+        cVar.byb = d.f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public e bj(Context context) {
-        this.bvG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+    public e bi(Context context) {
+        this.bxQ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
         e.a aVar = new e.a();
-        aVar.bwk = this.bvG;
-        aVar.aiF = l.dip2px(context, 3.0f);
-        aVar.bwi = d.f.icon_news_down_bar_one;
-        this.bvG.a("emotion", aVar);
-        return this.bvG;
+        aVar.byu = this.bxQ;
+        aVar.aiE = l.dip2px(context, 3.0f);
+        aVar.bys = d.f.icon_news_down_bar_one;
+        this.bxQ.a("emotion", aVar);
+        return this.bxQ;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Mn() {
+    public void MT() {
         isAdded = true;
     }
 

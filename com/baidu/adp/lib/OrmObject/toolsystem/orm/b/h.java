@@ -15,20 +15,20 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Set<String> agn = new HashSet();
-    private Element agr;
+    private Set<String> agl = new HashSet();
+    private Element agp;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.agr = element;
+        this.agp = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i = 0; i < length; i++) {
                 Node item = attributes.item(i);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.agn.add(nodeName2);
+                    this.agl.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -36,7 +36,7 @@ public class h implements c {
             for (int i2 = 0; i2 < length2; i2++) {
                 Node item2 = childNodes.item(i2);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.agn.add(nodeName);
+                    this.agl.add(nodeName);
                 }
             }
         }
@@ -44,7 +44,7 @@ public class h implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> lJ() {
-        return this.agn;
+        return this.agl;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0036 */
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.agr.getAttribute(str);
+        Object attribute = this.agp.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.agr.getChildNodes();
+            NodeList childNodes = this.agp.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -87,23 +87,23 @@ public class h implements c {
     public void d(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.agr.setAttribute(str, String.valueOf(obj));
+                this.agp.setAttribute(str, String.valueOf(obj));
             } else {
                 if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.d(obj.getClass(), SparseArray.class)) {
                 }

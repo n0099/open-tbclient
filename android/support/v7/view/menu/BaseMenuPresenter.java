@@ -12,8 +12,8 @@ import java.util.ArrayList;
 @RestrictTo
 /* loaded from: classes2.dex */
 public abstract class BaseMenuPresenter implements MenuPresenter {
+    private int HJ;
     private int HK;
-    private int HL;
     private MenuPresenter.Callback kf;
     protected Context mContext;
     private int mId;
@@ -28,8 +28,8 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     public BaseMenuPresenter(Context context, int i, int i2) {
         this.mSystemContext = context;
         this.mSystemInflater = LayoutInflater.from(context);
-        this.HK = i;
-        this.HL = i2;
+        this.HJ = i;
+        this.HK = i2;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
@@ -42,7 +42,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     @Override // android.support.v7.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         if (this.mMenuView == null) {
-            this.mMenuView = (MenuView) this.mSystemInflater.inflate(this.HK, viewGroup, false);
+            this.mMenuView = (MenuView) this.mSystemInflater.inflate(this.HJ, viewGroup, false);
             this.mMenuView.initialize(this.mMenu);
             updateMenuView(true);
         }
@@ -116,7 +116,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     }
 
     public MenuView.ItemView createItemView(ViewGroup viewGroup) {
-        return (MenuView.ItemView) this.mSystemInflater.inflate(this.HL, viewGroup, false);
+        return (MenuView.ItemView) this.mSystemInflater.inflate(this.HK, viewGroup, false);
     }
 
     public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {

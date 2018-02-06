@@ -20,12 +20,12 @@ import org.aspectj.lang.a;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_5 = null;
     protected int algorithmId;
     List<CencSampleAuxiliaryDataFormat> entries;
     protected int ivSize;

@@ -4,15 +4,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class c extends Thread {
-    private String aVu;
+    private String aXa;
     private String mGroupId;
     private String mObjTp;
 
     public c(String str, String str2, String str3) {
-        this.aVu = null;
+        this.aXa = null;
         this.mObjTp = null;
         this.mGroupId = null;
-        this.aVu = str;
+        this.aXa = str;
         this.mObjTp = str2;
         this.mGroupId = str3;
     }
@@ -21,9 +21,9 @@ public class c extends Thread {
     public void run() {
         super.run();
         x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        xVar.n("obj", this.aVu);
+        xVar.n("obj", this.aXa);
         xVar.n("obj_tp", this.mObjTp);
         xVar.n("group_id", this.mGroupId);
-        xVar.BI();
+        xVar.Cb();
     }
 }

@@ -11,10 +11,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
+import com.baidu.ar.util.Constants;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -27,34 +28,34 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener bPT = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener bSb = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.q.e.bzU().bzP();
-            com.baidu.tieba.q.b.bzO().bzP();
+            com.baidu.tieba.q.e.bAE().bAz();
+            com.baidu.tieba.q.b.bAy().bAz();
         }
     };
 
     static {
-        Tu();
-        MessageManager.getInstance().registerListener(bPT);
-        Tv();
+        Ud();
+        MessageManager.getInstance().registerListener(bSb);
+        Ue();
     }
 
-    private static void Tu() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<k>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
+    private static void Ud() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921309, new CustomMessageTask.CustomRunnable<k>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<k> run(CustomMessage<k> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new l());
+                return new CustomResponsedMessage<>(2921309, new l());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Tv() {
+    private static void Ue() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -62,7 +63,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int jp(int i) {
+    public static int jl(int i) {
         switch (i) {
             case SapiErrorCode.NETWORK_FAILED /* -200 */:
                 return 1;
@@ -73,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int hS(String str) {
+    public static int ib(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -83,7 +84,7 @@ public class VideoPlatformStatic {
         return 0;
     }
 
-    public static String jq(int i) {
+    public static String jm(int i) {
         switch (i) {
             case Integer.MIN_VALUE:
                 return TbadkCoreApplication.getInst().getString(d.j.error_extra_system_system);
@@ -147,7 +148,7 @@ public class VideoPlatformStatic {
                 return TbadkCoreApplication.getInst().getString(d.j.error_extra_ijk_frame_queue_init_video);
             case -10010:
                 return TbadkCoreApplication.getInst().getString(d.j.error_extra_ijk_stream_open);
-            case -10000:
+            case Constants.BDUSS_EXCEPRION /* -10000 */:
                 return TbadkCoreApplication.getInst().getString(d.j.error_what_ijk);
             case -1010:
                 return TbadkCoreApplication.getInst().getString(d.j.error_extra_system_unsupported);
@@ -168,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String hT(String str) {
+    public static String ic(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -178,33 +179,33 @@ public class VideoPlatformStatic {
         if (TextUtils.equals(str, "6")) {
             return "pb";
         }
-        if (TextUtils.equals(str, "12")) {
+        if (TextUtils.equals(str, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR)) {
             return "frs_bavideotab";
         }
         if (TextUtils.equals(str, "3")) {
             return "floor5";
         }
-        if (TextUtils.equals(str, "10")) {
+        if (TextUtils.equals(str, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QQ)) {
             return "floor10";
         }
-        if (TextUtils.equals(str, "11")) {
+        if (TextUtils.equals(str, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE)) {
             return "floor15";
         }
-        if (TextUtils.equals(str, "13")) {
+        if (TextUtils.equals(str, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP)) {
             return "auto_midpage";
         }
         return str;
     }
 
-    public static JSONObject Tw() {
+    public static JSONObject Uf() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", Tx());
-            jSONObject.put("osType", "AND");
+            jSONObject.put(LivenessRecogActivity.f.J, Ug());
+            jSONObject.put(Constants.HTTP_OS_TYPE, "AND");
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
@@ -213,16 +214,16 @@ public class VideoPlatformStatic {
             }
             if (UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
                 StringBuilder sb = new StringBuilder();
-                if (com.baidu.adp.lib.d.a.mG().ak(false) != null) {
-                    Address ak = com.baidu.adp.lib.d.a.mG().ak(false);
-                    if (!StringUtils.isNull(ak.getAdminArea())) {
-                        sb.append(ak.getAdminArea());
+                if (com.baidu.adp.lib.d.a.mG().an(false) != null) {
+                    Address an = com.baidu.adp.lib.d.a.mG().an(false);
+                    if (!StringUtils.isNull(an.getAdminArea())) {
+                        sb.append(an.getAdminArea());
                     }
-                    if (!StringUtils.isNull(ak.getSubAdminArea())) {
-                        sb.append(ak.getSubAdminArea());
+                    if (!StringUtils.isNull(an.getSubAdminArea())) {
+                        sb.append(an.getSubAdminArea());
                     }
-                    if (!StringUtils.isNull(ak.getSubLocality())) {
-                        sb.append(ak.getSubLocality());
+                    if (!StringUtils.isNull(an.getSubLocality())) {
+                        sb.append(an.getSubLocality());
                     }
                 }
                 jSONObject.put(Headers.LOCATION, sb.toString());
@@ -235,7 +236,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String Tx() {
+    public static String Ug() {
         if (j.oK()) {
             return "WIFI";
         }
@@ -251,7 +252,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String jr(int i) {
+    public static String jn(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(d.j.post_error_compress_success);

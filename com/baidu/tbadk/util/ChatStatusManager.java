@@ -4,12 +4,9 @@ import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
-    public static final int LIVE = 9;
-    public static final int LIVE_NOTIFY = 8;
     public static final int OFFICIALBAR_CHAT = 1;
     public static final int OFFICIAL_MERGE = 4;
     public static final int PERSONAL_CHAT = 0;
-    public static final int SNAP_CHAT = 3;
     public static final int STRANGER_MERGE = 5;
     public static final int UPDATES = 6;
     public static final int VALIDATE = 7;
@@ -18,7 +15,7 @@ public class ChatStatusManager {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bAV;
+        public String bCZ;
         public boolean isOpen;
     }
 
@@ -46,7 +43,7 @@ public class ChatStatusManager {
         if (aVar == null) {
             return "";
         }
-        return aVar.bAV;
+        return aVar.bCZ;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -63,11 +60,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         a aVar = this.mStatus.get(i);
         if (aVar != null) {
-            aVar.bAV = str;
+            aVar.bCZ = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.bAV = str;
+        aVar2.bCZ = str;
         this.mStatus.put(i, aVar2);
     }
 

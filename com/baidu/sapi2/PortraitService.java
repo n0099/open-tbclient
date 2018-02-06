@@ -17,7 +17,6 @@ import com.baidu.sapi2.dto.SetPopularPortraitDTO;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.result.GetHistoryPortraitsResult;
 import com.baidu.sapi2.result.GetPopularPortraitsInfoResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
@@ -36,7 +35,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PortraitService extends AbstractService {
     public PortraitService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
@@ -128,7 +127,7 @@ public class PortraitService extends AbstractService {
         }
         final SetPortraitResult setPortraitResult = new SetPortraitResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            setPortraitResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            setPortraitResult.setResultCode(-201);
             setPortraitCallback.onFailure(setPortraitResult);
             return;
         }
@@ -191,7 +190,7 @@ public class PortraitService extends AbstractService {
                         setPortraitCallback.onFailure(setPortraitResult);
                         return;
                     }
-                    setPortraitResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    setPortraitResult.setResultCode(-202);
                     setPortraitCallback.onFailure(setPortraitResult);
                     return;
                 }
@@ -217,7 +216,7 @@ public class PortraitService extends AbstractService {
         }
         final SetPopularPortraitResult setPopularPortraitResult = new SetPopularPortraitResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            setPopularPortraitResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            setPopularPortraitResult.setResultCode(-201);
             setPopularPortraitCallback.onFailure(setPopularPortraitResult);
             return;
         }
@@ -252,7 +251,7 @@ public class PortraitService extends AbstractService {
                         setPopularPortraitCallback.onFailure(setPopularPortraitResult);
                         return;
                     }
-                    setPopularPortraitResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    setPopularPortraitResult.setResultCode(-202);
                     setPopularPortraitCallback.onFailure(setPopularPortraitResult);
                     return;
                 }
@@ -274,7 +273,7 @@ public class PortraitService extends AbstractService {
                         setPopularPortraitCallback.onFailure(setPopularPortraitResult);
                     }
                 } catch (JSONException e) {
-                    setPopularPortraitResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    setPopularPortraitResult.setResultCode(-202);
                     setPopularPortraitCallback.onFailure(setPopularPortraitResult);
                     Log.e(e);
                 }
@@ -388,7 +387,7 @@ public class PortraitService extends AbstractService {
         }
         final GetHistoryPortraitsResult getHistoryPortraitsResult = new GetHistoryPortraitsResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            getHistoryPortraitsResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            getHistoryPortraitsResult.setResultCode(-201);
             getHistoryPortraitsCallback.onFailure(getHistoryPortraitsResult);
             return;
         }
@@ -422,7 +421,7 @@ public class PortraitService extends AbstractService {
                         getHistoryPortraitsCallback.onFailure(getHistoryPortraitsResult);
                         return;
                     }
-                    getHistoryPortraitsResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getHistoryPortraitsResult.setResultCode(-202);
                     getHistoryPortraitsCallback.onFailure(getHistoryPortraitsResult);
                     return;
                 }
@@ -450,7 +449,7 @@ public class PortraitService extends AbstractService {
                     }
                     getHistoryPortraitsCallback.onFailure(getHistoryPortraitsResult);
                 } catch (JSONException e) {
-                    getHistoryPortraitsResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getHistoryPortraitsResult.setResultCode(-202);
                     getHistoryPortraitsCallback.onFailure(getHistoryPortraitsResult);
                     Log.e(e);
                 }
@@ -465,7 +464,7 @@ public class PortraitService extends AbstractService {
         }
         final GetPopularPortraitsInfoResult getPopularPortraitsInfoResult = new GetPopularPortraitsInfoResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            getPopularPortraitsInfoResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            getPopularPortraitsInfoResult.setResultCode(-201);
             getPopularPortraitsCallback.onFailure(getPopularPortraitsInfoResult);
             return;
         }
@@ -498,7 +497,7 @@ public class PortraitService extends AbstractService {
                         getPopularPortraitsCallback.onFailure(getPopularPortraitsInfoResult);
                         return;
                     }
-                    getPopularPortraitsInfoResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getPopularPortraitsInfoResult.setResultCode(-202);
                     getPopularPortraitsCallback.onFailure(getPopularPortraitsInfoResult);
                     return;
                 }
@@ -515,7 +514,7 @@ public class PortraitService extends AbstractService {
                     getPopularPortraitsInfoResult.setResultCode(optInt);
                     getPopularPortraitsInfoResult.setResultMsg(jSONObject.optString("errmsg"));
                     if (optInt == 0) {
-                        JSONArray optJSONArray = jSONObject.optJSONArray(IntentConfig.LIST);
+                        JSONArray optJSONArray = jSONObject.optJSONArray("list");
                         int length = optJSONArray.length();
                         getPopularPortraitsInfoResult.popularPortraitsInfoList = new ArrayList(length);
                         for (int i2 = 0; i2 < length; i2++) {
@@ -534,7 +533,7 @@ public class PortraitService extends AbstractService {
                     }
                     getPopularPortraitsCallback.onFailure(getPopularPortraitsInfoResult);
                 } catch (JSONException e) {
-                    getPopularPortraitsInfoResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getPopularPortraitsInfoResult.setResultCode(-202);
                     getPopularPortraitsCallback.onFailure(getPopularPortraitsInfoResult);
                     Log.e(e);
                 }

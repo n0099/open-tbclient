@@ -36,10 +36,10 @@ public class g {
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
             Drawable drawable = aj.getDrawable(d.f.icon_pb_tail);
-            int s = l.s(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
-            drawable.setBounds(0, 0, s, s);
+            int t = l.t(TbadkCoreApplication.getInst().getContext(), d.e.ds32);
+            drawable.setBounds(0, 0, t, t);
             com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(drawable);
-            fVar.iw(l.s(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
+            fVar.it(l.t(TbadkCoreApplication.getInst().getContext(), d.e.ds4));
             spannableStringBuilder.setSpan(fVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);

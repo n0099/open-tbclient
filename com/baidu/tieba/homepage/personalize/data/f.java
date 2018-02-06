@@ -5,26 +5,26 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.card.data.i;
-import com.baidu.tieba.card.data.r;
+import com.baidu.tieba.card.data.q;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
-public class f extends h implements r {
-    private CardGod egr;
+public class f extends h implements q {
+    private CardGod ekD;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.egr = cardGod;
-            this.mGroupTitle = this.egr.card_title;
-            if (!v.E(this.egr.gods)) {
+            this.ekD = cardGod;
+            this.mGroupTitle = this.ekD.card_title;
+            if (!v.E(this.ekD.gods)) {
                 int i = 0;
-                for (User user : this.egr.gods) {
+                for (User user : this.ekD.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
                         if (!StringUtils.isNull(metaData.getUserName())) {
                             i iVar = new i();
-                            iVar.aNx = metaData;
+                            iVar.aOQ = metaData;
                             a(iVar);
                             i++;
                         }
@@ -36,30 +36,30 @@ public class f extends h implements r {
         }
     }
 
-    public boolean Ux() {
+    public boolean Vp() {
         return v.D(getDataList()) > 2;
     }
 
-    @Override // com.baidu.tieba.card.data.r
+    @Override // com.baidu.tieba.card.data.q
     public int getPosition() {
-        if (this.egr == null || this.egr.position == null) {
+        if (this.ekD == null || this.ekD.position == null) {
             return 0;
         }
-        return this.egr.position.intValue();
+        return this.ekD.position.intValue();
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public boolean akX() {
+    @Override // com.baidu.tieba.card.data.q
+    public boolean alG() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public void eK(boolean z) {
+    @Override // com.baidu.tieba.card.data.q
+    public void eQ(boolean z) {
         this.showTopDivider = z;
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public void eL(boolean z) {
+    @Override // com.baidu.tieba.card.data.q
+    public void eR(boolean z) {
         this.showBottomDivider = z;
     }
 }

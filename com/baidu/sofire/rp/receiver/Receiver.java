@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.sofire.b.d;
-import com.baidu.sofire.rp.f.a;
-import com.baidu.sofire.rp.f.b;
+import com.baidu.sofire.b.e;
 /* loaded from: classes.dex */
 public class Receiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -17,13 +16,13 @@ public class Receiver extends BroadcastReceiver {
                 String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
                     if (action.equals("android.intent.action.BOOT_COMPLETED")) {
-                        b.aF(context).a();
+                        e.aB(context).a();
                     } else if (action.equals("com.b.r.p") && intent != null) {
-                        a.a(context, new com.baidu.sofire.rp.a.a(context).b() * 3600000);
-                        b aF = b.aF(context);
+                        d.a(context, new com.baidu.sofire.e(context).e() * 3600000);
+                        e aB = e.aB(context);
                         Message message = new Message();
                         message.what = 2;
-                        aF.aFz.aFv.sendMessage(message);
+                        aB.aGu.aGS.sendMessage(message);
                     }
                 }
             } catch (Throwable th) {

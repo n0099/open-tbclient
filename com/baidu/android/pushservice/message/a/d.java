@@ -13,7 +13,6 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -42,7 +41,7 @@ public class d extends c {
                     int i = 0;
                     do {
                         i++;
-                        if (com.baidu.android.pushservice.f.b.a("https://api.tuisong.baidu.com/rest/3.0/oem/upload_unbind_oem", HttpPost.METHOD_NAME, hashMap, "BCCS_SDK/3.0").b() == 200) {
+                        if (com.baidu.android.pushservice.f.b.a("https://api.tuisong.baidu.com/rest/3.0/oem/upload_unbind_oem", "POST", hashMap, "BCCS_SDK/3.0").b() == 200) {
                             return;
                         }
                     } while (i < 2);

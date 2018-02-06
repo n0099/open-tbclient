@@ -1,14 +1,13 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GetContactListResponsedMessage extends CustomResponsedMessage<String> {
     private List<a> contacts;
 
     public GetContactListResponsedMessage() {
-        super(CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
+        super(2001184);
     }
 
     public List<a> getContacts() {

@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.m;
+import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes2.dex */
-public class a extends m<b, c> {
-    public View.OnClickListener bKR;
+public class a extends k<b, c> {
+    public View.OnClickListener bMV;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -27,25 +27,25 @@ public class a extends m<b, c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.m, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cUM != null) {
-            if (this.bKR != null) {
-                cVar.cUM.setOnClickListener(this.bKR);
+        if (cVar != null && cVar.cXx != null) {
+            if (this.bMV != null) {
+                cVar.cXx.setOnClickListener(this.bMV);
             }
-            if (cVar.bdS != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.bdS = TbadkCoreApplication.getInst().getSkinType();
-                aj.r(cVar.cUM, d.C0108d.cp_cont_f);
-                aj.s(cVar.cUM, d.f.more_all);
-                aj.s(cVar.bOk, d.C0108d.cp_bg_line_c);
+            if (cVar.bfL != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.bfL = TbadkCoreApplication.getInst().getSkinType();
+                aj.r(cVar.cXx, d.C0140d.cp_cont_f);
+                aj.s(cVar.cXx, d.f.more_all);
+                aj.s(cVar.bQs, d.C0140d.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bKR = onClickListener;
+        this.bMV = onClickListener;
     }
 }

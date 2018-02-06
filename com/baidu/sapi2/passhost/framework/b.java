@@ -3,6 +3,7 @@ package com.baidu.sapi2.passhost.framework;
 import android.text.TextUtils;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.PassPiInfo;
+import com.sina.weibo.sdk.exception.WeiboAuthException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -105,32 +106,32 @@ public class b {
 
     /* renamed from: com.baidu.sapi2.passhost.framework.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0056b {
+    public static class C0081b {
         public boolean a;
         public int b = 100;
         public List<String> c = new ArrayList();
 
-        static C0056b a(JSONObject jSONObject) {
+        static C0081b a(JSONObject jSONObject) {
             JSONArray optJSONArray;
-            C0056b c0056b = new C0056b();
-            c0056b.a = jSONObject.optBoolean(b.d, true);
-            c0056b.b = jSONObject.optInt(b.e, 100);
+            C0081b c0081b = new C0081b();
+            c0081b.a = jSONObject.optBoolean(b.d, true);
+            c0081b.b = jSONObject.optInt("gray", 100);
             JSONObject optJSONObject = jSONObject.optJSONObject(b.f);
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray(b.g)) != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        c0056b.c.add(optJSONArray.optString(i));
+                        c0081b.c.add(optJSONArray.optString(i));
                     }
                 }
             }
-            return c0056b;
+            return c0081b;
         }
     }
 
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
         bVar.l = jSONObject.optString("version");
-        C0056b a2 = C0056b.a(jSONObject.optJSONObject(c));
+        C0081b a2 = C0081b.a(jSONObject.optJSONObject(c));
         if (a2 != null) {
             bVar.m = a2.a;
             bVar.n = a2.c;
@@ -144,16 +145,16 @@ public class b {
                     try {
                         cVar.a = optJSONObject.optString("name").split("\\.")[1];
                     } catch (Exception e2) {
-                        cVar.a = "-1";
+                        cVar.a = WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
                     }
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(c);
                     if (optJSONObject2 != null) {
-                        C0056b a3 = C0056b.a(optJSONObject2);
+                        C0081b a3 = C0081b.a(optJSONObject2);
                         cVar.b = a3.a;
                         cVar.c = a3.b;
                         cVar.d = a3.c;
                     }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(k);
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("files");
                     if (optJSONArray2 != null) {
                         for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                             JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);

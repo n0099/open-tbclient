@@ -398,7 +398,7 @@ public class TabLayout extends HorizontalScrollView {
             if (this.ra == null) {
                 this.ra = new a();
             }
-            this.ra.m(z);
+            this.ra.o(z);
             viewPager.addOnAdapterChangeListener(this.ra);
             setScrollPosition(viewPager.getCurrentItem(), 0.0f, true);
         } else {
@@ -709,10 +709,10 @@ public class TabLayout extends HorizontalScrollView {
                 this.qC.setGravity(1);
                 break;
         }
-        l(true);
+        n(true);
     }
 
-    void l(boolean z) {
+    void n(boolean z) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -1190,7 +1190,7 @@ public class TabLayout extends HorizontalScrollView {
                         }
                     } else {
                         TabLayout.this.qR = 0;
-                        TabLayout.this.l(false);
+                        TabLayout.this.n(false);
                         z2 = true;
                     }
                     if (z2) {
@@ -1283,7 +1283,7 @@ public class TabLayout extends HorizontalScrollView {
                     @Override // android.support.design.widget.s.c
                     public void a(s sVar) {
                         float animatedFraction = sVar.getAnimatedFraction();
-                        c.this.o(android.support.design.widget.a.a(i4, left, animatedFraction), android.support.design.widget.a.a(i3, right, animatedFraction));
+                        c.this.o(android.support.design.widget.a.b(i4, left, animatedFraction), android.support.design.widget.a.b(i3, right, animatedFraction));
                     }
                 });
                 cE.a(new s.b() { // from class: android.support.design.widget.TabLayout.c.2
@@ -1448,7 +1448,7 @@ public class TabLayout extends HorizontalScrollView {
             }
         }
 
-        void m(boolean z) {
+        void o(boolean z) {
             this.re = z;
         }
     }

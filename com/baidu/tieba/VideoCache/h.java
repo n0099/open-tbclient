@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String aFJ;
-    private String bPp;
-    private boolean bPq;
-    private long bPr = -1;
-    private long bPs = -1;
-    private long bPt = 0;
-    private long bPu = 0;
+    private String aHc;
+    private String bRx;
+    private boolean bRy;
+    private long bRz = -1;
+    private long bRA = -1;
+    private long bRB = 0;
+    private long bRC = 0;
 
-    public String Tb() {
-        return this.bPp;
+    public String TK() {
+        return this.bRx;
     }
 
-    public void hG(String str) {
-        this.bPp = str;
+    public void hP(String str) {
+        this.bRx = str;
     }
 
-    public String Tc() {
-        return this.aFJ;
+    public String TL() {
+        return this.aHc;
     }
 
-    public void hH(String str) {
-        this.aFJ = str;
+    public void hQ(String str) {
+        this.aHc = str;
     }
 
-    public boolean Td() {
-        return this.bPq;
+    public boolean TM() {
+        return this.bRy;
     }
 
-    public void cS(boolean z) {
-        this.bPq = z;
+    public void cW(boolean z) {
+        this.bRy = z;
     }
 
-    public long Te() {
-        return this.bPr;
+    public long TN() {
+        return this.bRz;
     }
 
     public void aE(long j) {
-        this.bPr = j;
+        this.bRz = j;
     }
 
-    public long Tf() {
-        return this.bPs;
+    public long TO() {
+        return this.bRA;
     }
 
     public void aF(long j) {
-        this.bPs = j;
+        this.bRA = j;
     }
 
     public long getTotalLength() {
-        return this.bPt;
+        return this.bRB;
     }
 
     public void Y(long j) {
-        this.bPt = j;
+        this.bRB = j;
     }
 
     public void aG(long j) {
-        this.bPu = j;
+        this.bRC = j;
     }
 
-    public long Tg() {
-        return this.bPu;
+    public long TP() {
+        return this.bRC;
     }
 }

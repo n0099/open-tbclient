@@ -3,32 +3,32 @@ package com.baidu.tieba.recapp.report;
 import android.support.v4.util.ArrayMap;
 /* loaded from: classes.dex */
 public class d {
-    public static final ArrayMap<Integer, String> gFh = new ArrayMap<>();
+    public static final ArrayMap<Integer, String> gHy = new ArrayMap<>();
 
     static {
-        gFh.put(0, "未被抛弃");
-        gFh.put(1, "间隔楼层不足");
-        gFh.put(2, "当页楼层不足， 不足以插入广告");
-        gFh.put(3, "app 下载安装过， 被抛弃");
-        gFh.put(11, "非lego广告， 8.6开始被抛弃");
-        gFh.put(12, "card_type=12广告， 8.6开始被抛弃");
-        gFh.put(21, "给Android返回IOS广告或者不识别的类型");
-        gFh.put(22, "给IOS返回了Android广告或者不识别的类型");
-        gFh.put(23, "数据格式错误_adposition为空");
-        gFh.put(24, "数据格式错误_广告id为空");
-        gFh.put(25, "数据格式错误_goodsInfo为空");
-        gFh.put(26, "返回APP广告数据有问题");
-        gFh.put(27, "返回URL广告数据有问题");
-        gFh.put(28, "lego的开关没打开");
-        gFh.put(29, "广告数据位置重复被丢弃");
-        gFh.put(30, "广告ID重复被丢弃");
-        gFh.put(31, "广告插件未加载成功被丢弃");
-        gFh.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
-        gFh.put(33, "客户端最后计算出的positon不合法");
-        gFh.put(34, "无图模式下需要丢弃有图广告");
-        gFh.put(35, "返回lego广告type有问题,客户端不识别");
-        gFh.put(36, "拉回了广告却没有拉回帖子");
-        gFh.put(37, "返回lego广告数据在该版本不支持");
-        gFh.put(100, "其他原因");
+        gHy.put(0, "未被抛弃");
+        gHy.put(1, "间隔楼层不足");
+        gHy.put(2, "当页楼层不足， 不足以插入广告");
+        gHy.put(3, "app 下载安装过， 被抛弃");
+        gHy.put(11, "非lego广告， 8.6开始被抛弃");
+        gHy.put(12, "card_type=12广告， 8.6开始被抛弃");
+        gHy.put(21, "给Android返回IOS广告或者不识别的类型");
+        gHy.put(22, "给IOS返回了Android广告或者不识别的类型");
+        gHy.put(23, "数据格式错误_adposition为空");
+        gHy.put(24, "数据格式错误_广告id为空");
+        gHy.put(25, "数据格式错误_goodsInfo为空");
+        gHy.put(26, "返回APP广告数据有问题");
+        gHy.put(27, "返回URL广告数据有问题");
+        gHy.put(28, "lego的开关没打开");
+        gHy.put(29, "广告数据位置重复被丢弃");
+        gHy.put(30, "广告ID重复被丢弃");
+        gHy.put(31, "广告插件未加载成功被丢弃");
+        gHy.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        gHy.put(33, "客户端最后计算出的positon不合法");
+        gHy.put(34, "无图模式下需要丢弃有图广告");
+        gHy.put(35, "返回lego广告type有问题,客户端不识别");
+        gHy.put(36, "拉回了广告却没有拉回帖子");
+        gHy.put(37, "返回lego广告数据在该版本不支持");
+        gHy.put(100, "其他原因");
     }
 }

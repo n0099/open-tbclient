@@ -3,15 +3,16 @@ package com.baidu.adp.lib.stats;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.fsg.base.statistics.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e akK;
-    private HashMap<String, a> akI = new HashMap<>();
-    private HashMap<String, b> akJ = new HashMap<>();
+    private static e akJ;
+    private HashMap<String, a> akH = new HashMap<>();
+    private HashMap<String, b> akI = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -19,8 +20,8 @@ public class e {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.an(false);
-                        aVar.ao(false);
+                        aVar.aq(false);
+                        aVar.ar(false);
                         aVar.di(0);
                         aVar.p(System.currentTimeMillis());
                         return;
@@ -33,57 +34,57 @@ public class e {
     };
 
     public static e ny() {
-        if (akK == null) {
+        if (akJ == null) {
             synchronized (e.class) {
-                if (akK == null) {
-                    akK = new e();
+                if (akJ == null) {
+                    akJ = new e();
                 }
             }
         }
-        return akK;
+        return akJ;
     }
 
     public e() {
         b bVar = new b();
         bVar.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
-        bVar.dk(120000);
+        bVar.dk(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar.dl(500);
-        this.akJ.put("net", bVar);
-        this.akJ.put("op", bVar);
-        this.akJ.put("stat", bVar);
-        this.akJ.put("crash", bVar);
-        this.akJ.put("pfmonitor", bVar);
+        this.akI.put("net", bVar);
+        this.akI.put(j.d, bVar);
+        this.akI.put("stat", bVar);
+        this.akI.put("crash", bVar);
+        this.akI.put("pfmonitor", bVar);
         b bVar2 = new b();
         bVar2.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
-        bVar2.dk(120000);
+        bVar2.dk(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar2.dl(TbConfig.POST_IMAGE_SMALL);
-        this.akJ.put("file", bVar2);
-        this.akJ.put("db", bVar2);
-        this.akJ.put("img", bVar2);
-        this.akJ.put("voice", bVar2);
-        this.akJ.put("error", bVar2);
+        this.akI.put("file", bVar2);
+        this.akI.put("db", bVar2);
+        this.akI.put("img", bVar2);
+        this.akI.put("voice", bVar2);
+        this.akI.put("error", bVar2);
         b bVar3 = new b();
         bVar3.dj(PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
-        bVar3.dk(120000);
+        bVar3.dk(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar3.dl(TbConfig.POST_IMAGE_SMALL);
-        this.akJ.put("dbg", bVar3);
+        this.akI.put("dbg", bVar3);
     }
 
     public synchronized boolean aw(String str) {
         a aVar;
         boolean z;
-        b bVar = this.akJ.get(str);
+        b bVar = this.akI.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.akI.get(str);
+            a aVar2 = this.akH.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
-                aVar3.ao(false);
-                aVar3.an(false);
+                aVar3.ar(false);
+                aVar3.aq(false);
                 aVar3.p(currentTimeMillis);
-                this.akI.put(str, aVar3);
+                this.akH.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -95,18 +96,18 @@ public class e {
                     aVar.di(aVar.nB() + 1);
                     if (currentTimeMillis - aVar.nA() < bVar.nF()) {
                         if (aVar.nB() >= bVar.nG()) {
-                            aVar.an(true);
+                            aVar.aq(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.ao(false);
+                        aVar.ar(false);
                         aVar.di(0);
                         aVar.p(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.nC() < bVar.nE()) {
-                    aVar.ao(true);
+                    aVar.ar(true);
                     aVar.o(currentTimeMillis);
                 } else {
                     aVar.p(currentTimeMillis);
@@ -128,32 +129,32 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
+        private long akL;
         private long akM;
-        private long akN;
-        private boolean akO;
+        private boolean akN;
         private int mCount;
         private boolean sx;
 
         private a() {
             this.sx = false;
             this.mCount = 0;
-            this.akO = false;
+            this.akN = false;
         }
 
         public boolean nz() {
-            return this.akO;
-        }
-
-        public void an(boolean z) {
-            this.akO = z;
-        }
-
-        public long nA() {
             return this.akN;
         }
 
+        public void aq(boolean z) {
+            this.akN = z;
+        }
+
+        public long nA() {
+            return this.akM;
+        }
+
         public void o(long j) {
-            this.akN = j;
+            this.akM = j;
         }
 
         public int nB() {
@@ -165,18 +166,18 @@ public class e {
         }
 
         public long nC() {
-            return this.akM;
+            return this.akL;
         }
 
         public void p(long j) {
-            this.akM = j;
+            this.akL = j;
         }
 
         public boolean nD() {
             return this.sx;
         }
 
-        public void ao(boolean z) {
+        public void ar(boolean z) {
             this.sx = z;
         }
     }
@@ -184,35 +185,35 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
+        private int akO;
         private int akP;
         private int akQ;
-        private int akR;
 
         private b() {
         }
 
         public int nE() {
-            return this.akP;
+            return this.akO;
         }
 
         public void dj(int i) {
-            this.akP = i;
+            this.akO = i;
         }
 
         public int nF() {
-            return this.akQ;
+            return this.akP;
         }
 
         public void dk(int i) {
-            this.akQ = i;
+            this.akP = i;
         }
 
         public int nG() {
-            return this.akR;
+            return this.akQ;
         }
 
         public void dl(int i) {
-            this.akR = i;
+            this.akQ = i;
         }
     }
 }

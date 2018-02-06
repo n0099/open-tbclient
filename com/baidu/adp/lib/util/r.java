@@ -25,8 +25,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.ahD = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.aho = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.ahB = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.ahm = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -62,8 +62,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.ahD = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.aho = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.ahB = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.ahm = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -104,10 +104,10 @@ public class r {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            if (bVar.ahD == bVar2.ahD) {
+            if (bVar.ahB == bVar2.ahB) {
                 return 0;
             }
-            return bVar.ahD > bVar2.ahD ? -1 : 1;
+            return bVar.ahB > bVar2.ahB ? -1 : 1;
         }
     }
 }

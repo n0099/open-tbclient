@@ -7,48 +7,48 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int hbm = 6144000;
-    private static int hbn = 524288;
-    private h gZD;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b hbo;
+    private static int hdA = 6144000;
+    private static int hdB = 524288;
+    private h hbR;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b hdC;
 
     public a(h hVar) {
-        this.gZD = hVar;
+        this.hbR = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.mA().an("is_video_batch") == 1) {
-                this.hbo = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hbn, this.gZD);
+                this.hdC = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hdB, this.hbR);
             } else {
-                this.hbo = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hbm, this.gZD);
+                this.hdC = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hdA, this.hbR);
             }
-            this.hbo.a(eVar);
-            return this.hbo.aJ(str2, i);
+            this.hdC.a(eVar);
+            return this.hdC.aK(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gZD != null) {
-                this.gZD.h(306, -4399, com.baidu.tieba.i.a.i(e));
+            if (this.hbR != null) {
+                this.hbR.h(306, -4399, com.baidu.tieba.i.a.i(e));
             }
             return null;
         }
     }
 
-    public void cancelUpload() {
-        if (this.hbo != null) {
-            this.hbo.cancel();
-        }
-    }
-
-    public static void vU(int i) {
-        if (i <= 0) {
-            hbn = 524288;
-        } else {
-            hbn = i;
+    public void bxU() {
+        if (this.hdC != null) {
+            this.hdC.cancel();
         }
     }
 
     public static void vV(int i) {
+        if (i <= 0) {
+            hdB = 524288;
+        } else {
+            hdB = i;
+        }
+    }
+
+    public static void vW(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -56,11 +56,11 @@ public class a {
         }
     }
 
-    public static void vW(int i) {
+    public static void vX(int i) {
         if (i <= 0) {
-            hbm = 6144000;
+            hdA = 6144000;
         } else {
-            hbm = i;
+            hdA = i;
         }
     }
 }

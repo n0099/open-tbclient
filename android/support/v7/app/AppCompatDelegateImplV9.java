@@ -65,28 +65,28 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements LayoutInflaterFactory, MenuBuilder.Callback {
-    private DecorContentParent CT;
-    private a CU;
-    private d CV;
-    ActionMode CW;
-    ActionBarContextView CX;
-    PopupWindow CY;
-    Runnable CZ;
-    ViewPropertyAnimatorCompat Da;
-    private boolean Db;
-    private ViewGroup Dc;
-    private View Dd;
+    private DecorContentParent CQ;
+    private a CT;
+    private d CU;
+    ActionMode CV;
+    ActionBarContextView CW;
+    PopupWindow CX;
+    Runnable CY;
+    ViewPropertyAnimatorCompat CZ;
+    private boolean Da;
+    private ViewGroup Db;
+    private View Dc;
+    private boolean Dd;
     private boolean De;
     private boolean Df;
-    private boolean Dg;
-    private PanelFeatureState[] Dh;
-    private PanelFeatureState Di;
-    private boolean Dj;
-    boolean Dk;
-    int Dl;
-    private final Runnable Dm;
-    private boolean Dn;
-    private g Do;
+    private PanelFeatureState[] Dg;
+    private PanelFeatureState Dh;
+    private boolean Di;
+    boolean Dj;
+    int Dk;
+    private final Runnable Dl;
+    private boolean Dm;
+    private g Dn;
     private TextView mTitleView;
     private Rect nF;
     private Rect nG;
@@ -94,28 +94,28 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     /* JADX INFO: Access modifiers changed from: package-private */
     public AppCompatDelegateImplV9(Context context, Window window, AppCompatCallback appCompatCallback) {
         super(context, window, appCompatCallback);
-        this.Da = null;
-        this.Dm = new Runnable() { // from class: android.support.v7.app.AppCompatDelegateImplV9.1
+        this.CZ = null;
+        this.Dl = new Runnable() { // from class: android.support.v7.app.AppCompatDelegateImplV9.1
             @Override // java.lang.Runnable
             public void run() {
-                if ((AppCompatDelegateImplV9.this.Dl & 1) != 0) {
+                if ((AppCompatDelegateImplV9.this.Dk & 1) != 0) {
                     AppCompatDelegateImplV9.this.az(0);
                 }
-                if ((AppCompatDelegateImplV9.this.Dl & 4096) != 0) {
+                if ((AppCompatDelegateImplV9.this.Dk & 4096) != 0) {
                     AppCompatDelegateImplV9.this.az(108);
                 }
-                AppCompatDelegateImplV9.this.Dk = false;
-                AppCompatDelegateImplV9.this.Dl = 0;
+                AppCompatDelegateImplV9.this.Dj = false;
+                AppCompatDelegateImplV9.this.Dk = 0;
             }
         };
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void onCreate(Bundle bundle) {
-        if ((this.Ct instanceof Activity) && NavUtils.getParentActivityName((Activity) this.Ct) != null) {
+        if ((this.Cs instanceof Activity) && NavUtils.getParentActivityName((Activity) this.Cs) != null) {
             ActionBar dV = dV();
             if (dV == null) {
-                this.Dn = true;
+                this.Dm = true;
             } else {
                 dV.setDefaultDisplayHomeAsUpEnabled(true);
             }
@@ -130,21 +130,21 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     @Override // android.support.v7.app.b
     public void dU() {
         ec();
-        if (this.Cx && this.Cw == null) {
-            if (this.Ct instanceof Activity) {
-                this.Cw = new WindowDecorActionBar((Activity) this.Ct, this.Cy);
-            } else if (this.Ct instanceof Dialog) {
-                this.Cw = new WindowDecorActionBar((Dialog) this.Ct);
+        if (this.Cw && this.Cv == null) {
+            if (this.Cs instanceof Activity) {
+                this.Cv = new WindowDecorActionBar((Activity) this.Cs, this.Cx);
+            } else if (this.Cs instanceof Dialog) {
+                this.Cv = new WindowDecorActionBar((Dialog) this.Cs);
             }
-            if (this.Cw != null) {
-                this.Cw.setDefaultDisplayHomeAsUpEnabled(this.Dn);
+            if (this.Cv != null) {
+                this.Cv.setDefaultDisplayHomeAsUpEnabled(this.Dm);
             }
         }
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void setSupportActionBar(Toolbar toolbar) {
-        if (this.Ct instanceof Activity) {
+        if (this.Cs instanceof Activity) {
             ActionBar supportActionBar = getSupportActionBar();
             if (supportActionBar instanceof WindowDecorActionBar) {
                 throw new IllegalStateException("This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.");
@@ -154,12 +154,12 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 supportActionBar.onDestroy();
             }
             if (toolbar != null) {
-                m mVar = new m(toolbar, ((Activity) this.mContext).getTitle(), this.Cu);
-                this.Cw = mVar;
-                this.BH.setCallback(mVar.ek());
+                m mVar = new m(toolbar, ((Activity) this.mContext).getTitle(), this.Ct);
+                this.Cv = mVar;
+                this.BG.setCallback(mVar.ek());
             } else {
-                this.Cw = null;
-                this.BH.setCallback(this.Cu);
+                this.Cv = null;
+                this.BG.setCallback(this.Ct);
             }
             invalidateOptionsMenu();
         }
@@ -168,13 +168,13 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     @Override // android.support.v7.app.AppCompatDelegate
     public View findViewById(int i) {
         ec();
-        return this.BH.findViewById(i);
+        return this.BG.findViewById(i);
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void onConfigurationChanged(Configuration configuration) {
         ActionBar supportActionBar;
-        if (this.Cx && this.Db && (supportActionBar = getSupportActionBar()) != null) {
+        if (this.Cw && this.Da && (supportActionBar = getSupportActionBar()) != null) {
             supportActionBar.onConfigurationChanged(configuration);
         }
         AppCompatDrawableManager.get().onConfigurationChanged(this.mContext);
@@ -200,63 +200,63 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     @Override // android.support.v7.app.AppCompatDelegate
     public void setContentView(View view) {
         ec();
-        ViewGroup viewGroup = (ViewGroup) this.Dc.findViewById(16908290);
+        ViewGroup viewGroup = (ViewGroup) this.Db.findViewById(16908290);
         viewGroup.removeAllViews();
         viewGroup.addView(view);
-        this.Ct.onContentChanged();
+        this.Cs.onContentChanged();
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void setContentView(int i) {
         ec();
-        ViewGroup viewGroup = (ViewGroup) this.Dc.findViewById(16908290);
+        ViewGroup viewGroup = (ViewGroup) this.Db.findViewById(16908290);
         viewGroup.removeAllViews();
         LayoutInflater.from(this.mContext).inflate(i, viewGroup);
-        this.Ct.onContentChanged();
+        this.Cs.onContentChanged();
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         ec();
-        ViewGroup viewGroup = (ViewGroup) this.Dc.findViewById(16908290);
+        ViewGroup viewGroup = (ViewGroup) this.Db.findViewById(16908290);
         viewGroup.removeAllViews();
         viewGroup.addView(view, layoutParams);
-        this.Ct.onContentChanged();
+        this.Cs.onContentChanged();
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
         ec();
-        ((ViewGroup) this.Dc.findViewById(16908290)).addView(view, layoutParams);
-        this.Ct.onContentChanged();
+        ((ViewGroup) this.Db.findViewById(16908290)).addView(view, layoutParams);
+        this.Cs.onContentChanged();
     }
 
     @Override // android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public void onDestroy() {
-        if (this.Dk) {
-            this.BH.getDecorView().removeCallbacks(this.Dm);
+        if (this.Dj) {
+            this.BG.getDecorView().removeCallbacks(this.Dl);
         }
         super.onDestroy();
-        if (this.Cw != null) {
-            this.Cw.onDestroy();
+        if (this.Cv != null) {
+            this.Cv.onDestroy();
         }
     }
 
     private void ec() {
-        if (!this.Db) {
-            this.Dc = ed();
+        if (!this.Da) {
+            this.Db = ed();
             CharSequence title = getTitle();
             if (!TextUtils.isEmpty(title)) {
                 f(title);
             }
             ee();
-            h(this.Dc);
-            this.Db = true;
-            PanelFeatureState g = g(0, false);
+            h(this.Db);
+            this.Da = true;
+            PanelFeatureState j = j(0, false);
             if (isDestroyed()) {
                 return;
             }
-            if (g == null || g.Dx == null) {
+            if (j == null || j.Dw == null) {
                 invalidatePanelMenu(108);
             }
         }
@@ -282,16 +282,16 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         if (obtainStyledAttributes.getBoolean(R.styleable.AppCompatTheme_windowActionModeOverlay, false)) {
             requestWindowFeature(10);
         }
-        this.CA = obtainStyledAttributes.getBoolean(R.styleable.AppCompatTheme_android_windowIsFloating, false);
+        this.Cz = obtainStyledAttributes.getBoolean(R.styleable.AppCompatTheme_android_windowIsFloating, false);
         obtainStyledAttributes.recycle();
-        this.BH.getDecorView();
+        this.BG.getDecorView();
         LayoutInflater from = LayoutInflater.from(this.mContext);
-        if (!this.CB) {
-            if (this.CA) {
-                this.Cy = false;
+        if (!this.CA) {
+            if (this.Cz) {
                 this.Cx = false;
+                this.Cw = false;
                 viewGroup2 = (ViewGroup) from.inflate(R.layout.abc_dialog_title_material, (ViewGroup) null);
-            } else if (this.Cx) {
+            } else if (this.Cw) {
                 TypedValue typedValue = new TypedValue();
                 this.mContext.getTheme().resolveAttribute(R.attr.actionBarTheme, typedValue, true);
                 if (typedValue.resourceId != 0) {
@@ -300,23 +300,23 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                     context = this.mContext;
                 }
                 ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.abc_screen_toolbar, (ViewGroup) null);
-                this.CT = (DecorContentParent) viewGroup3.findViewById(R.id.decor_content_parent);
-                this.CT.setWindowCallback(dW());
-                if (this.Cy) {
-                    this.CT.initFeature(109);
+                this.CQ = (DecorContentParent) viewGroup3.findViewById(R.id.decor_content_parent);
+                this.CQ.setWindowCallback(dW());
+                if (this.Cx) {
+                    this.CQ.initFeature(109);
+                }
+                if (this.Dd) {
+                    this.CQ.initFeature(2);
                 }
                 if (this.De) {
-                    this.CT.initFeature(2);
-                }
-                if (this.Df) {
-                    this.CT.initFeature(5);
+                    this.CQ.initFeature(5);
                 }
                 viewGroup2 = viewGroup3;
             } else {
                 viewGroup2 = null;
             }
         } else {
-            if (this.Cz) {
+            if (this.Cy) {
                 viewGroup = (ViewGroup) from.inflate(R.layout.abc_screen_simple_overlay_action_mode, (ViewGroup) null);
             } else {
                 viewGroup = (ViewGroup) from.inflate(R.layout.abc_screen_simple, (ViewGroup) null);
@@ -345,14 +345,14 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
             }
         }
         if (viewGroup2 == null) {
-            throw new IllegalArgumentException("AppCompat does not support the current theme features: { windowActionBar: " + this.Cx + ", windowActionBarOverlay: " + this.Cy + ", android:windowIsFloating: " + this.CA + ", windowActionModeOverlay: " + this.Cz + ", windowNoTitle: " + this.CB + " }");
+            throw new IllegalArgumentException("AppCompat does not support the current theme features: { windowActionBar: " + this.Cw + ", windowActionBarOverlay: " + this.Cx + ", android:windowIsFloating: " + this.Cz + ", windowActionModeOverlay: " + this.Cy + ", windowNoTitle: " + this.CA + " }");
         }
-        if (this.CT == null) {
+        if (this.CQ == null) {
             this.mTitleView = (TextView) viewGroup2.findViewById(R.id.title);
         }
         ViewUtils.makeOptionalFitsSystemWindows(viewGroup2);
         ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup2.findViewById(R.id.action_bar_activity_content);
-        ViewGroup viewGroup4 = (ViewGroup) this.BH.findViewById(16908290);
+        ViewGroup viewGroup4 = (ViewGroup) this.BG.findViewById(16908290);
         if (viewGroup4 != null) {
             while (viewGroup4.getChildCount() > 0) {
                 View childAt = viewGroup4.getChildAt(0);
@@ -365,7 +365,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 ((FrameLayout) viewGroup4).setForeground(null);
             }
         }
-        this.BH.setContentView(viewGroup2);
+        this.BG.setContentView(viewGroup2);
         contentFrameLayout.setAttachListener(new ContentFrameLayout.OnAttachListener() { // from class: android.support.v7.app.AppCompatDelegateImplV9.4
             @Override // android.support.v7.widget.ContentFrameLayout.OnAttachListener
             public void onAttachedFromWindow() {
@@ -383,8 +383,8 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     }
 
     private void ee() {
-        ContentFrameLayout contentFrameLayout = (ContentFrameLayout) this.Dc.findViewById(16908290);
-        View decorView = this.BH.getDecorView();
+        ContentFrameLayout contentFrameLayout = (ContentFrameLayout) this.Db.findViewById(16908290);
+        View decorView = this.BG.getDecorView();
         contentFrameLayout.setDecorPadding(decorView.getPaddingLeft(), decorView.getPaddingTop(), decorView.getPaddingRight(), decorView.getPaddingBottom());
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(R.styleable.AppCompatTheme);
         obtainStyledAttributes.getValue(R.styleable.AppCompatTheme_windowMinWidthMajor, contentFrameLayout.getMinWidthMajor());
@@ -408,39 +408,39 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     @Override // android.support.v7.app.AppCompatDelegate
     public boolean requestWindowFeature(int i) {
         int aB = aB(i);
-        if (this.CB && aB == 108) {
+        if (this.CA && aB == 108) {
             return false;
         }
-        if (this.Cx && aB == 1) {
-            this.Cx = false;
+        if (this.Cw && aB == 1) {
+            this.Cw = false;
         }
         switch (aB) {
             case 1:
                 eh();
-                this.CB = true;
+                this.CA = true;
                 return true;
             case 2:
                 eh();
-                this.De = true;
+                this.Dd = true;
                 return true;
             case 5:
                 eh();
-                this.Df = true;
+                this.De = true;
                 return true;
             case 10:
                 eh();
-                this.Cz = true;
+                this.Cy = true;
                 return true;
             case 108:
                 eh();
-                this.Cx = true;
+                this.Cw = true;
                 return true;
             case 109:
                 eh();
-                this.Cy = true;
+                this.Cx = true;
                 return true;
             default:
-                return this.BH.requestFeature(aB);
+                return this.BG.requestFeature(aB);
         }
     }
 
@@ -449,26 +449,26 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         int aB = aB(i);
         switch (aB) {
             case 1:
-                return this.CB;
+                return this.CA;
             case 2:
-                return this.De;
+                return this.Dd;
             case 5:
-                return this.Df;
+                return this.De;
             case 10:
-                return this.Cz;
-            case 108:
-                return this.Cx;
-            case 109:
                 return this.Cy;
+            case 108:
+                return this.Cw;
+            case 109:
+                return this.Cx;
             default:
-                return this.BH.hasFeature(aB);
+                return this.BG.hasFeature(aB);
         }
     }
 
     @Override // android.support.v7.app.b
     void f(CharSequence charSequence) {
-        if (this.CT != null) {
-            this.CT.setWindowTitle(charSequence);
+        if (this.CQ != null) {
+            this.CQ.setWindowTitle(charSequence);
         } else if (dV() != null) {
             dV().setWindowTitle(charSequence);
         } else if (this.mTitleView != null) {
@@ -484,9 +484,9 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 supportActionBar.dispatchMenuVisibilityChanged(false);
             }
         } else if (i == 0) {
-            PanelFeatureState g = g(i, true);
-            if (g.isOpen) {
-                a(g, false);
+            PanelFeatureState j = j(i, true);
+            if (j.isOpen) {
+                a(j, false);
             }
         }
     }
@@ -511,7 +511,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         if (dW == null || isDestroyed() || (a2 = a((Menu) menuBuilder.getRootMenu())) == null) {
             return false;
         }
-        return dW.onMenuItemSelected(a2.Dt, menuItem);
+        return dW.onMenuItemSelected(a2.Ds, menuItem);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder.Callback
@@ -524,21 +524,21 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         if (callback == null) {
             throw new IllegalArgumentException("ActionMode callback can not be null.");
         }
-        if (this.CW != null) {
-            this.CW.finish();
+        if (this.CV != null) {
+            this.CV.finish();
         }
         b bVar = new b(callback);
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
-            this.CW = supportActionBar.startActionMode(bVar);
-            if (this.CW != null && this.Cv != null) {
-                this.Cv.onSupportActionModeStarted(this.CW);
+            this.CV = supportActionBar.startActionMode(bVar);
+            if (this.CV != null && this.Cu != null) {
+                this.Cu.onSupportActionModeStarted(this.CV);
             }
         }
-        if (this.CW == null) {
-            this.CW = a(bVar);
+        if (this.CV == null) {
+            this.CV = a(bVar);
         }
-        return this.CW;
+        return this.CV;
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
@@ -554,26 +554,26 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         ActionMode actionMode;
         Context context;
         eg();
-        if (this.CW != null) {
-            this.CW.finish();
+        if (this.CV != null) {
+            this.CV.finish();
         }
         if (!(callback instanceof b)) {
             callback = new b(callback);
         }
-        if (this.Cv == null || isDestroyed()) {
+        if (this.Cu == null || isDestroyed()) {
             actionMode = null;
         } else {
             try {
-                actionMode = this.Cv.onWindowStartingSupportActionMode(callback);
+                actionMode = this.Cu.onWindowStartingSupportActionMode(callback);
             } catch (AbstractMethodError e) {
                 actionMode = null;
             }
         }
         if (actionMode != null) {
-            this.CW = actionMode;
+            this.CV = actionMode;
         } else {
-            if (this.CX == null) {
-                if (this.CA) {
+            if (this.CW == null) {
+                if (this.Cz) {
                     TypedValue typedValue = new TypedValue();
                     Resources.Theme theme = this.mContext.getTheme();
                     theme.resolveAttribute(R.attr.actionBarTheme, typedValue, true);
@@ -586,112 +586,112 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                     } else {
                         context = this.mContext;
                     }
-                    this.CX = new ActionBarContextView(context);
-                    this.CY = new PopupWindow(context, (AttributeSet) null, R.attr.actionModePopupWindowStyle);
-                    PopupWindowCompat.setWindowLayoutType(this.CY, 2);
-                    this.CY.setContentView(this.CX);
-                    this.CY.setWidth(-1);
+                    this.CW = new ActionBarContextView(context);
+                    this.CX = new PopupWindow(context, (AttributeSet) null, R.attr.actionModePopupWindowStyle);
+                    PopupWindowCompat.setWindowLayoutType(this.CX, 2);
+                    this.CX.setContentView(this.CW);
+                    this.CX.setWidth(-1);
                     context.getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true);
-                    this.CX.setContentHeight(TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics()));
-                    this.CY.setHeight(-2);
-                    this.CZ = new Runnable() { // from class: android.support.v7.app.AppCompatDelegateImplV9.5
+                    this.CW.setContentHeight(TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics()));
+                    this.CX.setHeight(-2);
+                    this.CY = new Runnable() { // from class: android.support.v7.app.AppCompatDelegateImplV9.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            AppCompatDelegateImplV9.this.CY.showAtLocation(AppCompatDelegateImplV9.this.CX, 55, 0, 0);
+                            AppCompatDelegateImplV9.this.CX.showAtLocation(AppCompatDelegateImplV9.this.CW, 55, 0, 0);
                             AppCompatDelegateImplV9.this.eg();
                             if (AppCompatDelegateImplV9.this.ef()) {
-                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CX, 0.0f);
-                                AppCompatDelegateImplV9.this.Da = ViewCompat.animate(AppCompatDelegateImplV9.this.CX).alpha(1.0f);
-                                AppCompatDelegateImplV9.this.Da.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.5.1
+                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CW, 0.0f);
+                                AppCompatDelegateImplV9.this.CZ = ViewCompat.animate(AppCompatDelegateImplV9.this.CW).alpha(1.0f);
+                                AppCompatDelegateImplV9.this.CZ.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.5.1
                                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                                     public void onAnimationStart(View view) {
-                                        AppCompatDelegateImplV9.this.CX.setVisibility(0);
+                                        AppCompatDelegateImplV9.this.CW.setVisibility(0);
                                     }
 
                                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                                     public void onAnimationEnd(View view) {
-                                        ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CX, 1.0f);
-                                        AppCompatDelegateImplV9.this.Da.setListener(null);
-                                        AppCompatDelegateImplV9.this.Da = null;
+                                        ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CW, 1.0f);
+                                        AppCompatDelegateImplV9.this.CZ.setListener(null);
+                                        AppCompatDelegateImplV9.this.CZ = null;
                                     }
                                 });
                                 return;
                             }
-                            ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CX, 1.0f);
-                            AppCompatDelegateImplV9.this.CX.setVisibility(0);
+                            ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CW, 1.0f);
+                            AppCompatDelegateImplV9.this.CW.setVisibility(0);
                         }
                     };
                 } else {
-                    ViewStubCompat viewStubCompat = (ViewStubCompat) this.Dc.findViewById(R.id.action_mode_bar_stub);
+                    ViewStubCompat viewStubCompat = (ViewStubCompat) this.Db.findViewById(R.id.action_mode_bar_stub);
                     if (viewStubCompat != null) {
                         viewStubCompat.setLayoutInflater(LayoutInflater.from(getActionBarThemedContext()));
-                        this.CX = (ActionBarContextView) viewStubCompat.inflate();
+                        this.CW = (ActionBarContextView) viewStubCompat.inflate();
                     }
                 }
             }
-            if (this.CX != null) {
+            if (this.CW != null) {
                 eg();
-                this.CX.killMode();
-                StandaloneActionMode standaloneActionMode = new StandaloneActionMode(this.CX.getContext(), this.CX, callback, this.CY == null);
+                this.CW.killMode();
+                StandaloneActionMode standaloneActionMode = new StandaloneActionMode(this.CW.getContext(), this.CW, callback, this.CX == null);
                 if (callback.onCreateActionMode(standaloneActionMode, standaloneActionMode.getMenu())) {
                     standaloneActionMode.invalidate();
-                    this.CX.initForMode(standaloneActionMode);
-                    this.CW = standaloneActionMode;
+                    this.CW.initForMode(standaloneActionMode);
+                    this.CV = standaloneActionMode;
                     if (ef()) {
-                        ViewCompat.setAlpha(this.CX, 0.0f);
-                        this.Da = ViewCompat.animate(this.CX).alpha(1.0f);
-                        this.Da.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.6
+                        ViewCompat.setAlpha(this.CW, 0.0f);
+                        this.CZ = ViewCompat.animate(this.CW).alpha(1.0f);
+                        this.CZ.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.6
                             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                             public void onAnimationStart(View view) {
-                                AppCompatDelegateImplV9.this.CX.setVisibility(0);
-                                AppCompatDelegateImplV9.this.CX.sendAccessibilityEvent(32);
-                                if (AppCompatDelegateImplV9.this.CX.getParent() instanceof View) {
-                                    ViewCompat.requestApplyInsets((View) AppCompatDelegateImplV9.this.CX.getParent());
+                                AppCompatDelegateImplV9.this.CW.setVisibility(0);
+                                AppCompatDelegateImplV9.this.CW.sendAccessibilityEvent(32);
+                                if (AppCompatDelegateImplV9.this.CW.getParent() instanceof View) {
+                                    ViewCompat.requestApplyInsets((View) AppCompatDelegateImplV9.this.CW.getParent());
                                 }
                             }
 
                             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                             public void onAnimationEnd(View view) {
-                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CX, 1.0f);
-                                AppCompatDelegateImplV9.this.Da.setListener(null);
-                                AppCompatDelegateImplV9.this.Da = null;
+                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.CW, 1.0f);
+                                AppCompatDelegateImplV9.this.CZ.setListener(null);
+                                AppCompatDelegateImplV9.this.CZ = null;
                             }
                         });
                     } else {
-                        ViewCompat.setAlpha(this.CX, 1.0f);
-                        this.CX.setVisibility(0);
-                        this.CX.sendAccessibilityEvent(32);
-                        if (this.CX.getParent() instanceof View) {
-                            ViewCompat.requestApplyInsets((View) this.CX.getParent());
+                        ViewCompat.setAlpha(this.CW, 1.0f);
+                        this.CW.setVisibility(0);
+                        this.CW.sendAccessibilityEvent(32);
+                        if (this.CW.getParent() instanceof View) {
+                            ViewCompat.requestApplyInsets((View) this.CW.getParent());
                         }
                     }
-                    if (this.CY != null) {
-                        this.BH.getDecorView().post(this.CZ);
+                    if (this.CX != null) {
+                        this.BG.getDecorView().post(this.CY);
                     }
                 } else {
-                    this.CW = null;
+                    this.CV = null;
                 }
             }
         }
-        if (this.CW != null && this.Cv != null) {
-            this.Cv.onSupportActionModeStarted(this.CW);
+        if (this.CV != null && this.Cu != null) {
+            this.Cu.onSupportActionModeStarted(this.CV);
         }
-        return this.CW;
+        return this.CV;
     }
 
     final boolean ef() {
-        return this.Db && this.Dc != null && ViewCompat.isLaidOut(this.Dc);
+        return this.Da && this.Db != null && ViewCompat.isLaidOut(this.Db);
     }
 
     void eg() {
-        if (this.Da != null) {
-            this.Da.cancel();
+        if (this.CZ != null) {
+            this.CZ.cancel();
         }
     }
 
     boolean onBackPressed() {
-        if (this.CW != null) {
-            this.CW.finish();
+        if (this.CV != null) {
+            this.CV.finish();
             return true;
         }
         ActionBar supportActionBar = getSupportActionBar();
@@ -702,18 +702,18 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar == null || !supportActionBar.onKeyShortcut(i, keyEvent)) {
-            if (this.Di != null && a(this.Di, keyEvent.getKeyCode(), keyEvent, 1)) {
-                if (this.Di != null) {
-                    this.Di.DA = true;
+            if (this.Dh != null && a(this.Dh, keyEvent.getKeyCode(), keyEvent, 1)) {
+                if (this.Dh != null) {
+                    this.Dh.Dz = true;
                     return true;
                 }
                 return true;
             }
-            if (this.Di == null) {
-                PanelFeatureState g = g(0, true);
-                b(g, keyEvent);
-                boolean a2 = a(g, keyEvent.getKeyCode(), keyEvent, 1);
-                g.isPrepared = false;
+            if (this.Dh == null) {
+                PanelFeatureState j = j(0, true);
+                b(j, keyEvent);
+                boolean a2 = a(j, keyEvent.getKeyCode(), keyEvent, 1);
+                j.isPrepared = false;
                 if (a2) {
                     return true;
                 }
@@ -725,7 +725,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
     @Override // android.support.v7.app.b
     boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 82 && this.Ct.dispatchKeyEvent(keyEvent)) {
+        if (keyEvent.getKeyCode() == 82 && this.Cs.dispatchKeyEvent(keyEvent)) {
             return true;
         }
         int keyCode = keyEvent.getKeyCode();
@@ -738,14 +738,14 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 c(0, keyEvent);
                 return true;
             case 4:
-                boolean z = this.Dj;
-                this.Dj = false;
-                PanelFeatureState g = g(0, false);
-                if (g != null && g.isOpen) {
+                boolean z = this.Di;
+                this.Di = false;
+                PanelFeatureState j = j(0, false);
+                if (j != null && j.isOpen) {
                     if (z) {
                         return true;
                     }
-                    a(g, true);
+                    a(j, true);
                     return true;
                 } else if (onBackPressed()) {
                     return true;
@@ -761,7 +761,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 b(0, keyEvent);
                 return true;
             case 4:
-                this.Dj = (keyEvent.getFlags() & 128) != 0;
+                this.Di = (keyEvent.getFlags() & 128) != 0;
                 break;
         }
         if (Build.VERSION.SDK_INT < 11) {
@@ -773,17 +773,17 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     @Override // android.support.v7.app.AppCompatDelegate
     public View createView(View view, String str, Context context, AttributeSet attributeSet) {
         boolean z = Build.VERSION.SDK_INT < 21;
-        if (this.Do == null) {
-            this.Do = new g();
+        if (this.Dn == null) {
+            this.Dn = new g();
         }
-        return this.Do.a(view, str, context, attributeSet, z && a((ViewParent) view), z, true, VectorEnabledTintResources.shouldBeUsed());
+        return this.Dn.a(view, str, context, attributeSet, z && a((ViewParent) view), z, true, VectorEnabledTintResources.shouldBeUsed());
     }
 
     private boolean a(ViewParent viewParent) {
         if (viewParent == null) {
             return false;
         }
-        View decorView = this.BH.getDecorView();
+        View decorView = this.BG.getDecorView();
         for (ViewParent viewParent2 = viewParent; viewParent2 != null; viewParent2 = viewParent2.getParent()) {
             if (viewParent2 == decorView || !(viewParent2 instanceof View) || ViewCompat.isAttachedToWindow((View) viewParent2)) {
                 return false;
@@ -810,7 +810,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
     View a(View view, String str, Context context, AttributeSet attributeSet) {
         View onCreateView;
-        if (!(this.Ct instanceof LayoutInflater.Factory) || (onCreateView = ((LayoutInflater.Factory) this.Ct).onCreateView(str, context, attributeSet)) == null) {
+        if (!(this.Cs instanceof LayoutInflater.Factory) || (onCreateView = ((LayoutInflater.Factory) this.Cs).onCreateView(str, context, attributeSet)) == null) {
             return null;
         }
         return onCreateView;
@@ -820,7 +820,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         ViewGroup.LayoutParams layoutParams;
         int i = -1;
         if (!panelFeatureState.isOpen && !isDestroyed()) {
-            if (panelFeatureState.Dt == 0) {
+            if (panelFeatureState.Ds == 0) {
                 Context context = this.mContext;
                 boolean z = (context.getResources().getConfiguration().screenLayout & 15) == 4;
                 boolean z2 = context.getApplicationInfo().targetSdkVersion >= 11;
@@ -829,44 +829,44 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 }
             }
             Window.Callback dW = dW();
-            if (dW != null && !dW.onMenuOpened(panelFeatureState.Dt, panelFeatureState.Dx)) {
+            if (dW != null && !dW.onMenuOpened(panelFeatureState.Ds, panelFeatureState.Dw)) {
                 a(panelFeatureState, true);
                 return;
             }
             WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
             if (windowManager != null && b(panelFeatureState, keyEvent)) {
-                if (panelFeatureState.Du == null || panelFeatureState.DB) {
-                    if (panelFeatureState.Du == null) {
-                        if (!a(panelFeatureState) || panelFeatureState.Du == null) {
+                if (panelFeatureState.Dt == null || panelFeatureState.DA) {
+                    if (panelFeatureState.Dt == null) {
+                        if (!a(panelFeatureState) || panelFeatureState.Dt == null) {
                             return;
                         }
-                    } else if (panelFeatureState.DB && panelFeatureState.Du.getChildCount() > 0) {
-                        panelFeatureState.Du.removeAllViews();
+                    } else if (panelFeatureState.DA && panelFeatureState.Dt.getChildCount() > 0) {
+                        panelFeatureState.Dt.removeAllViews();
                     }
                     if (c(panelFeatureState) && panelFeatureState.hasPanelItems()) {
-                        ViewGroup.LayoutParams layoutParams2 = panelFeatureState.Dv.getLayoutParams();
+                        ViewGroup.LayoutParams layoutParams2 = panelFeatureState.Du.getLayoutParams();
                         ViewGroup.LayoutParams layoutParams3 = layoutParams2 == null ? new ViewGroup.LayoutParams(-2, -2) : layoutParams2;
-                        panelFeatureState.Du.setBackgroundResource(panelFeatureState.background);
-                        ViewParent parent = panelFeatureState.Dv.getParent();
+                        panelFeatureState.Dt.setBackgroundResource(panelFeatureState.background);
+                        ViewParent parent = panelFeatureState.Du.getParent();
                         if (parent != null && (parent instanceof ViewGroup)) {
-                            ((ViewGroup) parent).removeView(panelFeatureState.Dv);
+                            ((ViewGroup) parent).removeView(panelFeatureState.Du);
                         }
-                        panelFeatureState.Du.addView(panelFeatureState.Dv, layoutParams3);
-                        if (!panelFeatureState.Dv.hasFocus()) {
-                            panelFeatureState.Dv.requestFocus();
+                        panelFeatureState.Dt.addView(panelFeatureState.Du, layoutParams3);
+                        if (!panelFeatureState.Du.hasFocus()) {
+                            panelFeatureState.Du.requestFocus();
                         }
                         i = -2;
                     } else {
                         return;
                     }
-                } else if (panelFeatureState.Dw == null || (layoutParams = panelFeatureState.Dw.getLayoutParams()) == null || layoutParams.width != -1) {
+                } else if (panelFeatureState.Dv == null || (layoutParams = panelFeatureState.Dv.getLayoutParams()) == null || layoutParams.width != -1) {
                     i = -2;
                 }
-                panelFeatureState.DA = false;
+                panelFeatureState.Dz = false;
                 WindowManager.LayoutParams layoutParams4 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
                 layoutParams4.gravity = panelFeatureState.gravity;
                 layoutParams4.windowAnimations = panelFeatureState.windowAnimations;
-                windowManager.addView(panelFeatureState.Du, layoutParams4);
+                windowManager.addView(panelFeatureState.Dt, layoutParams4);
                 panelFeatureState.isOpen = true;
             }
         }
@@ -874,47 +874,47 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
     private boolean a(PanelFeatureState panelFeatureState) {
         panelFeatureState.U(getActionBarThemedContext());
-        panelFeatureState.Du = new c(panelFeatureState.Dz);
+        panelFeatureState.Dt = new c(panelFeatureState.Dy);
         panelFeatureState.gravity = 81;
         return true;
     }
 
     private void a(MenuBuilder menuBuilder, boolean z) {
-        if (this.CT != null && this.CT.canShowOverflowMenu() && (!ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext)) || this.CT.isOverflowMenuShowPending())) {
+        if (this.CQ != null && this.CQ.canShowOverflowMenu() && (!ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext)) || this.CQ.isOverflowMenuShowPending())) {
             Window.Callback dW = dW();
-            if (!this.CT.isOverflowMenuShowing() || !z) {
+            if (!this.CQ.isOverflowMenuShowing() || !z) {
                 if (dW != null && !isDestroyed()) {
-                    if (this.Dk && (this.Dl & 1) != 0) {
-                        this.BH.getDecorView().removeCallbacks(this.Dm);
-                        this.Dm.run();
+                    if (this.Dj && (this.Dk & 1) != 0) {
+                        this.BG.getDecorView().removeCallbacks(this.Dl);
+                        this.Dl.run();
                     }
-                    PanelFeatureState g = g(0, true);
-                    if (g.Dx != null && !g.DC && dW.onPreparePanel(0, g.Dw, g.Dx)) {
-                        dW.onMenuOpened(108, g.Dx);
-                        this.CT.showOverflowMenu();
+                    PanelFeatureState j = j(0, true);
+                    if (j.Dw != null && !j.DB && dW.onPreparePanel(0, j.Dv, j.Dw)) {
+                        dW.onMenuOpened(108, j.Dw);
+                        this.CQ.showOverflowMenu();
                         return;
                     }
                     return;
                 }
                 return;
             }
-            this.CT.hideOverflowMenu();
+            this.CQ.hideOverflowMenu();
             if (!isDestroyed()) {
-                dW.onPanelClosed(108, g(0, true).Dx);
+                dW.onPanelClosed(108, j(0, true).Dw);
                 return;
             }
             return;
         }
-        PanelFeatureState g2 = g(0, true);
-        g2.DB = true;
-        a(g2, false);
-        a(g2, (KeyEvent) null);
+        PanelFeatureState j2 = j(0, true);
+        j2.DA = true;
+        a(j2, false);
+        a(j2, (KeyEvent) null);
     }
 
     private boolean b(PanelFeatureState panelFeatureState) {
         Context contextThemeWrapper;
         Context context = this.mContext;
-        if ((panelFeatureState.Dt == 0 || panelFeatureState.Dt == 108) && this.CT != null) {
+        if ((panelFeatureState.Ds == 0 || panelFeatureState.Ds == 108) && this.CQ != null) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = context.getTheme();
             theme.resolveAttribute(R.attr.actionBarTheme, typedValue, true);
@@ -952,17 +952,17 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     }
 
     private boolean c(PanelFeatureState panelFeatureState) {
-        if (panelFeatureState.Dw != null) {
-            panelFeatureState.Dv = panelFeatureState.Dw;
+        if (panelFeatureState.Dv != null) {
+            panelFeatureState.Du = panelFeatureState.Dv;
             return true;
-        } else if (panelFeatureState.Dx == null) {
+        } else if (panelFeatureState.Dw == null) {
             return false;
         } else {
-            if (this.CV == null) {
-                this.CV = new d();
+            if (this.CU == null) {
+                this.CU = new d();
             }
-            panelFeatureState.Dv = (View) panelFeatureState.a(this.CV);
-            return panelFeatureState.Dv != null;
+            panelFeatureState.Du = (View) panelFeatureState.a(this.CU);
+            return panelFeatureState.Du != null;
         }
     }
 
@@ -973,104 +973,104 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         if (panelFeatureState.isPrepared) {
             return true;
         }
-        if (this.Di != null && this.Di != panelFeatureState) {
-            a(this.Di, false);
+        if (this.Dh != null && this.Dh != panelFeatureState) {
+            a(this.Dh, false);
         }
         Window.Callback dW = dW();
         if (dW != null) {
-            panelFeatureState.Dw = dW.onCreatePanelView(panelFeatureState.Dt);
+            panelFeatureState.Dv = dW.onCreatePanelView(panelFeatureState.Ds);
         }
-        boolean z = panelFeatureState.Dt == 0 || panelFeatureState.Dt == 108;
-        if (z && this.CT != null) {
-            this.CT.setMenuPrepared();
+        boolean z = panelFeatureState.Ds == 0 || panelFeatureState.Ds == 108;
+        if (z && this.CQ != null) {
+            this.CQ.setMenuPrepared();
         }
-        if (panelFeatureState.Dw == null && (!z || !(dV() instanceof m))) {
-            if (panelFeatureState.Dx == null || panelFeatureState.DC) {
-                if (panelFeatureState.Dx == null && (!b(panelFeatureState) || panelFeatureState.Dx == null)) {
+        if (panelFeatureState.Dv == null && (!z || !(dV() instanceof m))) {
+            if (panelFeatureState.Dw == null || panelFeatureState.DB) {
+                if (panelFeatureState.Dw == null && (!b(panelFeatureState) || panelFeatureState.Dw == null)) {
                     return false;
                 }
-                if (z && this.CT != null) {
-                    if (this.CU == null) {
-                        this.CU = new a();
+                if (z && this.CQ != null) {
+                    if (this.CT == null) {
+                        this.CT = new a();
                     }
-                    this.CT.setMenu(panelFeatureState.Dx, this.CU);
+                    this.CQ.setMenu(panelFeatureState.Dw, this.CT);
                 }
-                panelFeatureState.Dx.stopDispatchingItemsChanged();
-                if (!dW.onCreatePanelMenu(panelFeatureState.Dt, panelFeatureState.Dx)) {
+                panelFeatureState.Dw.stopDispatchingItemsChanged();
+                if (!dW.onCreatePanelMenu(panelFeatureState.Ds, panelFeatureState.Dw)) {
                     panelFeatureState.b(null);
-                    if (!z || this.CT == null) {
+                    if (!z || this.CQ == null) {
                         return false;
                     }
-                    this.CT.setMenu(null, this.CU);
+                    this.CQ.setMenu(null, this.CT);
                     return false;
                 }
-                panelFeatureState.DC = false;
+                panelFeatureState.DB = false;
             }
-            panelFeatureState.Dx.stopDispatchingItemsChanged();
-            if (panelFeatureState.DD != null) {
-                panelFeatureState.Dx.restoreActionViewStates(panelFeatureState.DD);
-                panelFeatureState.DD = null;
+            panelFeatureState.Dw.stopDispatchingItemsChanged();
+            if (panelFeatureState.DC != null) {
+                panelFeatureState.Dw.restoreActionViewStates(panelFeatureState.DC);
+                panelFeatureState.DC = null;
             }
-            if (!dW.onPreparePanel(0, panelFeatureState.Dw, panelFeatureState.Dx)) {
-                if (z && this.CT != null) {
-                    this.CT.setMenu(null, this.CU);
+            if (!dW.onPreparePanel(0, panelFeatureState.Dv, panelFeatureState.Dw)) {
+                if (z && this.CQ != null) {
+                    this.CQ.setMenu(null, this.CT);
                 }
-                panelFeatureState.Dx.startDispatchingItemsChanged();
+                panelFeatureState.Dw.startDispatchingItemsChanged();
                 return false;
             }
             panelFeatureState.qwertyMode = KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1;
-            panelFeatureState.Dx.setQwertyMode(panelFeatureState.qwertyMode);
-            panelFeatureState.Dx.startDispatchingItemsChanged();
+            panelFeatureState.Dw.setQwertyMode(panelFeatureState.qwertyMode);
+            panelFeatureState.Dw.startDispatchingItemsChanged();
         }
         panelFeatureState.isPrepared = true;
-        panelFeatureState.DA = false;
-        this.Di = panelFeatureState;
+        panelFeatureState.Dz = false;
+        this.Dh = panelFeatureState;
         return true;
     }
 
     void a(MenuBuilder menuBuilder) {
-        if (!this.Dg) {
-            this.Dg = true;
-            this.CT.dismissPopups();
+        if (!this.Df) {
+            this.Df = true;
+            this.CQ.dismissPopups();
             Window.Callback dW = dW();
             if (dW != null && !isDestroyed()) {
                 dW.onPanelClosed(108, menuBuilder);
             }
-            this.Dg = false;
+            this.Df = false;
         }
     }
 
     void closePanel(int i) {
-        a(g(i, true), true);
+        a(j(i, true), true);
     }
 
     void a(PanelFeatureState panelFeatureState, boolean z) {
-        if (z && panelFeatureState.Dt == 0 && this.CT != null && this.CT.isOverflowMenuShowing()) {
-            a(panelFeatureState.Dx);
+        if (z && panelFeatureState.Ds == 0 && this.CQ != null && this.CQ.isOverflowMenuShowing()) {
+            a(panelFeatureState.Dw);
             return;
         }
         WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
-        if (windowManager != null && panelFeatureState.isOpen && panelFeatureState.Du != null) {
-            windowManager.removeView(panelFeatureState.Du);
+        if (windowManager != null && panelFeatureState.isOpen && panelFeatureState.Dt != null) {
+            windowManager.removeView(panelFeatureState.Dt);
             if (z) {
-                a(panelFeatureState.Dt, panelFeatureState, (Menu) null);
+                a(panelFeatureState.Ds, panelFeatureState, (Menu) null);
             }
         }
         panelFeatureState.isPrepared = false;
-        panelFeatureState.DA = false;
+        panelFeatureState.Dz = false;
         panelFeatureState.isOpen = false;
-        panelFeatureState.Dv = null;
-        panelFeatureState.DB = true;
-        if (this.Di == panelFeatureState) {
-            this.Di = null;
+        panelFeatureState.Du = null;
+        panelFeatureState.DA = true;
+        if (this.Dh == panelFeatureState) {
+            this.Dh = null;
         }
     }
 
     private boolean b(int i, KeyEvent keyEvent) {
         if (keyEvent.getRepeatCount() == 0) {
-            PanelFeatureState g = g(i, true);
-            if (!g.isOpen) {
-                return b(g, keyEvent);
+            PanelFeatureState j = j(i, true);
+            if (!j.isOpen) {
+                return b(j, keyEvent);
             }
         }
         return false;
@@ -1079,33 +1079,33 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     private boolean c(int i, KeyEvent keyEvent) {
         boolean z;
         boolean z2 = true;
-        if (this.CW != null) {
+        if (this.CV != null) {
             return false;
         }
-        PanelFeatureState g = g(i, true);
-        if (i == 0 && this.CT != null && this.CT.canShowOverflowMenu() && !ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext))) {
-            if (!this.CT.isOverflowMenuShowing()) {
-                if (!isDestroyed() && b(g, keyEvent)) {
-                    z2 = this.CT.showOverflowMenu();
+        PanelFeatureState j = j(i, true);
+        if (i == 0 && this.CQ != null && this.CQ.canShowOverflowMenu() && !ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext))) {
+            if (!this.CQ.isOverflowMenuShowing()) {
+                if (!isDestroyed() && b(j, keyEvent)) {
+                    z2 = this.CQ.showOverflowMenu();
                 }
                 z2 = false;
             } else {
-                z2 = this.CT.hideOverflowMenu();
+                z2 = this.CQ.hideOverflowMenu();
             }
-        } else if (g.isOpen || g.DA) {
-            boolean z3 = g.isOpen;
-            a(g, true);
+        } else if (j.isOpen || j.Dz) {
+            boolean z3 = j.isOpen;
+            a(j, true);
             z2 = z3;
         } else {
-            if (g.isPrepared) {
-                if (g.DC) {
-                    g.isPrepared = false;
-                    z = b(g, keyEvent);
+            if (j.isPrepared) {
+                if (j.DB) {
+                    j.isPrepared = false;
+                    z = b(j, keyEvent);
                 } else {
                     z = true;
                 }
                 if (z) {
-                    a(g, keyEvent);
+                    a(j, keyEvent);
                 }
             }
             z2 = false;
@@ -1123,24 +1123,24 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
     void a(int i, PanelFeatureState panelFeatureState, Menu menu) {
         if (menu == null) {
-            if (panelFeatureState == null && i >= 0 && i < this.Dh.length) {
-                panelFeatureState = this.Dh[i];
+            if (panelFeatureState == null && i >= 0 && i < this.Dg.length) {
+                panelFeatureState = this.Dg[i];
             }
             if (panelFeatureState != null) {
-                menu = panelFeatureState.Dx;
+                menu = panelFeatureState.Dw;
             }
         }
         if ((panelFeatureState == null || panelFeatureState.isOpen) && !isDestroyed()) {
-            this.Ct.onPanelClosed(i, menu);
+            this.Cs.onPanelClosed(i, menu);
         }
     }
 
     PanelFeatureState a(Menu menu) {
-        PanelFeatureState[] panelFeatureStateArr = this.Dh;
+        PanelFeatureState[] panelFeatureStateArr = this.Dg;
         int length = panelFeatureStateArr != null ? panelFeatureStateArr.length : 0;
         for (int i = 0; i < length; i++) {
             PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
-            if (panelFeatureState != null && panelFeatureState.Dx == menu) {
+            if (panelFeatureState != null && panelFeatureState.Dw == menu) {
                 return panelFeatureState;
             }
         }
@@ -1148,14 +1148,14 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public PanelFeatureState g(int i, boolean z) {
-        PanelFeatureState[] panelFeatureStateArr = this.Dh;
+    public PanelFeatureState j(int i, boolean z) {
+        PanelFeatureState[] panelFeatureStateArr = this.Dg;
         if (panelFeatureStateArr == null || panelFeatureStateArr.length <= i) {
             PanelFeatureState[] panelFeatureStateArr2 = new PanelFeatureState[i + 1];
             if (panelFeatureStateArr != null) {
                 System.arraycopy(panelFeatureStateArr, 0, panelFeatureStateArr2, 0, panelFeatureStateArr.length);
             }
-            this.Dh = panelFeatureStateArr2;
+            this.Dg = panelFeatureStateArr2;
             panelFeatureStateArr = panelFeatureStateArr2;
         }
         PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
@@ -1170,10 +1170,10 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     private boolean a(PanelFeatureState panelFeatureState, int i, KeyEvent keyEvent, int i2) {
         boolean z = false;
         if (!keyEvent.isSystem()) {
-            if ((panelFeatureState.isPrepared || b(panelFeatureState, keyEvent)) && panelFeatureState.Dx != null) {
-                z = panelFeatureState.Dx.performShortcut(i, keyEvent, i2);
+            if ((panelFeatureState.isPrepared || b(panelFeatureState, keyEvent)) && panelFeatureState.Dw != null) {
+                z = panelFeatureState.Dw.performShortcut(i, keyEvent, i2);
             }
-            if (z && (i2 & 1) == 0 && this.CT == null) {
+            if (z && (i2 & 1) == 0 && this.CQ == null) {
                 a(panelFeatureState, true);
             }
         }
@@ -1181,30 +1181,30 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     }
 
     private void invalidatePanelMenu(int i) {
-        this.Dl |= 1 << i;
-        if (!this.Dk) {
-            ViewCompat.postOnAnimation(this.BH.getDecorView(), this.Dm);
-            this.Dk = true;
+        this.Dk |= 1 << i;
+        if (!this.Dj) {
+            ViewCompat.postOnAnimation(this.BG.getDecorView(), this.Dl);
+            this.Dj = true;
         }
     }
 
     void az(int i) {
-        PanelFeatureState g;
-        PanelFeatureState g2 = g(i, true);
-        if (g2.Dx != null) {
+        PanelFeatureState j;
+        PanelFeatureState j2 = j(i, true);
+        if (j2.Dw != null) {
             Bundle bundle = new Bundle();
-            g2.Dx.saveActionViewStates(bundle);
+            j2.Dw.saveActionViewStates(bundle);
             if (bundle.size() > 0) {
-                g2.DD = bundle;
+                j2.DC = bundle;
             }
-            g2.Dx.stopDispatchingItemsChanged();
-            g2.Dx.clear();
+            j2.Dw.stopDispatchingItemsChanged();
+            j2.Dw.clear();
         }
-        g2.DC = true;
-        g2.DB = true;
-        if ((i == 108 || i == 0) && this.CT != null && (g = g(0, false)) != null) {
-            g.isPrepared = false;
-            b(g, (KeyEvent) null);
+        j2.DB = true;
+        j2.DA = true;
+        if ((i == 108 || i == 0) && this.CQ != null && (j = j(0, false)) != null) {
+            j.isPrepared = false;
+            b(j, (KeyEvent) null);
         }
     }
 
@@ -1212,11 +1212,11 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         boolean z;
         boolean z2;
         boolean z3;
-        if (this.CX == null || !(this.CX.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (this.CW == null || !(this.CW.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             z = false;
         } else {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.CX.getLayoutParams();
-            if (this.CX.isShown()) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.CW.getLayoutParams();
+            if (this.CW.isShown()) {
                 if (this.nF == null) {
                     this.nF = new Rect();
                     this.nG = new Rect();
@@ -1224,27 +1224,27 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 Rect rect = this.nF;
                 Rect rect2 = this.nG;
                 rect.set(0, i, 0, 0);
-                ViewUtils.computeFitSystemWindows(this.Dc, rect, rect2);
+                ViewUtils.computeFitSystemWindows(this.Db, rect, rect2);
                 if (marginLayoutParams.topMargin != (rect2.top == 0 ? i : 0)) {
                     marginLayoutParams.topMargin = i;
-                    if (this.Dd == null) {
-                        this.Dd = new View(this.mContext);
-                        this.Dd.setBackgroundColor(this.mContext.getResources().getColor(R.color.abc_input_method_navigation_guard));
-                        this.Dc.addView(this.Dd, -1, new ViewGroup.LayoutParams(-1, i));
+                    if (this.Dc == null) {
+                        this.Dc = new View(this.mContext);
+                        this.Dc.setBackgroundColor(this.mContext.getResources().getColor(R.color.abc_input_method_navigation_guard));
+                        this.Db.addView(this.Dc, -1, new ViewGroup.LayoutParams(-1, i));
                         z3 = true;
                     } else {
-                        ViewGroup.LayoutParams layoutParams = this.Dd.getLayoutParams();
+                        ViewGroup.LayoutParams layoutParams = this.Dc.getLayoutParams();
                         if (layoutParams.height != i) {
                             layoutParams.height = i;
-                            this.Dd.setLayoutParams(layoutParams);
+                            this.Dc.setLayoutParams(layoutParams);
                         }
                         z3 = true;
                     }
                 } else {
                     z3 = false;
                 }
-                r3 = this.Dd != null;
-                if (!this.Cz && r3) {
+                r3 = this.Dc != null;
+                if (!this.Cy && r3) {
                     i = 0;
                 }
                 boolean z4 = z3;
@@ -1258,18 +1258,18 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                 z2 = false;
             }
             if (r3) {
-                this.CX.setLayoutParams(marginLayoutParams);
+                this.CW.setLayoutParams(marginLayoutParams);
             }
             z = z2;
         }
-        if (this.Dd != null) {
-            this.Dd.setVisibility(z ? 0 : 8);
+        if (this.Dc != null) {
+            this.Dc.setVisibility(z ? 0 : 8);
         }
         return i;
     }
 
     private void eh() {
-        if (this.Db) {
+        if (this.Da) {
             throw new AndroidRuntimeException("Window feature must be requested before adding content");
         }
     }
@@ -1287,78 +1287,78 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     }
 
     void dismissPopups() {
-        if (this.CT != null) {
-            this.CT.dismissPopups();
+        if (this.CQ != null) {
+            this.CQ.dismissPopups();
         }
-        if (this.CY != null) {
-            this.BH.getDecorView().removeCallbacks(this.CZ);
-            if (this.CY.isShowing()) {
+        if (this.CX != null) {
+            this.BG.getDecorView().removeCallbacks(this.CY);
+            if (this.CX.isShowing()) {
                 try {
-                    this.CY.dismiss();
+                    this.CX.dismiss();
                 } catch (IllegalArgumentException e) {
                 }
             }
-            this.CY = null;
+            this.CX = null;
         }
         eg();
-        PanelFeatureState g = g(0, false);
-        if (g != null && g.Dx != null) {
-            g.Dx.close();
+        PanelFeatureState j = j(0, false);
+        if (j != null && j.Dw != null) {
+            j.Dw.close();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class b implements ActionMode.Callback {
-        private ActionMode.Callback Dr;
+        private ActionMode.Callback Dq;
 
         public b(ActionMode.Callback callback) {
-            this.Dr = callback;
+            this.Dq = callback;
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            return this.Dr.onCreateActionMode(actionMode, menu);
+            return this.Dq.onCreateActionMode(actionMode, menu);
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            return this.Dr.onPrepareActionMode(actionMode, menu);
+            return this.Dq.onPrepareActionMode(actionMode, menu);
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-            return this.Dr.onActionItemClicked(actionMode, menuItem);
+            return this.Dq.onActionItemClicked(actionMode, menuItem);
         }
 
         @Override // android.support.v7.view.ActionMode.Callback
         public void onDestroyActionMode(ActionMode actionMode) {
-            this.Dr.onDestroyActionMode(actionMode);
-            if (AppCompatDelegateImplV9.this.CY != null) {
-                AppCompatDelegateImplV9.this.BH.getDecorView().removeCallbacks(AppCompatDelegateImplV9.this.CZ);
-            }
+            this.Dq.onDestroyActionMode(actionMode);
             if (AppCompatDelegateImplV9.this.CX != null) {
+                AppCompatDelegateImplV9.this.BG.getDecorView().removeCallbacks(AppCompatDelegateImplV9.this.CY);
+            }
+            if (AppCompatDelegateImplV9.this.CW != null) {
                 AppCompatDelegateImplV9.this.eg();
-                AppCompatDelegateImplV9.this.Da = ViewCompat.animate(AppCompatDelegateImplV9.this.CX).alpha(0.0f);
-                AppCompatDelegateImplV9.this.Da.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.b.1
+                AppCompatDelegateImplV9.this.CZ = ViewCompat.animate(AppCompatDelegateImplV9.this.CW).alpha(0.0f);
+                AppCompatDelegateImplV9.this.CZ.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.b.1
                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                     public void onAnimationEnd(View view) {
-                        AppCompatDelegateImplV9.this.CX.setVisibility(8);
-                        if (AppCompatDelegateImplV9.this.CY != null) {
-                            AppCompatDelegateImplV9.this.CY.dismiss();
-                        } else if (AppCompatDelegateImplV9.this.CX.getParent() instanceof View) {
-                            ViewCompat.requestApplyInsets((View) AppCompatDelegateImplV9.this.CX.getParent());
+                        AppCompatDelegateImplV9.this.CW.setVisibility(8);
+                        if (AppCompatDelegateImplV9.this.CX != null) {
+                            AppCompatDelegateImplV9.this.CX.dismiss();
+                        } else if (AppCompatDelegateImplV9.this.CW.getParent() instanceof View) {
+                            ViewCompat.requestApplyInsets((View) AppCompatDelegateImplV9.this.CW.getParent());
                         }
-                        AppCompatDelegateImplV9.this.CX.removeAllViews();
-                        AppCompatDelegateImplV9.this.Da.setListener(null);
-                        AppCompatDelegateImplV9.this.Da = null;
+                        AppCompatDelegateImplV9.this.CW.removeAllViews();
+                        AppCompatDelegateImplV9.this.CZ.setListener(null);
+                        AppCompatDelegateImplV9.this.CZ = null;
                     }
                 });
             }
-            if (AppCompatDelegateImplV9.this.Cv != null) {
-                AppCompatDelegateImplV9.this.Cv.onSupportActionModeFinished(AppCompatDelegateImplV9.this.CW);
+            if (AppCompatDelegateImplV9.this.Cu != null) {
+                AppCompatDelegateImplV9.this.Cu.onSupportActionModeFinished(AppCompatDelegateImplV9.this.CV);
             }
-            AppCompatDelegateImplV9.this.CW = null;
+            AppCompatDelegateImplV9.this.CV = null;
         }
     }
 
@@ -1379,7 +1379,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
             PanelFeatureState a = appCompatDelegateImplV9.a((Menu) menuBuilder);
             if (a != null) {
                 if (z2) {
-                    AppCompatDelegateImplV9.this.a(a.Dt, a, rootMenu);
+                    AppCompatDelegateImplV9.this.a(a.Ds, a, rootMenu);
                     AppCompatDelegateImplV9.this.a(a, true);
                     return;
                 }
@@ -1390,7 +1390,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         @Override // android.support.v7.view.menu.MenuPresenter.Callback
         public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
             Window.Callback dW;
-            if (menuBuilder == null && AppCompatDelegateImplV9.this.Cx && (dW = AppCompatDelegateImplV9.this.dW()) != null && !AppCompatDelegateImplV9.this.isDestroyed()) {
+            if (menuBuilder == null && AppCompatDelegateImplV9.this.Cw && (dW = AppCompatDelegateImplV9.this.dW()) != null && !AppCompatDelegateImplV9.this.isDestroyed()) {
                 dW.onMenuOpened(108, menuBuilder);
                 return true;
             }
@@ -1423,17 +1423,17 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static final class PanelFeatureState {
-        boolean DA;
-        boolean DB = false;
-        boolean DC;
-        Bundle DD;
-        int Dt;
-        ViewGroup Du;
+        boolean DA = false;
+        boolean DB;
+        Bundle DC;
+        int Ds;
+        ViewGroup Dt;
+        View Du;
         View Dv;
-        View Dw;
-        MenuBuilder Dx;
-        ListMenuPresenter Dy;
-        Context Dz;
+        MenuBuilder Dw;
+        ListMenuPresenter Dx;
+        Context Dy;
+        boolean Dz;
         int background;
         int gravity;
         boolean isOpen;
@@ -1444,21 +1444,21 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         int y;
 
         PanelFeatureState(int i) {
-            this.Dt = i;
+            this.Ds = i;
         }
 
         public boolean hasPanelItems() {
-            if (this.Dv == null) {
+            if (this.Du == null) {
                 return false;
             }
-            return this.Dw != null || this.Dy.getAdapter().getCount() > 0;
+            return this.Dv != null || this.Dx.getAdapter().getCount() > 0;
         }
 
         public void clearMenuPresenters() {
-            if (this.Dx != null) {
-                this.Dx.removeMenuPresenter(this.Dy);
+            if (this.Dw != null) {
+                this.Dw.removeMenuPresenter(this.Dx);
             }
-            this.Dy = null;
+            this.Dx = null;
         }
 
         void U(Context context) {
@@ -1477,7 +1477,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
             }
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
             contextThemeWrapper.getTheme().setTo(newTheme);
-            this.Dz = contextThemeWrapper;
+            this.Dy = contextThemeWrapper;
             TypedArray obtainStyledAttributes = contextThemeWrapper.obtainStyledAttributes(R.styleable.AppCompatTheme);
             this.background = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTheme_panelBackground, 0);
             this.windowAnimations = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTheme_android_windowAnimationStyle, 0);
@@ -1485,28 +1485,28 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
         }
 
         void b(MenuBuilder menuBuilder) {
-            if (menuBuilder != this.Dx) {
-                if (this.Dx != null) {
-                    this.Dx.removeMenuPresenter(this.Dy);
+            if (menuBuilder != this.Dw) {
+                if (this.Dw != null) {
+                    this.Dw.removeMenuPresenter(this.Dx);
                 }
-                this.Dx = menuBuilder;
-                if (menuBuilder == null || this.Dy == null) {
+                this.Dw = menuBuilder;
+                if (menuBuilder == null || this.Dx == null) {
                     return;
                 }
-                menuBuilder.addMenuPresenter(this.Dy);
+                menuBuilder.addMenuPresenter(this.Dx);
             }
         }
 
         MenuView a(MenuPresenter.Callback callback) {
-            if (this.Dx == null) {
+            if (this.Dw == null) {
                 return null;
             }
-            if (this.Dy == null) {
-                this.Dy = new ListMenuPresenter(this.Dz, R.layout.abc_list_menu_item_layout);
-                this.Dy.setCallback(callback);
-                this.Dx.addMenuPresenter(this.Dy);
+            if (this.Dx == null) {
+                this.Dx = new ListMenuPresenter(this.Dy, R.layout.abc_list_menu_item_layout);
+                this.Dx.setCallback(callback);
+                this.Dw.addMenuPresenter(this.Dx);
             }
-            return this.Dy.getMenuView(this.Du);
+            return this.Dx.getMenuView(this.Dt);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -1527,7 +1527,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
                     return new SavedState[i];
                 }
             });
-            int Dt;
+            int Ds;
             boolean isOpen;
             Bundle menuState;
 
@@ -1541,7 +1541,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
             @Override // android.os.Parcelable
             public void writeToParcel(Parcel parcel, int i) {
-                parcel.writeInt(this.Dt);
+                parcel.writeInt(this.Ds);
                 parcel.writeInt(this.isOpen ? 1 : 0);
                 if (this.isOpen) {
                     parcel.writeBundle(this.menuState);
@@ -1550,7 +1550,7 @@ public class AppCompatDelegateImplV9 extends android.support.v7.app.b implements
 
             static SavedState g(Parcel parcel, ClassLoader classLoader) {
                 SavedState savedState = new SavedState();
-                savedState.Dt = parcel.readInt();
+                savedState.Ds = parcel.readInt();
                 savedState.isOpen = parcel.readInt() == 1;
                 if (savedState.isOpen) {
                     savedState.menuState = parcel.readBundle(classLoader);

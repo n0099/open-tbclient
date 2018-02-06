@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c ghe;
-    private d ghs;
-    private com.baidu.tieba.personCenter.a.a ght;
-    private com.baidu.tieba.personCenter.a.b ghu;
+    private com.baidu.tieba.personCenter.a.c giO;
+    private d gjc;
+    private com.baidu.tieba.personCenter.a.a gjd;
+    private com.baidu.tieba.personCenter.a.b gje;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.ghs = new d(tbPageContext, f.ghX);
-        this.ght = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.ghI);
-        this.ghu = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.ghJ);
-        this.ghe = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.ghW);
-        this.mAdapters.add(this.ghs);
-        this.mAdapters.add(this.ght);
-        this.mAdapters.add(this.ghu);
-        this.mAdapters.add(this.ghe);
+        this.gjc = new d(tbPageContext, f.gjH);
+        this.gjd = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gjs);
+        this.gje = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gjt);
+        this.giO = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gjG);
+        this.mAdapters.add(this.gjc);
+        this.mAdapters.add(this.gjd);
+        this.mAdapters.add(this.gje);
+        this.mAdapters.add(this.giO);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void bhw() {
-        this.ght.bhw();
+    public void biG() {
+        this.gjd.biG();
     }
 
-    public void bhx() {
-        this.ght.destroy();
+    public void biH() {
+        this.gjd.destroy();
     }
 }

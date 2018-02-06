@@ -4,11 +4,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
+    private final int anu;
     private final int anv;
-    private final int anw;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -16,9 +15,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.anv = i;
-        this.anw = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.anv);
+        this.anu = i;
+        this.anv = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.anu);
         this.mBuffer.clear();
     }
 
@@ -42,7 +41,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.anw) + 1) * this.anw);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.anv) + 1) * this.anv);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -72,7 +71,7 @@ public class a extends OutputStream {
     }
 
     public synchronized void write(String str) throws IOException {
-        write(str.getBytes(HTTP.UTF_8));
+        write(str.getBytes("UTF-8"));
     }
 
     public synchronized void pp() throws IOException {

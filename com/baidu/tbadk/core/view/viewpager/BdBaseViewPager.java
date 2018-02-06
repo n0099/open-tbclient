@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean bdO;
-    private boolean bdP;
+    private boolean bfH;
+    private boolean bfI;
     private int mActivePointerId;
     private float mInitialMotionX;
     private float mInitialMotionY;
@@ -19,16 +19,16 @@ public class BdBaseViewPager extends ViewPager {
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.bdO = false;
-        this.bdP = false;
+        this.bfH = false;
+        this.bfI = false;
         this.mActivePointerId = -1;
         initViewPager();
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdO = false;
-        this.bdP = false;
+        this.bfH = false;
+        this.bfI = false;
         this.mActivePointerId = -1;
         initViewPager();
     }
@@ -39,16 +39,16 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.bdO = z;
+        this.bfH = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (t(motionEvent)) {
+        if (x(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.bdO) {
+        if (motionEvent.getPointerCount() > 1 && this.bfH) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -64,10 +64,10 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.bdP) {
+        if (this.bfI) {
             return false;
         }
-        if (t(motionEvent)) {
+        if (x(motionEvent)) {
             return true;
         }
         switch (motionEvent.getAction() & 255) {
@@ -80,7 +80,7 @@ public class BdBaseViewPager extends ViewPager {
                 this.mLastMotionY = y;
                 this.mActivePointerId = motionEvent.getPointerId(0);
                 if (getCurrentItem() != 0) {
-                    bw(true);
+                    bB(true);
                     break;
                 }
                 break;
@@ -91,13 +91,16 @@ public class BdBaseViewPager extends ViewPager {
                     float abs = Math.abs(x2);
                     float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.mInitialMotionY);
                     if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0) {
-                        bw(false);
+                        bB(false);
                         return false;
                     } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
-                        bw(true);
+                        bB(true);
                         break;
                     }
                 }
+                break;
+            case 6:
+                onSecondaryPointerUp(motionEvent);
                 break;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -105,22 +108,54 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bdP) {
+        int findPointerIndex;
+        if (this.bfI) {
             return false;
         }
         switch (motionEvent.getAction() & 255) {
             case 0:
-            case 2:
-            case 5:
-            case 6:
-                bw(true);
+                float x = motionEvent.getX();
+                this.mInitialMotionX = x;
+                this.mLastMotionX = x;
+                float y = motionEvent.getY();
+                this.mInitialMotionY = y;
+                this.mLastMotionY = y;
+                this.mActivePointerId = motionEvent.getPointerId(0);
+                if (getCurrentItem() != 0) {
+                    bB(true);
+                    break;
+                }
                 break;
             case 1:
             case 3:
-                bw(false);
+                bB(false);
+                break;
+            case 2:
+                int i = this.mActivePointerId;
+                if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1 && findPointerIndex < motionEvent.getPointerCount()) {
+                    float x2 = motionEvent.getX(findPointerIndex) - this.mLastMotionX;
+                    float abs = Math.abs(x2);
+                    float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.mInitialMotionY);
+                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0) {
+                        bB(false);
+                        return false;
+                    } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
+                        bB(true);
+                        break;
+                    }
+                }
+                break;
+            case 5:
+                int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+                this.mLastMotionX = motionEvent.getX(actionIndex);
+                this.mActivePointerId = motionEvent.getPointerId(actionIndex);
+                break;
+            case 6:
+                onSecondaryPointerUp(motionEvent);
+                this.mLastMotionX = motionEvent.getX(motionEvent.findPointerIndex(this.mActivePointerId));
                 break;
         }
-        if (t(motionEvent)) {
+        if (x(motionEvent)) {
             return true;
         }
         try {
@@ -130,18 +165,27 @@ public class BdBaseViewPager extends ViewPager {
         }
     }
 
-    private boolean t(MotionEvent motionEvent) {
+    private void onSecondaryPointerUp(MotionEvent motionEvent) {
+        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+        if (motionEvent.getPointerId(actionIndex) == this.mActivePointerId) {
+            int i = actionIndex == 0 ? 1 : 0;
+            this.mLastMotionX = motionEvent.getX(i);
+            this.mActivePointerId = motionEvent.getPointerId(i);
+        }
+    }
+
+    private boolean x(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void bw(boolean z) {
+    private void bB(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.bdP = z;
+        this.bfI = z;
     }
 }

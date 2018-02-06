@@ -13,31 +13,31 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a ahL = null;
-    private final String ahM = "c.tieba.baidu.com";
+    private static a ahJ = null;
+    private final String ahK = "c.tieba.baidu.com";
+    private long ahL;
+    private String ahM;
     private long ahN;
-    private String ahO;
-    private long ahP;
 
     public static final a mq() {
-        if (ahL == null) {
+        if (ahJ == null) {
             synchronized (a.class) {
-                if (ahL == null) {
-                    ahL = new a();
+                if (ahJ == null) {
+                    ahJ = new a();
                 }
             }
         }
-        return ahL;
+        return ahJ;
     }
 
     private a() {
+        this.ahL = 0L;
+        this.ahM = null;
         this.ahN = 0L;
-        this.ahO = null;
-        this.ahP = 0L;
         SharedPreferences config = getConfig();
-        this.ahN = config.getLong(aj("c.tieba.baidu.com"), 0L);
-        this.ahO = config.getString(ak("c.tieba.baidu.com"), null);
-        this.ahP = config.getLong(al("c.tieba.baidu.com"), 0L);
+        this.ahL = config.getLong(aj("c.tieba.baidu.com"), 0L);
+        this.ahM = config.getString(ak("c.tieba.baidu.com"), null);
+        this.ahN = config.getLong(al("c.tieba.baidu.com"), 0L);
     }
 
     public void a(String str, String str2, boolean z, boolean z2) {
@@ -54,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.ahN;
-                    long j2 = this.ahP;
-                    String str3 = this.ahO;
+                    long j = this.ahL;
+                    long j2 = this.ahN;
+                    String str3 = this.ahM;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -74,7 +74,7 @@ public class a {
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.ahP = System.currentTimeMillis();
+                            this.ahN = System.currentTimeMillis();
                         }
                     }
                 }
@@ -106,9 +106,9 @@ public class a {
                 EditorHelper.putLong(config, aj(str), currentTimeMillis);
                 EditorHelper.putString(config, ak(str), str2);
                 EditorHelper.putLong(config, al(str), currentTimeMillis2);
-                this.ahN = currentTimeMillis;
-                this.ahP = currentTimeMillis2;
-                this.ahO = str2;
+                this.ahL = currentTimeMillis;
+                this.ahN = currentTimeMillis2;
+                this.ahM = str2;
             }
         }
     }

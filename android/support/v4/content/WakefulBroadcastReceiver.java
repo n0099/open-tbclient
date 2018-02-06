@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
+import com.baidu.ar.util.Constants;
 /* loaded from: classes2.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
     private static final String EXTRA_WAKE_LOCK_ID = "android.support.content.wakelockid";
@@ -25,7 +26,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
             if (startService == null) {
                 return null;
             }
-            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(1, "wake:" + startService.flattenToShortString());
+            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService(Constants.HTTP_POWER)).newWakeLock(1, "wake:" + startService.flattenToShortString());
             newWakeLock.setReferenceCounted(false);
             newWakeLock.acquire(60000L);
             mActiveWakeLocks.put(i, newWakeLock);

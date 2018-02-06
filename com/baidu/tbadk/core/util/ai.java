@@ -12,19 +12,19 @@ import com.baidu.tieba.d;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ai {
-    public static void c(TbPageContext<?> tbPageContext) {
+    public static void b(TbPageContext<?> tbPageContext) {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                 }
             } else {
-                File dx = k.dx("camera.jpg");
-                if (dx != null) {
+                File dI = k.dI("camera.jpg");
+                if (dI != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(dx, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(dI, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
@@ -37,22 +37,22 @@ public class ai {
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str) {
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         try {
             if (!k.lk()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BA());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(k.BT());
                     return;
                 } else {
                     return;
                 }
             }
-            String str2 = k.amf + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = k.ame + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
-            if (k.m12do(str2)) {
+            if (k.dz(str2)) {
                 File file = new File(str2 + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -77,11 +77,11 @@ public class ai {
         }
     }
 
-    public static void r(Activity activity) {
-        s(activity);
+    public static void s(Activity activity) {
+        t(activity);
     }
 
-    public static void s(Activity activity) {
+    public static void t(Activity activity) {
         try {
             Intent intent = new Intent();
             intent.setType("image/*");

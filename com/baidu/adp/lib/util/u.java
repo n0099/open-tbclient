@@ -15,11 +15,10 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class u {
-    public static final Charset ane = Charset.forName(HTTP.UTF_8);
-    private static final byte[] anf = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset and = Charset.forName("UTF-8");
+    private static final byte[] ane = {-92, 11, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey m(byte[] bArr) throws Exception {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
@@ -43,7 +42,7 @@ public class u {
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, anf, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, ane, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {

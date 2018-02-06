@@ -10,9 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.coreExtra.messageCenter.b;
 import com.baidu.tieba.g;
 import com.baidu.tieba.model.c;
 import com.xiaomi.mipush.sdk.Constants;
@@ -73,7 +72,7 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: y */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
@@ -88,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("scr_w", String.valueOf(l.ao(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_h", String.valueOf(l.aq(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("scr_dip", String.valueOf(l.ar(TbadkCoreApplication.getInst().getApp())));
-                if (b.GE().GH() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Ht() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -107,13 +106,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.n("package", packageName);
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.n("signmd5", ao.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String BI = this.mNetWork.BI();
-                if (this.mNetWork.Cg().Dd().isRequestSuccess()) {
+                this.mNetWork.n("signmd5", ap.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.n(com.baidu.ar.util.Constants.HTTP_AR_MD5, g.getTiebaApkMd5());
+                String Cb = this.mNetWork.Cb();
+                if (this.mNetWork.Cz().Dx().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(BI);
+                        cVar.parserJson(Cb);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

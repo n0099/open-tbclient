@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String ACTION_CANCEL_DOWNLOAD = "action_cancel_download";
@@ -14,26 +13,26 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        DownloadData downloadData = (DownloadData) intent.getSerializableExtra(DOWNLOAD_DATA);
+        DownloadData downloadData = (DownloadData) intent.getSerializableExtra("download_data");
         if (downloadData != null) {
-            int status = com.baidu.tieba.recapp.c.a.getStatus(downloadData);
-            if (ACTION_PAUSE_DOWNLOAD.equals(intent.getAction())) {
+            int status = com.baidu.tieba.recapp.download.d.getStatus(downloadData);
+            if ("action_pause_download".equals(intent.getAction())) {
                 if (downloadData.getDownloadStaticsData() != null) {
                     downloadData.getDownloadStaticsData().setDa_range_nt("1");
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    com.baidu.tieba.recapp.c.a.bmX().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    com.baidu.tieba.recapp.c.a.bmX().l(downloadData);
+                    com.baidu.tieba.recapp.download.d.bol().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    com.baidu.tieba.recapp.download.d.bol().m(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    com.baidu.tieba.recapp.c.a.bmX().i(downloadData.getUrl(), downloadData.getId(), true);
-                    com.baidu.tieba.recapp.c.a.bmX().n(downloadData);
+                    com.baidu.tieba.recapp.download.d.bol().i(downloadData.getUrl(), downloadData.getId(), true);
+                    com.baidu.tieba.recapp.download.d.bol().o(downloadData);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
-            } else if (ACTION_CANCEL_DOWNLOAD.equals(intent.getAction())) {
-                com.baidu.tieba.recapp.c.a.bmX().o(downloadData);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, downloadData));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+            } else if ("action_cancel_download".equals(intent.getAction())) {
+                com.baidu.tieba.recapp.download.d.bol().p(downloadData);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
             }
         }
     }

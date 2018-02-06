@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
 public class d {
-    public static int t(TbPageContext tbPageContext) {
+    public static int u(TbPageContext tbPageContext) {
         String fromPageKey = UtilHelper.getFromPageKey(tbPageContext);
         if (fromPageKey == null) {
             return 3;

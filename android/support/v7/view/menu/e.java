@@ -13,7 +13,7 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class e implements MenuPresenter, ShowableListMenu, AdapterView.OnItemClickListener {
-    private Rect JD;
+    private Rect JC;
 
     public abstract void c(MenuBuilder menuBuilder);
 
@@ -32,11 +32,11 @@ public abstract class e implements MenuPresenter, ShowableListMenu, AdapterView.
     public abstract void setVerticalOffset(int i);
 
     public void setEpicenterBounds(Rect rect) {
-        this.JD = rect;
+        this.JC = rect;
     }
 
     public Rect fb() {
-        return this.JD;
+        return this.JC;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
@@ -66,7 +66,7 @@ public abstract class e implements MenuPresenter, ShowableListMenu, AdapterView.
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
-        a(listAdapter).IK.performItemAction((MenuItem) listAdapter.getItem(i), this, eR() ? 0 : 4);
+        a(listAdapter).IJ.performItemAction((MenuItem) listAdapter.getItem(i), this, eR() ? 0 : 4);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

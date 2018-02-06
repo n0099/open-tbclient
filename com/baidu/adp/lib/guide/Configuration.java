@@ -13,11 +13,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
+            configuration.aid = parcel.readInt();
+            configuration.aie = parcel.readInt();
             configuration.aif = parcel.readInt();
-            configuration.aig = parcel.readInt();
-            configuration.aih = parcel.readInt();
-            configuration.aii = parcel.readByte() == 1;
-            configuration.aij = parcel.readByte() == 1;
+            configuration.aig = parcel.readByte() == 1;
+            configuration.aih = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -28,17 +28,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean aie;
-    View yH = null;
+    boolean aic;
+    View yG = null;
     int mAlpha = 255;
-    int aif = -1;
-    int aig = -1;
-    int aih = 17170444;
-    boolean aii = true;
-    boolean aij = false;
-    boolean aik = false;
-    int ail = -1;
-    int aim = -1;
+    int aid = -1;
+    int aie = -1;
+    int aif = 17170444;
+    boolean aig = true;
+    boolean aih = false;
+    boolean aii = false;
+    int aij = -1;
+    int aik = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
+        parcel.writeInt(this.aid);
+        parcel.writeInt(this.aie);
         parcel.writeInt(this.aif);
-        parcel.writeInt(this.aig);
-        parcel.writeInt(this.aih);
-        parcel.writeByte((byte) (this.aii ? 1 : 0));
-        parcel.writeByte((byte) (this.aij ? 1 : 0));
+        parcel.writeByte((byte) (this.aig ? 1 : 0));
+        parcel.writeByte((byte) (this.aih ? 1 : 0));
     }
 }

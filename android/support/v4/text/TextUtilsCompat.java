@@ -4,9 +4,9 @@ import android.os.Build;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class TextUtilsCompat {
-    private static final a Bo;
+    private static final a Bn;
+    static String Bo;
     static String Bp;
-    static String Bq;
     public static final Locale ROOT;
 
     /* loaded from: classes2.dex */
@@ -48,7 +48,7 @@ public final class TextUtilsCompat {
                 if (maximizeAndGetScript == null) {
                     return d(locale);
                 }
-                if (maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bp) || maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bq)) {
+                if (maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bo) || maximizeAndGetScript.equalsIgnoreCase(TextUtilsCompat.Bp)) {
                     return 1;
                 }
             }
@@ -84,21 +84,21 @@ public final class TextUtilsCompat {
 
     static {
         if (Build.VERSION.SDK_INT >= 17) {
-            Bo = new b();
+            Bn = new b();
         } else {
-            Bo = new a();
+            Bn = new a();
         }
         ROOT = new Locale("", "");
-        Bp = "Arab";
-        Bq = "Hebr";
+        Bo = "Arab";
+        Bp = "Hebr";
     }
 
     public static String htmlEncode(String str) {
-        return Bo.htmlEncode(str);
+        return Bn.htmlEncode(str);
     }
 
     public static int getLayoutDirectionFromLocale(Locale locale) {
-        return Bo.getLayoutDirectionFromLocale(locale);
+        return Bn.getLayoutDirectionFromLocale(locale);
     }
 
     private TextUtilsCompat() {

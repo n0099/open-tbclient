@@ -1,4 +1,6 @@
 package com.baidu.tieba.i;
+
+import com.baidu.ar.util.Constants;
 /* loaded from: classes.dex */
 public class a {
     public static String i(Throwable th) {
@@ -11,7 +13,7 @@ public class a {
             for (int i = 0; i < stackTrace.length; i++) {
                 StackTraceElement stackTraceElement = stackTrace[i];
                 if (stackTraceElement != null && i < 7) {
-                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
+                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(Constants.DOT).append(stackTraceElement.getMethodName()).append("()");
                 }
             }
         }

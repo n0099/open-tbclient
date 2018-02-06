@@ -26,7 +26,6 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class BdStatisticsManager {
     private static final int IMG_OVER_TIME = 2000;
@@ -36,7 +35,7 @@ public class BdStatisticsManager {
     public static final int OLD_TIMER_INTERVAL = 3600000;
     public static final byte UPLOAD_INIT = 2;
     public static final byte UPLOAD_TIMER = 1;
-    public static final int UPLOAD_TIMER_INTERVAL = 1800000;
+    public static final int UPLOAD_TIMER_INTERVAL = 120000;
     private String mAppVersion;
     private b mBdLogSetting;
     private Context mContext;
@@ -64,7 +63,7 @@ public class BdStatisticsManager {
         }
     };
     private boolean isSwitchReady = false;
-    private long mUploadInterval = 1800000;
+    private long mUploadInterval = 120000;
     private a.InterfaceC0019a mLogSwitchInitCallback = new a.InterfaceC0019a() { // from class: com.baidu.adp.lib.stats.BdStatisticsManager.2
         @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0019a
         public void nu() {
@@ -150,7 +149,7 @@ public class BdStatisticsManager {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String md5 = s.toMd5(str.getBytes(HTTP.UTF_8));
+                            String md5 = s.toMd5(str.getBytes("UTF-8"));
                             if (!TextUtils.isEmpty(md5) && md5.length() > 8) {
                                 return md5.substring(md5.length() - 8);
                             }

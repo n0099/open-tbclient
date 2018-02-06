@@ -1,33 +1,36 @@
 package com.baidu.tbadk.o;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.lib.b.a {
+    public static final String[] bCA = {"com.baidu.tieba.voice"};
+
     @Override // com.baidu.adp.lib.b.a
     protected void cQ(int i) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_XIAOMI_PUSH_SWITCH_CHANGE));
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected void initData() {
+        this.mName = "voice";
+        this.ahO = bCA;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_xiaomipush_sdk";
+        return "voice";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
-        return null;
+        return bCA;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -15,21 +15,21 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class TextSizeSeekBar extends View {
-    private int baN;
+    private int bcF;
     private int ds12;
     private int ds3;
     private int ds48;
-    private Drawable enY;
-    private int gbi;
-    private int gbj;
-    private int gbk;
-    private int gbl;
-    private int gbm;
-    private int gbn;
-    private String[] gbo;
-    private int gbp;
-    private int gbq;
-    private ArrayList<Rect> gbr;
+    private Drawable esl;
+    private int gem;
+    private int gen;
+    private int gep;
+    private int geq;
+    private int ger;
+    private int ges;
+    private String[] get;
+    private int geu;
+    private int gev;
+    private ArrayList<Rect> gew;
     private int index;
     private int mSkinType;
     private Paint paint;
@@ -38,7 +38,7 @@ public class TextSizeSeekBar extends View {
     public TextSizeSeekBar(Context context) {
         super(context);
         this.index = 1;
-        this.gbr = new ArrayList<>(4);
+        this.gew = new ArrayList<>(4);
         this.ds3 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds3);
         this.ds12 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds12);
         this.ds48 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds48);
@@ -48,7 +48,7 @@ public class TextSizeSeekBar extends View {
     public TextSizeSeekBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.index = 1;
-        this.gbr = new ArrayList<>(4);
+        this.gew = new ArrayList<>(4);
         this.ds3 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds3);
         this.ds12 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds12);
         this.ds48 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds48);
@@ -58,7 +58,7 @@ public class TextSizeSeekBar extends View {
     public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.index = 1;
-        this.gbr = new ArrayList<>(4);
+        this.gew = new ArrayList<>(4);
         this.ds3 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds3);
         this.ds12 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds12);
         this.ds48 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds48);
@@ -71,21 +71,21 @@ public class TextSizeSeekBar extends View {
         this.paint.setAntiAlias(true);
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
-        this.enY = aj.getDrawable(d.f.wordsize);
-        this.gbl = dimensionPixelSize;
-        this.gbm = dimensionPixelSize;
+        this.esl = aj.getDrawable(d.f.wordsize);
+        this.geq = dimensionPixelSize;
+        this.ger = dimensionPixelSize;
         this.textSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds28);
-        this.gbo = new String[]{context.getString(d.j.font_size_small), context.getString(d.j.font_size_mid), context.getString(d.j.font_size_big), context.getString(d.j.font_size_xlarge)};
-        this.gbp = aj.getColor(d.C0108d.cp_cont_f);
-        this.gbq = aj.getColor(d.C0108d.cp_cont_d);
-        this.baN = aj.getColor(d.C0108d.cp_cont_e);
+        this.get = new String[]{context.getString(d.j.font_size_small), context.getString(d.j.font_size_mid), context.getString(d.j.font_size_big), context.getString(d.j.font_size_xlarge)};
+        this.geu = aj.getColor(d.C0140d.cp_cont_f);
+        this.gev = aj.getColor(d.C0140d.cp_cont_d);
+        this.bcF = aj.getColor(d.C0140d.cp_cont_e);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         this.index = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
     }
 
     @Override // android.view.View
     protected void onAttachedToWindow() {
-        this.enY = aj.getDrawable(d.f.wordsize);
+        this.esl = aj.getDrawable(d.f.wordsize);
         this.index = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
         super.onAttachedToWindow();
     }
@@ -93,16 +93,16 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.gbi == 0 || this.gbj == 0) {
-            this.gbi = View.MeasureSpec.getSize(i);
-            this.gbj = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds176);
-            this.gbk = (this.gbi - this.gbl) / 3;
-            this.gbn = this.gbj / 2;
+        if (this.gem == 0 || this.gen == 0) {
+            this.gem = View.MeasureSpec.getSize(i);
+            this.gen = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.e.ds176);
+            this.gep = (this.gem - this.geq) / 3;
+            this.ges = this.gen / 2;
             for (int i3 = 0; i3 < 4; i3++) {
-                this.gbr.add(new Rect(this.gbk * i3, this.gbn - (this.gbm / 2), (this.gbk * i3) + this.gbl, this.gbn + (this.gbm / 2)));
+                this.gew.add(new Rect(this.gep * i3, this.ges - (this.ger / 2), (this.gep * i3) + this.geq, this.ges + (this.ger / 2)));
             }
         }
-        setMeasuredDimension(this.gbi, this.gbj);
+        setMeasuredDimension(this.gem, this.gen);
     }
 
     @Override // android.view.View
@@ -117,11 +117,11 @@ public class TextSizeSeekBar extends View {
                 while (true) {
                     int i2 = i;
                     if (i2 <= 3) {
-                        if (!this.gbr.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                        if (!this.gew.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                             i = i2 + 1;
                         } else {
                             this.index = i2;
-                            com.baidu.tieba.pb.a.b.sA(Math.abs(this.index - 3));
+                            com.baidu.tieba.pb.a.b.sD(Math.abs(this.index - 3));
                             invalidate();
                             return true;
                         }
@@ -141,55 +141,55 @@ public class TextSizeSeekBar extends View {
     }
 
     private void drawText(Canvas canvas) {
-        for (int i = 0; i < this.gbo.length; i++) {
+        for (int i = 0; i < this.get.length; i++) {
             if (i == this.index) {
-                this.paint.setColor(this.gbp);
+                this.paint.setColor(this.geu);
             } else {
-                this.paint.setColor(this.gbq);
+                this.paint.setColor(this.gev);
             }
             this.paint.setTextSize(this.textSize);
             this.paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.gbo[i], (this.gbk * i) + (this.gbl / 2), this.gbn - this.ds48, this.paint);
+            canvas.drawText(this.get[i], (this.gep * i) + (this.geq / 2), this.ges - this.ds48, this.paint);
         }
     }
 
     private void A(Canvas canvas) {
-        this.paint.setColor(this.baN);
+        this.paint.setColor(this.bcF);
         this.paint.setStrokeWidth(this.ds3);
-        canvas.drawLine((float) (this.gbl / 2.0d), this.gbn, (float) (this.gbi - (this.gbl / 2.0d)), this.gbn, this.paint);
+        canvas.drawLine((float) (this.geq / 2.0d), this.ges, (float) (this.gem - (this.geq / 2.0d)), this.ges, this.paint);
         this.paint.setStrokeWidth(this.ds12);
         this.paint.setStrokeCap(Paint.Cap.ROUND);
         for (int i = 0; i < 4; i++) {
-            canvas.drawPoint((this.gbk * i) + (this.gbl / 2), this.gbn, this.paint);
+            canvas.drawPoint((this.gep * i) + (this.geq / 2), this.ges, this.paint);
         }
     }
 
     private void B(Canvas canvas) {
-        Rect rect = (Rect) v.f(this.gbr, this.index);
-        if (rect != null && this.enY != null) {
-            this.enY.setBounds(rect.left, rect.top, rect.right, rect.bottom);
-            this.enY.draw(canvas);
+        Rect rect = (Rect) v.f(this.gew, this.index);
+        if (rect != null && this.esl != null) {
+            this.esl.setBounds(rect.left, rect.top, rect.right, rect.bottom);
+            this.esl.draw(canvas);
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.enY != null) {
-            this.enY.setCallback(null);
-            this.enY = null;
+        if (this.esl != null) {
+            this.esl.setCallback(null);
+            this.esl = null;
         }
     }
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.enY != null) {
-                this.enY = aj.getDrawable(d.f.wordsize);
+            if (this.esl != null) {
+                this.esl = aj.getDrawable(d.f.wordsize);
             }
-            this.gbp = aj.getColor(d.C0108d.cp_cont_f);
-            this.gbq = aj.getColor(d.C0108d.cp_cont_d);
-            this.baN = aj.getColor(d.C0108d.cp_cont_e);
+            this.geu = aj.getColor(d.C0140d.cp_cont_f);
+            this.gev = aj.getColor(d.C0140d.cp_cont_d);
+            this.bcF = aj.getColor(d.C0140d.cp_cont_e);
             invalidate();
         }
     }

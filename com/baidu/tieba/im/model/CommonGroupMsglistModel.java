@@ -10,7 +10,6 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -83,7 +82,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.aJa().aq(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.aKB().aq(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -96,7 +95,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aGC().bc(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aHZ().be(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -110,7 +109,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.u
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aGC().bb(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.aHZ().bd(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -132,8 +131,8 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     private void registerListener() {
         MessageManager.getInstance().registerListener(103112, this.mSocketListener);
         MessageManager.getInstance().registerListener(103102, this.mSocketListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.mCustomListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_FAIL, this.mCustomListener);
+        MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
+        MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
     }
 
     private void unRegisterListener() {
@@ -141,7 +140,8 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         MessageManager.getInstance().unRegisterListener(this.mCustomListener);
     }
 
-    protected List<ChatMessage> processServerMsg(ResponsedMessage<?> responsedMessage) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public List<ChatMessage> processServerMsg(ResponsedMessage<?> responsedMessage) {
         LinkedList<ChatMessage> listMessage;
         if (!(responsedMessage instanceof GroupMsgData)) {
             return null;

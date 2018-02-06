@@ -8,21 +8,21 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class HomePageStatic {
-    public static boolean ebj = false;
+    public static boolean efv = false;
 
     static {
-        aAJ();
+        aCd();
     }
 
-    private static void aAJ() {
+    private static void aCd() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
         b bVar = new b(303111);
         bVar.setResponsedClass(GetMyPostSocketResponseMessage.class);
-        bVar.T(true);
-        bVar.U(false);
+        bVar.V(true);
+        bVar.W(false);
         bVar.a(SocketMessageTask.DupLicateMode.NONE);
         messageManager.registerTask(bVar);
     }

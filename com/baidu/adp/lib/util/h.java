@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h amh = null;
+    private static h amg = null;
 
     public static h ov() {
         h hVar;
-        if (amh == null) {
+        if (amg == null) {
             synchronized (h.class) {
-                if (amh == null) {
-                    amh = new h();
+                if (amg == null) {
+                    amg = new h();
                 }
-                hVar = amh;
+                hVar = amg;
             }
             return hVar;
         }
-        return amh;
+        return amg;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -166,7 +166,7 @@ public class h {
     }
 
     private String aR(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.biometrics.base.b.c.g + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=5, 282=4] */
@@ -180,9 +180,9 @@ public class h {
         zipInputStream2 = null;
         boolean z = false;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + "x86" + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + com.baidu.fsg.biometrics.base.d.h.c + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + "mips" + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + "armeabi" + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + com.baidu.fsg.biometrics.base.d.h.a + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         File file = new File(str);
         try {
             if (file.exists()) {
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
+        String amh;
         String ami;
-        String amj;
-        StringBuilder amk;
-        i aml;
-        boolean amm = false;
+        StringBuilder amj;
+        i amk;
+        boolean aml = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.ami = str;
-            this.amj = str2;
-            this.amk = sb;
-            this.aml = iVar;
+            this.amh = str;
+            this.ami = str2;
+            this.amj = sb;
+            this.amk = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.amm = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.ami, this.amk);
-            if (!this.amm) {
-                h.this.a(this.amj, "".getBytes(), this.amk);
+            this.aml = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.amh, this.amj);
+            if (!this.aml) {
+                h.this.a(this.ami, "".getBytes(), this.amj);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.amk.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.ami + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.amk.toString(), new Object[0]);
+            if (this.amj.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.amh + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.amj.toString(), new Object[0]);
             }
-            if (this.aml != null) {
-                this.aml.W(this.amm);
+            if (this.amk != null) {
+                this.amk.Y(this.aml);
             }
         }
     }

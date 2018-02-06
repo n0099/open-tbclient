@@ -22,7 +22,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.v;
@@ -36,87 +35,87 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int Ie;
-    private View QX;
-    private int bMT;
-    private int bMU;
-    private int bMV;
-    private PopupWindow bMX;
-    private TextView bMY;
-    private TextView bMZ;
-    private b bNa;
-    private boolean bNb;
+    private int Id;
+    private View QW;
+    private int bPa;
+    private int bPb;
+    private int bPc;
+    private PopupWindow bPe;
+    private TextView bPf;
+    private TextView bPg;
+    private b bPh;
+    private boolean bPi;
     private ViewGroup mContentView;
     private Context mContext;
     private TbPageContext mPageContext;
     private int mWindowHeight;
     private int mYOffset;
-    private PopupWindow bMQ = null;
-    private ah bMR = null;
-    private SparseArray<String> bMG = null;
-    private List<b.a> bMS = new ArrayList();
-    private c.a bMW = null;
+    private PopupWindow bOX = null;
+    private ah bOY = null;
+    private SparseArray<String> bON = null;
+    private List<b.a> bOZ = new ArrayList();
+    private c.a bPd = null;
     private int mSkinType = 3;
-    private CompoundButton.OnCheckedChangeListener bMJ = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.d.1
+    private CompoundButton.OnCheckedChangeListener bOQ = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.d.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (d.this.bMW != null) {
-                d.this.bMW.a(d.this.bMR, compoundButton, z);
+            if (d.this.bPd != null) {
+                d.this.bPd.a(d.this.bOY, compoundButton, z);
             }
             if (compoundButton.getTag() instanceof b.a) {
                 b.a aVar = (b.a) compoundButton.getTag();
                 if (z) {
-                    if (!d.this.bMS.contains(aVar)) {
-                        d.this.bMS.add(aVar);
+                    if (!d.this.bOZ.contains(aVar)) {
+                        d.this.bOZ.add(aVar);
                     }
                 } else {
-                    d.this.bMS.remove(aVar);
+                    d.this.bOZ.remove(aVar);
                 }
             }
-            d.this.Su();
+            d.this.Tb();
         }
     };
-    private View.OnClickListener bNc = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.d.2
+    private View.OnClickListener bPj = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.bMR != null && d.this.bMQ != null) {
+            if (d.this.bOY != null && d.this.bOX != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
                 JSONObject z = d.this.z(arrayList);
-                if (!StringUtils.isNull(d.this.bMR.getType())) {
-                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE, d.this.mPageContext.getUniqueId());
-                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE, z);
+                if (!StringUtils.isNull(d.this.bOY.getType())) {
+                    CustomMessage customMessage = new CustomMessage(2921324, d.this.mPageContext.getUniqueId());
+                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921324, z);
                     customResponsedMessage.setOrginalMessage(customMessage);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 } else {
-                    CustomMessage customMessage2 = new CustomMessage((int) CmdConfigCustom.NEG_FEED_BACK_DELETE, d.this.mPageContext.getUniqueId());
-                    CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, z);
+                    CustomMessage customMessage2 = new CustomMessage(2016488, d.this.mPageContext.getUniqueId());
+                    CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2016488, z);
                     customResponsedMessage2.setOrginalMessage(customMessage2);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                 }
-                d.this.St();
+                d.this.Ta();
                 e eVar = new e();
-                eVar.aZw = 1500L;
+                eVar.bbh = 1500L;
                 eVar.r(d.this.mContext.getResources().getString(d.j.reduce_related_thread_recommend));
-                if (d.this.bMW != null) {
-                    d.this.bMW.a(arrayList, d.this.bMR);
+                if (d.this.bPd != null) {
+                    d.this.bPd.a(arrayList, d.this.bOY);
                 }
             }
         }
     };
-    private PopupWindow.OnDismissListener bNd = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.d.3
+    private PopupWindow.OnDismissListener bPk = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.d.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (d.this.bMX != null) {
-                d.this.bMX.dismiss();
-                d.this.bMX = null;
+            if (d.this.bPe != null) {
+                d.this.bPe.dismiss();
+                d.this.bPe = null;
             }
         }
     };
-    private CustomMessageListener bNe = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tieba.NEGFeedBack.d.4
+    private CustomMessageListener bPl = new CustomMessageListener(2016524) { // from class: com.baidu.tieba.NEGFeedBack.d.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.this.St();
+            d.this.Ta();
         }
     };
 
@@ -124,58 +123,58 @@ public class d {
         this.mContext = null;
         this.mContext = tbPageContext.getPageActivity();
         this.mPageContext = tbPageContext;
-        this.QX = view;
+        this.QW = view;
         init();
     }
 
     private void init() {
-        this.Ie = l.s(this.mContext, d.e.tbds32);
-        this.mYOffset = l.s(this.mContext, d.e.ds6);
-        this.bMT = l.ao(this.mContext) - (this.Ie * 2);
-        this.bMV = l.s(this.mContext, d.e.ds120);
-        this.bNa = new b(this.mPageContext);
-        this.bNa.a(this.bMJ);
-        this.mPageContext.registerListener(this.bNe);
+        this.Id = l.t(this.mContext, d.e.tbds32);
+        this.mYOffset = l.t(this.mContext, d.e.ds6);
+        this.bPa = l.ao(this.mContext) - (this.Id * 2);
+        this.bPc = l.t(this.mContext, d.e.ds120);
+        this.bPh = new b(this.mPageContext);
+        this.bPh.a(this.bOQ);
+        this.mPageContext.registerListener(this.bPl);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            if (this.bNe != null) {
-                this.bNe.setTag(bdUniqueId);
+            if (this.bPl != null) {
+                this.bPl.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.bNe);
+            MessageManager.getInstance().registerListener(this.bPl);
         }
     }
 
-    public void Ss() {
-        if (this.mContext != null && this.bMG != null && this.bMG.size() != 0) {
+    public void SZ() {
+        if (this.mContext != null && this.bON != null && this.bON.size() != 0) {
             View contentView = getContentView();
             this.mWindowHeight = getWindowMeasuredHeight();
-            this.bMQ = new PopupWindow(contentView, this.bMT, this.mWindowHeight);
-            this.bMQ.setFocusable(true);
-            this.bMQ.setTouchable(true);
-            this.bMQ.setOnDismissListener(this.bNd);
-            Sv();
-            this.bMX = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.h.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.bOX = new PopupWindow(contentView, this.bPa, this.mWindowHeight);
+            this.bOX.setFocusable(true);
+            this.bOX.setTouchable(true);
+            this.bOX.setOnDismissListener(this.bPk);
+            Tc();
+            this.bPe = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.h.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.bMX.setAttachedInDecor(false);
+                this.bPe.setAttachedInDecor(false);
             }
-            this.bMX.showAtLocation(this.QX, 0, 0, 0);
+            this.bPe.showAtLocation(this.QW, 0, 0, 0);
             int[] iArr = new int[2];
-            boolean a = a(this.mContext, this.QX, this.mWindowHeight, this.bMT, this.bMV, this.mYOffset, iArr);
+            boolean a = a(this.mContext, this.QW, this.mWindowHeight, this.bPa, this.bPc, this.mYOffset, iArr);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a) {
-                    this.bMQ.setAnimationStyle(d.k.scale_rb2lt_anim);
-                    aj.a(this.bMQ, d.f.bg_home_feedback_under);
+                    this.bOX.setAnimationStyle(d.k.scale_rb2lt_anim);
+                    aj.a(this.bOX, d.f.bg_home_feedback_under);
                 } else {
-                    this.bMQ.setAnimationStyle(d.k.scale_rt2lb_anim);
-                    aj.a(this.bMQ, d.f.bg_home_feedback_top);
+                    this.bOX.setAnimationStyle(d.k.scale_rt2lb_anim);
+                    aj.a(this.bOX, d.f.bg_home_feedback_top);
                 }
-                this.bMQ.showAtLocation(this.QX, 0, iArr[0] - this.Ie, iArr[1]);
-                if (this.bMW != null) {
-                    this.bMW.a(this.bMR);
+                this.bOX.showAtLocation(this.QW, 0, iArr[0] - this.Id, iArr[1]);
+                if (this.bPd != null) {
+                    this.bPd.a(this.bOY);
                 }
-                this.bNb = true;
+                this.bPi = true;
             }
         }
     }
@@ -186,12 +185,12 @@ public class d {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.neg_feedback_popupwindow, (ViewGroup) null);
-            this.bMY = (TextView) this.mContentView.findViewById(d.g.head_text);
-            this.bMZ = (TextView) this.mContentView.findViewById(d.g.uninterested_text);
-            this.bMZ.setOnClickListener(this.bNc);
+            this.bPf = (TextView) this.mContentView.findViewById(d.g.head_text);
+            this.bPg = (TextView) this.mContentView.findViewById(d.g.uninterested_text);
+            this.bPg.setOnClickListener(this.bPj);
         }
-        DT();
-        View view = this.bNa.getView();
+        En();
+        View view = this.bPh.getView();
         if (view != null && view.getParent() == null) {
             this.mContentView.addView(view);
         }
@@ -203,8 +202,8 @@ public class d {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.bMU = this.mContentView.getMeasuredHeight() + l.s(this.mContext, d.e.ds12);
-        return this.bMU;
+        this.bPb = this.mContentView.getMeasuredHeight() + l.t(this.mContext, d.e.ds12);
+        return this.bPb;
     }
 
     private boolean a(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -242,16 +241,16 @@ public class d {
     */
     public JSONObject z(ArrayList<Integer> arrayList) {
         JSONObject jSONObject = new JSONObject();
-        if (this.bMR == null || arrayList == null) {
+        if (this.bOY == null || arrayList == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        if (!v.E(this.bMS)) {
+        if (!v.E(this.bOZ)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.bMS.size()) {
-                    b.a aVar = this.bMS.get(i2);
+                if (i2 < this.bOZ.size()) {
+                    b.a aVar = this.bOZ.get(i2);
                     if (aVar != null) {
                         arrayList.add(Integer.valueOf(aVar.id));
                         if (sb.length() != 0) {
@@ -262,97 +261,97 @@ public class d {
                     i = i2 + 1;
                 }
             }
-            jSONObject.put("tid", this.bMR.getTid());
+            jSONObject.put("tid", this.bOY.getTid());
             if (sb.length() != 0) {
                 jSONObject.put("dislike_ids", sb.toString());
             }
-            jSONObject.put(ImageViewerConfig.FORUM_ID, this.bMR.getFid());
+            jSONObject.put(ImageViewerConfig.FORUM_ID, this.bOY.getFid());
             jSONObject.put("click_time", System.currentTimeMillis());
-            if (!StringUtils.isNull(this.bMR.getType())) {
-                jSONObject.put("type", this.bMR.getType());
+            if (!StringUtils.isNull(this.bOY.getType())) {
+                jSONObject.put("type", this.bOY.getType());
             }
             return jSONObject;
         }
-        jSONObject.put("tid", this.bMR.getTid());
+        jSONObject.put("tid", this.bOY.getTid());
         if (sb.length() != 0) {
         }
-        jSONObject.put(ImageViewerConfig.FORUM_ID, this.bMR.getFid());
+        jSONObject.put(ImageViewerConfig.FORUM_ID, this.bOY.getFid());
         jSONObject.put("click_time", System.currentTimeMillis());
-        if (!StringUtils.isNull(this.bMR.getType())) {
+        if (!StringUtils.isNull(this.bOY.getType())) {
         }
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Su() {
-        int size = this.bMS.size();
+    public void Tb() {
+        int size = this.bOZ.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(d.j.feedback_selected_reason, Integer.valueOf(size));
             SpannableString spannableString = new SpannableString(string);
-            UtilHelper.setSpan(spannableString, string, String.valueOf(size), new ForegroundColorSpan(aj.getColor(d.C0108d.cp_link_tip_a)));
-            this.bMY.setText(spannableString);
-            this.bMZ.setText(this.mContext.getResources().getString(d.j.confirm));
+            UtilHelper.setSpan(spannableString, string, String.valueOf(size), new ForegroundColorSpan(aj.getColor(d.C0140d.cp_link_tip_a)));
+            this.bPf.setText(spannableString);
+            this.bPg.setText(this.mContext.getResources().getString(d.j.confirm));
             return;
         }
-        this.bMY.setText(this.mContext.getResources().getString(d.j.tell_us_reason));
-        this.bMZ.setText(this.mContext.getResources().getString(d.j.not_interested));
+        this.bPf.setText(this.mContext.getResources().getString(d.j.tell_us_reason));
+        this.bPg.setText(this.mContext.getResources().getString(d.j.not_interested));
     }
 
     public void setData(ah ahVar) {
         if (ahVar != null) {
-            this.bMR = ahVar;
-            this.bMG = ahVar.xM();
-            if (this.bMG != null && this.bMG.size() > 9) {
-                for (int size = this.bMG.size() - 1; size >= 9; size--) {
-                    this.bMG.removeAt(size);
+            this.bOY = ahVar;
+            this.bON = ahVar.yo();
+            if (this.bON != null && this.bON.size() > 9) {
+                for (int size = this.bON.size() - 1; size >= 9; size--) {
+                    this.bON.removeAt(size);
                 }
             }
-            this.bNa.setData(ahVar);
+            this.bPh.setData(ahVar);
         }
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bNa.setFirstRowSingleColumn(z);
+        this.bPh.setFirstRowSingleColumn(z);
     }
 
     public void setEventCallback(c.a aVar) {
-        this.bMW = aVar;
+        this.bPd = aVar;
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bNa.setDefaultReasonArray(strArr);
+        this.bPh.setDefaultReasonArray(strArr);
     }
 
-    public void St() {
-        if (this.bMQ != null) {
-            this.bMQ.dismiss();
-            this.bMQ = null;
+    public void Ta() {
+        if (this.bOX != null) {
+            this.bOX.dismiss();
+            this.bOX = null;
         }
-        if (this.bMX != null) {
-            this.bMX.dismiss();
-            this.bMX = null;
+        if (this.bPe != null) {
+            this.bPe.dismiss();
+            this.bPe = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.bNe);
-        St();
+        MessageManager.getInstance().unRegisterListener(this.bPl);
+        Ta();
     }
 
-    private void Sv() {
-        if (this.bNb && this.bMS.size() != 0) {
-            this.bMS.clear();
-            Su();
+    private void Tc() {
+        if (this.bPi && this.bOZ.size() != 0) {
+            this.bOZ.clear();
+            Tb();
         }
     }
 
-    private void DT() {
+    private void En() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            aj.e(this.bMY, d.C0108d.cp_cont_j, 1);
-            aj.e(this.bMZ, d.C0108d.cp_cont_i, 1);
-            aj.s(this.bMZ, d.f.bg_blue_rec_n);
+            aj.e(this.bPf, d.C0140d.cp_cont_j, 1);
+            aj.e(this.bPg, d.C0140d.cp_cont_i, 1);
+            aj.s(this.bPg, d.f.bg_blue_rec_n);
             this.mSkinType = skinType;
         }
     }

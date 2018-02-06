@@ -14,7 +14,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class g {
     private static com.xiaomi.channel.commonutils.misc.h a = new com.xiaomi.channel.commonutils.misc.h(true);
@@ -63,7 +62,7 @@ public class g {
 
     public static int a(String str) {
         try {
-            return str.getBytes(HTTP.UTF_8).length;
+            return str.getBytes("UTF-8").length;
         } catch (UnsupportedEncodingException e2) {
             return str.getBytes().length;
         }

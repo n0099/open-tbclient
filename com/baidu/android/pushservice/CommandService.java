@@ -9,6 +9,7 @@ import com.baidu.android.pushservice.h.l;
 import com.baidu.android.pushservice.h.q;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.ar.util.Constants;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class CommandService extends Service {
@@ -70,13 +71,13 @@ public class CommandService extends Service {
             try {
                 if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
                     p.b("push_passthrough: receive  click delete and notified action", getApplicationContext());
-                    l.a(getApplicationContext(), intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
+                    l.a(getApplicationContext(), intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra(Constants.HTTP_APP_ID) ? intent.getStringExtra(Constants.HTTP_APP_ID) : null, action);
                     if (intent.getBooleanExtra("self_insert", false)) {
                         new q(this).a();
                     }
                     stopSelf();
                 } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
-                    String stringExtra = intent.getStringExtra("app_id");
+                    String stringExtra = intent.getStringExtra(Constants.HTTP_APP_ID);
                     String stringExtra2 = intent.getStringExtra("msg_id");
                     ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, stringExtra2, stringExtra, intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
                     if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action)) {

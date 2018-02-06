@@ -3,6 +3,8 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.Constants;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.FaceCheckCallback;
@@ -22,7 +24,6 @@ import com.baidu.sapi2.callback.IqiyiLoginCallback;
 import com.baidu.sapi2.callback.LoginCallback;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
 import com.baidu.sapi2.callback.QrPcLoginCallback;
-import com.baidu.sapi2.callback.QuickUserRegCallback;
 import com.baidu.sapi2.callback.SSOConfirmCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SetPopularPortraitCallback;
@@ -43,7 +44,6 @@ import com.baidu.sapi2.dto.IqiyiLoginDTO;
 import com.baidu.sapi2.dto.LoginDTO;
 import com.baidu.sapi2.dto.PhoneRegDTO;
 import com.baidu.sapi2.dto.QrLoginStstusCheckDTO;
-import com.baidu.sapi2.dto.QuickUserRegDTO;
 import com.baidu.sapi2.dto.SSOConfirmDTO;
 import com.baidu.sapi2.dto.SetPopularPortraitDTO;
 import com.baidu.sapi2.dto.VoiceCheckDTO;
@@ -76,13 +76,13 @@ import com.baidu.sapi2.utils.enums.BiometricType;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public final class SapiAccountService implements ISAccountService {
     private static final String a = "native";
@@ -102,7 +102,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
@@ -154,7 +154,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(boolean z) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("adapter", "3"));
@@ -199,7 +199,7 @@ public final class SapiAccountService implements ISAccountService {
         String str = sapiConfiguration.environment.getWap(SapiUtils.getDefaultHttpsEnabled()) + "/wp/";
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("clientfrom", a));
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("appid", sapiConfiguration.appId));
         if (TextUtils.isEmpty(sapiConfiguration.clientId)) {
             sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
@@ -214,10 +214,10 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
-        arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("loginLink", String.valueOf(this.b.smsLoginConfig.flagShowLoginLink.ordinal())));
         arrayList.add(new BasicNameValuePair("smsLoginLink", String.valueOf(this.b.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
         arrayList.add(new BasicNameValuePair("lPFastRegLink", String.valueOf(this.b.smsLoginConfig.flagShowFastRegLink.ordinal())));
@@ -236,7 +236,7 @@ public final class SapiAccountService implements ISAccountService {
         }
         if (!TextUtils.isEmpty(this.b.fastRegTitleText)) {
             try {
-                arrayList.add(new BasicNameValuePair("fastRegText", URLEncoder.encode(this.b.fastRegTitleText, HTTP.UTF_8)));
+                arrayList.add(new BasicNameValuePair("fastRegText", URLEncoder.encode(this.b.fastRegTitleText, "UTF-8")));
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -245,7 +245,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new BasicNameValuePair("connect", "1"));
         }
         if (this.b.language == Language.ENGLISH) {
-            arrayList.add(new BasicNameValuePair("lang", "en"));
+            arrayList.add(new BasicNameValuePair("lang", h.a));
         }
         arrayList.add(new BasicNameValuePair("suppcheck", "1"));
         List<BiometricType> list = this.b.biometricTypeList;
@@ -265,7 +265,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
-        arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         return this.c.q() + "?" + SapiUtils.createRequestParams(arrayList);
@@ -275,7 +275,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", SocialType.QQ.getType() + ""));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
-        arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("appid", this.b.qqAppID));
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
@@ -287,12 +287,12 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", SocialType.XIAOMI.getType() + ""));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
-        arrayList.add(new BasicNameValuePair("act", "special"));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, "special"));
         arrayList.add(new BasicNameValuePair("appid", this.b.qqAppID));
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         arrayList.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_PHONE, str3));
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         return this.c.q() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
@@ -303,18 +303,18 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
-        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
         if (z) {
-            arrayList.add(new BasicNameValuePair("act", "bind"));
+            arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, "bind"));
             arrayList.add(new BasicNameValuePair("wapsec", "center"));
             arrayList.add(new BasicNameValuePair("adapter", "3"));
             try {
-                arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, HTTP.UTF_8)));
+                arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, "UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }
         } else {
-            arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+            arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         }
         arrayList.add(new BasicNameValuePair("app_key", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("scope", "snsapi_login"));
@@ -346,7 +346,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
-        arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("guidebind", "1"));
         return this.c.s() + "?" + SapiUtils.createRequestParams(arrayList);
     }
@@ -599,10 +599,6 @@ public final class SapiAccountService implements ISAccountService {
 
     public void phoneReg(SapiCallback<PhoneRegResult> sapiCallback, PhoneRegDTO phoneRegDTO) {
         EnhancedService.getInstance(this.b, SapiAccountManager.VERSION_NAME).phoneReg(sapiCallback, phoneRegDTO);
-    }
-
-    public void quickUserReg(QuickUserRegCallback quickUserRegCallback, QuickUserRegDTO quickUserRegDTO) {
-        EnhancedService.getInstance(this.b, SapiAccountManager.VERSION_NAME).quickUserReg(quickUserRegCallback, quickUserRegDTO);
     }
 
     public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {

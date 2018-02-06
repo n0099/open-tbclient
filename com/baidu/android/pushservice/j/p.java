@@ -26,7 +26,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
-import com.baidu.adp.BuildConfig;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
@@ -204,7 +203,7 @@ public final class p {
                     return "3.1";
                 }
             } catch (Exception e2) {
-                return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? BuildConfig.VERSION_NAME : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "5.0" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "3.0" : str : "3.1";
+                return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "5.0" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "3.0" : str : "3.1";
             }
         }
         return str2;
@@ -785,7 +784,7 @@ public final class p {
         try {
             Context applicationContext = context.getApplicationContext();
             n.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.bJb().b(applicationContext, str, str2, bVar);
+            com.coloros.mcssdk.a.bJO().b(applicationContext, str, str2, bVar);
         } catch (Exception e) {
         }
     }

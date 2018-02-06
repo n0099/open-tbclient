@@ -16,6 +16,7 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
 /* loaded from: classes2.dex */
@@ -44,7 +45,7 @@ public class f {
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
         intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.putExtra("message_id", str);
-        intent.putExtra("app_id", str2);
+        intent.putExtra(Constants.HTTP_APP_ID, str2);
         intent.putExtra("baidu_message_type", i);
         if (p.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
@@ -57,7 +58,7 @@ public class f {
         try {
             Intent intent = new Intent(com.baidu.android.pushservice.PushConstants.ACTION_METHOD);
             intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-            intent.putExtra("app_id", str);
+            intent.putExtra(Constants.HTTP_APP_ID, str);
             o.a(context, intent);
         } catch (Exception e) {
         }
@@ -67,7 +68,7 @@ public class f {
         Intent intent = new Intent();
         intent.putExtra("public_msg", publicMsg);
         intent.putExtra("notify_type", "rich_media");
-        intent.putExtra("app_id", str);
+        intent.putExtra(Constants.HTTP_APP_ID, str);
         intent.putExtra("message_id", str2);
         intent.putExtra("pushService_package_name", context.getPackageName());
         intent.putExtra("baidu_message_type", i);

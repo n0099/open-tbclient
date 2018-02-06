@@ -11,7 +11,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
@@ -78,7 +77,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (PageType.PERSON_INFO.toString().equals(this.mPageType)) {
             TbadkCoreApplication.setRefreshFlag(true);
         } else if (PageType.FRS.toString().equals(this.mPageType)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
         }
         finish();
     }

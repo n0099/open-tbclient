@@ -30,7 +30,7 @@ public class Amrnb {
         bLoadLibrary = false;
         bLoadLibrary = com.baidu.adp.lib.util.h.ov().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
             @Override // com.baidu.adp.lib.util.i
-            public void W(boolean z) {
+            public void Y(boolean z) {
                 Amrnb.bLoadLibrary = z;
                 if (Amrnb.bLoadLibrary) {
                     try {

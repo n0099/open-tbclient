@@ -1,26 +1,27 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private ArrayList<UserData> aMr = new ArrayList<>();
-    private ArrayList<UserData> aMs = new ArrayList<>();
-    private al aMt = new al();
-    private int aMu = 0;
-    private int aMv = 0;
-    public int aMw;
+    private ArrayList<UserData> aNK = new ArrayList<>();
+    private ArrayList<UserData> aNL = new ArrayList<>();
+    private al aNM = new al();
+    private int aNN = 0;
+    private int aNO = 0;
+    public int aNP;
     public boolean hasMore;
     public int pageNum;
 
-    public ArrayList<UserData> ya() {
-        return this.aMr;
+    public ArrayList<UserData> yB() {
+        return this.aNK;
     }
 
-    public ArrayList<UserData> yb() {
-        return this.aMs;
+    public ArrayList<UserData> yC() {
+        return this.aNL;
     }
 
     public void parserJson(String str) {
@@ -34,14 +35,14 @@ public class aq {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                if (jSONObject.optJSONObject("page") != null) {
+                if (jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE) != null) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             UserData userData = new UserData();
                             userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.aMr.add(userData);
+                            this.aNK.add(userData);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -49,17 +50,17 @@ public class aq {
                             UserData userData2 = new UserData();
                             userData2.parserJson(optJSONArray2.getJSONObject(i2));
                             userData2.mAttentionType = 1;
-                            this.aMs.add(userData2);
+                            this.aNL.add(userData2);
                         }
                     }
-                    this.aMt.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.aMt != null) {
-                        this.pageNum = this.aMt.xT();
-                        this.aMw = this.aMt.xR();
-                        this.hasMore = this.aMt.xV() == 1;
+                    this.aNM.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+                    if (this.aNM != null) {
+                        this.pageNum = this.aNM.yu();
+                        this.aNP = this.aNM.ys();
+                        this.hasMore = this.aNM.yw() == 1;
                     }
-                    this.aMu = jSONObject.optInt("tafriendnum", 0);
-                    this.aMv = jSONObject.optInt("commonfriendnum", 0);
+                    this.aNN = jSONObject.optInt("tafriendnum", 0);
+                    this.aNO = jSONObject.optInt("commonfriendnum", 0);
                     return;
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
@@ -68,7 +69,7 @@ public class aq {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         UserData userData3 = new UserData();
                         userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.aMr.add(userData3);
+                        this.aNK.add(userData3);
                     }
                 }
                 if (optJSONArray4 != null) {
@@ -77,11 +78,11 @@ public class aq {
                         userData4.parserJson(optJSONArray4.getJSONObject(i4));
                         userData4.mAttentionType = 1;
                         userData4.setHave_attention(1);
-                        this.aMs.add(userData4);
+                        this.aNL.add(userData4);
                     }
                 }
                 this.pageNum = jSONObject.optInt("pn");
-                this.aMw = jSONObject.optInt("total_follow_num", 0);
+                this.aNP = jSONObject.optInt("total_follow_num", 0);
                 this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);

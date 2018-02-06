@@ -8,6 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.tencent.open.SocialConstants;
+import com.tencent.tauth.AuthActivity;
 import java.util.LinkedList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
@@ -32,7 +34,7 @@ public class i {
                 linkedList.add(Integer.valueOf(i));
             }
             if (!TextUtils.isEmpty(str2)) {
-                linkedList.add("act");
+                linkedList.add(SocialConstants.PARAM_ACT);
                 linkedList.add(str2);
             }
             if (i3 != 0) {
@@ -64,7 +66,7 @@ public class i {
     public static void kF() {
         try {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-            statsItem.append("action", "imconn");
+            statsItem.append(AuthActivity.ACTION_KEY, "imconn");
             statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.pv().pC()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);

@@ -10,19 +10,19 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class BaseMediaInfoAtom extends AbstractFullBox {
     public static final String TYPE = "gmin";
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_9 = null;
     short balance;
     short graphicsMode;
     int opColorB;
@@ -102,7 +102,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zs(i)));
         this.opColorR = i;
     }
 
@@ -112,7 +112,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zs(i)));
         this.opColorG = i;
     }
 
@@ -122,7 +122,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zs(i)));
         this.opColorB = i;
     }
 

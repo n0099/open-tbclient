@@ -5,42 +5,40 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f aDA;
+    final /* synthetic */ f aEW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.aDA = fVar;
+        this.aEW = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.aDA.h = i.c();
-        this.aDA.b();
-        this.aDA.a();
+        this.aEW.h = i.c();
+        this.aEW.b();
+        this.aEW.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.aDA.i;
+        int i = this.aEW.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.aDA.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.aEW.h).openConnection();
                 try {
                     try {
-                        httpURLConnection.setRequestMethod(HttpGet.METHOD_NAME);
+                        httpURLConnection.setRequestMethod("GET");
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.setConnectTimeout(b.b);
                         httpURLConnection.setReadTimeout(b.b);
                         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                        httpURLConnection.setRequestProperty("Accept-Charset", HTTP.UTF_8);
+                        httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                     } catch (Exception e) {
                         Log.d(b.a, "NetworkCommunicationException!");
                         if (httpURLConnection != null) {
@@ -75,8 +73,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.aDA.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.aDA.a(true);
+                this.aEW.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.aEW.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -95,7 +93,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.aDA.j = null;
-        this.aDA.a(false);
+        this.aEW.j = null;
+        this.aEW.a(false);
     }
 }

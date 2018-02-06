@@ -42,29 +42,29 @@ class MediaBrowserServiceCompatApi21 {
 
     /* loaded from: classes2.dex */
     static class c<T> {
-        MediaBrowserService.Result yk;
+        MediaBrowserService.Result yj;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(MediaBrowserService.Result result) {
-            this.yk = result;
+            this.yj = result;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: android.service.media.MediaBrowserService$Result */
         /* JADX WARN: Multi-variable type inference failed */
         public void sendResult(T t) {
             if (t instanceof List) {
-                this.yk.sendResult(h((List) t));
+                this.yj.sendResult(h((List) t));
             } else if (t instanceof Parcel) {
                 Parcel parcel = (Parcel) t;
-                this.yk.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
+                this.yj.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
                 parcel.recycle();
             } else {
-                this.yk.sendResult(null);
+                this.yj.sendResult(null);
             }
         }
 
         public void detach() {
-            this.yk.detach();
+            this.yj.detach();
         }
 
         List<MediaBrowser.MediaItem> h(List<Parcel> list) {

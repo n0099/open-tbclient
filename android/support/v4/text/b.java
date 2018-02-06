@@ -6,19 +6,19 @@ import java.lang.reflect.Method;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 class b {
+    private static Method Be;
     private static Method Bf;
-    private static Method Bg;
 
     static {
         try {
             Class<?> cls = Class.forName("libcore.icu.ICU");
             if (cls != null) {
-                Bg = cls.getMethod("getScript", String.class);
-                Bf = cls.getMethod("addLikelySubtags", String.class);
+                Bf = cls.getMethod("getScript", String.class);
+                Be = cls.getMethod("addLikelySubtags", String.class);
             }
         } catch (Exception e) {
-            Bg = null;
             Bf = null;
+            Be = null;
             Log.w("ICUCompatIcs", e);
         }
     }
@@ -33,8 +33,8 @@ class b {
 
     private static String getScript(String str) {
         try {
-            if (Bg != null) {
-                return (String) Bg.invoke(null, str);
+            if (Bf != null) {
+                return (String) Bf.invoke(null, str);
             }
         } catch (IllegalAccessException e) {
             Log.w("ICUCompatIcs", e);
@@ -47,8 +47,8 @@ class b {
     private static String c(Locale locale) {
         String locale2 = locale.toString();
         try {
-            if (Bf != null) {
-                return (String) Bf.invoke(null, locale2);
+            if (Be != null) {
+                return (String) Be.invoke(null, locale2);
             }
         } catch (IllegalAccessException e) {
             Log.w("ICUCompatIcs", e);

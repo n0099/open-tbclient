@@ -11,16 +11,16 @@ public class AlaMasterLiveRoomActivityConfig extends IntentConfig {
     public static final String LIVE_FORUM_ID = "live_forum_id";
     public static final String LIVE_FORUM_NAME = "live_forum_name";
     public static final String LIVE_INFO = "live_info_core";
-    public static final String LIVE_IS_CREATE_FROM_GAME_FORUM = "live_is_create_from_game_forum";
+    public static final String SPECIAL_FORIM_TYPE = "special_forum_type";
     public static final String USER_ID = "user_id";
 
-    public AlaMasterLiveRoomActivityConfig(Context context, String str, String str2, String str3, boolean z) {
+    public AlaMasterLiveRoomActivityConfig(Context context, String str, String str2, String str3, String str4) {
         super(context);
         getIntent().putExtra("live_forum_name", str);
         getIntent().putExtra("live_forum_id", str2);
         getIntent().putExtra("user_id", str3);
         getIntent().putExtra(CREATE_MASTER_LIVE_TYPE, 1);
-        getIntent().putExtra(LIVE_IS_CREATE_FROM_GAME_FORUM, z);
+        getIntent().putExtra(SPECIAL_FORIM_TYPE, str4);
     }
 
     public AlaMasterLiveRoomActivityConfig(Context context, Serializable serializable) {

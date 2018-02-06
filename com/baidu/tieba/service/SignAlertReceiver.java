@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.messageCenter.a;
-import com.baidu.tbadk.coreExtra.messageCenter.b;
+import com.baidu.tbadk.coreExtra.messageCenter.c;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(d.j.sign_notification_content);
                 String string2 = context.getString(d.j.app_name);
-                a.Gh().aE(a.Gh().gS(12), 12);
+                a.GJ().aE(a.GJ().gV(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
             } catch (Throwable th) {
                 try {
@@ -37,7 +37,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    b.GE().updateSignAlarm();
+                    c.Hq().updateSignAlarm();
                 }
             }
         }

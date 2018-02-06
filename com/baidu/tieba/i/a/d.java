@@ -1,6 +1,6 @@
 package com.baidu.tieba.i.a;
 /* loaded from: classes2.dex */
-public class d extends a<com.baidu.tieba.play.c.b> {
+public class d extends a<com.baidu.tieba.play.b.b> {
     public d(String str) {
         super(str);
     }
@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.c.b> {
     }
 
     @Override // com.baidu.tieba.i.a.c
-    public void aVC() {
-        cC(this.list);
+    public void aXl() {
+        cI(this.list);
     }
 }

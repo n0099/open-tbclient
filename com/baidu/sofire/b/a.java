@@ -19,7 +19,7 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] b = j.b(bArr2);
+            byte[] b = l.b(bArr2);
             byte[] bArr4 = new byte[doFinal.length + b.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
             System.arraycopy(b, 0, bArr4, doFinal.length, b.length);

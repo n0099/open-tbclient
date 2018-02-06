@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private ArrayList<String> aLS;
-    private int aLT = 0;
-    private UserData aLQ = new UserData();
-    private AntiData aLR = new AntiData();
+    private ArrayList<String> aNl;
+    private int aNm = 0;
+    private UserData aNj = new UserData();
+    private AntiData aNk = new AntiData();
 
     public ae() {
-        this.aLS = null;
-        this.aLS = new ArrayList<>();
+        this.aNl = null;
+        this.aNl = new ArrayList<>();
         eD(0);
     }
 
     public UserData getUser() {
-        return this.aLQ;
+        return this.aNj;
     }
 
-    public AntiData xH() {
-        return this.aLR;
+    public AntiData yn() {
+        return this.aNk;
     }
 
     public void parserJson(String str) {
@@ -35,12 +35,12 @@ public class ae {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.aLQ.parserJson(jSONObject.optJSONObject("user"));
-            this.aLR.parserJson(jSONObject.optJSONObject("anti"));
+            this.aNj.parserJson(jSONObject.optJSONObject("user"));
+            this.aNk.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aLS.add(optJSONArray.optString(i, null));
+                    this.aNl.add(optJSONArray.optString(i, null));
                 }
             }
             eD(jSONObject.optInt("retrytime"));
@@ -50,6 +50,6 @@ public class ae {
     }
 
     public void eD(int i) {
-        this.aLT = i;
+        this.aNm = i;
     }
 }

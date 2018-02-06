@@ -10,12 +10,12 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.write.write.WriteActivity;
 /* loaded from: classes2.dex */
 public class StateSwitchView extends EditorInfoView {
-    private com.baidu.tieba.d.b fQg;
-    private String hFk;
-    private String hFl;
-    private int hFm;
-    private int hFn;
-    private int hFo;
+    private com.baidu.tieba.d.c fTs;
+    private String hGI;
+    private String hGJ;
+    private int hGK;
+    private int hGL;
+    private int hGM;
     private int mSkinType;
     private int mState;
 
@@ -33,7 +33,7 @@ public class StateSwitchView extends EditorInfoView {
     private void initUI() {
         int dimension = (int) getResources().getDimension(d.e.ds26);
         setPadding(dimension, 0, dimension, 0);
-        adC();
+        aeH();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -41,21 +41,21 @@ public class StateSwitchView extends EditorInfoView {
         this.mState = 0;
     }
 
-    public void bGb() {
+    public void bGP() {
         if (this.mState == 0) {
             this.mState = 1;
         } else {
             this.mState = 0;
         }
-        adC();
-        bGc();
+        aeH();
+        bGQ();
     }
 
-    private void adC() {
+    private void aeH() {
         if (this.mState == 1) {
-            setText(this.hFl);
+            setText(this.hGJ);
         } else {
-            setText(this.hFk);
+            setText(this.hGI);
         }
     }
 
@@ -63,31 +63,31 @@ public class StateSwitchView extends EditorInfoView {
         if (i == 0 || i == 1) {
             this.mState = i;
         }
-        adC();
-        bGc();
+        aeH();
+        bGQ();
     }
 
-    public void ck(String str, String str2) {
-        this.hFk = str;
-        this.hFl = str2;
-        adC();
+    public void cm(String str, String str2) {
+        this.hGI = str;
+        this.hGJ = str2;
+        aeH();
     }
 
-    public void cX(int i, int i2) {
-        this.hFm = i;
-        this.hFn = i2;
-        bGc();
+    public void cS(int i, int i2) {
+        this.hGK = i;
+        this.hGL = i2;
+        bGQ();
     }
 
-    private void bGc() {
+    private void bGQ() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds48);
-        if (this.mState == 1 && this.hFn > 0) {
-            Drawable drawable = aj.getDrawable(this.hFn);
+        if (this.mState == 1 && this.hGL > 0) {
+            Drawable drawable = aj.getDrawable(this.hGL);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
-        } else if (this.mState == 0 && this.hFm > 0) {
-            Drawable drawable2 = aj.getDrawable(this.hFm);
+        } else if (this.mState == 0 && this.hGK > 0) {
+            Drawable drawable2 = aj.getDrawable(this.hGK);
             drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable2, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
@@ -98,38 +98,38 @@ public class StateSwitchView extends EditorInfoView {
         return this.mState;
     }
 
-    public void cl(String str, String str2) {
-        if (this.fQg == null && (getContext() instanceof WriteActivity)) {
-            this.fQg = new com.baidu.tieba.d.b(((WriteActivity) getContext()).getPageContext(), this);
-            this.fQg.lV(d.f.pic_sign_tip_down);
-            this.fQg.j(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.StateSwitchView.1
+    public void cn(String str, String str2) {
+        if (this.fTs == null && (getContext() instanceof WriteActivity)) {
+            this.fTs = new com.baidu.tieba.d.c(((WriteActivity) getContext()).getPageContext(), this);
+            this.fTs.lS(d.f.pic_sign_tip_down);
+            this.fTs.j(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.StateSwitchView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    StateSwitchView.this.fQg.amw();
+                    StateSwitchView.this.fTs.anh();
                 }
             });
             int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds10);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(d.e.ds24);
-            this.fQg.v(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.fQg.lY(0);
-            this.fQg.lZ(-67);
-            this.fQg.lW(5000);
+            this.fTs.v(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+            this.fTs.lV(0);
+            this.fTs.lW(-67);
+            this.fTs.lT(5000);
         }
-        if (this.fQg != null) {
-            this.fQg.aJ(str, str2);
+        if (this.fTs != null) {
+            this.fTs.aK(str, str2);
         }
     }
 
     public void hideTip() {
-        if (this.fQg != null) {
-            this.fQg.amw();
+        if (this.fTs != null) {
+            this.fTs.anh();
         }
     }
 
     public void setBackgroundId(int i) {
-        this.hFo = i;
-        if (this.hFo > 0) {
-            aj.s(this, this.hFo);
+        this.hGM = i;
+        if (this.hGM > 0) {
+            aj.s(this, this.hGM);
         }
     }
 
@@ -137,11 +137,11 @@ public class StateSwitchView extends EditorInfoView {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
-            aj.r(this, d.C0108d.cp_cont_f);
-            if (this.hFo > 0) {
-                aj.s(this, this.hFo);
+            aj.r(this, d.C0140d.cp_cont_f);
+            if (this.hGM > 0) {
+                aj.s(this, this.hGM);
             }
-            bGc();
+            bGQ();
             this.mSkinType = i;
         }
     }

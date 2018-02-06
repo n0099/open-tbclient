@@ -1,13 +1,12 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class CallStateMessage extends CustomResponsedMessage {
     private int mState;
 
     public CallStateMessage(int i) {
-        super(CmdConfigCustom.CMD_CALL_STATE_CHANGED);
+        super(2016503);
         this.mState = 0;
         this.mState = i;
     }

@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
@@ -16,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fBP;
-    private a.C0155a fBQ;
+    private SkinInfo fFp;
+    private a.C0235a fFq;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -39,22 +40,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0155a c0155a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0235a c0235a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fBP != skinInfo && c0155a != null) {
-            this.fBQ = c0155a;
-            this.fBQ.eb("action_type");
-            this.fBQ.cc("obj_id", skinInfo.obj_id);
-            this.fBQ.cc("obj_url", skinInfo.url);
-            this.fBQ.cc("obj_name", skinInfo.monitor_id);
-            this.fBQ.cc("action_type", "VIEW_TRUE");
-            this.fBQ.save();
+        if (this.fFp != skinInfo && c0235a != null) {
+            this.fFq = c0235a;
+            this.fFq.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fFq.ce("obj_id", skinInfo.obj_id);
+            this.fFq.ce("obj_url", skinInfo.url);
+            this.fFq.ce("obj_name", skinInfo.monitor_id);
+            this.fFq.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fFq.save();
         }
-        this.fBP = skinInfo;
+        this.fFp = skinInfo;
         int ao = l.ao(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ao;
@@ -81,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fBP != null && !StringUtils.isNull(this.fBP.url)) {
-            if (this.fBQ != null) {
-                this.fBQ.eb("action_type");
-                this.fBQ.cc("action_type", "CLICK");
-                this.fBQ.save();
+        if (this.fFp != null && !StringUtils.isNull(this.fFp.url)) {
+            if (this.fFq != null) {
+                this.fFq.em(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fFq.ce(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fFq.save();
             }
-            av.Da().c(this.mTbPageContext, new String[]{this.fBP.url});
+            aw.Du().c(this.mTbPageContext, new String[]{this.fFp.url});
         }
     }
 }

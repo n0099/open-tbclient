@@ -1,154 +1,46 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.usermute.MuteUser;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
-import java.util.Iterator;
-import tbclient.PbPage.DataRes;
-import tbclient.SimpleUser;
+import java.util.List;
+import tbclient.PbTopAgreePost;
+import tbclient.Post;
 /* loaded from: classes2.dex */
-public class l implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId fEC = BdUniqueId.gen();
-    public long dFN;
-    private long fED;
-    private boolean fEE;
-    private ArrayList<MuteUser> fEF;
-    public int fEA = -1;
-    private boolean fEG = false;
-    private boolean fEH = false;
-    private int fEI = 1;
+public class l {
+    public String forum_top_list;
+    public final List<PostData> fIp = new ArrayList();
+    public final List<Long> fIq = new ArrayList();
+    private int count = 0;
 
-    @Override // com.baidu.adp.widget.ListView.i
-    public BdUniqueId getType() {
-        return fEC;
+    public int getCount() {
+        return this.count;
     }
 
-    public void a(DataRes dataRes) {
-        boolean z = true;
-        if (dataRes != null) {
-            if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.fED = dataRes.thread.agree.agree_num.longValue();
-                this.fEE = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.fEA = dataRes.thread.agree.agree_type.intValue();
-            }
-            if (this.fEF == null) {
-                this.fEF = new ArrayList<>();
-            }
-            this.fEF.clear();
-            if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
-                for (SimpleUser simpleUser : dataRes.new_agree_user) {
-                    if (simpleUser != null) {
-                        MuteUser muteUser = new MuteUser();
-                        muteUser.parserProtobuf(simpleUser);
-                        this.fEF.add(muteUser);
-                    }
-                }
-            }
-            if (dataRes.thread != null) {
-                this.dFN = dataRes.thread.share_num.longValue();
-                this.fEH = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+    public void setCount(int i) {
+        this.count = i;
+    }
+
+    public void a(Context context, PbTopAgreePost pbTopAgreePost) {
+        if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
+            for (Post post : pbTopAgreePost.post_list) {
+                PostData postData = new PostData();
+                postData.hbw = 102;
+                postData.a(post, context);
+                this.fIp.add(postData);
             }
         }
-    }
-
-    public long aZq() {
-        return this.fED;
-    }
-
-    public boolean aZr() {
-        return this.fEH;
-    }
-
-    public boolean aZs() {
-        return this.fEE;
-    }
-
-    public ArrayList<MuteUser> aZt() {
-        return this.fEF;
-    }
-
-    public void sx(int i) {
-        if (!this.fEE) {
-            sz(i);
-            return;
+        if (!v.E(this.fIp)) {
+            this.fIp.get(0).hbx = true;
+            setCount(this.fIp.size());
         }
-        this.fEA = i;
-        this.fEE = true;
-        String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-        if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.fEF.iterator();
-            while (it.hasNext()) {
-                MuteUser next = it.next();
-                if (currentAccountName.equals(next.getUserName())) {
-                    next.agreeType = i;
-                    return;
-                }
+        List<Long> list = pbTopAgreePost.post_id_list;
+        if (list != null && list.size() > 0) {
+            for (Long l : pbTopAgreePost.post_id_list) {
+                this.fIq.add(l);
             }
         }
-    }
-
-    public void sy(int i) {
-        this.fEI = i;
-    }
-
-    public int aZu() {
-        return this.fEI;
-    }
-
-    public void sz(int i) {
-        if (TbadkCoreApplication.isLogin()) {
-            MuteUser muteUser = new MuteUser();
-            muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
-            muteUser.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
-            }
-            muteUser.agreeType = i;
-            if (this.fEF == null) {
-                this.fEF = new ArrayList<>();
-            }
-            this.fEF.add(0, muteUser);
-            if (this.fED < 0) {
-                this.fED = 0L;
-            }
-            this.fED++;
-            this.fEE = true;
-            this.fEA = i;
-        }
-    }
-
-    public void aZv() {
-        if (TbadkCoreApplication.isLogin()) {
-            this.fED--;
-            if (this.fED < 0) {
-                this.fED = 0L;
-            }
-            this.fEE = false;
-            this.fEA = -1;
-            if (!v.E(this.fEF)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.fEF.iterator();
-                    while (it.hasNext()) {
-                        MuteUser next = it.next();
-                        if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.fEF.remove(next);
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void jF(boolean z) {
-        this.fEG = z;
-    }
-
-    public boolean aZw() {
-        return this.fEG;
+        this.forum_top_list = pbTopAgreePost.forum_top_list;
     }
 }

@@ -4,29 +4,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes2.dex */
 class m {
+    int Pn;
     int Po;
     int Pp;
     int Pq;
-    int Pr;
+    boolean Pt;
     boolean Pu;
-    boolean Pv;
-    boolean Pn = true;
+    boolean Pm = true;
+    int Pr = 0;
     int Ps = 0;
-    int Pt = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(RecyclerView.State state) {
-        return this.Pp >= 0 && this.Pp < state.getItemCount();
+        return this.Po >= 0 && this.Po < state.getItemCount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View a(RecyclerView.Recycler recycler) {
-        View viewForPosition = recycler.getViewForPosition(this.Pp);
-        this.Pp += this.Pq;
+        View viewForPosition = recycler.getViewForPosition(this.Po);
+        this.Po += this.Pp;
         return viewForPosition;
     }
 
     public String toString() {
-        return "LayoutState{mAvailable=" + this.Po + ", mCurrentPosition=" + this.Pp + ", mItemDirection=" + this.Pq + ", mLayoutDirection=" + this.Pr + ", mStartLine=" + this.Ps + ", mEndLine=" + this.Pt + '}';
+        return "LayoutState{mAvailable=" + this.Pn + ", mCurrentPosition=" + this.Po + ", mItemDirection=" + this.Pp + ", mLayoutDirection=" + this.Pq + ", mStartLine=" + this.Pr + ", mEndLine=" + this.Ps + '}';
     }
 }

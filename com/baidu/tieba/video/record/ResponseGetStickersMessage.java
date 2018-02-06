@@ -2,7 +2,6 @@ package com.baidu.tieba.video.record;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
-        if (getError() == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONArray = optJSONObject.optJSONArray(IntentConfig.LIST)) != null && optJSONArray.length() > 0) {
+        if (getError() == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONArray = optJSONObject.optJSONArray("list")) != null && optJSONArray.length() > 0) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;

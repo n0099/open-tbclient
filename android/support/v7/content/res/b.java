@@ -24,7 +24,7 @@ final class b {
         throw new AssertionError();
     }
 
-    public static int[] a(int[] iArr, int i, int i2) {
+    public static int[] b(int[] iArr, int i, int i2) {
         if ($assertionsDisabled || i <= iArr.length) {
             if (i + 1 > iArr.length) {
                 int[] iArr2 = new int[aE(i)];

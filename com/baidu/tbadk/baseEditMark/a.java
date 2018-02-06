@@ -4,34 +4,33 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class a {
 
     /* renamed from: com.baidu.tbadk.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0069a {
+    public interface InterfaceC0092a {
         void a(boolean z, boolean z2, String str);
     }
 
     public abstract void a(MarkData markData);
 
-    public abstract void a(InterfaceC0069a interfaceC0069a);
+    public abstract void a(InterfaceC0092a interfaceC0092a);
 
-    public abstract void aI(boolean z);
+    public abstract void aL(boolean z);
 
-    public abstract String vk();
+    public abstract String vW();
 
-    public abstract boolean vl();
+    public abstract boolean vX();
 
-    public abstract void vm();
+    public abstract void vY();
 
-    public abstract void vn();
+    public abstract void vZ();
 
-    public abstract MarkData vo();
+    public abstract MarkData wa();
 
     public static a a(BaseActivity baseActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, a.class, baseActivity);
         if (runTask == null || runTask.getData() == null) {
             return null;
         }
@@ -39,7 +38,7 @@ public abstract class a {
     }
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER_1, a.class, baseFragmentActivity);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, a.class, baseFragmentActivity);
         if (runTask == null || runTask.getData() == null) {
             return null;
         }

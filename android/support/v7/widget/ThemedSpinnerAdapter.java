@@ -13,7 +13,7 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
 
     /* loaded from: classes2.dex */
     public static final class Helper {
-        private LayoutInflater Xg;
+        private LayoutInflater Xf;
         private final Context mContext;
         private final LayoutInflater mInflater;
 
@@ -24,23 +24,23 @@ public interface ThemedSpinnerAdapter extends SpinnerAdapter {
 
         public void setDropDownViewTheme(Resources.Theme theme) {
             if (theme == null) {
-                this.Xg = null;
+                this.Xf = null;
             } else if (theme == this.mContext.getTheme()) {
-                this.Xg = this.mInflater;
+                this.Xf = this.mInflater;
             } else {
-                this.Xg = LayoutInflater.from(new ContextThemeWrapper(this.mContext, theme));
+                this.Xf = LayoutInflater.from(new ContextThemeWrapper(this.mContext, theme));
             }
         }
 
         public Resources.Theme getDropDownViewTheme() {
-            if (this.Xg == null) {
+            if (this.Xf == null) {
                 return null;
             }
-            return this.Xg.getContext().getTheme();
+            return this.Xf.getContext().getTheme();
         }
 
         public LayoutInflater getDropDownViewInflater() {
-            return this.Xg != null ? this.Xg : this.mInflater;
+            return this.Xf != null ? this.Xf : this.mInflater;
         }
     }
 }

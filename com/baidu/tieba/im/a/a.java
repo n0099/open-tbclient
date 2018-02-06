@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.a;
 /* loaded from: classes.dex */
 public class a {
-    public static int qq(int i) {
+    public static int qr(int i) {
         switch (i) {
             case 1:
                 return -2;
@@ -9,29 +9,10 @@ public class a {
             case 3:
             case 4:
             case 5:
-            case 9:
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-            case 20:
-            case 22:
-            case 23:
-            case 24:
-            case 25:
-            case 26:
-            case 27:
-            case 28:
-            case 29:
             default:
                 return 1;
             case 6:
                 return -1;
-            case 7:
-                return 3;
             case 8:
                 return 5;
             case 10:
@@ -40,8 +21,6 @@ public class a {
                 return 7;
             case 12:
                 return 8;
-            case 21:
-                return 9;
             case 30:
                 return -9;
         }

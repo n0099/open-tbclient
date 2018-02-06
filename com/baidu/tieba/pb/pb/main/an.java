@@ -1,56 +1,106 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class an {
-    private PbActivity fJR;
-    private com.baidu.tieba.d.b fQg;
+public class an extends k<com.baidu.tieba.pb.data.j, ao> {
+    private View.OnTouchListener bDx;
+    private com.baidu.tieba.pb.a.c bLT;
+    private FrameLayout ccq;
+    private com.baidu.tieba.pb.view.d fTt;
+    public boolean fTu;
+    private View.OnClickListener mClickListener;
 
-    public an(PbActivity pbActivity) {
-        this.fJR = pbActivity;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
-        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void a(View view, String str, String str2, String str3) {
-        if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.fQg == null) {
-                this.fQg = new com.baidu.tieba.d.b(this.fJR.getPageContext(), view);
-                this.fQg.lV(d.f.bg_tip_blue_up_left);
-                this.fQg.lU(16);
-                this.fQg.eU(true);
-                this.fQg.lY(57);
-                this.fQg.lZ(-10);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public an(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+        this.bDx = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.an.1
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (an.this.fTt != null) {
+                    return an.this.fTt.onTouch(view, motionEvent);
+                }
+                return false;
             }
-            this.fQg.lW(5000);
-            this.fQg.kz(str);
-            bG(str2, str3);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12504"));
+        };
+        this.ccq = new FrameLayout(pbActivity.getPageContext().getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        this.ccq.setBackgroundResource(d.C0140d.transparent);
+        this.ccq.setTag("PraiseContainerView");
+        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.ccq, layoutParams);
+        this.fTt = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.ccq);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bv */
+    public ao onCreateViewHolder(ViewGroup viewGroup) {
+        ao aoVar = new ao(LayoutInflater.from(this.mContext).inflate(d.h.layout_thread_praise_item, viewGroup, false));
+        if (this.bLT != null && aoVar.mRootView != null) {
+            aoVar.mRootView.setClickable(true);
+            aoVar.mRootView.setOnTouchListener(this.bLT);
+        }
+        return aoVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, ao aoVar) {
+        super.onFillViewHolder(i, view, viewGroup, jVar, aoVar);
+        if (jVar != null && aoVar != null) {
+            aoVar.fTC.setOnClickListener(this.mClickListener);
+            aoVar.fTA.setOnClickListener(this.mClickListener);
+            aoVar.b(jVar);
+            aoVar.fTy.setTag(d.g.pb_main_thread_praise_data, jVar);
+            aoVar.fTy.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            ((ao) this.viewholder).fTz.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            aoVar.fTw.setTag(d.g.pb_main_thread_praise_view, aoVar);
+            if (this.fTt != null) {
+                this.fTt.setAnchorView(aoVar.fTw);
+                this.fTt.cF(((ao) this.viewholder).fTz);
+                this.fTt.setOnTouchListener(this.bDx);
+            } else {
+                aoVar.fTy.setOnClickListener(this.mClickListener);
+            }
+            aoVar.fTz.setOnClickListener(this.mClickListener);
+            aoVar.fTx.setOnClickListener(this.mClickListener);
+            if (this.fTu) {
+                aoVar.beE();
+            } else {
+                aoVar.beD();
+            }
+        }
+        return view;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mClickListener = onClickListener;
+        if (this.fTt != null) {
+            this.fTt.setOnClickListener(onClickListener);
         }
     }
 
-    public void destroy() {
-        if (this.fQg != null) {
-            this.fQg.amw();
-        }
+    public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
+        this.bLT = cVar;
     }
 
-    private void bG(String str, String str2) {
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
-            httpMessage.addParam("thread_user_id", str);
-            httpMessage.addParam("thread_id", str2);
-            this.fJR.sendMessage(httpMessage);
+    public void sM(int i) {
+        if (i == 3 && this.fNb != null && this.ccq != null) {
+            this.ccq.removeAllViews();
+            ((FrameLayout) this.fNb.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.ccq);
         }
+        this.fTt.sM(i);
+    }
+
+    public void n(boolean z, int i) {
+        this.fTt.o(z, i);
     }
 }

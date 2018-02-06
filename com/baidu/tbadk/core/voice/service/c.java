@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void EA();
+    void ER();
 
-    void EB();
+    void EV();
 
-    void EC();
+    void EW();
 
-    boolean ED();
+    void EX();
 
-    void Ew();
+    boolean EY();
 
-    boolean eU(String str);
+    boolean ff(String str);
 
-    void gK(int i);
+    void gM(int i);
 
     int getErrorNo();
 

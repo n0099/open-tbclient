@@ -1,0 +1,7 @@
+package com.baidu.tieba.setting.more;
+
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+/* loaded from: classes3.dex */
+public class g extends TbSettingTextTipView {
+    public static String gOD = "has_shown_funtion_intro";
+}

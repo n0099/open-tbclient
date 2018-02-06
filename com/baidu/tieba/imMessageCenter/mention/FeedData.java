@@ -27,6 +27,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private int hideForumName;
     private boolean isAuthor;
     private int isFloor;
+    private boolean isNew;
     private boolean mIsShareThread;
     private boolean mIsStory;
     private OriginalThreadInfo mOriginalThreadInfo;
@@ -35,6 +36,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String post_id;
     private String quote_content;
     private String quote_pid;
+    private String threadImgUrl;
     private String thread_id;
     private int thread_type;
     private long time;
@@ -101,6 +103,14 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.quote_pid;
     }
 
+    public MetaData getQuote_user() {
+        return this.quote_user;
+    }
+
+    public boolean isNew() {
+        return this.isNew;
+    }
+
     public int getThread_Type() {
         return this.thread_type;
     }
@@ -131,6 +141,10 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public String getPostFrom() {
         return this.postFrom;
+    }
+
+    public String getThreadImgUrl() {
+        return this.threadImgUrl;
     }
 
     public String toJson() {
@@ -217,6 +231,8 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.replyer.parserJson(jSONObject.optJSONObject("replyer"));
                 this.quote_user.parserJson(jSONObject.optJSONObject("quote_user"));
                 this.thread_type = jSONObject.optInt("thread_type");
+                this.threadImgUrl = jSONObject.optString("thread_img_url");
+                this.isNew = jSONObject.optInt("unread") == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -262,6 +278,8 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.mOriginalThreadInfo.parser(replyList.origin_thread_info);
             }
             this.postFrom = replyList.post_from;
+            this.threadImgUrl = replyList.thread_img_url;
+            this.isNew = replyList.unread.intValue() == 1;
         }
     }
 }

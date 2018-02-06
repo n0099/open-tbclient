@@ -42,33 +42,33 @@ public final class MediaDescriptionCompat implements Parcelable {
     private final Bundle mExtras;
     private final CharSequence mTitle;
     private final String xc;
+    private final CharSequence yl;
     private final CharSequence ym;
-    private final CharSequence yn;
-    private final Bitmap yo;
+    private final Bitmap yn;
+    private final Uri yo;
     private final Uri yp;
-    private final Uri yq;
-    private Object yr;
+    private Object yq;
 
     MediaDescriptionCompat(String str, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, Bitmap bitmap, Uri uri, Bundle bundle, Uri uri2) {
         this.xc = str;
         this.mTitle = charSequence;
-        this.ym = charSequence2;
-        this.yn = charSequence3;
-        this.yo = bitmap;
-        this.yp = uri;
+        this.yl = charSequence2;
+        this.ym = charSequence3;
+        this.yn = bitmap;
+        this.yo = uri;
         this.mExtras = bundle;
-        this.yq = uri2;
+        this.yp = uri2;
     }
 
     MediaDescriptionCompat(Parcel parcel) {
         this.xc = parcel.readString();
         this.mTitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.yl = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         this.ym = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.yn = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.yo = (Bitmap) parcel.readParcelable(null);
-        this.yp = (Uri) parcel.readParcelable(null);
+        this.yn = (Bitmap) parcel.readParcelable(null);
+        this.yo = (Uri) parcel.readParcelable(null);
         this.mExtras = parcel.readBundle();
-        this.yq = (Uri) parcel.readParcelable(null);
+        this.yp = (Uri) parcel.readParcelable(null);
     }
 
     public String getMediaId() {
@@ -80,19 +80,19 @@ public final class MediaDescriptionCompat implements Parcelable {
     }
 
     public CharSequence getSubtitle() {
-        return this.ym;
+        return this.yl;
     }
 
     public CharSequence getDescription() {
-        return this.yn;
+        return this.ym;
     }
 
     public Bitmap getIconBitmap() {
-        return this.yo;
+        return this.yn;
     }
 
     public Uri getIconUri() {
-        return this.yp;
+        return this.yo;
     }
 
     public Bundle getExtras() {
@@ -100,7 +100,7 @@ public final class MediaDescriptionCompat implements Parcelable {
     }
 
     public Uri getMediaUri() {
-        return this.yq;
+        return this.yp;
     }
 
     @Override // android.os.Parcelable
@@ -113,46 +113,46 @@ public final class MediaDescriptionCompat implements Parcelable {
         if (Build.VERSION.SDK_INT < 21) {
             parcel.writeString(this.xc);
             TextUtils.writeToParcel(this.mTitle, parcel, i);
+            TextUtils.writeToParcel(this.yl, parcel, i);
             TextUtils.writeToParcel(this.ym, parcel, i);
-            TextUtils.writeToParcel(this.yn, parcel, i);
+            parcel.writeParcelable(this.yn, i);
             parcel.writeParcelable(this.yo, i);
-            parcel.writeParcelable(this.yp, i);
             parcel.writeBundle(this.mExtras);
-            parcel.writeParcelable(this.yq, i);
+            parcel.writeParcelable(this.yp, i);
             return;
         }
         d.a(getMediaDescription(), parcel, i);
     }
 
     public String toString() {
-        return ((Object) this.mTitle) + ", " + ((Object) this.ym) + ", " + ((Object) this.yn);
+        return ((Object) this.mTitle) + ", " + ((Object) this.yl) + ", " + ((Object) this.ym);
     }
 
     public Object getMediaDescription() {
-        if (this.yr != null || Build.VERSION.SDK_INT < 21) {
-            return this.yr;
+        if (this.yq != null || Build.VERSION.SDK_INT < 21) {
+            return this.yq;
         }
         Object newInstance = d.a.newInstance();
         d.a.f(newInstance, this.xc);
         d.a.a(newInstance, this.mTitle);
-        d.a.b(newInstance, this.ym);
-        d.a.c(newInstance, this.yn);
+        d.a.b(newInstance, this.yl);
+        d.a.c(newInstance, this.ym);
+        d.a.a(newInstance, this.yn);
         d.a.a(newInstance, this.yo);
-        d.a.a(newInstance, this.yp);
         Bundle bundle = this.mExtras;
-        if (Build.VERSION.SDK_INT < 23 && this.yq != null) {
+        if (Build.VERSION.SDK_INT < 23 && this.yp != null) {
             if (bundle == null) {
                 bundle = new Bundle();
                 bundle.putBoolean(DESCRIPTION_KEY_NULL_BUNDLE_FLAG, true);
             }
-            bundle.putParcelable(DESCRIPTION_KEY_MEDIA_URI, this.yq);
+            bundle.putParcelable(DESCRIPTION_KEY_MEDIA_URI, this.yp);
         }
         d.a.a(newInstance, bundle);
         if (Build.VERSION.SDK_INT >= 23) {
-            e.a.b(newInstance, this.yq);
+            e.a.b(newInstance, this.yp);
         }
-        this.yr = d.a.build(newInstance);
-        return this.yr;
+        this.yq = d.a.build(newInstance);
+        return this.yq;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x0058  */
@@ -187,7 +187,7 @@ public final class MediaDescriptionCompat implements Parcelable {
                     builder.setMediaUri(e.z(obj));
                 }
                 MediaDescriptionCompat build = builder.build();
-                build.yr = obj;
+                build.yq = obj;
                 return build;
             }
         }
@@ -196,7 +196,7 @@ public final class MediaDescriptionCompat implements Parcelable {
         if (uri == null) {
         }
         MediaDescriptionCompat build2 = builder.build();
-        build2.yr = obj;
+        build2.yq = obj;
         return build2;
     }
 
@@ -205,11 +205,11 @@ public final class MediaDescriptionCompat implements Parcelable {
         private Bundle mExtras;
         private CharSequence mTitle;
         private String xc;
+        private CharSequence yl;
         private CharSequence ym;
-        private CharSequence yn;
-        private Bitmap yo;
+        private Bitmap yn;
+        private Uri yo;
         private Uri yp;
-        private Uri yq;
 
         public Builder setMediaId(String str) {
             this.xc = str;
@@ -222,22 +222,22 @@ public final class MediaDescriptionCompat implements Parcelable {
         }
 
         public Builder setSubtitle(CharSequence charSequence) {
-            this.ym = charSequence;
+            this.yl = charSequence;
             return this;
         }
 
         public Builder setDescription(CharSequence charSequence) {
-            this.yn = charSequence;
+            this.ym = charSequence;
             return this;
         }
 
         public Builder setIconBitmap(Bitmap bitmap) {
-            this.yo = bitmap;
+            this.yn = bitmap;
             return this;
         }
 
         public Builder setIconUri(Uri uri) {
-            this.yp = uri;
+            this.yo = uri;
             return this;
         }
 
@@ -247,12 +247,12 @@ public final class MediaDescriptionCompat implements Parcelable {
         }
 
         public Builder setMediaUri(Uri uri) {
-            this.yq = uri;
+            this.yp = uri;
             return this;
         }
 
         public MediaDescriptionCompat build() {
-            return new MediaDescriptionCompat(this.xc, this.mTitle, this.ym, this.yn, this.yo, this.yp, this.mExtras, this.yq);
+            return new MediaDescriptionCompat(this.xc, this.mTitle, this.yl, this.ym, this.yn, this.yo, this.mExtras, this.yp);
         }
     }
 }

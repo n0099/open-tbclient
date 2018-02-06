@@ -32,7 +32,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.jF().h(getPageContext().getPageActivity());
+        a.jF().j(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -140,7 +140,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         MessageManager.getInstance().removeMessage(this.mId);
         com.baidu.adp.lib.f.c.nm().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.jF().i(getPageContext().getPageActivity());
+        a.jF().k(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

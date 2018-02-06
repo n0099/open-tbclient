@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -18,7 +19,7 @@ public class j implements Serializable, Cloneable, org.apache.thrift.a<j, a> {
     private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("name", (byte) 11, 2);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("appId", (byte) 10, 3);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("packageName", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("createTime", (byte) 10, 5);
+    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b(BeanConstants.KEY_CREATE_TIME_STAMP, (byte) 10, 5);
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("type", (byte) 8, 6);
     private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("circleCenter", (byte) 12, 7);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("circleRadius", (byte) 4, 9);
@@ -42,7 +43,7 @@ public class j implements Serializable, Cloneable, org.apache.thrift.a<j, a> {
         NAME(2, "name"),
         APP_ID(3, "appId"),
         PACKAGE_NAME(4, "packageName"),
-        CREATE_TIME(5, "createTime"),
+        CREATE_TIME(5, BeanConstants.KEY_CREATE_TIME_STAMP),
         TYPE(6, "type"),
         CIRCLE_CENTER(7, "circleCenter"),
         CIRCLE_RADIUS(9, "circleRadius"),
@@ -77,7 +78,7 @@ public class j implements Serializable, Cloneable, org.apache.thrift.a<j, a> {
         enumMap.put((EnumMap) a.NAME, (a) new org.apache.thrift.meta_data.b("name", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.CREATE_TIME, (a) new org.apache.thrift.meta_data.b("createTime", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
+        enumMap.put((EnumMap) a.CREATE_TIME, (a) new org.apache.thrift.meta_data.b(BeanConstants.KEY_CREATE_TIME_STAMP, (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.TYPE, (a) new org.apache.thrift.meta_data.b("type", (byte) 1, new org.apache.thrift.meta_data.a((byte) 16, k.class)));
         enumMap.put((EnumMap) a.CIRCLE_CENTER, (a) new org.apache.thrift.meta_data.b("circleCenter", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, l.class)));
         enumMap.put((EnumMap) a.CIRCLE_RADIUS, (a) new org.apache.thrift.meta_data.b("circleRadius", (byte) 2, new org.apache.thrift.meta_data.c((byte) 4)));

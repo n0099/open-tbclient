@@ -12,55 +12,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d dQO;
-    private boolean dQH = false;
-    private final HashMap<String, ArrayList<f>> dQN = new HashMap<>();
+    private static volatile d dTZ;
+    private boolean dTS = false;
+    private final HashMap<String, ArrayList<f>> dTY = new HashMap<>();
 
     private d() {
     }
 
-    public static d ayK() {
-        if (dQO == null) {
+    public static d azM() {
+        if (dTZ == null) {
             synchronized (d.class) {
-                if (dQO == null) {
-                    dQO = new d();
+                if (dTZ == null) {
+                    dTZ = new d();
                 }
             }
         }
-        return dQO;
+        return dTZ;
     }
 
-    public String ayF() {
+    public String azH() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     public synchronized void h(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String ayF = ayF();
-            ArrayList<f> arrayList = this.dQN.get(ayF);
+            String azH = azH();
+            ArrayList<f> arrayList = this.dTY.get(azH);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            f md = md(str);
+            f mo = mo(str);
             boolean z = false;
-            if (md != null) {
-                if (md.dQR != i) {
-                    md.dQR = i;
+            if (mo != null) {
+                if (mo.dUd != i) {
+                    mo.dUd = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.dQR = i;
+                fVar.dUd = i;
                 arrayList2.add(fVar);
                 z = true;
             }
             if (z) {
-                f(ayF, arrayList2);
+                f(azH, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<f> arrayList) {
-        JSONObject ayO;
+        JSONObject azQ;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -68,26 +68,26 @@ public class d {
             ArrayList<f> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 f fVar = arrayList.get(i);
-                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (ayO = fVar.ayO()) != null) {
-                    jSONArray.put(ayO);
+                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (azQ = fVar.azQ()) != null) {
+                    jSONArray.put(azQ);
                     arrayList2.add(fVar);
                 }
             }
             if (!v.E(arrayList2)) {
-                this.dQN.put(str, arrayList2);
-                if (!this.dQH) {
-                    ayL();
+                this.dTY.put(str, arrayList2);
+                if (!this.dTS) {
+                    azN();
                 } else {
-                    me(jSONArray.toString());
+                    mp(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized f md(String str) {
+    public synchronized f mo(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.dQN.get(ayF());
+            ArrayList<f> arrayList = this.dTY.get(azH());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -111,20 +111,20 @@ public class d {
         return fVar;
     }
 
-    private void me(String str) {
-        l<String> ayH = ayH();
-        if (ayH != null) {
-            ayH.f("frs_sortType", str);
+    private void mp(String str) {
+        l<String> azJ = azJ();
+        if (azJ != null) {
+            azJ.f("frs_sortType", str);
         }
     }
 
-    public void ayL() {
+    public void azN() {
         com.baidu.tbadk.util.v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: ayN */
+            /* renamed from: azP */
             public l<String> doInBackground() {
-                return d.this.ayH();
+                return d.this.azJ();
             }
         }, new h<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -135,12 +135,12 @@ public class d {
                     lVar.a("frs_sortType", new l.a<String>() { // from class: com.baidu.tieba.frs.smartsort.d.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.lib.cache.l.a
-                        /* renamed from: aW */
+                        /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dQN.put(d.this.ayF(), d.this.mc(str2));
+                                d.this.dTY.put(d.this.azH(), d.this.mn(str2));
                             }
-                            d.this.dQH = true;
+                            d.this.dTS = true;
                         }
                     });
                 }
@@ -149,12 +149,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> ayH() {
-        return com.baidu.tbadk.core.c.a.Ax().M("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    public l<String> azJ() {
+        return com.baidu.tbadk.core.c.a.AQ().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> mc(String str) {
+    public ArrayList<f> mn(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -169,8 +169,8 @@ public class d {
         return arrayList;
     }
 
-    public void ayM() {
-        me("");
-        this.dQN.remove(ayF());
+    public void azO() {
+        mp("");
+        this.dTY.remove(azH());
     }
 }

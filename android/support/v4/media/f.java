@@ -7,11 +7,11 @@ class f {
         return Rating.newUnratedRating(i);
     }
 
-    public static Object t(boolean z) {
+    public static Object v(boolean z) {
         return Rating.newHeartRating(z);
     }
 
-    public static Object u(boolean z) {
+    public static Object w(boolean z) {
         return Rating.newThumbRating(z);
     }
 
@@ -19,7 +19,7 @@ class f {
         return Rating.newStarRating(i, f);
     }
 
-    public static Object n(float f) {
+    public static Object r(float f) {
         return Rating.newPercentageRating(f);
     }
 

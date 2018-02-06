@@ -15,8 +15,8 @@ public class FrsArActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("name", str);
-        intent.putExtra(AR_ID, str2);
-        intent.putExtra(AR_TYPE, str3);
+        intent.putExtra("ar_id", str2);
+        intent.putExtra("ar_type", str3);
         intent.putExtra(TITLE_SHARE, str4);
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);

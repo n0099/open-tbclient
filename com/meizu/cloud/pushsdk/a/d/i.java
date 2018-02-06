@@ -2,9 +2,7 @@ package com.meizu.cloud.pushsdk.a.d;
 
 import com.meizu.cloud.pushsdk.a.d.c;
 import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes2.dex */
 public class i {
@@ -31,10 +29,10 @@ public class i {
     }
 
     public int c() {
-        if (HttpGet.METHOD_NAME.equals(b())) {
+        if ("GET".equals(b())) {
             return 0;
         }
-        if (HttpPost.METHOD_NAME.equals(b())) {
+        if ("POST".equals(b())) {
             return 1;
         }
         if (HttpPut.METHOD_NAME.equals(b())) {
@@ -72,7 +70,7 @@ public class i {
     /* loaded from: classes2.dex */
     public static class a {
         private f a;
-        private String b = HttpGet.METHOD_NAME;
+        private String b = "GET";
         private c.a c = new c.a();
         private j d;
         private Object e;
@@ -112,7 +110,7 @@ public class i {
         }
 
         public a a() {
-            return a(HttpGet.METHOD_NAME, (j) null);
+            return a("GET", (j) null);
         }
 
         public a b() {
@@ -120,7 +118,7 @@ public class i {
         }
 
         public a a(j jVar) {
-            return a(HttpPost.METHOD_NAME, jVar);
+            return a("POST", jVar);
         }
 
         public a b(j jVar) {

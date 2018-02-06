@@ -2,10 +2,6 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import android.os.Bundle;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
@@ -19,153 +15,145 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> implements CacheModel.a<m>, NetModel.b<l, m> {
-    private com.baidu.tbadk.mvc.d.a dcg;
-    private ReplyMessageActivity eOV;
-    private l eOW;
-    private ReplyMeNetModel eOX;
-    private ReplyMeCacheModel eOY;
-    private FeedData eOb;
-    private f eOc;
-    final CustomMessageListener mNetworkChangedMessageListener;
+public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<n>, NetModel.b<m, n> {
+    private FeedData eSk;
+    private f eSl;
+    private p eTe;
+    private m eTf;
+    private ReplyMeNetModel eTg;
+    private ReplyMeCacheModel eTh;
 
-    public ReplyMeModelController(ReplyMessageActivity replyMessageActivity) {
-        super(com.baidu.adp.base.i.ak(replyMessageActivity.getPageContext().getPageActivity()));
-        this.mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModelController.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    ReplyMeModelController.this.eOV.aLT();
-                }
-            }
-        };
-        this.eOV = replyMessageActivity;
+    public ReplyMeModelController(p pVar) {
+        super(pVar.getPageContext());
+        this.eTe = pVar;
     }
 
-    public void k(Bundle bundle) {
-        this.eOW = new l();
-        this.eOX = new ReplyMeNetModel((TbPageContext) com.baidu.adp.base.i.ak(this.eOV.getPageContext().getPageActivity()), this.eOW);
-        this.eOX.a(this);
-        this.eOX.setUniqueId(getUniqueId());
-        this.eOX.registerListener(this.mNetworkChangedMessageListener);
-        this.eOY = new ReplyMeCacheModel((TbPageContext) com.baidu.adp.base.i.ak(this.eOV.getPageContext().getPageActivity()));
-        this.eOY.a(this);
-        this.eOY.setUniqueId(getUniqueId());
-        this.eOc = new f();
-        this.dcg = new com.baidu.tbadk.mvc.d.a();
+    public void l(Bundle bundle) {
+        this.eTf = new m();
+        this.eTg = new ReplyMeNetModel(this.eTe.getPageContext(), this.eTf);
+        this.eTg.a(this);
+        this.eTg.setUniqueId(this.eTe.getUniqueId());
+        this.eTh = new ReplyMeCacheModel(this.eTe.getPageContext());
+        this.eTh.a(this);
+        this.eTh.setUniqueId(this.eTe.getUniqueId());
+        this.eSl = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ame() {
-        if (!this.eOX.DR() && this.dcg.MY() && aLS()) {
-            this.dcg.cq(true);
-            this.dcg.cs(true);
-            this.eOW.f(this.eOb);
-            this.eOX.setNeedCache(false);
-            this.eOX.MQ();
-            this.eOV.b(this.dcg);
-            return true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean eS(boolean z) {
-        if (this.eOX.DR() || !aLS()) {
+    public boolean amN() {
+        if (this.eTg.El() || !aNt()) {
             return false;
         }
-        this.eOb = null;
-        this.eOW.reset();
-        this.eOX.setNeedCache(true);
-        this.eOX.MQ();
+        this.eTf.d(this.eSk);
+        this.eTg.setNeedCache(false);
+        this.eTg.Nw();
         return true;
     }
 
-    protected boolean aLS() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean aNs() {
+        if (this.eTg.El() || !aNt()) {
+            return false;
+        }
+        this.eSk = null;
+        this.eTf.reset();
+        this.eTg.setNeedCache(true);
+        this.eTg.Nw();
+        return true;
+    }
+
+    protected boolean aNt() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.eOc != null && this.eOc.eOH != null) {
-            this.eOc.eOH.clear();
+        if (this.eSl != null && this.eSl.eSV != null) {
+            this.eSl.eSV.clear();
         }
-        this.eOV.aLT();
-        this.eOV.a(this.eOc);
+        this.eTe.aNM();
+        this.eTe.b(false, (ArrayList<com.baidu.adp.widget.ListView.i>) null);
         return false;
     }
 
-    public boolean amd() {
-        if (aLS()) {
-            if (this.eOV != null) {
-                this.eOV.aLU();
-            }
-            this.eOY.a((com.baidu.tbadk.mvc.b.e) this.eOW);
+    public boolean amM() {
+        if (aNt()) {
+            this.eTh.a((com.baidu.tbadk.mvc.b.e) this.eTf);
             return true;
         }
         return true;
     }
 
-    protected boolean a(l lVar, m mVar) {
-        if (lVar.getUpdateType() != 4) {
-            this.eOc.aMb().clear();
+    protected boolean a(m mVar, n nVar, boolean z) {
+        boolean z2;
+        boolean z3;
+        if (mVar.getUpdateType() != 4) {
+            this.eSl.aNF().clear();
         }
-        this.eOc.a(mVar);
-        if (mVar != null && mVar.aMb() != null && mVar.aMb().size() > 0) {
-            this.eOb = mVar.aMb().get(mVar.aMb().size() - 1);
-            if (this.eOc.xZ() != null) {
-                this.dcg.cr(this.eOc.xZ().xV() == 1);
+        this.eSl.a(nVar);
+        if (nVar != null && nVar.aNF() != null && nVar.aNF().size() > 0) {
+            this.eSk = nVar.aNF().get(nVar.aNF().size() - 1);
+            if (this.eSl.yA() != null) {
+                z3 = this.eSl.yA().yw() == 1;
             } else {
-                this.dcg.cr(true);
+                z3 = true;
             }
-            if (lVar != null) {
-                lVar.toNextPage();
+            if (mVar != null) {
+                mVar.toNextPage();
+                z2 = z3;
+            } else {
+                z2 = z3;
             }
-            this.dcg.cs(true);
         } else {
-            this.eOb = null;
-            this.dcg.cr(false);
-            this.dcg.cs(false);
+            this.eSk = null;
+            z2 = false;
         }
-        this.dcg.cq(false);
-        this.dcg.cp(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.Gh().Gw();
-        this.eOV.a(this.eOc);
-        this.eOV.b(this.dcg);
+        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().GX();
+        ArrayList<com.baidu.adp.widget.ListView.i> arrayList = new ArrayList<>();
+        Iterator<FeedData> it = this.eSl.eSV.iterator();
+        while (it.hasNext()) {
+            com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
+            aVar.e(it.next());
+            if (z) {
+                aVar.il(false);
+            }
+            arrayList.add(aVar);
+        }
+        this.eTe.b(z2, arrayList);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(ReadCacheRespMsg<List<m>> readCacheRespMsg, ReadCacheMessage<m> readCacheMessage) {
+    public void a(ReadCacheRespMsg<List<n>> readCacheRespMsg, ReadCacheMessage<n> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.eOW, readCacheRespMsg.getData().get(0));
+            a(this.eTf, readCacheRespMsg.getData().get(0), true);
         }
-        this.eOb = null;
-        this.eOW.reset();
-        this.eOX.setNeedCache(true);
-        this.eOX.MQ();
+        this.eSk = null;
+        this.eTf.reset();
+        this.eTg.setNeedCache(true);
+        this.eTg.Nw();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(WriteCacheRespMsg<List<m>> writeCacheRespMsg, WriteCacheMessage<m> writeCacheMessage) {
+    public void a(WriteCacheRespMsg<List<n>> writeCacheRespMsg, WriteCacheMessage<n> writeCacheMessage) {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<l, m> mvcHttpMessage, MvcNetMessage<l, m> mvcNetMessage) {
-        m mVar;
-        this.eOV.aLT();
+    public void a(MvcHttpResponsedMessage<n> mvcHttpResponsedMessage, MvcHttpMessage<m, n> mvcHttpMessage, MvcNetMessage<m, n> mvcNetMessage) {
+        n nVar;
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-            mVar = mvcHttpResponsedMessage.getData();
+            nVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.Gh().setMsgReplyme(0);
-            mVar = null;
+            com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgReplyme(0);
+            nVar = null;
         }
-        if (r1 == null || mVar == null || !a(r1, mVar)) {
+        if (r1 == null || nVar == null || !a(r1, nVar, false)) {
             if (mvcHttpResponsedMessage != null) {
                 this.mErrorCode = mvcHttpResponsedMessage.getError();
                 this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -174,27 +162,25 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eOV.a(errorData);
-                this.eOV.a(errorData);
+                this.eTe.a(errorData);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<l, m> mvcSocketMessage, MvcNetMessage<l, m> mvcNetMessage) {
-        m mVar;
-        this.eOV.aLT();
+    public void a(MvcSocketResponsedMessage<n, ?> mvcSocketResponsedMessage, MvcSocketMessage<m, n> mvcSocketMessage, MvcNetMessage<m, n> mvcNetMessage) {
+        n nVar;
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-            mVar = mvcSocketResponsedMessage.getData();
+            nVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.Gh().setMsgReplyme(0);
-            mVar = null;
+            com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgReplyme(0);
+            nVar = null;
         }
-        if (r1 == null || mVar == null || !a(r1, mVar)) {
+        if (r1 == null || nVar == null || !a(r1, nVar, false)) {
             if (mvcSocketResponsedMessage != null) {
                 this.mErrorCode = mvcSocketResponsedMessage.getError();
                 this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -203,8 +189,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eOV.a(errorData);
-                this.eOV.a(errorData);
+                this.eTe.a(errorData);
             }
         }
     }

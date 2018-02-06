@@ -2,6 +2,8 @@ package com.baidu.tbadk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
+import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +19,7 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
     public String toChatMessageContent() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("forumName", this.forumName);
+            jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.forumName);
             jSONObject.put("postID", this.postId);
             jSONObject.put("themeContent", this.content);
             jSONObject.put("themeID", this.threadId);
@@ -27,7 +29,7 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
             jSONObject.put("shareSource", this.shareSource);
             jSONObject.put("shareSourceIcon", this.shareSourceIcon);
             jSONObject.put("shareSourceUrl", this.shareSourceUrl);
-            jSONObject.put("shareUrl", this.shareUrl);
+            jSONObject.put(WBConstants.SDK_WEOYOU_SHAREURL, this.shareUrl);
             JSONArray jSONArray = new JSONArray();
             String str = "";
             if (!TextUtils.isEmpty(this.title)) {

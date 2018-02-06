@@ -5,16 +5,16 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
+import com.baidu.sapi2.passhost.framework.a.a;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +27,7 @@ public class SapiDeviceInfo {
     private static final int a = 7;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, "O", "K", "T", "T", "Q", "G", "L", "w", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
 
     static String a() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
@@ -61,11 +61,11 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(2) ? "" : isAccountManager.getVersionName());
         arrayList.add(diExceptIndex.contains(3) ? "" : b());
         arrayList.add(diExceptIndex.contains(4) ? "" : a());
-        arrayList.add(diExceptIndex.contains(5) ? "" : c);
+        arrayList.add(diExceptIndex.contains(5) ? "" : "android");
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
         arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, c()));
+        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, c()));
         if (diExceptIndex.contains(10)) {
             str = "";
         } else if (str == null) {
@@ -95,7 +95,7 @@ public class SapiDeviceInfo {
         if (diExceptIndex.contains(17)) {
             str3 = "";
         } else {
-            str3 = SapiUtils.isEmulator(context) ? "emulator" : c;
+            str3 = SapiUtils.isEmulator(context) ? "emulator" : "android";
         }
         arrayList.add(str3);
         arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.getMac(context));
@@ -110,7 +110,7 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(22) ? "" : SapiUtils.getInternalAvailableMemorySize() + "");
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
         arrayList.add(diExceptIndex.contains(24) ? "" : SapiUtils.getGPSInfo(context));
-        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
+        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
         if (diExceptIndex.contains(26)) {
             localIpAddress = "";
         } else {
@@ -124,7 +124,7 @@ public class SapiDeviceInfo {
         arrayList.add("");
         arrayList.add("");
         arrayList.add("");
-        arrayList.add(diExceptIndex.contains(34) ? "" : SafeService.getInstance().getCurZid(context));
+        arrayList.add(diExceptIndex.contains(34) ? "" : a.a().getAppZid());
         arrayList.add(diExceptIndex.contains(35) ? "" : "1.0.3");
         return arrayList;
     }
@@ -210,8 +210,9 @@ public class SapiDeviceInfo {
         return a(jSONObject.toString());
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    static final class DeviceInfoCookieManager {
+    public static final class DeviceInfoCookieManager {
         static Map<String, String> a = new HashMap();
 
         DeviceInfoCookieManager() {

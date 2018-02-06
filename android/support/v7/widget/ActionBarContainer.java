@@ -16,15 +16,15 @@ import android.widget.FrameLayout;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ActionBarContainer extends FrameLayout {
-    Drawable Ix;
-    private boolean JV;
+    Drawable Iw;
+    private boolean JU;
+    private View JV;
     private View JW;
     private View JX;
-    private View JY;
+    Drawable JY;
     Drawable JZ;
-    Drawable Ka;
+    boolean Ka;
     boolean Kb;
-    boolean Kc;
     private int mHeight;
 
     public ActionBarContainer(Context context) {
@@ -35,42 +35,42 @@ public class ActionBarContainer extends FrameLayout {
         super(context, attributeSet);
         ViewCompat.setBackground(this, Build.VERSION.SDK_INT >= 21 ? new b(this) : new a(this));
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBar);
-        this.Ix = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_background);
-        this.JZ = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundStacked);
+        this.Iw = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_background);
+        this.JY = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundStacked);
         this.mHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ActionBar_height, -1);
         if (getId() == R.id.split_action_bar) {
-            this.Kb = true;
-            this.Ka = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundSplit);
+            this.Ka = true;
+            this.JZ = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundSplit);
         }
         obtainStyledAttributes.recycle();
-        setWillNotDraw(this.Kb ? this.Ka == null : this.Ix == null && this.JZ == null);
+        setWillNotDraw(this.Ka ? this.JZ == null : this.Iw == null && this.JY == null);
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.JX = findViewById(R.id.action_bar);
-        this.JY = findViewById(R.id.action_context_bar);
+        this.JW = findViewById(R.id.action_bar);
+        this.JX = findViewById(R.id.action_context_bar);
     }
 
     public void setPrimaryBackground(Drawable drawable) {
         boolean z = true;
-        if (this.Ix != null) {
-            this.Ix.setCallback(null);
-            unscheduleDrawable(this.Ix);
+        if (this.Iw != null) {
+            this.Iw.setCallback(null);
+            unscheduleDrawable(this.Iw);
         }
-        this.Ix = drawable;
+        this.Iw = drawable;
         if (drawable != null) {
             drawable.setCallback(this);
-            if (this.JX != null) {
-                this.Ix.setBounds(this.JX.getLeft(), this.JX.getTop(), this.JX.getRight(), this.JX.getBottom());
+            if (this.JW != null) {
+                this.Iw.setBounds(this.JW.getLeft(), this.JW.getTop(), this.JW.getRight(), this.JW.getBottom());
             }
         }
-        if (this.Kb) {
-            if (this.Ka != null) {
+        if (this.Ka) {
+            if (this.JZ != null) {
                 z = false;
             }
-        } else if (this.Ix != null || this.JZ != null) {
+        } else if (this.Iw != null || this.JY != null) {
             z = false;
         }
         setWillNotDraw(z);
@@ -79,22 +79,22 @@ public class ActionBarContainer extends FrameLayout {
 
     public void setStackedBackground(Drawable drawable) {
         boolean z = true;
-        if (this.JZ != null) {
-            this.JZ.setCallback(null);
-            unscheduleDrawable(this.JZ);
+        if (this.JY != null) {
+            this.JY.setCallback(null);
+            unscheduleDrawable(this.JY);
         }
-        this.JZ = drawable;
+        this.JY = drawable;
         if (drawable != null) {
             drawable.setCallback(this);
-            if (this.Kc && this.JZ != null) {
-                this.JZ.setBounds(this.JW.getLeft(), this.JW.getTop(), this.JW.getRight(), this.JW.getBottom());
+            if (this.Kb && this.JY != null) {
+                this.JY.setBounds(this.JV.getLeft(), this.JV.getTop(), this.JV.getRight(), this.JV.getBottom());
             }
         }
-        if (this.Kb) {
-            if (this.Ka != null) {
+        if (this.Ka) {
+            if (this.JZ != null) {
                 z = false;
             }
-        } else if (this.Ix != null || this.JZ != null) {
+        } else if (this.Iw != null || this.JY != null) {
             z = false;
         }
         setWillNotDraw(z);
@@ -103,22 +103,22 @@ public class ActionBarContainer extends FrameLayout {
 
     public void setSplitBackground(Drawable drawable) {
         boolean z = true;
-        if (this.Ka != null) {
-            this.Ka.setCallback(null);
-            unscheduleDrawable(this.Ka);
+        if (this.JZ != null) {
+            this.JZ.setCallback(null);
+            unscheduleDrawable(this.JZ);
         }
-        this.Ka = drawable;
+        this.JZ = drawable;
         if (drawable != null) {
             drawable.setCallback(this);
-            if (this.Kb && this.Ka != null) {
-                this.Ka.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            if (this.Ka && this.JZ != null) {
+                this.JZ.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
             }
         }
-        if (this.Kb) {
-            if (this.Ka != null) {
+        if (this.Ka) {
+            if (this.JZ != null) {
                 z = false;
             }
-        } else if (this.Ix != null || this.JZ != null) {
+        } else if (this.Iw != null || this.JY != null) {
             z = false;
         }
         setWillNotDraw(z);
@@ -129,33 +129,33 @@ public class ActionBarContainer extends FrameLayout {
     public void setVisibility(int i) {
         super.setVisibility(i);
         boolean z = i == 0;
-        if (this.Ix != null) {
-            this.Ix.setVisible(z, false);
+        if (this.Iw != null) {
+            this.Iw.setVisible(z, false);
+        }
+        if (this.JY != null) {
+            this.JY.setVisible(z, false);
         }
         if (this.JZ != null) {
             this.JZ.setVisible(z, false);
-        }
-        if (this.Ka != null) {
-            this.Ka.setVisible(z, false);
         }
     }
 
     @Override // android.view.View
     protected boolean verifyDrawable(Drawable drawable) {
-        return (drawable == this.Ix && !this.Kb) || (drawable == this.JZ && this.Kc) || ((drawable == this.Ka && this.Kb) || super.verifyDrawable(drawable));
+        return (drawable == this.Iw && !this.Ka) || (drawable == this.JY && this.Kb) || ((drawable == this.JZ && this.Ka) || super.verifyDrawable(drawable));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Ix != null && this.Ix.isStateful()) {
-            this.Ix.setState(getDrawableState());
+        if (this.Iw != null && this.Iw.isStateful()) {
+            this.Iw.setState(getDrawableState());
+        }
+        if (this.JY != null && this.JY.isStateful()) {
+            this.JY.setState(getDrawableState());
         }
         if (this.JZ != null && this.JZ.isStateful()) {
             this.JZ.setState(getDrawableState());
-        }
-        if (this.Ka != null && this.Ka.isStateful()) {
-            this.Ka.setState(getDrawableState());
         }
     }
 
@@ -163,26 +163,26 @@ public class ActionBarContainer extends FrameLayout {
     public void jumpDrawablesToCurrentState() {
         if (Build.VERSION.SDK_INT >= 11) {
             super.jumpDrawablesToCurrentState();
-            if (this.Ix != null) {
-                this.Ix.jumpToCurrentState();
+            if (this.Iw != null) {
+                this.Iw.jumpToCurrentState();
+            }
+            if (this.JY != null) {
+                this.JY.jumpToCurrentState();
             }
             if (this.JZ != null) {
                 this.JZ.jumpToCurrentState();
-            }
-            if (this.Ka != null) {
-                this.Ka.jumpToCurrentState();
             }
         }
     }
 
     public void setTransitioning(boolean z) {
-        this.JV = z;
+        this.JU = z;
         setDescendantFocusability(z ? 393216 : 262144);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.JV || super.onInterceptTouchEvent(motionEvent);
+        return this.JU || super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -192,10 +192,10 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     public void setTabContainer(ScrollingTabContainerView scrollingTabContainerView) {
-        if (this.JW != null) {
-            removeView(this.JW);
+        if (this.JV != null) {
+            removeView(this.JV);
         }
-        this.JW = scrollingTabContainerView;
+        this.JV = scrollingTabContainerView;
         if (scrollingTabContainerView != null) {
             addView(scrollingTabContainerView);
             ViewGroup.LayoutParams layoutParams = scrollingTabContainerView.getLayoutParams();
@@ -206,7 +206,7 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     public View getTabContainer() {
-        return this.JW;
+        return this.JV;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -234,21 +234,21 @@ public class ActionBarContainer extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         int i3;
-        if (this.JX == null && View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE && this.mHeight >= 0) {
+        if (this.JW == null && View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE && this.mHeight >= 0) {
             i2 = View.MeasureSpec.makeMeasureSpec(Math.min(this.mHeight, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
         }
         super.onMeasure(i, i2);
-        if (this.JX != null) {
+        if (this.JW != null) {
             int mode = View.MeasureSpec.getMode(i2);
-            if (this.JW != null && this.JW.getVisibility() != 8 && mode != 1073741824) {
-                if (!U(this.JX)) {
+            if (this.JV != null && this.JV.getVisibility() != 8 && mode != 1073741824) {
+                if (!U(this.JW)) {
+                    i3 = V(this.JW);
+                } else if (!U(this.JX)) {
                     i3 = V(this.JX);
-                } else if (!U(this.JY)) {
-                    i3 = V(this.JY);
                 } else {
                     i3 = 0;
                 }
-                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + V(this.JW), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
+                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + V(this.JV), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
             }
         }
     }
@@ -258,37 +258,37 @@ public class ActionBarContainer extends FrameLayout {
         boolean z2;
         boolean z3 = true;
         super.onLayout(z, i, i2, i3, i4);
-        View view = this.JW;
+        View view = this.JV;
         boolean z4 = (view == null || view.getVisibility() == 8) ? false : true;
         if (view != null && view.getVisibility() != 8) {
             int measuredHeight = getMeasuredHeight();
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
             view.layout(i, (measuredHeight - view.getMeasuredHeight()) - layoutParams.bottomMargin, i3, measuredHeight - layoutParams.bottomMargin);
         }
-        if (this.Kb) {
-            if (this.Ka != null) {
-                this.Ka.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        if (this.Ka) {
+            if (this.JZ != null) {
+                this.JZ.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
             } else {
                 z3 = false;
             }
         } else {
-            if (this.Ix != null) {
-                if (this.JX.getVisibility() == 0) {
-                    this.Ix.setBounds(this.JX.getLeft(), this.JX.getTop(), this.JX.getRight(), this.JX.getBottom());
-                } else if (this.JY != null && this.JY.getVisibility() == 0) {
-                    this.Ix.setBounds(this.JY.getLeft(), this.JY.getTop(), this.JY.getRight(), this.JY.getBottom());
+            if (this.Iw != null) {
+                if (this.JW.getVisibility() == 0) {
+                    this.Iw.setBounds(this.JW.getLeft(), this.JW.getTop(), this.JW.getRight(), this.JW.getBottom());
+                } else if (this.JX != null && this.JX.getVisibility() == 0) {
+                    this.Iw.setBounds(this.JX.getLeft(), this.JX.getTop(), this.JX.getRight(), this.JX.getBottom());
                 } else {
-                    this.Ix.setBounds(0, 0, 0, 0);
+                    this.Iw.setBounds(0, 0, 0, 0);
                 }
                 z2 = true;
             } else {
                 z2 = false;
             }
-            this.Kc = z4;
-            if (!z4 || this.JZ == null) {
+            this.Kb = z4;
+            if (!z4 || this.JY == null) {
                 z3 = z2;
             } else {
-                this.JZ.setBounds(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+                this.JY.setBounds(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
             }
         }
         if (z3) {

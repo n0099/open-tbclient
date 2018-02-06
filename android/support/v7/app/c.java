@@ -28,9 +28,9 @@ public class c extends f {
 
         @Override // android.support.v7.view.WindowCallbackWrapper, android.view.Window.Callback
         public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-            AppCompatDelegateImplV9.PanelFeatureState g = c.this.g(0, true);
-            if (g != null && g.Dx != null) {
-                super.onProvideKeyboardShortcuts(list, g.Dx, i);
+            AppCompatDelegateImplV9.PanelFeatureState j = c.this.j(0, true);
+            if (j != null && j.Dw != null) {
+                super.onProvideKeyboardShortcuts(list, j.Dw, i);
             } else {
                 super.onProvideKeyboardShortcuts(list, menu, i);
             }

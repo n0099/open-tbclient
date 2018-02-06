@@ -1,5 +1,7 @@
 package com.xiaomi.stats;
 
+import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.xiaomi.channel.commonutils.stats.a;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.at;
@@ -22,17 +24,17 @@ public class f {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0195a c0195a) {
-        if (c0195a.a == 0) {
-            if (c0195a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0195a.c;
+    private com.xiaomi.push.thrift.b a(a.C0284a c0284a) {
+        if (c0284a.a == 0) {
+            if (c0284a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0284a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0195a.a);
-        f.c(c0195a.b);
+        f.c(c0284a.a);
+        f.c(c0284a.b);
         return f;
     }
 
@@ -52,7 +54,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0195a> c = this.f.c();
+        LinkedList<a.C0284a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());
@@ -90,16 +92,19 @@ public class f {
     }
 
     public void a(int i) {
+        int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
-            int i2 = i * 1000;
-            int i3 = i2 <= 604800000 ? i2 : 604800000;
-            if (this.c == i3 && this.b) {
+            int i3 = i * 1000;
+            if (i3 <= 604800000) {
+                i2 = i3;
+            }
+            if (this.c == i2 && this.b) {
                 return;
             }
             this.b = true;
             this.d = System.currentTimeMillis();
-            this.c = i3;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.d);
+            this.c = i2;
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.d);
         }
     }
 
@@ -128,7 +133,11 @@ public class f {
         com.xiaomi.push.thrift.c cVar;
         cVar = null;
         if (d()) {
-            cVar = b(com.xiaomi.channel.commonutils.network.d.f(this.e.a) ? 750 : 375);
+            int i = FormCard.WIDTH_DEFAULT_SIZE;
+            if (!com.xiaomi.channel.commonutils.network.d.f(this.e.a)) {
+                i = 375;
+            }
+            cVar = b(i);
         }
         return cVar;
     }

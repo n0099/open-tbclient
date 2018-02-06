@@ -1,49 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tieba.d;
-import java.io.File;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bi;
 /* loaded from: classes.dex */
-public class v {
-    public static final void am(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
-            return;
-        }
-        File dr = com.baidu.tbadk.core.util.k.dr(str.replace(".", "_") + ".apk");
-        if (dr != null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dr, intent, context), "application/vnd.android.package-archive");
-            intent.addFlags(268435456);
-            context.startActivity(intent);
-        }
+public class v extends bd {
+    public static final BdUniqueId gZY = BdUniqueId.gen();
+    private boolean cdF = false;
+    private bf gZZ;
+    private bi haa;
+
+    @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
+    public BdUniqueId getType() {
+        return gZY;
     }
 
-    public static boolean isInstalledPackage(Context context, String str) {
-        try {
-            return context.getPackageManager().getPackageInfo(str, 0) != null;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
+    public boolean bwr() {
+        return this.cdF;
     }
 
-    public static boolean B(Activity activity) {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
-        }
-        boolean aX = ab.aX(activity);
-        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-            return false;
-        }
-        return aX;
+    public bf bws() {
+        return this.gZZ;
+    }
+
+    public bi bwt() {
+        return this.haa;
     }
 }

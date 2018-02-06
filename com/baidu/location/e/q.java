@@ -1,8 +1,8 @@
 package com.baidu.location.e;
 
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.Constants;
 import com.baidu.location.e.m;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -40,12 +40,12 @@ enum q extends m.b {
                         String string2 = jSONObject2.has("ne") ? jSONObject2.getString("ne") : null;
                         String string3 = jSONObject2.has("tp") ? jSONObject2.getString("tp") : null;
                         Integer valueOf = jSONObject2.has("rk") ? Integer.valueOf(jSONObject2.getInt("rk")) : null;
-                        Double valueOf2 = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
-                        Double valueOf3 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
+                        Double valueOf2 = jSONObject2.has(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X) ? Double.valueOf(jSONObject2.getDouble(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X)) : null;
+                        Double valueOf3 = jSONObject2.has(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y) ? Double.valueOf(jSONObject2.getDouble(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y)) : null;
                         if (stringBuffer2.length() > 0) {
-                            stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            stringBuffer2.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
-                        stringBuffer2.append("(\"").append(string).append("\",\"").append(next).append("\",\"").append(string2).append("\",\"").append(string3).append("\",").append(valueOf2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf3).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf).append(")");
+                        stringBuffer2.append("(\"").append(string).append("\",\"").append(next).append("\",\"").append(string2).append("\",\"").append(string3).append("\",").append(valueOf2).append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf3).append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf).append(")");
                     } catch (JSONException e2) {
                     }
                     if (i2 % 50 == 49) {

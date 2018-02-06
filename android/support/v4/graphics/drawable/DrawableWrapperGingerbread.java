@@ -10,9 +10,11 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, DrawableWrapper, TintAwareDrawable {
-    static final PorterDuff.Mode tq = PorterDuff.Mode.SRC_IN;
+    static final PorterDuff.Mode tr = PorterDuff.Mode.SRC_IN;
     private int mCurrentColor;
-    private boolean tu;
+
+    /* renamed from: tv  reason: collision with root package name */
+    private boolean f1tv;
     private PorterDuff.Mode ww;
     private boolean wx;
     DrawableWrapperState wy;
@@ -84,13 +86,13 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        ColorStateList colorStateList = (!dh() || this.wy == null) ? null : this.wy.um;
+        ColorStateList colorStateList = (!dh() || this.wy == null) ? null : this.wy.uo;
         return (colorStateList != null && colorStateList.isStateful()) || this.wz.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setState(int[] iArr) {
-        return e(iArr) || this.wz.setState(iArr);
+        return f(iArr) || this.wz.setState(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -148,13 +150,13 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
         if (this.wy == null || !this.wy.canConstantState()) {
             return null;
         }
-        this.wy.tf = getChangingConfigurations();
+        this.wy.tg = getChangingConfigurations();
         return this.wy;
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        if (!this.tu && super.mutate() == this) {
+        if (!this.f1tv && super.mutate() == this) {
             this.wy = dg();
             if (this.wz != null) {
                 this.wz.mutate();
@@ -162,7 +164,7 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
             if (this.wy != null) {
                 this.wy.wA = this.wz != null ? this.wz.getConstantState() : null;
             }
-            this.tu = true;
+            this.f1tv = true;
         }
         return this;
     }
@@ -198,20 +200,20 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
-        this.wy.um = colorStateList;
-        e(getState());
+        this.wy.uo = colorStateList;
+        f(getState());
     }
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintMode(PorterDuff.Mode mode) {
-        this.wy.uo = mode;
-        e(getState());
+        this.wy.uq = mode;
+        f(getState());
     }
 
-    private boolean e(int[] iArr) {
+    private boolean f(int[] iArr) {
         if (dh()) {
-            ColorStateList colorStateList = this.wy.um;
-            PorterDuff.Mode mode = this.wy.uo;
+            ColorStateList colorStateList = this.wy.uo;
+            PorterDuff.Mode mode = this.wy.uq;
             if (colorStateList != null && mode != null) {
                 int colorForState = colorStateList.getColorForState(iArr, colorStateList.getDefaultColor());
                 if (this.wx && colorForState == this.mCurrentColor && mode == this.ww) {
@@ -261,9 +263,9 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static abstract class DrawableWrapperState extends Drawable.ConstantState {
-        int tf;
-        ColorStateList um;
-        PorterDuff.Mode uo;
+        int tg;
+        ColorStateList uo;
+        PorterDuff.Mode uq;
         Drawable.ConstantState wA;
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -271,13 +273,13 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public DrawableWrapperState(DrawableWrapperState drawableWrapperState, Resources resources) {
-            this.um = null;
-            this.uo = DrawableWrapperGingerbread.tq;
+            this.uo = null;
+            this.uq = DrawableWrapperGingerbread.tr;
             if (drawableWrapperState != null) {
-                this.tf = drawableWrapperState.tf;
+                this.tg = drawableWrapperState.tg;
                 this.wA = drawableWrapperState.wA;
-                this.um = drawableWrapperState.um;
                 this.uo = drawableWrapperState.uo;
+                this.uq = drawableWrapperState.uq;
             }
         }
 
@@ -288,7 +290,7 @@ class DrawableWrapperGingerbread extends Drawable implements Drawable.Callback, 
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return (this.wA != null ? this.wA.getChangingConfigurations() : 0) | this.tf;
+            return (this.wA != null ? this.wA.getChangingConfigurations() : 0) | this.tg;
         }
 
         boolean canConstantState() {

@@ -19,16 +19,16 @@ import android.widget.TextView;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView {
-    private Drawable IA;
-    private int IB;
-    private boolean If;
-    private RadioButton It;
-    private CheckBox Iu;
-    private TextView Iv;
-    private ImageView Iw;
-    private Drawable Ix;
-    private Context Iy;
-    private boolean Iz;
+    private int IA;
+    private boolean Ie;
+    private RadioButton Is;
+    private CheckBox It;
+    private TextView Iu;
+    private ImageView Iv;
+    private Drawable Iw;
+    private Context Ix;
+    private boolean Iy;
+    private Drawable Iz;
     private MenuItemImpl jx;
     private int ki;
     private ImageView mIconView;
@@ -42,33 +42,33 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     public ListMenuItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MenuView, i, 0);
-        this.Ix = obtainStyledAttributes.getDrawable(R.styleable.MenuView_android_itemBackground);
+        this.Iw = obtainStyledAttributes.getDrawable(R.styleable.MenuView_android_itemBackground);
         this.ki = obtainStyledAttributes.getResourceId(R.styleable.MenuView_android_itemTextAppearance, -1);
-        this.Iz = obtainStyledAttributes.getBoolean(R.styleable.MenuView_preserveIconSpacing, false);
-        this.Iy = context;
-        this.IA = obtainStyledAttributes.getDrawable(R.styleable.MenuView_subMenuArrow);
+        this.Iy = obtainStyledAttributes.getBoolean(R.styleable.MenuView_preserveIconSpacing, false);
+        this.Ix = context;
+        this.Iz = obtainStyledAttributes.getDrawable(R.styleable.MenuView_subMenuArrow);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        ViewCompat.setBackground(this, this.Ix);
+        ViewCompat.setBackground(this, this.Iw);
         this.mTitleView = (TextView) findViewById(R.id.title);
         if (this.ki != -1) {
-            this.mTitleView.setTextAppearance(this.Iy, this.ki);
+            this.mTitleView.setTextAppearance(this.Ix, this.ki);
         }
-        this.Iv = (TextView) findViewById(R.id.shortcut);
-        this.Iw = (ImageView) findViewById(R.id.submenuarrow);
-        if (this.Iw != null) {
-            this.Iw.setImageDrawable(this.IA);
+        this.Iu = (TextView) findViewById(R.id.shortcut);
+        this.Iv = (ImageView) findViewById(R.id.submenuarrow);
+        if (this.Iv != null) {
+            this.Iv.setImageDrawable(this.Iz);
         }
     }
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
     public void initialize(MenuItemImpl menuItemImpl, int i) {
         this.jx = menuItemImpl;
-        this.IB = i;
+        this.IA = i;
         setVisibility(menuItemImpl.isVisible() ? 0 : 8);
         setTitle(menuItemImpl.a(this));
         setCheckable(menuItemImpl.isCheckable());
@@ -79,8 +79,8 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     }
 
     public void setForceShowIcon(boolean z) {
-        this.If = z;
-        this.Iz = z;
+        this.Ie = z;
+        this.Iy = z;
     }
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
@@ -104,19 +104,19 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     public void setCheckable(boolean z) {
         CompoundButton compoundButton;
         CompoundButton compoundButton2;
-        if (z || this.It != null || this.Iu != null) {
+        if (z || this.Is != null || this.It != null) {
             if (this.jx.isExclusiveCheckable()) {
-                if (this.It == null) {
+                if (this.Is == null) {
                     eT();
                 }
-                compoundButton = this.It;
-                compoundButton2 = this.Iu;
+                compoundButton = this.Is;
+                compoundButton2 = this.It;
             } else {
-                if (this.Iu == null) {
+                if (this.It == null) {
                     eU();
                 }
-                compoundButton = this.Iu;
-                compoundButton2 = this.It;
+                compoundButton = this.It;
+                compoundButton2 = this.Is;
             }
             if (z) {
                 compoundButton.setChecked(this.jx.isChecked());
@@ -130,11 +130,11 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
                 }
                 return;
             }
-            if (this.Iu != null) {
-                this.Iu.setVisibility(8);
-            }
             if (this.It != null) {
                 this.It.setVisibility(8);
+            }
+            if (this.Is != null) {
+                this.Is.setVisibility(8);
             }
         }
     }
@@ -143,22 +143,22 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     public void setChecked(boolean z) {
         CompoundButton compoundButton;
         if (this.jx.isExclusiveCheckable()) {
-            if (this.It == null) {
+            if (this.Is == null) {
                 eT();
             }
-            compoundButton = this.It;
+            compoundButton = this.Is;
         } else {
-            if (this.Iu == null) {
+            if (this.It == null) {
                 eU();
             }
-            compoundButton = this.Iu;
+            compoundButton = this.It;
         }
         compoundButton.setChecked(z);
     }
 
     private void setSubMenuArrowVisible(boolean z) {
-        if (this.Iw != null) {
-            this.Iw.setVisibility(z ? 0 : 8);
+        if (this.Iv != null) {
+            this.Iv.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -166,22 +166,22 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     public void setShortcut(boolean z, char c) {
         int i = (z && this.jx.eZ()) ? 0 : 8;
         if (i == 0) {
-            this.Iv.setText(this.jx.eY());
+            this.Iu.setText(this.jx.eY());
         }
-        if (this.Iv.getVisibility() != i) {
-            this.Iv.setVisibility(i);
+        if (this.Iu.getVisibility() != i) {
+            this.Iu.setVisibility(i);
         }
     }
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
     public void setIcon(Drawable drawable) {
-        boolean z = this.jx.shouldShowIcon() || this.If;
-        if (z || this.Iz) {
-            if (this.mIconView != null || drawable != null || this.Iz) {
+        boolean z = this.jx.shouldShowIcon() || this.Ie;
+        if (z || this.Iy) {
+            if (this.mIconView != null || drawable != null || this.Iy) {
                 if (this.mIconView == null) {
                     eS();
                 }
-                if (drawable != null || this.Iz) {
+                if (drawable != null || this.Iy) {
                     ImageView imageView = this.mIconView;
                     if (!z) {
                         drawable = null;
@@ -200,7 +200,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.mIconView != null && this.Iz) {
+        if (this.mIconView != null && this.Iy) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mIconView.getLayoutParams();
             if (layoutParams.height > 0 && layoutParams2.width <= 0) {
@@ -216,13 +216,13 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
     }
 
     private void eT() {
-        this.It = (RadioButton) getInflater().inflate(R.layout.abc_list_menu_item_radio, (ViewGroup) this, false);
-        addView(this.It);
+        this.Is = (RadioButton) getInflater().inflate(R.layout.abc_list_menu_item_radio, (ViewGroup) this, false);
+        addView(this.Is);
     }
 
     private void eU() {
-        this.Iu = (CheckBox) getInflater().inflate(R.layout.abc_list_menu_item_checkbox, (ViewGroup) this, false);
-        addView(this.Iu);
+        this.It = (CheckBox) getInflater().inflate(R.layout.abc_list_menu_item_checkbox, (ViewGroup) this, false);
+        addView(this.It);
     }
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
@@ -232,7 +232,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView 
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
     public boolean showsIcon() {
-        return this.If;
+        return this.Ie;
     }
 
     private LayoutInflater getInflater() {

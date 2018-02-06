@@ -48,19 +48,19 @@ public class b extends Drawable implements Animatable {
             b.this.unscheduleSelf(runnable);
         }
     };
-    private final a awY = new a(this.mCallback);
+    private final a awX = new a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.awY.setColors(COLORS);
+        this.awX.setColors(COLORS);
         updateSizes(1);
         setupAnimators();
     }
 
     private void setSizeParameters(double d, double d2, double d3, double d4, float f, float f2) {
-        a aVar = this.awY;
+        a aVar = this.awX;
         float f3 = this.mResources.getDisplayMetrics().density;
         this.mWidth = f3 * d;
         this.mHeight = f3 * d2;
@@ -80,29 +80,29 @@ public class b extends Drawable implements Animatable {
     }
 
     public void showArrow(boolean z) {
-        this.awY.setShowArrow(z);
+        this.awX.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.awY.setArrowScale(f);
+        this.awX.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.awY.setStartTrim(f);
-        this.awY.setEndTrim(f2);
+        this.awX.setStartTrim(f);
+        this.awX.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.awY.setRotation(f);
+        this.awX.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.awY.setBackgroundColor(i);
+        this.awX.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.awY.setColors(iArr);
-        this.awY.setColorIndex(0);
+        this.awX.setColors(iArr);
+        this.awX.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -120,23 +120,23 @@ public class b extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.awY.draw(canvas, bounds);
+        this.awX.draw(canvas, bounds);
         canvas.restoreToCount(save);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.awY.setAlpha(i);
+        this.awX.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.awY.getAlpha();
+        return this.awX.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.awY.setColorFilter(colorFilter);
+        this.awX.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -165,15 +165,15 @@ public class b extends Drawable implements Animatable {
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.mAnimation.reset();
-        this.awY.storeOriginals();
-        if (this.awY.getEndTrim() != this.awY.getStartTrim()) {
+        this.awX.storeOriginals();
+        if (this.awX.getEndTrim() != this.awX.getStartTrim()) {
             this.mFinishing = true;
             this.mAnimation.setDuration(666L);
             this.mParent.startAnimation(this.mAnimation);
             return;
         }
-        this.awY.setColorIndex(0);
-        this.awY.resetOriginals();
+        this.awX.setColorIndex(0);
+        this.awX.resetOriginals();
         this.mAnimation.setDuration(1332L);
         this.mParent.startAnimation(this.mAnimation);
     }
@@ -182,9 +182,9 @@ public class b extends Drawable implements Animatable {
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.awY.setShowArrow(false);
-        this.awY.setColorIndex(0);
-        this.awY.resetOriginals();
+        this.awX.setShowArrow(false);
+        this.awX.setColorIndex(0);
+        this.awX.resetOriginals();
     }
 
     float a(a aVar) {
@@ -216,7 +216,7 @@ public class b extends Drawable implements Animatable {
     }
 
     private void setupAnimators() {
-        final a aVar = this.awY;
+        final a aVar = this.awX;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.b.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {

@@ -31,6 +31,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_LIVE_PK_SWITCH = "live_pk_switch";
     public static final String FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB = "recent_history_living_tab";
     public static final String FROM_TYPE_LIVE_RECENT_HISTORY_WHOLE_TAB = "recent_history_whole_tab";
+    public static final String FROM_TYPE_LIVE_ROOM_CLOSE_DIALOG = "live_room_close_dialog";
     public static final String FROM_TYPE_LIVE_ROOM_RANK_LIST = "live_room_rank_list";
     public static final String FROM_TYPE_LIVE_SQUARE_ATTENTION_LIVE = "ala_square_attention_live";
     public static final String FROM_TYPE_OUTSIDE = "safari_play";
@@ -42,6 +43,10 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_SCAN_HISTORY = "scan_history";
     public static final String FROM_TYPE_SEARCH = "search";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
+    public static final String FROM_TYPE_SPECIAL_CONCERN_TAB = "frs_live_tab_concern_tab";
+    public static final String FROM_TYPE_SPECIAL_RECOMMEND_TAB = "frs_live_tab_recommend_tab";
+    public static final String FROM_TYPE_SPECIAL_SUB_TAB = "frs_live_tab_sub_tab";
+    public static final String FROM_TYPE_SPECIAL_TAB_TOP_LIVE = "frs_live_tab_headview";
     public static final String FROM_TYPE_SQUARE_CATOGORY = "square_category";
     public static final String FROM_TYPE_SQUARE_DYNAMIC = "square_dynamic";
     public static final String FROM_TYPE_SQUARE_LIVE = "square_live";

@@ -8,13 +8,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c {
-    public static final String hNf = null;
-    private int adY;
+    public static final String hOD = null;
+    private int adW;
     private String content;
-    private String hNg;
-    private String hNh;
-    private String hNi;
-    private String hNj;
+    private String hOE;
+    private String hOF;
+    private String hOG;
+    private String hOH;
     private String params;
     private int responseCode = -2;
 
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.uV(jSONObject.getString(str3));
+                    eVar.va(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -63,11 +63,11 @@ public class b extends c {
     }
 
     public int kI() {
-        return this.adY;
+        return this.adW;
     }
 
     public void setAppKey(String str) {
-        this.hNg = str;
+        this.hOE = str;
     }
 
     public void setContent(String str) {
@@ -75,18 +75,18 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hNk + ",taskID:" + this.hNl + ",appPackage:" + this.appPackage + ",appKey:" + this.hNg + ",appSecret:" + this.hNh + ",registerID:" + this.hNi + ",sdkVersion:" + this.hNj + ",command:" + this.adY + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hOI + ",taskID:" + this.hOJ + ",appPackage:" + this.appPackage + ",appKey:" + this.hOE + ",appSecret:" + this.hOF + ",registerID:" + this.hOG + ",sdkVersion:" + this.hOH + ",command:" + this.adW + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void uR(String str) {
-        this.hNh = str;
+    public void uW(String str) {
+        this.hOF = str;
+    }
+
+    public void xU(int i) {
+        this.adW = i;
     }
 
     public void xV(int i) {
-        this.adY = i;
-    }
-
-    public void xW(int i) {
         this.responseCode = i;
     }
 }

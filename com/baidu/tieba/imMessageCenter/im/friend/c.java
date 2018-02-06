@@ -12,12 +12,12 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport bxn;
-    private TbCheckBox.a eMH;
-    private boolean eMJ;
+    private final TbPageContextSupport bzu;
+    private TbCheckBox.a eQQ;
+    private boolean eQS;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
-    private b eMI = null;
-    private ViewGroup cnf = null;
+    private b eQR = null;
+    private ViewGroup crh = null;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -25,12 +25,12 @@ class c extends BaseAdapter {
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.bxn = tbPageContextSupport;
-        this.eMJ = z;
+        this.bzu = tbPageContextSupport;
+        this.eQS = z;
     }
 
     public void a(b bVar) {
-        this.eMI = bVar;
+        this.eQR = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -38,7 +38,7 @@ class c extends BaseAdapter {
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.eMH = aVar;
+        this.eQQ = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -65,8 +65,8 @@ class c extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.cnf == null) {
-            this.cnf = viewGroup;
+        if (this.crh == null) {
+            this.crh = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar2 = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar2 != null) {
@@ -83,42 +83,42 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = aLu();
+            aVar2 = aMW();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.eMI != null) {
-            this.eMI.a(aVar2.rootView, aVar);
+        if (this.eQR != null) {
+            this.eQR.a(aVar2.rootView, aVar);
         }
-        a(aVar, aVar2, aVar.In());
-        aVar2.cQi.setText(aVar.getUserName());
-        if (this.eMJ) {
-            aVar2.eMK.setVisibility(8);
+        a(aVar, aVar2, aVar.IT());
+        aVar2.cqu.setText(aVar.getUserName());
+        if (this.eQS) {
+            aVar2.eQT.setVisibility(8);
         } else {
-            aVar2.eMK.setTagData(aVar);
+            aVar2.eQT.setTagData(aVar);
         }
-        if (this.bxn instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.bxn).getLayoutMode().aM(aVar2.rootView);
+        if (this.bzu instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bzu).getLayoutMode().aM(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.eMq.setTag(str);
-            aVar2.eMq.startLoad(str, 12, false);
+            aVar2.eQz.setTag(str);
+            aVar2.eQz.startLoad(str, 12, false);
         }
     }
 
-    private a aLu() {
+    private a aMW() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.bxn.getPageContext().getContext()).inflate(d.h.invite_friend_list_item, (ViewGroup) null);
-        aVar.eMq = (HeadImageView) aVar.rootView.findViewById(d.g.photo);
-        aVar.eMq.setIsRound(false);
-        aVar.cQi = (TextView) aVar.rootView.findViewById(d.g.txt_user_name);
-        aVar.eMK = (TbCheckBox) aVar.rootView.findViewById(d.g.ckb_select);
-        if (this.eMH != null) {
-            aVar.eMK.setStatedChangedListener(this.eMH);
+        aVar.rootView = LayoutInflater.from(this.bzu.getPageContext().getContext()).inflate(d.h.invite_friend_list_item, (ViewGroup) null);
+        aVar.eQz = (HeadImageView) aVar.rootView.findViewById(d.g.photo);
+        aVar.eQz.setIsRound(false);
+        aVar.cqu = (TextView) aVar.rootView.findViewById(d.g.txt_user_name);
+        aVar.eQT = (TbCheckBox) aVar.rootView.findViewById(d.g.ckb_select);
+        if (this.eQQ != null) {
+            aVar.eQT.setStatedChangedListener(this.eQQ);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -126,9 +126,9 @@ class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public class a {
-        public TextView cQi;
-        public TbCheckBox eMK;
-        public HeadImageView eMq;
+        public TextView cqu;
+        public TbCheckBox eQT;
+        public HeadImageView eQz;
         public View rootView;
 
         public a() {

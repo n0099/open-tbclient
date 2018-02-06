@@ -149,85 +149,85 @@ class d {
 
     /* loaded from: classes2.dex */
     static class b<T extends a> extends MediaSession.Callback {
-        protected final T Aa;
+        protected final T zZ;
 
         public b(T t) {
-            this.Aa = t;
+            this.zZ = t;
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
-            this.Aa.onCommand(str, bundle, resultReceiver);
+            this.zZ.onCommand(str, bundle, resultReceiver);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public boolean onMediaButtonEvent(Intent intent) {
-            return this.Aa.onMediaButtonEvent(intent) || super.onMediaButtonEvent(intent);
+            return this.zZ.onMediaButtonEvent(intent) || super.onMediaButtonEvent(intent);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlay() {
-            this.Aa.onPlay();
+            this.zZ.onPlay();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlayFromMediaId(String str, Bundle bundle) {
-            this.Aa.onPlayFromMediaId(str, bundle);
+            this.zZ.onPlayFromMediaId(str, bundle);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlayFromSearch(String str, Bundle bundle) {
-            this.Aa.onPlayFromSearch(str, bundle);
+            this.zZ.onPlayFromSearch(str, bundle);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onSkipToQueueItem(long j) {
-            this.Aa.onSkipToQueueItem(j);
+            this.zZ.onSkipToQueueItem(j);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPause() {
-            this.Aa.onPause();
+            this.zZ.onPause();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onSkipToNext() {
-            this.Aa.onSkipToNext();
+            this.zZ.onSkipToNext();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onSkipToPrevious() {
-            this.Aa.onSkipToPrevious();
+            this.zZ.onSkipToPrevious();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onFastForward() {
-            this.Aa.onFastForward();
+            this.zZ.onFastForward();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onRewind() {
-            this.Aa.onRewind();
+            this.zZ.onRewind();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onStop() {
-            this.Aa.onStop();
+            this.zZ.onStop();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onSeekTo(long j) {
-            this.Aa.onSeekTo(j);
+            this.zZ.onSeekTo(j);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onSetRating(Rating rating) {
-            this.Aa.Q(rating);
+            this.zZ.Q(rating);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onCustomAction(String str, Bundle bundle) {
-            this.Aa.onCustomAction(str, bundle);
+            this.zZ.onCustomAction(str, bundle);
         }
     }
 

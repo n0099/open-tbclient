@@ -168,7 +168,7 @@ public class ai {
         protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         }
 
-        private void d(int[] iArr) {
+        private void e(int[] iArr) {
             int[] iArr2 = new int[2];
             int[] iArr3 = new int[2];
             ViewGroup viewGroup = (ViewGroup) getParent();
@@ -186,7 +186,7 @@ public class ai {
                     iArr[0] = 0;
                     iArr[1] = 0;
                     int[] iArr2 = new int[2];
-                    d(iArr2);
+                    e(iArr2);
                     rect.offset(iArr2[0], iArr2[1]);
                     return super.invalidateChildInParent(iArr, rect);
                 }

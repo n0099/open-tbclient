@@ -21,6 +21,7 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
+import com.baidu.fsg.biometrics.base.b.c;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -315,8 +316,8 @@ public final class DeviceId {
             List<CUIDBuddyInfo> collectBuddyInfos2 = collectBuddyInfos(new Intent(ACTION_GLAXY_CUID), z);
             if (collectBuddyInfos2 != null) {
                 File filesDir = this.mContext.getFilesDir();
-                if ("files".equals(filesDir.getName())) {
-                    str2 = "files";
+                if (c.g.equals(filesDir.getName())) {
+                    str2 = c.g;
                 } else {
                     Log.e(TAG, "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str2 = filesDir.getName();

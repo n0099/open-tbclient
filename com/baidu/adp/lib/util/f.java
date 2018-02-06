@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.os.Environment;
 import android.os.StatFs;
+import com.baidu.ar.util.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -14,9 +15,9 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String ame = "baidu";
-    public static final File amf = Environment.getExternalStorageDirectory();
-    private static final char amg = File.separatorChar;
+    private static String amd = "baidu";
+    public static final File ame = Environment.getExternalStorageDirectory();
+    private static final char amf = File.separatorChar;
 
     public static boolean lk() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -38,21 +39,21 @@ public class f {
 
     public static String aG(String str) {
         if (str != null) {
-            return amf + "/" + ame + "/" + str + "/";
+            return ame + "/" + amd + "/" + str + "/";
         }
-        return amf + "/" + ame + "/";
+        return ame + "/" + amd + "/";
     }
 
     public static String q(String str, String str2) {
         if (str != null) {
-            return amf + "/" + ame + "/" + str + "/" + str2;
+            return ame + "/" + amd + "/" + str + "/" + str2;
         }
-        return amf + "/" + ame + "/" + str2;
+        return ame + "/" + amd + "/" + str2;
     }
 
     public static boolean ot() {
         try {
-            StatFs statFs = new StatFs(amf.getPath());
+            StatFs statFs = new StatFs(ame.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -438,7 +439,7 @@ public class f {
         }
     }
 
-    public static InputStream g(File file) {
+    public static InputStream h(File file) {
         if (file != null) {
             try {
                 return new FileInputStream(file);
@@ -474,7 +475,7 @@ public class f {
         outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
     }
 
-    public static long h(File file) {
+    public static long i(File file) {
         FileInputStream fileInputStream;
         long j = 0;
         FileInputStream fileInputStream2 = null;
@@ -504,13 +505,13 @@ public class f {
         return j;
     }
 
-    public static boolean i(File file) {
+    public static boolean j(File file) {
         if (file == null) {
             return false;
         }
         try {
             if (file.isDirectory()) {
-                j(file);
+                k(file);
             }
         } catch (Exception e) {
         }
@@ -521,7 +522,7 @@ public class f {
         }
     }
 
-    public static void j(File file) throws IOException {
+    public static void k(File file) throws IOException {
         if (!file.exists()) {
             throw new IllegalArgumentException(file + " does not exist");
         }
@@ -535,7 +536,7 @@ public class f {
         IOException e = null;
         for (File file2 : listFiles) {
             try {
-                k(file2);
+                l(file2);
             } catch (IOException e2) {
                 e = e2;
             }
@@ -545,9 +546,9 @@ public class f {
         }
     }
 
-    public static void k(File file) throws IOException {
+    public static void l(File file) throws IOException {
         if (file.isDirectory()) {
-            l(file);
+            m(file);
             return;
         }
         boolean exists = file.exists();
@@ -559,18 +560,18 @@ public class f {
         }
     }
 
-    public static void l(File file) throws IOException {
+    public static void m(File file) throws IOException {
         if (file.exists()) {
-            if (!m(file)) {
-                j(file);
+            if (!n(file)) {
+                k(file);
             }
             if (!file.delete()) {
-                throw new IOException("Unable to delete directory " + file + ".");
+                throw new IOException("Unable to delete directory " + file + Constants.DOT);
             }
         }
     }
 
-    public static boolean m(File file) throws IOException {
+    public static boolean n(File file) throws IOException {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
@@ -584,10 +585,10 @@ public class f {
     }
 
     static boolean ou() {
-        return amg == '\\';
+        return amf == '\\';
     }
 
-    public static void n(File file) throws IOException {
+    public static void o(File file) throws IOException {
         if (file.exists()) {
             if (!file.isDirectory()) {
                 throw new IOException("File " + file + " exists and is not a directory. Unable to create directory.");

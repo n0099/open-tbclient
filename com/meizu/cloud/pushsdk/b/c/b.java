@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.b.c;
 
+import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.b.a.c;
 import com.meizu.cloud.pushsdk.b.c.a;
 /* loaded from: classes2.dex */
@@ -13,7 +14,7 @@ public class b extends com.meizu.cloud.pushsdk.b.c.a {
     private String j;
 
     /* loaded from: classes2.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0184a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC0266a<T> {
         private String a;
         private String b;
         private String c;
@@ -64,21 +65,21 @@ public class b extends com.meizu.cloud.pushsdk.b.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0185b extends a<C0185b> {
-        private C0185b() {
+    private static class C0267b extends a<C0267b> {
+        private C0267b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.b.c.a.AbstractC0184a
+        @Override // com.meizu.cloud.pushsdk.b.c.a.AbstractC0266a
         /* renamed from: c */
-        public C0185b a() {
+        public C0267b a() {
             return this;
         }
     }
 
     public static a<?> d() {
-        return new C0185b();
+        return new C0267b();
     }
 
     protected b(a<?> aVar) {
@@ -96,7 +97,7 @@ public class b extends com.meizu.cloud.pushsdk.b.c.a {
         c cVar = new c();
         cVar.a("event_name", this.d);
         cVar.a("task_id", this.e);
-        cVar.a("device_id", this.f);
+        cVar.a(Constants.HTTP_DEVICE_ID, this.f);
         cVar.a("pushsdk_version", this.g);
         cVar.a("package_name", this.h);
         cVar.a("seq_id", this.i);

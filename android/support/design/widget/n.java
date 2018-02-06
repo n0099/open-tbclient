@@ -50,12 +50,12 @@ class n extends DrawableWrapper {
         d(f2, f3);
     }
 
-    private static int j(float f) {
+    private static int n(float f) {
         int round = Math.round(f);
         return round % 2 == 1 ? round - 1 : round;
     }
 
-    public void k(boolean z) {
+    public void m(boolean z) {
         this.pK = z;
         invalidateSelf();
     }
@@ -77,19 +77,19 @@ class n extends DrawableWrapper {
         if (f < 0.0f || f2 < 0.0f) {
             throw new IllegalArgumentException("invalid shadow size");
         }
-        float j = j(f);
-        float j2 = j(f2);
-        if (j > j2) {
+        float n = n(f);
+        float n2 = n(f2);
+        if (n > n2) {
             if (!this.pL) {
                 this.pL = true;
             }
-            j = j2;
+            n = n2;
         }
-        if (this.pF != j || this.pD != j2) {
-            this.pF = j;
-            this.pD = j2;
-            this.pE = Math.round(j * 1.5f);
-            this.pC = j2;
+        if (this.pF != n || this.pD != n2) {
+            this.pF = n;
+            this.pD = n2;
+            this.pE = Math.round(n * 1.5f);
+            this.pC = n2;
             this.pG = true;
             invalidateSelf();
         }
@@ -122,7 +122,7 @@ class n extends DrawableWrapper {
     @Override // android.support.v7.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         if (this.pG) {
-            d(getBounds());
+            e(getBounds());
             this.pG = false;
         }
         d(canvas);
@@ -214,14 +214,14 @@ class n extends DrawableWrapper {
         this.py.setAntiAlias(false);
     }
 
-    private void d(Rect rect) {
+    private void e(Rect rect) {
         float f = this.pD * 1.5f;
         this.pz.set(rect.left + this.pD, rect.top + f, rect.right - this.pD, rect.bottom - f);
         getWrappedDrawable().setBounds((int) this.pz.left, (int) this.pz.top, (int) this.pz.right, (int) this.pz.bottom);
         cc();
     }
 
-    public void k(float f) {
+    public void o(float f) {
         d(f, this.pD);
     }
 

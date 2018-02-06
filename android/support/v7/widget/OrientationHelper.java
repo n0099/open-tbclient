@@ -7,7 +7,7 @@ import android.view.View;
 public abstract class OrientationHelper {
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
-    private int QW;
+    private int QV;
     protected final RecyclerView.LayoutManager mLayoutManager;
     final Rect mTmpRect;
 
@@ -42,20 +42,20 @@ public abstract class OrientationHelper {
     public abstract void offsetChildren(int i);
 
     private OrientationHelper(RecyclerView.LayoutManager layoutManager) {
-        this.QW = Integer.MIN_VALUE;
+        this.QV = Integer.MIN_VALUE;
         this.mTmpRect = new Rect();
         this.mLayoutManager = layoutManager;
     }
 
     public void onLayoutComplete() {
-        this.QW = getTotalSpace();
+        this.QV = getTotalSpace();
     }
 
     public int getTotalSpaceChange() {
-        if (Integer.MIN_VALUE == this.QW) {
+        if (Integer.MIN_VALUE == this.QV) {
             return 0;
         }
-        return getTotalSpace() - this.QW;
+        return getTotalSpace() - this.QV;
     }
 
     public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {

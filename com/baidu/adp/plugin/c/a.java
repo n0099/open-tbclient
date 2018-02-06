@@ -43,13 +43,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.errNo == 0 && a.this.arb.size() > 0 && (arrayList = (ArrayList) a.this.arb.get(aVar.ara)) != null && arrayList.size() > 0) {
+                    if (aVar.ara == 0 && a.this.arb.size() > 0 && (arrayList = (ArrayList) a.this.arb.get(aVar.aqZ)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.arb.remove(aVar.ara);
+                    a.this.arb.remove(aVar.aqZ);
                 }
             }
         });
@@ -68,7 +68,7 @@ public class a {
                 }
                 if (!PluginCenter.getInstance().hasInstance(dz)) {
                     a.this.a(dz, message);
-                    return PluginCenter.getInstance().launch(dz).apQ;
+                    return PluginCenter.getInstance().launch(dz).apP;
                 } else if (PluginCenter.getInstance().isLoaded(dz)) {
                     return false;
                 } else {

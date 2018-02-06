@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import com.baidu.ar.util.Constants;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class m {
@@ -46,7 +47,7 @@ public class m {
             edit.putString("request_id", str3);
             edit.putString("user_id", str4);
             edit.putBoolean("bind_status", true);
-            edit.putLong("version_code", p.d(context, context.getPackageName()));
+            edit.putLong(Constants.HTTP_VERSION_CODE, p.d(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {
         }

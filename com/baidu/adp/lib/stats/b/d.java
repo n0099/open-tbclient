@@ -8,8 +8,8 @@ public class d {
         if (aVar != null && aVar.nH() != 0) {
             com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getWriteDir(), aVar.nM(), DiskFileOperate.Action.APPEND) { // from class: com.baidu.adp.lib.stats.b.d.1
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                public void W(boolean z2) {
-                    super.W(z2);
+                public void Y(boolean z2) {
+                    super.Y(z2);
                     if (z2) {
                         aVar.r(lz().length());
                         if (z || aVar.nO() > 102400) {
@@ -18,7 +18,7 @@ public class d {
                     }
                 }
             };
-            dVar.ab(aVar.nX());
+            dVar.ad(aVar.nX());
             dVar.setContent(aVar.nV().toString());
             aVar.nQ();
             if (!aVar.nY()) {
@@ -34,8 +34,8 @@ public class d {
         if (aVar != null) {
             DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), aVar.nM(), BdStatisticsManager.getInstance().getWriteDir(), aVar.nN(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.d.2
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                public void W(boolean z4) {
-                    super.W(z4);
+                public void Y(boolean z4) {
+                    super.Y(z4);
                     if (z4) {
                         aVar.r(0L);
                         com.baidu.adp.lib.stats.upload.b.oh().a(aVar, z, z2, z3);
@@ -44,7 +44,7 @@ public class d {
                     }
                 }
             };
-            diskFileOperate.ab(aVar.nX());
+            diskFileOperate.ad(aVar.nX());
             diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             com.baidu.adp.lib.Disk.d.ll().c(diskFileOperate);
         }
@@ -57,14 +57,14 @@ public class d {
         if (aVar.nO() <= 0) {
             com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getWriteDir(), aVar.nM(), DiskFileOperate.Action.INFO) { // from class: com.baidu.adp.lib.stats.b.d.3
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                public void W(boolean z) {
-                    super.W(z);
+                public void Y(boolean z) {
+                    super.Y(z);
                     if (z) {
                         aVar.r(lz().length());
                     }
                 }
             };
-            dVar.ab(aVar.nX());
+            dVar.ad(aVar.nX());
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             if (com.baidu.adp.lib.Disk.d.ll().c(dVar)) {
                 return aVar.nO();
@@ -75,7 +75,7 @@ public class d {
 
     public static void a(String str, String str2, com.baidu.adp.lib.stats.base.a aVar) {
         DiskFileOperate diskFileOperate = new DiskFileOperate(str, str2, DiskFileOperate.Action.DELETE);
-        diskFileOperate.ab(aVar.nX());
+        diskFileOperate.ad(aVar.nX());
         diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         com.baidu.adp.lib.Disk.d.ll().c(diskFileOperate);
     }

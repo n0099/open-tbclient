@@ -8,12 +8,13 @@ import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.model.ReportUserInfoModel;
+import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
 public final class b {
     public static void a(Context context, boolean z) {
         long currentTimeMillis;
         try {
-            com.baidu.sofire.d dVar = new com.baidu.sofire.d(context);
+            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
@@ -27,14 +28,14 @@ public final class b {
             PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
             if (!z) {
                 currentTimeMillis = ((System.currentTimeMillis() + 86400000) - 600000) + ((long) (1200000.0d * Math.random()));
-                dVar.c.putLong("npuct", currentTimeMillis);
-                dVar.c.commit();
+                eVar.c.putLong("npuct", currentTimeMillis);
+                eVar.c.commit();
             } else {
-                currentTimeMillis = dVar.a.getLong("npuct", 0L);
+                currentTimeMillis = eVar.a.getLong("npuct", 0L);
                 if (currentTimeMillis <= 0) {
                     currentTimeMillis = System.currentTimeMillis() + 86400000;
-                    dVar.c.putLong("npuct", currentTimeMillis);
-                    dVar.c.commit();
+                    eVar.c.putLong("npuct", currentTimeMillis);
+                    eVar.c.commit();
                 }
             }
             new StringBuilder("b=").append(z).append(", n=").append(currentTimeMillis).append(", t=86400000, c=").append(System.currentTimeMillis());
@@ -61,7 +62,7 @@ public final class b {
             PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
             switch (i) {
                 case 0:
-                    j = 30000;
+                    j = StatisticConfig.MIN_UPLOAD_INTERVAL;
                     break;
                 case 1:
                     j = 180000;

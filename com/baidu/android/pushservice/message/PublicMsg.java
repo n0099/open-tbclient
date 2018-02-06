@@ -11,11 +11,9 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.h.q;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -162,7 +160,7 @@ public class PublicMsg implements Parcelable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("msgid", str);
-            jSONObject.put(SocialLoginActivityConfig.RESULT_CODE, i);
+            jSONObject.put("result_code", i);
         } catch (JSONException e) {
             com.baidu.android.pushservice.g.a.b(TAG, e.getMessage(), context.getApplicationContext());
         }
@@ -176,7 +174,7 @@ public class PublicMsg implements Parcelable {
                     hashMap.put("method", "linkhit");
                     hashMap.put("channel_token", b);
                     hashMap.put("data", jSONObject2);
-                    if (com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.e() + a, HttpPost.METHOD_NAME, hashMap).b() == 200) {
+                    if (com.baidu.android.pushservice.f.b.a(com.baidu.android.pushservice.h.e() + a, "POST", hashMap).b() == 200) {
                         com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", context.getApplicationContext());
                     }
                 } catch (Exception e2) {

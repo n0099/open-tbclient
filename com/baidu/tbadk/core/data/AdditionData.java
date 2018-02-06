@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.sina.weibo.sdk.constant.WBConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
@@ -79,7 +80,7 @@ public class AdditionData extends OrmObject implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.createTime = jSONObject.optLong("create_time", 0L);
+                this.createTime = jSONObject.optLong(WBConstants.GAME_PARAMS_GAME_CREATE_TIME, 0L);
                 this.postId = jSONObject.optString("post_id");
                 this.totalCount = jSONObject.optInt("total_count", 0);
                 this.lastAdditionContent = jSONObject.optString("last_addition_content");

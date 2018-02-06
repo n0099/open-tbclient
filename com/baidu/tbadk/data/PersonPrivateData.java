@@ -6,41 +6,41 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int boZ = 1;
-    private int bpa = 1;
-    private int bpb = 1;
-    private int bpc = 1;
-    private int bpd = 1;
-    private int bpe = 1;
+    private int brn = 1;
+    private int bro = 1;
+    private int brp = 1;
+    private int brq = 1;
+    private int brr = 1;
+    private int brs = 1;
 
-    public int JU() {
-        return this.bpa;
+    public int KA() {
+        return this.bro;
     }
 
-    public int JV() {
-        return this.bpe;
+    public int KB() {
+        return this.brs;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.boZ = jSONObject.optInt(Headers.LOCATION, 1);
-            this.bpa = jSONObject.optInt("like", 1);
-            this.bpb = jSONObject.optInt("group", 1);
-            this.bpc = jSONObject.optInt("post", 1);
-            this.bpd = jSONObject.optInt("friend", 1);
-            this.bpe = jSONObject.optInt("live", 1);
+            this.brn = jSONObject.optInt(Headers.LOCATION, 1);
+            this.bro = jSONObject.optInt("like", 1);
+            this.brp = jSONObject.optInt("group", 1);
+            this.brq = jSONObject.optInt("post", 1);
+            this.brr = jSONObject.optInt("friend", 1);
+            this.brs = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.boZ = privSets.location.intValue();
-                this.bpa = privSets.like.intValue();
-                this.bpb = privSets.group.intValue();
-                this.bpc = privSets.post.intValue();
-                this.bpd = privSets.friend.intValue();
-                this.bpe = privSets.live.intValue();
+                this.brn = privSets.location.intValue();
+                this.bro = privSets.like.intValue();
+                this.brp = privSets.group.intValue();
+                this.brq = privSets.post.intValue();
+                this.brr = privSets.friend.intValue();
+                this.brs = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

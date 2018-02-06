@@ -4,16 +4,16 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 /* loaded from: classes2.dex */
 class t {
-    public ColorStateList Xj;
+    public ColorStateList Xi;
+    public boolean Xj;
     public boolean Xk;
-    public boolean Xl;
-    public PorterDuff.Mode uo;
+    public PorterDuff.Mode uq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void clear() {
-        this.Xj = null;
-        this.Xl = false;
-        this.uo = null;
+        this.Xi = null;
         this.Xk = false;
+        this.uq = null;
+        this.Xj = false;
     }
 }

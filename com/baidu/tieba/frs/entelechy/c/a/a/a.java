@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private b.InterfaceC0073b aQd;
-    private i dCS;
-    private int dIF;
+    private b.InterfaceC0096b aRA;
+    private i dFP;
+    private int dLG;
     private List<z> mDatas;
 
-    public a(i iVar, b.InterfaceC0073b interfaceC0073b) {
+    public a(i iVar, b.InterfaceC0096b interfaceC0096b) {
         super(iVar.getActivity());
-        this.dIF = 0;
-        if (iVar != null && interfaceC0073b != null) {
-            this.dCS = iVar;
-            this.aQd = interfaceC0073b;
+        this.dLG = 0;
+        if (iVar != null && interfaceC0096b != null) {
+            this.dFP = iVar;
+            this.aRA = interfaceC0096b;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 z zVar = new z();
-                zVar.name = this.dCS.getResources().getString(d.j.attention_users_thread);
-                zVar.dEk = 6;
+                zVar.name = this.dFP.getResources().getString(d.j.attention_users_thread);
+                zVar.dHn = 6;
                 this.mDatas.add(zVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.aQd);
+            a(arrayList, this.aRA);
         }
     }
 
-    public List<z> awJ() {
+    public List<z> axI() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b AE() {
+    public b AX() {
         View fj;
-        super.AE();
+        super.AX();
         if (this.mDatas != null && (fj = fj(this.mDatas.size())) != null && (fj.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            aj.r((TextView) fj.findViewById(d.g.dialog_item_btn), d.C0108d.cp_link_tip_a);
+            aj.r((TextView) fj.findViewById(d.g.dialog_item_btn), d.C0140d.cp_link_tip_a);
         }
         return this;
     }

@@ -1,92 +1,182 @@
 package com.baidu.tieba.frs.view;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.j;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.StarRank;
+import tbclient.FrsPage.StarTaskInfo;
 /* loaded from: classes2.dex */
-public class f implements View.OnClickListener {
-    private j dVs;
-    private ForumData dVt;
-    private ViewGroup dVu;
-    private View dVv;
-    private TextView dVw;
+public class f {
+    private AlertDialog aRn;
+    private TbImageView cff;
+    private View dZg;
+    private ListView dZh;
+    private a dZi;
+    private TextView dZj;
+    private StarRank dZk;
+    private View dZl;
+    private View dZm;
+    private TextView dZn;
+    private TextView dZo;
+    private TextView dZp;
     private Context mContext;
-    TbPageContext<FrsActivity> mTbPageContext;
 
-    public f(TbPageContext<FrsActivity> tbPageContext, View view) {
-        this.dVu = null;
-        this.dVv = null;
-        this.dVw = null;
-        this.mContext = view.getContext().getApplicationContext();
-        this.mTbPageContext = tbPageContext;
-        this.dVv = view.findViewById(d.g.frs_header_divider_ticket);
-        this.dVu = (ViewGroup) view.findViewById(d.g.frs_header_ticket);
-        this.dVw = (TextView) view.findViewById(d.g.frs_header_ticket_text);
-        this.dVu.setOnClickListener(this);
-    }
-
-    public void changeSkinType(int i) {
-        aj.s(this.dVu, d.f.frs_top_item_bg);
-    }
-
-    public void a(j jVar, ForumData forumData) {
-        boolean z;
-        boolean z2 = true;
-        this.dVs = jVar;
-        this.dVt = forumData;
-        String string = this.mContext.getString(d.j.frs_star_ticket_name);
-        if (jVar != null) {
-            z = jVar.bus();
-            if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= jVar.but()) {
-                z2 = false;
+    public void a(Context context, StarRank starRank) {
+        this.mContext = context;
+        if (this.mContext instanceof Activity) {
+            this.dZk = starRank;
+            if (starRank != null && !v.E(this.dZk.user_task_info)) {
+                this.dZg = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(d.h.frs_star_bottom_dialog_view, (ViewGroup) null);
+                this.dZl = this.dZg.findViewById(d.g.outer_bg);
+                this.dZm = this.dZg.findViewById(d.g.divider_line);
+                this.dZn = (TextView) this.dZg.findViewById(d.g.jump_title);
+                this.dZo = (TextView) this.dZg.findViewById(d.g.task_title);
+                this.cff = (TbImageView) this.dZg.findViewById(d.g.pic_show);
+                this.dZp = (TextView) this.dZg.findViewById(d.g.know_view);
+                this.dZh = (ListView) this.dZg.findViewById(d.g.rank_listview);
+                this.dZj = (TextView) this.dZg.findViewById(d.g.know_view);
+                this.dZj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.f.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        f.this.aAV();
+                    }
+                });
+                this.dZi = new a(this.mContext);
+                this.dZi.setData(this.dZk.user_task_info);
+                this.dZh.setAdapter((ListAdapter) this.dZi);
+                this.dZn.setText(this.dZk.user_current_score_notice);
+                aAV();
+                this.aRn = new AlertDialog.Builder(this.mContext).create();
+                this.aRn.setCanceledOnTouchOutside(true);
+                com.baidu.adp.lib.g.g.a(this.aRn, (Activity) this.mContext);
+                Window window = this.aRn.getWindow();
+                window.setWindowAnimations(d.k.share_dialog_style);
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(this.dZg);
+                aAW();
             }
-        } else {
-            z = true;
-        }
-        if (forumData != null && forumData.getName() != null) {
-            string = forumData.getName() + this.mContext.getString(d.j.forum) + this.mContext.getString(d.j.frs_star_ticket_name);
-        }
-        if (z) {
-            this.dVv.setVisibility(0);
-            this.dVu.setVisibility(0);
-            gr(z2);
-            this.dVw.setText(string);
-            TiebaStatic.log("ticket_show");
-        } else {
-            this.dVv.setVisibility(8);
-            this.dVu.setVisibility(8);
-        }
-        this.dVv.setVisibility(8);
-        this.dVu.setVisibility(8);
-    }
-
-    private void gr(boolean z) {
-        if (z) {
-            this.dVw.setCompoundDrawablesWithIntrinsicBounds(0, 0, d.f.icon_news_down_bar_one, 0);
-        } else {
-            this.dVw.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.dVu) {
-            if ((this.mTbPageContext == null || ax.bb(this.mTbPageContext.getPageActivity())) && this.dVs != null && this.dVt != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.dVt.getId() + TbadkCoreApplication.getCurrentAccount(), this.dVs.but());
-                gr(false);
-                com.baidu.tbadk.browser.a.a(this.dVu.getContext(), k.a(this.dVw.getText(), this.mContext.getString(d.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.dVs.buu())), true, false, true);
+    public void aAV() {
+        if (this.aRn != null && this.aRn.isShowing()) {
+            this.aRn.dismiss();
+        }
+    }
+
+    public void aAW() {
+        aj.c(this.cff, d.f.pic_frs_idol_mission);
+        aj.s(this.dZl, d.C0140d.cp_bg_line_d);
+        aj.t(this.dZm, d.C0140d.cp_bg_line_e);
+        aj.s(this.dZp, d.f.frs_star_btn_selector);
+        aj.e(this.dZp, d.C0140d.cp_cont_i, 1);
+        aj.e(this.dZn, d.C0140d.cp_cont_b, 1);
+        aj.e(this.dZo, d.C0140d.cp_cont_d, 1);
+        this.dZi.notifyDataSetChanged();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes2.dex */
+    public static class a extends BaseAdapter {
+        private final List<StarTaskInfo> data = new ArrayList();
+        private Context mContext;
+
+        a(Context context) {
+            this.mContext = context;
+        }
+
+        void setData(List<StarTaskInfo> list) {
+            if (!v.E(list)) {
+                this.data.clear();
+                this.data.addAll(list);
+                notifyDataSetChanged();
             }
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            if (v.E(this.data)) {
+                return 0;
+            }
+            return this.data.size();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: of */
+        public StarTaskInfo getItem(int i) {
+            return (StarTaskInfo) v.f(this.data, i);
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            b bVar;
+            if (view == null) {
+                view = LayoutInflater.from(this.mContext).inflate(d.h.frs_item_bottom_view, viewGroup, false);
+                b bVar2 = new b();
+                bVar2.dZr = (TextView) view.findViewById(d.g.task_name);
+                bVar2.bMB = (TextView) view.findViewById(d.g.desc);
+                bVar2.dZs = (TextView) view.findViewById(d.g.score_desc);
+                bVar2.dZt = (TextView) view.findViewById(d.g.status_text);
+                bVar2.divider = view.findViewById(d.g.bottom_divider_line);
+                view.setTag(bVar2);
+                bVar = bVar2;
+            } else {
+                bVar = (b) view.getTag();
+            }
+            StarTaskInfo item = getItem(i);
+            if (item == null) {
+                return null;
+            }
+            bVar.dZr.setText(item.task_title);
+            bVar.bMB.setText(item.task_desc);
+            bVar.dZs.setText(item.task_score_desc);
+            if (item.task_status.intValue() == 1) {
+                bVar.dZt.setText(d.j.task_done);
+                aj.r(bVar.dZt, d.C0140d.cp_cont_d);
+            } else {
+                bVar.dZt.setText(d.j.task_not_done);
+                aj.r(bVar.dZt, d.C0140d.cp_cont_b);
+            }
+            bVar.divider.setVisibility(i == getCount() + (-1) ? 8 : 0);
+            aj.r(bVar.dZr, d.C0140d.cp_cont_b);
+            aj.r(bVar.bMB, d.C0140d.cp_cont_d);
+            aj.r(bVar.dZs, d.C0140d.cp_cont_h);
+            aj.t(bVar.divider, d.C0140d.cp_bg_line_c);
+            return view;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    private static class b {
+        TextView bMB;
+        TextView dZr;
+        TextView dZs;
+        TextView dZt;
+        View divider;
+
+        private b() {
         }
     }
 }

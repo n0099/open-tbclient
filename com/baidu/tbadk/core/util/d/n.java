@@ -16,11 +16,11 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gG = com.baidu.tbadk.imageManager.c.LR().gG(eE(str));
-        if (gG == null || gG.sj() == null) {
+        com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mx().gP(eP(str));
+        if (gP == null || gP.sh() == null) {
             return null;
         }
-        return gG;
+        return gP;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,13 +30,13 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eF(str);
+        return eQ(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.LR().c(eE(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Mx().c(eP(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -57,7 +57,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return 1;
     }
 
-    public com.baidu.adp.widget.a.a eF(String str) {
+    public com.baidu.adp.widget.a.a eQ(String str) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
@@ -68,7 +68,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         return null;
     }
 
-    public String eE(String str) {
+    public String eP(String str) {
         return "videoThumb_" + str;
     }
 }

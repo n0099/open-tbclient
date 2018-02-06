@@ -4,24 +4,24 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.e.k;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.l;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class e {
-    public static final SparseIntArray eVi = new SparseIntArray();
-    public static final SparseArray<BdUniqueId> eVj = new SparseArray<>();
+    public static final SparseIntArray faG = new SparseIntArray();
+    public static final SparseArray<BdUniqueId> faH = new SparseArray<>();
+
+    public abstract <T> k a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
     public abstract ICardInfo a(JSONObject jSONObject, int i) throws CardParseException;
 
-    public abstract <T> l a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
+    protected abstract void aPA();
 
-    protected abstract void aNM();
-
-    public abstract String uU();
+    public abstract String vG();
 
     public e() {
-        aNM();
+        aPA();
     }
 }

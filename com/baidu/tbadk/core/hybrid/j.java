@@ -1,7 +1,8 @@
 package com.baidu.tbadk.core.hybrid;
 /* loaded from: classes.dex */
 interface j {
-    void Bf();
+    void By();
 
-    void dd(String str);
+    /* renamed from: do  reason: not valid java name */
+    void mo12do(String str);
 }

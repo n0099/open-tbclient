@@ -19,23 +19,23 @@ import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends d {
-    private int CG;
+    private int CF;
+    private boolean CG;
     private boolean CH;
-    private boolean CI;
-    private b CJ;
+    private b CI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Context context, Window window, AppCompatCallback appCompatCallback) {
         super(context, window, appCompatCallback);
-        this.CG = -100;
-        this.CI = true;
+        this.CF = -100;
+        this.CH = true;
     }
 
     @Override // android.support.v7.app.AppCompatDelegateImplV9, android.support.v7.app.AppCompatDelegate
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (bundle != null && this.CG == -100) {
-            this.CG = bundle.getInt("appcompat:local_night_mode", -100);
+        if (bundle != null && this.CF == -100) {
+            this.CF = bundle.getInt("appcompat:local_night_mode", -100);
         }
     }
 
@@ -46,12 +46,12 @@ public class e extends d {
 
     @Override // android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public void setHandleNativeActionModesEnabled(boolean z) {
-        this.CI = z;
+        this.CH = z;
     }
 
     @Override // android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public boolean isHandleNativeActionModesEnabled() {
-        return this.CI;
+        return this.CH;
     }
 
     @Override // android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
@@ -64,9 +64,9 @@ public class e extends d {
         }
         if (nightMode == 0) {
             dX();
-            this.CJ.setup();
+            this.CI.setup();
         }
-        this.CH = true;
+        this.CG = true;
         return z;
     }
 
@@ -79,8 +79,8 @@ public class e extends d {
     @Override // android.support.v7.app.AppCompatDelegateImplV9, android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public void onStop() {
         super.onStop();
-        if (this.CJ != null) {
-            this.CJ.eb();
+        if (this.CI != null) {
+            this.CI.eb();
         }
     }
 
@@ -91,9 +91,9 @@ public class e extends d {
             case 0:
             case 1:
             case 2:
-                if (this.CG != i) {
-                    this.CG = i;
-                    if (this.CH) {
+                if (this.CF != i) {
+                    this.CF = i;
+                    if (this.CG) {
                         applyDayNight();
                         return;
                     }
@@ -113,29 +113,29 @@ public class e extends d {
                 return -1;
             case 0:
                 dX();
-                return this.CJ.dZ();
+                return this.CI.dZ();
             default:
                 return i;
         }
     }
 
     private int getNightMode() {
-        return this.CG != -100 ? this.CG : getDefaultNightMode();
+        return this.CF != -100 ? this.CF : getDefaultNightMode();
     }
 
     @Override // android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.CG != -100) {
-            bundle.putInt("appcompat:local_night_mode", this.CG);
+        if (this.CF != -100) {
+            bundle.putInt("appcompat:local_night_mode", this.CF);
         }
     }
 
     @Override // android.support.v7.app.AppCompatDelegateImplV9, android.support.v7.app.b, android.support.v7.app.AppCompatDelegate
     public void onDestroy() {
         super.onDestroy();
-        if (this.CJ != null) {
-            this.CJ.eb();
+        if (this.CI != null) {
+            this.CI.eb();
         }
     }
 
@@ -163,13 +163,13 @@ public class e extends d {
     }
 
     private void dX() {
-        if (this.CJ == null) {
-            this.CJ = new b(o.W(this.mContext));
+        if (this.CI == null) {
+            this.CI = new b(o.W(this.mContext));
         }
     }
 
     private boolean dY() {
-        if (this.CH && (this.mContext instanceof Activity)) {
+        if (this.CG && (this.mContext instanceof Activity)) {
             try {
                 return (this.mContext.getPackageManager().getActivityInfo(new ComponentName(this.mContext, this.mContext.getClass()), 0).configChanges & 512) == 0;
             } catch (PackageManager.NameNotFoundException e) {
@@ -206,51 +206,51 @@ public class e extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public final class b {
-        private o CL;
-        private boolean CM;
-        private BroadcastReceiver CN;
-        private IntentFilter CO;
+        private o CK;
+        private boolean CL;
+        private BroadcastReceiver CM;
+        private IntentFilter CN;
 
         b(o oVar) {
-            this.CL = oVar;
-            this.CM = oVar.isNight();
+            this.CK = oVar;
+            this.CL = oVar.isNight();
         }
 
         final int dZ() {
-            return this.CM ? 2 : 1;
+            return this.CL ? 2 : 1;
         }
 
         final void ea() {
-            boolean isNight = this.CL.isNight();
-            if (isNight != this.CM) {
-                this.CM = isNight;
+            boolean isNight = this.CK.isNight();
+            if (isNight != this.CL) {
+                this.CL = isNight;
                 e.this.applyDayNight();
             }
         }
 
         final void setup() {
             eb();
-            if (this.CN == null) {
-                this.CN = new BroadcastReceiver() { // from class: android.support.v7.app.e.b.1
+            if (this.CM == null) {
+                this.CM = new BroadcastReceiver() { // from class: android.support.v7.app.e.b.1
                     @Override // android.content.BroadcastReceiver
                     public void onReceive(Context context, Intent intent) {
                         b.this.ea();
                     }
                 };
             }
-            if (this.CO == null) {
-                this.CO = new IntentFilter();
-                this.CO.addAction("android.intent.action.TIME_SET");
-                this.CO.addAction("android.intent.action.TIMEZONE_CHANGED");
-                this.CO.addAction("android.intent.action.TIME_TICK");
+            if (this.CN == null) {
+                this.CN = new IntentFilter();
+                this.CN.addAction("android.intent.action.TIME_SET");
+                this.CN.addAction("android.intent.action.TIMEZONE_CHANGED");
+                this.CN.addAction("android.intent.action.TIME_TICK");
             }
-            e.this.mContext.registerReceiver(this.CN, this.CO);
+            e.this.mContext.registerReceiver(this.CM, this.CN);
         }
 
         final void eb() {
-            if (this.CN != null) {
-                e.this.mContext.unregisterReceiver(this.CN);
-                this.CN = null;
+            if (this.CM != null) {
+                e.this.mContext.unregisterReceiver(this.CM);
+                this.CM = null;
             }
         }
     }

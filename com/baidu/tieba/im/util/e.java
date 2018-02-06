@@ -3,7 +3,7 @@ package com.baidu.tieba.im.util;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.d;
@@ -19,9 +19,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern aWm = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern aXV = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String L(String str, boolean z) {
+    public static String J(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -38,7 +38,7 @@ public class e {
         if (chatMessage == null) {
             return -1L;
         }
-        if (b.c(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+        if (com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
             return chatMessage.getToUserId();
         }
         return chatMessage.getUserId();
@@ -125,7 +125,7 @@ public class e {
         }
     }
 
-    private static final String nF(String str) {
+    private static final String nP(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -154,7 +154,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String nG(String str) {
+    private static final String nQ(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -177,28 +177,28 @@ public class e {
     }
 
     public static String A(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : N(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : O(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String N(int i, String str) {
+    public static String O(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String nF = (str.length() <= 1 || str.charAt(0) != '[') ? null : nF(str);
-            if (TextUtils.isEmpty(nF)) {
-                nF = str;
+            String nP = (str.length() <= 1 || str.charAt(0) != '[') ? null : nP(str);
+            if (TextUtils.isEmpty(nP)) {
+                nP = str;
             }
-            if (nF == null) {
+            if (nP == null) {
                 return null;
             }
-            Matcher matcher = aWm.matcher(nF);
+            Matcher matcher = aXV.matcher(nP);
             while (matcher.find()) {
                 String group = matcher.group();
-                nF = nF.replace(group, group.replace("#(", "[").replace(")", "]"));
+                nP = nP.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return nF;
+            return nP;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(d.j.last_msg_pic);
         } else {
@@ -206,7 +206,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(d.j.last_msg_voice);
             }
             if (i == 11) {
-                return nH(str);
+                return nR(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(d.j.last_msg_reply_card);
@@ -295,7 +295,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(d.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return nG(str);
+                    return nQ(str);
                 } else {
                     return null;
                 }
@@ -327,7 +327,7 @@ public class e {
         return A(chatMessage);
     }
 
-    private static String nH(String str) {
+    private static String nR(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -359,14 +359,8 @@ public class e {
                             str2 = optString2;
                         } else if (optString.equals("110")) {
                             str2 = optString2;
-                        } else if (optString.equals("202")) {
-                            str2 = optJSONObject.optString("userName") + TbadkCoreApplication.getInst().getApp().getString(d.j.snap_group_chat_exit);
-                        } else if (optString.equals("123")) {
-                            str2 = optString2;
-                        } else if (optString.equals("304")) {
-                            str2 = optString2;
                         } else {
-                            str2 = optString.equals("305") ? optString2 : optString2;
+                            str2 = optString.equals("123") ? optString2 : optString2;
                         }
                     }
                 }
@@ -441,25 +435,25 @@ public class e {
         }
     }
 
-    public static int B(Context context, int i) {
+    public static int C(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return nI(commonMsgPojo.getContent());
+            return nS(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d nI(String str) {
+    public static com.baidu.tieba.im.data.d nS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return nJ(jSONArray.getJSONObject(0).optString("msg_src"));
+                return nT(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -468,13 +462,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d nJ(String str) {
+    public static com.baidu.tieba.im.data.d nT(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.exg = split[0];
+        dVar.eBt = split[0];
         dVar.taskId = split[1];
         return dVar;
     }
@@ -483,15 +477,19 @@ public class e {
         if (chatMessage == null) {
             return true;
         }
-        try {
-            JSONArray jSONArray = new JSONArray(chatMessage.getContent());
-            if (jSONArray.length() > 0) {
-                return ((JSONObject) jSONArray.get(0)).optInt("switch", -1) == 0;
+        String content = chatMessage.getContent();
+        if (StringUtils.isJSONArray(content)) {
+            try {
+                JSONArray jSONArray = new JSONArray(content);
+                if (jSONArray.length() > 0) {
+                    return ((JSONObject) jSONArray.get(0)).optInt("switch", -1) == 0;
+                }
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
             }
-            return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return true;
         }
+        return false;
     }
 }

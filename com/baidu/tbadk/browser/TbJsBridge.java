@@ -6,12 +6,10 @@ import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.g.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -33,7 +31,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.h(String.valueOf(i), 0))));
+        TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.h(String.valueOf(i), 0))));
     }
 
     @JavascriptInterface
@@ -43,9 +41,9 @@ public class TbJsBridge {
         dVar.content = str2;
         dVar.linkUrl = str4;
         if (!am.isEmpty(str3)) {
-            dVar.bjm = Uri.parse(str3);
+            dVar.blB = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
     }
 
     @JavascriptInterface
@@ -57,6 +55,6 @@ public class TbJsBridge {
         intent.putExtra("quan_num", str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        f.e(this.mTbPageContext.getPageActivity(), intent);
+        com.baidu.adp.lib.g.f.e(this.mTbPageContext.getPageActivity(), intent);
     }
 }

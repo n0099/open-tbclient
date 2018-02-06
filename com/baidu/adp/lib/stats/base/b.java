@@ -11,13 +11,13 @@ public class b {
     public static File[] f(boolean z, boolean z2) {
         File[] listFiles;
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-        diskFileOperate.ab(z);
+        diskFileOperate.ad(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         com.baidu.adp.lib.Disk.d.ll().b(diskFileOperate);
         File[] listFiles2 = (diskFileOperate.lz() == null || diskFileOperate.lz().listFiles() == null) ? null : diskFileOperate.lz().listFiles();
         if (z2) {
             DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate2.ab(z);
+            diskFileOperate2.ad(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             com.baidu.adp.lib.Disk.d.ll().b(diskFileOperate2);
             if (diskFileOperate2.lz() != null && (listFiles = diskFileOperate2.lz().listFiles()) != null && listFiles.length != 0) {
@@ -33,7 +33,7 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<c> aq(boolean z) {
+    public static ArrayList<c> at(boolean z) {
         ArrayList<c> arrayList = new ArrayList<>();
         File[] f = f(z, true);
         if (f != null) {
@@ -51,7 +51,7 @@ public class b {
 
     public static void a(ArrayList<String> arrayList, boolean z) {
         e eVar = new e(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-        eVar.ab(z);
+        eVar.ad(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         com.baidu.adp.lib.Disk.d.ll().c(eVar);
     }

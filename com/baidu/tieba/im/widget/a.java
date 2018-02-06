@@ -4,18 +4,20 @@ import android.text.TextUtils;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
+import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T Ms;
+    private T Mr;
     private int subType;
     private String title;
 
     /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int bl(String str, String str2) {
+    public int bo(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -28,24 +30,24 @@ public class a<T> {
                         String optString = optJSONObject.optString("button");
                         String optString2 = optJSONObject.optString("shareSourceIcon");
                         String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
+                        String optString4 = optJSONObject.optString(WBConstants.SDK_WEOYOU_SHAREURL);
                         String optString5 = optJSONObject.optString("shareSourceUrl");
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
                             r2.setContent(optJSONObject.optString("themeContent"));
-                            r2.setForumName(optJSONObject.optString("forumName"));
+                            r2.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r2.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                             r2.setThreadType(optJSONObject.optInt("threadType"));
-                            this.Ms = r2;
+                            this.Mr = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
                             r1.setContent(optJSONObject.optString("themeContent"));
-                            r1.setForumName(optJSONObject.optString("forumName"));
+                            r1.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r1.setPostId(optJSONObject.optString("postID"));
                             r1.setThreadId(optJSONObject.optString("themeID"));
@@ -55,16 +57,16 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.Ms = r1;
+                            this.Mr = r1;
                             i = 1;
                         }
                     } else if (4 == this.subType) {
                         ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.Ms = r12;
+                        this.Mr = r12;
                         i = 2;
                     }
                 }
@@ -78,7 +80,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aKN() {
-        return this.Ms;
+    public T aMp() {
+        return this.Mr;
     }
 }

@@ -16,25 +16,25 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 /* loaded from: classes2.dex */
 class g {
-    private static final int[] Ir = {16843067, 16843068};
-    private final ProgressBar Ng;
-    private Bitmap Nh;
+    private static final int[] Iq = {16843067, 16843068};
+    private final ProgressBar Nf;
+    private Bitmap Ng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ProgressBar progressBar) {
-        this.Ng = progressBar;
+        this.Nf = progressBar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.Ng.getContext(), attributeSet, Ir, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.Nf.getContext(), attributeSet, Iq, i, 0);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
         if (drawableIfKnown != null) {
-            this.Ng.setIndeterminateDrawable(f(drawableIfKnown));
+            this.Nf.setIndeterminateDrawable(f(drawableIfKnown));
         }
         Drawable drawableIfKnown2 = obtainStyledAttributes.getDrawableIfKnown(1);
         if (drawableIfKnown2 != null) {
-            this.Ng.setProgressDrawable(a(drawableIfKnown2, false));
+            this.Nf.setProgressDrawable(a(drawableIfKnown2, false));
         }
         obtainStyledAttributes.recycle();
     }
@@ -61,8 +61,8 @@ class g {
         } else if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             Bitmap bitmap = bitmapDrawable.getBitmap();
-            if (this.Nh == null) {
-                this.Nh = bitmap;
+            if (this.Ng == null) {
+                this.Ng = bitmap;
             }
             ShapeDrawable shapeDrawable = new ShapeDrawable(fL());
             shapeDrawable.getPaint().setShader(new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP));
@@ -95,6 +95,6 @@ class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bitmap fM() {
-        return this.Nh;
+        return this.Ng;
     }
 }

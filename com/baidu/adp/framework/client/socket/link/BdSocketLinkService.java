@@ -25,7 +25,6 @@ import com.baidu.adp.lib.webSocket.h;
 import com.baidu.adp.lib.webSocket.j;
 import com.baidu.adp.lib.webSocket.k;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class BdSocketLinkService extends BdBaseService {
@@ -155,7 +154,7 @@ public class BdSocketLinkService extends BdBaseService {
 
     public static void close(int i, String str) {
         if (!isClose()) {
-            i.a(MODULE_NAME, 0, 0, IntentConfig.CLOSE, i, str);
+            i.a(MODULE_NAME, 0, 0, "close", i, str);
             i.kE();
             mHandler.removeMessages(1);
             h.pv().close(i, str);
@@ -300,7 +299,7 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     public static void setHasAbsoluteClose(boolean z) {
-        BdLog.d("manual close socketLink" + (z ? IntentConfig.CLOSE : TbConfig.ST_TYPE_OPEN));
+        BdLog.d("manual close socketLink" + (z ? "close" : TbConfig.ST_TYPE_OPEN));
         hasAbsoluteClose = z;
     }
 

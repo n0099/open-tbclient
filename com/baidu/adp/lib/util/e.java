@@ -4,9 +4,9 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
     public static int ao(Context context) {
-        if (!l.amK) {
+        if (!l.amJ) {
             l.ap(context);
         }
-        return l.amM;
+        return l.amL;
     }
 }

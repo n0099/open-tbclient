@@ -9,8 +9,8 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.d;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.plugin.util.Util;
+import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
@@ -37,7 +37,7 @@ public class Static {
                                     if (split.length != 0 && split.length != 3) {
                                         String str = "";
                                         for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
-                                            str = str + split[i2] + ".";
+                                            str = str + split[i2] + Constants.DOT;
                                         }
                                         rd = str.substring(0, str.length() - 1);
                                     }
@@ -137,8 +137,8 @@ public class Static {
             }
         };
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC);
-            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC, customMessageListener);
+            MessageManager.getInstance().registerStickyMode(2001401);
+            MessageManager.getInstance().registerListener(2001401, customMessageListener);
         }
     }
 }

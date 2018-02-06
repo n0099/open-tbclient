@@ -8,32 +8,32 @@ import com.baidu.adp.lib.util.l;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
-    protected BitmapFactory.Options afW;
-    protected a afX;
+    protected BitmapFactory.Options afU;
+    protected a afV;
     protected Bitmap mBitmap;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.afW = null;
-        this.afX = null;
-        this.afX = new a();
+        this.afU = null;
+        this.afV = null;
+        this.afV = new a();
     }
 
     public boolean isGif() {
-        return this.afX.mIsGif;
+        return this.afV.mIsGif;
     }
 
-    public void ad(boolean z) {
-        this.afX.mIsGif = z;
+    public void af(boolean z) {
+        this.afV.mIsGif = z;
     }
 
     public boolean lH() {
-        return this.afX.agb;
+        return this.afV.afZ;
     }
 
-    public void ae(boolean z) {
-        this.afX.agb = z;
+    public void ag(boolean z) {
+        this.afV.afZ = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class c extends DiskFileOperate {
     public void setData(byte[] bArr) {
         super.setData(bArr);
         if (!isGif() && l.j(bArr)) {
-            ad(true);
+            af(true);
         }
     }
 
@@ -53,20 +53,20 @@ public class c extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.afX.toByteArray();
+        return this.afV.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean h(byte[] bArr) {
-        if (bArr != null && this.afX.i(bArr)) {
-            if (this.afX.aga == 0 || this.afX.aga >= System.currentTimeMillis()) {
-                if (this.afW == null) {
-                    this.afW = new BitmapFactory.Options();
-                    this.afW.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (bArr != null && this.afV.i(bArr)) {
+            if (this.afV.afY == 0 || this.afV.afY >= System.currentTimeMillis()) {
+                if (this.afU == null) {
+                    this.afU = new BitmapFactory.Options();
+                    this.afU.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int headerSize = a.getHeaderSize();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.afW);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.afU);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -87,11 +87,11 @@ public class c extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte afY = Byte.MIN_VALUE;
-        private static byte afZ = Byte.MIN_VALUE;
+        private static byte afW = Byte.MIN_VALUE;
+        private static byte afX = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long aga = 0;
-        boolean agb = true;
+        long afY = 0;
+        boolean afZ = true;
 
         a() {
         }
@@ -103,9 +103,9 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600511);
-            allocate.put(this.mIsGif ? (byte) (afY | 0) : (byte) 0);
-            allocate.putLong(this.aga);
-            allocate.put(this.agb ? (byte) 0 : (byte) (afZ | 0));
+            allocate.put(this.mIsGif ? (byte) (afW | 0) : (byte) 0);
+            allocate.putLong(this.afY);
+            allocate.put(this.afZ ? (byte) 0 : (byte) (afX | 0));
             allocate.flip();
             return allocate.array();
         }
@@ -116,12 +116,12 @@ public class c extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & afY) != 0) {
+                if ((wrap.get() & afW) != 0) {
                     this.mIsGif = true;
                 }
-                this.aga = wrap.getLong();
-                if ((wrap.get() & afZ) != 0) {
-                    this.agb = false;
+                this.afY = wrap.getLong();
+                if ((wrap.get() & afX) != 0) {
+                    this.afZ = false;
                 }
                 return true;
             }

@@ -3,61 +3,60 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.c.b;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.a erF;
-    protected b erG;
-    protected long erM;
-    private boolean erN;
-    private boolean erO;
-    protected int erP;
+    protected com.baidu.adp.lib.c.a evP;
+    protected com.baidu.adp.lib.c.b evQ;
+    protected long evW;
+    private boolean evX;
+    private boolean evY;
+    protected int evZ;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.erF = null;
-        this.erG = null;
-        this.erM = 0L;
-        this.erN = false;
-        this.erO = false;
+        this.evP = null;
+        this.evQ = null;
+        this.evW = 0L;
+        this.evX = false;
+        this.evY = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.erF = aVar;
+        this.evP = aVar;
     }
 
-    public void setOnItemViewLongClickListener(b bVar) {
-        this.erG = bVar;
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
+        this.evQ = bVar;
     }
 
-    private void aEx() {
-        this.erM = System.currentTimeMillis() / 1000;
+    private void aFR() {
+        this.evW = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aEy() {
-        return this.erN;
+    public boolean aFS() {
+        return this.evX;
     }
 
-    public void gR(boolean z) {
-        this.erN = z;
+    public void hb(boolean z) {
+        this.evX = z;
     }
 
-    public boolean aEz() {
-        return this.erO;
+    public boolean aFT() {
+        return this.evY;
     }
 
-    public void gS(boolean z) {
-        this.erO = z;
+    public void hc(boolean z) {
+        this.evY = z;
     }
 
-    public void pG(int i) {
-        this.erP = i;
+    public void pH(int i) {
+        this.evZ = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,21 +67,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aEx();
+        aFR();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends r.a {
-        private T erQ;
+        private T ewa;
 
         public a(View view, T t) {
             super(view);
-            this.erQ = t;
+            this.ewa = t;
         }
 
-        public T aEA() {
-            return this.erQ;
+        public T aFU() {
+            return this.ewa;
         }
     }
 }

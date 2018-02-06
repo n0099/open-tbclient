@@ -29,14 +29,14 @@ public class o {
                 String string = sharedPreferences.getString(UserBox.TYPE, null);
                 String string2 = sharedPreferences.getString(Constants.EXTRA_KEY_TOKEN, null);
                 String string3 = sharedPreferences.getString("security", null);
-                String string4 = sharedPreferences.getString("app_id", null);
+                String string4 = sharedPreferences.getString(com.baidu.ar.util.Constants.HTTP_APP_ID, null);
                 String string5 = sharedPreferences.getString("app_token", null);
                 String string6 = sharedPreferences.getString("package_name", null);
-                String string7 = sharedPreferences.getString("device_id", null);
+                String string7 = sharedPreferences.getString(com.baidu.ar.util.Constants.HTTP_DEVICE_ID, null);
                 int i = sharedPreferences.getInt("env_type", 1);
                 if (!TextUtils.isEmpty(string7) && string7.startsWith("a-")) {
                     string7 = com.xiaomi.channel.commonutils.android.e.e(context);
-                    sharedPreferences.edit().putString("device_id", string7).commit();
+                    sharedPreferences.edit().putString(com.baidu.ar.util.Constants.HTTP_DEVICE_ID, string7).commit();
                 }
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                     String e = com.xiaomi.channel.commonutils.android.e.e(context);
@@ -115,10 +115,10 @@ public class o {
         edit.putString(UserBox.TYPE, nVar.a);
         edit.putString("security", nVar.c);
         edit.putString(Constants.EXTRA_KEY_TOKEN, nVar.b);
-        edit.putString("app_id", nVar.d);
+        edit.putString(com.baidu.ar.util.Constants.HTTP_APP_ID, nVar.d);
         edit.putString("package_name", nVar.f);
         edit.putString("app_token", nVar.e);
-        edit.putString("device_id", com.xiaomi.channel.commonutils.android.e.e(context));
+        edit.putString(com.baidu.ar.util.Constants.HTTP_DEVICE_ID, com.xiaomi.channel.commonutils.android.e.e(context));
         edit.putInt("env_type", nVar.g);
         edit.commit();
         b();

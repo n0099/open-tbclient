@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.Constants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -13,7 +14,6 @@ import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public final class StatService {
     static {
         a.put(Info.kBaiduPIDKey, "111");
         a.put("type", "1023");
-        a.put("device", "android");
+        a.put("device", Constants.OS_TYPE_VALUE);
     }
 
     public static void onEvent(StatEvent statEvent) {
@@ -56,7 +56,7 @@ public final class StatService {
                     hashMap.put("name", str);
                     hashMap.put("tpl", confignation.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
-                    hashMap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
+                    hashMap.put(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
                     hashMap.put("sdk_version", isAccountManager.getVersionName());
                     if (!TextUtils.isEmpty(confignation.clientId)) {
                         hashMap.put("cuid", confignation.clientId);

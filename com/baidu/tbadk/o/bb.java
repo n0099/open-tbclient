@@ -7,7 +7,12 @@ public class bb extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "video_square_middle_page";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] mr() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,11 +23,6 @@ public class bb extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
         return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
-        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -10,37 +10,37 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 class p extends q {
-    z uS;
-    r uT;
-    private a uU;
+    z uT;
+    r uU;
+    private a uV;
 
     @Override // android.support.b.q
     public void a(r rVar, Object obj) {
-        this.uT = rVar;
+        this.uU = rVar;
         if (obj == null) {
-            this.uS = new b(rVar);
+            this.uT = new b(rVar);
         } else {
-            this.uS = (z) obj;
+            this.uT = (z) obj;
         }
     }
 
     @Override // android.support.b.q
     public q a(s sVar) {
-        if (this.uU == null) {
-            this.uU = new a();
-            this.uS.a(this.uU);
+        if (this.uV == null) {
+            this.uV = new a();
+            this.uT.a(this.uV);
         }
-        this.uU.c(sVar);
+        this.uV.c(sVar);
         return this;
     }
 
     @Override // android.support.b.q
     public q b(s sVar) {
-        if (this.uU != null) {
-            this.uU.d(sVar);
-            if (this.uU.isEmpty()) {
-                this.uS.b(this.uU);
-                this.uU = null;
+        if (this.uV != null) {
+            this.uV.d(sVar);
+            if (this.uV.isEmpty()) {
+                this.uT.b(this.uV);
+                this.uV = null;
             }
         }
         return this;
@@ -48,162 +48,162 @@ class p extends q {
 
     @Override // android.support.b.q
     public q H(View view) {
-        this.uS.J(view);
+        this.uT.J(view);
         return this;
     }
 
     @Override // android.support.b.q
     public q T(int i) {
-        this.uS.U(i);
+        this.uT.U(i);
         return this;
     }
 
     @Override // android.support.b.q
     public void captureEndValues(af afVar) {
-        this.uS.captureEndValues(afVar);
+        this.uT.captureEndValues(afVar);
     }
 
     @Override // android.support.b.q
     public void captureStartValues(af afVar) {
-        this.uS.captureStartValues(afVar);
+        this.uT.captureStartValues(afVar);
     }
 
     @Override // android.support.b.q
     public Animator createAnimator(ViewGroup viewGroup, af afVar, af afVar2) {
-        return this.uS.createAnimator(viewGroup, afVar, afVar2);
+        return this.uT.createAnimator(viewGroup, afVar, afVar2);
     }
 
     @Override // android.support.b.q
     public q b(View view, boolean z) {
-        this.uS.e(view, z);
+        this.uT.e(view, z);
         return this;
     }
 
     @Override // android.support.b.q
-    public q c(int i, boolean z) {
-        this.uS.f(i, z);
+    public q f(int i, boolean z) {
+        this.uT.i(i, z);
         return this;
     }
 
     @Override // android.support.b.q
     public q a(Class cls, boolean z) {
-        this.uS.d(cls, z);
+        this.uT.d(cls, z);
         return this;
     }
 
     @Override // android.support.b.q
     public q c(View view, boolean z) {
-        this.uS.d(view, z);
+        this.uT.d(view, z);
         return this;
     }
 
     @Override // android.support.b.q
-    public q d(int i, boolean z) {
-        this.uS.e(i, z);
+    public q g(int i, boolean z) {
+        this.uT.h(i, z);
         return this;
     }
 
     @Override // android.support.b.q
     public q b(Class cls, boolean z) {
-        this.uS.c(cls, z);
+        this.uT.c(cls, z);
         return this;
     }
 
     @Override // android.support.b.q
     public long getDuration() {
-        return this.uS.getDuration();
+        return this.uT.getDuration();
     }
 
     @Override // android.support.b.q
     public q f(long j) {
-        this.uS.h(j);
+        this.uT.h(j);
         return this;
     }
 
     @Override // android.support.b.q
     public TimeInterpolator getInterpolator() {
-        return this.uS.getInterpolator();
+        return this.uT.getInterpolator();
     }
 
     @Override // android.support.b.q
     public q a(TimeInterpolator timeInterpolator) {
-        this.uS.b(timeInterpolator);
+        this.uT.b(timeInterpolator);
         return this;
     }
 
     @Override // android.support.b.q
     public String getName() {
-        return this.uS.getName();
+        return this.uT.getName();
     }
 
     @Override // android.support.b.q
     public long getStartDelay() {
-        return this.uS.getStartDelay();
+        return this.uT.getStartDelay();
     }
 
     @Override // android.support.b.q
     public q g(long j) {
-        this.uS.i(j);
+        this.uT.i(j);
         return this;
     }
 
     @Override // android.support.b.q
     public List<Integer> getTargetIds() {
-        return this.uS.getTargetIds();
+        return this.uT.getTargetIds();
     }
 
     @Override // android.support.b.q
     public List<View> getTargets() {
-        return this.uS.getTargets();
+        return this.uT.getTargets();
     }
 
     @Override // android.support.b.q
     public String[] getTransitionProperties() {
-        return this.uS.getTransitionProperties();
+        return this.uT.getTransitionProperties();
     }
 
     @Override // android.support.b.q
     public af getTransitionValues(View view, boolean z) {
-        return this.uS.getTransitionValues(view, z);
+        return this.uT.getTransitionValues(view, z);
     }
 
     @Override // android.support.b.q
     public q I(View view) {
-        this.uS.K(view);
+        this.uT.K(view);
         return this;
     }
 
     @Override // android.support.b.q
     public q S(int i) {
-        this.uS.V(i);
+        this.uT.V(i);
         return this;
     }
 
     public String toString() {
-        return this.uS.toString();
+        return this.uT.toString();
     }
 
     /* loaded from: classes2.dex */
     private static class b extends z {
-        private r uW;
+        private r uX;
 
         public b(r rVar) {
-            this.uW = rVar;
+            this.uX = rVar;
         }
 
         @Override // android.support.b.z
         public void captureStartValues(af afVar) {
-            this.uW.captureStartValues(afVar);
+            this.uX.captureStartValues(afVar);
         }
 
         @Override // android.support.b.z
         public void captureEndValues(af afVar) {
-            this.uW.captureEndValues(afVar);
+            this.uX.captureEndValues(afVar);
         }
 
         @Override // android.support.b.z
         public Animator createAnimator(ViewGroup viewGroup, af afVar, af afVar2) {
-            return this.uW.createAnimator(viewGroup, afVar, afVar2);
+            return this.uX.createAnimator(viewGroup, afVar, afVar2);
         }
     }
 
@@ -230,7 +230,7 @@ class p extends q {
         public void d(z zVar) {
             Iterator<s> it = this.sB.iterator();
             while (it.hasNext()) {
-                it.next().b(p.this.uT);
+                it.next().b(p.this.uU);
             }
         }
 
@@ -238,7 +238,7 @@ class p extends q {
         public void a(z zVar) {
             Iterator<s> it = this.sB.iterator();
             while (it.hasNext()) {
-                it.next().c(p.this.uT);
+                it.next().c(p.this.uU);
             }
         }
 
@@ -246,7 +246,7 @@ class p extends q {
         public void b(z zVar) {
             Iterator<s> it = this.sB.iterator();
             while (it.hasNext()) {
-                it.next().e(p.this.uT);
+                it.next().e(p.this.uU);
             }
         }
 
@@ -254,7 +254,7 @@ class p extends q {
         public void c(z zVar) {
             Iterator<s> it = this.sB.iterator();
             while (it.hasNext()) {
-                it.next().f(p.this.uT);
+                it.next().f(p.this.uU);
             }
         }
     }

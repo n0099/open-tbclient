@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.am;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -326,7 +327,7 @@ public class MarkData implements Serializable {
             this.mUesrId = jSONObject.optJSONObject("author").optString("lz_uid");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt("count");
+            this.mNewCounts = jSONObject.optInt(WBPageConstants.ParamKey.COUNT);
             this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
             if (this.isShareThread) {

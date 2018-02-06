@@ -1,20 +1,17 @@
 package com.baidu.tieba.p;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.UegWebViewActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static BlockPopInfo hmc;
-    private static BlockPopInfo hmd;
-    private TbPageContext aQs;
-    private CustomMessageListener dOv = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.p.a.3
+    private static BlockPopInfo hnr;
+    private static BlockPopInfo hns;
+    private TbPageContext aRR;
+    private CustomMessageListener cdn = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.p.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,8 +23,8 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.aQs = tbPageContext;
-        this.aQs.registerListener(this.dOv);
+        this.aRR = tbPageContext;
+        this.aRR.registerListener(this.cdn);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
@@ -45,18 +42,18 @@ public class a {
         return false;
     }
 
-    public boolean bzM() {
-        return a(hmc);
+    public boolean bAw() {
+        return a(hnr);
     }
 
-    public boolean bzN() {
-        return a(hmd);
+    public boolean bAx() {
+        return a(hns);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aQs.getPageActivity());
-            aVar.cZ(blockPopInfo.block_info);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aRR.getPageActivity());
+            aVar.dk(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.p.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -69,22 +66,22 @@ public class a {
                     a.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.aQs).AB();
+            aVar.b(this.aRR).AU();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UegWebViewActivityConfig(this.aQs.getPageActivity(), blockPopInfo.ahead_url)));
+            AntiHelper.as(this.aRR.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        hmc = blockPopInfo;
+        hnr = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        hmd = blockPopInfo;
+        hns = blockPopInfo;
     }
 }

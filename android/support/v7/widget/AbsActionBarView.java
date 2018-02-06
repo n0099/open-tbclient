@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class AbsActionBarView extends ViewGroup {
+    private boolean JP;
     private boolean JQ;
-    private boolean JR;
     protected ActionMenuPresenter mActionMenuPresenter;
     protected int mContentHeight;
     protected ActionMenuView mMenuView;
@@ -61,16 +61,16 @@ public abstract class AbsActionBarView extends ViewGroup {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 0) {
-            this.JQ = false;
+            this.JP = false;
         }
-        if (!this.JQ) {
+        if (!this.JP) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
             if (actionMasked == 0 && !onTouchEvent) {
-                this.JQ = true;
+                this.JP = true;
             }
         }
         if (actionMasked == 1 || actionMasked == 3) {
-            this.JQ = false;
+            this.JP = false;
         }
         return true;
     }
@@ -79,16 +79,16 @@ public abstract class AbsActionBarView extends ViewGroup {
     public boolean onHoverEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         if (actionMasked == 9) {
-            this.JR = false;
+            this.JQ = false;
         }
-        if (!this.JR) {
+        if (!this.JQ) {
             boolean onHoverEvent = super.onHoverEvent(motionEvent);
             if (actionMasked == 9 && !onHoverEvent) {
-                this.JR = true;
+                this.JQ = true;
             }
         }
         if (actionMasked == 10 || actionMasked == 3) {
-            this.JR = false;
+            this.JQ = false;
         }
         return true;
     }
@@ -103,7 +103,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     public int getAnimatedVisibility() {
-        return this.mVisibilityAnim != null ? this.mVisAnimListener.JT : getVisibility();
+        return this.mVisibilityAnim != null ? this.mVisAnimListener.JS : getVisibility();
     }
 
     public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
@@ -217,7 +217,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public class VisibilityAnimListener implements ViewPropertyAnimatorListener {
-        int JT;
+        int JS;
         private boolean mCanceled = false;
 
         protected VisibilityAnimListener() {
@@ -225,7 +225,7 @@ public abstract class AbsActionBarView extends ViewGroup {
 
         public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
             AbsActionBarView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
-            this.JT = i;
+            this.JS = i;
             return this;
         }
 
@@ -239,7 +239,7 @@ public abstract class AbsActionBarView extends ViewGroup {
         public void onAnimationEnd(View view) {
             if (!this.mCanceled) {
                 AbsActionBarView.this.mVisibilityAnim = null;
-                AbsActionBarView.super.setVisibility(this.JT);
+                AbsActionBarView.super.setVisibility(this.JS);
             }
         }
 

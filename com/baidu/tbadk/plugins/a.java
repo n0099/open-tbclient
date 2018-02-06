@@ -13,16 +13,15 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.widget.richText.c;
 import com.baidu.tieba.d;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern bAf = Pattern.compile("#.+?#", 2);
+    private static final Pattern bCj = Pattern.compile("#.+?#", 2);
 
-    public static boolean cz(boolean z) {
+    public static boolean cD(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.qS().bq("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -35,7 +34,7 @@ public class a {
         return false;
     }
 
-    public static boolean Od() {
+    public static boolean OI() {
         return PluginPackageManager.qS().bw("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -47,7 +46,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (!cz(z2)) {
+        } else if (!cD(z2)) {
             String string2 = tbPageContext.getResources().getString(d.j.plugin_hottopic_install_tips);
             String string3 = tbPageContext.getResources().getString(d.j.plugin_go_install);
             if (z) {
@@ -55,7 +54,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (Od()) {
+        } else if (OI()) {
             String string4 = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(d.j.setup);
             if (z) {
@@ -68,7 +67,7 @@ public class a {
         }
     }
 
-    public static boolean f(TbPageContext<?> tbPageContext) {
+    public static boolean e(TbPageContext<?> tbPageContext) {
         return a(tbPageContext, true, true);
     }
 
@@ -76,7 +75,7 @@ public class a {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cZ(str);
+            aVar.dk(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(d.j.know, new a.b() { // from class: com.baidu.tbadk.plugins.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -88,7 +87,7 @@ public class a {
                 aVar.a(str2, new a.b() { // from class: com.baidu.tbadk.plugins.a.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(pageActivity, "com.baidu.tieba.pluginHotTopic")));
+                        tbPageContext.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(pageActivity, "com.baidu.tieba.pluginHotTopic")));
                         aVar2.dismiss();
                     }
                 });
@@ -99,15 +98,15 @@ public class a {
                     }
                 });
             }
-            aVar.b(tbPageContext).AB();
+            aVar.b(tbPageContext).AU();
         }
     }
 
-    public static SpannableString gU(String str) {
+    public static SpannableString hd(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = bAf.matcher(str);
+        Matcher matcher = bCj.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new c(18, "") { // from class: com.baidu.tbadk.plugins.a.4

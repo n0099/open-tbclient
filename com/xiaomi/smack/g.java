@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
-import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes2.dex */
@@ -28,7 +27,7 @@ public final class g {
                         inputStream = resources.nextElement().openStream();
                         XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
                         newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                        newPullParser.setInput(inputStream, HTTP.UTF_8);
+                        newPullParser.setInput(inputStream, "UTF-8");
                         int eventType = newPullParser.getEventType();
                         do {
                             if (eventType == 2) {

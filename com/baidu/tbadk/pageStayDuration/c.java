@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String N(List<String> list) {
+    public static String P(List<String> list) {
         if (v.D(list) <= 0) {
             return null;
         }

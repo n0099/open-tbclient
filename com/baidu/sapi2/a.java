@@ -6,9 +6,11 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.ar.util.Constants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.FillUserProfileCallback;
@@ -22,7 +24,6 @@ import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.dto.IqiyiLoginDTO;
 import com.baidu.sapi2.dto.SSOConfirmDTO;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.result.FastRegResult;
@@ -58,7 +59,8 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.xiaomi.mipush.sdk.Constants;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.InvalidKeyException;
@@ -78,7 +80,6 @@ import javax.security.cert.CertificateException;
 import org.apache.http.client.CookieStore;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,12 +89,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0053a e;
+    private C0075a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0053a {
+    public static class C0075a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -105,7 +106,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0053a(Context context) {
+        public C0075a(Context context) {
             this.a = context;
             e();
             f();
@@ -141,7 +142,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0053a(context);
+        this.e = new C0075a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -194,7 +195,7 @@ public final class a {
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 /* renamed from: c */
                 public void onFailure(GetUserInfoResult getUserInfoResult) {
-                    web2NativeLoginResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    web2NativeLoginResult.setResultCode(-202);
                     web2NativeLoginCallback.onFailure(web2NativeLoginResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WEB_2_NATIVE_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
                 }
@@ -297,11 +298,11 @@ public final class a {
         hashMap.put("cert_id", str2);
         hashMap.put("isdpass", "1");
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str3);
+        jSONObject.put("username", str3);
         jSONObject.put("isphone", "1");
         jSONObject.put("password", str4);
         jSONObject.put(LoginActivityConfig.LOGIN_TYPE, "3");
-        jSONObject.put("key", sapiDataEncryptor.getAESKey());
+        jSONObject.put(RimArmor.KEY, sapiDataEncryptor.getAESKey());
         jSONObject.put("sdk_version", "2");
         jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
         hashMap.put("userinfo", sapiDataEncryptor.encrypt(str, jSONObject.toString()));
@@ -385,7 +386,7 @@ public final class a {
         }
         final GetUserInfoResult getUserInfoResult = new GetUserInfoResult();
         if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            getUserInfoResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            getUserInfoResult.setResultCode(-201);
             getUserInfoCallback.onFailure(getUserInfoResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -407,8 +408,8 @@ public final class a {
         if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
         }
-        hashMap.put("client", "android");
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
+        hashMap.put("client", Constants.OS_TYPE_VALUE);
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
         if (!TextUtils.isEmpty(deviceInfo)) {
             hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
@@ -452,7 +453,7 @@ public final class a {
                                 getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                                 getUserInfoResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                             }
-                            getUserInfoResult.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
+                            getUserInfoResult.username = jSONObject.optString("username");
                             getUserInfoResult.uid = jSONObject.optString("userid");
                             getUserInfoResult.displayname = jSONObject.optString("displayname");
                             getUserInfoResult.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
@@ -490,7 +491,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    getUserInfoResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getUserInfoResult.setResultCode(-202);
                     getUserInfoCallback.onFailure(getUserInfoResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -529,8 +530,8 @@ public final class a {
         if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
         }
-        hashMap.put("client", "android");
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
+        hashMap.put("client", Constants.OS_TYPE_VALUE);
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
         if (!TextUtils.isEmpty(deviceInfo)) {
             hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
@@ -564,7 +565,7 @@ public final class a {
                                 getUserInfoResponse.portrait = String.format(SapiHost.getHost(SapiHost.DOMAIN_BDIMG) + "/sys/portrait/item/%s.jpg", optString);
                                 getUserInfoResponse.portraitHttps = String.format(SapiHost.getHost(SapiHost.DOMAIN_PORTRAIT_HTTPS_URL) + "/sys/portrait/item/%s.jpg", optString);
                             }
-                            getUserInfoResponse.username = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_USERNAME);
+                            getUserInfoResponse.username = jSONObject.optString("username");
                             getUserInfoResponse.uid = jSONObject.optString("userid");
                             getUserInfoResponse.displayname = jSONObject.optString("displayname");
                             getUserInfoResponse.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
@@ -620,7 +621,7 @@ public final class a {
         }
         final FillUsernameResult fillUsernameResult = new FillUsernameResult();
         if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            fillUsernameResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            fillUsernameResult.setResultCode(-201);
             fillUsernameCallback.onFailure(fillUsernameResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FILL_USENAME, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -642,9 +643,9 @@ public final class a {
             if (!TextUtils.isEmpty(this.c.clientIp)) {
                 jSONObject.put("clientip", this.c.clientIp);
             }
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str2);
-            jSONObject.put("key", sapiDataEncryptor.getAESKey());
-            hashMap.put("userinfo", sapiDataEncryptor.encrypt(SapiDataEncryptor.Cert1.CERT, jSONObject.toString()));
+            jSONObject.put("username", str2);
+            jSONObject.put(RimArmor.KEY, sapiDataEncryptor.getAESKey());
+            hashMap.put("userinfo", sapiDataEncryptor.encrypt("-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----", jSONObject.toString()));
             hashMap.put("sig", a(hashMap, this.c.appSignKey));
             this.d.post(this.c.context, k(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.19
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -715,7 +716,7 @@ public final class a {
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FILL_USENAME, IEventCenterService.EventResult.PHASE.FAILURE);
                             return;
                         }
-                        fillUsernameResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        fillUsernameResult.setResultCode(-202);
                         fillUsernameCallback.onFailure(fillUsernameResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FILL_USENAME, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
@@ -725,7 +726,7 @@ public final class a {
                 }
             });
         } catch (Throwable th) {
-            fillUsernameResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+            fillUsernameResult.setResultCode(-202);
             fillUsernameCallback.onFailure(fillUsernameResult);
             Log.e(th);
         }
@@ -803,8 +804,8 @@ public final class a {
         if (!TextUtils.isEmpty(str2)) {
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
         }
-        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str3);
-        jSONObject.put("key", sapiDataEncryptor.getAESKey());
+        jSONObject.put("username", str3);
+        jSONObject.put(RimArmor.KEY, sapiDataEncryptor.getAESKey());
         hashMap.put("userinfo", sapiDataEncryptor.encrypt(str4, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
         this.d.post(this.c.context, k(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.21
@@ -832,7 +833,7 @@ public final class a {
         }
         final FillUserProfileResult fillUserProfileResult = new FillUserProfileResult();
         if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            fillUserProfileResult.setResultCode(-201);
             fillUserProfileCallback.onFailure(fillUserProfileResult);
         } else if (!SapiUtils.isSimReady(this.c.context)) {
             fillUserProfileResult.setResultCode(-101);
@@ -904,7 +905,7 @@ public final class a {
                                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                                         public void onSuccess(int i2, String str3) {
                                             if (TextUtils.isEmpty(str3)) {
-                                                fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                                fillUserProfileResult.setResultCode(-202);
                                                 fillUserProfileCallback.onFailure(fillUserProfileResult);
                                                 return;
                                             }
@@ -933,25 +934,25 @@ public final class a {
                                                     return;
                                                 } catch (Throwable th) {
                                                     Log.e(th);
-                                                    fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                                    fillUserProfileResult.setResultCode(-202);
                                                     fillUserProfileCallback.onFailure(fillUserProfileResult);
                                                     return;
                                                 }
                                             }
-                                            fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                            fillUserProfileResult.setResultCode(-202);
                                             fillUserProfileCallback.onFailure(fillUserProfileResult);
                                         }
 
                                         /* JADX INFO: Access modifiers changed from: protected */
                                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                                         public void onFailure(Throwable th, String str3) {
-                                            fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                            fillUserProfileResult.setResultCode(-202);
                                             fillUserProfileCallback.onFailure(fillUserProfileResult);
                                         }
                                     });
                                     return;
                                 }
-                                fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                                fillUserProfileResult.setResultCode(-202);
                                 fillUserProfileCallback.onFailure(fillUserProfileResult);
                                 return;
                             case 1:
@@ -965,7 +966,7 @@ public final class a {
                                 return;
                         }
                     } catch (Throwable th) {
-                        fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        fillUserProfileResult.setResultCode(-202);
                         fillUserProfileCallback.onFailure(fillUserProfileResult);
                     }
                 }
@@ -973,7 +974,7 @@ public final class a {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
-                    fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    fillUserProfileResult.setResultCode(-202);
                     fillUserProfileCallback.onFailure(fillUserProfileResult);
                 }
             });
@@ -1028,7 +1029,7 @@ public final class a {
                             return;
                     }
                 } catch (Throwable th) {
-                    fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    fillUserProfileResult.setResultCode(-202);
                     fillUserProfileCallback.onFailure(fillUserProfileResult);
                 }
             }
@@ -1036,7 +1037,7 @@ public final class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str) {
-                fillUserProfileResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                fillUserProfileResult.setResultCode(-202);
                 fillUserProfileCallback.onFailure(fillUserProfileResult);
             }
         });
@@ -1089,7 +1090,7 @@ public final class a {
         }
         final GetTplStokenResult getTplStokenResult = new GetTplStokenResult();
         if (list == null || list.isEmpty()) {
-            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_TARGET_TPL_LIST_EMPTY);
+            getTplStokenResult.setResultCode(-302);
             getTplStokenResult.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
             getTplStokenCallback.onFailure(getTplStokenResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
@@ -1121,14 +1122,14 @@ public final class a {
                 }
                 if (!getTplStokenResult.tplStokenMap.isEmpty()) {
                     getTplStokenResult.setResultCode(0);
-                    getTplStokenResult.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+                    getTplStokenResult.setResultMsg("成功");
                     getTplStokenCallback.onSuccess(getTplStokenResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.SUCCESS);
                     return getTplStokenResult.tplStokenMap;
                 }
             } catch (JSONException e) {
                 Log.e(e);
-                getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL);
+                getTplStokenResult.setResultCode(-304);
                 getTplStokenCallback.onFailure(getTplStokenResult);
                 PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
                 return getTplStokenResult.tplStokenMap;
@@ -1142,7 +1143,7 @@ public final class a {
             str3 = str4;
         }
         if (TextUtils.isEmpty(str2)) {
-            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PTOKEN_EMPTY);
+            getTplStokenResult.setResultCode(-305);
             getTplStokenResult.failureType = GetTplStokenResult.FailureType.PTOKEN_EMPTY;
             getTplStokenCallback.onFailure(getTplStokenResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
@@ -1153,8 +1154,8 @@ public final class a {
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         hashMap.put("bduss", str);
-        hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
-        hashMap.put("client", "android");
+        hashMap.put("sign", MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
+        hashMap.put("client", Constants.OS_TYPE_VALUE);
         hashMap.put("return_type", "1");
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
@@ -1208,7 +1209,7 @@ public final class a {
                                 PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.SUCCESS);
                                 return;
                             }
-                            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_STOKENS_NOT_MATCH);
+                            getTplStokenResult.setResultCode(-306);
                             getTplStokenCallback.onFailure(getTplStokenResult);
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
                             return;
@@ -1242,7 +1243,7 @@ public final class a {
                 } catch (Exception e2) {
                     Log.e(e2);
                     if (!TextUtils.isEmpty(str2)) {
-                        getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_SERVER_DATA_ERROR);
+                        getTplStokenResult.setResultCode(-205);
                         getTplStokenCallback.onFailure(getTplStokenResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
                     }
@@ -1264,7 +1265,7 @@ public final class a {
                         }
                         return;
                     } else if (!TextUtils.isEmpty(str2)) {
-                        getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        getTplStokenResult.setResultCode(-202);
                         getTplStokenCallback.onFailure(getTplStokenResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
@@ -1289,7 +1290,7 @@ public final class a {
         }
         final OAuthResult oAuthResult = new OAuthResult();
         if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            oAuthResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            oAuthResult.setResultCode(-201);
             sapiCallback.onFailure(oAuthResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_OAUTH, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -1333,7 +1334,7 @@ public final class a {
                             oAuthResult.accessToken = jSONObject.optString("access_token");
                             oAuthResult.expiresIn = jSONObject.optInt("expires_in");
                             oAuthResult.scope = jSONObject.optString("scope");
-                            oAuthResult.refreshToken = jSONObject.optString("refresh_token");
+                            oAuthResult.refreshToken = jSONObject.optString(Oauth2AccessToken.KEY_REFRESH_TOKEN);
                             oAuthResult.sessionKey = jSONObject.optString("session_key");
                             oAuthResult.sessionSecret = jSONObject.optString("session_secret");
                             oAuthResult.extra = str2;
@@ -1346,7 +1347,7 @@ public final class a {
                             break;
                     }
                 } catch (Throwable th) {
-                    oAuthResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    oAuthResult.setResultCode(-202);
                     sapiCallback.onFailure(oAuthResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_OAUTH, IEventCenterService.EventResult.PHASE.FAILURE);
                 }
@@ -1364,7 +1365,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_OAUTH, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    oAuthResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    oAuthResult.setResultCode(-202);
                     sapiCallback.onFailure(oAuthResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_OAUTH, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -1390,7 +1391,7 @@ public final class a {
         }
         final SSOConfirmResult sSOConfirmResult = new SSOConfirmResult();
         if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            sSOConfirmResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            sSOConfirmResult.setResultCode(-201);
             sSOConfirmCallback.onFailure(sSOConfirmResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WAP_SSO_CONFIRM, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -1433,7 +1434,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WAP_SSO_CONFIRM, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    sSOConfirmResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    sSOConfirmResult.setResultCode(-202);
                     sSOConfirmCallback.onFailure(sSOConfirmResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WAP_SSO_CONFIRM, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -1457,7 +1458,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WAP_SSO_CONFIRM, IEventCenterService.EventResult.PHASE.FAILURE);
                     }
                 } catch (Throwable th) {
-                    sSOConfirmResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    sSOConfirmResult.setResultCode(-202);
                     sSOConfirmCallback.onFailure(sSOConfirmResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_WAP_SSO_CONFIRM, IEventCenterService.EventResult.PHASE.FAILURE);
                     Log.e(th);
@@ -1487,7 +1488,7 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(v());
             HashMap hashMap = new HashMap();
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_USERNAME, str);
+            hashMap.put("username", str);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 hashMap.put("clientid", this.c.clientId);
             }
@@ -1599,11 +1600,11 @@ public final class a {
             fastRegResult.setResultCode(-101);
             sapiCallback.onFailure(fastRegResult);
         } else if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            fastRegResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            fastRegResult.setResultCode(-201);
             sapiCallback.onFailure(fastRegResult);
         } else {
             final boolean[] zArr = {false};
-            String str = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
+            String str = UUID.randomUUID().toString() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
             final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.8
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
@@ -1637,7 +1638,7 @@ public final class a {
                 a(sapiCallback, requestParams, handler, runnable, zArr);
                 return;
             }
-            fastRegResult.setResultCode(FastRegResult.ERROR_CODE_SEND_SMS_FAILED);
+            fastRegResult.setResultCode(-102);
             sapiCallback.onFailure(fastRegResult);
         }
     }
@@ -1723,7 +1724,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_RECURSIVE_FAST_REG, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    fastRegResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    fastRegResult.setResultCode(-202);
                     sapiCallback.onFailure(fastRegResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_RECURSIVE_FAST_REG, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -1773,7 +1774,7 @@ public final class a {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
+                    sb.append(URLEncoder.encode(str4, "UTF-8"));
                 }
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
@@ -1977,9 +1978,9 @@ public final class a {
         a2.put("osuid", iqiyiLoginDTO.openID);
         a2.put("json", "1");
         a2.put("type", SocialType.IQIYI.getType() + "");
-        a2.put("act", "special");
+        a2.put(SocialConstants.PARAM_ACT, "special");
         a2.put("display", "native");
-        a2.put("client", "android");
+        a2.put("client", Constants.OS_TYPE_VALUE);
         a2.put("sig", a(a2, this.c.appSignKey));
         this.d.get(this.c.context, q(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.13
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -2041,7 +2042,7 @@ public final class a {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    iqiyiLoginResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    iqiyiLoginResult.setResultCode(-202);
                     iqiyiLoginCallback.onFailure(iqiyiLoginResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -2089,10 +2090,10 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(v());
             HashMap hashMap = new HashMap();
-            hashMap.put("client", "android");
+            hashMap.put("client", Constants.OS_TYPE_VALUE);
             hashMap.put("cuid", this.c.clientId);
             hashMap.put("uid", SapiContext.getInstance(context).getFaceLoginUid());
-            hashMap.put("zid", SafeService.getInstance().getCurZid(context));
+            hashMap.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(context));
             hashMap.put("clientfrom", "native");
             String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.LOGIN_URI);
             if (!TextUtils.isEmpty(deviceInfo)) {
@@ -2224,7 +2225,7 @@ public final class a {
     }
 
     String l() {
-        return this.e.a() + SapiEnv.GET_USER_INFO_URI;
+        return this.e.a() + "/v2/sapi/center/getuinfo";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

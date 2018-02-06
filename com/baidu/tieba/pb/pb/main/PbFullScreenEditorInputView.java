@@ -33,20 +33,20 @@ public class PbFullScreenEditorInputView extends EditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.n nVar) {
-        if (com.baidu.tieba.face.a.kM(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.By().showToast(d.j.too_many_face);
+        if (com.baidu.tieba.face.a.kT(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.BR().showToast(d.j.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), nVar, this);
         }
     }
 
-    public void gh(String str) {
+    public void gq(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    public void ak(ArrayList<String> arrayList) {
+    public void al(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;

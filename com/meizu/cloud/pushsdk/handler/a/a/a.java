@@ -16,7 +16,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -149,7 +148,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
 
     private String b(String str) {
         try {
-            str = URLEncoder.encode(str, HTTP.UTF_8);
+            str = URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             com.meizu.cloud.a.a.i("AbstractMessageHandler", "encode url fail");
         }

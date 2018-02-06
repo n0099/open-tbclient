@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c implements c.a {
     private String a;
@@ -58,7 +57,7 @@ public class c implements c.a {
     }
 
     @Override // com.meizu.cloud.pushsdk.common.b.c.a
-    public void a(c.a.EnumC0186a enumC0186a, String str, String str2) {
+    public void a(c.a.EnumC0268a enumC0268a, String str, String str2) {
         String str3;
         try {
             a();
@@ -66,15 +65,15 @@ public class c implements c.a {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 sb.append("/");
-                if (enumC0186a == c.a.EnumC0186a.DEBUG) {
+                if (enumC0268a == c.a.EnumC0268a.DEBUG) {
                     str3 = "D";
                 } else {
-                    str3 = enumC0186a == c.a.EnumC0186a.INFO ? "I" : enumC0186a == c.a.EnumC0186a.WARN ? "W" : "E";
+                    str3 = enumC0268a == c.a.EnumC0268a.INFO ? "I" : enumC0268a == c.a.EnumC0268a.WARN ? "W" : "E";
                 }
                 sb.append(str3);
                 sb.append(": ");
                 sb.append(str2);
-                this.b.append((CharSequence) this.c.a(sb.toString().getBytes(Charset.forName(HTTP.UTF_8))));
+                this.b.append((CharSequence) this.c.a(sb.toString().getBytes(Charset.forName("UTF-8"))));
                 this.b.append((CharSequence) "\r\n");
                 this.b.flush();
             }

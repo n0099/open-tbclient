@@ -1,16 +1,17 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import java.util.Iterator;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class w {
-    private long dGb;
     private int duration;
-    private String gtN;
+    private String gvt;
     private String videoMd5;
+    private long videoSize;
     private String videoUrl;
 
     public void a(VideoInfo videoInfo, boolean z) {
@@ -44,17 +45,17 @@ public class w {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.dGb = videoInfo.video_length.intValue();
+                    this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.gtN = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.gvt = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.dGb = videoInfo.video_length.intValue();
+            this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.gtN = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.gvt = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -69,15 +70,15 @@ public class w {
         }
     }
 
-    public long bkA() {
-        return this.dGb;
+    public long blN() {
+        return this.videoSize;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bkB() {
-        return this.gtN;
+    public String blO() {
+        return this.gvt;
     }
 }

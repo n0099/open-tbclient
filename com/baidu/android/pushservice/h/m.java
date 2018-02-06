@@ -6,7 +6,6 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import java.io.InputStream;
 import java.util.HashMap;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -45,7 +44,7 @@ public abstract class m {
                             break;
                         }
                         try {
-                            com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(this.b, HttpPost.METHOD_NAME, hashMap);
+                            com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(this.b, "POST", hashMap);
                             int b = a2.b();
                             inputStream2 = a2.a();
                             String a3 = com.baidu.android.pushservice.h.a.b.a(inputStream2);

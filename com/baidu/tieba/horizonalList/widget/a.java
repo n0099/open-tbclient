@@ -16,7 +16,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public abstract class a<T extends Adapter> extends ViewGroup {
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
@@ -37,12 +36,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     @ViewDebug.ExportedProperty(category = "scrolling")
     protected int mFirstPosition;
     protected boolean mInLayout;
-    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
+    @ViewDebug.ExportedProperty(category = "list")
     protected int mItemCount;
     private int mLayoutWidth;
     protected boolean mNeedSync;
     protected long mNextSelectedColId;
-    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
+    @ViewDebug.ExportedProperty(category = "list")
     protected int mNextSelectedPosition;
     protected int mOldItemCount;
     protected long mOldSelectedColId;
@@ -51,7 +50,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
     d mOnItemLongClickListener;
     e mOnItemSelectedListener;
     protected long mSelectedColId;
-    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
+    @ViewDebug.ExportedProperty(category = "list")
     protected int mSelectedPosition;
     private a<T>.f mSelectionNotifier;
     protected int mSpecificLeft;
@@ -175,12 +174,12 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* renamed from: com.baidu.tieba.horizonalList.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ContextMenu$ContextMenuInfoC0117a implements ContextMenu.ContextMenuInfo {
+    public static class ContextMenu$ContextMenuInfoC0163a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
         public View targetView;
 
-        public ContextMenu$ContextMenuInfoC0117a(View view, int i, long j) {
+        public ContextMenu$ContextMenuInfoC0163a(View view, int i, long j) {
             this.targetView = view;
             this.position = i;
             this.id = j;
@@ -398,7 +397,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable ehO = null;
+        private Parcelable elY = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -409,9 +408,9 @@ public abstract class a<T extends Adapter> extends ViewGroup {
             a.this.mDataChanged = true;
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = a.this.getAdapter().getCount();
-            if (a.this.getAdapter().hasStableIds() && this.ehO != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
-                a.this.onRestoreInstanceState(this.ehO);
-                this.ehO = null;
+            if (a.this.getAdapter().hasStableIds() && this.elY != null && a.this.mOldItemCount == 0 && a.this.mItemCount > 0) {
+                a.this.onRestoreInstanceState(this.elY);
+                this.elY = null;
             } else {
                 a.this.rememberSyncState();
             }
@@ -423,7 +422,7 @@ public abstract class a<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             a.this.mDataChanged = true;
             if (a.this.getAdapter().hasStableIds()) {
-                this.ehO = a.this.onSaveInstanceState();
+                this.elY = a.this.onSaveInstanceState();
             }
             a.this.mOldItemCount = a.this.mItemCount;
             a.this.mItemCount = 0;

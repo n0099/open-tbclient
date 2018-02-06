@@ -15,53 +15,53 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> bau;
-    private boolean bbK;
-    private TextView eNP;
-    private ImageView eNQ;
-    private TextView eNR;
-    private TextView eNS;
+    private ArrayList<a> bcm;
+    private boolean bdC;
+    private TextView eRY;
+    private ImageView eRZ;
+    private TextView eSa;
+    private TextView eSb;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bq(boolean z);
+        void bu(boolean z);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bau = new ArrayList<>();
+        this.bcm = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bau = new ArrayList<>();
+        this.bcm = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.bau = new ArrayList<>();
+        this.bcm = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(d.h.shut_down_validate_tip, (ViewGroup) null));
-        this.eNQ = (ImageView) findViewById(d.g.no_network_icon);
-        this.eNR = (TextView) findViewById(d.g.no_network_guide1);
-        this.eNS = (TextView) findViewById(d.g.no_network_guide2);
-        this.eNP = (TextView) findViewById(d.g.no_network_showmore);
+        this.eRZ = (ImageView) findViewById(d.g.no_network_icon);
+        this.eSa = (TextView) findViewById(d.g.no_network_guide1);
+        this.eSb = (TextView) findViewById(d.g.no_network_guide2);
+        this.eRY = (TextView) findViewById(d.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.eNP != null) {
-            this.eNP.setOnClickListener(onClickListener);
+        if (this.eRY != null) {
+            this.eRY.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.bbK) {
-            this.bbK = z;
+        if (z != this.bdC) {
+            this.bdC = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -81,8 +81,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 });
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.bau.size(); i++) {
-                    this.bau.get(i).bq(false);
+                for (int i = 0; i < this.bcm.size(); i++) {
+                    this.bcm.get(i).bu(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -103,8 +103,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                     }
                 });
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.bau.size(); i2++) {
-                    this.bau.get(i2).bq(true);
+                for (int i2 = 0; i2 < this.bcm.size(); i2++) {
+                    this.bcm.get(i2).bu(true);
                 }
             }
         }
@@ -118,20 +118,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bau.clear();
+        this.bcm.clear();
     }
 
     public void onChangeSkinType(int i) {
-        aj.c(this.eNQ, d.f.icon_error);
+        aj.c(this.eRZ, d.f.icon_error);
         aj.s(findViewById(d.g.no_network_parent), d.f.bg_no_network);
         if (i == 1) {
-            this.eNR.setTextColor(-10523526);
-            this.eNS.setTextColor(-8682095);
-            this.eNP.setTextColor(-10523526);
+            this.eSa.setTextColor(-10523526);
+            this.eSb.setTextColor(-8682095);
+            this.eRY.setTextColor(-10523526);
             return;
         }
-        this.eNR.setTextColor(-14277082);
-        this.eNS.setTextColor(-5065030);
-        this.eNP.setTextColor(-14277082);
+        this.eSa.setTextColor(-14277082);
+        this.eSb.setTextColor(-5065030);
+        this.eRY.setTextColor(-14277082);
     }
 }

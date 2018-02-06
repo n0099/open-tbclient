@@ -2,7 +2,6 @@ package com.baidu.location;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class Jni {
     private static int a = 0;
@@ -31,7 +30,7 @@ public class Jni {
             return null;
         }
         try {
-            return URLEncoder.encode(a(encrypt(str.getBytes())), HTTP.UTF_8);
+            return URLEncoder.encode(a(encrypt(str.getBytes())), "UTF-8");
         } catch (Exception e2) {
             return "";
         }
@@ -39,7 +38,7 @@ public class Jni {
 
     private static String a(byte[] bArr) {
         try {
-            return com.baidu.location.b.a.b.a(bArr, HTTP.UTF_8);
+            return com.baidu.location.b.a.b.a(bArr, "UTF-8");
         } catch (UnsupportedEncodingException e2) {
             return "";
         }
@@ -141,7 +140,7 @@ public class Jni {
             return null;
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }
@@ -162,7 +161,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }
@@ -182,7 +181,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), HTTP.UTF_8);
+            str2 = new String(str.getBytes(), "UTF-8");
         } catch (Exception e2) {
             str2 = "";
         }

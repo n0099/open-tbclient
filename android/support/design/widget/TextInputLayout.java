@@ -179,14 +179,14 @@ public class TextInputLayout extends LinearLayout {
         if (!cx()) {
             this.nh.c(this.rE.getTypeface());
         }
-        this.nh.c(this.rE.getTextSize());
+        this.nh.g(this.rE.getTextSize());
         int gravity = this.rE.getGravity();
         this.nh.s((8388615 & gravity) | 48);
         this.nh.r(gravity);
         this.rE.addTextChangedListener(new TextWatcher() { // from class: android.support.design.widget.TextInputLayout.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                TextInputLayout.this.n(true);
+                TextInputLayout.this.p(true);
                 if (TextInputLayout.this.rP) {
                     TextInputLayout.this.P(editable.length());
                 }
@@ -214,7 +214,7 @@ public class TextInputLayout extends LinearLayout {
             cs();
         }
         cv();
-        n(false);
+        p(false);
     }
 
     private void cr() {
@@ -236,7 +236,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    void n(boolean z) {
+    void p(boolean z) {
         boolean isEnabled = isEnabled();
         boolean z2 = (this.rE == null || TextUtils.isEmpty(this.rE.getText())) ? false : true;
         boolean b = b(getDrawableState(), 16842908);
@@ -252,9 +252,9 @@ public class TextInputLayout extends LinearLayout {
             this.nh.b(this.sg);
         }
         if (z2 || (isEnabled() && (b || z3))) {
-            o(z);
+            q(z);
         } else {
-            p(z);
+            s(z);
         }
     }
 
@@ -310,7 +310,7 @@ public class TextInputLayout extends LinearLayout {
         this.nh.t(i);
         this.sh = this.nh.bp();
         if (this.rE != null) {
-            n(false);
+            p(false);
             cr();
         }
     }
@@ -440,7 +440,7 @@ public class TextInputLayout extends LinearLayout {
             }
         }
         ct();
-        n(z);
+        p(z);
     }
 
     public void setCounterEnabled(boolean z) {
@@ -519,7 +519,7 @@ public class TextInputLayout extends LinearLayout {
             this.rQ.setText(getContext().getString(R.string.character_counter_pattern, Integer.valueOf(i), Integer.valueOf(this.rR)));
         }
         if (this.rE != null && z != this.rU) {
-            n(false);
+            p(false);
             ct();
         }
     }
@@ -796,14 +796,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private void o(boolean z) {
+    private void q(boolean z) {
         if (this.qn != null && this.qn.isRunning()) {
             this.qn.cancel();
         }
         if (z && this.sj) {
-            l(1.0f);
+            p(1.0f);
         } else {
-            this.nh.d(1.0f);
+            this.nh.h(1.0f);
         }
         this.si = false;
     }
@@ -818,7 +818,7 @@ public class TextInputLayout extends LinearLayout {
             if (!ViewCompat.isLaidOut(this) || !isEnabled()) {
                 z = false;
             }
-            n(z);
+            p(z);
             ct();
             if (this.nh != null ? this.nh.setState(drawableState) | false : false) {
                 invalidate();
@@ -827,19 +827,19 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private void p(boolean z) {
+    private void s(boolean z) {
         if (this.qn != null && this.qn.isRunning()) {
             this.qn.cancel();
         }
         if (z && this.sj) {
-            l(0.0f);
+            p(0.0f);
         } else {
-            this.nh.d(0.0f);
+            this.nh.h(0.0f);
         }
         this.si = true;
     }
 
-    private void l(float f) {
+    private void p(float f) {
         if (this.nh.bg() != f) {
             if (this.qn == null) {
                 this.qn = z.cE();
@@ -848,7 +848,7 @@ public class TextInputLayout extends LinearLayout {
                 this.qn.a(new s.c() { // from class: android.support.design.widget.TextInputLayout.5
                     @Override // android.support.design.widget.s.c
                     public void a(s sVar) {
-                        TextInputLayout.this.nh.d(sVar.cB());
+                        TextInputLayout.this.nh.h(sVar.cB());
                     }
                 });
             }

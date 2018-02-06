@@ -1,101 +1,102 @@
 package com.baidu.tbadk.k;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
-public class h extends t {
-    @Override // com.baidu.tbadk.k.t
-    public void a(m mVar) {
-        if (r.NQ().NR()) {
+public class h extends r {
+    @Override // com.baidu.tbadk.k.r
+    public void a(l lVar) {
+        if (p.Ow().Ox()) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "time_t");
-            a(nn, mVar);
-            nn.append("ishttp", mVar.byL ? "1" : "0");
-            nn.append("issuccess", mVar.isSuccess ? "1" : "0");
-            nn.append("nettype", r.NQ().getNetType());
-            nn.append("ct", String.valueOf(mVar.byy));
-            nn.append("wt", String.valueOf(mVar.byG));
-            nn.append("qt", String.valueOf(mVar.byz));
-            nn.append("connt", String.valueOf(mVar.byA));
-            nn.append("rwt", String.valueOf(mVar.byB));
-            nn.append("dect", String.valueOf(mVar.byC));
-            nn.append("parset", String.valueOf(mVar.byD));
-            nn.append("rendert", String.valueOf(mVar.byF));
-            nn.append("ss", String.valueOf(mVar.byJ));
-            nn.append("hs", String.valueOf(mVar.byK));
-            if (mVar.byL && mVar.socketErrNo != 0) {
-                nn.append("salno", String.valueOf(mVar.socketErrNo));
-                if (mVar.socketCostTime != 0) {
-                    nn.append("scosttime", String.valueOf(mVar.socketCostTime));
+            nn.append(AuthActivity.ACTION_KEY, "time_t");
+            a(nn, lVar);
+            nn.append("ishttp", lVar.bAP ? "1" : "0");
+            nn.append("issuccess", lVar.isSuccess ? "1" : "0");
+            nn.append("nettype", p.Ow().getNetType());
+            nn.append("ct", String.valueOf(lVar.bAC));
+            nn.append("wt", String.valueOf(lVar.bAK));
+            nn.append("qt", String.valueOf(lVar.bAD));
+            nn.append("connt", String.valueOf(lVar.bAE));
+            nn.append("rwt", String.valueOf(lVar.bAF));
+            nn.append("dect", String.valueOf(lVar.bAG));
+            nn.append("parset", String.valueOf(lVar.bAH));
+            nn.append("rendert", String.valueOf(lVar.bAJ));
+            nn.append("ss", String.valueOf(lVar.bAN));
+            nn.append("hs", String.valueOf(lVar.bAO));
+            if (lVar.bAP && lVar.socketErrNo != 0) {
+                nn.append("salno", String.valueOf(lVar.socketErrNo));
+                if (lVar.socketCostTime != 0) {
+                    nn.append("scosttime", String.valueOf(lVar.socketCostTime));
                 }
             }
-            if (mVar.errCode != 0) {
-                nn.h("errcode", Integer.valueOf(mVar.errCode));
+            if (lVar.errCode != 0) {
+                nn.h("errcode", Integer.valueOf(lVar.errCode));
             }
-            if (mVar.byL) {
-                nn.append("c_logid", String.valueOf(mVar.byP));
+            if (lVar.bAP) {
+                nn.append("c_logid", String.valueOf(lVar.bAT));
             } else {
-                nn.append("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
+                nn.append("seq_id", String.valueOf(lVar.sequenceID & 4294967295L));
             }
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
 
-    @Override // com.baidu.tbadk.k.t
-    public void b(m mVar) {
-        if (r.NQ().NR() && mVar.byH > 0) {
+    @Override // com.baidu.tbadk.k.r
+    public void b(l lVar) {
+        if (p.Ow().Ox() && lVar.bAL > 0) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "readCache_t");
-            a(nn, mVar);
-            nn.append("rct", String.valueOf(mVar.byH));
+            nn.append(AuthActivity.ACTION_KEY, "readCache_t");
+            a(nn, lVar);
+            nn.append("rct", String.valueOf(lVar.bAL));
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
 
-    @Override // com.baidu.tbadk.k.t
-    public void c(m mVar) {
-        if (r.NQ().NR() && mVar.byI > 0) {
+    @Override // com.baidu.tbadk.k.r
+    public void c(l lVar) {
+        if (p.Ow().Ox() && lVar.bAM > 0) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "writeCache_t");
-            a(nn, mVar);
-            nn.append("wct", String.valueOf(mVar.byI));
+            nn.append(AuthActivity.ACTION_KEY, "writeCache_t");
+            a(nn, lVar);
+            nn.append("wct", String.valueOf(lVar.bAM));
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
 
-    @Override // com.baidu.tbadk.k.t
-    public void a(l lVar, String str) {
-        if (lVar != null && str != null && r.NQ().NR()) {
+    @Override // com.baidu.tbadk.k.r
+    public void a(k kVar, String str) {
+        if (kVar != null && str != null && p.Ow().Ox()) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "resource_t");
+            nn.append(AuthActivity.ACTION_KEY, "resource_t");
             nn.append("actype", str);
-            nn.append("issuccess", lVar.isSuccess ? "1" : "0");
-            nn.append("isfs", lVar.byw ? "1" : "0");
-            nn.append("ct", String.valueOf(lVar.aus));
-            nn.append("from", String.valueOf(lVar.aur));
+            nn.append("issuccess", kVar.isSuccess ? "1" : "0");
+            nn.append("isfs", kVar.bAA ? "1" : "0");
+            nn.append("ct", String.valueOf(kVar.aun));
+            nn.append("from", String.valueOf(kVar.aum));
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
 
-    @Override // com.baidu.tbadk.k.t
+    @Override // com.baidu.tbadk.k.r
     public void g(d dVar) {
-        if (dVar != null && r.NQ().NR()) {
+        if (dVar != null && p.Ow().Ox()) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "fluency_t");
+            nn.append(AuthActivity.ACTION_KEY, "fluency_t");
             a(nn, dVar);
-            nn.append("fps", String.valueOf(dVar.NA()));
-            nn.append("memp", String.valueOf(dVar.NC()));
-            nn.append("cpu", String.valueOf(dVar.ND()));
+            nn.append("fps", String.valueOf(dVar.Og()));
+            nn.append("memp", String.valueOf(dVar.Oi()));
+            nn.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(dVar.Oj()));
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
 
-    @Override // com.baidu.tbadk.k.t
+    @Override // com.baidu.tbadk.k.r
     public void h(d dVar) {
-        if (r.NQ().NR()) {
+        if (p.Ow().Ox()) {
             com.baidu.adp.lib.stats.a nn = nn();
-            nn.append("action", "gc_t");
+            nn.append(AuthActivity.ACTION_KEY, "gc_t");
             a(nn, dVar);
-            nn.append("gc", String.valueOf(dVar.NB()));
+            nn.append("gc", String.valueOf(dVar.Oh()));
             BdStatisticsManager.getInstance().performance(this.subType, nn);
         }
     }
@@ -106,9 +107,9 @@ public class h extends t {
         }
     }
 
-    private void a(com.baidu.adp.lib.stats.a aVar, m mVar) {
-        if (mVar instanceof g) {
-            aVar.h("ptype", Integer.valueOf(((g) mVar).pageType));
+    private void a(com.baidu.adp.lib.stats.a aVar, l lVar) {
+        if (lVar instanceof g) {
+            aVar.h("ptype", Integer.valueOf(((g) lVar).pageType));
         }
     }
 }

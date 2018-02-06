@@ -3,6 +3,7 @@ package com.xiaomi.smack.util;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
 import com.xiaomi.smack.l;
@@ -309,7 +310,7 @@ public class a {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
-        String str3 = "-1";
+        String str3 = WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
         int i = 0;
         while (i < xmlPullParser.getAttributeCount()) {
             String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;

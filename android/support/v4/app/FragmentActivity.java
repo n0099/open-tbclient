@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import com.baidu.ar.util.Constants;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
@@ -504,7 +505,7 @@ public class FragmentActivity extends BaseFragmentActivityJB implements Activity
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
                     case 16777216:
-                        resourcePackageName = "android";
+                        resourcePackageName = Constants.OS_TYPE_VALUE;
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
                         sb.append(" ");

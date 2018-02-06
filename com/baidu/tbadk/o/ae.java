@@ -3,31 +3,34 @@ package com.baidu.tbadk.o;
 public class ae extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void cQ(int i) {
-        com.baidu.tbadk.k.r.NQ().cw(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "log_stat_smallflow";
+        return "android_net_type_fixed";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
-        return null;
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int mt() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int mu() {
         return 10;
+    }
+
+    public static boolean nv() {
+        return com.baidu.adp.lib.b.d.mA().an("android_net_type_fixed") == 1;
     }
 }

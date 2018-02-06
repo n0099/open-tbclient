@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface h {
-    void K(int i, boolean z);
+    void Q(int i, boolean z);
 
     void a(Context context, NavigationBar navigationBar);
 
-    void biD();
+    void bjN();
 
     void c(float f, boolean z);
 

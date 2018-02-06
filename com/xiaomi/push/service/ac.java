@@ -19,7 +19,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -496,8 +495,8 @@ public class ac {
                         }
                     }
                 }
-                if (jSONObject.has(TbConfig.TMP_PIC_DIR_NAME)) {
-                    JSONObject jSONObject3 = jSONObject.getJSONObject(TbConfig.TMP_PIC_DIR_NAME);
+                if (jSONObject.has("image")) {
+                    JSONObject jSONObject3 = jSONObject.getJSONObject("image");
                     Iterator<String> keys2 = jSONObject3.keys();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();

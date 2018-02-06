@@ -15,7 +15,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.n;
 import com.baidu.tieba.d;
@@ -24,7 +23,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent doI = new KeyEvent(0, 67);
+    private static final KeyEvent drB = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -44,7 +43,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.Ft());
+                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.FP());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -54,8 +53,8 @@ public class b {
     public static void b(final Context context, n nVar, final EditText editText) {
         if (nVar != null && editText != null && nVar.getName() != null) {
             String name = nVar.getName();
-            final EmotionGroupType Ft = nVar.Ft();
-            if (Ft == EmotionGroupType.LOCAL || Ft == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType FP = nVar.FP();
+            if (FP == EmotionGroupType.LOCAL || FP == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
                     c.nm().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.2
@@ -69,7 +68,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, Ft);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, FP);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -83,17 +82,17 @@ public class b {
 
     public static void a(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
         if (context != null && editText != null && !TextUtils.isEmpty(spannableStringBuilder) && aVar != null) {
-            Bitmap sj = aVar.sj();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(sj);
-            int width = sj.getWidth();
+            Bitmap sh = aVar.sh();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(sh);
+            int width = sh.getWidth();
             if (emotionGroupType == EmotionGroupType.LOCAL) {
                 int i2 = (int) (width * 0.5d);
                 bitmapDrawable.setBounds(0, 0, i2, i2);
             } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                int width2 = (int) (sj.getWidth() * ((dimensionPixelSize * 1.0d) / sj.getHeight()));
+                int width2 = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
                 if (width2 > editText.getMeasuredWidth()) {
-                    width2 = (int) (sj.getWidth() * 0.5d);
+                    width2 = (int) (sh.getWidth() * 0.5d);
                 }
                 bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
             }
@@ -107,7 +106,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.kM(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.kT(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.b(spannableStringBuilder);
@@ -115,22 +114,22 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.doG.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.drz.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
                 final int end = matcher.end();
-                if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
                     c.nm().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.face.b.3
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sj;
+                            Bitmap sh;
                             super.onLoaded((AnonymousClass3) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sj());
-                                int width = (int) (0.5d * sj.getWidth());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
+                                int width = (int) (0.5d * sh.getWidth());
                                 bitmapDrawable.setBounds(0, 0, width, width);
                                 bitmapDrawable.setGravity(119);
                                 spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
@@ -166,14 +165,14 @@ public class b {
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sj;
+                            Bitmap sh;
                             super.onLoaded((AnonymousClass4) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sj());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (sj.getWidth() * ((dimensionPixelSize * 1.0d) / sj.getHeight()));
+                                int width = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
                                 if (width > l.ao(context) * 0.6d) {
-                                    width = (int) (sj.getWidth() * 0.5d);
+                                    width = (int) (sh.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -209,14 +208,14 @@ public class b {
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.a.a aVar2, String str2, int i) {
-                            Bitmap sj;
+                            Bitmap sh;
                             super.onLoaded((AnonymousClass5) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sj());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.sh());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (sj.getWidth() * ((dimensionPixelSize * 1.0d) / sj.getHeight()));
+                                int width = (int) (sh.getWidth() * ((dimensionPixelSize * 1.0d) / sh.getHeight()));
                                 if (width > l.ao(context) * 0.6d) {
-                                    width = (int) (sj.getWidth() * 0.5d);
+                                    width = (int) (sh.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -252,9 +251,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, doI);
+                editText.onKeyDown(67, drB);
             }
-            editText.onKeyDown(67, doI);
+            editText.onKeyDown(67, drB);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

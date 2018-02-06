@@ -1,106 +1,51 @@
 package com.baidu.tbadk.k;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
-public class n extends q {
-    public static int byQ = 100;
-    public static int byR = 10;
-
-    public static void NO() {
-        if (r.NQ().NR()) {
-            if (b.byV > byR) {
-                b.NI();
-            }
-            if (a.byS > byR) {
-                a.NI();
-            }
+public class n extends o {
+    public static void b(com.baidu.tbadk.core.util.r rVar, com.baidu.tbadk.core.util.r rVar2, com.baidu.tbadk.core.util.r rVar3, com.baidu.tbadk.core.util.r rVar4, com.baidu.tbadk.core.util.r rVar5, int i) {
+        if (p.Ow().Ox()) {
+            com.baidu.adp.lib.stats.a nn = nn();
+            nn.append(AuthActivity.ACTION_KEY, "dlStat");
+            nn.append("c_dnum", String.valueOf(rVar.num));
+            nn.append("c_dfnum", String.valueOf(rVar.aVo));
+            nn.append("c_spnum", String.valueOf(rVar.aVp));
+            nn.append("c_costt", String.valueOf(rVar.time));
+            nn.append("c_dlsize", String.valueOf(rVar.ajg));
+            nn.append("p_dnum", String.valueOf(rVar2.num));
+            nn.append("p_dfnum", String.valueOf(rVar2.aVo));
+            nn.append("p_spnum", String.valueOf(rVar2.aVp));
+            nn.append("p_costt", String.valueOf(rVar2.time));
+            nn.append("p_dlsize", String.valueOf(rVar2.ajg));
+            nn.append("t_dnum", String.valueOf(rVar3.num));
+            nn.append("t_dfnum", String.valueOf(rVar3.aVo));
+            nn.append("t_spnum", String.valueOf(rVar3.aVp));
+            nn.append("t_costt", String.valueOf(rVar3.time));
+            nn.append("t_dlsize", String.valueOf(rVar3.ajg));
+            nn.append("d_dnum", String.valueOf(rVar4.num));
+            nn.append("d_dfnum", String.valueOf(rVar4.aVo));
+            nn.append("d_spnum", String.valueOf(rVar4.aVp));
+            nn.append("d_costt", String.valueOf(rVar4.time));
+            nn.append("d_dlsize", String.valueOf(rVar4.ajg));
+            nn.append("op_dnum", String.valueOf(rVar5.num));
+            nn.append("op_dfnum", String.valueOf(rVar5.aVo));
+            nn.append("op_spnum", String.valueOf(rVar5.aVp));
+            nn.append("op_costt", String.valueOf(rVar5.time));
+            nn.append("op_dlsize", String.valueOf(rVar5.ajg));
+            nn.append("nettype", p.ik(i));
+            BdStatisticsManager.getInstance().performance("image", nn);
         }
     }
 
-    public static void e(boolean z, boolean z2, boolean z3) {
-        a.byS++;
-        if (z2) {
-            a.byT++;
-        } else if (z3) {
-            a.byU++;
-        }
-        if (a.byS > byQ) {
-            a.NI();
-        }
-    }
-
-    public void c(i iVar) {
-        if (r.NQ().NR()) {
-            if (b.byV < byQ) {
-                b.byW += iVar.aiY;
-                b.byX += iVar.asS;
-                b.byY += iVar.byn;
-                b.byZ += iVar.byo;
-                b.bzb += iVar.aus;
-                b.bza += iVar.bye;
-                b.byV++;
-                return;
-            }
-            b.NI();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        public static int byS;
-        public static int byT;
-        public static int byU;
-
-        public static void NI() {
-            com.baidu.adp.lib.stats.a nn = q.nn();
-            nn.append("action", "imbusy");
-            nn.append("totalNum", String.valueOf(byS));
-            nn.append("tfailNum", String.valueOf(byT));
-            nn.append("qfailNum", String.valueOf(byU));
-            BdStatisticsManager.getInstance().performance("im", nn);
-            resetData();
-        }
-
-        public static void resetData() {
-            byS = 0;
-            byT = 0;
-            byU = 0;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b {
-        public static int byV;
-        public static long byW;
-        public static long byX;
-        public static long byY;
-        public static int byZ;
-        public static int bza;
-        public static long bzb;
-
-        public static void NI() {
-            com.baidu.adp.lib.stats.a nn = q.nn();
-            nn.append("action", "imcost");
-            nn.append("dect", String.valueOf(byW));
-            nn.append("dlsize", String.valueOf(byX));
-            nn.append("dbt", String.valueOf(byY));
-            nn.append("pnum", String.valueOf(byZ));
-            nn.append("reqcost", String.valueOf(bzb));
-            nn.append("cpu", String.valueOf(bza));
-            nn.append("totalNum", String.valueOf(byV));
-            BdStatisticsManager.getInstance().performance("im", nn);
-            NP();
-        }
-
-        public static void NP() {
-            byV = 0;
-            byW = 0L;
-            byX = 0L;
-            byY = 0L;
-            byZ = 0;
-            bza = 0;
+    public static void a(int i, int i2, long j) {
+        if (p.Ow().Ox()) {
+            com.baidu.adp.lib.stats.a nn = nn();
+            nn.append(AuthActivity.ACTION_KEY, "dcStat");
+            nn.append("dcnum", String.valueOf(i));
+            nn.append("dcfnum", String.valueOf(i2));
+            nn.append("dcstime", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("image", nn);
         }
     }
 }

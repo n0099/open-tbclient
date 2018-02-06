@@ -8,30 +8,30 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public abstract class MultiAudioMixer {
-    private b hsz;
+    private b htO;
 
     /* loaded from: classes2.dex */
     public interface b {
         void D(byte[] bArr) throws IOException;
 
-        void bBW();
+        void bCF();
 
-        void wP(int i);
+        void wO(int i);
     }
 
     abstract byte[] b(byte[][] bArr);
 
-    public static MultiAudioMixer bBV() {
+    public static MultiAudioMixer bCE() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.hsz = bVar;
+        this.htO = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [88=6] */
-    public void a(File[] fileArr) {
+    public void c(File[] fileArr) {
         boolean z;
         int i = 0;
         int length = fileArr.length;
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.hsz != null) {
-                        this.hsz.wP(1);
+                    if (this.htO != null) {
+                        this.htO.wO(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] b2 = b(bArr);
-            if (b2 != null && this.hsz != null) {
-                this.hsz.D(b2);
+            if (b2 != null && this.htO != null) {
+                this.htO.D(b2);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.hsz != null) {
-            this.hsz.bBW();
+        if (this.htO != null) {
+            this.htO.bCF();
         }
     }
 

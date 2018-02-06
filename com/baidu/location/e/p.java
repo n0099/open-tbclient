@@ -1,8 +1,8 @@
 package com.baidu.location.e;
 
+import com.baidu.ar.util.Constants;
 import com.baidu.location.e.m;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,12 +38,12 @@ enum p extends m.b {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
                         String string2 = jSONObject2.has("stn") ? jSONObject2.getString("stn") : null;
-                        Double valueOf = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
-                        Double valueOf2 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
+                        Double valueOf = jSONObject2.has(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X) ? Double.valueOf(jSONObject2.getDouble(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X)) : null;
+                        Double valueOf2 = jSONObject2.has(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y) ? Double.valueOf(jSONObject2.getDouble(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y)) : null;
                         if (stringBuffer2.length() > 0) {
-                            stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            stringBuffer2.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
-                        stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(")");
+                        stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(")");
                     } catch (JSONException e2) {
                     }
                     if (i2 % 50 == 49 && stringBuffer2.length() > 0) {

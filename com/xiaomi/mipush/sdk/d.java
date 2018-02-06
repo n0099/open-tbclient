@@ -11,7 +11,9 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.xmpush.thrift.ae;
@@ -135,7 +137,7 @@ public class d extends f.a {
         Location location3;
         LocationManager locationManager = (LocationManager) this.g.getSystemService(Headers.LOCATION);
         try {
-            location = locationManager.getLastKnownLocation("network");
+            location = locationManager.getLastKnownLocation(LivenessRecogActivity.f.J);
         } catch (Exception e) {
             location = null;
         }
@@ -177,7 +179,7 @@ public class d extends f.a {
             com.xiaomi.channel.commonutils.logger.b.d("GeoFenceNetInfoUpdateJobverifyUploadData");
         } else {
             byte[] a = aq.a(d());
-            ae aeVar = new ae("-1", false);
+            ae aeVar = new ae(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE, false);
             aeVar.c(com.xiaomi.xmpush.thrift.o.GeoUpdateLoc.N);
             aeVar.a(a);
             u.a(this.g).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);

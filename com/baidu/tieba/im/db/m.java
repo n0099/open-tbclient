@@ -1,102 +1,116 @@
 package com.baidu.tieba.im.db;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.n;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.o.ap;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes.dex */
-public class m {
-    private static int exz = TbConfig.POST_IMAGE_SMALL;
-    private static int exA = 500;
+public class m extends a {
+    private static a eBT;
+    public static String eBu = "tb_private_msg_";
 
-    public static void aGS() {
-        if (!ap.nv()) {
-            com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
-            return;
-        }
-        try {
-            g.aGG().aGH();
-            String aGU = aGU();
-            if (!TextUtils.isEmpty(aGU)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + ng(aGU), new Object[0]);
+    private m() {
+        super("tb_private_msg_", PersonalChatMessage.class);
+    }
+
+    public static synchronized m aIs() {
+        m mVar;
+        synchronized (m.class) {
+            if (eBT == null) {
+                eBT = new m();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            g.aGG().endTransaction();
+            mVar = (m) eBT;
         }
+        return mVar;
     }
 
-    public static void pU(int i) {
-        if (i < exA) {
-            i = exA;
-        }
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_max_stranger", i);
-    }
-
-    private static int aGT() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", exz);
-    }
-
-    private static String aGU() {
-        List<String> aGV;
-        StringBuilder sb = new StringBuilder();
-        try {
-            aGV = aGV();
-        } catch (Exception e) {
-            e.printStackTrace();
-            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeData", new Object[0]);
-        }
-        if (aGV == null || aGV.size() == 0) {
-            return null;
-        }
-        int aGT = aGT();
-        com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + aGV.size() + " max is " + aGT, new Object[0]);
-        if (aGV.size() > aGT) {
-            boolean z = true;
-            for (String str : aGV.subList(0, 2000 >= aGV.size() - aGT ? aGV.size() - aGT : 2000)) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x017b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x017d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x017f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x001b */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v18 */
+    /* JADX WARN: Type inference failed for: r2v19 */
+    /* JADX WARN: Type inference failed for: r2v20 */
+    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    public CommonMsgPojo al(String str, int i) {
+        Throwable th;
+        Cursor cursor;
+        CommonMsgPojo commonMsgPojo = null;
+        if (!TextUtils.isEmpty(str)) {
+            ?? sb = new StringBuilder();
+            ?? r2 = eBu;
+            try {
+                try {
+                    cursor = h.aIg().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    try {
+                        CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
+                        if (cursor == null || !cursor.moveToNext()) {
+                            com.baidu.adp.lib.util.n.i(cursor);
+                            r2 = cursor;
+                        } else {
+                            commonMsgPojo2.setGid(str);
+                            commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                            commonMsgPojo2.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
+                            commonMsgPojo2.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
+                            commonMsgPojo2.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex(WBConstants.GAME_PARAMS_GAME_CREATE_TIME)));
+                            commonMsgPojo2.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonMsgPojo2.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                            commonMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
+                            commonMsgPojo2.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonMsgPojo2.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                            commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                            commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                            commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
+                            com.baidu.adp.lib.util.n.i(cursor);
+                            commonMsgPojo = commonMsgPojo2;
+                            r2 = cursor;
+                        }
+                    } catch (SQLiteException e) {
+                        e = e;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        ng(str);
+                        com.baidu.adp.lib.util.n.i(cursor);
+                        r2 = cursor;
+                        return commonMsgPojo;
+                    } catch (Exception e2) {
+                        e = e2;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        com.baidu.adp.lib.util.n.i(cursor);
+                        r2 = cursor;
+                        return commonMsgPojo;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.util.n.i((Cursor) r2);
+                    throw th;
                 }
-                sb.append(str);
+            } catch (SQLiteException e3) {
+                e = e3;
+                cursor = null;
+            } catch (Exception e4) {
+                e = e4;
+                cursor = null;
+            } catch (Throwable th3) {
+                r2 = 0;
+                th = th3;
+                com.baidu.adp.lib.util.n.i((Cursor) r2);
+                throw th;
             }
         }
-        return sb.toString();
-    }
-
-    private static List<String> aGV() {
-        Cursor cursor = null;
-        ArrayList arrayList = new ArrayList();
-        try {
-            cursor = g.aGG().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
-        } finally {
-            n.i(cursor);
-        }
-        return arrayList;
-    }
-
-    private static boolean ng(String str) {
-        try {
-            return g.aGG().nf("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
-            return false;
-        }
+        return commonMsgPojo;
     }
 }

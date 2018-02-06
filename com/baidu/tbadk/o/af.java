@@ -7,7 +7,7 @@ public class af extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_url_post";
+        return "nickname_activity";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class af extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,5 +28,9 @@ public class af extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int mu() {
         return 10;
+    }
+
+    public static boolean nv() {
+        return com.baidu.adp.lib.b.d.mA().an("nickname_activity") == 1;
     }
 }

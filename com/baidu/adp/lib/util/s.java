@@ -2,7 +2,6 @@ package com.baidu.adp.lib.util;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class s {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -58,7 +57,7 @@ public class s {
             return null;
         }
         try {
-            return toMd5(str.getBytes(HTTP.UTF_8));
+            return toMd5(str.getBytes("UTF-8"));
         } catch (Exception e) {
             return null;
         }

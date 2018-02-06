@@ -38,12 +38,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     }
 
     private void init() {
-        int s = l.s(this.mContext, d.e.ds24);
-        setPadding(s, 0, s, 0);
+        int t = l.t(this.mContext, d.e.ds24);
+        setPadding(t, 0, t, 0);
         setButtonDrawable((Drawable) null);
     }
 
-    public void DT() {
+    public void En() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             aj.s(this, d.f.btn_home_neg_feedback_reason_selector);

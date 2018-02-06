@@ -23,7 +23,7 @@ class MediaSessionCompatApi23 {
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlayFromUri(Uri uri, Bundle bundle) {
-            ((Callback) this.Aa).onPlayFromUri(uri, bundle);
+            ((Callback) this.zZ).onPlayFromUri(uri, bundle);
         }
     }
 }

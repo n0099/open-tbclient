@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.p;
+import com.tencent.tauth.AuthActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -33,7 +34,7 @@ public class b extends c {
         try {
             jSONObject = new JSONObject(new String(bArr));
             try {
-                str = jSONObject.getString("action");
+                str = jSONObject.getString(AuthActivity.ACTION_KEY);
                 z = true;
                 jSONObject2 = jSONObject;
             } catch (JSONException e) {

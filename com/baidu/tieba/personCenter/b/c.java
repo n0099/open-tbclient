@@ -7,16 +7,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.data.d;
 /* loaded from: classes.dex */
 public class c {
-    a ghB;
+    a gjl;
     private BdTypeListView mListView;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mListView = bdTypeListView;
-        this.ghB = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.gjl = new a(bdTypeListView, tbPageContext, bdUniqueId);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.personCenter.b.c.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                c.this.ghB.bhx();
+                c.this.gjl.biH();
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
@@ -26,22 +26,22 @@ public class c {
     }
 
     public void b(d dVar) {
-        this.mListView.setData(dVar.ghR);
+        this.mListView.setData(dVar.gjB);
     }
 
     public void notifyDataSetChanged() {
-        this.ghB.onChangeSkinType();
+        this.gjl.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.ghB.onChangeSkinType();
+        this.gjl.onChangeSkinType();
     }
 
-    public void bhw() {
-        this.ghB.bhw();
+    public void biG() {
+        this.gjl.biG();
     }
 
-    public void bhx() {
-        this.ghB.bhx();
+    public void biH() {
+        this.gjl.biH();
     }
 }

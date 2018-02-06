@@ -19,15 +19,15 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 /* loaded from: classes2.dex */
 public class AlertDialog extends AppCompatDialog implements DialogInterface {
-    final AlertController Cj;
+    final AlertController Ci;
 
     protected AlertDialog(Context context) {
         this(context, 0);
     }
 
     protected AlertDialog(Context context, int i) {
-        super(context, d(context, i));
-        this.Cj = new AlertController(getContext(), this, getWindow());
+        super(context, e(context, i));
+        this.Ci = new AlertController(getContext(), this, getWindow());
     }
 
     protected AlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
@@ -36,7 +36,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         setOnCancelListener(onCancelListener);
     }
 
-    static int d(Context context, int i) {
+    static int e(Context context, int i) {
         if (i < 16777216) {
             TypedValue typedValue = new TypedValue();
             context.getTheme().resolveAttribute(R.attr.alertDialogTheme, typedValue, true);
@@ -46,67 +46,67 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     public Button getButton(int i) {
-        return this.Cj.getButton(i);
+        return this.Ci.getButton(i);
     }
 
     public ListView getListView() {
-        return this.Cj.getListView();
+        return this.Ci.getListView();
     }
 
     @Override // android.support.v7.app.AppCompatDialog, android.app.Dialog
     public void setTitle(CharSequence charSequence) {
         super.setTitle(charSequence);
-        this.Cj.setTitle(charSequence);
+        this.Ci.setTitle(charSequence);
     }
 
     public void setCustomTitle(View view) {
-        this.Cj.setCustomTitle(view);
+        this.Ci.setCustomTitle(view);
     }
 
     public void setMessage(CharSequence charSequence) {
-        this.Cj.setMessage(charSequence);
+        this.Ci.setMessage(charSequence);
     }
 
     public void setView(View view) {
-        this.Cj.setView(view);
+        this.Ci.setView(view);
     }
 
     public void setView(View view, int i, int i2, int i3, int i4) {
-        this.Cj.setView(view, i, i2, i3, i4);
+        this.Ci.setView(view, i, i2, i3, i4);
     }
 
     public void setButton(int i, CharSequence charSequence, Message message) {
-        this.Cj.a(i, charSequence, (DialogInterface.OnClickListener) null, message);
+        this.Ci.a(i, charSequence, (DialogInterface.OnClickListener) null, message);
     }
 
     public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-        this.Cj.a(i, charSequence, onClickListener, (Message) null);
+        this.Ci.a(i, charSequence, onClickListener, (Message) null);
     }
 
     public void setIcon(int i) {
-        this.Cj.setIcon(i);
+        this.Ci.setIcon(i);
     }
 
     public void setIcon(Drawable drawable) {
-        this.Cj.setIcon(drawable);
+        this.Ci.setIcon(drawable);
     }
 
     public void setIconAttribute(int i) {
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(i, typedValue, true);
-        this.Cj.setIcon(typedValue.resourceId);
+        this.Ci.setIcon(typedValue.resourceId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v7.app.AppCompatDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.Cj.dR();
+        this.Ci.dR();
     }
 
     @Override // android.app.Dialog, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.Cj.onKeyDown(i, keyEvent)) {
+        if (this.Ci.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -114,7 +114,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
 
     @Override // android.app.Dialog, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (this.Cj.onKeyUp(i, keyEvent)) {
+        if (this.Ci.onKeyUp(i, keyEvent)) {
             return true;
         }
         return super.onKeyUp(i, keyEvent);
@@ -122,258 +122,258 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
 
     /* loaded from: classes2.dex */
     public static class Builder {
-        private final AlertController.AlertParams Ck;
+        private final AlertController.AlertParams Cj;
         private final int mTheme;
 
         public Builder(Context context) {
-            this(context, AlertDialog.d(context, 0));
+            this(context, AlertDialog.e(context, 0));
         }
 
         public Builder(Context context, int i) {
-            this.Ck = new AlertController.AlertParams(new ContextThemeWrapper(context, AlertDialog.d(context, i)));
+            this.Cj = new AlertController.AlertParams(new ContextThemeWrapper(context, AlertDialog.e(context, i)));
             this.mTheme = i;
         }
 
         public Context getContext() {
-            return this.Ck.mContext;
+            return this.Cj.mContext;
         }
 
         public Builder setTitle(int i) {
-            this.Ck.mTitle = this.Ck.mContext.getText(i);
+            this.Cj.mTitle = this.Cj.mContext.getText(i);
             return this;
         }
 
         public Builder setTitle(CharSequence charSequence) {
-            this.Ck.mTitle = charSequence;
+            this.Cj.mTitle = charSequence;
             return this;
         }
 
         public Builder setCustomTitle(View view) {
-            this.Ck.mCustomTitleView = view;
+            this.Cj.mCustomTitleView = view;
             return this;
         }
 
         public Builder setMessage(int i) {
-            this.Ck.mMessage = this.Ck.mContext.getText(i);
+            this.Cj.mMessage = this.Cj.mContext.getText(i);
             return this;
         }
 
         public Builder setMessage(CharSequence charSequence) {
-            this.Ck.mMessage = charSequence;
+            this.Cj.mMessage = charSequence;
             return this;
         }
 
         public Builder setIcon(int i) {
-            this.Ck.mIconId = i;
+            this.Cj.mIconId = i;
             return this;
         }
 
         public Builder setIcon(Drawable drawable) {
-            this.Ck.mIcon = drawable;
+            this.Cj.mIcon = drawable;
             return this;
         }
 
         public Builder setIconAttribute(int i) {
             TypedValue typedValue = new TypedValue();
-            this.Ck.mContext.getTheme().resolveAttribute(i, typedValue, true);
-            this.Ck.mIconId = typedValue.resourceId;
+            this.Cj.mContext.getTheme().resolveAttribute(i, typedValue, true);
+            this.Cj.mIconId = typedValue.resourceId;
             return this;
         }
 
         public Builder setPositiveButton(int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mPositiveButtonText = this.Ck.mContext.getText(i);
-            this.Ck.mPositiveButtonListener = onClickListener;
+            this.Cj.mPositiveButtonText = this.Cj.mContext.getText(i);
+            this.Cj.mPositiveButtonListener = onClickListener;
             return this;
         }
 
         public Builder setPositiveButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mPositiveButtonText = charSequence;
-            this.Ck.mPositiveButtonListener = onClickListener;
+            this.Cj.mPositiveButtonText = charSequence;
+            this.Cj.mPositiveButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNegativeButton(int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mNegativeButtonText = this.Ck.mContext.getText(i);
-            this.Ck.mNegativeButtonListener = onClickListener;
+            this.Cj.mNegativeButtonText = this.Cj.mContext.getText(i);
+            this.Cj.mNegativeButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNegativeButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mNegativeButtonText = charSequence;
-            this.Ck.mNegativeButtonListener = onClickListener;
+            this.Cj.mNegativeButtonText = charSequence;
+            this.Cj.mNegativeButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNeutralButton(int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mNeutralButtonText = this.Ck.mContext.getText(i);
-            this.Ck.mNeutralButtonListener = onClickListener;
+            this.Cj.mNeutralButtonText = this.Cj.mContext.getText(i);
+            this.Cj.mNeutralButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNeutralButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mNeutralButtonText = charSequence;
-            this.Ck.mNeutralButtonListener = onClickListener;
+            this.Cj.mNeutralButtonText = charSequence;
+            this.Cj.mNeutralButtonListener = onClickListener;
             return this;
         }
 
         public Builder setCancelable(boolean z) {
-            this.Ck.mCancelable = z;
+            this.Cj.mCancelable = z;
             return this;
         }
 
         public Builder setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
-            this.Ck.mOnCancelListener = onCancelListener;
+            this.Cj.mOnCancelListener = onCancelListener;
             return this;
         }
 
         public Builder setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-            this.Ck.mOnDismissListener = onDismissListener;
+            this.Cj.mOnDismissListener = onDismissListener;
             return this;
         }
 
         public Builder setOnKeyListener(DialogInterface.OnKeyListener onKeyListener) {
-            this.Ck.mOnKeyListener = onKeyListener;
+            this.Cj.mOnKeyListener = onKeyListener;
             return this;
         }
 
         public Builder setItems(int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mItems = this.Ck.mContext.getResources().getTextArray(i);
-            this.Ck.mOnClickListener = onClickListener;
+            this.Cj.mItems = this.Cj.mContext.getResources().getTextArray(i);
+            this.Cj.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setItems(CharSequence[] charSequenceArr, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mItems = charSequenceArr;
-            this.Ck.mOnClickListener = onClickListener;
+            this.Cj.mItems = charSequenceArr;
+            this.Cj.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setAdapter(ListAdapter listAdapter, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mAdapter = listAdapter;
-            this.Ck.mOnClickListener = onClickListener;
+            this.Cj.mAdapter = listAdapter;
+            this.Cj.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setCursor(Cursor cursor, DialogInterface.OnClickListener onClickListener, String str) {
-            this.Ck.mCursor = cursor;
-            this.Ck.mLabelColumn = str;
-            this.Ck.mOnClickListener = onClickListener;
+            this.Cj.mCursor = cursor;
+            this.Cj.mLabelColumn = str;
+            this.Cj.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setMultiChoiceItems(int i, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            this.Ck.mItems = this.Ck.mContext.getResources().getTextArray(i);
-            this.Ck.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.Ck.mCheckedItems = zArr;
-            this.Ck.mIsMultiChoice = true;
+            this.Cj.mItems = this.Cj.mContext.getResources().getTextArray(i);
+            this.Cj.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.Cj.mCheckedItems = zArr;
+            this.Cj.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setMultiChoiceItems(CharSequence[] charSequenceArr, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            this.Ck.mItems = charSequenceArr;
-            this.Ck.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.Ck.mCheckedItems = zArr;
-            this.Ck.mIsMultiChoice = true;
+            this.Cj.mItems = charSequenceArr;
+            this.Cj.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.Cj.mCheckedItems = zArr;
+            this.Cj.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setMultiChoiceItems(Cursor cursor, String str, String str2, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            this.Ck.mCursor = cursor;
-            this.Ck.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.Ck.mIsCheckedColumn = str;
-            this.Ck.mLabelColumn = str2;
-            this.Ck.mIsMultiChoice = true;
+            this.Cj.mCursor = cursor;
+            this.Cj.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.Cj.mIsCheckedColumn = str;
+            this.Cj.mLabelColumn = str2;
+            this.Cj.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(int i, int i2, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mItems = this.Ck.mContext.getResources().getTextArray(i);
-            this.Ck.mOnClickListener = onClickListener;
-            this.Ck.mCheckedItem = i2;
-            this.Ck.mIsSingleChoice = true;
+            this.Cj.mItems = this.Cj.mContext.getResources().getTextArray(i);
+            this.Cj.mOnClickListener = onClickListener;
+            this.Cj.mCheckedItem = i2;
+            this.Cj.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(Cursor cursor, int i, String str, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mCursor = cursor;
-            this.Ck.mOnClickListener = onClickListener;
-            this.Ck.mCheckedItem = i;
-            this.Ck.mLabelColumn = str;
-            this.Ck.mIsSingleChoice = true;
+            this.Cj.mCursor = cursor;
+            this.Cj.mOnClickListener = onClickListener;
+            this.Cj.mCheckedItem = i;
+            this.Cj.mLabelColumn = str;
+            this.Cj.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(CharSequence[] charSequenceArr, int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mItems = charSequenceArr;
-            this.Ck.mOnClickListener = onClickListener;
-            this.Ck.mCheckedItem = i;
-            this.Ck.mIsSingleChoice = true;
+            this.Cj.mItems = charSequenceArr;
+            this.Cj.mOnClickListener = onClickListener;
+            this.Cj.mCheckedItem = i;
+            this.Cj.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(ListAdapter listAdapter, int i, DialogInterface.OnClickListener onClickListener) {
-            this.Ck.mAdapter = listAdapter;
-            this.Ck.mOnClickListener = onClickListener;
-            this.Ck.mCheckedItem = i;
-            this.Ck.mIsSingleChoice = true;
+            this.Cj.mAdapter = listAdapter;
+            this.Cj.mOnClickListener = onClickListener;
+            this.Cj.mCheckedItem = i;
+            this.Cj.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
-            this.Ck.mOnItemSelectedListener = onItemSelectedListener;
+            this.Cj.mOnItemSelectedListener = onItemSelectedListener;
             return this;
         }
 
         public Builder setView(int i) {
-            this.Ck.mView = null;
-            this.Ck.mViewLayoutResId = i;
-            this.Ck.mViewSpacingSpecified = false;
+            this.Cj.mView = null;
+            this.Cj.mViewLayoutResId = i;
+            this.Cj.mViewSpacingSpecified = false;
             return this;
         }
 
         public Builder setView(View view) {
-            this.Ck.mView = view;
-            this.Ck.mViewLayoutResId = 0;
-            this.Ck.mViewSpacingSpecified = false;
+            this.Cj.mView = view;
+            this.Cj.mViewLayoutResId = 0;
+            this.Cj.mViewSpacingSpecified = false;
             return this;
         }
 
         @RestrictTo
         @Deprecated
         public Builder setView(View view, int i, int i2, int i3, int i4) {
-            this.Ck.mView = view;
-            this.Ck.mViewLayoutResId = 0;
-            this.Ck.mViewSpacingSpecified = true;
-            this.Ck.mViewSpacingLeft = i;
-            this.Ck.mViewSpacingTop = i2;
-            this.Ck.mViewSpacingRight = i3;
-            this.Ck.mViewSpacingBottom = i4;
+            this.Cj.mView = view;
+            this.Cj.mViewLayoutResId = 0;
+            this.Cj.mViewSpacingSpecified = true;
+            this.Cj.mViewSpacingLeft = i;
+            this.Cj.mViewSpacingTop = i2;
+            this.Cj.mViewSpacingRight = i3;
+            this.Cj.mViewSpacingBottom = i4;
             return this;
         }
 
         @Deprecated
         public Builder setInverseBackgroundForced(boolean z) {
-            this.Ck.mForceInverseBackground = z;
+            this.Cj.mForceInverseBackground = z;
             return this;
         }
 
         @RestrictTo
         public Builder setRecycleOnMeasureEnabled(boolean z) {
-            this.Ck.mRecycleOnMeasure = z;
+            this.Cj.mRecycleOnMeasure = z;
             return this;
         }
 
         public AlertDialog create() {
-            AlertDialog alertDialog = new AlertDialog(this.Ck.mContext, this.mTheme);
-            this.Ck.apply(alertDialog.Cj);
-            alertDialog.setCancelable(this.Ck.mCancelable);
-            if (this.Ck.mCancelable) {
+            AlertDialog alertDialog = new AlertDialog(this.Cj.mContext, this.mTheme);
+            this.Cj.apply(alertDialog.Ci);
+            alertDialog.setCancelable(this.Cj.mCancelable);
+            if (this.Cj.mCancelable) {
                 alertDialog.setCanceledOnTouchOutside(true);
             }
-            alertDialog.setOnCancelListener(this.Ck.mOnCancelListener);
-            alertDialog.setOnDismissListener(this.Ck.mOnDismissListener);
-            if (this.Ck.mOnKeyListener != null) {
-                alertDialog.setOnKeyListener(this.Ck.mOnKeyListener);
+            alertDialog.setOnCancelListener(this.Cj.mOnCancelListener);
+            alertDialog.setOnDismissListener(this.Cj.mOnDismissListener);
+            if (this.Cj.mOnKeyListener != null) {
+                alertDialog.setOnKeyListener(this.Cj.mOnKeyListener);
             }
             return alertDialog;
         }

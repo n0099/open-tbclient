@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final String bPv = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String bPw = bPv + "/.tieba_video_cache";
-    public static final String afl = bPw + "/v2";
-    public static final String bPx = afl + "/";
-    public static final String bPy = afl + "/files";
-    public static final String bPz = bPy + "/";
+    public static final String bRD = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bRE = bRD + "/.tieba_video_cache";
+    public static final String afj = bRE + "/v2";
+    public static final String bRF = afj + "/";
+    public static final String bRG = afj + "/files";
+    public static final String bRH = bRG + "/";
 
-    private static long hK(String str) {
+    private static long hT(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bPz + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(bRH + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class u {
         return j;
     }
 
-    private static String hL(String str) {
+    private static String hU(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class u {
         return substring;
     }
 
-    public static long re(String str) {
+    public static long rk(String str) {
         try {
-            String hL = hL(str);
-            if (StringUtils.isNULL(hL)) {
+            String hU = hU(str);
+            if (StringUtils.isNULL(hU)) {
                 return 0L;
             }
-            return hK(hL);
+            return hT(hU);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

@@ -18,10 +18,10 @@ import com.baidu.tieba.e.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes2.dex */
 public class PbTopTipView extends TextView {
-    private com.baidu.tieba.e.b ckT;
-    private a.InterfaceC0109a ckU;
-    private boolean cwQ;
-    private Animation cwR;
+    private boolean cAK;
+    private Animation cAL;
+    private com.baidu.tieba.e.b coo;
+    private a.InterfaceC0142a cop;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private Runnable mRunnable;
@@ -36,23 +36,23 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.ckU = new a.InterfaceC0109a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
-            @Override // com.baidu.tieba.e.a.InterfaceC0109a
+        this.cop = new a.InterfaceC0142a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+            @Override // com.baidu.tieba.e.a.InterfaceC0142a
             public void aY(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.e.a.InterfaceC0109a
+            @Override // com.baidu.tieba.e.a.InterfaceC0142a
             public void aZ(int i, int i2) {
-                if (Z(i2) && PbTopTipView.this.cwQ) {
+                if (af(i2) && PbTopTipView.this.cAK) {
                     PbTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.tieba.e.a.InterfaceC0109a
+            @Override // com.baidu.tieba.e.a.InterfaceC0142a
             public void ba(int i, int i2) {
             }
 
-            private boolean Z(float f) {
+            private boolean af(float f) {
                 return Math.abs(f) >= 5.0f;
             }
         };
@@ -69,16 +69,16 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.ckT = new com.baidu.tieba.e.b(getContext());
-        this.ckT.a(this.ckU);
+        this.coo = new com.baidu.tieba.e.b(getContext());
+        this.coo.a(this.cop);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.ckT.onTouchEvent(motionEvent);
+                return PbTopTipView.this.coo.onTouchEvent(motionEvent);
             }
         });
-        afo();
-        this.cwR = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
+        ago();
+        this.cAL = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), d.a.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -89,15 +89,16 @@ public class PbTopTipView extends TextView {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 PbTopTipView.this.onDestroy();
-                e.ns().postDelayed(PbTopTipView.this.mRunnable, 100L);
+                PbTopTipView.this.setVisibility(8);
+                e.ns().postDelayed(PbTopTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.cwR.setDuration(400L);
-        this.cwR.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.cAL.setDuration(400L);
+        this.cAL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -115,7 +116,7 @@ public class PbTopTipView extends TextView {
         });
     }
 
-    public void afo() {
+    public void ago() {
         int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(d.e.ds30);
         int statusBarHeight = (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) ? UtilHelper.getStatusBarHeight() + dimensionPixelOffset : dimensionPixelOffset;
         int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(d.e.ds34);
@@ -125,7 +126,7 @@ public class PbTopTipView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        afo();
+        ago();
     }
 
     public void setDuration(int i) {
@@ -134,7 +135,7 @@ public class PbTopTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        this.cwQ = false;
+        this.cAK = false;
         removeCallbacks(this.mHideTipRunnable);
         if (this != null && getParent() != null) {
             clearAnimation();
@@ -152,13 +153,13 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.cwR);
-            this.cwQ = true;
+            startAnimation(this.cAL);
+            this.cAK = true;
         }
     }
 
     public void hide() {
-        this.cwQ = false;
+        this.cAK = false;
         onDestroy();
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
@@ -167,8 +168,8 @@ public class PbTopTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        aj.f(this, d.C0108d.cp_link_tip_a_alpha95, i);
-        aj.b(this, d.C0108d.cp_cont_i, 1, i);
+        aj.f(this, d.C0140d.cp_link_tip_a_alpha95, i);
+        aj.b(this, d.C0140d.cp_cont_i, 1, i);
     }
 
     public void onDestroy() {

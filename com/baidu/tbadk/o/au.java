@@ -6,11 +6,6 @@ public class au extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "both_video_download";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
         return null;
     }
@@ -21,12 +16,17 @@ public class au extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
-        return 0;
+    protected int mu() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
-        return 10;
+    protected String getName() {
+        return "portrait_cdn_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int mt() {
+        return 0;
     }
 }

@@ -16,11 +16,11 @@ import android.view.View;
 /* loaded from: classes2.dex */
 public class ShareActionProvider extends ActionProvider {
     public static final String DEFAULT_SHARE_HISTORY_FILE_NAME = "share_history.xml";
-    private int Vl;
-    private final b Vm;
-    String Vn;
-    OnShareTargetSelectedListener Vo;
-    private ActivityChooserModel.OnChooseActivityListener Vp;
+    private int Vk;
+    private final b Vl;
+    String Vm;
+    OnShareTargetSelectedListener Vn;
+    private ActivityChooserModel.OnChooseActivityListener Vo;
     final Context mContext;
 
     /* loaded from: classes2.dex */
@@ -30,14 +30,14 @@ public class ShareActionProvider extends ActionProvider {
 
     public ShareActionProvider(Context context) {
         super(context);
-        this.Vl = 4;
-        this.Vm = new b();
-        this.Vn = DEFAULT_SHARE_HISTORY_FILE_NAME;
+        this.Vk = 4;
+        this.Vl = new b();
+        this.Vm = DEFAULT_SHARE_HISTORY_FILE_NAME;
         this.mContext = context;
     }
 
     public void setOnShareTargetSelectedListener(OnShareTargetSelectedListener onShareTargetSelectedListener) {
-        this.Vo = onShareTargetSelectedListener;
+        this.Vn = onShareTargetSelectedListener;
         hP();
     }
 
@@ -45,7 +45,7 @@ public class ShareActionProvider extends ActionProvider {
     public View onCreateActionView() {
         ActivityChooserView activityChooserView = new ActivityChooserView(this.mContext);
         if (!activityChooserView.isInEditMode()) {
-            activityChooserView.setActivityChooserModel(ActivityChooserModel.H(this.mContext, this.Vn));
+            activityChooserView.setActivityChooserModel(ActivityChooserModel.H(this.mContext, this.Vm));
         }
         TypedValue typedValue = new TypedValue();
         this.mContext.getTheme().resolveAttribute(R.attr.actionModeShareDrawable, typedValue, true);
@@ -64,25 +64,25 @@ public class ShareActionProvider extends ActionProvider {
     @Override // android.support.v4.view.ActionProvider
     public void onPrepareSubMenu(SubMenu subMenu) {
         subMenu.clear();
-        ActivityChooserModel H = ActivityChooserModel.H(this.mContext, this.Vn);
+        ActivityChooserModel H = ActivityChooserModel.H(this.mContext, this.Vm);
         PackageManager packageManager = this.mContext.getPackageManager();
         int fn = H.fn();
-        int min = Math.min(fn, this.Vl);
+        int min = Math.min(fn, this.Vk);
         for (int i = 0; i < min; i++) {
             ResolveInfo aU = H.aU(i);
-            subMenu.add(0, i, i, aU.loadLabel(packageManager)).setIcon(aU.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vm);
+            subMenu.add(0, i, i, aU.loadLabel(packageManager)).setIcon(aU.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vl);
         }
         if (min < fn) {
             SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.abc_activity_chooser_view_see_all));
             for (int i2 = 0; i2 < fn; i2++) {
                 ResolveInfo aU2 = H.aU(i2);
-                addSubMenu.add(0, i2, i2, aU2.loadLabel(packageManager)).setIcon(aU2.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vm);
+                addSubMenu.add(0, i2, i2, aU2.loadLabel(packageManager)).setIcon(aU2.loadIcon(packageManager)).setOnMenuItemClickListener(this.Vl);
             }
         }
     }
 
     public void setShareHistoryFileName(String str) {
-        this.Vn = str;
+        this.Vm = str;
         hP();
     }
 
@@ -93,7 +93,7 @@ public class ShareActionProvider extends ActionProvider {
                 A(intent);
             }
         }
-        ActivityChooserModel.H(this.mContext, this.Vn).setIntent(intent);
+        ActivityChooserModel.H(this.mContext, this.Vm).setIntent(intent);
     }
 
     /* loaded from: classes2.dex */
@@ -103,7 +103,7 @@ public class ShareActionProvider extends ActionProvider {
 
         @Override // android.view.MenuItem.OnMenuItemClickListener
         public boolean onMenuItemClick(MenuItem menuItem) {
-            Intent aV = ActivityChooserModel.H(ShareActionProvider.this.mContext, ShareActionProvider.this.Vn).aV(menuItem.getItemId());
+            Intent aV = ActivityChooserModel.H(ShareActionProvider.this.mContext, ShareActionProvider.this.Vm).aV(menuItem.getItemId());
             if (aV != null) {
                 String action = aV.getAction();
                 if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
@@ -117,11 +117,11 @@ public class ShareActionProvider extends ActionProvider {
     }
 
     private void hP() {
-        if (this.Vo != null) {
-            if (this.Vp == null) {
-                this.Vp = new a();
+        if (this.Vn != null) {
+            if (this.Vo == null) {
+                this.Vo = new a();
             }
-            ActivityChooserModel.H(this.mContext, this.Vn).a(this.Vp);
+            ActivityChooserModel.H(this.mContext, this.Vm).a(this.Vo);
         }
     }
 
@@ -133,8 +133,8 @@ public class ShareActionProvider extends ActionProvider {
 
         @Override // android.support.v7.widget.ActivityChooserModel.OnChooseActivityListener
         public boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent) {
-            if (ShareActionProvider.this.Vo != null) {
-                ShareActionProvider.this.Vo.onShareTargetSelected(ShareActionProvider.this, intent);
+            if (ShareActionProvider.this.Vn != null) {
+                ShareActionProvider.this.Vn.onShareTargetSelected(ShareActionProvider.this, intent);
                 return false;
             }
             return false;

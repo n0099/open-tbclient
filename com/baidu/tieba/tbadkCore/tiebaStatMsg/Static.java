@@ -7,7 +7,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
@@ -39,7 +38,7 @@ public class Static {
             }
         };
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_STAT, customMessageListener);
+            MessageManager.getInstance().registerListener(2001320, customMessageListener);
         }
     }
 }

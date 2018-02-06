@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public interface q {
-    ArrayList<BasicNameValuePair> BH();
+    ArrayList<BasicNameValuePair> Ca();
 
-    String BI();
+    String Cb();
 
-    byte[] BJ();
+    byte[] Cc();
 
-    String BK();
+    String Cd();
 
-    String BL();
+    String Ce();
 
     void a(BasicNameValuePair basicNameValuePair);
 

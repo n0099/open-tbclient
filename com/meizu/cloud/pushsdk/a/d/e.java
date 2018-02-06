@@ -6,9 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes2.dex */
 public class e implements a {
@@ -71,10 +69,10 @@ public class e implements a {
     static void a(HttpURLConnection httpURLConnection, i iVar) throws IOException {
         switch (iVar.c()) {
             case 0:
-                httpURLConnection.setRequestMethod(HttpGet.METHOD_NAME);
+                httpURLConnection.setRequestMethod("GET");
                 return;
             case 1:
-                httpURLConnection.setRequestMethod(HttpPost.METHOD_NAME);
+                httpURLConnection.setRequestMethod("POST");
                 b(httpURLConnection, iVar);
                 return;
             case 2:

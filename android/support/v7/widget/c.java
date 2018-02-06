@@ -8,14 +8,14 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class c implements n.a {
-    private Pools.Pool<b> Mj;
+    private Pools.Pool<b> Mi;
+    final ArrayList<b> Mj;
     final ArrayList<b> Mk;
-    final ArrayList<b> Ml;
-    final a Mm;
-    Runnable Mn;
-    final boolean Mo;
-    final n Mp;
-    private int Mq;
+    final a Ml;
+    Runnable Mm;
+    final boolean Mn;
+    final n Mo;
+    private int Mp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -43,28 +43,28 @@ public class c implements n.a {
     }
 
     c(a aVar, boolean z) {
-        this.Mj = new Pools.SimplePool(30);
+        this.Mi = new Pools.SimplePool(30);
+        this.Mj = new ArrayList<>();
         this.Mk = new ArrayList<>();
-        this.Ml = new ArrayList<>();
-        this.Mq = 0;
-        this.Mm = aVar;
-        this.Mo = z;
-        this.Mp = new n(this);
+        this.Mp = 0;
+        this.Ml = aVar;
+        this.Mn = z;
+        this.Mo = new n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
+        k(this.Mj);
         k(this.Mk);
-        k(this.Ml);
-        this.Mq = 0;
+        this.Mp = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fB() {
-        this.Mp.m(this.Mk);
-        int size = this.Mk.size();
+        this.Mo.m(this.Mj);
+        int size = this.Mj.size();
         for (int i = 0; i < size; i++) {
-            b bVar = this.Mk.get(i);
+            b bVar = this.Mj.get(i);
             switch (bVar.cmd) {
                 case 1:
                     e(bVar);
@@ -79,21 +79,21 @@ public class c implements n.a {
                     a(bVar);
                     break;
             }
-            if (this.Mn != null) {
-                this.Mn.run();
+            if (this.Mm != null) {
+                this.Mm.run();
             }
         }
-        this.Mk.clear();
+        this.Mj.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fC() {
-        int size = this.Ml.size();
+        int size = this.Mk.size();
         for (int i = 0; i < size; i++) {
-            this.Mm.i(this.Ml.get(i));
+            this.Ml.i(this.Mk.get(i));
         }
-        k(this.Ml);
-        this.Mq = 0;
+        k(this.Mk);
+        this.Mp = 0;
     }
 
     private void a(b bVar) {
@@ -105,13 +105,13 @@ public class c implements n.a {
         int i;
         int i2;
         int i3;
-        int i4 = bVar.Mr;
-        int i5 = bVar.Mr + bVar.Mt;
+        int i4 = bVar.Mq;
+        int i5 = bVar.Mq + bVar.Ms;
         char c = 65535;
-        int i6 = bVar.Mr;
+        int i6 = bVar.Mq;
         int i7 = 0;
         while (i6 < i5) {
-            if (this.Mm.bd(i6) != null || aZ(i6)) {
+            if (this.Ml.bd(i6) != null || aZ(i6)) {
                 if (c == 0) {
                     d(a(2, i4, i7, null));
                     z = true;
@@ -142,7 +142,7 @@ public class c implements n.a {
             i5 = i;
             i6 = i3 + 1;
         }
-        if (i7 != bVar.Mt) {
+        if (i7 != bVar.Ms) {
             g(bVar);
             bVar = a(2, i4, i7, null);
         }
@@ -157,15 +157,15 @@ public class c implements n.a {
         int i;
         int i2;
         boolean z;
-        int i3 = bVar.Mr;
-        int i4 = bVar.Mr + bVar.Mt;
-        int i5 = bVar.Mr;
+        int i3 = bVar.Mq;
+        int i4 = bVar.Mq + bVar.Ms;
+        int i5 = bVar.Mq;
         boolean z2 = true;
         int i6 = 0;
         while (i5 < i4) {
-            if (this.Mm.bd(i5) != null || aZ(i5)) {
+            if (this.Ml.bd(i5) != null || aZ(i5)) {
                 if (!z2) {
-                    d(a(4, i3, i6, bVar.Ms));
+                    d(a(4, i3, i6, bVar.Mr));
                     i6 = 0;
                     i3 = i5;
                 }
@@ -174,7 +174,7 @@ public class c implements n.a {
                 z = true;
             } else {
                 if (z2) {
-                    f(a(4, i3, i6, bVar.Ms));
+                    f(a(4, i3, i6, bVar.Mr));
                     i6 = 0;
                     i3 = i5;
                 }
@@ -188,8 +188,8 @@ public class c implements n.a {
             i3 = i;
             z2 = z3;
         }
-        if (i6 != bVar.Mt) {
-            Object obj = bVar.Ms;
+        if (i6 != bVar.Ms) {
+            Object obj = bVar.Mr;
             g(bVar);
             bVar = a(4, i3, i6, obj);
         }
@@ -206,8 +206,8 @@ public class c implements n.a {
         if (bVar.cmd == 1 || bVar.cmd == 8) {
             throw new IllegalArgumentException("should not dispatch add or move for pre layout");
         }
-        int x = x(bVar.Mr, bVar.cmd);
-        int i2 = bVar.Mr;
+        int x = x(bVar.Mq, bVar.cmd);
+        int i2 = bVar.Mq;
         switch (bVar.cmd) {
             case 2:
                 i = 0;
@@ -222,8 +222,8 @@ public class c implements n.a {
         int i3 = 1;
         int i4 = x;
         int i5 = i2;
-        for (int i6 = 1; i6 < bVar.Mt; i6++) {
-            int x2 = x(bVar.Mr + (i * i6), bVar.cmd);
+        for (int i6 = 1; i6 < bVar.Ms; i6++) {
+            int x2 = x(bVar.Mq + (i * i6), bVar.cmd);
             switch (bVar.cmd) {
                 case 2:
                     if (x2 == i4) {
@@ -249,7 +249,7 @@ public class c implements n.a {
             if (z) {
                 i3++;
             } else {
-                b a2 = a(bVar.cmd, i4, i3, bVar.Ms);
+                b a2 = a(bVar.cmd, i4, i3, bVar.Mr);
                 a(a2, i5);
                 g(a2);
                 if (bVar.cmd == 4) {
@@ -259,7 +259,7 @@ public class c implements n.a {
                 i4 = x2;
             }
         }
-        Object obj = bVar.Ms;
+        Object obj = bVar.Mr;
         g(bVar);
         if (i3 > 0) {
             b a3 = a(bVar.cmd, i4, i3, obj);
@@ -269,16 +269,16 @@ public class c implements n.a {
     }
 
     void a(b bVar, int i) {
-        this.Mm.h(bVar);
+        this.Ml.h(bVar);
         switch (bVar.cmd) {
             case 2:
-                this.Mm.B(i, bVar.Mt);
+                this.Ml.B(i, bVar.Ms);
                 return;
             case 3:
             default:
                 throw new IllegalArgumentException("only remove and update ops can be dispatched in first pass");
             case 4:
-                this.Mm.e(i, bVar.Mt, bVar.Ms);
+                this.Ml.e(i, bVar.Ms, bVar.Mr);
                 return;
         }
     }
@@ -288,67 +288,67 @@ public class c implements n.a {
         int i4;
         int i5;
         int i6 = i;
-        for (int size = this.Ml.size() - 1; size >= 0; size--) {
-            b bVar = this.Ml.get(size);
+        for (int size = this.Mk.size() - 1; size >= 0; size--) {
+            b bVar = this.Mk.get(size);
             if (bVar.cmd == 8) {
-                if (bVar.Mr < bVar.Mt) {
-                    i3 = bVar.Mr;
-                    i4 = bVar.Mt;
+                if (bVar.Mq < bVar.Ms) {
+                    i3 = bVar.Mq;
+                    i4 = bVar.Ms;
                 } else {
-                    i3 = bVar.Mt;
-                    i4 = bVar.Mr;
+                    i3 = bVar.Ms;
+                    i4 = bVar.Mq;
                 }
                 if (i6 >= i3 && i6 <= i4) {
-                    if (i3 == bVar.Mr) {
+                    if (i3 == bVar.Mq) {
                         if (i2 == 1) {
-                            bVar.Mt++;
+                            bVar.Ms++;
                         } else if (i2 == 2) {
-                            bVar.Mt--;
+                            bVar.Ms--;
                         }
                         i5 = i6 + 1;
                     } else {
                         if (i2 == 1) {
-                            bVar.Mr++;
+                            bVar.Mq++;
                         } else if (i2 == 2) {
-                            bVar.Mr--;
+                            bVar.Mq--;
                         }
                         i5 = i6 - 1;
                     }
                 } else {
-                    if (i6 < bVar.Mr) {
+                    if (i6 < bVar.Mq) {
                         if (i2 == 1) {
-                            bVar.Mr++;
-                            bVar.Mt++;
+                            bVar.Mq++;
+                            bVar.Ms++;
                             i5 = i6;
                         } else if (i2 == 2) {
-                            bVar.Mr--;
-                            bVar.Mt--;
+                            bVar.Mq--;
+                            bVar.Ms--;
                         }
                     }
                     i5 = i6;
                 }
                 i6 = i5;
-            } else if (bVar.Mr <= i6) {
+            } else if (bVar.Mq <= i6) {
                 if (bVar.cmd == 1) {
-                    i6 -= bVar.Mt;
+                    i6 -= bVar.Ms;
                 } else if (bVar.cmd == 2) {
-                    i6 += bVar.Mt;
+                    i6 += bVar.Ms;
                 }
             } else if (i2 == 1) {
-                bVar.Mr++;
+                bVar.Mq++;
             } else if (i2 == 2) {
-                bVar.Mr--;
+                bVar.Mq--;
             }
         }
-        for (int size2 = this.Ml.size() - 1; size2 >= 0; size2--) {
-            b bVar2 = this.Ml.get(size2);
+        for (int size2 = this.Mk.size() - 1; size2 >= 0; size2--) {
+            b bVar2 = this.Mk.get(size2);
             if (bVar2.cmd == 8) {
-                if (bVar2.Mt == bVar2.Mr || bVar2.Mt < 0) {
-                    this.Ml.remove(size2);
+                if (bVar2.Ms == bVar2.Mq || bVar2.Ms < 0) {
+                    this.Mk.remove(size2);
                     g(bVar2);
                 }
-            } else if (bVar2.Mt <= 0) {
-                this.Ml.remove(size2);
+            } else if (bVar2.Ms <= 0) {
+                this.Mk.remove(size2);
                 g(bVar2);
             }
         }
@@ -356,16 +356,16 @@ public class c implements n.a {
     }
 
     private boolean aZ(int i) {
-        int size = this.Ml.size();
+        int size = this.Mk.size();
         for (int i2 = 0; i2 < size; i2++) {
-            b bVar = this.Ml.get(i2);
+            b bVar = this.Mk.get(i2);
             if (bVar.cmd == 8) {
-                if (y(bVar.Mt, i2 + 1) == i) {
+                if (y(bVar.Ms, i2 + 1) == i) {
                     return true;
                 }
             } else if (bVar.cmd == 1) {
-                int i3 = bVar.Mr + bVar.Mt;
-                for (int i4 = bVar.Mr; i4 < i3; i4++) {
+                int i3 = bVar.Mq + bVar.Ms;
+                for (int i4 = bVar.Mq; i4 < i3; i4++) {
                     if (y(i4, i2 + 1) == i) {
                         return true;
                     }
@@ -383,13 +383,13 @@ public class c implements n.a {
     }
 
     private void f(b bVar) {
-        this.Ml.add(bVar);
+        this.Mk.add(bVar);
         switch (bVar.cmd) {
             case 1:
-                this.Mm.D(bVar.Mr, bVar.Mt);
+                this.Ml.D(bVar.Mq, bVar.Ms);
                 return;
             case 2:
-                this.Mm.C(bVar.Mr, bVar.Mt);
+                this.Ml.C(bVar.Mq, bVar.Ms);
                 return;
             case 3:
             case 5:
@@ -398,22 +398,22 @@ public class c implements n.a {
             default:
                 throw new IllegalArgumentException("Unknown update op type for " + bVar);
             case 4:
-                this.Mm.e(bVar.Mr, bVar.Mt, bVar.Ms);
+                this.Ml.e(bVar.Mq, bVar.Ms, bVar.Mr);
                 return;
             case 8:
-                this.Mm.E(bVar.Mr, bVar.Mt);
+                this.Ml.E(bVar.Mq, bVar.Ms);
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean fD() {
-        return this.Mk.size() > 0;
+        return this.Mj.size() > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ba(int i) {
-        return (this.Mq & i) != 0;
+        return (this.Mp & i) != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -422,30 +422,30 @@ public class c implements n.a {
     }
 
     int y(int i, int i2) {
-        int size = this.Ml.size();
+        int size = this.Mk.size();
         int i3 = i;
         while (i2 < size) {
-            b bVar = this.Ml.get(i2);
+            b bVar = this.Mk.get(i2);
             if (bVar.cmd == 8) {
-                if (bVar.Mr == i3) {
-                    i3 = bVar.Mt;
+                if (bVar.Mq == i3) {
+                    i3 = bVar.Ms;
                 } else {
-                    if (bVar.Mr < i3) {
+                    if (bVar.Mq < i3) {
                         i3--;
                     }
-                    if (bVar.Mt <= i3) {
+                    if (bVar.Ms <= i3) {
                         i3++;
                     }
                 }
-            } else if (bVar.Mr > i3) {
+            } else if (bVar.Mq > i3) {
                 continue;
             } else if (bVar.cmd == 2) {
-                if (i3 < bVar.Mr + bVar.Mt) {
+                if (i3 < bVar.Mq + bVar.Ms) {
                     return -1;
                 }
-                i3 -= bVar.Mt;
+                i3 -= bVar.Ms;
             } else if (bVar.cmd == 1) {
-                i3 += bVar.Mt;
+                i3 += bVar.Ms;
             }
             i2++;
         }
@@ -457,9 +457,9 @@ public class c implements n.a {
         if (i2 < 1) {
             return false;
         }
-        this.Mk.add(a(4, i, i2, obj));
-        this.Mq |= 4;
-        return this.Mk.size() == 1;
+        this.Mj.add(a(4, i, i2, obj));
+        this.Mp |= 4;
+        return this.Mj.size() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -467,9 +467,9 @@ public class c implements n.a {
         if (i2 < 1) {
             return false;
         }
-        this.Mk.add(a(1, i, i2, null));
-        this.Mq |= 1;
-        return this.Mk.size() == 1;
+        this.Mj.add(a(1, i, i2, null));
+        this.Mp |= 1;
+        return this.Mj.size() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -477,9 +477,9 @@ public class c implements n.a {
         if (i2 < 1) {
             return false;
         }
-        this.Mk.add(a(2, i, i2, null));
-        this.Mq |= 2;
-        return this.Mk.size() == 1;
+        this.Mj.add(a(2, i, i2, null));
+        this.Mp |= 2;
+        return this.Mj.size() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -490,75 +490,75 @@ public class c implements n.a {
         if (i3 != 1) {
             throw new IllegalArgumentException("Moving more than 1 item is not supported yet");
         }
-        this.Mk.add(a(8, i, i2, null));
-        this.Mq |= 8;
-        return this.Mk.size() == 1;
+        this.Mj.add(a(8, i, i2, null));
+        this.Mp |= 8;
+        return this.Mj.size() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fE() {
         fC();
-        int size = this.Mk.size();
+        int size = this.Mj.size();
         for (int i = 0; i < size; i++) {
-            b bVar = this.Mk.get(i);
+            b bVar = this.Mj.get(i);
             switch (bVar.cmd) {
                 case 1:
-                    this.Mm.i(bVar);
-                    this.Mm.D(bVar.Mr, bVar.Mt);
+                    this.Ml.i(bVar);
+                    this.Ml.D(bVar.Mq, bVar.Ms);
                     break;
                 case 2:
-                    this.Mm.i(bVar);
-                    this.Mm.B(bVar.Mr, bVar.Mt);
+                    this.Ml.i(bVar);
+                    this.Ml.B(bVar.Mq, bVar.Ms);
                     break;
                 case 4:
-                    this.Mm.i(bVar);
-                    this.Mm.e(bVar.Mr, bVar.Mt, bVar.Ms);
+                    this.Ml.i(bVar);
+                    this.Ml.e(bVar.Mq, bVar.Ms, bVar.Mr);
                     break;
                 case 8:
-                    this.Mm.i(bVar);
-                    this.Mm.E(bVar.Mr, bVar.Mt);
+                    this.Ml.i(bVar);
+                    this.Ml.E(bVar.Mq, bVar.Ms);
                     break;
             }
-            if (this.Mn != null) {
-                this.Mn.run();
+            if (this.Mm != null) {
+                this.Mm.run();
             }
         }
-        k(this.Mk);
-        this.Mq = 0;
+        k(this.Mj);
+        this.Mp = 0;
     }
 
     public int bc(int i) {
-        int size = this.Mk.size();
+        int size = this.Mj.size();
         int i2 = i;
         for (int i3 = 0; i3 < size; i3++) {
-            b bVar = this.Mk.get(i3);
+            b bVar = this.Mj.get(i3);
             switch (bVar.cmd) {
                 case 1:
-                    if (bVar.Mr <= i2) {
-                        i2 += bVar.Mt;
+                    if (bVar.Mq <= i2) {
+                        i2 += bVar.Ms;
                         break;
                     } else {
                         break;
                     }
                 case 2:
-                    if (bVar.Mr <= i2) {
-                        if (bVar.Mr + bVar.Mt > i2) {
+                    if (bVar.Mq <= i2) {
+                        if (bVar.Mq + bVar.Ms > i2) {
                             return -1;
                         }
-                        i2 -= bVar.Mt;
+                        i2 -= bVar.Ms;
                         break;
                     } else {
                         continue;
                     }
                 case 8:
-                    if (bVar.Mr == i2) {
-                        i2 = bVar.Mt;
+                    if (bVar.Mq == i2) {
+                        i2 = bVar.Ms;
                         break;
                     } else {
-                        if (bVar.Mr < i2) {
+                        if (bVar.Mq < i2) {
                             i2--;
                         }
-                        if (bVar.Mt <= i2) {
+                        if (bVar.Ms <= i2) {
                             i2++;
                             break;
                         } else {
@@ -572,22 +572,22 @@ public class c implements n.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean fF() {
-        return (this.Ml.isEmpty() || this.Mk.isEmpty()) ? false : true;
+        return (this.Mk.isEmpty() || this.Mj.isEmpty()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
-        int Mr;
-        Object Ms;
-        int Mt;
+        int Mq;
+        Object Mr;
+        int Ms;
         int cmd;
 
         b(int i, int i2, int i3, Object obj) {
             this.cmd = i;
-            this.Mr = i2;
-            this.Mt = i3;
-            this.Ms = obj;
+            this.Mq = i2;
+            this.Ms = i3;
+            this.Mr = obj;
         }
 
         String fG() {
@@ -610,7 +610,7 @@ public class c implements n.a {
         }
 
         public String toString() {
-            return Integer.toHexString(System.identityHashCode(this)) + "[" + fG() + ",s:" + this.Mr + "c:" + this.Mt + ",p:" + this.Ms + "]";
+            return Integer.toHexString(System.identityHashCode(this)) + "[" + fG() + ",s:" + this.Mq + "c:" + this.Ms + ",p:" + this.Mr + "]";
         }
 
         public boolean equals(Object obj) {
@@ -624,38 +624,38 @@ public class c implements n.a {
             if (this.cmd != bVar.cmd) {
                 return false;
             }
-            if (this.cmd == 8 && Math.abs(this.Mt - this.Mr) == 1 && this.Mt == bVar.Mr && this.Mr == bVar.Mt) {
+            if (this.cmd == 8 && Math.abs(this.Ms - this.Mq) == 1 && this.Ms == bVar.Mq && this.Mq == bVar.Ms) {
                 return true;
             }
-            if (this.Mt == bVar.Mt && this.Mr == bVar.Mr) {
-                return this.Ms != null ? this.Ms.equals(bVar.Ms) : bVar.Ms == null;
+            if (this.Ms == bVar.Ms && this.Mq == bVar.Mq) {
+                return this.Mr != null ? this.Mr.equals(bVar.Mr) : bVar.Mr == null;
             }
             return false;
         }
 
         public int hashCode() {
-            return (((this.cmd * 31) + this.Mr) * 31) + this.Mt;
+            return (((this.cmd * 31) + this.Mq) * 31) + this.Ms;
         }
     }
 
     @Override // android.support.v7.widget.n.a
     public b a(int i, int i2, int i3, Object obj) {
-        b acquire = this.Mj.acquire();
+        b acquire = this.Mi.acquire();
         if (acquire == null) {
             return new b(i, i2, i3, obj);
         }
         acquire.cmd = i;
-        acquire.Mr = i2;
-        acquire.Mt = i3;
-        acquire.Ms = obj;
+        acquire.Mq = i2;
+        acquire.Ms = i3;
+        acquire.Mr = obj;
         return acquire;
     }
 
     @Override // android.support.v7.widget.n.a
     public void g(b bVar) {
-        if (!this.Mo) {
-            bVar.Ms = null;
-            this.Mj.release(bVar);
+        if (!this.Mn) {
+            bVar.Mr = null;
+            this.Mi.release(bVar);
         }
     }
 

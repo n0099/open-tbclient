@@ -6,12 +6,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.i.a> {
@@ -47,15 +49,21 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.boC == -100) {
+                if (aVar2.bqQ == -100) {
                     TiebaStatic.log("c12679");
-                    com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
-                    return;
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
+                    if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
+                        com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
+                        return;
+                    } else {
+                        aw.Du().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        return;
+                    }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.boB;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.bqP;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));
                 }
             }
         });

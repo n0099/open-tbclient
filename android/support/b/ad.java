@@ -21,7 +21,7 @@ class ad extends t implements ac {
     @Override // android.support.b.ac
     /* renamed from: c */
     public ad b(q qVar) {
-        this.vF.addTransition(((t) qVar).uX);
+        this.vF.addTransition(((t) qVar).uY);
         return this;
     }
 }

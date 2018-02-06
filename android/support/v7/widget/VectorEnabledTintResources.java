@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class VectorEnabledTintResources extends Resources {
     public static final int MAX_SDK_WHERE_REQUIRED = 20;
-    private final WeakReference<Context> Xm;
+    private final WeakReference<Context> Xl;
 
     public static boolean shouldBeUsed() {
         return AppCompatDelegate.isCompatVectorFromResourcesEnabled() && Build.VERSION.SDK_INT <= 20;
@@ -19,12 +19,12 @@ public class VectorEnabledTintResources extends Resources {
 
     public VectorEnabledTintResources(Context context, Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.Xm = new WeakReference<>(context);
+        this.Xl = new WeakReference<>(context);
     }
 
     @Override // android.content.res.Resources
     public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        Context context = this.Xm.get();
+        Context context = this.Xl.get();
         return context != null ? AppCompatDrawableManager.get().a(context, this, i) : super.getDrawable(i);
     }
 

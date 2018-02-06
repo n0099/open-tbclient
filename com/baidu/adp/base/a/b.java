@@ -17,33 +17,33 @@ import com.baidu.adp.lib.util.BdLog;
 import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
-    private SQLiteDatabase abK = null;
-    private a.InterfaceC0014a abL = null;
-    private a abM;
+    private SQLiteDatabase abI = null;
+    private a.InterfaceC0014a abJ = null;
+    private a abK;
 
     public b(a aVar) {
-        this.abM = aVar;
+        this.abK = aVar;
     }
 
     public void a(a.InterfaceC0014a interfaceC0014a) {
-        this.abL = interfaceC0014a;
+        this.abJ = interfaceC0014a;
     }
 
     public SQLiteDatabase jM() {
-        return R(true);
+        return T(true);
     }
 
-    protected SQLiteDatabase R(boolean z) {
-        S(z);
-        return this.abK;
+    protected SQLiteDatabase T(boolean z) {
+        U(z);
+        return this.abI;
     }
 
-    private void S(boolean z) {
+    private void U(boolean z) {
         synchronized (b.class) {
-            if (this.abK == null || !this.abK.isOpen()) {
+            if (this.abI == null || !this.abI.isOpen()) {
                 try {
-                    this.abM.a(this.abL);
-                    this.abK = this.abM.getWritableDatabase();
+                    this.abK.a(this.abJ);
+                    this.abI = this.abK.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
                         a(e, "ensureDatabaseReady");
@@ -69,7 +69,7 @@ public class b {
         return false;
     }
 
-    public boolean b(String str, Object[] objArr) {
+    public boolean f(String str, Object[] objArr) {
         SQLiteDatabase jM = jM();
         if (jM != null) {
             try {
@@ -84,18 +84,18 @@ public class b {
     }
 
     public Cursor rawQuery(String str, String[] strArr) throws Exception {
-        SQLiteDatabase R = R(false);
-        if (R != null) {
-            return R.rawQuery(str, strArr);
+        SQLiteDatabase T = T(false);
+        if (T != null) {
+            return T.rawQuery(str, strArr);
         }
         throw new SQLException("unable to open database.");
     }
 
     public void jN() {
         try {
-            if (this.abK != null) {
-                this.abK.close();
-                this.abK = null;
+            if (this.abI != null) {
+                this.abI.close();
+                this.abI = null;
             }
         } catch (Exception e) {
             BdLog.e("closeDatabase：" + e.getMessage());
@@ -107,10 +107,10 @@ public class b {
         synchronized (b.class) {
             jN();
             try {
-                al = this.abM.al(BdBaseApplication.getInst().getContext());
+                al = this.abK.al(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
-                this.abK = null;
+                this.abI = null;
                 return false;
             }
         }
@@ -128,24 +128,24 @@ public class b {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i = -14;
-                this.abK = null;
+                this.abI = null;
             } else if (th instanceof SQLiteAbortException) {
                 i = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i = -15;
-                this.abK = null;
+                this.abI = null;
             } else if (th instanceof SQLiteFullException) {
                 i = -16;
-                this.abK = null;
+                this.abI = null;
             } else if (th instanceof SQLiteDoneException) {
                 i = -19;
-                this.abK = null;
+                this.abI = null;
             } else if (th instanceof SQLiteMisuseException) {
                 i = -17;
             } else {
-                this.abK = null;
+                this.abI = null;
                 i = -17;
             }
             a(str, i, th.getMessage(), new Object[0]);

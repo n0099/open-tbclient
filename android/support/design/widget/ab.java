@@ -22,11 +22,11 @@ class ab extends ImageButton {
 
     @Override // android.widget.ImageView, android.view.View
     public void setVisibility(int i) {
-        b(i, true);
+        e(i, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void b(int i, boolean z) {
+    public final void e(int i, boolean z) {
         super.setVisibility(i);
         if (z) {
             this.sU = i;

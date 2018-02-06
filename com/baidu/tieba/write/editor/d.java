@@ -6,33 +6,33 @@ import com.baidu.tbadk.editortools.r;
 public class d extends r {
     public d(Context context, String str) {
         super(context, (String) null, 15);
-        this.bra = false;
-        this.bqZ = 3;
-        this.bqj = new a(context, str);
-        this.brb = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.bto = false;
+        this.btm = 3;
+        this.bsw = new a(context, str);
+        this.btp = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.bqj instanceof a) {
-            ((a) this.bqj).setFrom(str);
+        if (this.bsw instanceof a) {
+            ((a) this.bsw).setFrom(str);
         }
     }
 
-    public void aN(String str, int i) {
-        if (this.bqj instanceof a) {
-            ((a) this.bqj).aN(str, i);
+    public void aO(String str, int i) {
+        if (this.bsw instanceof a) {
+            ((a) this.bsw).aO(str, i);
         }
     }
 
-    public void bdL() {
-        if (this.bqj instanceof a) {
-            ((a) this.bqj).bdL();
+    public void bfm() {
+        if (this.bsw instanceof a) {
+            ((a) this.bsw).bfm();
         }
     }
 
-    public void bFX() {
-        if (this.bqj instanceof a) {
-            ((a) this.bqj).bFX();
+    public void bGL() {
+        if (this.bsw instanceof a) {
+            ((a) this.bsw).bGL();
         }
     }
 }

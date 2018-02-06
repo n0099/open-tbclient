@@ -1,21 +1,23 @@
 package com.baidu.adp.framework.c;
+
+import com.baidu.ar.util.Constants;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c aeX = null;
+    private static c aeV = null;
 
     public static c kY() {
-        if (aeX == null) {
+        if (aeV == null) {
             synchronized (c.class) {
-                if (aeX == null) {
-                    aeX = new c();
+                if (aeV == null) {
+                    aeV = new c();
                 }
             }
         }
-        return aeX;
+        return aeV;
     }
 
     private c() {
-        this.aeY = new e(20000, 10000, 5000);
+        this.aeW = new e(Constants.HTTP_CONNECT_TIMEOUT, 10000, 5000);
         this.mRetryCount = 3;
     }
 
@@ -29,6 +31,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.aeY = new e(i, i2, i3);
+        this.aeW = new e(i, i2, i3);
     }
 }

@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.widget.vote.a {
-    private String aTs;
-    private long bpl;
-    private int bpm;
+    private int aRP;
+    private String aUX;
+    private long brz;
     private boolean isSelected = false;
     private int mId;
     private String mUrl;
 
     public j(int i, String str, String str2, long j) {
         this.mId = i;
-        this.aTs = str;
+        this.aUX = str;
         this.mUrl = str2;
-        this.bpl = j;
+        this.brz = j;
     }
 
     public void setSelected(boolean z) {
@@ -23,7 +23,7 @@ public class j implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void setPercent(int i) {
-        this.bpm = i;
+        this.aRP = i;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -32,8 +32,8 @@ public class j implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Ka() {
-        return this.aTs;
+    public String KG() {
+        return this.aUX;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -42,27 +42,27 @@ public class j implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Kb() {
-        return this.bpl + TbadkCoreApplication.getInst().getString(d.j.vote_unit);
+    public String KH() {
+        return this.brz + TbadkCoreApplication.getInst().getString(d.j.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Kc() {
-        return this.bpm + TbadkCoreApplication.getInst().getString(d.j.vote_percent);
+    public String KI() {
+        return this.aRP + TbadkCoreApplication.getInst().getString(d.j.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Kd() {
+    public int KJ() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Ke() {
-        return this.bpm;
+    public int KK() {
+        return this.aRP;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Kf() {
+    public String KL() {
         return this.mUrl;
     }
 }

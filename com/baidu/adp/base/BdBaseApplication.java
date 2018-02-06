@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import com.baidu.adp.lib.util.l;
 import com.baidu.megapp.ma.MAApplication;
+import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
@@ -68,7 +69,7 @@ public class BdBaseApplication extends MAApplication {
     public void onAppMemoryLow() {
         a.jF().jH();
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lastGcTime > 30000) {
+        if (currentTimeMillis - this.lastGcTime > StatisticConfig.MIN_UPLOAD_INTERVAL) {
             this.lastGcTime = currentTimeMillis;
             System.gc();
         }

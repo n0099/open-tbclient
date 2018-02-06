@@ -16,10 +16,10 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.play.c.e;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.tieba.play.b.e;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -481,7 +481,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         } else {
             z = false;
         }
-        this.mWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
+        this.mWakeLock = ((PowerManager) context.getSystemService(Constants.HTTP_POWER)).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
         this.mWakeLock.setReferenceCounted(false);
         if (z) {
             this.mWakeLock.acquire();
@@ -676,7 +676,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         mediaInfo.mMediaPlayerName = "ijkplayer";
         String _getVideoCodecInfo = _getVideoCodecInfo();
         if (!TextUtils.isEmpty(_getVideoCodecInfo)) {
-            String[] split = _getVideoCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = _getVideoCodecInfo.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length >= 2) {
                 mediaInfo.mVideoDecoder = split[0];
                 mediaInfo.mVideoDecoderImpl = split[1];
@@ -687,7 +687,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         }
         String _getAudioCodecInfo = _getAudioCodecInfo();
         if (!TextUtils.isEmpty(_getAudioCodecInfo)) {
-            String[] split2 = _getAudioCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split2 = _getAudioCodecInfo.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split2.length >= 2) {
                 mediaInfo.mAudioDecoder = split2[0];
                 mediaInfo.mAudioDecoderImpl = split2[1];
@@ -805,7 +805,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.cB(message.arg1, message.arg2);
+                    e.cx(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

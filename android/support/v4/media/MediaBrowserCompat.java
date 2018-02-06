@@ -759,12 +759,12 @@ public final class MediaBrowserCompat {
                     }
                     return;
                 }
-                SubscriptionCallback f = iVar.f(bundle);
-                if (f != null) {
+                SubscriptionCallback g = iVar.g(bundle);
+                if (g != null) {
                     if (bundle == null) {
-                        f.onChildrenLoaded(str, list);
+                        g.onChildrenLoaded(str, list);
                     } else {
-                        f.onChildrenLoaded(str, list, bundle);
+                        g.onChildrenLoaded(str, list, bundle);
                     }
                 }
             }
@@ -1098,12 +1098,12 @@ public final class MediaBrowserCompat {
                     }
                     return;
                 }
-                SubscriptionCallback f = iVar.f(bundle);
-                if (f != null) {
+                SubscriptionCallback g = iVar.g(bundle);
+                if (g != null) {
                     if (bundle == null) {
-                        f.onChildrenLoaded(str, list);
+                        g.onChildrenLoaded(str, list);
                     } else {
-                        f.onChildrenLoaded(str, list, bundle);
+                        g.onChildrenLoaded(str, list, bundle);
                     }
                 }
             }
@@ -1169,7 +1169,7 @@ public final class MediaBrowserCompat {
             return this.xy;
         }
 
-        public SubscriptionCallback f(Bundle bundle) {
+        public SubscriptionCallback g(Bundle bundle) {
             int i = 0;
             while (true) {
                 int i2 = i;

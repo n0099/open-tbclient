@@ -3,6 +3,6 @@ package com.baidu.tieba.f;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class a {
-    public int doE;
-    public Bundle doF;
+    public int drx;
+    public Bundle dry;
 }

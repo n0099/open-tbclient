@@ -3,13 +3,12 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.IM_DELETE_IM_DB) { // from class: com.baidu.tieba.im.db.Static.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2008015) { // from class: com.baidu.tieba.im.db.Static.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
@@ -17,10 +16,10 @@ public class Static {
                     v.b(new u<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.u
-                        /* renamed from: TX */
+                        /* renamed from: UP */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                f.ne((String) customResponsedMessage.getData());
+                                g.no((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;
@@ -30,7 +29,7 @@ public class Static {
                         @Override // com.baidu.tbadk.util.h
                         /* renamed from: c */
                         public void onReturnDataInUI(Void r4) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_CLEAR_MSG));
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008016));
                         }
                     });
                 }

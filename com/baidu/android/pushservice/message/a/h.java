@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.ar.util.Constants;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,7 +79,7 @@ public class h extends c {
                         intent.putExtra("message_id", h);
                         intent.putExtra("baidu_message_type", i2);
                         intent.putExtra("baidu_message_body", bArr);
-                        intent.putExtra("app_id", e);
+                        intent.putExtra(Constants.HTTP_APP_ID, e);
                         intent.putExtra("baidu_message_secur_info", a2);
                         if (!TextUtils.isEmpty(a3.mCustomContent)) {
                             try {

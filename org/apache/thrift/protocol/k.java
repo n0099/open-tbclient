@@ -3,7 +3,6 @@ package org.apache.thrift.protocol;
 import com.baidu.android.common.logging.Log;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import org.apache.http.protocol.HTTP;
 import org.apache.thrift.protocol.a;
 /* loaded from: classes2.dex */
 public class k extends org.apache.thrift.protocol.a {
@@ -14,7 +13,7 @@ public class k extends org.apache.thrift.protocol.a {
     private static int j = 104857600;
 
     /* loaded from: classes2.dex */
-    public static class a extends a.C0205a {
+    public static class a extends a.C0294a {
         public a() {
             super(false, true);
         }
@@ -23,7 +22,7 @@ public class k extends org.apache.thrift.protocol.a {
             super(z, z2, i);
         }
 
-        @Override // org.apache.thrift.protocol.a.C0205a, org.apache.thrift.protocol.g
+        @Override // org.apache.thrift.protocol.a.C0294a, org.apache.thrift.protocol.g
         public e a(org.apache.thrift.transport.d dVar) {
             k kVar = new k(dVar, this.a, this.b);
             if (this.c != 0) {
@@ -76,7 +75,7 @@ public class k extends org.apache.thrift.protocol.a {
         }
         if (this.e.c() >= t) {
             try {
-                String str = new String(this.e.a(), this.e.b(), t, HTTP.UTF_8);
+                String str = new String(this.e.a(), this.e.b(), t, "UTF-8");
                 this.e.a(t);
                 return str;
             } catch (UnsupportedEncodingException e) {

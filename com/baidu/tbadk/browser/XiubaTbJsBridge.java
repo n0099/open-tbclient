@@ -8,10 +8,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.download.DownloadData;
@@ -34,7 +32,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final int XIUBA_VERSION_SECOND = 2;
     private BaseWebView mBaseWebView;
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new CustomMessageListener(CmdConfigCustom.CMD_PACKAGE_ADDED) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.1
+    private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,8 +42,8 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             }
         }
     };
-    private final CustomMessageListener downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.2
-        private boolean aHc;
+    private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.2
+        private boolean aIw;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -56,16 +54,16 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && XiubaTbJsBridge.XIUBA_PACKAGE.equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.aHc) {
-                                    this.aHc = true;
+                                if (!this.aIw) {
+                                    this.aIw = true;
                                     XiubaTbJsBridge.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 XiubaTbJsBridge.this.callDownloadListener(2);
-                                this.aHc = false;
+                                this.aIw = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 XiubaTbJsBridge.this.callDownloadListener(0);
-                                this.aHc = false;
+                                this.aIw = false;
                             }
                         }
                     }
@@ -161,7 +159,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Kl().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.KR().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -235,7 +233,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String isEnableWebViewTouch(Boolean bool) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_COMMON_WEBVIEW_ENABLE_TOUCH, bool));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002503, bool));
         return "";
     }
 
@@ -245,7 +243,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             if (METHOD_CHECK_APK_INSTALL.equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    String optString = jSONObject.optString(SapiUtils.KEY_QR_LOGIN_SIGN);
+                    String optString = jSONObject.optString("sign");
                     jsPromptResult.confirm(checkAPKInstall(jSONObject.optString("apkName"), jSONObject.optLong("tk"), optString).toString());
                     return true;
                 } catch (Exception e) {
@@ -254,7 +252,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             } else if (METHOD_DOWNLOAD_APK.equals(str2)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString(SapiUtils.KEY_QR_LOGIN_SIGN)));
+                    jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString("sign")));
                     return true;
                 } catch (Exception e2) {
                     e2.printStackTrace();

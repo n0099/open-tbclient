@@ -5,6 +5,7 @@ import android.media.RemoteControlClient;
 import android.os.Bundle;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.b;
+import com.baidu.fsg.base.router.RouterCallback;
 /* loaded from: classes2.dex */
 class c {
 
@@ -26,7 +27,7 @@ class c {
         android.support.v4.media.session.a.a(bundle, editMetadata);
         b(bundle, editMetadata);
         if ((128 & j) != 0) {
-            editMetadata.addEditableKey(268435457);
+            editMetadata.addEditableKey(RouterCallback.CODE_ERROR);
         }
         editMetadata.apply();
     }
@@ -52,23 +53,23 @@ class c {
                 metadataEditor.putObject(101, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_RATING));
             }
             if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_USER_RATING)) {
-                metadataEditor.putObject(268435457, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
+                metadataEditor.putObject(RouterCallback.CODE_ERROR, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
             }
         }
     }
 
     /* loaded from: classes2.dex */
     static class b<T extends a> implements RemoteControlClient.OnMetadataUpdateListener {
-        protected final T zZ;
+        protected final T zY;
 
         public b(T t) {
-            this.zZ = t;
+            this.zY = t;
         }
 
         @Override // android.media.RemoteControlClient.OnMetadataUpdateListener
         public void onMetadataUpdate(int i, Object obj) {
             if (i == 268435457 && (obj instanceof Rating)) {
-                this.zZ.Q(obj);
+                this.zY.Q(obj);
             }
         }
     }

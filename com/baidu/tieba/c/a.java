@@ -13,99 +13,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.b;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0105a {
-        void ake();
+    public interface InterfaceC0135a {
+        void akN();
     }
 
-    public static boolean akc() {
+    public static boolean akM() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
-    public static void akd() {
-        b.Kl().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
-    }
-
-    public static void a(e<?> eVar, int i, int i2) {
-        if (!akc()) {
-            String str = "";
-            switch (i2) {
-                case 1:
-                    str = eVar.getString(d.j.delete_page);
-                    break;
-                case 2:
-                    str = eVar.getString(d.j.commit_good);
-                    break;
-                case 3:
-                    str = eVar.getString(d.j.cancel_good);
-                    break;
-                case 4:
-                    str = eVar.getString(d.j.top);
-                    break;
-                case 5:
-                    str = eVar.getString(d.j.cancel_top);
-                    break;
-            }
-            a(eVar, i, str + eVar.getString(d.j.bawu_operation_tips));
-        }
-    }
-
-    public static void a(e<?> eVar, final int i, String str) {
-        if (!akc()) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
-            aVar.cZ(str);
-            aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                    a.akd();
-                    String str2 = "";
-                    if (i == 1) {
-                        str2 = "c11568";
-                    } else if (i == 2) {
-                        str2 = "c11572";
-                    } else if (i == 3) {
-                        str2 = "c11576";
-                    }
-                    TiebaStatic.log(str2);
-                }
-            });
-            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.c.a.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                    String str2 = "";
-                    if (i == 1) {
-                        str2 = "c11569";
-                    } else if (i == 2) {
-                        str2 = "c11573";
-                    } else if (i == 3) {
-                        str2 = "c11575";
-                    }
-                    TiebaStatic.log(str2);
-                }
-            });
-            aVar.b(eVar);
-            aVar.AB();
-        }
-    }
-
-    public static void a(e<?> eVar, String str, String str2, InterfaceC0105a interfaceC0105a) {
-        if (!akc() || !i(eVar.getPageActivity(), str, str2)) {
+    public static void a(e<?> eVar, String str, String str2, InterfaceC0135a interfaceC0135a) {
+        if (!akM() || !i(eVar.getPageActivity(), str, str2)) {
             if (j.oJ()) {
-                if (j.oK()) {
-                    a(eVar, 1, eVar.getString(d.j.bawu_center_wifi_tips));
-                    return;
-                } else {
-                    a(eVar, interfaceC0105a);
+                if (!j.oK()) {
+                    a(eVar, interfaceC0135a);
                     return;
                 }
+                return;
             }
             UtilHelper.showToast(eVar.getPageActivity(), d.j.neterror);
         }
@@ -133,26 +62,23 @@ public class a {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
-            Intent intent2 = null;
-            if (0 == 0) {
-                try {
-                    intent2 = new Intent();
-                    ComponentName componentName = new ComponentName("com.baidu.tiebabz", "com.baidu.tieba.frs.FrsActivity");
-                    Bundle bundle = new Bundle();
-                    bundle.putString("name", str2);
-                    intent2.putExtras(bundle);
-                    intent2.setComponent(componentName);
-                } catch (Exception e2) {
-                    if (e2 != null) {
-                        BdLog.e(e2);
-                        return false;
-                    }
+            try {
+                Intent intent2 = new Intent();
+                ComponentName componentName = new ComponentName("com.baidu.tiebabz", "com.baidu.tieba.frs.FrsActivity");
+                Bundle bundle = new Bundle();
+                bundle.putString("name", str2);
+                intent2.putExtras(bundle);
+                intent2.setComponent(componentName);
+                intent2.setFlags(268435456);
+                context.startActivity(intent2);
+                return true;
+            } catch (Exception e2) {
+                if (e2 != null) {
+                    BdLog.e(e2);
                     return false;
                 }
+                return false;
             }
-            intent2.setFlags(268435456);
-            context.startActivity(intent2);
-            return true;
         }
     }
 
@@ -183,29 +109,26 @@ public class a {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
-            Intent intent2 = null;
-            if (0 == 0) {
-                try {
-                    intent2 = new Intent();
-                    ComponentName componentName = new ComponentName("com.baidu.tiebabz", "com.baidu.tieba.pb.pb.main.PbActivity");
-                    Bundle bundle = new Bundle();
-                    bundle.putString("thread_id", str);
-                    if (!TextUtils.isEmpty(str2)) {
-                        bundle.putString("post_id", str2);
-                    }
-                    intent2.putExtras(bundle);
-                    intent2.setComponent(componentName);
-                } catch (Exception e2) {
-                    if (e2 != null) {
-                        BdLog.e(e2);
-                        return false;
-                    }
+            try {
+                Intent intent2 = new Intent();
+                ComponentName componentName = new ComponentName("com.baidu.tiebabz", "com.baidu.tieba.pb.pb.main.PbActivity");
+                Bundle bundle = new Bundle();
+                bundle.putString("thread_id", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    bundle.putString("post_id", str2);
+                }
+                intent2.putExtras(bundle);
+                intent2.setComponent(componentName);
+                intent2.setFlags(268435456);
+                context.startActivity(intent2);
+                return true;
+            } catch (Exception e2) {
+                if (e2 != null) {
+                    BdLog.e(e2);
                     return false;
                 }
+                return false;
             }
-            intent2.setFlags(268435456);
-            context.startActivity(intent2);
-            return true;
         }
     }
 
@@ -239,28 +162,27 @@ public class a {
         }
     }
 
-    private static void a(e<?> eVar, final InterfaceC0105a interfaceC0105a) {
+    private static void a(e<?> eVar, final InterfaceC0135a interfaceC0135a) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
-        aVar.cZ(eVar.getString(d.j.bawu_center_3g_tips));
-        aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.3
+        aVar.dk(eVar.getString(d.j.bawu_center_3g_tips));
+        aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                a.akd();
                 TiebaStatic.log("c11577");
             }
         });
-        aVar.b(d.j.continue_forward, new a.b() { // from class: com.baidu.tieba.c.a.4
+        aVar.b(d.j.continue_forward, new a.b() { // from class: com.baidu.tieba.c.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (InterfaceC0105a.this != null) {
-                    InterfaceC0105a.this.ake();
+                if (InterfaceC0135a.this != null) {
+                    InterfaceC0135a.this.akN();
                 }
                 TiebaStatic.log("c11574");
             }
         });
         aVar.b(eVar);
-        aVar.AB();
+        aVar.AU();
     }
 }

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -31,15 +31,9 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     if (!jSONObject.isNull("jump_scheme")) {
                         str2 = jSONObject.getString("jump_scheme");
                     }
-                    TiebaStatic.log(new ak("c11703").s("obj_type", 2).aa("task_id", str).aa("obj_to", str2));
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https")) {
-                            av.Da().c(getPageContext(), new String[]{str2});
-                        } else {
-                            Intent parseUri = Intent.parseUri(str2, 1);
-                            parseUri.setFlags(276824064);
-                            getPageContext().getPageActivity().startActivity(parseUri);
-                        }
+                    TiebaStatic.log(new ak("c11703").s("obj_type", 2).ab("task_id", str).ab("obj_to", str2));
+                    if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https"))) {
+                        aw.Du().c(getPageContext(), new String[]{str2});
                     }
                 }
             }

@@ -3,7 +3,9 @@ package com.meizu.cloud.pushsdk.b.e;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
+import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.b.f.e;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -59,7 +61,7 @@ public class b {
     }
 
     private void d() {
-        a("osType", "android-" + Build.VERSION.RELEASE);
+        a(Constants.HTTP_OS_TYPE, "android-" + Build.VERSION.RELEASE);
     }
 
     private void e() {
@@ -80,8 +82,8 @@ public class b {
             com.meizu.cloud.pushsdk.b.f.c.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a("latitude", Double.valueOf(c.getLatitude()));
-        a("longitude", Double.valueOf(c.getLongitude()));
+        a(WBPageConstants.ParamKey.LATITUDE, Double.valueOf(c.getLatitude()));
+        a(WBPageConstants.ParamKey.LONGITUDE, Double.valueOf(c.getLongitude()));
         a("altitude", Double.valueOf(c.getAltitude()));
         a("latitudeLongitudeAccuracy", Float.valueOf(c.getAccuracy()));
         a("speed", Float.valueOf(c.getSpeed()));

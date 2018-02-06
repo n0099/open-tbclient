@@ -8,34 +8,35 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.b.d;
+import com.baidu.sofire.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a aFs;
-    private SQLiteDatabase aCt;
-    private C0066a aFt;
-    private com.baidu.sofire.rp.a.a aFu;
+    private static a aGP;
+    private SQLiteDatabase aDR;
+    private C0089a aGQ;
+    private e aGR;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.aFt = new C0066a(context);
-        this.aFu = new com.baidu.sofire.rp.a.a(context);
+        this.aGQ = new C0089a(context);
+        this.aGR = new e(context);
         try {
-            this.aCt = this.aFt.getWritableDatabase();
+            this.aDR = this.aGQ.getWritableDatabase();
         } catch (Throwable th) {
             d.a(th);
         }
     }
 
-    public static synchronized a aD(Context context) {
+    public static synchronized a aE(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (aFs == null) {
-                aFs = new a(context);
+            if (aGP == null) {
+                aGP = new a(context);
             }
-            aVar = aFs;
+            aVar = aGP;
         }
         return aVar;
     }
@@ -58,7 +59,7 @@ public final class a {
         }
         contentValues.put("h", str);
         try {
-            return this.aCt.insert("r", null, contentValues);
+            return this.aDR.insert("r", null, contentValues);
         } catch (Throwable th) {
             d.a(th);
             return -1L;
@@ -69,7 +70,7 @@ public final class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("b", str);
         try {
-            return this.aCt.insert("c", null, contentValues);
+            return this.aDR.insert("c", null, contentValues);
         } catch (Throwable th) {
             d.a(th);
             return -1L;
@@ -85,7 +86,7 @@ public final class a {
         boolean z;
         Cursor query;
         try {
-            query = this.aCt.query("c", null, "b=?", new String[]{str}, null, null, null);
+            query = this.aDR.query("c", null, "b=?", new String[]{str}, null, null, null);
         } catch (Throwable th2) {
             th = th2;
             z = true;
@@ -113,7 +114,7 @@ public final class a {
 
     private int b(int i) {
         try {
-            return this.aCt.delete("r", "a=?", new String[]{String.valueOf(i)});
+            return this.aDR.delete("r", "a=?", new String[]{String.valueOf(i)});
         } catch (Throwable th) {
             d.a(th);
             return -1;
@@ -122,13 +123,13 @@ public final class a {
 
     public final int a(List<Integer> list) {
         try {
-            this.aCt.beginTransaction();
+            this.aDR.beginTransaction();
             for (Integer num : list) {
                 b(num.intValue());
             }
-            this.aCt.setTransactionSuccessful();
+            this.aDR.setTransactionSuccessful();
             try {
-                this.aCt.endTransaction();
+                this.aDR.endTransaction();
                 return -1;
             } catch (Exception e) {
                 d.a(e);
@@ -144,7 +145,7 @@ public final class a {
                 }
             } finally {
                 try {
-                    this.aCt.endTransaction();
+                    this.aDR.endTransaction();
                 } catch (Exception e22) {
                     d.a(e22);
                 }
@@ -162,24 +163,24 @@ public final class a {
         String str;
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
-        String str2 = i == 2 ? "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )" : "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - (aVar.a.getInt("re_net_wt", 3) * 3600000)) + ")";
+        e eVar = new e(this.e);
+        String str2 = i == 2 ? "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 )" : "(d <= (" + currentTimeMillis + "-e*3600000) or e=0 ) and (g!=2 or d<=" + (currentTimeMillis - (eVar.e.getInt("re_net_wt", 3) * 3600000)) + ")";
         try {
-            cursor = i == 2 ? this.aCt.query("r", null, str2, null, null, null, "d desc", null) : this.aCt.query("r", null, str2, null, null, null, "d desc", Integer.toString(aVar.a.getInt("up_nu_li", 100)));
+            cursor = i == 2 ? this.aDR.query("r", null, str2, null, null, null, "d desc", null) : this.aDR.query("r", null, str2, null, null, null, "d desc", Integer.toString(eVar.e.getInt("up_nu_li", 100)));
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
                         try {
-                            com.baidu.sofire.rp.c.a aVar2 = new com.baidu.sofire.rp.c.a();
-                            aVar2.a = cursor.getInt(cursor.getColumnIndex("a"));
-                            aVar2.b = cursor.getString(cursor.getColumnIndex("b"));
-                            aVar2.c = cursor.getInt(cursor.getColumnIndex("c"));
-                            aVar2.e = cursor.getLong(cursor.getColumnIndex("d"));
-                            aVar2.f = cursor.getInt(cursor.getColumnIndex("g"));
-                            aVar2.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar2.h = cursor.getInt(cursor.getColumnIndex("f"));
-                            aVar2.i = cursor.getInt(cursor.getColumnIndex("i"));
-                            aVar2.j = cursor.getString(cursor.getColumnIndex("j"));
+                            com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
+                            aVar.a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.b = cursor.getString(cursor.getColumnIndex("b"));
+                            aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
+                            aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
+                            aVar.f = cursor.getInt(cursor.getColumnIndex("g"));
+                            aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
+                            aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
+                            aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
                             try {
                                 str = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes("utf-8")));
@@ -187,8 +188,8 @@ public final class a {
                                 d.a(e);
                                 str = string;
                             }
-                            aVar2.d = str;
-                            arrayList.add(aVar2);
+                            aVar.d = str;
+                            arrayList.add(aVar);
                         } catch (Exception e2) {
                             e = e2;
                             d.a(e);
@@ -244,7 +245,7 @@ public final class a {
         String str;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.aCt.query("r", null, "i=5", null, null, null, "d desc", "100");
+            cursor = this.aDR.query("r", null, "i=5", null, null, null, "d desc", "100");
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -326,11 +327,11 @@ public final class a {
         String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
         try {
             if (i == 2) {
-                cursor = this.aCt.query("r", null, str2, null, null, null, "d desc", null);
+                cursor = this.aDR.query("r", null, str2, null, null, null, "d desc", null);
             } else {
-                int i2 = new com.baidu.sofire.rp.a.a(this.e).a.getInt("up_nu_li", 100);
+                int i2 = new e(this.e).e.getInt("up_nu_li", 100);
                 new StringBuilder("sj-trigger report 3g limit").append(Integer.toString(i2));
-                cursor = this.aCt.query("r", null, str2, null, null, null, "d desc", Integer.toString(i2));
+                cursor = this.aDR.query("r", null, str2, null, null, null, "d desc", Integer.toString(i2));
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -412,7 +413,7 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         try {
             try {
-                cursor = this.aCt.query("r", null, null, null, null, null, null, null);
+                cursor = this.aDR.query("r", null, null, null, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -480,10 +481,10 @@ public final class a {
     }
 
     public final int c() {
-        com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a(this.e);
+        e eVar = new e(this.e);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.aCt.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (aVar.a.getInt("re_net_over", 7) * 86400000))});
+            return this.aDR.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * 86400000))});
         } catch (Exception e) {
             d.a(e);
             return -1;
@@ -492,8 +493,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0066a extends SQLiteOpenHelper {
-        public C0066a(Context context) {
+    class C0089a extends SQLiteOpenHelper {
+        public C0089a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

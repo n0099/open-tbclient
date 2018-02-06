@@ -7,29 +7,29 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class b extends BaseViewPager {
-    private PointF bkb;
-    private com.baidu.tbadk.widget.a bkc;
+    private PointF bmq;
+    private com.baidu.tbadk.widget.a bmr;
 
     public b(Context context) {
         super(context);
     }
 
     public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.bkc = aVar;
+        this.bmr = aVar;
     }
 
     public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.bkc;
+        return this.bmr;
     }
 
-    private float[] u(MotionEvent motionEvent) {
+    private float[] y(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.bkb.x, pointF.y - this.bkb.y};
+                return new float[]{pointF.x - this.bmq.x, pointF.y - this.bmq.y};
             case 0:
-                this.bkb = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.bmq = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -39,25 +39,25 @@ public class b extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.bkc != null) {
-                this.bkc.OR();
+            if (this.bmr != null) {
+                this.bmr.Pw();
             }
         }
-        if (this.bkc == null) {
+        if (this.bmr == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] u = u(motionEvent);
-        if (this.bkc.OS()) {
+        float[] y = y(motionEvent);
+        if (this.bmr.Px()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (u != null && this.bkc.OY() && u[0] < 0.0f) {
+        if (y != null && this.bmr.PD() && y[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (u != null && this.bkc.OZ() && u[0] > 0.0f) {
+        if (y != null && this.bmr.PE() && y[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (u == null) {
-            if (this.bkc.OZ() || this.bkc.OY()) {
+        if (y == null) {
+            if (this.bmr.PE() || this.bmr.PD()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -70,21 +70,21 @@ public class b extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] u = u(motionEvent);
-        if (this.bkc == null) {
+        float[] y = y(motionEvent);
+        if (this.bmr == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.bkc.OS()) {
+        if (this.bmr.Px()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (u != null && this.bkc.OY() && u[0] < 0.0f) {
+        if (y != null && this.bmr.PD() && y[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (u != null && this.bkc.OZ() && u[0] > 0.0f) {
+        if (y != null && this.bmr.PE() && y[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (u == null) {
-            if (this.bkc.OZ() || this.bkc.OY()) {
+        if (y == null) {
+            if (this.bmr.PE() || this.bmr.PD()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

@@ -44,4 +44,9 @@ public class SafeService implements ISafeService {
         String gz = FH.gz(context);
         return TextUtils.isEmpty(gz) ? "NoZidYet" : gz;
     }
+
+    public String getZidAndCheckSafe(Context context, String str, int i) {
+        String gzfi = FH.gzfi(context, str, i);
+        return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+    }
 }

@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.meizu.cloud.pushsdk.common.b.g;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
@@ -16,16 +17,16 @@ public class c {
     private static a b;
     private static Handler a = new e(Looper.getMainLooper());
     private static LinkedList<b> c = new LinkedList<>();
-    private static a.EnumC0186a d = a.EnumC0186a.DEBUG;
-    private static a.EnumC0186a e = a.EnumC0186a.DEBUG;
-    private static C0187c f = new C0187c();
+    private static a.EnumC0268a d = a.EnumC0268a.DEBUG;
+    private static a.EnumC0268a e = a.EnumC0268a.DEBUG;
+    private static C0269c f = new C0269c();
 
     /* loaded from: classes2.dex */
     public interface a {
 
         /* renamed from: com.meizu.cloud.pushsdk.common.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public enum EnumC0186a {
+        public enum EnumC0268a {
             DEBUG,
             INFO,
             WARN,
@@ -33,14 +34,14 @@ public class c {
             NULL
         }
 
-        void a(EnumC0186a enumC0186a, String str, String str2);
+        void a(EnumC0268a enumC0268a, String str, String str2);
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.common.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0187c {
+    public static class C0269c {
         int a = 100;
-        int b = 120000;
+        int b = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     }
 
     /* loaded from: classes2.dex */
@@ -49,11 +50,11 @@ public class c {
         FILE
     }
 
-    public static void a(d dVar, a.EnumC0186a enumC0186a) {
+    public static void a(d dVar, a.EnumC0268a enumC0268a) {
         if (dVar == d.CONSOLE) {
-            d = enumC0186a;
+            d = enumC0268a;
         } else if (dVar == d.FILE) {
-            e = enumC0186a;
+            e = enumC0268a;
         }
     }
 
@@ -68,10 +69,10 @@ public class c {
         }
     }
 
-    private static void a(a.EnumC0186a enumC0186a, String str, String str2) {
-        if (b != null && e.ordinal() <= enumC0186a.ordinal()) {
+    private static void a(a.EnumC0268a enumC0268a, String str, String str2) {
+        if (b != null && e.ordinal() <= enumC0268a.ordinal()) {
             synchronized (c) {
-                c.addLast(new b(enumC0186a, str, str2));
+                c.addLast(new b(enumC0268a, str, str2));
                 if (c.size() >= f.a || f.b <= 0) {
                     a();
                 } else if (!a.hasMessages(1)) {
@@ -82,31 +83,31 @@ public class c {
     }
 
     public static void a(String str, String str2) {
-        if (d.ordinal() <= a.EnumC0186a.DEBUG.ordinal()) {
+        if (d.ordinal() <= a.EnumC0268a.DEBUG.ordinal()) {
             Log.d(str, str2);
         }
-        a(a.EnumC0186a.DEBUG, str, str2);
+        a(a.EnumC0268a.DEBUG, str, str2);
     }
 
     public static void b(String str, String str2) {
-        if (d.ordinal() <= a.EnumC0186a.INFO.ordinal()) {
+        if (d.ordinal() <= a.EnumC0268a.INFO.ordinal()) {
             Log.i(str, str2);
         }
-        a(a.EnumC0186a.INFO, str, str2);
+        a(a.EnumC0268a.INFO, str, str2);
     }
 
     public static void c(String str, String str2) {
-        if (d.ordinal() <= a.EnumC0186a.WARN.ordinal()) {
+        if (d.ordinal() <= a.EnumC0268a.WARN.ordinal()) {
             Log.w(str, str2);
         }
-        a(a.EnumC0186a.WARN, str, str2);
+        a(a.EnumC0268a.WARN, str, str2);
     }
 
     public static void d(String str, String str2) {
-        if (d.ordinal() <= a.EnumC0186a.ERROR.ordinal()) {
+        if (d.ordinal() <= a.EnumC0268a.ERROR.ordinal()) {
             Log.e(str, str2);
         }
-        a(a.EnumC0186a.ERROR, str, str2);
+        a(a.EnumC0268a.ERROR, str, str2);
     }
 
     public static void a(String str, Throwable th) {
@@ -118,12 +119,12 @@ public class c {
     public static class b {
         static SimpleDateFormat a = new SimpleDateFormat("MM-dd HH:mm:ss ");
         static String b = String.valueOf(Process.myPid());
-        a.EnumC0186a c;
+        a.EnumC0268a c;
         String d;
         String e;
 
-        b(a.EnumC0186a enumC0186a, String str, String str2) {
-            this.c = enumC0186a;
+        b(a.EnumC0268a enumC0268a, String str, String str2) {
+            this.c = enumC0268a;
             this.d = a.format(new Date()) + b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(Thread.currentThread().getId()) + " " + str;
             this.e = str2;
         }

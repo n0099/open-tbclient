@@ -7,7 +7,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,7 +14,7 @@ import java.net.URLDecoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class z {
-    public static String aq(String str, String str2) {
+    public static String ar(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -33,7 +32,7 @@ public class z {
         return "";
     }
 
-    public static String ar(String str, String str2) {
+    public static String as(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -66,7 +65,7 @@ public class z {
         return str3;
     }
 
-    public static Bundle hm(String str) {
+    public static Bundle hv(String str) {
         URL url;
         String query;
         String[] split;
@@ -96,17 +95,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String bBB;
+        public String bDF;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.bBB = "";
+            this.bDF = "";
             this.BDUSS = str;
-            this.bBB = str2;
+            this.bDF = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bBB != null ? this.bBB.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bDF != null ? this.bDF.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +121,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.bBB == null ? aVar.bBB == null : this.bBB.equals(aVar.bBB);
+                return this.bDF == null ? aVar.bDF == null : this.bDF.equals(aVar.bDF);
             }
             return false;
         }
@@ -130,7 +129,7 @@ public class z {
 
     public static void a(final BaseWebView baseWebView, BdUniqueId bdUniqueId) {
         if (baseWebView != null) {
-            CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.util.z.1
+            CustomMessageListener customMessageListener = new CustomMessageListener(2921024) { // from class: com.baidu.tbadk.util.z.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {

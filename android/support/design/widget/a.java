@@ -16,12 +16,12 @@ class a {
     static final Interpolator kE = new DecelerateInterpolator();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static float a(float f, float f2, float f3) {
+    public static float b(float f, float f2, float f3) {
         return ((f2 - f) * f3) + f;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int a(int i, int i2, float f) {
+    public static int b(int i, int i2, float f) {
         return Math.round((i2 - i) * f) + i;
     }
 

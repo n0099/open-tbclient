@@ -1,8 +1,8 @@
 package com.baidu.tieba.face;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -22,12 +22,12 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             this.mData = new com.baidu.tieba.face.data.a();
-            JSONObject optJSONObject = jSONObject.optJSONObject("page");
+            JSONObject optJSONObject = jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE);
             if (optJSONObject != null) {
                 this.mData.setPage(optJSONObject.optInt("current_pn"));
                 this.mData.setHasMore(optJSONObject.optInt("has_more"));
             }
-            this.mData.aU(parseImageData(jSONObject.optJSONArray(IntentConfig.LIST)));
+            this.mData.aW(parseImageData(jSONObject.optJSONArray("list")));
         }
     }
 

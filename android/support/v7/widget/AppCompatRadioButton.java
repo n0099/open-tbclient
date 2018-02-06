@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.widget.RadioButton;
 /* loaded from: classes2.dex */
 public class AppCompatRadioButton extends RadioButton implements TintableCompoundButton {
-    private e MC;
+    private e MB;
 
     public AppCompatRadioButton(Context context) {
         this(context, null);
@@ -24,15 +24,15 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
 
     public AppCompatRadioButton(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.MC = new e(this);
-        this.MC.loadFromAttributes(attributeSet, i);
+        this.MB = new e(this);
+        this.MB.loadFromAttributes(attributeSet, i);
     }
 
     @Override // android.widget.CompoundButton
     public void setButtonDrawable(Drawable drawable) {
         super.setButtonDrawable(drawable);
-        if (this.MC != null) {
-            this.MC.fJ();
+        if (this.MB != null) {
+            this.MB.fJ();
         }
     }
 
@@ -44,22 +44,22 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
         int compoundPaddingLeft = super.getCompoundPaddingLeft();
-        return this.MC != null ? this.MC.bf(compoundPaddingLeft) : compoundPaddingLeft;
+        return this.MB != null ? this.MB.bf(compoundPaddingLeft) : compoundPaddingLeft;
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public void setSupportButtonTintList(ColorStateList colorStateList) {
-        if (this.MC != null) {
-            this.MC.setSupportButtonTintList(colorStateList);
+        if (this.MB != null) {
+            this.MB.setSupportButtonTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public ColorStateList getSupportButtonTintList() {
-        if (this.MC != null) {
-            return this.MC.getSupportButtonTintList();
+        if (this.MB != null) {
+            return this.MB.getSupportButtonTintList();
         }
         return null;
     }
@@ -67,16 +67,16 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public void setSupportButtonTintMode(PorterDuff.Mode mode) {
-        if (this.MC != null) {
-            this.MC.setSupportButtonTintMode(mode);
+        if (this.MB != null) {
+            this.MB.setSupportButtonTintMode(mode);
         }
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public PorterDuff.Mode getSupportButtonTintMode() {
-        if (this.MC != null) {
-            return this.MC.getSupportButtonTintMode();
+        if (this.MB != null) {
+            return this.MB.getSupportButtonTintMode();
         }
         return null;
     }

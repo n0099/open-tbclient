@@ -46,8 +46,8 @@ public class ProxyHttpClient extends DefaultHttpClient {
         if (this.mProxy != null && this.mProxy.length() > 0) {
             getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(this.mProxy, Integer.valueOf(this.mPort).intValue()));
         }
-        HttpConnectionParams.setConnectionTimeout(getParams(), HTTP_TIMEOUT_MS);
-        HttpConnectionParams.setSoTimeout(getParams(), HTTP_TIMEOUT_MS);
+        HttpConnectionParams.setConnectionTimeout(getParams(), 30000);
+        HttpConnectionParams.setSoTimeout(getParams(), 30000);
         HttpConnectionParams.setSocketBufferSize(getParams(), 8192);
         if (TextUtils.isEmpty(str)) {
             return;

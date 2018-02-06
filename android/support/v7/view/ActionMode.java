@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class ActionMode {
-    private boolean GB;
+    private boolean GA;
     private Object rs;
 
     /* loaded from: classes2.dex */
@@ -54,11 +54,11 @@ public abstract class ActionMode {
     }
 
     public void setTitleOptionalHint(boolean z) {
-        this.GB = z;
+        this.GA = z;
     }
 
     public boolean getTitleOptionalHint() {
-        return this.GB;
+        return this.GA;
     }
 
     public boolean isTitleOptional() {

@@ -23,10 +23,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.util.z;
 import com.baidu.tieba.d;
 import java.net.MalformedURLException;
@@ -62,7 +61,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     private Timer mTimer;
     protected String mUrl;
     protected String mUrlTitle;
-    protected e mView;
+    protected g mView;
     private HashMap<String, a> mJsInterfaces = null;
     protected boolean mAutoChangeStyle = true;
     private boolean mIsTranslucent = false;
@@ -95,7 +94,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             BaseWebViewActivity.this.refresh();
         }
     };
-    private final CustomMessageListener webviewLoginListener = new CustomMessageListener(CmdConfigCustom.CMD_WEBVIEW_LOGIN) { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.6
+    private final CustomMessageListener webviewLoginListener = new CustomMessageListener(2921024) { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -107,7 +106,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
 
     /* loaded from: classes.dex */
     public interface a {
-        Object b(TbPageContext<?> tbPageContext);
+        Object a(TbPageContext<?> tbPageContext);
     }
 
     public abstract void addJavascriptInterface(Object obj, String str);
@@ -142,17 +141,17 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initWebView();
-        this.mView = new e(this);
+        this.mView = new g(this);
         initData();
-        this.mView.vS();
+        this.mView.wF();
         this.mView.b(this.mOnRefreshClickListener);
-        this.mView.aL(this.mIsLogin);
-        this.mView.aL(isNeedShowMenuItem());
+        this.mView.aO(this.mIsLogin);
+        this.mView.aO(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.cu(this.mUrlTitle);
+            this.mView.cF(this.mUrlTitle);
         }
-        if (!this.mView.vQ() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ax.e(this.mView.aGK, d.C0108d.cp_link_tip_b, false);
+        if (!this.mView.wD() && UtilHelper.canUseStyleImmersiveSticky()) {
+            ay.e(this.mView.aId, d.C0140d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -172,12 +171,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (this.mView != null) {
-            this.mView.aL(z);
+            this.mView.aO(z);
         }
     }
 
     private void initData() {
-        Map<String, String> em;
+        Map<String, String> ex;
         Intent intent = getIntent();
         if (intent != null) {
             String dataString = intent.getDataString();
@@ -187,8 +186,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     if (decode.startsWith("//")) {
                         decode = decode.substring(2);
                     }
-                    if (!StringUtils.isNull(decode) && (em = av.em(decode)) != null) {
-                        this.mUrl = em.get("url");
+                    if (!StringUtils.isNull(decode) && (ex = aw.ex(decode)) != null) {
+                        this.mUrl = ex.get("url");
                         this.mIsShowNavBar = true;
                     } else {
                         return;
@@ -217,7 +216,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 return;
             }
             if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-                this.mView.aM(false);
+                this.mView.aP(false);
             }
             this.mHandler.postDelayed(this.mRunnable, 500L);
         }
@@ -297,7 +296,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllPopupWindow();
         hideListMenu();
         if (this.mView != null) {
-            this.mView.vU();
+            this.mView.wH();
         }
     }
 
@@ -429,7 +428,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.bjm = Uri.parse(findSubString2);
+                dVar.blB = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -446,7 +445,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.bjm = Uri.parse(str4);
+            dVar.blB = Uri.parse(str4);
         }
         return dVar;
     }
@@ -469,19 +468,26 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onClick(view);
         int id = view.getId();
         if (id == d.g.webview_more_pop_item_share_friend_layout) {
-            this.mView.vU();
+            this.mView.wH();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             this.mShareResultToFe = true;
         } else if (id == d.g.webview_more_pop_item_open_browser_layout) {
-            this.mView.vU();
-            com.baidu.tbadk.browser.a.R(getPageContext().getPageActivity(), this.mUrl);
+            this.mView.wH();
+            b.T(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == d.g.webview_more_pop_item_copy_link_layout) {
-            this.mView.vU();
+            this.mView.wH();
             com.baidu.adp.lib.util.a.aE(this.mUrl);
             l.showToast(view.getContext(), view.getResources().getString(d.j.copy_pb_url_success));
-        } else if (id == d.g.root_view && isTranslucent()) {
-            finish();
+        } else if (id == d.g.root_view) {
+            if (isTranslucent()) {
+                finish();
+            }
+        } else if (id == d.g.widget_navi_share_button) {
+            showShare();
         }
+    }
+
+    protected void showShare() {
     }
 
     @Override // android.app.Activity
@@ -580,13 +586,13 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!this.mJsInterfaces.containsKey("TbJsBridge")) {
             this.mJsInterfaces.put("TbJsBridge", new a() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.5
                 @Override // com.baidu.tbadk.browser.BaseWebViewActivity.a
-                public Object b(TbPageContext<?> tbPageContext) {
+                public Object a(TbPageContext<?> tbPageContext) {
                     return new TbJsBridge(tbPageContext);
                 }
             });
         }
         for (String str : this.mJsInterfaces.keySet()) {
-            addJavascriptInterface(this.mJsInterfaces.get(str).b(getPageContext()), str);
+            addJavascriptInterface(this.mJsInterfaces.get(str).a(getPageContext()), str);
         }
         addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
     }
@@ -596,14 +602,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b cA = com.baidu.tbadk.core.a.a.wI().cA(TbadkCoreApplication.getCurrentBduss());
-        if (cA != null) {
-            if (cA.akF != null) {
-                str3 = cA.akF;
+        a.b cL = com.baidu.tbadk.core.a.a.xv().cL(TbadkCoreApplication.getCurrentBduss());
+        if (cL != null) {
+            if (cL.akE != null) {
+                str3 = cL.akE;
             }
-            if (cA.aIt != null) {
+            if (cL.aJN != null) {
                 str = str3;
-                str2 = cA.aIt;
+                str2 = cL.aJN;
                 z.a aVar = new z.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

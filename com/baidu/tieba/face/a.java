@@ -2,18 +2,17 @@ package com.baidu.tieba.face;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.imageManager.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern doG = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern doH = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern drz = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern drA = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String kL(String str) {
-        String replaceAll = str.replaceAll(d.buD, "meme,");
+    public static String kS(String str) {
+        String replaceAll = str.replaceAll(d.bwN, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -40,21 +39,21 @@ public class a {
         return sb.toString();
     }
 
-    public static int kM(String str) {
+    public static int kT(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = doG.matcher(str);
+        Matcher matcher = drz.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {
                 break;
             }
             String group = matcher.group();
-            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_VALID) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_VALID, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+            if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
                 i++;
             }
             i2 = i;

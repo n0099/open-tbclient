@@ -29,8 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
@@ -111,7 +109,7 @@ public class d {
                     b2.setConnectTimeout(10000);
                     b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                     if (str2 == null) {
-                        str2 = HttpGet.METHOD_NAME;
+                        str2 = "GET";
                     }
                     b2.setRequestMethod(str2);
                     if (map != null) {
@@ -225,7 +223,7 @@ public class d {
     }
 
     public static com.xiaomi.channel.commonutils.network.b a(Context context, String str, Map<String, String> map) {
-        return a(context, str, HttpPost.METHOD_NAME, (Map<String, String>) null, a(map));
+        return a(context, str, "POST", (Map<String, String>) null, a(map));
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2) {
@@ -283,7 +281,7 @@ public class d {
     }
 
     public static String a(Context context, URL url) {
-        return a(context, url, false, null, HTTP.UTF_8, null);
+        return a(context, url, false, null, "UTF-8", null);
     }
 
     public static String a(Context context, URL url, boolean z, String str, String str2, String str3) {
@@ -351,7 +349,7 @@ public class d {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
-                httpURLConnection.setRequestMethod(HttpPost.METHOD_NAME);
+                httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=*****");
                 if (map != null) {
@@ -486,9 +484,9 @@ public class d {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry.getKey() != null && entry.getValue() != null) {
                 try {
-                    stringBuffer.append(URLEncoder.encode(entry.getKey(), HTTP.UTF_8));
+                    stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
                     stringBuffer.append("=");
-                    stringBuffer.append(URLEncoder.encode(entry.getValue(), HTTP.UTF_8));
+                    stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
                     stringBuffer.append("&");
                 } catch (UnsupportedEncodingException e) {
                     Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e.toString());

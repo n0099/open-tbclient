@@ -9,9 +9,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean aku;
-    private ArrayList<BasicNameValuePair> akv;
-    private StringBuilder akw;
+    boolean akt;
+    private ArrayList<BasicNameValuePair> aku;
+    private StringBuilder akv;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -20,11 +20,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.aku = false;
+        this.akt = false;
         this.mType = null;
-        this.akw = new StringBuilder(100);
+        this.akv = new StringBuilder(100);
         this.mType = str;
-        this.aku = false;
+        this.akt = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.aku = false;
+        this.akt = false;
         this.mType = null;
-        this.akw = new StringBuilder(100);
+        this.akv = new StringBuilder(100);
     }
 
     public void l(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.akv == null) {
-                this.akv = new ArrayList<>();
+            if (this.aku == null) {
+                this.aku = new ArrayList<>();
             }
-            this.akv.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.aku.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.akw.length() > 0) {
-            sb.append((CharSequence) this.akw);
+        if (this.akv.length() > 0) {
+            sb.append((CharSequence) this.akv);
         }
-        if (this.akv != null) {
-            Iterator<BasicNameValuePair> it = this.akv.iterator();
+        if (this.aku != null) {
+            Iterator<BasicNameValuePair> it = this.aku.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -88,16 +88,16 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.akw.length() > 0) {
-                this.akw.append('&');
+            if (this.akv.length() > 0) {
+                this.akv.append('&');
             }
-            this.akw.append(str);
-            this.akw.append("=");
+            this.akv.append(str);
+            this.akv.append("=");
             try {
-                this.akw.append(URLEncoder.encode(au(str2), "utf-8"));
+                this.akv.append(URLEncoder.encode(au(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.akw.append(au(str2));
+                this.akv.append(au(str2));
             }
         }
     }

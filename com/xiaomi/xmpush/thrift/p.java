@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.fsg.base.armor.RimArmor;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class p implements Serializable, Cloneable, org.apache.thrift.a<p, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> h;
     private static final org.apache.thrift.protocol.j i = new org.apache.thrift.protocol.j("OnlineConfigItem");
-    private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b("key", (byte) 8, 1);
+    private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b(RimArmor.KEY, (byte) 8, 1);
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("type", (byte) 8, 2);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("clear", (byte) 2, 3);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("intValue", (byte) 8, 4);
@@ -30,7 +31,7 @@ public class p implements Serializable, Cloneable, org.apache.thrift.a<p, a> {
 
     /* loaded from: classes2.dex */
     public enum a {
-        KEY(1, "key"),
+        KEY(1, RimArmor.KEY),
         TYPE(2, "type"),
         CLEAR(3, "clear"),
         INT_VALUE(4, "intValue"),
@@ -62,7 +63,7 @@ public class p implements Serializable, Cloneable, org.apache.thrift.a<p, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.KEY, (a) new org.apache.thrift.meta_data.b("key", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
+        enumMap.put((EnumMap) a.KEY, (a) new org.apache.thrift.meta_data.b(RimArmor.KEY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.TYPE, (a) new org.apache.thrift.meta_data.b("type", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.CLEAR, (a) new org.apache.thrift.meta_data.b("clear", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.INT_VALUE, (a) new org.apache.thrift.meta_data.b("intValue", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));

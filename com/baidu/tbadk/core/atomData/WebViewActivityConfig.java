@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
+    public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
     public static final String TAG_FIX_TITLE = "tag_fix_title";

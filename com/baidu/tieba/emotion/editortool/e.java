@@ -13,22 +13,22 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     private void init() {
-        super.hN(7);
-        super.hO(3);
+        super.hM(7);
+        super.hN(3);
         com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), d.f.icon_face_original_s), false);
         super.d(aVar);
         super.c(aVar);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String hM(int i) {
+    public String hL(int i) {
         int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.brd.size()) {
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.btr.size()) {
             i2 = 0;
         } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.brd.get(i).intValue();
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.btr.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.bre.entrySet()) {
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.bts.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,14 +37,14 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean ge(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.bre.get(str) != null;
+    public boolean gn(String str) {
+        return com.baidu.tbadk.editortools.emotiontool.b.bts.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a gf(String str) {
+    public com.baidu.adp.widget.a.a go(String str) {
         Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.bre.get(str);
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.bts.get(str);
         if (num != null && (resBitmap = com.baidu.adp.lib.util.d.or().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(resBitmap, false, str);
         }
@@ -53,16 +53,16 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.brd.size();
+        return com.baidu.tbadk.editortools.emotiontool.b.btr.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a gg(String str) {
-        return gf(str);
+    public com.baidu.adp.widget.a.a gp(String str) {
+        return go(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType KL() {
+    public EmotionGroupType Lr() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -87,7 +87,7 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean KK() {
+    public boolean Lq() {
         return true;
     }
 }

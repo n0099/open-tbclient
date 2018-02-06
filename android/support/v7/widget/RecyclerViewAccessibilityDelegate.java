@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes2.dex */
 public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateCompat {
-    final RecyclerView SG;
-    final AccessibilityDelegateCompat TH = new AccessibilityDelegateCompat() { // from class: android.support.v7.widget.RecyclerViewAccessibilityDelegate.1
+    final RecyclerView SF;
+    final AccessibilityDelegateCompat TG = new AccessibilityDelegateCompat() { // from class: android.support.v7.widget.RecyclerViewAccessibilityDelegate.1
         @Override // android.support.v4.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
-            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.SG.getLayoutManager() != null) {
-                RecyclerViewAccessibilityDelegate.this.SG.getLayoutManager().a(view, accessibilityNodeInfoCompat);
+            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.SF.getLayoutManager() != null) {
+                RecyclerViewAccessibilityDelegate.this.SF.getLayoutManager().a(view, accessibilityNodeInfoCompat);
             }
         }
 
@@ -22,19 +22,19 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             if (super.performAccessibilityAction(view, i, bundle)) {
                 return true;
             }
-            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.SG.getLayoutManager() != null) {
-                return RecyclerViewAccessibilityDelegate.this.SG.getLayoutManager().a(view, i, bundle);
+            if (!RecyclerViewAccessibilityDelegate.this.shouldIgnore() && RecyclerViewAccessibilityDelegate.this.SF.getLayoutManager() != null) {
+                return RecyclerViewAccessibilityDelegate.this.SF.getLayoutManager().a(view, i, bundle);
             }
             return false;
         }
     };
 
     public RecyclerViewAccessibilityDelegate(RecyclerView recyclerView) {
-        this.SG = recyclerView;
+        this.SF = recyclerView;
     }
 
     boolean shouldIgnore() {
-        return this.SG.hasPendingAdapterUpdates();
+        return this.SF.hasPendingAdapterUpdates();
     }
 
     @Override // android.support.v4.view.AccessibilityDelegateCompat
@@ -42,8 +42,8 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         if (super.performAccessibilityAction(view, i, bundle)) {
             return true;
         }
-        if (!shouldIgnore() && this.SG.getLayoutManager() != null) {
-            return this.SG.getLayoutManager().performAccessibilityAction(i, bundle);
+        if (!shouldIgnore() && this.SF.getLayoutManager() != null) {
+            return this.SF.getLayoutManager().performAccessibilityAction(i, bundle);
         }
         return false;
     }
@@ -52,8 +52,8 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
         accessibilityNodeInfoCompat.setClassName(RecyclerView.class.getName());
-        if (!shouldIgnore() && this.SG.getLayoutManager() != null) {
-            this.SG.getLayoutManager().a(accessibilityNodeInfoCompat);
+        if (!shouldIgnore() && this.SF.getLayoutManager() != null) {
+            this.SF.getLayoutManager().a(accessibilityNodeInfoCompat);
         }
     }
 
@@ -70,6 +70,6 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     }
 
     public AccessibilityDelegateCompat getItemDelegate() {
-        return this.TH;
+        return this.TG;
     }
 }

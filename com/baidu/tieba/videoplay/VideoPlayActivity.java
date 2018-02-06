@@ -12,7 +12,6 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.v;
@@ -24,29 +23,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoPlayActivity extends BaseFragmentActivity {
-    private int bXc;
-    private c hxv;
-    private List<VideoItemData> hxw;
+    private int bZl;
+    private c hyJ;
+    private List<VideoItemData> hyK;
     private Rect lQ;
     private String mFrom;
     private boolean mHasMore = true;
     private long mStartTime = 0;
-    private CustomMessageListener hxx = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_SQUARE_VIDEO_LIST) { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.1
+    private CustomMessageListener hyL = new CustomMessageListener(2921320) { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g)) {
                 g gVar = (g) customResponsedMessage.getData();
-                List<VideoItemData> list = gVar.hng;
+                List<VideoItemData> list = gVar.hov;
                 if (!v.E(list)) {
-                    if (VideoPlayActivity.this.hxw == null) {
-                        VideoPlayActivity.this.hxw = new ArrayList();
+                    if (VideoPlayActivity.this.hyK == null) {
+                        VideoPlayActivity.this.hyK = new ArrayList();
                     }
-                    VideoPlayActivity.this.hxw.clear();
-                    VideoPlayActivity.this.hxw.addAll(list);
+                    VideoPlayActivity.this.hyK.clear();
+                    VideoPlayActivity.this.hyK.addAll(list);
                 }
-                if (VideoPlayActivity.this.hxv != null) {
-                    VideoPlayActivity.this.hxv.notifyDataSetChanged();
+                if (VideoPlayActivity.this.hyJ != null) {
+                    VideoPlayActivity.this.hyJ.notifyDataSetChanged();
                 }
                 VideoPlayActivity.this.mHasMore = gVar.mHasMore;
             }
@@ -59,9 +58,9 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         this.mStartTime = System.currentTimeMillis();
         setContentView(d.h.video_play_activity);
-        registerListener(this.hxx);
+        registerListener(this.hyL);
         initData();
-        bDI();
+        bEq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,31 +77,31 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hxv != null) {
-            this.hxv.onDestroy();
+        if (this.hyJ != null) {
+            this.hyJ.onDestroy();
         }
-        TiebaStatic.log(new ak("stime").aa("obj_type", "a023").f("obj_duration", (System.currentTimeMillis() - this.mStartTime) / 1000).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "a020"));
+        TiebaStatic.log(new ak("stime").ab("obj_type", "a023").f("obj_duration", (System.currentTimeMillis() - this.mStartTime) / 1000).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "a020"));
     }
 
-    private void bDI() {
-        this.hxv = new c(this);
-        this.hxv.a(new c.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
+    private void bEq() {
+        this.hyJ = new c(this);
+        this.hyJ.a(new c.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
             @Override // com.baidu.tieba.videoplay.c.a
-            public void bDJ() {
+            public void bEr() {
                 if (VideoPlayActivity.this.mHasMore) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOAD_MORE_VIDEO_IN_SQUARE));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921319));
                 }
             }
         });
-        this.hxv.a(this.hxw, this.bXc, this.lQ);
-        this.hxv.uc(this.mFrom);
+        this.hyJ.a(this.hyK, this.bZl, this.lQ);
+        this.hyJ.ug(this.mFrom);
     }
 
     private void initData() {
-        this.hxw = (List) getIntent().getSerializableExtra(VideoPlayActivityConfig.VIDEO_LIST);
-        this.bXc = getIntent().getIntExtra(VideoPlayActivityConfig.VIDEO_INDEX, 0);
+        this.hyK = (List) getIntent().getSerializableExtra(VideoPlayActivityConfig.VIDEO_LIST);
+        this.bZl = getIntent().getIntExtra(VideoPlayActivityConfig.VIDEO_INDEX, 0);
         this.lQ = getIntent().getSourceBounds();
-        if (v.E(this.hxw)) {
+        if (v.E(this.hyK)) {
             l.showToast(this, d.j.net_error);
             finish();
         }
@@ -122,8 +121,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         VideoItemData videoItemData;
         if (i == 4) {
-            if (this.hxv.hyk != this.hxv.hyj && this.hxv.hyj >= 0 && this.hxv.hyj < this.hxw.size() && (videoItemData = this.hxw.get(this.hxv.hyj)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SYNC_SQUARE_VIDEO_INDEX, videoItemData.thread_id));
+            if (this.hyJ.hzy != this.hyJ.hzx && this.hyJ.hzx >= 0 && this.hyJ.hzx < this.hyK.size() && (videoItemData = this.hyK.get(this.hyJ.hzx)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
             }
             finish();
             return false;

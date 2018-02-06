@@ -1,60 +1,32 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
-public class aq {
-    public static void Ol() {
-        com.baidu.adp.lib.b.d.mA().f(t.class);
-        com.baidu.adp.lib.b.d.mA().f(a.class);
-        com.baidu.adp.lib.b.d.mA().f(b.class);
-        com.baidu.adp.lib.b.d.mA().f(c.class);
-        com.baidu.adp.lib.b.d.mA().f(d.class);
-        com.baidu.adp.lib.b.d.mA().f(f.class);
-        com.baidu.adp.lib.b.d.mA().f(e.class);
-        com.baidu.adp.lib.b.d.mA().f(h.class);
-        com.baidu.adp.lib.b.d.mA().f(i.class);
-        com.baidu.adp.lib.b.d.mA().f(k.class);
-        com.baidu.adp.lib.b.d.mA().f(l.class);
-        com.baidu.adp.lib.b.d.mA().f(m.class);
-        com.baidu.adp.lib.b.d.mA().f(n.class);
-        com.baidu.adp.lib.b.d.mA().f(o.class);
-        com.baidu.adp.lib.b.d.mA().f(r.class);
-        com.baidu.adp.lib.b.d.mA().f(s.class);
-        com.baidu.adp.lib.b.d.mA().f(u.class);
-        com.baidu.adp.lib.b.d.mA().f(v.class);
-        com.baidu.adp.lib.b.d.mA().f(x.class);
-        com.baidu.adp.lib.b.d.mA().f(y.class);
-        com.baidu.adp.lib.b.d.mA().f(z.class);
-        com.baidu.adp.lib.b.d.mA().f(aa.class);
-        com.baidu.adp.lib.b.d.mA().f(ab.class);
-        com.baidu.adp.lib.b.d.mA().f(ag.class);
-        com.baidu.adp.lib.b.d.mA().f(aj.class);
-        com.baidu.adp.lib.b.d.mA().f(al.class);
-        com.baidu.adp.lib.b.d.mA().f(ao.class);
-        com.baidu.adp.lib.b.d.mA().f(as.class);
-        com.baidu.adp.lib.b.d.mA().f(au.class);
-        com.baidu.adp.lib.b.d.mA().f(aw.class);
-        com.baidu.adp.lib.b.d.mA().f(az.class);
-        com.baidu.adp.lib.b.d.mA().f(bb.class);
-        com.baidu.adp.lib.b.d.mA().f(bc.class);
-        com.baidu.adp.lib.b.d.mA().f(bd.class);
-        com.baidu.adp.lib.b.d.mA().f(ba.class);
-        com.baidu.adp.lib.b.d.mA().f(w.class);
-        com.baidu.adp.lib.b.d.mA().f(ae.class);
-        com.baidu.adp.lib.b.d.mA().f(ar.class);
-        com.baidu.adp.lib.b.d.mA().f(g.class);
-        com.baidu.adp.lib.b.d.mA().f(af.class);
-        com.baidu.adp.lib.b.d.mA().f(av.class);
-        com.baidu.adp.lib.b.d.mA().f(ac.class);
-        com.baidu.adp.lib.b.d.mA().f(q.class);
-        com.baidu.adp.lib.b.d.mA().f(ai.class);
-        com.baidu.adp.lib.b.d.mA().f(ah.class);
-        com.baidu.adp.lib.b.d.mA().f(at.class);
-        com.baidu.adp.lib.b.d.mA().f(p.class);
-        com.baidu.adp.lib.b.d.mA().f(ad.class);
-        com.baidu.adp.lib.b.d.mA().f(am.class);
-        com.baidu.adp.lib.b.d.mA().f(ap.class);
-        com.baidu.adp.lib.b.d.mA().f(ax.class);
-        com.baidu.adp.lib.b.d.mA().f(ak.class);
-        com.baidu.adp.lib.b.d.mA().f(ay.class);
-        com.baidu.adp.lib.b.d.mA().f(an.class);
+public class aq extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void cQ(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "android_show_answer";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] mr() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ms() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int mt() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int mu() {
+        return 10;
     }
 }

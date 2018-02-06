@@ -1,67 +1,71 @@
 package com.baidu.sofire.rp.a;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import com.baidu.sofire.b.d;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"InlinedApi"})
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    public SharedPreferences a;
-    private SharedPreferences aFq;
-    private SharedPreferences.Editor aFr;
-    public SharedPreferences b;
-    public SharedPreferences.Editor c;
-    private Context f;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 
-    public a(Context context) {
+    public static String b(a aVar) {
+        JSONObject jSONObject = new JSONObject();
         try {
-            this.f = context;
-            this.a = context.getSharedPreferences("re_po_rt", 0);
-            this.c = this.a.edit();
-            this.b = context.getSharedPreferences("leroadcfg", 0);
-            this.aFq = context.getSharedPreferences("leroadcfg", 0);
-            this.aFr = this.aFq.edit();
+            jSONObject.put("0", aVar.a);
+            jSONObject.put("1", aVar.c);
+            jSONObject.put("2", aVar.d);
+            jSONObject.put("3", aVar.e);
+            jSONObject.put("4", aVar.b);
         } catch (Throwable th) {
             d.a(th);
         }
+        return jSONObject.toString();
     }
 
-    public final void a(b bVar) {
-        this.c.putString("re_con", this.a.getString("re_con", "") + "||" + b.b(bVar));
-        this.c.commit();
-    }
-
-    public final List<b> a() {
-        b cg;
-        String string = this.a.getString("re_con", "");
-        if (TextUtils.isEmpty(string)) {
+    public static a cn(String str) {
+        a aVar = new a();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            aVar.a = jSONObject.optString("0");
+            aVar.c = jSONObject.optString("1");
+            aVar.d = jSONObject.optString("2");
+            aVar.e = jSONObject.optString("3");
+            aVar.b = jSONObject.optString("4");
+            return aVar;
+        } catch (Exception e) {
+            d.a(e);
             return null;
         }
-        ArrayList arrayList = new ArrayList();
-        String[] split = string.split("\\|\\|");
-        for (String str : split) {
-            if (!TextUtils.isEmpty(str) && (cg = b.cg(str)) != null) {
-                arrayList.add(cg);
-            }
-        }
-        return arrayList;
     }
 
-    public final int b() {
-        int i = this.a.getInt("re_net_hr", 3);
-        try {
-            String[] e = d.e(this.f);
-            if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1]) && "200080".equals(e[0])) {
-                if ("com.baidu.BaiduMap".equals(this.f.getPackageName()) && i < 24) {
-                    return 24;
-                }
-            }
-        } catch (Throwable th) {
+    public final int hashCode() {
+        return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.b != null ? this.b.hashCode() : 0);
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return i;
+        if (obj != null && getClass() == obj.getClass()) {
+            a aVar = (a) obj;
+            if (this.d == null) {
+                if (aVar.d != null) {
+                    return false;
+                }
+            } else if (!this.d.equals(aVar.d)) {
+                return false;
+            }
+            if (this.e == null) {
+                if (aVar.e != null) {
+                    return false;
+                }
+            } else if (!this.e.equals(aVar.e)) {
+                return false;
+            }
+            return this.b == null ? aVar.b == null : this.b.equals(aVar.b);
+        }
+        return false;
     }
 }

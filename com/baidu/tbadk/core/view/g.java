@@ -13,19 +13,19 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class g {
-    private View aZG;
-    private int aZH;
-    private ViewGroup.LayoutParams aZI;
-    private Runnable aZJ;
-    private FrameLayout aZK;
+    private View bbr;
+    private int bbs;
+    private ViewGroup.LayoutParams bbt;
+    private Runnable bbu;
+    private FrameLayout bbv;
     private int mScreenHeight;
     private int mSkinType = 3;
-    private int aZL = d.C0108d.cp_bg_line_d;
-    private boolean aZM = false;
-    private ViewTreeObserver.OnGlobalLayoutListener HX = null;
-    private int aZN = 0;
+    private int bbw = d.C0140d.cp_bg_line_d;
+    private boolean bbx = false;
+    private ViewTreeObserver.OnGlobalLayoutListener HW = null;
+    private int bby = 0;
 
-    public static g w(Activity activity) {
+    public static g x(Activity activity) {
         return new g(activity);
     }
 
@@ -38,116 +38,116 @@ public class g {
     }
 
     private g(Activity activity) {
-        b(activity, d.C0108d.cp_bg_line_d, true);
+        b(activity, d.C0140d.cp_bg_line_d, true);
     }
 
     private g(Activity activity, boolean z) {
-        b(activity, d.C0108d.cp_bg_line_d, z);
+        b(activity, d.C0140d.cp_bg_line_d, z);
     }
 
     private g(Activity activity, int i, boolean z) {
         b(activity, i, z);
     }
 
-    public void gg(int i) {
-        if (this.aZM) {
-            if (i != this.mSkinType && this.aZK != null) {
-                aj.t(this.aZK, this.aZL);
+    public void gi(int i) {
+        if (this.bbx) {
+            if (i != this.mSkinType && this.bbv != null) {
+                aj.t(this.bbv, this.bbw);
             }
             this.mSkinType = i;
         }
     }
 
     public void onDestory() {
-        if (this.aZJ != null) {
-            com.baidu.adp.lib.g.e.ns().removeCallbacks(this.aZJ);
-            this.aZJ = null;
+        if (this.bbu != null) {
+            com.baidu.adp.lib.g.e.ns().removeCallbacks(this.bbu);
+            this.bbu = null;
         }
-        if (this.aZG != null) {
-            this.aZG.getViewTreeObserver().removeGlobalOnLayoutListener(this.HX);
-            this.HX = null;
+        if (this.bbr != null) {
+            this.bbr.getViewTreeObserver().removeGlobalOnLayoutListener(this.HW);
+            this.HW = null;
         }
-        this.aZG = null;
-        this.aZK = null;
+        this.bbr = null;
+        this.bbv = null;
     }
 
     private void b(Activity activity, int i, boolean z) {
-        this.aZL = i;
-        this.aZM = z;
-        this.aZK = (FrameLayout) activity.findViewById(16908290);
+        this.bbw = i;
+        this.bbx = z;
+        this.bbv = (FrameLayout) activity.findViewById(16908290);
         if (z) {
-            aj.t(this.aZK, i);
+            aj.t(this.bbv, i);
         } else {
-            aj.g(this.aZK, i, 0);
+            aj.g(this.bbv, i, 0);
         }
-        this.aZG = this.aZK.getChildAt(0);
-        if (this.aZG != null) {
-            this.HX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.g.1
+        this.bbr = this.bbv.getChildAt(0);
+        if (this.bbr != null) {
+            this.HW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.g.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    g.this.DA();
+                    g.this.DU();
                 }
             };
-            this.aZG.getViewTreeObserver().addOnGlobalLayoutListener(this.HX);
-            this.aZI = this.aZG.getLayoutParams();
+            this.bbr.getViewTreeObserver().addOnGlobalLayoutListener(this.HW);
+            this.bbt = this.bbr.getLayoutParams();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DA() {
-        if (this.aZG != null) {
-            int height = this.aZG.getHeight();
+    public void DU() {
+        if (this.bbr != null) {
+            int height = this.bbr.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
-            int DB = DB();
-            if (this.aZN > 0 && this.aZN <= this.aZI.height) {
-                DB -= this.aZN;
+            int DV = DV();
+            if (this.bby > 0 && this.bby <= this.bbt.height) {
+                DV -= this.bby;
             }
-            if (DB != this.aZH) {
+            if (DV != this.bbs) {
                 int i = this.mScreenHeight;
-                int i2 = i - DB;
+                int i2 = i - DV;
                 if (i2 == 0) {
-                    this.aZI.height = i;
-                    DC();
+                    this.bbt.height = i;
+                    DW();
                 } else {
-                    this.aZI.height = i - i2;
-                    gh(200);
+                    this.bbt.height = i - i2;
+                    gj(200);
                     if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
                         TbadkCoreApplication.getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.aZH = DB;
+                this.bbs = DV;
             }
         }
     }
 
-    private int DB() {
+    private int DV() {
         Rect rect = new Rect();
-        this.aZG.getWindowVisibleDisplayFrame(rect);
+        this.bbr.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     public void setExcludeHeight(int i) {
-        this.aZN = i;
+        this.bby = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DC() {
-        this.aZG.requestLayout();
+    public void DW() {
+        this.bbr.requestLayout();
     }
 
-    private void gh(int i) {
-        if (this.aZJ != null) {
-            com.baidu.adp.lib.g.e.ns().removeCallbacks(this.aZJ);
-            this.aZJ = null;
+    private void gj(int i) {
+        if (this.bbu != null) {
+            com.baidu.adp.lib.g.e.ns().removeCallbacks(this.bbu);
+            this.bbu = null;
         }
-        this.aZJ = new Runnable() { // from class: com.baidu.tbadk.core.view.g.2
+        this.bbu = new Runnable() { // from class: com.baidu.tbadk.core.view.g.2
             @Override // java.lang.Runnable
             public void run() {
-                g.this.DC();
+                g.this.DW();
             }
         };
-        com.baidu.adp.lib.g.e.ns().postDelayed(this.aZJ, i);
+        com.baidu.adp.lib.g.e.ns().postDelayed(this.bbu, i);
     }
 }

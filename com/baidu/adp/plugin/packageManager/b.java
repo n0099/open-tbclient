@@ -259,7 +259,7 @@ public class b {
                     File next = it.next();
                     if (next != null) {
                         try {
-                            f.k(next);
+                            f.l(next);
                             com.baidu.adp.plugin.b.a.qF().f("plugin_del_redundance", "delete_redundance", null, next.getAbsolutePath());
                         } catch (IOException e) {
                             com.baidu.adp.plugin.b.a.qF().f("plugin_del_redundance", "delete_redundance_fail", null, next.getAbsolutePath() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());

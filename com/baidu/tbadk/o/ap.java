@@ -7,7 +7,7 @@ public class ap extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_strange_clean";
+        return "android_share_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class ap extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -31,6 +31,6 @@ public class ap extends com.baidu.adp.lib.b.a {
     }
 
     public static boolean nv() {
-        return com.baidu.adp.lib.b.d.mA().an("android_strange_clean") == 1;
+        return com.baidu.adp.lib.b.d.mA().an("android_share_switch") == 1;
     }
 }

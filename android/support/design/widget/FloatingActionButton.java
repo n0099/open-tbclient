@@ -91,7 +91,7 @@ public class FloatingActionButton extends ab {
         this.ox = (int) getResources().getDimension(R.dimen.design_fab_image_size);
         getImpl().a(this.or, this.ot, this.ov, this.ou);
         getImpl().setElevation(dimension);
-        getImpl().i(dimension2);
+        getImpl().m(dimension2);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -258,7 +258,7 @@ public class FloatingActionButton extends ab {
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        getImpl().b(getDrawableState());
+        getImpl().c(getDrawableState());
     }
 
     @Override // android.widget.ImageView, android.view.View

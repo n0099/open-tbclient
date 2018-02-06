@@ -1,32 +1,20 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
-public class al extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void cQ(int i) {
+public class al extends j {
+    private static al bCz = new al();
+
+    public static boolean OO() {
+        return bCz.nv();
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_im_window_open";
+        return "android_custom_offline_web_cache";
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] mr() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ms() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int mt() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int mu() {
-        return 10;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
+    public int ms() {
+        return super.ms();
     }
 }

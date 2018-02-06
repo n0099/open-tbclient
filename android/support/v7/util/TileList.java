@@ -4,64 +4,64 @@ import android.util.SparseArray;
 import java.lang.reflect.Array;
 /* loaded from: classes2.dex */
 class TileList<T> {
-    final int Ff;
-    private final SparseArray<Tile<T>> Gy = new SparseArray<>(10);
-    Tile<T> Gz;
+    final int Fe;
+    private final SparseArray<Tile<T>> Gx = new SparseArray<>(10);
+    Tile<T> Gy;
 
     public TileList(int i) {
-        this.Ff = i;
+        this.Fe = i;
     }
 
     public T aK(int i) {
-        if (this.Gz == null || !this.Gz.aN(i)) {
-            int indexOfKey = this.Gy.indexOfKey(i - (i % this.Ff));
+        if (this.Gy == null || !this.Gy.aN(i)) {
+            int indexOfKey = this.Gx.indexOfKey(i - (i % this.Fe));
             if (indexOfKey < 0) {
                 return null;
             }
-            this.Gz = this.Gy.valueAt(indexOfKey);
+            this.Gy = this.Gx.valueAt(indexOfKey);
         }
-        return this.Gz.aO(i);
+        return this.Gy.aO(i);
     }
 
     public int size() {
-        return this.Gy.size();
+        return this.Gx.size();
     }
 
     public void clear() {
-        this.Gy.clear();
+        this.Gx.clear();
     }
 
     public Tile<T> aL(int i) {
-        return this.Gy.valueAt(i);
+        return this.Gx.valueAt(i);
     }
 
     public Tile<T> b(Tile<T> tile) {
-        int indexOfKey = this.Gy.indexOfKey(tile.mStartPosition);
+        int indexOfKey = this.Gx.indexOfKey(tile.mStartPosition);
         if (indexOfKey < 0) {
-            this.Gy.put(tile.mStartPosition, tile);
+            this.Gx.put(tile.mStartPosition, tile);
             return null;
         }
-        Tile<T> valueAt = this.Gy.valueAt(indexOfKey);
-        this.Gy.setValueAt(indexOfKey, tile);
-        if (this.Gz == valueAt) {
-            this.Gz = tile;
+        Tile<T> valueAt = this.Gx.valueAt(indexOfKey);
+        this.Gx.setValueAt(indexOfKey, tile);
+        if (this.Gy == valueAt) {
+            this.Gy = tile;
             return valueAt;
         }
         return valueAt;
     }
 
     public Tile<T> aM(int i) {
-        Tile<T> tile = this.Gy.get(i);
-        if (this.Gz == tile) {
-            this.Gz = null;
+        Tile<T> tile = this.Gx.get(i);
+        if (this.Gy == tile) {
+            this.Gy = null;
         }
-        this.Gy.delete(i);
+        this.Gx.delete(i);
         return tile;
     }
 
     /* loaded from: classes2.dex */
     public static class Tile<T> {
-        Tile<T> GA;
+        Tile<T> Gz;
         public int mItemCount;
         public final T[] mItems;
         public int mStartPosition;

@@ -3,6 +3,7 @@ package com.baidu.sapi2;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.ar.util.Constants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -19,7 +20,6 @@ import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginStatusCheckResult;
 import com.baidu.sapi2.result.QrPcLoginResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.callback.QrAppLoginCallBack;
 import com.baidu.sapi2.shell.callback.QrPCLoginCallBack;
 import com.baidu.sapi2.shell.response.QrAppLoginResponse;
@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class QrCodeService extends AbstractService {
     private static QrCodeService b;
     private boolean a;
@@ -77,7 +77,7 @@ public class QrCodeService extends AbstractService {
             this.asyncHttpClient = new AsyncHttpClient();
             this.asyncHttpClient.setUserAgent(getUaInfo());
             HashMap hashMap = new HashMap();
-            hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
+            hashMap.put("sign", str);
             hashMap.put(IntentConfig.CMD, str2);
             if (!TextUtils.isEmpty(str3)) {
                 hashMap.put("bduss", str3);
@@ -141,7 +141,7 @@ public class QrCodeService extends AbstractService {
         }
         final QrPcLoginResult qrPcLoginResult = new QrPcLoginResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            qrPcLoginResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            qrPcLoginResult.setResultCode(-201);
             qrPcLoginCallback.onFailure(qrPcLoginResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_PC_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -149,7 +149,7 @@ public class QrCodeService extends AbstractService {
         this.asyncHttpClient = new AsyncHttpClient();
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
-        hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
+        hashMap.put("sign", str);
         hashMap.put(IntentConfig.CMD, str2);
         hashMap.put("bduss", str3);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
@@ -186,7 +186,7 @@ public class QrCodeService extends AbstractService {
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_PC_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
                     }
-                    qrPcLoginResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    qrPcLoginResult.setResultCode(-202);
                     qrPcLoginCallback.onFailure(qrPcLoginResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_PC_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -250,7 +250,7 @@ public class QrCodeService extends AbstractService {
             this.asyncHttpClient = new AsyncHttpClient();
             this.asyncHttpClient.setUserAgent(getUaInfo());
             HashMap hashMap = new HashMap();
-            hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
+            hashMap.put("sign", str);
             hashMap.put(IntentConfig.CMD, str2);
             if (!TextUtils.isEmpty(this.configuration.clientId)) {
                 hashMap.put("clientid", this.configuration.clientId);
@@ -302,7 +302,7 @@ public class QrCodeService extends AbstractService {
         }
         final QrAppLoginResult qrAppLoginResult = new QrAppLoginResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            qrAppLoginResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            qrAppLoginResult.setResultCode(-201);
             sapiCallback.onFailure(qrAppLoginResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_APP_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -310,7 +310,7 @@ public class QrCodeService extends AbstractService {
         this.asyncHttpClient = new AsyncHttpClient();
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
-        hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
+        hashMap.put("sign", str);
         hashMap.put(IntentConfig.CMD, str2);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);
@@ -345,7 +345,7 @@ public class QrCodeService extends AbstractService {
                         sapiCallback.onFailure(qrAppLoginResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_APP_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
                     }
-                    qrAppLoginResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    qrAppLoginResult.setResultCode(-202);
                     sapiCallback.onFailure(qrAppLoginResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_APP_LOGIN, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -486,7 +486,7 @@ public class QrCodeService extends AbstractService {
         }
         final GetQrCodeImageResult getQrCodeImageResult = new GetQrCodeImageResult();
         if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            getQrCodeImageResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+            getQrCodeImageResult.setResultCode(-201);
             sapiCallback.onFailure(getQrCodeImageResult);
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.FAILURE);
             return;
@@ -498,7 +498,7 @@ public class QrCodeService extends AbstractService {
         hashMap.put("tpl", this.configuration.tpl);
         hashMap.put("appid", this.configuration.appId);
         hashMap.put(SapiUtils.KEY_QR_LOGIN_LP, SapiUtils.QR_LOGIN_LP_PC);
-        hashMap.put("client", "android");
+        hashMap.put("client", Constants.OS_TYPE_VALUE);
         hashMap.put("apiver", "v3");
         hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         hashMap.put("sig", calculateSig(hashMap, this.configuration.appSignKey));
@@ -528,7 +528,7 @@ public class QrCodeService extends AbstractService {
                     switch (parseInt) {
                         case 0:
                             getQrCodeImageResult.imageUrl = "https://" + jSONObject.optString("imgurl");
-                            getQrCodeImageResult.channelId = jSONObject.optString(SapiUtils.KEY_QR_LOGIN_SIGN);
+                            getQrCodeImageResult.channelId = jSONObject.optString("sign");
                             sapiCallback.onSuccess(getQrCodeImageResult);
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.SUCCESS);
                             break;
@@ -555,7 +555,7 @@ public class QrCodeService extends AbstractService {
                         sapiCallback.onFailure(getQrCodeImageResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.FAILURE);
                     }
-                    getQrCodeImageResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    getQrCodeImageResult.setResultCode(-202);
                     sapiCallback.onFailure(getQrCodeImageResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;
@@ -579,7 +579,7 @@ public class QrCodeService extends AbstractService {
         if (!this.a) {
             final QrLoginStatusCheckResult qrLoginStatusCheckResult = new QrLoginStatusCheckResult();
             if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-                qrLoginStatusCheckResult.setResultCode(SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE);
+                qrLoginStatusCheckResult.setResultCode(-201);
                 qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                 PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_LOGIN_STATUS_CHECK, IEventCenterService.EventResult.PHASE.FAILURE);
                 return;
@@ -590,7 +590,7 @@ public class QrCodeService extends AbstractService {
             HashMap hashMap = new HashMap();
             hashMap.put("tpl", this.configuration.tpl);
             hashMap.put("appid", this.configuration.appId);
-            hashMap.put("client", "android");
+            hashMap.put("client", Constants.OS_TYPE_VALUE);
             hashMap.put("apiver", "v3");
             hashMap.put("callback", "cb");
             hashMap.put("channel_id", qrLoginStstusCheckDTO.channelId);
@@ -661,7 +661,7 @@ public class QrCodeService extends AbstractService {
                             qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_LOGIN_STATUS_CHECK, IEventCenterService.EventResult.PHASE.FAILURE);
                         }
-                        qrLoginStatusCheckResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        qrLoginStatusCheckResult.setResultCode(-202);
                         qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_QR_LOGIN_STATUS_CHECK, IEventCenterService.EventResult.PHASE.FAILURE);
                         return;
@@ -682,7 +682,7 @@ public class QrCodeService extends AbstractService {
         hashMap.put("display", "pcsdk");
         hashMap.put("qrcode", "1");
         hashMap.put("bduss", str);
-        hashMap.put("client", "android");
+        hashMap.put("client", Constants.OS_TYPE_VALUE);
         hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         hashMap.put("sig", calculateSig(hashMap, this.configuration.appSignKey));
         this.asyncHttpClient.get(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.GET_QR_LOGIN_RESULT, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.7
@@ -740,7 +740,7 @@ public class QrCodeService extends AbstractService {
                         qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_LOGIN_RESULT, IEventCenterService.EventResult.PHASE.FAILURE);
                     }
-                    qrLoginStatusCheckResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                    qrLoginStatusCheckResult.setResultCode(-202);
                     qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_LOGIN_RESULT, IEventCenterService.EventResult.PHASE.FAILURE);
                     return;

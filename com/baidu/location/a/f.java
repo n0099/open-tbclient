@@ -7,13 +7,13 @@ import android.hardware.SensorManager;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class f implements SensorEventListener {
-    private static f aAo;
-    private float[] aAl;
-    private float[] aAm;
-    private SensorManager aAn;
+    private static f aBQ;
+    private float[] a;
+    private SensorManager aBP;
+    private float[] b;
     private float e;
     private boolean i;
-    private double aAp = Double.MIN_VALUE;
+    private double aBR = Double.MIN_VALUE;
     private boolean g = false;
     private boolean h = false;
     private float j = 0.0f;
@@ -24,10 +24,10 @@ public class f implements SensorEventListener {
     private f() {
         this.i = false;
         try {
-            if (this.aAn == null) {
-                this.aAn = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.aBP == null) {
+                this.aBP = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aAn.getDefaultSensor(6) != null) {
+            if (this.aBP.getDefaultSensor(6) != null) {
                 this.i = true;
             }
         } catch (Exception e) {
@@ -36,22 +36,22 @@ public class f implements SensorEventListener {
     }
 
     private void k() {
-        if (this.aAn != null) {
-            Sensor defaultSensor = this.aAn.getDefaultSensor(6);
+        if (this.aBP != null) {
+            Sensor defaultSensor = this.aBP.getDefaultSensor(6);
             if (defaultSensor != null) {
-                this.aAn.registerListener(aAo, defaultSensor, 3);
+                this.aBP.registerListener(aBQ, defaultSensor, 3);
             }
             com.baidu.location.g.a.a().postDelayed(new k(this), 2000L);
         }
     }
 
-    public static synchronized f tC() {
+    public static synchronized f uq() {
         f fVar;
         synchronized (f.class) {
-            if (aAo == null) {
-                aAo = new f();
+            if (aBQ == null) {
+                aBQ = new f();
             }
-            fVar = aAo;
+            fVar = aBQ;
         }
         return fVar;
     }
@@ -62,17 +62,17 @@ public class f implements SensorEventListener {
 
     public synchronized void b() {
         if (!this.l && (this.g || this.h)) {
-            if (this.aAn == null) {
-                this.aAn = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.aBP == null) {
+                this.aBP = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aAn != null) {
-                Sensor defaultSensor = this.aAn.getDefaultSensor(11);
+            if (this.aBP != null) {
+                Sensor defaultSensor = this.aBP.getDefaultSensor(11);
                 if (defaultSensor != null && this.g) {
-                    this.aAn.registerListener(this, defaultSensor, 3);
+                    this.aBP.registerListener(this, defaultSensor, 3);
                 }
-                Sensor defaultSensor2 = this.aAn.getDefaultSensor(6);
+                Sensor defaultSensor2 = this.aBP.getDefaultSensor(6);
                 if (defaultSensor2 != null && this.h) {
-                    this.aAn.registerListener(this, defaultSensor2, 3);
+                    this.aBP.registerListener(this, defaultSensor2, 3);
                 }
             }
             this.l = true;
@@ -85,9 +85,9 @@ public class f implements SensorEventListener {
 
     public synchronized void c() {
         if (this.l) {
-            if (this.aAn != null) {
-                this.aAn.unregisterListener(this);
-                this.aAn = null;
+            if (this.aBP != null) {
+                this.aBP.unregisterListener(this);
+                this.aBP = null;
             }
             this.l = false;
             this.j = 0.0f;
@@ -102,12 +102,23 @@ public class f implements SensorEventListener {
         k();
     }
 
+    public float e() {
+        if (!this.i || this.k <= 0 || Math.abs(System.currentTimeMillis() - this.k) >= TbConfig.NOTIFY_SOUND_INTERVAL || this.j <= 0.0f) {
+            return 0.0f;
+        }
+        return this.j;
+    }
+
     public boolean f() {
         return this.g;
     }
 
     public boolean g() {
         return this.h;
+    }
+
+    public float h() {
+        return this.e;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -119,20 +130,20 @@ public class f implements SensorEventListener {
         switch (sensorEvent.sensor.getType()) {
             case 6:
                 try {
-                    this.aAm = (float[]) sensorEvent.values.clone();
-                    this.j = this.aAm[0];
+                    this.b = (float[]) sensorEvent.values.clone();
+                    this.j = this.b[0];
                     this.k = System.currentTimeMillis();
-                    this.aAp = SensorManager.getAltitude(1013.25f, this.aAm[0]);
+                    this.aBR = SensorManager.getAltitude(1013.25f, this.b[0]);
                     return;
                 } catch (Exception e) {
                     return;
                 }
             case 11:
-                this.aAl = (float[]) sensorEvent.values.clone();
-                if (this.aAl != null) {
+                this.a = (float[]) sensorEvent.values.clone();
+                if (this.a != null) {
                     float[] fArr = new float[9];
                     try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.aAl);
+                        SensorManager.getRotationMatrixFromVector(fArr, this.a);
                         float[] fArr2 = new float[3];
                         SensorManager.getOrientation(fArr, fArr2);
                         this.e = (float) Math.toDegrees(fArr2[0]);
@@ -149,18 +160,7 @@ public class f implements SensorEventListener {
         }
     }
 
-    public float tD() {
-        if (!this.i || this.k <= 0 || Math.abs(System.currentTimeMillis() - this.k) >= TbConfig.NOTIFY_SOUND_INTERVAL || this.j <= 0.0f) {
-            return 0.0f;
-        }
-        return this.j;
-    }
-
-    public float tE() {
-        return this.e;
-    }
-
-    public double tF() {
-        return this.aAp;
+    public double ur() {
+        return this.aBR;
     }
 }

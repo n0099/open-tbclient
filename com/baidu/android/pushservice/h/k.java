@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
+import com.baidu.ar.util.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -40,7 +41,7 @@ public class k extends n {
         if (this.k != null) {
             jSONObject.put("msg_open_by", this.k);
         }
-        jSONObject.put("err_code", this.g);
+        jSONObject.put(Constants.HTTP_ERR_CODE, this.g);
         return jSONObject;
     }
 }
