@@ -6,5 +6,5 @@ import org.json.JSONObject;
 public interface j extends a {
     void a(Message message);
 
-    void j(JSONObject jSONObject);
+    void o(JSONObject jSONObject);
 }

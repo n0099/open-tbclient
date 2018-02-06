@@ -7,12 +7,12 @@ public class aw extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "video_list_weaklock_android";
+        return "android_url_need_cuid";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
-        return null;
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a

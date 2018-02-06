@@ -24,7 +24,7 @@ public class SapiResult {
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
     public static final String RESULT_MSG_SUCCESS = "成功";
     protected SparseArray<String> msgMap = new SparseArray<>();
-    protected int resultCode = ERROR_CODE_UNKNOWN;
+    protected int resultCode = -202;
     protected String resultMsg;
 
     /* loaded from: classes.dex */
@@ -102,14 +102,14 @@ public class SapiResult {
     }
 
     public SapiResult() {
-        this.msgMap.put(0, RESULT_MSG_SUCCESS);
-        this.msgMap.put(110000, RESULT_MSG_SUCCESS);
-        this.msgMap.put(ERROR_CODE_NETWORK_UNAVAILABLE, ERROR_MSG_NETWORK_UNAVAILABLE);
-        this.msgMap.put(ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
-        this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);
-        this.msgMap.put(ERROR_CODE_PARAMS_ERROR, ERROR_MSG_PARAMS_ERROR);
-        this.msgMap.put(ERROR_CODE_SERVER_DATA_ERROR, ERROR_MSG_SERVER_DATA_ERROR);
-        this.msgMap.put(ERROR_CODE_METHOD_DEPRECATED, ERROR_MSG_METHOD_DEPRECATED);
+        this.msgMap.put(0, "成功");
+        this.msgMap.put(110000, "成功");
+        this.msgMap.put(-201, ERROR_MSG_NETWORK_UNAVAILABLE);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-203, "网站安全证书已过期或不可信，系统时间错误可能导致此问题");
+        this.msgMap.put(-204, ERROR_MSG_PARAMS_ERROR);
+        this.msgMap.put(-205, ERROR_MSG_SERVER_DATA_ERROR);
+        this.msgMap.put(-206, ERROR_MSG_METHOD_DEPRECATED);
         this.msgMap.put(-301, ERROR_MSG_PROCESSED_END);
     }
 
@@ -127,7 +127,7 @@ public class SapiResult {
 
     public String getResultMsg() {
         if (TextUtils.isEmpty(this.resultMsg)) {
-            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(ERROR_CODE_UNKNOWN);
+            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(-202);
         }
         return this.resultMsg;
     }

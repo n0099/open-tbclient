@@ -6,7 +6,7 @@ import android.support.v4.app.NotificationCompat;
 public class c extends com.baidu.adp.lib.stats.base.a {
     public c(i iVar) {
         super(iVar);
-        this.alb = 50;
-        this.alc = NotificationCompat.CATEGORY_ERROR;
+        this.ala = 50;
+        this.alb = NotificationCompat.CATEGORY_ERROR;
     }
 }

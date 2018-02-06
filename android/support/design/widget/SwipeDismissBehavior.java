@@ -134,7 +134,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             } else if (i >= width2) {
                 ViewCompat.setAlpha(view, 0.0f);
             } else {
-                ViewCompat.setAlpha(view, SwipeDismissBehavior.b(0.0f, 1.0f - SwipeDismissBehavior.c(width, width2, i), 1.0f));
+                ViewCompat.setAlpha(view, SwipeDismissBehavior.c(0.0f, 1.0f - SwipeDismissBehavior.d(width, width2, i), 1.0f));
             }
         }
     };
@@ -155,15 +155,15 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     }
 
     public void setDragDismissDistance(float f) {
-        this.qt = b(0.0f, f, 1.0f);
+        this.qt = c(0.0f, f, 1.0f);
     }
 
     public void setStartAlphaSwipeDistance(float f) {
-        this.qu = b(0.0f, f, 1.0f);
+        this.qu = c(0.0f, f, 1.0f);
     }
 
     public void setEndAlphaSwipeDistance(float f) {
-        this.qv = b(0.0f, f, 1.0f);
+        this.qv = c(0.0f, f, 1.0f);
     }
 
     public void setSensitivity(float f) {
@@ -236,7 +236,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     }
 
-    static float b(float f, float f2, float f3) {
+    static float c(float f, float f2, float f3) {
         return Math.min(Math.max(f, f2), f3);
     }
 
@@ -251,7 +251,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         return 0;
     }
 
-    static float c(float f, float f2, float f3) {
+    static float d(float f, float f2, float f3) {
         return (f3 - f) / (f2 - f);
     }
 }

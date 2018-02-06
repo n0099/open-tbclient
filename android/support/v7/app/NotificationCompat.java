@@ -72,11 +72,11 @@ public class NotificationCompat extends android.support.v4.app.NotificationCompa
     public static RemoteViews b(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor, NotificationCompat.Builder builder) {
         if (builder.mStyle instanceof MediaStyle) {
             MediaStyle mediaStyle = (MediaStyle) builder.mStyle;
-            i.a(notificationBuilderWithBuilderAccessor, mediaStyle.DM, mediaStyle.ze != null ? mediaStyle.ze.getToken() : null);
+            i.a(notificationBuilderWithBuilderAccessor, mediaStyle.DL, mediaStyle.zd != null ? mediaStyle.zd.getToken() : null);
             boolean z = builder.getContentView() != null;
             boolean z2 = z || ((Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT <= 23) && builder.getBigContentView() != null);
             if ((builder.mStyle instanceof DecoratedMediaCustomViewStyle) && z2) {
-                RemoteViews a2 = k.a(notificationBuilderWithBuilderAccessor, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), (List) builder.mActions, mediaStyle.DM, false, (PendingIntent) null, z);
+                RemoteViews a2 = k.a(notificationBuilderWithBuilderAccessor, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), (List) builder.mActions, mediaStyle.DL, false, (PendingIntent) null, z);
                 if (z) {
                     k.a(builder.mContext, a2, builder.getContentView());
                 }
@@ -175,7 +175,7 @@ public class NotificationCompat extends android.support.v4.app.NotificationCompa
         if (builder.mStyle instanceof MediaStyle) {
             MediaStyle mediaStyle = (MediaStyle) builder.mStyle;
             boolean z = (builder.mStyle instanceof DecoratedMediaCustomViewStyle) && builder.getContentView() != null;
-            RemoteViews a2 = k.a(notificationBuilderWithBuilderAccessor, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), builder.mActions, mediaStyle.DM, mediaStyle.DN, mediaStyle.DO, z);
+            RemoteViews a2 = k.a(notificationBuilderWithBuilderAccessor, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), builder.mActions, mediaStyle.DL, mediaStyle.DM, mediaStyle.DN, z);
             if (z) {
                 k.a(builder.mContext, a2, builder.getContentView());
                 return a2;
@@ -197,7 +197,7 @@ public class NotificationCompat extends android.support.v4.app.NotificationCompa
                 contentView = builder.getContentView();
             }
             boolean z = (builder.mStyle instanceof DecoratedMediaCustomViewStyle) && contentView != null;
-            k.a(notification, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), 0, builder.mActions, mediaStyle.DN, mediaStyle.DO, z);
+            k.a(notification, builder.mContext, builder.mContentTitle, builder.mContentText, builder.mContentInfo, builder.mNumber, builder.mLargeIcon, builder.mSubText, builder.mUseChronometer, builder.getWhenIfShowing(), builder.getPriority(), 0, builder.mActions, mediaStyle.DM, mediaStyle.DN, z);
             if (z) {
                 k.a(builder.mContext, notification.bigContentView, contentView);
             }
@@ -407,10 +407,10 @@ public class NotificationCompat extends android.support.v4.app.NotificationCompa
 
     /* loaded from: classes2.dex */
     public static class MediaStyle extends NotificationCompat.Style {
-        int[] DM = null;
-        boolean DN;
-        PendingIntent DO;
-        MediaSessionCompat.Token ze;
+        int[] DL = null;
+        boolean DM;
+        PendingIntent DN;
+        MediaSessionCompat.Token zd;
 
         public MediaStyle() {
         }
@@ -420,22 +420,22 @@ public class NotificationCompat extends android.support.v4.app.NotificationCompa
         }
 
         public MediaStyle setShowActionsInCompactView(int... iArr) {
-            this.DM = iArr;
+            this.DL = iArr;
             return this;
         }
 
         public MediaStyle setMediaSession(MediaSessionCompat.Token token) {
-            this.ze = token;
+            this.zd = token;
             return this;
         }
 
         public MediaStyle setShowCancelButton(boolean z) {
-            this.DN = z;
+            this.DM = z;
             return this;
         }
 
         public MediaStyle setCancelButtonIntent(PendingIntent pendingIntent) {
-            this.DO = pendingIntent;
+            this.DN = pendingIntent;
             return this;
         }
     }

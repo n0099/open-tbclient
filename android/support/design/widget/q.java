@@ -24,7 +24,7 @@ final class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(int[] iArr) {
+    public void d(int[] iArr) {
         a aVar;
         int size = this.qg.size();
         int i = 0;

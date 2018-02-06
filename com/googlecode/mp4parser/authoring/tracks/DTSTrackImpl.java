@@ -1278,7 +1278,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 576;
      */
     /* JADX WARN: Code restructure failed: missing block: B:97:0x01e8, code lost:
-        r22.bitrate = com.baidu.tbadk.TbConfig.PB_IMAGE_NEW_MAX_WIDTH;
+        r22.bitrate = 640;
      */
     /* JADX WARN: Code restructure failed: missing block: B:98:0x01ef, code lost:
         r22.bitrate = 768;

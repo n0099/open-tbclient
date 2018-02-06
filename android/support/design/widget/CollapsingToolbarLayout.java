@@ -752,7 +752,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             if (CollapsingToolbarLayout.this.nl != null && systemWindowInsetTop > 0) {
                 ViewCompat.postInvalidateOnAnimation(CollapsingToolbarLayout.this);
             }
-            CollapsingToolbarLayout.this.nh.d(Math.abs(i) / ((CollapsingToolbarLayout.this.getHeight() - ViewCompat.getMinimumHeight(CollapsingToolbarLayout.this)) - systemWindowInsetTop));
+            CollapsingToolbarLayout.this.nh.h(Math.abs(i) / ((CollapsingToolbarLayout.this.getHeight() - ViewCompat.getMinimumHeight(CollapsingToolbarLayout.this)) - systemWindowInsetTop));
         }
     }
 }

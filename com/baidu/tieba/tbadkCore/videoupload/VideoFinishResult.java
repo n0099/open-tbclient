@@ -2,6 +2,7 @@ package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,7 @@ public class VideoFinishResult implements Serializable {
                     this.userMessage = optJSONObject.optString("usermsg");
                 }
                 this.videoMd5 = jSONObject.optString("video_md5");
-                this.videoUrl = jSONObject.optString("video_url");
+                this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
             } catch (JSONException e) {
             }
             if ((StringUtils.isNull(this.videoMd5) || StringUtils.isNull(this.videoUrl)) && this.errorNo == 0) {

@@ -19,30 +19,30 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 class d extends Thread {
-    private b.a hoF;
-    private String hoG;
-    private e hoJ;
-    private long hoO;
+    private b.a hpU;
+    private String hpV;
+    private e hpY;
+    private long hqd;
     private Context mContext;
 
     public d(Context context, String str, e eVar, b.a aVar) {
         super("FilterAudioThread");
-        this.hoO = -1L;
+        this.hqd = -1L;
         this.mContext = context;
-        this.hoG = str;
-        this.hoJ = eVar;
-        this.hoF = aVar;
+        this.hpV = str;
+        this.hpY = eVar;
+        this.hpU = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            bAM();
-            if (bAO()) {
+            bBv();
+            if (bBx()) {
                 com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tieba.video.editvideo.b.d.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.this.bAL();
+                        d.this.onPostExecute();
                     }
                 });
             }
@@ -50,7 +50,7 @@ class d extends Thread {
         }
     }
 
-    public void bAL() {
+    public void onPostExecute() {
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0170: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:98:0x016d */
@@ -62,7 +62,7 @@ class d extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bAM() throws Exception {
+    private void bBv() throws Exception {
         MediaExtractor mediaExtractor;
         MediaExtractor mediaExtractor2;
         MediaCodec mediaCodec;
@@ -75,11 +75,11 @@ class d extends Thread {
         MediaCodec mediaCodec6;
         MediaExtractor mediaExtractor3;
         MediaFormat trackFormat;
-        MediaCodecInfo tI = tI("audio/mp4a-latm");
+        MediaCodecInfo tM = tM("audio/mp4a-latm");
         try {
-            if (tI != null) {
+            if (tM != null) {
                 try {
-                    mediaExtractor3 = bAN();
+                    mediaExtractor3 = bBw();
                     try {
                         trackFormat = mediaExtractor3.getTrackFormat(b(mediaExtractor3));
                         MediaFormat mediaFormat = new MediaFormat();
@@ -89,7 +89,7 @@ class d extends Thread {
                         a(trackFormat, mediaFormat, "sample-rate", 48000);
                         a(trackFormat, mediaFormat, "channel-count", 1);
                         a(trackFormat, mediaFormat, IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
-                        mediaCodec5 = a(tI, mediaFormat);
+                        mediaCodec5 = a(tM, mediaFormat);
                     } catch (Exception e) {
                         e = e;
                         mediaCodec5 = null;
@@ -112,7 +112,7 @@ class d extends Thread {
                     mediaExtractor2 = null;
                 }
                 try {
-                    mediaCodec6 = a(trackFormat);
+                    mediaCodec6 = b(trackFormat);
                     try {
                         a(mediaExtractor3, mediaCodec6, mediaCodec5);
                         if (mediaExtractor3 != null) {
@@ -120,8 +120,8 @@ class d extends Thread {
                                 mediaExtractor3.release();
                             } catch (Exception e3) {
                                 r0 = 0 == 0 ? e3 : null;
-                                if (this.hoF != null) {
-                                    this.hoF.am(231, com.baidu.tieba.i.a.i(e3));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(231, com.baidu.tieba.i.a.i(e3));
                                 }
                             }
                         }
@@ -133,8 +133,8 @@ class d extends Thread {
                                 if (r0 == null) {
                                     r0 = e4;
                                 }
-                                if (this.hoF != null) {
-                                    this.hoF.am(232, com.baidu.tieba.i.a.i(e4));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(232, com.baidu.tieba.i.a.i(e4));
                                 }
                             }
                         }
@@ -146,24 +146,24 @@ class d extends Thread {
                                 if (r0 == null) {
                                     r0 = e5;
                                 }
-                                if (this.hoF != null) {
-                                    this.hoF.am(233, com.baidu.tieba.i.a.i(e5));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(233, com.baidu.tieba.i.a.i(e5));
                                 }
                             }
                         }
                     } catch (Exception e6) {
                         e = e6;
                         e.printStackTrace();
-                        if (this.hoF != null) {
-                            this.hoF.am(230, com.baidu.tieba.i.a.i(e));
+                        if (this.hpU != null) {
+                            this.hpU.ak(230, com.baidu.tieba.i.a.i(e));
                         }
                         if (mediaExtractor3 != null) {
                             try {
                                 mediaExtractor3.release();
                             } catch (Exception e7) {
                                 r0 = 0 == 0 ? e7 : null;
-                                if (this.hoF != null) {
-                                    this.hoF.am(231, com.baidu.tieba.i.a.i(e7));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(231, com.baidu.tieba.i.a.i(e7));
                                 }
                             }
                         }
@@ -175,8 +175,8 @@ class d extends Thread {
                                 if (r0 == null) {
                                     r0 = e8;
                                 }
-                                if (this.hoF != null) {
-                                    this.hoF.am(232, com.baidu.tieba.i.a.i(e8));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(232, com.baidu.tieba.i.a.i(e8));
                                 }
                             }
                         }
@@ -188,8 +188,8 @@ class d extends Thread {
                                 if (r0 == null) {
                                     r0 = e9;
                                 }
-                                if (this.hoF != null) {
-                                    this.hoF.am(233, com.baidu.tieba.i.a.i(e9));
+                                if (this.hpU != null) {
+                                    this.hpU.ak(233, com.baidu.tieba.i.a.i(e9));
                                 }
                             }
                         }
@@ -209,8 +209,8 @@ class d extends Thread {
                             mediaExtractor2.release();
                         } catch (Exception e11) {
                             r0 = 0 == 0 ? e11 : null;
-                            if (this.hoF != null) {
-                                this.hoF.am(231, com.baidu.tieba.i.a.i(e11));
+                            if (this.hpU != null) {
+                                this.hpU.ak(231, com.baidu.tieba.i.a.i(e11));
                             }
                         }
                     }
@@ -222,8 +222,8 @@ class d extends Thread {
                             if (r0 == null) {
                                 r0 = e12;
                             }
-                            if (this.hoF != null) {
-                                this.hoF.am(232, com.baidu.tieba.i.a.i(e12));
+                            if (this.hpU != null) {
+                                this.hpU.ak(232, com.baidu.tieba.i.a.i(e12));
                             }
                             exc = r0;
                             if (mediaCodec4 != null) {
@@ -233,8 +233,8 @@ class d extends Thread {
                                 } catch (Exception e13) {
                                     if (exc == null) {
                                     }
-                                    if (this.hoF != null) {
-                                        this.hoF.am(233, com.baidu.tieba.i.a.i(e13));
+                                    if (this.hpU != null) {
+                                        this.hpU.ak(233, com.baidu.tieba.i.a.i(e13));
                                     }
                                 }
                             }
@@ -258,14 +258,14 @@ class d extends Thread {
         }
     }
 
-    private MediaExtractor bAN() throws IOException {
+    private MediaExtractor bBw() throws IOException {
         MediaExtractor mediaExtractor = new MediaExtractor();
-        mediaExtractor.setDataSource(this.hoG);
+        mediaExtractor.setDataSource(this.hpV);
         return mediaExtractor;
     }
 
-    private MediaCodec a(MediaFormat mediaFormat) throws IOException {
-        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(c(mediaFormat));
+    private MediaCodec b(MediaFormat mediaFormat) throws IOException {
+        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(d(mediaFormat));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
         return createDecoderByType;
@@ -280,7 +280,7 @@ class d extends Thread {
 
     private int b(MediaExtractor mediaExtractor) {
         for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-            if (b(mediaExtractor.getTrackFormat(i))) {
+            if (c(mediaExtractor.getTrackFormat(i))) {
                 mediaExtractor.selectTrack(i);
                 return i;
             }
@@ -311,8 +311,8 @@ class d extends Thread {
         MediaFormat mediaFormat2 = null;
         ByteBuffer[] byteBufferArr2 = outputBuffers2;
         boolean z7 = false;
-        while (!z4 && bAO()) {
-            if (z7 || !((mediaFormat2 == null || this.hoJ.isStarted()) && bAO())) {
+        while (!z4 && bBx()) {
+            if (z7 || !((mediaFormat2 == null || this.hpY.isStarted()) && bBx())) {
                 z = z7;
             } else {
                 int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
@@ -330,7 +330,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.hoJ.isStarted()) && bAO() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
+            if (!z6 && i3 == -1 && ((mediaFormat2 == null || this.hpY.isStarted()) && bBx() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L)) != -1)) {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = mediaCodec.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
@@ -344,7 +344,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (i3 == -1 || !bAO()) {
+            if (i3 == -1 || !bBx()) {
                 i = i3;
                 z2 = z6;
             } else {
@@ -374,7 +374,7 @@ class d extends Thread {
                     }
                 }
             }
-            if (z4 || !((mediaFormat2 == null || this.hoJ.isStarted()) && bAO())) {
+            if (z4 || !((mediaFormat2 == null || this.hpY.isStarted()) && bBx())) {
                 mediaFormat = mediaFormat2;
                 byteBufferArr = byteBufferArr2;
             } else {
@@ -399,9 +399,9 @@ class d extends Thread {
                         mediaFormat = mediaFormat2;
                         byteBufferArr = byteBufferArr2;
                     } else {
-                        if (bufferInfo2.size != 0 && bufferInfo2.presentationTimeUs > this.hoO) {
-                            this.hoJ.writeSampleData(i4, byteBuffer3, bufferInfo2);
-                            this.hoO = bufferInfo2.presentationTimeUs;
+                        if (bufferInfo2.size != 0 && bufferInfo2.presentationTimeUs > this.hqd) {
+                            this.hpY.writeSampleData(i4, byteBuffer3, bufferInfo2);
+                            this.hqd = bufferInfo2.presentationTimeUs;
                         }
                         boolean z8 = (bufferInfo2.flags & 4) != 0 ? true : z4;
                         mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
@@ -415,17 +415,17 @@ class d extends Thread {
                 z3 = z5;
                 i2 = i4;
             } else {
-                at("InnerAudioProcessor", "muxer: adding audio track.");
-                i2 = this.hoJ.addTrack(mediaFormat);
+                au("InnerAudioProcessor", "muxer: adding audio track.");
+                i2 = this.hpY.addTrack(mediaFormat);
                 z3 = true;
             }
-            if (!this.hoJ.isStarted() && z3) {
-                this.hoJ.bAQ();
-                if (!this.hoJ.start()) {
-                    synchronized (this.hoJ) {
-                        while (!this.hoJ.isStarted()) {
+            if (!this.hpY.isStarted() && z3) {
+                this.hpY.bBz();
+                if (!this.hpY.start()) {
+                    synchronized (this.hpY) {
+                        while (!this.hpY.isStarted()) {
                             try {
-                                this.hoJ.wait(100L);
+                                this.hpY.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -450,15 +450,15 @@ class d extends Thread {
         }
     }
 
-    private boolean bAO() {
+    private boolean bBx() {
         return !Thread.currentThread().isInterrupted();
     }
 
-    private static boolean b(MediaFormat mediaFormat) {
-        return c(mediaFormat).startsWith("audio/");
+    private static boolean c(MediaFormat mediaFormat) {
+        return d(mediaFormat).startsWith("audio/");
     }
 
-    private static String c(MediaFormat mediaFormat) {
+    private static String d(MediaFormat mediaFormat) {
         return mediaFormat.getString(IMediaFormat.KEY_MIME);
     }
 
@@ -471,7 +471,7 @@ class d extends Thread {
         }
     }
 
-    private static MediaCodecInfo tI(String str) {
+    private static MediaCodecInfo tM(String str) {
         int codecCount = MediaCodecList.getCodecCount();
         for (int i = 0; i < codecCount; i++) {
             MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
@@ -487,7 +487,7 @@ class d extends Thread {
         return null;
     }
 
-    private static void at(String str, String str2) {
+    private static void au(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
             BdLog.i(str2);
         }

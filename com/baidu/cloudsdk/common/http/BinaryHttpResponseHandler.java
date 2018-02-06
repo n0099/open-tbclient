@@ -40,7 +40,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
     protected void onSuccess(byte[] bArr) {
     }
 
-    protected void onSuccess(int i, byte[] bArr) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onSuccess(int i, byte[] bArr) {
         onSuccess(bArr);
     }
 

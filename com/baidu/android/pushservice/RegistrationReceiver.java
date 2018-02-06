@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.o;
 import com.baidu.android.pushservice.j.p;
+import com.baidu.ar.util.Constants;
 /* loaded from: classes2.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
@@ -13,7 +14,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
         intent.putExtra("package_name", fVar.c());
-        intent.putExtra("app_id", fVar.a());
+        intent.putExtra(Constants.HTTP_APP_ID, fVar.a());
         intent.putExtra("user_id", fVar.f);
         o.a(context, intent);
     }

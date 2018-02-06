@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class t {
-    private static t aUo;
-    private long aUj = 0;
-    private long aUk = 0;
-    private String aUl = "";
-    private String aUm = "";
-    private final long aUn = 120000;
+    private static t aVT;
+    private long aVO = 0;
+    private long aVP = 0;
+    private String aVQ = "";
+    private String aVR = "";
+    private final long aVS = 120000;
 
-    public static t BX() {
-        if (aUo == null) {
+    public static t Cq() {
+        if (aVT == null) {
             synchronized (t.class) {
-                if (aUo == null) {
-                    aUo = new t();
+                if (aVT == null) {
+                    aVT = new t();
                 }
             }
         }
-        return aUo;
+        return aVT;
     }
 
-    public String BY() {
+    public String Cr() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aUj > 120000) {
+        if (currentTimeMillis - this.aVO > 120000) {
             if (com.baidu.adp.lib.util.l.oZ()) {
                 return "";
             }
-            this.aUj = currentTimeMillis;
-            this.aUl = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.aVO = currentTimeMillis;
+            this.aVQ = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.aUl;
+        return this.aVQ;
     }
 
-    public String dT(String str) {
+    public String ee(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aUk > 120000) {
+        if (currentTimeMillis - this.aVP > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.oZ()) {
                 return "";
             }
-            this.aUk = currentTimeMillis;
-            this.aUm = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.aUm;
+            this.aVP = currentTimeMillis;
+            this.aVR = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.aVR;
         }
-        return this.aUm;
+        return this.aVR;
     }
 }

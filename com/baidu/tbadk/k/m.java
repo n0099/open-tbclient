@@ -1,109 +1,107 @@
 package com.baidu.tbadk.k;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
-public class m extends k {
-    public long acN;
-    public long acO;
-    public long byA;
-    public long byB;
-    public long byC;
-    public long byD;
-    public long byE;
-    public long byF;
-    public long byG;
-    public long byH;
-    public long byI;
-    public long byJ;
-    public long byK;
-    public boolean byL;
-    public long byM;
-    public long byN;
-    public boolean byO;
-    public long byP;
-    public long byx;
-    public long byy;
-    public long byz;
-    public int errCode;
-    public boolean isSuccess;
-    public long sequenceID;
-    public long socketCostTime;
-    public int socketErrNo;
+public class m extends o {
+    public static int bAU = 100;
+    public static int bAV = 10;
 
-    public m() {
-        this.acN = 0L;
-        this.acO = 0L;
-        this.byE = 0L;
-        this.byG = 0L;
-        this.byJ = 0L;
-        this.byK = 0L;
-        this.byM = 0L;
-        this.byN = 0L;
-        this.byO = false;
-    }
-
-    public m(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        this.acN = 0L;
-        this.acO = 0L;
-        this.byE = 0L;
-        this.byG = 0L;
-        this.byJ = 0L;
-        this.byK = 0L;
-        this.byM = 0L;
-        this.byN = 0L;
-        this.byO = false;
-        if (responsedMessage != null) {
-            this.mSubType = i;
-            this.byL = z;
-            if (this.byL) {
-                this.byK = responsedMessage.getDownSize();
-                this.byP = responsedMessage.getOrginalMessage().getClientLogID();
-                this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.byM = responsedMessage.performanceData.aeS;
-                this.byN = responsedMessage.performanceData.aeT;
-                this.socketErrNo = responsedMessage.performanceData.aeQ;
-                this.socketCostTime = responsedMessage.performanceData.aeR;
-            } else {
-                this.byJ = responsedMessage.getDownSize();
-                this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
+    public static void Ou() {
+        if (p.Ow().Ox()) {
+            if (b.bAZ > bAV) {
+                b.Oo();
             }
-            this.byx = j;
-            this.byy = j2;
-            this.byF = j3;
-            this.isSuccess = !responsedMessage.hasError();
-            this.byz = responsedMessage.performanceData.aeI;
-            this.byA = responsedMessage.performanceData.aeJ;
-            this.byB = responsedMessage.performanceData.aeK;
-            this.acN = responsedMessage.performanceData.aeL;
-            this.acO = responsedMessage.performanceData.aeM;
-            this.byC = responsedMessage.performanceData.aeN;
-            this.byD = responsedMessage.performanceData.aeO;
-            this.byE = responsedMessage.performanceData.aeP;
-            this.byE += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
-            this.errCode = responsedMessage.getError();
-            this.byO = z2;
-            this.byG = j4;
+            if (a.bAW > bAV) {
+                a.Oo();
+            }
         }
     }
 
-    public void NL() {
-        t tVar = (t) r.NQ().io(this.mSubType);
-        if (tVar != null) {
-            tVar.a(this);
+    public static void e(boolean z, boolean z2, boolean z3) {
+        a.bAW++;
+        if (z2) {
+            a.bAX++;
+        } else if (z3) {
+            a.bAY++;
+        }
+        if (a.bAW > bAU) {
+            a.Oo();
         }
     }
 
-    public void NM() {
-        t tVar;
-        if (r.NQ().NR() && (tVar = (t) r.NQ().io(this.mSubType)) != null) {
-            tVar.b(this);
+    public void c(i iVar) {
+        if (p.Ow().Ox()) {
+            if (b.bAZ < bAU) {
+                b.bBa += iVar.aiX;
+                b.bBb += iVar.bAu;
+                b.bBc += iVar.bAv;
+                b.bBd += iVar.bAw;
+                b.bBf += iVar.aun;
+                b.bBe += iVar.bAl;
+                b.bAZ++;
+                return;
+            }
+            b.Oo();
         }
     }
 
-    public void NN() {
-        t tVar = (t) r.NQ().io(this.mSubType);
-        if (tVar != null) {
-            tVar.c(this);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        public static int bAW;
+        public static int bAX;
+        public static int bAY;
+
+        public static void Oo() {
+            com.baidu.adp.lib.stats.a nn = o.nn();
+            nn.append(AuthActivity.ACTION_KEY, "imbusy");
+            nn.append("totalNum", String.valueOf(bAW));
+            nn.append("tfailNum", String.valueOf(bAX));
+            nn.append("qfailNum", String.valueOf(bAY));
+            BdStatisticsManager.getInstance().performance("im", nn);
+            resetData();
+        }
+
+        public static void resetData() {
+            bAW = 0;
+            bAX = 0;
+            bAY = 0;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class b {
+        public static int bAZ;
+        public static long bBa;
+        public static long bBb;
+        public static long bBc;
+        public static int bBd;
+        public static int bBe;
+        public static long bBf;
+
+        public static void Oo() {
+            com.baidu.adp.lib.stats.a nn = o.nn();
+            nn.append(AuthActivity.ACTION_KEY, "imcost");
+            nn.append("dect", String.valueOf(bBa));
+            nn.append("dlsize", String.valueOf(bBb));
+            nn.append("dbt", String.valueOf(bBc));
+            nn.append("pnum", String.valueOf(bBd));
+            nn.append("reqcost", String.valueOf(bBf));
+            nn.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(bBe));
+            nn.append("totalNum", String.valueOf(bAZ));
+            BdStatisticsManager.getInstance().performance("im", nn);
+            Ov();
+        }
+
+        public static void Ov() {
+            bAZ = 0;
+            bBa = 0L;
+            bBb = 0L;
+            bBc = 0L;
+            bBd = 0;
+            bBe = 0;
         }
     }
 }

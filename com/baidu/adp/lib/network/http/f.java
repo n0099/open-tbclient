@@ -11,21 +11,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD ajy;
+    private HttpMessageTask.HTTP_METHOD ajx;
     private String url = "";
-    protected Map<String, String> ajz = new HashMap();
-    protected LinkedList<BasicNameValuePair> ajA = new LinkedList<>();
-    protected HashMap<String, byte[]> ajB = new HashMap<>();
+    protected Map<String, String> ajy = new HashMap();
+    protected LinkedList<BasicNameValuePair> ajz = new LinkedList<>();
+    protected HashMap<String, byte[]> ajA = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.ajy;
+        return this.ajx;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.ajy = http_method;
+        this.ajx = http_method;
     }
 
     public String getUrl() {
@@ -41,13 +40,13 @@ public class f {
     }
 
     public boolean nf() {
-        return this.ajB != null && this.ajB.size() > 0;
+        return this.ajA != null && this.ajA.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.ajA.size() == 0) {
+        if (this.ajz.size() == 0) {
             if (dVar != null) {
-                dVar.ajg = this.url.length();
+                dVar.ajf = this.url.length();
             }
             return this.url;
         }
@@ -61,27 +60,27 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ajA.size()) {
+            if (i2 >= this.ajz.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.ajA.get(i2).getName());
+            sb.append(this.ajz.get(i2).getName());
             sb.append("=");
-            sb.append(k.aV(this.ajA.get(i2).getValue()));
+            sb.append(k.aV(this.ajz.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.ajg = sb.length();
+            dVar.ajf = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.ajz != null) {
-            for (Map.Entry<String, String> entry : this.ajz.entrySet()) {
+        if (httpURLConnection != null && this.ajy != null) {
+            for (Map.Entry<String, String> entry : this.ajy.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -94,8 +93,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.ajA != null) {
-                    Iterator<BasicNameValuePair> it = this.ajA.iterator();
+                if (this.ajz != null) {
+                    Iterator<BasicNameValuePair> it = this.ajz.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -103,7 +102,7 @@ public class f {
                             String value = next.getValue();
                             if (value != null && name != null) {
                                 dataOutputStream.writeBytes("--" + str + "\r\n");
-                                byte[] bytes = value.getBytes(HTTP.UTF_8);
+                                byte[] bytes = value.getBytes("UTF-8");
                                 dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
                                 dataOutputStream.writeBytes("\r\n");
                                 dataOutputStream.write(bytes);
@@ -112,8 +111,8 @@ public class f {
                         }
                     }
                 }
-                if (this.ajB != null) {
-                    for (Map.Entry<String, byte[]> entry : this.ajB.entrySet()) {
+                if (this.ajA != null) {
+                    for (Map.Entry<String, byte[]> entry : this.ajA.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -133,7 +132,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.ajg = i;
+            dVar.ajf = i;
         }
     }
 
@@ -153,14 +152,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.ajg = i;
+            dVar.ajf = i;
         }
     }
 
     private StringBuilder ng() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.ajA != null) {
-            Iterator<BasicNameValuePair> it = this.ajA.iterator();
+        if (this.ajz != null) {
+            Iterator<BasicNameValuePair> it = this.ajz.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -182,13 +181,13 @@ public class f {
     protected void nh() {
     }
 
-    public void c(HashMap<String, String> hashMap) {
-        this.ajz = hashMap;
+    public void g(HashMap<String, String> hashMap) {
+        this.ajy = hashMap;
     }
 
     public String ap(String str) {
-        if (this.ajz != null) {
-            return this.ajz.get(str);
+        if (this.ajy != null) {
+            return this.ajy.get(str);
         }
         return null;
     }
@@ -199,9 +198,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.ajA.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.ajz.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.ajB.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.ajA.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -211,20 +210,20 @@ public class f {
     }
 
     public void d(String str, byte[] bArr) {
-        this.ajB.put(str, bArr);
+        this.ajA.put(str, bArr);
     }
 
     public void n(String str, String str2) {
-        this.ajA.add(new BasicNameValuePair(str, str2));
+        this.ajz.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.ajA.add(basicNameValuePair);
+        this.ajz.add(basicNameValuePair);
     }
 
     public void o(String str, String str2) {
-        if (this.ajz != null) {
-            this.ajz.put(str, str2);
+        if (this.ajy != null) {
+            this.ajy.put(str, str2);
         }
     }
 }

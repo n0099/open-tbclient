@@ -8,45 +8,45 @@ import com.baidu.tbadk.editortools.r;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends r {
-    private EditText bsm;
+    private EditText buz;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.bra = false;
-        this.bqZ = 3;
-        this.bqj = new f(context);
-        this.bsm = ((f) this.bqj).getInputView();
-        ((f) this.bqj).setHint(context.getString(d.j.say_your_point));
-        this.brb = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.bto = false;
+        this.btm = 3;
+        this.bsw = new f(context);
+        this.buz = ((f) this.bsw).getInputView();
+        ((f) this.bsw).setHint(context.getString(d.j.say_your_point));
+        this.btp = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.bsm.addTextChangedListener(textWatcher);
+        this.buz.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.bsm.removeTextChangedListener(textWatcher);
+        this.buz.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.bqj != null && !StringUtils.isNull(str)) {
-            ((f) this.bqj).setHint(str);
+        if (this.bsw != null && !StringUtils.isNull(str)) {
+            ((f) this.bsw).setHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.bsm;
+        return this.buz;
     }
 
     public void setType(int i) {
-        if (this.bqj != null) {
-            ((f) this.bqj).setType(i);
+        if (this.bsw != null) {
+            ((f) this.bsw).setType(i);
         }
     }
 
-    public void hS(int i) {
-        if (this.bqj != null) {
-            ((f) this.bqj).hS(i);
+    public void hQ(int i) {
+        if (this.bsw != null) {
+            ((f) this.bsw).hQ(i);
         }
     }
 }

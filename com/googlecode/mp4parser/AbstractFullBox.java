@@ -5,13 +5,12 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.boxes.FullBox;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import java.nio.ByteBuffer;
-import org.apache.http.cookie.ClientCookie;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public abstract class AbstractFullBox extends AbstractBox implements FullBox {
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
     private int flags;
     private int version;
 
@@ -21,7 +20,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AbstractFullBox.java", AbstractFullBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", ClientCookie.VERSION_ATTR, "", "void"), 51);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
     }
 
@@ -46,7 +45,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.zs(i)));
         this.version = i;
     }
 
@@ -61,7 +60,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zs(i)));
         this.flags = i;
     }
 

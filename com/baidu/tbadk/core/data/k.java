@@ -5,46 +5,47 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private boolean aKq;
-    private int aKr;
-    private int aKs;
-    private int aKt = 25;
-    private int aKu = 25;
-    private int aKv = 10;
+    private boolean aLK;
+    private int aLL;
+    private int aLM;
+    private int aLN = 25;
+    private int aLO = 25;
+    private int aLP = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.aKt;
+        return this.aLN;
     }
 
     public int getErrRank() {
-        return this.aKu;
+        return this.aLO;
     }
 
     public int getSlowRank() {
-        return this.aKv;
+        return this.aLP;
     }
 
     public boolean ismSwitch() {
-        return this.aKq;
+        return this.aLK;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.aKq != z) {
+        if (this.aLK != z) {
             com.baidu.adp.lib.stats.a nn = com.baidu.tbadk.core.util.s.nn();
-            nn.append("act", "fallback");
+            nn.append(SocialConstants.PARAM_ACT, "fallback");
             nn.append("result", z ? "1" : "0");
             nn.append("type", "switch");
             BdStatisticsManager.getInstance().debug("img", nn);
         }
-        this.aKq = z;
+        this.aLK = z;
     }
 
     public int getSlowNumber() {
-        return this.aKr;
+        return this.aLL;
     }
 
     public int getTime() {
@@ -52,7 +53,7 @@ public class k {
     }
 
     public int getErrNumber() {
-        return this.aKs;
+        return this.aLM;
     }
 
     public void parseJson(String str) {
@@ -61,7 +62,7 @@ public class k {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.aKq = false;
+            this.aLK = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -70,30 +71,30 @@ public class k {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.aKq = true;
+                    this.aLK = true;
                 } else {
-                    this.aKq = false;
+                    this.aLK = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.aKs = optJSONObject.optInt("num");
+                    this.aLM = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.aKr = optJSONObject2.optInt("num");
+                    this.aLL = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.aKt = optJSONObject3.optInt("succ");
-                    this.aKu = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.aKv = optJSONObject3.optInt("slow");
+                    this.aLN = optJSONObject3.optInt("succ");
+                    this.aLO = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.aLP = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.aKr <= 0 || this.aKs <= 0) {
-                    this.aKq = false;
+                if (this.time <= 0 || this.aLL <= 0 || this.aLM <= 0) {
+                    this.aLK = false;
                 }
             } catch (Exception e) {
-                this.aKq = false;
+                this.aLK = false;
                 BdLog.e(e.getMessage());
             }
         }

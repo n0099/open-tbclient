@@ -2,8 +2,11 @@ package com.baidu.sofire;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import com.baidu.appsearchlib.Info;
+import com.baidu.sofire.a;
 /* loaded from: classes.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -13,7 +16,19 @@ public class MyProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        return null;
+        try {
+            if ("p".equals(str)) {
+                Intent intent = new Intent();
+                intent.putExtra(Info.kBaiduTimeKey, "p");
+                intent.putExtra("c", str2);
+                new a.AnonymousClass1(getContext(), intent).start();
+                return null;
+            }
+            return null;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d.a(th);
+            return null;
+        }
     }
 
     @Override // android.content.ContentProvider

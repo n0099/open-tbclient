@@ -1,7 +1,6 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<Object> {
     private String content;
@@ -51,7 +50,7 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
     }
 
     public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
-        super(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_ADD_LOCAL);
+        super(2001169);
         this.id = j;
         this.name = str;
         this.portrait = str2;

@@ -10,7 +10,6 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.h;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.p;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.ByteArrayInputStream;
@@ -23,8 +22,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,7 +74,7 @@ public class d extends b {
             i = 2;
         }
         do {
-            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(this.e, HttpPost.METHOD_NAME, hashMap, "BCCS_SDK/3.0");
+            com.baidu.android.pushservice.f.a a3 = com.baidu.android.pushservice.f.b.a(this.e, "POST", hashMap, "BCCS_SDK/3.0");
             if (a3 != null) {
                 int b = a3.b();
                 String a4 = com.baidu.android.pushservice.h.a.b.a(a3.a());
@@ -279,7 +276,7 @@ public class d extends b {
     private boolean h() {
         try {
             JSONObject jSONObject = new JSONObject(this.b);
-            this.i = jSONObject.getInt(ClientCookie.VERSION_ATTR);
+            this.i = jSONObject.getInt("version");
             this.d = new HashMap<>();
             JSONArray jSONArray = jSONObject.getJSONArray("modeconfig");
             for (int i = 0; i < jSONArray.length(); i++) {
@@ -296,7 +293,7 @@ public class d extends b {
 
     private static boolean h(Context context) {
         try {
-            return com.coloros.mcssdk.a.cs(context);
+            return com.coloros.mcssdk.a.cv(context);
         } catch (Exception e) {
             return false;
         }
@@ -319,7 +316,7 @@ public class d extends b {
 
     private boolean j() {
         long j = 0;
-        if (System.currentTimeMillis() - m.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > TbConfig.APP_OVERDUR_DRAFT_BOX) {
+        if (System.currentTimeMillis() - m.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > 604800000) {
             return true;
         }
         long c = m.c(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
@@ -407,7 +404,7 @@ public class d extends b {
                     try {
                         HashMap hashMap = new HashMap();
                         com.baidu.android.pushservice.e.b.a(hashMap);
-                        hashMap.put(ClientCookie.VERSION_ATTR, d.this.i + "");
+                        hashMap.put("version", d.this.i + "");
                         hashMap.put("model", Build.MODEL);
                         hashMap.put("osSdkInt", Build.VERSION.SDK_INT + "");
                         if ((p.a() && PushSettings.m(d.this.a)) || ((p.c() && PushSettings.p(d.this.a)) || ((p.b() && PushSettings.n(d.this.a)) || (p.d() && PushSettings.o(d.this.a))))) {

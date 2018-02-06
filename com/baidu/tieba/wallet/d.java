@@ -5,23 +5,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
-        av.Da().a(new av.a() { // from class: com.baidu.tieba.wallet.d.1
-            @Override // com.baidu.tbadk.core.util.av.a
+        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.wallet.d.1
+            @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
                 if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, d.ud(str)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.uj(str)));
                     if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                         ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
                     }
@@ -33,7 +32,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String ud(String str) {
+    public static String uj(String str) {
         URL url;
         try {
             url = new URL(str);

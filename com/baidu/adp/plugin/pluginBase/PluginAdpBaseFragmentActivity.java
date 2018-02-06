@@ -38,7 +38,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.jF().h(getPageContext().getPageActivity());
+        a.jF().j(getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -149,7 +149,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         MessageManager.getInstance().removeMessage(this.mId);
         c.nm().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.jF().i(getPageContext().getPageActivity());
+        a.jF().k(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -25,7 +25,7 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
         super(activity);
         getIntent().putExtra("gid", i);
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, true);
-        getIntent().putExtra(GROUP_ACTIVITY_ID, groupActivityData.getActivityId());
+        getIntent().putExtra("aid", groupActivityData.getActivityId());
         getIntent().putExtra("name", groupActivityData.getgActivityTitle());
         getIntent().putExtra(GROUP_ACTIVITY_TIME, groupActivityData.getgActivityTime());
         getIntent().putExtra(GROUP_ACTIVITY_AREA, groupActivityData.getgActivityArea());

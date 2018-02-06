@@ -1,10 +1,10 @@
 package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.a.e.k;
 import com.meizu.cloud.pushsdk.common.b.h;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.LinkedHashMap;
 /* loaded from: classes2.dex */
 public class a {
@@ -57,7 +57,7 @@ public class a {
         linkedHashMap.put("deviceId", str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "register post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.b).a(linkedHashMap2).a().a(kVar);
     }
@@ -68,7 +68,7 @@ public class a {
         linkedHashMap.put("deviceId", str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "unregister post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.a(this.c).a(linkedHashMap2).a().a(kVar);
     }
@@ -79,7 +79,7 @@ public class a {
         linkedHashMap.put("deviceId", str2);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, "4a2ca769d79f4856bb3bd982d30de790"));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, "4a2ca769d79f4856bb3bd982d30de790"));
         com.meizu.cloud.a.a.i("PushAPI", "advance unregister post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.d).a(linkedHashMap2).a().a(kVar);
     }
@@ -90,7 +90,7 @@ public class a {
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "checkPush post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.a(this.e).a(linkedHashMap2).a().a(kVar);
     }
@@ -103,7 +103,7 @@ public class a {
         linkedHashMap.put("subSwitch", z ? "1" : "0");
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "swithPush post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.f).a(linkedHashMap2).a().a(kVar);
     }
@@ -115,7 +115,7 @@ public class a {
         linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.g).a(linkedHashMap2).a().a(kVar);
     }
@@ -127,7 +127,7 @@ public class a {
         linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.h).a(linkedHashMap2).a().a(kVar);
     }
@@ -138,7 +138,7 @@ public class a {
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "checkPush post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.a(this.i).a(linkedHashMap2).a().a(kVar);
     }
@@ -146,12 +146,12 @@ public class a {
     public void c(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("appId", str);
-        linkedHashMap.put("appKey", str2);
+        linkedHashMap.put(WBConstants.SSO_APP_KEY, str2);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         linkedHashMap.put("alias", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.j).a(linkedHashMap2).a().a(kVar);
     }
@@ -163,7 +163,7 @@ public class a {
         linkedHashMap.put("alias", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.b(this.k).a(linkedHashMap2).a().a(kVar);
     }
@@ -174,7 +174,7 @@ public class a {
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
-        linkedHashMap2.put(SapiUtils.KEY_QR_LOGIN_SIGN, com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
+        linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         com.meizu.cloud.a.a.i("PushAPI", "checkPush post map " + linkedHashMap2);
         com.meizu.cloud.pushsdk.a.a.a(this.l).a(linkedHashMap2).a().a(kVar);
     }

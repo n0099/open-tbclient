@@ -44,13 +44,8 @@ abstract class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(a aVar, boolean z);
 
-    abstract void b(Rect rect);
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void b(a aVar, boolean z);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void b(int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void bO();
@@ -59,6 +54,11 @@ abstract class i {
     public abstract void bP();
 
     abstract void c(float f, float f2);
+
+    abstract void c(Rect rect);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public abstract void c(int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract float getElevation();
@@ -88,7 +88,7 @@ abstract class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void i(float f) {
+    public final void m(float f) {
         if (this.oY != f) {
             this.oY = f;
             c(this.oX, f);
@@ -103,12 +103,12 @@ abstract class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void bV() {
         Rect rect = this.mTmpRect;
-        b(rect);
         c(rect);
+        d(rect);
         this.pd.e(rect.left, rect.top, rect.right, rect.bottom);
     }
 
-    void c(Rect rect) {
+    void d(Rect rect) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -136,7 +136,7 @@ abstract class i {
         Context context = this.pa.getContext();
         b bW = bW();
         bW.b(ContextCompat.getColor(context, R.color.design_fab_stroke_top_outer_color), ContextCompat.getColor(context, R.color.design_fab_stroke_top_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_outer_color));
-        bW.b(i);
+        bW.f(i);
         bW.a(colorStateList);
         return bW;
     }

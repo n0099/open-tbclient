@@ -9,96 +9,96 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 public class a extends BdTypeListView {
     public static int ExpandListView_expandDistance = 1;
-    private View auR;
-    private int auS;
-    private float auT;
-    private float auU;
-    private boolean auW;
-    private final int auZ;
-    private final int ava;
-    private Runnable hyA;
-    private int hyB;
-    private b hyv;
-    public InterfaceC0167a hyw;
-    private long hyx;
-    private long hyy;
-    private boolean hyz;
+    private View auM;
+    private int auN;
+    private float auO;
+    private float auP;
+    private boolean auR;
+    private final int auU;
+    private final int auV;
+    private b hAb;
+    public InterfaceC0249a hAc;
+    private long hAd;
+    private long hAe;
+    private boolean hAf;
+    private Runnable hAg;
+    private int hAh;
     private Handler mHandler;
     private final Scroller mScroller;
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0167a {
-        void L(float f);
+    public interface InterfaceC0249a {
+        void P(float f);
 
         void onRefresh();
 
-        void su();
+        void ss();
     }
 
     public void setStarForum(boolean z) {
-        this.hyz = z;
+        this.hAf = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.hyz) {
+        if (this.hAf) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            if (this.auR == null) {
+            if (this.auM == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            this.auU = motionEvent.getY();
+            this.auP = motionEvent.getY();
             switch (action) {
                 case 0:
-                    this.hyx = System.currentTimeMillis() - this.hyy;
-                    this.hyy = System.currentTimeMillis();
-                    this.auW = false;
+                    this.hAd = System.currentTimeMillis() - this.hAe;
+                    this.hAe = System.currentTimeMillis();
+                    this.auR = false;
                     setClickEventEnabled(true);
-                    if (this.auS == 0) {
-                        this.auS = this.auR.getHeight();
+                    if (this.auN == 0) {
+                        this.auN = this.auM.getHeight();
                     }
-                    int height = this.auR.getHeight();
-                    this.auT = this.auU;
-                    this.hyv = new b(0, height, 0, this.ava + height);
+                    int height = this.auM.getHeight();
+                    this.auO = this.auP;
+                    this.hAb = new b(0, height, 0, this.auV + height);
                     break;
                 case 1:
                 case 3:
-                    if (this.auW) {
+                    if (this.auR) {
                         setClickEventEnabled(false);
-                        ss();
-                        this.auW = false;
-                    } else if (this.hyw != null) {
-                        this.hyw.su();
+                        sq();
+                        this.auR = false;
+                    } else if (this.hAc != null) {
+                        this.hAc.ss();
                     }
-                    this.mHandler.removeCallbacks(this.hyA);
-                    this.mHandler.postDelayed(this.hyA, 200L);
+                    this.mHandler.removeCallbacks(this.hAg);
+                    this.mHandler.postDelayed(this.hAg, 200L);
                     break;
                 case 2:
-                    float f = this.auU - this.auT;
-                    if (this.auR.getParent() == this && this.hyv != null && this.auR.isShown() && this.auR.getTop() >= 0 && Math.abs(f) >= this.auZ && this.hyx > 400) {
-                        int M = this.hyv.M(this.auU - this.auT);
-                        if (M > this.hyv.startY && M <= this.hyv.endY) {
-                            this.auW = true;
+                    float f = this.auP - this.auO;
+                    if (this.auM.getParent() == this && this.hAb != null && this.auM.isShown() && this.auM.getTop() >= 0 && Math.abs(f) >= this.auU && this.hAd > 400) {
+                        int Q = this.hAb.Q(this.auP - this.auO);
+                        if (Q > this.hAb.startY && Q <= this.hAb.endY) {
+                            this.auR = true;
                             setClickEventEnabled(false);
-                            this.auR.setLayoutParams(new AbsListView.LayoutParams(this.auR.getWidth(), M));
-                            K(M - this.hyv.startY);
+                            this.auM.setLayoutParams(new AbsListView.LayoutParams(this.auM.getWidth(), Q));
+                            O(Q - this.hAb.startY);
                             break;
-                        } else if (M <= this.hyv.startY) {
-                            this.auW = false;
+                        } else if (Q <= this.hAb.startY) {
+                            this.auR = false;
                             break;
-                        } else if (M > this.hyv.endY) {
-                            this.auW = true;
+                        } else if (Q > this.hAb.endY) {
+                            this.auR = true;
                             setClickEventEnabled(false);
                             break;
                         } else {
-                            this.auW = false;
+                            this.auR = false;
                             break;
                         }
                     } else {
-                        this.auW = false;
+                        this.auR = false;
                         break;
                     }
                     break;
@@ -116,7 +116,7 @@ public class a extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.auW) {
+        if (this.auR) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -124,37 +124,37 @@ public class a extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.auW) {
+        if (this.auR) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void ss() {
-        if (this.hyv != null) {
-            if (this.auR.getHeight() >= this.hyv.endY - (this.ava / 2)) {
-                st();
-            } else if (this.hyw != null) {
-                this.hyw.su();
+    public void sq() {
+        if (this.hAb != null) {
+            if (this.auM.getHeight() >= this.hAb.endY - (this.auV / 2)) {
+                sr();
+            } else if (this.hAc != null) {
+                this.hAc.ss();
             }
-            this.mScroller.startScroll(0, this.auR.getHeight(), 0, this.hyv.startY - this.auR.getHeight(), 200);
+            this.mScroller.startScroll(0, this.auM.getHeight(), 0, this.hAb.startY - this.auM.getHeight(), 200);
             invalidate();
         }
     }
 
-    public void st() {
-        if (this.hyw != null) {
-            this.hyw.onRefresh();
+    public void sr() {
+        if (this.hAc != null) {
+            this.hAc.onRefresh();
         }
     }
 
-    public void setPersonListRefreshListener(InterfaceC0167a interfaceC0167a) {
-        this.hyw = interfaceC0167a;
+    public void setPersonListRefreshListener(InterfaceC0249a interfaceC0249a) {
+        this.hAc = interfaceC0249a;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
     public void startPullRefresh() {
-        if (this.hyz) {
+        if (this.hAf) {
             super.startPullRefresh();
             return;
         }
@@ -162,33 +162,33 @@ public class a extends BdTypeListView {
             setSelection(10);
         }
         smoothScrollToPosition(0);
-        if (this.auR != null && !this.auW) {
-            this.auW = true;
-            this.mScroller.startScroll(0, getOriginalHeight() + this.ava, 0, -this.ava, 200);
-            st();
+        if (this.auM != null && !this.auR) {
+            this.auR = true;
+            this.mScroller.startScroll(0, getOriginalHeight() + this.auV, 0, -this.auV, 200);
+            sr();
             invalidate();
-            this.mHandler.removeCallbacks(this.hyA);
-            this.mHandler.postDelayed(this.hyA, 200L);
-            this.auW = false;
+            this.mHandler.removeCallbacks(this.hAg);
+            this.mHandler.postDelayed(this.hAg, 200L);
+            this.auR = false;
         }
     }
 
     private int getOriginalHeight() {
-        if (this.auS <= 0) {
-            this.auS = this.auR.getHeight();
+        if (this.auN <= 0) {
+            this.auN = this.auM.getHeight();
         }
-        return this.auS;
+        return this.auN;
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.hyz) {
+        if (this.hAf) {
             super.computeScroll();
         } else if (this.mScroller.computeScrollOffset()) {
             int currY = this.mScroller.getCurrY();
-            if (Math.abs(this.hyB - currY) > this.auZ * 2) {
-                this.hyB = currY;
-                this.auR.setLayoutParams(new AbsListView.LayoutParams(this.auR.getWidth(), currY));
+            if (Math.abs(this.hAh - currY) > this.auU * 2) {
+                this.hAh = currY;
+                this.auM.setLayoutParams(new AbsListView.LayoutParams(this.auM.getWidth(), currY));
             }
         } else {
             scrollTo(0, 0);
@@ -196,10 +196,10 @@ public class a extends BdTypeListView {
         }
     }
 
-    private void K(float f) {
-        float f2 = 360.0f - ((f * 360.0f) / this.ava);
-        if (this.hyw != null) {
-            this.hyw.L(f2);
+    private void O(float f) {
+        float f2 = 360.0f - ((f * 360.0f) / this.auV);
+        if (this.hAc != null) {
+            this.hAc.P(f2);
         }
     }
 
@@ -217,7 +217,7 @@ public class a extends BdTypeListView {
             this.endY = i4;
         }
 
-        public int M(float f) {
+        public int Q(float f) {
             return (int) (this.startY + (f / 2.5f));
         }
     }

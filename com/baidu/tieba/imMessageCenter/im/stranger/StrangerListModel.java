@@ -1,18 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
-import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.im.settingcache.e;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.ListIterator;
 /* loaded from: classes2.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,32 +17,31 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         super(tbPageContext);
     }
 
-    public void aLO() {
-        LinkedList linkedList = new LinkedList();
-        Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
-        while (it.hasNext()) {
-            String friendId = it.next().getFriendId();
-            if (!TextUtils.isEmpty(friendId)) {
-                linkedList.add(new MemoryModifyVisibilityMessage.a(friendId, 2, false));
+    public void a(com.baidu.tieba.im.chat.a.b bVar) {
+        ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
+        ArrayList arrayList = new ArrayList();
+        while (listIterator.hasNext()) {
+            ImMessageCenterShowItemData next = listIterator.next();
+            if (next != null) {
+                arrayList.add(next);
             }
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearStrangerItemsMessage(new MemoryClearStrangerItemsMessage.a(linkedList), true));
-        this.mList.clear();
+        asyncDeleteMsgList(arrayList, 2, bVar);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        i(imMessageCenterPojo, imMessageCenterShowItemData);
+        h(imMessageCenterPojo, imMessageCenterShowItemData);
     }
 
-    private void i(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    private void h(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData bg = e.aKv().bg(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bg != null) {
-                buildNormalItem.setGroupSetting(bg);
+            PersonalSettingItemData bj = e.aLX().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bj != null) {
+                buildNormalItem.setGroupSetting(bj);
             }
             insertShowData(buildNormalItem, this.mList);
         }

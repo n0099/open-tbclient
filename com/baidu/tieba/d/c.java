@@ -1,105 +1,215 @@
 package com.baidu.tieba.d;
 
-import android.content.Context;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
-import android.net.http.Headers;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.util.g;
-import com.baidu.tieba.d.a;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tieba.d;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0106a {
-    private a ddL;
-    private ShareDialogConfig ddM;
-    private ArrayList<TransmitForumData> mForumList;
+public class c {
+    private boolean dgg;
+    private String dgh;
+    private int dgn;
+    private int dgo;
+    private int dgp;
+    private int dgq;
+    private View.OnClickListener dgt;
+    private boolean dgu;
+    private String mMessage;
     private TbPageContext mPageContext;
-    private int mPrivateThread;
+    private View yG;
+    private Handler mHandler = null;
+    private com.baidu.adp.lib.guide.c dgf = null;
+    private int dgi = d.f.pic_sign_tip;
+    private int dgj = 0;
+    private int dgk = 1;
+    private int dgl = 1000;
+    private int dgm = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    private int Id = 5;
+    private int mYOffset = 0;
+    private int dgr = 48;
+    private int dgs = 4;
+    private boolean aip = false;
+    private Runnable dgv = new Runnable() { // from class: com.baidu.tieba.d.c.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (c.this.dgf == null && !StringUtils.isNull(c.this.mMessage)) {
+                if (!c.this.dgu || c.this.ani()) {
+                    com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
+                    dVar.aG(c.this.yG).cW(0).ak(true).al(true);
+                    dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.c.1.1
+                        @Override // com.baidu.adp.lib.guide.b
+                        public View a(LayoutInflater layoutInflater) {
+                            TextView textView = new TextView(c.this.mPageContext.getPageActivity());
+                            textView.setText(c.this.mMessage);
+                            textView.setGravity(17);
+                            aj.r(textView, d.C0140d.cp_cont_i);
+                            textView.setTextSize(0, c.this.mPageContext.getResources().getDimensionPixelSize(d.e.fontsize28));
+                            textView.setHeight(c.this.mPageContext.getResources().getDimensionPixelSize(d.e.ds76));
+                            textView.setPadding(c.this.dgn, c.this.dgo, c.this.dgp, c.this.dgq);
+                            textView.setSingleLine(true);
+                            aj.s(textView, c.this.dgi);
+                            if (c.this.dgt != null) {
+                                textView.setOnClickListener(c.this.dgt);
+                            }
+                            return textView;
+                        }
 
-    public c(Context context) {
-        if (context instanceof BaseActivity) {
-            this.mPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
+                        @Override // com.baidu.adp.lib.guide.b
+                        public int mB() {
+                            return c.this.dgs;
+                        }
+
+                        @Override // com.baidu.adp.lib.guide.b
+                        public int mC() {
+                            return c.this.dgr;
+                        }
+
+                        @Override // com.baidu.adp.lib.guide.b
+                        public int getXOffset() {
+                            return c.this.Id;
+                        }
+
+                        @Override // com.baidu.adp.lib.guide.b
+                        public int getYOffset() {
+                            return c.this.mYOffset;
+                        }
+                    });
+                    c.this.dgf = dVar.mD();
+                    c.this.dgf.ah(false);
+                    c.this.dgf.ai(c.this.aip);
+                    c.this.dgf.l(c.this.mPageContext.getPageActivity());
+                    c.this.dgg = true;
+                    c.this.ang();
+                    c.this.mHandler.postDelayed(c.this.dgw, c.this.dgm);
+                }
+            }
         }
-        amy();
+    };
+    private Runnable dgw = new Runnable() { // from class: com.baidu.tieba.d.c.2
+        @Override // java.lang.Runnable
+        public void run() {
+            if (c.this.dgf != null) {
+                c.this.dgf.dismiss();
+            }
+        }
+    };
+
+    public void lR(int i) {
+        this.dgr = i;
     }
 
-    public c(TbPageContext tbPageContext) {
+    public c(TbPageContext tbPageContext, View view) {
+        this.dgn = 0;
+        this.dgo = 0;
+        this.dgp = 0;
+        this.dgq = 0;
         this.mPageContext = tbPageContext;
-        amy();
+        this.yG = view;
+        this.dgn = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.dgo = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.dgp = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds24);
+        this.dgq = this.mPageContext.getResources().getDimensionPixelSize(d.e.ds10);
     }
 
-    private void amy() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, this.mPageContext), a.class);
-        if (runTask != null) {
-            this.ddL = (a) runTask.getData();
-        }
-        if (this.ddL != null) {
-            this.ddL.setUseCache(false);
-            this.ddL.a(this);
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ang() {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.dgh, this.dgj + 1);
     }
 
-    public void a(ShareDialogConfig shareDialogConfig) {
-        if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
-            this.ddM = shareDialogConfig;
-            if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.bjn = amz();
-            }
-            if (TbadkCoreApplication.isLogin() && this.ddL != null && !shareDialogConfig.mIsAlaLive) {
-                this.ddL.aI(null, null);
-            } else {
-                DY();
-            }
-        }
+    public void aK(String str, String str2) {
+        g(str, str2, false);
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0106a
-    public void b(List<TransmitForumData> list, boolean z, int i) {
-        if (list instanceof ArrayList) {
-            this.mForumList = (ArrayList) list;
-        }
-        this.mPrivateThread = i;
-        DY();
-    }
-
-    private void DY() {
-        if (this.ddM != null && this.ddM.shareItem != null) {
-            this.ddM.setIsShowTransmitShare(true);
-            this.ddM.setTransmitForumList(this.mForumList);
-            this.ddM.setPrivateThread(this.mPrivateThread);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, this.ddM));
-        }
-    }
-
-    private Location amz() {
-        if (ab.aT(this.mPageContext.getPageActivity())) {
-            LocationManager locationManager = (LocationManager) this.mPageContext.getPageActivity().getApplication().getSystemService(Headers.LOCATION);
-            Criteria criteria = new Criteria();
-            criteria.setAccuracy(1);
-            criteria.setAltitudeRequired(false);
-            criteria.setBearingRequired(false);
-            criteria.setCostAllowed(true);
-            criteria.setPowerRequirement(1);
-            try {
-                return locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-            } catch (Exception e) {
-                return null;
+    public void g(String str, String str2, boolean z) {
+        if (!this.dgg && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.yG != null && this.yG.getVisibility() == 0) {
+            this.mMessage = str;
+            this.dgh = str2;
+            this.dgj = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+            if (this.dgj < this.dgk) {
+                if (z) {
+                    ang();
+                    this.dgg = true;
+                }
+                if (this.mHandler == null) {
+                    this.mHandler = new Handler();
+                }
+                this.mHandler.postDelayed(this.dgv, this.dgl);
             }
         }
-        return null;
+    }
+
+    public void kG(String str) {
+        if (!StringUtils.isNull(str)) {
+            this.mMessage = str;
+            if (this.mHandler == null) {
+                this.mHandler = new Handler();
+            }
+            this.mHandler.postDelayed(this.dgv, this.dgl);
+        }
+    }
+
+    public void anh() {
+        if (this.dgf != null) {
+            this.dgf.dismiss();
+            this.dgf = null;
+        }
+        if (this.mHandler != null) {
+            this.mHandler.removeCallbacks(this.dgv);
+            this.mHandler.removeCallbacks(this.dgw);
+        }
+    }
+
+    public void lS(int i) {
+        if (i > 0) {
+            this.dgi = i;
+        }
+    }
+
+    public void lT(int i) {
+        if (i > 0) {
+            this.dgm = i;
+        }
+    }
+
+    public void lU(int i) {
+        if (i > 0) {
+            this.dgk = i;
+        }
+    }
+
+    public void lV(int i) {
+        this.Id = i;
+    }
+
+    public void lW(int i) {
+        this.mYOffset = i;
+    }
+
+    public void v(int i, int i2, int i3, int i4) {
+        this.dgn = i;
+        this.dgo = i2;
+        this.dgp = i3;
+        this.dgq = i4;
+    }
+
+    public void j(View.OnClickListener onClickListener) {
+        this.dgt = onClickListener;
+    }
+
+    public void fa(boolean z) {
+        this.dgu = z;
+    }
+
+    public boolean ani() {
+        return this.yG != null && this.yG.getVisibility() == 0 && ((double) this.yG.getAlpha()) >= 0.4d;
+    }
+
+    public void ai(boolean z) {
+        this.aip = z;
     }
 }

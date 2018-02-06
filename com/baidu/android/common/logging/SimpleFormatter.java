@@ -1,5 +1,6 @@
 package com.baidu.android.common.logging;
 
+import com.baidu.ar.util.Constants;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.FieldPosition;
@@ -53,7 +54,7 @@ class SimpleFormatter extends Formatter {
             }
             this.formatter.format(this.args, stringBuffer3, (FieldPosition) null);
             stringBuffer2.append(stringBuffer3);
-            stringBuffer2.append("." + (logRecord.getMillis() % 1000));
+            stringBuffer2.append(Constants.DOT + (logRecord.getMillis() % 1000));
             stringBuffer2.append(" ");
             if (logRecord.getSourceClassName() != null) {
                 stringBuffer2.append(logRecord.getSourceClassName());

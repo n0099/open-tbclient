@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void j(JSONObject jSONObject) {
+    public void o(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Mr() {
+    public byte[] MX() {
         return null;
     }
 

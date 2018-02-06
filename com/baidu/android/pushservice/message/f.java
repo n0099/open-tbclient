@@ -9,6 +9,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
@@ -258,7 +259,7 @@ public class f extends d {
             }
             String d = d();
             if (d != null && d != "") {
-                jSONObject2.put("network", d);
+                jSONObject2.put(LivenessRecogActivity.f.J, d);
             }
             String h = h();
             if (h != null && h != "") {

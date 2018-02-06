@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int bvn = 0;
+    private int bxx = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation ib(int i) {
+    public static ImageOperation hZ(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -23,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.bvn = Integer.parseInt(str);
+            this.bxx = Integer.parseInt(str);
         }
     }
 
@@ -32,18 +32,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.LR().ia(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.bvn == 0 || this.bvn == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.bvn);
+        com.baidu.tbadk.imageManager.c.Mx().hY(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.bxx == 0 || this.bxx == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.bxx);
         }
-        if (this.bvn == 2 || this.bvn == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.bvn);
+        if (this.bxx == 2 || this.bxx == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.bxx);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap gM(String str) throws Exception {
+    public Bitmap gV(String str) throws Exception {
         int max = Math.max(l.ao(TbadkCoreApplication.getInst().getApp()), l.aq(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

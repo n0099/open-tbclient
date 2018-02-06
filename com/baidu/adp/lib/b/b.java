@@ -3,13 +3,13 @@ package com.baidu.adp.lib.b;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
-    private int ahR;
-    private a ahU;
+    private int ahP;
+    private a ahS;
     private String mName;
-    private int ahT = 0;
-    private String[] ahW = null;
-    private int ahS = 0;
-    private String[] ahX = null;
+    private int ahR = 0;
+    private String[] ahU = null;
+    private int ahQ = 0;
+    private String[] ahV = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.ahU = null;
-        this.ahR = 0;
+        this.ahS = null;
+        this.ahP = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.ahU = aVar;
-        this.ahR = i;
+        this.ahS = aVar;
+        this.ahP = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.ahT = i;
-        this.ahW = strArr;
-        this.ahS = i2;
+        this.ahR = i;
+        this.ahU = strArr;
+        this.ahQ = i2;
     }
 
     public void g(String[] strArr) {
-        this.ahX = strArr;
+        this.ahV = strArr;
     }
 
     public String[] mv() {
-        return this.ahX;
+        return this.ahV;
     }
 
     public String getName() {
@@ -47,24 +47,24 @@ public class b {
     }
 
     public int mu() {
-        return this.ahT;
-    }
-
-    public String[] mx() {
-        return this.ahW;
-    }
-
-    public int mt() {
-        return this.ahS;
-    }
-
-    public int ms() {
         return this.ahR;
     }
 
-    public void n(int i, boolean z) {
-        if (this.ahU != null) {
-            this.ahU.a(this.mName, i, z);
+    public String[] mx() {
+        return this.ahU;
+    }
+
+    public int mt() {
+        return this.ahQ;
+    }
+
+    public int ms() {
+        return this.ahP;
+    }
+
+    public void q(int i, boolean z) {
+        if (this.ahS != null) {
+            this.ahS.a(this.mName, i, z);
         }
     }
 }

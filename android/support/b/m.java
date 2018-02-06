@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 final class m {
-    Runnable uP;
-    private ViewGroup uQ;
+    Runnable uQ;
+    private ViewGroup uR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(View view, m mVar) {
@@ -19,8 +19,8 @@ final class m {
     }
 
     public void exit() {
-        if (G(this.uQ) == this && this.uP != null) {
-            this.uP.run();
+        if (G(this.uR) == this && this.uQ != null) {
+            this.uQ.run();
         }
     }
 }

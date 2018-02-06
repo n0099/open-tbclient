@@ -5,7 +5,7 @@ import android.view.TextureView;
 import android.view.View;
 /* loaded from: classes.dex */
 public class o extends TextureView {
-    private int gss;
+    private int gtY;
     private int mVideoHeight;
     private int mVideoWidth;
 
@@ -13,14 +13,14 @@ public class o extends TextureView {
         super(context);
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
-        this.gss = 0;
+        this.gtY = 0;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3;
         int i4;
-        if (this.gss == 90 || this.gss == 270) {
+        if (this.gtY == 90 || this.gtY == 270) {
             i = i2;
             i2 = i;
         }
@@ -46,11 +46,11 @@ public class o extends TextureView {
         setMeasuredDimension(i4, i3);
     }
 
-    public void af(int i, int i2, int i3) {
+    public void ag(int i, int i2, int i3) {
         setRotation(i3);
         this.mVideoWidth = i;
         this.mVideoHeight = i2;
-        this.gss = i3;
+        this.gtY = i3;
         if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
             requestLayout();
         }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.d.a;
 public interface b {
     void a(a.b bVar);
 
-    void am(boolean z);
+    void ap(boolean z);
 
     void destroy();
 

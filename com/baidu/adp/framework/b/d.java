@@ -10,47 +10,47 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private g aeE;
+    private g aeC;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.aeE = null;
-        this.aeE = new g(messageManager);
-        this.aeA = com.baidu.adp.framework.c.c.kY();
+        this.aeC = null;
+        this.aeC = new g(messageManager);
+        this.aey = com.baidu.adp.framework.c.c.kY();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.aeE.removeMessage(bdUniqueId);
+        this.aeC.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.aeE.removeMessage(i, bdUniqueId);
+        this.aeC.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.aeE.a(socketMessage, socketMessageTask);
+        this.aeC.a(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
     /* renamed from: c */
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.acn.getController().b(socketMessage, socketMessageTask);
+        return this.acl.getController().b(socketMessage, socketMessageTask);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.aeE.a(bdUniqueId);
+        return this.aeC.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.aeE.findMessage(i, bdUniqueId);
+        return this.aeC.findMessage(i, bdUniqueId);
     }
 
     public g getSocketClient() {
-        return this.aeE;
+        return this.aeC;
     }
 }

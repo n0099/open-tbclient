@@ -6,13 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 import com.baidu.tieba.im.c;
 import com.baidu.tieba.im.c.a.e;
 import com.baidu.tieba.im.c.a.f;
@@ -38,7 +35,6 @@ public class TbLaunchStatic {
     private static void initRegisterIntent() {
         TbadkApplication.getInst().RegisterIntent(GroupMsgImageActivityConfig.class, GroupMsgImageActivity.class);
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
-        TbadkCoreApplication.getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
     }
 
     private static void initRegisterTask() {
@@ -50,13 +46,13 @@ public class TbLaunchStatic {
         c.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(103104, ResponseDismissGroupMessage.class, false);
-        c.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, e.class);
-        c.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
-        c.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, f.class);
+        c.b(2001142, e.class);
+        c.b(2001145, g.class);
+        c.b(2001148, f.class);
     }
 
     private static void initRegisterListeners() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.TbLaunchStatic.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.TbLaunchStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {

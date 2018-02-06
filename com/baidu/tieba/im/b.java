@@ -9,11 +9,9 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.a.d;
 import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUploadClientLogMessage;
 import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
@@ -21,11 +19,11 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     public static void init() {
-        aDN();
-        aDO();
+        aFh();
+        aFi();
     }
 
-    private static void aDN() {
+    private static void aFh() {
         c.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         c.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(202009, PushResponseMessage.class, false);
@@ -34,12 +32,12 @@ public class b {
         c.b(304100, ResponseAddFriendMessage.class, false);
         c.b(304102, ResponseDeleteFriendMessage.class, false);
         c.b(304103, ResponseApplyMessage.class, false);
-        c.b(202005, ResponseUploadClientLogMessage.class, false);
         c.b(205002, ResponseCommitInviteMessage.class, false);
         c.b(104104, ResponseCheckUserMaskMessage.class, false);
+        MessageManager.getInstance().registerStickyMode(2001120);
     }
 
-    private static boolean aDO() {
+    private static boolean aFi() {
         MessageManager.getInstance().addResponsedMessageRule(new j(202006) { // from class: com.baidu.tieba.im.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.g
@@ -57,7 +55,7 @@ public class b {
                 return socketResponsedMessage;
             }
         });
-        MessageManager.getInstance().addResponsedMessageRule(new d());
+        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.a.d());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.d());
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.a.c());
         return true;

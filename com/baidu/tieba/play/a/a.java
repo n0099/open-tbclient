@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String aoj;
-    private List<String> guw;
-    private long gux;
+    private String aoi;
+    private List<String> gwc;
+    private long gwd;
     private long mStartTime = System.currentTimeMillis();
 
-    public a rg(String str) {
+    public a rm(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.gux = jSONObject.optLong("ttl");
+            this.gwd = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.aoj = optJSONObject.keys().next();
+                this.aoi = optJSONObject.keys().next();
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.aoj);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.aoi);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.guw = new ArrayList();
+                this.gwc = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.guw.add((String) optJSONArray.get(i2));
+                        this.gwc.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,15 +51,15 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> bkK() {
-        return this.guw;
+    public List<String> blX() {
+        return this.gwc;
     }
 
     public String getHost() {
-        return this.aoj;
+        return this.aoi;
     }
 
-    public boolean cM(long j) {
-        return j - this.mStartTime > this.gux * 1000;
+    public boolean cL(long j) {
+        return j - this.mStartTime > this.gwd * 1000;
     }
 }

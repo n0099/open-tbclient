@@ -27,7 +27,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Writer;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class FatalErrorService extends BdBaseService {
     private static final String ERROR_TYPE_KEY = "errortype";
@@ -143,7 +142,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.BL();
+                                    this.mNetwork.Ce();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -179,7 +178,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.Cg().Dd().isRequestSuccess()) {
+                                        if (this.mNetwork.Cz().Dx().isRequestSuccess()) {
                                             if (z2) {
                                                 I(file);
                                             }
@@ -385,19 +384,19 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(k.dt(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(k.dt(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bon();
+                a(k.dE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(k.dE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                bpK();
                 if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
                     b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File dr = k.dr(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (dr != null) {
-                    for (File file : dr.listFiles()) {
+                File dC = k.dC(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (dC != null) {
+                    for (File file : dC.listFiles()) {
                         if (file.length() >= 1024 && z) {
                             J(file);
-                            a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
+                            a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                         } else {
                             file.delete();
                         }
@@ -411,11 +410,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bon() {
-            File dt = k.dt(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (dt != null) {
+        private void bpK() {
+            File dE = k.dE(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (dE != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(dt)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(dE)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -425,7 +424,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            dt.delete();
+                            dE.delete();
                             return;
                         }
                     }
@@ -448,8 +447,8 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, am.CI(), null);
-                            a(fileWriter, ClientCookie.VERSION_ATTR, TbConfig.getVersion());
+                            a(fileWriter, am.Db(), null);
+                            a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
                             a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));

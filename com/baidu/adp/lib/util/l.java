@@ -17,27 +17,27 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.ar.util.Constants;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class l {
-    private static float amL;
+    private static float amK;
+    static int amL;
     static int amM;
-    static int amN;
-    private static String amQ;
-    static boolean amK = false;
-    private static Toast amO = null;
-    private static a amP = null;
+    private static String amP;
+    static boolean amJ = false;
+    private static Toast amN = null;
+    private static a amO = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.amO != null) {
-                l.amO.cancel();
+            if (l.amN != null) {
+                l.amN.cancel();
             }
         }
     };
@@ -55,74 +55,74 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            amM = displayMetrics.heightPixels;
-            amN = displayMetrics.widthPixels;
-        } else {
+            amL = displayMetrics.heightPixels;
             amM = displayMetrics.widthPixels;
-            amN = displayMetrics.heightPixels;
+        } else {
+            amL = displayMetrics.widthPixels;
+            amM = displayMetrics.heightPixels;
         }
-        amL = displayMetrics.density;
-        amK = true;
+        amK = displayMetrics.density;
+        amJ = true;
     }
 
     public static int ao(Context context) {
-        if (!amK) {
-            ap(context);
-        }
-        return amM;
-    }
-
-    public static int aq(Context context) {
-        if (!amK) {
-            ap(context);
-        }
-        return amN;
-    }
-
-    public static int dip2px(Context context, float f) {
-        if (!amK) {
-            ap(context);
-        }
-        return (int) ((amL * f) + 0.5f);
-    }
-
-    public static float ar(Context context) {
-        if (!amK) {
+        if (!amJ) {
             ap(context);
         }
         return amL;
     }
 
+    public static int aq(Context context) {
+        if (!amJ) {
+            ap(context);
+        }
+        return amM;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!amJ) {
+            ap(context);
+        }
+        return (int) ((amK * f) + 0.5f);
+    }
+
+    public static float ar(Context context) {
+        if (!amJ) {
+            ap(context);
+        }
+        return amK;
+    }
+
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (amO == null) {
-                if (amP == null || amP.pg() == null) {
-                    amO = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (amN == null) {
+                if (amO == null || amO.pg() == null) {
+                    amN = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    amO = new Toast(BdBaseApplication.getInst().getApp());
-                    amO.setDuration(0);
-                    amP.aZ(str);
-                    amO.setView(amP.pg());
+                    amN = new Toast(BdBaseApplication.getInst().getApp());
+                    amN.setDuration(0);
+                    amO.aZ(str);
+                    amN.setView(amO.pg());
                 }
-                amO.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                amN.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(amQ)) {
-                    if (amP == null || amP.pg() == null) {
-                        amO.setText(str);
+                if (!str.equals(amP)) {
+                    if (amO == null || amO.pg() == null) {
+                        amN.setText(str);
                     } else {
-                        amP.aZ(str);
+                        amO.aZ(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                amO.setGravity(17, 0, dip2px);
+                amN.setGravity(17, 0, dip2px);
             }
-            amQ = str;
+            amP = str;
             mHandler.postDelayed(mRunnable, i);
-            amO.show();
+            amN.show();
         }
     }
 
@@ -138,7 +138,7 @@ public class l {
         showToast(context, str, 3500);
     }
 
-    public static void r(Context context, int i) {
+    public static void s(Context context, int i) {
         J(context, context.getResources().getString(i));
     }
 
@@ -162,7 +162,7 @@ public class l {
         }
     }
 
-    public static int n(Activity activity) {
+    public static int p(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -231,7 +231,7 @@ public class l {
             return false;
         }
         try {
-            String str = new String(bArr, 0, 16, HTTP.UTF_8);
+            String str = new String(bArr, 0, 16, "UTF-8");
             if (str == null || str.indexOf("RIFF") != 0) {
                 return false;
             }
@@ -241,7 +241,7 @@ public class l {
         }
     }
 
-    public static DisplayMetrics o(Activity activity) {
+    public static DisplayMetrics q(Activity activity) {
         DisplayMetrics displayMetrics;
         Exception e;
         try {
@@ -305,7 +305,7 @@ public class l {
         return iArr;
     }
 
-    public static int s(Context context, int i) {
+    public static int t(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
@@ -316,7 +316,7 @@ public class l {
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
                     sb.append(stackTrace[i].getClassName());
-                    sb.append(".");
+                    sb.append(Constants.DOT);
                     sb.append(stackTrace[i].getMethodName());
                     sb.append("  lines = ");
                     sb.append(stackTrace[i].getLineNumber());
@@ -446,10 +446,10 @@ public class l {
     }
 
     public static a pe() {
-        return amP;
+        return amO;
     }
 
     public static void a(a aVar) {
-        amP = aVar;
+        amO = aVar;
     }
 }

@@ -32,7 +32,7 @@ class ae extends z {
     public ae e(z zVar) {
         if (zVar != null) {
             this.vG.add(zVar);
-            zVar.vs = this;
+            zVar.vt = this;
             if (this.mDuration >= 0) {
                 zVar.h(this.mDuration);
             }

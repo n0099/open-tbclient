@@ -1,6 +1,7 @@
 package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
+import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.base.network.Apn;
 import java.util.HashMap;
 import java.util.Locale;
@@ -55,7 +56,7 @@ public class IjkMediaFormat implements IMediaFormat {
                     sb.append(" Profile Level ");
                     sb.append((integer / 10) % 10);
                     if (integer % 10 != 0) {
-                        sb.append(".");
+                        sb.append(Constants.DOT);
                         sb.append(integer % 10);
                     }
                 }

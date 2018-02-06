@@ -711,7 +711,7 @@ public class SapiUtils {
     }
 
     public static boolean isQrLoginSchema(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains(KEY_QR_LOGIN_SIGN) && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
             HashMap hashMap = new HashMap();
             for (String str2 : str.split("&")) {
                 String[] split = str2.split("=");
@@ -721,7 +721,7 @@ public class SapiUtils {
                     hashMap.put(split[0], "");
                 }
             }
-            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_SIGN)) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
         }
         return false;
     }

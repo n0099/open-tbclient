@@ -17,14 +17,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class SapiContext {
-    private static String B = null;
-    private static SapiContext C = null;
+    private static String C = null;
+    private static SapiContext D = null;
     public static final int MAX_SHARE_ACCOUNTS = 5;
     private static final String a = "app_version_code";
     private static final String b = "current_account";
@@ -51,97 +50,98 @@ public final class SapiContext {
     private static final String w = "iqiyi_token";
     private static final String x = "face_login_uid";
     private static final String y = "face_login_hash_json";
-    private Context A;
-    private SharedPreferences z;
+    private static final String z = "pre_login_type";
+    private SharedPreferences A;
+    private Context B;
 
     public static SapiContext getInstance(Context context) {
         synchronized (SapiContext.class) {
-            if (C == null) {
-                C = new SapiContext(context.getApplicationContext());
+            if (D == null) {
+                D = new SapiContext(context.getApplicationContext());
             }
         }
-        return C;
+        return D;
     }
 
     private SapiContext(Context context) {
-        this.A = context;
-        this.z = context.getSharedPreferences("sapi_system", 0);
+        this.B = context;
+        this.A = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.z.edit().putString(str, str2).apply();
+            this.A.edit().putString(str, str2).apply();
         } else {
-            this.z.edit().putString(str, str2).commit();
+            this.A.edit().putString(str, str2).commit();
         }
     }
 
     private void a(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.z.edit().putInt(str, i2).apply();
+            this.A.edit().putInt(str, i2).apply();
         } else {
-            this.z.edit().putInt(str, i2).commit();
+            this.A.edit().putInt(str, i2).commit();
         }
     }
 
     private void a(String str, long j2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.z.edit().putLong(str, j2).apply();
+            this.A.edit().putLong(str, j2).apply();
         } else {
-            this.z.edit().putLong(str, j2).commit();
+            this.A.edit().putLong(str, j2).commit();
         }
     }
 
-    private void a(String str, boolean z) {
+    private void a(String str, boolean z2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.z.edit().putBoolean(str, z).apply();
+            this.A.edit().putBoolean(str, z2).apply();
         } else {
-            this.z.edit().putBoolean(str, z).commit();
+            this.A.edit().putBoolean(str, z2).commit();
         }
     }
 
     private String c(String str) {
-        return this.z.getString(str, "");
+        return this.A.getString(str, "");
     }
 
-    private boolean b(String str, boolean z) {
-        return this.z.getBoolean(str, z);
+    private boolean b(String str, boolean z2) {
+        return this.A.getBoolean(str, z2);
     }
 
     private int b(String str, int i2) {
-        return this.z.getInt(str, i2);
+        return this.A.getInt(str, i2);
     }
 
     private long b(String str, long j2) {
-        return this.z.getLong(str, j2);
+        return this.A.getLong(str, j2);
     }
 
     public boolean isHostsHijacked() {
         return b(k, false);
     }
 
-    public void setHostsHijacked(boolean z) {
-        a(k, z);
+    public void setHostsHijacked(boolean z2) {
+        a(k, z2);
     }
 
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.z.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.A.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.z.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.A.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     public void setCurrentAccount(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             a(p, "");
-            SapiUtils.webLogout(this.A);
+            SapiUtils.webLogout(this.B);
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
             a(p, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), c()));
-            SapiUtils.webLogin(this.A, sapiAccount.bduss, sapiAccount.ptoken);
+            SapiUtils.webLogin(this.B, sapiAccount.bduss, sapiAccount.ptoken);
             if (!isLoginStatusChanged()) {
                 b();
             }
@@ -366,8 +366,8 @@ public final class SapiContext {
         }
     }
 
-    public void setSofireZidInited(boolean z) {
-        a(u, z);
+    public void setSofireZidInited(boolean z2) {
+        a(u, z2);
     }
 
     public boolean getSofireZidInited() {
@@ -593,14 +593,14 @@ public final class SapiContext {
     }
 
     private String c() {
-        if (TextUtils.isEmpty(B)) {
+        if (TextUtils.isEmpty(C)) {
             try {
-                B = EncodeUtils.toMd5((this.A.getPackageName() + SapiUtils.getPackageSign(this.A, this.A.getPackageName())).getBytes(HTTP.UTF_8)).substring(0, 16);
+                C = EncodeUtils.toMd5((this.B.getPackageName() + SapiUtils.getPackageSign(this.B, this.B.getPackageName())).getBytes("UTF-8")).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
         }
-        return B;
+        return C;
     }
 
     public void setRootStatus(String str) {
@@ -663,5 +663,13 @@ public final class SapiContext {
 
     public List<Integer> getDiExceptIndex() {
         return getSapiOptions().diExceptIndex;
+    }
+
+    public void setPreLoginType(String str) {
+        a(z, str);
+    }
+
+    public String getPreLoginType() {
+        return c(z);
     }
 }

@@ -9,20 +9,20 @@ import android.util.TypedValue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class s {
-    private static final ThreadLocal<TypedValue> ER = new ThreadLocal<>();
+    private static final ThreadLocal<TypedValue> EQ = new ThreadLocal<>();
     static final int[] lg = {-16842910};
     static final int[] FOCUSED_STATE_SET = {16842908};
-    static final int[] Xd = {16843518};
+    static final int[] Xc = {16843518};
     static final int[] PRESSED_STATE_SET = {16842919};
     static final int[] jn = {16842912};
     static final int[] SELECTED_STATE_SET = {16842913};
-    static final int[] Xe = {-16842919, -16842908};
+    static final int[] Xd = {-16842919, -16842908};
     static final int[] EMPTY_STATE_SET = new int[0];
-    private static final int[] Xf = new int[1];
+    private static final int[] Xe = new int[1];
 
-    public static int m(Context context, int i) {
-        Xf[0] = i;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xf);
+    public static int n(Context context, int i) {
+        Xe[0] = i;
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xe);
         try {
             return obtainStyledAttributes.getColor(0, 0);
         } finally {
@@ -30,9 +30,9 @@ public class s {
         }
     }
 
-    public static ColorStateList n(Context context, int i) {
-        Xf[0] = i;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xf);
+    public static ColorStateList o(Context context, int i) {
+        Xe[0] = i;
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xe);
         try {
             return obtainStyledAttributes.getColorStateList(0);
         } finally {
@@ -40,10 +40,10 @@ public class s {
         }
     }
 
-    public static int o(Context context, int i) {
-        ColorStateList n = n(context, i);
-        if (n != null && n.isStateful()) {
-            return n.getColorForState(lg, n.getDefaultColor());
+    public static int p(Context context, int i) {
+        ColorStateList o = o(context, i);
+        if (o != null && o.isStateful()) {
+            return o.getColorForState(lg, o.getDefaultColor());
         }
         TypedValue ev = ev();
         context.getTheme().resolveAttribute(16842803, ev, true);
@@ -51,17 +51,17 @@ public class s {
     }
 
     private static TypedValue ev() {
-        TypedValue typedValue = ER.get();
+        TypedValue typedValue = EQ.get();
         if (typedValue == null) {
             TypedValue typedValue2 = new TypedValue();
-            ER.set(typedValue2);
+            EQ.set(typedValue2);
             return typedValue2;
         }
         return typedValue;
     }
 
     static int a(Context context, int i, float f) {
-        int m = m(context, i);
-        return ColorUtils.setAlphaComponent(m, Math.round(Color.alpha(m) * f));
+        int n = n(context, i);
+        return ColorUtils.setAlphaComponent(n, Math.round(Color.alpha(n) * f));
     }
 }

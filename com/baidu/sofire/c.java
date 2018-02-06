@@ -1,80 +1,44 @@
 package com.baidu.sofire;
 
 import android.content.Context;
-import android.os.FileObserver;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class c extends FileObserver {
-    private String a;
-    private String b;
-    private int c;
-    private Context d;
+public final class c {
+    private static Map<String, d> a = new HashMap();
 
-    public c(Context context, int i, String str, String str2) {
-        super(str, 4095);
+    public static void a(Context context, int i, File file, File file2) {
         try {
-            this.a = str;
-            this.b = str2;
-            this.c = i;
-            this.d = context;
-            new StringBuilder("f=").append(this.a).append(", e=").append(new File(this.a).exists()).append(", b=").append(this.b);
-        } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
-        }
-    }
-
-    public final boolean a() {
-        try {
-            File file = new File(this.b);
-            if (file.exists()) {
-                return file.delete();
-            }
-            return false;
-        } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
-            return false;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.sofire.c$1] */
-    @Override // android.os.FileObserver
-    public void onEvent(int i, String str) {
-        switch (i) {
-            case 2:
-            case 4:
-            case 64:
-            case 128:
-            case 512:
-            case 1024:
-            case 2048:
-                try {
-                    new Thread() { // from class: com.baidu.sofire.c.1
-                        @Override // java.lang.Thread, java.lang.Runnable
-                        public final void run() {
-                            try {
-                                super.run();
-                                synchronized (c.class) {
-                                    if (!com.baidu.sofire.b.d.a(c.this.a)) {
-                                        com.baidu.sofire.b.d.b(c.this.b, c.this.a);
-                                        com.baidu.sofire.b.d.a(c.this.a, true);
-                                        b.a(new File(c.this.a));
-                                        b.a(c.this.d, c.this.c, new File(c.this.a), new File(c.this.b));
-                                        new StringBuilder().append(c.this.a.toString());
-                                        com.baidu.sofire.a.a.aA(c.this.d).b(c.this.c, -1);
-                                    }
-                                }
-                            } catch (Throwable th) {
-                                com.baidu.sofire.b.d.a(th);
-                            }
-                        }
-                    }.start();
-                    return;
-                } catch (Throwable th) {
-                    com.baidu.sofire.b.d.a(th);
-                    return;
+            if (com.baidu.sofire.b.d.a(file)) {
+                if (!com.baidu.sofire.b.d.a(file2)) {
+                    com.baidu.sofire.b.d.a(file, file2);
                 }
-            default:
-                return;
+                new StringBuilder("f=").append(file).append(", b=").append(file2);
+                if (!a.containsKey(file.getAbsolutePath())) {
+                    d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
+                    dVar.startWatching();
+                    a.put(file.getAbsolutePath(), dVar);
+                }
+            }
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d.a(th);
+        }
+    }
+
+    public static void a(File file) {
+        if (file != null) {
+            try {
+                new StringBuilder("f=").append(file.getAbsolutePath());
+                d dVar = a.get(file.getAbsolutePath());
+                if (dVar != null) {
+                    dVar.stopWatching();
+                    a.remove(file.getAbsolutePath());
+                    dVar.a();
+                }
+            } catch (Throwable th) {
+                com.baidu.sofire.b.d.a(th);
+            }
         }
     }
 }

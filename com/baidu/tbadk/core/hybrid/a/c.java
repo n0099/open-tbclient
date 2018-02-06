@@ -5,7 +5,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.hybrid.m;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.hybrid.p;
@@ -20,21 +19,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends o {
-    private m aSi;
+    private m aTN;
 
     public c(m mVar) {
         super(mVar);
-        this.aSi = mVar;
+        this.aTN = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String vK() {
+    public String ww() {
         return "TBHY_COMMON_Image";
     }
 
-    @p(Bj = false, value = "scanBigImages")
-    protected void sanBigImages(JSONObject jSONObject) throws JSONException {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @p(BC = false, value = "scanBigImages")
+    public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
             int optInt = jSONObject.optInt("clickIndex");
@@ -57,7 +57,7 @@ public class c extends o {
                     }
                 }
             }
-            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.aSi.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTN.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
@@ -84,6 +84,6 @@ public class c extends o {
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
         albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_LOGIN);
-        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
+        sendMessage(new CustomMessage(2002001, albumActivityConfig));
     }
 }

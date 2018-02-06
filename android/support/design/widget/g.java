@@ -48,7 +48,7 @@ public class g extends i {
         }
         this.oW = new LayerDrawable(drawableArr);
         this.oI = new n(this.pa.getContext(), this.oW, this.pd.getRadius(), this.oX, this.oX + this.oY);
-        this.oI.k(false);
+        this.oI.m(false);
         this.pd.setBackgroundDrawable(this.oI);
     }
 
@@ -95,8 +95,8 @@ public class g extends i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
-    public void b(int[] iArr) {
-        this.oH.c(iArr);
+    public void c(int[] iArr) {
+        this.oH.d(iArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -117,7 +117,7 @@ public class g extends i {
                 @Override // android.support.design.widget.a.animation.Animation$AnimationListenerC0002a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     g.this.oS = 0;
-                    g.this.pa.b(8, z);
+                    g.this.pa.e(8, z);
                     if (aVar != null) {
                         aVar.bM();
                     }
@@ -132,7 +132,7 @@ public class g extends i {
     public void b(final i.a aVar, boolean z) {
         if (!bY()) {
             this.oS = 2;
-            this.pa.b(0, z);
+            this.pa.e(0, z);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.pa.getContext(), R.anim.design_fab_in);
             loadAnimation.setDuration(200L);
             loadAnimation.setInterpolator(android.support.design.widget.a.kD);
@@ -155,7 +155,7 @@ public class g extends i {
     }
 
     @Override // android.support.design.widget.i
-    void b(Rect rect) {
+    void c(Rect rect) {
         this.oI.getPadding(rect);
     }
 
@@ -187,12 +187,12 @@ public class g extends i {
                 this.oO = bQ();
                 this.oM = true;
             }
-            g.this.oI.k(this.oN + ((this.oO - this.oN) * sVar.getAnimatedFraction()));
+            g.this.oI.o(this.oN + ((this.oO - this.oN) * sVar.getAnimatedFraction()));
         }
 
         @Override // android.support.design.widget.s.b, android.support.design.widget.s.a
         public void b(s sVar) {
-            g.this.oI.k(this.oO);
+            g.this.oI.o(this.oO);
             this.oM = false;
         }
     }

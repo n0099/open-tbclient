@@ -29,8 +29,6 @@ abstract class q {
 
     public abstract q b(Class cls, boolean z);
 
-    public abstract q c(int i, boolean z);
-
     public abstract q c(View view, boolean z);
 
     public abstract void captureEndValues(af afVar);
@@ -39,9 +37,11 @@ abstract class q {
 
     public abstract Animator createAnimator(ViewGroup viewGroup, af afVar, af afVar2);
 
-    public abstract q d(int i, boolean z);
+    public abstract q f(int i, boolean z);
 
     public abstract q f(long j);
+
+    public abstract q g(int i, boolean z);
 
     public abstract q g(long j);
 

@@ -1,29 +1,11 @@
 package com.baidu.tieba.recapp;
-
-import android.view.View;
 /* loaded from: classes.dex */
 public interface j {
-    void autoPlay(int i);
+    int V(String str, boolean z);
 
-    long getCurrentPosition();
+    int W(String str, boolean z);
 
-    int getHeight();
+    void bnQ();
 
-    void getLocationInWindow(int[] iArr);
-
-    int getPlayStatus();
-
-    String getPlayUrl();
-
-    View getVideoContainer();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void release();
-
-    void startPlay();
-
-    void stopPlay();
+    void f(String str, int i, boolean z);
 }

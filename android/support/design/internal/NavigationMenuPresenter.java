@@ -158,7 +158,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             }
             Bundle bundle2 = bundle.getBundle("android:menu:adapter");
             if (bundle2 != null) {
-                this.kg.e(bundle2);
+                this.kg.f(bundle2);
             }
         }
     }
@@ -507,7 +507,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             return bundle;
         }
 
-        public void e(Bundle bundle) {
+        public void f(Bundle bundle) {
             MenuItemImpl aR;
             int i = bundle.getInt("android:menu:checked", 0);
             if (i != 0) {

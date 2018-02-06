@@ -13,7 +13,6 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes2.dex */
@@ -178,7 +177,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 } else if (MODEL_MX4.equals(Build.MODEL)) {
                     i2 = 2;
                 }
-                TiebaStatic.log(new ak("c12200").s("obj_type", i2).aa("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ak("c12200").s("obj_type", i2).ab("uid", TbadkCoreApplication.getCurrentAccount()));
             }
             if (this.mContext instanceof a) {
                 ((a) this.mContext).addPlayer(this.mMediaPlayer);
@@ -193,7 +192,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnSpeedWhenInvokingErrorListener(this.mOnSpeedWhenInvokingErrorListener);
             if (!TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(HTTP.TARGET_HOST, str);
+                hashMap.put("Host", str);
                 this.mMediaPlayer.setDataSource(this.mContext, uri, hashMap);
             } else {
                 this.mMediaPlayer.setDataSource(this.mContext, uri);

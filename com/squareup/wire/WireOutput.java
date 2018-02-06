@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import android.support.v4.media.TransportMediator;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public final class WireOutput {
@@ -167,7 +168,7 @@ public final class WireOutput {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeVarint32(int i) throws IOException {
         while ((i & (-128)) != 0) {
-            writeRawByte((i & 127) | 128);
+            writeRawByte((i & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
             i >>>= 7;
         }
         writeRawByte(i);
@@ -176,7 +177,7 @@ public final class WireOutput {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeVarint64(long j) throws IOException {
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & 127) | 128);
+            writeRawByte((((int) j) & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
             j >>>= 7;
         }
         writeRawByte((int) j);

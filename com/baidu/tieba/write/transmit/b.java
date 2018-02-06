@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private static int fyI = 3;
+    private static int fCi = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.DT();
+            aVar.En();
             aVar.a(this.mDataList.get(i));
         }
         return view;
@@ -60,45 +60,45 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView bcW;
-        public BarImageView fyK;
-        public View hFI;
+        public TextView beO;
+        public BarImageView fCk;
+        public View hHg;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bcW = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.fyK = (BarImageView) view.findViewById(d.g.forum_avatar);
-                this.hFI = view.findViewById(d.g.divider_line);
+                this.beO = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.fCk = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.hHg = view.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bcW.setText(transmitForumData.forumName);
-                this.fyK.startLoad(transmitForumData.avatar, 10, false);
+                this.beO.setText(transmitForumData.forumName);
+                this.fCk.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void DT() {
-            if (b.fyI != this.mSkinType) {
-                aj.r(this.bcW, d.C0108d.cp_cont_b);
-                aj.t(this.hFI, d.C0108d.cp_bg_line_c);
+        public void En() {
+            if (b.fCi != this.mSkinType) {
+                aj.r(this.beO, d.C0140d.cp_cont_b);
+                aj.t(this.hHg, d.C0140d.cp_bg_line_c);
             }
-            this.mSkinType = b.fyI;
+            this.mSkinType = b.fCi;
         }
     }
 
-    public void au(List<TransmitForumData> list) {
+    public void cy(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        if (fyI != i) {
+        if (fCi != i) {
             notifyDataSetChanged();
         }
-        fyI = i;
+        fCi = i;
     }
 }

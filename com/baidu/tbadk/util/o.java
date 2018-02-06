@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.fsg.base.utils.PhoneUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,7 +25,7 @@ public class o {
         AccountData currentAccountInfo;
         if (obj != null) {
             try {
-                Field field = obj.getClass().getField("common");
+                Field field = obj.getClass().getField(PhoneUtils.CPUInfo.FEATURE_COMMON);
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                 }

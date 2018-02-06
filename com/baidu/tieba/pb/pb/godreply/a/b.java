@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
 /* loaded from: classes2.dex */
 public class b extends LinearLayout {
-    private TextView bmx;
-    private TriangleShapeView fHf;
+    private TextView boL;
+    private TriangleShapeView fKC;
 
     public b(Context context) {
         super(context);
@@ -21,15 +21,15 @@ public class b extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(d.h.usertips_view, this);
-        this.fHf = (TriangleShapeView) findViewById(d.g.usertip_triangle);
-        this.fHf.setColorId(d.C0108d.cp_link_tip_a);
-        this.fHf.setAlpha(0.95f);
-        this.bmx = (TextView) findViewById(d.g.usertip_text);
-        this.bmx.setAlpha(0.95f);
+        this.fKC = (TriangleShapeView) findViewById(d.g.usertip_triangle);
+        this.fKC.setColorId(d.C0140d.cp_link_tip_a);
+        this.fKC.setAlpha(0.95f);
+        this.boL = (TextView) findViewById(d.g.usertip_text);
+        this.boL.setAlpha(0.95f);
     }
 
     public void onChangeSkinType(int i) {
-        this.bmx.getBackground().setColorFilter(aj.getColor(d.C0108d.cp_link_tip_a), PorterDuff.Mode.MULTIPLY);
-        aj.r(this.bmx, d.C0108d.cp_cont_g);
+        this.boL.getBackground().setColorFilter(aj.getColor(d.C0140d.cp_link_tip_a), PorterDuff.Mode.MULTIPLY);
+        aj.r(this.boL, d.C0140d.cp_cont_g);
     }
 }

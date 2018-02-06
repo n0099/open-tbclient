@@ -3,7 +3,6 @@ package com.baidu.adp.lib.stats.upload;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.base.d;
-import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +24,7 @@ public class a {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.c cVar = b.get(i);
-                j += cVar.alg;
+                j += cVar.alf;
                 arrayList2.add(cVar);
                 if (j >= 102400) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -70,8 +69,8 @@ public class a {
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.c next = it.next();
                 if (next != null) {
-                    long j = next.alh;
-                    if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis) {
+                    long j = next.alg;
+                    if (j != 0 && j + 604800000 < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {
                         arrayList3.add(next);

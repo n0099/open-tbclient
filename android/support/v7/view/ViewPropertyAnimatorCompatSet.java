@@ -11,37 +11,37 @@ import java.util.Iterator;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ViewPropertyAnimatorCompatSet {
-    ViewPropertyAnimatorListener Hm;
+    ViewPropertyAnimatorListener Hl;
     private Interpolator mInterpolator;
     private boolean mIsStarted;
     private long mDuration = -1;
-    private final ViewPropertyAnimatorListenerAdapter Hn = new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.view.ViewPropertyAnimatorCompatSet.1
-        private boolean Ho = false;
-        private int Hp = 0;
+    private final ViewPropertyAnimatorListenerAdapter Hm = new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.view.ViewPropertyAnimatorCompatSet.1
+        private boolean Hn = false;
+        private int Ho = 0;
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
         public void onAnimationStart(View view) {
-            if (!this.Ho) {
-                this.Ho = true;
-                if (ViewPropertyAnimatorCompatSet.this.Hm != null) {
-                    ViewPropertyAnimatorCompatSet.this.Hm.onAnimationStart(null);
+            if (!this.Hn) {
+                this.Hn = true;
+                if (ViewPropertyAnimatorCompatSet.this.Hl != null) {
+                    ViewPropertyAnimatorCompatSet.this.Hl.onAnimationStart(null);
                 }
             }
         }
 
         void onEnd() {
-            this.Hp = 0;
-            this.Ho = false;
+            this.Ho = 0;
+            this.Hn = false;
             ViewPropertyAnimatorCompatSet.this.eL();
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
         public void onAnimationEnd(View view) {
-            int i = this.Hp + 1;
-            this.Hp = i;
+            int i = this.Ho + 1;
+            this.Ho = i;
             if (i == ViewPropertyAnimatorCompatSet.this.mAnimators.size()) {
-                if (ViewPropertyAnimatorCompatSet.this.Hm != null) {
-                    ViewPropertyAnimatorCompatSet.this.Hm.onAnimationEnd(null);
+                if (ViewPropertyAnimatorCompatSet.this.Hl != null) {
+                    ViewPropertyAnimatorCompatSet.this.Hl.onAnimationEnd(null);
                 }
                 onEnd();
             }
@@ -74,8 +74,8 @@ public class ViewPropertyAnimatorCompatSet {
                 if (this.mInterpolator != null) {
                     next.setInterpolator(this.mInterpolator);
                 }
-                if (this.Hm != null) {
-                    next.setListener(this.Hn);
+                if (this.Hl != null) {
+                    next.setListener(this.Hm);
                 }
                 next.start();
             }
@@ -113,7 +113,7 @@ public class ViewPropertyAnimatorCompatSet {
 
     public ViewPropertyAnimatorCompatSet setListener(ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
         if (!this.mIsStarted) {
-            this.Hm = viewPropertyAnimatorListener;
+            this.Hl = viewPropertyAnimatorListener;
         }
         return this;
     }

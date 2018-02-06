@@ -50,7 +50,7 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
 
     private String aC(String str) {
         d dVar = new d(this.mLogDir, str, DiskFileOperate.Action.READ);
-        dVar.ab(this.mUseSdCard);
+        dVar.ad(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.cP(3);

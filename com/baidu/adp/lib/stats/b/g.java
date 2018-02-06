@@ -20,19 +20,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g alI;
-    private h alL;
-    private a alM;
+    private static volatile g alH;
+    private h alK;
+    private a alL;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private String uid;
-    private final SimpleDateFormat alJ = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> alK = new ConcurrentHashMap<>();
+    private final SimpleDateFormat alI = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> alJ = new ConcurrentHashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.b.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.alK.entrySet()) {
+                    for (Map.Entry entry : g.this.alJ.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.nP() > 0) {
                             g.this.a(aVar, true, true);
@@ -47,7 +47,7 @@ public class g {
             }
         }
     };
-    private i alf = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
+    private i ale = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
         @Override // com.baidu.adp.lib.stats.b.i
         public void g(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.b(aVar)) {
@@ -60,22 +60,22 @@ public class g {
     };
 
     public static g oj() {
-        if (alI == null) {
+        if (alH == null) {
             synchronized (g.class) {
-                if (alI == null) {
-                    alI = new g();
+                if (alH == null) {
+                    alH = new g();
                 }
             }
         }
-        return alI;
+        return alH;
     }
 
     public void init() {
-        if (this.alM == null) {
-            this.alM = new a();
+        if (this.alL == null) {
+            this.alL = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.alM, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.alL, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
     }
@@ -99,23 +99,23 @@ public class g {
         String ay;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.alK.get((ay = com.baidu.adp.lib.stats.base.a.ay(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.alJ.get((ay = com.baidu.adp.lib.stats.base.a.ay(str)))) == null) {
                 if ("alert".equals(ay)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if ("error".equals(ay)) {
-                    aVar = new c(this.alf);
+                    aVar = new c(this.ale);
                 } else if ("dbg".equals(ay)) {
-                    aVar = new b(this.alf);
+                    aVar = new b(this.ale);
                 } else if ("stat".equals(ay)) {
-                    aVar = new f(this.alf);
+                    aVar = new f(this.ale);
                 } else if ("pfmonitor".equals(ay)) {
-                    aVar = new e(this.alf);
+                    aVar = new e(this.ale);
                 } else {
-                    aVar = new c(this.alf);
+                    aVar = new c(this.ale);
                 }
                 if (aVar != null) {
                     aVar.ax(ay);
-                    this.alK.put(ay, aVar);
+                    this.alJ.put(ay, aVar);
                 }
             }
         }
@@ -197,19 +197,19 @@ public class g {
     }
 
     public void ok() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alK.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
             e(entry.getValue());
         }
     }
 
     public void ol() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alK.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
             d(entry.getValue());
         }
     }
 
     public void om() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alK.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             a(value, false, false);
             d(value);
@@ -223,7 +223,7 @@ public class g {
     }
 
     public void on() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alK.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             e(value);
             f(value);
@@ -252,22 +252,22 @@ public class g {
         if (aVar != null && aVar.nP() > 0) {
             DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), aVar.nM(), BdStatisticsManager.getInstance().getNotUploadWriteDir(), aVar.nN(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.g.2
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                public void W(boolean z3) {
-                    super.W(z3);
+                public void Y(boolean z3) {
+                    super.Y(z3);
                     if (z3) {
                         aVar.s(0L);
                         com.baidu.adp.lib.stats.upload.b.oh().a(aVar, z, true, z2);
                     }
                 }
             };
-            diskFileOperate.ab(aVar.nX());
+            diskFileOperate.ad(aVar.nX());
             diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             com.baidu.adp.lib.Disk.d.ll().c(diskFileOperate);
         }
     }
 
     public void op() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alK.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
                 long av = this.mBdLogSetting.av(value.nS());
@@ -308,27 +308,27 @@ public class g {
             if (aVar.nP() > 102400) {
                 DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), aVar.nM(), BdStatisticsManager.getInstance().getNotUploadWriteDir(), aVar.nN(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.g.3
                     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                    public void W(boolean z) {
-                        super.W(z);
+                    public void Y(boolean z) {
+                        super.Y(z);
                         if (z) {
                             aVar.s(0L);
                         }
                     }
                 };
-                diskFileOperate.ab(aVar.nX());
+                diskFileOperate.ad(aVar.nX());
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 com.baidu.adp.lib.Disk.d.ll().c(diskFileOperate);
             }
             com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getNotUploadWriteDir(), aVar.nM(), DiskFileOperate.Action.APPEND) { // from class: com.baidu.adp.lib.stats.b.g.4
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-                public void W(boolean z) {
-                    super.W(z);
+                public void Y(boolean z) {
+                    super.Y(z);
                     if (z) {
                         aVar.s(lz().length());
                     }
                 }
             };
-            dVar.ab(aVar.nX());
+            dVar.ad(aVar.nX());
             dVar.setContent(aVar.nW().toString());
             aVar.nR();
             if (!aVar.nY()) {
@@ -341,9 +341,9 @@ public class g {
     }
 
     public void oq() {
-        if (this.alL == null) {
-            this.alL = new h();
+        if (this.alK == null) {
+            this.alK = new h();
         }
-        this.alL.oq();
+        this.alK.oq();
     }
 }

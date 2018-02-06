@@ -4,15 +4,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> gZM;
+    private static HashMap<String, e> hca;
 
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tbadkCore.d.c.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tbadkCore.d.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -21,7 +21,7 @@ public class c {
                 }
             }
         });
-        gZM = new HashMap<>();
+        hca = new HashMap<>();
     }
 
     public static void j(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!gZM.containsKey(str3)) {
-            gZM.put(str3, new e(str, str2, z));
+        if (!hca.containsKey(str3)) {
+            hca.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!gZM.containsKey(str3)) {
-            gZM.put(str3, new e(str, str2, z));
+        if (!hca.containsKey(str3)) {
+            hca.put(str3, new e(str, str2, z));
         }
-        return gZM.get(str3);
+        return hca.get(str3);
     }
 
-    public static void bwe() {
+    public static void bxn() {
     }
 
     public static void vM(int i) {
-        for (String str : gZM.keySet()) {
-            a(gZM.get(str), i);
+        for (String str : hca.keySet()) {
+            a(hca.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.gZQ;
-        d dVar2 = eVar.gZR;
-        d dVar3 = eVar.gZS;
+        d dVar = eVar.hce;
+        d dVar2 = eVar.hcf;
+        d dVar3 = eVar.hcg;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
-            aVar.append("act", eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.gZN));
+            aVar.append(SocialConstants.PARAM_ACT, eVar.type);
+            aVar.append("httpTimeCost", String.valueOf(dVar.hcb));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.gZO));
+            aVar.append("httpFailnum", String.valueOf(dVar.hcc));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.gZN));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.hcb));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.gZO));
+            aVar.append("socketFailnum", String.valueOf(dVar2.hcc));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.gZN));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.hcb));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.gZP ? "1" : "0");
+            aVar.append("isJson", eVar.hcd ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

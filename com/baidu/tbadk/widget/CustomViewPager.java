@@ -6,27 +6,27 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class CustomViewPager extends TbViewPager {
-    private boolean bBC;
-    private int bBD;
+    private boolean bDG;
+    private int bDH;
     private boolean isScrolling;
     private int mDirection;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
 
     public CustomViewPager(Context context) {
         super(context);
-        this.bBC = true;
+        this.bDG = true;
         this.mDirection = 0;
         this.isScrolling = false;
-        this.bBD = -1;
+        this.bDH = -1;
         init();
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bBC = true;
+        this.bDG = true;
         this.mDirection = 0;
         this.isScrolling = false;
-        this.bBD = -1;
+        this.bDH = -1;
         init();
     }
 
@@ -46,15 +46,15 @@ public class CustomViewPager extends TbViewPager {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
                 if (CustomViewPager.this.isScrolling) {
-                    if (CustomViewPager.this.bBD > i2) {
+                    if (CustomViewPager.this.bDH > i2) {
                         CustomViewPager.this.mDirection = -1;
-                    } else if (CustomViewPager.this.bBD < i2) {
+                    } else if (CustomViewPager.this.bDH < i2) {
                         CustomViewPager.this.mDirection = 1;
-                    } else if (CustomViewPager.this.bBD == i2) {
+                    } else if (CustomViewPager.this.bDH == i2) {
                         CustomViewPager.this.mDirection = 0;
                     }
                 }
-                CustomViewPager.this.bBD = i2;
+                CustomViewPager.this.bDH = i2;
                 if (CustomViewPager.this.mOnPageChangeListener != null) {
                     CustomViewPager.this.mOnPageChangeListener.onPageScrolled(i, f, i2);
                 }
@@ -70,7 +70,7 @@ public class CustomViewPager extends TbViewPager {
     }
 
     public void setScrollable(boolean z) {
-        this.bBC = z;
+        this.bDG = z;
     }
 
     @Override // android.support.v4.view.ViewPager
@@ -84,7 +84,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bBC) {
+        if (this.bDG) {
             if (getCurrentItem() != 0) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -99,7 +99,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bBC) {
+        if (this.bDG) {
             return super.onTouchEvent(motionEvent);
         }
         return false;

@@ -14,7 +14,7 @@ import com.baidu.tieba.tbadkCore.imgView.e;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static s w(Context context, int i) {
+    public static s x(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.h.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -33,7 +33,7 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        aj.e(multiImgToolView.getMutiImageTips(), d.C0108d.cp_cont_c, 1);
+        aj.e(multiImgToolView.getMutiImageTips(), d.C0140d.cp_cont_c, 1);
         return multiImgToolView;
     }
 

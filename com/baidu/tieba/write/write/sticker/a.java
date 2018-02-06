@@ -5,38 +5,38 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 /* loaded from: classes2.dex */
 public class a {
-    private Bitmap hLT;
+    private Bitmap hNs;
     private Matrix mMatrix = new Matrix();
 
     public a(Bitmap bitmap) {
-        this.hLT = bitmap;
+        this.hNs = bitmap;
     }
 
     public void draw(Canvas canvas) {
         if (canvas != null) {
-            canvas.drawBitmap(this.hLT, this.mMatrix, null);
+            canvas.drawBitmap(this.hNs, this.mMatrix, null);
         }
     }
 
-    public int bIO() {
-        if (this.hLT == null) {
+    public int bJB() {
+        if (this.hNs == null) {
             return 0;
         }
-        return this.hLT.getWidth();
+        return this.hNs.getWidth();
     }
 
-    public int bIP() {
-        if (this.hLT == null) {
+    public int bJC() {
+        if (this.hNs == null) {
             return 0;
         }
-        return this.hLT.getHeight();
+        return this.hNs.getHeight();
     }
 
     public Matrix getMatrix() {
         return this.mMatrix;
     }
 
-    public Bitmap bIQ() {
-        return this.hLT;
+    public Bitmap bJD() {
+        return this.hNs;
     }
 }

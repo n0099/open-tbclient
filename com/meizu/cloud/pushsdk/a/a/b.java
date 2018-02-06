@@ -84,7 +84,7 @@ public class b<T extends b> {
     private File v;
     private g y;
 
-    public b(C0181b c0181b) {
+    public b(C0263b c0263b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -103,19 +103,19 @@ public class b<T extends b> {
         this.aa = null;
         this.ab = null;
         this.d = 0;
-        this.b = c0181b.b;
-        this.c = c0181b.a;
-        this.e = c0181b.c;
-        this.g = c0181b.d;
-        this.i = c0181b.i;
-        this.V = c0181b.e;
-        this.X = c0181b.g;
-        this.W = c0181b.f;
-        this.Y = c0181b.h;
-        this.m = c0181b.j;
-        this.n = c0181b.k;
-        this.Z = c0181b.l;
-        this.aa = c0181b.m;
+        this.b = c0263b.b;
+        this.c = c0263b.a;
+        this.e = c0263b.c;
+        this.g = c0263b.d;
+        this.i = c0263b.i;
+        this.V = c0263b.e;
+        this.X = c0263b.g;
+        this.W = c0263b.f;
+        this.Y = c0263b.h;
+        this.m = c0263b.j;
+        this.n = c0263b.k;
+        this.Z = c0263b.l;
+        this.aa = c0263b.m;
     }
 
     public b(c cVar) {
@@ -610,7 +610,7 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0181b<T extends C0181b> {
+    public static class C0263b<T extends C0263b> {
         private int b;
         private String c;
         private Object d;
@@ -625,7 +625,7 @@ public class b<T extends b> {
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C0181b(String str) {
+        public C0263b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;

@@ -2,21 +2,21 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.card.data.r;
+import com.baidu.tieba.card.data.q;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.tieba.card.data.g implements r {
-    private CardForum egk;
+public class b extends com.baidu.tieba.card.data.g implements q {
+    private CardForum ekw;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.egk = cardForum;
+            this.ekw = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(akZ() + cardForum.position.intValue());
+                setYuelaouLocate(alI() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(akZ() + 0);
+                setYuelaouLocate(alI() + 0);
             }
             if (v.D(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -33,37 +33,37 @@ public class b extends com.baidu.tieba.card.data.g implements r {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.r
+    @Override // com.baidu.tieba.card.data.q
     public int getPosition() {
-        if (this.egk != null) {
-            return this.egk.position.intValue();
+        if (this.ekw != null) {
+            return this.ekw.position.intValue();
         }
         return 0;
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public boolean akX() {
+    @Override // com.baidu.tieba.card.data.q
+    public boolean alG() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public void eK(boolean z) {
+    @Override // com.baidu.tieba.card.data.q
+    public void eQ(boolean z) {
         this.showTopDivider = z;
     }
 
-    @Override // com.baidu.tieba.card.data.r
-    public void eL(boolean z) {
+    @Override // com.baidu.tieba.card.data.q
+    public void eR(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean Ux() {
+    public boolean Vp() {
         if (v.D(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean oO(int i) {
+    public static boolean oP(int i) {
         return i == 1;
     }
 }

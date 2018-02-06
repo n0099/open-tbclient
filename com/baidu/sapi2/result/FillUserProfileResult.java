@@ -21,6 +21,6 @@ public class FillUserProfileResult extends SapiResult {
         this.msgMap.put(8, RESULT_MSG_PHONE_UNAVAILABLE);
         this.msgMap.put(RESULT_CODE_COMPLETE_USER, RESULT_MSG_COMPLETE_USER);
         this.msgMap.put(-101, ERROR_MSG_SIM_UNAVAILABLE);
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 }

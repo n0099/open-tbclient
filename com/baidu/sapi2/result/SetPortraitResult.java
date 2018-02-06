@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SetPortraitResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "设置头像失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 160103;
@@ -16,6 +16,6 @@ public class SetPortraitResult extends SapiResult {
         this.msgMap.put(160103, "用户登录状态失效，请重新登录");
         this.msgMap.put(1605001, RESULT_MSG_FORMAT_ERROR);
         this.msgMap.put(1605002, RESULT_MSG_SYSTEM_ERROR);
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 }

@@ -109,7 +109,7 @@ public class c {
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bP)) {
                         try {
-                            f.k(listFiles[i]);
+                            f.l(listFiles[i]);
                             com.baidu.adp.plugin.b.a.qF().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
                             com.baidu.adp.plugin.b.a.qF().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());

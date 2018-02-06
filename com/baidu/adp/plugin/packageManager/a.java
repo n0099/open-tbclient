@@ -117,7 +117,7 @@ public class a {
                 return false;
             }
             try {
-                f.k(new File(str));
+                f.l(new File(str));
                 com.baidu.adp.plugin.b.a.qF().f("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.qF().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
@@ -127,7 +127,7 @@ public class a {
                 File file = new File(str.substring(0, length - 4));
                 if (file.exists() && file.isDirectory()) {
                     try {
-                        f.k(file);
+                        f.l(file);
                         com.baidu.adp.plugin.b.a.qF().f("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
                         com.baidu.adp.plugin.b.a.qF().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());

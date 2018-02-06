@@ -3,7 +3,6 @@ package com.xiaomi.network;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
@@ -16,7 +15,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +40,7 @@ public class HostManagerV2 extends HostManager {
     static String a(String str) {
         try {
             int length = str.length();
-            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            byte[] bytes = str.getBytes("UTF-8");
             for (int i = 0; i < bytes.length; i++) {
                 byte b = bytes[i];
                 if ((b & 240) != 240) {
@@ -115,7 +113,7 @@ public class HostManagerV2 extends HostManager {
             arrayList3.add(new com.xiaomi.channel.commonutils.network.a("conpt", a(d.k(this.sAppContext))));
         }
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
         Fallback localFallback = getLocalFallback("resolver.msg.xiaomi.net");
         String format = String.format(Locale.US, "http://%1$s/gslb/?ver=3.0", "resolver.msg.xiaomi.net:" + this.c);
         if (localFallback == null) {

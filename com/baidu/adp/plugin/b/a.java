@@ -10,36 +10,37 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aqZ = null;
-    private HashMap<String, Integer> aqY = new HashMap<>();
+    private static volatile a aqY = null;
+    private HashMap<String, Integer> aqX = new HashMap<>();
 
     public static synchronized a qF() {
         a aVar;
         synchronized (a.class) {
-            if (aqZ == null) {
+            if (aqY == null) {
                 synchronized (a.class) {
-                    if (aqZ == null) {
-                        aqZ = new a();
+                    if (aqY == null) {
+                        aqY = new a();
                     }
                 }
             }
-            aVar = aqZ;
+            aVar = aqY;
         }
         return aVar;
     }
 
     public void bm(String str) {
         if (str != null) {
-            Integer num = this.aqY.get(str);
+            Integer num = this.aqX.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.aqY.put(str, Integer.valueOf(num.intValue() + 1));
+            this.aqX.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -66,7 +67,7 @@ public class a {
         nn.append("workflow", str + "_cost");
         nn.h("cost", Long.valueOf(j));
         if (i != 0) {
-            nn.h("count", Integer.valueOf(i));
+            nn.h(WBPageConstants.ParamKey.COUNT, Integer.valueOf(i));
         }
         if (str2 != null) {
             nn.append("pname", str2);
@@ -133,7 +134,7 @@ public class a {
     }
 
     public void qG() {
-        if (this.aqY.size() != 0) {
+        if (this.aqX.size() != 0) {
             com.baidu.adp.lib.stats.a nn = nn();
             c(nn);
             BdStatisticsManager.getInstance().debug("pluginproxy", nn);
@@ -172,10 +173,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.aqY.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.aqX.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.aqY.clear();
+            this.aqX.clear();
         }
     }
 
@@ -183,7 +184,7 @@ public class a {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
-    public void au(boolean z) {
+    public void ax(boolean z) {
         EditorHelper.putBoolean(BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0), "is_plugin_lastload_fail", z);
     }
 

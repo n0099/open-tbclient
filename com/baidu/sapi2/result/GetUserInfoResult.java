@@ -18,7 +18,7 @@ public class GetUserInfoResult extends SapiResult {
 
     public GetUserInfoResult() {
         this.msgMap.put(400021, "用户登录状态失效，请重新登录");
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 
     public String toString() {

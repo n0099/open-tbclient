@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -173,7 +174,7 @@ public class e {
             contentValues.put("appId", Long.valueOf(jVar.e()));
             contentValues.put("name", jVar.c());
             contentValues.put("package_name", jVar.g());
-            contentValues.put("create_time", Long.valueOf(jVar.i()));
+            contentValues.put(WBConstants.GAME_PARAMS_GAME_CREATE_TIME, Long.valueOf(jVar.i()));
             contentValues.put("type", jVar.k().name());
             contentValues.put("center_longtitude", String.valueOf(jVar.m().a()));
             contentValues.put("center_lantitude", String.valueOf(jVar.m().c()));
@@ -228,7 +229,7 @@ public class e {
                         jVar.b(a.getString(a.getColumnIndex("name")));
                         jVar.a(a.getInt(a.getColumnIndex("appId")));
                         jVar.c(a.getString(a.getColumnIndex("package_name")));
-                        jVar.b(a.getInt(a.getColumnIndex("create_time")));
+                        jVar.b(a.getInt(a.getColumnIndex(WBConstants.GAME_PARAMS_GAME_CREATE_TIME)));
                         com.xiaomi.xmpush.thrift.k a2 = a(a);
                         if (a2 == null) {
                             com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo type null");

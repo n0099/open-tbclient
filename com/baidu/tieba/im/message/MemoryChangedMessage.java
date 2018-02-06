@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
 public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenterPojo> {
@@ -11,7 +10,7 @@ public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenter
     private int type;
 
     public MemoryChangedMessage(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i) {
-        super(CmdConfigCustom.MEMORY_CHANGED, imMessageCenterPojo);
+        super(2016004, imMessageCenterPojo);
         this.isFromServer = z;
         this.type = i;
     }

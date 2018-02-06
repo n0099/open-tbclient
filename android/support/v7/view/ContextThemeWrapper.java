@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ContextThemeWrapper extends ContextWrapper {
-    private int GC;
+    private int GB;
     private LayoutInflater mInflater;
     private Resources.Theme mTheme;
 
     public ContextThemeWrapper(Context context, int i) {
         super(context);
-        this.GC = i;
+        this.GB = i;
     }
 
     public ContextThemeWrapper(Context context, Resources.Theme theme) {
@@ -25,14 +25,14 @@ public class ContextThemeWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        if (this.GC != i) {
-            this.GC = i;
+        if (this.GB != i) {
+            this.GB = i;
             eF();
         }
     }
 
     public int getThemeResId() {
-        return this.GC;
+        return this.GB;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -40,8 +40,8 @@ public class ContextThemeWrapper extends ContextWrapper {
         if (this.mTheme != null) {
             return this.mTheme;
         }
-        if (this.GC == 0) {
-            this.GC = R.style.Theme_AppCompat_Light;
+        if (this.GB == 0) {
+            this.GB = R.style.Theme_AppCompat_Light;
         }
         eF();
         return this.mTheme;
@@ -71,6 +71,6 @@ public class ContextThemeWrapper extends ContextWrapper {
                 this.mTheme.setTo(theme);
             }
         }
-        onApplyThemeResource(this.mTheme, this.GC, z);
+        onApplyThemeResource(this.mTheme, this.GB, z);
     }
 }

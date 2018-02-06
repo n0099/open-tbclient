@@ -3,7 +3,7 @@ package com.baidu.sofire.rp.d.a;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.f;
+import com.baidu.sofire.b.g;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
@@ -22,7 +22,7 @@ public final class a {
             if (!TextUtils.isEmpty(str2)) {
                 str3 = "&topic=" + str2;
             }
-            String a = f.a(this.a, d.a() + "plugin/v1/report", str, false, false, str3);
+            String a = g.a(this.a, d.a() + "plugin/v1/report", str, false, false, str3);
             if (TextUtils.isEmpty(a)) {
                 return false;
             }

@@ -6,19 +6,19 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast amO;
+    private static Toast amN;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.amO != null) {
-                e.amO.cancel();
+            if (e.amN != null) {
+                e.amN.cancel();
             }
         }
     };
-    private boolean aTr;
+    private boolean aUW;
 
-    public static e By() {
+    public static e BR() {
         return new e();
     }
 
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void h(String str, int i, int i2) {
-        if (!this.aTr && str != null) {
+        if (!this.aUW && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (amO != null && amO.getView() != null) {
+                if (amN != null && amN.getView() != null) {
                     try {
-                        amO.setText(trim);
+                        amN.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        amO = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        amO.setGravity(17, 0, i2);
+                        amN = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        amN.setGravity(17, 0, i2);
                     }
                 } else {
-                    amO = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    amO.setGravity(17, 0, i2);
+                    amN = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    amN.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                amO.show();
+                amN.show();
             }
         }
     }
@@ -69,19 +69,19 @@ public class e {
     }
 
     public void onPause() {
-        this.aTr = true;
+        this.aUW = true;
         cancel();
     }
 
     public void onResume() {
-        this.aTr = false;
+        this.aUW = false;
     }
 
     public static void cancel() {
-        if (amO != null) {
+        if (amN != null) {
             mHandler.removeCallbacks(r);
-            amO.cancel();
-            amO = null;
+            amN.cancel();
+            amN = null;
         }
     }
 }

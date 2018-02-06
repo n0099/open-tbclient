@@ -94,7 +94,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(float f) {
+    public void g(float f) {
         if (this.mk != f) {
             this.mk = f;
             bn();
@@ -253,7 +253,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(float f) {
+    public void h(float f) {
         float constrain = m.constrain(f, 0.0f, 1.0f);
         if (constrain != this.md) {
             this.md = constrain;
@@ -286,20 +286,20 @@ final class d {
     }
 
     private void bi() {
-        e(this.md);
+        i(this.md);
     }
 
-    private void e(float f) {
-        f(f);
+    private void i(float f) {
+        j(f);
         this.ms = a(this.mq, this.mr, f, this.mK);
         this.mt = a(this.mo, this.mp, f, this.mK);
-        g(a(this.mk, this.ml, f, this.mL));
+        k(a(this.mk, this.ml, f, this.mL));
         if (this.mn != this.mm) {
-            this.mJ.setColor(b(bj(), bk(), f));
+            this.mJ.setColor(c(bj(), bk(), f));
         } else {
             this.mJ.setColor(bk());
         }
-        this.mJ.setShadowLayer(a(this.mQ, this.mM, f, null), a(this.mS, this.mN, f, null), a(this.mT, this.mO, f, null), b(this.mU, this.mP, f));
+        this.mJ.setShadowLayer(a(this.mQ, this.mM, f, null), a(this.mS, this.mN, f, null), a(this.mT, this.mO, f, null), c(this.mU, this.mP, f));
         ViewCompat.postInvalidateOnAnimation(this.mView);
     }
 
@@ -313,7 +313,7 @@ final class d {
 
     private void bl() {
         float f = this.mG;
-        h(this.ml);
+        l(this.ml);
         float measureText = this.my != null ? this.mJ.measureText(this.my, 0, this.my.length()) : 0.0f;
         int absoluteGravity = GravityCompat.getAbsoluteGravity(this.mj, this.mz ? 1 : 0);
         switch (absoluteGravity & 112) {
@@ -338,7 +338,7 @@ final class d {
                 this.mr = this.mg.left;
                 break;
         }
-        h(this.mk);
+        l(this.mk);
         float measureText2 = this.my != null ? this.mJ.measureText(this.my, 0, this.my.length()) : 0.0f;
         int absoluteGravity2 = GravityCompat.getAbsoluteGravity(this.mi, this.mz ? 1 : 0);
         switch (absoluteGravity2 & 112) {
@@ -364,10 +364,10 @@ final class d {
                 break;
         }
         bo();
-        g(f);
+        k(f);
     }
 
-    private void f(float f) {
+    private void j(float f) {
         this.mh.left = a(this.mf.left, this.mg.left, f, this.mK);
         this.mh.top = a(this.mo, this.mp, f, this.mK);
         this.mh.right = a(this.mf.right, this.mg.right, f, this.mK);
@@ -407,8 +407,8 @@ final class d {
         return (ViewCompat.getLayoutDirection(this.mView) == 1 ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL : TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(charSequence, 0, charSequence.length());
     }
 
-    private void g(float f) {
-        h(f);
+    private void k(float f) {
+        l(f);
         this.mA = ma && this.mScale != 1.0f;
         if (this.mA) {
             bm();
@@ -416,7 +416,7 @@ final class d {
         ViewCompat.postInvalidateOnAnimation(this.mView);
     }
 
-    private void h(float f) {
+    private void l(float f) {
         float f2;
         boolean z;
         if (this.mText != null) {
@@ -467,7 +467,7 @@ final class d {
 
     private void bm() {
         if (this.mB == null && !this.mf.isEmpty() && !TextUtils.isEmpty(this.my)) {
-            e(0.0f);
+            i(0.0f);
             this.mE = this.mJ.ascent();
             this.mF = this.mJ.descent();
             int round = Math.round(this.mJ.measureText(this.my, 0, this.my.length()));
@@ -520,7 +520,7 @@ final class d {
         return this.mn;
     }
 
-    private static int b(int i, int i2, float f) {
+    private static int c(int i, int i2, float f) {
         float f2 = 1.0f - f;
         return Color.argb((int) ((Color.alpha(i) * f2) + (Color.alpha(i2) * f)), (int) ((Color.red(i) * f2) + (Color.red(i2) * f)), (int) ((Color.green(i) * f2) + (Color.green(i2) * f)), (int) ((f2 * Color.blue(i)) + (Color.blue(i2) * f)));
     }
@@ -529,7 +529,7 @@ final class d {
         if (interpolator != null) {
             f3 = interpolator.getInterpolation(f3);
         }
-        return a.a(f, f2, f3);
+        return a.b(f, f2, f3);
     }
 
     private static boolean a(Rect rect, int i, int i2, int i3, int i4) {

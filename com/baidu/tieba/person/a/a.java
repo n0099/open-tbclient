@@ -8,9 +8,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
-import com.baidu.tieba.person.d;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<d, com.baidu.tieba.person.b.a> {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d, com.baidu.tieba.person.b.a> {
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
@@ -18,7 +17,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bB */
+    /* renamed from: by */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(d.h.item_person_center_list_interval, viewGroup, false));
     }
@@ -30,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<d, com.baidu.tieba.person
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.bdS != skinType) {
-                aVar.bdS = skinType;
-                aj.s(aVar.cTx, dVar.bvS);
+            if (aVar.bfL != skinType) {
+                aVar.bfL = skinType;
+                aj.s(aVar.giw, dVar.byc);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.cTx.getLayoutParams();
-            if (dVar.gbj > 0) {
-                layoutParams.height = dVar.gbj;
+            ViewGroup.LayoutParams layoutParams = aVar.giw.getLayoutParams();
+            if (dVar.gen > 0) {
+                layoutParams.height = dVar.gen;
             }
-            if (dVar.gbi > 0) {
-                layoutParams.width = dVar.gbi;
+            if (dVar.gem > 0) {
+                layoutParams.width = dVar.gem;
             }
-            aVar.cTx.setLayoutParams(layoutParams);
-            aVar.cTx.setOnClickListener(null);
+            aVar.giw.setLayoutParams(layoutParams);
+            aVar.giw.setOnClickListener(null);
         }
         return view;
     }

@@ -4,17 +4,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> aGw = null;
-    protected static boolean aGy = false;
-    protected String aGu = "183322726";
-    protected boolean aGx = true;
-    protected transient List<String> aGv = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> aHP = null;
+    protected static boolean aHR = false;
+    protected String aHN = "183322726";
+    protected boolean aHQ = true;
+    protected transient List<String> aHO = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,26 +26,26 @@ public abstract class b {
     public abstract void ea(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vA();
+    public abstract void wd();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vB();
+    public abstract void wj();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vr();
+    public abstract void wk();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vx();
+    public abstract void wl();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vy();
+    public abstract void wm();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void vz();
+    public abstract void wn();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b c(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOTOLIVE_MANAGER_FRAGMENTACTIVITY, b.class, baseFragmentActivity);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, b.class, baseFragmentActivity);
         if (runTask == null || runTask.getData() == null) {
             return null;
         }
@@ -54,30 +53,30 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(TbPageContext<?> tbPageContext) {
-        if (aGw == null) {
-            aGw = new WeakReference<>(tbPageContext);
+    public void setContext(TbPageContext<?> tbPageContext) {
+        if (aHP == null) {
+            aHP = new WeakReference<>(tbPageContext);
             return;
         }
-        aGw.clear();
-        aGw = null;
-        aGw = new WeakReference<>(tbPageContext);
+        aHP.clear();
+        aHP = null;
+        aHP = new WeakReference<>(tbPageContext);
     }
 
-    public boolean vw() {
-        return aGy;
+    public boolean wi() {
+        return aHR;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aJ(boolean z) {
-        this.aGx = z;
+    public void aM(boolean z) {
+        this.aHQ = z;
     }
 
-    public void vs() {
-        if (aGw != null) {
-            aGw.get();
-            aGw.clear();
-            aGw = null;
+    public void we() {
+        if (aHP != null) {
+            aHP.get();
+            aHP.clear();
+            aHP = null;
         }
     }
 }

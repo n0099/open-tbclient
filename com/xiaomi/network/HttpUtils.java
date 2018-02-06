@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public abstract class HttpUtils {
 
@@ -57,7 +56,7 @@ public abstract class HttpUtils {
             return 0;
         }
         try {
-            return str.getBytes(HTTP.UTF_8).length;
+            return str.getBytes("UTF-8").length;
         } catch (UnsupportedEncodingException e) {
             return 0;
         }

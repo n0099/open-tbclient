@@ -71,8 +71,8 @@ class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        int tj;
-        boolean tk;
+        int tk;
+        boolean tl;
 
         a() {
         }
@@ -91,14 +91,14 @@ class c {
             int i3 = 1;
             while (i3 < length) {
                 a(str, i3, aVar);
-                int i4 = aVar.tj;
+                int i4 = aVar.tk;
                 if (i3 < i4) {
                     i = i2 + 1;
                     fArr[i2] = Float.parseFloat(str.substring(i3, i4));
                 } else {
                     i = i2;
                 }
-                if (aVar.tk) {
+                if (aVar.tl) {
                     i3 = i4;
                     i2 = i;
                 } else {
@@ -114,7 +114,7 @@ class c {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private static void a(String str, int i, a aVar) {
-        aVar.tk = false;
+        aVar.tl = false;
         boolean z = false;
         boolean z2 = false;
         boolean z3 = false;
@@ -127,7 +127,7 @@ class c {
                     break;
                 case '-':
                     if (i2 != i && !z) {
-                        aVar.tk = true;
+                        aVar.tl = true;
                         z = false;
                         z3 = true;
                         break;
@@ -136,7 +136,7 @@ class c {
                     break;
                 case '.':
                     if (z2) {
-                        aVar.tk = true;
+                        aVar.tl = true;
                         z = false;
                         z3 = true;
                         break;
@@ -154,33 +154,33 @@ class c {
                     break;
             }
             if (z3) {
-                aVar.tj = i2;
+                aVar.tk = i2;
             }
         }
-        aVar.tj = i2;
+        aVar.tk = i2;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
-        char tl;
-        float[] tm;
+        char tm;
+        float[] tp;
 
         b(char c, float[] fArr) {
-            this.tl = c;
-            this.tm = fArr;
+            this.tm = c;
+            this.tp = fArr;
         }
 
         b(b bVar) {
-            this.tl = bVar.tl;
-            this.tm = c.copyOfRange(bVar.tm, 0, bVar.tm.length);
+            this.tm = bVar.tm;
+            this.tp = c.copyOfRange(bVar.tp, 0, bVar.tp.length);
         }
 
         public static void a(b[] bVarArr, Path path) {
             float[] fArr = new float[6];
             char c = 'm';
             for (int i = 0; i < bVarArr.length; i++) {
-                a(path, fArr, c, bVarArr[i].tl, bVarArr[i].tm);
-                c = bVarArr[i].tl;
+                a(path, fArr, c, bVarArr[i].tm, bVarArr[i].tp);
+                c = bVarArr[i].tm;
             }
         }
 

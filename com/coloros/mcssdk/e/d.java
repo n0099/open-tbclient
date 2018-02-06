@@ -3,8 +3,8 @@ package com.coloros.mcssdk.e;
 public class d extends c {
     private String content;
     private String description;
-    private String hNm;
-    private String hNn;
+    private String hOK;
+    private String hOL;
 
     @Override // com.coloros.mcssdk.e.c
     public int getType() {
@@ -20,14 +20,14 @@ public class d extends c {
     }
 
     public String toString() {
-        return "messageID:" + this.hNk + ",taskID:" + this.hNl + ",globalID:" + this.hNm + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.hNn;
+        return "messageID:" + this.hOI + ",taskID:" + this.hOJ + ",globalID:" + this.hOK + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.hOL;
     }
 
-    public void uT(String str) {
-        this.hNm = str;
+    public void uY(String str) {
+        this.hOK = str;
     }
 
-    public void uU(String str) {
-        this.hNn = str;
+    public void uZ(String str) {
+        this.hOL = str;
     }
 }

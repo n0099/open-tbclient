@@ -79,7 +79,7 @@ class t extends s.e {
 
     @Override // android.support.design.widget.s.e
     public int cA() {
-        return a.a(this.sz[0], this.sz[1], getAnimatedFraction());
+        return a.b(this.sz[0], this.sz[1], getAnimatedFraction());
     }
 
     @Override // android.support.design.widget.s.e
@@ -90,7 +90,7 @@ class t extends s.e {
 
     @Override // android.support.design.widget.s.e
     public float cB() {
-        return a.a(this.sA[0], this.sA[1], getAnimatedFraction());
+        return a.b(this.sA[0], this.sA[1], getAnimatedFraction());
     }
 
     @Override // android.support.design.widget.s.e

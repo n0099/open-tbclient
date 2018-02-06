@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac aUV;
-    private static final BdUniqueId aUW = BdUniqueId.gen();
+    private static ac aWB;
+    private static final BdUniqueId aWC = BdUniqueId.gen();
 
-    public static synchronized ac Cs() {
+    public static synchronized ac CL() {
         ac acVar;
         synchronized (ac.class) {
-            if (aUV == null) {
-                aUV = new ac();
+            if (aWB == null) {
+                aWB = new ac();
             }
-            acVar = aUV;
+            acVar = aWB;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String aUX;
-        private final boolean aUY;
-        private final boolean aUZ;
-        private final boolean aVa;
+        private final String aWD;
+        private final boolean aWE;
+        private final boolean aWF;
+        private final boolean aWG;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.aUX = str2;
-            this.aUY = z;
-            this.aUZ = z2;
-            this.aVa = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.aUW));
+            this.aWD = str2;
+            this.aWE = z;
+            this.aWF = z2;
+            this.aWG = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.aWC));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class ac {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             try {
-                ac.this.b(this.imageUrl, this.aUX, this.aUY, this.aUZ, this.aVa);
+                ac.this.b(this.imageUrl, this.aWD, this.aWE, this.aWF, this.aWG);
             } finally {
                 return null;
             }
@@ -54,17 +54,17 @@ public class ac {
 
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String ej = ao.ej(str);
-            al.CF().X(str2, ej);
+            String eu = ap.eu(str);
+            al.CY().Y(str2, eu);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int ee = al.CF().ee(ej);
-                    if (ee > 0) {
+                    int ep = al.CY().ep(eu);
+                    if (ep > 0) {
                         if (z) {
-                            Bitmap dE = al.CF().dE(ej);
-                            com.baidu.tbadk.imageManager.c.LR().ia(ee);
-                            if (dE != null) {
-                                a(str, dE, z2, al.CF().ed(ej), z3, ej);
+                            Bitmap dP = al.CY().dP(eu);
+                            com.baidu.tbadk.imageManager.c.Mx().hY(ep);
+                            if (dP != null) {
+                                a(str, dP, z2, al.CY().eo(eu), z3, eu);
                             }
                         }
                     }
@@ -77,7 +77,7 @@ public class ac {
         new a(str2, str2, z3, z3, z3).execute(new String[0]);
     }
 
-    public Bitmap f(Bitmap bitmap) {
+    public Bitmap h(Bitmap bitmap) {
         return a(bitmap, true);
     }
 
@@ -105,20 +105,20 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.LR().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.Mx().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
         Bitmap bitmap2;
-        Bitmap f = z2 ? f(bitmap) : bitmap;
-        if (!z || f == null) {
-            bitmap2 = f;
+        Bitmap h = z2 ? h(bitmap) : bitmap;
+        if (!z || h == null) {
+            bitmap2 = h;
         } else {
-            float f2 = 10.0f;
-            bitmap2 = BitmapHelper.getRoundedCornerBitmap(f, (f.getHeight() < 100 || f.getWidth() < 100) ? 5.0f : 5.0f, true);
+            float f = 10.0f;
+            bitmap2 = BitmapHelper.getRoundedCornerBitmap(h, (h.getHeight() < 100 || h.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            al.CF().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            al.CY().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -140,7 +140,7 @@ public class ac {
         int i4;
         int i5;
         int i6 = 70;
-        int Cd = LocalViewSize.BZ().Cd();
+        int Cw = LocalViewSize.Cs().Cw();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;
@@ -151,21 +151,21 @@ public class ac {
                 z2 = true;
                 i3 = i2;
             }
-            if (i4 <= i3 && i4 > Cd) {
-                i3 = (int) (i3 / (i4 / Cd));
-            } else if (i3 > i4 || i3 <= Cd) {
-                Cd = i4;
+            if (i4 <= i3 && i4 > Cw) {
+                i3 = (int) (i3 / (i4 / Cw));
+            } else if (i3 > i4 || i3 <= Cw) {
+                Cw = i4;
             } else {
-                Cd = (int) (i4 / (i3 / Cd));
-                i3 = Cd;
+                Cw = (int) (i4 / (i3 / Cw));
+                i3 = Cw;
             }
-            if (z2 && i <= Cd && i2 <= i3) {
-                Cd = (int) (Cd * 0.9d);
+            if (z2 && i <= Cw && i2 <= i3) {
+                Cw = (int) (Cw * 0.9d);
                 i3 = (int) (i3 * 0.9d);
             }
-            if (Cd < 70 || i3 >= 70) {
+            if (Cw < 70 || i3 >= 70) {
                 i6 = i3;
-                i5 = Cd;
+                i5 = Cw;
             } else {
                 i5 = 70;
             }
@@ -178,15 +178,15 @@ public class ac {
         }
         if (i3 > i4) {
         }
-        Cd = i4;
+        Cw = i4;
         if (z2) {
-            Cd = (int) (Cd * 0.9d);
+            Cw = (int) (Cw * 0.9d);
             i3 = (int) (i3 * 0.9d);
         }
-        if (Cd < 70) {
+        if (Cw < 70) {
         }
         i6 = i3;
-        i5 = Cd;
+        i5 = Cw;
         return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
     }
 }

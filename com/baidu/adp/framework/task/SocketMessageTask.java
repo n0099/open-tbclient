@@ -4,10 +4,10 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
+    private boolean afb;
+    private boolean afc;
     private boolean afd;
-    private boolean afe;
-    private boolean aff;
-    private DupLicateMode afg;
+    private DupLicateMode afe;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* loaded from: classes.dex */
@@ -20,10 +20,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.afd = false;
-        this.afe = false;
-        this.aff = true;
-        this.afg = DupLicateMode.NONE;
+        this.afb = false;
+        this.afc = false;
+        this.afd = true;
+        this.afe = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -31,20 +31,20 @@ public class SocketMessageTask extends MessageTask {
         return FrameHelper.cC(this.mCmd);
     }
 
-    public void T(boolean z) {
-        this.afd = z;
+    public void V(boolean z) {
+        this.afb = z;
     }
 
     public boolean ld() {
-        return this.afd;
+        return this.afb;
     }
 
     public boolean le() {
-        return this.afe;
+        return this.afc;
     }
 
-    public void U(boolean z) {
-        this.afe = z;
+    public void W(boolean z) {
+        this.afc = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -56,18 +56,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean lf() {
-        return this.aff;
+        return this.afd;
     }
 
-    public void V(boolean z) {
-        this.aff = z;
+    public void X(boolean z) {
+        this.afd = z;
     }
 
     public DupLicateMode lg() {
-        return this.afg;
+        return this.afe;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.afg = dupLicateMode;
+        this.afe = dupLicateMode;
     }
 }

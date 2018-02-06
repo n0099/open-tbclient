@@ -123,7 +123,7 @@ public class a {
             pluginStatus = this.asy.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.apR = str;
+                pluginStatus.apQ = str;
                 this.asy.put(str, pluginStatus);
             }
         }

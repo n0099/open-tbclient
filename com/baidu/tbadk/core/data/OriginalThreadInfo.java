@@ -27,6 +27,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
     public String forumName;
     public boolean isDeleted = false;
     public List<MediaData> mediaList;
+    public String postId;
     public String showPicUrl;
     public String showText;
     public int showType;
@@ -37,7 +38,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parser(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            xO();
+            yq();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -76,12 +77,12 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
             this.alaInfoData = null;
         }
         this.isDeleted = originThreadInfo.is_deleted.intValue() == 1;
-        xP();
+        setShowData();
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            xO();
+            yq();
             return;
         }
         try {
@@ -124,7 +125,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
             try {
                 BdLog.e(th.getMessage());
             } finally {
-                xP();
+                setShowData();
             }
         }
     }
@@ -133,11 +134,11 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         if (bdVar == null) {
             return null;
         }
-        if (bdVar.aPc != null) {
-            return bdVar.aPc;
+        if (bdVar.aQw != null) {
+            return bdVar.aQw;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bdVar.yZ();
+        originalThreadInfo.forumName = bdVar.zt();
         originalThreadInfo.forumId = bdVar.getFid();
         originalThreadInfo.threadId = bdVar.getTid();
         originalThreadInfo.title = bdVar.getTitle();
@@ -151,30 +152,30 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
         originalThreadInfo.mediaList = arrayList2;
-        if (bdVar.isLinkThread() && bdVar.Ai() != null) {
-            ad Ai = bdVar.Ai();
-            originalThreadInfo.title = Ai.xC();
-            abstractData.text = Ai.xD();
-            mediaData.setPic(Ai.xE());
-        } else if (bdVar.zI() && bdVar.yB() != null) {
-            mediaData.setPic(bdVar.yB().yx());
-        } else if (com.baidu.tbadk.core.util.v.D(bdVar.ze()) > 0) {
-            originalThreadInfo.mediaList = bdVar.ze();
-        } else if (bdVar.zl() != null && !StringUtils.isNull(bdVar.zl().thumbnail_url)) {
-            mediaData.setPic(bdVar.zl().thumbnail_url);
+        if (bdVar.isLinkThread() && bdVar.AB() != null) {
+            ad AB = bdVar.AB();
+            originalThreadInfo.title = AB.yi();
+            abstractData.text = AB.yj();
+            mediaData.setPic(AB.yk());
+        } else if (bdVar.Ac() && bdVar.yV() != null) {
+            mediaData.setPic(bdVar.yV().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.v.D(bdVar.zy()) > 0) {
+            originalThreadInfo.mediaList = bdVar.zy();
+        } else if (bdVar.zF() != null && !StringUtils.isNull(bdVar.zF().thumbnail_url)) {
+            mediaData.setPic(bdVar.zF().thumbnail_url);
         }
-        originalThreadInfo.alaInfoData = bdVar.zm();
-        originalThreadInfo.xP();
+        originalThreadInfo.alaInfoData = bdVar.zG();
+        originalThreadInfo.setShowData();
         return originalThreadInfo;
     }
 
-    private void xO() {
+    private void yq() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(d.j.original_thread_default_txt);
         this.showPicUrl = null;
     }
 
-    private void xP() {
+    public void setShowData() {
         switch (this.threadType) {
             case 40:
                 this.showType = 3;

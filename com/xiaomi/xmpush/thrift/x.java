@@ -1,5 +1,8 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.idl.authority.BuildConfig;
+import com.sina.weibo.sdk.component.WidgetRequestParam;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -12,8 +15,8 @@ import java.util.Map;
 public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> l;
     private static final org.apache.thrift.protocol.j m = new org.apache.thrift.protocol.j("XmPushActionAckNotification");
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("target", (byte) 12, 2);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b(BuildConfig.BUILD_TYPE, (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("type", (byte) 11, 5);
@@ -22,7 +25,7 @@ public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
     private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("reason", (byte) 11, 8);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("extra", (byte) 13, 9);
     private static final org.apache.thrift.protocol.b w = new org.apache.thrift.protocol.b("packageName", (byte) 11, 10);
-    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b("category", (byte) 11, 11);
+    private static final org.apache.thrift.protocol.b x = new org.apache.thrift.protocol.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 11, 11);
     public String a;
     public u b;
     public String c;
@@ -38,8 +41,8 @@ public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
 
     /* loaded from: classes2.dex */
     public enum a {
-        DEBUG(1, "debug"),
-        TARGET(2, "target"),
+        DEBUG(1, BuildConfig.BUILD_TYPE),
+        TARGET(2, BaiduRimConstants.ACTION_TARGET),
         ID(3, "id"),
         APP_ID(4, "appId"),
         TYPE(5, "type"),
@@ -48,7 +51,7 @@ public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
         REASON(8, "reason"),
         EXTRA(9, "extra"),
         PACKAGE_NAME(10, "packageName"),
-        CATEGORY(11, "category");
+        CATEGORY(11, WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY);
         
         private static final Map<String, a> l = new HashMap();
         private final short m;
@@ -74,8 +77,8 @@ public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b("target", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
+        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b(BuildConfig.BUILD_TYPE, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TYPE, (a) new org.apache.thrift.meta_data.b("type", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
@@ -84,7 +87,7 @@ public class x implements Serializable, Cloneable, org.apache.thrift.a<x, a> {
         enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b("reason", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.EXTRA, (a) new org.apache.thrift.meta_data.b("extra", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         l = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(x.class, l);
     }

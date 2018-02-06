@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class SendGiftSuccessMessage extends CustomResponsedMessage {
     private a mGiftInfo;
 
     public SendGiftSuccessMessage() {
-        super(CmdConfigCustom.CMD_GET_GIFT_SUCCEED);
+        super(2001232);
     }
 
     public SendGiftSuccessMessage(int i, Object obj) {
@@ -24,14 +23,14 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
 
     /* loaded from: classes.dex */
     public static class a {
-        private int aSk;
-        private String aSl;
+        private int aTP;
+        private String aTQ;
         private int count;
         private String name;
         private String url;
 
         public void setId(int i) {
-            this.aSk = i;
+            this.aTP = i;
         }
 
         public void setName(String str) {
@@ -46,8 +45,8 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
             this.url = str;
         }
 
-        public void dh(String str) {
-            this.aSl = str;
+        public void ds(String str) {
+            this.aTQ = str;
         }
     }
 }

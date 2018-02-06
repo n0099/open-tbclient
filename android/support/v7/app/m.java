@@ -29,36 +29,36 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class m extends ActionBar {
-    DecorToolbar DP;
-    boolean DQ;
-    Window.Callback DR;
+    DecorToolbar DO;
+    boolean DP;
+    Window.Callback DQ;
+    private boolean DR;
     private boolean DS;
-    private boolean DT;
-    private ListMenuPresenter DV;
-    private ArrayList<ActionBar.OnMenuVisibilityListener> DU = new ArrayList<>();
-    private final Runnable DW = new Runnable() { // from class: android.support.v7.app.m.1
+    private ListMenuPresenter DU;
+    private ArrayList<ActionBar.OnMenuVisibilityListener> DT = new ArrayList<>();
+    private final Runnable DV = new Runnable() { // from class: android.support.v7.app.m.1
         @Override // java.lang.Runnable
         public void run() {
             m.this.el();
         }
     };
-    private final Toolbar.OnMenuItemClickListener DX = new Toolbar.OnMenuItemClickListener() { // from class: android.support.v7.app.m.2
+    private final Toolbar.OnMenuItemClickListener DW = new Toolbar.OnMenuItemClickListener() { // from class: android.support.v7.app.m.2
         @Override // android.support.v7.widget.Toolbar.OnMenuItemClickListener
         public boolean onMenuItemClick(MenuItem menuItem) {
-            return m.this.DR.onMenuItemSelected(0, menuItem);
+            return m.this.DQ.onMenuItemSelected(0, menuItem);
         }
     };
 
     public m(Toolbar toolbar, CharSequence charSequence, Window.Callback callback) {
-        this.DP = new ToolbarWidgetWrapper(toolbar, false);
-        this.DR = new d(callback);
-        this.DP.setWindowCallback(this.DR);
-        toolbar.setOnMenuItemClickListener(this.DX);
-        this.DP.setWindowTitle(charSequence);
+        this.DO = new ToolbarWidgetWrapper(toolbar, false);
+        this.DQ = new d(callback);
+        this.DO.setWindowCallback(this.DQ);
+        toolbar.setOnMenuItemClickListener(this.DW);
+        this.DO.setWindowTitle(charSequence);
     }
 
     public Window.Callback ek() {
-        return this.DR;
+        return this.DQ;
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -71,32 +71,32 @@ public class m extends ActionBar {
         if (view != null) {
             view.setLayoutParams(layoutParams);
         }
-        this.DP.setCustomView(view);
+        this.DO.setCustomView(view);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setCustomView(int i) {
-        setCustomView(LayoutInflater.from(this.DP.getContext()).inflate(i, this.DP.getViewGroup(), false));
+        setCustomView(LayoutInflater.from(this.DO.getContext()).inflate(i, this.DO.getViewGroup(), false));
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setIcon(int i) {
-        this.DP.setIcon(i);
+        this.DO.setIcon(i);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setIcon(Drawable drawable) {
-        this.DP.setIcon(drawable);
+        this.DO.setIcon(drawable);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setLogo(int i) {
-        this.DP.setLogo(i);
+        this.DO.setLogo(i);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setLogo(Drawable drawable) {
-        this.DP.setLogo(drawable);
+        this.DO.setLogo(drawable);
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -113,17 +113,17 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setElevation(float f) {
-        ViewCompat.setElevation(this.DP.getViewGroup(), f);
+        ViewCompat.setElevation(this.DO.getViewGroup(), f);
     }
 
     @Override // android.support.v7.app.ActionBar
     public float getElevation() {
-        return ViewCompat.getElevation(this.DP.getViewGroup());
+        return ViewCompat.getElevation(this.DO.getViewGroup());
     }
 
     @Override // android.support.v7.app.ActionBar
     public Context getThemedContext() {
-        return this.DP.getContext();
+        return this.DO.getContext();
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -133,17 +133,17 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setHomeAsUpIndicator(Drawable drawable) {
-        this.DP.setNavigationIcon(drawable);
+        this.DO.setNavigationIcon(drawable);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setHomeAsUpIndicator(int i) {
-        this.DP.setNavigationIcon(i);
+        this.DO.setNavigationIcon(i);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setHomeActionContentDescription(CharSequence charSequence) {
-        this.DP.setNavigationContentDescription(charSequence);
+        this.DO.setNavigationContentDescription(charSequence);
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -152,7 +152,7 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setHomeActionContentDescription(int i) {
-        this.DP.setNavigationContentDescription(i);
+        this.DO.setNavigationContentDescription(i);
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -166,14 +166,14 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, ActionBar.OnNavigationListener onNavigationListener) {
-        this.DP.setDropdownParams(spinnerAdapter, new h(onNavigationListener));
+        this.DO.setDropdownParams(spinnerAdapter, new h(onNavigationListener));
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setSelectedNavigationItem(int i) {
-        switch (this.DP.getNavigationMode()) {
+        switch (this.DO.getNavigationMode()) {
             case 1:
-                this.DP.setDropdownSelectedPosition(i);
+                this.DO.setDropdownSelectedPosition(i);
                 return;
             default:
                 throw new IllegalStateException("setSelectedNavigationIndex not valid for current navigation mode");
@@ -192,22 +192,22 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setTitle(CharSequence charSequence) {
-        this.DP.setTitle(charSequence);
+        this.DO.setTitle(charSequence);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setTitle(int i) {
-        this.DP.setTitle(i != 0 ? this.DP.getContext().getText(i) : null);
+        this.DO.setTitle(i != 0 ? this.DO.getContext().getText(i) : null);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setWindowTitle(CharSequence charSequence) {
-        this.DP.setWindowTitle(charSequence);
+        this.DO.setWindowTitle(charSequence);
     }
 
     @Override // android.support.v7.app.ActionBar
     public boolean requestFocus() {
-        ViewGroup viewGroup = this.DP.getViewGroup();
+        ViewGroup viewGroup = this.DO.getViewGroup();
         if (viewGroup == null || viewGroup.hasFocus()) {
             return false;
         }
@@ -217,12 +217,12 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setSubtitle(CharSequence charSequence) {
-        this.DP.setSubtitle(charSequence);
+        this.DO.setSubtitle(charSequence);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void setSubtitle(int i) {
-        this.DP.setSubtitle(i != 0 ? this.DP.getContext().getText(i) : null);
+        this.DO.setSubtitle(i != 0 ? this.DO.getContext().getText(i) : null);
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -232,7 +232,7 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setDisplayOptions(int i, int i2) {
-        this.DP.setDisplayOptions((this.DP.getDisplayOptions() & (i2 ^ (-1))) | (i & i2));
+        this.DO.setDisplayOptions((this.DO.getDisplayOptions() & (i2 ^ (-1))) | (i & i2));
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -262,22 +262,22 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public void setBackgroundDrawable(Drawable drawable) {
-        this.DP.setBackgroundDrawable(drawable);
+        this.DO.setBackgroundDrawable(drawable);
     }
 
     @Override // android.support.v7.app.ActionBar
     public View getCustomView() {
-        return this.DP.getCustomView();
+        return this.DO.getCustomView();
     }
 
     @Override // android.support.v7.app.ActionBar
     public CharSequence getTitle() {
-        return this.DP.getTitle();
+        return this.DO.getTitle();
     }
 
     @Override // android.support.v7.app.ActionBar
     public CharSequence getSubtitle() {
-        return this.DP.getSubtitle();
+        return this.DO.getSubtitle();
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -290,12 +290,12 @@ public class m extends ActionBar {
         if (i == 2) {
             throw new IllegalArgumentException("Tabs not supported in this configuration");
         }
-        this.DP.setNavigationMode(i);
+        this.DO.setNavigationMode(i);
     }
 
     @Override // android.support.v7.app.ActionBar
     public int getDisplayOptions() {
-        return this.DP.getDisplayOptions();
+        return this.DO.getDisplayOptions();
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -360,40 +360,40 @@ public class m extends ActionBar {
 
     @Override // android.support.v7.app.ActionBar
     public int getHeight() {
-        return this.DP.getHeight();
+        return this.DO.getHeight();
     }
 
     @Override // android.support.v7.app.ActionBar
     public void show() {
-        this.DP.setVisibility(0);
+        this.DO.setVisibility(0);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void hide() {
-        this.DP.setVisibility(8);
+        this.DO.setVisibility(8);
     }
 
     @Override // android.support.v7.app.ActionBar
     public boolean isShowing() {
-        return this.DP.getVisibility() == 0;
+        return this.DO.getVisibility() == 0;
     }
 
     @Override // android.support.v7.app.ActionBar
     public boolean openOptionsMenu() {
-        return this.DP.showOverflowMenu();
+        return this.DO.showOverflowMenu();
     }
 
     @Override // android.support.v7.app.ActionBar
     public boolean invalidateOptionsMenu() {
-        this.DP.getViewGroup().removeCallbacks(this.DW);
-        ViewCompat.postOnAnimation(this.DP.getViewGroup(), this.DW);
+        this.DO.getViewGroup().removeCallbacks(this.DV);
+        ViewCompat.postOnAnimation(this.DO.getViewGroup(), this.DV);
         return true;
     }
 
     @Override // android.support.v7.app.ActionBar
     public boolean collapseActionView() {
-        if (this.DP.hasExpandedActionView()) {
-            this.DP.collapseActionView();
+        if (this.DO.hasExpandedActionView()) {
+            this.DO.collapseActionView();
             return true;
         }
         return false;
@@ -407,7 +407,7 @@ public class m extends ActionBar {
         }
         try {
             menu.clear();
-            if (!this.DR.onCreatePanelMenu(0, menu) || !this.DR.onPreparePanel(0, null, menu)) {
+            if (!this.DQ.onCreatePanelMenu(0, menu) || !this.DQ.onPreparePanel(0, null, menu)) {
                 menu.clear();
             }
         } finally {
@@ -438,42 +438,42 @@ public class m extends ActionBar {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.app.ActionBar
     public void onDestroy() {
-        this.DP.getViewGroup().removeCallbacks(this.DW);
+        this.DO.getViewGroup().removeCallbacks(this.DV);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void addOnMenuVisibilityListener(ActionBar.OnMenuVisibilityListener onMenuVisibilityListener) {
-        this.DU.add(onMenuVisibilityListener);
+        this.DT.add(onMenuVisibilityListener);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void removeOnMenuVisibilityListener(ActionBar.OnMenuVisibilityListener onMenuVisibilityListener) {
-        this.DU.remove(onMenuVisibilityListener);
+        this.DT.remove(onMenuVisibilityListener);
     }
 
     @Override // android.support.v7.app.ActionBar
     public void dispatchMenuVisibilityChanged(boolean z) {
-        if (z != this.DT) {
-            this.DT = z;
-            int size = this.DU.size();
+        if (z != this.DS) {
+            this.DS = z;
+            int size = this.DT.size();
             for (int i = 0; i < size; i++) {
-                this.DU.get(i).onMenuVisibilityChanged(z);
+                this.DT.get(i).onMenuVisibilityChanged(z);
             }
         }
     }
 
     View b(Menu menu) {
         c(menu);
-        if (menu == null || this.DV == null || this.DV.getAdapter().getCount() <= 0) {
+        if (menu == null || this.DU == null || this.DU.getAdapter().getCount() <= 0) {
             return null;
         }
-        return (View) this.DV.getMenuView(this.DP.getViewGroup());
+        return (View) this.DU.getMenuView(this.DO.getViewGroup());
     }
 
     private void c(Menu menu) {
-        if (this.DV == null && (menu instanceof MenuBuilder)) {
+        if (this.DU == null && (menu instanceof MenuBuilder)) {
             MenuBuilder menuBuilder = (MenuBuilder) menu;
-            Context context = this.DP.getContext();
+            Context context = this.DO.getContext();
             TypedValue typedValue = new TypedValue();
             Resources.Theme newTheme = context.getResources().newTheme();
             newTheme.setTo(context.getTheme());
@@ -489,9 +489,9 @@ public class m extends ActionBar {
             }
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
             contextThemeWrapper.getTheme().setTo(newTheme);
-            this.DV = new ListMenuPresenter(contextThemeWrapper, R.layout.abc_list_menu_item_layout);
-            this.DV.setCallback(new c());
-            menuBuilder.addMenuPresenter(this.DV);
+            this.DU = new ListMenuPresenter(contextThemeWrapper, R.layout.abc_list_menu_item_layout);
+            this.DU.setCallback(new c());
+            menuBuilder.addMenuPresenter(this.DU);
         }
     }
 
@@ -504,9 +504,9 @@ public class m extends ActionBar {
         @Override // android.support.v7.view.WindowCallbackWrapper, android.view.Window.Callback
         public boolean onPreparePanel(int i, View view, Menu menu) {
             boolean onPreparePanel = super.onPreparePanel(i, view, menu);
-            if (onPreparePanel && !m.this.DQ) {
-                m.this.DP.setMenuPrepared();
-                m.this.DQ = true;
+            if (onPreparePanel && !m.this.DP) {
+                m.this.DO.setMenuPrepared();
+                m.this.DP = true;
             }
             return onPreparePanel;
         }
@@ -515,7 +515,7 @@ public class m extends ActionBar {
         public View onCreatePanelView(int i) {
             switch (i) {
                 case 0:
-                    Menu menu = m.this.DP.getMenu();
+                    Menu menu = m.this.DO.getMenu();
                     if (onPreparePanel(i, null, menu) && onMenuOpened(i, menu)) {
                         return m.this.b(menu);
                     }
@@ -526,25 +526,25 @@ public class m extends ActionBar {
     }
 
     private Menu getMenu() {
-        if (!this.DS) {
-            this.DP.setMenuCallbacks(new a(), new b());
-            this.DS = true;
+        if (!this.DR) {
+            this.DO.setMenuCallbacks(new a(), new b());
+            this.DR = true;
         }
-        return this.DP.getMenu();
+        return this.DO.getMenu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public final class a implements MenuPresenter.Callback {
-        private boolean Dg;
+        private boolean Df;
 
         a() {
         }
 
         @Override // android.support.v7.view.menu.MenuPresenter.Callback
         public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
-            if (m.this.DR != null) {
-                m.this.DR.onMenuOpened(108, menuBuilder);
+            if (m.this.DQ != null) {
+                m.this.DQ.onMenuOpened(108, menuBuilder);
                 return true;
             }
             return false;
@@ -552,13 +552,13 @@ public class m extends ActionBar {
 
         @Override // android.support.v7.view.menu.MenuPresenter.Callback
         public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-            if (!this.Dg) {
-                this.Dg = true;
-                m.this.DP.dismissPopupMenus();
-                if (m.this.DR != null) {
-                    m.this.DR.onPanelClosed(108, menuBuilder);
+            if (!this.Df) {
+                this.Df = true;
+                m.this.DO.dismissPopupMenus();
+                if (m.this.DQ != null) {
+                    m.this.DQ.onPanelClosed(108, menuBuilder);
                 }
-                this.Dg = false;
+                this.Df = false;
             }
         }
     }
@@ -571,15 +571,15 @@ public class m extends ActionBar {
 
         @Override // android.support.v7.view.menu.MenuPresenter.Callback
         public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-            if (m.this.DR != null) {
-                m.this.DR.onPanelClosed(0, menuBuilder);
+            if (m.this.DQ != null) {
+                m.this.DQ.onPanelClosed(0, menuBuilder);
             }
         }
 
         @Override // android.support.v7.view.menu.MenuPresenter.Callback
         public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
-            if (menuBuilder == null && m.this.DR != null) {
-                m.this.DR.onMenuOpened(0, menuBuilder);
+            if (menuBuilder == null && m.this.DQ != null) {
+                m.this.DQ.onMenuOpened(0, menuBuilder);
                 return true;
             }
             return true;
@@ -599,11 +599,11 @@ public class m extends ActionBar {
 
         @Override // android.support.v7.view.menu.MenuBuilder.Callback
         public void onMenuModeChange(MenuBuilder menuBuilder) {
-            if (m.this.DR != null) {
-                if (m.this.DP.isOverflowMenuShowing()) {
-                    m.this.DR.onPanelClosed(108, menuBuilder);
-                } else if (m.this.DR.onPreparePanel(0, null, menuBuilder)) {
-                    m.this.DR.onMenuOpened(108, menuBuilder);
+            if (m.this.DQ != null) {
+                if (m.this.DO.isOverflowMenuShowing()) {
+                    m.this.DQ.onPanelClosed(108, menuBuilder);
+                } else if (m.this.DQ.onPreparePanel(0, null, menuBuilder)) {
+                    m.this.DQ.onMenuOpened(108, menuBuilder);
                 }
             }
         }

@@ -33,11 +33,11 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class g {
-    private final Object[] DH = new Object[2];
-    private static final Class<?>[] DE = {Context.class, AttributeSet.class};
-    private static final int[] DF = {16843375};
+    private final Object[] DG = new Object[2];
+    private static final Class<?>[] DD = {Context.class, AttributeSet.class};
+    private static final int[] DE = {16843375};
     private static final String[] sClassPrefixList = {"android.widget.", "android.view.", "android.webkit."};
-    private static final Map<String, Constructor<? extends View>> DG = new ArrayMap();
+    private static final Map<String, Constructor<? extends View>> DF = new ArrayMap();
 
     public final View a(View view, String str, Context context, AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
         Context context2 = (!z || view == null) ? context : view.getContext();
@@ -183,8 +183,8 @@ public class g {
             str = attributeSet.getAttributeValue(null, "class");
         }
         try {
-            this.DH[0] = context;
-            this.DH[1] = attributeSet;
+            this.DG[0] = context;
+            this.DG[1] = attributeSet;
             if (-1 == str.indexOf(46)) {
                 for (int i = 0; i < sClassPrefixList.length; i++) {
                     View f = f(context, str, sClassPrefixList[i]);
@@ -198,8 +198,8 @@ public class g {
         } catch (Exception e) {
             return null;
         } finally {
-            this.DH[0] = null;
-            this.DH[1] = null;
+            this.DG[0] = null;
+            this.DG[1] = null;
         }
     }
 
@@ -207,7 +207,7 @@ public class g {
         Context context = view.getContext();
         if (context instanceof ContextWrapper) {
             if (Build.VERSION.SDK_INT < 15 || ViewCompat.hasOnClickListeners(view)) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, DF);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, DE);
                 String string = obtainStyledAttributes.getString(0);
                 if (string != null) {
                     view.setOnClickListener(new a(view, string));
@@ -218,17 +218,17 @@ public class g {
     }
 
     private View f(Context context, String str, String str2) throws ClassNotFoundException, InflateException {
-        Constructor<? extends View> constructor = DG.get(str);
+        Constructor<? extends View> constructor = DF.get(str);
         if (constructor == null) {
             try {
-                constructor = context.getClassLoader().loadClass(str2 != null ? str2 + str : str).asSubclass(View.class).getConstructor(DE);
-                DG.put(str, constructor);
+                constructor = context.getClassLoader().loadClass(str2 != null ? str2 + str : str).asSubclass(View.class).getConstructor(DD);
+                DF.put(str, constructor);
             } catch (Exception e) {
                 return null;
             }
         }
         constructor.setAccessible(true);
-        return constructor.newInstance(this.DH);
+        return constructor.newInstance(this.DG);
     }
 
     private static Context a(Context context, AttributeSet attributeSet, boolean z, boolean z2) {
@@ -251,23 +251,23 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a implements View.OnClickListener {
-        private final String DI;
-        private Method DJ;
-        private Context DK;
+        private final String DH;
+        private Method DI;
+        private Context DJ;
         private final View mHostView;
 
         public a(View view, String str) {
             this.mHostView = view;
-            this.DI = str;
+            this.DH = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.DJ == null) {
-                G(this.mHostView.getContext(), this.DI);
+            if (this.DI == null) {
+                G(this.mHostView.getContext(), this.DH);
             }
             try {
-                this.DJ.invoke(this.DK, view);
+                this.DI.invoke(this.DJ, view);
             } catch (IllegalAccessException e) {
                 throw new IllegalStateException("Could not execute non-public method for android:onClick", e);
             } catch (InvocationTargetException e2) {
@@ -280,9 +280,9 @@ public class g {
             Context context2 = context;
             while (context2 != null) {
                 try {
-                    if (!context2.isRestricted() && (method = context2.getClass().getMethod(this.DI, View.class)) != null) {
-                        this.DJ = method;
-                        this.DK = context2;
+                    if (!context2.isRestricted() && (method = context2.getClass().getMethod(this.DH, View.class)) != null) {
+                        this.DI = method;
+                        this.DJ = context2;
                         return;
                     }
                 } catch (NoSuchMethodException e) {
@@ -294,7 +294,7 @@ public class g {
                 }
             }
             int id = this.mHostView.getId();
-            throw new IllegalStateException("Could not find method " + this.DI + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.mHostView.getClass() + (id == -1 ? "" : " with id '" + this.mHostView.getContext().getResources().getResourceEntryName(id) + "'"));
+            throw new IllegalStateException("Could not find method " + this.DH + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.mHostView.getClass() + (id == -1 ? "" : " with id '" + this.mHostView.getContext().getResources().getResourceEntryName(id) + "'"));
         }
     }
 }

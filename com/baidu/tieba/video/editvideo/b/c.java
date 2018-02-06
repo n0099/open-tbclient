@@ -88,7 +88,7 @@ public class c {
         }
     }
 
-    public static byte[] u(Bitmap bitmap) {
+    public static byte[] x(Bitmap bitmap) {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void ao(Context context, String str) {
+    public static void at(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(Uri.fromFile(new File(str)));
@@ -134,7 +134,7 @@ public class c {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.ArrayList<com.baidu.tieba.video.editvideo.b.c$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> v(Bitmap bitmap) {
+    public static ArrayList<a> y(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return new ArrayList<>();
         }

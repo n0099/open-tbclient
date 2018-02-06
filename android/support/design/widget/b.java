@@ -38,7 +38,7 @@ class b extends Drawable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(float f) {
+    public void f(float f) {
         if (this.lS != f) {
             this.lS = f;
             this.mPaint.setStrokeWidth(1.3333f * f);

@@ -5,7 +5,6 @@ import com.baidu.sapi2.base.debug.Log;
 import java.io.ByteArrayInputStream;
 import javax.crypto.Cipher;
 import javax.security.cert.X509Certificate;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class RSA {
     public static byte[] encrypt(String str, String str2) {
@@ -15,7 +14,7 @@ public class RSA {
         try {
             Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
             cipher.init(1, X509Certificate.getInstance(new ByteArrayInputStream(str2.getBytes())).getPublicKey());
-            return cipher.doFinal(str.getBytes(HTTP.UTF_8));
+            return cipher.doFinal(str.getBytes("UTF-8"));
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return null;

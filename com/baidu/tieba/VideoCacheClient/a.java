@@ -17,12 +17,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bPK;
+    private static a bRS;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean bPL = false;
+    private boolean bRT = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable bvw = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable bxG = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         @Override // java.lang.Runnable
         public void run() {
             Socket socket;
@@ -32,7 +32,7 @@ public class a {
             int i;
             long j;
             String readLine;
-            while (!a.this.bPL) {
+            while (!a.this.bRT) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -40,14 +40,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.bPL) {
-                    String Tm = a.this.Tm();
-                    if (Tm != null && !Tm.isEmpty()) {
-                        File file = new File(c.bPz + b.hL(Tm) + "/header_downloaded");
+                if (!a.this.bRT) {
+                    String TV = a.this.TV();
+                    if (TV != null && !TV.isEmpty()) {
+                        File file = new File(c.bRH + b.hU(TV) + "/header_downloaded");
                         if (file.exists()) {
-                            d.at(a.TAG, "header exists " + Tm);
+                            d.au(a.TAG, "header exists " + TV);
                         } else {
-                            d.at(a.TAG, "client preload start: " + Tm);
+                            d.au(a.TAG, "client preload start: " + TV);
                             long j2 = 0;
                             int i2 = 0;
                             int i3 = 0;
@@ -66,8 +66,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 InputStream inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Tm);
-                                    int port = b.To().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(TV);
+                                    int port = b.TX().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -125,7 +125,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.at(a.TAG, "client preload check1: " + Tm);
+                                            d.au(a.TAG, "client preload check1: " + TV);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
@@ -144,7 +144,7 @@ public class a {
                                                 }
                                             }
                                             try {
-                                                d.at(a.TAG, "client preload check2: " + Tm);
+                                                d.au(a.TAG, "client preload check2: " + TV);
                                                 if (!file.exists()) {
                                                     if (file.getParentFile() != null && !file.getParentFile().exists()) {
                                                         file.getParentFile().mkdirs();
@@ -173,7 +173,7 @@ public class a {
                                                 }
                                             } catch (Exception e13) {
                                                 e = e13;
-                                                TiebaStatic.log(new ak("c12027").aa("errormsg", "预加载文件失败").aa("error", e.getMessage()).aa("url", Tm));
+                                                TiebaStatic.log(new ak("c12027").ab("errormsg", "预加载文件失败").ab("error", e.getMessage()).ab("url", TV));
                                                 e.printStackTrace();
                                                 try {
                                                     outputStreamWriter.close();
@@ -233,7 +233,7 @@ public class a {
                                 i2 = i;
                                 j2 = j;
                             }
-                            d.at(a.TAG, "client preload end: " + Tm);
+                            d.au(a.TAG, "client preload end: " + TV);
                         }
                     }
                 } else {
@@ -242,29 +242,29 @@ public class a {
             }
         }
     };
-    private Thread mThread = new Thread(this.bvw);
+    private Thread mThread = new Thread(this.bxG);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a Tl() {
-        if (bPK == null) {
+    public static a TU() {
+        if (bRS == null) {
             synchronized (a.class) {
-                if (bPK == null) {
-                    bPK = new a();
+                if (bRS == null) {
+                    bRS = new a();
                 }
             }
         }
-        return bPK;
+        return bRS;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Tm() {
+    public synchronized String TV() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void hM(String str) {
+    public synchronized void hV(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

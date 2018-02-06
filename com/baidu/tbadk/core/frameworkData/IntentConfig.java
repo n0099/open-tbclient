@@ -473,6 +473,6 @@ public class IntentConfig extends OrmObject {
     }
 
     public void start() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
     }
 }

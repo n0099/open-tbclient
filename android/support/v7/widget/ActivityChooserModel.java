@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -30,21 +29,21 @@ import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes2.dex */
 public class ActivityChooserModel extends DataSetObservable {
     static final String LOG_TAG = ActivityChooserModel.class.getSimpleName();
-    private static final Object Lw = new Object();
-    private static final Map<String, ActivityChooserModel> Lx = new HashMap();
-    final String LB;
-    private OnChooseActivityListener LJ;
+    private static final Object Lv = new Object();
+    private static final Map<String, ActivityChooserModel> Lw = new HashMap();
+    final String LA;
+    private OnChooseActivityListener LI;
     final Context mContext;
     private Intent mIntent;
-    private final Object Ly = new Object();
-    private final List<ActivityResolveInfo> Lz = new ArrayList();
-    private final List<HistoricalRecord> LA = new ArrayList();
-    private ActivitySorter LC = new a();
-    private int LD = 50;
-    boolean LE = true;
-    private boolean LG = false;
-    private boolean LH = true;
-    private boolean LI = false;
+    private final Object Lx = new Object();
+    private final List<ActivityResolveInfo> Ly = new ArrayList();
+    private final List<HistoricalRecord> Lz = new ArrayList();
+    private ActivitySorter LB = new a();
+    private int LC = 50;
+    boolean LD = true;
+    private boolean LE = false;
+    private boolean LG = true;
+    private boolean LH = false;
 
     /* loaded from: classes2.dex */
     public interface ActivityChooserModelClient {
@@ -63,11 +62,11 @@ public class ActivityChooserModel extends DataSetObservable {
 
     public static ActivityChooserModel H(Context context, String str) {
         ActivityChooserModel activityChooserModel;
-        synchronized (Lw) {
-            activityChooserModel = Lx.get(str);
+        synchronized (Lv) {
+            activityChooserModel = Lw.get(str);
             if (activityChooserModel == null) {
                 activityChooserModel = new ActivityChooserModel(context, str);
-                Lx.put(str, activityChooserModel);
+                Lw.put(str, activityChooserModel);
             }
         }
         return activityChooserModel;
@@ -76,17 +75,17 @@ public class ActivityChooserModel extends DataSetObservable {
     private ActivityChooserModel(Context context, String str) {
         this.mContext = context.getApplicationContext();
         if (!TextUtils.isEmpty(str) && !str.endsWith(".xml")) {
-            this.LB = str + ".xml";
+            this.LA = str + ".xml";
         } else {
-            this.LB = str;
+            this.LA = str;
         }
     }
 
     public void setIntent(Intent intent) {
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             if (this.mIntent != intent) {
                 this.mIntent = intent;
-                this.LI = true;
+                this.LH = true;
                 fq();
             }
         }
@@ -94,26 +93,26 @@ public class ActivityChooserModel extends DataSetObservable {
 
     public int fn() {
         int size;
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            size = this.Lz.size();
+            size = this.Ly.size();
         }
         return size;
     }
 
     public ResolveInfo aU(int i) {
         ResolveInfo resolveInfo;
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            resolveInfo = this.Lz.get(i).resolveInfo;
+            resolveInfo = this.Ly.get(i).resolveInfo;
         }
         return resolveInfo;
     }
 
     public int a(ResolveInfo resolveInfo) {
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            List<ActivityResolveInfo> list = this.Lz;
+            List<ActivityResolveInfo> list = this.Ly;
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 if (list.get(i).resolveInfo == resolveInfo) {
@@ -125,17 +124,17 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     public Intent aV(int i) {
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             if (this.mIntent == null) {
                 return null;
             }
             fq();
-            ActivityResolveInfo activityResolveInfo = this.Lz.get(i);
+            ActivityResolveInfo activityResolveInfo = this.Ly.get(i);
             ComponentName componentName = new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name);
             Intent intent = new Intent(this.mIntent);
             intent.setComponent(componentName);
-            if (this.LJ != null) {
-                if (this.LJ.onChooseActivity(this, new Intent(intent))) {
+            if (this.LI != null) {
+                if (this.LI.onChooseActivity(this, new Intent(intent))) {
                     return null;
                 }
             }
@@ -145,16 +144,16 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     public void a(OnChooseActivityListener onChooseActivityListener) {
-        synchronized (this.Ly) {
-            this.LJ = onChooseActivityListener;
+        synchronized (this.Lx) {
+            this.LI = onChooseActivityListener;
         }
     }
 
     public ResolveInfo fo() {
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            if (!this.Lz.isEmpty()) {
-                return this.Lz.get(0).resolveInfo;
+            if (!this.Ly.isEmpty()) {
+                return this.Ly.get(0).resolveInfo;
             }
             return null;
         }
@@ -162,10 +161,10 @@ public class ActivityChooserModel extends DataSetObservable {
 
     public void aW(int i) {
         float f;
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            ActivityResolveInfo activityResolveInfo = this.Lz.get(i);
-            ActivityResolveInfo activityResolveInfo2 = this.Lz.get(0);
+            ActivityResolveInfo activityResolveInfo = this.Ly.get(i);
+            ActivityResolveInfo activityResolveInfo2 = this.Ly.get(0);
             if (activityResolveInfo2 != null) {
                 f = (activityResolveInfo2.weight - activityResolveInfo.weight) + 5.0f;
             } else {
@@ -176,22 +175,22 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private void fp() {
-        if (!this.LG) {
+        if (!this.LE) {
             throw new IllegalStateException("No preceding call to #readHistoricalData");
         }
-        if (this.LH) {
-            this.LH = false;
-            if (!TextUtils.isEmpty(this.LB)) {
-                AsyncTaskCompat.executeParallel(new b(), new ArrayList(this.LA), this.LB);
+        if (this.LG) {
+            this.LG = false;
+            if (!TextUtils.isEmpty(this.LA)) {
+                AsyncTaskCompat.executeParallel(new b(), new ArrayList(this.Lz), this.LA);
             }
         }
     }
 
     public int getHistorySize() {
         int size;
-        synchronized (this.Ly) {
+        synchronized (this.Lx) {
             fq();
-            size = this.LA.size();
+            size = this.Lz.size();
         }
         return size;
     }
@@ -206,31 +205,31 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private boolean fs() {
-        if (this.LC == null || this.mIntent == null || this.Lz.isEmpty() || this.LA.isEmpty()) {
+        if (this.LB == null || this.mIntent == null || this.Ly.isEmpty() || this.Lz.isEmpty()) {
             return false;
         }
-        this.LC.sort(this.mIntent, this.Lz, Collections.unmodifiableList(this.LA));
+        this.LB.sort(this.mIntent, this.Ly, Collections.unmodifiableList(this.Lz));
         return true;
     }
 
     private boolean ft() {
-        if (!this.LI || this.mIntent == null) {
+        if (!this.LH || this.mIntent == null) {
             return false;
         }
-        this.LI = false;
-        this.Lz.clear();
+        this.LH = false;
+        this.Ly.clear();
         List<ResolveInfo> queryIntentActivities = this.mContext.getPackageManager().queryIntentActivities(this.mIntent, 0);
         int size = queryIntentActivities.size();
         for (int i = 0; i < size; i++) {
-            this.Lz.add(new ActivityResolveInfo(queryIntentActivities.get(i)));
+            this.Ly.add(new ActivityResolveInfo(queryIntentActivities.get(i)));
         }
         return true;
     }
 
     private boolean fu() {
-        if (this.LE && this.LH && !TextUtils.isEmpty(this.LB)) {
-            this.LE = false;
-            this.LG = true;
+        if (this.LD && this.LG && !TextUtils.isEmpty(this.LA)) {
+            this.LD = false;
+            this.LE = true;
             fw();
             return true;
         }
@@ -238,9 +237,9 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private boolean a(HistoricalRecord historicalRecord) {
-        boolean add = this.LA.add(historicalRecord);
+        boolean add = this.Lz.add(historicalRecord);
         if (add) {
-            this.LH = true;
+            this.LG = true;
             fv();
             fp();
             fs();
@@ -250,11 +249,11 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private void fv() {
-        int size = this.LA.size() - this.LD;
+        int size = this.Lz.size() - this.LC;
         if (size > 0) {
-            this.LH = true;
+            this.LG = true;
             for (int i = 0; i < size; i++) {
-                this.LA.remove(0);
+                this.Lz.remove(0);
             }
         }
     }
@@ -346,7 +345,7 @@ public class ActivityChooserModel extends DataSetObservable {
 
     /* loaded from: classes2.dex */
     private final class a implements ActivitySorter {
-        private final Map<ComponentName, ActivityResolveInfo> LM = new HashMap();
+        private final Map<ComponentName, ActivityResolveInfo> LK = new HashMap();
 
         a() {
         }
@@ -354,7 +353,7 @@ public class ActivityChooserModel extends DataSetObservable {
         @Override // android.support.v7.widget.ActivityChooserModel.ActivitySorter
         public void sort(Intent intent, List<ActivityResolveInfo> list, List<HistoricalRecord> list2) {
             float f;
-            Map<ComponentName, ActivityResolveInfo> map = this.LM;
+            Map<ComponentName, ActivityResolveInfo> map = this.LK;
             map.clear();
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -383,18 +382,18 @@ public class ActivityChooserModel extends DataSetObservable {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1025=4, 1023=4] */
     private void fw() {
         try {
-            FileInputStream openFileInput = this.mContext.openFileInput(this.LB);
+            FileInputStream openFileInput = this.mContext.openFileInput(this.LA);
             try {
                 try {
                     try {
                         XmlPullParser newPullParser = Xml.newPullParser();
-                        newPullParser.setInput(openFileInput, HTTP.UTF_8);
+                        newPullParser.setInput(openFileInput, "UTF-8");
                         for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
                         }
                         if (!"historical-records".equals(newPullParser.getName())) {
                             throw new XmlPullParserException("Share records file does not start with historical-records tag.");
                         }
-                        List<HistoricalRecord> list = this.LA;
+                        List<HistoricalRecord> list = this.Lz;
                         list.clear();
                         while (true) {
                             int next = newPullParser.next();
@@ -425,7 +424,7 @@ public class ActivityChooserModel extends DataSetObservable {
                         throw th;
                     }
                 } catch (IOException e3) {
-                    Log.e(LOG_TAG, "Error reading historical recrod file: " + this.LB, e3);
+                    Log.e(LOG_TAG, "Error reading historical recrod file: " + this.LA, e3);
                     if (openFileInput != null) {
                         try {
                             openFileInput.close();
@@ -434,7 +433,7 @@ public class ActivityChooserModel extends DataSetObservable {
                     }
                 }
             } catch (XmlPullParserException e5) {
-                Log.e(LOG_TAG, "Error reading historical recrod file: " + this.LB, e5);
+                Log.e(LOG_TAG, "Error reading historical recrod file: " + this.LA, e5);
                 if (openFileInput != null) {
                     try {
                         openFileInput.close();
@@ -465,7 +464,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 try {
                     try {
                         newSerializer.setOutput(openFileOutput, null);
-                        newSerializer.startDocument(HTTP.UTF_8, true);
+                        newSerializer.startDocument("UTF-8", true);
                         newSerializer.startTag(null, "historical-records");
                         int size = list.size();
                         for (int i = 0; i < size; i++) {
@@ -478,7 +477,7 @@ public class ActivityChooserModel extends DataSetObservable {
                         }
                         newSerializer.endTag(null, "historical-records");
                         newSerializer.endDocument();
-                        ActivityChooserModel.this.LE = true;
+                        ActivityChooserModel.this.LD = true;
                         if (openFileOutput != null) {
                             try {
                                 openFileOutput.close();
@@ -486,7 +485,7 @@ public class ActivityChooserModel extends DataSetObservable {
                             }
                         }
                     } catch (Throwable th) {
-                        ActivityChooserModel.this.LE = true;
+                        ActivityChooserModel.this.LD = true;
                         if (openFileOutput != null) {
                             try {
                                 openFileOutput.close();
@@ -496,8 +495,8 @@ public class ActivityChooserModel extends DataSetObservable {
                         throw th;
                     }
                 } catch (IOException e3) {
-                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LB, e3);
-                    ActivityChooserModel.this.LE = true;
+                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LA, e3);
+                    ActivityChooserModel.this.LD = true;
                     if (openFileOutput != null) {
                         try {
                             openFileOutput.close();
@@ -505,8 +504,8 @@ public class ActivityChooserModel extends DataSetObservable {
                         }
                     }
                 } catch (IllegalArgumentException e5) {
-                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LB, e5);
-                    ActivityChooserModel.this.LE = true;
+                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LA, e5);
+                    ActivityChooserModel.this.LD = true;
                     if (openFileOutput != null) {
                         try {
                             openFileOutput.close();
@@ -514,8 +513,8 @@ public class ActivityChooserModel extends DataSetObservable {
                         }
                     }
                 } catch (IllegalStateException e7) {
-                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LB, e7);
-                    ActivityChooserModel.this.LE = true;
+                    Log.e(ActivityChooserModel.LOG_TAG, "Error writing historical record file: " + ActivityChooserModel.this.LA, e7);
+                    ActivityChooserModel.this.LD = true;
                     if (openFileOutput != null) {
                         try {
                             openFileOutput.close();

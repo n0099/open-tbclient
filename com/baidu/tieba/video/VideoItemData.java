@@ -9,14 +9,14 @@ public class VideoItemData implements Parcelable, Serializable {
     public static final Parcelable.Creator<VideoItemData> CREATOR = new Parcelable.Creator<VideoItemData>() { // from class: com.baidu.tieba.video.VideoItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: I */
+        /* renamed from: J */
         public VideoItemData createFromParcel(Parcel parcel) {
             return new VideoItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: wF */
+        /* renamed from: wE */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -134,31 +134,31 @@ public class VideoItemData implements Parcelable, Serializable {
     public VideoItemData buildWithThreadData(bd bdVar) {
         if (bdVar != null) {
             this.thread_id = bdVar.getTid();
-            this.post_id = bdVar.yH();
-            if (bdVar.zl() != null) {
-                this.thumbnail_url = bdVar.zl().thumbnail_url;
-                this.video_url = bdVar.zl().video_url;
-                this.video_height = String.valueOf(bdVar.zl().video_height);
-                this.video_width = String.valueOf(bdVar.zl().video_width);
-                this.mMd5 = bdVar.zl().video_md5;
+            this.post_id = bdVar.zb();
+            if (bdVar.zF() != null) {
+                this.thumbnail_url = bdVar.zF().thumbnail_url;
+                this.video_url = bdVar.zF().video_url;
+                this.video_height = String.valueOf(bdVar.zF().video_height);
+                this.video_width = String.valueOf(bdVar.zF().video_width);
+                this.mMd5 = bdVar.zF().video_md5;
             }
-            this.comment_num = String.valueOf(bdVar.yL());
-            this.agree_num = String.valueOf(bdVar.Ae());
-            this.share_num = String.valueOf(bdVar.Ag());
+            this.comment_num = String.valueOf(bdVar.zf());
+            this.agree_num = String.valueOf(bdVar.Ax());
+            this.share_num = String.valueOf(bdVar.Az());
             this.title = bdVar.getTitle();
             this.forum_id = String.valueOf(bdVar.getFid());
-            this.forum_name = bdVar.yZ();
-            this.is_agreed = String.valueOf(bdVar.Af());
-            if (bdVar.yT() != null) {
+            this.forum_name = bdVar.zt();
+            this.is_agreed = String.valueOf(bdVar.Ay());
+            if (bdVar.zn() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bdVar.yT().getUserName();
-                userItemData.name_show = bdVar.yT().getName_show();
-                userItemData.portrait = bdVar.yT().getPortrait();
-                userItemData.user_id = bdVar.yT().getUserId();
-                userItemData.is_follow = bdVar.yT().hadConcerned() ? "1" : "0";
+                userItemData.user_name = bdVar.zn().getUserName();
+                userItemData.name_show = bdVar.zn().getName_show();
+                userItemData.portrait = bdVar.zn().getPortrait();
+                userItemData.user_id = bdVar.zn().getUserId();
+                userItemData.is_follow = bdVar.zn().hadConcerned() ? "1" : "0";
                 this.author_info = userItemData;
             }
-            this.act_info = bdVar.zB();
+            this.act_info = bdVar.zV();
             this.mRecomAbTag = bdVar.mRecomAbTag;
             this.mRecomSource = bdVar.mRecomSource;
             this.mRecomWeight = bdVar.mRecomWeight;

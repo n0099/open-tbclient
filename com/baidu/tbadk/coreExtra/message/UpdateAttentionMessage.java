@@ -5,7 +5,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.a.c;
 import com.baidu.tbadk.core.util.am;
 import org.json.JSONObject;
@@ -14,17 +13,18 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public c aWy;
-        public boolean apQ;
-        public JSONObject bgQ;
-        public boolean bgR;
-        public BlockPopInfoData bgS;
+        public c aYh;
+        public boolean apP;
+        public JSONObject biR;
+        public boolean biS;
+        public String biT;
+        public BlockPopInfoData biU;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean bgP = false;
+        public boolean biQ = false;
         public int status = 0;
 
         public void k(String str, boolean z) {
@@ -32,43 +32,50 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.bgQ = jSONObject;
+                    this.biR = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
                     if (optJSONObject != null) {
-                        if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
+                        this.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        boolean z3 = optJSONObject.optInt("is_toast", 0) == 1;
+                        if (!z || !z3) {
                             z2 = false;
                         }
-                        this.bgP = z2;
+                        this.biQ = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        String optString = optJSONObject.optString("block_content");
-                        String optString2 = optJSONObject.optString("block_dealurl");
-                        String optString3 = optJSONObject.optString("block_confirm");
-                        String optString4 = optJSONObject.optString("block_cancel");
-                        if (!am.isEmpty(optString) && !am.isEmpty(optString2) && !am.isEmpty(optString3) && !am.isEmpty(optString4)) {
-                            this.bgS = new BlockPopInfoData();
-                            this.bgS.block_info = optString;
-                            this.bgS.ahead_url = optString2;
-                            this.bgS.ahead_info = optString3;
-                            this.bgS.ok_info = optString4;
-                        }
-                        this.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        k(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
         }
+
+        private void k(JSONObject jSONObject) {
+            if (jSONObject != null) {
+                this.biT = jSONObject.optString("block_dealurl");
+                String optString = jSONObject.optString("block_content");
+                String optString2 = jSONObject.optString("block_confirm");
+                String optString3 = jSONObject.optString("block_cancel");
+                if (!am.isEmpty(optString) && !am.isEmpty(this.biT) && !am.isEmpty(optString2) && !am.isEmpty(optString3)) {
+                    this.biU = new BlockPopInfoData();
+                    this.biU.block_info = optString;
+                    this.biU.ahead_url = this.biT;
+                    this.biU.ahead_info = optString2;
+                    this.biU.ok_info = optString3;
+                }
+            }
+        }
     }
 
     public UpdateAttentionMessage(a aVar) {
-        super(CmdConfigCustom.CMD_UPDATE_ATTENTION, aVar);
+        super(2001115, aVar);
     }
 
     public boolean isSucc() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().apQ;
+        return getData().apP;
     }
 
     public boolean isAttention() {

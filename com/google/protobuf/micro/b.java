@@ -2,7 +2,6 @@ package com.google.protobuf.micro;
 
 import java.io.InputStream;
 import java.util.Vector;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class b {
     private final byte[] a;
@@ -153,17 +152,17 @@ public final class b {
         }
     }
 
-    public a bMl() {
+    public a bMX() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.J(yJ(j));
+            return a.J(yI(j));
         }
         a l = a.l(this.a, this.d, j);
         this.d = j + this.d;
         return l;
     }
 
-    public byte bMm() {
+    public byte bMY() {
         if (this.d == this.b) {
             a(true);
         }
@@ -237,9 +236,9 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(yJ(j), HTTP.UTF_8);
+            return new String(yI(j), "UTF-8");
         }
-        String str = new String(this.a, this.d, j, HTTP.UTF_8);
+        String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
         return str;
     }
@@ -249,31 +248,31 @@ public final class b {
     }
 
     public int j() {
-        byte bMm = bMm();
-        if (bMm >= 0) {
-            return bMm;
+        byte bMY = bMY();
+        if (bMY >= 0) {
+            return bMY;
         }
-        int i = bMm & Byte.MAX_VALUE;
-        byte bMm2 = bMm();
-        if (bMm2 >= 0) {
-            return i | (bMm2 << 7);
+        int i = bMY & Byte.MAX_VALUE;
+        byte bMY2 = bMY();
+        if (bMY2 >= 0) {
+            return i | (bMY2 << 7);
         }
-        int i2 = i | ((bMm2 & Byte.MAX_VALUE) << 7);
-        byte bMm3 = bMm();
-        if (bMm3 >= 0) {
-            return i2 | (bMm3 << 14);
+        int i2 = i | ((bMY2 & Byte.MAX_VALUE) << 7);
+        byte bMY3 = bMY();
+        if (bMY3 >= 0) {
+            return i2 | (bMY3 << 14);
         }
-        int i3 = i2 | ((bMm3 & Byte.MAX_VALUE) << 14);
-        byte bMm4 = bMm();
-        if (bMm4 >= 0) {
-            return i3 | (bMm4 << 21);
+        int i3 = i2 | ((bMY3 & Byte.MAX_VALUE) << 14);
+        byte bMY4 = bMY();
+        if (bMY4 >= 0) {
+            return i3 | (bMY4 << 21);
         }
-        int i4 = i3 | ((bMm4 & Byte.MAX_VALUE) << 21);
-        byte bMm5 = bMm();
-        int i5 = i4 | (bMm5 << 28);
-        if (bMm5 < 0) {
+        int i4 = i3 | ((bMY4 & Byte.MAX_VALUE) << 21);
+        byte bMY5 = bMY();
+        int i5 = i4 | (bMY5 << 28);
+        if (bMY5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bMm() >= 0) {
+                if (bMY() >= 0) {
                     return i5;
                 }
             }
@@ -285,9 +284,9 @@ public final class b {
     public long k() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bMm = bMm();
-            j |= (bMm & Byte.MAX_VALUE) << i;
-            if ((bMm & 128) == 0) {
+            byte bMY = bMY();
+            j |= (bMY & Byte.MAX_VALUE) << i;
+            if ((bMY & 128) == 0) {
                 return j;
             }
         }
@@ -295,20 +294,20 @@ public final class b {
     }
 
     public int l() {
-        return (bMm() & 255) | ((bMm() & 255) << 8) | ((bMm() & 255) << 16) | ((bMm() & 255) << 24);
+        return (bMY() & 255) | ((bMY() & 255) << 8) | ((bMY() & 255) << 16) | ((bMY() & 255) << 24);
     }
 
     public long m() {
-        byte bMm = bMm();
-        byte bMm2 = bMm();
-        return ((bMm2 & 255) << 8) | (bMm & 255) | ((bMm() & 255) << 16) | ((bMm() & 255) << 24) | ((bMm() & 255) << 32) | ((bMm() & 255) << 40) | ((bMm() & 255) << 48) | ((bMm() & 255) << 56);
+        byte bMY = bMY();
+        byte bMY2 = bMY();
+        return ((bMY2 & 255) << 8) | (bMY & 255) | ((bMY() & 255) << 16) | ((bMY() & 255) << 24) | ((bMY() & 255) << 32) | ((bMY() & 255) << 40) | ((bMY() & 255) << 48) | ((bMY() & 255) << 56);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] yJ(int i) {
+    public byte[] yI(int i) {
         if (i < 0) {
             throw d.b();
         }

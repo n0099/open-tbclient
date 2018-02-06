@@ -10,8 +10,8 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes2.dex */
 abstract class a<T> extends b<T> {
-    private Map<SupportMenuItem, MenuItem> HM;
-    private Map<SupportSubMenu, SubMenu> HN;
+    private Map<SupportMenuItem, MenuItem> HL;
+    private Map<SupportSubMenu, SubMenu> HM;
     final Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,13 +24,13 @@ abstract class a<T> extends b<T> {
     public final MenuItem b(MenuItem menuItem) {
         if (menuItem instanceof SupportMenuItem) {
             SupportMenuItem supportMenuItem = (SupportMenuItem) menuItem;
-            if (this.HM == null) {
-                this.HM = new ArrayMap();
+            if (this.HL == null) {
+                this.HL = new ArrayMap();
             }
-            MenuItem menuItem2 = this.HM.get(menuItem);
+            MenuItem menuItem2 = this.HL.get(menuItem);
             if (menuItem2 == null) {
                 MenuItem wrapSupportMenuItem = MenuWrapperFactory.wrapSupportMenuItem(this.mContext, supportMenuItem);
-                this.HM.put(supportMenuItem, wrapSupportMenuItem);
+                this.HL.put(supportMenuItem, wrapSupportMenuItem);
                 return wrapSupportMenuItem;
             }
             return menuItem2;
@@ -42,13 +42,13 @@ abstract class a<T> extends b<T> {
     public final SubMenu a(SubMenu subMenu) {
         if (subMenu instanceof SupportSubMenu) {
             SupportSubMenu supportSubMenu = (SupportSubMenu) subMenu;
-            if (this.HN == null) {
-                this.HN = new ArrayMap();
+            if (this.HM == null) {
+                this.HM = new ArrayMap();
             }
-            SubMenu subMenu2 = this.HN.get(supportSubMenu);
+            SubMenu subMenu2 = this.HM.get(supportSubMenu);
             if (subMenu2 == null) {
                 SubMenu wrapSupportSubMenu = MenuWrapperFactory.wrapSupportSubMenu(this.mContext, supportSubMenu);
-                this.HN.put(supportSubMenu, wrapSupportSubMenu);
+                this.HM.put(supportSubMenu, wrapSupportSubMenu);
                 return wrapSupportSubMenu;
             }
             return subMenu2;
@@ -58,18 +58,18 @@ abstract class a<T> extends b<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void eO() {
+        if (this.HL != null) {
+            this.HL.clear();
+        }
         if (this.HM != null) {
             this.HM.clear();
-        }
-        if (this.HN != null) {
-            this.HN.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void aP(int i) {
-        if (this.HM != null) {
-            Iterator<SupportMenuItem> it = this.HM.keySet().iterator();
+        if (this.HL != null) {
+            Iterator<SupportMenuItem> it = this.HL.keySet().iterator();
             while (it.hasNext()) {
                 if (i == it.next().getGroupId()) {
                     it.remove();
@@ -80,8 +80,8 @@ abstract class a<T> extends b<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void aQ(int i) {
-        if (this.HM != null) {
-            Iterator<SupportMenuItem> it = this.HM.keySet().iterator();
+        if (this.HL != null) {
+            Iterator<SupportMenuItem> it = this.HL.keySet().iterator();
             while (it.hasNext()) {
                 if (i == it.next().getItemId()) {
                     it.remove();

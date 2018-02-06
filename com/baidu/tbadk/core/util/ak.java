@@ -22,7 +22,7 @@ public class ak {
         this.key = str;
     }
 
-    public ak aa(String str, String str2) {
+    public ak ab(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
@@ -40,7 +40,7 @@ public class ak {
         return this;
     }
 
-    public void eb(String str) {
+    public void em(String str) {
         int indexOf;
         if (!am.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);

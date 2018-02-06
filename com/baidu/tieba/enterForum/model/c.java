@@ -11,31 +11,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private TbPageContext<?> aQs;
-    private ViewEventCenter dme;
-    private SoftReference<com.baidu.tieba.enterForum.b.d> dnv;
-    private com.baidu.tieba.enterForum.a.b dnw;
+    private TbPageContext<?> aRR;
+    private ViewEventCenter doV;
+    private SoftReference<com.baidu.tieba.enterForum.b.d> dqp;
+    private com.baidu.tieba.enterForum.a.b dqq;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aQs = tbPageContext;
-        this.dme = viewEventCenter;
+        this.aRR = tbPageContext;
+        this.doV = viewEventCenter;
     }
 
-    public com.baidu.tieba.enterForum.b.d aqf() {
-        if (this.dnv == null) {
+    public com.baidu.tieba.enterForum.b.d aqV() {
+        if (this.dqp == null) {
             return null;
         }
-        return this.dnv.get();
+        return this.dqp.get();
     }
 
     public void createView() {
-        com.baidu.tieba.enterForum.b.d dVar = new com.baidu.tieba.enterForum.b.d(this.aQs.getPageActivity());
-        dVar.setEventCenter(this.dme);
-        this.dnv = new SoftReference<>(dVar);
+        com.baidu.tieba.enterForum.b.d dVar = new com.baidu.tieba.enterForum.b.d(this.aRR.getPageActivity());
+        dVar.setEventCenter(this.doV);
+        this.dqp = new SoftReference<>(dVar);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.dnw.getDataList(), false) : this.dnw.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? g(this.dqq.getDataList(), false) : this.dqq.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,22 +43,22 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dnw.L(f(dataList, true));
+                this.dqq.N(g(dataList, true));
             } else {
-                this.dnw.L(dataList);
+                this.dqq.N(dataList);
             }
         }
     }
 
-    public void aP(List<f> list) {
+    public void aR(List<f> list) {
         com.baidu.tieba.enterForum.b.d dVar;
-        if (this.dnv != null && list != null && (dVar = this.dnv.get()) != null) {
-            dVar.aqr();
-            aQ(list);
+        if (this.dqp != null && list != null && (dVar = this.dqp.get()) != null) {
+            dVar.arh();
+            aS(list);
         }
     }
 
-    private List<f> f(List<f> list, boolean z) {
+    private List<f> g(List<f> list, boolean z) {
         ArrayList arrayList = new ArrayList();
         if (list == null) {
             return null;
@@ -79,34 +79,34 @@ public class c {
         return arrayList;
     }
 
-    public void aQ(List<f> list) {
-        com.baidu.tieba.enterForum.b.d dVar = this.dnv.get();
+    public void aS(List<f> list) {
+        com.baidu.tieba.enterForum.b.d dVar = this.dqp.get();
         if (dVar != null) {
-            if (this.dnw == null) {
-                aqg();
+            if (this.dqq == null) {
+                aqW();
             }
-            dVar.setGridAdapterIfNeeded(this.dnw);
+            dVar.setGridAdapterIfNeeded(this.dqq);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dnw.L(f(list, true));
+                this.dqq.N(g(list, true));
             } else {
-                this.dnw.L(list);
+                this.dqq.N(list);
             }
-            this.dnw.b(this.aQs, TbadkCoreApplication.getInst().getSkinType());
+            this.dqq.b(this.aRR, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void aqg() {
-        this.dnw = new com.baidu.tieba.enterForum.a.b(this.aQs, e.class, d.h.home_like_item_in_edit_grid, this.dme);
-        this.dnw.ct(false);
+    private void aqW() {
+        this.dqq = new com.baidu.tieba.enterForum.a.b(this.aRR, e.class, d.h.home_like_item_in_edit_grid, this.doV);
+        this.dqq.cx(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.dnv.get() != null) {
-                this.dnv.get().onChangeSkinType(tbPageContext);
+            if (this.dqp.get() != null) {
+                this.dqp.get().onChangeSkinType(tbPageContext);
             }
-            if (this.dnw != null) {
-                this.dnw.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.dqq != null) {
+                this.dqq.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

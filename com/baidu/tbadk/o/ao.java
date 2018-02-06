@@ -7,7 +7,7 @@ public class ao extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_stoken_new";
+        return "android_im_window_open";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class ao extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

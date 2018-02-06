@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tieba.pb.data.ContriInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +22,7 @@ public class SignData implements Serializable {
     public int miss_sign_num = 0;
     public int errorCode = 0;
     public String errorMsg = "";
+    public ContriInfo mContriInfo = new ContriInfo();
 
     public void parserJson(String str) {
         try {
@@ -49,5 +51,6 @@ public class SignData implements Serializable {
             this.blockPopInfoData.ahead_url = optJSONObject2.optString("block_dealurl");
             this.blockPopInfoData.ok_info = optJSONObject2.optString("block_cancel");
         }
+        this.mContriInfo.parseJson(jSONObject.optJSONObject("contri_info"));
     }
 }

@@ -9,36 +9,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Thread {
     final /* synthetic */ boolean a;
-    final /* synthetic */ f aDB;
+    final /* synthetic */ f aEX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar, boolean z) {
-        this.aDB = fVar;
+        this.aEX = fVar;
         this.a = z;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.aDB.h = i.c();
-        this.aDB.b();
-        this.aDB.a();
+        this.aEX.h = i.c();
+        this.aEX.b();
+        this.aEX.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.aDB.i;
+        int i = this.aEX.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                URL url = new URL(this.aDB.h);
+                URL url = new URL(this.aEX.h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.aDB.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.aEX.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -50,16 +48,16 @@ public class k extends Thread {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
                 try {
                     try {
-                        httpURLConnection.setRequestMethod(HttpPost.METHOD_NAME);
+                        httpURLConnection.setRequestMethod("POST");
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.setConnectTimeout(b.b);
                         httpURLConnection.setReadTimeout(b.b);
                         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                        httpURLConnection.setRequestProperty("Accept-Charset", HTTP.UTF_8);
+                        httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
-                        httpURLConnection.setRequestProperty(HTTP.TARGET_HOST, "loc.map.baidu.com");
+                        httpURLConnection.setRequestProperty("Host", "loc.map.baidu.com");
                         OutputStream outputStream = httpURLConnection.getOutputStream();
                         outputStream.write(stringBuffer.toString().getBytes());
                         outputStream.flush();
@@ -109,11 +107,11 @@ public class k extends Thread {
                 }
                 gZIPInputStream.close();
                 byteArrayOutputStream.close();
-                this.aDB.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.aEX.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                 if (this.a) {
-                    this.aDB.m = byteArrayOutputStream.toByteArray();
+                    this.aEX.m = byteArrayOutputStream.toByteArray();
                 }
-                this.aDB.a(true);
+                this.aEX.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -132,7 +130,7 @@ public class k extends Thread {
             return;
         }
         f.o++;
-        this.aDB.j = null;
-        this.aDB.a(false);
+        this.aEX.j = null;
+        this.aEX.a(false);
     }
 }

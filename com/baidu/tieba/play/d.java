@@ -1,27 +1,27 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bjR();
+    String ble();
 
-    boolean bjS();
+    boolean blf();
 
-    boolean bjT();
+    boolean blg();
 
-    boolean bjU();
+    boolean blh();
 
-    boolean bjV();
+    boolean bli();
 
-    int bjW();
+    int blj();
 
-    void bjX();
+    void blk();
 
-    j bjY();
+    j bll();
 
-    void bjZ();
+    void blm();
 
-    void cL(long j);
+    void cK(long j);
 
-    String hN(String str);
+    String hW(String str);
 
     void onCompletion();
 
@@ -33,5 +33,5 @@ public interface d {
 
     void onStop();
 
-    void tT(int i);
+    void tR(int i);
 }

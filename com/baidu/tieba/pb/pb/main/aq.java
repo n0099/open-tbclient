@@ -1,86 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.d;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
-public class aq extends com.baidu.tbadk.core.view.userLike.c {
-    private String bBb;
-    public boolean fQs;
-    private int fQt;
-    public boolean isBigV;
-    private TbPageContext mPageContext;
-
-    public aq(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
-        super(tbPageContext, bVar);
-        this.fQs = false;
-        this.isBigV = false;
-        this.fQt = 0;
-        this.fQt = i;
-        this.mPageContext = tbPageContext;
-        if (this.fQt == 1) {
-            super.setFromType("4");
-        } else if (this.fQt == 3) {
-            super.setFromType("5");
-        } else {
-            super.setFromType("0");
+public class aq {
+    public static Intent af(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
         }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        intent.putExtra("key_start_from", 5);
+        return intent;
     }
 
-    public void cK(String str) {
-        this.bBb = str;
+    public static boolean k(PostData postData) {
+        if (postData == null || postData.bxe() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.h bxe = postData.bxe();
+        if (bxe.hay) {
+            int bwC = bxe.bwC();
+            return bwC == 2 || bwC == 1 || bwC == 3;
+        }
+        return false;
     }
 
-    private int bdd() {
-        String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
-        if (fromPageKey == null) {
-            return 3;
-        }
-        if (fromPageKey.equals("a038")) {
-            return 1;
-        }
-        if (fromPageKey.equals("a002")) {
-            return 2;
-        }
-        if (fromPageKey.equals("a006")) {
-            return 3;
-        }
-        if (fromPageKey.equals("a011")) {
-            return 4;
-        }
-        if (fromPageKey.equals("a033")) {
-            return 5;
-        }
-        if (fromPageKey.equals("a010")) {
-            return 6;
-        }
-        return 7;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2 = 2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12408").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bdd()).aa("obj_id", this.bdH != null ? this.bdH.getUserId() : "").aa("tid", this.bBb));
-        if (this.fQt == 1) {
-            i = 3;
-        } else {
-            i = this.fQt == 3 ? 2 : 0;
-        }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12507").s("obj_locate", i));
-        super.onClick(view);
-        if (this.fQs && this.bdH != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11924").aa("obj_id", this.bdH.getUserId()));
-        }
-        if (this.isBigV && this.bdH != null) {
-            if (this.fQt == 1) {
-                i2 = 1;
-            } else if (this.fQt != 2) {
-                i2 = 0;
-            }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c12150").s("obj_locate", i2).aa("obj_id", this.bdH.getUserId()));
+    public static void v(TbPageContext tbPageContext) {
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.user_like_success_dialog, (ViewGroup) null);
+            com.baidu.tbadk.core.util.aj.r((TextView) inflate.findViewById(d.g.dialog_title), d.C0140d.cp_cont_b);
+            com.baidu.tbadk.core.util.aj.r((TextView) inflate.findViewById(d.g.dialog_message), d.C0140d.cp_cont_j);
+            aVar.a(d.j.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.aq.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    if (aVar2 != null) {
+                        aVar2.dismiss();
+                    }
+                }
+            });
+            ((ImageView) inflate.findViewById(d.g.dialog_close)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aq.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (com.baidu.tbadk.core.dialog.a.this != null) {
+                        com.baidu.tbadk.core.dialog.a.this.dismiss();
+                    }
+                }
+            });
+            aVar.aO(inflate);
+            aVar.aZ(false);
+            aVar.b(tbPageContext).AU();
         }
     }
 }

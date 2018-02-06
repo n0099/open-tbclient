@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.service;
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
@@ -12,11 +11,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.e.b;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class DealIntentService extends BdBaseService {
@@ -27,10 +24,9 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_GIFT_INFO = 24;
     public static final int CLASS_TYPE_GROUP_EVENT = 14;
     public static final int CLASS_TYPE_GROUP_INFO = 13;
-    public static final int CLASS_TYPE_LIVE_GROUP = 17;
-    public static final int CLASS_TYPE_LIVE_NOTIFY = 16;
     public static final int CLASS_TYPE_MAIN = 3;
     public static final int CLASS_TYPE_MESSAGE = 5;
+    public static final int CLASS_TYPE_MESSAGE_CENTER = 36;
     public static final int CLASS_TYPE_MESSAGE_NEW = 11;
     public static final int CLASS_TYPE_MESSAGE_NEW_MENTION = 21;
     public static final int CLASS_TYPE_MIDDLE_PAGE = 34;
@@ -101,7 +97,7 @@ public class DealIntentService extends BdBaseService {
             super.onPreExecute();
             String string = this.intent.getExtras().getString("privateGid");
             if (!TextUtils.isEmpty(string)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.SEND_PV_TJ, string));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2012110, string));
             }
         }
 
@@ -116,42 +112,40 @@ public class DealIntentService extends BdBaseService {
             int i = this.intent.getExtras().getInt("class", -1);
             String stringExtra = this.intent.getStringExtra("link");
             long j = this.intent.getExtras().getLong("task_id");
-            ak aa = new ak("c11703").aa("obj_to", stringExtra).f("task_id", j).aa(Constants.EXTRA_KEY_APP_VERSION, TbConfig.getVersion());
+            ak ab = new ak("c11703").ab("obj_to", stringExtra).f("task_id", j).ab(Constants.EXTRA_KEY_APP_VERSION, TbConfig.getVersion());
             int i2 = this.intent.getExtras().getInt("is_live", -1);
             int i3 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i2 >= 0) {
-                aa.s("is_live", i2);
+                ab.s("is_live", i2);
             }
             if (i3 >= 0) {
-                aa.s("is_live_lcs", i3);
+                ab.s("is_live_lcs", i3);
             }
-            TiebaStatic.log(aa);
+            TiebaStatic.log(ab);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                ho(i);
+                hn(i);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
             }
-            for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(500)) {
-                if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
-                    if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.Bp())) {
-                            this.intent.putExtra("class", 5);
-                        } else {
-                            this.intent.putExtra("class", 21);
-                        }
-                    } else if (10 == this.intent.getIntExtra("class", -1)) {
-                        this.intent.putExtra("class", 12);
+            if (com.baidu.adp.base.a.jF().jG() != null) {
+                if (5 == this.intent.getIntExtra("class", -1)) {
+                    if (com.baidu.adp.base.a.jF().jG().getClass().getName().equalsIgnoreCase(b.BI())) {
+                        this.intent.putExtra("class", 5);
+                    } else {
+                        this.intent.putExtra("class", 21);
                     }
-                    return DealIntentService.ACTION_ON_POST_EXSIT;
+                } else if (10 == this.intent.getIntExtra("class", -1)) {
+                    this.intent.putExtra("class", 12);
                 }
+                return DealIntentService.ACTION_ON_POST_EXSIT;
             }
             if (i == 27) {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                hn(i);
+                hm(i);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -163,11 +157,11 @@ public class DealIntentService extends BdBaseService {
             if (str != null) {
                 if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
                     if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(DealIntentService.this, this.intent)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(DealIntentService.this, this.intent)));
                     }
                 } else {
                     this.intent.addFlags(268435456);
-                    CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_INTENT);
+                    CustomMessage customMessage = new CustomMessage(2012000);
                     customMessage.setData(this.intent);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
@@ -175,7 +169,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void hn(int i) {
+        private void hm(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -191,7 +185,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void ho(int i) {
+        private void hn(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

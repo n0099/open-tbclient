@@ -8,9 +8,9 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    final b NP;
-    final a NQ = new a();
-    final List<View> NR = new ArrayList();
+    final b NN;
+    final a NP = new a();
+    final List<View> NQ = new ArrayList();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -40,17 +40,17 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar) {
-        this.NP = bVar;
+        this.NN = bVar;
     }
 
     private void X(View view) {
-        this.NR.add(view);
-        this.NP.ad(view);
+        this.NQ.add(view);
+        this.NN.ad(view);
     }
 
     private boolean Y(View view) {
-        if (this.NR.remove(view)) {
-            this.NP.ae(view);
+        if (this.NQ.remove(view)) {
+            this.NN.ae(view);
             return true;
         }
         return false;
@@ -65,27 +65,27 @@ public class k {
     public void b(View view, int i, boolean z) {
         int bh;
         if (i < 0) {
-            bh = this.NP.getChildCount();
+            bh = this.NN.getChildCount();
         } else {
             bh = bh(i);
         }
-        this.NQ.j(bh, z);
+        this.NP.m(bh, z);
         if (z) {
             X(view);
         }
-        this.NP.addView(view, bh);
+        this.NN.addView(view, bh);
     }
 
     private int bh(int i) {
         if (i < 0) {
             return -1;
         }
-        int childCount = this.NP.getChildCount();
+        int childCount = this.NN.getChildCount();
         int i2 = i;
         while (i2 < childCount) {
-            int bk = i - (i2 - this.NQ.bk(i2));
+            int bk = i - (i2 - this.NP.bk(i2));
             if (bk == 0) {
-                while (this.NQ.get(i2)) {
+                while (this.NP.get(i2)) {
                     i2++;
                 }
                 return i2;
@@ -97,48 +97,48 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void removeView(View view) {
-        int indexOfChild = this.NP.indexOfChild(view);
+        int indexOfChild = this.NN.indexOfChild(view);
         if (indexOfChild >= 0) {
-            if (this.NQ.bj(indexOfChild)) {
+            if (this.NP.bj(indexOfChild)) {
                 Y(view);
             }
-            this.NP.removeViewAt(indexOfChild);
+            this.NN.removeViewAt(indexOfChild);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void removeViewAt(int i) {
         int bh = bh(i);
-        View childAt = this.NP.getChildAt(bh);
+        View childAt = this.NN.getChildAt(bh);
         if (childAt != null) {
-            if (this.NQ.bj(bh)) {
+            if (this.NP.bj(bh)) {
                 Y(childAt);
             }
-            this.NP.removeViewAt(bh);
+            this.NN.removeViewAt(bh);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View getChildAt(int i) {
-        return this.NP.getChildAt(bh(i));
+        return this.NN.getChildAt(bh(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fS() {
-        this.NQ.reset();
-        for (int size = this.NR.size() - 1; size >= 0; size--) {
-            this.NP.ae(this.NR.get(size));
-            this.NR.remove(size);
+        this.NP.reset();
+        for (int size = this.NQ.size() - 1; size >= 0; size--) {
+            this.NN.ae(this.NQ.get(size));
+            this.NQ.remove(size);
         }
-        this.NP.removeAllViews();
+        this.NN.removeAllViews();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View F(int i, int i2) {
-        int size = this.NR.size();
+        int size = this.NQ.size();
         for (int i3 = 0; i3 < size; i3++) {
-            View view = this.NR.get(i3);
-            RecyclerView.ViewHolder childViewHolder = this.NP.getChildViewHolder(view);
+            View view = this.NQ.get(i3);
+            RecyclerView.ViewHolder childViewHolder = this.NN.getChildViewHolder(view);
             if (childViewHolder.getLayoutPosition() == i && !childViewHolder.isInvalid() && !childViewHolder.isRemoved() && (i2 == -1 || childViewHolder.getItemViewType() == i2)) {
                 return view;
             }
@@ -150,92 +150,92 @@ public class k {
     public void a(View view, int i, ViewGroup.LayoutParams layoutParams, boolean z) {
         int bh;
         if (i < 0) {
-            bh = this.NP.getChildCount();
+            bh = this.NN.getChildCount();
         } else {
             bh = bh(i);
         }
-        this.NQ.j(bh, z);
+        this.NP.m(bh, z);
         if (z) {
             X(view);
         }
-        this.NP.attachViewToParent(view, bh, layoutParams);
+        this.NN.attachViewToParent(view, bh, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getChildCount() {
-        return this.NP.getChildCount() - this.NR.size();
+        return this.NN.getChildCount() - this.NQ.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int fT() {
-        return this.NP.getChildCount();
+        return this.NN.getChildCount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public View bi(int i) {
-        return this.NP.getChildAt(i);
+        return this.NN.getChildAt(i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void detachViewFromParent(int i) {
         int bh = bh(i);
-        this.NQ.bj(bh);
-        this.NP.detachViewFromParent(bh);
+        this.NP.bj(bh);
+        this.NN.detachViewFromParent(bh);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int indexOfChild(View view) {
-        int indexOfChild = this.NP.indexOfChild(view);
-        if (indexOfChild == -1 || this.NQ.get(indexOfChild)) {
+        int indexOfChild = this.NN.indexOfChild(view);
+        if (indexOfChild == -1 || this.NP.get(indexOfChild)) {
             return -1;
         }
-        return indexOfChild - this.NQ.bk(indexOfChild);
+        return indexOfChild - this.NP.bk(indexOfChild);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean Z(View view) {
-        return this.NR.contains(view);
+        return this.NQ.contains(view);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aa(View view) {
-        int indexOfChild = this.NP.indexOfChild(view);
+        int indexOfChild = this.NN.indexOfChild(view);
         if (indexOfChild < 0) {
             throw new IllegalArgumentException("view is not a child, cannot hide " + view);
         }
-        this.NQ.set(indexOfChild);
+        this.NP.set(indexOfChild);
         X(view);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ab(View view) {
-        int indexOfChild = this.NP.indexOfChild(view);
+        int indexOfChild = this.NN.indexOfChild(view);
         if (indexOfChild < 0) {
             throw new IllegalArgumentException("view is not a child, cannot hide " + view);
         }
-        if (!this.NQ.get(indexOfChild)) {
+        if (!this.NP.get(indexOfChild)) {
             throw new RuntimeException("trying to unhide a view that was not hidden" + view);
         }
-        this.NQ.clear(indexOfChild);
+        this.NP.clear(indexOfChild);
         Y(view);
     }
 
     public String toString() {
-        return this.NQ.toString() + ", hidden list:" + this.NR.size();
+        return this.NP.toString() + ", hidden list:" + this.NQ.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ac(View view) {
-        int indexOfChild = this.NP.indexOfChild(view);
+        int indexOfChild = this.NN.indexOfChild(view);
         if (indexOfChild == -1) {
             if (Y(view)) {
             }
             return true;
-        } else if (this.NQ.get(indexOfChild)) {
-            this.NQ.bj(indexOfChild);
+        } else if (this.NP.get(indexOfChild)) {
+            this.NP.bj(indexOfChild);
             if (!Y(view)) {
             }
-            this.NP.removeViewAt(indexOfChild);
+            this.NN.removeViewAt(indexOfChild);
             return true;
         } else {
             return false;
@@ -245,8 +245,8 @@ public class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
-        long NT = 0;
-        a NU;
+        long NR = 0;
+        a NT;
 
         a() {
         }
@@ -254,99 +254,99 @@ public class k {
         void set(int i) {
             if (i >= 64) {
                 fU();
-                this.NU.set(i - 64);
+                this.NT.set(i - 64);
                 return;
             }
-            this.NT |= 1 << i;
+            this.NR |= 1 << i;
         }
 
         private void fU() {
-            if (this.NU == null) {
-                this.NU = new a();
+            if (this.NT == null) {
+                this.NT = new a();
             }
         }
 
         void clear(int i) {
             if (i >= 64) {
-                if (this.NU != null) {
-                    this.NU.clear(i - 64);
+                if (this.NT != null) {
+                    this.NT.clear(i - 64);
                     return;
                 }
                 return;
             }
-            this.NT &= (1 << i) ^ (-1);
+            this.NR &= (1 << i) ^ (-1);
         }
 
         boolean get(int i) {
             if (i < 64) {
-                return (this.NT & (1 << i)) != 0;
+                return (this.NR & (1 << i)) != 0;
             }
             fU();
-            return this.NU.get(i - 64);
+            return this.NT.get(i - 64);
         }
 
         void reset() {
-            this.NT = 0L;
-            if (this.NU != null) {
-                this.NU.reset();
+            this.NR = 0L;
+            if (this.NT != null) {
+                this.NT.reset();
             }
         }
 
-        void j(int i, boolean z) {
+        void m(int i, boolean z) {
             if (i >= 64) {
                 fU();
-                this.NU.j(i - 64, z);
+                this.NT.m(i - 64, z);
                 return;
             }
-            boolean z2 = (this.NT & Long.MIN_VALUE) != 0;
+            boolean z2 = (this.NR & Long.MIN_VALUE) != 0;
             long j = (1 << i) - 1;
-            this.NT = (((j ^ (-1)) & this.NT) << 1) | (this.NT & j);
+            this.NR = (((j ^ (-1)) & this.NR) << 1) | (this.NR & j);
             if (z) {
                 set(i);
             } else {
                 clear(i);
             }
-            if (z2 || this.NU != null) {
+            if (z2 || this.NT != null) {
                 fU();
-                this.NU.j(0, z2);
+                this.NT.m(0, z2);
             }
         }
 
         boolean bj(int i) {
             if (i >= 64) {
                 fU();
-                return this.NU.bj(i - 64);
+                return this.NT.bj(i - 64);
             }
             long j = 1 << i;
-            boolean z = (this.NT & j) != 0;
-            this.NT &= j ^ (-1);
+            boolean z = (this.NR & j) != 0;
+            this.NR &= j ^ (-1);
             long j2 = j - 1;
-            this.NT = Long.rotateRight((j2 ^ (-1)) & this.NT, 1) | (this.NT & j2);
-            if (this.NU != null) {
-                if (this.NU.get(0)) {
+            this.NR = Long.rotateRight((j2 ^ (-1)) & this.NR, 1) | (this.NR & j2);
+            if (this.NT != null) {
+                if (this.NT.get(0)) {
                     set(63);
                 }
-                this.NU.bj(0);
+                this.NT.bj(0);
                 return z;
             }
             return z;
         }
 
         int bk(int i) {
-            if (this.NU == null) {
+            if (this.NT == null) {
                 if (i >= 64) {
-                    return Long.bitCount(this.NT);
+                    return Long.bitCount(this.NR);
                 }
-                return Long.bitCount(this.NT & ((1 << i) - 1));
+                return Long.bitCount(this.NR & ((1 << i) - 1));
             } else if (i < 64) {
-                return Long.bitCount(this.NT & ((1 << i) - 1));
+                return Long.bitCount(this.NR & ((1 << i) - 1));
             } else {
-                return this.NU.bk(i - 64) + Long.bitCount(this.NT);
+                return this.NT.bk(i - 64) + Long.bitCount(this.NR);
             }
         }
 
         public String toString() {
-            return this.NU == null ? Long.toBinaryString(this.NT) : this.NU.toString() + "xx" + Long.toBinaryString(this.NT);
+            return this.NT == null ? Long.toBinaryString(this.NR) : this.NT.toString() + "xx" + Long.toBinaryString(this.NR);
         }
     }
 }

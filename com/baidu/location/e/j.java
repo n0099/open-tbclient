@@ -3,6 +3,7 @@ package com.baidu.location.e;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
@@ -20,8 +21,8 @@ public final class j {
     /* loaded from: classes.dex */
     static final class a {
         final String a;
-        final BDLocation aCm;
-        final LinkedHashMap<String, Integer> aCn;
+        final BDLocation aDK;
+        final LinkedHashMap<String, Integer> aDL;
         final String b;
         final boolean c;
         final boolean d;
@@ -34,11 +35,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.aCn = null;
+                this.aDL = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.aCm = null;
+                this.aDK = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -61,7 +62,7 @@ public final class j {
                             if (split[i3].startsWith("cl=")) {
                                 str = split[i3].substring(3);
                             } else if (split[i3].startsWith("wf=")) {
-                                for (String str3 : split[i3].substring(3).split("\\|")) {
+                                for (String str3 : split[i3].substring(3).split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)) {
                                     String[] split2 = str3.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                                     if (split2.length >= 2) {
                                         linkedHashMap.put(split2[0], Integer.valueOf(split2[1]));
@@ -84,12 +85,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.aCn = linkedHashMap;
+                                this.aDL = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.aCm = bDLocation;
+                                this.aDK = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -122,12 +123,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.aCn = linkedHashMap;
+            this.aDL = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.aCm = bDLocation;
+            this.aDK = bDLocation;
             this.h = z2;
         }
     }
@@ -171,7 +172,7 @@ public final class j {
         ArrayList arrayList = new ArrayList();
         StringBuffer stringBuffer = new StringBuffer();
         if (aVar != null) {
-            stringBuffer.append(com.baidu.location.f.b.um().g(aVar));
+            stringBuffer.append(com.baidu.location.f.b.uY().g(aVar));
         }
         if (iVar != null) {
             stringBuffer.append(iVar.a(30));
@@ -320,7 +321,7 @@ public final class j {
                 String string8 = cursor.getString(cursor.getColumnIndex("PoiList"));
                 if (string8 != null) {
                     try {
-                        String[] split = string8.split("\\|");
+                        String[] split = string8.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                         for (String str : split) {
                             String[] split2 = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                             if (split2.length >= 3) {

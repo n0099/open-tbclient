@@ -8,27 +8,27 @@ import android.view.ViewGroup;
 class an extends t implements al {
     @Override // android.support.b.t, android.support.b.q
     public void a(r rVar, Object obj) {
-        this.uT = rVar;
+        this.uU = rVar;
         if (obj == null) {
-            this.uX = new a((am) rVar);
+            this.uY = new a((am) rVar);
         } else {
-            this.uX = (Visibility) obj;
+            this.uY = (Visibility) obj;
         }
     }
 
     @Override // android.support.b.al
     public boolean b(af afVar) {
-        return ((Visibility) this.uX).isVisible(c(afVar));
+        return ((Visibility) this.uY).isVisible(c(afVar));
     }
 
     @Override // android.support.b.al
     public Animator a(ViewGroup viewGroup, af afVar, int i, af afVar2, int i2) {
-        return ((Visibility) this.uX).onAppear(viewGroup, c(afVar), i, c(afVar2), i2);
+        return ((Visibility) this.uY).onAppear(viewGroup, c(afVar), i, c(afVar2), i2);
     }
 
     @Override // android.support.b.al
     public Animator b(ViewGroup viewGroup, af afVar, int i, af afVar2, int i2) {
-        return ((Visibility) this.uX).onDisappear(viewGroup, c(afVar), i, c(afVar2), i2);
+        return ((Visibility) this.uY).onDisappear(viewGroup, c(afVar), i, c(afVar2), i2);
     }
 
     /* loaded from: classes2.dex */

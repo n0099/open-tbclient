@@ -4,9 +4,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
-import com.baidu.tieba.card.data.l;
-import com.baidu.tieba.card.data.n;
+import com.baidu.tieba.card.data.m;
 import com.baidu.tieba.homepage.personalize.model.c;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,8 +14,8 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c ecD = new c();
-    private final int cax = b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final c egP = new c();
+    private final int ccI = b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -36,41 +36,41 @@ public class a {
                 bd bdVar = new bd();
                 bdVar.a(concernData.thread_list);
                 if (bdVar.isShareThread) {
-                    l lVar = new l();
-                    lVar.threadData = bdVar;
-                    linkedList.add(lVar);
-                } else if (n.J(bdVar)) {
-                    n nVar = new n(bdVar);
-                    if (nVar != null) {
-                        nVar.tid = bdVar.getTid();
+                    k kVar = new k();
+                    kVar.threadData = bdVar;
+                    linkedList.add(kVar);
+                } else if (m.M(bdVar)) {
+                    m mVar = new m(bdVar);
+                    if (mVar != null) {
+                        mVar.tid = bdVar.getTid();
                     }
-                    if (nVar != null && nVar.isValid()) {
-                        linkedList.add(nVar);
+                    if (mVar != null && mVar.isValid()) {
+                        linkedList.add(mVar);
                     }
-                } else if (k.J(bdVar)) {
-                    k kVar = new k(bdVar);
-                    if (kVar != null) {
-                        kVar.tid = bdVar.getTid();
-                        kVar.kp("3");
+                } else if (j.M(bdVar)) {
+                    j jVar = new j(bdVar);
+                    if (jVar != null) {
+                        jVar.tid = bdVar.getTid();
+                        jVar.kw("3");
                     }
-                    if (kVar != null && kVar.isValid()) {
-                        linkedList.add(kVar);
+                    if (jVar != null && jVar.isValid()) {
+                        linkedList.add(jVar);
                     }
                 } else {
-                    l lVar2 = new l();
-                    if (lVar2 != null) {
-                        lVar2.threadData = bdVar;
-                        lVar2.kp(lVar2.threadData.isLinkThread() ? "4" : "1");
-                        lVar2.isLinkThread = false;
+                    k kVar2 = new k();
+                    if (kVar2 != null) {
+                        kVar2.threadData = bdVar;
+                        kVar2.kw(kVar2.threadData.isLinkThread() ? "4" : "1");
+                        kVar2.isLinkThread = false;
                     }
-                    if (lVar2.threadData != null && lVar2.isValid() && !StringUtils.isNull(lVar2.threadData.getId()) && !"0".equals(lVar2.threadData.getTid())) {
-                        linkedList.add(lVar2);
+                    if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
+                        linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.ecD.bLM = linkedList;
-        return this.ecD;
+        this.egP.bNQ = linkedList;
+        return this.egP;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -97,7 +97,7 @@ public class a {
                     }
                 }
             }
-            this.ecD.egx = v.D(list) - D;
+            this.egP.ekJ = v.D(list) - D;
         }
     }
 

@@ -2,24 +2,25 @@ package com.coloros.mcssdk.a;
 
 import android.content.Context;
 import android.content.Intent;
+import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes2.dex */
 public final class b extends c {
     @Override // com.coloros.mcssdk.a.d
     public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
         if (4105 == i) {
-            return ao(intent);
+            return am(intent);
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c ao(Intent intent) {
+    public final com.coloros.mcssdk.e.c am(Intent intent) {
         try {
             com.coloros.mcssdk.e.b bVar = new com.coloros.mcssdk.e.b();
-            bVar.xV(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
-            bVar.xW(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
+            bVar.xU(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
+            bVar.xV(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
             bVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            bVar.setAppKey(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appKey")));
-            bVar.uR(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
+            bVar.setAppKey(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WBConstants.SSO_APP_KEY)));
+            bVar.uW(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
             bVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + bVar.toString());
             return bVar;

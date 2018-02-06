@@ -6,17 +6,17 @@ import android.graphics.drawable.Drawable;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 class u extends o {
-    private final WeakReference<Context> Xm;
+    private final WeakReference<Context> Xl;
 
     public u(Context context, Resources resources) {
         super(resources);
-        this.Xm = new WeakReference<>(context);
+        this.Xl = new WeakReference<>(context);
     }
 
     @Override // android.support.v7.widget.o, android.content.res.Resources
     public Drawable getDrawable(int i) throws Resources.NotFoundException {
         Drawable drawable = super.getDrawable(i);
-        Context context = this.Xm.get();
+        Context context = this.Xl.get();
         if (drawable != null && context != null) {
             AppCompatDrawableManager.get();
             AppCompatDrawableManager.a(context, i, drawable);

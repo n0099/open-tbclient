@@ -3,9 +3,9 @@ package com.baidu.adp.lib.stats.b;
 public class a extends com.baidu.adp.lib.stats.base.a {
     public a(i iVar) {
         super(iVar);
-        this.alb = 10;
+        this.ala = 10;
         this.mMustSuccess = true;
-        this.alc = "alert";
+        this.alb = "alert";
     }
 
     @Override // com.baidu.adp.lib.stats.base.a

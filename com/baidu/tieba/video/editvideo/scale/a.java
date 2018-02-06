@@ -3,26 +3,26 @@ package com.baidu.tieba.video.editvideo.scale;
 import android.graphics.Matrix;
 /* loaded from: classes2.dex */
 public class a {
-    private b hpA;
-    private b hpz;
+    private b hqO;
+    private b hqP;
 
     public a(b bVar, b bVar2) {
-        this.hpz = bVar;
-        this.hpA = bVar2;
+        this.hqO = bVar;
+        this.hqP = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return UW();
+                return VO();
             case FIT_XY:
-                return UP();
+                return VH();
             case FIT_CENTER:
-                return UR();
+                return VJ();
             case FIT_START:
-                return UQ();
+                return VI();
             case FIT_END:
-                return US();
+                return VK();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,17 +60,17 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return UT();
+                return VL();
             case CENTER_INSIDE:
-                return UU();
+                return VM();
             case END_INSIDE:
-                return UV();
+                return VN();
             default:
                 return null;
         }
     }
 
-    private Matrix i(float f, float f2, float f3, float f4) {
+    private Matrix j(float f, float f2, float f3, float f4) {
         Matrix matrix = new Matrix();
         matrix.setScale(f, f2, f3, f4);
         return matrix;
@@ -79,75 +79,75 @@ public class a {
     private Matrix a(float f, float f2, PivotPoint pivotPoint) {
         switch (pivotPoint) {
             case LEFT_TOP:
-                return i(f, f2, 0.0f, 0.0f);
+                return j(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return i(f, f2, 0.0f, this.hpz.getHeight() / 2.0f);
+                return j(f, f2, 0.0f, this.hqO.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return i(f, f2, 0.0f, this.hpz.getHeight());
+                return j(f, f2, 0.0f, this.hqO.getHeight());
             case CENTER_TOP:
-                return i(f, f2, this.hpz.getWidth() / 2.0f, 0.0f);
+                return j(f, f2, this.hqO.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return i(f, f2, this.hpz.getWidth() / 2.0f, this.hpz.getHeight() / 2.0f);
+                return j(f, f2, this.hqO.getWidth() / 2.0f, this.hqO.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return i(f, f2, this.hpz.getWidth() / 2.0f, this.hpz.getHeight());
+                return j(f, f2, this.hqO.getWidth() / 2.0f, this.hqO.getHeight());
             case RIGHT_TOP:
-                return i(f, f2, this.hpz.getWidth(), 0.0f);
+                return j(f, f2, this.hqO.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return i(f, f2, this.hpz.getWidth(), this.hpz.getHeight() / 2.0f);
+                return j(f, f2, this.hqO.getWidth(), this.hqO.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return i(f, f2, this.hpz.getWidth(), this.hpz.getHeight());
+                return j(f, f2, this.hqO.getWidth(), this.hqO.getHeight());
             default:
                 return null;
         }
     }
 
-    private Matrix UW() {
-        return a(this.hpA.getWidth() / this.hpz.getWidth(), this.hpA.getHeight() / this.hpz.getHeight(), PivotPoint.LEFT_TOP);
+    private Matrix VO() {
+        return a(this.hqP.getWidth() / this.hqO.getWidth(), this.hqP.getHeight() / this.hqO.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.hpz.getWidth() / this.hpA.getWidth();
-        float height = this.hpz.getHeight() / this.hpA.getHeight();
+        float width = this.hqO.getWidth() / this.hqP.getWidth();
+        float height = this.hqO.getHeight() / this.hqP.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
 
-    private Matrix UP() {
+    private Matrix VH() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix UQ() {
+    private Matrix VI() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix UR() {
+    private Matrix VJ() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix US() {
+    private Matrix VK() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.hpA.getWidth() / this.hpz.getWidth(), this.hpA.getHeight() / this.hpz.getHeight(), pivotPoint);
+        return a(this.hqP.getWidth() / this.hqO.getWidth(), this.hqP.getHeight() / this.hqO.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.hpz.getWidth() / this.hpA.getWidth();
-        float height = this.hpz.getHeight() / this.hpA.getHeight();
+        float width = this.hqO.getWidth() / this.hqP.getWidth();
+        float height = this.hqO.getHeight() / this.hqP.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix UT() {
-        return (this.hpA.getHeight() > this.hpz.getWidth() || this.hpA.getHeight() > this.hpz.getHeight()) ? UQ() : b(PivotPoint.LEFT_TOP);
+    private Matrix VL() {
+        return (this.hqP.getHeight() > this.hqO.getWidth() || this.hqP.getHeight() > this.hqO.getHeight()) ? VI() : b(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix UU() {
-        return (this.hpA.getHeight() > this.hpz.getWidth() || this.hpA.getHeight() > this.hpz.getHeight()) ? UR() : b(PivotPoint.CENTER);
+    private Matrix VM() {
+        return (this.hqP.getHeight() > this.hqO.getWidth() || this.hqP.getHeight() > this.hqO.getHeight()) ? VJ() : b(PivotPoint.CENTER);
     }
 
-    private Matrix UV() {
-        return (this.hpA.getHeight() > this.hpz.getWidth() || this.hpA.getHeight() > this.hpz.getHeight()) ? US() : b(PivotPoint.RIGHT_BOTTOM);
+    private Matrix VN() {
+        return (this.hqP.getHeight() > this.hqO.getWidth() || this.hqP.getHeight() > this.hqO.getHeight()) ? VK() : b(PivotPoint.RIGHT_BOTTOM);
     }
 }

@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.appsearchlib.Info;
+import com.baidu.sofire.a;
 import com.baidu.sofire.core.ApkInfo;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class MyService extends Service {
@@ -27,26 +30,33 @@ public class MyService extends Service {
             public final void run() {
                 try {
                     super.run();
-                    String stringExtra = intent.getStringExtra("from_plugin_package");
-                    if (TextUtils.isEmpty(stringExtra)) {
+                    if (NotifyType.SOUND.equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
+                        String stringExtra = intent.getStringExtra("c");
+                        Intent intent2 = new Intent();
+                        intent2.putExtra(Info.kBaiduTimeKey, NotifyType.SOUND);
+                        intent2.putExtra("c", stringExtra);
+                        new a.AnonymousClass1(MyService.this.getApplicationContext(), intent2).start();
+                    }
+                    String stringExtra2 = intent.getStringExtra("from_plugin_package");
+                    if (TextUtils.isEmpty(stringExtra2)) {
                         MyService.a(MyService.this);
-                    } else if (MyService.this.getPackageName().equals(stringExtra)) {
+                    } else if (MyService.this.getPackageName().equals(stringExtra2)) {
                         MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
                         MyService.a(MyService.this);
                     } else {
-                        com.baidu.sofire.core.e uS = com.baidu.sofire.core.e.uS();
-                        if (uS == null) {
+                        com.baidu.sofire.core.e vF = com.baidu.sofire.core.e.vF();
+                        if (vF == null) {
                             MyService.a(MyService.this);
-                        } else {
-                            ApkInfo cf = uS.cf(stringExtra);
-                            new StringBuilder("i=").append(cf);
-                            if (cf == null) {
-                                MyService.a(MyService.this);
-                            } else {
-                                MyService.a(MyService.this, cf.classLoader, intent);
-                                MyService.a(MyService.this);
-                            }
+                            return;
                         }
+                        ApkInfo cm = vF.cm(stringExtra2);
+                        new StringBuilder("i=").append(cm);
+                        if (cm == null) {
+                            MyService.a(MyService.this);
+                            return;
+                        }
+                        MyService.a(MyService.this, cm.classLoader, intent);
+                        MyService.a(MyService.this);
                     }
                 } catch (Throwable th2) {
                     com.baidu.sofire.b.d.a(th2);

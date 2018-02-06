@@ -74,13 +74,13 @@ public abstract class b extends ImageView implements i {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
             this.mArgs.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
-            this.mArgs.apt = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.mArgs.apu = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.mArgs.aps = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.mArgs.apt = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
             this.mArgs.ou = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
-            this.mArgs.apv = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
-            this.mArgs.apw = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.mArgs.apy = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.mArgs.apA = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.mArgs.apu = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
+            this.mArgs.apv = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.mArgs.apx = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.mArgs.apz = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, Integer.MAX_VALUE);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, Integer.MAX_VALUE);
@@ -89,7 +89,7 @@ public abstract class b extends ImageView implements i {
         } else {
             this.mArgs.mRadius = com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f);
             this.mArgs.ou = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
-            this.mArgs.apv = DEFAULT_BORDER_COLOR;
+            this.mArgs.apu = DEFAULT_BORDER_COLOR;
         }
         this.mDrawer = f.qc().dx(this.mDrawerType);
         this.mDrawer.a(this.mArgs);
@@ -148,21 +148,21 @@ public abstract class b extends ImageView implements i {
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.mImage.apr = (BitmapDrawable) getDrawable();
-        this.mImage.aps = getBdImage();
+        this.mImage.apq = (BitmapDrawable) getDrawable();
+        this.mImage.apr = getBdImage();
         if (this.mImage.qa()) {
-            this.mImage.aps = null;
+            this.mImage.apr = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else if (this.mImage.qb()) {
-            this.mImage.apr = null;
+            this.mImage.apq = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else {
-            this.mImage.apr = null;
-            this.mImage.aps = getDefaultBdImage();
+            this.mImage.apq = null;
+            this.mImage.apr = getDefaultBdImage();
             this.mImage.isDefault = true;
             ImageView.ScaleType scaleType2 = this.mImage.qb() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
@@ -263,22 +263,22 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setIsRound(boolean z) {
-        if (this.mArgs.apt != z) {
-            this.mArgs.apt = z;
+        if (this.mArgs.aps != z) {
+            this.mArgs.aps = z;
             invalidate();
         }
     }
 
     public void setIsNight(boolean z) {
-        if (this.mArgs.CM != z) {
-            this.mArgs.CM = z;
+        if (this.mArgs.CL != z) {
+            this.mArgs.CL = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.mArgs.apu != z) {
-            this.mArgs.apu = z;
+        if (this.mArgs.apt != z) {
+            this.mArgs.apt = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
@@ -292,30 +292,30 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setBorderColor(int i) {
-        if (this.mArgs.apv != i) {
-            this.mArgs.apv = i;
+        if (this.mArgs.apu != i) {
+            this.mArgs.apu = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.mArgs.apw != z) {
-            this.mArgs.apw = z;
+        if (this.mArgs.apv != z) {
+            this.mArgs.apv = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        if (this.mArgs.apx != z) {
-            this.mArgs.apx = z;
+        if (this.mArgs.apw != z) {
+            this.mArgs.apw = z;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.mArgs.apy != z) {
-            this.mArgs.apy = z;
+        if (this.mArgs.apx != z) {
+            this.mArgs.apx = z;
             invalidate();
         }
     }
@@ -339,7 +339,7 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.mArgs.apz = matrix;
+        this.mArgs.apy = matrix;
         invalidate();
     }
 
@@ -386,13 +386,13 @@ public abstract class b extends ImageView implements i {
     }
 
     public void setForegroundColor(int i) {
-        if (this.mArgs.apA != i) {
-            this.mArgs.apA = i;
+        if (this.mArgs.apz != i) {
+            this.mArgs.apz = i;
             invalidate();
         }
     }
 
     public boolean isNight() {
-        return this.mArgs.CM;
+        return this.mArgs.CL;
     }
 }

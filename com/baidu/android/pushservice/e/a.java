@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import java.io.InputStream;
 import java.util.HashMap;
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
@@ -92,7 +91,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         try {
             HashMap<String, String> hashMap = new HashMap<>();
             a(hashMap);
-            com.baidu.android.pushservice.f.a a = com.baidu.android.pushservice.f.b.a(this.c, HttpPost.METHOD_NAME, hashMap);
+            com.baidu.android.pushservice.f.a a = com.baidu.android.pushservice.f.b.a(this.c, "POST", hashMap);
             int b2 = a.b();
             InputStream a2 = a.a();
             try {

@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b aGr = null;
-    private static a aGs = null;
-    private static boolean aGt = false;
-    private static String aGu = "";
-    private static transient List<String> aGv = new ArrayList(5);
+    private static b aHK = null;
+    private static a aHL = null;
+    private static boolean aHM = false;
+    private static String aHN = "";
+    private static transient List<String> aHO = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aGs == null) {
+        if (aHL == null) {
             synchronized (a.class) {
-                if (aGs == null) {
-                    aGs = new a();
-                    aGr = b.c(baseFragmentActivity);
+                if (aHL == null) {
+                    aHL = new a();
+                    aHK = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aGr != null) {
-            aGr.a(baseFragmentActivity.getPageContext());
+        } else if (aHK != null) {
+            aHK.setContext(baseFragmentActivity.getPageContext());
         }
-        if (aGt && aGr != null) {
-            aGr.vz();
-            aGr.vA();
-            aGt = false;
+        if (aHM && aHK != null) {
+            aHK.wl();
+            aHK.wm();
+            aHM = false;
         }
-        return aGs;
+        return aHL;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        vu();
+        wg();
         if (z) {
-            vp();
+            wb();
         }
         if (z2) {
-            vq();
+            wc();
         }
-        aJ(z3);
+        aM(z3);
         a(aVar);
     }
 
-    public void vp() {
-        vu();
-        if (aGr != null) {
-            aGr.vz();
-            aGt = false;
+    public void wb() {
+        wg();
+        if (aHK != null) {
+            aHK.wl();
+            aHM = false;
         }
     }
 
-    public void vq() {
-        vu();
-        if (aGr != null) {
-            aGr.vA();
-            aGt = false;
+    public void wc() {
+        wg();
+        if (aHK != null) {
+            aHK.wm();
+            aHM = false;
         }
     }
 
-    public void aJ(boolean z) {
-        vu();
-        if (aGr != null) {
-            aGr.aJ(z);
+    public void aM(boolean z) {
+        wg();
+        if (aHK != null) {
+            aHK.aM(z);
         }
     }
 
     public void a(b.a aVar) {
-        vu();
-        if (aGr != null) {
-            aGr.c(aVar);
+        wg();
+        if (aHK != null) {
+            aHK.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        vu();
-        if (aGr != null) {
-            if (aGr.vw()) {
-                aGr.c(aVar);
+        wg();
+        if (aHK != null) {
+            if (aHK.wi()) {
+                aHK.c(aVar);
             }
-            aGr.vy();
+            aHK.wk();
         }
     }
 
     public void a(int i, b.a aVar) {
-        vu();
-        if (aGr != null) {
-            if (aGr.vw()) {
-                aGr.c(aVar);
+        wg();
+        if (aHK != null) {
+            if (aHK.wi()) {
+                aHK.c(aVar);
             }
-            aGr.ea(i);
+            aHK.ea(i);
         }
     }
 
-    public void vr() {
-        vu();
-        if (aGr != null) {
-            aGr.vr();
-            aGt = true;
+    public void wd() {
+        wg();
+        if (aHK != null) {
+            aHK.wd();
+            aHM = true;
         }
     }
 
-    public void vs() {
-        vu();
-        if (aGr != null) {
-            aGr.vs();
+    public void we() {
+        wg();
+        if (aHK != null) {
+            aHK.we();
         }
     }
 
-    public void vt() {
-        vu();
-        vs();
-        vr();
+    public void wf() {
+        wg();
+        we();
+        wd();
     }
 
-    private void vu() {
-        if (aGr == null) {
+    private void wg() {
+        if (aHK == null) {
         }
     }
 
-    public static void vv() {
+    public static void wh() {
         try {
-            if (aGr != null) {
-                if (aGs != null) {
-                    aGs.vt();
+            if (aHK != null) {
+                if (aHL != null) {
+                    aHL.wf();
                 }
-                aGr.vx();
-                aGr.vB();
-                aGr = null;
+                aHK.wj();
+                aHK.wn();
+                aHK = null;
             }
-            if (aGs != null) {
-                aGs = null;
+            if (aHL != null) {
+                aHL = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

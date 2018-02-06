@@ -31,42 +31,42 @@ import java.util.List;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 class r extends ResourceCursorAdapter implements View.OnClickListener {
-    private final SearchableInfo UN;
-    private final WeakHashMap<String, Drawable.ConstantState> UU;
-    private final SearchView Ve;
-    private final SearchManager Wc;
-    private final Context Wd;
-    private final int We;
-    private int Wf;
-    private ColorStateList Wg;
+    private final SearchableInfo UM;
+    private final WeakHashMap<String, Drawable.ConstantState> UT;
+    private final SearchView Vd;
+    private final SearchManager Wb;
+    private final Context Wc;
+    private final int Wd;
+    private int We;
+    private ColorStateList Wf;
+    private int Wg;
     private int Wh;
     private int Wi;
     private int Wj;
     private int Wk;
     private int Wl;
-    private int Wm;
     private boolean mClosed;
 
     public r(Context context, SearchView searchView, SearchableInfo searchableInfo, WeakHashMap<String, Drawable.ConstantState> weakHashMap) {
         super(context, searchView.getSuggestionRowLayout(), (Cursor) null, true);
         this.mClosed = false;
-        this.Wf = 1;
+        this.We = 1;
+        this.Wg = -1;
         this.Wh = -1;
         this.Wi = -1;
         this.Wj = -1;
         this.Wk = -1;
         this.Wl = -1;
-        this.Wm = -1;
-        this.Wc = (SearchManager) this.mContext.getSystemService("search");
-        this.Ve = searchView;
-        this.UN = searchableInfo;
-        this.We = searchView.getSuggestionCommitIconResId();
-        this.Wd = context;
-        this.UU = weakHashMap;
+        this.Wb = (SearchManager) this.mContext.getSystemService("search");
+        this.Vd = searchView;
+        this.UM = searchableInfo;
+        this.Wd = searchView.getSuggestionCommitIconResId();
+        this.Wc = context;
+        this.UT = weakHashMap;
     }
 
     public void ce(int i) {
-        this.Wf = i;
+        this.We = i;
     }
 
     @Override // android.support.v4.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.Adapter
@@ -77,9 +77,9 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
     @Override // android.support.v4.widget.CursorAdapter, android.support.v4.widget.CursorFilter.CursorFilterClient
     public Cursor runQueryOnBackgroundThread(CharSequence charSequence) {
         String charSequence2 = charSequence == null ? "" : charSequence.toString();
-        if (this.Ve.getVisibility() == 0 && this.Ve.getWindowVisibility() == 0) {
+        if (this.Vd.getVisibility() == 0 && this.Vd.getWindowVisibility() == 0) {
             try {
-                Cursor a2 = a(this.UN, charSequence2, 50);
+                Cursor a2 = a(this.UM, charSequence2, 50);
                 if (a2 != null) {
                     a2.getCount();
                     return a2;
@@ -123,12 +123,12 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
         try {
             super.changeCursor(cursor);
             if (cursor != null) {
-                this.Wh = cursor.getColumnIndex("suggest_text_1");
-                this.Wi = cursor.getColumnIndex("suggest_text_2");
-                this.Wj = cursor.getColumnIndex("suggest_text_2_url");
-                this.Wk = cursor.getColumnIndex("suggest_icon_1");
-                this.Wl = cursor.getColumnIndex("suggest_icon_2");
-                this.Wm = cursor.getColumnIndex("suggest_flags");
+                this.Wg = cursor.getColumnIndex("suggest_text_1");
+                this.Wh = cursor.getColumnIndex("suggest_text_2");
+                this.Wi = cursor.getColumnIndex("suggest_text_2_url");
+                this.Wj = cursor.getColumnIndex("suggest_icon_1");
+                this.Wk = cursor.getColumnIndex("suggest_icon_2");
+                this.Wl = cursor.getColumnIndex("suggest_flags");
             }
         } catch (Exception e) {
             Log.e("SuggestionsAdapter", "error changing cursor and caching columns", e);
@@ -139,25 +139,25 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         View newView = super.newView(context, cursor, viewGroup);
         newView.setTag(new a(newView));
-        ((ImageView) newView.findViewById(R.id.edit_query)).setImageResource(this.We);
+        ((ImageView) newView.findViewById(R.id.edit_query)).setImageResource(this.Wd);
         return newView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class a {
+        public final TextView Wm;
         public final TextView Wn;
-        public final TextView Wo;
+        public final ImageView Wo;
         public final ImageView Wp;
         public final ImageView Wq;
-        public final ImageView Wr;
 
         public a(View view) {
-            this.Wn = (TextView) view.findViewById(16908308);
-            this.Wo = (TextView) view.findViewById(16908309);
-            this.Wp = (ImageView) view.findViewById(16908295);
-            this.Wq = (ImageView) view.findViewById(16908296);
-            this.Wr = (ImageView) view.findViewById(R.id.edit_query);
+            this.Wm = (TextView) view.findViewById(16908308);
+            this.Wn = (TextView) view.findViewById(16908309);
+            this.Wo = (ImageView) view.findViewById(16908295);
+            this.Wp = (ImageView) view.findViewById(16908296);
+            this.Wq = (ImageView) view.findViewById(R.id.edit_query);
         }
     }
 
@@ -165,59 +165,59 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
     public void bindView(View view, Context context, Cursor cursor) {
         CharSequence a2;
         a aVar = (a) view.getTag();
-        int i = this.Wm != -1 ? cursor.getInt(this.Wm) : 0;
-        if (aVar.Wn != null) {
-            a(aVar.Wn, a(cursor, this.Wh));
+        int i = this.Wl != -1 ? cursor.getInt(this.Wl) : 0;
+        if (aVar.Wm != null) {
+            a(aVar.Wm, a(cursor, this.Wg));
         }
-        if (aVar.Wo != null) {
-            String a3 = a(cursor, this.Wj);
+        if (aVar.Wn != null) {
+            String a3 = a(cursor, this.Wi);
             if (a3 != null) {
                 a2 = k(a3);
             } else {
-                a2 = a(cursor, this.Wi);
+                a2 = a(cursor, this.Wh);
             }
             if (TextUtils.isEmpty(a2)) {
-                if (aVar.Wn != null) {
-                    aVar.Wn.setSingleLine(false);
-                    aVar.Wn.setMaxLines(2);
+                if (aVar.Wm != null) {
+                    aVar.Wm.setSingleLine(false);
+                    aVar.Wm.setMaxLines(2);
                 }
-            } else if (aVar.Wn != null) {
-                aVar.Wn.setSingleLine(true);
-                aVar.Wn.setMaxLines(1);
+            } else if (aVar.Wm != null) {
+                aVar.Wm.setSingleLine(true);
+                aVar.Wm.setMaxLines(1);
             }
-            a(aVar.Wo, a2);
+            a(aVar.Wn, a2);
+        }
+        if (aVar.Wo != null) {
+            a(aVar.Wo, f(cursor), 4);
         }
         if (aVar.Wp != null) {
-            a(aVar.Wp, f(cursor), 4);
+            a(aVar.Wp, g(cursor), 8);
         }
-        if (aVar.Wq != null) {
-            a(aVar.Wq, g(cursor), 8);
-        }
-        if (this.Wf == 2 || (this.Wf == 1 && (i & 1) != 0)) {
-            aVar.Wr.setVisibility(0);
-            aVar.Wr.setTag(aVar.Wn.getText());
-            aVar.Wr.setOnClickListener(this);
+        if (this.We == 2 || (this.We == 1 && (i & 1) != 0)) {
+            aVar.Wq.setVisibility(0);
+            aVar.Wq.setTag(aVar.Wm.getText());
+            aVar.Wq.setOnClickListener(this);
             return;
         }
-        aVar.Wr.setVisibility(8);
+        aVar.Wq.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Object tag = view.getTag();
         if (tag instanceof CharSequence) {
-            this.Ve.h((CharSequence) tag);
+            this.Vd.h((CharSequence) tag);
         }
     }
 
     private CharSequence k(CharSequence charSequence) {
-        if (this.Wg == null) {
+        if (this.Wf == null) {
             TypedValue typedValue = new TypedValue();
             this.mContext.getTheme().resolveAttribute(R.attr.textColorSearchUrl, typedValue, true);
-            this.Wg = this.mContext.getResources().getColorStateList(typedValue.resourceId);
+            this.Wf = this.mContext.getResources().getColorStateList(typedValue.resourceId);
         }
         SpannableString spannableString = new SpannableString(charSequence);
-        spannableString.setSpan(new TextAppearanceSpan(null, 0, 0, this.Wg, null), 0, charSequence.length(), 33);
+        spannableString.setSpan(new TextAppearanceSpan(null, 0, 0, this.Wf, null), 0, charSequence.length(), 33);
         return spannableString;
     }
 
@@ -231,18 +231,18 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
     }
 
     private Drawable f(Cursor cursor) {
-        if (this.Wk == -1) {
+        if (this.Wj == -1) {
             return null;
         }
-        Drawable C = C(cursor.getString(this.Wk));
+        Drawable C = C(cursor.getString(this.Wj));
         return C == null ? h(cursor) : C;
     }
 
     private Drawable g(Cursor cursor) {
-        if (this.Wl == -1) {
+        if (this.Wk == -1) {
             return null;
         }
-        return C(cursor.getString(this.Wl));
+        return C(cursor.getString(this.Wk));
     }
 
     private void a(ImageView imageView, Drawable drawable, int i) {
@@ -267,8 +267,8 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
         if (a4 != null) {
             return a4;
         }
-        if (!this.UN.shouldRewriteQueryFromData() || (a3 = a(cursor, "suggest_intent_data")) == null) {
-            if (!this.UN.shouldRewriteQueryFromText() || (a2 = a(cursor, "suggest_text_1")) == null) {
+        if (!this.UM.shouldRewriteQueryFromData() || (a3 = a(cursor, "suggest_intent_data")) == null) {
+            if (!this.UM.shouldRewriteQueryFromText() || (a2 = a(cursor, "suggest_text_1")) == null) {
                 return null;
             }
             return a2;
@@ -284,7 +284,7 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
             Log.w("SuggestionsAdapter", "Search suggestions cursor threw exception.", e);
             View newView = newView(this.mContext, this.mCursor, viewGroup);
             if (newView != null) {
-                ((a) newView.getTag()).Wn.setText(e.toString());
+                ((a) newView.getTag()).Wm.setText(e.toString());
             }
             return newView;
         }
@@ -296,10 +296,10 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
         }
         try {
             int parseInt = Integer.parseInt(str);
-            String str2 = "android.resource://" + this.Wd.getPackageName() + "/" + parseInt;
+            String str2 = "android.resource://" + this.Wc.getPackageName() + "/" + parseInt;
             Drawable D = D(str2);
             if (D == null) {
-                Drawable drawable = ContextCompat.getDrawable(this.Wd, parseInt);
+                Drawable drawable = ContextCompat.getDrawable(this.Wc, parseInt);
                 a(str2, drawable);
                 return drawable;
             }
@@ -327,7 +327,7 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
                     throw new FileNotFoundException("Resource does not exist: " + uri);
                 }
             }
-            InputStream openInputStream = this.Wd.getContentResolver().openInputStream(uri);
+            InputStream openInputStream = this.Wc.getContentResolver().openInputStream(uri);
             if (openInputStream == null) {
                 throw new FileNotFoundException("Failed to open " + uri);
             }
@@ -348,7 +348,7 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
     }
 
     private Drawable D(String str) {
-        Drawable.ConstantState constantState = this.UU.get(str);
+        Drawable.ConstantState constantState = this.UT.get(str);
         if (constantState == null) {
             return null;
         }
@@ -357,26 +357,26 @@ class r extends ResourceCursorAdapter implements View.OnClickListener {
 
     private void a(String str, Drawable drawable) {
         if (drawable != null) {
-            this.UU.put(str, drawable.getConstantState());
+            this.UT.put(str, drawable.getConstantState());
         }
     }
 
     private Drawable h(Cursor cursor) {
-        Drawable a2 = a(this.UN.getSearchActivity());
+        Drawable a2 = a(this.UM.getSearchActivity());
         return a2 != null ? a2 : this.mContext.getPackageManager().getDefaultActivityIcon();
     }
 
     private Drawable a(ComponentName componentName) {
         String flattenToShortString = componentName.flattenToShortString();
-        if (this.UU.containsKey(flattenToShortString)) {
-            Drawable.ConstantState constantState = this.UU.get(flattenToShortString);
+        if (this.UT.containsKey(flattenToShortString)) {
+            Drawable.ConstantState constantState = this.UT.get(flattenToShortString);
             if (constantState == null) {
                 return null;
             }
-            return constantState.newDrawable(this.Wd.getResources());
+            return constantState.newDrawable(this.Wc.getResources());
         }
         Drawable activityIcon = getActivityIcon(componentName);
-        this.UU.put(flattenToShortString, activityIcon != null ? activityIcon.getConstantState() : null);
+        this.UT.put(flattenToShortString, activityIcon != null ? activityIcon.getConstantState() : null);
         return activityIcon;
     }
 

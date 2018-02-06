@@ -12,13 +12,12 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.loctp.str.BDLocManager;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.tbadk.TbConfig;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -89,8 +88,8 @@ public class g {
                 JSONObject jSONObject3 = jSONObject.getJSONObject(Headers.LOCATION);
                 JSONObject jSONObject4 = new JSONObject();
                 if (jSONObject3 != null) {
-                    jSONObject4.put("latitude", jSONObject3.getString("lat"));
-                    jSONObject4.put("longitude", jSONObject3.getString("lng"));
+                    jSONObject4.put(WBPageConstants.ParamKey.LATITUDE, jSONObject3.getString("lat"));
+                    jSONObject4.put(WBPageConstants.ParamKey.LONGITUDE, jSONObject3.getString("lng"));
                 }
                 if (jSONObject.has("accuracy")) {
                     jSONObject4.put("accuracy", jSONObject.optString("accuracy"));
@@ -143,7 +142,7 @@ public class g {
                         jSONObject.put("apinfo", c);
                         jSONObject.put("cip", a3);
                         jSONObject.put("model", Build.MODEL);
-                        jSONObject.put(ClientCookie.VERSION_ATTR, Build.VERSION.RELEASE);
+                        jSONObject.put("version", Build.VERSION.RELEASE);
                         jSONObject.put("sdkversion", (int) com.baidu.android.pushservice.a.a());
                         if (p.F(context)) {
                             jSONObject.put("connect_version", 3);
@@ -179,7 +178,7 @@ public class g {
         String a2 = a(context);
         String a3 = m.a(context, "com.baidu.android.pushservice.lac");
         if (!TextUtils.isEmpty(a2)) {
-            if (TextUtils.equals(a2, a3) && System.currentTimeMillis() - b(context) < TbConfig.APP_OVERDUR_DRAFT_BOX) {
+            if (TextUtils.equals(a2, a3) && System.currentTimeMillis() - b(context) < 604800000) {
                 return false;
             }
             m.a(context, "com.baidu.android.pushservice.lac", a2);

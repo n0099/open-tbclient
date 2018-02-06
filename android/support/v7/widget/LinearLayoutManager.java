@@ -19,19 +19,19 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     public static final int HORIZONTAL = 0;
     public static final int INVALID_OFFSET = Integer.MIN_VALUE;
     public static final int VERTICAL = 1;
-    int At;
-    private b PH;
-    OrientationHelper PI;
+    int As;
+    private b PG;
+    OrientationHelper PH;
+    private boolean PI;
     private boolean PJ;
-    private boolean PK;
-    boolean PM;
-    private boolean PN;
+    boolean PK;
+    private boolean PM;
+    int PN;
     int PO;
-    int PP;
-    private boolean PQ;
-    SavedState PR;
-    final a PT;
-    private final LayoutChunkResult PU;
+    private boolean PP;
+    SavedState PQ;
+    final a PR;
+    private final LayoutChunkResult PT;
     private boolean mSmoothScrollbarEnabled;
 
     public LinearLayoutManager(Context context) {
@@ -39,30 +39,30 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     public LinearLayoutManager(Context context, int i, boolean z) {
+        this.PJ = false;
         this.PK = false;
         this.PM = false;
-        this.PN = false;
         this.mSmoothScrollbarEnabled = true;
-        this.PO = -1;
-        this.PP = Integer.MIN_VALUE;
-        this.PR = null;
-        this.PT = new a();
-        this.PU = new LayoutChunkResult();
+        this.PN = -1;
+        this.PO = Integer.MIN_VALUE;
+        this.PQ = null;
+        this.PR = new a();
+        this.PT = new LayoutChunkResult();
         setOrientation(i);
         setReverseLayout(z);
         setAutoMeasureEnabled(true);
     }
 
     public LinearLayoutManager(Context context, AttributeSet attributeSet, int i, int i2) {
+        this.PJ = false;
         this.PK = false;
         this.PM = false;
-        this.PN = false;
         this.mSmoothScrollbarEnabled = true;
-        this.PO = -1;
-        this.PP = Integer.MIN_VALUE;
-        this.PR = null;
-        this.PT = new a();
-        this.PU = new LayoutChunkResult();
+        this.PN = -1;
+        this.PO = Integer.MIN_VALUE;
+        this.PQ = null;
+        this.PR = new a();
+        this.PT = new LayoutChunkResult();
         RecyclerView.LayoutManager.Properties properties = getProperties(context, attributeSet, i, i2);
         setOrientation(properties.orientation);
         setReverseLayout(properties.reverseLayout);
@@ -76,17 +76,17 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     public boolean getRecycleChildrenOnDetach() {
-        return this.PQ;
+        return this.PP;
     }
 
     public void setRecycleChildrenOnDetach(boolean z) {
-        this.PQ = z;
+        this.PP = z;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onDetachedFromWindow(RecyclerView recyclerView, RecyclerView.Recycler recycler) {
         super.onDetachedFromWindow(recyclerView, recycler);
-        if (this.PQ) {
+        if (this.PP) {
             removeAndRecycleAllViews(recycler);
             recycler.clear();
         }
@@ -104,23 +104,23 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public Parcelable onSaveInstanceState() {
-        if (this.PR != null) {
-            return new SavedState(this.PR);
+        if (this.PQ != null) {
+            return new SavedState(this.PQ);
         }
         SavedState savedState = new SavedState();
         if (getChildCount() > 0) {
             gg();
-            boolean z = this.PJ ^ this.PM;
-            savedState.Qg = z;
+            boolean z = this.PI ^ this.PK;
+            savedState.Qf = z;
             if (z) {
                 View gl = gl();
-                savedState.Qf = this.PI.getEndAfterPadding() - this.PI.getDecoratedEnd(gl);
-                savedState.Qe = getPosition(gl);
+                savedState.Qe = this.PH.getEndAfterPadding() - this.PH.getDecoratedEnd(gl);
+                savedState.Qd = getPosition(gl);
                 return savedState;
             }
             View gk = gk();
-            savedState.Qe = getPosition(gk);
-            savedState.Qf = this.PI.getDecoratedStart(gk) - this.PI.getStartAfterPadding();
+            savedState.Qd = getPosition(gk);
+            savedState.Qe = this.PH.getDecoratedStart(gk) - this.PH.getStartAfterPadding();
             return savedState;
         }
         savedState.bH();
@@ -130,35 +130,35 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onRestoreInstanceState(Parcelable parcelable) {
         if (parcelable instanceof SavedState) {
-            this.PR = (SavedState) parcelable;
+            this.PQ = (SavedState) parcelable;
             requestLayout();
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollHorizontally() {
-        return this.At == 0;
+        return this.As == 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean canScrollVertically() {
-        return this.At == 1;
+        return this.As == 1;
     }
 
     public void setStackFromEnd(boolean z) {
         assertNotInLayoutOrScroll(null);
-        if (this.PN != z) {
-            this.PN = z;
+        if (this.PM != z) {
+            this.PM = z;
             requestLayout();
         }
     }
 
     public boolean getStackFromEnd() {
-        return this.PN;
+        return this.PM;
     }
 
     public int getOrientation() {
-        return this.At;
+        return this.As;
     }
 
     public void setOrientation(int i) {
@@ -166,29 +166,29 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             throw new IllegalArgumentException("invalid orientation:" + i);
         }
         assertNotInLayoutOrScroll(null);
-        if (i != this.At) {
-            this.At = i;
-            this.PI = null;
+        if (i != this.As) {
+            this.As = i;
+            this.PH = null;
             requestLayout();
         }
     }
 
     private void gf() {
-        if (this.At == 1 || !isLayoutRTL()) {
-            this.PM = this.PK;
+        if (this.As == 1 || !isLayoutRTL()) {
+            this.PK = this.PJ;
         } else {
-            this.PM = this.PK ? false : true;
+            this.PK = this.PJ ? false : true;
         }
     }
 
     public boolean getReverseLayout() {
-        return this.PK;
+        return this.PJ;
     }
 
     public void setReverseLayout(boolean z) {
         assertNotInLayoutOrScroll(null);
-        if (z != this.PK) {
-            this.PK = z;
+        if (z != this.PJ) {
+            this.PJ = z;
             requestLayout();
         }
     }
@@ -211,7 +211,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     protected int getExtraLayoutSpace(RecyclerView.State state) {
         if (state.hasTargetScrollPosition()) {
-            return this.PI.getTotalSpace();
+            return this.PH.getTotalSpace();
         }
         return 0;
     }
@@ -228,8 +228,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         if (getChildCount() == 0) {
             return null;
         }
-        int i2 = (i < getPosition(getChildAt(0))) != this.PM ? -1 : 1;
-        if (this.At == 0) {
+        int i2 = (i < getPosition(getChildAt(0))) != this.PK ? -1 : 1;
+        if (this.As == 0) {
             return new PointF(i2, 0.0f);
         }
         return new PointF(0.0f, i2);
@@ -244,36 +244,36 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         View findViewByPosition;
         int decoratedStart;
         int i5 = -1;
-        if ((this.PR != null || this.PO != -1) && state.getItemCount() == 0) {
+        if ((this.PQ != null || this.PN != -1) && state.getItemCount() == 0) {
             removeAndRecycleAllViews(recycler);
             return;
         }
-        if (this.PR != null && this.PR.gp()) {
-            this.PO = this.PR.Qe;
+        if (this.PQ != null && this.PQ.gp()) {
+            this.PN = this.PQ.Qd;
         }
         gg();
-        this.PH.Pn = false;
+        this.PG.Pm = false;
         gf();
-        if (!this.PT.PX || this.PO != -1 || this.PR != null) {
-            this.PT.reset();
-            this.PT.PW = this.PM ^ this.PN;
-            a(recycler, state, this.PT);
-            this.PT.PX = true;
+        if (!this.PR.PW || this.PN != -1 || this.PQ != null) {
+            this.PR.reset();
+            this.PR.PV = this.PK ^ this.PM;
+            a(recycler, state, this.PR);
+            this.PR.PW = true;
         }
         int extraLayoutSpace = getExtraLayoutSpace(state);
-        if (this.PH.Qc >= 0) {
+        if (this.PG.Qb >= 0) {
             i = 0;
         } else {
             i = extraLayoutSpace;
             extraLayoutSpace = 0;
         }
-        int startAfterPadding = i + this.PI.getStartAfterPadding();
-        int endPadding = extraLayoutSpace + this.PI.getEndPadding();
-        if (state.isPreLayout() && this.PO != -1 && this.PP != Integer.MIN_VALUE && (findViewByPosition = findViewByPosition(this.PO)) != null) {
-            if (this.PM) {
-                decoratedStart = (this.PI.getEndAfterPadding() - this.PI.getDecoratedEnd(findViewByPosition)) - this.PP;
+        int startAfterPadding = i + this.PH.getStartAfterPadding();
+        int endPadding = extraLayoutSpace + this.PH.getEndPadding();
+        if (state.isPreLayout() && this.PN != -1 && this.PO != Integer.MIN_VALUE && (findViewByPosition = findViewByPosition(this.PN)) != null) {
+            if (this.PK) {
+                decoratedStart = (this.PH.getEndAfterPadding() - this.PH.getDecoratedEnd(findViewByPosition)) - this.PO;
             } else {
-                decoratedStart = this.PP - (this.PI.getDecoratedStart(findViewByPosition) - this.PI.getStartAfterPadding());
+                decoratedStart = this.PO - (this.PH.getDecoratedStart(findViewByPosition) - this.PH.getStartAfterPadding());
             }
             if (decoratedStart > 0) {
                 startAfterPadding += decoratedStart;
@@ -281,66 +281,66 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 endPadding -= decoratedStart;
             }
         }
-        if (this.PT.PW) {
-            if (this.PM) {
+        if (this.PR.PV) {
+            if (this.PK) {
                 i5 = 1;
             }
-        } else if (!this.PM) {
+        } else if (!this.PK) {
             i5 = 1;
         }
-        a(recycler, state, this.PT, i5);
+        a(recycler, state, this.PR, i5);
         detachAndScrapAttachedViews(recycler);
-        this.PH.Pv = gi();
-        this.PH.Qb = state.isPreLayout();
-        if (this.PT.PW) {
-            b(this.PT);
-            this.PH.Qa = startAfterPadding;
-            a(recycler, this.PH, state, false);
-            int i6 = this.PH.mOffset;
-            int i7 = this.PH.Pp;
-            if (this.PH.Po > 0) {
-                endPadding += this.PH.Po;
+        this.PG.Pu = gi();
+        this.PG.Qa = state.isPreLayout();
+        if (this.PR.PV) {
+            b(this.PR);
+            this.PG.PZ = startAfterPadding;
+            a(recycler, this.PG, state, false);
+            int i6 = this.PG.mOffset;
+            int i7 = this.PG.Po;
+            if (this.PG.Pn > 0) {
+                endPadding += this.PG.Pn;
             }
-            a(this.PT);
-            this.PH.Qa = endPadding;
-            this.PH.Pp += this.PH.Pq;
-            a(recycler, this.PH, state, false);
-            int i8 = this.PH.mOffset;
-            if (this.PH.Po > 0) {
-                int i9 = this.PH.Po;
+            a(this.PR);
+            this.PG.PZ = endPadding;
+            this.PG.Po += this.PG.Pp;
+            a(recycler, this.PG, state, false);
+            int i8 = this.PG.mOffset;
+            if (this.PG.Pn > 0) {
+                int i9 = this.PG.Pn;
                 N(i7, i6);
-                this.PH.Qa = i9;
-                a(recycler, this.PH, state, false);
-                i4 = this.PH.mOffset;
+                this.PG.PZ = i9;
+                a(recycler, this.PG, state, false);
+                i4 = this.PG.mOffset;
             } else {
                 i4 = i6;
             }
             i3 = i4;
             i2 = i8;
         } else {
-            a(this.PT);
-            this.PH.Qa = endPadding;
-            a(recycler, this.PH, state, false);
-            i2 = this.PH.mOffset;
-            int i10 = this.PH.Pp;
-            if (this.PH.Po > 0) {
-                startAfterPadding += this.PH.Po;
+            a(this.PR);
+            this.PG.PZ = endPadding;
+            a(recycler, this.PG, state, false);
+            i2 = this.PG.mOffset;
+            int i10 = this.PG.Po;
+            if (this.PG.Pn > 0) {
+                startAfterPadding += this.PG.Pn;
             }
-            b(this.PT);
-            this.PH.Qa = startAfterPadding;
-            this.PH.Pp += this.PH.Pq;
-            a(recycler, this.PH, state, false);
-            i3 = this.PH.mOffset;
-            if (this.PH.Po > 0) {
-                int i11 = this.PH.Po;
+            b(this.PR);
+            this.PG.PZ = startAfterPadding;
+            this.PG.Po += this.PG.Pp;
+            a(recycler, this.PG, state, false);
+            i3 = this.PG.mOffset;
+            if (this.PG.Pn > 0) {
+                int i11 = this.PG.Pn;
                 M(i10, i2);
-                this.PH.Qa = i11;
-                a(recycler, this.PH, state, false);
-                i2 = this.PH.mOffset;
+                this.PG.PZ = i11;
+                a(recycler, this.PG, state, false);
+                i2 = this.PG.mOffset;
             }
         }
         if (getChildCount() > 0) {
-            if (this.PM ^ this.PN) {
+            if (this.PK ^ this.PM) {
                 int a2 = a(i2, recycler, state, true);
                 int i12 = i3 + a2;
                 int b2 = b(i12, recycler, state, false);
@@ -356,20 +356,20 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         }
         a(recycler, state, i3, i2);
         if (!state.isPreLayout()) {
-            this.PI.onLayoutComplete();
+            this.PH.onLayoutComplete();
         } else {
-            this.PT.reset();
+            this.PR.reset();
         }
-        this.PJ = this.PN;
+        this.PI = this.PM;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onLayoutCompleted(RecyclerView.State state) {
         super.onLayoutCompleted(state);
-        this.PR = null;
-        this.PO = -1;
-        this.PP = Integer.MIN_VALUE;
-        this.PT.reset();
+        this.PQ = null;
+        this.PN = -1;
+        this.PO = Integer.MIN_VALUE;
+        this.PR.reset();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -392,11 +392,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                     decoratedMeasurement = i5;
                     i3 = i4;
                 } else {
-                    if (((viewHolder.getLayoutPosition() < position) != this.PM ? (char) 65535 : (char) 1) == 65535) {
-                        i3 = this.PI.getDecoratedMeasurement(viewHolder.itemView) + i4;
+                    if (((viewHolder.getLayoutPosition() < position) != this.PK ? (char) 65535 : (char) 1) == 65535) {
+                        i3 = this.PH.getDecoratedMeasurement(viewHolder.itemView) + i4;
                         decoratedMeasurement = i5;
                     } else {
-                        decoratedMeasurement = this.PI.getDecoratedMeasurement(viewHolder.itemView) + i5;
+                        decoratedMeasurement = this.PH.getDecoratedMeasurement(viewHolder.itemView) + i5;
                         i3 = i4;
                     }
                 }
@@ -404,29 +404,29 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 i4 = i3;
                 i5 = decoratedMeasurement;
             }
-            this.PH.Qd = scrapList;
+            this.PG.Qc = scrapList;
             if (i4 > 0) {
                 N(getPosition(gk()), i);
-                this.PH.Qa = i4;
-                this.PH.Po = 0;
-                this.PH.go();
-                a(recycler, this.PH, state, false);
+                this.PG.PZ = i4;
+                this.PG.Pn = 0;
+                this.PG.go();
+                a(recycler, this.PG, state, false);
             }
             if (i5 > 0) {
                 M(getPosition(gl()), i2);
-                this.PH.Qa = i5;
-                this.PH.Po = 0;
-                this.PH.go();
-                a(recycler, this.PH, state, false);
+                this.PG.PZ = i5;
+                this.PG.Pn = 0;
+                this.PG.go();
+                a(recycler, this.PG, state, false);
             }
-            this.PH.Qd = null;
+            this.PG.Qc = null;
         }
     }
 
     private void a(RecyclerView.Recycler recycler, RecyclerView.State state, a aVar) {
         if (!a(state, aVar) && !b(recycler, state, aVar)) {
             aVar.gm();
-            aVar.mPosition = this.PN ? state.getItemCount() - 1 : 0;
+            aVar.mPosition = this.PM ? state.getItemCount() - 1 : 0;
         }
     }
 
@@ -441,8 +441,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         if (focusedChild != null && aVar.a(focusedChild, state)) {
             aVar.aj(focusedChild);
             return true;
-        } else if (this.PJ == this.PN) {
-            if (aVar.PW) {
+        } else if (this.PI == this.PM) {
+            if (aVar.PV) {
                 b2 = a(recycler, state);
             } else {
                 b2 = b(recycler, state);
@@ -450,16 +450,16 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             if (b2 != null) {
                 aVar.ak(b2);
                 if (!state.isPreLayout() && supportsPredictiveItemAnimations()) {
-                    if (this.PI.getDecoratedStart(b2) >= this.PI.getEndAfterPadding() || this.PI.getDecoratedEnd(b2) < this.PI.getStartAfterPadding()) {
+                    if (this.PH.getDecoratedStart(b2) >= this.PH.getEndAfterPadding() || this.PH.getDecoratedEnd(b2) < this.PH.getStartAfterPadding()) {
                         z = true;
                     }
                     if (z) {
-                        if (aVar.PW) {
-                            startAfterPadding = this.PI.getEndAfterPadding();
+                        if (aVar.PV) {
+                            startAfterPadding = this.PH.getEndAfterPadding();
                         } else {
-                            startAfterPadding = this.PI.getStartAfterPadding();
+                            startAfterPadding = this.PH.getStartAfterPadding();
                         }
-                        aVar.PV = startAfterPadding;
+                        aVar.PU = startAfterPadding;
                     }
                 }
                 return true;
@@ -472,71 +472,71 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     private boolean a(RecyclerView.State state, a aVar) {
         int decoratedStart;
-        if (state.isPreLayout() || this.PO == -1) {
+        if (state.isPreLayout() || this.PN == -1) {
             return false;
         }
-        if (this.PO < 0 || this.PO >= state.getItemCount()) {
-            this.PO = -1;
-            this.PP = Integer.MIN_VALUE;
+        if (this.PN < 0 || this.PN >= state.getItemCount()) {
+            this.PN = -1;
+            this.PO = Integer.MIN_VALUE;
             return false;
         }
-        aVar.mPosition = this.PO;
-        if (this.PR != null && this.PR.gp()) {
-            aVar.PW = this.PR.Qg;
-            if (aVar.PW) {
-                aVar.PV = this.PI.getEndAfterPadding() - this.PR.Qf;
+        aVar.mPosition = this.PN;
+        if (this.PQ != null && this.PQ.gp()) {
+            aVar.PV = this.PQ.Qf;
+            if (aVar.PV) {
+                aVar.PU = this.PH.getEndAfterPadding() - this.PQ.Qe;
                 return true;
             }
-            aVar.PV = this.PI.getStartAfterPadding() + this.PR.Qf;
+            aVar.PU = this.PH.getStartAfterPadding() + this.PQ.Qe;
             return true;
-        } else if (this.PP == Integer.MIN_VALUE) {
-            View findViewByPosition = findViewByPosition(this.PO);
+        } else if (this.PO == Integer.MIN_VALUE) {
+            View findViewByPosition = findViewByPosition(this.PN);
             if (findViewByPosition != null) {
-                if (this.PI.getDecoratedMeasurement(findViewByPosition) > this.PI.getTotalSpace()) {
+                if (this.PH.getDecoratedMeasurement(findViewByPosition) > this.PH.getTotalSpace()) {
                     aVar.gm();
                     return true;
-                } else if (this.PI.getDecoratedStart(findViewByPosition) - this.PI.getStartAfterPadding() < 0) {
-                    aVar.PV = this.PI.getStartAfterPadding();
-                    aVar.PW = false;
+                } else if (this.PH.getDecoratedStart(findViewByPosition) - this.PH.getStartAfterPadding() < 0) {
+                    aVar.PU = this.PH.getStartAfterPadding();
+                    aVar.PV = false;
                     return true;
-                } else if (this.PI.getEndAfterPadding() - this.PI.getDecoratedEnd(findViewByPosition) < 0) {
-                    aVar.PV = this.PI.getEndAfterPadding();
-                    aVar.PW = true;
+                } else if (this.PH.getEndAfterPadding() - this.PH.getDecoratedEnd(findViewByPosition) < 0) {
+                    aVar.PU = this.PH.getEndAfterPadding();
+                    aVar.PV = true;
                     return true;
                 } else {
-                    if (aVar.PW) {
-                        decoratedStart = this.PI.getDecoratedEnd(findViewByPosition) + this.PI.getTotalSpaceChange();
+                    if (aVar.PV) {
+                        decoratedStart = this.PH.getDecoratedEnd(findViewByPosition) + this.PH.getTotalSpaceChange();
                     } else {
-                        decoratedStart = this.PI.getDecoratedStart(findViewByPosition);
+                        decoratedStart = this.PH.getDecoratedStart(findViewByPosition);
                     }
-                    aVar.PV = decoratedStart;
+                    aVar.PU = decoratedStart;
                     return true;
                 }
             }
             if (getChildCount() > 0) {
-                aVar.PW = (this.PO < getPosition(getChildAt(0))) == this.PM;
+                aVar.PV = (this.PN < getPosition(getChildAt(0))) == this.PK;
             }
             aVar.gm();
             return true;
         } else {
-            aVar.PW = this.PM;
-            if (this.PM) {
-                aVar.PV = this.PI.getEndAfterPadding() - this.PP;
+            aVar.PV = this.PK;
+            if (this.PK) {
+                aVar.PU = this.PH.getEndAfterPadding() - this.PO;
                 return true;
             }
-            aVar.PV = this.PI.getStartAfterPadding() + this.PP;
+            aVar.PU = this.PH.getStartAfterPadding() + this.PO;
             return true;
         }
     }
 
     private int a(int i, RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int endAfterPadding;
-        int endAfterPadding2 = this.PI.getEndAfterPadding() - i;
+        int endAfterPadding2 = this.PH.getEndAfterPadding() - i;
         if (endAfterPadding2 > 0) {
             int i2 = -a(-endAfterPadding2, recycler, state);
             int i3 = i + i2;
-            if (z && (endAfterPadding = this.PI.getEndAfterPadding() - i3) > 0) {
-                this.PI.offsetChildren(endAfterPadding);
+            if (z && (endAfterPadding = this.PH.getEndAfterPadding() - i3) > 0) {
+                this.PH.offsetChildren(endAfterPadding);
                 return i2 + endAfterPadding;
             }
             return i2;
@@ -546,12 +546,12 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     private int b(int i, RecyclerView.Recycler recycler, RecyclerView.State state, boolean z) {
         int startAfterPadding;
-        int startAfterPadding2 = i - this.PI.getStartAfterPadding();
+        int startAfterPadding2 = i - this.PH.getStartAfterPadding();
         if (startAfterPadding2 > 0) {
             int i2 = -a(startAfterPadding2, recycler, state);
             int i3 = i + i2;
-            if (z && (startAfterPadding = i3 - this.PI.getStartAfterPadding()) > 0) {
-                this.PI.offsetChildren(-startAfterPadding);
+            if (z && (startAfterPadding = i3 - this.PH.getStartAfterPadding()) > 0) {
+                this.PH.offsetChildren(-startAfterPadding);
                 return i2 - startAfterPadding;
             }
             return i2;
@@ -560,29 +560,29 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     private void a(a aVar) {
-        M(aVar.mPosition, aVar.PV);
+        M(aVar.mPosition, aVar.PU);
     }
 
     private void M(int i, int i2) {
-        this.PH.Po = this.PI.getEndAfterPadding() - i2;
-        this.PH.Pq = this.PM ? -1 : 1;
-        this.PH.Pp = i;
-        this.PH.Pr = 1;
-        this.PH.mOffset = i2;
-        this.PH.PZ = Integer.MIN_VALUE;
+        this.PG.Pn = this.PH.getEndAfterPadding() - i2;
+        this.PG.Pp = this.PK ? -1 : 1;
+        this.PG.Po = i;
+        this.PG.Pq = 1;
+        this.PG.mOffset = i2;
+        this.PG.PY = Integer.MIN_VALUE;
     }
 
     private void b(a aVar) {
-        N(aVar.mPosition, aVar.PV);
+        N(aVar.mPosition, aVar.PU);
     }
 
     private void N(int i, int i2) {
-        this.PH.Po = i2 - this.PI.getStartAfterPadding();
-        this.PH.Pp = i;
-        this.PH.Pq = this.PM ? 1 : -1;
-        this.PH.Pr = -1;
-        this.PH.mOffset = i2;
-        this.PH.PZ = Integer.MIN_VALUE;
+        this.PG.Pn = i2 - this.PH.getStartAfterPadding();
+        this.PG.Po = i;
+        this.PG.Pp = this.PK ? 1 : -1;
+        this.PG.Pq = -1;
+        this.PG.mOffset = i2;
+        this.PG.PY = Integer.MIN_VALUE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -592,11 +592,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void gg() {
-        if (this.PH == null) {
-            this.PH = gh();
+        if (this.PG == null) {
+            this.PG = gh();
         }
-        if (this.PI == null) {
-            this.PI = OrientationHelper.createOrientationHelper(this, this.At);
+        if (this.PH == null) {
+            this.PH = OrientationHelper.createOrientationHelper(this, this.As);
         }
     }
 
@@ -606,26 +606,26 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void scrollToPosition(int i) {
-        this.PO = i;
-        this.PP = Integer.MIN_VALUE;
-        if (this.PR != null) {
-            this.PR.bH();
+        this.PN = i;
+        this.PO = Integer.MIN_VALUE;
+        if (this.PQ != null) {
+            this.PQ.bH();
         }
         requestLayout();
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        this.PO = i;
-        this.PP = i2;
-        if (this.PR != null) {
-            this.PR.bH();
+        this.PN = i;
+        this.PO = i2;
+        if (this.PQ != null) {
+            this.PQ.bH();
         }
         requestLayout();
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollHorizontallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        if (this.At == 1) {
+        if (this.As == 1) {
             return 0;
         }
         return a(i, recycler, state);
@@ -633,7 +633,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public int scrollVerticallyBy(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
-        if (this.At == 0) {
+        if (this.As == 0) {
             return 0;
         }
         return a(i, recycler, state);
@@ -674,7 +674,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             return 0;
         }
         gg();
-        return q.a(state, this.PI, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled, this.PM);
+        return q.a(state, this.PH, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled, this.PK);
     }
 
     private int c(RecyclerView.State state) {
@@ -682,7 +682,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             return 0;
         }
         gg();
-        return q.a(state, this.PI, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled);
+        return q.a(state, this.PH, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled);
     }
 
     private int d(RecyclerView.State state) {
@@ -690,7 +690,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             return 0;
         }
         gg();
-        return q.b(state, this.PI, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled);
+        return q.b(state, this.PH, c(!this.mSmoothScrollbarEnabled, true), d(this.mSmoothScrollbarEnabled ? false : true, true), this, this.mSmoothScrollbarEnabled);
     }
 
     public void setSmoothScrollbarEnabled(boolean z) {
@@ -703,33 +703,33 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     private void a(int i, int i2, boolean z, RecyclerView.State state) {
         int startAfterPadding;
-        this.PH.Pv = gi();
-        this.PH.Qa = getExtraLayoutSpace(state);
-        this.PH.Pr = i;
+        this.PG.Pu = gi();
+        this.PG.PZ = getExtraLayoutSpace(state);
+        this.PG.Pq = i;
         if (i == 1) {
-            this.PH.Qa += this.PI.getEndPadding();
+            this.PG.PZ += this.PH.getEndPadding();
             View gl = gl();
-            this.PH.Pq = this.PM ? -1 : 1;
-            this.PH.Pp = getPosition(gl) + this.PH.Pq;
-            this.PH.mOffset = this.PI.getDecoratedEnd(gl);
-            startAfterPadding = this.PI.getDecoratedEnd(gl) - this.PI.getEndAfterPadding();
+            this.PG.Pp = this.PK ? -1 : 1;
+            this.PG.Po = getPosition(gl) + this.PG.Pp;
+            this.PG.mOffset = this.PH.getDecoratedEnd(gl);
+            startAfterPadding = this.PH.getDecoratedEnd(gl) - this.PH.getEndAfterPadding();
         } else {
             View gk = gk();
-            this.PH.Qa += this.PI.getStartAfterPadding();
-            this.PH.Pq = this.PM ? 1 : -1;
-            this.PH.Pp = getPosition(gk) + this.PH.Pq;
-            this.PH.mOffset = this.PI.getDecoratedStart(gk);
-            startAfterPadding = (-this.PI.getDecoratedStart(gk)) + this.PI.getStartAfterPadding();
+            this.PG.PZ += this.PH.getStartAfterPadding();
+            this.PG.Pp = this.PK ? 1 : -1;
+            this.PG.Po = getPosition(gk) + this.PG.Pp;
+            this.PG.mOffset = this.PH.getDecoratedStart(gk);
+            startAfterPadding = (-this.PH.getDecoratedStart(gk)) + this.PH.getStartAfterPadding();
         }
-        this.PH.Po = i2;
+        this.PG.Pn = i2;
         if (z) {
-            this.PH.Po -= startAfterPadding;
+            this.PG.Pn -= startAfterPadding;
         }
-        this.PH.PZ = startAfterPadding;
+        this.PG.PY = startAfterPadding;
     }
 
     boolean gi() {
-        return this.PI.getMode() == 0 && this.PI.getEnd() == 0;
+        return this.PH.getMode() == 0 && this.PH.getEnd() == 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
@@ -738,7 +738,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     int a(RecyclerView.State state, b bVar, int[] iArr) {
-        int i = bVar.Pp;
+        int i = bVar.Po;
         if (i < 0 || i >= state.getItemCount()) {
             return 0;
         }
@@ -748,40 +748,40 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     int a(int i, int i2, RecyclerView.State state, int[] iArr) {
-        if (this.At != 0) {
+        if (this.As != 0) {
             i = i2;
         }
         if (getChildCount() == 0 || i == 0) {
             return 0;
         }
         a(i > 0 ? 1 : -1, Math.abs(i), true, state);
-        return a(state, this.PH, iArr);
+        return a(state, this.PG, iArr);
     }
 
     int a(int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         if (getChildCount() == 0 || i == 0) {
             return 0;
         }
-        this.PH.Pn = true;
+        this.PG.Pm = true;
         gg();
         int i2 = i > 0 ? 1 : -1;
         int abs = Math.abs(i);
         a(i2, abs, true, state);
-        int a2 = this.PH.PZ + a(recycler, this.PH, state, false);
+        int a2 = this.PG.PY + a(recycler, this.PG, state, false);
         if (a2 < 0) {
             return 0;
         }
         if (abs > a2) {
             i = i2 * a2;
         }
-        this.PI.offsetChildren(-i);
-        this.PH.Qc = i;
+        this.PH.offsetChildren(-i);
+        this.PG.Qb = i;
         return i;
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void assertNotInLayoutOrScroll(String str) {
-        if (this.PR == null) {
+        if (this.PQ == null) {
             super.assertNotInLayoutOrScroll(str);
         }
     }
@@ -804,10 +804,10 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     private void a(RecyclerView.Recycler recycler, int i) {
         if (i >= 0) {
             int childCount = getChildCount();
-            if (this.PM) {
+            if (this.PK) {
                 for (int i2 = childCount - 1; i2 >= 0; i2--) {
                     View childAt = getChildAt(i2);
-                    if (this.PI.getDecoratedEnd(childAt) > i || this.PI.getTransformedEndWithDecoration(childAt) > i) {
+                    if (this.PH.getDecoratedEnd(childAt) > i || this.PH.getTransformedEndWithDecoration(childAt) > i) {
                         a(recycler, childCount - 1, i2);
                         return;
                     }
@@ -816,7 +816,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             }
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt2 = getChildAt(i3);
-                if (this.PI.getDecoratedEnd(childAt2) > i || this.PI.getTransformedEndWithDecoration(childAt2) > i) {
+                if (this.PH.getDecoratedEnd(childAt2) > i || this.PH.getTransformedEndWithDecoration(childAt2) > i) {
                     a(recycler, 0, i3);
                     return;
                 }
@@ -827,11 +827,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     private void b(RecyclerView.Recycler recycler, int i) {
         int childCount = getChildCount();
         if (i >= 0) {
-            int end = this.PI.getEnd() - i;
-            if (this.PM) {
+            int end = this.PH.getEnd() - i;
+            if (this.PK) {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = getChildAt(i2);
-                    if (this.PI.getDecoratedStart(childAt) < end || this.PI.getTransformedStartWithDecoration(childAt) < end) {
+                    if (this.PH.getDecoratedStart(childAt) < end || this.PH.getTransformedStartWithDecoration(childAt) < end) {
                         a(recycler, 0, i2);
                         return;
                     }
@@ -840,7 +840,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             }
             for (int i3 = childCount - 1; i3 >= 0; i3--) {
                 View childAt2 = getChildAt(i3);
-                if (this.PI.getDecoratedStart(childAt2) < end || this.PI.getTransformedStartWithDecoration(childAt2) < end) {
+                if (this.PH.getDecoratedStart(childAt2) < end || this.PH.getTransformedStartWithDecoration(childAt2) < end) {
                     a(recycler, childCount - 1, i3);
                     return;
                 }
@@ -849,41 +849,41 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     private void a(RecyclerView.Recycler recycler, b bVar) {
-        if (bVar.Pn && !bVar.Pv) {
-            if (bVar.Pr == -1) {
-                b(recycler, bVar.PZ);
+        if (bVar.Pm && !bVar.Pu) {
+            if (bVar.Pq == -1) {
+                b(recycler, bVar.PY);
             } else {
-                a(recycler, bVar.PZ);
+                a(recycler, bVar.PY);
             }
         }
     }
 
     int a(RecyclerView.Recycler recycler, b bVar, RecyclerView.State state, boolean z) {
-        int i = bVar.Po;
-        if (bVar.PZ != Integer.MIN_VALUE) {
-            if (bVar.Po < 0) {
-                bVar.PZ += bVar.Po;
+        int i = bVar.Pn;
+        if (bVar.PY != Integer.MIN_VALUE) {
+            if (bVar.Pn < 0) {
+                bVar.PY += bVar.Pn;
             }
             a(recycler, bVar);
         }
-        int i2 = bVar.Po + bVar.Qa;
-        LayoutChunkResult layoutChunkResult = this.PU;
+        int i2 = bVar.Pn + bVar.PZ;
+        LayoutChunkResult layoutChunkResult = this.PT;
         while (true) {
-            if ((!bVar.Pv && i2 <= 0) || !bVar.a(state)) {
+            if ((!bVar.Pu && i2 <= 0) || !bVar.a(state)) {
                 break;
             }
             layoutChunkResult.resetInternal();
             a(recycler, state, bVar, layoutChunkResult);
             if (!layoutChunkResult.mFinished) {
-                bVar.mOffset += layoutChunkResult.mConsumed * bVar.Pr;
-                if (!layoutChunkResult.mIgnoreConsumed || this.PH.Qd != null || !state.isPreLayout()) {
-                    bVar.Po -= layoutChunkResult.mConsumed;
+                bVar.mOffset += layoutChunkResult.mConsumed * bVar.Pq;
+                if (!layoutChunkResult.mIgnoreConsumed || this.PG.Qc != null || !state.isPreLayout()) {
+                    bVar.Pn -= layoutChunkResult.mConsumed;
                     i2 -= layoutChunkResult.mConsumed;
                 }
-                if (bVar.PZ != Integer.MIN_VALUE) {
-                    bVar.PZ += layoutChunkResult.mConsumed;
-                    if (bVar.Po < 0) {
-                        bVar.PZ += bVar.Po;
+                if (bVar.PY != Integer.MIN_VALUE) {
+                    bVar.PY += layoutChunkResult.mConsumed;
+                    if (bVar.Pn < 0) {
+                        bVar.PY += bVar.Pn;
                     }
                     a(recycler, bVar);
                 }
@@ -894,7 +894,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 break;
             }
         }
-        return i - bVar.Po;
+        return i - bVar.Pn;
     }
 
     void a(RecyclerView.Recycler recycler, RecyclerView.State state, b bVar, LayoutChunkResult layoutChunkResult) {
@@ -909,30 +909,30 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             return;
         }
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) a2.getLayoutParams();
-        if (bVar.Qd == null) {
-            if (this.PM == (bVar.Pr == -1)) {
+        if (bVar.Qc == null) {
+            if (this.PK == (bVar.Pq == -1)) {
                 addView(a2);
             } else {
                 addView(a2, 0);
             }
         } else {
-            if (this.PM == (bVar.Pr == -1)) {
+            if (this.PK == (bVar.Pq == -1)) {
                 addDisappearingView(a2);
             } else {
                 addDisappearingView(a2, 0);
             }
         }
         measureChildWithMargins(a2, 0, 0);
-        layoutChunkResult.mConsumed = this.PI.getDecoratedMeasurement(a2);
-        if (this.At == 1) {
+        layoutChunkResult.mConsumed = this.PH.getDecoratedMeasurement(a2);
+        if (this.As == 1) {
             if (isLayoutRTL()) {
                 decoratedMeasurementInOther2 = getWidth() - getPaddingRight();
-                i = decoratedMeasurementInOther2 - this.PI.getDecoratedMeasurementInOther(a2);
+                i = decoratedMeasurementInOther2 - this.PH.getDecoratedMeasurementInOther(a2);
             } else {
                 i = getPaddingLeft();
-                decoratedMeasurementInOther2 = this.PI.getDecoratedMeasurementInOther(a2) + i;
+                decoratedMeasurementInOther2 = this.PH.getDecoratedMeasurementInOther(a2) + i;
             }
-            if (bVar.Pr == -1) {
+            if (bVar.Pq == -1) {
                 decoratedMeasurementInOther = bVar.mOffset;
                 paddingTop = bVar.mOffset - layoutChunkResult.mConsumed;
                 i2 = decoratedMeasurementInOther2;
@@ -943,8 +943,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
             }
         } else {
             paddingTop = getPaddingTop();
-            decoratedMeasurementInOther = paddingTop + this.PI.getDecoratedMeasurementInOther(a2);
-            if (bVar.Pr == -1) {
+            decoratedMeasurementInOther = paddingTop + this.PH.getDecoratedMeasurementInOther(a2);
+            if (bVar.Pq == -1) {
                 int i3 = bVar.mOffset;
                 i = bVar.mOffset - layoutChunkResult.mConsumed;
                 i2 = i3;
@@ -969,44 +969,44 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     public int bo(int i) {
         switch (i) {
             case 1:
-                return (this.At == 1 || !isLayoutRTL()) ? -1 : 1;
+                return (this.As == 1 || !isLayoutRTL()) ? -1 : 1;
             case 2:
-                return (this.At != 1 && isLayoutRTL()) ? -1 : 1;
+                return (this.As != 1 && isLayoutRTL()) ? -1 : 1;
             case 17:
-                return this.At != 0 ? Integer.MIN_VALUE : -1;
+                return this.As != 0 ? Integer.MIN_VALUE : -1;
             case 33:
-                return this.At != 1 ? Integer.MIN_VALUE : -1;
+                return this.As != 1 ? Integer.MIN_VALUE : -1;
             case 66:
-                return this.At != 0 ? Integer.MIN_VALUE : 1;
+                return this.As != 0 ? Integer.MIN_VALUE : 1;
             case TransportMediator.KEYCODE_MEDIA_RECORD /* 130 */:
-                return this.At == 1 ? 1 : Integer.MIN_VALUE;
+                return this.As == 1 ? 1 : Integer.MIN_VALUE;
             default:
                 return Integer.MIN_VALUE;
         }
     }
 
     private View gk() {
-        return getChildAt(this.PM ? getChildCount() - 1 : 0);
+        return getChildAt(this.PK ? getChildCount() - 1 : 0);
     }
 
     private View gl() {
-        return getChildAt(this.PM ? 0 : getChildCount() - 1);
+        return getChildAt(this.PK ? 0 : getChildCount() - 1);
     }
 
     private View c(boolean z, boolean z2) {
-        return this.PM ? b(getChildCount() - 1, -1, z, z2) : b(0, getChildCount(), z, z2);
+        return this.PK ? c(getChildCount() - 1, -1, z, z2) : c(0, getChildCount(), z, z2);
     }
 
     private View d(boolean z, boolean z2) {
-        return this.PM ? b(0, getChildCount(), z, z2) : b(getChildCount() - 1, -1, z, z2);
+        return this.PK ? c(0, getChildCount(), z, z2) : c(getChildCount() - 1, -1, z, z2);
     }
 
     private View a(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return this.PM ? c(recycler, state) : d(recycler, state);
+        return this.PK ? c(recycler, state) : d(recycler, state);
     }
 
     private View b(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        return this.PM ? d(recycler, state) : c(recycler, state);
+        return this.PK ? d(recycler, state) : c(recycler, state);
     }
 
     private View c(RecyclerView.Recycler recycler, RecyclerView.State state) {
@@ -1021,8 +1021,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         View view;
         View view2 = null;
         gg();
-        int startAfterPadding = this.PI.getStartAfterPadding();
-        int endAfterPadding = this.PI.getEndAfterPadding();
+        int startAfterPadding = this.PH.getStartAfterPadding();
+        int endAfterPadding = this.PH.getEndAfterPadding();
         int i4 = i2 > i ? 1 : -1;
         View view3 = null;
         while (i != i2) {
@@ -1033,7 +1033,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                     if (view3 == null) {
                         view = view2;
                     }
-                } else if (this.PI.getDecoratedStart(childAt) < endAfterPadding && this.PI.getDecoratedEnd(childAt) >= startAfterPadding) {
+                } else if (this.PH.getDecoratedStart(childAt) < endAfterPadding && this.PH.getDecoratedEnd(childAt) >= startAfterPadding) {
                     return childAt;
                 } else {
                     if (view2 == null) {
@@ -1058,47 +1058,47 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
     }
 
     public int findFirstVisibleItemPosition() {
-        View b2 = b(0, getChildCount(), false, true);
-        if (b2 == null) {
+        View c = c(0, getChildCount(), false, true);
+        if (c == null) {
             return -1;
         }
-        return getPosition(b2);
+        return getPosition(c);
     }
 
     public int findFirstCompletelyVisibleItemPosition() {
-        View b2 = b(0, getChildCount(), true, false);
-        if (b2 == null) {
+        View c = c(0, getChildCount(), true, false);
+        if (c == null) {
             return -1;
         }
-        return getPosition(b2);
+        return getPosition(c);
     }
 
     public int findLastVisibleItemPosition() {
-        View b2 = b(getChildCount() - 1, -1, false, true);
-        if (b2 == null) {
+        View c = c(getChildCount() - 1, -1, false, true);
+        if (c == null) {
             return -1;
         }
-        return getPosition(b2);
+        return getPosition(c);
     }
 
     public int findLastCompletelyVisibleItemPosition() {
-        View b2 = b(getChildCount() - 1, -1, true, false);
-        if (b2 == null) {
+        View c = c(getChildCount() - 1, -1, true, false);
+        if (c == null) {
             return -1;
         }
-        return getPosition(b2);
+        return getPosition(c);
     }
 
-    View b(int i, int i2, boolean z, boolean z2) {
+    View c(int i, int i2, boolean z, boolean z2) {
         gg();
-        int startAfterPadding = this.PI.getStartAfterPadding();
-        int endAfterPadding = this.PI.getEndAfterPadding();
+        int startAfterPadding = this.PH.getStartAfterPadding();
+        int endAfterPadding = this.PH.getEndAfterPadding();
         int i3 = i2 > i ? 1 : -1;
         View view = null;
         while (i != i2) {
             View childAt = getChildAt(i);
-            int decoratedStart = this.PI.getDecoratedStart(childAt);
-            int decoratedEnd = this.PI.getDecoratedEnd(childAt);
+            int decoratedStart = this.PH.getDecoratedStart(childAt);
+            int decoratedEnd = this.PH.getDecoratedEnd(childAt);
             if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
                 if (z) {
                     if (decoratedStart < startAfterPadding || decoratedEnd > endAfterPadding) {
@@ -1137,10 +1137,10 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         }
         if (a2 != null) {
             gg();
-            a(bo, (int) (0.33333334f * this.PI.getTotalSpace()), false, state);
-            this.PH.PZ = Integer.MIN_VALUE;
-            this.PH.Pn = false;
-            a(recycler, this.PH, state, true);
+            a(bo, (int) (0.33333334f * this.PH.getTotalSpace()), false, state);
+            this.PG.PY = Integer.MIN_VALUE;
+            this.PG.Pm = false;
+            a(recycler, this.PG, state, true);
             if (bo == -1) {
                 gl = gk();
             } else {
@@ -1156,7 +1156,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public boolean supportsPredictiveItemAnimations() {
-        return this.PR == null && this.PJ == this.PN;
+        return this.PQ == null && this.PI == this.PM;
     }
 
     @Override // android.support.v7.widget.helper.ItemTouchHelper.ViewDropHandler
@@ -1168,59 +1168,59 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         int position = getPosition(view);
         int position2 = getPosition(view2);
         boolean z = position < position2 ? true : true;
-        if (this.PM) {
+        if (this.PK) {
             if (z) {
-                scrollToPositionWithOffset(position2, this.PI.getEndAfterPadding() - (this.PI.getDecoratedStart(view2) + this.PI.getDecoratedMeasurement(view)));
+                scrollToPositionWithOffset(position2, this.PH.getEndAfterPadding() - (this.PH.getDecoratedStart(view2) + this.PH.getDecoratedMeasurement(view)));
             } else {
-                scrollToPositionWithOffset(position2, this.PI.getEndAfterPadding() - this.PI.getDecoratedEnd(view2));
+                scrollToPositionWithOffset(position2, this.PH.getEndAfterPadding() - this.PH.getDecoratedEnd(view2));
             }
         } else if (z) {
-            scrollToPositionWithOffset(position2, this.PI.getDecoratedStart(view2));
+            scrollToPositionWithOffset(position2, this.PH.getDecoratedStart(view2));
         } else {
-            scrollToPositionWithOffset(position2, this.PI.getDecoratedEnd(view2) - this.PI.getDecoratedMeasurement(view));
+            scrollToPositionWithOffset(position2, this.PH.getDecoratedEnd(view2) - this.PH.getDecoratedMeasurement(view));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
-        int PZ;
+        int PY;
+        int Pn;
         int Po;
         int Pp;
         int Pq;
-        int Pr;
-        boolean Pv;
-        int Qc;
+        boolean Pu;
+        int Qb;
         int mOffset;
-        boolean Pn = true;
-        int Qa = 0;
-        boolean Qb = false;
-        List<RecyclerView.ViewHolder> Qd = null;
+        boolean Pm = true;
+        int PZ = 0;
+        boolean Qa = false;
+        List<RecyclerView.ViewHolder> Qc = null;
 
         b() {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean a(RecyclerView.State state) {
-            return this.Pp >= 0 && this.Pp < state.getItemCount();
+            return this.Po >= 0 && this.Po < state.getItemCount();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public View a(RecyclerView.Recycler recycler) {
-            if (this.Qd != null) {
+            if (this.Qc != null) {
                 return gn();
             }
-            View viewForPosition = recycler.getViewForPosition(this.Pp);
-            this.Pp += this.Pq;
+            View viewForPosition = recycler.getViewForPosition(this.Po);
+            this.Po += this.Pp;
             return viewForPosition;
         }
 
         private View gn() {
-            int size = this.Qd.size();
+            int size = this.Qc.size();
             for (int i = 0; i < size; i++) {
-                View view = this.Qd.get(i).itemView;
+                View view = this.Qc.get(i).itemView;
                 RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
-                if (!layoutParams.isItemRemoved() && this.Pp == layoutParams.getViewLayoutPosition()) {
+                if (!layoutParams.isItemRemoved() && this.Po == layoutParams.getViewLayoutPosition()) {
                     al(view);
                     return view;
                 }
@@ -1235,28 +1235,28 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         public void al(View view) {
             View am = am(view);
             if (am == null) {
-                this.Pp = -1;
+                this.Po = -1;
             } else {
-                this.Pp = ((RecyclerView.LayoutParams) am.getLayoutParams()).getViewLayoutPosition();
+                this.Po = ((RecyclerView.LayoutParams) am.getLayoutParams()).getViewLayoutPosition();
             }
         }
 
         public View am(View view) {
             int i;
             View view2;
-            int size = this.Qd.size();
+            int size = this.Qc.size();
             View view3 = null;
             int i2 = Integer.MAX_VALUE;
             int i3 = 0;
             while (i3 < size) {
-                View view4 = this.Qd.get(i3).itemView;
+                View view4 = this.Qc.get(i3).itemView;
                 RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view4.getLayoutParams();
                 if (view4 != view) {
                     if (layoutParams.isItemRemoved()) {
                         i = i2;
                         view2 = view3;
                     } else {
-                        i = (layoutParams.getViewLayoutPosition() - this.Pp) * this.Pq;
+                        i = (layoutParams.getViewLayoutPosition() - this.Po) * this.Pp;
                         if (i < 0) {
                             i = i2;
                             view2 = view3;
@@ -1299,31 +1299,31 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
                 return new SavedState[i];
             }
         };
+        int Qd;
         int Qe;
-        int Qf;
-        boolean Qg;
+        boolean Qf;
 
         public SavedState() {
         }
 
         SavedState(Parcel parcel) {
+            this.Qd = parcel.readInt();
             this.Qe = parcel.readInt();
-            this.Qf = parcel.readInt();
-            this.Qg = parcel.readInt() == 1;
+            this.Qf = parcel.readInt() == 1;
         }
 
         public SavedState(SavedState savedState) {
+            this.Qd = savedState.Qd;
             this.Qe = savedState.Qe;
             this.Qf = savedState.Qf;
-            this.Qg = savedState.Qg;
         }
 
         boolean gp() {
-            return this.Qe >= 0;
+            return this.Qd >= 0;
         }
 
         void bH() {
-            this.Qe = -1;
+            this.Qd = -1;
         }
 
         @Override // android.os.Parcelable
@@ -1333,18 +1333,18 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeInt(this.Qd);
             parcel.writeInt(this.Qe);
-            parcel.writeInt(this.Qf);
-            parcel.writeInt(this.Qg ? 1 : 0);
+            parcel.writeInt(this.Qf ? 1 : 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a {
-        int PV;
+        int PU;
+        boolean PV;
         boolean PW;
-        boolean PX;
         int mPosition;
 
         a() {
@@ -1353,23 +1353,23 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
 
         void reset() {
             this.mPosition = -1;
-            this.PV = Integer.MIN_VALUE;
+            this.PU = Integer.MIN_VALUE;
+            this.PV = false;
             this.PW = false;
-            this.PX = false;
         }
 
         void gm() {
             int startAfterPadding;
-            if (this.PW) {
-                startAfterPadding = LinearLayoutManager.this.PI.getEndAfterPadding();
+            if (this.PV) {
+                startAfterPadding = LinearLayoutManager.this.PH.getEndAfterPadding();
             } else {
-                startAfterPadding = LinearLayoutManager.this.PI.getStartAfterPadding();
+                startAfterPadding = LinearLayoutManager.this.PH.getStartAfterPadding();
             }
-            this.PV = startAfterPadding;
+            this.PU = startAfterPadding;
         }
 
         public String toString() {
-            return "AnchorInfo{mPosition=" + this.mPosition + ", mCoordinate=" + this.PV + ", mLayoutFromEnd=" + this.PW + ", mValid=" + this.PX + '}';
+            return "AnchorInfo{mPosition=" + this.mPosition + ", mCoordinate=" + this.PU + ", mLayoutFromEnd=" + this.PV + ", mValid=" + this.PW + '}';
         }
 
         boolean a(View view, RecyclerView.State state) {
@@ -1378,43 +1378,43 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements R
         }
 
         public void aj(View view) {
-            int totalSpaceChange = LinearLayoutManager.this.PI.getTotalSpaceChange();
+            int totalSpaceChange = LinearLayoutManager.this.PH.getTotalSpaceChange();
             if (totalSpaceChange >= 0) {
                 ak(view);
                 return;
             }
             this.mPosition = LinearLayoutManager.this.getPosition(view);
-            if (this.PW) {
-                int endAfterPadding = (LinearLayoutManager.this.PI.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.PI.getDecoratedEnd(view);
-                this.PV = LinearLayoutManager.this.PI.getEndAfterPadding() - endAfterPadding;
+            if (this.PV) {
+                int endAfterPadding = (LinearLayoutManager.this.PH.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.PH.getDecoratedEnd(view);
+                this.PU = LinearLayoutManager.this.PH.getEndAfterPadding() - endAfterPadding;
                 if (endAfterPadding > 0) {
-                    int decoratedMeasurement = this.PV - LinearLayoutManager.this.PI.getDecoratedMeasurement(view);
-                    int startAfterPadding = LinearLayoutManager.this.PI.getStartAfterPadding();
-                    int min = decoratedMeasurement - (startAfterPadding + Math.min(LinearLayoutManager.this.PI.getDecoratedStart(view) - startAfterPadding, 0));
+                    int decoratedMeasurement = this.PU - LinearLayoutManager.this.PH.getDecoratedMeasurement(view);
+                    int startAfterPadding = LinearLayoutManager.this.PH.getStartAfterPadding();
+                    int min = decoratedMeasurement - (startAfterPadding + Math.min(LinearLayoutManager.this.PH.getDecoratedStart(view) - startAfterPadding, 0));
                     if (min < 0) {
-                        this.PV = Math.min(endAfterPadding, -min) + this.PV;
+                        this.PU = Math.min(endAfterPadding, -min) + this.PU;
                         return;
                     }
                     return;
                 }
                 return;
             }
-            int decoratedStart = LinearLayoutManager.this.PI.getDecoratedStart(view);
-            int startAfterPadding2 = decoratedStart - LinearLayoutManager.this.PI.getStartAfterPadding();
-            this.PV = decoratedStart;
+            int decoratedStart = LinearLayoutManager.this.PH.getDecoratedStart(view);
+            int startAfterPadding2 = decoratedStart - LinearLayoutManager.this.PH.getStartAfterPadding();
+            this.PU = decoratedStart;
             if (startAfterPadding2 > 0) {
-                int endAfterPadding2 = (LinearLayoutManager.this.PI.getEndAfterPadding() - Math.min(0, (LinearLayoutManager.this.PI.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.PI.getDecoratedEnd(view))) - (decoratedStart + LinearLayoutManager.this.PI.getDecoratedMeasurement(view));
+                int endAfterPadding2 = (LinearLayoutManager.this.PH.getEndAfterPadding() - Math.min(0, (LinearLayoutManager.this.PH.getEndAfterPadding() - totalSpaceChange) - LinearLayoutManager.this.PH.getDecoratedEnd(view))) - (decoratedStart + LinearLayoutManager.this.PH.getDecoratedMeasurement(view));
                 if (endAfterPadding2 < 0) {
-                    this.PV -= Math.min(startAfterPadding2, -endAfterPadding2);
+                    this.PU -= Math.min(startAfterPadding2, -endAfterPadding2);
                 }
             }
         }
 
         public void ak(View view) {
-            if (this.PW) {
-                this.PV = LinearLayoutManager.this.PI.getDecoratedEnd(view) + LinearLayoutManager.this.PI.getTotalSpaceChange();
+            if (this.PV) {
+                this.PU = LinearLayoutManager.this.PH.getDecoratedEnd(view) + LinearLayoutManager.this.PH.getTotalSpaceChange();
             } else {
-                this.PV = LinearLayoutManager.this.PI.getDecoratedStart(view);
+                this.PU = LinearLayoutManager.this.PH.getDecoratedStart(view);
             }
             this.mPosition = LinearLayoutManager.this.getPosition(view);
         }

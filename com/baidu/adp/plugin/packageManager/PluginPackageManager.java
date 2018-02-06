@@ -28,7 +28,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.packageManager.pluginSettings.a;
 import com.baidu.adp.plugin.packageManager.pluginSettings.e;
 import com.baidu.adp.plugin.util.Util;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +72,7 @@ public class PluginPackageManager {
                     String stringExtra = intent.getStringExtra("package_name");
                     String stringExtra2 = intent.getStringExtra("install_dest_file");
                     String stringExtra3 = intent.getStringExtra("version_name");
-                    int intExtra = intent.getIntExtra("version_code", 0);
+                    int intExtra = intent.getIntExtra(Constants.HTTP_VERSION_CODE, 0);
                     String stringExtra4 = intent.getStringExtra("require_load");
                     boolean booleanExtra = intent.getBooleanExtra("is_inject_classloader", false);
                     String stringExtra5 = intent.getStringExtra("cmd_range");
@@ -117,7 +117,7 @@ public class PluginPackageManager {
                         com.baidu.adp.plugin.b.a.qF().e("plugin_install_suc", stringExtra, findPluginSetting);
                         if (intExtra < PluginPackageManager.aru) {
                             com.baidu.adp.plugin.b.a.qF().A("plugin_launch_lowversion", stringExtra);
-                            com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", stringExtra, "broadcast_suc-" + findPluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
+                            com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", stringExtra, "broadcast_suc-" + findPluginSetting.apkPath + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
                         }
                     }
                 } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
@@ -188,7 +188,7 @@ public class PluginPackageManager {
                         com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().f(stringExtra10, true);
                         if (findPluginSetting2.versionCode < PluginPackageManager.aru) {
                             com.baidu.adp.plugin.b.a.qF().A("plugin_launch_lowversion", stringExtra10);
-                            com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", stringExtra10, "broadcast_cancel-" + findPluginSetting2.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.installStatus);
+                            com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", stringExtra10, "broadcast_cancel-" + findPluginSetting2.apkPath + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.versionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.forbidden + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.tempVersionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting2.installStatus);
                         }
                     } else {
                         com.baidu.adp.plugin.b.a.qF().f("plugin_install", "install_cancel_settingnull", stringExtra10, null);
@@ -251,7 +251,7 @@ public class PluginPackageManager {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = str4;
                     } else {
-                        String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        String[] split = str2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                         int length = split.length;
                         int i = 0;
                         while (true) {
@@ -265,7 +265,7 @@ public class PluginPackageManager {
                             }
                         }
                         if (!z) {
-                            str2 = str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + str4;
+                            str2 = str2 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + str4;
                         }
                     }
                 }
@@ -288,12 +288,12 @@ public class PluginPackageManager {
                     com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "del_unuse_plugin_setting", findPluginSetting.packageName, "apkpath-" + findPluginSetting.apkPath + "-forbidden-" + findPluginSetting.forbidden + "-enable-" + findPluginSetting.enable + "-abandonapkpath-" + findPluginSetting.getAbandon_apk_path() + "-versioncode-" + findPluginSetting.versionCode);
                     com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().bG(str);
                 } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
-                    String[] split = findPluginSetting.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = findPluginSetting.getAbandon_apk_path().split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                     String str3 = "";
                     for (String str4 : split) {
                         if (!str2.equals(str4)) {
                             if (!TextUtils.isEmpty(str3)) {
-                                str3 = str3 + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                                str3 = str3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP;
                             }
                             str3 = str3 + str4;
                         }
@@ -303,13 +303,13 @@ public class PluginPackageManager {
             }
         }
     };
-    private com.baidu.adp.plugin.install.a aqy = new com.baidu.adp.plugin.install.a() { // from class: com.baidu.adp.plugin.packageManager.PluginPackageManager.5
+    private com.baidu.adp.plugin.install.a aqx = new com.baidu.adp.plugin.install.a() { // from class: com.baidu.adp.plugin.packageManager.PluginPackageManager.5
         @Override // com.baidu.adp.plugin.install.a
-        public void at(boolean z) {
+        public void aw(boolean z) {
             if (z) {
                 if (PluginPackageManager.qS().isMainProcess()) {
                     PluginSettings rr = com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().rr();
-                    com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update_suc", null, PluginPackageManager.this.arz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr == null ? "" : rr.getContainerVersion()));
+                    com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update_suc", null, PluginPackageManager.this.arz + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr == null ? "" : rr.getContainerVersion()));
                 }
                 com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().bF(PluginPackageManager.this.arz);
                 if (PluginPackageManager.qS().isMainProcess()) {
@@ -317,10 +317,10 @@ public class PluginPackageManager {
                 }
             } else if (PluginPackageManager.qS().isMainProcess()) {
                 PluginSettings rr2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().rr();
-                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update_fail", null, PluginPackageManager.this.arz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr2 == null ? "" : rr2.getContainerVersion()));
+                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update_fail", null, PluginPackageManager.this.arz + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr2 == null ? "" : rr2.getContainerVersion()));
             }
             PluginPackageManager.this.loadPlugin();
-            PluginPackageManager.this.av(true);
+            PluginPackageManager.this.ay(true);
         }
 
         @Override // com.baidu.adp.plugin.install.a
@@ -329,7 +329,7 @@ public class PluginPackageManager {
             PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().findPluginSetting(str);
             if (findPluginSetting != null && findPluginSetting.versionCode < PluginPackageManager.aru) {
                 com.baidu.adp.plugin.b.a.qF().A("plugin_launch_lowversion", str);
-                com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
+                com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
             }
         }
     };
@@ -565,7 +565,7 @@ public class PluginPackageManager {
 
     public void qV() {
         if (this.ary) {
-            com.baidu.adp.plugin.install.c.qn().a(this.mContext, this.aqy);
+            com.baidu.adp.plugin.install.c.qn().a(this.mContext, this.aqx);
         }
     }
 
@@ -574,7 +574,7 @@ public class PluginPackageManager {
         if (!TextUtils.isEmpty(str) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().findPluginSetting(str)) != null) {
             ArrayList<a.b> arrayList = new ArrayList<>();
             if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
-                for (String str2 : findPluginSetting.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+                for (String str2 : findPluginSetting.getAbandon_apk_path().split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                     arrayList.add(new a.b(str, str2));
                 }
             }
@@ -642,7 +642,7 @@ public class PluginPackageManager {
                         }
                     }
                     Plugin.b launch = PluginCenter.getInstance().launch(pluginSetting.packageName);
-                    if (launch != null && !launch.apQ) {
+                    if (launch != null && !launch.apP) {
                         com.baidu.adp.plugin.b.a.qF().bn("patch_launch_failed");
                     }
                 }
@@ -680,7 +680,7 @@ public class PluginPackageManager {
         if (rr == null || (rr != null && E(this.arz, rr.getContainerVersion()))) {
             this.arB = System.currentTimeMillis();
             if (qS().isMainProcess()) {
-                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update", null, this.arz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr == null ? "" : rr.getContainerVersion()));
+                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "version_update", null, this.arz + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + (rr == null ? "" : rr.getContainerVersion()));
             }
             ra();
             qV();
@@ -721,7 +721,7 @@ public class PluginPackageManager {
     public void qY() {
         loadPlugin();
         if (Build.VERSION.SDK_INT > 10) {
-            av(true);
+            ay(true);
         }
     }
 
@@ -761,8 +761,8 @@ public class PluginPackageManager {
                 com.baidu.adp.plugin.b.a.qF().g("plugin_del_unuse", "server forbidden", str);
                 bs(str);
             } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
-                String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                String[] split2 = findPluginSetting.getAbandon_apk_path().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = str2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = findPluginSetting.getAbandon_apk_path().split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                 HashMap hashMap = new HashMap();
                 ArrayList<a.b> arrayList = new ArrayList<>();
                 for (String str3 : split) {
@@ -792,31 +792,31 @@ public class PluginPackageManager {
                             if (pluginSetting.enable && pluginSetting.installStatus != a.b.asb) {
                                 Plugin.b launch = PluginCenter.getInstance().launch(pluginSetting.packageName);
                                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName);
-                                if (!launch.apQ && plugin2 != null && !plugin2.isLoaded()) {
+                                if (!launch.apP && plugin2 != null && !plugin2.isLoaded()) {
                                     i++;
                                     if (qS().isMainProcess()) {
                                         if (sb.length() > 0) {
-                                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                            sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                                         }
                                         sb.append(pluginSetting.packageName);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.apkPath);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.forbidden);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.enable);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.installStatus);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.versionCode);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.install_fail_count);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(pluginSetting.getAbandon_apk_path());
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                         sb.append(launch.reason);
-                                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                        sb.append(launch.apS);
+                                        sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                        sb.append(launch.apR);
                                     }
                                 }
                             }
@@ -836,11 +836,11 @@ public class PluginPackageManager {
 
     private void ra() {
         if (this.ary) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().aw(false);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().az(false);
         }
     }
 
-    public void av(boolean z) {
+    public void ay(boolean z) {
         if (this.ary) {
             com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ro().a(com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().rr(), z, this.arJ);
         }
@@ -951,9 +951,9 @@ public class PluginPackageManager {
                                 str = "";
                             }
                             if (pluginConfig.newest == null) {
-                                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "server_disable_plugin_nonewest", pluginConfig.package_name, "up-" + str + "-set-" + pluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.apkPath);
+                                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "server_disable_plugin_nonewest", pluginConfig.package_name, "up-" + str + "-set-" + pluginSetting.versionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.apkPath);
                             } else {
-                                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "server_disable_plugin_newestversionlow", pluginConfig.package_name, "up-" + str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "config-" + pluginConfig.newest.version_code + "-set-" + pluginSetting.versionCode);
+                                com.baidu.adp.plugin.b.a.qF().f("plugin_setting", "server_disable_plugin_newestversionlow", pluginConfig.package_name, "up-" + str + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "config-" + pluginConfig.newest.version_code + "-set-" + pluginSetting.versionCode);
                             }
                             com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().f(pluginConfig.package_name, false);
                             com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().o(pluginConfig.package_name, a.b.asb);
@@ -1047,7 +1047,7 @@ public class PluginPackageManager {
                 str = pluginConfig.forbidden_features;
                 if (!TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(str2)) {
-                        str = str2 + Constants.ACCEPT_TIME_SEPARATOR_SP + str;
+                        str = str2 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + str;
                     }
                     str2 = str;
                 }
@@ -1123,7 +1123,7 @@ public class PluginPackageManager {
                     com.baidu.adp.plugin.packageManager.pluginSettings.c.ru().bH(pluginSetting.packageName);
                     if (pluginSetting.versionCode < aru) {
                         com.baidu.adp.plugin.b.a.qF().A("plugin_launch_lowversion", pluginSetting.packageName);
-                        com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", pluginSetting.packageName, "set_by_config-" + pluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.installStatus);
+                        com.baidu.adp.plugin.b.a.qF().f("plugin_load", "load_lowversion", pluginSetting.packageName, "set_by_config-" + pluginSetting.apkPath + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.versionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.forbidden + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.tempVersionCode + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + pluginSetting.installStatus);
                     }
                 }
             }

@@ -26,15 +26,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
-    private View cMq;
-    private View eSD;
-    private TextView fyM;
-    private c hFJ;
-    private d hFK;
-    private View hFL;
-    private TextView hFM;
-    private TextView hFN;
-    private TextView hFO;
+    private View cQo;
+    private View eYa;
+    private TextView fCm;
+    private c hHh;
+    private d hHi;
+    private View hHj;
+    private TextView hHk;
+    private TextView hHl;
+    private TextView hHm;
     private ImageView mBackImageView;
     private List<i> mDataList;
     private BdTypeListView mListView;
@@ -43,36 +43,36 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view.getId() != TransmitForumActivity.this.fyM.getId()) {
-                    if (view.getId() == TransmitForumActivity.this.eSD.getId() || view.getId() == TransmitForumActivity.this.cMq.getId()) {
+                if (view.getId() != TransmitForumActivity.this.fCm.getId()) {
+                    if (view.getId() == TransmitForumActivity.this.eYa.getId() || view.getId() == TransmitForumActivity.this.cQo.getId()) {
                         TransmitForumActivity.this.setResult(0);
-                        TransmitForumActivity.this.IS();
+                        TransmitForumActivity.this.Jz();
                         return;
                     }
                     return;
                 }
-                ArrayList<TransmitForumData> bGl = TransmitForumActivity.this.bGl();
+                ArrayList<TransmitForumData> bGZ = TransmitForumActivity.this.bGZ();
                 Intent intent = new Intent();
-                intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, TransmitForumActivity.this.dL(bGl));
+                intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, TransmitForumActivity.this.dR(bGZ));
                 TransmitForumActivity.this.setResult(-1, intent);
-                TransmitForumActivity.this.IS();
+                TransmitForumActivity.this.Jz();
             }
         }
     };
-    private a hFP = new a() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.2
+    private a hHn = new a() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.2
         @Override // com.baidu.tieba.write.transmit.a
-        public boolean bGi() {
-            return v.D(TransmitForumActivity.this.bGl()) >= 3;
+        public boolean bGW() {
+            return v.D(TransmitForumActivity.this.bGZ()) >= 3;
         }
 
         @Override // com.baidu.tieba.write.transmit.a
-        public void bGj() {
+        public void bGX() {
             TransmitForumActivity.this.showToast(d.j.transmit_max_commit);
         }
 
         @Override // com.baidu.tieba.write.transmit.a
-        public void bGk() {
-            TransmitForumActivity.this.aXm();
+        public void bGY() {
+            TransmitForumActivity.this.aYV();
         }
     };
 
@@ -82,17 +82,17 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(d.h.transmit_forum_activity);
-        this.eSD = findViewById(d.g.trasmit_back);
-        this.eSD.setOnClickListener(this.mOnClickListener);
-        this.fyM = (TextView) findViewById(d.g.transmit_cofirm);
-        this.hFM = (TextView) findViewById(d.g.transmit_title);
-        this.hFN = (TextView) findViewById(d.g.transmit_subtitle);
+        this.eYa = findViewById(d.g.trasmit_back);
+        this.eYa.setOnClickListener(this.mOnClickListener);
+        this.fCm = (TextView) findViewById(d.g.transmit_cofirm);
+        this.hHk = (TextView) findViewById(d.g.transmit_title);
+        this.hHl = (TextView) findViewById(d.g.transmit_subtitle);
         this.mBackImageView = (ImageView) findViewById(d.g.trasmit_back);
-        this.fyM.setOnClickListener(this.mOnClickListener);
+        this.fCm.setOnClickListener(this.mOnClickListener);
         this.mListView = (BdTypeListView) findViewById(d.g.trasmit_grid_view);
         this.mListView.setMaxHeight(l.aq(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(d.e.ds568));
         this.mListView.setOverScrollMode(2);
-        this.hFO = (TextView) findViewById(d.g.transmit_subtitle);
+        this.hHm = (TextView) findViewById(d.g.transmit_subtitle);
         this.mDataList = new ArrayList();
         ArrayList arrayList = null;
         if (getIntent() != null) {
@@ -101,9 +101,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                 TransmitForumData transmitForumData = (TransmitForumData) parcelableArrayListExtra.get(0);
                 if (transmitForumData != null) {
                     if (transmitForumData.checked) {
-                        this.hFO.setText(d.j.transmit_forum_publish_more_forum);
+                        this.hHm.setText(d.j.transmit_forum_publish_more_forum);
                     } else {
-                        this.hFO.setText(d.j.transmit_forum_select_more_forum);
+                        this.hHm.setText(d.j.transmit_forum_select_more_forum);
                     }
                 }
                 this.mDataList.addAll(parcelableArrayListExtra);
@@ -111,28 +111,28 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             arrayList = parcelableArrayListExtra;
         }
         this.mDataList.add(new e());
-        this.hFJ = new c(getPageContext().getPageActivity(), TransmitForumData.aPq);
-        this.hFK = new d(getPageContext().getPageActivity(), e.aPq, getUniqueId(), arrayList);
-        this.hFJ.a(this.hFP);
-        this.mAdapters.add(this.hFJ);
-        this.mAdapters.add(this.hFK);
+        this.hHh = new c(getPageContext().getPageActivity(), TransmitForumData.aQN);
+        this.hHi = new d(getPageContext().getPageActivity(), e.aQN, getUniqueId(), arrayList);
+        this.hHh.a(this.hHn);
+        this.mAdapters.add(this.hHh);
+        this.mAdapters.add(this.hHi);
         this.mListView.addAdapters(this.mAdapters);
         this.mListView.setData(this.mDataList);
-        aXm();
-        this.cMq = findViewById(d.g.view_top);
-        this.cMq.setOnClickListener(this.mOnClickListener);
-        this.hFL = findViewById(d.g.layout_operate);
-        this.hFL.startAnimation(AnimationUtils.loadAnimation(getActivity(), d.a.in_from_bottom));
-        aj.t(this.hFL, d.C0108d.cp_bg_line_d);
-        aj.s(this.fyM, d.f.btn_all_blue);
-        aj.e(this.fyM, d.C0108d.cp_cont_g, 1);
+        aYV();
+        this.cQo = findViewById(d.g.view_top);
+        this.cQo.setOnClickListener(this.mOnClickListener);
+        this.hHj = findViewById(d.g.layout_operate);
+        this.hHj.startAnimation(AnimationUtils.loadAnimation(getActivity(), d.a.in_from_bottom));
+        aj.t(this.hHj, d.C0140d.cp_bg_line_d);
+        aj.s(this.fCm, d.f.btn_all_blue);
+        aj.e(this.fCm, d.C0140d.cp_cont_g, 1);
         aj.c(this.mBackImageView, d.f.icon_pb_post_close_n);
-        aj.e(this.hFM, d.C0108d.cp_cont_f, 1);
-        aj.e(this.hFN, d.C0108d.cp_cont_d, 1);
+        aj.e(this.hHk, d.C0140d.cp_cont_f, 1);
+        aj.e(this.hHl, d.C0140d.cp_cont_d, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String dL(List<TransmitForumData> list) {
+    public String dR(List<TransmitForumData> list) {
         JSONArray jSONArray = new JSONArray();
         for (TransmitForumData transmitForumData : list) {
             if (transmitForumData != null) {
@@ -153,20 +153,20 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 25005) {
-            HotTopicBussinessData xw = this.hFK.xw(intent.getIntExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, 0));
-            if (xw != null) {
+            HotTopicBussinessData xv = this.hHi.xv(intent.getIntExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, 0));
+            if (xv != null) {
                 for (i iVar : this.mDataList) {
-                    if ((iVar instanceof TransmitForumData) && TextUtils.equals(xw.mForumName, ((TransmitForumData) iVar).forumName)) {
+                    if ((iVar instanceof TransmitForumData) && TextUtils.equals(xv.mForumName, ((TransmitForumData) iVar).forumName)) {
                         return;
                     }
                 }
-                if (this.hFP.bGi()) {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(xw.mForumId, xw.mForumName, false, 0));
+                if (this.hHn.bGW()) {
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(xv.mForumId, xv.mForumName, false, 0));
                     showToast(d.j.transmit_max_commit);
                 } else {
-                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(xw.mForumId, xw.mForumName, true, 0));
+                    this.mDataList.add(this.mDataList.size() - 1, new TransmitForumData(xv.mForumId, xv.mForumName, true, 0));
                 }
-                aXm();
+                aYV();
                 this.mListView.setData(this.mDataList);
                 this.mListView.setSelection(this.mDataList.size() - 1);
             }
@@ -174,16 +174,16 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXm() {
-        int D = v.D(bGl());
+    public void aYV() {
+        int D = v.D(bGZ());
         if (D > 0) {
-            this.fyM.setText(getResources().getString(d.j.transmit_confirm, Integer.valueOf(D), 3));
+            this.fCm.setText(getResources().getString(d.j.transmit_confirm, Integer.valueOf(D), 3));
         } else {
-            this.fyM.setText(getResources().getString(d.j.confirm));
+            this.fCm.setText(getResources().getString(d.j.confirm));
         }
     }
 
-    public ArrayList<TransmitForumData> bGl() {
+    public ArrayList<TransmitForumData> bGZ() {
         ArrayList<TransmitForumData> arrayList = new ArrayList<>();
         for (i iVar : this.mDataList) {
             if (iVar instanceof TransmitForumData) {
@@ -207,7 +207,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IS() {
+    public void Jz() {
         Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), d.a.out_to_bottom);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.transmit.TransmitForumActivity.3
             @Override // android.view.animation.Animation.AnimationListener
@@ -223,21 +223,21 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.hFL.startAnimation(loadAnimation);
+        this.hHj.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hFK != null) {
-            this.hFK.destroy();
+        if (this.hHi != null) {
+            this.hHi.destroy();
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
         setResult(0);
-        IS();
+        Jz();
     }
 }

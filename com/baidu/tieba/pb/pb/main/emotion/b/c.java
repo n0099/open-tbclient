@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes2.dex */
 public class c {
-    private SearchEmotionModel.a doS;
-    private SearchEmotionModel fUI;
-    private String fUJ;
-    private Runnable fUK = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
+    private SearchEmotionModel.a drL;
+    private SearchEmotionModel fXU;
+    private String fXV;
+    private Runnable fXW = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(c.this.fUJ) && c.this.doS != null) {
-                if (c.this.fUI == null) {
-                    c.this.fUI = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(c.this.fXV) && c.this.drL != null) {
+                if (c.this.fXU == null) {
+                    c.this.fXU = new SearchEmotionModel();
                 }
-                c.this.fUI.a(c.this.fUJ, 0, 30, c.this.doS);
+                c.this.fXU.a(c.this.fXV, 0, 30, c.this.drL);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void qz(String str) {
+    public void qH(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fUJ = "";
+            this.fXV = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.fUK);
-        this.mHandler.postDelayed(this.fUK, 300L);
-        this.fUJ = str;
+        this.mHandler.removeCallbacks(this.fXW);
+        this.mHandler.postDelayed(this.fXW, 300L);
+        this.fXV = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.doS = aVar;
+        this.drL = aVar;
     }
 
-    public void avS() {
-        if (this.fUI != null) {
-            this.fUI.cancelLoadData();
+    public void awP() {
+        if (this.fXU != null) {
+            this.fXU.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.fUK);
+        this.mHandler.removeCallbacks(this.fXW);
     }
 }

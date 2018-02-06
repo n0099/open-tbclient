@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
 
@@ -12,6 +11,6 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
     }
 
     public MemoryItemRemoveMessage(a aVar) {
-        super(CmdConfigCustom.MEMORY_REMOVE_ITEM, aVar);
+        super(2016015, aVar);
     }
 }

@@ -3,44 +3,44 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean bxp = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
+    private boolean bzw = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean Ng();
+    public abstract boolean NM();
 
-    public abstract int Nh();
+    public abstract int NN();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.Nk()) {
+        if (dVar == null || dVar.NQ()) {
             return false;
         }
-        if (dVar.bxq) {
-            dVar.O(c.h(dVar.Ni(), 6));
+        if (dVar.bzx) {
+            dVar.Q(c.h(dVar.NO(), 6));
         } else {
-            int Nn = Nh() > e.Nl().Nn() ? e.Nl().Nn() : Nh();
-            dVar.O(c.h(dVar.Ni(), Nn <= 5 ? Nn : 5));
+            int NT = NN() > e.NR().NT() ? e.NR().NT() : NN();
+            dVar.Q(c.h(dVar.NO(), NT <= 5 ? NT : 5));
         }
         return true;
     }
 
-    private void cu(boolean z) {
-        if (this.bxp != z) {
+    private void cy(boolean z) {
+        if (this.bzw != z) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("page_stay_duration_switch", true);
-            this.bxp = z;
+            this.bzw = z;
         }
     }
 
     public boolean isSwitchOpen() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.bxp;
+            return this.bzw;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            cu(false);
+            cy(false);
             return false;
-        } else if (!e.Nl().Nm()) {
-            cu(false);
+        } else if (!e.NR().NS()) {
+            cy(false);
             return false;
         } else {
-            cu(true);
+            cy(true);
             return true;
         }
     }

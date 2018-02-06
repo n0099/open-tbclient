@@ -1,6 +1,7 @@
 package com.baidu.tieba.usermute.response;
 
 import com.baidu.adp.lib.g.b;
+import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class UserMuteDelResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (getStatusCode() == 200 && jSONObject != null) {
             this.errorNo = jSONObject.optString("error_code");
-            this.muteMsg = jSONObject.optString("err_msg");
+            this.muteMsg = jSONObject.optString(Constants.HTTP_ERR_MSG);
         }
     }
 }

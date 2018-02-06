@@ -5,10 +5,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.Constants;
 import com.baidu.location.Address;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -310,8 +310,8 @@ public final class BDLocation implements Parcelable {
             if (parseInt == 61) {
                 JSONObject jSONObject3 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject4 = jSONObject3.getJSONObject("point");
-                setLatitude(Double.parseDouble(jSONObject4.getString("y")));
-                setLongitude(Double.parseDouble(jSONObject4.getString("x")));
+                setLatitude(Double.parseDouble(jSONObject4.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y)));
+                setLongitude(Double.parseDouble(jSONObject4.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X)));
                 setRadius(Float.parseFloat(jSONObject3.getString("radius")));
                 setSpeed(Float.parseFloat(jSONObject3.getString(NotifyType.SOUND)));
                 setDirection(Float.parseFloat(jSONObject3.getString("d")));
@@ -345,16 +345,16 @@ public final class BDLocation implements Parcelable {
                 }
                 JSONObject jSONObject5 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject6 = jSONObject5.getJSONObject("point");
-                setLatitude(Double.parseDouble(jSONObject6.getString("y")));
-                setLongitude(Double.parseDouble(jSONObject6.getString("x")));
+                setLatitude(Double.parseDouble(jSONObject6.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y)));
+                setLongitude(Double.parseDouble(jSONObject6.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X)));
                 setRadius(Float.parseFloat(jSONObject5.getString("radius")));
                 setCellChangeFlag(Boolean.valueOf(Boolean.parseBoolean(jSONObject5.getString("isCellChanged"))));
                 setCoorType("gcj02");
             } else {
                 JSONObject jSONObject7 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject8 = jSONObject7.getJSONObject("point");
-                setLatitude(Double.parseDouble(jSONObject8.getString("y")));
-                setLongitude(Double.parseDouble(jSONObject8.getString("x")));
+                setLatitude(Double.parseDouble(jSONObject8.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y)));
+                setLongitude(Double.parseDouble(jSONObject8.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X)));
                 setRadius(Float.parseFloat(jSONObject7.getString("radius")));
                 if (jSONObject7.has("sema")) {
                     JSONObject jSONObject9 = jSONObject7.getJSONObject("sema");
@@ -389,7 +389,7 @@ public final class BDLocation implements Parcelable {
                     }
                 }
                 if (jSONObject7.has("addr")) {
-                    String[] split = jSONObject7.getString("addr").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = jSONObject7.getString("addr").split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
                     int length = split.length;
                     String str2 = length > 0 ? split[0] : null;
                     String str3 = length > 1 ? split[1] : null;

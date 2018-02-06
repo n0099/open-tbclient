@@ -2,19 +2,19 @@ package com.baidu.location.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends Thread {
-    final /* synthetic */ g aAF;
+    final /* synthetic */ g aCf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(g gVar) {
-        this.aAF = gVar;
+        this.aCf = gVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         boolean i;
-        i = this.aAF.i();
+        i = this.aCf.i();
         if (i) {
-            this.aAF.j();
+            this.aCf.j();
         }
     }
 }

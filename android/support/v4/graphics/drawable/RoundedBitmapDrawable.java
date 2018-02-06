@@ -190,7 +190,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     public void setCornerRadius(float f) {
         if (this.pA != f) {
             this.wH = false;
-            if (m(f)) {
+            if (q(f)) {
                 this.mPaint.setShader(this.wC);
             } else {
                 this.mPaint.setShader(null);
@@ -226,7 +226,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
         Bitmap bitmap;
-        return (this.mGravity != 119 || this.wH || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || m(this.pA)) ? -3 : -1;
+        return (this.mGravity != 119 || this.wH || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || q(this.pA)) ? -3 : -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -246,7 +246,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         this.wC = null;
     }
 
-    private static boolean m(float f) {
+    private static boolean q(float f) {
         return f > 0.05f;
     }
 }

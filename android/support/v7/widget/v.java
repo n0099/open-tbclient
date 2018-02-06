@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class v {
-    final ArrayMap<RecyclerView.ViewHolder, a> Yn = new ArrayMap<>();
-    final LongSparseArray<RecyclerView.ViewHolder> Yo = new LongSparseArray<>();
+    final ArrayMap<RecyclerView.ViewHolder, a> Ym = new ArrayMap<>();
+    final LongSparseArray<RecyclerView.ViewHolder> Yn = new LongSparseArray<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -24,24 +24,24 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void clear() {
+        this.Ym.clear();
         this.Yn.clear();
-        this.Yo.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         if (aVar == null) {
             aVar = a.iD();
-            this.Yn.put(viewHolder, aVar);
+            this.Ym.put(viewHolder, aVar);
         }
-        aVar.Yp = itemHolderInfo;
+        aVar.Yo = itemHolderInfo;
         aVar.flags |= 4;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean o(RecyclerView.ViewHolder viewHolder) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         return (aVar == null || (aVar.flags & 1) == 0) ? false : true;
     }
 
@@ -58,18 +58,18 @@ public class v {
     private RecyclerView.ItemAnimator.ItemHolderInfo b(RecyclerView.ViewHolder viewHolder, int i) {
         a valueAt;
         RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo = null;
-        int indexOfKey = this.Yn.indexOfKey(viewHolder);
-        if (indexOfKey >= 0 && (valueAt = this.Yn.valueAt(indexOfKey)) != null && (valueAt.flags & i) != 0) {
+        int indexOfKey = this.Ym.indexOfKey(viewHolder);
+        if (indexOfKey >= 0 && (valueAt = this.Ym.valueAt(indexOfKey)) != null && (valueAt.flags & i) != 0) {
             valueAt.flags &= i ^ (-1);
             if (i == 4) {
-                itemHolderInfo = valueAt.Yp;
+                itemHolderInfo = valueAt.Yo;
             } else if (i == 8) {
-                itemHolderInfo = valueAt.Yq;
+                itemHolderInfo = valueAt.Yp;
             } else {
                 throw new IllegalArgumentException("Must provide flag PRE or POST");
             }
             if ((valueAt.flags & 12) == 0) {
-                this.Yn.removeAt(indexOfKey);
+                this.Ym.removeAt(indexOfKey);
                 a.a(valueAt);
             }
         }
@@ -78,55 +78,55 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(long j, RecyclerView.ViewHolder viewHolder) {
-        this.Yo.put(j, viewHolder);
+        this.Yn.put(j, viewHolder);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         if (aVar == null) {
             aVar = a.iD();
-            this.Yn.put(viewHolder, aVar);
+            this.Ym.put(viewHolder, aVar);
         }
         aVar.flags |= 2;
-        aVar.Yp = itemHolderInfo;
+        aVar.Yo = itemHolderInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean r(RecyclerView.ViewHolder viewHolder) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         return (aVar == null || (aVar.flags & 4) == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public RecyclerView.ViewHolder n(long j) {
-        return this.Yo.get(j);
+        return this.Yn.get(j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         if (aVar == null) {
             aVar = a.iD();
-            this.Yn.put(viewHolder, aVar);
+            this.Ym.put(viewHolder, aVar);
         }
-        aVar.Yq = itemHolderInfo;
+        aVar.Yp = itemHolderInfo;
         aVar.flags |= 8;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void s(RecyclerView.ViewHolder viewHolder) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         if (aVar == null) {
             aVar = a.iD();
-            this.Yn.put(viewHolder, aVar);
+            this.Ym.put(viewHolder, aVar);
         }
         aVar.flags |= 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void t(RecyclerView.ViewHolder viewHolder) {
-        a aVar = this.Yn.get(viewHolder);
+        a aVar = this.Ym.get(viewHolder);
         if (aVar != null) {
             aVar.flags &= -2;
         }
@@ -134,25 +134,25 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        for (int size = this.Yn.size() - 1; size >= 0; size--) {
-            RecyclerView.ViewHolder keyAt = this.Yn.keyAt(size);
-            a removeAt = this.Yn.removeAt(size);
+        for (int size = this.Ym.size() - 1; size >= 0; size--) {
+            RecyclerView.ViewHolder keyAt = this.Ym.keyAt(size);
+            a removeAt = this.Ym.removeAt(size);
             if ((removeAt.flags & 3) == 3) {
                 bVar.g(keyAt);
             } else if ((removeAt.flags & 1) != 0) {
-                if (removeAt.Yp == null) {
+                if (removeAt.Yo == null) {
                     bVar.g(keyAt);
                 } else {
-                    bVar.c(keyAt, removeAt.Yp, removeAt.Yq);
+                    bVar.c(keyAt, removeAt.Yo, removeAt.Yp);
                 }
             } else if ((removeAt.flags & 14) == 14) {
-                bVar.d(keyAt, removeAt.Yp, removeAt.Yq);
+                bVar.d(keyAt, removeAt.Yo, removeAt.Yp);
             } else if ((removeAt.flags & 12) == 12) {
-                bVar.e(keyAt, removeAt.Yp, removeAt.Yq);
+                bVar.e(keyAt, removeAt.Yo, removeAt.Yp);
             } else if ((removeAt.flags & 4) != 0) {
-                bVar.c(keyAt, removeAt.Yp, null);
+                bVar.c(keyAt, removeAt.Yo, null);
             } else if ((removeAt.flags & 8) != 0) {
-                bVar.d(keyAt, removeAt.Yp, removeAt.Yq);
+                bVar.d(keyAt, removeAt.Yo, removeAt.Yp);
             } else if ((removeAt.flags & 2) != 0) {
             }
             a.a(removeAt);
@@ -161,18 +161,18 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void u(RecyclerView.ViewHolder viewHolder) {
-        int size = this.Yo.size() - 1;
+        int size = this.Yn.size() - 1;
         while (true) {
             if (size < 0) {
                 break;
-            } else if (viewHolder != this.Yo.valueAt(size)) {
+            } else if (viewHolder != this.Yn.valueAt(size)) {
                 size--;
             } else {
-                this.Yo.removeAt(size);
+                this.Yn.removeAt(size);
                 break;
             }
         }
-        a remove = this.Yn.remove(viewHolder);
+        a remove = this.Ym.remove(viewHolder);
         if (remove != null) {
             a.a(remove);
         }
@@ -190,29 +190,29 @@ public class v {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
-        static Pools.Pool<a> Yr = new Pools.SimplePool(20);
+        static Pools.Pool<a> Yq = new Pools.SimplePool(20);
+        RecyclerView.ItemAnimator.ItemHolderInfo Yo;
         RecyclerView.ItemAnimator.ItemHolderInfo Yp;
-        RecyclerView.ItemAnimator.ItemHolderInfo Yq;
         int flags;
 
         private a() {
         }
 
         static a iD() {
-            a acquire = Yr.acquire();
+            a acquire = Yq.acquire();
             return acquire == null ? new a() : acquire;
         }
 
         static void a(a aVar) {
             aVar.flags = 0;
+            aVar.Yo = null;
             aVar.Yp = null;
-            aVar.Yq = null;
-            Yr.release(aVar);
+            Yq.release(aVar);
         }
 
         static void iE() {
             do {
-            } while (Yr.acquire() != null);
+            } while (Yq.acquire() != null);
         }
     }
 }

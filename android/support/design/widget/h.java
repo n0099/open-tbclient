@@ -42,7 +42,7 @@ class h extends g {
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
-                        h.this.pa.b(0, z);
+                        h.this.pa.e(0, z);
                         this.oP = false;
                     }
 
@@ -55,7 +55,7 @@ class h extends g {
                     public void onAnimationEnd(Animator animator) {
                         h.this.oS = 0;
                         if (!this.oP) {
-                            h.this.pa.b(8, z);
+                            h.this.pa.e(8, z);
                             if (aVar != null) {
                                 aVar.bM();
                             }
@@ -64,7 +64,7 @@ class h extends g {
                 });
                 return;
             }
-            this.pa.b(8, z);
+            this.pa.e(8, z);
             if (aVar != null) {
                 aVar.bM();
             }
@@ -86,7 +86,7 @@ class h extends g {
                 this.pa.animate().scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(a.kD).setListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.h.2
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
-                        h.this.pa.b(0, z);
+                        h.this.pa.e(0, z);
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -99,7 +99,7 @@ class h extends g {
                 });
                 return;
             }
-            this.pa.b(0, z);
+            this.pa.e(0, z);
             this.pa.setAlpha(1.0f);
             this.pa.setScaleY(1.0f);
             this.pa.setScaleX(1.0f);

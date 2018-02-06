@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.message;
 
 import android.content.Context;
 import com.baidu.android.pushservice.j.p;
+import com.baidu.ar.util.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -19,7 +20,7 @@ public class b extends c {
         } catch (JSONException e) {
             jSONObject = null;
         }
-        int optInt = jSONObject != null ? jSONObject.optInt("ret", -1) : -1;
+        int optInt = jSONObject != null ? jSONObject.optInt(Constants.HTTP_RET, -1) : -1;
         if (optInt == 0) {
             com.baidu.android.pushservice.e.b.a(this.a);
         } else if (optInt == 5003) {

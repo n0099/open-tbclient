@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes2.dex */
 public class d {
     private static d a = null;
@@ -55,7 +54,7 @@ public class d {
             if (com.xiaomi.channel.commonutils.network.d.f(this.e)) {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.a).openConnection();
-                    httpURLConnection.setRequestMethod(HttpGet.METHOD_NAME);
+                    httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.setConnectTimeout(5000);
                     httpURLConnection.connect();
                     if (httpURLConnection.getResponseCode() == 200) {

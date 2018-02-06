@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.tencent.tauth.AuthActivity;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ak;
@@ -254,7 +255,7 @@ public class s {
             contentValues.put("geo_id", str);
             contentValues.put("message_id", rVar.b());
             int parseInt = Integer.parseInt(s.get("__geo_action"));
-            contentValues.put("action", Integer.valueOf(parseInt));
+            contentValues.put(AuthActivity.ACTION_KEY, Integer.valueOf(parseInt));
             contentValues.put("content", bArr);
             contentValues.put("deadline", Long.valueOf(Long.parseLong(s.get("__geo_deadline"))));
             if (TextUtils.equals(e.a(xMPushService).c(str), "Enter") && parseInt == 1) {
@@ -280,7 +281,7 @@ public class s {
         if (h.a(xMPushService) && h.b(xMPushService)) {
             if (com.xiaomi.channel.commonutils.android.b.f(xMPushService, abVar.f)) {
                 Map<String, String> s = abVar.m().s();
-                return (s == null || !"12".contains(s.get("__geo_action")) || TextUtils.isEmpty(s.get("__geo_ids"))) ? false : true;
+                return (s == null || !com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR.contains(s.get("__geo_action")) || TextUtils.isEmpty(s.get("__geo_ids"))) ? false : true;
             }
             a(xMPushService, abVar);
             return false;

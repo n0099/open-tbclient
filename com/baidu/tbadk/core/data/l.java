@@ -27,7 +27,7 @@ public class l {
         return this.text;
     }
 
-    public String xi() {
+    public String xO() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class l {
         return this.url;
     }
 
-    public String xj() {
+    public String xP() {
         return this.obj_id;
     }
 }

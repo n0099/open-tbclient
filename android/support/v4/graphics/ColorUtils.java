@@ -255,7 +255,7 @@ public final class ColorUtils {
             throw new IllegalArgumentException("result must have a length of 3.");
         }
         float f2 = 1.0f - f;
-        fArr3[0] = d(fArr[0], fArr2[0], f);
+        fArr3[0] = e(fArr[0], fArr2[0], f);
         fArr3[1] = (fArr[1] * f2) + (fArr2[1] * f);
         fArr3[2] = (f2 * fArr[2]) + (fArr2[2] * f);
     }
@@ -270,7 +270,7 @@ public final class ColorUtils {
         dArr3[2] = (d2 * dArr[2]) + (dArr2[2] * d);
     }
 
-    static float d(float f, float f2, float f3) {
+    static float e(float f, float f2, float f3) {
         if (Math.abs(f2 - f) > 180.0f) {
             if (f2 > f) {
                 f += 360.0f;

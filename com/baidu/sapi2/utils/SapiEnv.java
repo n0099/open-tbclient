@@ -35,7 +35,6 @@ public interface SapiEnv {
     public static final String PHONE_REG_URI = "/v2/sapi/phoneregverify";
     public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin?lp=app";
     public static final String QR_PC_LOGIN_URI = "/v2/sapi/qrlogin?lp=pc";
-    public static final String QUICK_USER_REG_URI = "/v2/sapi/reg/quick";
     public static final String RELOGIN_URI = "/v5/login/sapi/relogin";
     public static final String SAPI_CONFIG_HTTPS_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/conf/config.txt";
     public static final String SAPI_CONFIG_URI = "/static/appsapi/conf/config.txt";

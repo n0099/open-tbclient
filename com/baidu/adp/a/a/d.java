@@ -6,19 +6,19 @@ import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
     private static int mFps = 0;
-    private static String abT = null;
-    private static String abU = null;
-    private static int abV = 0;
-    private static int abW = 0;
-    private static String abX = null;
-    private static e.a abY = null;
-    private static e.a abZ = null;
+    private static String abR = null;
+    private static String abS = null;
+    private static int abT = 0;
+    private static int abU = 0;
+    private static String abV = null;
+    private static e.a abW = null;
+    private static e.a abX = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int aca = 0;
+    public static int abY = 0;
+    public static boolean abZ = false;
+    public static boolean aca = false;
     public static boolean acb = false;
-    public static boolean acc = false;
-    public static boolean acd = false;
 
     public static void cy(int i) {
         mFps = i;
@@ -32,7 +32,7 @@ public class d {
     }
 
     public static void a(e.a aVar) {
-        abY = aVar;
+        abW = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -43,7 +43,7 @@ public class d {
     }
 
     public static e.a jR() {
-        return abZ;
+        return abX;
     }
 
     public static double d(double d) {

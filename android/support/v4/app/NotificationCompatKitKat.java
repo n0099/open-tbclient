@@ -11,8 +11,9 @@ import android.util.SparseArray;
 import android.widget.RemoteViews;
 import java.util.ArrayList;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-class NotificationCompatKitKat {
+public class NotificationCompatKitKat {
 
     /* loaded from: classes2.dex */
     public static class Builder implements NotificationBuilderWithActions, NotificationBuilderWithBuilderAccessor {

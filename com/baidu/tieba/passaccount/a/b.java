@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.a.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements c {
-    private static b fAN;
+    private static b fEo;
 
     private b() {
     }
 
-    public static synchronized b aXQ() {
+    public static synchronized b aZE() {
         b bVar;
         synchronized (b.class) {
-            if (fAN == null) {
-                fAN = new b();
+            if (fEo == null) {
+                fEo = new b();
             }
-            bVar = fAN;
+            bVar = fEo;
         }
         return bVar;
     }
@@ -41,7 +41,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void EH() {
+    public void Fc() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -69,16 +69,16 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData Bt() {
+    public AccountData BM() {
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void a(a.InterfaceC0070a interfaceC0070a) {
+    public void a(a.InterfaceC0093a interfaceC0093a) {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> EI() {
+    public List<AccountData> Fd() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

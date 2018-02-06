@@ -20,7 +20,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.s(context, d.e.ds24));
+        setTextSize(0, l.t(context, d.e.ds24));
         j(0, null);
     }
 
@@ -49,6 +49,6 @@ public class PbNewLocationInfoView extends TextView {
     }
 
     public void onChangeSkinType() {
-        setTextColor(aj.getColor(d.C0108d.cp_cont_f));
+        setTextColor(aj.getColor(d.C0140d.cp_cont_f));
     }
 }

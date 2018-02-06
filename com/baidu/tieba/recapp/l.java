@@ -1,5 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface l {
-    j getVideoOrVrView();
+    void bnR();
+
+    void bnS();
+
+    int bnT();
 }

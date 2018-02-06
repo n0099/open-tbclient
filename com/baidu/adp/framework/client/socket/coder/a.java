@@ -3,17 +3,17 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    public static byte adQ = 4;
-    private static byte adR = Byte.MIN_VALUE;
-    private static byte adS = 64;
-    private static byte adT = 8;
-    private static byte adU = 4;
-    private int adY;
-    private int adZ;
+    public static byte adO = 4;
+    private static byte adP = Byte.MIN_VALUE;
+    private static byte adQ = 64;
+    private static byte adR = 8;
+    private static byte adS = 4;
+    private int adW;
+    private int adX;
+    private boolean adT = false;
+    private boolean adU = false;
     private boolean adV = false;
-    private boolean adW = false;
-    private boolean adX = false;
-    private boolean aea = false;
+    private boolean adY = false;
 
     public static int kG() {
         return 9;
@@ -21,13 +21,13 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + kG());
-        byte b = z ? (byte) (adR | 0) : (byte) 0;
+        byte b = z ? (byte) (adP | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | adS);
+            b = (byte) (b | adQ);
         }
-        byte b2 = (byte) (b | adT);
+        byte b2 = (byte) (b | adR);
         if (z3) {
-            b2 = (byte) (b2 | adU);
+            b2 = (byte) (b2 | adS);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -43,44 +43,44 @@ public class a {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, kG());
         a aVar = new a();
         byte b = wrap.get();
+        if ((adP & b) != 0) {
+            aVar.adT = true;
+        }
+        if ((adQ & b) != 0) {
+            aVar.adU = true;
+        }
         if ((adR & b) != 0) {
             aVar.adV = true;
         }
-        if ((adS & b) != 0) {
-            aVar.adW = true;
+        if ((b & adS) != 0) {
+            aVar.adY = true;
         }
-        if ((adT & b) != 0) {
-            aVar.adX = true;
-        }
-        if ((b & adU) != 0) {
-            aVar.aea = true;
-        }
-        aVar.adY = wrap.getInt();
-        aVar.adZ = wrap.getInt();
+        aVar.adW = wrap.getInt();
+        aVar.adX = wrap.getInt();
         return aVar;
     }
 
     public boolean kH() {
-        return this.adW;
+        return this.adU;
     }
 
     public int kI() {
-        return this.adY;
+        return this.adW;
     }
 
     public boolean kJ() {
-        return this.adV;
+        return this.adT;
     }
 
     public int kK() {
-        return this.adZ;
-    }
-
-    public boolean kL() {
         return this.adX;
     }
 
+    public boolean kL() {
+        return this.adV;
+    }
+
     public boolean kM() {
-        return this.aea;
+        return this.adY;
     }
 }

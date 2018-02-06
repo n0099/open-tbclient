@@ -58,11 +58,11 @@ public abstract class ChatMessage extends TbSocketMessage implements a, i {
     public static final BdUniqueId TYPE_MSG_RIGHT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_MID = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_TOPIC = BdUniqueId.gen();
-    public static final BdUniqueId TYPE_MSG_CHAT_ROOM_RULE = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_TEXT_OFFICAL_NOTIFICATION = BdUniqueId.gen();
 
     public ChatMessage(int i) {
         super(i);
@@ -373,14 +373,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a, i {
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
+        if (com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hi() != null && com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hi().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+            return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
+        }
         if (this.msgType == 11) {
             return TYPE_MSG_MID;
         }
         if (this.msgType == 12) {
             return TYPE_MSG_TOPIC;
-        }
-        if (this.msgType == 13) {
-            return TYPE_MSG_CHAT_ROOM_RULE;
         }
         if (this.msgType == 6) {
             return TYPE_MSG_GROUP_ACTIVITY;

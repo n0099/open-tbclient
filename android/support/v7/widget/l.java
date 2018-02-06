@@ -10,15 +10,15 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes2.dex */
 class l extends ListViewCompat {
+    private boolean OI;
     private boolean OJ;
     private boolean OL;
-    private boolean OM;
-    private ViewPropertyAnimatorCompat OO;
-    private ListViewAutoScrollHelper OP;
+    private ViewPropertyAnimatorCompat OM;
+    private ListViewAutoScrollHelper OO;
 
     public l(Context context, boolean z) {
         super(context, null, R.attr.dropDownListViewStyle);
-        this.OL = z;
+        this.OJ = z;
         setCacheColorHint(0);
     }
 
@@ -79,13 +79,13 @@ class l extends ListViewCompat {
             fW();
         }
         if (z2) {
-            if (this.OP == null) {
-                this.OP = new ListViewAutoScrollHelper(this);
+            if (this.OO == null) {
+                this.OO = new ListViewAutoScrollHelper(this);
             }
-            this.OP.setEnabled(true);
-            this.OP.onTouch(this, motionEvent);
-        } else if (this.OP != null) {
-            this.OP.setEnabled(false);
+            this.OO.setEnabled(true);
+            this.OO.onTouch(this, motionEvent);
+        } else if (this.OO != null) {
+            this.OO.setEnabled(false);
         }
         return z2;
     }
@@ -96,26 +96,26 @@ class l extends ListViewCompat {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setListSelectionHidden(boolean z) {
-        this.OJ = z;
+        this.OI = z;
     }
 
     private void fW() {
-        this.OM = false;
+        this.OL = false;
         setPressed(false);
         drawableStateChanged();
         View childAt = getChildAt(this.mMotionPosition - getFirstVisiblePosition());
         if (childAt != null) {
             childAt.setPressed(false);
         }
-        if (this.OO != null) {
-            this.OO.cancel();
-            this.OO = null;
+        if (this.OM != null) {
+            this.OM.cancel();
+            this.OM = null;
         }
     }
 
     private void a(View view, int i, float f, float f2) {
         View childAt;
-        this.OM = true;
+        this.OL = true;
         if (Build.VERSION.SDK_INT >= 21) {
             drawableHotspotChanged(f, f2);
         }
@@ -143,26 +143,26 @@ class l extends ListViewCompat {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v7.widget.ListViewCompat
     public boolean touchModeDrawsInPressedStateCompat() {
-        return this.OM || super.touchModeDrawsInPressedStateCompat();
+        return this.OL || super.touchModeDrawsInPressedStateCompat();
     }
 
     @Override // android.view.View
     public boolean isInTouchMode() {
-        return (this.OL && this.OJ) || super.isInTouchMode();
+        return (this.OJ && this.OI) || super.isInTouchMode();
     }
 
     @Override // android.view.View
     public boolean hasWindowFocus() {
-        return this.OL || super.hasWindowFocus();
+        return this.OJ || super.hasWindowFocus();
     }
 
     @Override // android.view.View
     public boolean isFocused() {
-        return this.OL || super.isFocused();
+        return this.OJ || super.isFocused();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean hasFocus() {
-        return this.OL || super.hasFocus();
+        return this.OJ || super.hasFocus();
     }
 }

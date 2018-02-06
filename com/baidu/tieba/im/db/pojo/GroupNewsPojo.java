@@ -58,40 +58,18 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_event_info";
             } else if (str.equals("124")) {
                 str2 = "group_activitys_change";
-            } else if (str.equals("301")) {
-                str2 = "live_notify";
-            } else if (str.equals("311")) {
-                str2 = "live_user_mute";
             } else if (str.equals("401")) {
                 str2 = "apply_new_friend";
             } else if (str.equals("402")) {
                 str2 = "passed_new_friend";
             } else if (str.equals("405")) {
                 str2 = "delete_new_friend";
-            } else if ("302".equals(str)) {
-                str2 = "live_group_update";
-            } else if ("306".equals(str)) {
-                str2 = "publisher_update_livegroup";
-            } else if ("310".equals(str)) {
-                str2 = "dismiss_livegroup";
-            } else if ("307".equals(str)) {
-                str2 = "livegroup_start";
-            } else if ("308".equals(str)) {
-                str2 = "livegroup_pause";
-            } else if ("318".equals(str)) {
-                str2 = "livegroup_resume";
-            } else if ("309".equals(str)) {
-                str2 = "livegroup_end";
-            } else if ("304".equals(str)) {
-                str2 = "publisher_enter_livegroup";
             } else if ("412".equals(str)) {
                 str2 = "apply_reply_message";
             } else if ("410".equals(str)) {
                 str2 = "apply_add_friend";
             } else if ("411".equals(str)) {
                 str2 = "apply_pass_friend";
-            } else if ("312".equals(str)) {
-                str2 = "live_v_notify";
             } else if ("501".equals(str)) {
                 str2 = "upload_stat";
             } else if ("502".equals(str)) {
@@ -103,7 +81,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            aGW();
+            aIx();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -121,7 +99,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void aGW() {
+    private void aIx() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

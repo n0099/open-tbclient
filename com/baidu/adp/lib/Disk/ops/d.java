@@ -2,16 +2,15 @@ package com.baidu.adp.lib.Disk.ops;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
-    private String agc;
+    private String aga;
     private String mContent;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.agc = HTTP.UTF_8;
+        this.aga = "UTF-8";
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -20,7 +19,7 @@ public class d extends DiskFileOperate {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.agc);
+            this.mContent = new String(bArr, this.aga);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -32,7 +31,7 @@ public class d extends DiskFileOperate {
     public byte[] lu() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.agc);
+                return this.mContent.getBytes(this.aga);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

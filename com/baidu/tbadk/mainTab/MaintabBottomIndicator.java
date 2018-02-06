@@ -19,52 +19,52 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MaintabBottomIndicator extends e {
-    private int bvH;
-    private HashMap<String, e.a> bvO;
-    private int bvT;
-    private int bvX;
-    private View bvY;
-    private View bvZ;
-    private ImageView bwa;
-    private int bwb;
-    private int bwc;
-    private int bwd;
-    private int bwe;
-    private AnimationDrawable bwf;
+    private int bxR;
+    private HashMap<String, e.a> bxY;
+    private int byd;
+    private int byh;
+    private View byi;
+    private View byj;
+    private ImageView byk;
+    private int byl;
+    private int bym;
+    private int byn;
+    private int byo;
+    private AnimationDrawable byp;
     private ImageView mIconView;
     private TextView rz;
 
     public MaintabBottomIndicator(Context context) {
         super(context);
-        this.bvH = 0;
-        this.bvO = new HashMap<>();
+        this.bxR = 0;
+        this.bxY = new HashMap<>();
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bvH = 0;
-        this.bvO = new HashMap<>();
+        this.bxR = 0;
+        this.bxY = new HashMap<>();
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bvH = 0;
-        this.bvO = new HashMap<>();
+        this.bxR = 0;
+        this.bxY = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.bvY = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.byi = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.bvY.setLayoutParams(layoutParams);
-        this.bvZ = this.bvY.findViewById(d.g.container_common_item);
-        this.mIconView = (ImageView) this.bvY.findViewById(d.g.view_bottom_icon);
-        this.rz = (TextView) this.bvY.findViewById(d.g.view_bottom_text);
-        this.bwa = (ImageView) this.bvY.findViewById(d.g.view_write_icon);
-        addView(this.bvY);
+        this.byi.setLayoutParams(layoutParams);
+        this.byj = this.byi.findViewById(d.g.container_common_item);
+        this.mIconView = (ImageView) this.byi.findViewById(d.g.view_bottom_icon);
+        this.rz = (TextView) this.byi.findViewById(d.g.view_bottom_text);
+        this.byk = (ImageView) this.byi.findViewById(d.g.view_write_icon);
+        addView(this.byi);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -72,7 +72,7 @@ public class MaintabBottomIndicator extends e {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
+        Set<Map.Entry<String, e.a>> entrySet = this.bxY.entrySet();
         if (entrySet != null && (r5 = entrySet.iterator()) != null) {
             for (Map.Entry<String, e.a> entry : entrySet) {
                 e.a value = entry.getValue();
@@ -95,7 +95,7 @@ public class MaintabBottomIndicator extends e {
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
+        Set<Map.Entry<String, e.a>> entrySet = this.bxY.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
             while (it.hasNext() && this.mIconView != null) {
                 e.a value = it.next().getValue();
@@ -103,13 +103,13 @@ public class MaintabBottomIndicator extends e {
                     int measuredWidth2 = value.view.getMeasuredWidth();
                     int measuredHeight3 = value.view.getMeasuredHeight();
                     int measuredWidth3 = this.mIconView.getMeasuredWidth();
-                    if (value.bwh) {
+                    if (value.byr) {
                         measuredWidth = ((measuredWidth3 / 2) + (getMeasuredWidth() / 2)) - (measuredWidth2 / 2);
                     } else {
                         measuredWidth = ((getMeasuredWidth() / 2) - (measuredWidth3 / 2)) + (measuredWidth2 / 2);
                     }
-                    if (this.bvH == 1) {
-                        measuredHeight = this.bvY.getTop() + this.mIconView.getTop();
+                    if (this.bxR == 1) {
+                        measuredHeight = this.byi.getTop() + this.mIconView.getTop();
                         measuredHeight2 = measuredHeight3 / 2;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
@@ -124,14 +124,14 @@ public class MaintabBottomIndicator extends e {
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTipPosType(int i) {
-        this.bvH = i;
+        this.bxR = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void a(String str, e.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view);
-            this.bvO.put(str, aVar);
+            this.bxY.put(str, aVar);
         }
     }
 
@@ -139,13 +139,13 @@ public class MaintabBottomIndicator extends e {
     public void b(String str, e.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view, -2, -2);
-            this.bvO.put(str, aVar);
+            this.bxY.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public e.a gO(String str) {
-        return this.bvO.get(str);
+    public e.a gX(String str) {
+        return this.bxY.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
@@ -154,82 +154,82 @@ public class MaintabBottomIndicator extends e {
     }
 
     public void setIconResourceId(int i) {
-        this.bwc = i;
+        this.bym = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextColorResId(int i) {
-        this.bwb = i;
+        this.byl = i;
     }
 
     public void setShowIconType(int i) {
-        this.bvX = i;
+        this.byh = i;
     }
 
     public void aK(int i, int i2) {
-        this.bvZ.setVisibility(8);
-        this.bwa.setVisibility(0);
-        aj.c(this.bwa, i);
-        aj.s(this.bwa, i2);
-        this.bwd = i;
-        this.bwe = i2;
+        this.byj.setVisibility(8);
+        this.byk.setVisibility(0);
+        aj.c(this.byk, i);
+        aj.s(this.byk, i2);
+        this.byn = i;
+        this.byo = i2;
     }
 
     public void setAnimationResId(int i) {
-        this.bvT = i;
+        this.byd = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        gz(TbadkCoreApplication.getInst().getSkinType());
+        gB(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public void gz(int i) {
-        super.gz(i);
-        Set<Map.Entry<String, e.a>> entrySet = this.bvO.entrySet();
+    public void gB(int i) {
+        super.gB(i);
+        Set<Map.Entry<String, e.a>> entrySet = this.bxY.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, e.a> entry : entrySet) {
                 e.a value = entry.getValue();
                 if (value != null) {
-                    value.gz(i);
+                    value.gB(i);
                 }
             }
         }
-        if (this.bvX == c.bvU) {
-            aj.c(this.bwa, this.bwd);
-            aj.s(this.bwa, this.bwe);
+        if (this.byh == c.bye) {
+            aj.c(this.byk, this.byn);
+            aj.s(this.byk, this.byo);
             return;
         }
-        if (this.bwb != 0) {
-            aj.r(this.rz, this.bwb);
+        if (this.byl != 0) {
+            aj.r(this.rz, this.byl);
         } else {
-            aj.r(this.rz, d.C0108d.cp_cont_f);
+            aj.r(this.rz, d.C0140d.cp_cont_f);
         }
-        if (this.bwc != 0) {
-            aj.c(this.mIconView, this.bwc);
+        if (this.bym != 0) {
+            aj.c(this.mIconView, this.bym);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
-    public void cn(boolean z) {
-        super.cn(z);
-        if (this.bvT != 0) {
+    public void cr(boolean z) {
+        super.cr(z);
+        if (this.byd != 0) {
             if (z) {
-                aj.c(this.mIconView, this.bvT);
-                this.bwf = (AnimationDrawable) this.mIconView.getDrawable();
-                if (this.bwf != null) {
-                    this.bwf.start();
+                aj.c(this.mIconView, this.byd);
+                this.byp = (AnimationDrawable) this.mIconView.getDrawable();
+                if (this.byp != null) {
+                    this.byp.start();
                     return;
                 }
                 return;
             }
-            if (this.bwf != null) {
-                this.bwf.stop();
+            if (this.byp != null) {
+                this.byp.stop();
             }
-            if (this.bwc != 0) {
-                aj.c(this.mIconView, this.bwc);
+            if (this.bym != 0) {
+                aj.c(this.mIconView, this.bym);
             }
         }
     }

@@ -7,7 +7,7 @@ public class am extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_share_switch";
+        return "forum_mask_stat";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class am extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int ms() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,9 +28,5 @@ public class am extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int mu() {
         return 10;
-    }
-
-    public static boolean nv() {
-        return com.baidu.adp.lib.b.d.mA().an("android_share_switch") == 1;
     }
 }

@@ -11,14 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class p extends g<as, q> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.d.c {
-    private as dDM;
+public class p extends g<com.baidu.tbadk.core.data.as, q> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.e.c {
+    private com.baidu.tbadk.core.data.as dGP;
 
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -27,7 +25,7 @@ public class p extends g<as, q> implements View.OnClickListener, PhotoLiveCardVi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: as */
     public q onCreateViewHolder(ViewGroup viewGroup) {
         return new q(LayoutInflater.from(this.mContext).inflate(d.h.frs_photo_live_headlines_item, (ViewGroup) null));
     }
@@ -36,37 +34,37 @@ public class p extends g<as, q> implements View.OnClickListener, PhotoLiveCardVi
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, as asVar, q qVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.as asVar, q qVar) {
         super.onFillViewHolder(i, view, viewGroup, asVar, qVar);
-        if (qVar.bdS != this.mSkinType) {
+        if (qVar.bfL != this.mSkinType) {
             com.baidu.tbadk.n.a.a(this.mPageContext, view);
-            qVar.bdS = this.mSkinType;
+            qVar.bfL = this.mSkinType;
         }
-        this.dDM = asVar;
-        qVar.dDN.setOnClickListener(this);
-        qVar.dDN.setTag(asVar);
-        qVar.dDO.setShowBottom(false);
-        qVar.dDO.setShowContent(false);
-        qVar.dDO.setShowRefreshTimeInHead(true);
-        qVar.dDO.setShowLiveIcon(true);
-        qVar.dDO.setHeadPaddingTop(0);
-        qVar.dDO.setChooseStyle(asVar.ye().getShowStyle());
-        qVar.dDO.setShowImage(com.baidu.tbadk.core.i.wB().wH());
-        qVar.dDO.setData(asVar.ye());
-        qVar.dDO.setPortraitClicklistener(this);
-        qVar.dDP.setOnClickListener(this);
-        qVar.dDP.setTag(asVar);
+        this.dGP = asVar;
+        qVar.dGQ.setOnClickListener(this);
+        qVar.dGQ.setTag(asVar);
+        qVar.dGR.setShowBottom(false);
+        qVar.dGR.setShowContent(false);
+        qVar.dGR.setShowRefreshTimeInHead(true);
+        qVar.dGR.setShowLiveIcon(true);
+        qVar.dGR.setHeadPaddingTop(0);
+        qVar.dGR.setChooseStyle(asVar.yF().getShowStyle());
+        qVar.dGR.setShowImage(com.baidu.tbadk.core.i.xo().xu());
+        qVar.dGR.setData(asVar.yF());
+        qVar.dGR.setPortraitClicklistener(this);
+        qVar.dGS.setOnClickListener(this);
+        qVar.dGS.setTag(asVar);
         if (asVar != null) {
-            asVar.zP();
+            asVar.Ai();
         }
-        com.baidu.tieba.frs.d.b.ayP().a(dRe, asVar);
+        com.baidu.tieba.frs.e.b.azR().a(dUq, asVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof as) {
-            this.dBj.a(view.getId(), 0, view, null, (as) view.getTag());
+        if (view.getTag() instanceof com.baidu.tbadk.core.data.as) {
+            this.dEc.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.as) view.getTag());
         }
     }
 
@@ -76,18 +74,18 @@ public class p extends g<as, q> implements View.OnClickListener, PhotoLiveCardVi
         if (tag instanceof PhotoLiveCardData) {
             PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c10178").aa(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c10178").ab(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
         }
-        com.baidu.tieba.frs.d.b.ayP().a(dRe, this.dDM, 2);
+        com.baidu.tieba.frs.e.b.azR().a(dUq, this.dGP, 2);
     }
 
-    public int avi() {
+    public int awg() {
         return d.g.more_live_list;
     }
 
-    public int avj() {
+    public int awh() {
         return d.g.make_headlines;
     }
 }

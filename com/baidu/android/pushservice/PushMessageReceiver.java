@@ -13,15 +13,14 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.l;
+import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -192,7 +191,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_body");
                     final String stringExtra = intent.getStringExtra("message_id");
                     final int intExtra = intent.getIntExtra("baidu_message_type", -1);
-                    final String stringExtra2 = intent.getStringExtra("app_id");
+                    final String stringExtra2 = intent.getStringExtra(Constants.HTTP_APP_ID);
                     if (byteArrayExtra == null || byteArrayExtra2 == null || TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || intExtra == -1) {
                         sendCallback(context, intent, 2);
                     } else if (p.t(context, stringExtra) || !com.baidu.android.pushservice.d.a.e(context, stringExtra)) {
@@ -270,7 +269,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         m.a(context, string2, string3, string, string4, true, p.d(context, context.getPackageName()), j, str2, str3);
                         onBind(context, intExtra2, string2, string4, string3, string);
                         p.b("PushMessageReceiver#onBind from " + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", requestId=" + string + ", at time of " + System.currentTimeMillis(), context);
-                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP + string2 + Constants.ACCEPT_TIME_SEPARATOR_SP + string4 + Constants.ACCEPT_TIME_SEPARATOR_SP + "false" + Constants.ACCEPT_TIME_SEPARATOR_SP + ((int) com.baidu.android.pushservice.a.a()));
+                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + string2 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + string4 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + "false" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + ((int) com.baidu.android.pushservice.a.a()));
                         com.baidu.android.pushservice.d.c.e(context, b2);
                         if (p.E(context)) {
                             com.baidu.android.pushservice.j.q.a(context, context.getPackageName() + ".self_push_sync", "bindinfo", b2);
@@ -376,7 +375,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             } else if (action.equals("com.huawei.android.push.intent.REGISTRATION")) {
                 if (com.baidu.android.pushservice.c.d.d(context)) {
                     try {
-                        String str4 = new String(intent.getByteArrayExtra("device_token"), HTTP.UTF_8);
+                        String str4 = new String(intent.getByteArrayExtra("device_token"), "UTF-8");
                         if (TextUtils.isEmpty(str4)) {
                             return;
                         }
@@ -387,7 +386,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             } else if (action.equals("com.huawei.intent.action.PUSH")) {
                 if (com.baidu.android.pushservice.c.d.d(context)) {
                     try {
-                        String str5 = new String(intent.getByteArrayExtra("selfshow_info"), HTTP.UTF_8);
+                        String str5 = new String(intent.getByteArrayExtra("selfshow_info"), "UTF-8");
                         if (TextUtils.isEmpty(str5) || context == null || (a3 = (a2 = com.baidu.android.pushservice.message.a.j.a(context, str5)).a(context)) == null || !p.y(context) || p.y(context, a2.l)) {
                             return;
                         }

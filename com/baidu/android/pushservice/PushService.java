@@ -10,6 +10,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.a.a;
 import com.baidu.android.pushservice.j.p;
+import com.baidu.ar.util.Constants;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PushService extends Service {
@@ -146,7 +147,7 @@ public class PushService extends Service {
         try {
             jSONObject.put("error", 30602);
             if (!TextUtils.isEmpty(str)) {
-                jSONObject.put("app_id", str);
+                jSONObject.put(Constants.HTTP_APP_ID, str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("api_key", str2);

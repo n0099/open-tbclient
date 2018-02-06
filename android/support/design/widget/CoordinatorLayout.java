@@ -36,6 +36,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
+import com.baidu.ar.util.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -462,7 +463,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (str.startsWith(".")) {
+        if (str.startsWith(Constants.DOT)) {
             str = context.getPackageName() + str;
         } else if (str.indexOf(46) < 0 && !TextUtils.isEmpty(nx)) {
             str = nx + '.' + str;
@@ -690,7 +691,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     void b(View view, Rect rect) {
-        ((LayoutParams) view.getLayoutParams()).a(rect);
+        ((LayoutParams) view.getLayoutParams()).b(rect);
     }
 
     void c(View view, Rect rect) {
@@ -941,7 +942,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                                 break;
                         }
                         if (i == 1) {
-                            layoutParams2.j(z);
+                            layoutParams2.l(z);
                         }
                     }
                 }
@@ -1204,9 +1205,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             if (behavior != null) {
                 boolean onStartNestedScroll = behavior.onStartNestedScroll(this, childAt, view, view2, i);
                 z = z2 | onStartNestedScroll;
-                layoutParams.i(onStartNestedScroll);
+                layoutParams.k(onStartNestedScroll);
             } else {
-                layoutParams.i(false);
+                layoutParams.k(false);
                 z = z2;
             }
             i2++;
@@ -1639,7 +1640,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
 
-        void a(Rect rect) {
+        void b(Rect rect) {
             this.of.set(rect);
         }
 
@@ -1675,7 +1676,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.od = false;
         }
 
-        void i(boolean z) {
+        void k(boolean z) {
             this.od = z;
         }
 
@@ -1687,7 +1688,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             return this.oe;
         }
 
-        void j(boolean z) {
+        void l(boolean z) {
             this.oe = z;
         }
 

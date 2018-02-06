@@ -11,7 +11,7 @@ public class c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void xt(int i);
+        void xs(int i);
     }
 
     public static void a(final String str, final int i, final a aVar) {
@@ -24,9 +24,9 @@ public class c {
                     @Override // com.baidu.tbadk.util.u
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> cW = com.baidu.tbadk.core.c.a.Ax().cW("tb.write_privacy_state_space" + currentAccount);
-                        if (cW != null) {
-                            i2 = com.baidu.adp.lib.g.b.h(cW.get(str), i);
+                        l<String> dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.write_privacy_state_space" + currentAccount);
+                        if (dh != null) {
+                            i2 = com.baidu.adp.lib.g.b.h(dh.get(str), i);
                         }
                         return Integer.valueOf(i2);
                     }
@@ -36,7 +36,7 @@ public class c {
                     /* renamed from: g */
                     public void onReturnDataInUI(Integer num) {
                         if (a.this != null) {
-                            a.this.xt(num.intValue());
+                            a.this.xs(num.intValue());
                         }
                     }
                 });
@@ -44,12 +44,12 @@ public class c {
         }
     }
 
-    public static void aO(String str, int i) {
-        l<String> cW;
+    public static void aP(String str, int i) {
+        l<String> dh;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (cW = com.baidu.tbadk.core.c.a.Ax().cW("tb.write_privacy_state_space" + currentAccount)) != null) {
-                cW.f(str, String.valueOf(i));
+            if (!StringUtils.isNull(currentAccount) && (dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.write_privacy_state_space" + currentAccount)) != null) {
+                dh.f(str, String.valueOf(i));
             }
         }
     }

@@ -7,16 +7,15 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.adp.BuildConfig;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.ar.util.Constants;
+import com.baidu.fsg.base.utils.PhoneUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +40,7 @@ public final class o {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", "android");
+            hashMap.put("os", Constants.OS_TYPE_VALUE);
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;
@@ -50,7 +49,7 @@ public final class o {
                     break;
                 }
                 try {
-                    com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str, HttpPost.METHOD_NAME, hashMap);
+                    com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(str, "POST", hashMap);
                     int b = a2.b();
                     inputStream2 = a2.a();
                     String a3 = com.baidu.android.pushservice.h.a.b.a(inputStream2);
@@ -137,10 +136,10 @@ public final class o {
         byte[] bArr;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(ClientCookie.VERSION_ATTR, BuildConfig.VERSION_NAME);
+            jSONObject.put("version", "1.0");
             String a2 = a();
             if (!TextUtils.isEmpty(a2)) {
-                jSONObject.put("common", new JSONObject(a2));
+                jSONObject.put(PhoneUtils.CPUInfo.FEATURE_COMMON, new JSONObject(a2));
             }
             String a3 = this.c.a(j, j2, i);
             if (!TextUtils.isEmpty(a3)) {
@@ -241,7 +240,7 @@ public final class o {
         String a2 = a(j, j2, i);
         try {
             if (!TextUtils.isEmpty(a2)) {
-                return a("https://statsonline.pushct.baidu.com/pushlog_special", a2, BuildConfig.VERSION_NAME);
+                return a("https://statsonline.pushct.baidu.com/pushlog_special", a2, "1.0");
             }
         } catch (OutOfMemoryError e) {
         }

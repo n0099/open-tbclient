@@ -5,6 +5,7 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
+import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -49,7 +50,7 @@ public final class Util {
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
         f fVar = new f();
-        fVar.set(((d2 >> 9) & 127) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        fVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
         return fVar;
     }
 
@@ -142,9 +143,9 @@ public final class Util {
         }
     }
 
-    public static void l(File file) {
+    public static void m(File file) {
         if (file != null && file.exists()) {
-            j(file);
+            k(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -153,14 +154,14 @@ public final class Util {
         }
     }
 
-    public static void j(File file) {
+    public static void k(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            k(file2);
+                            l(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -172,10 +173,10 @@ public final class Util {
         }
     }
 
-    public static void k(File file) {
+    public static void l(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                l(file);
+                m(file);
             } else if (file.exists()) {
                 try {
                     file.delete();

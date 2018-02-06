@@ -16,13 +16,13 @@ public final class k {
     private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", Integer.valueOf((int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR));
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
     private String a = null;
-    private final a aCo = new a(this);
+    private final a aDM = new a(this);
     private final SQLiteDatabase b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends com.baidu.location.h.f {
-        private k aCp;
+        private k aDN;
         private int b;
         private long c;
         private String d = null;
@@ -30,7 +30,7 @@ public final class k {
         private boolean f = false;
 
         a(k kVar) {
-            this.aCp = kVar;
+            this.aDN = kVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -41,7 +41,7 @@ public final class k {
             if (this.e) {
                 return;
             }
-            this.d = this.aCp.b();
+            this.d = this.aDN.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -173,7 +173,7 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.aCo.b();
+        this.aDM.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

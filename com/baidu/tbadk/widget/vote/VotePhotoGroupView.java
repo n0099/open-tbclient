@@ -13,37 +13,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VotePhotoGroupView extends LinearLayout {
-    private List<d> bKC;
-    private LinearLayout bKD;
-    private LinearLayout bKE;
-    private b bKF;
-    private int bKG;
-    private com.baidu.tbadk.widget.vote.a bKH;
-    private d.a bKI;
+    private List<d> bMG;
+    private LinearLayout bMH;
+    private LinearLayout bMI;
+    private b bMJ;
+    private int bMK;
+    private com.baidu.tbadk.widget.vote.a bML;
+    private d.a bMM;
     private int mode;
 
     public VotePhotoGroupView(Context context) {
         super(context);
         this.mode = 1;
-        this.bKG = -1;
-        this.bKH = null;
-        this.bKI = new d.a() { // from class: com.baidu.tbadk.widget.vote.VotePhotoGroupView.1
+        this.bMK = -1;
+        this.bML = null;
+        this.bMM = new d.a() { // from class: com.baidu.tbadk.widget.vote.VotePhotoGroupView.1
             @Override // com.baidu.tbadk.widget.vote.d.a
             public void b(com.baidu.tbadk.widget.vote.a aVar, int i, boolean z) {
                 if (VotePhotoGroupView.this.mode == 3) {
                     if (z) {
-                        VotePhotoGroupView.this.u(i, false);
+                        VotePhotoGroupView.this.y(i, false);
                     }
-                    if (VotePhotoGroupView.this.bKG != i) {
-                        if (VotePhotoGroupView.this.bKF != null) {
-                            VotePhotoGroupView.this.bKF.a(VotePhotoGroupView.this.bKH, VotePhotoGroupView.this.bKG, false);
+                    if (VotePhotoGroupView.this.bMK != i) {
+                        if (VotePhotoGroupView.this.bMJ != null) {
+                            VotePhotoGroupView.this.bMJ.a(VotePhotoGroupView.this.bML, VotePhotoGroupView.this.bMK, false);
                         }
-                        VotePhotoGroupView.this.bKH = aVar;
-                        VotePhotoGroupView.this.bKG = i;
+                        VotePhotoGroupView.this.bML = aVar;
+                        VotePhotoGroupView.this.bMK = i;
                     }
                 }
-                if (VotePhotoGroupView.this.bKF != null) {
-                    VotePhotoGroupView.this.bKF.a(aVar, i, z);
+                if (VotePhotoGroupView.this.bMJ != null) {
+                    VotePhotoGroupView.this.bMJ.a(aVar, i, z);
                 }
             }
         };
@@ -53,25 +53,25 @@ public class VotePhotoGroupView extends LinearLayout {
     public VotePhotoGroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mode = 1;
-        this.bKG = -1;
-        this.bKH = null;
-        this.bKI = new d.a() { // from class: com.baidu.tbadk.widget.vote.VotePhotoGroupView.1
+        this.bMK = -1;
+        this.bML = null;
+        this.bMM = new d.a() { // from class: com.baidu.tbadk.widget.vote.VotePhotoGroupView.1
             @Override // com.baidu.tbadk.widget.vote.d.a
             public void b(com.baidu.tbadk.widget.vote.a aVar, int i, boolean z) {
                 if (VotePhotoGroupView.this.mode == 3) {
                     if (z) {
-                        VotePhotoGroupView.this.u(i, false);
+                        VotePhotoGroupView.this.y(i, false);
                     }
-                    if (VotePhotoGroupView.this.bKG != i) {
-                        if (VotePhotoGroupView.this.bKF != null) {
-                            VotePhotoGroupView.this.bKF.a(VotePhotoGroupView.this.bKH, VotePhotoGroupView.this.bKG, false);
+                    if (VotePhotoGroupView.this.bMK != i) {
+                        if (VotePhotoGroupView.this.bMJ != null) {
+                            VotePhotoGroupView.this.bMJ.a(VotePhotoGroupView.this.bML, VotePhotoGroupView.this.bMK, false);
                         }
-                        VotePhotoGroupView.this.bKH = aVar;
-                        VotePhotoGroupView.this.bKG = i;
+                        VotePhotoGroupView.this.bML = aVar;
+                        VotePhotoGroupView.this.bMK = i;
                     }
                 }
-                if (VotePhotoGroupView.this.bKF != null) {
-                    VotePhotoGroupView.this.bKF.a(aVar, i, z);
+                if (VotePhotoGroupView.this.bMJ != null) {
+                    VotePhotoGroupView.this.bMJ.a(aVar, i, z);
                 }
             }
         };
@@ -82,13 +82,13 @@ public class VotePhotoGroupView extends LinearLayout {
         setOrientation(0);
         setGravity(1);
         LayoutInflater.from(context).inflate(d.h.vote_photo_layout, this);
-        this.bKD = (LinearLayout) findViewById(d.g.vote_select_pic_left);
-        this.bKE = (LinearLayout) findViewById(d.g.vote_select_pic_right);
-        this.bKC = new ArrayList();
+        this.bMH = (LinearLayout) findViewById(d.g.vote_select_pic_left);
+        this.bMI = (LinearLayout) findViewById(d.g.vote_select_pic_right);
+        this.bMG = new ArrayList();
     }
 
     public void setOnVoteCheckedChangedListener(b bVar) {
-        this.bKF = bVar;
+        this.bMJ = bVar;
     }
 
     public void setMode(int i) {
@@ -99,9 +99,9 @@ public class VotePhotoGroupView extends LinearLayout {
 
     public void a(List<com.baidu.tbadk.widget.vote.a> list, boolean z, boolean z2) {
         d dVar;
-        this.bKD.removeAllViews();
-        this.bKE.removeAllViews();
-        this.bKC.clear();
+        this.bMH.removeAllViews();
+        this.bMI.removeAllViews();
+        this.bMG.clear();
         if (list != null && !list.isEmpty()) {
             int i = 0;
             com.baidu.tbadk.widget.vote.a aVar = null;
@@ -111,16 +111,16 @@ public class VotePhotoGroupView extends LinearLayout {
                     int i2 = (i % 2) + 1;
                     boolean isSelected = aVar2.isSelected();
                     d dVar3 = new d(getContext());
-                    dVar3.setOnItemCheckChangeListener(this.bKI);
+                    dVar3.setOnItemCheckChangeListener(this.bMM);
                     dVar3.a(aVar2, i, this.mode, isSelected, z2);
                     if (i2 == 1) {
-                        this.bKD.addView(dVar3);
+                        this.bMH.addView(dVar3);
                         dVar = dVar3;
                     } else {
-                        this.bKE.addView(dVar3);
+                        this.bMI.addView(dVar3);
                         if (aVar != null && dVar2 != null) {
-                            boolean isNull = StringUtils.isNull(aVar.Ka());
-                            boolean isNull2 = StringUtils.isNull(aVar2.Ka());
+                            boolean isNull = StringUtils.isNull(aVar.KG());
+                            boolean isNull2 = StringUtils.isNull(aVar2.KG());
                             if (isNull && isNull2) {
                                 dVar2.setNameVisibility(8);
                                 dVar3.setNameVisibility(8);
@@ -129,13 +129,13 @@ public class VotePhotoGroupView extends LinearLayout {
                         aVar2 = aVar;
                         dVar = dVar2;
                     }
-                    this.bKC.add(dVar3);
+                    this.bMG.add(dVar3);
                     i++;
                     aVar = aVar2;
                     dVar2 = dVar;
                 }
             }
-            if (i % 2 != 0 && aVar != null && dVar2 != null && StringUtils.isNull(aVar.Ka())) {
+            if (i % 2 != 0 && aVar != null && dVar2 != null && StringUtils.isNull(aVar.KG())) {
                 dVar2.setNameVisibility(8);
             }
             if (z) {
@@ -149,15 +149,15 @@ public class VotePhotoGroupView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void u(int i, boolean z) {
-        if (this.bKC != null) {
-            int size = this.bKC.size();
+    public void y(int i, boolean z) {
+        if (this.bMG != null) {
+            int size = this.bMG.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.bKC.get(i2) != null) {
+                if (this.bMG.get(i2) != null) {
                     if (z || i == i2) {
-                        this.bKC.get(i2).setSelected(true);
+                        this.bMG.get(i2).setSelected(true);
                     } else {
-                        this.bKC.get(i2).setSelected(false);
+                        this.bMG.get(i2).setSelected(false);
                     }
                 }
             }
@@ -166,8 +166,8 @@ public class VotePhotoGroupView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setProgress(float f) {
-        if (f >= 0.0f && this.bKC != null) {
-            for (d dVar : this.bKC) {
+        if (f >= 0.0f && this.bMG != null) {
+            for (d dVar : this.bMG) {
                 if (dVar != null) {
                     dVar.setProgress(f);
                 }

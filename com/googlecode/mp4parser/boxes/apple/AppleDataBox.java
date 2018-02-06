@@ -6,6 +6,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
+import com.tencent.connect.common.Constants;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
@@ -13,12 +14,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0206a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -75,7 +76,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zs(i)));
         this.dataCountry = i;
     }
 
@@ -85,7 +86,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zt(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zs(i)));
         this.dataLanguage = i;
     }
 
@@ -137,28 +138,28 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("4", "Dutch");
         language.put("5", "Swedish");
         language.put("6", "Spanish");
-        language.put("7", "Danish");
-        language.put("8", "Portuguese");
+        language.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, "Danish");
+        language.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "Portuguese");
         language.put("9", "Norwegian");
-        language.put("10", "Hebrew");
-        language.put("11", "Japanese");
-        language.put("12", "Arabic");
-        language.put("13", "Finnish");
-        language.put("14", "Greek");
-        language.put("15", "Icelandic");
-        language.put("16", "Maltese");
-        language.put("17", "Turkish");
+        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Hebrew");
+        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "Japanese");
+        language.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "Arabic");
+        language.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "Finnish");
+        language.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "Greek");
+        language.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "Icelandic");
+        language.put(Constants.VIA_REPORT_TYPE_START_WAP, "Maltese");
+        language.put(Constants.VIA_REPORT_TYPE_START_GROUP, "Turkish");
         language.put("18", "Croatian");
-        language.put("19", "Traditional_Chinese");
+        language.put(Constants.VIA_ACT_TYPE_NINETEEN, "Traditional_Chinese");
         language.put("20", "Urdu");
-        language.put("21", "Hindi");
-        language.put("22", "Thai");
-        language.put("23", "Korean");
+        language.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "Hindi");
+        language.put(Constants.VIA_REPORT_TYPE_DATALINE, "Thai");
+        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "Korean");
         language.put("24", "Lithuanian");
         language.put("25", "Polish");
         language.put("26", "Hungarian");
         language.put("27", "Estonian");
-        language.put("28", "Lettish");
+        language.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, "Lettish");
         language.put("29", "Sami");
         language.put("30", "Faroese");
         language.put("31", "Farsi");

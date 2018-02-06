@@ -9,15 +9,14 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bJv;
-    private int bJw;
+    private String bLA;
+    private int bLB;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void iY(int i) {
-        this.bJw = i;
+    public void iV(int i) {
+        this.bLB = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void iZ(int i) {
+    public void iW(int i) {
         this.urlType = i;
     }
 
-    public void hr(String str) {
-        this.bJv = str;
+    public void hA(String str) {
+        this.bLA = str;
     }
 
     public String getLink() {
@@ -78,14 +77,14 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bJw == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bLB == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.C0108d.cp_bg_line_c);
+                textPaint.bgColor = aj.getColor(d.C0140d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aj.getColor(d.C0108d.cp_bg_line_z);
+                textPaint.bgColor = aj.getColor(d.C0140d.cp_bg_line_z);
             }
-        } else if (this.bJw == 2) {
-            textPaint.bgColor = aj.getColor(d.C0108d.transparent);
+        } else if (this.bLB == 2) {
+            textPaint.bgColor = aj.getColor(d.C0140d.transparent);
         }
     }
 
@@ -93,7 +92,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.bJv));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bLA));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -114,28 +113,28 @@ public class c extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    eVar.W(pageActivity, str);
-                    return;
-                case 16:
-                    eVar.V(pageActivity, str);
-                    return;
-                case 18:
-                    eVar.W(pageActivity, str);
-                    return;
-                case 32:
-                    eVar.X(pageActivity, str);
-                    return;
-                case 64:
                     eVar.Y(pageActivity, str);
                     return;
-                case 128:
+                case 16:
+                    eVar.X(pageActivity, str);
+                    return;
+                case 18:
+                    eVar.Y(pageActivity, str);
+                    return;
+                case 32:
                     eVar.Z(pageActivity, str);
+                    return;
+                case 64:
+                    eVar.aa(pageActivity, str);
+                    return;
+                case 128:
+                    eVar.ab(pageActivity, str);
                     return;
                 case 256:
                     eVar.h(pageActivity, str, str2);
                     return;
                 case 1024:
-                    eVar.aa(pageActivity, str);
+                    eVar.ac(pageActivity, str);
                     return;
                 default:
                     return;

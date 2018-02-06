@@ -36,18 +36,18 @@ import org.xmlpull.v1.XmlPullParserException;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class f extends android.support.a.a.e {
-    static final PorterDuff.Mode tq = PorterDuff.Mode.SRC_IN;
-    private final Matrix tA;
-    private final Rect tB;
-    private C0001f tr;
-    private PorterDuffColorFilter ts;
-    private ColorFilter tt;
-    private boolean tu;
+    static final PorterDuff.Mode tr = PorterDuff.Mode.SRC_IN;
+    private final float[] tA;
+    private final Matrix tB;
+    private final Rect tC;
+    private C0001f ts;
+    private PorterDuffColorFilter tt;
+    private ColorFilter tu;
 
     /* renamed from: tv  reason: collision with root package name */
     private boolean f0tv;
-    private Drawable.ConstantState tw;
-    private final float[] tz;
+    private boolean tw;
+    private Drawable.ConstantState tz;
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     public /* bridge */ /* synthetic */ void applyTheme(Resources.Theme theme) {
@@ -130,84 +130,84 @@ public class f extends android.support.a.a.e {
     }
 
     f() {
-        this.f0tv = true;
-        this.tz = new float[9];
-        this.tA = new Matrix();
-        this.tB = new Rect();
-        this.tr = new C0001f();
+        this.tw = true;
+        this.tA = new float[9];
+        this.tB = new Matrix();
+        this.tC = new Rect();
+        this.ts = new C0001f();
     }
 
     f(C0001f c0001f) {
-        this.f0tv = true;
-        this.tz = new float[9];
-        this.tA = new Matrix();
-        this.tB = new Rect();
-        this.tr = c0001f;
-        this.ts = a(this.ts, c0001f.um, c0001f.uo);
+        this.tw = true;
+        this.tA = new float[9];
+        this.tB = new Matrix();
+        this.tC = new Rect();
+        this.ts = c0001f;
+        this.tt = a(this.tt, c0001f.uo, c0001f.uq);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        if (this.tp != null) {
-            this.tp.mutate();
-        } else if (!this.tu && super.mutate() == this) {
-            this.tr = new C0001f(this.tr);
-            this.tu = true;
+        if (this.tq != null) {
+            this.tq.mutate();
+        } else if (!this.f0tv && super.mutate() == this) {
+            this.ts = new C0001f(this.ts);
+            this.f0tv = true;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object x(String str) {
-        return this.tr.ul.uk.get(str);
+        return this.ts.um.ul.get(str);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        if (this.tp != null) {
-            return new g(this.tp.getConstantState());
+        if (this.tq != null) {
+            return new g(this.tq.getConstantState());
         }
-        this.tr.tf = getChangingConfigurations();
-        return this.tr;
+        this.ts.tg = getChangingConfigurations();
+        return this.ts;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.tp != null) {
-            this.tp.draw(canvas);
+        if (this.tq != null) {
+            this.tq.draw(canvas);
             return;
         }
-        copyBounds(this.tB);
-        if (this.tB.width() > 0 && this.tB.height() > 0) {
-            ColorFilter colorFilter = this.tt == null ? this.ts : this.tt;
-            canvas.getMatrix(this.tA);
-            this.tA.getValues(this.tz);
-            float abs = Math.abs(this.tz[0]);
-            float abs2 = Math.abs(this.tz[4]);
-            float abs3 = Math.abs(this.tz[1]);
-            float abs4 = Math.abs(this.tz[3]);
+        copyBounds(this.tC);
+        if (this.tC.width() > 0 && this.tC.height() > 0) {
+            ColorFilter colorFilter = this.tu == null ? this.tt : this.tu;
+            canvas.getMatrix(this.tB);
+            this.tB.getValues(this.tA);
+            float abs = Math.abs(this.tA[0]);
+            float abs2 = Math.abs(this.tA[4]);
+            float abs3 = Math.abs(this.tA[1]);
+            float abs4 = Math.abs(this.tA[3]);
             if (abs3 != 0.0f || abs4 != 0.0f) {
                 abs2 = 1.0f;
                 abs = 1.0f;
             }
-            int min = Math.min(2048, (int) (abs * this.tB.width()));
-            int min2 = Math.min(2048, (int) (abs2 * this.tB.height()));
+            int min = Math.min(2048, (int) (abs * this.tC.width()));
+            int min2 = Math.min(2048, (int) (abs2 * this.tC.height()));
             if (min > 0 && min2 > 0) {
                 int save = canvas.save();
-                canvas.translate(this.tB.left, this.tB.top);
+                canvas.translate(this.tC.left, this.tC.top);
                 if (cN()) {
-                    canvas.translate(this.tB.width(), 0.0f);
+                    canvas.translate(this.tC.width(), 0.0f);
                     canvas.scale(-1.0f, 1.0f);
                 }
-                this.tB.offsetTo(0, 0);
-                this.tr.s(min, min2);
-                if (!this.f0tv) {
-                    this.tr.r(min, min2);
-                } else if (!this.tr.cT()) {
-                    this.tr.r(min, min2);
-                    this.tr.cU();
+                this.tC.offsetTo(0, 0);
+                this.ts.s(min, min2);
+                if (!this.tw) {
+                    this.ts.r(min, min2);
+                } else if (!this.ts.cT()) {
+                    this.ts.r(min, min2);
+                    this.ts.cU();
                 }
-                this.tr.a(canvas, colorFilter, this.tB);
+                this.ts.a(canvas, colorFilter, this.tC);
                 canvas.restoreToCount(save);
             }
         }
@@ -215,26 +215,26 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.tp != null ? DrawableCompat.getAlpha(this.tp) : this.tr.ul.cR();
+        return this.tq != null ? DrawableCompat.getAlpha(this.tq) : this.ts.um.cR();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        if (this.tp != null) {
-            this.tp.setAlpha(i);
-        } else if (this.tr.ul.cR() != i) {
-            this.tr.ul.R(i);
+        if (this.tq != null) {
+            this.tq.setAlpha(i);
+        } else if (this.ts.um.cR() != i) {
+            this.ts.um.R(i);
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        if (this.tp != null) {
-            this.tp.setColorFilter(colorFilter);
+        if (this.tq != null) {
+            this.tq.setColorFilter(colorFilter);
             return;
         }
-        this.tt = colorFilter;
+        this.tu = colorFilter;
         invalidateSelf();
     }
 
@@ -247,8 +247,8 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTint(int i) {
-        if (this.tp != null) {
-            DrawableCompat.setTint(this.tp, i);
+        if (this.tq != null) {
+            DrawableCompat.setTint(this.tq, i);
         } else {
             setTintList(ColorStateList.valueOf(i));
         }
@@ -256,48 +256,48 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
-        if (this.tp != null) {
-            DrawableCompat.setTintList(this.tp, colorStateList);
+        if (this.tq != null) {
+            DrawableCompat.setTintList(this.tq, colorStateList);
             return;
         }
-        C0001f c0001f = this.tr;
-        if (c0001f.um != colorStateList) {
-            c0001f.um = colorStateList;
-            this.ts = a(this.ts, colorStateList, c0001f.uo);
+        C0001f c0001f = this.ts;
+        if (c0001f.uo != colorStateList) {
+            c0001f.uo = colorStateList;
+            this.tt = a(this.tt, colorStateList, c0001f.uq);
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintMode(PorterDuff.Mode mode) {
-        if (this.tp != null) {
-            DrawableCompat.setTintMode(this.tp, mode);
+        if (this.tq != null) {
+            DrawableCompat.setTintMode(this.tq, mode);
             return;
         }
-        C0001f c0001f = this.tr;
-        if (c0001f.uo != mode) {
-            c0001f.uo = mode;
-            this.ts = a(this.ts, c0001f.um, mode);
+        C0001f c0001f = this.ts;
+        if (c0001f.uq != mode) {
+            c0001f.uq = mode;
+            this.tt = a(this.tt, c0001f.uo, mode);
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        if (this.tp != null) {
-            return this.tp.isStateful();
+        if (this.tq != null) {
+            return this.tq.isStateful();
         }
-        return super.isStateful() || !(this.tr == null || this.tr.um == null || !this.tr.um.isStateful());
+        return super.isStateful() || !(this.ts == null || this.ts.uo == null || !this.ts.uo.isStateful());
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        if (this.tp != null) {
-            return this.tp.setState(iArr);
+        if (this.tq != null) {
+            return this.tq.setState(iArr);
         }
-        C0001f c0001f = this.tr;
-        if (c0001f.um != null && c0001f.uo != null) {
-            this.ts = a(this.ts, c0001f.um, c0001f.uo);
+        C0001f c0001f = this.ts;
+        if (c0001f.uo != null && c0001f.uq != null) {
+            this.tt = a(this.tt, c0001f.uo, c0001f.uq);
             invalidateSelf();
             return true;
         }
@@ -306,26 +306,26 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        if (this.tp != null) {
-            return this.tp.getOpacity();
+        if (this.tq != null) {
+            return this.tq.getOpacity();
         }
         return -3;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.tp != null ? this.tp.getIntrinsicWidth() : (int) this.tr.ul.ue;
+        return this.tq != null ? this.tq.getIntrinsicWidth() : (int) this.ts.um.uf;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.tp != null ? this.tp.getIntrinsicHeight() : (int) this.tr.ul.uf;
+        return this.tq != null ? this.tq.getIntrinsicHeight() : (int) this.ts.um.ug;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean canApplyTheme() {
-        if (this.tp != null) {
-            DrawableCompat.canApplyTheme(this.tp);
+        if (this.tq != null) {
+            DrawableCompat.canApplyTheme(this.tq);
             return false;
         }
         return false;
@@ -333,15 +333,15 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        return this.tp != null ? DrawableCompat.isAutoMirrored(this.tp) : this.tr.uq;
+        return this.tq != null ? DrawableCompat.isAutoMirrored(this.tq) : this.ts.ur;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        if (this.tp != null) {
-            DrawableCompat.setAutoMirrored(this.tp, z);
+        if (this.tq != null) {
+            DrawableCompat.setAutoMirrored(this.tq, z);
         } else {
-            this.tr.uq = z;
+            this.ts.ur = z;
         }
     }
 
@@ -349,8 +349,8 @@ public class f extends android.support.a.a.e {
         int next;
         if (Build.VERSION.SDK_INT >= 24) {
             f fVar = new f();
-            fVar.tp = ResourcesCompat.getDrawable(resources, i, theme);
-            fVar.tw = new g(fVar.tp.getConstantState());
+            fVar.tq = ResourcesCompat.getDrawable(resources, i, theme);
+            fVar.tz = new g(fVar.tq.getConstantState());
             return fVar;
         }
         try {
@@ -387,8 +387,8 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public void inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet) throws XmlPullParserException, IOException {
-        if (this.tp != null) {
-            this.tp.inflate(resources, xmlPullParser, attributeSet);
+        if (this.tq != null) {
+            this.tq.inflate(resources, xmlPullParser, attributeSet);
         } else {
             inflate(resources, xmlPullParser, attributeSet, null);
         }
@@ -396,19 +396,19 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public void inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        if (this.tp != null) {
-            DrawableCompat.inflate(this.tp, resources, xmlPullParser, attributeSet, theme);
+        if (this.tq != null) {
+            DrawableCompat.inflate(this.tq, resources, xmlPullParser, attributeSet, theme);
             return;
         }
-        C0001f c0001f = this.tr;
-        c0001f.ul = new e();
+        C0001f c0001f = this.ts;
+        c0001f.um = new e();
         TypedArray a2 = a(resources, theme, attributeSet, android.support.a.a.a.sV);
         a(a2, xmlPullParser);
         a2.recycle();
-        c0001f.tf = getChangingConfigurations();
-        c0001f.uw = true;
+        c0001f.tg = getChangingConfigurations();
+        c0001f.ux = true;
         b(resources, xmlPullParser, attributeSet, theme);
-        this.ts = a(this.ts, c0001f.um, c0001f.uo);
+        this.tt = a(this.tt, c0001f.uo, c0001f.uq);
     }
 
     private static PorterDuff.Mode b(int i, PorterDuff.Mode mode) {
@@ -439,44 +439,44 @@ public class f extends android.support.a.a.e {
     }
 
     private void a(TypedArray typedArray, XmlPullParser xmlPullParser) throws XmlPullParserException {
-        C0001f c0001f = this.tr;
-        e eVar = c0001f.ul;
-        c0001f.uo = b(android.support.a.a.d.a(typedArray, xmlPullParser, "tintMode", 6, -1), PorterDuff.Mode.SRC_IN);
+        C0001f c0001f = this.ts;
+        e eVar = c0001f.um;
+        c0001f.uq = b(android.support.a.a.d.a(typedArray, xmlPullParser, "tintMode", 6, -1), PorterDuff.Mode.SRC_IN);
         ColorStateList colorStateList = typedArray.getColorStateList(1);
         if (colorStateList != null) {
-            c0001f.um = colorStateList;
+            c0001f.uo = colorStateList;
         }
-        c0001f.uq = android.support.a.a.d.a(typedArray, xmlPullParser, "autoMirrored", 5, c0001f.uq);
-        eVar.ug = android.support.a.a.d.a(typedArray, xmlPullParser, "viewportWidth", 7, eVar.ug);
-        eVar.uh = android.support.a.a.d.a(typedArray, xmlPullParser, "viewportHeight", 8, eVar.uh);
-        if (eVar.ug <= 0.0f) {
+        c0001f.ur = android.support.a.a.d.a(typedArray, xmlPullParser, "autoMirrored", 5, c0001f.ur);
+        eVar.uh = android.support.a.a.d.a(typedArray, xmlPullParser, "viewportWidth", 7, eVar.uh);
+        eVar.ui = android.support.a.a.d.a(typedArray, xmlPullParser, "viewportHeight", 8, eVar.ui);
+        if (eVar.uh <= 0.0f) {
             throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportWidth > 0");
         }
-        if (eVar.uh <= 0.0f) {
+        if (eVar.ui <= 0.0f) {
             throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires viewportHeight > 0");
         }
-        eVar.ue = typedArray.getDimension(3, eVar.ue);
-        eVar.uf = typedArray.getDimension(2, eVar.uf);
-        if (eVar.ue <= 0.0f) {
+        eVar.uf = typedArray.getDimension(3, eVar.uf);
+        eVar.ug = typedArray.getDimension(2, eVar.ug);
+        if (eVar.uf <= 0.0f) {
             throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires width > 0");
         }
-        if (eVar.uf <= 0.0f) {
+        if (eVar.ug <= 0.0f) {
             throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires height > 0");
         }
         eVar.setAlpha(android.support.a.a.d.a(typedArray, xmlPullParser, "alpha", 4, eVar.getAlpha()));
         String string = typedArray.getString(0);
         if (string != null) {
-            eVar.uj = string;
-            eVar.uk.put(string, eVar);
+            eVar.uk = string;
+            eVar.ul.put(string, eVar);
         }
     }
 
     private void b(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         boolean z;
-        C0001f c0001f = this.tr;
-        e eVar = c0001f.ul;
+        C0001f c0001f = this.ts;
+        e eVar = c0001f.um;
         Stack stack = new Stack();
-        stack.push(eVar.ud);
+        stack.push(eVar.ue);
         int eventType = xmlPullParser.getEventType();
         int depth = xmlPullParser.getDepth() + 1;
         boolean z2 = true;
@@ -487,31 +487,31 @@ public class f extends android.support.a.a.e {
                 if (ClientCookie.PATH_ATTR.equals(name)) {
                     b bVar = new b();
                     bVar.a(resources, attributeSet, theme, xmlPullParser);
-                    cVar.tO.add(bVar);
+                    cVar.tP.add(bVar);
                     if (bVar.cQ() != null) {
-                        eVar.uk.put(bVar.cQ(), bVar);
+                        eVar.ul.put(bVar.cQ(), bVar);
                     }
                     z = false;
-                    c0001f.tf = bVar.tf | c0001f.tf;
+                    c0001f.tg = bVar.tg | c0001f.tg;
                 } else if ("clip-path".equals(name)) {
                     a aVar = new a();
                     aVar.a(resources, attributeSet, theme, xmlPullParser);
-                    cVar.tO.add(aVar);
+                    cVar.tP.add(aVar);
                     if (aVar.cQ() != null) {
-                        eVar.uk.put(aVar.cQ(), aVar);
+                        eVar.ul.put(aVar.cQ(), aVar);
                     }
-                    c0001f.tf |= aVar.tf;
+                    c0001f.tg |= aVar.tg;
                     z = z2;
                 } else {
                     if ("group".equals(name)) {
                         c cVar2 = new c();
                         cVar2.a(resources, attributeSet, theme, xmlPullParser);
-                        cVar.tO.add(cVar2);
+                        cVar.tP.add(cVar2);
                         stack.push(cVar2);
                         if (cVar2.getGroupName() != null) {
-                            eVar.uk.put(cVar2.getGroupName(), cVar2);
+                            eVar.ul.put(cVar2.getGroupName(), cVar2);
                         }
-                        c0001f.tf |= cVar2.tf;
+                        c0001f.tg |= cVar2.tg;
                     }
                     z = z2;
                 }
@@ -532,8 +532,8 @@ public class f extends android.support.a.a.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void q(boolean z) {
-        this.f0tv = z;
+    public void t(boolean z) {
+        this.tw = z;
     }
 
     private boolean cN() {
@@ -549,20 +549,20 @@ public class f extends android.support.a.a.e {
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        if (this.tp != null) {
-            this.tp.setBounds(rect);
+        if (this.tq != null) {
+            this.tq.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        return this.tp != null ? this.tp.getChangingConfigurations() : super.getChangingConfigurations() | this.tr.getChangingConfigurations();
+        return this.tq != null ? this.tq.getChangingConfigurations() : super.getChangingConfigurations() | this.ts.getChangingConfigurations();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.tp != null) {
-            this.tp.invalidateSelf();
+        if (this.tq != null) {
+            this.tq.invalidateSelf();
         } else {
             super.invalidateSelf();
         }
@@ -570,8 +570,8 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public void scheduleSelf(Runnable runnable, long j) {
-        if (this.tp != null) {
-            this.tp.scheduleSelf(runnable, j);
+        if (this.tq != null) {
+            this.tq.scheduleSelf(runnable, j);
         } else {
             super.scheduleSelf(runnable, j);
         }
@@ -579,55 +579,56 @@ public class f extends android.support.a.a.e {
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        return this.tp != null ? this.tp.setVisible(z, z2) : super.setVisible(z, z2);
+        return this.tq != null ? this.tq.setVisible(z, z2) : super.setVisible(z, z2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void unscheduleSelf(Runnable runnable) {
-        if (this.tp != null) {
-            this.tp.unscheduleSelf(runnable);
+        if (this.tq != null) {
+            this.tq.unscheduleSelf(runnable);
         } else {
             super.unscheduleSelf(runnable);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    private static class g extends Drawable.ConstantState {
-        private final Drawable.ConstantState ti;
+    public static class g extends Drawable.ConstantState {
+        private final Drawable.ConstantState tj;
 
         public g(Drawable.ConstantState constantState) {
-            this.ti = constantState;
+            this.tj = constantState;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable() {
             f fVar = new f();
-            fVar.tp = (VectorDrawable) this.ti.newDrawable();
+            fVar.tq = (VectorDrawable) this.tj.newDrawable();
             return fVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources) {
             f fVar = new f();
-            fVar.tp = (VectorDrawable) this.ti.newDrawable(resources);
+            fVar.tq = (VectorDrawable) this.tj.newDrawable(resources);
             return fVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources, Resources.Theme theme) {
             f fVar = new f();
-            fVar.tp = (VectorDrawable) this.ti.newDrawable(resources, theme);
+            fVar.tq = (VectorDrawable) this.tj.newDrawable(resources, theme);
             return fVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public boolean canApplyTheme() {
-            return this.ti.canApplyTheme();
+            return this.tj.canApplyTheme();
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.ti.getChangingConfigurations();
+            return this.tj.getChangingConfigurations();
         }
     }
 
@@ -635,90 +636,90 @@ public class f extends android.support.a.a.e {
     /* renamed from: android.support.a.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0001f extends Drawable.ConstantState {
-        int tf;
-        e ul;
-        ColorStateList um;
-        PorterDuff.Mode uo;
-        boolean uq;
-        Bitmap ur;
-        ColorStateList us;
-        PorterDuff.Mode ut;
-        int uu;
-        boolean uv;
+        int tg;
+        e um;
+        ColorStateList uo;
+        PorterDuff.Mode uq;
+        boolean ur;
+        Bitmap us;
+        ColorStateList ut;
+        PorterDuff.Mode uu;
+        int uv;
         boolean uw;
-        Paint ux;
+        boolean ux;
+        Paint uy;
 
         public C0001f(C0001f c0001f) {
-            this.um = null;
-            this.uo = f.tq;
+            this.uo = null;
+            this.uq = f.tr;
             if (c0001f != null) {
-                this.tf = c0001f.tf;
-                this.ul = new e(c0001f.ul);
-                if (c0001f.ul.ub != null) {
-                    this.ul.ub = new Paint(c0001f.ul.ub);
+                this.tg = c0001f.tg;
+                this.um = new e(c0001f.um);
+                if (c0001f.um.uc != null) {
+                    this.um.uc = new Paint(c0001f.um.uc);
                 }
-                if (c0001f.ul.mStrokePaint != null) {
-                    this.ul.mStrokePaint = new Paint(c0001f.ul.mStrokePaint);
+                if (c0001f.um.mStrokePaint != null) {
+                    this.um.mStrokePaint = new Paint(c0001f.um.mStrokePaint);
                 }
-                this.um = c0001f.um;
                 this.uo = c0001f.uo;
                 this.uq = c0001f.uq;
+                this.ur = c0001f.ur;
             }
         }
 
         public void a(Canvas canvas, ColorFilter colorFilter, Rect rect) {
-            canvas.drawBitmap(this.ur, (Rect) null, rect, a(colorFilter));
+            canvas.drawBitmap(this.us, (Rect) null, rect, a(colorFilter));
         }
 
         public boolean cS() {
-            return this.ul.cR() < 255;
+            return this.um.cR() < 255;
         }
 
         public Paint a(ColorFilter colorFilter) {
             if (!cS() && colorFilter == null) {
                 return null;
             }
-            if (this.ux == null) {
-                this.ux = new Paint();
-                this.ux.setFilterBitmap(true);
+            if (this.uy == null) {
+                this.uy = new Paint();
+                this.uy.setFilterBitmap(true);
             }
-            this.ux.setAlpha(this.ul.cR());
-            this.ux.setColorFilter(colorFilter);
-            return this.ux;
+            this.uy.setAlpha(this.um.cR());
+            this.uy.setColorFilter(colorFilter);
+            return this.uy;
         }
 
         public void r(int i, int i2) {
-            this.ur.eraseColor(0);
-            this.ul.a(new Canvas(this.ur), i, i2, (ColorFilter) null);
+            this.us.eraseColor(0);
+            this.um.a(new Canvas(this.us), i, i2, null);
         }
 
         public void s(int i, int i2) {
-            if (this.ur == null || !t(i, i2)) {
-                this.ur = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-                this.uw = true;
+            if (this.us == null || !t(i, i2)) {
+                this.us = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+                this.ux = true;
             }
         }
 
         public boolean t(int i, int i2) {
-            return i == this.ur.getWidth() && i2 == this.ur.getHeight();
+            return i == this.us.getWidth() && i2 == this.us.getHeight();
         }
 
         public boolean cT() {
-            return !this.uw && this.us == this.um && this.ut == this.uo && this.uv == this.uq && this.uu == this.ul.cR();
+            return !this.ux && this.ut == this.uo && this.uu == this.uq && this.uw == this.ur && this.uv == this.um.cR();
         }
 
         public void cU() {
-            this.us = this.um;
             this.ut = this.uo;
-            this.uu = this.ul.cR();
-            this.uv = this.uq;
-            this.uw = false;
+            this.uu = this.uq;
+            this.uv = this.um.cR();
+            this.uw = this.ur;
+            this.ux = false;
         }
 
         public C0001f() {
-            this.um = null;
-            this.uo = f.tq;
-            this.ul = new e();
+            this.uo = null;
+            this.uq = f.tr;
+            this.um = new e();
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -733,50 +734,50 @@ public class f extends android.support.a.a.e {
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.tf;
+            return this.tg;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class e {
-        private static final Matrix tY = new Matrix();
+        private static final Matrix tZ = new Matrix();
         private final Path mPath;
         private Paint mStrokePaint;
-        private final Path tX;
-        private final Matrix tZ;
-        private int tf;
-        private Paint ub;
-        private PathMeasure uc;
-        final c ud;
-        float ue;
+        private final Path tY;
+        private int tg;
+        private final Matrix ub;
+        private Paint uc;
+        private PathMeasure ud;
+        final c ue;
         float uf;
         float ug;
         float uh;
-        int ui;
-        String uj;
-        final ArrayMap<String, Object> uk;
+        float ui;
+        int uj;
+        String uk;
+        final ArrayMap<String, Object> ul;
 
         public e() {
-            this.tZ = new Matrix();
-            this.ue = 0.0f;
+            this.ub = new Matrix();
             this.uf = 0.0f;
             this.ug = 0.0f;
             this.uh = 0.0f;
-            this.ui = 255;
-            this.uj = null;
-            this.uk = new ArrayMap<>();
-            this.ud = new c();
+            this.ui = 0.0f;
+            this.uj = 255;
+            this.uk = null;
+            this.ul = new ArrayMap<>();
+            this.ue = new c();
             this.mPath = new Path();
-            this.tX = new Path();
+            this.tY = new Path();
         }
 
         public void R(int i) {
-            this.ui = i;
+            this.uj = i;
         }
 
         public int cR() {
-            return this.ui;
+            return this.uj;
         }
 
         public void setAlpha(float f) {
@@ -788,44 +789,44 @@ public class f extends android.support.a.a.e {
         }
 
         public e(e eVar) {
-            this.tZ = new Matrix();
-            this.ue = 0.0f;
+            this.ub = new Matrix();
             this.uf = 0.0f;
             this.ug = 0.0f;
             this.uh = 0.0f;
-            this.ui = 255;
-            this.uj = null;
-            this.uk = new ArrayMap<>();
-            this.ud = new c(eVar.ud, this.uk);
+            this.ui = 0.0f;
+            this.uj = 255;
+            this.uk = null;
+            this.ul = new ArrayMap<>();
+            this.ue = new c(eVar.ue, this.ul);
             this.mPath = new Path(eVar.mPath);
-            this.tX = new Path(eVar.tX);
-            this.ue = eVar.ue;
+            this.tY = new Path(eVar.tY);
             this.uf = eVar.uf;
             this.ug = eVar.ug;
             this.uh = eVar.uh;
-            this.tf = eVar.tf;
             this.ui = eVar.ui;
+            this.tg = eVar.tg;
             this.uj = eVar.uj;
-            if (eVar.uj != null) {
-                this.uk.put(eVar.uj, this);
+            this.uk = eVar.uk;
+            if (eVar.uk != null) {
+                this.ul.put(eVar.uk, this);
             }
         }
 
         private void a(c cVar, Matrix matrix, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
-            cVar.tN.set(matrix);
-            cVar.tN.preConcat(cVar.tU);
+            cVar.tO.set(matrix);
+            cVar.tO.preConcat(cVar.tV);
             canvas.save();
             int i3 = 0;
             while (true) {
                 int i4 = i3;
-                if (i4 < cVar.tO.size()) {
-                    Object obj = cVar.tO.get(i4);
+                if (i4 < cVar.tP.size()) {
+                    Object obj = cVar.tP.get(i4);
                     if (!(obj instanceof c)) {
                         if (obj instanceof d) {
                             a(cVar, (d) obj, canvas, i, i2, colorFilter);
                         }
                     } else {
-                        a((c) obj, cVar.tN, canvas, i, i2, colorFilter);
+                        a((c) obj, cVar.tO, canvas, i, i2, colorFilter);
                     }
                     i3 = i4 + 1;
                 } else {
@@ -836,57 +837,57 @@ public class f extends android.support.a.a.e {
         }
 
         public void a(Canvas canvas, int i, int i2, ColorFilter colorFilter) {
-            a(this.ud, tY, canvas, i, i2, colorFilter);
+            a(this.ue, tZ, canvas, i, i2, colorFilter);
         }
 
         private void a(c cVar, d dVar, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
-            float f = i / this.ug;
-            float f2 = i2 / this.uh;
+            float f = i / this.uh;
+            float f2 = i2 / this.ui;
             float min = Math.min(f, f2);
-            Matrix matrix = cVar.tN;
-            this.tZ.set(matrix);
-            this.tZ.postScale(f, f2);
+            Matrix matrix = cVar.tO;
+            this.ub.set(matrix);
+            this.ub.postScale(f, f2);
             float a = a(matrix);
             if (a != 0.0f) {
                 dVar.a(this.mPath);
                 Path path = this.mPath;
-                this.tX.reset();
+                this.tY.reset();
                 if (dVar.cO()) {
-                    this.tX.addPath(path, this.tZ);
-                    canvas.clipPath(this.tX);
+                    this.tY.addPath(path, this.ub);
+                    canvas.clipPath(this.tY);
                     return;
                 }
                 b bVar = (b) dVar;
-                if (bVar.tH != 0.0f || bVar.tI != 1.0f) {
-                    float f3 = (bVar.tH + bVar.tJ) % 1.0f;
-                    float f4 = (bVar.tI + bVar.tJ) % 1.0f;
-                    if (this.uc == null) {
-                        this.uc = new PathMeasure();
+                if (bVar.tI != 0.0f || bVar.tJ != 1.0f) {
+                    float f3 = (bVar.tI + bVar.tK) % 1.0f;
+                    float f4 = (bVar.tJ + bVar.tK) % 1.0f;
+                    if (this.ud == null) {
+                        this.ud = new PathMeasure();
                     }
-                    this.uc.setPath(this.mPath, false);
-                    float length = this.uc.getLength();
+                    this.ud.setPath(this.mPath, false);
+                    float length = this.ud.getLength();
                     float f5 = f3 * length;
                     float f6 = f4 * length;
                     path.reset();
                     if (f5 > f6) {
-                        this.uc.getSegment(f5, length, path, true);
-                        this.uc.getSegment(0.0f, f6, path, true);
+                        this.ud.getSegment(f5, length, path, true);
+                        this.ud.getSegment(0.0f, f6, path, true);
                     } else {
-                        this.uc.getSegment(f5, f6, path, true);
+                        this.ud.getSegment(f5, f6, path, true);
                     }
                     path.rLineTo(0.0f, 0.0f);
                 }
-                this.tX.addPath(path, this.tZ);
-                if (bVar.tD != 0) {
-                    if (this.ub == null) {
-                        this.ub = new Paint();
-                        this.ub.setStyle(Paint.Style.FILL);
-                        this.ub.setAntiAlias(true);
+                this.tY.addPath(path, this.ub);
+                if (bVar.tE != 0) {
+                    if (this.uc == null) {
+                        this.uc = new Paint();
+                        this.uc.setStyle(Paint.Style.FILL);
+                        this.uc.setAntiAlias(true);
                     }
-                    Paint paint = this.ub;
-                    paint.setColor(f.d(bVar.tD, bVar.tG));
+                    Paint paint = this.uc;
+                    paint.setColor(f.d(bVar.tE, bVar.tH));
                     paint.setColorFilter(colorFilter);
-                    canvas.drawPath(this.tX, paint);
+                    canvas.drawPath(this.tY, paint);
                 }
                 if (bVar.mStrokeColor != 0) {
                     if (this.mStrokePaint == null) {
@@ -895,22 +896,22 @@ public class f extends android.support.a.a.e {
                         this.mStrokePaint.setAntiAlias(true);
                     }
                     Paint paint2 = this.mStrokePaint;
+                    if (bVar.tM != null) {
+                        paint2.setStrokeJoin(bVar.tM);
+                    }
                     if (bVar.tL != null) {
-                        paint2.setStrokeJoin(bVar.tL);
+                        paint2.setStrokeCap(bVar.tL);
                     }
-                    if (bVar.tK != null) {
-                        paint2.setStrokeCap(bVar.tK);
-                    }
-                    paint2.setStrokeMiter(bVar.tM);
-                    paint2.setColor(f.d(bVar.mStrokeColor, bVar.tE));
+                    paint2.setStrokeMiter(bVar.tN);
+                    paint2.setColor(f.d(bVar.mStrokeColor, bVar.tF));
                     paint2.setColorFilter(colorFilter);
                     paint2.setStrokeWidth(a * min * bVar.mStrokeWidth);
-                    canvas.drawPath(this.tX, paint2);
+                    canvas.drawPath(this.tY, paint2);
                 }
             }
         }
 
-        private static float a(float f, float f2, float f3, float f4) {
+        private static float b(float f, float f2, float f3, float f4) {
             return (f * f4) - (f2 * f3);
         }
 
@@ -918,10 +919,10 @@ public class f extends android.support.a.a.e {
             float[] fArr = {0.0f, 1.0f, 1.0f, 0.0f};
             matrix.mapVectors(fArr);
             float hypot = (float) Math.hypot(fArr[2], fArr[3]);
-            float a = a(fArr[0], fArr[1], fArr[2], fArr[3]);
+            float b = b(fArr[0], fArr[1], fArr[2], fArr[3]);
             float max = Math.max((float) Math.hypot(fArr[0], fArr[1]), hypot);
             if (max > 0.0f) {
-                return Math.abs(a) / max;
+                return Math.abs(b) / max;
             }
             return 0.0f;
         }
@@ -933,55 +934,55 @@ public class f extends android.support.a.a.e {
         private String mGroupName;
         private float mScaleX;
         private float mScaleY;
-        private int[] tC;
-        private final Matrix tN;
-        final ArrayList<Object> tO;
-        float tP;
-        private float tQ;
+        private int[] tD;
+        private final Matrix tO;
+        final ArrayList<Object> tP;
+        float tQ;
         private float tR;
         private float tS;
         private float tT;
-        private final Matrix tU;
-        int tf;
+        private float tU;
+        private final Matrix tV;
+        int tg;
 
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r2v8, types: [android.support.a.a.f$b] */
         /* JADX WARN: Type inference failed for: r7v0, types: [android.support.v4.util.ArrayMap, android.support.v4.util.ArrayMap<java.lang.String, java.lang.Object>] */
         public c(c cVar, ArrayMap<String, Object> arrayMap) {
             a aVar;
-            this.tN = new Matrix();
-            this.tO = new ArrayList<>();
-            this.tP = 0.0f;
+            this.tO = new Matrix();
+            this.tP = new ArrayList<>();
             this.tQ = 0.0f;
             this.tR = 0.0f;
+            this.tS = 0.0f;
             this.mScaleX = 1.0f;
             this.mScaleY = 1.0f;
-            this.tS = 0.0f;
             this.tT = 0.0f;
-            this.tU = new Matrix();
+            this.tU = 0.0f;
+            this.tV = new Matrix();
             this.mGroupName = null;
-            this.tP = cVar.tP;
             this.tQ = cVar.tQ;
             this.tR = cVar.tR;
+            this.tS = cVar.tS;
             this.mScaleX = cVar.mScaleX;
             this.mScaleY = cVar.mScaleY;
-            this.tS = cVar.tS;
             this.tT = cVar.tT;
-            this.tC = cVar.tC;
+            this.tU = cVar.tU;
+            this.tD = cVar.tD;
             this.mGroupName = cVar.mGroupName;
-            this.tf = cVar.tf;
+            this.tg = cVar.tg;
             if (this.mGroupName != null) {
                 arrayMap.put(this.mGroupName, this);
             }
-            this.tU.set(cVar.tU);
-            ArrayList<Object> arrayList = cVar.tO;
+            this.tV.set(cVar.tV);
+            ArrayList<Object> arrayList = cVar.tP;
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < arrayList.size()) {
                     Object obj = arrayList.get(i2);
                     if (obj instanceof c) {
-                        this.tO.add(new c((c) obj, arrayMap));
+                        this.tP.add(new c((c) obj, arrayMap));
                     } else {
                         if (obj instanceof b) {
                             aVar = new b((b) obj);
@@ -990,9 +991,9 @@ public class f extends android.support.a.a.e {
                         } else {
                             throw new IllegalStateException("Unknown object in the tree!");
                         }
-                        this.tO.add(aVar);
-                        if (aVar.tW != null) {
-                            arrayMap.put(aVar.tW, aVar);
+                        this.tP.add(aVar);
+                        if (aVar.tX != null) {
+                            arrayMap.put(aVar.tX, aVar);
                         }
                     }
                     i = i2 + 1;
@@ -1003,16 +1004,16 @@ public class f extends android.support.a.a.e {
         }
 
         public c() {
-            this.tN = new Matrix();
-            this.tO = new ArrayList<>();
-            this.tP = 0.0f;
+            this.tO = new Matrix();
+            this.tP = new ArrayList<>();
             this.tQ = 0.0f;
             this.tR = 0.0f;
+            this.tS = 0.0f;
             this.mScaleX = 1.0f;
             this.mScaleY = 1.0f;
-            this.tS = 0.0f;
             this.tT = 0.0f;
-            this.tU = new Matrix();
+            this.tU = 0.0f;
+            this.tV = new Matrix();
             this.mGroupName = null;
         }
 
@@ -1027,14 +1028,14 @@ public class f extends android.support.a.a.e {
         }
 
         private void a(TypedArray typedArray, XmlPullParser xmlPullParser) {
-            this.tC = null;
-            this.tP = android.support.a.a.d.a(typedArray, xmlPullParser, "rotation", 5, this.tP);
-            this.tQ = typedArray.getFloat(1, this.tQ);
-            this.tR = typedArray.getFloat(2, this.tR);
+            this.tD = null;
+            this.tQ = android.support.a.a.d.a(typedArray, xmlPullParser, "rotation", 5, this.tQ);
+            this.tR = typedArray.getFloat(1, this.tR);
+            this.tS = typedArray.getFloat(2, this.tS);
             this.mScaleX = android.support.a.a.d.a(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);
             this.mScaleY = android.support.a.a.d.a(typedArray, xmlPullParser, "scaleY", 4, this.mScaleY);
-            this.tS = android.support.a.a.d.a(typedArray, xmlPullParser, "translateX", 6, this.tS);
-            this.tT = android.support.a.a.d.a(typedArray, xmlPullParser, "translateY", 7, this.tT);
+            this.tT = android.support.a.a.d.a(typedArray, xmlPullParser, "translateX", 6, this.tT);
+            this.tU = android.support.a.a.d.a(typedArray, xmlPullParser, "translateY", 7, this.tU);
             String string = typedArray.getString(0);
             if (string != null) {
                 this.mGroupName = string;
@@ -1043,41 +1044,41 @@ public class f extends android.support.a.a.e {
         }
 
         private void cP() {
-            this.tU.reset();
-            this.tU.postTranslate(-this.tQ, -this.tR);
-            this.tU.postScale(this.mScaleX, this.mScaleY);
-            this.tU.postRotate(this.tP, 0.0f, 0.0f);
-            this.tU.postTranslate(this.tS + this.tQ, this.tT + this.tR);
+            this.tV.reset();
+            this.tV.postTranslate(-this.tR, -this.tS);
+            this.tV.postScale(this.mScaleX, this.mScaleY);
+            this.tV.postRotate(this.tQ, 0.0f, 0.0f);
+            this.tV.postTranslate(this.tT + this.tR, this.tU + this.tS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class d {
-        protected c.b[] tV;
-        String tW;
-        int tf;
+        protected c.b[] tW;
+        String tX;
+        int tg;
 
         public d() {
-            this.tV = null;
+            this.tW = null;
         }
 
         public d(d dVar) {
-            this.tV = null;
-            this.tW = dVar.tW;
-            this.tf = dVar.tf;
-            this.tV = android.support.a.a.c.a(dVar.tV);
+            this.tW = null;
+            this.tX = dVar.tX;
+            this.tg = dVar.tg;
+            this.tW = android.support.a.a.c.a(dVar.tW);
         }
 
         public void a(Path path) {
             path.reset();
-            if (this.tV != null) {
-                c.b.a(this.tV, path);
+            if (this.tW != null) {
+                c.b.a(this.tW, path);
             }
         }
 
         public String cQ() {
-            return this.tW;
+            return this.tX;
         }
 
         public boolean cO() {
@@ -1106,11 +1107,11 @@ public class f extends android.support.a.a.e {
         private void a(TypedArray typedArray) {
             String string = typedArray.getString(0);
             if (string != null) {
-                this.tW = string;
+                this.tX = string;
             }
             String string2 = typedArray.getString(1);
             if (string2 != null) {
-                this.tV = android.support.a.a.c.r(string2);
+                this.tW = android.support.a.a.c.r(string2);
             }
         }
 
@@ -1125,51 +1126,50 @@ public class f extends android.support.a.a.e {
     public static class b extends d {
         int mStrokeColor;
         float mStrokeWidth;
-        private int[] tC;
-        int tD;
-        float tE;
-        int tF;
-        float tG;
+        private int[] tD;
+        int tE;
+        float tF;
+        int tG;
         float tH;
         float tI;
         float tJ;
-        Paint.Cap tK;
-        Paint.Join tL;
-        float tM;
+        float tK;
+        Paint.Cap tL;
+        Paint.Join tM;
+        float tN;
 
         public b() {
             this.mStrokeColor = 0;
             this.mStrokeWidth = 0.0f;
-            this.tD = 0;
-            this.tE = 1.0f;
-            this.tG = 1.0f;
-            this.tH = 0.0f;
-            this.tI = 1.0f;
-            this.tJ = 0.0f;
-            this.tK = Paint.Cap.BUTT;
-            this.tL = Paint.Join.MITER;
-            this.tM = 4.0f;
+            this.tE = 0;
+            this.tF = 1.0f;
+            this.tH = 1.0f;
+            this.tI = 0.0f;
+            this.tJ = 1.0f;
+            this.tK = 0.0f;
+            this.tL = Paint.Cap.BUTT;
+            this.tM = Paint.Join.MITER;
+            this.tN = 4.0f;
         }
 
         public b(b bVar) {
             super(bVar);
             this.mStrokeColor = 0;
             this.mStrokeWidth = 0.0f;
-            this.tD = 0;
-            this.tE = 1.0f;
-            this.tG = 1.0f;
-            this.tH = 0.0f;
-            this.tI = 1.0f;
-            this.tJ = 0.0f;
-            this.tK = Paint.Cap.BUTT;
-            this.tL = Paint.Join.MITER;
-            this.tM = 4.0f;
-            this.tC = bVar.tC;
+            this.tE = 0;
+            this.tF = 1.0f;
+            this.tH = 1.0f;
+            this.tI = 0.0f;
+            this.tJ = 1.0f;
+            this.tK = 0.0f;
+            this.tL = Paint.Cap.BUTT;
+            this.tM = Paint.Join.MITER;
+            this.tN = 4.0f;
+            this.tD = bVar.tD;
             this.mStrokeColor = bVar.mStrokeColor;
             this.mStrokeWidth = bVar.mStrokeWidth;
-            this.tE = bVar.tE;
-            this.tD = bVar.tD;
             this.tF = bVar.tF;
+            this.tE = bVar.tE;
             this.tG = bVar.tG;
             this.tH = bVar.tH;
             this.tI = bVar.tI;
@@ -1177,6 +1177,7 @@ public class f extends android.support.a.a.e {
             this.tK = bVar.tK;
             this.tL = bVar.tL;
             this.tM = bVar.tM;
+            this.tN = bVar.tN;
         }
 
         private Paint.Cap a(int i, Paint.Cap cap) {
@@ -1212,27 +1213,27 @@ public class f extends android.support.a.a.e {
         }
 
         private void a(TypedArray typedArray, XmlPullParser xmlPullParser) {
-            this.tC = null;
+            this.tD = null;
             if (android.support.a.a.d.a(xmlPullParser, "pathData")) {
                 String string = typedArray.getString(0);
                 if (string != null) {
-                    this.tW = string;
+                    this.tX = string;
                 }
                 String string2 = typedArray.getString(2);
                 if (string2 != null) {
-                    this.tV = android.support.a.a.c.r(string2);
+                    this.tW = android.support.a.a.c.r(string2);
                 }
-                this.tD = android.support.a.a.d.b(typedArray, xmlPullParser, "fillColor", 1, this.tD);
-                this.tG = android.support.a.a.d.a(typedArray, xmlPullParser, "fillAlpha", 12, this.tG);
-                this.tK = a(android.support.a.a.d.a(typedArray, xmlPullParser, "strokeLineCap", 8, -1), this.tK);
-                this.tL = a(android.support.a.a.d.a(typedArray, xmlPullParser, "strokeLineJoin", 9, -1), this.tL);
-                this.tM = android.support.a.a.d.a(typedArray, xmlPullParser, "strokeMiterLimit", 10, this.tM);
+                this.tE = android.support.a.a.d.b(typedArray, xmlPullParser, "fillColor", 1, this.tE);
+                this.tH = android.support.a.a.d.a(typedArray, xmlPullParser, "fillAlpha", 12, this.tH);
+                this.tL = a(android.support.a.a.d.a(typedArray, xmlPullParser, "strokeLineCap", 8, -1), this.tL);
+                this.tM = a(android.support.a.a.d.a(typedArray, xmlPullParser, "strokeLineJoin", 9, -1), this.tM);
+                this.tN = android.support.a.a.d.a(typedArray, xmlPullParser, "strokeMiterLimit", 10, this.tN);
                 this.mStrokeColor = android.support.a.a.d.b(typedArray, xmlPullParser, "strokeColor", 3, this.mStrokeColor);
-                this.tE = android.support.a.a.d.a(typedArray, xmlPullParser, "strokeAlpha", 11, this.tE);
+                this.tF = android.support.a.a.d.a(typedArray, xmlPullParser, "strokeAlpha", 11, this.tF);
                 this.mStrokeWidth = android.support.a.a.d.a(typedArray, xmlPullParser, "strokeWidth", 4, this.mStrokeWidth);
-                this.tI = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathEnd", 6, this.tI);
-                this.tJ = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathOffset", 7, this.tJ);
-                this.tH = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathStart", 5, this.tH);
+                this.tJ = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathEnd", 6, this.tJ);
+                this.tK = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathOffset", 7, this.tK);
+                this.tI = android.support.a.a.d.a(typedArray, xmlPullParser, "trimPathStart", 5, this.tI);
             }
         }
     }

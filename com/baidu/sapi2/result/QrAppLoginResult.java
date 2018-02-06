@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class QrAppLoginResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "登录失败";
     public static final int RESULT_CODE_BDUSS_EMPTY = 160102;
@@ -22,6 +22,6 @@ public class QrAppLoginResult extends SapiResult {
         this.msgMap.put(2, "用户登录状态失效，请重新登录");
         this.msgMap.put(3, "用户尚未正常化，无法使用此功能");
         this.msgMap.put(160102, "用户登录状态失效，请重新登录");
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, "登录失败");
+        this.msgMap.put(-202, "登录失败");
     }
 }

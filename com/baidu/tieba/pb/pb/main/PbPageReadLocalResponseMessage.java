@@ -2,13 +2,12 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes2.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     private Context context;
     private boolean markCache;
-    private com.baidu.tieba.pb.data.f pbData;
+    private com.baidu.tieba.pb.data.d pbData;
     private String postId;
     private int updateType;
 
@@ -20,12 +19,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         this.updateType = i;
     }
 
-    public com.baidu.tieba.pb.data.f getPbData() {
+    public com.baidu.tieba.pb.data.d getPbData() {
         return this.pbData;
     }
 
-    public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.pbData = fVar;
+    public void setPbData(com.baidu.tieba.pb.data.d dVar) {
+        this.pbData = dVar;
     }
 
     public void setPostId(String str) {
@@ -41,7 +40,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     }
 
     public PbPageReadLocalResponseMessage() {
-        super(CmdConfigCustom.PB_PAGE_CACHE_CMD);
+        super(2004003);
     }
 
     public void setContext(Context context) {
@@ -54,12 +53,12 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
             setError(pbPageResIdl.error.errorno.intValue());
             setErrorString(pbPageResIdl.error.usermsg);
             if (getError() == 0 && pbPageResIdl.data != null) {
-                this.pbData = new com.baidu.tieba.pb.data.f();
+                this.pbData = new com.baidu.tieba.pb.data.d();
                 try {
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.vk() != null && !this.pbData.vk().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.vW() != null && !this.pbData.vW().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

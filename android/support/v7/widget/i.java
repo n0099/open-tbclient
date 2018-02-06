@@ -12,10 +12,10 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class i {
+    private t NF;
     private t NG;
     private t NH;
     private t NI;
-    private t NJ;
     final TextView mView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,16 +39,16 @@ public class i {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.AppCompatTextHelper, i, 0);
         int resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_textAppearance, -1);
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableLeft)) {
-            this.NG = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableLeft, 0));
+            this.NF = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableLeft, 0));
         }
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableTop)) {
-            this.NH = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableTop, 0));
+            this.NG = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableTop, 0));
         }
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableRight)) {
-            this.NI = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableRight, 0));
+            this.NH = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableRight, 0));
         }
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableBottom)) {
-            this.NJ = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableBottom, 0));
+            this.NI = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableBottom, 0));
         }
         obtainStyledAttributes.recycle();
         boolean z3 = this.mView.getTransformationMethod() instanceof PasswordTransformationMethod;
@@ -101,7 +101,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void l(Context context, int i) {
+    public void m(Context context, int i) {
         ColorStateList colorStateList;
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i, R.styleable.TextAppearance);
         if (obtainStyledAttributes.hasValue(R.styleable.TextAppearance_textAllCaps)) {
@@ -120,12 +120,12 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fQ() {
-        if (this.NG != null || this.NH != null || this.NI != null || this.NJ != null) {
+        if (this.NF != null || this.NG != null || this.NH != null || this.NI != null) {
             Drawable[] compoundDrawables = this.mView.getCompoundDrawables();
-            a(compoundDrawables[0], this.NG);
-            a(compoundDrawables[1], this.NH);
-            a(compoundDrawables[2], this.NI);
-            a(compoundDrawables[3], this.NJ);
+            a(compoundDrawables[0], this.NF);
+            a(compoundDrawables[1], this.NG);
+            a(compoundDrawables[2], this.NH);
+            a(compoundDrawables[3], this.NI);
         }
     }
 
@@ -138,11 +138,11 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static t a(Context context, AppCompatDrawableManager appCompatDrawableManager, int i) {
-        ColorStateList j = appCompatDrawableManager.j(context, i);
-        if (j != null) {
+        ColorStateList k = appCompatDrawableManager.k(context, i);
+        if (k != null) {
             t tVar = new t();
-            tVar.Xl = true;
-            tVar.Xj = j;
+            tVar.Xk = true;
+            tVar.Xi = k;
             return tVar;
         }
         return null;

@@ -1,105 +1,121 @@
 package com.baidu.sofire.b;
 
-import android.annotation.SuppressLint;
+import android.accounts.NetworkErrorException;
 import android.content.Context;
-import android.os.Build;
-import com.baidu.sofire.core.ApkInfo;
-import java.io.File;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.sofire.ac.F;
+import com.baidu.sofire.jni.Asc;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class g {
-    public static final String[] a = {"java.lang.UnsatisfiedLinkError"};
-    public static final String[] b = {"space left"};
-
-    public static String a(Context context, String str, String str2) {
-        char c;
-        ApkInfo cf;
-        String[] split;
+    public static String a(Context context, String str, String str2, boolean z, boolean z2, String str3) throws Throwable {
+        byte[] bytes;
+        String encodeToString;
+        String str4;
+        String[] e = d.e(context);
+        String str5 = e[0];
+        String str6 = e[1];
+        String valueOf = String.valueOf(new Date().getTime() / 1000);
+        String a = l.a(str5 + valueOf + str6);
+        Asc asc = new Asc();
+        byte[] a2 = com.baidu.sofire.core.g.a();
+        new StringBuilder().append(new String(a2));
+        if (TextUtils.isEmpty(str2)) {
+            bytes = "".getBytes();
+        } else {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(str2.getBytes());
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            i.e(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            new StringBuilder().append(byteArray.length);
+            bytes = F.getInstance().ae(byteArray, a2);
+        }
+        new StringBuilder().append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(new String(bytes));
+        byte[] bytes2 = l.a(f.a(context)).getBytes();
+        new StringBuilder().append(new String(bytes2));
+        byte[] ar = asc.ar(a2, bytes2);
+        new StringBuilder().append(ar.length);
+        new StringBuilder().append(Base64.encodeToString(ar, 0));
+        String str7 = "sign=" + a + "&appkey=" + str5 + "&timestamp=" + valueOf + "&skey=" + URLEncoder.encode(encodeToString, "utf-8");
+        if (!TextUtils.isEmpty(str3)) {
+            str7 = str7 + str3;
+        }
+        new StringBuilder().append(str).append(" - ").append(str7);
         try {
-            if (str.contains(a[0])) {
-                c = 1;
+            if (z2) {
+                str4 = new k(context).a(str + "?" + str7);
             } else {
-                c = str.contains(b[0]) ? (char) 2 : (char) 0;
-            }
-            switch (c) {
-                case 1:
-                    String str3 = str + "\r\n{libpath=" + cf.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.uS().cf(str2).libPath.split(":")) {
-                        if (str4.startsWith("/data/data/")) {
-                            File file = new File(str4);
-                            if (!file.exists()) {
-                                str3 = str3 + "\r\nsubLibPathFile " + str4 + " not exists";
-                            } else if (!file.isDirectory()) {
-                                str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
-                            } else {
-                                File[] listFiles = file.listFiles();
-                                int length = listFiles.length;
-                                int i = 0;
-                                while (i < length) {
-                                    File file2 = listFiles[i];
-                                    i++;
-                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + j.a(file2) + "}\r\n";
-                                }
-                            }
-                        }
-                    }
-                    return str3;
-                case 2:
-                    return a(context, str);
-                default:
-                    return str;
+                str4 = new k(context).g(str + "?" + str7, bytes);
             }
         } catch (Throwable th) {
             d.a(th);
-            return str;
+            str4 = "";
         }
-    }
-
-    @SuppressLint({"NewApi"})
-    private static String a(Context context, String str) {
-        String str2;
-        File[] listFiles;
+        if (!z || !TextUtils.isEmpty(str4)) {
+            JSONObject jSONObject = new JSONObject(str4);
+            String optString = jSONObject.optString("skey");
+            new StringBuilder().append(optString);
+            byte[] decode = Base64.decode(optString, 0);
+            new StringBuilder().append(decode.length);
+            byte[] dr = asc.dr(decode, bytes2);
+            new StringBuilder().append(new String(dr));
+            String optString2 = jSONObject.optString("response");
+            new StringBuilder().append(jSONObject.optString("request_id"));
+            new StringBuilder().append(optString2);
+            byte[] decode2 = Base64.decode(optString2, 0);
+            new StringBuilder().append(decode2.length);
+            byte[] ad = F.getInstance().ad(decode2, dr);
+            if (decode2 != null && decode2.length > 0 && (ad == null || ad.length == 0)) {
+                d.i(context);
+                throw new NetworkErrorException("aes is fail");
+            }
+            return new String(ad);
+        }
         try {
-            File filesDir = context.getFilesDir();
-            if (Build.VERSION.SDK_INT >= 9) {
-                long freeSpace = filesDir.getFreeSpace();
-                long totalSpace = filesDir.getTotalSpace();
-                str2 = ((str + "\r\nFreeSpace=" + freeSpace) + "  TotalSpace=" + totalSpace) + "  UsableSpace=" + filesDir.getUsableSpace();
+            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = eVar.a.getLong("pu_cl_fd", 0L);
+            if (j == 0) {
+                j = System.currentTimeMillis();
+                eVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
+                eVar.c.commit();
+            }
+            if (currentTimeMillis - j > 86400000) {
+                HashMap hashMap = new HashMap();
+                if (d.c(context)) {
+                    hashMap.put("0", Integer.valueOf(eVar.a.getInt("wi_fa_pu_cl", 0) + 1));
+                    hashMap.put("1", Integer.valueOf(eVar.a.getInt("mo_fa_pu_cl", 0)));
+                } else {
+                    hashMap.put("0", Integer.valueOf(eVar.a.getInt("wi_fa_pu_cl", 0)));
+                    hashMap.put("1", Integer.valueOf(eVar.a.getInt("mo_fa_pu_cl", 0) + 1));
+                }
+                eVar.c.putInt("mo_fa_pu_cl", 0);
+                eVar.c.commit();
+                eVar.c.putInt("wi_fa_pu_cl", 0);
+                eVar.c.commit();
+                eVar.c.putLong("pu_cl_fd", System.currentTimeMillis());
+                eVar.c.commit();
+                d.a(context, "1003112", hashMap);
+            } else if (d.c(context)) {
+                eVar.c.putInt("wi_fa_pu_ap", eVar.a.getInt("wi_fa_pu_cl", 0) + 1);
+                eVar.c.commit();
             } else {
-                str2 = str;
+                eVar.c.putInt("mo_fa_pu_ap", eVar.a.getInt("mo_fa_pu_cl", 0) + 1);
+                eVar.c.commit();
             }
-            JSONArray jSONArray = new JSONArray();
-            long j = 0;
-            for (File file : filesDir.listFiles()) {
-                if (file.isDirectory() && file.getName().startsWith(".")) {
-                    j += a(file, jSONArray);
-                }
-            }
-            return ((str2 + "\r\n") + jSONArray.toString()) + "\r\nAllFileSize=" + j;
-        } catch (Throwable th) {
-            return str;
+        } catch (Throwable th2) {
+            d.a(th2);
         }
-    }
-
-    private static long a(File file, JSONArray jSONArray) throws JSONException {
-        File[] listFiles;
-        long j = 0;
-        if (file != null && jSONArray != null && file.isDirectory()) {
-            for (File file2 : file.listFiles()) {
-                if (file2.isDirectory()) {
-                    j += a(file2, jSONArray);
-                } else if (file2.exists()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(ClientCookie.PATH_ATTR, file2.getAbsolutePath());
-                    jSONObject.put("size", file2.length());
-                    jSONArray.put(jSONObject);
-                    j += file2.length();
-                }
-            }
-        }
-        return j;
+        throw new NetworkErrorException("response is empty");
     }
 }

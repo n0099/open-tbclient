@@ -3,11 +3,11 @@ package com.baidu.tieba.videoplay;
 import com.baidu.adp.base.BdBaseModel;
 /* loaded from: classes2.dex */
 public class VideoPlayModel extends BdBaseModel {
-    private VideoPlayActivity hyg;
+    private VideoPlayActivity hzu;
 
     public VideoPlayModel(VideoPlayActivity videoPlayActivity) {
         super(videoPlayActivity.getPageContext());
-        this.hyg = videoPlayActivity;
+        this.hzu = videoPlayActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -3,68 +3,68 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean bfa;
-    private String bfc;
-    private String bfd;
-    private String bfe;
-    private String bff;
-    private boolean bfg;
-    private boolean bfh;
-    private String bfi;
+    private boolean bgT;
+    private String bgU;
+    private String bgV;
+    private String bgW;
+    private String bgX;
+    private boolean bgY;
+    private boolean bgZ;
+    private String bha;
     private String h5Url;
 
-    public boolean EN() {
-        return this.bfa;
+    public boolean Fi() {
+        return this.bgT;
     }
 
-    public void bx(boolean z) {
-        this.bfa = z;
+    public void bC(boolean z) {
+        this.bgT = z;
     }
 
-    public boolean EO() {
-        return this.bfh;
+    public boolean Fj() {
+        return this.bgZ;
     }
 
-    public String EP() {
-        return this.bfi;
+    public String Fk() {
+        return this.bha;
     }
 
-    public String EQ() {
+    public String Fl() {
         return this.h5Url;
     }
 
-    public boolean ER() {
-        return this.bfg;
+    public boolean Fm() {
+        return this.bgY;
     }
 
-    public String ES() {
-        return this.bff;
+    public String Fn() {
+        return this.bgX;
     }
 
-    public String ET() {
-        return this.bfe;
+    public String Fo() {
+        return this.bgW;
     }
 
-    public String EU() {
-        return this.bfd;
+    public String Fp() {
+        return this.bgV;
     }
 
-    public String EV() {
-        return this.bfc;
+    public String Fq() {
+        return this.bgU;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            bx(jSONObject.optInt("switch") == 1);
-            this.bfc = jSONObject.optString("feed_text");
-            this.bfd = jSONObject.optString("enter_forum_text");
-            this.bfe = jSONObject.optString("my_tab_text");
+            bC(jSONObject.optInt("switch") == 1);
+            this.bgU = jSONObject.optString("feed_text");
+            this.bgV = jSONObject.optString("enter_forum_text");
+            this.bgW = jSONObject.optString("my_tab_text");
             long optLong = jSONObject.optLong("dot_timestamp");
-            this.bff = optLong == 0 ? "" : optLong + "";
-            this.bfg = jSONObject.optInt("user_satisfy") == 1;
+            this.bgX = optLong == 0 ? "" : optLong + "";
+            this.bgY = jSONObject.optInt("user_satisfy") == 1;
             this.h5Url = jSONObject.optString("h5_url");
-            this.bfh = jSONObject.optInt("person_item_switch") == 1;
-            this.bfi = jSONObject.optString("person_item_text");
+            this.bgZ = jSONObject.optInt("person_item_switch") == 1;
+            this.bha = jSONObject.optString("person_item_text");
         }
     }
 }

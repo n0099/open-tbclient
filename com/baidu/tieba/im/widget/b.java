@@ -15,52 +15,52 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private LinearLayout bAA;
-    private TextView bKx;
-    private EditText dVn;
-    private BarImageView eJW;
-    private TextView eJX;
-    protected TextView eJY;
-    private ShareFromGameCenterMsgData eJZ;
-    private TbImageView eoR;
+    private LinearLayout bCE;
+    private TextView bMB;
+    private EditText dZb;
+    private BarImageView eOl;
+    private TextView eOm;
+    protected TextView eOn;
+    private ShareFromGameCenterMsgData eOo;
+    private TbImageView ete;
 
     public EditText getChatMsgView() {
-        return this.dVn;
+        return this.dZb;
     }
 
     public b(Context context) {
         super(context);
-        bB(context);
+        bA(context);
     }
 
-    private void bB(Context context) {
+    private void bA(Context context) {
         LayoutInflater.from(context).inflate(d.h.game_to_group_share_dialog, this);
         setOrientation(1);
-        this.bAA = (LinearLayout) findViewById(d.g.game_to_group_share_dialog_content);
-        this.eJX = (TextView) findViewById(d.g.share_title_view);
-        this.dVn = (EditText) findViewById(d.g.game_to_group_share_chat_msg);
-        this.eoR = (TbImageView) findViewById(d.g.game_to_group_share_img);
-        this.eJW = (BarImageView) findViewById(d.g.game_to_group_share_icon);
-        this.bKx = (TextView) findViewById(d.g.game_to_group_share_desc);
-        aj.e(this.eJX, d.C0108d.cp_cont_b, 1);
-        aj.e(this.dVn, d.C0108d.cp_cont_b, 2);
-        this.dVn.setHintTextColor(aj.getColor(d.C0108d.cp_cont_e));
-        aj.e(this.bKx, d.C0108d.cp_cont_f, 1);
-        this.dVn.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        this.eJY = (TextView) findViewById(d.g.game_to_group_share);
-        aj.e(this.eJY, d.C0108d.cp_cont_c, 1);
-        azD();
+        this.bCE = (LinearLayout) findViewById(d.g.game_to_group_share_dialog_content);
+        this.eOm = (TextView) findViewById(d.g.share_title_view);
+        this.dZb = (EditText) findViewById(d.g.game_to_group_share_chat_msg);
+        this.ete = (TbImageView) findViewById(d.g.game_to_group_share_img);
+        this.eOl = (BarImageView) findViewById(d.g.game_to_group_share_icon);
+        this.bMB = (TextView) findViewById(d.g.game_to_group_share_desc);
+        aj.e(this.eOm, d.C0140d.cp_cont_b, 1);
+        aj.e(this.dZb, d.C0140d.cp_cont_b, 2);
+        this.dZb.setHintTextColor(aj.getColor(d.C0140d.cp_cont_e));
+        aj.e(this.bMB, d.C0140d.cp_cont_f, 1);
+        this.dZb.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        this.eOn = (TextView) findViewById(d.g.game_to_group_share);
+        aj.e(this.eOn, d.C0140d.cp_cont_c, 1);
+        aAU();
     }
 
-    public void azD() {
-        this.bAA.setFocusable(true);
-        this.bAA.setFocusableInTouchMode(true);
-        this.bAA.requestFocus();
+    public void aAU() {
+        this.bCE.setFocusable(true);
+        this.bCE.setFocusableInTouchMode(true);
+        this.bCE.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dVn != null) {
-            return k.a(this.dVn.getText(), null);
+        if (this.dZb != null) {
+            return k.a(this.dZb.getText(), null);
         }
         return null;
     }
@@ -73,29 +73,29 @@ public class b extends LinearLayout {
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
-        this.eJZ = shareFromGameCenterMsgData;
-        DG();
+        this.eOo = shareFromGameCenterMsgData;
+        Ea();
     }
 
-    private void DG() {
-        this.eJX.setText(this.eJZ.getTitle());
-        this.eoR.setTag(this.eJZ.getImageUrl());
-        this.eoR.startLoad(this.eJZ.getImageUrl(), 17, false);
-        this.eJW.setVisibility(0);
-        this.eJW.setTag(this.eJZ.getShareSourceIcon());
-        this.eJW.startLoad(this.eJZ.getShareSourceIcon(), 17, false);
-        this.bKx.setText(this.eJZ.getContent());
-        this.eJY.setText("来自" + this.eJZ.getShareSource());
+    private void Ea() {
+        this.eOm.setText(this.eOo.getTitle());
+        this.ete.setTag(this.eOo.getImageUrl());
+        this.ete.startLoad(this.eOo.getImageUrl(), 17, false);
+        this.eOl.setVisibility(0);
+        this.eOl.setTag(this.eOo.getShareSourceIcon());
+        this.eOl.startLoad(this.eOo.getShareSourceIcon(), 17, false);
+        this.bMB.setText(this.eOo.getContent());
+        this.eOn.setText("来自" + this.eOo.getShareSource());
     }
 
     public void setShareData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.eJX.setText(shareFromPBMsgData.getTitle());
+        this.eOm.setText(shareFromPBMsgData.getTitle());
         if (TextUtils.isEmpty(shareFromPBMsgData.getImageUrl())) {
             shareFromPBMsgData.setImageUrl("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
         }
-        this.eoR.setTag(shareFromPBMsgData.getImageUrl());
-        this.eoR.startLoad(shareFromPBMsgData.getImageUrl(), 17, false);
-        this.eJW.setVisibility(8);
-        this.bKx.setText(shareFromPBMsgData.getContent());
+        this.ete.setTag(shareFromPBMsgData.getImageUrl());
+        this.ete.startLoad(shareFromPBMsgData.getImageUrl(), 17, false);
+        this.eOl.setVisibility(8);
+        this.bMB.setText(shareFromPBMsgData.getContent());
     }
 }

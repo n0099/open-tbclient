@@ -1,6 +1,7 @@
 package com.baidu.tbadk.img;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -19,7 +20,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            parseEmotionImages(jSONObject.optJSONArray("pics"));
+            parseEmotionImages(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
         }
     }
 
@@ -28,7 +29,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
             this.mEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    this.mEmotionList.add(c.i(jSONArray.getJSONObject(i)));
+                    this.mEmotionList.add(c.n(jSONArray.getJSONObject(i)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

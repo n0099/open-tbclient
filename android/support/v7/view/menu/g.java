@@ -18,34 +18,34 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterView.OnItemClickListener, PopupWindow.OnDismissListener {
+    private final int HP;
     private final int HQ;
-    private final int HR;
-    private final boolean HS;
-    private final ViewTreeObserver.OnGlobalLayoutListener HX = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: android.support.v7.view.menu.g.1
+    private final boolean HR;
+    private final ViewTreeObserver.OnGlobalLayoutListener HW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: android.support.v7.view.menu.g.1
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            if (g.this.isShowing() && !g.this.JJ.isModal()) {
-                View view = g.this.Ib;
+            if (g.this.isShowing() && !g.this.JI.isModal()) {
+                View view = g.this.Ia;
                 if (view == null || !view.isShown()) {
                     g.this.dismiss();
                 } else {
-                    g.this.JJ.show();
+                    g.this.JI.show();
                 }
             }
         }
     };
-    private int Ia = 0;
-    View Ib;
-    private boolean Ig;
-    private MenuPresenter.Callback Ih;
-    private ViewTreeObserver Ii;
-    private PopupWindow.OnDismissListener Ij;
-    private final MenuAdapter JH;
-    private final int JI;
-    final MenuPopupWindow JJ;
+    private int HZ = 0;
+    View Ia;
+    private boolean If;
+    private MenuPresenter.Callback Ig;
+    private ViewTreeObserver Ih;
+    private PopupWindow.OnDismissListener Ii;
+    private final MenuAdapter JG;
+    private final int JH;
+    final MenuPopupWindow JI;
+    private boolean JJ;
     private boolean JK;
-    private boolean JL;
-    private int JM;
+    private int JL;
     private final Context mContext;
     private final MenuBuilder mMenu;
     private View oa;
@@ -53,57 +53,57 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
     public g(Context context, MenuBuilder menuBuilder, View view, int i, int i2, boolean z) {
         this.mContext = context;
         this.mMenu = menuBuilder;
-        this.HS = z;
-        this.JH = new MenuAdapter(menuBuilder, LayoutInflater.from(context), this.HS);
-        this.HQ = i;
-        this.HR = i2;
+        this.HR = z;
+        this.JG = new MenuAdapter(menuBuilder, LayoutInflater.from(context), this.HR);
+        this.HP = i;
+        this.HQ = i2;
         Resources resources = context.getResources();
-        this.JI = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.abc_config_prefDialogWidth));
+        this.JH = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.abc_config_prefDialogWidth));
         this.oa = view;
-        this.JJ = new MenuPopupWindow(this.mContext, null, this.HQ, this.HR);
+        this.JI = new MenuPopupWindow(this.mContext, null, this.HP, this.HQ);
         menuBuilder.addMenuPresenter(this, context);
     }
 
     @Override // android.support.v7.view.menu.e
     public void setForceShowIcon(boolean z) {
-        this.JH.setForceShowIcon(z);
+        this.JG.setForceShowIcon(z);
     }
 
     @Override // android.support.v7.view.menu.e
     public void setGravity(int i) {
-        this.Ia = i;
+        this.HZ = i;
     }
 
     private boolean tryShow() {
         if (isShowing()) {
             return true;
         }
-        if (this.JK || this.oa == null) {
+        if (this.JJ || this.oa == null) {
             return false;
         }
-        this.Ib = this.oa;
-        this.JJ.setOnDismissListener(this);
-        this.JJ.setOnItemClickListener(this);
-        this.JJ.setModal(true);
-        View view = this.Ib;
-        boolean z = this.Ii == null;
-        this.Ii = view.getViewTreeObserver();
+        this.Ia = this.oa;
+        this.JI.setOnDismissListener(this);
+        this.JI.setOnItemClickListener(this);
+        this.JI.setModal(true);
+        View view = this.Ia;
+        boolean z = this.Ih == null;
+        this.Ih = view.getViewTreeObserver();
         if (z) {
-            this.Ii.addOnGlobalLayoutListener(this.HX);
+            this.Ih.addOnGlobalLayoutListener(this.HW);
         }
-        this.JJ.setAnchorView(view);
-        this.JJ.setDropDownGravity(this.Ia);
-        if (!this.JL) {
-            this.JM = a(this.JH, null, this.mContext, this.JI);
-            this.JL = true;
+        this.JI.setAnchorView(view);
+        this.JI.setDropDownGravity(this.HZ);
+        if (!this.JK) {
+            this.JL = a(this.JG, null, this.mContext, this.JH);
+            this.JK = true;
         }
-        this.JJ.setContentWidth(this.JM);
-        this.JJ.setInputMethodMode(2);
-        this.JJ.setEpicenterBounds(fb());
-        this.JJ.show();
-        ListView listView = this.JJ.getListView();
+        this.JI.setContentWidth(this.JL);
+        this.JI.setInputMethodMode(2);
+        this.JI.setEpicenterBounds(fb());
+        this.JI.show();
+        ListView listView = this.JI.getListView();
         listView.setOnKeyListener(this);
-        if (this.Ig && this.mMenu.getHeaderTitle() != null) {
+        if (this.If && this.mMenu.getHeaderTitle() != null) {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.mContext).inflate(R.layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
             TextView textView = (TextView) frameLayout.findViewById(16908310);
             if (textView != null) {
@@ -112,8 +112,8 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
             frameLayout.setEnabled(false);
             listView.addHeaderView(frameLayout, null, false);
         }
-        this.JJ.setAdapter(this.JH);
-        this.JJ.show();
+        this.JI.setAdapter(this.JG);
+        this.JI.show();
         return true;
     }
 
@@ -127,7 +127,7 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
     @Override // android.support.v7.view.menu.ShowableListMenu
     public void dismiss() {
         if (isShowing()) {
-            this.JJ.dismiss();
+            this.JI.dismiss();
         }
     }
 
@@ -137,50 +137,50 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
 
     @Override // android.support.v7.view.menu.ShowableListMenu
     public boolean isShowing() {
-        return !this.JK && this.JJ.isShowing();
+        return !this.JJ && this.JI.isShowing();
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.JK = true;
+        this.JJ = true;
         this.mMenu.close();
-        if (this.Ii != null) {
-            if (!this.Ii.isAlive()) {
-                this.Ii = this.Ib.getViewTreeObserver();
+        if (this.Ih != null) {
+            if (!this.Ih.isAlive()) {
+                this.Ih = this.Ia.getViewTreeObserver();
             }
-            this.Ii.removeGlobalOnLayoutListener(this.HX);
-            this.Ii = null;
+            this.Ih.removeGlobalOnLayoutListener(this.HW);
+            this.Ih = null;
         }
-        if (this.Ij != null) {
-            this.Ij.onDismiss();
+        if (this.Ii != null) {
+            this.Ii.onDismiss();
         }
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
-        this.JL = false;
-        if (this.JH != null) {
-            this.JH.notifyDataSetChanged();
+        this.JK = false;
+        if (this.JG != null) {
+            this.JG.notifyDataSetChanged();
         }
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public void setCallback(MenuPresenter.Callback callback) {
-        this.Ih = callback;
+        this.Ig = callback;
     }
 
     @Override // android.support.v7.view.menu.MenuPresenter
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
         if (subMenuBuilder.hasVisibleItems()) {
-            MenuPopupHelper menuPopupHelper = new MenuPopupHelper(this.mContext, subMenuBuilder, this.Ib, this.HS, this.HQ, this.HR);
-            menuPopupHelper.setPresenterCallback(this.Ih);
+            MenuPopupHelper menuPopupHelper = new MenuPopupHelper(this.mContext, subMenuBuilder, this.Ia, this.HR, this.HP, this.HQ);
+            menuPopupHelper.setPresenterCallback(this.Ig);
             menuPopupHelper.setForceShowIcon(e.f(subMenuBuilder));
-            menuPopupHelper.setOnDismissListener(this.Ij);
-            this.Ij = null;
+            menuPopupHelper.setOnDismissListener(this.Ii);
+            this.Ii = null;
             this.mMenu.close(false);
-            if (menuPopupHelper.tryShow(this.JJ.getHorizontalOffset(), this.JJ.getVerticalOffset())) {
-                if (this.Ih != null) {
-                    this.Ih.onOpenSubMenu(subMenuBuilder);
+            if (menuPopupHelper.tryShow(this.JI.getHorizontalOffset(), this.JI.getVerticalOffset())) {
+                if (this.Ig != null) {
+                    this.Ig.onOpenSubMenu(subMenuBuilder);
                 }
                 return true;
             }
@@ -192,8 +192,8 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
         if (menuBuilder == this.mMenu) {
             dismiss();
-            if (this.Ih != null) {
-                this.Ih.onCloseMenu(menuBuilder, z);
+            if (this.Ig != null) {
+                this.Ig.onCloseMenu(menuBuilder, z);
             }
         }
     }
@@ -228,26 +228,26 @@ final class g extends e implements MenuPresenter, View.OnKeyListener, AdapterVie
 
     @Override // android.support.v7.view.menu.e
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.Ij = onDismissListener;
+        this.Ii = onDismissListener;
     }
 
     @Override // android.support.v7.view.menu.ShowableListMenu
     public ListView getListView() {
-        return this.JJ.getListView();
+        return this.JI.getListView();
     }
 
     @Override // android.support.v7.view.menu.e
     public void setHorizontalOffset(int i) {
-        this.JJ.setHorizontalOffset(i);
+        this.JI.setHorizontalOffset(i);
     }
 
     @Override // android.support.v7.view.menu.e
     public void setVerticalOffset(int i) {
-        this.JJ.setVerticalOffset(i);
+        this.JI.setVerticalOffset(i);
     }
 
     @Override // android.support.v7.view.menu.e
     public void setShowTitle(boolean z) {
-        this.Ig = z;
+        this.If = z;
     }
 }

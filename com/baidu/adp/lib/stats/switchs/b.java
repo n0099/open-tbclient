@@ -9,13 +9,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long alr = 0;
-    public String als = null;
+    public long alq = 0;
+    public String alr = null;
 
     public boolean of() {
         String str = null;
         d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
-        dVar.ab(false);
+        dVar.ad(false);
         dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         com.baidu.adp.lib.Disk.d.ll().b(dVar);
         if (dVar.isSuccess()) {
@@ -26,8 +26,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.alr = jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            this.als = jSONObject.getString("data");
+            this.alq = jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            this.alr = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -42,7 +42,7 @@ public class b {
                 jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
                 jSONObject.put("data", str);
                 d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
-                dVar.ab(false);
+                dVar.ad(false);
                 dVar.setContent(jSONObject.toString());
                 dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 com.baidu.adp.lib.Disk.d.ll().b(dVar);

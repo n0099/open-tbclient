@@ -17,9 +17,11 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.adp.plugin.util.e;
 import com.baidu.adp.plugin.util.f;
+import com.baidu.ar.util.Constants;
+import com.baidu.fsg.base.utils.PhoneUtils;
+import com.baidu.fsg.biometrics.base.d.h;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.DexClassLoader;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -48,12 +50,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
+    private static boolean aqQ = false;
     private static boolean aqR = false;
     private static boolean aqS = false;
     private static boolean aqT = false;
     private static boolean aqU = false;
-    private static boolean aqV = false;
-    private static Signature[] aqW = null;
+    private static Signature[] aqV = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting;
@@ -66,7 +68,7 @@ public class d {
             com.baidu.adp.plugin.b.a.qF().g("plugin_install", "intent_action_null", null);
             return;
         }
-        aqR = intent.getBooleanExtra("is_debug_plugin", false);
+        aqQ = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra("package_name");
@@ -144,7 +146,7 @@ public class d {
                         intent.putExtra("package_name", str2);
                         intent.putExtra("install_src_file", str);
                         intent.putExtra("fail_reason", "low_version_code");
-                        intent.putExtra("version_code", h);
+                        intent.putExtra(Constants.HTTP_VERSION_CODE, h);
                         BdBaseApplication.getInst().sendBroadcast(intent);
                         com.baidu.adp.lib.g.a.d(null);
                         return;
@@ -155,7 +157,7 @@ public class d {
                         intent2.putExtra("package_name", str2);
                         intent2.putExtra("install_src_file", str);
                         intent2.putExtra("install_dest_file", str);
-                        intent2.putExtra("version_code", h);
+                        intent2.putExtra(Constants.HTTP_VERSION_CODE, h);
                         BdStatisticsManager.getInstance().save();
                         BdBaseApplication.getInst().sendBroadcast(intent2);
                         com.baidu.adp.lib.g.a.d(null);
@@ -389,7 +391,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !aqR && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !aqQ && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
             } catch (Exception e10) {
@@ -411,14 +413,14 @@ public class d {
                             f f2 = Util.f(fileInputStream3);
                             inputStream2 = BdBaseApplication.getInst().getAssets().open(str.substring("assets://".length()));
                             if (f2.compareTo(Util.f(inputStream2)) != 0) {
-                                com.baidu.adp.plugin.b.a.qF().f("plugin_install", "versionequals_apktime_notequals", str6, f2.toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f.toString());
+                                com.baidu.adp.plugin.b.a.qF().f("plugin_install", "versionequals_apktime_notequals", str6, f2.toString() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + f.toString());
                             }
                             com.baidu.adp.lib.g.a.d(fileInputStream3);
                             com.baidu.adp.lib.g.a.d(inputStream2);
                         } catch (Exception e11) {
                             e = e11;
                             BdLog.e(e);
-                            com.baidu.adp.plugin.b.a.qF().f("plugin_install", "versionequals_apktime_error", str6, "exist-" + exists + "-isfile-" + isFile + "-length-" + length2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                            com.baidu.adp.plugin.b.a.qF().f("plugin_install", "versionequals_apktime_error", str6, "exist-" + exists + "-isfile-" + isFile + "-length-" + length2 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                             com.baidu.adp.lib.g.a.d(fileInputStream3);
                             com.baidu.adp.lib.g.a.d(inputStream2);
                             file.delete();
@@ -435,7 +437,7 @@ public class d {
                             intent.putExtra("package_name", str6);
                             intent.putExtra("install_src_file", str);
                             intent.putExtra("install_dest_file", str);
-                            intent.putExtra("version_code", i);
+                            intent.putExtra(Constants.HTTP_VERSION_CODE, i);
                             BdStatisticsManager.getInstance().save();
                             BdBaseApplication.getInst().sendBroadcast(intent);
                             return null;
@@ -477,7 +479,7 @@ public class d {
             intent2.putExtra("package_name", str6);
             intent2.putExtra("install_src_file", str);
             intent2.putExtra("install_dest_file", str);
-            intent2.putExtra("version_code", i);
+            intent2.putExtra(Constants.HTTP_VERSION_CODE, i);
             BdStatisticsManager.getInstance().save();
             BdBaseApplication.getInst().sendBroadcast(intent2);
             return null;
@@ -575,7 +577,7 @@ public class d {
             intent3.putExtra("package_name", str6);
             intent3.putExtra("install_src_file", str);
             intent3.putExtra("install_dest_file", file3.getAbsolutePath());
-            intent3.putExtra("version_code", i);
+            intent3.putExtra(Constants.HTTP_VERSION_CODE, i);
             intent3.putExtra("version_name", str5);
             intent3.putExtra("cmd_range", str3);
             intent3.putExtra("require_load", str4);
@@ -596,18 +598,18 @@ public class d {
                                 com.baidu.adp.plugin.b.a.qF().A("plugin_repeat_install", str6);
                                 StringBuilder sb = new StringBuilder();
                                 if (pluginSetting != null) {
-                                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                    sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(pluginSetting.apkPath);
-                                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                    sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(pluginSetting.versionCode);
-                                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                    sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(pluginSetting.tempVersionCode);
-                                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                    sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(pluginSetting.enable);
-                                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                                    sb.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                     sb.append(pluginSetting.install_fail_count);
                                 }
-                                com.baidu.adp.plugin.b.a.qF().f("plugin_install", "plugin_repeat_install", str6, file6.getAbsolutePath() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + file3.getAbsolutePath() + sb.toString());
+                                com.baidu.adp.plugin.b.a.qF().f("plugin_install", "plugin_repeat_install", str6, file6.getAbsolutePath() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + file3.getAbsolutePath() + sb.toString());
                                 return str6;
                             }
                         }
@@ -675,16 +677,16 @@ public class d {
                         String substring = name.substring(PluginInstallerService.APK_LIB_CPUABI_OFFSITE, name.lastIndexOf("/"));
                         if (substring.toLowerCase().contains("mips")) {
                             arrayList3.add(nextElement);
-                        } else if (substring.toLowerCase().contains("x86")) {
+                        } else if (substring.toLowerCase().contains(h.c)) {
                             arrayList2.add(nextElement);
-                        } else if (substring.toLowerCase().contains("armeabi-v7a")) {
+                        } else if (substring.toLowerCase().contains(h.b)) {
                             arrayList4.add(nextElement);
                         } else {
                             arrayList.add(nextElement);
                         }
                     }
                 }
-                if (lowerCase.contains("x86") || str4.contains("x86")) {
+                if (lowerCase.contains(h.c) || str4.contains(h.c)) {
                     a(arrayList2, arrayList);
                     a(zipFile, str2, arrayList2);
                     if (arrayList2.size() <= 0) {
@@ -696,20 +698,20 @@ public class d {
                     if (arrayList3.size() <= 0) {
                         return;
                     }
-                } else if (lowerCase.contains("armeabi-v7a") || str4.contains("armeabi-v7a") || qE()) {
+                } else if (lowerCase.contains(h.b) || str4.contains(h.b) || qE()) {
                     a(arrayList4, arrayList);
                     a(zipFile, str2, arrayList4);
                     if (arrayList4.size() <= 0) {
                         return;
                     }
-                } else if (lowerCase.contains("armeabi") || str4.contains("armeabi")) {
+                } else if (lowerCase.contains(h.a) || str4.contains(h.a)) {
                     a(zipFile, str2, arrayList);
                     if (arrayList.size() <= 0) {
                         return;
                     }
                 } else {
                     com.baidu.adp.plugin.b.a.qF().bn("plugin_cpuarch_judge_fail");
-                    com.baidu.adp.plugin.b.a.qF().f("plugin_install", "cpuarch_judge_fail", str3, lowerCase + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
+                    com.baidu.adp.plugin.b.a.qF().f("plugin_install", "cpuarch_judge_fail", str3, lowerCase + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + str4);
                     a(zipFile, str2, arrayList);
                     if (arrayList.size() <= 0) {
                         return;
@@ -752,7 +754,7 @@ public class d {
         try {
             try {
                 file.mkdirs();
-                com.baidu.adp.lib.util.f.l(file);
+                com.baidu.adp.lib.util.f.m(file);
                 file2.createNewFile();
                 outputStream = new FileOutputStream(file2);
             } catch (Throwable th) {
@@ -850,7 +852,7 @@ public class d {
                 n.b((OutputStream) zipOutputStream2);
                 n.b(outputStream);
                 try {
-                    com.baidu.adp.lib.util.f.l(file);
+                    com.baidu.adp.lib.util.f.m(file);
                 } catch (IOException e6) {
                     e6.printStackTrace();
                 }
@@ -864,7 +866,7 @@ public class d {
                     n.b((OutputStream) zipOutputStream3);
                     n.b(outputStream2);
                     try {
-                        com.baidu.adp.lib.util.f.l(file);
+                        com.baidu.adp.lib.util.f.m(file);
                     } catch (IOException e8) {
                         e8.printStackTrace();
                     }
@@ -876,7 +878,7 @@ public class d {
                     n.b((OutputStream) zipOutputStream);
                     n.b(outputStream);
                     try {
-                        com.baidu.adp.lib.util.f.l(file);
+                        com.baidu.adp.lib.util.f.m(file);
                     } catch (IOException e9) {
                         e9.printStackTrace();
                     }
@@ -889,7 +891,7 @@ public class d {
                 n.b((OutputStream) zipOutputStream2);
                 n.b(outputStream);
                 try {
-                    com.baidu.adp.lib.util.f.l(file);
+                    com.baidu.adp.lib.util.f.m(file);
                 } catch (IOException e11) {
                     e11.printStackTrace();
                 }
@@ -901,7 +903,7 @@ public class d {
                 n.b((OutputStream) zipOutputStream2);
                 n.b(outputStream);
                 try {
-                    com.baidu.adp.lib.util.f.l(file);
+                    com.baidu.adp.lib.util.f.m(file);
                 } catch (IOException e12) {
                     e12.printStackTrace();
                 }
@@ -918,7 +920,7 @@ public class d {
             zipOutputStream = null;
             n.b((OutputStream) zipOutputStream);
             n.b(outputStream);
-            com.baidu.adp.lib.util.f.l(file);
+            com.baidu.adp.lib.util.f.m(file);
             throw th;
         }
         return z;
@@ -977,10 +979,10 @@ public class d {
 
     public static boolean qD() {
         String str;
-        if (aqT) {
-            return aqS;
+        if (aqS) {
+            return aqR;
         }
-        aqT = true;
+        aqS = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -994,12 +996,12 @@ public class d {
                 str = "none";
             }
         }
-        if (lowerCase.contains("armeabi-v7a") || str.contains("armeabi-v7a") || qE()) {
-            aqS = true;
-        } else if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-            aqS = true;
+        if (lowerCase.contains(h.b) || str.contains(h.b) || qE()) {
+            aqR = true;
+        } else if (lowerCase.contains(h.a) || str.contains(h.a)) {
+            aqR = true;
         }
-        return aqS;
+        return aqR;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=4] */
@@ -1009,10 +1011,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (aqV) {
-            return aqU;
+        if (aqU) {
+            return aqT;
         }
-        aqV = true;
+        aqU = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1042,8 +1044,8 @@ public class d {
                                     objArr[0] = "ARM";
                                     objArr[1] = Integer.valueOf(com.baidu.adp.lib.g.b.h(sb.toString(), -1));
                                 } else if (trim.compareToIgnoreCase("Features") == 0) {
-                                    if (trim2.contains("neon")) {
-                                        objArr[2] = "neon";
+                                    if (trim2.contains(PhoneUtils.CPUInfo.FEATURE_NEON)) {
+                                        objArr[2] = PhoneUtils.CPUInfo.FEATURE_NEON;
                                     }
                                 } else if (trim.compareToIgnoreCase("model name") == 0) {
                                     if (trim2.contains("Intel")) {
@@ -1055,7 +1057,7 @@ public class d {
                                 }
                             }
                         }
-                        aqU = ((Integer) objArr[1]).intValue() == 7;
+                        aqT = ((Integer) objArr[1]).intValue() == 7;
                         n.b((Reader) bufferedReader);
                         n.b((Reader) inputStreamReader);
                         n.d(fileInputStream);
@@ -1068,7 +1070,7 @@ public class d {
                             n.b((Reader) bufferedReader);
                             n.b((Reader) inputStreamReader2);
                             n.d(fileInputStream2);
-                            return aqU;
+                            return aqT;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1113,7 +1115,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return aqU;
+        return aqT;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1151,9 +1153,9 @@ public class d {
         Signature[] signatureArr;
         Signature[] bN;
         File file;
-        if (aqW == null) {
+        if (aqV == null) {
             try {
-                aqW = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                aqV = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.qF().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1180,11 +1182,11 @@ public class d {
         if (bN == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = aqW;
+        Signature[] signatureArr2 = aqV;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr2 = e.bN(file.getAbsolutePath());
-                aqW = signatureArr2;
+                aqV = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {

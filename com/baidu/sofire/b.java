@@ -1,44 +1,26 @@
 package com.baidu.sofire;
 
-import android.content.Context;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.UnknownHostException;
 /* loaded from: classes.dex */
 public final class b {
-    private static Map<String, c> a = new HashMap();
+    public static boolean a = false;
 
-    public static void a(Context context, int i, File file, File file2) {
-        try {
-            if (com.baidu.sofire.b.d.a(file)) {
-                if (!com.baidu.sofire.b.d.a(file2)) {
-                    com.baidu.sofire.b.d.a(file, file2);
-                }
-                new StringBuilder("f=").append(file).append(", b=").append(file2);
-                if (!a.containsKey(file.getAbsolutePath())) {
-                    c cVar = new c(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
-                    cVar.startWatching();
-                    a.put(file.getAbsolutePath(), cVar);
-                }
+    public static String a(Throwable th) {
+        for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
+            if (th2 instanceof UnknownHostException) {
+                return "";
             }
-        } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
         }
+        StringWriter stringWriter = new StringWriter();
+        th.printStackTrace(new PrintWriter(stringWriter));
+        return stringWriter.toString();
     }
 
-    public static void a(File file) {
-        if (file != null) {
-            try {
-                new StringBuilder("f=").append(file.getAbsolutePath());
-                c cVar = a.get(file.getAbsolutePath());
-                if (cVar != null) {
-                    cVar.stopWatching();
-                    a.remove(file.getAbsolutePath());
-                    cVar.a();
-                }
-            } catch (Throwable th) {
-                com.baidu.sofire.b.d.a(th);
-            }
+    public static void b(Throwable th) {
+        if (a) {
+            th.printStackTrace();
         }
     }
 }

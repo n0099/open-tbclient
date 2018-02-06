@@ -16,7 +16,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class AbstractService {
@@ -137,7 +136,7 @@ public abstract class AbstractService {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
+                    sb.append(URLEncoder.encode(str4, "UTF-8"));
                 }
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);

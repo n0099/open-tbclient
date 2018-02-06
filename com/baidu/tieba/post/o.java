@@ -1,13 +1,11 @@
 package com.baidu.tieba.post;
-
-import com.baidu.tieba.l.c;
 /* loaded from: classes2.dex */
 public class o {
-    public final String fsQ;
-    public final c gwr;
+    public final String fwr;
+    public final com.baidu.tieba.l.c gxW;
 
-    public o(c cVar, String str) {
-        this.gwr = cVar;
-        this.fsQ = str;
+    public o(com.baidu.tieba.l.c cVar, String str) {
+        this.gxW = cVar;
+        this.fwr = str;
     }
 }

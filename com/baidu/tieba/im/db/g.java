@@ -3,149 +3,118 @@ package com.baidu.tieba.im.db;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class g {
-    private static g exo;
+    private static String abM = null;
+    private static volatile SQLiteDatabase abI = null;
+    public static HashMap<String, SQLiteDatabase> eBK = new HashMap<>();
 
-    public static g aGG() {
-        if (exo == null) {
-            synchronized (g.class) {
-                if (exo == null) {
-                    exo = new g();
-                }
-            }
-        }
-        return exo;
-    }
-
-    public void aGH() {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE != null) {
-            if (aGE.inTransaction()) {
-                BdLog.e("there is exist transaction");
-                return;
-            }
+    public static synchronized SQLiteDatabase aIe() {
+        SQLiteDatabase sQLiteDatabase;
+        synchronized (g.class) {
             try {
-                aGE.beginTransaction();
-                BdLog.i("db.beginTransaction");
             } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
-                BdLog.e(e.getMessage());
+                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
             }
-        }
-    }
-
-    public void endTransaction() {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE != null) {
-            BdLog.i("begin commit transaction");
-            if (aGE.inTransaction()) {
-                try {
-                    aGE.setTransactionSuccessful();
-                    aGE.endTransaction();
-                    return;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
-                    BdLog.e(e.getMessage());
-                    return;
+            if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                sQLiteDatabase = null;
+            } else {
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (eBK.containsKey(str)) {
+                    sQLiteDatabase = eBK.get(str);
+                } else if (abI != null && str.equals(abM) && abI.isOpen()) {
+                    sQLiteDatabase = abI;
+                } else {
+                    if (abI != null) {
+                        com.baidu.adp.lib.util.n.i(abI);
+                    }
+                    f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
+                    abM = str;
+                    abI = fVar.getWritableDatabase();
+                    sQLiteDatabase = abI;
                 }
             }
-            BdLog.e("there is no current transaction");
         }
+        return sQLiteDatabase;
     }
 
-    public boolean nf(String str) {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE == null) {
-            return false;
+    public static LinkedList<String> aIf() {
+        Cursor cursor;
+        Throwable th;
+        Exception exc;
+        Cursor cursor2 = null;
+        SQLiteDatabase aIe = aIe();
+        LinkedList<String> linkedList = new LinkedList<>();
+        if (aIe != null) {
+            try {
+                cursor2 = aIe.rawQuery("select * from sqlite_master where type='table'", null);
+                if (cursor2 != null) {
+                    try {
+                        cursor2.moveToFirst();
+                        while (cursor2.moveToNext()) {
+                            linkedList.add(cursor2.getString(cursor2.getColumnIndex("name")));
+                        }
+                    } catch (Exception e) {
+                        cursor = cursor2;
+                        exc = e;
+                        try {
+                            TiebaStatic.printDBExceptionLog(exc, "ImDatabaseManager.getAllTables", new Object[0]);
+                            exc.printStackTrace();
+                            com.baidu.adp.lib.util.n.i(cursor);
+                            return linkedList;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            com.baidu.adp.lib.util.n.i(cursor);
+                            throw th;
+                        }
+                    } catch (Throwable th3) {
+                        cursor = cursor2;
+                        th = th3;
+                        com.baidu.adp.lib.util.n.i(cursor);
+                        throw th;
+                    }
+                }
+            } catch (Exception e2) {
+                cursor = null;
+                exc = e2;
+            } catch (Throwable th4) {
+                cursor = null;
+                th = th4;
+            }
         }
-        try {
-            aGE.execSQL(str);
-            return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
+        com.baidu.adp.lib.util.n.i(cursor2);
+        return linkedList;
     }
 
-    public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE == null) {
-            return null;
-        }
+    public static void no(String str) {
         try {
-            return aGE.rawQuery(str, strArr);
+            if (!TextUtils.isEmpty(str)) {
+                h.aIg().aIh();
+                Iterator<String> it = aIf().iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (next != null) {
+                        if (next.equals("tb_message_center")) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("is_hidden", (Integer) 1);
+                            h.aIg().update("tb_message_center", contentValues, null, null);
+                        } else if (!next.equals("tb_new_friends")) {
+                            h.aIg().a(next, null, null);
+                        }
+                    }
+                }
+            }
         } catch (Exception e) {
-            BdLog.e(e.getMessage() + str);
-            return null;
-        }
-    }
-
-    public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            return aGE.delete(str, str2, strArr) > 0;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return false;
-        }
-    }
-
-    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE == null || TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        try {
-            return aGE.update(str, contentValues, str2, strArr);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return -1;
-        }
-    }
-
-    public long b(SQLiteStatement sQLiteStatement) {
-        if (sQLiteStatement == null) {
-            return -1L;
-        }
-        try {
-            return sQLiteStatement.executeInsert();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return -1L;
-        }
-    }
-
-    public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase aGE = f.aGE();
-        if (aGE == null || TextUtils.isEmpty(str)) {
-            return -1L;
-        }
-        try {
-            return aGE.insert(str, str2, contentValues);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return -1L;
-        }
-    }
-
-    public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase aGE;
-        if (TextUtils.isEmpty(str) || (aGE = f.aGE()) == null) {
-            return null;
-        }
-        try {
-            return aGE.compileStatement(str);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+            TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+            e.printStackTrace();
+        } finally {
+            h.aIg().endTransaction();
         }
     }
 }

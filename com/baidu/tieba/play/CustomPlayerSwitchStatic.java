@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.b.a {
-    private static int grp;
+    private static int gsV;
 
     static {
         com.baidu.adp.lib.b.d.mA().f(CustomPlayerSwitchStatic.class);
-        grp = 1;
+        gsV = 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -37,11 +37,11 @@ public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.b.a {
         return 10;
     }
 
-    public static void tQ(int i) {
-        grp = i;
+    public static void tO(int i) {
+        gsV = i;
     }
 
-    public static int bjD() {
-        return grp;
+    public static int bkN() {
+        return gsV;
     }
 }

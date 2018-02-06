@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class QALoginActivityConfig extends IntentConfig {
     public QALoginActivityConfig(Context context, boolean z) {
         super(context);
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
     }
 
     public QALoginActivityConfig(Context context, boolean z, int i) {
         super(context);
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }

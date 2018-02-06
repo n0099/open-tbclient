@@ -21,54 +21,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends ViewGroup {
-    private int gaJ;
-    private int gaK;
-    private int gaL;
-    private int gaM;
-    private int gaN;
-    private float gaO;
-    private float gaP;
-    private int gaQ;
-    private boolean gaR;
-    private ImageView gaS;
-    private List<ImageView> gaT;
-    private TextView gaU;
-    private List<TextView> gaV;
-    private boolean gaW;
-    private int gaX;
-    private int gaY;
-    private AnimatorSet gaZ;
-    private AnimatorSet gba;
-    private AnimatorSet gbb;
-    private Interpolator gbc;
-    private Interpolator gbd;
+    private int gdQ;
+    private int gdR;
+    private int gdS;
+    private int gdT;
+    private int gdU;
+    private float gdV;
+    private float gdW;
+    private int gdX;
+    private boolean gdY;
+    private ImageView gdZ;
+    private List<ImageView> gea;
+    private TextView geb;
+    private List<TextView> gec;
+    private boolean ged;
+    private int gee;
+    private int gef;
+    private AnimatorSet geg;
+    private AnimatorSet geh;
+    private AnimatorSet gei;
+    private Interpolator gej;
+    private Interpolator gek;
     private int mRadius;
     private int mScreenWidth;
 
     public e(Context context) {
         super(context);
-        this.gaM = 30;
-        this.gaN = l.s(getContext(), d.e.ds112);
-        this.gaO = 160.0f;
-        this.gaP = 20.0f;
-        this.gaR = false;
-        this.gbc = new OvershootInterpolator();
-        this.gbd = new DecelerateInterpolator();
+        this.gdT = 30;
+        this.gdU = l.t(getContext(), d.e.ds112);
+        this.gdV = 160.0f;
+        this.gdW = 20.0f;
+        this.gdY = false;
+        this.gej = new OvershootInterpolator();
+        this.gek = new DecelerateInterpolator();
         init();
     }
 
     private void init() {
-        this.gaK = getResources().getDimensionPixelSize(d.e.ds84);
-        this.gaL = getResources().getDimensionPixelSize(d.e.ds120);
-        this.gaJ = getResources().getDimensionPixelSize(d.e.ds36);
-        this.gaT = new ArrayList();
+        this.gdR = getResources().getDimensionPixelSize(d.e.ds84);
+        this.gdS = getResources().getDimensionPixelSize(d.e.ds120);
+        this.gdQ = getResources().getDimensionPixelSize(d.e.ds36);
+        this.gea = new ArrayList();
         for (int i = 0; i < 4; i++) {
             ImageView imageView = new ImageView(getContext());
             imageView.setVisibility(4);
-            this.gaT.add(imageView);
+            this.gea.add(imageView);
             addView(imageView);
         }
-        this.gaV = new ArrayList();
+        this.gec = new ArrayList();
         for (int i2 = 0; i2 < 4; i2++) {
             TextView textView = new TextView(getContext());
             switch (i2) {
@@ -86,16 +86,16 @@ public class e extends ViewGroup {
                     break;
             }
             textView.setBackgroundResource(d.f.praise_text_bg);
-            textView.setTextSize(0, l.s(getContext(), d.e.fontsize22));
+            textView.setTextSize(0, l.t(getContext(), d.e.fontsize22));
             textView.setTextColor(-1);
             textView.setGravity(17);
             textView.setVisibility(4);
-            this.gaV.add(textView);
+            this.gec.add(textView);
             addView(textView);
         }
         this.mScreenWidth = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth();
-        this.gaX = l.s(getContext(), d.e.ds70);
-        this.gaY = l.s(getContext(), d.e.ds52);
+        this.gee = l.t(getContext(), d.e.ds70);
+        this.gef = l.t(getContext(), d.e.ds52);
     }
 
     private static Rect a(int i, int i2, int i3, float f, int i4) {
@@ -106,10 +106,10 @@ public class e extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.mRadius = l.s(getContext(), d.e.ds156);
-        this.gaQ = this.mRadius + ((this.gaL - this.gaK) / 2);
-        int i3 = (this.gaQ * 2) + this.gaL + this.gaM;
-        int i4 = this.gaQ + (this.gaL / 2) + this.gaY + this.gaN;
+        this.mRadius = l.t(getContext(), d.e.ds156);
+        this.gdX = this.mRadius + ((this.gdS - this.gdR) / 2);
+        int i3 = (this.gdX * 2) + this.gdS + this.gdT;
+        int i4 = this.gdX + (this.gdS / 2) + this.gef + this.gdU;
         if (i3 > this.mScreenWidth) {
             i3 = this.mScreenWidth;
         }
@@ -117,14 +117,14 @@ public class e extends ViewGroup {
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.gaT.size()) {
-                int i7 = this.gaK;
-                if (this.gaS != null && i6 == this.gaT.indexOf(this.gaS)) {
-                    i7 = this.gaL;
+            if (i6 < this.gea.size()) {
+                int i7 = this.gdR;
+                if (this.gdZ != null && i6 == this.gea.indexOf(this.gdZ)) {
+                    i7 = this.gdS;
                 }
                 int i8 = i7;
-                this.gaT.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
-                this.gaV.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.gaX, 1073741824), View.MeasureSpec.makeMeasureSpec(this.gaY, 1073741824));
+                this.gea.get(i6).measure(View.MeasureSpec.makeMeasureSpec(i8, 1073741824), View.MeasureSpec.makeMeasureSpec(i8, 1073741824));
+                this.gec.get(i6).measure(View.MeasureSpec.makeMeasureSpec(this.gee, 1073741824), View.MeasureSpec.makeMeasureSpec(this.gef, 1073741824));
                 i5 = i6 + 1;
             } else {
                 return;
@@ -135,20 +135,20 @@ public class e extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth() / 2;
-        int height = getHeight() - this.gaN;
-        int i5 = this.gaR ? this.mRadius : 0;
-        int s = l.s(getContext(), d.e.ds90);
+        int height = getHeight() - this.gdU;
+        int i5 = this.gdY ? this.mRadius : 0;
+        int t = l.t(getContext(), d.e.ds90);
         int i6 = 0;
         while (true) {
             int i7 = i6;
-            if (i7 < this.gaT.size()) {
-                float f = to(i7);
-                Rect a = a(width, height, i5, f, this.gaK);
-                this.gaT.get(i7).layout(a.left, a.top, a.right, a.bottom);
-                Rect a2 = a(width, height, this.gaQ, f, this.gaL);
+            if (i7 < this.gea.size()) {
+                float ts = ts(i7);
+                Rect a = a(width, height, i5, ts, this.gdR);
+                this.gea.get(i7).layout(a.left, a.top, a.right, a.bottom);
+                Rect a2 = a(width, height, this.gdX, ts, this.gdS);
                 float width2 = a2.left + (a2.width() / 2);
-                float height2 = ((a2.height() / 2) + a2.top) - s;
-                this.gaV.get(i7).layout((int) (width2 - (this.gaX / 2)), (int) (height2 - (this.gaY / 2)), (int) (width2 + (this.gaX / 2)), (int) (height2 + (this.gaY / 2)));
+                float height2 = ((a2.height() / 2) + a2.top) - t;
+                this.gec.get(i7).layout((int) (width2 - (this.gee / 2)), (int) (height2 - (this.gef / 2)), (int) (width2 + (this.gee / 2)), (int) (height2 + (this.gef / 2)));
                 i6 = i7 + 1;
             } else {
                 return;
@@ -156,76 +156,76 @@ public class e extends ViewGroup {
         }
     }
 
-    private float ao(float f) {
+    private float au(float f) {
         return (float) (Math.cos(Math.toRadians(f)) * 10.0d);
     }
 
-    private float ap(float f) {
-        return (float) (Math.cos(Math.toRadians(f)) * (this.gaQ - this.mRadius));
+    private float av(float f) {
+        return (float) (Math.cos(Math.toRadians(f)) * (this.gdX - this.mRadius));
     }
 
-    private float aq(float f) {
+    private float aw(float f) {
         return 0.0f;
     }
 
-    private float ar(float f) {
+    private float ax(float f) {
         return (float) (Math.cos(Math.toRadians(f)) * (-this.mRadius));
     }
 
-    private float as(float f) {
+    private float ay(float f) {
         return -((float) (Math.sin(Math.toRadians(f)) * 10.0d));
     }
 
-    private float at(float f) {
-        return -((float) (Math.sin(Math.toRadians(f)) * (this.gaQ - this.mRadius)));
+    private float az(float f) {
+        return -((float) (Math.sin(Math.toRadians(f)) * (this.gdX - this.mRadius)));
     }
 
-    private float au(float f) {
+    private float aA(float f) {
         return 0.0f;
     }
 
-    private float av(float f) {
+    private float aB(float f) {
         return (float) (Math.sin(Math.toRadians(f)) * this.mRadius);
     }
 
     private void c(View view, int i, long j) {
-        float f = to(i);
-        float ap = ap(f);
-        float at = at(f);
-        float ar = ar(f);
-        float av = av(f);
-        float ao = ao(f);
-        float as = as(f);
-        float aq = aq(f);
-        float au = au(f);
-        this.gaZ = new AnimatorSet();
-        float f2 = this.gaR ? 1.0f : 0.0f;
-        float f3 = this.gaR ? aq : ar;
-        if (!this.gaR) {
-            ar = aq;
+        float ts = ts(i);
+        float av = av(ts);
+        float az = az(ts);
+        float ax = ax(ts);
+        float aB = aB(ts);
+        float au = au(ts);
+        float ay = ay(ts);
+        float aw = aw(ts);
+        float aA = aA(ts);
+        this.geg = new AnimatorSet();
+        float f = this.gdY ? 1.0f : 0.0f;
+        float f2 = this.gdY ? aw : ax;
+        if (!this.gdY) {
+            ax = aw;
         }
-        float f4 = this.gaR ? au : av;
-        if (!this.gaR) {
-            av = au;
+        float f3 = this.gdY ? aA : aB;
+        if (!this.gdY) {
+            aB = aA;
         }
-        float zoomOutScale = this.gaR ? 1.0f : getZoomOutScale();
-        float zoomOutScale2 = this.gaR ? getZoomOutScale() : 1.0f;
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f2, 1.0f - f2), PropertyValuesHolder.ofFloat("translationX", f3, ar), PropertyValuesHolder.ofFloat("translationY", f4, av), PropertyValuesHolder.ofFloat("scaleX", zoomOutScale, zoomOutScale2), PropertyValuesHolder.ofFloat("scaleY", zoomOutScale, zoomOutScale2));
+        float zoomOutScale = this.gdY ? 1.0f : getZoomOutScale();
+        float zoomOutScale2 = this.gdY ? getZoomOutScale() : 1.0f;
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("alpha", f, 1.0f - f), PropertyValuesHolder.ofFloat("translationX", f2, ax), PropertyValuesHolder.ofFloat("translationY", f3, aB), PropertyValuesHolder.ofFloat("scaleX", zoomOutScale, zoomOutScale2), PropertyValuesHolder.ofFloat("scaleY", zoomOutScale, zoomOutScale2));
         ofPropertyValuesHolder.setDuration(j);
-        this.gaZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
+        this.geg.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (!e.this.gaR) {
+                if (!e.this.gdY) {
                     e.this.setVisibility(8);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 < e.this.gaT.size()) {
-                            ImageView imageView = (ImageView) e.this.gaT.get(i3);
+                        if (i3 < e.this.gea.size()) {
+                            ImageView imageView = (ImageView) e.this.gea.get(i3);
                             if (imageView.getTag() != null) {
                                 ((com.baidu.tbadk.core.util.l) imageView.getTag()).stop();
                             }
@@ -240,7 +240,7 @@ public class e extends ViewGroup {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (!e.this.gaR) {
+                if (!e.this.gdY) {
                     e.this.setVisibility(8);
                 }
             }
@@ -249,46 +249,46 @@ public class e extends ViewGroup {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", ap, ao), PropertyValuesHolder.ofFloat("translationY", at, as));
+        ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", av, au), PropertyValuesHolder.ofFloat("translationY", az, ay));
         ofPropertyValuesHolder2.setDuration(2L);
-        ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", ao, ap), PropertyValuesHolder.ofFloat("translationY", as, at));
+        ObjectAnimator ofPropertyValuesHolder3 = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat("translationX", au, av), PropertyValuesHolder.ofFloat("translationY", ay, az));
         ofPropertyValuesHolder3.setDuration(2L);
-        if (!this.gaR) {
-            this.gaZ.play(ofPropertyValuesHolder);
-            this.gaZ.setInterpolator(this.gbc);
+        if (!this.gdY) {
+            this.geg.play(ofPropertyValuesHolder);
+            this.geg.setInterpolator(this.gej);
         } else {
-            this.gaZ.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
-            this.gaZ.setInterpolator(this.gbd);
-            this.gaZ.setDuration(4 + j);
+            this.geg.playSequentially(ofPropertyValuesHolder2, ofPropertyValuesHolder3, ofPropertyValuesHolder);
+            this.geg.setInterpolator(this.gek);
+            this.geg.setDuration(4 + j);
         }
-        this.gaZ.start();
+        this.geg.start();
     }
 
-    public boolean asH() {
-        return this.gaR;
+    public boolean atx() {
+        return this.gdY;
     }
 
     private float getZoomInScale() {
-        return this.gaL / this.gaK;
+        return this.gdS / this.gdR;
     }
 
     private float getZoomOutScale() {
-        return this.gaJ / this.gaK;
+        return this.gdQ / this.gdR;
     }
 
-    public void bge() {
+    public void bhE() {
         int i;
         int i2;
         int i3 = 0;
-        while (i3 < this.gaT.size()) {
-            ImageView imageView = this.gaT.get(i3);
+        while (i3 < this.gea.size()) {
+            ImageView imageView = this.gea.get(i3);
             imageView.setVisibility(0);
-            if (!this.gaR) {
+            if (!this.gdY) {
                 if (i3 == 0) {
                     i = d.b.big_praise;
                 } else if (i3 == 1) {
                     com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-                    if (activitySwitch != null && activitySwitch.EW()) {
+                    if (activitySwitch != null && activitySwitch.Fr()) {
                         i2 = d.b.normal_praise_xmas;
                     } else {
                         i2 = d.b.normal_praise;
@@ -310,69 +310,69 @@ public class e extends ViewGroup {
             c(imageView, i3, 200L);
             i3++;
         }
-        this.gaR = this.gaR ? false : true;
+        this.gdY = this.gdY ? false : true;
         invalidate();
     }
 
-    public void cv(int i, int i2) {
-        if (!this.gaR) {
-            bgg();
+    public void cr(int i, int i2) {
+        if (!this.gdY) {
+            bhG();
             return;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            bgf();
+            bhF();
             return;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 < this.gaT.size()) {
-                ImageView imageView = this.gaT.get(i4);
+            if (i4 < this.gea.size()) {
+                ImageView imageView = this.gea.get(i4);
                 imageView.getGlobalVisibleRect(rect);
-                if (!rect.contains(i, i2) || this.gaW) {
+                if (!rect.contains(i, i2) || this.ged) {
                     i3 = i4 + 1;
                 } else {
                     f(imageView);
                     return;
                 }
             } else {
-                bgf();
+                bhF();
                 return;
             }
         }
     }
 
     public void f(ImageView imageView) {
-        if (imageView != null && this.gaS != imageView && !this.gaW) {
-            bgg();
-            this.gaS = imageView;
-            float size = (((this.gaP - this.gaO) / (this.gaT.size() - 1)) * this.gaT.indexOf(imageView)) + this.gaO;
+        if (imageView != null && this.gdZ != imageView && !this.ged) {
+            bhG();
+            this.gdZ = imageView;
+            float size = (((this.gdW - this.gdV) / (this.gea.size() - 1)) * this.gea.indexOf(imageView)) + this.gdV;
             float zoomInScale = getZoomInScale();
-            this.gba = new AnimatorSet();
+            this.geh = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", 1.0f, zoomInScale);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", 1.0f, zoomInScale);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), ap(size));
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), at(size));
-            if (this.gaT.indexOf(this.gaS) > -1) {
-                this.gaU = this.gaV.get(this.gaT.indexOf(this.gaS));
-                this.gaU.setVisibility(0);
-                this.gaU.setAlpha(0.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), av(size));
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), az(size));
+            if (this.gea.indexOf(this.gdZ) > -1) {
+                this.geb = this.gec.get(this.gea.indexOf(this.gdZ));
+                this.geb.setVisibility(0);
+                this.geb.setAlpha(0.0f);
             }
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.gaU, "alpha", 0.0f, 1.0f);
-            this.gba.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.gaU, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.gaU, "scaleY", 0.0f, 1.0f));
-            this.gba.setInterpolator(this.gbd);
-            this.gba.setDuration(100L);
-            this.gba.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.geb, "alpha", 0.0f, 1.0f);
+            this.geh.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.geb, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.geb, "scaleY", 0.0f, 1.0f));
+            this.geh.setInterpolator(this.gek);
+            this.geh.setDuration(100L);
+            this.geh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.gaW = true;
+                    e.this.ged = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.gaW = false;
+                    e.this.ged = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -383,37 +383,37 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.gaW = true;
-            this.gba.start();
+            this.ged = true;
+            this.geh.start();
         }
     }
 
-    public void bgf() {
-        if (this.gaS != null && !this.gaW) {
-            ImageView imageView = this.gaS;
+    public void bhF() {
+        if (this.gdZ != null && !this.ged) {
+            ImageView imageView = this.gdZ;
             float zoomInScale = getZoomInScale();
-            this.gbb = new AnimatorSet();
+            this.gei = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "scaleX", zoomInScale, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView, "scaleY", zoomInScale, 1.0f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(imageView, "translationX", imageView.getTranslationX(), 0.0f);
             ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(imageView, "translationY", imageView.getTranslationY(), 0.0f);
-            if (this.gaU != null) {
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.gaU, "alpha", 1.0f, 0.0f);
-                this.gbb.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.gaU, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.gaU, "scaleY", 0.0f, 1.0f));
+            if (this.geb != null) {
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.geb, "alpha", 1.0f, 0.0f);
+                this.gei.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4).with(ofFloat5).with(ObjectAnimator.ofFloat(this.geb, "scaleX", 0.0f, 1.0f)).with(ObjectAnimator.ofFloat(this.geb, "scaleY", 0.0f, 1.0f));
             } else {
-                this.gbb.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
+                this.gei.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
             }
-            this.gbb.setInterpolator(this.gbd);
-            this.gbb.setDuration(100L);
-            this.gbb.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
+            this.gei.setInterpolator(this.gek);
+            this.gei.setDuration(100L);
+            this.gei.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.view.e.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    e.this.gaW = true;
+                    e.this.ged = true;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    e.this.gaW = false;
+                    e.this.ged = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -424,68 +424,68 @@ public class e extends ViewGroup {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.gaW = true;
-            this.gbb.start();
-            if (this.gaU != null) {
-                this.gaU.setVisibility(4);
+            this.ged = true;
+            this.gei.start();
+            if (this.geb != null) {
+                this.geb.setVisibility(4);
             }
-            this.gaS = null;
-            this.gaU = null;
+            this.gdZ = null;
+            this.geb = null;
         }
     }
 
-    public int cw(int i, int i2) {
-        if (!this.gaR) {
-            bgg();
+    public int cs(int i, int i2) {
+        if (!this.gdY) {
+            bhG();
             return -1;
         }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         if (!rect.contains(i, i2)) {
-            bgf();
+            bhF();
             return -1;
         }
         int i3 = 0;
         while (true) {
             int i4 = i3;
-            if (i4 >= this.gaT.size()) {
+            if (i4 >= this.gea.size()) {
                 return -1;
             }
-            this.gaT.get(i4).getGlobalVisibleRect(rect);
+            this.gea.get(i4).getGlobalVisibleRect(rect);
             if (!rect.contains(i, i2)) {
                 i3 = i4 + 1;
             } else {
-                bgf();
+                bhF();
                 return i4 + 1;
             }
         }
     }
 
-    public void bgg() {
-        if (this.gaZ != null && this.gaZ.isStarted()) {
-            this.gaZ.cancel();
-            this.gaZ = null;
+    public void bhG() {
+        if (this.geg != null && this.geg.isStarted()) {
+            this.geg.cancel();
+            this.geg = null;
         }
-        if (this.gba != null && this.gba.isStarted()) {
-            this.gba.cancel();
-            this.gba = null;
+        if (this.geh != null && this.geh.isStarted()) {
+            this.geh.cancel();
+            this.geh = null;
         }
-        if (this.gbb != null && this.gbb.isStarted()) {
-            this.gbb.cancel();
-            this.gbb = null;
+        if (this.gei != null && this.gei.isStarted()) {
+            this.gei.cancel();
+            this.gei = null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.gaT.size()) {
-                ImageView imageView = this.gaT.get(i2);
-                float f = to(i2);
-                imageView.setTranslationX(aq(f));
-                imageView.setTranslationY(au(f));
+            if (i2 < this.gea.size()) {
+                ImageView imageView = this.gea.get(i2);
+                float ts = ts(i2);
+                imageView.setTranslationX(aw(ts));
+                imageView.setTranslationY(aA(ts));
                 imageView.setScaleX(1.0f);
                 imageView.setScaleY(1.0f);
                 imageView.invalidate();
-                TextView textView = this.gaV.get(i2);
+                TextView textView = this.gec.get(i2);
                 textView.setAlpha(0.0f);
                 textView.setScaleX(1.0f);
                 textView.setScaleY(1.0f);
@@ -497,7 +497,7 @@ public class e extends ViewGroup {
         }
     }
 
-    private float to(int i) {
-        return (((this.gaP - this.gaO) / (this.gaT.size() - 1)) * i) + this.gaO;
+    private float ts(int i) {
+        return (((this.gdW - this.gdV) / (this.gea.size() - 1)) * i) + this.gdV;
     }
 }

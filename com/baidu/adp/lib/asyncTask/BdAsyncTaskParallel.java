@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId agT;
-    private BdAsyncTaskParallelType agU;
-    private int agV;
+    private BdUniqueId agR;
+    private BdAsyncTaskParallelType agS;
+    private int agT;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,40 +19,40 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.agT = null;
-        this.agU = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.agV = 1;
+        this.agR = null;
+        this.agS = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.agT = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.agU = bdAsyncTaskParallelType;
-        this.agT = bdUniqueId;
+        this.agS = bdAsyncTaskParallelType;
+        this.agR = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.agT = null;
-        this.agU = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.agV = 1;
+        this.agR = null;
+        this.agS = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.agT = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.agU = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.agV = i;
-        this.agT = bdUniqueId;
+        this.agS = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.agT = i;
+        this.agR = bdUniqueId;
     }
 
     public int lV() {
-        return this.agV;
+        return this.agT;
     }
 
     public int getTag() {
-        if (this.agT == null) {
+        if (this.agR == null) {
             return 0;
         }
-        return this.agT.getId();
+        return this.agR.getId();
     }
 
     public BdAsyncTaskParallelType lW() {
-        return this.agU;
+        return this.agS;
     }
 }

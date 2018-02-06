@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
+import com.baidu.fsg.base.utils.PhoneUtils;
+import com.baidu.idl.authority.BuildConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +72,7 @@ public class BdStatSwitchData implements Serializable {
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem.type = "dbg";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem.type, bdStatisticsUploadConfigItem);
-                    a(optJSONObject.optJSONArray("debug"), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
+                    a(optJSONObject.optJSONArray(BuildConfig.BUILD_TYPE), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem2 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem2.type = "stat";
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem2.type, bdStatisticsWriteConfigItem2);
@@ -107,7 +109,7 @@ public class BdStatSwitchData implements Serializable {
         if (jSONArray != null) {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             ArrayList<String> arrayList = new ArrayList<>();
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(PhoneUtils.CPUInfo.FEATURE_COMMON);
             if (bdStatisticsWriteConfigItem != null) {
                 bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
                 bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");

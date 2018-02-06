@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean> {
     private boolean isCache;
@@ -15,7 +14,7 @@ public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean
     }
 
     public RequestEnterForumDataMessage(int i, Boolean bool) {
-        super(CmdConfigCustom.CMD_REQUEST_ENTER_FORUM_MESSAGE, bool);
+        super(2001323, bool);
         this.isCache = bool.booleanValue();
     }
 }

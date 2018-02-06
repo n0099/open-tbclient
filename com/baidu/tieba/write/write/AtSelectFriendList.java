@@ -13,12 +13,12 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
-    private int aTh;
-    private final View.OnClickListener ctZ;
-    private int eMt;
-    private int eMu;
-    private HeadImageView eMv;
-    private a hIy;
+    private int aUM;
+    private final View.OnClickListener cyh;
+    private int eQC;
+    private int eQD;
+    private HeadImageView eQE;
+    private a hJV;
     private final Context mContext;
     private int mItemHeight;
     private LinearLayout mLayout;
@@ -30,62 +30,62 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
 
     public AtSelectFriendList(Context context) {
         super(context);
-        this.aTh = -1;
+        this.aUM = -1;
         this.mItemHeight = -1;
-        this.eMt = -1;
-        this.eMu = 4;
-        this.ctZ = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
+        this.eQC = -1;
+        this.eQD = 4;
+        this.cyh = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AtSelectFriendList.this.mLayout.removeView(view);
-                if (!AtSelectFriendList.this.aLp()) {
-                    AtSelectFriendList.this.aLn();
+                if (!AtSelectFriendList.this.aMR()) {
+                    AtSelectFriendList.this.aMP();
                 }
-                if (AtSelectFriendList.this.hIy != null) {
-                    AtSelectFriendList.this.hIy.b(view, view.getTag());
+                if (AtSelectFriendList.this.hJV != null) {
+                    AtSelectFriendList.this.hJV.b(view, view.getTag());
                 }
             }
         };
         this.mContext = context;
-        DS();
+        Em();
     }
 
     public AtSelectFriendList(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aTh = -1;
+        this.aUM = -1;
         this.mItemHeight = -1;
-        this.eMt = -1;
-        this.eMu = 4;
-        this.ctZ = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
+        this.eQC = -1;
+        this.eQD = 4;
+        this.cyh = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AtSelectFriendList.this.mLayout.removeView(view);
-                if (!AtSelectFriendList.this.aLp()) {
-                    AtSelectFriendList.this.aLn();
+                if (!AtSelectFriendList.this.aMR()) {
+                    AtSelectFriendList.this.aMP();
                 }
-                if (AtSelectFriendList.this.hIy != null) {
-                    AtSelectFriendList.this.hIy.b(view, view.getTag());
+                if (AtSelectFriendList.this.hJV != null) {
+                    AtSelectFriendList.this.hJV.b(view, view.getTag());
                 }
             }
         };
         this.mContext = context;
-        DS();
+        Em();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMaxCount(int i) {
-        this.eMu = i;
+        this.eQD = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setItemOPerationHandler(a aVar) {
-        this.hIy = aVar;
+        this.hJV = aVar;
     }
 
-    private void DS() {
-        this.aTh = this.mContext.getResources().getDimensionPixelSize(d.e.ds80);
+    private void Em() {
+        this.aUM = this.mContext.getResources().getDimensionPixelSize(d.e.ds80);
         this.mItemHeight = this.mContext.getResources().getDimensionPixelSize(d.e.ds80);
-        this.eMt = this.mContext.getResources().getDimensionPixelSize(d.e.ds12);
+        this.eQC = this.mContext.getResources().getDimensionPixelSize(d.e.ds12);
         this.mLayout = new LinearLayout(this.mContext);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -93,49 +93,49 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
         this.mLayout.setLayoutParams(layoutParams);
         this.mLayout.setHorizontalScrollBarEnabled(true);
         this.mLayout.setOrientation(0);
-        aLn();
+        aMP();
         addView(this.mLayout);
         setSmoothScrollingEnabled(true);
         setFocusable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLn() {
-        if (this.eMv == null) {
-            this.eMv = aLr();
-            this.eMv.setDrawBorder(false);
+    public void aMP() {
+        if (this.eQE == null) {
+            this.eQE = aMT();
+            this.eQE.setDrawBorder(false);
         }
-        this.eMv.setImageBitmap(aj.fO(d.f.icon_add_pop));
-        this.mLayout.addView(this.eMv);
+        this.eQE.setImageBitmap(aj.fO(d.f.icon_add_pop));
+        this.mLayout.addView(this.eQE);
     }
 
-    private void aLo() {
-        if (aLp()) {
-            this.mLayout.removeView(this.eMv);
+    private void aMQ() {
+        if (aMR()) {
+            this.mLayout.removeView(this.eQE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aLp() {
+    public boolean aMR() {
         int childCount = this.mLayout.getChildCount();
-        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.eMv;
+        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.eQE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(MetaData metaData) {
-        if (getItemLength() < this.eMu) {
-            HeadImageView aLr = aLr();
-            aLr.setIsRound(false);
-            aLr.startLoad(metaData.getPortrait(), 12, false);
-            if (aLp()) {
-                aLr.setTag(metaData);
-                aLr.setOnClickListener(this.ctZ);
-                this.mLayout.addView(aLr, getItemLength());
-                scrollTo(getItemLength() * (this.aTh + this.eMt), 0);
+        if (getItemLength() < this.eQD) {
+            HeadImageView aMT = aMT();
+            aMT.setIsRound(false);
+            aMT.startLoad(metaData.getPortrait(), 12, false);
+            if (aMR()) {
+                aMT.setTag(metaData);
+                aMT.setOnClickListener(this.cyh);
+                this.mLayout.addView(aMT, getItemLength());
+                scrollTo(getItemLength() * (this.aUM + this.eQC), 0);
                 this.mLayout.requestLayout();
             }
-            if (getItemLength() >= this.eMu) {
-                aLo();
+            if (getItemLength() >= this.eQD) {
+                aMQ();
             }
         }
     }
@@ -146,7 +146,7 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
         int childCount = this.mLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.eMv && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
+            if (childAt != this.eQE && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
                 MetaData metaData2 = (MetaData) tag;
                 if (metaData2.getUserName() != null && metaData2.getUserName().equals(metaData.getUserName())) {
                     metaData.setChecked(true);
@@ -165,7 +165,7 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.eMv && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
+            if (childAt != this.eQE && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
                 arrayList.add(name_show);
             }
         }
@@ -177,17 +177,17 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
         View findViewWithTag = this.mLayout.findViewWithTag(metaData);
         if (findViewWithTag != null) {
             this.mLayout.removeView(findViewWithTag);
-            if (!aLp()) {
-                aLn();
+            if (!aMR()) {
+                aMP();
             }
         }
     }
 
-    private HeadImageView aLr() {
+    private HeadImageView aMT() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.aTh, this.mItemHeight);
-        layoutParams.setMargins(this.eMt, 0, 0, 0);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.aUM, this.mItemHeight);
+        layoutParams.setMargins(this.eQC, 0, 0, 0);
         headImageView.setLayoutParams(layoutParams);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         return headImageView;
@@ -195,6 +195,6 @@ public class AtSelectFriendList extends com.baidu.tbadk.core.view.d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getItemLength() {
-        return aLp() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
+        return aMR() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
     }
 }

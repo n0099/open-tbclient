@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static d aAR = null;
+    private static d aCr = null;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -18,7 +18,7 @@ public class d {
     private String g = "loc.map.baidu.com";
     private String h = "dns.map.baidu.com";
     private int i = 0;
-    private a aAS = new a();
+    private a aCs = new a();
 
     /* loaded from: classes.dex */
     private class a extends com.baidu.location.h.f {
@@ -30,7 +30,7 @@ public class d {
         @Override // com.baidu.location.h.f
         public void a() {
             if (d.this.h.equals("dns.map.baidu.com") || System.currentTimeMillis() - d.this.b > 720000) {
-                switch (com.baidu.location.f.c.ur().g()) {
+                switch (com.baidu.location.f.c.vd().g()) {
                     case 1:
                         d.this.h = "111.13.100.247";
                         break;
@@ -138,8 +138,8 @@ public class d {
             if (jSONObject.has("DnsExtraUpdateTime")) {
                 this.d = jSONObject.getLong("DnsExtraUpdateTime");
             }
-            if (jSONObject.has("enable")) {
-                this.i = jSONObject.getInt("enable");
+            if (jSONObject.has(com.baidu.fsg.biometrics.base.b.c.l)) {
+                this.i = jSONObject.getInt(com.baidu.fsg.biometrics.base.b.c.l);
             }
         } catch (Exception e) {
         }
@@ -163,7 +163,7 @@ public class d {
             jSONObject.put("DnsProxyTime", this.b);
             jSONObject.put("DnsExtraTime", this.c);
             jSONObject.put("DnsExtraUpdateTime", this.d);
-            jSONObject.put("enable", this.i);
+            jSONObject.put(com.baidu.fsg.biometrics.base.b.c.l, this.i);
             return jSONObject.toString();
         } catch (Exception e) {
             return null;
@@ -231,11 +231,11 @@ public class d {
         }
     }
 
-    public static d tT() {
-        if (aAR == null) {
-            aAR = new d();
+    public static d uF() {
+        if (aCr == null) {
+            aCr = new d();
         }
-        return aAR;
+        return aCr;
     }
 
     public String b() {
@@ -244,7 +244,7 @@ public class d {
             str = this.g;
         }
         if (System.currentTimeMillis() - this.b > ReportUserInfoModel.TIME_INTERVAL) {
-            this.aAS.b();
+            this.aCs.b();
         }
         return str;
     }

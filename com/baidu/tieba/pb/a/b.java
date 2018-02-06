@@ -4,11 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    public static String aZH() {
+    public static String bbo() {
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_xlarge);
@@ -22,7 +21,7 @@ public class b {
         return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_small);
     }
 
-    public static void aZI() {
+    public static void bbp() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
@@ -34,12 +33,12 @@ public class b {
         }
         if (fontSize != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aZH(), d.f.icon_word_t_size, 0).AJ();
+        BdToast.a(TbadkCoreApplication.getInst(), bbo(), d.f.icon_word_t_size, 0).Bc();
     }
 
-    public static void aZJ() {
+    public static void bbq() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
@@ -51,15 +50,15 @@ public class b {
         }
         if (fontSize != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.a(TbadkCoreApplication.getInst(), aZH(), d.f.icon_word_t_size, 0).AJ();
+        BdToast.a(TbadkCoreApplication.getInst(), bbo(), d.f.icon_word_t_size, 0).Bc();
     }
 
-    public static void sA(int i) {
+    public static void sD(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
     }
 }

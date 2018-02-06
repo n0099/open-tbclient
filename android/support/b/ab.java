@@ -19,7 +19,7 @@ class ab extends p implements ac {
     @Override // android.support.b.ac
     /* renamed from: a */
     public ab b(q qVar) {
-        this.vE.e(((p) qVar).uS);
+        this.vE.e(((p) qVar).uT);
         return this;
     }
 }

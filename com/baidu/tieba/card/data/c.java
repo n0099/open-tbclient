@@ -13,61 +13,61 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ae {
-    private String cXa;
-    private int cXb;
-    private String cXc;
-    private String cXd;
-    private String cXf;
+    private String cZN;
+    private int cZO;
+    private String cZP;
+    private String cZQ;
+    private String cZS;
     private String mSource;
     public String tid;
-    public int cXe = 0;
-    public SparseArray<String> aLY = null;
+    public int cZR = 0;
+    public SparseArray<String> aNr = null;
 
     public void setWeight(String str) {
-        this.cXa = str;
+        this.cZN = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void lH(int i) {
-        this.cXb = i;
+    public void lD(int i) {
+        this.cZO = i;
     }
 
-    public void ko(String str) {
-        this.cXc = str;
+    public void kv(String str) {
+        this.cZP = str;
     }
 
-    public int akS() {
-        return this.cXb;
+    public int alB() {
+        return this.cZO;
     }
 
-    public String akT() {
-        return this.mSource + "#" + this.cXb + "#" + this.cXc;
+    public String alC() {
+        return this.mSource + "#" + this.cZO + "#" + this.cZP;
     }
 
     public String getWeight() {
-        return this.cXa;
+        return this.cZN;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String akU() {
-        return this.cXc;
+    public String alD() {
+        return this.cZP;
     }
 
-    public String akV() {
-        return this.cXd;
+    public String alE() {
+        return this.cZQ;
     }
 
-    public void kp(String str) {
-        this.cXd = str;
+    public void kw(String str) {
+        this.cZQ = str;
     }
 
-    public bd VM() {
+    public bd WE() {
         return null;
     }
 
@@ -76,66 +76,66 @@ public abstract class c extends b implements ae {
     }
 
     public void setExtra(String str) {
-        this.cXf = str;
+        this.cZS = str;
     }
 
     public String getExtra() {
-        return this.cXf;
+        return this.cZS;
     }
 
-    public ak kq(String str) {
-        return t(str, false);
+    public ak kx(String str) {
+        return s(str, false);
     }
 
-    public ak t(String str, boolean z) {
-        bd VM = VM();
-        if (VM == null) {
+    public ak s(String str, boolean z) {
+        bd WE = WE();
+        if (WE == null) {
             return null;
         }
-        ak aa = new ak(str).aa(ImageViewerConfig.FORUM_ID, String.valueOf(VM.getFid())).aa("tid", String.valueOf(VM.getTid())).aa("obj_id", getExtra()).aa("obj_param1", getWeight()).s("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", akS()).aa("uid", TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.k.akx());
+        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WE.getFid())).ab("tid", String.valueOf(WE.getTid())).ab("obj_id", getExtra()).ab("obj_param1", getWeight()).s("obj_param2", 1).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alB()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alg());
         if (!z) {
-            aa.s("obj_type", akW());
+            ab.s("obj_type", alF());
         } else {
-            if (VM.aPa > 0) {
-                aa.s("midpageflag", 1);
+            if (WE.aQu > 0) {
+                ab.s("midpageflag", 1);
             } else {
-                aa.s("midpageflag", 0);
+                ab.s("midpageflag", 0);
             }
-            aa.aa("ab_tag", akU());
+            ab.ab("ab_tag", alD());
         }
-        if (VM.Ah() != null && VM.Ah().bvM() != null && VM.Ah().bvM().QD() != null && VM.Ah().bvM().QD().size() > 0) {
-            aa.s("obj_to", VM.Ah().gZh ? 2 : 1);
+        if (WE.AA() != null && WE.AA().bwX() != null && WE.AA().bwX().Ri() != null && WE.AA().bwX().Ri().size() > 0) {
+            ab.s("obj_to", WE.AA().hbv ? 2 : 1);
         }
-        return aa;
+        return ab;
     }
 
-    public ak W(String str, int i) {
-        bd VM = VM();
-        if (VM == null) {
+    public ak U(String str, int i) {
+        bd WE = WE();
+        if (WE == null) {
             return null;
         }
-        ak aa = new ak(str).aa(ImageViewerConfig.FORUM_ID, String.valueOf(VM.getFid())).aa("tid", String.valueOf(VM.getTid())).s("obj_id", I(VM)).s("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", akS()).aa("obj_name", akU()).aa("uid", TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.k.akx());
+        ak ab = new ak(str).ab(ImageViewerConfig.FORUM_ID, String.valueOf(WE.getFid())).ab("tid", String.valueOf(WE.getTid())).s("obj_id", L(WE)).s("obj_param2", 1).ab("obj_param1", getWeight()).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", alB()).ab("obj_name", alD()).ab("uid", TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", com.baidu.tieba.card.j.alg());
         if (i == 0) {
-            aa.s("obj_type", akW());
+            ab.s("obj_type", alF());
         } else {
-            aa.s("obj_type", i);
+            ab.s("obj_type", i);
         }
-        aa.aa("obj_id", getExtra());
-        return aa;
+        ab.ab("obj_id", getExtra());
+        return ab;
     }
 
-    private int akW() {
+    private int alF() {
         int i;
         int i2 = 0;
-        bd VM = VM();
-        if (VM == null) {
+        bd WE = WE();
+        if (WE == null) {
             return 0;
         }
-        ArrayList<MediaData> ze = VM.ze();
-        if (ze == null) {
+        ArrayList<MediaData> zy = WE.zy();
+        if (zy == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = ze.iterator();
+            Iterator<MediaData> it = zy.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -153,17 +153,17 @@ public abstract class c extends b implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bd VM = VM();
-        if (VM != null) {
-            return VM.getImages();
+        bd WE = WE();
+        if (WE != null) {
+            return WE.getImages();
         }
         return null;
     }
 
-    private int I(bd bdVar) {
-        if (bdVar.zV() == null || bdVar.zV().channelId <= 0) {
+    private int L(bd bdVar) {
+        if (bdVar.Ao() == null || bdVar.Ao().channelId <= 0) {
             return 0;
         }
-        return (int) bdVar.zV().channelId;
+        return (int) bdVar.Ao().channelId;
     }
 }

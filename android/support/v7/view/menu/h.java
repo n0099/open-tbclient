@@ -20,7 +20,7 @@ public class h extends f implements SubMenu {
     @Override // android.support.v7.view.menu.b
     /* renamed from: fd */
     public SupportSubMenu getWrappedObject() {
-        return (SupportSubMenu) this.HO;
+        return (SupportSubMenu) this.HN;
     }
 
     @Override // android.view.SubMenu

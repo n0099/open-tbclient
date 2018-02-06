@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
     private ArrayList<RecommendForumData> mRecommendForumData;
     private bi news_info;
     private String slogan;
+    public String special_forum_type;
     private String tag_color;
     private String tag_id;
     private bf top_code;
@@ -96,6 +98,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
         this.yuleData = new bm();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
+        this.special_forum_type = null;
     }
 
     public AnchorPower getAnchorPower() {
@@ -417,6 +420,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
                 this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
                 this.forumGameLabel = forumInfo.forum_game_label;
                 this.warning_msg = forumInfo.warning_msg;
+                this.special_forum_type = forumInfo.special_forum_type;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -571,6 +575,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
                     BdLog.e(e7.getMessage());
                 }
                 this.forumGameLabel = jSONObject.optString("forum_game_label");
+                this.special_forum_type = jSONObject.optString(AlaMasterLiveRoomActivityConfig.SPECIAL_FORIM_TYPE);
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }
@@ -695,5 +700,9 @@ public class ForumData implements com.baidu.tbadk.core.util.ae, Serializable {
 
     public String getForumGameLabel() {
         return this.forumGameLabel;
+    }
+
+    public String getSpecialForumType() {
+        return this.special_forum_type;
     }
 }

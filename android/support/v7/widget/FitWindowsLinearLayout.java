@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsViewGroup {
-    private FitWindowsViewGroup.OnFitSystemWindowsListener OQ;
+    private FitWindowsViewGroup.OnFitSystemWindowsListener OP;
 
     public FitWindowsLinearLayout(Context context) {
         super(context);
@@ -21,13 +21,13 @@ public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsVi
 
     @Override // android.support.v7.widget.FitWindowsViewGroup
     public void setOnFitSystemWindowsListener(FitWindowsViewGroup.OnFitSystemWindowsListener onFitSystemWindowsListener) {
-        this.OQ = onFitSystemWindowsListener;
+        this.OP = onFitSystemWindowsListener;
     }
 
     @Override // android.view.View
     protected boolean fitSystemWindows(Rect rect) {
-        if (this.OQ != null) {
-            this.OQ.onFitSystemWindows(rect);
+        if (this.OP != null) {
+            this.OP.onFitSystemWindows(rect);
         }
         return super.fitSystemWindows(rect);
     }

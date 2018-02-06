@@ -13,6 +13,9 @@ import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.utils.PhoneUtils;
+import com.baidu.fsg.biometrics.base.b.c;
+import com.baidu.fsg.biometrics.base.d.h;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
@@ -79,15 +82,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0054a {
+    public static class C0079a {
         public static a a = new a();
 
-        private C0054a() {
+        private C0079a() {
         }
     }
 
     public static a a() {
-        return C0054a.a;
+        return C0079a.a;
     }
 
     a() {
@@ -97,7 +100,7 @@ public class a {
         this.d = IPassPi.class.getClassLoader();
         this.e = new HashMap();
         this.f = new HashMap();
-        String str = this.c.getDir("files", 0).getAbsolutePath() + File.separator + ".tmp" + File.separator + "temp.db" + File.separator;
+        String str = this.c.getDir(c.g, 0).getAbsolutePath() + File.separator + ".tmp" + File.separator + "temp.db" + File.separator;
         this.g = str + ".p00";
         this.h = str + ".p11";
         this.i = str + ".p22";
@@ -262,7 +265,7 @@ public class a {
                             Iterator it2 = arrayList2.iterator();
                             while (it2.hasNext()) {
                                 FileUtil.deleteFile((String) it2.next());
-                                FileUtil.deleteFile(this.i + str.substring(str.lastIndexOf("/"), str.lastIndexOf(".")) + ".dex");
+                                FileUtil.deleteFile(this.i + str.substring(str.lastIndexOf("/"), str.lastIndexOf(com.baidu.ar.util.Constants.DOT)) + ".dex");
                             }
                         }
                     }
@@ -328,8 +331,9 @@ public class a {
                                 this.l++;
                                 if (next != null) {
                                     new AsyncHttpClient().get(this.c, next.url, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", "application/vnd.android.package-archive"}) { // from class: com.baidu.sapi2.passhost.framework.a.3
+                                        /* JADX INFO: Access modifiers changed from: protected */
                                         @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
-                                        protected void onSuccess(int i, byte[] bArr) {
+                                        public void onSuccess(int i, byte[] bArr) {
                                             a.this.a(next, bArr);
                                         }
 
@@ -450,7 +454,7 @@ public class a {
             Log.e(a, "loadPassPi()", "name", passPiInfo.name, Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), "ver", passPiInfo.version, "piContext == null");
             return null;
         }
-        a(passPiInfo.filePath, "armeabi", this.h);
+        a(passPiInfo.filePath, h.a, this.h);
         a(passPiInfo.filePath, h(), this.h);
         a(a2);
         if (z) {
@@ -790,9 +794,9 @@ public class a {
                         }
                         str2 = "none";
                         Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-                        if (!str.equals("armeabi")) {
+                        if (!str.equals(h.a)) {
                         }
-                        return "armeabi";
+                        return h.a;
                     } catch (Throwable th) {
                         th = th;
                         fileReader = fileReader2;
@@ -841,25 +845,28 @@ public class a {
                 Log.w(a, "getCpuType() abi2", e7.toString());
             }
             Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-            if (!str.equals("armeabi") || str2.equals("armeabi")) {
-                return "armeabi";
+            if (!str.equals(h.a) || str2.equals(h.a)) {
+                return h.a;
             }
-            if (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a") || strArr[0].toLowerCase().contains("armv7")) {
-                return "armeabi-v7a";
+            if (str.equals(h.b) || str2.equals(h.b)) {
+                return h.b;
+            }
+            if (strArr[0].toLowerCase().contains(PhoneUtils.CPUInfo.PROCESSOR_ARMV7)) {
+                return h.b;
             }
             if (strArr[0].toLowerCase().contains("arm")) {
-                return "armeabi";
+                return h.a;
             }
             if (strArr[0].toLowerCase().contains("mips")) {
                 return "mips";
             }
-            return "x86";
+            return h.c;
         }
         str2 = "none";
         Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-        if (!str.equals("armeabi")) {
+        if (!str.equals(h.a)) {
         }
-        return "armeabi";
+        return h.a;
     }
 
     private String a(PassPiInfo passPiInfo) {

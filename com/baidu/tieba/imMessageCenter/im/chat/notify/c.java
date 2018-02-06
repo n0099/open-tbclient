@@ -3,41 +3,19 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes2.dex */
 public class c {
-    public static boolean qF(int i) {
-        switch (i) {
-            case 0:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GM() && !com.baidu.tbadk.coreExtra.messageCenter.b.GE().GT()) {
-                    return false;
-                }
-                return true;
-            case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GL()) {
-                    return false;
-                }
-                return true;
-            case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.b.GE().GJ()) {
-                    return false;
-                }
-                return true;
-            default:
-                return true;
-        }
-    }
-
     public static int a(NewsNotifyMessage newsNotifyMessage) {
-        int i;
-        int i2;
+        int msgChat;
+        int msgStrangerChat;
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (qF(0)) {
-            i2 = newsNotifyMessage.getMsgChat();
-            i = newsNotifyMessage.getMsgStrangerChat();
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hy() || com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HF()) {
+            msgChat = newsNotifyMessage.getMsgChat();
+            msgStrangerChat = newsNotifyMessage.getMsgStrangerChat();
         } else {
-            i = 0;
-            i2 = 0;
+            msgStrangerChat = 0;
+            msgChat = 0;
         }
-        return ((qF(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (qF(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HG() ? newsNotifyMessage.getMsgAgree() : 0) + ((msgChat + (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hx() ? newsNotifyMessage.getMsgReplyme() : 0)) + (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hv() ? newsNotifyMessage.getMsgAtme() : 0))) - msgStrangerChat;
     }
 }

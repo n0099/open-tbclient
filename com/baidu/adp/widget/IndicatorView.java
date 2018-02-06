@@ -12,10 +12,10 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean auu;
-    private int auv;
-    private float auw;
-    private final f aux;
+    private boolean aup;
+    private int auq;
+    private float aur;
+    private final f aus;
     private int mCount;
     private float mPosition;
     private Drawable mSelector;
@@ -31,9 +31,9 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aux = new a();
+        this.aus = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.auv = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.auq = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
         this.wz = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
         if (this.wz != null) {
@@ -43,21 +43,21 @@ public class IndicatorView extends View {
         if (this.mSelector != null) {
             this.mSelector.setBounds(0, 0, this.mSelector.getIntrinsicWidth(), this.mSelector.getIntrinsicHeight());
         }
-        this.auu = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.aup = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.aux.measure(i, i2);
+        this.aus.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.aux.draw(canvas);
+        this.aus.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.auu = z;
+        this.aup = z;
     }
 
     public void setDrawable(Drawable drawable) {
@@ -81,13 +81,13 @@ public class IndicatorView extends View {
     }
 
     public void setSpacing(int i) {
-        this.auv = i;
+        this.auq = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.auv;
+        return this.auq;
     }
 
     public int getCount() {
@@ -112,16 +112,16 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements f {
-        private long auA;
-        private int auB;
-        private float auC;
-        private boolean auD;
-        private final HandlerC0026a auE = new HandlerC0026a();
-        private final int auy;
-        private long auz;
+        private final int aut;
+        private long auu;
+        private long auv;
+        private int auw;
+        private float aux;
+        private boolean auy;
+        private final HandlerC0026a auz = new HandlerC0026a();
 
         a() {
-            this.auy = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.aut = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.f
@@ -138,7 +138,7 @@ public class IndicatorView extends View {
         private int dD(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = (IndicatorView.this.auv * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.wz.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
+            int max = (IndicatorView.this.auq * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.wz.getIntrinsicWidth(), IndicatorView.this.mSelector.getIntrinsicWidth()) * IndicatorView.this.mCount);
             switch (i2) {
                 case Integer.MIN_VALUE:
                     int min = Math.min(i3, max);
@@ -150,7 +150,7 @@ public class IndicatorView extends View {
                     IndicatorView.this.mSelector.setBounds(0, 0, IndicatorView.this.mSelector.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.auv * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
+                    int i4 = (int) ((i3 - (IndicatorView.this.auq * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
                     IndicatorView.this.mSelector.setBounds(0, 0, i4, IndicatorView.this.mSelector.getBounds().height());
                     IndicatorView.this.wz.setBounds(0, 0, i4, IndicatorView.this.wz.getBounds().height());
                     return i3;
@@ -187,13 +187,13 @@ public class IndicatorView extends View {
             int save = canvas.save();
             for (int i = 0; i < IndicatorView.this.mCount; i++) {
                 if (i != 0) {
-                    canvas.translate(IndicatorView.this.wz.getBounds().width() + IndicatorView.this.auv, 0.0f);
+                    canvas.translate(IndicatorView.this.wz.getBounds().width() + IndicatorView.this.auq, 0.0f);
                 }
                 IndicatorView.this.wz.draw(canvas);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.auv) * IndicatorView.this.mPosition, 0.0f);
+            canvas.translate((IndicatorView.this.mSelector.getBounds().width() + IndicatorView.this.auq) * IndicatorView.this.mPosition, 0.0f);
             IndicatorView.this.mSelector.draw(canvas);
             canvas.restoreToCount(save2);
         }
@@ -201,25 +201,25 @@ public class IndicatorView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         public void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.auC = ((((float) (uptimeMillis - this.auz)) / 1000.0f) * this.auB) + this.auC;
-            this.auz = uptimeMillis;
-            this.auA = this.auz + 16;
-            if (this.auB < 0) {
-                if (this.auC < IndicatorView.this.auw) {
-                    IndicatorView.this.mPosition = IndicatorView.this.auw;
-                    this.auD = false;
+            this.aux = ((((float) (uptimeMillis - this.auu)) / 1000.0f) * this.auw) + this.aux;
+            this.auu = uptimeMillis;
+            this.auv = this.auu + 16;
+            if (this.auw < 0) {
+                if (this.aux < IndicatorView.this.aur) {
+                    IndicatorView.this.mPosition = IndicatorView.this.aur;
+                    this.auy = false;
                 } else {
-                    IndicatorView.this.mPosition = this.auC;
-                    this.auE.removeMessages(1000);
-                    this.auE.sendEmptyMessageAtTime(1000, this.auA);
+                    IndicatorView.this.mPosition = this.aux;
+                    this.auz.removeMessages(1000);
+                    this.auz.sendEmptyMessageAtTime(1000, this.auv);
                 }
-            } else if (this.auC > IndicatorView.this.auw) {
-                IndicatorView.this.mPosition = IndicatorView.this.auw;
-                this.auD = false;
+            } else if (this.aux > IndicatorView.this.aur) {
+                IndicatorView.this.mPosition = IndicatorView.this.aur;
+                this.auy = false;
             } else {
-                IndicatorView.this.mPosition = this.auC;
-                this.auE.removeMessages(1000);
-                this.auE.sendEmptyMessageAtTime(1000, this.auA);
+                IndicatorView.this.mPosition = this.aux;
+                this.auz.removeMessages(1000);
+                this.auz.sendEmptyMessageAtTime(1000, this.auv);
             }
             IndicatorView.this.invalidate();
         }

@@ -25,6 +25,7 @@ import com.baidu.android.pushservice.j.p;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.richmedia.MediaViewActivity;
 import com.baidu.android.pushservice.richmedia.c;
+import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.concurrent.locks.ReentrantLock;
@@ -101,7 +102,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(str2) || str2.length() <= 0) {
                 return;
             }
-            String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(".")) + "/index.html";
+            String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(Constants.DOT)) + "/index.html";
             Intent intent = new Intent();
             intent.setClass(this.a, MediaViewActivity.class);
             int A = p.A(this.a, this.a.getPackageName());
@@ -251,14 +252,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.setClassName(str, str2);
         intent.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent.putExtra("public_msg", publicMsg);
-        intent.putExtra("app_id", str3);
+        intent.putExtra(Constants.HTTP_APP_ID, str3);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 0);
         Intent intent2 = new Intent();
         intent2.setClassName(str, str2);
         intent2.setAction("com.baidu.android.pushservice.action.media.DELETE");
         intent2.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent2.putExtra("public_msg", publicMsg);
-        intent2.putExtra("app_id", str3);
+        intent2.putExtra(Constants.HTTP_APP_ID, str3);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         Notification a2 = d.a(context, 8888, publicMsg.mTitle, "富媒体消息：点击后下载与查看", p.q(context, publicMsg.mPkgName));
         a2.contentIntent = service;
@@ -274,7 +275,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");
         intent.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent.putExtra("public_msg", publicMsg);
-        intent.putExtra("app_id", publicMsg.mAppId);
+        intent.putExtra(Constants.HTTP_APP_ID, publicMsg.mAppId);
         intent.putExtra("msg_id", publicMsg.mMsgId);
         intent.putExtra("baidu_message_secur_info", bArr);
         intent.putExtra("baidu_message_body", bArr2);
@@ -284,7 +285,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.setAction("com.baidu.android.pushservice.action.privatenotification.DELETE");
         intent2.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent2.putExtra("public_msg", publicMsg);
-        intent2.putExtra("app_id", publicMsg.mAppId);
+        intent2.putExtra(Constants.HTTP_APP_ID, publicMsg.mAppId);
         intent2.putExtra("msg_id", publicMsg.mMsgId);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         boolean q = p.q(context, publicMsg.mPkgName);
@@ -325,7 +326,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 final String stringExtra = intent.getStringExtra("pushService_package_name");
                 final String stringExtra2 = intent.getStringExtra("service_name");
                 final String stringExtra3 = intent.getStringExtra("notify_type");
-                final String stringExtra4 = intent.getStringExtra("app_id");
+                final String stringExtra4 = intent.getStringExtra(Constants.HTTP_APP_ID);
                 final byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
                 final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
                 int intExtra = intent.getIntExtra("baidu_message_type", -1);

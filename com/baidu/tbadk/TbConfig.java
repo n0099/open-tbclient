@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
+import com.baidu.ar.util.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
@@ -27,6 +28,7 @@ public class TbConfig {
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
+    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
@@ -75,10 +77,6 @@ public class TbConfig {
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
-    public static final String COOKER_BET = "c/u/game/submit/mbet";
-    public static final String COOKER_GAME_RESULT = "c/u/game/submit/getgambleresult";
-    public static final String COOKER_RANK_LIST = "c/u/game/smRank";
-    public static final String COOKER_RESULT_RECORD = "c/u/game/resultrecord";
     public static final String CREATE_BOOK_PAY_ORDER = "c/c/encourage/tbread/createPayOrder";
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
@@ -275,16 +273,13 @@ public class TbConfig {
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
     public static final int NEW_FRAME_MUTI_IMAGE_MAX_COUNT = 10;
+    public static final int NOTIFY_AGREE_ME_ID = 29;
     public static final int NOTIFY_AT_ME_ID = 25;
     public static final int NOTIFY_CHAT_ID = 16;
     public static final int NOTIFY_FANS_NEW_ID = 26;
     public static final int NOTIFY_GIFT_ID = 23;
     public static final int NOTIFY_GROUP_EVENT = 18;
     public static final int NOTIFY_GROUP_ID = 17;
-    public static final int NOTIFY_LIVE_GROUP_END_EVENT = 22;
-    public static final int NOTIFY_LIVE_GROUP_EVENT = 20;
-    public static final int NOTIFY_LIVE_NOTIFY = 21;
-    public static final int NOTIFY_LIVING_VIP = 27;
     public static final int NOTIFY_MY_COLLECT_UPDATE = 28;
     public static final int NOTIFY_OFFICIAL_MESSAGE = 19;
     public static final int NOTIFY_PLUGIN_INSTALLING = 1000;
@@ -304,6 +299,7 @@ public class TbConfig {
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 427;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
+    public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
     public static final float PB_IMAGE_NEW_SCALE = 1.6f;
     public static final String PB_MORE_GOD_REPLY_URL = "/c/f/pb/getPostList";
     public static final int PB_PHOTO_MAX_SIZE = 80;
@@ -402,8 +398,6 @@ public class TbConfig {
     public static final String TMP_SHARE_DIR_NAME = "share";
     public static final String TMP_VOI_DIR_NAME = "voice";
     public static final String TOP_THEME_LIST_PAGE = "c/e/theme/getSkinByCategory";
-    public static final String TRAFFIC_MAIN_PROCESS = "traffic_main_process";
-    public static final String TRAFFIC_NATIVE_MEMORY = "traffic_native_memory";
     public static final int TYPE_DAILY_BUILD = 1;
     public static final int TYPE_GRAY_BUILD = 2;
     public static final int TYPE_RELEASE_BUILD = 3;
@@ -418,7 +412,7 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
-    public static final String URL_BAIDU_SINGKIL = "https://jing.baidu.com/h5/bdcard.html?channel=7&from=singlemessage&isappinstalled=0";
+    public static final String URL_BAIDU_SINGKIL = "https://jing.baidu.com/h5/bdprivilege.html?channel=7";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
@@ -499,8 +493,7 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
-    public static long MILLS_7DAYS = APP_OVERDUR_DRAFT_BOX;
+    public static long MILLS_7DAYS = 604800000;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
@@ -513,10 +506,10 @@ public class TbConfig {
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
+    private static String CRIUS_LIB_VERSION = "1.0";
     private static String SUBAPP_TYPE = "";
     private static String FROM = null;
-    public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
-    private static int THREAD_IMAGE_MAX_WIDTH = PB_IMAGE_NEW_MAX_WIDTH;
+    private static int THREAD_IMAGE_MAX_WIDTH = 640;
     private static boolean sThreadImageMaxInited = false;
     public static final String TRANSFER_PICTURE_ID = SERVER_ADDRESS + "c/c/img/transferUrl2Pid";
     public static final String GET_AUTHORIZE_ID = SERVER_ADDRESS + "c/s/uidTransform";
@@ -539,18 +532,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.s(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -597,7 +590,7 @@ public class TbConfig {
 
     public static String getFullVersion() {
         String version = getVersion();
-        return version + "." + getSubVersion();
+        return version + Constants.DOT + getSubVersion();
     }
 
     public static String getLegoLibVersion() {
@@ -606,6 +599,14 @@ public class TbConfig {
 
     public static void setLegoLibVersion(String str) {
         LEGO_LIB_VERSION = str;
+    }
+
+    public static String getCriusLibVersion() {
+        return CRIUS_LIB_VERSION;
+    }
+
+    public static void setCriusLibVersion(String str) {
+        CRIUS_LIB_VERSION = str;
     }
 
     public static String getVersion() {
@@ -653,11 +654,8 @@ public class TbConfig {
     }
 
     public static int initPbImageSize(Context context) {
-        int i = PB_IMAGE_NEW_MAX_WIDTH;
         int dip2px = l.dip2px(context, 427.0f);
-        if (dip2px <= 640) {
-            i = dip2px;
-        }
+        int i = dip2px <= 640 ? dip2px : 640;
         BIG_IMAGE_SIZE = (int) (i * i * 1.6f * 2.0f);
         return BIG_IMAGE_SIZE;
     }
@@ -682,7 +680,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.LR().hX(i);
+            c.Mx().hV(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

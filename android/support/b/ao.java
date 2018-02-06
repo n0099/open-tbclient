@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 abstract class ao extends z {
-    private static final String[] uy = {"android:visibility:visibility", "android:visibility:parent"};
+    private static final String[] uz = {"android:visibility:visibility", "android:visibility:parent"};
 
     @Override // android.support.b.z
     public String[] getTransitionProperties() {
-        return uy;
+        return uz;
     }
 
     private void a(af afVar) {
@@ -89,7 +89,7 @@ abstract class ao extends z {
         boolean z = false;
         a a2 = a(afVar, afVar2);
         if (a2.vV) {
-            if (this.vl.size() > 0 || this.vk.size() > 0) {
+            if (this.vm.size() > 0 || this.vl.size() > 0) {
                 View view = afVar != null ? afVar.view : null;
                 View view2 = afVar2 != null ? afVar2.view : null;
                 z = a(view, (long) (view != null ? view.getId() : -1)) || a(view2, (long) (view2 != null ? view2.getId() : -1));

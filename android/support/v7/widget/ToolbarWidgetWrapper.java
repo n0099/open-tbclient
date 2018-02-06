@@ -27,39 +27,39 @@ import android.widget.SpinnerAdapter;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ToolbarWidgetWrapper implements DecorToolbar {
-    Window.Callback DR;
-    private int XZ;
-    private View Ya;
-    private Spinner Yb;
+    Window.Callback DQ;
+    private int XY;
+    private View XZ;
+    private Spinner Ya;
+    private Drawable Yb;
     private Drawable Yc;
-    private Drawable Yd;
-    private boolean Ye;
-    private CharSequence Yf;
-    boolean Yg;
+    private boolean Yd;
+    private CharSequence Ye;
+    boolean Yf;
+    private int Yg;
     private int Yh;
-    private int Yi;
-    private Drawable Yj;
+    private Drawable Yi;
     private ActionMenuPresenter mActionMenuPresenter;
     private View mCustomView;
     private Drawable mIcon;
     CharSequence mTitle;
     Toolbar mZ;
-    private CharSequence ym;
+    private CharSequence yl;
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
         this(toolbar, z, R.string.abc_action_bar_up_description, R.drawable.abc_ic_ab_back_material);
     }
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i, int i2) {
+        this.Yg = 0;
         this.Yh = 0;
-        this.Yi = 0;
         this.mZ = toolbar;
         this.mTitle = toolbar.getTitle();
-        this.ym = toolbar.getSubtitle();
-        this.Ye = this.mTitle != null;
-        this.Yd = toolbar.getNavigationIcon();
+        this.yl = toolbar.getSubtitle();
+        this.Yd = this.mTitle != null;
+        this.Yc = toolbar.getNavigationIcon();
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(toolbar.getContext(), null, R.styleable.ActionBar, R.attr.actionBarStyle, 0);
-        this.Yj = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_homeAsUpIndicator);
+        this.Yi = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_homeAsUpIndicator);
         if (z) {
             CharSequence text = obtainStyledAttributes.getText(R.styleable.ActionBar_title);
             if (!TextUtils.isEmpty(text)) {
@@ -77,14 +77,14 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             if (drawable2 != null) {
                 setIcon(drawable2);
             }
-            if (this.Yd == null && this.Yj != null) {
-                setNavigationIcon(this.Yj);
+            if (this.Yc == null && this.Yi != null) {
+                setNavigationIcon(this.Yi);
             }
             setDisplayOptions(obtainStyledAttributes.getInt(R.styleable.ActionBar_displayOptions, 0));
             int resourceId = obtainStyledAttributes.getResourceId(R.styleable.ActionBar_customNavigationLayout, 0);
             if (resourceId != 0) {
                 setCustomView(LayoutInflater.from(this.mZ.getContext()).inflate(resourceId, (ViewGroup) this.mZ, false));
-                setDisplayOptions(this.XZ | 16);
+                setDisplayOptions(this.XY | 16);
             }
             int layoutDimension = obtainStyledAttributes.getLayoutDimension(R.styleable.ActionBar_height, 0);
             if (layoutDimension > 0) {
@@ -110,22 +110,22 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                 this.mZ.setPopupTheme(resourceId4);
             }
         } else {
-            this.XZ = iy();
+            this.XY = iy();
         }
         obtainStyledAttributes.recycle();
         setDefaultNavigationContentDescription(i);
-        this.Yf = this.mZ.getNavigationContentDescription();
+        this.Ye = this.mZ.getNavigationContentDescription();
         this.mZ.setNavigationOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ToolbarWidgetWrapper.1
-            final ActionMenuItem Yk;
+            final ActionMenuItem Yj;
 
             {
-                this.Yk = new ActionMenuItem(ToolbarWidgetWrapper.this.mZ.getContext(), 0, 16908332, 0, 0, ToolbarWidgetWrapper.this.mTitle);
+                this.Yj = new ActionMenuItem(ToolbarWidgetWrapper.this.mZ.getContext(), 0, 16908332, 0, 0, ToolbarWidgetWrapper.this.mTitle);
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ToolbarWidgetWrapper.this.DR != null && ToolbarWidgetWrapper.this.Yg) {
-                    ToolbarWidgetWrapper.this.DR.onMenuItemSelected(0, this.Yk);
+                if (ToolbarWidgetWrapper.this.DQ != null && ToolbarWidgetWrapper.this.Yf) {
+                    ToolbarWidgetWrapper.this.DQ.onMenuItemSelected(0, this.Yj);
                 }
             }
         });
@@ -133,10 +133,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setDefaultNavigationContentDescription(int i) {
-        if (i != this.Yi) {
-            this.Yi = i;
+        if (i != this.Yh) {
+            this.Yh = i;
             if (TextUtils.isEmpty(this.mZ.getNavigationContentDescription())) {
-                setNavigationContentDescription(this.Yi);
+                setNavigationContentDescription(this.Yh);
             }
         }
     }
@@ -145,7 +145,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         if (this.mZ.getNavigationIcon() == null) {
             return 11;
         }
-        this.Yj = this.mZ.getNavigationIcon();
+        this.Yi = this.mZ.getNavigationIcon();
         return 15;
     }
 
@@ -171,12 +171,12 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setWindowCallback(Window.Callback callback) {
-        this.DR = callback;
+        this.DQ = callback;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setWindowTitle(CharSequence charSequence) {
-        if (!this.Ye) {
+        if (!this.Yd) {
             m(charSequence);
         }
     }
@@ -188,13 +188,13 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setTitle(CharSequence charSequence) {
-        this.Ye = true;
+        this.Yd = true;
         m(charSequence);
     }
 
     private void m(CharSequence charSequence) {
         this.mTitle = charSequence;
-        if ((this.XZ & 8) != 0) {
+        if ((this.XY & 8) != 0) {
             this.mZ.setTitle(charSequence);
         }
     }
@@ -206,8 +206,8 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setSubtitle(CharSequence charSequence) {
-        this.ym = charSequence;
-        if ((this.XZ & 8) != 0) {
+        this.yl = charSequence;
+        if ((this.XY & 8) != 0) {
             this.mZ.setSubtitle(charSequence);
         }
     }
@@ -229,7 +229,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public boolean hasLogo() {
-        return this.Yc != null;
+        return this.Yb != null;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
@@ -250,15 +250,15 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setLogo(Drawable drawable) {
-        this.Yc = drawable;
+        this.Yb = drawable;
         iz();
     }
 
     private void iz() {
         Drawable drawable = null;
-        if ((this.XZ & 2) != 0) {
-            if ((this.XZ & 1) != 0) {
-                drawable = this.Yc != null ? this.Yc : this.mIcon;
+        if ((this.XY & 2) != 0) {
+            if ((this.XY & 1) != 0) {
+                drawable = this.Yb != null ? this.Yb : this.mIcon;
             } else {
                 drawable = this.mIcon;
             }
@@ -293,7 +293,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setMenuPrepared() {
-        this.Yg = true;
+        this.Yf = true;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
@@ -313,13 +313,13 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public int getDisplayOptions() {
-        return this.XZ;
+        return this.XY;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setDisplayOptions(int i) {
-        int i2 = this.XZ ^ i;
-        this.XZ = i;
+        int i2 = this.XY ^ i;
+        this.XY = i;
         if (i2 != 0) {
             if ((i2 & 4) != 0) {
                 if ((i & 4) != 0) {
@@ -333,7 +333,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             if ((i2 & 8) != 0) {
                 if ((i & 8) != 0) {
                     this.mZ.setTitle(this.mTitle);
-                    this.mZ.setSubtitle(this.ym);
+                    this.mZ.setSubtitle(this.yl);
                 } else {
                     this.mZ.setTitle((CharSequence) null);
                     this.mZ.setSubtitle((CharSequence) null);
@@ -351,13 +351,13 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setEmbeddedTabView(ScrollingTabContainerView scrollingTabContainerView) {
-        if (this.Ya != null && this.Ya.getParent() == this.mZ) {
-            this.mZ.removeView(this.Ya);
+        if (this.XZ != null && this.XZ.getParent() == this.mZ) {
+            this.mZ.removeView(this.XZ);
         }
-        this.Ya = scrollingTabContainerView;
-        if (scrollingTabContainerView != null && this.Yh == 2) {
-            this.mZ.addView(this.Ya, 0);
-            Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.Ya.getLayoutParams();
+        this.XZ = scrollingTabContainerView;
+        if (scrollingTabContainerView != null && this.Yg == 2) {
+            this.mZ.addView(this.XZ, 0);
+            Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.XZ.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 8388691;
@@ -367,7 +367,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public boolean hasEmbeddedTabs() {
-        return this.Ya != null;
+        return this.XZ != null;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
@@ -386,39 +386,39 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public int getNavigationMode() {
-        return this.Yh;
+        return this.Yg;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setNavigationMode(int i) {
-        int i2 = this.Yh;
+        int i2 = this.Yg;
         if (i != i2) {
             switch (i2) {
                 case 1:
-                    if (this.Yb != null && this.Yb.getParent() == this.mZ) {
-                        this.mZ.removeView(this.Yb);
-                        break;
-                    }
-                    break;
-                case 2:
                     if (this.Ya != null && this.Ya.getParent() == this.mZ) {
                         this.mZ.removeView(this.Ya);
                         break;
                     }
                     break;
+                case 2:
+                    if (this.XZ != null && this.XZ.getParent() == this.mZ) {
+                        this.mZ.removeView(this.XZ);
+                        break;
+                    }
+                    break;
             }
-            this.Yh = i;
+            this.Yg = i;
             switch (i) {
                 case 0:
                     return;
                 case 1:
                     iA();
-                    this.mZ.addView(this.Yb, 0);
+                    this.mZ.addView(this.Ya, 0);
                     return;
                 case 2:
-                    if (this.Ya != null) {
-                        this.mZ.addView(this.Ya, 0);
-                        Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.Ya.getLayoutParams();
+                    if (this.XZ != null) {
+                        this.mZ.addView(this.XZ, 0);
+                        Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.XZ.getLayoutParams();
                         layoutParams.width = -2;
                         layoutParams.height = -2;
                         layoutParams.gravity = 8388691;
@@ -432,50 +432,50 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     private void iA() {
-        if (this.Yb == null) {
-            this.Yb = new AppCompatSpinner(getContext(), null, R.attr.actionDropDownStyle);
-            this.Yb.setLayoutParams(new Toolbar.LayoutParams(-2, -2, 8388627));
+        if (this.Ya == null) {
+            this.Ya = new AppCompatSpinner(getContext(), null, R.attr.actionDropDownStyle);
+            this.Ya.setLayoutParams(new Toolbar.LayoutParams(-2, -2, 8388627));
         }
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setDropdownParams(SpinnerAdapter spinnerAdapter, AdapterView.OnItemSelectedListener onItemSelectedListener) {
         iA();
-        this.Yb.setAdapter(spinnerAdapter);
-        this.Yb.setOnItemSelectedListener(onItemSelectedListener);
+        this.Ya.setAdapter(spinnerAdapter);
+        this.Ya.setOnItemSelectedListener(onItemSelectedListener);
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setDropdownSelectedPosition(int i) {
-        if (this.Yb == null) {
+        if (this.Ya == null) {
             throw new IllegalStateException("Can't set dropdown selected position without an adapter");
         }
-        this.Yb.setSelection(i);
+        this.Ya.setSelection(i);
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public int getDropdownSelectedPosition() {
-        if (this.Yb != null) {
-            return this.Yb.getSelectedItemPosition();
+        if (this.Ya != null) {
+            return this.Ya.getSelectedItemPosition();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public int getDropdownItemCount() {
-        if (this.Yb != null) {
-            return this.Yb.getCount();
+        if (this.Ya != null) {
+            return this.Ya.getCount();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setCustomView(View view) {
-        if (this.mCustomView != null && (this.XZ & 16) != 0) {
+        if (this.mCustomView != null && (this.XY & 16) != 0) {
             this.mZ.removeView(this.mCustomView);
         }
         this.mCustomView = view;
-        if (view != null && (this.XZ & 16) != 0) {
+        if (view != null && (this.XY & 16) != 0) {
             this.mZ.addView(this.mCustomView);
         }
     }
@@ -519,7 +519,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setNavigationIcon(Drawable drawable) {
-        this.Yd = drawable;
+        this.Yc = drawable;
         iB();
     }
 
@@ -530,15 +530,15 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setDefaultNavigationIcon(Drawable drawable) {
-        if (this.Yj != drawable) {
-            this.Yj = drawable;
+        if (this.Yi != drawable) {
+            this.Yi = drawable;
             iB();
         }
     }
 
     private void iB() {
-        if ((this.XZ & 4) != 0) {
-            this.mZ.setNavigationIcon(this.Yd != null ? this.Yd : this.Yj);
+        if ((this.XY & 4) != 0) {
+            this.mZ.setNavigationIcon(this.Yc != null ? this.Yc : this.Yi);
         } else {
             this.mZ.setNavigationIcon((Drawable) null);
         }
@@ -546,7 +546,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void setNavigationContentDescription(CharSequence charSequence) {
-        this.Yf = charSequence;
+        this.Ye = charSequence;
         iC();
     }
 
@@ -556,11 +556,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     private void iC() {
-        if ((this.XZ & 4) != 0) {
-            if (TextUtils.isEmpty(this.Yf)) {
-                this.mZ.setNavigationContentDescription(this.Yi);
+        if ((this.XY & 4) != 0) {
+            if (TextUtils.isEmpty(this.Ye)) {
+                this.mZ.setNavigationContentDescription(this.Yh);
             } else {
-                this.mZ.setNavigationContentDescription(this.Yf);
+                this.mZ.setNavigationContentDescription(this.Ye);
             }
         }
     }

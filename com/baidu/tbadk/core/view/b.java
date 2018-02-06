@@ -12,69 +12,113 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private TbPageContext<?> aQs;
-    private AlertDialog aXZ;
-    private DialogInterface.OnCancelListener aYb;
+    private TbPageContext<?> aRR;
+    private AlertDialog aZI;
+    private DialogInterface.OnCancelListener aZK;
     private Activity mActivity;
-    private String aYa = null;
-    private TextView aQK = null;
+    private String aZJ = null;
+    private TextView aSj = null;
+    private boolean aZL = true;
 
     public b(TbPageContext<?> tbPageContext) {
-        this.aQs = null;
+        this.aRR = null;
         this.mActivity = null;
-        this.aQs = tbPageContext;
-        if (this.aQs != null && this.aQs.getPageActivity() != null) {
-            this.mActivity = this.aQs.getPageActivity();
+        this.aRR = tbPageContext;
+        if (this.aRR != null && this.aRR.getPageActivity() != null) {
+            this.mActivity = this.aRR.getPageActivity();
         }
     }
 
     private b b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aXZ = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.aXZ, this.mActivity);
+            this.aZI = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.aZI, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.custom_loading_toast, (ViewGroup) null);
-            this.aQK = (TextView) inflate.findViewById(d.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aYa) && this.aQK != null) {
-                this.aQK.setText(this.aYa);
+            this.aSj = (TextView) inflate.findViewById(d.g.custom_loading_text);
+            if (!StringUtils.isNull(this.aZJ) && this.aSj != null) {
+                this.aSj.setText(this.aZJ);
             }
-            if (this.aXZ != null && this.aXZ.getWindow() != null) {
-                this.aXZ.getWindow().setContentView(inflate);
+            if (this.aZI != null && this.aZI.getWindow() != null) {
+                this.aZI.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.aXZ.setCancelable(true);
-                    this.aXZ.setCanceledOnTouchOutside(true);
-                    this.aXZ.setOnCancelListener(onCancelListener);
+                    this.aZI.setCancelable(true);
+                    this.aZI.setCanceledOnTouchOutside(true);
+                    this.aZI.setOnCancelListener(onCancelListener);
                 } else {
-                    this.aXZ.setCanceledOnTouchOutside(false);
-                    this.aXZ.setCancelable(false);
+                    this.aZI.setCanceledOnTouchOutside(false);
+                    this.aZI.setCancelable(false);
                 }
             }
         }
         return this;
     }
 
-    public void bn(boolean z) {
-        if (z) {
-            b(this.aYb);
-        } else {
-            com.baidu.adp.lib.g.g.b(this.aXZ, this.mActivity);
-        }
-    }
-
-    public void fY(int i) {
+    private b c(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aYa = this.mActivity.getString(i);
+            this.aZI = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.aZI, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.custom_loading_toast, (ViewGroup) null);
+            this.aSj = (TextView) inflate.findViewById(d.g.custom_loading_text);
+            if (!StringUtils.isNull(this.aZJ) && this.aSj != null) {
+                this.aSj.setText(this.aZJ);
+            }
+            if (this.aZI != null && this.aZI.getWindow() != null) {
+                this.aZI.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.aZI.setOnCancelListener(onCancelListener);
+                }
+            }
+        }
+        return this;
+    }
+
+    public void bq(boolean z) {
+        if (z) {
+            if (this.aZL) {
+                b(this.aZK);
+                return;
+            } else {
+                c(this.aZK);
+                return;
+            }
+        }
+        com.baidu.adp.lib.g.g.b(this.aZI, this.mActivity);
+    }
+
+    public void ga(int i) {
+        if (this.mActivity != null) {
+            this.aZJ = this.mActivity.getString(i);
         }
     }
 
-    public void eG(String str) {
-        this.aYa = str;
+    public void eR(String str) {
+        this.aZJ = str;
+        if (this.aSj != null) {
+            this.aSj.setText(str);
+        }
     }
 
-    public void c(DialogInterface.OnCancelListener onCancelListener) {
-        this.aYb = onCancelListener;
+    public void d(DialogInterface.OnCancelListener onCancelListener) {
+        this.aZK = onCancelListener;
     }
 
     public boolean isShowing() {
-        return this.aXZ != null && this.aXZ.isShowing();
+        return this.aZI != null && this.aZI.isShowing();
+    }
+
+    public void br(boolean z) {
+        this.aZL = z;
+    }
+
+    public void setCancelable(boolean z) {
+        if (this.aZI != null) {
+            this.aZI.setCancelable(z);
+        }
+    }
+
+    public void setCanceledOnTouchOutside(boolean z) {
+        if (this.aZI != null) {
+            this.aZI.setCanceledOnTouchOutside(z);
+        }
     }
 }

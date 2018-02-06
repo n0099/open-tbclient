@@ -94,7 +94,7 @@ class j extends h {
     }
 
     @Override // android.support.design.widget.i
-    void c(Rect rect) {
+    void d(Rect rect) {
         if (this.pd.bN()) {
             this.ph = new InsetDrawable(this.oU, rect.left, rect.top, rect.right, rect.bottom);
             this.pd.setBackgroundDrawable(this.ph);
@@ -105,7 +105,7 @@ class j extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.g, android.support.design.widget.i
-    public void b(int[] iArr) {
+    public void c(int[] iArr) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -124,7 +124,7 @@ class j extends h {
     }
 
     @Override // android.support.design.widget.g, android.support.design.widget.i
-    void b(Rect rect) {
+    void c(Rect rect) {
         if (this.pd.bN()) {
             float radius = this.pd.getRadius();
             float elevation = getElevation() + this.oY;

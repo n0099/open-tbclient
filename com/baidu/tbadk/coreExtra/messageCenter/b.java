@@ -1,299 +1,349 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.service.SignAlertReceiver;
-import java.util.Calendar;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tieba.im.settingcache.GroupSettingItemData;
+import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tieba.im.settingcache.e;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b bhj = new b();
-    public int bhk = 300;
-    public boolean bhl = true;
-    public boolean bhm = false;
-    public boolean bhn = true;
-    public boolean bho = true;
-    public boolean bhp = true;
-    public boolean bhq = false;
-    public boolean bhr = true;
-    public boolean bhs = true;
-    public boolean bht = false;
-    public String bhu = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String bhv = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    private static volatile b bjp;
+    private final LinkedList<ImMessageCenterPojo> mList = new LinkedList<>();
+    private int aQm = 0;
+    private int bjq = 0;
+    private int mReplyNum = 0;
+    private int bjr = 0;
+    private boolean bjs = false;
+    private int bjt = 0;
+    private boolean bju = false;
+    private int bjv = 0;
+    private boolean bjw = false;
+    private final CustomMessageListener bjx = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                if (customResponsedMessage.getCmd() == 2001120) {
+                    b.this.c((ResponsedMessage<?>) customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2016002) {
+                    b.this.c(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2016004) {
+                    b.this.e(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2016007) {
+                    b.this.d(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2016001) {
+                    b.this.f(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2016010) {
+                    b.this.Hn();
+                } else if (customResponsedMessage.getCmd() == 2016011) {
+                    b.this.Ho();
+                }
+            }
+        }
+    };
 
     private b() {
     }
 
-    public static b GE() {
-        return bhj;
-    }
-
-    public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bwF();
-    }
-
-    public void GF() {
-        com.baidu.tieba.tbadkCore.util.a.GF();
-    }
-
-    public boolean GG() {
-        return this.bhk > 0;
-    }
-
-    public int GH() {
-        return this.bhk;
-    }
-
-    public boolean GI() {
-        return this.bhm;
-    }
-
-    public boolean GJ() {
-        return this.bhn;
-    }
-
-    public boolean GK() {
-        return this.bhp;
-    }
-
-    public boolean GL() {
-        return this.bho;
-    }
-
-    public boolean GM() {
-        return this.bhl;
-    }
-
-    public boolean GN() {
-        return this.bhr;
-    }
-
-    public boolean GO() {
-        return this.bhs;
-    }
-
-    public boolean GP() {
-        return this.bht;
-    }
-
-    public boolean GQ() {
-        return this.bhq;
-    }
-
-    public String GR() {
-        return this.bhu;
-    }
-
-    public String GS() {
-        return this.bhv;
-    }
-
-    public void bA(boolean z) {
-        this.bhl = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
-    }
-
-    public void gT(int i) {
-        if (i == 0) {
-            this.bhk = i;
-            a.Gh().bz(true);
-        } else {
-            this.bhk = 300;
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
-    }
-
-    public boolean GT() {
-        return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
-    }
-
-    public void bB(boolean z) {
-        TbadkSettings.getInst().saveBoolean("group_notify", z);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
-    }
-
-    public boolean GU() {
-        return TbadkSettings.getInst().loadBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), true);
-    }
-
-    public void bC(boolean z) {
-        TbadkSettings.getInst().saveBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), z);
-    }
-
-    public void bD(boolean z) {
-        this.bhm = z;
-    }
-
-    public void bE(boolean z) {
-        this.bht = z;
-    }
-
-    public void ff(String str) {
-        this.bhu = str;
-    }
-
-    public void fg(String str) {
-        this.bhv = str;
-    }
-
-    public void bF(boolean z) {
-        this.bhq = z;
-    }
-
-    public void bG(boolean z) {
-        this.bhs = z;
-    }
-
-    public void bH(boolean z) {
-        this.bhr = z;
-    }
-
-    public void bI(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("permit_screen_lock", z);
-    }
-
-    public boolean GV() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("permit_screen_lock", true);
-    }
-
-    public void bJ(boolean z) {
-        this.bho = z;
-    }
-
-    public void bK(boolean z) {
-        this.bhn = z;
-    }
-
-    public void bL(boolean z) {
-        this.bhp = z;
-    }
-
-    public boolean isSignAlertOn() {
-        return TbadkSettings.getInst().loadBoolean("alert_sign_on", false);
-    }
-
-    public void setSignAlertOn(boolean z) {
-        TbadkSettings.getInst().saveBoolean("alert_sign_on", z);
-        updateSignAlarm();
-    }
-
-    public int getSignAlertHours() {
-        int loadInt = TbadkSettings.getInst().loadInt("alert_sign_hours", -1);
-        if (loadInt == -1) {
-            prepareForDefaultAlertTime();
-            return TbadkSettings.getInst().loadInt("alert_sign_hours", 12);
-        }
-        return loadInt;
-    }
-
-    public void updateSignAlarm() {
-        AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getSystemService(NotificationCompat.CATEGORY_ALARM);
-        Intent createIntentForSignAlarm = createIntentForSignAlarm();
-        if (isSignAlertOn()) {
-            Calendar calendar = Calendar.getInstance();
-            int signAlertHours = getSignAlertHours();
-            int i = calendar.get(11);
-            int signAlertMins = getSignAlertMins();
-            int i2 = calendar.get(12);
-            calendar.set(11, signAlertHours);
-            calendar.set(12, signAlertMins);
-            calendar.set(13, 0);
-            calendar.set(14, 0);
-            if (i >= signAlertHours && (i != signAlertHours || i2 >= signAlertMins)) {
-                calendar.set(6, calendar.get(6) + 1);
+    public static b Hm() {
+        if (bjp == null) {
+            synchronized (b.class) {
+                if (bjp == null) {
+                    bjp = new b();
+                }
             }
-            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), 0, createIntentForSignAlarm, 134217728));
-            if (BdLog.isDebugMode()) {
-            }
-            return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), 0, createIntentForSignAlarm, 536870912);
-        if (broadcast != null) {
-            alarmManager.cancel(broadcast);
-            if (BdLog.isDebugMode()) {
+        return bjp;
+    }
+
+    public void init() {
+        reset();
+        MessageManager.getInstance().registerStickyMode(2921002);
+        MessageManager.getInstance().registerListener(2001120, this.bjx);
+        MessageManager.getInstance().registerListener(2016002, this.bjx);
+        MessageManager.getInstance().registerListener(2016004, this.bjx);
+        MessageManager.getInstance().registerListener(2016001, this.bjx);
+        MessageManager.getInstance().registerListener(2016007, this.bjx);
+        MessageManager.getInstance().registerListener(2016011, this.bjx);
+        MessageManager.getInstance().registerListener(2016010, this.bjx);
+    }
+
+    private void reset() {
+        this.mList.clear();
+        this.aQm = 0;
+        this.bjq = 0;
+        this.mReplyNum = 0;
+        this.bjr = 0;
+        this.bjs = false;
+        this.bjt = 0;
+        this.bju = false;
+        this.bjt = 0;
+        this.bju = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage != null) {
+            if (!(responsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+                return;
+            }
+            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
+            x(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme());
+            Hp();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Hn() {
+        x(this.aQm, this.bjq, this.mReplyNum);
+        G(this.mList);
+        H(this.mList);
+        Hp();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Ho() {
+        x(this.aQm, this.bjq, this.mReplyNum);
+        G(this.mList);
+        H(this.mList);
+        Hp();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(CustomResponsedMessage<?> customResponsedMessage) {
+        if ((customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
+            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+            ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+            List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
+            if (responsedMemoryListMessage.getType() == 1 && data != null) {
+                this.mList.clear();
+                for (ImMessageCenterPojo imMessageCenterPojo : data) {
+                    if (imMessageCenterPojo != null && a(imMessageCenterPojo)) {
+                        this.mList.add(imMessageCenterPojo);
+                    }
+                }
+                G(this.mList);
+                H(this.mList);
+                Hp();
             }
         }
     }
 
-    public Intent createIntentForSignAlarm() {
-        Intent intent = new Intent(TbConfig.getBroadcastActionSignAlert());
-        intent.setData(Uri.parse("tieba_sign://alert"));
-        intent.setClass(TbadkCoreApplication.getInst(), SignAlertReceiver.class);
-        return intent;
-    }
-
-    private void prepareForDefaultAlertTime() {
-        Calendar calendar = Calendar.getInstance();
-        setSignAlertTime(calendar.get(11), calendar.get(12));
-    }
-
-    public int getSignAlertMins() {
-        int loadInt = TbadkSettings.getInst().loadInt("alert_sign_mins", -1);
-        if (loadInt == -1) {
-            prepareForDefaultAlertTime();
-            return TbadkSettings.getInst().loadInt("alert_sign_mins", 30);
-        }
-        return loadInt;
-    }
-
-    public void setSignAlertTime(int i, int i2) {
-        TbadkSettings.getInst().saveInt("alert_sign_hours", i);
-        TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
-        updateSignAlarm();
-    }
-
-    public void gU(int i) {
-        if (i == 0) {
-            bH(false);
-            bF(false);
-        } else if (i == 1) {
-            bH(true);
-            bF(false);
-        } else if (i == 2) {
-            bH(false);
-            bF(true);
-        } else {
-            bH(true);
-            bF(true);
-        }
-    }
-
-    public int GW() {
-        if (!this.bhr && !this.bhq) {
-            return 0;
-        }
-        if (!this.bhr || this.bhq) {
-            if (!this.bhr && this.bhq) {
-                return 2;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryChangedMessage memoryChangedMessage;
+        ImMessageCenterPojo data;
+        if ((customResponsedMessage instanceof MemoryChangedMessage) && (data = (memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage).getData()) != null && !TextUtils.isEmpty(data.getGid())) {
+            if (memoryChangedMessage.getType() == 1) {
+                a(this.mList, data);
+                if (a(data)) {
+                    this.mList.add(data);
+                } else {
+                    return;
+                }
+            } else if (memoryChangedMessage.getType() == 2) {
+                a(this.mList, data);
             }
-            return 3;
+            G(this.mList);
+            H(this.mList);
+            Hp();
         }
-        return 1;
     }
 
-    public void bM(boolean z) {
-        TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_switch", z);
+    private void a(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
+        if (linkedList != null && linkedList.size() > 0 && imMessageCenterPojo != null) {
+            Iterator<ImMessageCenterPojo> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                if (next != null && next.getGid() == imMessageCenterPojo.getGid()) {
+                    it.remove();
+                }
+            }
+        }
     }
 
-    public boolean GX() {
-        return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_switch", true);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f(CustomResponsedMessage<?> customResponsedMessage) {
+        this.mList.clear();
+        G(this.mList);
+        H(this.mList);
+        Hp();
     }
 
-    public void bN(boolean z) {
-        TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
+    private void x(int i, int i2, int i3) {
+        boolean z = i > 0 || i2 > 0 || i3 > 0;
+        int i4 = (i <= 0 || !c.Hq().HG()) ? 0 : 0 + i;
+        if (i2 > 0 && c.Hq().Hv()) {
+            i4 += i2;
+        }
+        if (i3 > 0 && c.Hq().Hx()) {
+            i4 += i3;
+        }
+        int i5 = c.Hq().Ht() == 0 ? 0 : i4;
+        this.bjs = i5 <= 0 ? false : z;
+        this.bjr = i5;
+        this.aQm = i;
+        this.bjq = i2;
+        this.mReplyNum = i3;
     }
 
-    public boolean GY() {
-        return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
+    private void G(List<ImMessageCenterPojo> list) {
+        if (list != null) {
+            int i = 0;
+            boolean z = false;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                ImMessageCenterPojo imMessageCenterPojo = list.get(i2);
+                if (imMessageCenterPojo != null && b(imMessageCenterPojo) && !TextUtils.isEmpty(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0) {
+                    if (imMessageCenterPojo.getCustomGroupType() == -4) {
+                        z = true;
+                    } else if (imMessageCenterPojo.getCustomGroupType() == -3) {
+                        z = true;
+                    } else if (imMessageCenterPojo.getCustomGroupType() == -7) {
+                        z = true;
+                    } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
+                        if (c.Hq().HF()) {
+                            GroupSettingItemData bj = com.baidu.tieba.im.settingcache.b.aLU().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            if (bj != null) {
+                                if (bj.isAcceptNotify()) {
+                                    i += imMessageCenterPojo.getUnread_count();
+                                }
+                            } else {
+                                i += imMessageCenterPojo.getUnread_count();
+                            }
+                            z = true;
+                        }
+                        z = true;
+                    } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                        if (c.Hq().Hy()) {
+                            PersonalSettingItemData bj2 = e.aLX().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            if (bj2 != null) {
+                                if (bj2.isAcceptNotify()) {
+                                    i += imMessageCenterPojo.getUnread_count();
+                                }
+                            } else {
+                                i += imMessageCenterPojo.getUnread_count();
+                            }
+                            z = true;
+                        }
+                        z = true;
+                    } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                        if (imMessageCenterPojo.getUserType() == 4) {
+                            if (c.Hq().Hy() && TbadkCoreApplication.getInst().isPromotedMessageOn()) {
+                                i += imMessageCenterPojo.getUnread_count();
+                                z = true;
+                            }
+                            z = true;
+                        }
+                    } else if (imMessageCenterPojo.getCustomGroupType() == -8) {
+                        z = true;
+                    }
+                }
+            }
+            if (c.Hq().Ht() == 0) {
+                i = 0;
+            }
+            boolean z2 = i > 0 ? z : false;
+            this.bjt = i;
+            this.bju = z2;
+        }
+    }
+
+    private void H(List<ImMessageCenterPojo> list) {
+        if (list != null) {
+            int i = 0;
+            int i2 = 0;
+            boolean z = false;
+            while (i < list.size()) {
+                ImMessageCenterPojo imMessageCenterPojo = list.get(i);
+                if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4 && c(list.get(i)) && imMessageCenterPojo.getUnread_count() > 0) {
+                    z = true;
+                    i2 += imMessageCenterPojo.getUnread_count();
+                }
+                i++;
+                z = z;
+                i2 = i2;
+            }
+            boolean z2 = i2 > 0 ? z : false;
+            this.bjv = i2;
+            this.bjw = z2;
+        }
+    }
+
+    private boolean a(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo == null || imMessageCenterPojo.getIs_hidden() == 1 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || imMessageCenterPojo.getLast_content_time() == 0) {
+            return false;
+        }
+        if (imMessageCenterPojo.getCustomGroupType() == 1) {
+            return !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+        }
+        if (imMessageCenterPojo.getCustomGroupType() != -3 && imMessageCenterPojo.getCustomGroupType() != -4) {
+            if ((imMessageCenterPojo.getCustomGroupType() != 4 || imMessageCenterPojo.getUserType() != 4) && imMessageCenterPojo.getCustomGroupType() != -8 && imMessageCenterPojo.getCustomGroupType() != -7) {
+                return imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+            }
+            return true;
+        }
+        return true;
+    }
+
+    private boolean b(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo == null) {
+            return false;
+        }
+        HashMap<Integer, HashSet> Hh = a.GJ().Hh();
+        if (Hh != null && Hh.size() > 0) {
+            HashSet hashSet = Hh.get(0);
+            HashSet hashSet2 = Hh.get(1);
+            if (hashSet != null && !am.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
+                return false;
+            }
+            if (hashSet2 != null && !am.isEmpty(imMessageCenterPojo.getGid()) && hashSet2.contains(imMessageCenterPojo.getGid())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean c(ImMessageCenterPojo imMessageCenterPojo) {
+        HashSet hashSet;
+        HashMap<Integer, HashSet> Hh = a.GJ().Hh();
+        return (Hh == null || Hh.size() <= 0 || (hashSet = Hh.get(0)) == null || am.isEmpty(imMessageCenterPojo.getGid()) || !hashSet.contains(imMessageCenterPojo.getGid())) ? false : true;
+    }
+
+    private void Hp() {
+        NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
+        newsRemindMessage.setMsgAgreeCount(this.aQm);
+        newsRemindMessage.setMsgAtCount(this.bjq);
+        newsRemindMessage.setMsgReplyCount(this.mReplyNum);
+        newsRemindMessage.setMsgCount(this.bjr);
+        newsRemindMessage.setHasMsgRemind(this.bjs);
+        newsRemindMessage.setChatCount(this.bjt);
+        newsRemindMessage.setHasChatRemind(this.bju);
+        newsRemindMessage.setNotificationCount(this.bjv);
+        newsRemindMessage.setHasNotificationRemind(this.bjw);
+        MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
     }
 }

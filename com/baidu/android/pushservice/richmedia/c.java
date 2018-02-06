@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.richmedia;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes2.dex */
 public class c {
     public String a;
@@ -38,7 +37,7 @@ public class c {
     }
 
     public String b() {
-        return this.k == null ? HttpGet.METHOD_NAME : this.k;
+        return this.k == null ? "GET" : this.k;
     }
 
     public void b(String str) {

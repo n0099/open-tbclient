@@ -6,40 +6,40 @@ import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a {
-    private String byf = "dalvikvm";
-    private String[] byg = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private c byh = null;
-    private int bxY = 0;
-    private final int byi = 10000;
-    private a byj = null;
+    private String bAm = "dalvikvm";
+    private String[] bAn = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private c bAo = null;
+    private int bAf = 0;
+    private final int bAp = 10000;
+    private a bAq = null;
     @SuppressLint({"HandlerLeak"})
-    private final Handler byk = new Handler() { // from class: com.baidu.tbadk.k.e.1
+    private final Handler bAr = new Handler() { // from class: com.baidu.tbadk.k.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (e.this.byj != null) {
-                e.this.byj.ij(e.this.bxY);
+            if (e.this.bAq != null) {
+                e.this.bAq.ig(e.this.bAf);
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void ij(int i);
+        void ig(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         if (!jP()) {
             super.start();
-            this.byk.sendEmptyMessageDelayed(0, 10000L);
-            NF();
+            this.bAr.sendEmptyMessageDelayed(0, 10000L);
+            Ol();
             try {
-                c.a(this.byf, new b() { // from class: com.baidu.tbadk.k.e.2
+                c.a(this.bAm, new b() { // from class: com.baidu.tbadk.k.e.2
                     @Override // com.baidu.tbadk.k.b
-                    public void gR(String str) {
-                        for (int i = 0; i < e.this.byg.length; i++) {
-                            if (str.contains(e.this.byg[i])) {
-                                e.this.bxY++;
+                    public void ha(String str) {
+                        for (int i = 0; i < e.this.bAn.length; i++) {
+                            if (str.contains(e.this.bAn[i])) {
+                                e.this.bAf++;
                                 return;
                             }
                         }
@@ -54,27 +54,27 @@ public class e extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        NG();
+        Om();
     }
 
-    private void NF() {
-        if (this.byh == null) {
-            this.byh = new c();
+    private void Ol() {
+        if (this.bAo == null) {
+            this.bAo = new c();
         }
-        if (!this.byh.jP()) {
-            new Thread(this.byh).start();
+        if (!this.bAo.jP()) {
+            new Thread(this.bAo).start();
         }
     }
 
-    private void NG() {
-        if (this.byh != null && this.byh.jP()) {
-            this.byh.stop();
+    private void Om() {
+        if (this.bAo != null && this.bAo.jP()) {
+            this.bAo.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.byj == null) {
-            this.byj = aVar;
+        if (this.bAq == null) {
+            this.bAq = aVar;
         }
     }
 }

@@ -1,83 +1,186 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.o;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.widget.richText.c;
+import com.baidu.tieba.d;
+import com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel;
 /* loaded from: classes2.dex */
-public class l implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int ePa;
-    private String ids;
-    private int mPn = 1;
-
-    public void f(FeedData feedData) {
-        if (feedData != null) {
-            this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-        }
-    }
-
-    public void toNextPage() {
-        this.mPn++;
-        this.ePa = 4;
-    }
-
-    public void reset() {
-        this.mPn = 1;
-        this.ePa = 1;
-        this.ids = null;
-    }
-
-    public int getUpdateType() {
-        return this.ePa;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Mv() {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.ePa == 4 && !TextUtils.isEmpty(this.ids)) {
-            hashMap.put("ids", this.ids);
-        }
-        return hashMap;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object co(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.mPn);
-            builder.ids = this.ids;
-            if (z) {
-                o.bindCommonParamsToProtobufData(builder, true);
+public class l extends BaseFragment implements View.OnClickListener, NoNetworkView.a {
+    private com.baidu.tieba.imMessageCenter.mention.officialNotification.b eSY;
+    private OfficialNotificationListModel eSZ;
+    private CustomMessageListener exa = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.imMessageCenter.mention.l.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a)) {
+                c.a aVar = (c.a) customResponsedMessage.getData();
+                com.baidu.tbadk.widget.richText.c.a(l.this.getPageContext(), aVar.type, aVar.url, aVar.subType);
             }
-            ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception e) {
-            return null;
+        }
+    };
+    protected com.baidu.adp.base.d exb = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.imMessageCenter.mention.l.3
+        @Override // com.baidu.adp.base.d
+        public void ak(Object obj) {
+            if (l.this.eSZ != null && l.this.eSY != null && !am.isEmpty(l.this.mUid) && l.this.eSZ.getUser() != null && am.equals(l.this.mUid, l.this.eSZ.getUser().getUserId())) {
+                switch (l.this.eSZ.getLoadDataMode()) {
+                    case 1:
+                        l.this.eSY.refreshGo2New(l.this.eSZ.getData());
+                        return;
+                    case 2:
+                        l.this.eSY.refreshPrepage(l.this.eSZ.getData());
+                        return;
+                    case 3:
+                        l.this.eSY.refreshCheckNew(l.this.eSZ.getData());
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    };
+    private TbPageContext mPageContext;
+    private String mUid;
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mPageContext = getPageContext();
+        q(bundle);
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.eSY = new com.baidu.tieba.imMessageCenter.mention.officialNotification.b(this.mPageContext, this, viewGroup);
+        if (this.eSZ != null) {
+            this.eSY.a(this.eSZ.getData());
+            this.eSZ.loadFirst(null);
+        }
+        return this.eSY.getView();
+    }
+
+    protected boolean q(Bundle bundle) {
+        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().Hl();
+        this.eSZ = new OfficialNotificationListModel(this.mPageContext);
+        this.eSZ.setLoadDataCallBack(this.exb);
+        if (bundle != null) {
+            r(bundle);
+            return true;
+        }
+        aFo();
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void bu(boolean z) {
+    }
+
+    protected void r(Bundle bundle) {
+        if (this.eSZ != null) {
+            this.eSZ.setIsAcceptNotify(true);
+            s(bundle);
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
+    protected void aFo() {
+        if (this.eSZ != null) {
+            this.eSZ.setIsAcceptNotify(true);
+            aNG();
+        }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String Ms() {
-        return "tb_user_replyme";
+    protected void s(Bundle bundle) {
+        if (bundle != null && bundle.getString("user") != null) {
+            UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
+            c(userData);
+            this.eSZ.setUser(userData);
+        }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Mt() {
-        return true;
+    protected void aNG() {
+        if (!am.isEmpty(this.mUid) && this.mPageContext != null && this.eSZ != null) {
+            UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(d.j.system_message), null, 0);
+            c(userData);
+            this.eSZ.setUser(userData);
+        }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return true;
+    protected void c(final UserData userData) {
+        v.b(new u<Void>() { // from class: com.baidu.tieba.imMessageCenter.mention.l.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tbadk.util.u
+            /* renamed from: UP */
+            public Void doInBackground() {
+                com.baidu.tieba.im.settingcache.d.aLW().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
+                return null;
+            }
+        }, null);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+        registerListener(this.exa);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onPause() {
+        super.onPause();
+        MessageManager.getInstance().unRegisterListener(this.exa);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        this.eSZ.onDestroy();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        int id = view.getId();
+        if ((id == d.g.iv_head || id == d.g.tv_user_name) && !am.isEmpty(this.mUid)) {
+            TiebaStatic.log("c12938");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.mUid))));
+        }
+    }
+
+    public void aiy() {
+        if (this.eSZ != null) {
+            this.eSZ.loadPrepage();
+        }
+    }
+
+    public boolean getHasMore() {
+        if (this.eSZ == null || this.eSZ.getData() == null) {
+            return true;
+        }
+        return this.eSZ.getData().getIsNewAdd();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (this.eSY != null) {
+            this.eSY.onChangeSkinType();
+        }
     }
 }

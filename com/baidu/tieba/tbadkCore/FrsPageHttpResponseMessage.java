@@ -4,7 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
@@ -47,7 +46,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.XH();
+                this.mSortType = frsRequestData.YM();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -62,7 +61,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         if (C != null && C.error != null) {
             if (C.error.errorno != null) {
                 setError(C.error.errorno.intValue());
-                this.responseData.gWT = C.error.errorno.intValue();
+                this.responseData.gZm = C.error.errorno.intValue();
             }
             setErrorString(C.error.usermsg);
         }
@@ -75,7 +74,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int h;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bua() != null && !StringUtils.isNull(this.responseData.bua().xn(), true) && !this.responseData.bua().xn().equals("0") && this.responseData.bua().xo() == 3 && (h = com.baidu.adp.lib.g.b.h(this.responseData.bua().xn(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(h))) != null) {
+        if (this.responseData.bvp() != null && !StringUtils.isNull(this.responseData.bvp().xT(), true) && !this.responseData.bvp().xT().equals("0") && this.responseData.bvp().xU() == 3 && (h = com.baidu.adp.lib.g.b.h(this.responseData.bvp().xT(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(h))) != null) {
             this.responseData.j(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -85,8 +84,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.v.D(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aYJ() != null && z) {
-                c.btv().c(c.btv().d(this.responseData.aYJ().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            if (this.needCache && this.responseData.bas() != null && z) {
+                c.buI().c(c.buI().d(this.responseData.bas().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

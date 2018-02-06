@@ -4,9 +4,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface b {
-    void H(JSONObject jSONObject) throws JSONException;
+    void M(JSONObject jSONObject) throws JSONException;
 
-    void I(JSONObject jSONObject) throws JSONException;
+    void N(JSONObject jSONObject) throws JSONException;
 
-    void J(JSONObject jSONObject) throws JSONException;
+    void O(JSONObject jSONObject) throws JSONException;
 }

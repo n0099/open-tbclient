@@ -3,47 +3,47 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class g implements h {
-    private Float agv;
+    private Float agt;
 
     public g(float f) {
-        this.agv = Float.valueOf(f);
+        this.agt = Float.valueOf(f);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Class<?> lL = cVar.lL();
         if (lL == Byte.class || lL == Byte.TYPE) {
-            return Byte.valueOf(this.agv.byteValue());
+            return Byte.valueOf(this.agt.byteValue());
         }
         if (lL == Short.class || lL == Short.TYPE) {
-            return Short.valueOf(this.agv.shortValue());
+            return Short.valueOf(this.agt.shortValue());
         }
         if (lL == Integer.class || lL == Integer.TYPE) {
-            return Integer.valueOf(this.agv.intValue());
+            return Integer.valueOf(this.agt.intValue());
         }
         if (lL == Long.class || lL == Long.TYPE) {
-            return Long.valueOf(this.agv.longValue());
+            return Long.valueOf(this.agt.longValue());
         }
         if (lL == Float.class || lL == Float.TYPE) {
-            return Float.valueOf(this.agv.floatValue());
+            return Float.valueOf(this.agt.floatValue());
         }
         if (lL == Double.class || lL == Double.TYPE) {
-            return Double.valueOf(this.agv.doubleValue());
+            return Double.valueOf(this.agt.doubleValue());
         }
         if (lL == Character.class || lL == Character.TYPE) {
-            return Character.valueOf((char) this.agv.intValue());
+            return Character.valueOf((char) this.agt.intValue());
         }
         if (lL == Boolean.class || lL == Boolean.TYPE) {
-            return Boolean.valueOf(this.agv.byteValue() == 0);
+            return Boolean.valueOf(this.agt.byteValue() == 0);
         } else if (lL == String.class) {
-            return String.valueOf(this.agv);
+            return String.valueOf(this.agt);
         } else {
             if (lL == char[].class) {
-                return String.valueOf(this.agv).toCharArray();
+                return String.valueOf(this.agt).toCharArray();
             }
             if (lL == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.agv), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.agt), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

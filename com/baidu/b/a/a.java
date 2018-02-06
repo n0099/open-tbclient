@@ -1,50 +1,24 @@
 package com.baidu.b.a;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import android.os.Handler;
-import android.os.Looper;
-/* loaded from: classes.dex */
-public class a extends com.baidu.b.b.a {
-
-    /* renamed from: com.baidu.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0036a {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (com.baidu.b.a.uP()) {
-            b.requestPermissions(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0036a) {
-            a(activity, strArr, i, (InterfaceC0036a) activity);
+import android.content.Context;
+import com.baidu.b.a.b.b;
+import com.baidu.b.a.b.c;
+import com.baidu.b.a.b.d;
+/* loaded from: classes3.dex */
+public class a {
+    public static void init(Context context) {
+        try {
+            System.loadLibrary("criusbase");
+            System.loadLibrary("crius");
+        } catch (Throwable th) {
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0036a interfaceC0036a) {
-        if (com.baidu.b.a.uP()) {
-            b.requestPermissions(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0036a != null) {
-            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.b.a.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    int[] iArr = new int[strArr.length];
-                    PackageManager packageManager = activity.getPackageManager();
-                    String packageName = activity.getPackageName();
-                    int length = strArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
-                    }
-                    interfaceC0036a.onRequestPermissionsResult(i, strArr, iArr);
-                }
-            });
-        }
+    public static void a(b bVar) {
+        com.baidu.b.a.b.a.tw().b(bVar);
     }
 
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        if (com.baidu.b.a.uP()) {
-            return b.shouldShowRequestPermissionRationale(activity, str);
-        }
-        return false;
+    public static void a(c cVar) {
+        d.tx().b(cVar);
     }
 }

@@ -1,35 +1,50 @@
 package com.baidu.tbadk.core.hybrid.a;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.hybrid.m;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.hybrid.p;
-import com.baidu.tbadk.core.util.av;
+import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends o {
-    private TbPageContext<?> aQs;
+    private m aTN;
 
-    public d(m mVar, TbPageContext<?> tbPageContext) {
+    public d(m mVar) {
         super(mVar);
-        this.aQs = tbPageContext;
+        this.aTN = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.o
-    public String vK() {
-        return "TBHY_COMMON_Navigator";
+    public String ww() {
+        return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @p("toNativePage")
-    protected void toNativePage(JSONObject jSONObject) throws JSONException {
+    @p(BC = false, value = "showShareDialog")
+    protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            String optString = jSONObject.optString("url");
-            if (!StringUtils.isNull(optString)) {
-                av.Da().c(this.aQs, new String[]{optString});
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("content");
+            String optString3 = jSONObject.optString("imgUrl");
+            String optString4 = jSONObject.optString(WBConstants.SDK_WEOYOU_SHAREURL);
+            com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
+            dVar.title = optString;
+            dVar.content = optString2;
+            if (optString3 == null) {
+                dVar.blB = null;
+            } else {
+                dVar.blB = Uri.parse(optString3);
             }
+            dVar.linkUrl = optString4;
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aTN.getContext(), dVar, true);
+            shareDialogConfig.setIsSupportNightMode(true);
+            shareDialogConfig.setIsCopyLink(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

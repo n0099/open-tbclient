@@ -3,11 +3,12 @@ package com.baidu.tbadk.o;
 public class ah extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void cQ(int i) {
+        com.baidu.tbadk.k.p.Ow().cA(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "add_video_thread_switch";
+        return "log_stat_smallflow";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -27,6 +28,6 @@ public class ah extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int mu() {
-        return 0;
+        return 10;
     }
 }

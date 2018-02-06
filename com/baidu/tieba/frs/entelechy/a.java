@@ -9,78 +9,88 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.view.g;
+import com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer;
+import com.baidu.tieba.frs.view.h;
+import com.baidu.tieba.tbadkCore.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a extends com.baidu.tieba.frs.view.c {
-    protected o dCH;
-    protected g dGv;
-    protected TextView dGw;
-    protected ViewGroup dGx;
+    protected o dFE;
+    protected h dJB;
+    protected TextView dJC;
+    protected ViewGroup dJD;
+    protected FrsStarRankAndTaskContainer dJE;
 
-    public void avT() {
-        this.dGw = (TextView) this.dTZ.findViewById(d.g.top_item_type);
-        this.dGw.setText(TbadkCoreApplication.getInst().getString(d.j.game));
-        this.dUd = new com.baidu.tieba.frs.view.a(this.dCS.getContext());
-        this.dUd.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.dUd.setOrientation(1);
-        this.dUd.setPadding(0, 0, 0, l.s(this.aQs.getPageActivity(), d.e.tbds16));
-        this.dGv = new g(this.dCS);
-        this.dGv.a(this.dUO);
-        this.dUd.setAdapter(this.dGv);
+    public void awS() {
+        this.dJC = (TextView) this.dXO.findViewById(d.g.top_item_type);
+        this.dJC.setText(TbadkCoreApplication.getInst().getString(d.j.game));
+        this.dXS = new com.baidu.tieba.frs.view.a(this.dFP.getContext());
+        this.dXS.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dXS.setOrientation(1);
+        this.dXS.setPadding(0, 0, 0, l.t(this.aRR.getPageActivity(), d.e.tbds16));
+        this.dJB = new h(this.dFP);
+        this.dJB.a(this.dYD);
+        this.dXS.setAdapter(this.dJB);
     }
 
     public void a(o oVar) {
-        this.dCH = oVar;
+        this.dFE = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bj(List<com.baidu.tieba.tbadkCore.g> list) {
-        if (this.dCS != null && this.dCS.auv() != null && this.dGv != null) {
+    public void bl(List<g> list) {
+        if (this.dFP != null && this.dFP.avl() != null && this.dJB != null) {
             ArrayList arrayList = new ArrayList();
-            List<i> buO = this.dCS.auv().buO();
-            if (buO != null) {
-                for (int i = 0; i < v.D(buO) && arrayList.size() < 2; i++) {
-                    i iVar = (i) v.f(buO, i);
+            List<i> bwe = this.dFP.avl().bwe();
+            if (!v.E(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).buK() == 1) {
+                        arrayList.add(list.get(i));
+                    }
+                }
+            }
+            if (bwe != null) {
+                for (int i2 = 0; i2 < v.D(bwe) && arrayList.size() < 2; i2++) {
+                    i iVar = (i) v.f(bwe, i2);
                     if (iVar instanceof bd) {
                         arrayList.add(iVar);
                     }
                 }
             }
-            if (this.dGv instanceof com.baidu.tieba.frs.d.c) {
-                g gVar = this.dGv;
-                if (com.baidu.tieba.frs.d.c.dRe != null && this.dCS.auv() != null) {
-                    if (this.dCS.auv().gVW == 1) {
-                        com.baidu.tieba.frs.d.c.dRe.dQS = true;
+            if (this.dJB instanceof com.baidu.tieba.frs.e.c) {
+                h hVar = this.dJB;
+                if (com.baidu.tieba.frs.e.c.dUq != null && this.dFP.avl() != null) {
+                    if (this.dFP.avl().gYp == 1) {
+                        com.baidu.tieba.frs.e.c.dUq.dUe = true;
                     } else {
-                        com.baidu.tieba.frs.d.c.dRe.dQS = false;
+                        com.baidu.tieba.frs.e.c.dUq.dUe = false;
                     }
-                    if (this.dCS.auv().aYJ() != null) {
-                        com.baidu.tieba.frs.d.c.dRe.dQU = this.dCS.auv().aYJ().getId();
+                    if (this.dFP.avl().bas() != null) {
+                        com.baidu.tieba.frs.e.c.dUq.dUg = this.dFP.avl().bas().getId();
                     }
                 }
             }
-            if (!v.E(list)) {
+            if (!v.E(list) && list.get(0).buK() != 1) {
                 arrayList.add(list.get(0));
             }
-            this.dGv.c(this.dCH);
-            this.dGv.setData(arrayList);
-            this.dGv.notifyDataSetChanged();
+            this.dJB.c(this.dFE);
+            this.dJB.setData(arrayList);
+            this.dJB.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void avU() {
-        if (this.dGv != null) {
-            this.dGv.notifyDataSetChanged();
+    public void awT() {
+        if (this.dJB != null) {
+            this.dJB.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void avV() {
-        if (this.dGv != null) {
-            this.dGv.notifyDataSetChanged();
+    public void awU() {
+        if (this.dJB != null) {
+            this.dJB.notifyDataSetChanged();
         }
     }
 }

@@ -13,7 +13,7 @@ public class OAuthResult extends SapiResult {
 
     public OAuthResult() {
         this.msgMap.put(0, RESULT_MSG_SUCCESS);
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 
     public String toString() {

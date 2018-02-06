@@ -1,99 +1,48 @@
 package com.baidu.tbadk.core.dialog;
 
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
+import android.view.ViewStub;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
-    private ArrayList<g> aQJ = new ArrayList<>();
-    private TbPageContext<?> aQs;
+public class f extends e {
+    private ViewGroup aRS;
+    private TextView aRT;
+    private TextView aRU;
+    private View.OnClickListener aRV;
+    private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        this.aQs = tbPageContext;
+        super(tbPageContext);
+        this.mPageContext = tbPageContext;
+        this.aRS = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
+        this.aRT = (TextView) this.aRS.findViewById(d.g.yes);
+        this.aRU = (TextView) this.aRS.findViewById(d.g.no);
     }
 
-    public void setData(ArrayList<g> arrayList) {
-        this.aQJ = arrayList;
-        notifyDataSetChanged();
+    public f a(int i, View.OnClickListener onClickListener) {
+        this.aRT.setText(i);
+        this.aRT.setOnClickListener(onClickListener);
+        this.aRV = onClickListener;
+        return this;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.aQJ.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.aQJ.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        g gVar = this.aQJ.get(i);
-        if (gVar == null) {
-            return null;
+    public void setPositiveButtonEnable(boolean z) {
+        if (z) {
+            aj.r(this.aRT, d.C0140d.cp_link_tip_a);
+            this.aRT.setOnClickListener(this.aRV);
+            return;
         }
-        if (view == null) {
-            view = LayoutInflater.from(this.aQs.getPageActivity()).inflate(d.h.dialog_rich_bdlist_item, viewGroup, false);
-            a aVar2 = new a();
-            aVar2.aQK = (TextView) view.findViewById(d.g.text_tip);
-            aVar2.aQL = (TextView) view.findViewById(d.g.text_desc);
-            aVar2.aQM = (CheckBox) view.findViewById(d.g.checked_icon);
-            aVar2.divider = view.findViewById(d.g.line);
-            aVar = aVar2;
-        } else {
-            aVar = (a) view.getTag();
-        }
-        aVar.aQK.setText(gVar.AK());
-        if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.aQL.setVisibility(8);
-        } else {
-            aVar.aQL.setText(gVar.getDesc());
-            aVar.aQL.setVisibility(0);
-        }
-        aVar.aQM.setChecked(gVar.isChecked());
-        aVar.aQM.setButtonDrawable(gVar.isChecked() ? aj.getDrawable(d.f.icon_set_list_ok_s) : new ColorDrawable(d.C0108d.common_color_10022));
-        if (fq(i)) {
-            aVar.divider.setVisibility(8);
-            aj.s(view, d.f.dialog_single_button_bg_selector);
-        } else {
-            aVar.divider.setVisibility(0);
-            aj.s(view, d.f.dialg_alert_btn_bg);
-        }
-        view.setTag(aVar);
-        this.aQs.getLayoutMode().aN(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.aQs.getLayoutMode().aM(view);
-        return view;
+        aj.r(this.aRT, d.C0140d.cp_cont_e);
+        this.aRT.setOnClickListener(null);
     }
 
-    private boolean fq(int i) {
-        return this.aQJ != null && i == this.aQJ.size() + (-1);
-    }
-
-    /* loaded from: classes.dex */
-    private class a {
-        TextView aQK;
-        TextView aQL;
-        CheckBox aQM;
-        View divider;
-
-        private a() {
-        }
+    public f b(int i, View.OnClickListener onClickListener) {
+        this.aRU.setText(i);
+        this.aRU.setOnClickListener(onClickListener);
+        return this;
     }
 }

@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class a extends c {
     String content;
-    long hMY;
-    long hMZ;
-    int hNa;
-    String hNc;
+    String hOA;
+    long hOw;
+    long hOx;
+    int hOy;
     String title;
-    String hNb = "08:00-22:00";
-    int hNd = 0;
-    int hNe = 0;
+    String hOz = "08:00-22:00";
+    int hOB = 0;
+    int hOC = 0;
 
-    public void cZ(long j) {
-        this.hMY = j;
+    public void cW(long j) {
+        this.hOw = j;
     }
 
-    public void da(long j) {
-        this.hMZ = j;
+    public void cX(long j) {
+        this.hOx = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hNk);
-        sb.append(",taskID:" + this.hNl);
+        sb.append("messageID:" + this.hOI);
+        sb.append(",taskID:" + this.hOJ);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hNc);
+        sb.append(",rule:" + this.hOA);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hNa);
-        sb.append(",startTime:" + this.hMY);
-        sb.append(",endTime:" + this.hMZ);
-        sb.append(",balanceTime:" + this.hNa);
-        sb.append(",timeRanges:" + this.hNb);
-        sb.append(",forcedDelivery:" + this.hNd);
-        sb.append(",distinctBycontent:" + this.hNe);
+        sb.append(",balanceTime:" + this.hOy);
+        sb.append(",startTime:" + this.hOw);
+        sb.append(",endTime:" + this.hOx);
+        sb.append(",balanceTime:" + this.hOy);
+        sb.append(",timeRanges:" + this.hOz);
+        sb.append(",forcedDelivery:" + this.hOB);
+        sb.append(",distinctBycontent:" + this.hOC);
         return sb.toString();
     }
 
-    public void uP(String str) {
+    public void uU(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hNb = str;
+        this.hOz = str;
     }
 
-    public void uQ(String str) {
-        this.hNc = str;
+    public void uV(String str) {
+        this.hOA = str;
+    }
+
+    public void xR(int i) {
+        this.hOy = i;
     }
 
     public void xS(int i) {
-        this.hNa = i;
+        this.hOB = i;
     }
 
     public void xT(int i) {
-        this.hNd = i;
-    }
-
-    public void xU(int i) {
-        this.hNe = i;
+        this.hOC = i;
     }
 }

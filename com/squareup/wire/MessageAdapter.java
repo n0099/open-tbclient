@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.ar.util.Constants;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.io.IOException;
@@ -13,7 +14,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class MessageAdapter<M extends Message> {
@@ -249,7 +249,7 @@ public final class MessageAdapter<M extends Message> {
         try {
             return this.builderType.getDeclaredField(str);
         } catch (Exception e) {
-            throw new AssertionError("No builder Field " + this.builderType.getName() + "." + str + "(" + cls.getName() + ")");
+            throw new AssertionError("No builder Field " + this.builderType.getName() + Constants.DOT + str + "(" + cls.getName() + ")");
         }
     }
 
@@ -564,7 +564,7 @@ public final class MessageAdapter<M extends Message> {
                 writeEnum((ProtoEnum) obj, wireOutput);
                 return;
             case 9:
-                byte[] bytes = ((String) obj).getBytes(HTTP.UTF_8);
+                byte[] bytes = ((String) obj).getBytes("UTF-8");
                 wireOutput.writeVarint32(bytes.length);
                 wireOutput.writeRawBytes(bytes);
                 return;

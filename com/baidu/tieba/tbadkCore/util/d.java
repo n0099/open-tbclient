@@ -5,19 +5,18 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class d extends e {
-    private volatile HashMap<String, Long> hbh;
+    private volatile HashMap<String, Long> hdv;
 
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.d.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.tbadkCore.util.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bwH();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().bxQ();
                 }
             }
         });
@@ -25,14 +24,14 @@ public class d extends e {
 
     public d(int i) {
         super(i);
-        this.hbh = new HashMap<>();
+        this.hdv = new HashMap<>();
     }
 
-    public long sN(String str) {
+    public long sU(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.hbh.get(str) != null ? this.hbh.get(str).longValue() : 0L;
+                longValue = this.hdv.get(str) != null ? this.hdv.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -42,10 +41,10 @@ public class d extends e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.e
-    public void bwH() {
+    public void bxQ() {
         synchronized (this) {
-            this.hbk.clear();
-            this.hbh.clear();
+            this.hdy.clear();
+            this.hdv.clear();
         }
     }
 }

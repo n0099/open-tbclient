@@ -3,6 +3,7 @@ package android.support.v4.provider;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ class c extends DocumentFile {
     public DocumentFile createFile(String str, String str2) {
         String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str);
         if (extensionFromMimeType != null) {
-            str2 = str2 + "." + extensionFromMimeType;
+            str2 = str2 + Constants.DOT + extensionFromMimeType;
         }
         File file = new File(this.mFile, str2);
         try {
@@ -91,7 +92,7 @@ class c extends DocumentFile {
 
     @Override // android.support.v4.provider.DocumentFile
     public boolean delete() {
-        c(this.mFile);
+        d(this.mFile);
         return this.mFile.delete();
     }
 
@@ -133,13 +134,13 @@ class c extends DocumentFile {
         return "application/octet-stream";
     }
 
-    private static boolean c(File file) {
+    private static boolean d(File file) {
         File[] listFiles = file.listFiles();
         boolean z = true;
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    z &= c(file2);
+                    z &= d(file2);
                 }
                 if (!file2.delete()) {
                     Log.w("DocumentFile", "Failed to delete " + file2);

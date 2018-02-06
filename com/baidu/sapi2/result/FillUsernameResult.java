@@ -28,6 +28,6 @@ public class FillUsernameResult extends SapiResult {
         this.msgMap.put(160110, RESULT_MSG_USERNAME_FORMAT_INVALID);
         this.msgMap.put(160111, "该用户名已被注册,请更换其他用户名");
         this.msgMap.put(RESULT_CODE_USERNAME_LENGTH_ERROR, RESULT_MSG_USERNAME_LENGTH_ERROR);
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 }

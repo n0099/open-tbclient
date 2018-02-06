@@ -7,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class d {
     public static String a(int i) {
@@ -92,7 +91,7 @@ public class d {
 
     public static byte[] c(String str) {
         try {
-            return str.getBytes(HTTP.UTF_8);
+            return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             return str.getBytes();
         }

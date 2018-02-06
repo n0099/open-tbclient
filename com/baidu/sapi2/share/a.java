@@ -169,10 +169,9 @@ public final class a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public class AnonymousClass2 implements Runnable {
+    class AnonymousClass2 implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
@@ -354,7 +353,7 @@ public final class a {
         c.a(j.context, j.loginShareStrategy(), shareModel);
         bundle.putParcelable(b, shareModel);
         bundle.putSerializable(d, j.environment);
-        bundle.putInt(e, 127);
+        bundle.putInt(e, SapiAccountManager.VERSION_CODE);
         obtain.writeBundle(bundle);
         return obtain;
     }

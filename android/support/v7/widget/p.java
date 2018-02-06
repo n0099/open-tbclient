@@ -5,10 +5,10 @@ class p {
     private int mRight = 0;
     private int mStart = Integer.MIN_VALUE;
     private int mEnd = Integer.MIN_VALUE;
+    private int TI = 0;
     private int TJ = 0;
-    private int TK = 0;
     private boolean mz = false;
-    private boolean TL = false;
+    private boolean TK = false;
 
     public int getLeft() {
         return this.mLeft;
@@ -29,7 +29,7 @@ class p {
     public void ac(int i, int i2) {
         this.mStart = i;
         this.mEnd = i2;
-        this.TL = true;
+        this.TK = true;
         if (this.mz) {
             if (i2 != Integer.MIN_VALUE) {
                 this.mLeft = i2;
@@ -49,32 +49,32 @@ class p {
     }
 
     public void ad(int i, int i2) {
-        this.TL = false;
+        this.TK = false;
         if (i != Integer.MIN_VALUE) {
-            this.TJ = i;
+            this.TI = i;
             this.mLeft = i;
         }
         if (i2 != Integer.MIN_VALUE) {
-            this.TK = i2;
+            this.TJ = i2;
             this.mRight = i2;
         }
     }
 
-    public void I(boolean z) {
+    public void K(boolean z) {
         if (z != this.mz) {
             this.mz = z;
-            if (this.TL) {
+            if (this.TK) {
                 if (z) {
-                    this.mLeft = this.mEnd != Integer.MIN_VALUE ? this.mEnd : this.TJ;
-                    this.mRight = this.mStart != Integer.MIN_VALUE ? this.mStart : this.TK;
+                    this.mLeft = this.mEnd != Integer.MIN_VALUE ? this.mEnd : this.TI;
+                    this.mRight = this.mStart != Integer.MIN_VALUE ? this.mStart : this.TJ;
                     return;
                 }
-                this.mLeft = this.mStart != Integer.MIN_VALUE ? this.mStart : this.TJ;
-                this.mRight = this.mEnd != Integer.MIN_VALUE ? this.mEnd : this.TK;
+                this.mLeft = this.mStart != Integer.MIN_VALUE ? this.mStart : this.TI;
+                this.mRight = this.mEnd != Integer.MIN_VALUE ? this.mEnd : this.TJ;
                 return;
             }
-            this.mLeft = this.TJ;
-            this.mRight = this.TK;
+            this.mLeft = this.TI;
+            this.mRight = this.TJ;
         }
     }
 }

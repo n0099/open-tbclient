@@ -5,16 +5,16 @@ import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes2.dex */
 class h implements AdapterView.OnItemSelectedListener {
-    private final ActionBar.OnNavigationListener DL;
+    private final ActionBar.OnNavigationListener DK;
 
     public h(ActionBar.OnNavigationListener onNavigationListener) {
-        this.DL = onNavigationListener;
+        this.DK = onNavigationListener;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.DL != null) {
-            this.DL.onNavigationItemSelected(i, j);
+        if (this.DK != null) {
+            this.DK.onNavigationItemSelected(i, j);
         }
     }
 

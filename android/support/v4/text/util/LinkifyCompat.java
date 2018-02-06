@@ -20,10 +20,9 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class LinkifyCompat {
-    private static final String[] Br = new String[0];
+    private static final String[] Bq = new String[0];
     private static final Comparator<a> COMPARATOR = new Comparator<a>() { // from class: android.support.v4.text.util.LinkifyCompat.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -72,7 +71,7 @@ public final class LinkifyCompat {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             a aVar = (a) it.next();
-            if (aVar.Bs == null) {
+            if (aVar.Br == null) {
                 a(aVar.url, aVar.start, aVar.end, spannable);
             }
         }
@@ -129,7 +128,7 @@ public final class LinkifyCompat {
             str = "";
         }
         if (strArr == null || strArr.length < 1) {
-            strArr = Br;
+            strArr = Bq;
         }
         String[] strArr2 = new String[strArr.length + 1];
         strArr2[0] = str.toLowerCase(Locale.ROOT);
@@ -213,7 +212,7 @@ public final class LinkifyCompat {
                     obj = obj.substring(length);
                     i += length;
                     try {
-                        aVar.url = "geo:0,0?q=" + URLEncoder.encode(findAddress, HTTP.UTF_8);
+                        aVar.url = "geo:0,0?q=" + URLEncoder.encode(findAddress, "UTF-8");
                         arrayList.add(aVar);
                     } catch (UnsupportedEncodingException e) {
                     }
@@ -232,7 +231,7 @@ public final class LinkifyCompat {
         Object[] objArr = (URLSpan[]) spannable.getSpans(0, spannable.length(), URLSpan.class);
         for (int i3 = 0; i3 < objArr.length; i3++) {
             a aVar = new a();
-            aVar.Bs = objArr[i3];
+            aVar.Br = objArr[i3];
             aVar.start = spannable.getSpanStart(objArr[i3]);
             aVar.end = spannable.getSpanEnd(objArr[i3]);
             arrayList.add(aVar);
@@ -251,7 +250,7 @@ public final class LinkifyCompat {
                     i = aVar2.end - aVar2.start < aVar3.end - aVar3.start ? i2 : -1;
                 }
                 if (i != -1) {
-                    Object obj = arrayList.get(i).Bs;
+                    Object obj = arrayList.get(i).Br;
                     if (obj != null) {
                         spannable.removeSpan(obj);
                     }
@@ -269,7 +268,7 @@ public final class LinkifyCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        URLSpan Bs;
+        URLSpan Br;
         int end;
         int start;
         String url;

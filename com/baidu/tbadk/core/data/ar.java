@@ -6,40 +6,40 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class ar extends bd {
-    public static final BdUniqueId aMx = BdUniqueId.gen();
-    private List<PhotoLiveCardData> aMy;
-    private int aMz = 0;
+    public static final BdUniqueId aNQ = BdUniqueId.gen();
+    private List<PhotoLiveCardData> aNR;
+    private int aNS = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void B(List<PhotoLiveCardData> list) {
-        this.aMy = list;
+        this.aNR = list;
     }
 
     public void a(bd bdVar, int i) {
         if (bdVar != null) {
-            a(bdVar.yT());
+            a(bdVar.zn());
             setTitle(bdVar.getTitle());
             setPhotoLiveCover(bdVar.getPhotoLiveCover());
-            cO(bdVar.yZ());
-            cK(bdVar.getTid());
-            v(bdVar.yN());
+            cZ(bdVar.zt());
+            cV(bdVar.getTid());
+            v(bdVar.zh());
             setAddress(bdVar.getAddress());
             setId(bdVar.getId());
             setThreadType(bdVar.getThreadType());
-            a(bdVar.yI());
-            eP(bdVar.yL());
+            a(bdVar.zc());
+            eP(bdVar.zf());
             setPost_num(bdVar.getPost_num());
-            cP(bdVar.getAbstract());
-            cK(bdVar.getTid());
-            setExpressionDatas(bdVar.zn());
-            setShowExpressionViewIndexList(bdVar.zn());
+            da(bdVar.getAbstract());
+            cV(bdVar.getTid());
+            setExpressionDatas(bdVar.zH());
+            setShowExpressionViewIndexList(bdVar.zH());
             setId(bdVar.getId());
-            a(bdVar.xM());
-            this.aOG = bdVar.zq();
-            this.aOH = bdVar.zr();
-            this.aOI = bdVar.zs();
+            a(bdVar.yo());
+            this.aQa = bdVar.zK();
+            this.aQb = bdVar.zL();
+            this.aQc = bdVar.zM();
             if (getShowStyle() < 0) {
-                this.aMz = getRandom(3, i);
+                this.aNS = getRandom(3, i);
             }
         }
     }
@@ -90,11 +90,11 @@ public class ar extends bd {
     }
 
     public int getShowStyle() {
-        return this.aMz;
+        return this.aNS;
     }
 
     @Override // com.baidu.tbadk.core.data.bd, com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return aMx;
+        return aNQ;
     }
 }

@@ -133,7 +133,7 @@ public class BaseWebView extends WebView {
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
-        com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
+        com.baidu.tbadk.browser.b.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         this.mWebChromeClient = new h();
         this.mJsBridge = new com.baidu.tieba.tbadkCore.e.a();
@@ -144,9 +144,9 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.aI(getContext());
-        setAcceptThirdPartyCookies(true);
+        com.baidu.tbadk.browser.b.aH(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
+            setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);
         }
     }
@@ -160,13 +160,13 @@ public class BaseWebView extends WebView {
             BdLog.e(th);
             cookieManager = null;
         }
-        if (cookieManager != null && Build.VERSION.SDK_INT >= 21) {
+        if (cookieManager != null) {
             cookieManager.setAcceptThirdPartyCookies(this, z);
         }
     }
 
     public void initCommonJsBridge(Context context) {
-        this.mJsBridge.a(new com.baidu.tbadk.browser.b(context));
+        this.mJsBridge.a(new com.baidu.tbadk.browser.c(context));
     }
 
     @Override // android.webkit.WebView
@@ -187,7 +187,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.m((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) BaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -195,7 +195,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.m((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) BaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -203,7 +203,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.m((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) BaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -317,7 +317,7 @@ public class BaseWebView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.R(BaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.b.T(BaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }

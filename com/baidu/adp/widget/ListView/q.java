@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q extends RecyclerView.Adapter<r.a> implements m<i> {
-    private SparseArray<a<i, r.a>> avM;
+    private SparseArray<a<i, r.a>> avH;
     @SuppressLint({"UseSparseArrays"})
-    private SparseArray<Integer> avN = new SparseArray<>();
-    private List<i> avO = new ArrayList();
-    private RecyclerView SG = null;
-    private int avP = -1;
+    private SparseArray<Integer> avI = new SparseArray<>();
+    private List<i> avJ = new ArrayList();
+    private RecyclerView SF = null;
+    private int avK = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -25,11 +25,11 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
     public r.a onCreateViewHolder(ViewGroup viewGroup, int i) {
         a<i, r.a> aVar;
         r.a aVar2 = null;
-        if (this.SG == null) {
-            this.SG = (RecyclerView) viewGroup;
+        if (this.SF == null) {
+            this.SF = (RecyclerView) viewGroup;
         }
-        i item = getItem(this.avP);
-        if (this.avM == null || (aVar = this.avM.get(i)) == null) {
+        i item = getItem(this.avK);
+        if (this.avH == null || (aVar = this.avH.get(i)) == null) {
             return null;
         }
         try {
@@ -49,11 +49,11 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
     public void onBindViewHolder(r.a aVar, int i) {
         a<i, r.a> aVar2;
         i item;
-        if (aVar != null && this.avM != null && this.avO != null) {
+        if (aVar != null && this.avH != null && this.avJ != null) {
             int itemCount = getItemCount();
-            if (i >= 0 && i < itemCount && (aVar2 = this.avM.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof i)) {
+            if (i >= 0 && i < itemCount && (aVar2 = this.avH.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof i)) {
                 try {
-                    aVar2.onFillViewHolder(i, this.SG, aVar, item);
+                    aVar2.onFillViewHolder(i, this.SF, aVar, item);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -66,8 +66,8 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
         i item;
         BdUniqueId type;
         Integer num;
-        this.avP = i;
-        if (this.avM == null || this.avM.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.avN.get(type.getId())) == null) {
+        this.avK = i;
+        if (this.avH == null || this.avH.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.avI.get(type.getId())) == null) {
             return -1;
         }
         return num.intValue();
@@ -80,8 +80,8 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.avO != null) {
-            return this.avO.size();
+        if (this.avJ != null) {
+            return this.avJ.size();
         }
         return 0;
     }
@@ -94,10 +94,10 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.j
     public i getItem(int i) {
-        if (this.avO != null) {
-            int size = this.avO.size();
+        if (this.avJ != null) {
+            int size = this.avJ.size();
             if (i >= 0 && i < size) {
-                return this.avO.get(i);
+                return this.avJ.get(i);
             }
         }
         return null;
@@ -105,42 +105,42 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
 
     public void addAdapter(a<i, r.a> aVar) {
         if (aVar != null && aVar.getType() != null) {
-            if (this.avM == null) {
-                this.avM = new SparseArray<>();
+            if (this.avH == null) {
+                this.avH = new SparseArray<>();
             }
             if (aVar.getType() != null) {
                 aVar.setAdapter(this);
                 int id = aVar.getType().getId();
-                int size = this.avM.size();
-                this.avM.put(size, aVar);
-                this.avN.put(id, Integer.valueOf(size));
+                int size = this.avH.size();
+                this.avH.put(size, aVar);
+                this.avI.put(id, Integer.valueOf(size));
             }
         }
     }
 
     public void setData(List<? extends i> list) {
-        if (this.avO == null) {
-            this.avO = new ArrayList();
+        if (this.avJ == null) {
+            this.avJ = new ArrayList();
         } else {
-            this.avO.clear();
+            this.avJ.clear();
         }
-        this.avO.addAll(list);
+        this.avJ.addAll(list);
         notifyDataSetChanged();
     }
 
     public List<i> getData() {
-        return this.avO;
+        return this.avJ;
     }
 
     public void a(ViewGroup viewGroup, View view, int i, long j) {
         a<i, r.a> aVar;
-        if (this.avM != null) {
+        if (this.avH != null) {
             i item = getItem(i);
             int itemViewType = getItemViewType(i);
             if (itemViewType < 0) {
                 aVar = null;
             } else {
-                aVar = this.avM.valueAt(itemViewType);
+                aVar = this.avH.valueAt(itemViewType);
             }
             if (aVar != null && aVar.getOnAdapterItemClickListener() != null) {
                 aVar.getOnAdapterItemClickListener().a(view, item, aVar.getType(), viewGroup, i, j);
@@ -150,7 +150,7 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
 
     public boolean b(ViewGroup viewGroup, View view, int i, long j) {
         a<i, r.a> aVar;
-        if (this.avM == null) {
+        if (this.avH == null) {
             return false;
         }
         i item = getItem(i);
@@ -158,7 +158,7 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
         if (itemViewType < 0) {
             aVar = null;
         } else {
-            aVar = this.avM.valueAt(itemViewType);
+            aVar = this.avH.valueAt(itemViewType);
         }
         if (aVar == null || aVar.getOnAdapterItemLongClickListener() == null) {
             return false;
@@ -169,19 +169,19 @@ public class q extends RecyclerView.Adapter<r.a> implements m<i> {
     @Override // com.baidu.adp.widget.ListView.m
     public int ar(int i, int i2) {
         int i3;
-        if (this.avO == null || this.avO.size() == 0) {
+        if (this.avJ == null || this.avJ.size() == 0) {
             return -1;
         }
-        int size = this.avO.size();
+        int size = this.avJ.size();
         int i4 = 0;
         int i5 = -1;
         while (i4 < size) {
-            if (this.avO.get(i4) == null) {
+            if (this.avJ.get(i4) == null) {
                 i3 = i5;
-            } else if (this.avO.get(i4).getType() == null) {
+            } else if (this.avJ.get(i4).getType() == null) {
                 i3 = i5;
             } else {
-                i3 = i2 == this.avO.get(i4).getType().getId() ? i5 + 1 : i5;
+                i3 = i2 == this.avJ.get(i4).getType().getId() ? i5 + 1 : i5;
                 if (i4 == i) {
                     return i3;
                 }

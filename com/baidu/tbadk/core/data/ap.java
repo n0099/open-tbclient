@@ -1,39 +1,40 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> aMr = new ArrayList<>();
-    private ArrayList<UserData> aMs = new ArrayList<>();
-    private al aMt = new al();
-    private int aMu = 0;
-    private int aMv = 0;
+    private ArrayList<UserData> aNK = new ArrayList<>();
+    private ArrayList<UserData> aNL = new ArrayList<>();
+    private al aNM = new al();
+    private int aNN = 0;
+    private int aNO = 0;
 
     public void a(al alVar) {
-        this.aMt = alVar;
+        this.aNM = alVar;
     }
 
-    public al xZ() {
-        return this.aMt;
+    public al yA() {
+        return this.aNM;
     }
 
-    public ArrayList<UserData> ya() {
-        return this.aMr;
+    public ArrayList<UserData> yB() {
+        return this.aNK;
     }
 
-    public ArrayList<UserData> yb() {
-        return this.aMs;
+    public ArrayList<UserData> yC() {
+        return this.aNL;
     }
 
-    public int yc() {
-        return this.aMu;
+    public int yD() {
+        return this.aNN;
     }
 
-    public int yd() {
-        return this.aMv;
+    public int yE() {
+        return this.aNO;
     }
 
     public void parserJson(String str) {
@@ -54,7 +55,7 @@ public class ap {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.aMr.add(userData);
+                        this.aNK.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +63,12 @@ public class ap {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.aMs.add(userData2);
+                        this.aNL.add(userData2);
                     }
                 }
-                this.aMt.parserJson(jSONObject.optJSONObject("page"));
-                this.aMu = jSONObject.optInt("tafriendnum", 0);
-                this.aMv = jSONObject.optInt("commonfriendnum", 0);
+                this.aNM.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.aNN = jSONObject.optInt("tafriendnum", 0);
+                this.aNO = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -82,10 +82,10 @@ final class a {
                 int f2 = f(color, f);
                 if (i2 == 0 || trimStateSet.length == 0) {
                 }
-                int[] a2 = b.a(iArr3, i2, f2);
+                int[] b = b.b(iArr3, i2, f2);
                 i2++;
                 iArr2 = (int[][]) b.a(iArr2, i2, trimStateSet);
-                iArr3 = a2;
+                iArr3 = b;
             }
         }
         int[] iArr5 = new int[i2];

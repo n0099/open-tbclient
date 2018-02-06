@@ -1,25 +1,25 @@
 package com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public interface h {
-    void T(int i, String str);
-
     void U(int i, String str);
 
     void V(int i, String str);
 
     void W(int i, String str);
 
-    void aVe();
+    void X(int i, String str);
 
-    void aVf();
+    void aWN();
 
-    void aVg();
+    void aWO();
 
-    void aVh();
+    void aWP();
+
+    void aWQ();
 
     void h(int i, int i2, String str);
 
-    void ps(String str);
+    void pA(String str);
 
-    void pt(String str);
+    void pB(String str);
 }

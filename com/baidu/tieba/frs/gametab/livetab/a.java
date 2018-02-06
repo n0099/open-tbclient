@@ -6,15 +6,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends FragmentPagerAdapter {
-    private int[] chv;
+    private int[] clo;
     private List<Fragment> list;
 
     public a(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.chv = new int[]{0, 1};
+        this.clo = new int[]{0, 1};
     }
 
-    public void aw(List<Fragment> list) {
+    public void az(List<Fragment> list) {
         this.list = list;
     }
 

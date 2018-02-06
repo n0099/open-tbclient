@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 class j extends i {
+    private t NJ;
     private t NK;
-    private t NL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TextView textView) {
@@ -23,10 +23,10 @@ class j extends i {
         AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.AppCompatTextHelper, i, 0);
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableStart)) {
-            this.NK = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableStart, 0));
+            this.NJ = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableStart, 0));
         }
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableEnd)) {
-            this.NL = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableEnd, 0));
+            this.NK = a(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableEnd, 0));
         }
         obtainStyledAttributes.recycle();
     }
@@ -34,10 +34,10 @@ class j extends i {
     @Override // android.support.v7.widget.i
     void fQ() {
         super.fQ();
-        if (this.NK != null || this.NL != null) {
+        if (this.NJ != null || this.NK != null) {
             Drawable[] compoundDrawablesRelative = this.mView.getCompoundDrawablesRelative();
-            a(compoundDrawablesRelative[0], this.NK);
-            a(compoundDrawablesRelative[2], this.NL);
+            a(compoundDrawablesRelative[0], this.NJ);
+            a(compoundDrawablesRelative[2], this.NK);
         }
     }
 }

@@ -178,7 +178,7 @@ public class c {
         return findPluginSetting.forbidden;
     }
 
-    public void aw(boolean z) {
+    public void az(boolean z) {
         if (this.ash.setAllPluginEnable(z)) {
             Bundle bundle = new Bundle();
             bundle.putBoolean(PluginSettingIOService.KEY_ENABLE, z);

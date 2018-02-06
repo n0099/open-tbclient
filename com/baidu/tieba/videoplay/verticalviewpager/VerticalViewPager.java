@@ -6,13 +6,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 public class VerticalViewPager extends ViewPager {
-    private a hyp;
+    private a hzD;
     private float mLastX;
     private float mLastY;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bDS();
+        void bEA();
     }
 
     public VerticalViewPager(Context context) {
@@ -24,7 +24,7 @@ public class VerticalViewPager extends ViewPager {
         setPageTransformer(false, new com.baidu.tieba.videoplay.verticalviewpager.a.a());
     }
 
-    private MotionEvent P(MotionEvent motionEvent) {
+    private MotionEvent T(MotionEvent motionEvent) {
         float width = getWidth();
         float height = getHeight();
         motionEvent.setLocation((motionEvent.getY() / height) * width, (motionEvent.getX() / width) * height);
@@ -34,7 +34,7 @@ public class VerticalViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (this.hyp != null) {
+        if (this.hzD != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mLastX = motionEvent.getX();
@@ -42,7 +42,7 @@ public class VerticalViewPager extends ViewPager {
                     break;
                 case 1:
                     if (this.mLastX - motionEvent.getX() > 50.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY)) {
-                        this.hyp.bDS();
+                        this.hzD.bEA();
                         z = true;
                         break;
                     } else if (Math.abs(motionEvent.getY() - this.mLastY) > 10.0f || Math.abs(motionEvent.getX() - this.mLastX) > 10.0f) {
@@ -59,15 +59,15 @@ public class VerticalViewPager extends ViewPager {
             }
         }
         if (!z) {
-            z = super.onInterceptTouchEvent(P(motionEvent));
+            z = super.onInterceptTouchEvent(T(motionEvent));
         }
-        P(motionEvent);
+        T(motionEvent);
         return z;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.hyp != null) {
+        if (this.hzD != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mLastX = motionEvent.getX();
@@ -75,16 +75,16 @@ public class VerticalViewPager extends ViewPager {
                     break;
                 case 1:
                     if (this.mLastX - motionEvent.getX() > 50.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY)) {
-                        this.hyp.bDS();
+                        this.hzD.bEA();
                         break;
                     }
                     break;
             }
         }
-        return super.onTouchEvent(P(motionEvent));
+        return super.onTouchEvent(T(motionEvent));
     }
 
     public void setOnTouchDirectionListener(a aVar) {
-        this.hyp = aVar;
+        this.hzD = aVar;
     }
 }

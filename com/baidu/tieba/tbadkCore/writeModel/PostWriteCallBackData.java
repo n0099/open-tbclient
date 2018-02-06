@@ -2,6 +2,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.data.AccessState;
+import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
@@ -23,6 +24,7 @@ public class PostWriteCallBackData implements Serializable {
     private String errorString;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
+    private ContriInfo mContriInfo;
     public int mFrom;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -121,6 +123,14 @@ public class PostWriteCallBackData implements Serializable {
 
     public void setActivityDialog(CustomDialogData customDialogData) {
         this.mActDialogData = customDialogData;
+    }
+
+    public ContriInfo getContriInfo() {
+        return this.mContriInfo;
+    }
+
+    public void setContriInfo(ContriInfo contriInfo) {
+        this.mContriInfo = contriInfo;
     }
 
     public boolean isSensitiveError() {

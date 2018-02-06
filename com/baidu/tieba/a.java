@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class a {
     public static void a(com.baidu.tbadk.coreExtra.data.d dVar) {
         if (dVar != null) {
-            if (dVar.bfx != 0) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("app_entrance_nologin", dVar.bfx + "");
+            if (dVar.bhq != 0) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("app_entrance_nologin", dVar.bhq + "");
             }
-            if (dVar.bfw != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), dVar.bfw + "");
+            if (dVar.bhp != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), dVar.bhp + "");
             }
         }
     }
 
-    public int RD() {
+    public int Sh() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("app_entrance_nologin", "");

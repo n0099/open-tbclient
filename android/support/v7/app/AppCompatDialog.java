@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class AppCompatDialog extends Dialog implements AppCompatCallback {
-    private AppCompatDelegate Cl;
+    private AppCompatDelegate Ck;
 
     public AppCompatDialog(Context context) {
         this(context, 0);
@@ -95,10 +95,10 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     public AppCompatDelegate getDelegate() {
-        if (this.Cl == null) {
-            this.Cl = AppCompatDelegate.create(this, this);
+        if (this.Ck == null) {
+            this.Ck = AppCompatDelegate.create(this, this);
         }
-        return this.Cl;
+        return this.Ck;
     }
 
     private static int c(Context context, int i) {

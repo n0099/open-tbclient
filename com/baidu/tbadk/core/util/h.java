@@ -6,13 +6,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static void dn(String str) {
+    public static void dy(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -23,7 +22,7 @@ public class h {
                 break;
             }
             String group = matcher.group();
-            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
+            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
                 i++;
             }
             i2 = i;
@@ -45,7 +44,7 @@ public class h {
         }
     }
 
-    public static void Bz() {
+    public static void BS() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {
@@ -65,7 +64,7 @@ public class h {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.i(cursor);
                                 ak akVar = new ak("c12232");
-                                akVar.aa("uid", TbadkCoreApplication.getCurrentAccount());
+                                akVar.ab("uid", TbadkCoreApplication.getCurrentAccount());
                                 akVar.s("obj_param1", i);
                                 TiebaStatic.log(akVar);
                             } catch (Throwable th3) {
@@ -81,7 +80,7 @@ public class h {
                     i = 0;
                 }
                 ak akVar2 = new ak("c12232");
-                akVar2.aa("uid", TbadkCoreApplication.getCurrentAccount());
+                akVar2.ab("uid", TbadkCoreApplication.getCurrentAccount());
                 akVar2.s("obj_param1", i);
                 TiebaStatic.log(akVar2);
             }

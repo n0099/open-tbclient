@@ -10,7 +10,6 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.adp.BuildConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +53,7 @@ public class b {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             packageInfo = null;
         }
-        return packageInfo != null ? packageInfo.versionName : BuildConfig.VERSION_NAME;
+        return packageInfo != null ? packageInfo.versionName : "1.0";
     }
 
     public static int b(Context context, String str) {

@@ -32,7 +32,7 @@ public final class c {
         }
     }
 
-    public static PublicKey cd(String str) {
+    public static PublicKey cj(String str) {
         boolean z;
         try {
             if (TextUtils.isEmpty(str)) {

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object> {
     public static final int DELETE = 1;
@@ -72,7 +71,7 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
     }
 
     public ResponseNewFriendUpdateUiMsg(int i, long j, String str, String str2, String str3, String str4) {
-        super(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL);
+        super(2001174);
         this.action = i;
         this.friendId = j;
         this.portrait = str;

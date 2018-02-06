@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float htw;
-    private int htx;
-    private j hty;
+    private float huL;
+    private int huM;
+    private j huN;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,40 +15,40 @@ class b {
     }
 
     public void setRecordController(j jVar) {
-        this.hty = jVar;
+        this.huN = jVar;
     }
 
-    public boolean o(MotionEvent motionEvent) {
-        if (this.hty == null || !this.hty.isRecording()) {
+    public boolean s(MotionEvent motionEvent) {
+        if (this.huN == null || !this.huN.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
                     break;
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
-                        float v = v(motionEvent);
-                        int i = (int) ((v - this.htw) / 10.0f);
+                        float z = z(motionEvent);
+                        int i = (int) ((z - this.huL) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.htx;
+                            int i2 = i + this.huM;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.htw = v;
+                            this.huL = z;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.htw = v(motionEvent);
+                    this.huL = z(motionEvent);
                     break;
             }
         }
         return true;
     }
 
-    private float v(MotionEvent motionEvent) {
+    private float z(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.htx = i;
+                this.huM = i;
             }
         }
     }

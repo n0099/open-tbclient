@@ -355,10 +355,10 @@ public abstract class MediaBrowserServiceCompat extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public final class j extends Handler {
-        private final g yj;
+        private final g yi;
 
         j() {
-            this.yj = new g();
+            this.yi = new g();
         }
 
         @Override // android.os.Handler
@@ -366,25 +366,25 @@ public abstract class MediaBrowserServiceCompat extends Service {
             Bundle data = message.getData();
             switch (message.what) {
                 case 1:
-                    this.yj.a(data.getString("data_package_name"), data.getInt("data_calling_uid"), data.getBundle("data_root_hints"), new i(message.replyTo));
+                    this.yi.a(data.getString("data_package_name"), data.getInt("data_calling_uid"), data.getBundle("data_root_hints"), new i(message.replyTo));
                     return;
                 case 2:
-                    this.yj.a(new i(message.replyTo));
+                    this.yi.a(new i(message.replyTo));
                     return;
                 case 3:
-                    this.yj.a(data.getString("data_media_item_id"), BundleCompat.getBinder(data, "data_callback_token"), data.getBundle("data_options"), new i(message.replyTo));
+                    this.yi.a(data.getString("data_media_item_id"), BundleCompat.getBinder(data, "data_callback_token"), data.getBundle("data_options"), new i(message.replyTo));
                     return;
                 case 4:
-                    this.yj.a(data.getString("data_media_item_id"), BundleCompat.getBinder(data, "data_callback_token"), new i(message.replyTo));
+                    this.yi.a(data.getString("data_media_item_id"), BundleCompat.getBinder(data, "data_callback_token"), new i(message.replyTo));
                     return;
                 case 5:
-                    this.yj.a(data.getString("data_media_item_id"), (ResultReceiver) data.getParcelable("data_result_receiver"), new i(message.replyTo));
+                    this.yi.a(data.getString("data_media_item_id"), (ResultReceiver) data.getParcelable("data_result_receiver"), new i(message.replyTo));
                     return;
                 case 6:
-                    this.yj.a(new i(message.replyTo), data.getBundle("data_root_hints"));
+                    this.yi.a(new i(message.replyTo), data.getBundle("data_root_hints"));
                     return;
                 case 7:
-                    this.yj.b(new i(message.replyTo));
+                    this.yi.b(new i(message.replyTo));
                     return;
                 default:
                     Log.w(MediaBrowserServiceCompat.TAG, "Unhandled message: " + message + "\n  Service version: 1\n  Client version: " + message.arg1);
@@ -585,15 +585,15 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     /* loaded from: classes2.dex */
     private class i implements h {
-        final Messenger yi;
+        final Messenger yh;
 
         i(Messenger messenger) {
-            this.yi = messenger;
+            this.yh = messenger;
         }
 
         @Override // android.support.v4.media.MediaBrowserServiceCompat.h
         public IBinder asBinder() {
-            return this.yi.getBinder();
+            return this.yh.getBinder();
         }
 
         @Override // android.support.v4.media.MediaBrowserServiceCompat.h
@@ -631,7 +631,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
             obtain.what = i;
             obtain.arg1 = 1;
             obtain.setData(bundle);
-            this.yi.send(obtain);
+            this.yh.send(obtain);
         }
     }
 

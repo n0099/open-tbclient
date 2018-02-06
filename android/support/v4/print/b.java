@@ -17,6 +17,6 @@ class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context) {
         super(context);
-        this.Aw = false;
+        this.Av = false;
     }
 }

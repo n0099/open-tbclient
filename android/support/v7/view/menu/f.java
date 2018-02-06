@@ -18,42 +18,42 @@ public class f extends a<SupportMenu> implements Menu {
 
     @Override // android.view.Menu
     public MenuItem add(CharSequence charSequence) {
-        return b(((SupportMenu) this.HO).add(charSequence));
+        return b(((SupportMenu) this.HN).add(charSequence));
     }
 
     @Override // android.view.Menu
     public MenuItem add(int i) {
-        return b(((SupportMenu) this.HO).add(i));
+        return b(((SupportMenu) this.HN).add(i));
     }
 
     @Override // android.view.Menu
     public MenuItem add(int i, int i2, int i3, CharSequence charSequence) {
-        return b(((SupportMenu) this.HO).add(i, i2, i3, charSequence));
+        return b(((SupportMenu) this.HN).add(i, i2, i3, charSequence));
     }
 
     @Override // android.view.Menu
     public MenuItem add(int i, int i2, int i3, int i4) {
-        return b(((SupportMenu) this.HO).add(i, i2, i3, i4));
+        return b(((SupportMenu) this.HN).add(i, i2, i3, i4));
     }
 
     @Override // android.view.Menu
     public SubMenu addSubMenu(CharSequence charSequence) {
-        return a(((SupportMenu) this.HO).addSubMenu(charSequence));
+        return a(((SupportMenu) this.HN).addSubMenu(charSequence));
     }
 
     @Override // android.view.Menu
     public SubMenu addSubMenu(int i) {
-        return a(((SupportMenu) this.HO).addSubMenu(i));
+        return a(((SupportMenu) this.HN).addSubMenu(i));
     }
 
     @Override // android.view.Menu
     public SubMenu addSubMenu(int i, int i2, int i3, CharSequence charSequence) {
-        return a(((SupportMenu) this.HO).addSubMenu(i, i2, i3, charSequence));
+        return a(((SupportMenu) this.HN).addSubMenu(i, i2, i3, charSequence));
     }
 
     @Override // android.view.Menu
     public SubMenu addSubMenu(int i, int i2, int i3, int i4) {
-        return a(((SupportMenu) this.HO).addSubMenu(i, i2, i3, i4));
+        return a(((SupportMenu) this.HN).addSubMenu(i, i2, i3, i4));
     }
 
     @Override // android.view.Menu
@@ -62,7 +62,7 @@ public class f extends a<SupportMenu> implements Menu {
         if (menuItemArr != null) {
             menuItemArr2 = new MenuItem[menuItemArr.length];
         }
-        int addIntentOptions = ((SupportMenu) this.HO).addIntentOptions(i, i2, i3, componentName, intentArr, intent, i4, menuItemArr2);
+        int addIntentOptions = ((SupportMenu) this.HN).addIntentOptions(i, i2, i3, componentName, intentArr, intent, i4, menuItemArr2);
         if (menuItemArr2 != null) {
             int length = menuItemArr2.length;
             for (int i5 = 0; i5 < length; i5++) {
@@ -75,78 +75,78 @@ public class f extends a<SupportMenu> implements Menu {
     @Override // android.view.Menu
     public void removeItem(int i) {
         aQ(i);
-        ((SupportMenu) this.HO).removeItem(i);
+        ((SupportMenu) this.HN).removeItem(i);
     }
 
     @Override // android.view.Menu
     public void removeGroup(int i) {
         aP(i);
-        ((SupportMenu) this.HO).removeGroup(i);
+        ((SupportMenu) this.HN).removeGroup(i);
     }
 
     @Override // android.view.Menu
     public void clear() {
         eO();
-        ((SupportMenu) this.HO).clear();
+        ((SupportMenu) this.HN).clear();
     }
 
     @Override // android.view.Menu
     public void setGroupCheckable(int i, boolean z, boolean z2) {
-        ((SupportMenu) this.HO).setGroupCheckable(i, z, z2);
+        ((SupportMenu) this.HN).setGroupCheckable(i, z, z2);
     }
 
     @Override // android.view.Menu
     public void setGroupVisible(int i, boolean z) {
-        ((SupportMenu) this.HO).setGroupVisible(i, z);
+        ((SupportMenu) this.HN).setGroupVisible(i, z);
     }
 
     @Override // android.view.Menu
     public void setGroupEnabled(int i, boolean z) {
-        ((SupportMenu) this.HO).setGroupEnabled(i, z);
+        ((SupportMenu) this.HN).setGroupEnabled(i, z);
     }
 
     @Override // android.view.Menu
     public boolean hasVisibleItems() {
-        return ((SupportMenu) this.HO).hasVisibleItems();
+        return ((SupportMenu) this.HN).hasVisibleItems();
     }
 
     @Override // android.view.Menu
     public MenuItem findItem(int i) {
-        return b(((SupportMenu) this.HO).findItem(i));
+        return b(((SupportMenu) this.HN).findItem(i));
     }
 
     @Override // android.view.Menu
     public int size() {
-        return ((SupportMenu) this.HO).size();
+        return ((SupportMenu) this.HN).size();
     }
 
     @Override // android.view.Menu
     public MenuItem getItem(int i) {
-        return b(((SupportMenu) this.HO).getItem(i));
+        return b(((SupportMenu) this.HN).getItem(i));
     }
 
     @Override // android.view.Menu
     public void close() {
-        ((SupportMenu) this.HO).close();
+        ((SupportMenu) this.HN).close();
     }
 
     @Override // android.view.Menu
     public boolean performShortcut(int i, KeyEvent keyEvent, int i2) {
-        return ((SupportMenu) this.HO).performShortcut(i, keyEvent, i2);
+        return ((SupportMenu) this.HN).performShortcut(i, keyEvent, i2);
     }
 
     @Override // android.view.Menu
     public boolean isShortcutKey(int i, KeyEvent keyEvent) {
-        return ((SupportMenu) this.HO).isShortcutKey(i, keyEvent);
+        return ((SupportMenu) this.HN).isShortcutKey(i, keyEvent);
     }
 
     @Override // android.view.Menu
     public boolean performIdentifierAction(int i, int i2) {
-        return ((SupportMenu) this.HO).performIdentifierAction(i, i2);
+        return ((SupportMenu) this.HN).performIdentifierAction(i, i2);
     }
 
     @Override // android.view.Menu
     public void setQwertyMode(boolean z) {
-        ((SupportMenu) this.HO).setQwertyMode(z);
+        ((SupportMenu) this.HN).setQwertyMode(z);
     }
 }

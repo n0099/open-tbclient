@@ -4,6 +4,7 @@ import android.net.TrafficStats;
 import android.os.Process;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes2.dex */
 public class e implements com.xiaomi.smack.d {
@@ -114,7 +115,7 @@ public class e implements com.xiaomi.smack.d {
                 this.h = 0L;
             }
             if (d) {
-                if ((!TextUtils.equals(this.e, k) && this.g > 30000) || this.g > 5400000) {
+                if ((!TextUtils.equals(this.e, k) && this.g > StatisticConfig.MIN_UPLOAD_INTERVAL) || this.g > 5400000) {
                     d();
                 }
                 this.e = k;

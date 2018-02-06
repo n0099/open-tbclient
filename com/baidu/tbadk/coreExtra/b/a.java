@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a beY = null;
-    private boolean beX;
-    private int beZ;
+    private static volatile a bgR = null;
+    private boolean bgQ;
+    private int bgS;
 
     private a() {
-        this.beX = false;
-        this.beZ = 0;
+        this.bgQ = false;
+        this.bgS = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            dVar.ab(true);
+            dVar.ad(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             if (dVar.lm()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.beZ = Integer.parseInt(content);
+                    this.bgS = Integer.parseInt(content);
                 }
-                if (this.beZ == 1 || this.beZ == 2) {
-                    this.beX = true;
+                if (this.bgS == 1 || this.bgS == 2) {
+                    this.bgQ = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a EJ() {
-        if (beY == null) {
+    public static a Fe() {
+        if (bgR == null) {
             synchronized (a.class) {
-                if (beY == null) {
-                    beY = new a();
+                if (bgR == null) {
+                    bgR = new a();
                 }
             }
         }
-        return beY;
+        return bgR;
     }
 
-    public boolean EK() {
-        return this.beX;
+    public boolean Ff() {
+        return this.bgQ;
     }
 
-    public int EL() {
-        return this.beZ;
+    public int Fg() {
+        return this.bgS;
     }
 
-    public String EM() {
-        return this.beX ? "pub_env=" + this.beZ + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String Fh() {
+        return this.bgQ ? "pub_env=" + this.bgS + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

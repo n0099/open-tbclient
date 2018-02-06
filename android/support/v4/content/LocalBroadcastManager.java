@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.sina.weibo.sdk.component.WidgetRequestParam;
+import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -180,10 +182,10 @@ public final class LocalBroadcastManager {
                             if (z) {
                                 switch (match) {
                                     case -4:
-                                        str = "category";
+                                        str = WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY;
                                         break;
                                     case -3:
-                                        str = "action";
+                                        str = AuthActivity.ACTION_KEY;
                                         break;
                                     case -2:
                                         str = "data";

@@ -9,16 +9,15 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.tbadk.core.data.ExceptionData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.sharedPref.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] bAg = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] bCk = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.plugins.Static.1
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,7 +26,7 @@ public class Static {
                 }
             }
         });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.plugins.Static.2
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,7 +35,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.bAg;
+                    String[] strArr = Static.bCk;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {

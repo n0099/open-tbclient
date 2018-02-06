@@ -9,11 +9,13 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.tbadkCore.u;
+import com.sina.weibo.sdk.exception.WeiboAuthException;
+import com.tencent.connect.common.Constants;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class g {
@@ -27,7 +29,7 @@ public class g {
                     str = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("apk_md5", "");
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("version_name", versionName);
-                    String f = ao.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                    String f = ap.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("apk_md5", f);
                     str = f;
                 }
@@ -51,13 +53,13 @@ public class g {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || v.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || u.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {
-        String str = "-1";
+        String str = WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
         try {
-            str = ao.d(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            str = ap.d(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -67,7 +69,7 @@ public class g {
         intent.setFlags(268435488);
         intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
         intent.putExtra("backup", "0");
-        intent.putExtra("func", "11");
+        intent.putExtra("func", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
         Bundle bundle = new Bundle();
         bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.g.b.c(versionData.getPatchSize(), 0L));

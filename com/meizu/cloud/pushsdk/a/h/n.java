@@ -1,10 +1,9 @@
 package com.meizu.cloud.pushsdk.a.h;
 
 import java.nio.charset.Charset;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 final class n {
-    public static final Charset a = Charset.forName(HTTP.UTF_8);
+    public static final Charset a = Charset.forName("UTF-8");
 
     public static void a(long j, long j2, long j3) {
         if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {

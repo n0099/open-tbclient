@@ -22,116 +22,116 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView bbu;
-    private ScaleAnimation bcd;
-    private TextView fVn;
-    private TextView fVo;
-    private boolean fVp;
+    private ScaleAnimation bdU;
+    private ImageView bdm;
+    private TextView fYA;
+    private boolean fYB;
+    private TextView fYz;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.fVp = false;
+        this.fYB = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fVp = false;
+        this.fYB = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fVp = false;
+        this.fYB = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.fVn = new TextView(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.s(context, d.e.tbds48));
-        layoutParams.leftMargin = l.s(context, d.e.tbds9);
-        layoutParams.topMargin = l.s(context, d.e.tbds18);
-        this.fVn.setLayoutParams(layoutParams);
-        this.fVn.setTextSize(0, l.s(context, d.e.tbfontsize30));
-        this.fVn.setGravity(17);
-        aj.r(this.fVn, d.C0108d.cp_cont_j);
-        this.bbu = new ImageView(context);
-        aj.c(this.bbu, d.f.icon_floor_like_n);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.s(context, d.e.tbds48), l.s(context, d.e.tbds48));
-        layoutParams2.leftMargin = l.s(context, d.e.tbds9);
-        layoutParams2.topMargin = l.s(context, d.e.tbds18);
-        this.bbu.setLayoutParams(layoutParams2);
-        linearLayout.addView(this.bbu);
-        linearLayout.addView(this.fVn);
+        this.fYz = new TextView(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.t(context, d.e.tbds48));
+        layoutParams.leftMargin = l.t(context, d.e.tbds9);
+        layoutParams.topMargin = l.t(context, d.e.tbds18);
+        this.fYz.setLayoutParams(layoutParams);
+        this.fYz.setTextSize(0, l.t(context, d.e.tbfontsize30));
+        this.fYz.setGravity(17);
+        aj.r(this.fYz, d.C0140d.cp_cont_j);
+        this.bdm = new ImageView(context);
+        aj.c(this.bdm, d.f.icon_floor_like_n);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.t(context, d.e.tbds48), l.t(context, d.e.tbds48));
+        layoutParams2.leftMargin = l.t(context, d.e.tbds9);
+        layoutParams2.topMargin = l.t(context, d.e.tbds18);
+        this.bdm.setLayoutParams(layoutParams2);
+        linearLayout.addView(this.bdm);
+        linearLayout.addView(this.fYz);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.fVo = new TextView(getContext());
-        this.fVo.setTextSize(0, l.s(getContext(), d.e.fontsize24));
-        addView(this.fVo);
-        this.fVo.setVisibility(8);
+        this.fYA = new TextView(getContext());
+        this.fYA.setTextSize(0, l.t(getContext(), d.e.fontsize24));
+        addView(this.fYA);
+        this.fYA.setVisibility(8);
     }
 
     public void a(boolean z, long j, boolean z2) {
-        if (this.fVp != z) {
-            this.fVp = z;
+        if (this.fYB != z) {
+            this.fYB = z;
             onChangeSkinType();
         }
-        this.fVn.setText(am.F(j));
+        this.fYz.setText(am.F(j));
         if (z2) {
-            this.bbu.startAnimation(getScaleAnimation());
+            this.bdm.startAnimation(getScaleAnimation());
         }
     }
 
     private Animation getScaleAnimation() {
-        if (this.bcd == null) {
-            this.bcd = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.bcd.setDuration(200L);
+        if (this.bdU == null) {
+            this.bdU = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.bdU.setDuration(200L);
         }
-        return this.bcd;
+        return this.bdU;
     }
 
-    private boolean DZ() {
+    private boolean Eu() {
         com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.EW();
+        return activitySwitch != null && activitySwitch.Fr();
     }
 
     public void onChangeSkinType() {
-        if (this.fVp) {
-            aj.c(this.bbu, DZ() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
-            aj.r(this.fVn, d.C0108d.cp_cont_h);
+        if (this.fYB) {
+            aj.c(this.bdm, Eu() ? d.f.icon_card_liked_n_xmas : d.f.icon_card_liked_n);
+            aj.r(this.fYz, d.C0140d.cp_cont_h);
             return;
         }
-        aj.c(this.bbu, DZ() ? d.f.icon_card_like_n_xmas : d.f.icon_floor_like_n);
-        aj.r(this.fVn, d.C0108d.cp_cont_j);
+        aj.c(this.bdm, Eu() ? d.f.icon_card_like_n_xmas : d.f.icon_floor_like_n);
+        aj.r(this.fYz, d.C0140d.cp_cont_j);
     }
 
-    public void te(int i) {
-        if (this.bbu != null && getVisibility() == 0) {
+    public void ti(int i) {
+        if (this.bdm != null && getVisibility() == 0) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).setClipChildren(false);
             }
-            if (this.fVo.getAnimation() != null) {
-                this.fVo.getAnimation().cancel();
+            if (this.fYA.getAnimation() != null) {
+                this.fYA.getAnimation().cancel();
             }
             String valueOf = String.valueOf(i);
             String format = String.format(getResources().getString(d.j.pb_add_score), valueOf);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(format);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0108d.cp_cont_f)), 0, 2, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0108d.cp_cont_h)), 2, valueOf.length() + 3, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0108d.cp_cont_f)), valueOf.length() + 3, format.length(), 33);
-            this.fVo.setText(spannableStringBuilder);
-            this.fVo.setVisibility(0);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0140d.cp_cont_f)), 0, 2, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0140d.cp_cont_h)), 2, valueOf.length() + 3, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(aj.getColor(d.C0140d.cp_cont_f)), valueOf.length() + 3, format.length(), 33);
+            this.fYA.setText(spannableStringBuilder);
+            this.fYA.setVisibility(0);
             AnimationSet animationSet = new AnimationSet(true);
             animationSet.addAnimation(new AlphaAnimation(0.0f, 1.0f));
             animationSet.addAnimation(new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f));
-            animationSet.addAnimation(new TranslateAnimation(0.0f, l.s(getContext(), d.e.ds20), 0.0f, -l.s(getContext(), d.e.ds20)));
+            animationSet.addAnimation(new TranslateAnimation(0.0f, l.t(getContext(), d.e.ds20), 0.0f, -l.t(getContext(), d.e.ds20)));
             animationSet.setDuration(300L);
             animationSet.setInterpolator(new OvershootInterpolator());
             animationSet.setFillAfter(true);
-            this.fVo.startAnimation(animationSet);
+            this.fYA.startAnimation(animationSet);
             final AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
             alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView.1
                 @Override // android.view.animation.Animation.AnimationListener
@@ -140,7 +140,7 @@ public class PbFloorAgreeView extends FrameLayout {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    PbFloorAgreeView.this.fVo.setVisibility(8);
+                    PbFloorAgreeView.this.fYA.setVisibility(8);
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -151,7 +151,7 @@ public class PbFloorAgreeView extends FrameLayout {
             postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    PbFloorAgreeView.this.fVo.startAnimation(alphaAnimation);
+                    PbFloorAgreeView.this.fYA.startAnimation(alphaAnimation);
                 }
             }, 1800L);
         }

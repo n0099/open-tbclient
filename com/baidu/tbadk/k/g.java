@@ -2,7 +2,7 @@ package com.baidu.tbadk.k;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
-public class g extends m {
+public class g extends l {
     public int pageType;
 
     public g(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {

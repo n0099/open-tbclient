@@ -6,7 +6,6 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class j extends ClickableSpan {
     private Context mContext;
@@ -20,12 +19,12 @@ public class j extends ClickableSpan {
         return this.mContext;
     }
 
-    public void hb(String str) {
-        com.baidu.tbadk.browser.a.P(this.mContext, str);
+    public void hk(String str) {
+        com.baidu.tbadk.browser.b.R(this.mContext, str);
     }
 
-    public void hc(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    public void hl(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
     }
 
     @Override // android.text.style.ClickableSpan

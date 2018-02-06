@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.k.e;
+import com.baidu.fsg.base.utils.PhoneUtils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -97,7 +98,7 @@ public class b {
         } else if (str.contains("ARMv7")) {
             aVar.a = 256;
         }
-        if (str.contains("neon")) {
+        if (str.contains(PhoneUtils.CPUInfo.FEATURE_NEON)) {
             aVar.c |= 256;
         }
         if (str.contains("vfpv3")) {
@@ -213,7 +214,7 @@ public class b {
 
     public static String c() {
         a a2 = a();
-        return a2 != null ? (a2.a & 1) == 1 ? "armv5" : (a2.a & 16) == 16 ? "armv6" : (a2.a & 256) == 256 ? "armv7" : "unknown" : "";
+        return a2 != null ? (a2.a & 1) == 1 ? PhoneUtils.CPUInfo.PROCESSOR_ARMV5 : (a2.a & 16) == 16 ? PhoneUtils.CPUInfo.PROCESSOR_ARMV6 : (a2.a & 256) == 256 ? PhoneUtils.CPUInfo.PROCESSOR_ARMV7 : "unknown" : "";
     }
 
     public static boolean c(Context context) {
@@ -222,7 +223,7 @@ public class b {
 
     public static String d() {
         a a2 = a();
-        return a2 != null ? (a2.c & 256) == 256 ? "neon" : (a2.c & 1) == 1 ? "vfp" : (a2.c & 16) == 16 ? "vfpv3" : "unknown" : "";
+        return a2 != null ? (a2.c & 256) == 256 ? PhoneUtils.CPUInfo.FEATURE_NEON : (a2.c & 1) == 1 ? PhoneUtils.CPUInfo.FEATURE_VFP : (a2.c & 16) == 16 ? "vfpv3" : "unknown" : "";
     }
 
     public static JSONObject d(Context context) {

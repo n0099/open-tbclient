@@ -38,8 +38,8 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 127;
-    public static final String VERSION_NAME = "8.2.1";
+    public static final int VERSION_CODE = 131;
+    public static final String VERSION_NAME = "8.2.5";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static SapiAccountService c;
@@ -99,6 +99,12 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
             Iterator<String> it = j.iterator();
             while (it.hasNext()) {
                 Class.forName(it.next());
+            }
+            try {
+                Class.forName("com.baidu.sofire.ac.FH");
+            } catch (ClassNotFoundException e2) {
+                Log.e(e2);
+                throw new IllegalArgumentException("please import the package : sofire-sdk-*.jar");
             }
         } catch (Throwable th) {
             Log.e(th);
@@ -169,7 +175,7 @@ public final class SapiAccountManager implements ISapiAccountManagerService, ISA
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService
     public int getVersionCode() {
-        return 127;
+        return VERSION_CODE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,6 +4,6 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int filter_res_hold = 0x7f0208b6;
+        public static final int filter_res_hold = 0x7f0208bc;
     }
 }

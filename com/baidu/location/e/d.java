@@ -15,13 +15,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes.dex */
 public final class d {
-    private static volatile d aBF;
+    private static volatile d aDd;
     private static Context c;
-    private final File aBG;
-    private final k aBH;
-    private final e aBI;
-    private final m aBJ;
-    private final h aBK;
+    private final File aDe;
+    private final k aDf;
+    private final e aDg;
+    private final m aDh;
+    private final h aDi;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
 
@@ -59,22 +59,22 @@ public final class d {
         } catch (Exception e2) {
             file = null;
         }
-        this.aBG = file;
-        this.aBI = new e(this);
-        this.aBH = new k(this.aBI.uf());
-        this.aBK = new h(this, this.aBI.uf());
-        this.aBJ = new m(this, this.aBI.uf(), this.aBK.n());
+        this.aDe = file;
+        this.aDg = new e(this);
+        this.aDf = new k(this.aDg.uR());
+        this.aDi = new h(this, this.aDg.uR());
+        this.aDh = new m(this, this.aDg.uR(), this.aDi.n());
     }
 
     public static void a(Context context) {
         if (c == null) {
             c = context;
-            com.baidu.location.h.c.uB().a(c);
+            com.baidu.location.h.c.vn().a(c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Uri bV(String str) {
+    public static final Uri cb(String str) {
         return Uri.parse(String.format("content://%s/", str));
     }
 
@@ -96,7 +96,7 @@ public final class d {
                 newSingleThreadExecutor.shutdown();
                 return null;
             } catch (TimeoutException e3) {
-                com.baidu.location.c.f.tV().a("offlineLocation Timeout Exception!");
+                com.baidu.location.c.f.uH().a("offlineLocation Timeout Exception!");
                 futureTask.cancel(true);
                 newSingleThreadExecutor.shutdown();
                 return null;
@@ -108,7 +108,7 @@ public final class d {
     }
 
     private void q() {
-        this.aBK.g();
+        this.aDi.g();
     }
 
     private boolean r() {
@@ -116,9 +116,9 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] uj = this.aBK.uj();
+            String[] uV = this.aDi.uV();
             providerInfo = resolveContentProvider;
-            for (int i = 0; i < uj.length && (providerInfo = c.getPackageManager().resolveContentProvider(uj[i], 0)) == null; i++) {
+            for (int i = 0; i < uV.length && (providerInfo = c.getPackageManager().resolveContentProvider(uV[i], 0)) == null; i++) {
             }
         } else {
             providerInfo = resolveContentProvider;
@@ -126,33 +126,33 @@ public final class d {
         return providerInfo == null || packageName.equals(providerInfo.packageName);
     }
 
-    public static d tZ() {
-        if (aBF == null) {
+    public static d uL() {
+        if (aDd == null) {
             synchronized (d.class) {
-                if (aBF == null) {
+                if (aDd == null) {
                     if (c == null) {
                         a(com.baidu.location.f.getServiceContext());
                     }
-                    aBF = new d();
+                    aDd = new d();
                 }
             }
         }
-        aBF.q();
-        return aBF;
+        aDd.q();
+        return aDd;
     }
 
     public long a(String str) {
-        return this.aBK.a(str);
+        return this.aDi.a(str);
     }
 
     public BDLocation a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation, b bVar, a aVar2) {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.aBK.a();
-            d = com.baidu.location.h.c.uB().d() + "&mixMode=1";
+            i = this.aDi.a();
+            d = com.baidu.location.h.c.vn().d() + "&mixMode=1";
         } else {
-            d = com.baidu.location.h.c.uB().d();
+            d = com.baidu.location.h.c.vn().d();
             i = 0;
         }
         String[] a2 = j.a(aVar, iVar, bDLocation, d, (aVar2 == a.NEED_TO_LOG).booleanValue(), i);
@@ -164,36 +164,36 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public File c() {
-        return this.aBG;
+        return this.aDe;
     }
 
     public boolean d() {
-        return this.aBK.h();
+        return this.aDi.h();
     }
 
     public boolean e() {
-        return this.aBK.i();
+        return this.aDi.i();
     }
 
     public boolean f() {
-        return this.aBK.j();
+        return this.aDi.j();
     }
 
     public boolean g() {
-        return this.aBK.k();
+        return this.aDi.k();
     }
 
     public boolean h() {
-        return this.aBK.m();
+        return this.aDi.m();
     }
 
     public void i() {
-        this.aBH.a();
+        this.aDf.a();
     }
 
     public void m() {
         if (r()) {
-            this.aBI.b();
+            this.aDg.b();
         }
     }
 
@@ -219,39 +219,39 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.aBK.b();
+            return this.aDi.b();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.aBK.c();
+            return this.aDi.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.aBK.ug();
+            return this.aDi.uS();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.aBK.uh();
+            return this.aDi.uT();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.aBK.ui();
+            return this.aDi.uU();
         }
         return 0.0d;
     }
 
-    public Context ua() {
+    public Context uM() {
         return c;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k ub() {
-        return this.aBH;
+    public k uN() {
+        return this.aDf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m uc() {
-        return this.aBJ;
+    public m uO() {
+        return this.aDh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h ud() {
-        return this.aBK;
+    public h uP() {
+        return this.aDi;
     }
 }

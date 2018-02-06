@@ -1,78 +1,99 @@
 package com.baidu.tbadk.browser;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.hybrid.m;
-import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.core.hybrid.p;
-import com.xiaomi.mipush.sdk.Constants;
+import android.content.Context;
+import android.webkit.JsPromptResult;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.xiuba.JSResultData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends o {
-    public c(m mVar) {
-        super(mVar);
+public class c implements com.baidu.tieba.tbadkCore.e.b {
+    private final Context mContext;
+
+    public c(Context context) {
+        this.mContext = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.o
-    public String vK() {
-        return "TBHY_COMMON_Utils";
+    private String wt() {
+        ay.ba(this.mContext);
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    @p(Bj = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).AJ();
-        }
+    private String wu() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921053));
+        return "";
     }
 
-    @p(Bj = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        JSONObject jSONObject = new JSONObject();
-        int i = 0;
-        String str = "NotReachable";
-        if (j.oK()) {
-            i = 1;
-            str = "WIFI";
-        } else if (j.oO()) {
-            i = 3;
-            str = "2G";
-        } else if (j.oN()) {
-            i = 4;
-            str = "3G";
-        } else if (j.oM()) {
-            i = 5;
-            str = "4G";
-        }
-        try {
-            jSONObject.put("netStatus", i);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException e) {
-        }
-        return jSONObject;
+    private String wv() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
+        return "";
     }
 
-    @p(Bj = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        String str3 = String.valueOf(l.ao(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(l.aq(getContext()));
-        String versionName = TbadkCoreApplication.getInst().getVersionName();
-        try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException e) {
+    private void ct(String str) {
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.e.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if ("CommonJSBridge".equals(str)) {
+            if ("startLoginModule".equals(str2)) {
+                try {
+                    new JSONObject(str3);
+                    jsPromptResult.confirm(wt());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if ("hideWebLoading".equals(str2)) {
+                try {
+                    String optString = new JSONObject(str3).optString("url");
+                    if (!StringUtils.isNull(optString)) {
+                        ct(optString);
+                    }
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if ("personPageRefresh".equals(str2)) {
+                try {
+                    jsPromptResult.confirm(wv());
+                    return true;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            }
+            if ("finishThisPage".equals(str2)) {
+                try {
+                    jsPromptResult.confirm(wu());
+                    return true;
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+            if ("registerShareData".equals(str2)) {
+                try {
+                    cu(str3);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+            }
         }
-        return jSONObject;
+        return false;
+    }
+
+    private void cu(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
     }
 }

@@ -8,15 +8,16 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.ShareWebActivity;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
+import com.baidu.tbadk.core.atomData.ShareWebActivityConfig;
 import com.baidu.tbadk.core.atomData.SyncServiceConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.d.j;
@@ -31,7 +32,7 @@ import com.baidu.tbadk.core.util.d.r;
 import com.baidu.tbadk.core.util.d.s;
 import com.baidu.tbadk.core.util.d.t;
 import com.baidu.tbadk.core.util.d.u;
-import com.baidu.tbadk.o.aq;
+import com.baidu.tbadk.o.at;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -45,18 +46,18 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        wA();
-        aq.Ol();
+        xn();
+        at.OQ();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.aKO();
+        com.baidu.tieba.im.widget.c.aMq();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.aJm();
-        com.baidu.tieba.im.db.h.aGI();
-        com.baidu.tbadk.browser.d.init();
+        ImMemoryCacheRegister.aKO();
+        com.baidu.tieba.im.db.i.aIi();
+        com.baidu.tbadk.browser.e.init();
         h.init();
         com.baidu.tieba.wallet.d.init();
         com.baidu.tbadk.core.diskCache.a.init();
-        com.baidu.tbadk.core.frameworkData.c.init();
+        com.baidu.tbadk.core.frameworkData.d.init();
         com.baidu.tbadk.plugin.a.init();
         com.baidu.tbadk.f.a.init();
     }
@@ -66,10 +67,11 @@ public class LaunchStatic {
         TbadkCoreApplication.getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
         TbadkCoreApplication.getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
         TbadkCoreApplication.getInst().RegisterIntent(TbWebViewActivityConfig.class, TbWebViewActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(ShareWebActivityConfig.class, ShareWebActivity.class);
     }
 
     private static void initRegisterTask() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.TIEBA_FATAL_ERROR, new CustomMessageTask.CustomRunnable<HashMap<String, String>>() { // from class: com.baidu.tbadk.core.LaunchStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new CustomMessageTask.CustomRunnable<HashMap<String, String>>() { // from class: com.baidu.tbadk.core.LaunchStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
                 HashMap<String, String> data = customMessage.getData();
@@ -89,15 +91,15 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.LJ().Hf();
+        com.baidu.tbadk.getUserInfo.b.Mp().HQ();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aI(TbConfig.GET_PAY_CONFIG, 303039));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aJ(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private static void initRegisterListeners() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.core.LaunchStatic.2
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.core.LaunchStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,7 +108,7 @@ public class LaunchStatic {
                 }
             }
         });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_DEBUGLOG_SPECIFIED) { // from class: com.baidu.tbadk.core.LaunchStatic.3
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2010001) { // from class: com.baidu.tbadk.core.LaunchStatic.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -117,7 +119,7 @@ public class LaunchStatic {
         });
     }
 
-    private static void wA() {
+    private static void xn() {
         com.baidu.adp.lib.f.c.nm().a(10, new t(true, 10));
         com.baidu.adp.lib.f.c.nm().a(11, new t(false, 10));
         com.baidu.adp.lib.f.c.nm().a(12, new r(false, false, false, 12));
