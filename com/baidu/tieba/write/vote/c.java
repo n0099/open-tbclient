@@ -18,39 +18,39 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private ArrayList<h> hIR;
-    private WriteVoteActivity hIT;
-    private a hIU;
-    private int hIO = 7;
-    private boolean hIP = false;
-    private com.baidu.tbadk.core.dialog.e hIQ = null;
-    private com.baidu.tbadk.core.dialog.a hwE = null;
-    private EditText hIS = null;
-    private final AdapterView.OnItemClickListener eRx = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.vote.c.1
+    private ArrayList<h> hIE;
+    private WriteVoteActivity hIG;
+    private a hIH;
+    private int hIB = 7;
+    private boolean hIC = false;
+    private com.baidu.tbadk.core.dialog.e hID = null;
+    private com.baidu.tbadk.core.dialog.a hwr = null;
+    private EditText hIF = null;
+    private final AdapterView.OnItemClickListener eRl = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.vote.c.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            c.this.hIQ.refresh(i);
+            c.this.hID.refresh(i);
             switch (i) {
                 case 0:
-                    c.this.hIO = 1;
-                    c.this.hIP = false;
-                    c.this.xB(c.this.hIO);
+                    c.this.hIB = 1;
+                    c.this.hIC = false;
+                    c.this.xC(c.this.hIB);
                     break;
                 case 1:
-                    c.this.hIO = 7;
-                    c.this.hIP = false;
-                    c.this.xB(c.this.hIO);
+                    c.this.hIB = 7;
+                    c.this.hIC = false;
+                    c.this.xC(c.this.hIB);
                     break;
                 case 2:
-                    c.this.hIO = 30;
-                    c.this.hIP = false;
-                    c.this.xB(c.this.hIO);
+                    c.this.hIB = 30;
+                    c.this.hIC = false;
+                    c.this.xC(c.this.hIB);
                     break;
                 case 3:
-                    c.this.bHy();
+                    c.this.bHx();
                     break;
             }
-            c.this.hIQ.dismiss();
+            c.this.hID.dismiss();
         }
     };
     private LayoutInflater kh = LayoutInflater.from(getActivity());
@@ -61,24 +61,24 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.hIU = aVar;
+        this.hIH = aVar;
     }
 
     public c(WriteVoteActivity writeVoteActivity) {
-        this.hIT = writeVoteActivity;
+        this.hIG = writeVoteActivity;
     }
 
     public void showDialog() {
-        this.hIQ = new com.baidu.tbadk.core.dialog.e(this.hIT.getPageContext());
-        this.hIR = new ArrayList<>();
-        this.hIR.add(new h(getString(d.j.day_one), null, this.hIO == 1));
-        this.hIR.add(new h(getString(d.j.one_week), null, this.hIO == 7));
-        this.hIR.add(new h(getString(d.j.one_month), null, this.hIO == 30));
-        this.hIR.add(new h(getString(d.j.custom_time), null, this.hIP));
-        this.hIQ.fk(d.j.endtime_dialog_title);
-        this.hIQ.a(this.hIR, this.eRx);
-        this.hIQ.AY();
-        this.hIQ.AZ();
+        this.hID = new com.baidu.tbadk.core.dialog.e(this.hIG.getPageContext());
+        this.hIE = new ArrayList<>();
+        this.hIE.add(new h(getString(d.j.day_one), null, this.hIB == 1));
+        this.hIE.add(new h(getString(d.j.one_week), null, this.hIB == 7));
+        this.hIE.add(new h(getString(d.j.one_month), null, this.hIB == 30));
+        this.hIE.add(new h(getString(d.j.custom_time), null, this.hIC));
+        this.hID.fk(d.j.endtime_dialog_title);
+        this.hID.a(this.hIE, this.eRl);
+        this.hID.AY();
+        this.hID.AZ();
     }
 
     private String getString(int i) {
@@ -86,60 +86,60 @@ public class c {
     }
 
     private Activity getActivity() {
-        return this.hIT.getPageContext().getPageActivity();
+        return this.hIG.getPageContext().getPageActivity();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xB(int i) {
-        if (this.hIU != null) {
-            this.hIU.an(i, xC(i));
-            l.a(this.hIT.getPageContext().getPageActivity(), this.hIS);
+    public void xC(int i) {
+        if (this.hIH != null) {
+            this.hIH.an(i, xD(i));
+            l.a(this.hIG.getPageContext().getPageActivity(), this.hIF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHy() {
-        this.hwE = new com.baidu.tbadk.core.dialog.a(getActivity());
+    public void bHx() {
+        this.hwr = new com.baidu.tbadk.core.dialog.a(getActivity());
         View inflate = this.kh.inflate(d.h.select_day_item, (ViewGroup) null);
-        this.hIS = (EditText) inflate.findViewById(d.g.select_date_edittext);
-        this.hwE.aO(inflate);
-        this.hwE.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.write.vote.c.2
+        this.hIF = (EditText) inflate.findViewById(d.g.select_date_edittext);
+        this.hwr.aO(inflate);
+        this.hwr.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.write.vote.c.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                l.a(c.this.hIT.getPageContext().getPageActivity(), c.this.hIS);
+                l.a(c.this.hIG.getPageContext().getPageActivity(), c.this.hIF);
                 aVar.dismiss();
             }
         });
-        this.hwE.a(d.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.vote.c.3
+        this.hwr.a(d.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.vote.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                String trim = c.this.hIS.getText().toString().trim();
+                String trim = c.this.hIF.getText().toString().trim();
                 int h = !TextUtils.isEmpty(trim) ? com.baidu.adp.lib.g.b.h(trim, 7) : 0;
                 if (h > 0 && h <= 99) {
-                    c.this.hIO = h;
+                    c.this.hIB = h;
                     if (h == 1 || h == 7 || h == 30) {
-                        c.this.hIP = false;
+                        c.this.hIC = false;
                     } else {
-                        c.this.hIP = true;
+                        c.this.hIC = true;
                     }
-                    c.this.xB(c.this.hIO);
+                    c.this.xC(c.this.hIB);
                     aVar.dismiss();
                 } else if (h == 0) {
-                    c.this.hIT.showToast(d.j.endtime_input_error);
+                    c.this.hIG.showToast(d.j.endtime_input_error);
                 }
             }
         });
-        this.hwE.b(this.hIT.getPageContext());
-        this.hIS.setText(this.hIO + "");
-        Editable text = this.hIS.getText();
+        this.hwr.b(this.hIG.getPageContext());
+        this.hIF.setText(this.hIB + "");
+        Editable text = this.hIF.getText();
         if (text != null) {
             Selection.setSelection(text, text.length());
         }
-        this.hwE.AU();
-        this.hIT.ShowSoftKeyPadDelay(this.hIS, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
+        this.hwr.AU();
+        this.hIG.ShowSoftKeyPadDelay(this.hIF, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
     }
 
-    public static String xC(int i) {
+    public static String xD(int i) {
         if (i == 1) {
             return TbadkCoreApplication.getInst().getString(d.j.day_one);
         }

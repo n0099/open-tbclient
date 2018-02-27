@@ -9,9 +9,9 @@ import com.tencent.connect.common.AssistActivity;
 import com.tencent.connect.common.Constants;
 import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
-import com.tencent.open.utils.g;
-import com.tencent.open.utils.i;
-/* loaded from: classes3.dex */
+import com.tencent.open.utils.h;
+import com.tencent.open.utils.j;
+/* loaded from: classes2.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
@@ -43,7 +43,7 @@ public class AuthActivity extends Activity {
             return;
         }
         String uri2 = uri.toString();
-        Bundle a2 = i.a(uri2.substring(uri2.indexOf("#") + 1));
+        Bundle a2 = j.a(uri2.substring(uri2.indexOf("#") + 1));
         if (a2 == null) {
             f.d("openSDK_LOG.AuthActivity", "-->handleActionUri, bundle is null");
             finish();
@@ -54,7 +54,7 @@ public class AuthActivity extends Activity {
         if (string == null) {
             finish();
         } else if (string.equals("shareToQQ") || string.equals("shareToQzone") || string.equals("sendToMyComputer") || string.equals("shareToTroopBar")) {
-            if (string.equals("shareToQzone") && g.a(this, "com.tencent.mobileqq") != null && g.c(this, "5.2.0") < 0) {
+            if (string.equals("shareToQzone") && h.a(this, "com.tencent.mobileqq") != null && h.c(this, "5.2.0") < 0) {
                 a++;
                 if (a == 2) {
                     a = 0;
@@ -82,7 +82,7 @@ public class AuthActivity extends Activity {
             String string2 = a2.getString("response");
             String str = "";
             try {
-                str = i.d(string2).getString("activityid");
+                str = j.d(string2).getString("activityid");
             } catch (Exception e) {
                 f.b("openSDK_LOG.AuthActivity", "sharePrize parseJson has exception.", e);
             }

@@ -9,15 +9,17 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.tencent.open.a.f;
 import com.tencent.open.b.d;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AssistActivity extends Activity {
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
-    private boolean b = false;
-    protected Handler a = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
+    private String d;
+    private boolean c = false;
+    protected boolean a = false;
+    protected Handler b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
@@ -49,12 +51,14 @@ public class AssistActivity extends Activity {
             finish();
         }
         Intent intent = (Intent) getIntent().getParcelableExtra(EXTRA_INTENT);
-        int intExtra = intent != null ? intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0) : 0;
+        int intExtra = intent == null ? 0 : intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0);
+        this.d = intent == null ? "" : intent.getStringExtra("appid");
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
-            this.b = bundle.getBoolean("RESTART_FLAG");
+            this.c = bundle.getBoolean("RESTART_FLAG");
+            this.a = bundle.getBoolean("RESUME_FLAG", false);
         }
-        if (!this.b) {
+        if (!this.c) {
             if (bundleExtra == null) {
                 if (intent != null) {
                     f.c("openSDK_LOG.AssistActivity", "--onCreate--activityIntent not null, will start activity, reqcode = " + intExtra);
@@ -84,17 +88,21 @@ public class AssistActivity extends Activity {
         super.onResume();
         Intent intent = getIntent();
         if (!intent.getBooleanExtra("is_login", false)) {
-            if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.b && !isFinishing()) {
+            if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.c && !isFinishing()) {
                 finish();
             }
-            this.a.sendMessage(this.a.obtainMessage(0));
+            if (this.a) {
+                this.b.sendMessage(this.b.obtainMessage(0));
+                return;
+            }
+            this.a = true;
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         f.b("openSDK_LOG.AssistActivity", "-->onPause");
-        this.a.removeMessages(0);
+        this.b.removeMessages(0);
         super.onPause();
     }
 
@@ -126,6 +134,7 @@ public class AssistActivity extends Activity {
     protected void onSaveInstanceState(Bundle bundle) {
         f.b("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
+        bundle.putBoolean("RESUME_FLAG", this.a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -137,7 +146,7 @@ public class AssistActivity extends Activity {
             if (intent != null) {
                 intent.putExtra(Constants.KEY_ACTION, "action_login");
             }
-            setResultData(i2, intent);
+            setResultData(i, intent);
             finish();
         }
     }
@@ -145,7 +154,11 @@ public class AssistActivity extends Activity {
     public void setResultData(int i, Intent intent) {
         if (intent == null) {
             f.d("openSDK_LOG.AssistActivity", "--setResultData--intent is null, setResult ACTIVITY_CANCEL");
-            setResult(0, intent);
+            setResult(0);
+            if (i == 11101) {
+                d.a().a("", this.d, "2", "1", "7", "2");
+                return;
+            }
             return;
         }
         try {
@@ -158,9 +171,11 @@ public class AssistActivity extends Activity {
                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                     f.c("openSDK_LOG.AssistActivity", "--setResultData--openid and token not empty, setResult ACTIVITY_OK");
                     setResult(-1, intent);
+                    d.a().a(optString, this.d, "2", "1", "7", "0");
                 } else {
                     f.d("openSDK_LOG.AssistActivity", "--setResultData--openid or token is empty, setResult ACTIVITY_CANCEL");
                     setResult(0, intent);
+                    d.a().a("", this.d, "2", "1", "7", "1");
                 }
             } else {
                 f.d("openSDK_LOG.AssistActivity", "--setResultData--response is empty, setResult ACTIVITY_OK");
@@ -187,7 +202,7 @@ public class AssistActivity extends Activity {
             str = Constants.VIA_SHARE_TO_QZONE;
             str2 = Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
         }
-        if (!i.a(this, string3)) {
+        if (!j.a(this, string3)) {
             IUiListener listnerWithAction = UIListenerManager.getInstance().getListnerWithAction(string2);
             if (listnerWithAction != null) {
                 listnerWithAction.onError(new UiError(-6, Constants.MSG_OPEN_BROWSER_ERROR, null));

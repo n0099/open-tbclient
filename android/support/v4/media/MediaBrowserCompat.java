@@ -38,7 +38,7 @@ public final class MediaBrowserCompat {
     static final boolean DEBUG = Log.isLoggable("MediaBrowserCompat", 3);
     public static final String EXTRA_PAGE = "android.media.browse.extra.PAGE";
     public static final String EXTRA_PAGE_SIZE = "android.media.browse.extra.PAGE_SIZE";
-    private final b wU;
+    private final b wP;
 
     /* loaded from: classes2.dex */
     interface b {
@@ -74,42 +74,42 @@ public final class MediaBrowserCompat {
 
     public MediaBrowserCompat(Context context, ComponentName componentName, ConnectionCallback connectionCallback, Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 24 || BuildCompat.isAtLeastN()) {
-            this.wU = new e(context, componentName, connectionCallback, bundle);
+            this.wP = new e(context, componentName, connectionCallback, bundle);
         } else if (Build.VERSION.SDK_INT >= 23) {
-            this.wU = new d(context, componentName, connectionCallback, bundle);
+            this.wP = new d(context, componentName, connectionCallback, bundle);
         } else if (Build.VERSION.SDK_INT >= 21) {
-            this.wU = new c(context, componentName, connectionCallback, bundle);
+            this.wP = new c(context, componentName, connectionCallback, bundle);
         } else {
-            this.wU = new f(context, componentName, connectionCallback, bundle);
+            this.wP = new f(context, componentName, connectionCallback, bundle);
         }
     }
 
     public void connect() {
-        this.wU.connect();
+        this.wP.connect();
     }
 
     public void disconnect() {
-        this.wU.disconnect();
+        this.wP.disconnect();
     }
 
     public boolean isConnected() {
-        return this.wU.isConnected();
+        return this.wP.isConnected();
     }
 
     public ComponentName getServiceComponent() {
-        return this.wU.getServiceComponent();
+        return this.wP.getServiceComponent();
     }
 
     public String getRoot() {
-        return this.wU.getRoot();
+        return this.wP.getRoot();
     }
 
     public Bundle getExtras() {
-        return this.wU.getExtras();
+        return this.wP.getExtras();
     }
 
     public MediaSessionCompat.Token getSessionToken() {
-        return this.wU.getSessionToken();
+        return this.wP.getSessionToken();
     }
 
     public void subscribe(String str, SubscriptionCallback subscriptionCallback) {
@@ -119,7 +119,7 @@ public final class MediaBrowserCompat {
         if (subscriptionCallback == null) {
             throw new IllegalArgumentException("callback is null");
         }
-        this.wU.subscribe(str, null, subscriptionCallback);
+        this.wP.subscribe(str, null, subscriptionCallback);
     }
 
     public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
@@ -132,14 +132,14 @@ public final class MediaBrowserCompat {
         if (bundle == null) {
             throw new IllegalArgumentException("options are null");
         }
-        this.wU.subscribe(str, bundle, subscriptionCallback);
+        this.wP.subscribe(str, bundle, subscriptionCallback);
     }
 
     public void unsubscribe(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("parentId is empty");
         }
-        this.wU.unsubscribe(str, null);
+        this.wP.unsubscribe(str, null);
     }
 
     public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
@@ -149,11 +149,11 @@ public final class MediaBrowserCompat {
         if (subscriptionCallback == null) {
             throw new IllegalArgumentException("callback is null");
         }
-        this.wU.unsubscribe(str, subscriptionCallback);
+        this.wP.unsubscribe(str, subscriptionCallback);
     }
 
     public void getItem(String str, ItemCallback itemCallback) {
-        this.wU.getItem(str, itemCallback);
+        this.wP.getItem(str, itemCallback);
     }
 
     /* loaded from: classes2.dex */
@@ -176,7 +176,7 @@ public final class MediaBrowserCompat {
         public static final int FLAG_BROWSABLE = 1;
         public static final int FLAG_PLAYABLE = 2;
         private final int mFlags;
-        private final MediaDescriptionCompat xx;
+        private final MediaDescriptionCompat xs;
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo
@@ -211,12 +211,12 @@ public final class MediaBrowserCompat {
                 throw new IllegalArgumentException("description must have a non-empty media id");
             }
             this.mFlags = i;
-            this.xx = mediaDescriptionCompat;
+            this.xs = mediaDescriptionCompat;
         }
 
         MediaItem(Parcel parcel) {
             this.mFlags = parcel.readInt();
-            this.xx = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
+            this.xs = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
         }
 
         @Override // android.os.Parcelable
@@ -227,13 +227,13 @@ public final class MediaBrowserCompat {
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             parcel.writeInt(this.mFlags);
-            this.xx.writeToParcel(parcel, i);
+            this.xs.writeToParcel(parcel, i);
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder("MediaItem{");
             sb.append("mFlags=").append(this.mFlags);
-            sb.append(", mDescription=").append(this.xx);
+            sb.append(", mDescription=").append(this.xs);
             sb.append('}');
             return sb.toString();
         }
@@ -251,18 +251,18 @@ public final class MediaBrowserCompat {
         }
 
         public MediaDescriptionCompat getDescription() {
-            return this.xx;
+            return this.xs;
         }
 
         public String getMediaId() {
-            return this.xx.getMediaId();
+            return this.xs.getMediaId();
         }
     }
 
     /* loaded from: classes2.dex */
     public static class ConnectionCallback {
-        final Object wX;
-        a wY;
+        final Object wS;
+        a wT;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
@@ -276,9 +276,9 @@ public final class MediaBrowserCompat {
 
         public ConnectionCallback() {
             if (Build.VERSION.SDK_INT >= 21) {
-                this.wX = android.support.v4.media.a.a(new b());
+                this.wS = android.support.v4.media.a.a(new b());
             } else {
-                this.wX = null;
+                this.wS = null;
             }
         }
 
@@ -292,7 +292,7 @@ public final class MediaBrowserCompat {
         }
 
         void a(a aVar) {
-            this.wY = aVar;
+            this.wT = aVar;
         }
 
         /* loaded from: classes2.dex */
@@ -302,24 +302,24 @@ public final class MediaBrowserCompat {
 
             @Override // android.support.v4.media.a.InterfaceC0003a
             public void onConnected() {
-                if (ConnectionCallback.this.wY != null) {
-                    ConnectionCallback.this.wY.onConnected();
+                if (ConnectionCallback.this.wT != null) {
+                    ConnectionCallback.this.wT.onConnected();
                 }
                 ConnectionCallback.this.onConnected();
             }
 
             @Override // android.support.v4.media.a.InterfaceC0003a
             public void onConnectionSuspended() {
-                if (ConnectionCallback.this.wY != null) {
-                    ConnectionCallback.this.wY.onConnectionSuspended();
+                if (ConnectionCallback.this.wT != null) {
+                    ConnectionCallback.this.wT.onConnectionSuspended();
                 }
                 ConnectionCallback.this.onConnectionSuspended();
             }
 
             @Override // android.support.v4.media.a.InterfaceC0003a
             public void onConnectionFailed() {
-                if (ConnectionCallback.this.wY != null) {
-                    ConnectionCallback.this.wY.onConnectionFailed();
+                if (ConnectionCallback.this.wT != null) {
+                    ConnectionCallback.this.wT.onConnectionFailed();
                 }
                 ConnectionCallback.this.onConnectionFailed();
             }
@@ -328,20 +328,20 @@ public final class MediaBrowserCompat {
 
     /* loaded from: classes2.dex */
     public static abstract class SubscriptionCallback {
-        private final IBinder wb;
-        private final Object xA;
-        WeakReference<i> xB;
+        private final IBinder wa;
+        private final Object xv;
+        WeakReference<i> xw;
 
         public SubscriptionCallback() {
             if (Build.VERSION.SDK_INT >= 24 || BuildCompat.isAtLeastN()) {
-                this.xA = android.support.v4.media.c.a(new b());
-                this.wb = null;
+                this.xv = android.support.v4.media.c.a(new b());
+                this.wa = null;
             } else if (Build.VERSION.SDK_INT >= 21) {
-                this.xA = android.support.v4.media.a.a(new a());
-                this.wb = new Binder();
+                this.xv = android.support.v4.media.a.a(new a());
+                this.wa = new Binder();
             } else {
-                this.xA = null;
-                this.wb = new Binder();
+                this.xv = null;
+                this.wa = new Binder();
             }
         }
 
@@ -359,7 +359,7 @@ public final class MediaBrowserCompat {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(i iVar) {
-            this.xB = new WeakReference<>(iVar);
+            this.xw = new WeakReference<>(iVar);
         }
 
         /* loaded from: classes2.dex */
@@ -369,7 +369,7 @@ public final class MediaBrowserCompat {
 
             @Override // android.support.v4.media.a.d
             public void onChildrenLoaded(String str, List<?> list) {
-                i iVar = SubscriptionCallback.this.xB == null ? null : SubscriptionCallback.this.xB.get();
+                i iVar = SubscriptionCallback.this.xw == null ? null : SubscriptionCallback.this.xw.get();
                 if (iVar == null) {
                     SubscriptionCallback.this.onChildrenLoaded(str, MediaItem.fromMediaItemList(list));
                     return;
@@ -440,13 +440,13 @@ public final class MediaBrowserCompat {
 
     /* loaded from: classes2.dex */
     public static abstract class ItemCallback {
-        final Object xa;
+        final Object wV;
 
         public ItemCallback() {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.xa = android.support.v4.media.b.a(new a());
+                this.wV = android.support.v4.media.b.a(new a());
             } else {
-                this.xa = null;
+                this.wV = null;
             }
         }
 
@@ -480,16 +480,16 @@ public final class MediaBrowserCompat {
     public static class f implements b, g {
         final Context mContext;
         private Bundle mExtras;
-        final Bundle xf;
-        h xi;
-        Messenger xj;
-        final ComponentName xn;
-        final ConnectionCallback xo;
-        a xp;
-        private String xq;
-        private MediaSessionCompat.Token xr;
-        final a xg = new a(this);
-        private final ArrayMap<String, i> xh = new ArrayMap<>();
+        final Bundle xa;
+        h xd;
+        Messenger xe;
+        final ComponentName xi;
+        final ConnectionCallback xj;
+        a xk;
+        private String xl;
+        private MediaSessionCompat.Token xm;
+        final a xb = new a(this);
+        private final ArrayMap<String, i> xc = new ArrayMap<>();
         int mState = 0;
 
         public f(Context context, ComponentName componentName, ConnectionCallback connectionCallback, Bundle bundle) {
@@ -503,9 +503,9 @@ public final class MediaBrowserCompat {
                 throw new IllegalArgumentException("connection callback must not be null");
             }
             this.mContext = context;
-            this.xn = componentName;
-            this.xo = connectionCallback;
-            this.xf = bundle == null ? null : new Bundle(bundle);
+            this.xi = componentName;
+            this.xj = connectionCallback;
+            this.xa = bundle == null ? null : new Bundle(bundle);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
@@ -513,33 +513,33 @@ public final class MediaBrowserCompat {
             if (this.mState != 0) {
                 throw new IllegalStateException("connect() called while not disconnected (state=" + ad(this.mState) + ")");
             }
-            if (MediaBrowserCompat.DEBUG && this.xp != null) {
-                throw new RuntimeException("mServiceConnection should be null. Instead it is " + this.xp);
+            if (MediaBrowserCompat.DEBUG && this.xk != null) {
+                throw new RuntimeException("mServiceConnection should be null. Instead it is " + this.xk);
             }
-            if (this.xi != null) {
-                throw new RuntimeException("mServiceBinderWrapper should be null. Instead it is " + this.xi);
+            if (this.xd != null) {
+                throw new RuntimeException("mServiceBinderWrapper should be null. Instead it is " + this.xd);
             }
-            if (this.xj != null) {
-                throw new RuntimeException("mCallbacksMessenger should be null. Instead it is " + this.xj);
+            if (this.xe != null) {
+                throw new RuntimeException("mCallbacksMessenger should be null. Instead it is " + this.xe);
             }
             this.mState = 1;
             Intent intent = new Intent(MediaBrowserServiceCompat.SERVICE_INTERFACE);
-            intent.setComponent(this.xn);
+            intent.setComponent(this.xi);
             final a aVar = new a();
-            this.xp = aVar;
+            this.xk = aVar;
             boolean z = false;
             try {
-                z = this.mContext.bindService(intent, this.xp, 1);
+                z = this.mContext.bindService(intent, this.xk, 1);
             } catch (Exception e) {
-                Log.e("MediaBrowserCompat", "Failed binding to service " + this.xn);
+                Log.e("MediaBrowserCompat", "Failed binding to service " + this.xi);
             }
             if (!z) {
-                this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.1
+                this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (aVar == f.this.xp) {
+                        if (aVar == f.this.xk) {
                             f.this.dl();
-                            f.this.xo.onConnectionFailed();
+                            f.this.xj.onConnectionFailed();
                         }
                     }
                 });
@@ -552,11 +552,11 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void disconnect() {
-            if (this.xj != null) {
+            if (this.xe != null) {
                 try {
-                    this.xi.c(this.xj);
+                    this.xd.c(this.xe);
                 } catch (RemoteException e) {
-                    Log.w("MediaBrowserCompat", "RemoteException during connect for " + this.xn);
+                    Log.w("MediaBrowserCompat", "RemoteException during connect for " + this.xi);
                 }
             }
             dl();
@@ -567,16 +567,16 @@ public final class MediaBrowserCompat {
         }
 
         void dl() {
-            if (this.xp != null) {
-                this.mContext.unbindService(this.xp);
+            if (this.xk != null) {
+                this.mContext.unbindService(this.xk);
             }
             this.mState = 0;
-            this.xp = null;
-            this.xi = null;
-            this.xj = null;
-            this.xg.a(null);
-            this.xq = null;
-            this.xr = null;
+            this.xk = null;
+            this.xd = null;
+            this.xe = null;
+            this.xb.a(null);
+            this.xl = null;
+            this.xm = null;
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
@@ -589,7 +589,7 @@ public final class MediaBrowserCompat {
             if (!isConnected()) {
                 throw new IllegalStateException("getServiceComponent() called while not connected (state=" + this.mState + ")");
             }
-            return this.xn;
+            return this.xi;
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
@@ -597,7 +597,7 @@ public final class MediaBrowserCompat {
             if (!isConnected()) {
                 throw new IllegalStateException("getRoot() called while not connected(state=" + ad(this.mState) + ")");
             }
-            return this.xq;
+            return this.xl;
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
@@ -613,20 +613,20 @@ public final class MediaBrowserCompat {
             if (!isConnected()) {
                 throw new IllegalStateException("getSessionToken() called while not connected(state=" + this.mState + ")");
             }
-            return this.xr;
+            return this.xm;
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
-            i iVar = this.xh.get(str);
+            i iVar = this.xc.get(str);
             if (iVar == null) {
                 iVar = new i();
-                this.xh.put(str, iVar);
+                this.xc.put(str, iVar);
             }
             iVar.a(bundle, subscriptionCallback);
             if (this.mState == 2) {
                 try {
-                    this.xi.a(str, subscriptionCallback.wb, bundle, this.xj);
+                    this.xd.a(str, subscriptionCallback.wa, bundle, this.xe);
                 } catch (RemoteException e) {
                     Log.d("MediaBrowserCompat", "addSubscription failed with RemoteException parentId=" + str);
                 }
@@ -635,12 +635,12 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
-            i iVar = this.xh.get(str);
+            i iVar = this.xc.get(str);
             if (iVar != null) {
                 try {
                     if (subscriptionCallback == null) {
                         if (this.mState == 2) {
-                            this.xi.a(str, (IBinder) null, this.xj);
+                            this.xd.a(str, (IBinder) null, this.xe);
                         }
                     } else {
                         List<SubscriptionCallback> dn = iVar.dn();
@@ -648,7 +648,7 @@ public final class MediaBrowserCompat {
                         for (int size = dn.size() - 1; size >= 0; size--) {
                             if (dn.get(size) == subscriptionCallback) {
                                 if (this.mState == 2) {
-                                    this.xi.a(str, subscriptionCallback.wb, this.xj);
+                                    this.xd.a(str, subscriptionCallback.wa, this.xe);
                                 }
                                 dn.remove(size);
                                 dm.remove(size);
@@ -659,7 +659,7 @@ public final class MediaBrowserCompat {
                     Log.d("MediaBrowserCompat", "removeSubscription failed with RemoteException parentId=" + str);
                 }
                 if (iVar.isEmpty() || subscriptionCallback == null) {
-                    this.xh.remove(str);
+                    this.xc.remove(str);
                 }
             }
         }
@@ -674,7 +674,7 @@ public final class MediaBrowserCompat {
             }
             if (this.mState != 2) {
                 Log.i("MediaBrowserCompat", "Not connected, unable to retrieve the MediaItem.");
-                this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.2
+                this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.2
                     @Override // java.lang.Runnable
                     public void run() {
                         itemCallback.onError(str);
@@ -683,10 +683,10 @@ public final class MediaBrowserCompat {
                 return;
             }
             try {
-                this.xi.a(str, new ItemReceiver(str, itemCallback, this.xg), this.xj);
+                this.xd.a(str, new ItemReceiver(str, itemCallback, this.xb), this.xe);
             } catch (RemoteException e) {
                 Log.i("MediaBrowserCompat", "Remote error getting media item.");
-                this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.3
+                this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.f.3
                     @Override // java.lang.Runnable
                     public void run() {
                         itemCallback.onError(str);
@@ -702,17 +702,17 @@ public final class MediaBrowserCompat {
                     Log.w("MediaBrowserCompat", "onConnect from service while mState=" + ad(this.mState) + "... ignoring");
                     return;
                 }
-                this.xq = str;
-                this.xr = token;
+                this.xl = str;
+                this.xm = token;
                 this.mExtras = bundle;
                 this.mState = 2;
                 if (MediaBrowserCompat.DEBUG) {
                     Log.d("MediaBrowserCompat", "ServiceCallbacks.onConnect...");
                     dump();
                 }
-                this.xo.onConnected();
+                this.xj.onConnected();
                 try {
-                    for (Map.Entry<String, i> entry : this.xh.entrySet()) {
+                    for (Map.Entry<String, i> entry : this.xc.entrySet()) {
                         String key = entry.getKey();
                         i value = entry.getValue();
                         List<SubscriptionCallback> dn = value.dn();
@@ -721,7 +721,7 @@ public final class MediaBrowserCompat {
                         while (true) {
                             int i2 = i;
                             if (i2 < dn.size()) {
-                                this.xi.a(key, dn.get(i2).wb, dm.get(i2), this.xj);
+                                this.xd.a(key, dn.get(i2).wa, dm.get(i2), this.xe);
                                 i = i2 + 1;
                             }
                         }
@@ -734,14 +734,14 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.g
         public void b(Messenger messenger) {
-            Log.e("MediaBrowserCompat", "onConnectFailed for " + this.xn);
+            Log.e("MediaBrowserCompat", "onConnectFailed for " + this.xi);
             if (a(messenger, "onConnectFailed")) {
                 if (this.mState != 1) {
                     Log.w("MediaBrowserCompat", "onConnect from service while mState=" + ad(this.mState) + "... ignoring");
                     return;
                 }
                 dl();
-                this.xo.onConnectionFailed();
+                this.xj.onConnectionFailed();
             }
         }
 
@@ -749,9 +749,9 @@ public final class MediaBrowserCompat {
         public void a(Messenger messenger, String str, List list, Bundle bundle) {
             if (a(messenger, "onLoadChildren")) {
                 if (MediaBrowserCompat.DEBUG) {
-                    Log.d("MediaBrowserCompat", "onLoadChildren for " + this.xn + " id=" + str);
+                    Log.d("MediaBrowserCompat", "onLoadChildren for " + this.xi + " id=" + str);
                 }
-                i iVar = this.xh.get(str);
+                i iVar = this.xc.get(str);
                 if (iVar == null) {
                     if (MediaBrowserCompat.DEBUG) {
                         Log.d("MediaBrowserCompat", "onLoadChildren for id that isn't subscribed id=" + str);
@@ -786,9 +786,9 @@ public final class MediaBrowserCompat {
         }
 
         private boolean a(Messenger messenger, String str) {
-            if (this.xj != messenger) {
+            if (this.xe != messenger) {
                 if (this.mState != 0) {
-                    Log.i("MediaBrowserCompat", str + " for " + this.xn + " with mCallbacksMessenger=" + this.xj + " this=" + this);
+                    Log.i("MediaBrowserCompat", str + " for " + this.xi + " with mCallbacksMessenger=" + this.xe + " this=" + this);
                 }
                 return false;
             }
@@ -797,15 +797,15 @@ public final class MediaBrowserCompat {
 
         void dump() {
             Log.d("MediaBrowserCompat", "MediaBrowserCompat...");
-            Log.d("MediaBrowserCompat", "  mServiceComponent=" + this.xn);
-            Log.d("MediaBrowserCompat", "  mCallback=" + this.xo);
-            Log.d("MediaBrowserCompat", "  mRootHints=" + this.xf);
+            Log.d("MediaBrowserCompat", "  mServiceComponent=" + this.xi);
+            Log.d("MediaBrowserCompat", "  mCallback=" + this.xj);
+            Log.d("MediaBrowserCompat", "  mRootHints=" + this.xa);
             Log.d("MediaBrowserCompat", "  mState=" + ad(this.mState));
-            Log.d("MediaBrowserCompat", "  mServiceConnection=" + this.xp);
-            Log.d("MediaBrowserCompat", "  mServiceBinderWrapper=" + this.xi);
-            Log.d("MediaBrowserCompat", "  mCallbacksMessenger=" + this.xj);
-            Log.d("MediaBrowserCompat", "  mRootId=" + this.xq);
-            Log.d("MediaBrowserCompat", "  mMediaSessionToken=" + this.xr);
+            Log.d("MediaBrowserCompat", "  mServiceConnection=" + this.xk);
+            Log.d("MediaBrowserCompat", "  mServiceBinderWrapper=" + this.xd);
+            Log.d("MediaBrowserCompat", "  mCallbacksMessenger=" + this.xe);
+            Log.d("MediaBrowserCompat", "  mRootId=" + this.xl);
+            Log.d("MediaBrowserCompat", "  mMediaSessionToken=" + this.xm);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -824,18 +824,18 @@ public final class MediaBrowserCompat {
                             f.this.dump();
                         }
                         if (a.this.y("onServiceConnected")) {
-                            f.this.xi = new h(iBinder, f.this.xf);
-                            f.this.xj = new Messenger(f.this.xg);
-                            f.this.xg.a(f.this.xj);
+                            f.this.xd = new h(iBinder, f.this.xa);
+                            f.this.xe = new Messenger(f.this.xb);
+                            f.this.xb.a(f.this.xe);
                             f.this.mState = 1;
                             try {
                                 if (MediaBrowserCompat.DEBUG) {
                                     Log.d("MediaBrowserCompat", "ServiceCallbacks.onConnect...");
                                     f.this.dump();
                                 }
-                                f.this.xi.a(f.this.mContext, f.this.xj);
+                                f.this.xd.a(f.this.mContext, f.this.xe);
                             } catch (RemoteException e) {
-                                Log.w("MediaBrowserCompat", "RemoteException during connect for " + f.this.xn);
+                                Log.w("MediaBrowserCompat", "RemoteException during connect for " + f.this.xi);
                                 if (MediaBrowserCompat.DEBUG) {
                                     Log.d("MediaBrowserCompat", "ServiceCallbacks.onConnect...");
                                     f.this.dump();
@@ -852,32 +852,32 @@ public final class MediaBrowserCompat {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (MediaBrowserCompat.DEBUG) {
-                            Log.d("MediaBrowserCompat", "MediaServiceConnection.onServiceDisconnected name=" + componentName + " this=" + this + " mServiceConnection=" + f.this.xp);
+                            Log.d("MediaBrowserCompat", "MediaServiceConnection.onServiceDisconnected name=" + componentName + " this=" + this + " mServiceConnection=" + f.this.xk);
                             f.this.dump();
                         }
                         if (a.this.y("onServiceDisconnected")) {
-                            f.this.xi = null;
-                            f.this.xj = null;
-                            f.this.xg.a(null);
+                            f.this.xd = null;
+                            f.this.xe = null;
+                            f.this.xb.a(null);
                             f.this.mState = 3;
-                            f.this.xo.onConnectionSuspended();
+                            f.this.xj.onConnectionSuspended();
                         }
                     }
                 });
             }
 
             private void c(Runnable runnable) {
-                if (Thread.currentThread() == f.this.xg.getLooper().getThread()) {
+                if (Thread.currentThread() == f.this.xb.getLooper().getThread()) {
                     runnable.run();
                 } else {
-                    f.this.xg.post(runnable);
+                    f.this.xb.post(runnable);
                 }
             }
 
             boolean y(String str) {
-                if (f.this.xp != this) {
+                if (f.this.xk != this) {
                     if (f.this.mState != 0) {
-                        Log.i("MediaBrowserCompat", str + " for " + f.this.xn + " with mServiceConnection=" + f.this.xp + " this=" + this);
+                        Log.i("MediaBrowserCompat", str + " for " + f.this.xi + " with mServiceConnection=" + f.this.xk + " this=" + this);
                     }
                     return false;
                 }
@@ -888,82 +888,82 @@ public final class MediaBrowserCompat {
 
     /* loaded from: classes2.dex */
     static class c implements ConnectionCallback.a, b, g {
-        protected final Object xe;
-        protected final Bundle xf;
-        protected final a xg = new a(this);
-        private final ArrayMap<String, i> xh = new ArrayMap<>();
-        protected h xi;
-        protected Messenger xj;
+        protected final Object wZ;
+        protected final Bundle xa;
+        protected final a xb = new a(this);
+        private final ArrayMap<String, i> xc = new ArrayMap<>();
+        protected h xd;
+        protected Messenger xe;
 
         public c(Context context, ComponentName componentName, ConnectionCallback connectionCallback, Bundle bundle) {
             if (Build.VERSION.SDK_INT < 25) {
                 bundle = bundle == null ? new Bundle() : bundle;
                 bundle.putInt("extra_client_version", 1);
-                this.xf = new Bundle(bundle);
+                this.xa = new Bundle(bundle);
             } else {
-                this.xf = bundle == null ? null : new Bundle(bundle);
+                this.xa = bundle == null ? null : new Bundle(bundle);
             }
             connectionCallback.a(this);
-            this.xe = android.support.v4.media.a.a(context, componentName, connectionCallback.wX, this.xf);
+            this.wZ = android.support.v4.media.a.a(context, componentName, connectionCallback.wS, this.xa);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void connect() {
-            android.support.v4.media.a.k(this.xe);
+            android.support.v4.media.a.k(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void disconnect() {
-            if (this.xi != null && this.xj != null) {
+            if (this.xd != null && this.xe != null) {
                 try {
-                    this.xi.e(this.xj);
+                    this.xd.e(this.xe);
                 } catch (RemoteException e) {
                     Log.i("MediaBrowserCompat", "Remote error unregistering client messenger.");
                 }
             }
-            android.support.v4.media.a.l(this.xe);
+            android.support.v4.media.a.l(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public boolean isConnected() {
-            return android.support.v4.media.a.m(this.xe);
+            return android.support.v4.media.a.m(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public ComponentName getServiceComponent() {
-            return android.support.v4.media.a.n(this.xe);
+            return android.support.v4.media.a.n(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public String getRoot() {
-            return android.support.v4.media.a.o(this.xe);
+            return android.support.v4.media.a.o(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public Bundle getExtras() {
-            return android.support.v4.media.a.getExtras(this.xe);
+            return android.support.v4.media.a.getExtras(this.wZ);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public MediaSessionCompat.Token getSessionToken() {
-            return MediaSessionCompat.Token.fromToken(android.support.v4.media.a.p(this.xe));
+            return MediaSessionCompat.Token.fromToken(android.support.v4.media.a.p(this.wZ));
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
-            i iVar = this.xh.get(str);
+            i iVar = this.xc.get(str);
             if (iVar == null) {
                 iVar = new i();
-                this.xh.put(str, iVar);
+                this.xc.put(str, iVar);
             }
             subscriptionCallback.a(iVar);
             iVar.a(bundle, subscriptionCallback);
-            if (this.xi == null) {
-                android.support.v4.media.a.a(this.xe, str, subscriptionCallback.xA);
+            if (this.xd == null) {
+                android.support.v4.media.a.a(this.wZ, str, subscriptionCallback.xv);
                 return;
             }
             try {
-                this.xi.a(str, subscriptionCallback.wb, bundle, this.xj);
+                this.xd.a(str, subscriptionCallback.wa, bundle, this.xe);
             } catch (RemoteException e) {
                 Log.i("MediaBrowserCompat", "Remote error subscribing media item: " + str);
             }
@@ -971,11 +971,11 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.b
         public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
-            i iVar = this.xh.get(str);
+            i iVar = this.xc.get(str);
             if (iVar != null) {
-                if (this.xi == null) {
+                if (this.xd == null) {
                     if (subscriptionCallback == null) {
-                        android.support.v4.media.a.d(this.xe, str);
+                        android.support.v4.media.a.d(this.wZ, str);
                     } else {
                         List<SubscriptionCallback> dn = iVar.dn();
                         List<Bundle> dm = iVar.dm();
@@ -986,19 +986,19 @@ public final class MediaBrowserCompat {
                             }
                         }
                         if (dn.size() == 0) {
-                            android.support.v4.media.a.d(this.xe, str);
+                            android.support.v4.media.a.d(this.wZ, str);
                         }
                     }
                 } else {
                     try {
                         if (subscriptionCallback == null) {
-                            this.xi.a(str, (IBinder) null, this.xj);
+                            this.xd.a(str, (IBinder) null, this.xe);
                         } else {
                             List<SubscriptionCallback> dn2 = iVar.dn();
                             List<Bundle> dm2 = iVar.dm();
                             for (int size2 = dn2.size() - 1; size2 >= 0; size2--) {
                                 if (dn2.get(size2) == subscriptionCallback) {
-                                    this.xi.a(str, subscriptionCallback.wb, this.xj);
+                                    this.xd.a(str, subscriptionCallback.wa, this.xe);
                                     dn2.remove(size2);
                                     dm2.remove(size2);
                                 }
@@ -1009,7 +1009,7 @@ public final class MediaBrowserCompat {
                     }
                 }
                 if (iVar.isEmpty() || subscriptionCallback == null) {
-                    this.xh.remove(str);
+                    this.xc.remove(str);
                 }
             }
         }
@@ -1022,16 +1022,16 @@ public final class MediaBrowserCompat {
             if (itemCallback == null) {
                 throw new IllegalArgumentException("cb is null");
             }
-            if (!android.support.v4.media.a.m(this.xe)) {
+            if (!android.support.v4.media.a.m(this.wZ)) {
                 Log.i("MediaBrowserCompat", "Not connected, unable to retrieve the MediaItem.");
-                this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.1
+                this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.1
                     @Override // java.lang.Runnable
                     public void run() {
                         itemCallback.onError(str);
                     }
                 });
-            } else if (this.xi == null) {
-                this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.2
+            } else if (this.xd == null) {
+                this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.2
                     @Override // java.lang.Runnable
                     public void run() {
                         itemCallback.onError(str);
@@ -1039,10 +1039,10 @@ public final class MediaBrowserCompat {
                 });
             } else {
                 try {
-                    this.xi.a(str, new ItemReceiver(str, itemCallback, this.xg), this.xj);
+                    this.xd.a(str, new ItemReceiver(str, itemCallback, this.xb), this.xe);
                 } catch (RemoteException e) {
                     Log.i("MediaBrowserCompat", "Remote error getting media item: " + str);
-                    this.xg.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.3
+                    this.xb.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserCompat.c.3
                         @Override // java.lang.Runnable
                         public void run() {
                             itemCallback.onError(str);
@@ -1055,13 +1055,13 @@ public final class MediaBrowserCompat {
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback.a
         public void onConnected() {
             IBinder binder;
-            Bundle extras = android.support.v4.media.a.getExtras(this.xe);
+            Bundle extras = android.support.v4.media.a.getExtras(this.wZ);
             if (extras != null && (binder = BundleCompat.getBinder(extras, "extra_messenger")) != null) {
-                this.xi = new h(binder, this.xf);
-                this.xj = new Messenger(this.xg);
-                this.xg.a(this.xj);
+                this.xd = new h(binder, this.xa);
+                this.xe = new Messenger(this.xb);
+                this.xb.a(this.xe);
                 try {
-                    this.xi.d(this.xj);
+                    this.xd.d(this.xe);
                 } catch (RemoteException e) {
                     Log.i("MediaBrowserCompat", "Remote error registering client messenger.");
                 }
@@ -1070,9 +1070,9 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback.a
         public void onConnectionSuspended() {
-            this.xi = null;
-            this.xj = null;
-            this.xg.a(null);
+            this.xd = null;
+            this.xe = null;
+            this.xb.a(null);
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback.a
@@ -1089,8 +1089,8 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.g
         public void a(Messenger messenger, String str, List list, Bundle bundle) {
-            if (this.xj == messenger) {
-                i iVar = this.xh.get(str);
+            if (this.xe == messenger) {
+                i iVar = this.xc.get(str);
                 if (iVar == null) {
                     if (MediaBrowserCompat.DEBUG) {
                         Log.d("MediaBrowserCompat", "onLoadChildren for id that isn't subscribed id=" + str);
@@ -1118,8 +1118,8 @@ public final class MediaBrowserCompat {
 
         @Override // android.support.v4.media.MediaBrowserCompat.c, android.support.v4.media.MediaBrowserCompat.b
         public void getItem(String str, ItemCallback itemCallback) {
-            if (this.xi == null) {
-                android.support.v4.media.b.b(this.xe, str, itemCallback.xa);
+            if (this.xd == null) {
+                android.support.v4.media.b.b(this.wZ, str, itemCallback.wV);
             } else {
                 super.getItem(str, itemCallback);
             }
@@ -1135,18 +1135,18 @@ public final class MediaBrowserCompat {
         @Override // android.support.v4.media.MediaBrowserCompat.c, android.support.v4.media.MediaBrowserCompat.b
         public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
             if (bundle == null) {
-                android.support.v4.media.a.a(this.xe, str, subscriptionCallback.xA);
+                android.support.v4.media.a.a(this.wZ, str, subscriptionCallback.xv);
             } else {
-                android.support.v4.media.c.a(this.xe, str, bundle, subscriptionCallback.xA);
+                android.support.v4.media.c.a(this.wZ, str, bundle, subscriptionCallback.xv);
             }
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.c, android.support.v4.media.MediaBrowserCompat.b
         public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
             if (subscriptionCallback == null) {
-                android.support.v4.media.a.d(this.xe, str);
+                android.support.v4.media.a.d(this.wZ, str);
             } else {
-                android.support.v4.media.c.c(this.xe, str, subscriptionCallback.xA);
+                android.support.v4.media.c.c(this.wZ, str, subscriptionCallback.xv);
             }
         }
     }
@@ -1154,30 +1154,30 @@ public final class MediaBrowserCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class i {
-        private final List<SubscriptionCallback> xy = new ArrayList();
-        private final List<Bundle> xz = new ArrayList();
+        private final List<SubscriptionCallback> xt = new ArrayList();
+        private final List<Bundle> xu = new ArrayList();
 
         public boolean isEmpty() {
-            return this.xy.isEmpty();
+            return this.xt.isEmpty();
         }
 
         public List<Bundle> dm() {
-            return this.xz;
+            return this.xu;
         }
 
         public List<SubscriptionCallback> dn() {
-            return this.xy;
+            return this.xt;
         }
 
         public SubscriptionCallback g(Bundle bundle) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.xz.size()) {
-                    if (!MediaBrowserCompatUtils.areSameOptions(this.xz.get(i2), bundle)) {
+                if (i2 < this.xu.size()) {
+                    if (!MediaBrowserCompatUtils.areSameOptions(this.xu.get(i2), bundle)) {
                         i = i2 + 1;
                     } else {
-                        return this.xy.get(i2);
+                        return this.xt.get(i2);
                     }
                 } else {
                     return null;
@@ -1189,16 +1189,16 @@ public final class MediaBrowserCompat {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.xz.size()) {
-                    if (!MediaBrowserCompatUtils.areSameOptions(this.xz.get(i2), bundle)) {
+                if (i2 < this.xu.size()) {
+                    if (!MediaBrowserCompatUtils.areSameOptions(this.xu.get(i2), bundle)) {
                         i = i2 + 1;
                     } else {
-                        this.xy.set(i2, subscriptionCallback);
+                        this.xt.set(i2, subscriptionCallback);
                         return;
                     }
                 } else {
-                    this.xy.add(subscriptionCallback);
-                    this.xz.add(bundle);
+                    this.xt.add(subscriptionCallback);
+                    this.xu.add(bundle);
                     return;
                 }
             }
@@ -1208,27 +1208,27 @@ public final class MediaBrowserCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends Handler {
-        private final WeakReference<g> wV;
-        private WeakReference<Messenger> wW;
+        private final WeakReference<g> wQ;
+        private WeakReference<Messenger> wR;
 
         a(g gVar) {
-            this.wV = new WeakReference<>(gVar);
+            this.wQ = new WeakReference<>(gVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.wW != null && this.wW.get() != null && this.wV.get() != null) {
+            if (this.wR != null && this.wR.get() != null && this.wQ.get() != null) {
                 Bundle data = message.getData();
                 data.setClassLoader(MediaSessionCompat.class.getClassLoader());
                 switch (message.what) {
                     case 1:
-                        this.wV.get().a(this.wW.get(), data.getString("data_media_item_id"), (MediaSessionCompat.Token) data.getParcelable("data_media_session_token"), data.getBundle("data_root_hints"));
+                        this.wQ.get().a(this.wR.get(), data.getString("data_media_item_id"), (MediaSessionCompat.Token) data.getParcelable("data_media_session_token"), data.getBundle("data_root_hints"));
                         return;
                     case 2:
-                        this.wV.get().b(this.wW.get());
+                        this.wQ.get().b(this.wR.get());
                         return;
                     case 3:
-                        this.wV.get().a(this.wW.get(), data.getString("data_media_item_id"), data.getParcelableArrayList("data_media_item_list"), data.getBundle("data_options"));
+                        this.wQ.get().a(this.wR.get(), data.getString("data_media_item_id"), data.getParcelableArrayList("data_media_item_list"), data.getBundle("data_options"));
                         return;
                     default:
                         Log.w("MediaBrowserCompat", "Unhandled message: " + message + "\n  Client version: 1\n  Service version: " + message.arg1);
@@ -1238,7 +1238,7 @@ public final class MediaBrowserCompat {
         }
 
         void a(Messenger messenger) {
-            this.wW = new WeakReference<>(messenger);
+            this.wR = new WeakReference<>(messenger);
         }
     }
 
@@ -1246,17 +1246,17 @@ public final class MediaBrowserCompat {
     /* loaded from: classes2.dex */
     public static class h {
         private Messenger mMessenger;
-        private Bundle xf;
+        private Bundle xa;
 
         public h(IBinder iBinder, Bundle bundle) {
             this.mMessenger = new Messenger(iBinder);
-            this.xf = bundle;
+            this.xa = bundle;
         }
 
         void a(Context context, Messenger messenger) throws RemoteException {
             Bundle bundle = new Bundle();
             bundle.putString("data_package_name", context.getPackageName());
-            bundle.putBundle("data_root_hints", this.xf);
+            bundle.putBundle("data_root_hints", this.xa);
             a(1, bundle, messenger);
         }
 
@@ -1288,7 +1288,7 @@ public final class MediaBrowserCompat {
 
         void d(Messenger messenger) throws RemoteException {
             Bundle bundle = new Bundle();
-            bundle.putBundle("data_root_hints", this.xf);
+            bundle.putBundle("data_root_hints", this.xa);
             a(6, bundle, messenger);
         }
 
@@ -1309,27 +1309,27 @@ public final class MediaBrowserCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class ItemReceiver extends ResultReceiver {
-        private final String xc;
-        private final ItemCallback xd;
+        private final String wX;
+        private final ItemCallback wY;
 
         ItemReceiver(String str, ItemCallback itemCallback, Handler handler) {
             super(handler);
-            this.xc = str;
-            this.xd = itemCallback;
+            this.wX = str;
+            this.wY = itemCallback;
         }
 
         @Override // android.support.v4.os.ResultReceiver
         protected void onReceiveResult(int i, Bundle bundle) {
             bundle.setClassLoader(MediaBrowserCompat.class.getClassLoader());
             if (i != 0 || bundle == null || !bundle.containsKey(MediaBrowserServiceCompat.KEY_MEDIA_ITEM)) {
-                this.xd.onError(this.xc);
+                this.wY.onError(this.wX);
                 return;
             }
             Parcelable parcelable = bundle.getParcelable(MediaBrowserServiceCompat.KEY_MEDIA_ITEM);
             if (parcelable == null || (parcelable instanceof MediaItem)) {
-                this.xd.onItemLoaded((MediaItem) parcelable);
+                this.wY.onItemLoaded((MediaItem) parcelable);
             } else {
-                this.xd.onError(this.xc);
+                this.wY.onError(this.wX);
             }
         }
     }

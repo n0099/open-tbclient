@@ -34,26 +34,26 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ThreadUserInfoLayout extends LinearLayout {
-    private bd aZM;
-    public ClickableHeaderImageView bdX;
-    public TextView bdY;
-    private TextView bdk;
-    private UserIconBox beF;
-    public ImageView beG;
-    protected UserIconBox beH;
-    private TextView beI;
-    private View beJ;
-    protected TextView beK;
-    private TextView beL;
-    private boolean beM;
-    private View beN;
-    private TextView beO;
-    private boolean beP;
-    private View.OnClickListener beQ;
-    private View.OnClickListener beR;
-    private boolean beb;
-    private View.OnClickListener bec;
-    private View.OnClickListener bee;
+    private bd aZA;
+    private TextView bcY;
+    public ClickableHeaderImageView bdL;
+    public TextView bdM;
+    private boolean bdP;
+    private View.OnClickListener bdQ;
+    private View.OnClickListener bdS;
+    private boolean beA;
+    private View beB;
+    private TextView beC;
+    private boolean beD;
+    private View.OnClickListener beE;
+    private View.OnClickListener beF;
+    private UserIconBox bes;
+    public ImageView beu;
+    protected UserIconBox bev;
+    private TextView bew;
+    private View bex;
+    protected TextView bey;
+    private TextView bez;
     private Context mContext;
     private int mFrom;
 
@@ -63,21 +63,21 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     public ThreadUserInfoLayout(Context context) {
         super(context);
-        this.beM = true;
+        this.beA = true;
         this.mFrom = 1;
-        this.beQ = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
+        this.beE = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String url;
-                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
+                    aw.Dt().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
-        this.bee = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
+        this.bdS = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getUserId()) && ThreadUserInfoLayout.this.aZM.zt() != null) {
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getUserId()) && ThreadUserInfoLayout.this.aZA.zt() != null) {
                     if (view.getTag(d.g.tag_nick_name_activity) != null && (view.getTag(d.g.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.g.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && ay.ba(ThreadUserInfoLayout.this.getContext())) {
@@ -85,24 +85,24 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.aZM.Ao() != null && ThreadUserInfoLayout.this.aZM.Ao().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.Ao().channelId, ThreadUserInfoLayout.this.aZM.Ao().mCurrentPage)));
+                    if (ThreadUserInfoLayout.this.aZA.Ao() != null && ThreadUserInfoLayout.this.aZA.Ao().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.Ao().channelId, ThreadUserInfoLayout.this.aZA.Ao().mCurrentPage)));
                     } else {
-                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.zn().getUserId(), ThreadUserInfoLayout.this.aZM.zn().getName_show(), ThreadUserInfoLayout.this.aZM.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZM.getTid());
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.zn().getUserId(), ThreadUserInfoLayout.this.aZA.zn().getName_show(), ThreadUserInfoLayout.this.aZA.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZA.getTid());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                     }
-                    if (ThreadUserInfoLayout.this.bec != null) {
-                        ThreadUserInfoLayout.this.bec.onClick(view);
+                    if (ThreadUserInfoLayout.this.bdQ != null) {
+                        ThreadUserInfoLayout.this.bdQ.onClick(view);
                     }
                 }
             }
         };
-        this.beR = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
+        this.beF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null) {
-                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZM.zn().getUserId(), true, true, true);
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null) {
+                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZA.zn().getUserId(), true, true, true);
                     if (ThreadUserInfoLayout.this.mFrom == 1) {
                         TiebaStatic.log(new ak("c10134").s("obj_type", 3));
                     }
@@ -114,21 +114,21 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     public ThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.beM = true;
+        this.beA = true;
         this.mFrom = 1;
-        this.beQ = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
+        this.beE = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String url;
-                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
+                    aw.Dt().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
-        this.bee = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
+        this.bdS = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getUserId()) && ThreadUserInfoLayout.this.aZM.zt() != null) {
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getUserId()) && ThreadUserInfoLayout.this.aZA.zt() != null) {
                     if (view.getTag(d.g.tag_nick_name_activity) != null && (view.getTag(d.g.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.g.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && ay.ba(ThreadUserInfoLayout.this.getContext())) {
@@ -136,24 +136,24 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.aZM.Ao() != null && ThreadUserInfoLayout.this.aZM.Ao().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.Ao().channelId, ThreadUserInfoLayout.this.aZM.Ao().mCurrentPage)));
+                    if (ThreadUserInfoLayout.this.aZA.Ao() != null && ThreadUserInfoLayout.this.aZA.Ao().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.Ao().channelId, ThreadUserInfoLayout.this.aZA.Ao().mCurrentPage)));
                     } else {
-                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.zn().getUserId(), ThreadUserInfoLayout.this.aZM.zn().getName_show(), ThreadUserInfoLayout.this.aZM.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZM.getTid());
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.zn().getUserId(), ThreadUserInfoLayout.this.aZA.zn().getName_show(), ThreadUserInfoLayout.this.aZA.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZA.getTid());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                     }
-                    if (ThreadUserInfoLayout.this.bec != null) {
-                        ThreadUserInfoLayout.this.bec.onClick(view);
+                    if (ThreadUserInfoLayout.this.bdQ != null) {
+                        ThreadUserInfoLayout.this.bdQ.onClick(view);
                     }
                 }
             }
         };
-        this.beR = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
+        this.beF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null) {
-                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZM.zn().getUserId(), true, true, true);
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null) {
+                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZA.zn().getUserId(), true, true, true);
                     if (ThreadUserInfoLayout.this.mFrom == 1) {
                         TiebaStatic.log(new ak("c10134").s("obj_type", 3));
                     }
@@ -165,21 +165,21 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     public ThreadUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.beM = true;
+        this.beA = true;
         this.mFrom = 1;
-        this.beQ = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
+        this.beE = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String url;
-                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZM.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                if (ay.ba(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew() != null && v.f(ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.aZA.zn().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
+                    aw.Dt().c((TbPageContext) com.baidu.adp.base.i.ak(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
-        this.bee = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
+        this.bdS = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZM.zn().getUserId()) && ThreadUserInfoLayout.this.aZM.zt() != null) {
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.aZA.zn().getUserId()) && ThreadUserInfoLayout.this.aZA.zt() != null) {
                     if (view.getTag(d.g.tag_nick_name_activity) != null && (view.getTag(d.g.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.g.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && ay.ba(ThreadUserInfoLayout.this.getContext())) {
@@ -187,24 +187,24 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.aZM.Ao() != null && ThreadUserInfoLayout.this.aZM.Ao().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.Ao().channelId, ThreadUserInfoLayout.this.aZM.Ao().mCurrentPage)));
+                    if (ThreadUserInfoLayout.this.aZA.Ao() != null && ThreadUserInfoLayout.this.aZA.Ao().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.Ao().channelId, ThreadUserInfoLayout.this.aZA.Ao().mCurrentPage)));
                     } else {
-                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZM.zn().getUserId(), ThreadUserInfoLayout.this.aZM.zn().getName_show(), ThreadUserInfoLayout.this.aZM.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZM.getTid());
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.aZA.zn().getUserId(), ThreadUserInfoLayout.this.aZA.zn().getName_show(), ThreadUserInfoLayout.this.aZA.zt(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                        personInfoActivityConfig.setSourceTid(ThreadUserInfoLayout.this.aZA.getTid());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                     }
-                    if (ThreadUserInfoLayout.this.bec != null) {
-                        ThreadUserInfoLayout.this.bec.onClick(view);
+                    if (ThreadUserInfoLayout.this.bdQ != null) {
+                        ThreadUserInfoLayout.this.bdQ.onClick(view);
                     }
                 }
             }
         };
-        this.beR = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
+        this.beF = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.aZM != null && ThreadUserInfoLayout.this.aZM.zn() != null) {
-                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZM.zn().getUserId(), true, true, true);
+                if (ThreadUserInfoLayout.this.aZA != null && ThreadUserInfoLayout.this.aZA.zn() != null) {
+                    com.baidu.tbadk.browser.b.a(ThreadUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ThreadUserInfoLayout.this.aZA.zn().getUserId(), true, true, true);
                     if (ThreadUserInfoLayout.this.mFrom == 1) {
                         TiebaStatic.log(new ak("c10134").s("obj_type", 3));
                     }
@@ -216,24 +216,24 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.h.thread_user_info_layout, (ViewGroup) this, true);
-        this.bdX = (ClickableHeaderImageView) inflate.findViewById(d.g.card_home_page_normal_thread_user_header);
-        this.beF = (UserIconBox) inflate.findViewById(d.g.card_home_page_normal_thread_tshow_icon);
-        this.bdY = (TextView) inflate.findViewById(d.g.card_home_page_normal_thread_user_name);
-        this.beG = (ImageView) inflate.findViewById(d.g.identity_view);
-        this.beH = (UserIconBox) inflate.findViewById(d.g.card_home_page_normal_thread_user_icon);
-        this.bdk = (TextView) inflate.findViewById(d.g.thread_info_reply_time);
-        this.beI = (TextView) inflate.findViewById(d.g.thread_info_address);
-        this.beJ = inflate.findViewById(d.g.divider);
-        this.beN = findViewById(d.g.divider_forum_name);
-        this.beO = (TextView) findViewById(d.g.thread_info_forum_name);
-        this.beK = (TextView) inflate.findViewById(d.g.card_home_page_normal_thread_share_intro);
-        this.beL = (TextView) inflate.findViewById(d.g.thread_user_info_has_concern_lable);
+        this.bdL = (ClickableHeaderImageView) inflate.findViewById(d.g.card_home_page_normal_thread_user_header);
+        this.bes = (UserIconBox) inflate.findViewById(d.g.card_home_page_normal_thread_tshow_icon);
+        this.bdM = (TextView) inflate.findViewById(d.g.card_home_page_normal_thread_user_name);
+        this.beu = (ImageView) inflate.findViewById(d.g.identity_view);
+        this.bev = (UserIconBox) inflate.findViewById(d.g.card_home_page_normal_thread_user_icon);
+        this.bcY = (TextView) inflate.findViewById(d.g.thread_info_reply_time);
+        this.bew = (TextView) inflate.findViewById(d.g.thread_info_address);
+        this.bex = inflate.findViewById(d.g.divider);
+        this.beB = findViewById(d.g.divider_forum_name);
+        this.beC = (TextView) findViewById(d.g.thread_info_forum_name);
+        this.bey = (TextView) inflate.findViewById(d.g.card_home_page_normal_thread_share_intro);
+        this.bez = (TextView) inflate.findViewById(d.g.thread_user_info_has_concern_lable);
         setGravity(16);
         this.mContext = context;
         initHeaderImg();
-        this.beF.setOnClickListener(this.beQ);
-        this.bdY.setOnClickListener(this.bee);
-        this.beH.setOnClickListener(this.beR);
+        this.bes.setOnClickListener(this.beE);
+        this.bdM.setOnClickListener(this.bdS);
+        this.bev.setOnClickListener(this.beF);
     }
 
     public boolean setData(bd bdVar) {
@@ -241,23 +241,23 @@ public class ThreadUserInfoLayout extends LinearLayout {
             setVisibility(8);
             return false;
         }
-        this.aZM = bdVar;
-        if (this.aZM.aQu > 0) {
-            if (this.aZM.aQv == 0 && this.aZM.zn() != null) {
-                if (!v.E(this.aZM.zn().getTShowInfoNew())) {
-                    this.aZM.zn().getTShowInfoNew().clear();
+        this.aZA = bdVar;
+        if (this.aZA.aQj > 0) {
+            if (this.aZA.aQk == 0 && this.aZA.zn() != null) {
+                if (!v.E(this.aZA.zn().getTShowInfoNew())) {
+                    this.aZA.zn().getTShowInfoNew().clear();
                 }
-                this.aZM.zn().setName_show(getContext().getString(d.j.perfect_selection_video));
+                this.aZA.zn().setName_show(getContext().getString(d.j.perfect_selection_video));
             }
-            this.beF.setOnClickListener(null);
-            this.bdY.setOnClickListener(null);
-            this.beH.setOnClickListener(null);
-            this.bdX.setClickable(false);
+            this.bes.setOnClickListener(null);
+            this.bdM.setOnClickListener(null);
+            this.bev.setOnClickListener(null);
+            this.bdL.setClickable(false);
         } else {
-            this.beF.setOnClickListener(this.beQ);
-            this.bdY.setOnClickListener(this.bee);
-            this.beH.setOnClickListener(this.beR);
-            this.bdX.setClickable(true);
+            this.bes.setOnClickListener(this.beE);
+            this.bdM.setOnClickListener(this.bdS);
+            this.bev.setOnClickListener(this.beF);
+            this.bdL.setClickable(true);
         }
         k(bdVar);
         i(bdVar);
@@ -274,105 +274,105 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     private void initHeaderImg() {
-        if (this.bdX != null) {
-            this.bdX.setDefaultResource(17170445);
-            this.bdX.setDefaultErrorResource(d.f.icon_default_avatar100);
-            this.bdX.setDefaultBgResource(d.C0140d.cp_bg_line_e);
-            this.bdX.setIsRound(true);
-            this.bdX.setAfterClickListener(this.bec);
+        if (this.bdL != null) {
+            this.bdL.setDefaultResource(17170445);
+            this.bdL.setDefaultErrorResource(d.f.icon_default_avatar100);
+            this.bdL.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+            this.bdL.setIsRound(true);
+            this.bdL.setAfterClickListener(this.bdQ);
         }
     }
 
     private void j(bd bdVar) {
-        if (this.beL != null && bdVar != null && bdVar.zn() != null) {
+        if (this.bez != null && bdVar != null && bdVar.zn() != null) {
             if (bdVar.zn().hadConcerned()) {
-                this.beL.setVisibility(0);
-                aj.r(this.beL, d.C0140d.cp_cont_d);
-                aj.s(this.beL, d.f.btn_rounded_corner_gray_frame_transparent_thin);
+                this.bez.setVisibility(0);
+                aj.r(this.bez, d.C0141d.cp_cont_d);
+                aj.s(this.bez, d.f.btn_rounded_corner_gray_frame_transparent_thin);
                 return;
             }
-            this.beL.setVisibility(8);
+            this.bez.setVisibility(8);
         }
     }
 
     private void k(bd bdVar) {
-        if (this.beF != null && bdVar != null && bdVar.zn() != null) {
+        if (this.bes != null && bdVar != null && bdVar.zn() != null) {
             ArrayList<IconData> tShowInfoNew = bdVar.zn().getTShowInfoNew();
             if (v.D(tShowInfoNew) != 0) {
-                this.beF.setVisibility(0);
-                this.beF.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(d.e.tbds48), this.mContext.getResources().getDimensionPixelSize(d.e.tbds48), this.mContext.getResources().getDimensionPixelSize(d.e.ds8), true);
+                this.bes.setVisibility(0);
+                this.bes.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(d.e.tbds48), this.mContext.getResources().getDimensionPixelSize(d.e.tbds48), this.mContext.getResources().getDimensionPixelSize(d.e.ds8), true);
                 return;
             }
-            this.beF.setVisibility(8);
+            this.bes.setVisibility(8);
         }
     }
 
     private void l(bd bdVar) {
-        if (this.beG != null && bdVar != null && bdVar.zn() != null) {
+        if (this.beu != null && bdVar != null && bdVar.zn() != null) {
             MetaData zn = bdVar.zn();
             if (zn.getIs_bawu() == 1) {
                 if ("manager".equals(zn.getBawu_type())) {
-                    aj.c(this.beG, d.f.icon_id_bazhu);
-                    this.beG.setVisibility(0);
+                    aj.c(this.beu, d.f.icon_id_bazhu);
+                    this.beu.setVisibility(0);
                     return;
                 } else if ("assist".equals(zn.getBawu_type())) {
-                    aj.c(this.beG, d.f.icon_id_xiaobazhu);
-                    this.beG.setVisibility(0);
+                    aj.c(this.beu, d.f.icon_id_xiaobazhu);
+                    this.beu.setVisibility(0);
                     return;
                 } else {
-                    this.beG.setVisibility(8);
+                    this.beu.setVisibility(8);
                     return;
                 }
             }
-            this.beG.setVisibility(8);
+            this.beu.setVisibility(8);
         }
     }
 
     private void i(bd bdVar) {
-        if (this.bdY != null && bdVar != null) {
-            if (!StringUtils.isNull(this.aZM.zn().getName_show())) {
-                this.bdY.setText(eX(this.aZM.zn().getName_show()));
+        if (this.bdM != null && bdVar != null) {
+            if (!StringUtils.isNull(this.aZA.zn().getName_show())) {
+                this.bdM.setText(eX(this.aZA.zn().getName_show()));
             }
-            Ex();
+            Ew();
             if (this.mFrom == 3) {
-                String name_show = this.aZM.zn().getName_show();
-                String userName = this.aZM.zn().getUserName();
+                String name_show = this.aZA.zn().getName_show();
+                String userName = this.aZA.zn().getUserName();
                 if (af.nv() && name_show != null && !name_show.equals(userName)) {
-                    this.bdY.setText(com.baidu.tieba.pb.c.am(this.mContext, this.bdY.getText().toString()));
-                    this.bdY.setGravity(16);
-                    this.bdY.setTag(d.g.tag_nick_name_activity, com.baidu.tieba.pb.c.bab());
-                    aj.e(this.bdY, d.C0140d.cp_other_e, 1);
+                    this.bdM.setText(com.baidu.tieba.pb.c.am(this.mContext, this.bdM.getText().toString()));
+                    this.bdM.setGravity(16);
+                    this.bdM.setTag(d.g.tag_nick_name_activity, com.baidu.tieba.pb.c.baa());
+                    aj.e(this.bdM, d.C0141d.cp_other_e, 1);
                 }
             }
         }
     }
 
     private void m(bd bdVar) {
-        if (this.beH != null) {
-            if (this.beP) {
-                this.beH.setVisibility(8);
-            } else if (bdVar == null || bdVar.zn() == null || ((bdVar.aQu > 0 && bdVar.aQv == 0) || !this.beM)) {
-                this.beH.setVisibility(8);
+        if (this.bev != null) {
+            if (this.beD) {
+                this.bev.setVisibility(8);
+            } else if (bdVar == null || bdVar.zn() == null || ((bdVar.aQj > 0 && bdVar.aQk == 0) || !this.beA)) {
+                this.bev.setVisibility(8);
             } else {
                 ArrayList<IconData> iconInfo = bdVar.zn().getIconInfo();
                 if (v.D(iconInfo) != 0) {
-                    this.beH.setVisibility(0);
-                    this.beH.a(iconInfo, 4, this.mContext.getResources().getDimensionPixelSize(d.e.tbds40), this.mContext.getResources().getDimensionPixelSize(d.e.tbds40), this.mContext.getResources().getDimensionPixelSize(d.e.ds8), true);
+                    this.bev.setVisibility(0);
+                    this.bev.a(iconInfo, 4, this.mContext.getResources().getDimensionPixelSize(d.e.tbds40), this.mContext.getResources().getDimensionPixelSize(d.e.tbds40), this.mContext.getResources().getDimensionPixelSize(d.e.ds8), true);
                     return;
                 }
-                this.beH.setVisibility(8);
+                this.bev.setVisibility(8);
             }
         }
     }
 
     private void d(bd bdVar) {
         String z;
-        if (this.bdk != null && bdVar != null) {
+        if (this.bcY != null && bdVar != null) {
             if (bdVar.zh() <= 0) {
-                this.bdk.setVisibility(4);
+                this.bcY.setVisibility(4);
                 return;
             }
-            this.bdk.setVisibility(0);
+            this.bcY.setVisibility(0);
             if (this.mFrom == 2) {
                 z = am.y(bdVar.zh());
             } else if (bdVar.Ap()) {
@@ -380,136 +380,136 @@ public class ThreadUserInfoLayout extends LinearLayout {
             } else {
                 z = am.z(bdVar.zh() * 1000);
             }
-            this.bdk.setText(z);
+            this.bcY.setText(z);
         }
     }
 
     protected void n(bd bdVar) {
-        if (this.beK == null || bdVar == null) {
-            this.beK.setVisibility(8);
-        } else if (this.beP) {
+        if (this.bey == null || bdVar == null) {
+            this.bey.setVisibility(8);
+        } else if (this.beD) {
             if (StringUtils.isNull(bdVar.zM())) {
-                this.beK.setVisibility(8);
+                this.bey.setVisibility(8);
                 return;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.beK.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bey.getLayoutParams();
             if (layoutParams != null && layoutParams.bottomMargin != 0) {
                 layoutParams.bottomMargin = 0;
-                this.beK.setLayoutParams(layoutParams);
+                this.bey.setLayoutParams(layoutParams);
             }
-            this.beK.setText(bdVar.zM());
-            this.beK.setVisibility(0);
-        } else if (this.aZM.zG() == null || this.aZM.zG().share_info == null || this.aZM.zG().share_info.share_user_count <= 0 || !this.aZM.As() || (this.aZM.aQu > 0 && this.aZM.aQv == 0)) {
-            this.beK.setVisibility(8);
+            this.bey.setText(bdVar.zM());
+            this.bey.setVisibility(0);
+        } else if (this.aZA.zG() == null || this.aZA.zG().share_info == null || this.aZA.zG().share_info.share_user_count <= 0 || !this.aZA.As() || (this.aZA.aQj > 0 && this.aZA.aQk == 0)) {
+            this.bey.setVisibility(8);
         } else {
-            this.beK.setVisibility(0);
-            int i = this.aZM.zG().share_info.share_user_count;
+            this.bey.setVisibility(0);
+            int i = this.aZA.zG().share_info.share_user_count;
             if (i == 1) {
-                this.beK.setText(TbadkCoreApplication.getInst().getString(d.j.ala_live_share_live_label_simple));
+                this.bey.setText(TbadkCoreApplication.getInst().getString(d.j.ala_live_share_live_label_simple));
             } else {
-                this.beK.setText(TbadkCoreApplication.getInst().getString(d.j.ala_live_share_live_label, new Object[]{am.E(i)}));
+                this.bey.setText(TbadkCoreApplication.getInst().getString(d.j.ala_live_share_live_label, new Object[]{am.E(i)}));
             }
         }
     }
 
     private void o(bd bdVar) {
         if (bdVar == null || StringUtils.isNull(bdVar.getAddress())) {
-            this.beI.setVisibility(8);
-            this.beJ.setVisibility(8);
+            this.bew.setVisibility(8);
+            this.bex.setVisibility(8);
             return;
         }
-        this.beI.setText(this.aZM.getAddress());
-        this.beI.setVisibility(0);
-        this.beJ.setVisibility(0);
+        this.bew.setText(this.aZA.getAddress());
+        this.bew.setVisibility(0);
+        this.bex.setVisibility(0);
     }
 
     public void updateForumName(bd bdVar) {
         String str;
         if (bdVar == null || StringUtils.isNull(bdVar.zt()) || this.mFrom == 3) {
-            this.beO.setVisibility(8);
-            this.beN.setVisibility(8);
+            this.beC.setVisibility(8);
+            this.beB.setVisibility(8);
             return;
         }
-        if (this.aZM.aQu > 0 && this.aZM.aQv == 0) {
+        if (this.aZA.aQj > 0 && this.aZA.aQk == 0) {
             str = getContext().getString(d.j.select_video_list);
         } else {
-            str = am.e(this.aZM.zt(), 12, "...") + getResources().getString(d.j.forum);
+            str = am.e(this.aZA.zt(), 12, "...") + getResources().getString(d.j.forum);
         }
-        this.beO.setText(str);
-        this.beO.setVisibility(0);
-        this.beN.setVisibility(0);
+        this.beC.setText(str);
+        this.beC.setVisibility(0);
+        this.beB.setVisibility(0);
     }
 
     public void showForumNameView(boolean z) {
         if (z) {
-            updateForumName(this.aZM);
+            updateForumName(this.aZA);
             return;
         }
-        this.beO.setVisibility(8);
-        this.beN.setVisibility(8);
+        this.beC.setVisibility(8);
+        this.beB.setVisibility(8);
     }
 
     private void p(bd bdVar) {
-        if (this.bdX != null && bdVar != null && this.aZM.zn() != null) {
-            if (this.aZM.aQu > 0 && this.aZM.aQv == 0) {
-                this.bdX.setShowV(false);
+        if (this.bdL != null && bdVar != null && this.aZA.zn() != null) {
+            if (this.aZA.aQj > 0 && this.aZA.aQk == 0) {
+                this.bdL.setShowV(false);
             } else {
-                this.bdX.setShowV(this.aZM.zn().isBigV());
+                this.bdL.setShowV(this.aZA.zn().isBigV());
             }
         }
     }
 
-    private void Ex() {
-        if (this.aZM != null && this.aZM.zn() != null) {
-            if (this.aZM.aQu > 0 && this.aZM.aQv == 0) {
-                aj.r(this.bdY, d.C0140d.cp_cont_f);
-            } else if (!v.E(this.aZM.zn().getTShowInfoNew()) || this.aZM.zn().isBigV()) {
-                aj.r(this.bdY, d.C0140d.cp_cont_h);
+    private void Ew() {
+        if (this.aZA != null && this.aZA.zn() != null) {
+            if (this.aZA.aQj > 0 && this.aZA.aQk == 0) {
+                aj.r(this.bdM, d.C0141d.cp_cont_f);
+            } else if (!v.E(this.aZA.zn().getTShowInfoNew()) || this.aZA.zn().isBigV()) {
+                aj.r(this.bdM, d.C0141d.cp_cont_h);
             } else {
-                aj.r(this.bdY, d.C0140d.cp_cont_f);
+                aj.r(this.bdM, d.C0141d.cp_cont_f);
             }
         }
     }
 
     public void onChangeSkinType() {
-        Ex();
-        aj.r(this.beK, d.C0140d.cp_cont_f);
-        aj.r(this.bdk, d.C0140d.cp_cont_d);
-        aj.t(this.beJ, d.C0140d.cp_cont_e);
-        aj.r(this.beI, d.C0140d.cp_cont_d);
-        aj.r(this.beO, d.C0140d.cp_cont_d);
-        aj.t(this.beJ, d.C0140d.cp_cont_e);
-        aj.t(this.beN, d.C0140d.cp_cont_e);
-        l(this.aZM);
+        Ew();
+        aj.r(this.bey, d.C0141d.cp_cont_f);
+        aj.r(this.bcY, d.C0141d.cp_cont_d);
+        aj.t(this.bex, d.C0141d.cp_cont_e);
+        aj.r(this.bew, d.C0141d.cp_cont_d);
+        aj.r(this.beC, d.C0141d.cp_cont_d);
+        aj.t(this.bex, d.C0141d.cp_cont_e);
+        aj.t(this.beB, d.C0141d.cp_cont_e);
+        l(this.aZA);
     }
 
     public void setIsSimpleThread(boolean z) {
-        this.beb = z;
+        this.bdP = z;
     }
 
     public boolean getIsSimpleThread() {
-        return this.beb;
+        return this.bdP;
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.bec = onClickListener;
-        if (this.bdX != null) {
-            this.bdX.setAfterClickListener(this.bec);
+        this.bdQ = onClickListener;
+        if (this.bdL != null) {
+            this.bdL.setAfterClickListener(this.bdQ);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.bdX != null) {
-            this.bdX.setPageId(bdUniqueId);
+        if (this.bdL != null) {
+            this.bdL.setPageId(bdUniqueId);
         }
     }
 
     public ClickableHeaderImageView getHeaderImg() {
-        return this.bdX;
+        return this.bdL;
     }
 
     public TextView getUserName() {
-        return this.bdY;
+        return this.bdM;
     }
 
     protected String eX(String str) {
@@ -517,14 +517,14 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public boolean isTShowVisible() {
-        return this.beM;
+        return this.beA;
     }
 
     public void setTShowVisible(boolean z) {
-        this.beM = z;
+        this.beA = z;
     }
 
     public void setIsFromConcern(boolean z) {
-        this.beP = z;
+        this.beD = z;
     }
 }

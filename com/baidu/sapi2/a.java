@@ -36,6 +36,7 @@ import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.result.SSOConfirmResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.sapi2.shell.callback.FillUsernameCallBack;
 import com.baidu.sapi2.shell.callback.GetUserInfoCallBack;
@@ -303,7 +304,7 @@ public final class a {
         jSONObject.put("password", str4);
         jSONObject.put(LoginActivityConfig.LOGIN_TYPE, "3");
         jSONObject.put(RimArmor.KEY, sapiDataEncryptor.getAESKey());
-        jSONObject.put("sdk_version", "2");
+        jSONObject.put(SapiContext.KEY_SDK_VERSION, "2");
         jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
         hashMap.put("userinfo", sapiDataEncryptor.encrypt(str, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
@@ -1202,6 +1203,7 @@ public final class a {
                                     SapiContext.getInstance(a.this.c.context).setCurrentAccount(accountFromBduss);
                                     SapiAccountManager.getInstance().preFetchStoken(accountFromBduss, false);
                                     SapiContext.getInstance(a.this.c.context).addLoginAccount(accountFromBduss);
+                                    new ShareCallPacking().markLoginState(false);
                                 } else {
                                     com.baidu.sapi2.share.a.a().a(accountFromBduss);
                                 }
@@ -1754,7 +1756,7 @@ public final class a {
             hashMap.put("pis_di", pisDeviceInfo);
         }
         hashMap.put("clientfrom", "mobilesdk_enhanced");
-        hashMap.put("sdk_version", "3");
+        hashMap.put(SapiContext.KEY_SDK_VERSION, "3");
         return hashMap;
     }
 
@@ -2002,12 +2004,12 @@ public final class a {
                     SocialResponse b2 = SapiWebView.b(str, a.this.c.context);
                     if (b2 == null) {
                         iqiyiLoginResult.setResultCode(-100);
-                        iqiyiLoginResult.setResultMsg("登录失败");
+                        iqiyiLoginResult.setResultMsg(Web2NativeLoginResult.ERROR_MSG_UNKNOWN);
                         iqiyiLoginCallback.onFailure(iqiyiLoginResult);
                         return;
                     } else if (b2.errorCode != -100) {
                         iqiyiLoginResult.setResultCode(-100);
-                        iqiyiLoginResult.setResultMsg("登录失败");
+                        iqiyiLoginResult.setResultMsg(Web2NativeLoginResult.ERROR_MSG_UNKNOWN);
                         iqiyiLoginCallback.onFailure(iqiyiLoginResult);
                         return;
                     } else {

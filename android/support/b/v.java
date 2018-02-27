@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 class v {
-    private static final String[] vc = new String[0];
+    private static final String[] vb = new String[0];
     private static String LOG_TAG = "TransitionManager";
-    private static z vd = new b();
-    private static ThreadLocal<WeakReference<ArrayMap<ViewGroup, ArrayList<z>>>> ve = new ThreadLocal<>();
-    static ArrayList<ViewGroup> vf = new ArrayList<>();
+    private static z vc = new b();
+    private static ThreadLocal<WeakReference<ArrayMap<ViewGroup, ArrayList<z>>>> vd = new ThreadLocal<>();
+    static ArrayList<ViewGroup> ve = new ArrayList<>();
 
     static ArrayMap<ViewGroup, ArrayList<z>> cV() {
-        WeakReference<ArrayMap<ViewGroup, ArrayList<z>>> weakReference = ve.get();
+        WeakReference<ArrayMap<ViewGroup, ArrayList<z>>> weakReference = vd.get();
         if (weakReference == null || weakReference.get() == null) {
             weakReference = new WeakReference<>(new ArrayMap());
-            ve.set(weakReference);
+            vd.set(weakReference);
         }
         return weakReference.get();
     }
@@ -52,10 +52,10 @@ class v {
     }
 
     public static void c(ViewGroup viewGroup, z zVar) {
-        if (!vf.contains(viewGroup) && ViewCompat.isLaidOut(viewGroup)) {
-            vf.add(viewGroup);
+        if (!ve.contains(viewGroup) && ViewCompat.isLaidOut(viewGroup)) {
+            ve.add(viewGroup);
             if (zVar == null) {
-                zVar = vd;
+                zVar = vc;
             }
             z clone = zVar.clone();
             b(viewGroup, clone);
@@ -67,17 +67,17 @@ class v {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a implements View.OnAttachStateChangeListener, ViewTreeObserver.OnPreDrawListener {
-        ViewGroup uR;
-        z uT;
+        ViewGroup uQ;
+        z uS;
 
         a(z zVar, ViewGroup viewGroup) {
-            this.uT = zVar;
-            this.uR = viewGroup;
+            this.uS = zVar;
+            this.uQ = viewGroup;
         }
 
         private void cW() {
-            this.uR.getViewTreeObserver().removeOnPreDrawListener(this);
-            this.uR.removeOnAttachStateChangeListener(this);
+            this.uQ.getViewTreeObserver().removeOnPreDrawListener(this);
+            this.uQ.removeOnAttachStateChangeListener(this);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
@@ -87,15 +87,15 @@ class v {
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
             cW();
-            v.vf.remove(this.uR);
-            ArrayList<z> arrayList = v.cV().get(this.uR);
+            v.ve.remove(this.uQ);
+            ArrayList<z> arrayList = v.cV().get(this.uQ);
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<z> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    it.next().M(this.uR);
+                    it.next().M(this.uQ);
                 }
             }
-            this.uT.u(true);
+            this.uS.u(true);
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -103,12 +103,12 @@ class v {
             ArrayList<z> arrayList;
             ArrayList arrayList2;
             cW();
-            v.vf.remove(this.uR);
+            v.ve.remove(this.uQ);
             final ArrayMap<ViewGroup, ArrayList<z>> cV = v.cV();
-            ArrayList<z> arrayList3 = cV.get(this.uR);
+            ArrayList<z> arrayList3 = cV.get(this.uQ);
             if (arrayList3 == null) {
                 ArrayList<z> arrayList4 = new ArrayList<>();
-                cV.put(this.uR, arrayList4);
+                cV.put(this.uQ, arrayList4);
                 arrayList = arrayList4;
                 arrayList2 = null;
             } else if (arrayList3.size() <= 0) {
@@ -118,21 +118,21 @@ class v {
                 arrayList = arrayList3;
                 arrayList2 = new ArrayList(arrayList3);
             }
-            arrayList.add(this.uT);
-            this.uT.a(new z.d() { // from class: android.support.b.v.a.1
+            arrayList.add(this.uS);
+            this.uS.a(new z.d() { // from class: android.support.b.v.a.1
                 @Override // android.support.b.z.d, android.support.b.z.c
                 public void a(z zVar) {
-                    ((ArrayList) cV.get(a.this.uR)).remove(zVar);
+                    ((ArrayList) cV.get(a.this.uQ)).remove(zVar);
                 }
             });
-            this.uT.c(this.uR, false);
+            this.uS.c(this.uQ, false);
             if (arrayList2 != null) {
                 Iterator it = arrayList2.iterator();
                 while (it.hasNext()) {
-                    ((z) it.next()).M(this.uR);
+                    ((z) it.next()).M(this.uQ);
                 }
             }
-            this.uT.b(this.uR);
+            this.uS.b(this.uQ);
             return true;
         }
     }

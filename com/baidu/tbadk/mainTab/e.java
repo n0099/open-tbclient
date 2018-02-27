@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class e extends FrameLayout {
-    protected boolean byq;
+    protected boolean byd;
 
     public e(Context context) {
         super(context);
-        this.byq = false;
+        this.byd = false;
     }
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.byq = false;
+        this.byd = false;
     }
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.byq = false;
+        this.byd = false;
     }
 
     public void gB(int i) {
@@ -80,25 +80,25 @@ public abstract class e extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.byq = z;
+        this.byd = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aiE;
-        public int bys;
-        public e byu;
+        public int aiy;
+        public int byf;
+        public e byh;
         public View view;
-        public boolean byr = true;
-        public int byt = d.C0140d.common_color_10225;
+        public boolean bye = true;
+        public int byg = d.C0141d.common_color_10225;
 
         public void gB(int i) {
-            if (this.bys != 0) {
-                aj.s(this.view, this.bys);
+            if (this.byf != 0) {
+                aj.s(this.view, this.byf);
             }
             if (this.view instanceof TextView) {
-                if (this.byt != 0) {
-                    aj.e((TextView) this.view, this.byt, 1);
+                if (this.byg != 0) {
+                    aj.e((TextView) this.view, this.byg, 1);
                 }
                 int e = e((TextView) this.view);
                 if (e > 0 && e < 10) {

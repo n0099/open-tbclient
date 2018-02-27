@@ -14,20 +14,20 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j amy;
-    private long amw;
+    private static j ams;
+    private long amq;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean amv = true;
-    private NetworkInfo amn = null;
+    private static boolean amp = true;
+    private NetworkInfo amh = null;
     private boolean isWifi = true;
-    private boolean amo = false;
-    private boolean amp = true;
-    private int amq = 0;
-    private int amr = 0;
-    private int ams = -1;
-    private String amt = null;
-    private int amu = -1;
-    private boolean amx = true;
+    private boolean ami = false;
+    private boolean amj = true;
+    private int amk = 0;
+    private int aml = 0;
+    private int amm = -1;
+    private String amn = null;
+    private int amo = -1;
+    private boolean amr = true;
 
     static {
         try {
@@ -39,41 +39,41 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        amy = null;
+        ams = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ow() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        this.amn = activeNetworkInfo;
+        this.amh = activeNetworkInfo;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
-                this.amo = false;
+                this.ami = false;
             } else if (activeNetworkInfo.getType() == 0) {
                 this.isWifi = false;
-                this.amo = true;
+                this.ami = true;
             } else {
                 this.isWifi = false;
-                this.amo = false;
+                this.ami = false;
             }
-            this.amp = true;
-            this.amq = activeNetworkInfo.getSubtype();
-            if (this.amo) {
-                this.amr = dp(this.amq);
+            this.amj = true;
+            this.amk = activeNetworkInfo.getSubtype();
+            if (this.ami) {
+                this.aml = dp(this.amk);
             } else {
-                this.amr = 0;
+                this.aml = 0;
             }
         } else {
             this.isWifi = false;
-            this.amo = false;
-            this.amp = false;
-            this.amq = 0;
-            this.amq = 0;
+            this.ami = false;
+            this.amj = false;
+            this.amk = 0;
+            this.amk = 0;
         }
-        this.ams = oF();
-        this.amt = Proxy.getDefaultHost();
-        this.amu = Proxy.getDefaultPort();
+        this.amm = oF();
+        this.amn = Proxy.getDefaultHost();
+        this.amo = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
@@ -103,58 +103,58 @@ public class j {
     }
 
     public boolean oy() {
-        if (this.amn == null) {
+        if (this.amh == null) {
             ow();
         }
-        return this.amp;
+        return this.amj;
     }
 
     public boolean oz() {
-        if (this.amn == null) {
+        if (this.amh == null) {
             ow();
         }
         return this.isWifi;
     }
 
     public boolean oA() {
-        if (this.amn == null) {
+        if (this.amh == null) {
             ow();
         }
-        return this.amo;
+        return this.ami;
     }
 
     public int oB() {
-        if (this.amn == null) {
+        if (this.amh == null) {
             ow();
         }
-        return this.amr;
+        return this.aml;
     }
 
     public int oC() {
-        if (this.ams == -1) {
+        if (this.amm == -1) {
             try {
-                this.ams = oF();
+                this.amm = oF();
             } catch (Exception e) {
-                this.ams = 0;
+                this.amm = 0;
             }
         }
-        return this.ams;
+        return this.amm;
     }
 
     public String oD() {
-        if (this.amt == null) {
-            this.amt = Proxy.getDefaultHost();
+        if (this.amn == null) {
+            this.amn = Proxy.getDefaultHost();
         }
-        return this.amt;
+        return this.amn;
     }
 
     private long oE() {
-        return this.amw;
+        return this.amq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(long j) {
-        this.amw = j;
+        this.amq = j;
     }
 
     private static int oF() {
@@ -215,28 +215,28 @@ public class j {
     }
 
     public int oG() {
-        if (-1 == this.amu) {
-            this.amu = Proxy.getDefaultPort();
+        if (-1 == this.amo) {
+            this.amo = Proxy.getDefaultPort();
         }
-        return this.amu;
+        return this.amo;
     }
 
     public boolean oH() {
-        return this.amx;
+        return this.amr;
     }
 
     public void au(boolean z) {
-        this.amx = z;
+        this.amr = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized j oI() {
         j jVar;
         synchronized (j.class) {
-            if (amy == null) {
-                amy = new j();
+            if (ams == null) {
+                ams = new j();
             }
-            jVar = amy;
+            jVar = ams;
         }
         return jVar;
     }
@@ -350,7 +350,7 @@ public class j {
     }
 
     public static boolean oV() {
-        return amv;
+        return amp;
     }
 
     public static boolean aS(String str) {

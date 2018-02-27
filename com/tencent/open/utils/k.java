@@ -1,21 +1,10 @@
 package com.tencent.open.utils;
-
-import android.support.v4.view.MotionEventCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class k implements Cloneable {
-    private int a;
+    private long a;
 
-    public k(byte[] bArr) {
-        this(bArr, 0);
-    }
-
-    public k(byte[] bArr, int i) {
-        this.a = (bArr[i + 1] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK;
-        this.a += bArr[i] & 255;
-    }
-
-    public k(int i) {
-        this.a = i;
+    public k(long j) {
+        this.a = j;
     }
 
     public boolean equals(Object obj) {
@@ -23,14 +12,14 @@ public final class k implements Cloneable {
     }
 
     public byte[] a() {
-        return new byte[]{(byte) (this.a & 255), (byte) ((this.a & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8)};
+        return new byte[]{(byte) (this.a & 255), (byte) ((this.a & 65280) >> 8), (byte) ((this.a & 16711680) >> 16), (byte) ((this.a & 4278190080L) >> 24)};
     }
 
-    public int b() {
+    public long b() {
         return this.a;
     }
 
     public int hashCode() {
-        return this.a;
+        return (int) this.a;
     }
 }

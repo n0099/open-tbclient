@@ -20,9 +20,9 @@ import java.lang.reflect.Field;
 public class ListViewCompat extends ListView {
     public static final int INVALID_POSITION = -1;
     public static final int NO_POSITION = -1;
-    private static final int[] QL = {0};
-    private Field QM;
-    private a QN;
+    private static final int[] QG = {0};
+    private Field QH;
+    private a QI;
     protected int mMotionPosition;
     int mSelectionBottomPadding;
     int mSelectionLeftPadding;
@@ -46,8 +46,8 @@ public class ListViewCompat extends ListView {
         this.mSelectionRightPadding = 0;
         this.mSelectionBottomPadding = 0;
         try {
-            this.QM = AbsListView.class.getDeclaredField("mIsChildViewEnabled");
-            this.QM.setAccessible(true);
+            this.QH = AbsListView.class.getDeclaredField("mIsChildViewEnabled");
+            this.QH.setAccessible(true);
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
@@ -55,8 +55,8 @@ public class ListViewCompat extends ListView {
 
     @Override // android.widget.AbsListView
     public void setSelector(Drawable drawable) {
-        this.QN = drawable != null ? new a(drawable) : null;
-        super.setSelector(this.QN);
+        this.QI = drawable != null ? new a(drawable) : null;
+        super.setSelector(this.QI);
         Rect rect = new Rect();
         if (drawable != null) {
             drawable.getPadding(rect);
@@ -178,9 +178,9 @@ public class ListViewCompat extends ListView {
         rect.right += this.mSelectionRightPadding;
         rect.bottom += this.mSelectionBottomPadding;
         try {
-            boolean z = this.QM.getBoolean(this);
+            boolean z = this.QH.getBoolean(this);
             if (view.isEnabled() != z) {
-                this.QM.set(this, Boolean.valueOf(!z));
+                this.QH.set(this, Boolean.valueOf(!z));
                 if (i != -1) {
                     refreshDrawableState();
                 }
@@ -246,8 +246,8 @@ public class ListViewCompat extends ListView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setSelectorEnabled(boolean z) {
-        if (this.QN != null) {
-            this.QN.setEnabled(z);
+        if (this.QI != null) {
+            this.QI.setEnabled(z);
         }
     }
 

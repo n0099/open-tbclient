@@ -3,7 +3,7 @@ package com.faceunity.gles;
 import java.nio.FloatBuffer;
 /* loaded from: classes2.dex */
 public class Drawable2d {
-    private Prefab hXK;
+    private Prefab hXx;
     private int mCoordsPerVertex;
     private FloatBuffer mTexCoordArray;
     private int mTexCoordStride;
@@ -57,7 +57,7 @@ public class Drawable2d {
                 throw new RuntimeException("Unknown shape " + prefab);
         }
         this.mTexCoordStride = 8;
-        this.hXK = prefab;
+        this.hXx = prefab;
     }
 
     public FloatBuffer getVertexArray() {
@@ -85,6 +85,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.hXK != null ? "[Drawable2d: " + this.hXK + "]" : "[Drawable2d: ...]";
+        return this.hXx != null ? "[Drawable2d: " + this.hXx + "]" : "[Drawable2d: ...]";
     }
 }

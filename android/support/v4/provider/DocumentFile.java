@@ -6,7 +6,7 @@ import android.os.Build;
 import java.io.File;
 /* loaded from: classes2.dex */
 public abstract class DocumentFile {
-    private final DocumentFile AP;
+    private final DocumentFile AJ;
 
     public abstract boolean canRead();
 
@@ -40,7 +40,7 @@ public abstract class DocumentFile {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public DocumentFile(DocumentFile documentFile) {
-        this.AP = documentFile;
+        this.AJ = documentFile;
     }
 
     public static DocumentFile fromFile(File file) {
@@ -69,7 +69,7 @@ public abstract class DocumentFile {
     }
 
     public DocumentFile getParentFile() {
-        return this.AP;
+        return this.AJ;
     }
 
     public DocumentFile findFile(String str) {

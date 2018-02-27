@@ -19,7 +19,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.uV(parcel.readInt());
+            shareEntity.uW(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.j((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
@@ -30,27 +30,27 @@ public class ShareEntity implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: uW */
+        /* renamed from: uX */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
     };
-    private Uri blB;
-    private Location blC;
-    private boolean blJ;
-    private Bundle blL;
+    private Uri blo;
+    private Location blp;
+    private boolean blw;
+    private Bundle bly;
     private String content;
-    private int gPu;
+    private int gPf;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
     public void i(Bundle bundle) {
-        this.blL = bundle;
+        this.bly = bundle;
     }
 
-    public Bundle IX() {
-        return this.blL;
+    public Bundle IW() {
+        return this.bly;
     }
 
     public String getVideoUrl() {
@@ -86,31 +86,31 @@ public class ShareEntity implements Parcelable {
     }
 
     public String ya() {
-        return this.blB == null ? "" : this.blB.toString();
+        return this.blo == null ? "" : this.blo.toString();
     }
 
     public void j(Uri uri) {
-        this.blB = uri;
+        this.blo = uri;
     }
 
     public void setLocation(Location location) {
-        this.blC = location;
+        this.blp = location;
     }
 
-    public int bsi() {
-        return this.gPu;
+    public int bsh() {
+        return this.gPf;
     }
 
-    public void uV(int i) {
-        this.gPu = i;
+    public void uW(int i) {
+        this.gPf = i;
     }
 
-    public boolean bsj() {
-        return this.blJ;
+    public boolean bsi() {
+        return this.blw;
     }
 
     public void mq(boolean z) {
-        this.blJ = z;
+        this.blw = z;
     }
 
     @Override // android.os.Parcelable
@@ -123,11 +123,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gPu);
+        parcel.writeInt(this.gPf);
         parcel.writeString(this.videoUrl);
-        parcel.writeParcelable(this.blB, i);
-        parcel.writeParcelable(this.blC, i);
-        parcel.writeBundle(this.blL);
-        parcel.writeInt(this.blJ ? 1 : 0);
+        parcel.writeParcelable(this.blo, i);
+        parcel.writeParcelable(this.blp, i);
+        parcel.writeBundle(this.bly);
+        parcel.writeInt(this.blw ? 1 : 0);
     }
 }

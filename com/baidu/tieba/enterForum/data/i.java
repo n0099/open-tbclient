@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes2.dex */
 public class i extends e implements com.baidu.tbadk.mvc.b.a {
-    private String dpl;
+    private String doZ;
     private String mForumName;
 
     public String getForumName() {
@@ -14,7 +14,7 @@ public class i extends e implements com.baidu.tbadk.mvc.b.a {
     public void a(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo != null) {
             try {
-                this.dpl = recommendForumInfo.avatar;
+                this.doZ = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
             } catch (Exception e) {
                 BdLog.detailException(e);

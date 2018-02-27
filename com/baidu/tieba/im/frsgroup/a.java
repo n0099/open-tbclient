@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.frs.g<GroupPermData, b> {
-    private View.OnClickListener bbY;
+    private View.OnClickListener bbM;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bbY = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.bbM = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.frs.g<GroupPermData, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bd */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(d.h.frs_create_group_item_view, (ViewGroup) null), this.bbY);
+        return new b(LayoutInflater.from(this.mContext).inflate(d.h.frs_create_group_item_view, (ViewGroup) null), this.bbM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.frs.g<GroupPermData, b> {
         this.mPageContext.getLayoutMode().aM(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         aj.s(bVar.rootView, d.f.frs_group_item_bg);
-        aj.t(bVar.dBM, d.C0140d.cp_bg_line_c);
-        aj.e(bVar.eCY, d.C0140d.cp_cont_b, 1);
-        bVar.eCY.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        aj.s(bVar.divider, d.C0140d.cp_bg_line_b);
+        aj.t(bVar.dBA, d.C0141d.cp_bg_line_c);
+        aj.e(bVar.eCM, d.C0141d.cp_cont_b, 1);
+        bVar.eCM.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        aj.s(bVar.divider, d.C0141d.cp_bg_line_b);
         return view;
     }
 

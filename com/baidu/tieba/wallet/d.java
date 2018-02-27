@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
-        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.wallet.d.1
+        aw.Dt().a(new aw.a() { // from class: com.baidu.tieba.wallet.d.1
             @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

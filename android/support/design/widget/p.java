@@ -7,9 +7,9 @@ import com.baidu.tbadk.TbConfig;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 class p {
-    private static p qb;
+    private static p qa;
+    private b qb;
     private b qc;
-    private b qd;
     private final Object mLock = new Object();
     private final Handler mHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: android.support.design.widget.p.1
         @Override // android.os.Handler.Callback
@@ -34,10 +34,10 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static p ch() {
-        if (qb == null) {
-            qb = new p();
+        if (qa == null) {
+            qa = new p();
         }
-        return qb;
+        return qa;
     }
 
     private p() {
@@ -46,18 +46,18 @@ class p {
     public void a(int i, a aVar) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                this.qc.duration = i;
-                this.mHandler.removeCallbacksAndMessages(this.qc);
-                a(this.qc);
+                this.qb.duration = i;
+                this.mHandler.removeCallbacksAndMessages(this.qb);
+                a(this.qb);
                 return;
             }
             if (h(aVar)) {
-                this.qd.duration = i;
+                this.qc.duration = i;
             } else {
-                this.qd = new b(i, aVar);
+                this.qc = new b(i, aVar);
             }
-            if (this.qc == null || !a(this.qc, 4)) {
-                this.qc = null;
+            if (this.qb == null || !a(this.qb, 4)) {
+                this.qb = null;
                 ci();
             }
         }
@@ -66,9 +66,9 @@ class p {
     public void a(a aVar, int i) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                a(this.qc, i);
+                a(this.qb, i);
             } else if (h(aVar)) {
-                a(this.qd, i);
+                a(this.qc, i);
             }
         }
     }
@@ -76,8 +76,8 @@ class p {
     public void a(a aVar) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                this.qc = null;
-                if (this.qd != null) {
+                this.qb = null;
+                if (this.qc != null) {
                     ci();
                 }
             }
@@ -87,7 +87,7 @@ class p {
     public void b(a aVar) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                a(this.qc);
+                a(this.qb);
             }
         }
     }
@@ -95,7 +95,7 @@ class p {
     public void c(a aVar) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                this.mHandler.removeCallbacksAndMessages(this.qc);
+                this.mHandler.removeCallbacksAndMessages(this.qb);
             }
         }
     }
@@ -103,7 +103,7 @@ class p {
     public void d(a aVar) {
         synchronized (this.mLock) {
             if (g(aVar)) {
-                a(this.qc);
+                a(this.qb);
             }
         }
     }
@@ -128,33 +128,33 @@ class p {
     /* loaded from: classes2.dex */
     public static class b {
         int duration;
-        final WeakReference<a> qf;
+        final WeakReference<a> qe;
 
         b(int i, a aVar) {
-            this.qf = new WeakReference<>(aVar);
+            this.qe = new WeakReference<>(aVar);
             this.duration = i;
         }
 
         boolean i(a aVar) {
-            return aVar != null && this.qf.get() == aVar;
+            return aVar != null && this.qe.get() == aVar;
         }
     }
 
     private void ci() {
-        if (this.qd != null) {
-            this.qc = this.qd;
-            this.qd = null;
-            a aVar = this.qc.qf.get();
+        if (this.qc != null) {
+            this.qb = this.qc;
+            this.qc = null;
+            a aVar = this.qb.qe.get();
             if (aVar != null) {
                 aVar.show();
             } else {
-                this.qc = null;
+                this.qb = null;
             }
         }
     }
 
     private boolean a(b bVar, int i) {
-        a aVar = bVar.qf.get();
+        a aVar = bVar.qe.get();
         if (aVar != null) {
             this.mHandler.removeCallbacksAndMessages(bVar);
             aVar.K(i);
@@ -164,11 +164,11 @@ class p {
     }
 
     private boolean g(a aVar) {
-        return this.qc != null && this.qc.i(aVar);
+        return this.qb != null && this.qb.i(aVar);
     }
 
     private boolean h(a aVar) {
-        return this.qd != null && this.qd.i(aVar);
+        return this.qc != null && this.qc.i(aVar);
     }
 
     private void a(b bVar) {
@@ -186,7 +186,7 @@ class p {
 
     void b(b bVar) {
         synchronized (this.mLock) {
-            if (this.qc == bVar || this.qd == bVar) {
+            if (this.qb == bVar || this.qc == bVar) {
                 a(bVar, 2);
             }
         }

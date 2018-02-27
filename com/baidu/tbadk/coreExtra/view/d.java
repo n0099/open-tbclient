@@ -27,30 +27,30 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private TbPageContext<?> aRR;
-    private Drawable bne;
-    private Drawable bnf;
+    private TbPageContext<?> aRG;
+    private Drawable bmR;
+    private Drawable bmS;
     private int size;
-    private View bmL = null;
-    private Dialog bmM = null;
-    private EditText bmN = null;
-    private RadioGroup bmO = null;
-    private RadioGroup bmP = null;
-    private CompoundButton.OnCheckedChangeListener bmQ = null;
-    private RadioButton bmR = null;
-    private RadioButton bmS = null;
-    private RadioButton bmT = null;
-    private TextView bmU = null;
-    private c bmV = null;
-    private b bmW = null;
-    private TextView bmX = null;
-    private TextView bmY = null;
-    private ProgressBar bmZ = null;
-    private TextView bna = null;
+    private View bmy = null;
+    private Dialog bmz = null;
+    private EditText bmA = null;
+    private RadioGroup bmB = null;
+    private RadioGroup bmC = null;
+    private CompoundButton.OnCheckedChangeListener bmD = null;
+    private RadioButton bmE = null;
+    private RadioButton bmF = null;
+    private RadioButton bmG = null;
+    private TextView bmH = null;
+    private c bmI = null;
+    private b bmJ = null;
+    private TextView bmK = null;
+    private TextView bmL = null;
+    private ProgressBar bmM = null;
+    private TextView bmN = null;
     private String mPhoneNum = null;
-    private AccountData bnb = null;
-    private a bnc = null;
-    private a bnd = null;
+    private AccountData bmO = null;
+    private a bmP = null;
+    private a bmQ = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -58,222 +58,222 @@ public class d {
     }
 
     public d(TbPageContext<?> tbPageContext) {
-        this.aRR = null;
-        this.bne = null;
-        this.bnf = null;
+        this.aRG = null;
+        this.bmR = null;
+        this.bmS = null;
         this.size = 0;
-        this.aRR = tbPageContext;
-        this.bne = aj.getDrawable(d.f.icon_tips_names_s);
-        this.bnf = aj.getDrawable(d.f.icon_tips_names_n);
-        this.size = this.aRR.getResources().getDimensionPixelSize(d.e.ds26);
-        this.bne.setBounds(0, 0, this.size, this.size);
-        this.bnf.setBounds(0, 0, this.size, this.size);
+        this.aRG = tbPageContext;
+        this.bmR = aj.getDrawable(d.f.icon_tips_names_s);
+        this.bmS = aj.getDrawable(d.f.icon_tips_names_n);
+        this.size = this.aRG.getResources().getDimensionPixelSize(d.e.ds26);
+        this.bmR.setBounds(0, 0, this.size, this.size);
+        this.bmS.setBounds(0, 0, this.size, this.size);
     }
 
     public void h(AccountData accountData) {
-        this.bnb = accountData;
+        this.bmO = accountData;
     }
 
     public void a(a aVar) {
-        this.bnc = aVar;
+        this.bmP = aVar;
     }
 
-    public void Jf() {
-        if (this.bmM == null) {
-            this.bmL = LayoutInflater.from(this.aRR.getPageActivity()).inflate(d.h.main_input_username, (ViewGroup) null);
-            this.bmN = (EditText) this.bmL.findViewById(d.g.account);
-            this.bmN.setHint(this.aRR.getString(d.j.input_alias_limit_length_tip));
-            this.bmU = (TextView) this.bmL.findViewById(d.g.back);
-            this.bmU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.d.1
+    public void Je() {
+        if (this.bmz == null) {
+            this.bmy = LayoutInflater.from(this.aRG.getPageActivity()).inflate(d.h.main_input_username, (ViewGroup) null);
+            this.bmA = (EditText) this.bmy.findViewById(d.g.account);
+            this.bmA.setHint(this.aRG.getString(d.j.input_alias_limit_length_tip));
+            this.bmH = (TextView) this.bmy.findViewById(d.g.back);
+            this.bmH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.Jj();
-                    d.this.Jh();
-                }
-            });
-            this.bmY = (TextView) this.bmL.findViewById(d.g.confirm);
-            this.bmY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.d.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                    d.this.Ji();
                     d.this.Jg();
                 }
             });
-            this.bmZ = (ProgressBar) this.bmL.findViewById(d.g.confirm_progress);
-            this.bmX = (TextView) this.bmL.findViewById(d.g.error_info);
-            this.bmO = (RadioGroup) this.bmL.findViewById(d.g.names_group1);
-            this.bmP = (RadioGroup) this.bmL.findViewById(d.g.names_group2);
-            this.bmR = (RadioButton) this.bmL.findViewById(d.g.name1);
-            this.bmS = (RadioButton) this.bmL.findViewById(d.g.name2);
-            this.bmT = (RadioButton) this.bmL.findViewById(d.g.name3);
-            this.bmQ = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.coreExtra.view.d.3
+            this.bmL = (TextView) this.bmy.findViewById(d.g.confirm);
+            this.bmL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.d.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    d.this.Jf();
+                }
+            });
+            this.bmM = (ProgressBar) this.bmy.findViewById(d.g.confirm_progress);
+            this.bmK = (TextView) this.bmy.findViewById(d.g.error_info);
+            this.bmB = (RadioGroup) this.bmy.findViewById(d.g.names_group1);
+            this.bmC = (RadioGroup) this.bmy.findViewById(d.g.names_group2);
+            this.bmE = (RadioButton) this.bmy.findViewById(d.g.name1);
+            this.bmF = (RadioButton) this.bmy.findViewById(d.g.name2);
+            this.bmG = (RadioButton) this.bmy.findViewById(d.g.name3);
+            this.bmD = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.coreExtra.view.d.3
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                     if (z) {
-                        if (compoundButton == d.this.bmR) {
-                            d.this.bmP.clearCheck();
-                            d.this.bmR.setChecked(true);
-                            d.this.bmR.setCompoundDrawables(d.this.bne, null, null, null);
-                            d.this.bmS.setChecked(false);
-                            d.this.bmS.setCompoundDrawables(d.this.bnf, null, null, null);
-                            d.this.bmT.setChecked(false);
-                            d.this.bmT.setCompoundDrawables(d.this.bnf, null, null, null);
-                        } else if (compoundButton == d.this.bmS) {
-                            d.this.bmP.clearCheck();
-                            d.this.bmR.setChecked(false);
-                            d.this.bmR.setCompoundDrawables(d.this.bnf, null, null, null);
-                            d.this.bmS.setChecked(true);
-                            d.this.bmS.setCompoundDrawables(d.this.bne, null, null, null);
-                            d.this.bmT.setChecked(false);
-                            d.this.bmT.setCompoundDrawables(d.this.bnf, null, null, null);
-                        } else if (compoundButton == d.this.bmT) {
-                            d.this.bmO.clearCheck();
-                            d.this.bmR.setChecked(false);
-                            d.this.bmR.setCompoundDrawables(d.this.bnf, null, null, null);
-                            d.this.bmS.setChecked(false);
-                            d.this.bmS.setCompoundDrawables(d.this.bnf, null, null, null);
-                            d.this.bmT.setChecked(true);
-                            d.this.bmT.setCompoundDrawables(d.this.bne, null, null, null);
+                        if (compoundButton == d.this.bmE) {
+                            d.this.bmC.clearCheck();
+                            d.this.bmE.setChecked(true);
+                            d.this.bmE.setCompoundDrawables(d.this.bmR, null, null, null);
+                            d.this.bmF.setChecked(false);
+                            d.this.bmF.setCompoundDrawables(d.this.bmS, null, null, null);
+                            d.this.bmG.setChecked(false);
+                            d.this.bmG.setCompoundDrawables(d.this.bmS, null, null, null);
+                        } else if (compoundButton == d.this.bmF) {
+                            d.this.bmC.clearCheck();
+                            d.this.bmE.setChecked(false);
+                            d.this.bmE.setCompoundDrawables(d.this.bmS, null, null, null);
+                            d.this.bmF.setChecked(true);
+                            d.this.bmF.setCompoundDrawables(d.this.bmR, null, null, null);
+                            d.this.bmG.setChecked(false);
+                            d.this.bmG.setCompoundDrawables(d.this.bmS, null, null, null);
+                        } else if (compoundButton == d.this.bmG) {
+                            d.this.bmB.clearCheck();
+                            d.this.bmE.setChecked(false);
+                            d.this.bmE.setCompoundDrawables(d.this.bmS, null, null, null);
+                            d.this.bmF.setChecked(false);
+                            d.this.bmF.setCompoundDrawables(d.this.bmS, null, null, null);
+                            d.this.bmG.setChecked(true);
+                            d.this.bmG.setCompoundDrawables(d.this.bmR, null, null, null);
                         }
-                        d.this.bmN.setText(compoundButton.getText());
+                        d.this.bmA.setText(compoundButton.getText());
                     }
                 }
             };
-            this.bmR.setOnCheckedChangeListener(this.bmQ);
-            this.bmS.setOnCheckedChangeListener(this.bmQ);
-            this.bmT.setOnCheckedChangeListener(this.bmQ);
-            this.bna = (TextView) this.bmL.findViewById(d.g.phone_info);
-            Ji();
-            this.bmM = new Dialog(this.aRR.getPageActivity(), d.k.input_username_dialog);
-            this.bmM.setCanceledOnTouchOutside(false);
-            this.bmM.setCancelable(false);
-            this.bmM.setCanceledOnTouchOutside(false);
-            Jb();
+            this.bmE.setOnCheckedChangeListener(this.bmD);
+            this.bmF.setOnCheckedChangeListener(this.bmD);
+            this.bmG.setOnCheckedChangeListener(this.bmD);
+            this.bmN = (TextView) this.bmy.findViewById(d.g.phone_info);
+            Jh();
+            this.bmz = new Dialog(this.aRG.getPageActivity(), d.k.input_username_dialog);
+            this.bmz.setCanceledOnTouchOutside(false);
+            this.bmz.setCancelable(false);
+            this.bmz.setCanceledOnTouchOutside(false);
+            Ja();
         }
-        if (!this.bmM.isShowing()) {
-            this.bmN.setText((CharSequence) null);
-            Ji();
+        if (!this.bmz.isShowing()) {
+            this.bmA.setText((CharSequence) null);
+            Jh();
             fK(null);
             if (this.mPhoneNum == null || this.mPhoneNum.length() <= 0) {
-                this.bna.setText("Hi," + this.aRR.getString(d.j.bar_friend));
+                this.bmN.setText("Hi," + this.aRG.getString(d.j.bar_friend));
             } else {
-                this.bna.setText("Hi," + this.mPhoneNum);
+                this.bmN.setText("Hi," + this.mPhoneNum);
             }
-            if (!this.aRR.getPageActivity().isFinishing()) {
-                this.bmM.setContentView(this.bmL);
-                g.a(this.bmM, this.aRR);
-                if (this.aRR.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) this.aRR.getOrignalPage()).ShowSoftKeyPadDelay(this.bmN, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
+            if (!this.aRG.getPageActivity().isFinishing()) {
+                this.bmz.setContentView(this.bmy);
+                g.a(this.bmz, this.aRG);
+                if (this.aRG.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) this.aRG.getOrignalPage()).ShowSoftKeyPadDelay(this.bmA, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
                 }
             }
         }
     }
 
-    public void Jg() {
-        String obj = this.bmN.getText().toString();
+    public void Jf() {
+        String obj = this.bmA.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            fK(this.aRR.getString(d.j.input_name));
+            fK(this.aRG.getString(d.j.input_name));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            fK(this.aRR.getString(d.j.input_alias_limit_length_tip));
+            fK(this.aRG.getString(d.j.input_alias_limit_length_tip));
         } else {
-            if (this.bmW != null) {
-                this.bmW.cancel();
+            if (this.bmJ != null) {
+                this.bmJ.cancel();
             }
-            if (this.bmV == null) {
-                this.bmV = new c(TbConfig.SERVER_ADDRESS + TbConfig.INPUT_USERNAME_ADDRESS, obj);
-                this.bmV.setPriority(3);
-                this.bmV.execute(new String[0]);
+            if (this.bmI == null) {
+                this.bmI = new c(TbConfig.SERVER_ADDRESS + TbConfig.INPUT_USERNAME_ADDRESS, obj);
+                this.bmI.setPriority(3);
+                this.bmI.execute(new String[0]);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jh() {
-        if (this.bnd != null) {
-            this.bnd.i(null);
+    public void Jg() {
+        if (this.bmQ != null) {
+            this.bmQ.i(null);
         }
     }
 
     public void o(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            fK(this.aRR.getString(d.j.suggest_no_name));
+            fK(this.aRG.getString(d.j.suggest_no_name));
             return;
         }
-        fK(this.aRR.getString(d.j.suggest_some_names));
+        fK(this.aRG.getString(d.j.suggest_some_names));
         int size = arrayList.size();
-        this.bmO.clearCheck();
-        this.bmP.clearCheck();
-        this.bmO.setVisibility(0);
-        this.bmP.setVisibility(0);
+        this.bmB.clearCheck();
+        this.bmC.clearCheck();
+        this.bmB.setVisibility(0);
+        this.bmC.setVisibility(0);
         if (size > 0 && arrayList.get(0) != null) {
-            this.bmR.setText(arrayList.get(0));
-            this.bmR.setChecked(false);
-            this.bmR.setCompoundDrawables(this.bnf, null, null, null);
-            this.bmR.setVisibility(0);
-            this.bmO.setVisibility(0);
+            this.bmE.setText(arrayList.get(0));
+            this.bmE.setChecked(false);
+            this.bmE.setCompoundDrawables(this.bmS, null, null, null);
+            this.bmE.setVisibility(0);
+            this.bmB.setVisibility(0);
         }
         if (size > 1 && arrayList.get(1) != null) {
-            this.bmS.setText(arrayList.get(1));
-            this.bmS.setChecked(false);
-            this.bmS.setCompoundDrawables(this.bnf, null, null, null);
-            this.bmS.setVisibility(0);
+            this.bmF.setText(arrayList.get(1));
+            this.bmF.setChecked(false);
+            this.bmF.setCompoundDrawables(this.bmS, null, null, null);
+            this.bmF.setVisibility(0);
         }
         if (size > 2 && arrayList.get(2) != null) {
-            this.bmT.setText(arrayList.get(2));
-            this.bmT.setChecked(false);
-            this.bmT.setCompoundDrawables(this.bnf, null, null, null);
-            this.bmT.setVisibility(0);
+            this.bmG.setText(arrayList.get(2));
+            this.bmG.setChecked(false);
+            this.bmG.setCompoundDrawables(this.bmS, null, null, null);
+            this.bmG.setVisibility(0);
         }
     }
 
     public void onDestroy() {
-        if (this.bmV != null) {
-            this.bmV.cancel();
-            this.bmV = null;
+        if (this.bmI != null) {
+            this.bmI.cancel();
+            this.bmI = null;
         }
-        if (this.bmW != null) {
-            this.bmW.cancel();
-            this.bmW = null;
+        if (this.bmJ != null) {
+            this.bmJ.cancel();
+            this.bmJ = null;
         }
-        Jj();
+        Ji();
+    }
+
+    public void Jh() {
+        this.bmB.setVisibility(8);
+        this.bmB.clearCheck();
+        this.bmC.setVisibility(8);
+        this.bmC.clearCheck();
+        this.bmE.setVisibility(8);
+        this.bmF.setVisibility(8);
+        this.bmG.setVisibility(8);
+        this.bmE.setChecked(false);
+        this.bmF.setChecked(false);
+        this.bmG.setChecked(false);
     }
 
     public void Ji() {
-        this.bmO.setVisibility(8);
-        this.bmO.clearCheck();
-        this.bmP.setVisibility(8);
-        this.bmP.clearCheck();
-        this.bmR.setVisibility(8);
-        this.bmS.setVisibility(8);
-        this.bmT.setVisibility(8);
-        this.bmR.setChecked(false);
-        this.bmS.setChecked(false);
-        this.bmT.setChecked(false);
-    }
-
-    public void Jj() {
-        if (this.bmM != null && this.bmM.isShowing()) {
-            g.b(this.bmM, this.aRR);
+        if (this.bmz != null && this.bmz.isShowing()) {
+            g.b(this.bmz, this.aRG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fK(String str) {
         if (str == null) {
-            this.bmX.setVisibility(4);
-            this.bmX.setText((CharSequence) null);
+            this.bmK.setVisibility(4);
+            this.bmK.setText((CharSequence) null);
             return;
         }
-        this.bmX.setVisibility(0);
-        this.bmX.setText(str);
+        this.bmK.setVisibility(0);
+        this.bmK.setText(str);
     }
 
-    public void Jb() {
-        this.aRR.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.aRR.getLayoutMode().aM(this.bmL);
-        this.bmN.setHintTextColor(aj.getColor(d.C0140d.cp_cont_e));
-        this.bmR.setCompoundDrawables(this.bnf, null, null, null);
-        this.bmS.setCompoundDrawables(this.bnf, null, null, null);
-        this.bmT.setCompoundDrawables(this.bnf, null, null, null);
+    public void Ja() {
+        this.aRG.getLayoutMode().aQ(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.aRG.getLayoutMode().aM(this.bmy);
+        this.bmA.setHintTextColor(aj.getColor(d.C0141d.cp_cont_e));
+        this.bmE.setCompoundDrawables(this.bmS, null, null, null);
+        this.bmF.setCompoundDrawables(this.bmS, null, null, null);
+        this.bmG.setCompoundDrawables(this.bmS, null, null, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,9 +292,9 @@ public class d {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            d.this.bmV = null;
-            d.this.bmZ.setVisibility(8);
-            d.this.bmY.setEnabled(true);
+            d.this.bmI = null;
+            d.this.bmM.setVisibility(8);
+            d.this.bmL.setEnabled(true);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -303,29 +303,29 @@ public class d {
         /* renamed from: a */
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
-            d.this.bmV = null;
-            d.this.bmZ.setVisibility(8);
-            d.this.bmY.setEnabled(true);
+            d.this.bmI = null;
+            d.this.bmM.setVisibility(8);
+            d.this.bmL.setEnabled(true);
             if (hVar == null) {
                 d.this.fK(this.mNetwork.getErrorString());
             } else if (hVar.getUser().getUserName() != null) {
-                d.this.Jj();
-                TbadkCoreApplication.setCurrentAccount(d.this.bnb, d.this.aRR.getPageActivity());
-                if (d.this.bnc != null) {
-                    d.this.bnc.i(d.this.bnb);
+                d.this.Ji();
+                TbadkCoreApplication.setCurrentAccount(d.this.bmO, d.this.aRG.getPageActivity());
+                if (d.this.bmP != null) {
+                    d.this.bmP.i(d.this.bmO);
                 }
             } else {
-                d.this.o(hVar.FI());
+                d.this.o(hVar.FH());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            d.this.bmZ.setVisibility(0);
-            d.this.bmY.setEnabled(false);
+            d.this.bmM.setVisibility(0);
+            d.this.bmL.setEnabled(false);
             d.this.fK(null);
-            d.this.Ji();
+            d.this.Jh();
             super.onPreExecute();
         }
 
@@ -352,35 +352,35 @@ public class d {
             try {
                 this.mNetwork = new x(this.mUrl);
                 this.mNetwork.n("un", this.mAccount);
-                this.mNetwork.n("BDUSS", d.this.bnb.getBDUSS());
-                this.mNetwork.Cz().Dw().aYk = false;
-                String Cb = this.mNetwork.Cb();
-                if (this.mNetwork.CC()) {
-                    hVar = this.mNetwork.CD();
+                this.mNetwork.n("BDUSS", d.this.bmO.getBDUSS());
+                this.mNetwork.Cy().Dv().aXY = false;
+                String Ca = this.mNetwork.Ca();
+                if (this.mNetwork.CB()) {
+                    hVar = this.mNetwork.CC();
                     try {
                         if (hVar == 0) {
                             h hVar2 = new h();
-                            hVar2.parserJson(Cb);
+                            hVar2.parserJson(Ca);
                             String userName = hVar2.getUser().getUserName();
                             String bduss = hVar2.getUser().getBDUSS();
                             hVar = hVar2;
                             hVar = hVar2;
                             if (userName != null && bduss != null) {
                                 hVar = hVar2;
-                                if (d.this.bnb != null) {
-                                    d.this.bnb.setAccount(userName);
-                                    d.this.bnb.setBDUSS(bduss);
-                                    d.this.bnb.setPortrait(hVar2.getUser().getPortrait());
-                                    com.baidu.tbadk.core.a.b.b(d.this.bnb);
+                                if (d.this.bmO != null) {
+                                    d.this.bmO.setAccount(userName);
+                                    d.this.bmO.setBDUSS(bduss);
+                                    d.this.bmO.setPortrait(hVar2.getUser().getPortrait());
+                                    com.baidu.tbadk.core.a.b.b(d.this.bmO);
                                     hVar = hVar2;
                                 }
                             }
-                        } else if (this.mNetwork.CD() == 36) {
+                        } else if (this.mNetwork.CC() == 36) {
                             h hVar3 = new h();
-                            hVar3.parserJson(Cb);
+                            hVar3.parserJson(Ca);
                             hVar = hVar3;
-                        } else if (this.mNetwork.CD() == 1) {
-                            d.this.Jj();
+                        } else if (this.mNetwork.CC() == 1) {
+                            d.this.Ji();
                         }
                         return hVar;
                     } catch (Exception e2) {
@@ -400,7 +400,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, h> {
-        final /* synthetic */ d bng;
+        final /* synthetic */ d bmT;
         private String mAccount;
         private x mNetwork;
         private String mUrl;
@@ -408,7 +408,7 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.bng.bmW = null;
+            this.bmT.bmJ = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -418,12 +418,12 @@ public class d {
         public h doInBackground(String... strArr) {
             this.mNetwork = new x(this.mUrl);
             this.mNetwork.n("un", this.mAccount);
-            String Cb = this.mNetwork.Cb();
-            if (!this.mNetwork.CC() || this.mNetwork.CD() != 36) {
+            String Ca = this.mNetwork.Ca();
+            if (!this.mNetwork.CB() || this.mNetwork.CC() != 36) {
                 return null;
             }
             h hVar = new h();
-            hVar.parserJson(Cb);
+            hVar.parserJson(Ca);
             return hVar;
         }
 
@@ -433,26 +433,26 @@ public class d {
         /* renamed from: a */
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
-            this.bng.bmW = null;
-            if (!this.mNetwork.CC()) {
-                this.bng.fK(this.mNetwork.getErrorString());
-            } else if (this.mNetwork.CD() == 0) {
-                this.bng.fK(this.bng.aRR.getString(d.j.name_not_use));
-            } else if (this.mNetwork.CD() == 36) {
-                this.bng.fK(this.mNetwork.getErrorString());
+            this.bmT.bmJ = null;
+            if (!this.mNetwork.CB()) {
+                this.bmT.fK(this.mNetwork.getErrorString());
+            } else if (this.mNetwork.CC() == 0) {
+                this.bmT.fK(this.bmT.aRG.getString(d.j.name_not_use));
+            } else if (this.mNetwork.CC() == 36) {
+                this.bmT.fK(this.mNetwork.getErrorString());
                 if (hVar != null) {
-                    this.bng.o(hVar.FI());
+                    this.bmT.o(hVar.FH());
                 }
             } else {
-                this.bng.fK(this.mNetwork.getErrorString());
+                this.bmT.fK(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.bng.fK(null);
-            this.bng.Ji();
+            this.bmT.fK(null);
+            this.bmT.Jh();
             super.onPreExecute();
         }
     }

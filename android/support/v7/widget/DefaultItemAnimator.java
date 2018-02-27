@@ -11,104 +11,104 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DefaultItemAnimator extends SimpleItemAnimator {
-    private ArrayList<RecyclerView.ViewHolder> Oc = new ArrayList<>();
-    private ArrayList<RecyclerView.ViewHolder> Od = new ArrayList<>();
-    private ArrayList<b> Oe = new ArrayList<>();
-    private ArrayList<a> Of = new ArrayList<>();
-    ArrayList<ArrayList<RecyclerView.ViewHolder>> Og = new ArrayList<>();
-    ArrayList<ArrayList<b>> Oh = new ArrayList<>();
-    ArrayList<ArrayList<a>> Oi = new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> Oj = new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> Ok = new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> Ol = new ArrayList<>();
-    ArrayList<RecyclerView.ViewHolder> Om = new ArrayList<>();
+    private ArrayList<RecyclerView.ViewHolder> NX = new ArrayList<>();
+    private ArrayList<RecyclerView.ViewHolder> NY = new ArrayList<>();
+    private ArrayList<b> NZ = new ArrayList<>();
+    private ArrayList<a> Oa = new ArrayList<>();
+    ArrayList<ArrayList<RecyclerView.ViewHolder>> Ob = new ArrayList<>();
+    ArrayList<ArrayList<b>> Oc = new ArrayList<>();
+    ArrayList<ArrayList<a>> Od = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> Oe = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> Of = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> Og = new ArrayList<>();
+    ArrayList<RecyclerView.ViewHolder> Oh = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        public int OB;
-        public int OC;
-        public int OD;
-        public int OE;
-        public RecyclerView.ViewHolder OF;
+        public RecyclerView.ViewHolder OA;
+        public int Ow;
+        public int Ox;
+        public int Oy;
+        public int Oz;
 
         b(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
-            this.OF = viewHolder;
-            this.OB = i;
-            this.OC = i2;
-            this.OD = i3;
-            this.OE = i4;
+            this.OA = viewHolder;
+            this.Ow = i;
+            this.Ox = i2;
+            this.Oy = i3;
+            this.Oz = i4;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public RecyclerView.ViewHolder OA;
-        public int OB;
-        public int OC;
-        public int OD;
-        public int OE;
-        public RecyclerView.ViewHolder Oz;
+        public RecyclerView.ViewHolder Ou;
+        public RecyclerView.ViewHolder Ov;
+        public int Ow;
+        public int Ox;
+        public int Oy;
+        public int Oz;
 
         private a(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-            this.Oz = viewHolder;
-            this.OA = viewHolder2;
+            this.Ou = viewHolder;
+            this.Ov = viewHolder2;
         }
 
         a(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
             this(viewHolder, viewHolder2);
-            this.OB = i;
-            this.OC = i2;
-            this.OD = i3;
-            this.OE = i4;
+            this.Ow = i;
+            this.Ox = i2;
+            this.Oy = i3;
+            this.Oz = i4;
         }
 
         public String toString() {
-            return "ChangeInfo{oldHolder=" + this.Oz + ", newHolder=" + this.OA + ", fromX=" + this.OB + ", fromY=" + this.OC + ", toX=" + this.OD + ", toY=" + this.OE + '}';
+            return "ChangeInfo{oldHolder=" + this.Ou + ", newHolder=" + this.Ov + ", fromX=" + this.Ow + ", fromY=" + this.Ox + ", toX=" + this.Oy + ", toY=" + this.Oz + '}';
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public void runPendingAnimations() {
-        boolean z = !this.Oc.isEmpty();
-        boolean z2 = !this.Oe.isEmpty();
-        boolean z3 = !this.Of.isEmpty();
-        boolean z4 = !this.Od.isEmpty();
+        boolean z = !this.NX.isEmpty();
+        boolean z2 = !this.NZ.isEmpty();
+        boolean z3 = !this.Oa.isEmpty();
+        boolean z4 = !this.NY.isEmpty();
         if (z || z2 || z4 || z3) {
-            Iterator<RecyclerView.ViewHolder> it = this.Oc.iterator();
+            Iterator<RecyclerView.ViewHolder> it = this.NX.iterator();
             while (it.hasNext()) {
                 a(it.next());
             }
-            this.Oc.clear();
+            this.NX.clear();
             if (z2) {
                 final ArrayList<b> arrayList = new ArrayList<>();
-                arrayList.addAll(this.Oe);
-                this.Oh.add(arrayList);
-                this.Oe.clear();
+                arrayList.addAll(this.NZ);
+                this.Oc.add(arrayList);
+                this.NZ.clear();
                 Runnable runnable = new Runnable() { // from class: android.support.v7.widget.DefaultItemAnimator.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Iterator it2 = arrayList.iterator();
                         while (it2.hasNext()) {
                             b bVar = (b) it2.next();
-                            DefaultItemAnimator.this.a(bVar.OF, bVar.OB, bVar.OC, bVar.OD, bVar.OE);
+                            DefaultItemAnimator.this.a(bVar.OA, bVar.Ow, bVar.Ox, bVar.Oy, bVar.Oz);
                         }
                         arrayList.clear();
-                        DefaultItemAnimator.this.Oh.remove(arrayList);
+                        DefaultItemAnimator.this.Oc.remove(arrayList);
                     }
                 };
                 if (z) {
-                    ViewCompat.postOnAnimationDelayed(arrayList.get(0).OF.itemView, runnable, getRemoveDuration());
+                    ViewCompat.postOnAnimationDelayed(arrayList.get(0).OA.itemView, runnable, getRemoveDuration());
                 } else {
                     runnable.run();
                 }
             }
             if (z3) {
                 final ArrayList<a> arrayList2 = new ArrayList<>();
-                arrayList2.addAll(this.Of);
-                this.Oi.add(arrayList2);
-                this.Of.clear();
+                arrayList2.addAll(this.Oa);
+                this.Od.add(arrayList2);
+                this.Oa.clear();
                 Runnable runnable2 = new Runnable() { // from class: android.support.v7.widget.DefaultItemAnimator.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -117,20 +117,20 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                             DefaultItemAnimator.this.a((a) it2.next());
                         }
                         arrayList2.clear();
-                        DefaultItemAnimator.this.Oi.remove(arrayList2);
+                        DefaultItemAnimator.this.Od.remove(arrayList2);
                     }
                 };
                 if (z) {
-                    ViewCompat.postOnAnimationDelayed(arrayList2.get(0).Oz.itemView, runnable2, getRemoveDuration());
+                    ViewCompat.postOnAnimationDelayed(arrayList2.get(0).Ou.itemView, runnable2, getRemoveDuration());
                 } else {
                     runnable2.run();
                 }
             }
             if (z4) {
                 final ArrayList<RecyclerView.ViewHolder> arrayList3 = new ArrayList<>();
-                arrayList3.addAll(this.Od);
-                this.Og.add(arrayList3);
-                this.Od.clear();
+                arrayList3.addAll(this.NY);
+                this.Ob.add(arrayList3);
+                this.NY.clear();
                 Runnable runnable3 = new Runnable() { // from class: android.support.v7.widget.DefaultItemAnimator.3
                     @Override // java.lang.Runnable
                     public void run() {
@@ -139,7 +139,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                             DefaultItemAnimator.this.b((RecyclerView.ViewHolder) it2.next());
                         }
                         arrayList3.clear();
-                        DefaultItemAnimator.this.Og.remove(arrayList3);
+                        DefaultItemAnimator.this.Ob.remove(arrayList3);
                     }
                 };
                 if (z || z2 || z3) {
@@ -154,13 +154,13 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     @Override // android.support.v7.widget.SimpleItemAnimator
     public boolean animateRemove(RecyclerView.ViewHolder viewHolder) {
         c(viewHolder);
-        this.Oc.add(viewHolder);
+        this.NX.add(viewHolder);
         return true;
     }
 
     private void a(final RecyclerView.ViewHolder viewHolder) {
         final ViewPropertyAnimatorCompat animate = ViewCompat.animate(viewHolder.itemView);
-        this.Ol.add(viewHolder);
+        this.Og.add(viewHolder);
         animate.setDuration(getRemoveDuration()).alpha(0.0f).setListener(new c() { // from class: android.support.v7.widget.DefaultItemAnimator.4
             @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
             public void onAnimationStart(View view) {
@@ -172,7 +172,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                 animate.setListener(null);
                 ViewCompat.setAlpha(view, 1.0f);
                 DefaultItemAnimator.this.dispatchRemoveFinished(viewHolder);
-                DefaultItemAnimator.this.Ol.remove(viewHolder);
+                DefaultItemAnimator.this.Og.remove(viewHolder);
                 DefaultItemAnimator.this.fV();
             }
         }).start();
@@ -182,13 +182,13 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     public boolean animateAdd(RecyclerView.ViewHolder viewHolder) {
         c(viewHolder);
         ViewCompat.setAlpha(viewHolder.itemView, 0.0f);
-        this.Od.add(viewHolder);
+        this.NY.add(viewHolder);
         return true;
     }
 
     void b(final RecyclerView.ViewHolder viewHolder) {
         final ViewPropertyAnimatorCompat animate = ViewCompat.animate(viewHolder.itemView);
-        this.Oj.add(viewHolder);
+        this.Oe.add(viewHolder);
         animate.alpha(1.0f).setDuration(getAddDuration()).setListener(new c() { // from class: android.support.v7.widget.DefaultItemAnimator.5
             @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
             public void onAnimationStart(View view) {
@@ -204,7 +204,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             public void onAnimationEnd(View view) {
                 animate.setListener(null);
                 DefaultItemAnimator.this.dispatchAddFinished(viewHolder);
-                DefaultItemAnimator.this.Oj.remove(viewHolder);
+                DefaultItemAnimator.this.Oe.remove(viewHolder);
                 DefaultItemAnimator.this.fV();
             }
         }).start();
@@ -228,7 +228,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         if (i6 != 0) {
             ViewCompat.setTranslationY(view, -i6);
         }
-        this.Oe.add(new b(viewHolder, translationX, translationY, i3, i4));
+        this.NZ.add(new b(viewHolder, translationX, translationY, i3, i4));
         return true;
     }
 
@@ -243,7 +243,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             ViewCompat.animate(view).translationY(0.0f);
         }
         final ViewPropertyAnimatorCompat animate = ViewCompat.animate(view);
-        this.Ok.add(viewHolder);
+        this.Of.add(viewHolder);
         animate.setDuration(getMoveDuration()).setListener(new c() { // from class: android.support.v7.widget.DefaultItemAnimator.6
             @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
             public void onAnimationStart(View view2) {
@@ -264,7 +264,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             public void onAnimationEnd(View view2) {
                 animate.setListener(null);
                 DefaultItemAnimator.this.dispatchMoveFinished(viewHolder);
-                DefaultItemAnimator.this.Ok.remove(viewHolder);
+                DefaultItemAnimator.this.Of.remove(viewHolder);
                 DefaultItemAnimator.this.fV();
             }
         }).start();
@@ -290,24 +290,24 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             ViewCompat.setTranslationY(viewHolder2.itemView, -i6);
             ViewCompat.setAlpha(viewHolder2.itemView, 0.0f);
         }
-        this.Of.add(new a(viewHolder, viewHolder2, i, i2, i3, i4));
+        this.Oa.add(new a(viewHolder, viewHolder2, i, i2, i3, i4));
         return true;
     }
 
     void a(final a aVar) {
-        RecyclerView.ViewHolder viewHolder = aVar.Oz;
+        RecyclerView.ViewHolder viewHolder = aVar.Ou;
         View view = viewHolder == null ? null : viewHolder.itemView;
-        RecyclerView.ViewHolder viewHolder2 = aVar.OA;
+        RecyclerView.ViewHolder viewHolder2 = aVar.Ov;
         final View view2 = viewHolder2 != null ? viewHolder2.itemView : null;
         if (view != null) {
             final ViewPropertyAnimatorCompat duration = ViewCompat.animate(view).setDuration(getChangeDuration());
-            this.Om.add(aVar.Oz);
-            duration.translationX(aVar.OD - aVar.OB);
-            duration.translationY(aVar.OE - aVar.OC);
+            this.Oh.add(aVar.Ou);
+            duration.translationX(aVar.Oy - aVar.Ow);
+            duration.translationY(aVar.Oz - aVar.Ox);
             duration.alpha(0.0f).setListener(new c() { // from class: android.support.v7.widget.DefaultItemAnimator.7
                 @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
                 public void onAnimationStart(View view3) {
-                    DefaultItemAnimator.this.dispatchChangeStarting(aVar.Oz, true);
+                    DefaultItemAnimator.this.dispatchChangeStarting(aVar.Ou, true);
                 }
 
                 @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
@@ -316,19 +316,19 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     ViewCompat.setAlpha(view3, 1.0f);
                     ViewCompat.setTranslationX(view3, 0.0f);
                     ViewCompat.setTranslationY(view3, 0.0f);
-                    DefaultItemAnimator.this.dispatchChangeFinished(aVar.Oz, true);
-                    DefaultItemAnimator.this.Om.remove(aVar.Oz);
+                    DefaultItemAnimator.this.dispatchChangeFinished(aVar.Ou, true);
+                    DefaultItemAnimator.this.Oh.remove(aVar.Ou);
                     DefaultItemAnimator.this.fV();
                 }
             }).start();
         }
         if (view2 != null) {
             final ViewPropertyAnimatorCompat animate = ViewCompat.animate(view2);
-            this.Om.add(aVar.OA);
+            this.Oh.add(aVar.Ov);
             animate.translationX(0.0f).translationY(0.0f).setDuration(getChangeDuration()).alpha(1.0f).setListener(new c() { // from class: android.support.v7.widget.DefaultItemAnimator.8
                 @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
                 public void onAnimationStart(View view3) {
-                    DefaultItemAnimator.this.dispatchChangeStarting(aVar.OA, false);
+                    DefaultItemAnimator.this.dispatchChangeStarting(aVar.Ov, false);
                 }
 
                 @Override // android.support.v7.widget.DefaultItemAnimator.c, android.support.v4.view.ViewPropertyAnimatorListener
@@ -337,8 +337,8 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     ViewCompat.setAlpha(view2, 1.0f);
                     ViewCompat.setTranslationX(view2, 0.0f);
                     ViewCompat.setTranslationY(view2, 0.0f);
-                    DefaultItemAnimator.this.dispatchChangeFinished(aVar.OA, false);
-                    DefaultItemAnimator.this.Om.remove(aVar.OA);
+                    DefaultItemAnimator.this.dispatchChangeFinished(aVar.Ov, false);
+                    DefaultItemAnimator.this.Oh.remove(aVar.Ov);
                     DefaultItemAnimator.this.fV();
                 }
             }).start();
@@ -348,29 +348,29 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     private void a(List<a> list, RecyclerView.ViewHolder viewHolder) {
         for (int size = list.size() - 1; size >= 0; size--) {
             a aVar = list.get(size);
-            if (a(aVar, viewHolder) && aVar.Oz == null && aVar.OA == null) {
+            if (a(aVar, viewHolder) && aVar.Ou == null && aVar.Ov == null) {
                 list.remove(aVar);
             }
         }
     }
 
     private void b(a aVar) {
-        if (aVar.Oz != null) {
-            a(aVar, aVar.Oz);
+        if (aVar.Ou != null) {
+            a(aVar, aVar.Ou);
         }
-        if (aVar.OA != null) {
-            a(aVar, aVar.OA);
+        if (aVar.Ov != null) {
+            a(aVar, aVar.Ov);
         }
     }
 
     private boolean a(a aVar, RecyclerView.ViewHolder viewHolder) {
         boolean z = false;
-        if (aVar.OA == viewHolder) {
-            aVar.OA = null;
-        } else if (aVar.Oz != viewHolder) {
+        if (aVar.Ov == viewHolder) {
+            aVar.Ov = null;
+        } else if (aVar.Ou != viewHolder) {
             return false;
         } else {
-            aVar.Oz = null;
+            aVar.Ou = null;
             z = true;
         }
         ViewCompat.setAlpha(viewHolder.itemView, 1.0f);
@@ -384,37 +384,37 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     public void endAnimation(RecyclerView.ViewHolder viewHolder) {
         View view = viewHolder.itemView;
         ViewCompat.animate(view).cancel();
-        for (int size = this.Oe.size() - 1; size >= 0; size--) {
-            if (this.Oe.get(size).OF == viewHolder) {
+        for (int size = this.NZ.size() - 1; size >= 0; size--) {
+            if (this.NZ.get(size).OA == viewHolder) {
                 ViewCompat.setTranslationY(view, 0.0f);
                 ViewCompat.setTranslationX(view, 0.0f);
                 dispatchMoveFinished(viewHolder);
-                this.Oe.remove(size);
+                this.NZ.remove(size);
             }
         }
-        a(this.Of, viewHolder);
-        if (this.Oc.remove(viewHolder)) {
+        a(this.Oa, viewHolder);
+        if (this.NX.remove(viewHolder)) {
             ViewCompat.setAlpha(view, 1.0f);
             dispatchRemoveFinished(viewHolder);
         }
-        if (this.Od.remove(viewHolder)) {
+        if (this.NY.remove(viewHolder)) {
             ViewCompat.setAlpha(view, 1.0f);
             dispatchAddFinished(viewHolder);
         }
-        for (int size2 = this.Oi.size() - 1; size2 >= 0; size2--) {
-            ArrayList<a> arrayList = this.Oi.get(size2);
+        for (int size2 = this.Od.size() - 1; size2 >= 0; size2--) {
+            ArrayList<a> arrayList = this.Od.get(size2);
             a(arrayList, viewHolder);
             if (arrayList.isEmpty()) {
-                this.Oi.remove(size2);
+                this.Od.remove(size2);
             }
         }
-        for (int size3 = this.Oh.size() - 1; size3 >= 0; size3--) {
-            ArrayList<b> arrayList2 = this.Oh.get(size3);
+        for (int size3 = this.Oc.size() - 1; size3 >= 0; size3--) {
+            ArrayList<b> arrayList2 = this.Oc.get(size3);
             int size4 = arrayList2.size() - 1;
             while (true) {
                 if (size4 < 0) {
                     break;
-                } else if (arrayList2.get(size4).OF != viewHolder) {
+                } else if (arrayList2.get(size4).OA != viewHolder) {
                     size4--;
                 } else {
                     ViewCompat.setTranslationY(view, 0.0f);
@@ -422,28 +422,28 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     dispatchMoveFinished(viewHolder);
                     arrayList2.remove(size4);
                     if (arrayList2.isEmpty()) {
-                        this.Oh.remove(size3);
+                        this.Oc.remove(size3);
                     }
                 }
             }
         }
-        for (int size5 = this.Og.size() - 1; size5 >= 0; size5--) {
-            ArrayList<RecyclerView.ViewHolder> arrayList3 = this.Og.get(size5);
+        for (int size5 = this.Ob.size() - 1; size5 >= 0; size5--) {
+            ArrayList<RecyclerView.ViewHolder> arrayList3 = this.Ob.get(size5);
             if (arrayList3.remove(viewHolder)) {
                 ViewCompat.setAlpha(view, 1.0f);
                 dispatchAddFinished(viewHolder);
                 if (arrayList3.isEmpty()) {
-                    this.Og.remove(size5);
+                    this.Ob.remove(size5);
                 }
             }
         }
-        if (this.Ol.remove(viewHolder)) {
+        if (this.Og.remove(viewHolder)) {
         }
-        if (this.Oj.remove(viewHolder)) {
+        if (this.Oe.remove(viewHolder)) {
         }
-        if (this.Om.remove(viewHolder)) {
+        if (this.Oh.remove(viewHolder)) {
         }
-        if (this.Ok.remove(viewHolder)) {
+        if (this.Of.remove(viewHolder)) {
         }
         fV();
     }
@@ -455,7 +455,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public boolean isRunning() {
-        return (this.Od.isEmpty() && this.Of.isEmpty() && this.Oe.isEmpty() && this.Oc.isEmpty() && this.Ok.isEmpty() && this.Ol.isEmpty() && this.Oj.isEmpty() && this.Om.isEmpty() && this.Oh.isEmpty() && this.Og.isEmpty() && this.Oi.isEmpty()) ? false : true;
+        return (this.NY.isEmpty() && this.Oa.isEmpty() && this.NZ.isEmpty() && this.NX.isEmpty() && this.Of.isEmpty() && this.Og.isEmpty() && this.Oe.isEmpty() && this.Oh.isEmpty() && this.Oc.isEmpty() && this.Ob.isEmpty() && this.Od.isEmpty()) ? false : true;
     }
 
     void fV() {
@@ -466,68 +466,68 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public void endAnimations() {
-        for (int size = this.Oe.size() - 1; size >= 0; size--) {
-            b bVar = this.Oe.get(size);
-            View view = bVar.OF.itemView;
+        for (int size = this.NZ.size() - 1; size >= 0; size--) {
+            b bVar = this.NZ.get(size);
+            View view = bVar.OA.itemView;
             ViewCompat.setTranslationY(view, 0.0f);
             ViewCompat.setTranslationX(view, 0.0f);
-            dispatchMoveFinished(bVar.OF);
-            this.Oe.remove(size);
+            dispatchMoveFinished(bVar.OA);
+            this.NZ.remove(size);
         }
-        for (int size2 = this.Oc.size() - 1; size2 >= 0; size2--) {
-            dispatchRemoveFinished(this.Oc.get(size2));
-            this.Oc.remove(size2);
+        for (int size2 = this.NX.size() - 1; size2 >= 0; size2--) {
+            dispatchRemoveFinished(this.NX.get(size2));
+            this.NX.remove(size2);
         }
-        for (int size3 = this.Od.size() - 1; size3 >= 0; size3--) {
-            RecyclerView.ViewHolder viewHolder = this.Od.get(size3);
+        for (int size3 = this.NY.size() - 1; size3 >= 0; size3--) {
+            RecyclerView.ViewHolder viewHolder = this.NY.get(size3);
             ViewCompat.setAlpha(viewHolder.itemView, 1.0f);
             dispatchAddFinished(viewHolder);
-            this.Od.remove(size3);
+            this.NY.remove(size3);
         }
-        for (int size4 = this.Of.size() - 1; size4 >= 0; size4--) {
-            b(this.Of.get(size4));
+        for (int size4 = this.Oa.size() - 1; size4 >= 0; size4--) {
+            b(this.Oa.get(size4));
         }
-        this.Of.clear();
+        this.Oa.clear();
         if (isRunning()) {
-            for (int size5 = this.Oh.size() - 1; size5 >= 0; size5--) {
-                ArrayList<b> arrayList = this.Oh.get(size5);
+            for (int size5 = this.Oc.size() - 1; size5 >= 0; size5--) {
+                ArrayList<b> arrayList = this.Oc.get(size5);
                 for (int size6 = arrayList.size() - 1; size6 >= 0; size6--) {
                     b bVar2 = arrayList.get(size6);
-                    View view2 = bVar2.OF.itemView;
+                    View view2 = bVar2.OA.itemView;
                     ViewCompat.setTranslationY(view2, 0.0f);
                     ViewCompat.setTranslationX(view2, 0.0f);
-                    dispatchMoveFinished(bVar2.OF);
+                    dispatchMoveFinished(bVar2.OA);
                     arrayList.remove(size6);
                     if (arrayList.isEmpty()) {
-                        this.Oh.remove(arrayList);
+                        this.Oc.remove(arrayList);
                     }
                 }
             }
-            for (int size7 = this.Og.size() - 1; size7 >= 0; size7--) {
-                ArrayList<RecyclerView.ViewHolder> arrayList2 = this.Og.get(size7);
+            for (int size7 = this.Ob.size() - 1; size7 >= 0; size7--) {
+                ArrayList<RecyclerView.ViewHolder> arrayList2 = this.Ob.get(size7);
                 for (int size8 = arrayList2.size() - 1; size8 >= 0; size8--) {
                     RecyclerView.ViewHolder viewHolder2 = arrayList2.get(size8);
                     ViewCompat.setAlpha(viewHolder2.itemView, 1.0f);
                     dispatchAddFinished(viewHolder2);
                     arrayList2.remove(size8);
                     if (arrayList2.isEmpty()) {
-                        this.Og.remove(arrayList2);
+                        this.Ob.remove(arrayList2);
                     }
                 }
             }
-            for (int size9 = this.Oi.size() - 1; size9 >= 0; size9--) {
-                ArrayList<a> arrayList3 = this.Oi.get(size9);
+            for (int size9 = this.Od.size() - 1; size9 >= 0; size9--) {
+                ArrayList<a> arrayList3 = this.Od.get(size9);
                 for (int size10 = arrayList3.size() - 1; size10 >= 0; size10--) {
                     b(arrayList3.get(size10));
                     if (arrayList3.isEmpty()) {
-                        this.Oi.remove(arrayList3);
+                        this.Od.remove(arrayList3);
                     }
                 }
             }
-            l(this.Ol);
-            l(this.Ok);
-            l(this.Oj);
-            l(this.Om);
+            l(this.Og);
+            l(this.Of);
+            l(this.Oe);
+            l(this.Oh);
             dispatchAnimationsFinished();
         }
     }

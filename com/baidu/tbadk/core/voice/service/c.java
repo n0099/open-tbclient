@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void ER();
+    void EQ();
+
+    void EU();
 
     void EV();
 
     void EW();
 
-    void EX();
-
-    boolean EY();
+    boolean EX();
 
     boolean ff(String str);
 

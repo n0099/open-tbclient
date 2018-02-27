@@ -12,19 +12,19 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.c;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.j;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static final void a(Context context, final String str, final c cVar) {
         f.b("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage");
         if (TextUtils.isEmpty(str)) {
             cVar.a(1, (String) null);
-        } else if (!i.b()) {
+        } else if (!j.b()) {
             cVar.a(2, (String) null);
         } else {
             final Handler handler = new Handler(context.getMainLooper()) { // from class: com.tencent.connect.share.a.1
@@ -50,7 +50,7 @@ public class a {
                     Bitmap a2 = a.a(str, 140);
                     if (a2 != null) {
                         String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
-                        String str3 = "share2qq_temp" + i.f(str) + ".jpg";
+                        String str3 = "share2qq_temp" + j.f(str) + ".jpg";
                         if (!a.b(str, 140, 140)) {
                             f.b("openSDK_LOG.AsynScaleCompressImage", "not out of bound,not compress!");
                             a = str;
@@ -102,9 +102,9 @@ public class a {
                     int i2 = i;
                     if (i2 < arrayList.size()) {
                         String str = (String) arrayList.get(i2);
-                        if (!i.g(str) && i.h(str) && (a = a.a(str, 10000)) != null) {
+                        if (!j.g(str) && j.h(str) && (a = a.a(str, 10000)) != null) {
                             String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
-                            String str3 = "share2qzone_temp" + i.f(str) + ".jpg";
+                            String str3 = "share2qzone_temp" + j.f(str) + ".jpg";
                             if (!a.b(str, 640, 10000)) {
                                 f.b("openSDK_LOG.AsynScaleCompressImage", "not out of bound,not compress!");
                             } else {

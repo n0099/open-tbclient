@@ -31,12 +31,12 @@ public class p extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DJ() {
+    public boolean DI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DK() {
+    public boolean DJ() {
         return false;
     }
 
@@ -78,7 +78,7 @@ public class p extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int DL() {
+    public int DK() {
         return this.procType;
     }
 }

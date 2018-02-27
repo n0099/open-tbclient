@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
@@ -65,6 +64,9 @@ public final class SapiCache {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(Context context, String str) {
+        if (!SapiContext.getInstance(context).getBoolean(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, false)) {
+            return null;
+        }
         return b(context, c(str));
     }
 
@@ -86,9 +88,8 @@ public final class SapiCache {
                             SapiCache.a(context, module);
                         }
                     });
-                    return b(str);
                 }
-                return d(context, str);
+                return b(str);
             }
             return b2;
         }
@@ -172,23 +173,10 @@ public final class SapiCache {
         String internalFile = SapiOptions.Cache.Module.getInternalFile(module.id);
         if (new File(context.getFilesDir(), internalFile).exists()) {
             try {
-                a(module.id, e(context, internalFile));
-                return;
+                a(module.id, d(context, internalFile));
             } catch (Throwable th) {
-                d(context, module.id);
-                return;
+                Log.e(th);
             }
-        }
-        d(context, module.id);
-    }
-
-    static String d(Context context, String str) {
-        try {
-            String f = f(context, SapiOptions.Cache.Module.getAssetFile(str));
-            a(str, !f.contains("<html>") ? new String(Base64.decode(f.getBytes(), 0)) : f);
-            return b(context, str);
-        } catch (Throwable th) {
-            return null;
         }
     }
 
@@ -272,6 +260,7 @@ public final class SapiCache {
                         }
                         if (!SapiCache.a(module2, module3)) {
                             SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
+                            SapiContext.getInstance(SapiCache.d).put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
                             SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.4.2
                                 @Override // com.baidu.sapi2.SapiCache.a
                                 public void a(SapiOptions.Cache.Module module5, String str) {
@@ -283,9 +272,9 @@ public final class SapiCache {
                                     String externalFile = SapiOptions.Cache.Module.getExternalFile(module5.id);
                                     if (new File(SapiCache.d.getFilesDir(), internalFile).exists()) {
                                         try {
-                                            String e = SapiCache.e(SapiCache.d, internalFile);
+                                            String d2 = SapiCache.d(SapiCache.d, internalFile);
                                             if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.d)) {
-                                                SapiCache.a(externalFile, e.getBytes());
+                                                SapiCache.a(externalFile, d2.getBytes());
                                             }
                                         } catch (Throwable th) {
                                             Log.e(th);
@@ -366,7 +355,7 @@ public final class SapiCache {
         synchronized (SapiCache.class) {
             requestParams = new RequestParams();
             requestParams.put("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl);
-            requestParams.put("sdk_version", SapiAccountManager.VERSION_NAME);
+            requestParams.put(SapiContext.KEY_SDK_VERSION, SapiAccountManager.VERSION_NAME);
             requestParams.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(d));
         }
         return requestParams;
@@ -403,52 +392,56 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [621=4] */
-    static void a(android.content.Context r3, java.lang.String r4, byte[] r5) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [603=4] */
+    static void a(android.content.Context r5, java.lang.String r6, byte[] r7) {
         /*
             r0 = 0
             r1 = 0
-            java.io.FileOutputStream r0 = r3.openFileOutput(r4, r1)     // Catch: java.lang.Throwable -> Lf
-            r0.write(r5)     // Catch: java.lang.Throwable -> Lf
-            if (r0 == 0) goto Le
-            r0.close()     // Catch: java.lang.Throwable -> L22
-        Le:
+            java.io.FileOutputStream r0 = r5.openFileOutput(r6, r1)     // Catch: java.lang.Throwable -> L1a
+            r0.write(r7)     // Catch: java.lang.Throwable -> L1a
+            com.baidu.sapi2.SapiContext r1 = com.baidu.sapi2.SapiContext.getInstance(r5)     // Catch: java.lang.Throwable -> L1a
+            java.lang.String r2 = "login_page_is_cached"
+            r3 = 1
+            r1.put(r2, r3)     // Catch: java.lang.Throwable -> L1a
+            if (r0 == 0) goto L19
+            r0.close()     // Catch: java.lang.Throwable -> L2d
+        L19:
             return
-        Lf:
+        L1a:
             r1 = move-exception
-            if (r0 == 0) goto Le
-            r0.close()     // Catch: java.lang.Throwable -> L16
-            goto Le
-        L16:
-            r0 = move-exception
-            goto Le
-        L18:
-            r1 = move-exception
-            r2 = r1
-            r1 = r0
-            r0 = r2
-        L1c:
-            if (r1 == 0) goto L21
-            r1.close()     // Catch: java.lang.Throwable -> L24
+            if (r0 == 0) goto L19
+            r0.close()     // Catch: java.lang.Throwable -> L21
+            goto L19
         L21:
-            throw r0
-        L22:
             r0 = move-exception
-            goto Le
-        L24:
+            goto L19
+        L23:
             r1 = move-exception
-            goto L21
-        L26:
-            r1 = move-exception
-            r2 = r1
+            r4 = r1
             r1 = r0
-            r0 = r2
-            goto L1c
+            r0 = r4
+        L27:
+            if (r1 == 0) goto L2c
+            r1.close()     // Catch: java.lang.Throwable -> L2f
+        L2c:
+            throw r0
+        L2d:
+            r0 = move-exception
+            goto L19
+        L2f:
+            r1 = move-exception
+            goto L2c
+        L31:
+            r1 = move-exception
+            r4 = r1
+            r1 = r0
+            r0 = r4
+            goto L27
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [654=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [636=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
@@ -509,11 +502,12 @@ public final class SapiCache {
         return a(new FileInputStream(new File(Environment.getExternalStorageDirectory(), str)));
     }
 
-    static String e(Context context, String str) throws IOException {
+    static String d(Context context, String str) throws IOException {
         return a(context.openFileInput(str));
     }
 
-    static String f(Context context, String str) throws IOException {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String e(Context context, String str) throws IOException {
         return a(context.getAssets().open(str));
     }
 

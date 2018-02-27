@@ -15,7 +15,7 @@ class j extends RoundedBitmapDrawable {
     @Override // android.graphics.drawable.Drawable
     public void getOutline(Outline outline) {
         dj();
-        outline.setRoundRect(this.wE, getCornerRadius());
+        outline.setRoundRect(this.wB, getCornerRadius());
     }
 
     @Override // android.support.v4.graphics.drawable.RoundedBitmapDrawable

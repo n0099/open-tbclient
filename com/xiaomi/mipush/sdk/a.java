@@ -7,12 +7,12 @@ import android.text.TextUtils;
 public class a {
     private static a a;
     private Context b;
-    private C0287a c;
+    private C0288a c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.xiaomi.mipush.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0287a {
+    public class C0288a {
         public String a;
         public String b;
         public String c;
@@ -24,7 +24,7 @@ public class a {
         public boolean i;
         public int j;
 
-        private C0287a() {
+        private C0288a() {
             this.h = true;
             this.i = false;
             this.j = 1;
@@ -108,7 +108,7 @@ public class a {
     }
 
     private void o() {
-        this.c = new C0287a();
+        this.c = new C0288a();
         SharedPreferences j = j();
         this.c.a = j.getString("appId", null);
         this.c.b = j.getString("appToken", null);

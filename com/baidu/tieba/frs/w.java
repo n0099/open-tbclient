@@ -10,14 +10,14 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class w extends g<x, y> {
-    private final LinkedList<com.baidu.tbadk.j.f> dHj;
-    private final LinkedList<RelativeLayout> dHk;
+    private final LinkedList<com.baidu.tbadk.j.f> dGX;
+    private final LinkedList<RelativeLayout> dGY;
     private int mItemHeight;
 
     public w(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dHj = new LinkedList<>();
-        this.dHk = new LinkedList<>();
+        this.dGX = new LinkedList<>();
+        this.dGY = new LinkedList<>();
         this.mItemHeight = (com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
@@ -34,10 +34,10 @@ public class w extends g<x, y> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
         fVar.attachView(relativeLayout);
-        this.dHj.add(fVar);
-        this.dHk.add(relativeLayout);
+        this.dGX.add(fVar);
+        this.dGY.add(relativeLayout);
         y yVar = new y(relativeLayout);
-        yVar.dHm = fVar;
+        yVar.dHa = fVar;
         return yVar;
     }
 
@@ -46,8 +46,8 @@ public class w extends g<x, y> {
     @Override // com.baidu.tieba.frs.g, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, x xVar, y yVar) {
-        if (yVar != null && yVar.dHm != null) {
-            yVar.dHm.onChangeSkinType();
+        if (yVar != null && yVar.dHa != null) {
+            yVar.dHa.onChangeSkinType();
         }
         return view;
     }
@@ -55,18 +55,18 @@ public class w extends g<x, y> {
     @Override // com.baidu.tieba.frs.g
     public void release() {
         super.release();
-        if (this.dHj.size() != 0 && this.dHk.size() == this.dHj.size()) {
+        if (this.dGX.size() != 0 && this.dGY.size() == this.dGX.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.dHj.size()) {
+                if (i2 >= this.dGX.size()) {
                     break;
                 }
-                this.dHj.get(i2).bk(this.dHk.get(i2));
+                this.dGX.get(i2).bk(this.dGY.get(i2));
                 i = i2 + 1;
             }
         }
-        this.dHj.clear();
-        this.dHk.clear();
+        this.dGX.clear();
+        this.dGY.clear();
     }
 }

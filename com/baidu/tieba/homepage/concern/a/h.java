@@ -15,29 +15,29 @@ import com.baidu.tieba.card.r;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class h extends com.baidu.adp.widget.ListView.a<m, a> {
-    public BdUniqueId bII;
+    public BdUniqueId bIv;
     public int cardShowType;
-    private v egi;
-    private com.baidu.tieba.homepage.concern.view.c egz;
+    private v efW;
+    private com.baidu.tieba.homepage.concern.view.c egn;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.cardShowType = 0;
-        this.egi = new v<m>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
+        this.efW = new v<m>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, m mVar) {
-                if (view != null && h.this.egz != null && h.this.egz.getView() != null && mVar != null && mVar.WE() != null && !StringUtils.isNull(mVar.WE().getTid())) {
+                if (view != null && h.this.egn != null && h.this.egn.getView() != null && mVar != null && mVar.WD() != null && !StringUtils.isNull(mVar.WD().getTid())) {
                     ak akVar = new ak("c12352");
-                    if ((h.this.egz.getHeaderImg() != null && view.getId() == h.this.egz.getHeaderImg().getId()) || (h.this.egz.akS() != null && view.getId() == h.this.egz.akS().getId())) {
+                    if ((h.this.egn.getHeaderImg() != null && view.getId() == h.this.egn.getHeaderImg().getId()) || (h.this.egn.akR() != null && view.getId() == h.this.egn.akR().getId())) {
                         akVar.s("obj_locate", 1);
                     } else {
                         akVar.s("obj_locate", 2);
                     }
                     akVar.s("obj_type", 2);
-                    akVar.ab("tid", mVar.bZr.getTid());
-                    akVar.f(ImageViewerConfig.FORUM_ID, mVar.bZr.getFid());
+                    akVar.ab("tid", mVar.bZf.getTid());
+                    akVar.f(ImageViewerConfig.FORUM_ID, mVar.bZf.getFid());
                     akVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(akVar);
                 }
@@ -51,11 +51,11 @@ public class h extends com.baidu.adp.widget.ListView.a<m, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aO */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.egz = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
-        if (this.bII != null) {
-            this.egz.j(this.bII);
+        this.egn = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
+        if (this.bIv != null) {
+            this.egn.j(this.bIv);
         }
-        return new a(this.egz);
+        return new a(this.egn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,26 +63,26 @@ public class h extends com.baidu.adp.widget.ListView.a<m, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, a aVar) {
-        if (mVar == null || aVar == null || aVar.egB == null) {
+        if (mVar == null || aVar == null || aVar.egp == null) {
             return null;
         }
         mVar.lD(i + 1);
-        r.alt().a(mVar.kz("c12351"));
-        if (mVar.bZr != null) {
-            mVar.bZr.aQz = this.cardShowType;
+        r.als().a(mVar.kz("c12351"));
+        if (mVar.bZf != null) {
+            mVar.bZf.aQo = this.cardShowType;
         }
-        aVar.egB.a(mVar);
-        aVar.egB.b(this.egi);
+        aVar.egp.a(mVar);
+        aVar.egp.b(this.efW);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends r.a {
-        public com.baidu.tieba.homepage.concern.view.c egB;
+        public com.baidu.tieba.homepage.concern.view.c egp;
 
         public a(com.baidu.tieba.homepage.concern.view.c cVar) {
             super(cVar.getView());
-            this.egB = cVar;
+            this.egp = cVar;
         }
     }
 }

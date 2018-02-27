@@ -13,18 +13,18 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD ajx;
+    private HttpMessageTask.HTTP_METHOD ajr;
     private String url = "";
-    protected Map<String, String> ajy = new HashMap();
-    protected LinkedList<BasicNameValuePair> ajz = new LinkedList<>();
-    protected HashMap<String, byte[]> ajA = new HashMap<>();
+    protected Map<String, String> ajs = new HashMap();
+    protected LinkedList<BasicNameValuePair> ajt = new LinkedList<>();
+    protected HashMap<String, byte[]> aju = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.ajx;
+        return this.ajr;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.ajx = http_method;
+        this.ajr = http_method;
     }
 
     public String getUrl() {
@@ -40,13 +40,13 @@ public class f {
     }
 
     public boolean nf() {
-        return this.ajA != null && this.ajA.size() > 0;
+        return this.aju != null && this.aju.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.ajz.size() == 0) {
+        if (this.ajt.size() == 0) {
             if (dVar != null) {
-                dVar.ajf = this.url.length();
+                dVar.aiZ = this.url.length();
             }
             return this.url;
         }
@@ -60,27 +60,27 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ajz.size()) {
+            if (i2 >= this.ajt.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.ajz.get(i2).getName());
+            sb.append(this.ajt.get(i2).getName());
             sb.append("=");
-            sb.append(k.aV(this.ajz.get(i2).getValue()));
+            sb.append(k.aV(this.ajt.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.ajf = sb.length();
+            dVar.aiZ = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.ajy != null) {
-            for (Map.Entry<String, String> entry : this.ajy.entrySet()) {
+        if (httpURLConnection != null && this.ajs != null) {
+            for (Map.Entry<String, String> entry : this.ajs.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -93,8 +93,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.ajz != null) {
-                    Iterator<BasicNameValuePair> it = this.ajz.iterator();
+                if (this.ajt != null) {
+                    Iterator<BasicNameValuePair> it = this.ajt.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -111,8 +111,8 @@ public class f {
                         }
                     }
                 }
-                if (this.ajA != null) {
-                    for (Map.Entry<String, byte[]> entry : this.ajA.entrySet()) {
+                if (this.aju != null) {
+                    for (Map.Entry<String, byte[]> entry : this.aju.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -132,7 +132,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.ajf = i;
+            dVar.aiZ = i;
         }
     }
 
@@ -152,14 +152,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.ajf = i;
+            dVar.aiZ = i;
         }
     }
 
     private StringBuilder ng() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.ajz != null) {
-            Iterator<BasicNameValuePair> it = this.ajz.iterator();
+        if (this.ajt != null) {
+            Iterator<BasicNameValuePair> it = this.ajt.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -182,12 +182,12 @@ public class f {
     }
 
     public void g(HashMap<String, String> hashMap) {
-        this.ajy = hashMap;
+        this.ajs = hashMap;
     }
 
     public String ap(String str) {
-        if (this.ajy != null) {
-            return this.ajy.get(str);
+        if (this.ajs != null) {
+            return this.ajs.get(str);
         }
         return null;
     }
@@ -198,9 +198,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.ajz.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.ajt.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.ajA.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.aju.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -210,20 +210,20 @@ public class f {
     }
 
     public void d(String str, byte[] bArr) {
-        this.ajA.put(str, bArr);
+        this.aju.put(str, bArr);
     }
 
     public void n(String str, String str2) {
-        this.ajz.add(new BasicNameValuePair(str, str2));
+        this.ajt.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.ajz.add(basicNameValuePair);
+        this.ajt.add(basicNameValuePair);
     }
 
     public void o(String str, String str2) {
-        if (this.ajy != null) {
-            this.ajy.put(str, str2);
+        if (this.ajs != null) {
+            this.ajs.put(str, str2);
         }
     }
 }

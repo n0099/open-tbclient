@@ -15,17 +15,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern aXV = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bSW = new a();
+    private static final Pattern aXJ = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a bSK = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> aXT = new ConcurrentHashMap<>();
-    private h.c bSX = null;
+    private final ConcurrentHashMap<String, h.b> aXH = new ConcurrentHashMap<>();
+    private h.c bSL = null;
 
     private a() {
     }
 
-    public static a UA() {
-        return bSW;
+    public static a Uz() {
+        return bSK;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bSX = cVar;
+        this.bSL = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,7 +76,7 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.aXT.get(eB(str2));
+        h.b bVar = this.aXH.get(eB(str2));
         if (bVar != null) {
             bVar.d(context, eA(ig(str2)));
             return true;
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.bSX != null) {
+        if (!z3 && this.bSL != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -152,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (aXV.matcher(str2).find()) {
-            this.bSX.b(context, str, str2, z, dVar, z2);
+        if (aXJ.matcher(str2).find()) {
+            this.bSL.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
     public boolean ih(String str) {
-        return aXV.matcher(str).find();
+        return aXJ.matcher(str).find();
     }
 }

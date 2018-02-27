@@ -17,18 +17,18 @@ public final class a extends c {
     public final com.coloros.mcssdk.e.c am(Intent intent) {
         try {
             com.coloros.mcssdk.e.a aVar = new com.coloros.mcssdk.e.a();
-            aVar.xW(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            aVar.xX(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
             aVar.uX(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
             aVar.setAppPackage(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             aVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            aVar.xR(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
+            aVar.xS(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
             aVar.cW(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("startDate"))));
             aVar.cX(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("endDate"))));
             aVar.uU(com.coloros.mcssdk.c.a.a(intent.getStringExtra("timeRanges")));
             aVar.setTitle(com.coloros.mcssdk.c.a.a(intent.getStringExtra("title")));
             aVar.uV(com.coloros.mcssdk.c.a.a(intent.getStringExtra("rule")));
-            aVar.xS(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
-            aVar.xT(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
+            aVar.xT(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
+            aVar.xU(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + aVar.toString());
             return aVar;
         } catch (Exception e) {

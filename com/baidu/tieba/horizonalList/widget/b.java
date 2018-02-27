@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> emj = new ArrayList<>(5);
-    public int emn;
-    public int emo;
-    int emp;
+    private static ArrayList<b> elX = new ArrayList<>(5);
+    public int emb;
+    public int emc;
+    int emd;
     public int type;
 
-    private void Tc() {
-        this.emn = 0;
-        this.emo = 0;
-        this.emp = 0;
+    private void Tb() {
+        this.emb = 0;
+        this.emc = 0;
+        this.emd = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aDt() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.emn, this.emo) : ExpandableListView.getPackedPositionForGroup(this.emn);
+    public long aDs() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.emb, this.emc) : ExpandableListView.getPackedPositionForGroup(this.emb);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b z(int i, int i2, int i3, int i4) {
-        b aDu = aDu();
-        aDu.type = i;
-        aDu.emn = i2;
-        aDu.emo = i3;
-        aDu.emp = i4;
-        return aDu;
+        b aDt = aDt();
+        aDt.type = i;
+        aDt.emb = i2;
+        aDt.emc = i3;
+        aDt.emd = i4;
+        return aDt;
     }
 
-    private static b aDu() {
+    private static b aDt() {
         b bVar;
-        synchronized (emj) {
-            if (emj.size() > 0) {
-                bVar = emj.remove(0);
-                bVar.Tc();
+        synchronized (elX) {
+            if (elX.size() > 0) {
+                bVar = elX.remove(0);
+                bVar.Tb();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (emj) {
-            if (emj.size() < 5) {
-                emj.add(this);
+        synchronized (elX) {
+            if (elX.size() < 5) {
+                elX.add(this);
             }
         }
     }

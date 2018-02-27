@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean D(Bitmap bitmap);
 
+    void bIb();
+
     void bIc();
 
     void bId();
-
-    void bIe();
 }

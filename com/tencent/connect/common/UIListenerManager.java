@@ -2,8 +2,8 @@ package com.tencent.connect.common;
 
 import android.content.Intent;
 import com.tencent.open.a.f;
-import com.tencent.open.utils.g;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.h;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UIListenerManager {
     private static UIListenerManager a = null;
     private Map<String, ApiTask> b;
@@ -32,7 +32,7 @@ public class UIListenerManager {
 
     public Object setListenerWithRequestcode(int i, IUiListener iUiListener) {
         ApiTask put;
-        String a2 = g.a(i);
+        String a2 = h.a(i);
         if (a2 == null) {
             f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i);
             return null;
@@ -48,7 +48,7 @@ public class UIListenerManager {
 
     public Object setListnerWithAction(String str, IUiListener iUiListener) {
         ApiTask put;
-        int a2 = g.a(str);
+        int a2 = h.a(str);
         if (a2 == -1) {
             f.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
             return null;
@@ -63,7 +63,7 @@ public class UIListenerManager {
     }
 
     public IUiListener getListnerWithRequestCode(int i) {
-        String a2 = g.a(i);
+        String a2 = h.a(i);
         if (a2 == null) {
             f.e("openSDK_LOG.UIListenerManager", "getListner action is null! rquestCode=" + i);
             return null;
@@ -100,7 +100,7 @@ public class UIListenerManager {
                 String stringExtra2 = intent.getStringExtra(Constants.KEY_RESPONSE);
                 if (stringExtra2 != null) {
                     try {
-                        iUiListener.onComplete(i.d(stringExtra2));
+                        iUiListener.onComplete(j.d(stringExtra2));
                         return;
                     } catch (JSONException e) {
                         iUiListener.onError(new UiError(-4, Constants.MSG_JSON_ERROR, stringExtra2));
@@ -167,7 +167,7 @@ public class UIListenerManager {
                     String stringExtra2 = intent.getStringExtra(Constants.KEY_RESPONSE);
                     if (stringExtra2 != null) {
                         try {
-                            iUiListener2.onComplete(i.d(stringExtra2));
+                            iUiListener2.onComplete(j.d(stringExtra2));
                         } catch (JSONException e) {
                             iUiListener2.onError(new UiError(-4, Constants.MSG_JSON_ERROR, stringExtra2));
                             f.b("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, json error", e);
@@ -201,7 +201,7 @@ public class UIListenerManager {
                     String stringExtra5 = intent.getStringExtra(Constants.KEY_RESPONSE);
                     if (stringExtra5 != null) {
                         try {
-                            iUiListener2.onComplete(i.d(stringExtra5));
+                            iUiListener2.onComplete(j.d(stringExtra5));
                         } catch (JSONException e3) {
                             iUiListener2.onError(new UiError(-4, Constants.MSG_JSON_ERROR, stringExtra5));
                         }
@@ -218,7 +218,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

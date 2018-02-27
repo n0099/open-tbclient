@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends as {
-    private TextView fKI;
+    private TextView fKx;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.fKI = null;
+        this.fKx = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.fKI = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.fKI.setVisibility(8);
+        this.fKx = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.fKx.setVisibility(8);
     }
 
     public void jU(boolean z) {
-        if (this.fKI != null) {
+        if (this.fKx != null) {
             if (z) {
-                this.fKI.setText(d.j.push);
-                com.baidu.tbadk.core.util.aj.r(this.fKI, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.aj.s(this.fKI, d.f.push_bg_selector);
-                this.fKI.setClickable(true);
+                this.fKx.setText(d.j.push);
+                com.baidu.tbadk.core.util.aj.r(this.fKx, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.aj.s(this.fKx, d.f.push_bg_selector);
+                this.fKx.setClickable(true);
             } else {
-                this.fKI.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.aj.s(this.fKI, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.aj.r(this.fKI, d.C0140d.cp_cont_d);
-                this.fKI.setClickable(false);
+                this.fKx.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.aj.s(this.fKx, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.aj.r(this.fKx, d.C0141d.cp_cont_d);
+                this.fKx.setClickable(false);
             }
-            this.fKI.setVisibility(0);
+            this.fKx.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class e extends as {
         }
     }
 
-    public TextView bbL() {
-        return this.fKI;
+    public TextView bbK() {
+        return this.fKx;
     }
 }

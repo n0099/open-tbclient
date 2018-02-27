@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes2.dex */
 public interface c {
-    void amD();
+    void amC();
 
     void bp(int i, int i2);
 

@@ -10,9 +10,9 @@ import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 public class h extends MediaPlayer {
-    private b bPZ;
-    private Handler bQb;
-    private Handler.Callback bQc;
+    private b bPM;
+    private Handler bPO;
+    private Handler.Callback bPP;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -26,12 +26,12 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.bQb = (Handler) obj;
+                    this.bPO = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.bQc = (Handler.Callback) obj2;
+                        this.bPP = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
@@ -50,8 +50,8 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.bQc == null || !h.this.bQc.handleMessage(message)) && h.this.bQb != null) {
-                    h.this.bQb.handleMessage(message);
+                if ((h.this.bPP == null || !h.this.bPP.handleMessage(message)) && h.this.bPO != null) {
+                    h.this.bPO.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -65,8 +65,8 @@ public class h extends MediaPlayer {
     public void h(Throwable th) {
         if (th != null) {
             String i = com.baidu.tieba.i.a.i(th);
-            if (this.bPZ != null) {
-                this.bPZ.handleOppoError(i);
+            if (this.bPM != null) {
+                this.bPM.handleOppoError(i);
             }
         }
     }
@@ -79,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.bPZ = bVar;
+        this.bPM = bVar;
     }
 }

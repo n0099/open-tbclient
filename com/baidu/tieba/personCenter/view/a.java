@@ -19,21 +19,21 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.b> {
-    private View boP;
-    private TextView cXs;
-    private TextView dZW;
-    private TextView eCF;
-    private TextView gjR;
-    private TextView gjS;
-    private TextView gjT;
-    private TextView gjU;
-    private TextView gjV;
-    private ImageView gjW;
-    private LinearLayout gjX;
-    private LinearLayout gjY;
-    private LinearLayout gjZ;
-    private LinearLayout gka;
-    private LinearLayout gkb;
+    private View boC;
+    private TextView cXg;
+    private TextView dZK;
+    private TextView eCt;
+    private TextView gjG;
+    private TextView gjH;
+    private TextView gjI;
+    private TextView gjJ;
+    private TextView gjK;
+    private ImageView gjL;
+    private LinearLayout gjM;
+    private LinearLayout gjN;
+    private LinearLayout gjO;
+    private LinearLayout gjP;
+    private LinearLayout gjQ;
     private int mSkinType;
     private UserData mUserData;
 
@@ -41,39 +41,39 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.dZW = (TextView) view.findViewById(d.g.fans_num);
-        this.gjR = (TextView) view.findViewById(d.g.fans_title);
-        this.gjS = (TextView) view.findViewById(d.g.concer_num);
-        this.gjT = (TextView) view.findViewById(d.g.concer_title);
-        this.gjU = (TextView) view.findViewById(d.g.attention_bar_num);
-        this.gjV = (TextView) view.findViewById(d.g.attention_bar_title);
-        this.eCF = (TextView) view.findViewById(d.g.thread_num);
-        this.cXs = (TextView) view.findViewById(d.g.thread_title);
-        this.boP = view.findViewById(d.g.top_divider_line);
-        this.gkb = (LinearLayout) view.findViewById(d.g.attention_container);
-        this.gjX = (LinearLayout) view.findViewById(d.g.fans_action);
-        this.gjY = (LinearLayout) view.findViewById(d.g.concer_action);
-        this.gjZ = (LinearLayout) view.findViewById(d.g.attention_action);
-        this.gka = (LinearLayout) view.findViewById(d.g.thread_action);
-        this.gjW = (ImageView) view.findViewById(d.g.person_center_fans_red_tip);
+        this.dZK = (TextView) view.findViewById(d.g.fans_num);
+        this.gjG = (TextView) view.findViewById(d.g.fans_title);
+        this.gjH = (TextView) view.findViewById(d.g.concer_num);
+        this.gjI = (TextView) view.findViewById(d.g.concer_title);
+        this.gjJ = (TextView) view.findViewById(d.g.attention_bar_num);
+        this.gjK = (TextView) view.findViewById(d.g.attention_bar_title);
+        this.eCt = (TextView) view.findViewById(d.g.thread_num);
+        this.cXg = (TextView) view.findViewById(d.g.thread_title);
+        this.boC = view.findViewById(d.g.top_divider_line);
+        this.gjQ = (LinearLayout) view.findViewById(d.g.attention_container);
+        this.gjM = (LinearLayout) view.findViewById(d.g.fans_action);
+        this.gjN = (LinearLayout) view.findViewById(d.g.concer_action);
+        this.gjO = (LinearLayout) view.findViewById(d.g.attention_action);
+        this.gjP = (LinearLayout) view.findViewById(d.g.thread_action);
+        this.gjL = (ImageView) view.findViewById(d.g.person_center_fans_red_tip);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aj.r(this.dZW, d.C0140d.cp_cont_b);
-            aj.r(this.gjR, d.C0140d.cp_cont_j);
-            aj.r(this.gjS, d.C0140d.cp_cont_b);
-            aj.r(this.gjT, d.C0140d.cp_cont_j);
-            aj.r(this.gjU, d.C0140d.cp_cont_b);
-            aj.r(this.gjV, d.C0140d.cp_cont_j);
-            aj.r(this.eCF, d.C0140d.cp_cont_b);
-            aj.r(this.cXs, d.C0140d.cp_cont_j);
-            aj.t(this.boP, d.C0140d.cp_bg_line_e);
-            this.gjW.setImageDrawable(aj.au(i, d.f.person_center_red_tip_shape));
-            if (this.gkb != null) {
-                for (int i2 = 0; i2 < this.gkb.getChildCount(); i2++) {
-                    View childAt = this.gkb.getChildAt(i2);
+            aj.r(this.dZK, d.C0141d.cp_cont_b);
+            aj.r(this.gjG, d.C0141d.cp_cont_j);
+            aj.r(this.gjH, d.C0141d.cp_cont_b);
+            aj.r(this.gjI, d.C0141d.cp_cont_j);
+            aj.r(this.gjJ, d.C0141d.cp_cont_b);
+            aj.r(this.gjK, d.C0141d.cp_cont_j);
+            aj.r(this.eCt, d.C0141d.cp_cont_b);
+            aj.r(this.cXg, d.C0141d.cp_cont_j);
+            aj.t(this.boC, d.C0141d.cp_bg_line_e);
+            this.gjL.setImageDrawable(aj.au(i, d.f.person_center_red_tip_shape));
+            if (this.gjQ != null) {
+                for (int i2 = 0; i2 < this.gjQ.getChildCount(); i2++) {
+                    View childAt = this.gjQ.getChildAt(i2);
                     if (childAt != null) {
                         aj.s(childAt, d.f.person_center_action_item_selector);
                     }
@@ -91,21 +91,21 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personCenter.data.b bVar) {
-        this.mUserData = bVar.fHl;
-        this.dZW.setText(Integer.toString(bVar.gjo));
-        this.gjS.setText(Integer.toString(bVar.gjp));
-        this.gjU.setText(Integer.toString(bVar.gjq));
-        this.eCF.setText(am.N(bVar.threadNum));
-        if (bVar.gjr) {
-            this.gjW.setVisibility(0);
+        this.mUserData = bVar.fHa;
+        this.dZK.setText(Integer.toString(bVar.gjd));
+        this.gjH.setText(Integer.toString(bVar.gje));
+        this.gjJ.setText(Integer.toString(bVar.gjf));
+        this.eCt.setText(am.N(bVar.threadNum));
+        if (bVar.gjg) {
+            this.gjL.setVisibility(0);
         } else {
-            this.gjW.setVisibility(8);
+            this.gjL.setVisibility(8);
         }
-        this.gjX.setOnClickListener(this);
-        this.gjY.setOnClickListener(this);
-        this.gjZ.setOnClickListener(this);
-        this.gka.setOnClickListener(this);
-        d(akO(), TbadkCoreApplication.getInst().getSkinType());
+        this.gjM.setOnClickListener(this);
+        this.gjN.setOnClickListener(this);
+        this.gjO.setOnClickListener(this);
+        this.gjP.setOnClickListener(this);
+        d(akN(), TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
@@ -113,8 +113,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         if (view != null) {
             if (view.getId() == d.g.fans_action) {
                 if (this.mUserData != null) {
-                    this.gjW.setVisibility(8);
-                    com.baidu.tieba.m.a.bpm().c(2, false, true);
+                    this.gjL.setVisibility(8);
+                    com.baidu.tieba.m.a.bpl().c(2, false, true);
                     TiebaStatic.log(new ak("c12523").s("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex())));
                 }

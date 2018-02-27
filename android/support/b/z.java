@@ -16,30 +16,30 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class z implements Cloneable {
-    private static ThreadLocal<ArrayMap<Animator, a>> vi = new ThreadLocal<>();
-    long vj = -1;
+    private static ThreadLocal<ArrayMap<Animator, a>> vh = new ThreadLocal<>();
+    long vi = -1;
     long mDuration = -1;
-    TimeInterpolator vk = null;
-    ArrayList<Integer> vl = new ArrayList<>();
-    ArrayList<View> vm = new ArrayList<>();
-    ArrayList<Integer> vn = null;
-    ArrayList<View> vo = null;
-    ArrayList<Class> vp = null;
-    ArrayList<Integer> vq = null;
-    ArrayList<View> vr = null;
-    ArrayList<Class> vs = null;
-    ae vt = null;
-    ViewGroup uR = null;
-    boolean vu = false;
-    int vv = 0;
+    TimeInterpolator vj = null;
+    ArrayList<Integer> vk = new ArrayList<>();
+    ArrayList<View> vl = new ArrayList<>();
+    ArrayList<Integer> vm = null;
+    ArrayList<View> vn = null;
+    ArrayList<Class> vo = null;
+    ArrayList<Integer> vp = null;
+    ArrayList<View> vq = null;
+    ArrayList<Class> vr = null;
+    ae vs = null;
+    ViewGroup uQ = null;
+    boolean vt = false;
+    int vu = 0;
     boolean mPaused = false;
-    ArrayList<c> sB = null;
+    ArrayList<c> sA = null;
     ArrayList<Animator> mAnimators = new ArrayList<>();
     private String mName = getClass().getName();
+    private ag vv = new ag();
     private ag vw = new ag();
-    private ag vx = new ag();
-    ArrayList<Animator> vy = new ArrayList<>();
-    private boolean vz = false;
+    ArrayList<Animator> vx = new ArrayList<>();
+    private boolean vy = false;
 
     /* loaded from: classes2.dex */
     public interface c {
@@ -57,10 +57,10 @@ public abstract class z implements Cloneable {
     public abstract void captureStartValues(af afVar);
 
     private static ArrayMap<Animator, a> cX() {
-        ArrayMap<Animator, a> arrayMap = vi.get();
+        ArrayMap<Animator, a> arrayMap = vh.get();
         if (arrayMap == null) {
             ArrayMap<Animator, a> arrayMap2 = new ArrayMap<>();
-            vi.set(arrayMap2);
+            vh.set(arrayMap2);
             return arrayMap2;
         }
         return arrayMap;
@@ -76,20 +76,20 @@ public abstract class z implements Cloneable {
     }
 
     public long getStartDelay() {
-        return this.vj;
+        return this.vi;
     }
 
     public z i(long j) {
-        this.vj = j;
+        this.vi = j;
         return this;
     }
 
     public TimeInterpolator getInterpolator() {
-        return this.vk;
+        return this.vj;
     }
 
     public z b(TimeInterpolator timeInterpolator) {
-        this.vk = timeInterpolator;
+        this.vj = timeInterpolator;
         return this;
     }
 
@@ -109,32 +109,32 @@ public abstract class z implements Cloneable {
         af afVar;
         Animator animator;
         af afVar2;
-        ArrayMap arrayMap = new ArrayMap(agVar2.vL);
-        SparseArray sparseArray = new SparseArray(agVar2.vM.size());
-        for (int i = 0; i < agVar2.vM.size(); i++) {
-            sparseArray.put(agVar2.vM.keyAt(i), agVar2.vM.valueAt(i));
+        ArrayMap arrayMap = new ArrayMap(agVar2.vK);
+        SparseArray sparseArray = new SparseArray(agVar2.vL.size());
+        for (int i = 0; i < agVar2.vL.size(); i++) {
+            sparseArray.put(agVar2.vL.keyAt(i), agVar2.vL.valueAt(i));
         }
-        LongSparseArray longSparseArray = new LongSparseArray(agVar2.vN.size());
-        for (int i2 = 0; i2 < agVar2.vN.size(); i2++) {
-            longSparseArray.put(agVar2.vN.keyAt(i2), agVar2.vN.valueAt(i2));
+        LongSparseArray longSparseArray = new LongSparseArray(agVar2.vM.size());
+        for (int i2 = 0; i2 < agVar2.vM.size(); i2++) {
+            longSparseArray.put(agVar2.vM.keyAt(i2), agVar2.vM.valueAt(i2));
         }
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        for (View view2 : agVar.vL.keySet()) {
+        for (View view2 : agVar.vK.keySet()) {
             boolean z = false;
             if (view2.getParent() instanceof ListView) {
                 z = true;
             }
             if (!z) {
                 int id = view2.getId();
-                af afVar3 = agVar.vL.get(view2) != null ? agVar.vL.get(view2) : agVar.vM.get(id);
-                if (agVar2.vL.get(view2) != null) {
-                    afVar2 = agVar2.vL.get(view2);
+                af afVar3 = agVar.vK.get(view2) != null ? agVar.vK.get(view2) : agVar.vL.get(id);
+                if (agVar2.vK.get(view2) != null) {
+                    afVar2 = agVar2.vK.get(view2);
                     arrayMap.remove(view2);
                 } else if (id == -1) {
                     afVar2 = null;
                 } else {
-                    afVar2 = agVar2.vM.get(id);
+                    afVar2 = agVar2.vL.get(id);
                     View view3 = null;
                     for (View view4 : arrayMap.keySet()) {
                         if (view4.getId() != id) {
@@ -156,24 +156,24 @@ public abstract class z implements Cloneable {
                 if (listView.getAdapter().hasStableIds()) {
                     long itemIdAtPosition = listView.getItemIdAtPosition(listView.getPositionForView(view2));
                     longSparseArray.remove(itemIdAtPosition);
-                    arrayList.add(agVar.vN.get(itemIdAtPosition));
+                    arrayList.add(agVar.vM.get(itemIdAtPosition));
                     arrayList2.add(null);
                 }
             }
         }
-        int size = agVar.vN.size();
+        int size = agVar.vM.size();
         for (int i3 = 0; i3 < size; i3++) {
-            long keyAt = agVar.vN.keyAt(i3);
+            long keyAt = agVar.vM.keyAt(i3);
             if (a((View) null, keyAt)) {
                 longSparseArray.remove(keyAt);
-                arrayList.add(agVar.vN.get(keyAt));
-                arrayList2.add(agVar2.vN.get(keyAt));
+                arrayList.add(agVar.vM.get(keyAt));
+                arrayList2.add(agVar2.vM.get(keyAt));
             }
         }
         for (View view5 : arrayMap.keySet()) {
             int id2 = view5.getId();
             if (a(view5, id2)) {
-                af afVar4 = agVar.vL.get(view5) != null ? agVar.vL.get(view5) : agVar.vM.get(id2);
+                af afVar4 = agVar.vK.get(view5) != null ? agVar.vK.get(view5) : agVar.vL.get(id2);
                 sparseArray.remove(id2);
                 arrayList.add(afVar4);
                 arrayList2.add((af) arrayMap.get(view5));
@@ -183,14 +183,14 @@ public abstract class z implements Cloneable {
         for (int i4 = 0; i4 < size2; i4++) {
             int keyAt2 = sparseArray.keyAt(i4);
             if (a((View) null, keyAt2)) {
-                arrayList.add(agVar.vM.get(keyAt2));
+                arrayList.add(agVar.vL.get(keyAt2));
                 arrayList2.add((af) sparseArray.get(keyAt2));
             }
         }
         int size3 = longSparseArray.size();
         for (int i5 = 0; i5 < size3; i5++) {
             long keyAt3 = longSparseArray.keyAt(i5);
-            arrayList.add(agVar.vN.get(keyAt3));
+            arrayList.add(agVar.vM.get(keyAt3));
             arrayList2.add((af) longSparseArray.get(keyAt3));
         }
         ArrayMap<Animator, a> cX = cX();
@@ -210,7 +210,7 @@ public abstract class z implements Cloneable {
                         } else {
                             af afVar7 = new af();
                             afVar7.view = view6;
-                            af afVar8 = agVar2.vL.get(view6);
+                            af afVar8 = agVar2.vK.get(view6);
                             if (afVar8 != null) {
                                 for (int i8 = 0; i8 < transitionProperties.length; i8++) {
                                     afVar7.values.put(transitionProperties[i8], afVar8.values.get(transitionProperties[i8]));
@@ -225,7 +225,7 @@ public abstract class z implements Cloneable {
                                     break;
                                 }
                                 a aVar = cX.get(cX.keyAt(i9));
-                                if (aVar.vC == null || aVar.view != view6 || (((aVar.name != null || getName() != null) && !aVar.name.equals(getName())) || !aVar.vC.equals(afVar7))) {
+                                if (aVar.vB == null || aVar.view != view6 || (((aVar.name != null || getName() != null) && !aVar.name.equals(getName())) || !aVar.vB.equals(afVar7))) {
                                     i9++;
                                 } else {
                                     animator = null;
@@ -254,31 +254,31 @@ public abstract class z implements Cloneable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(View view, long j) {
-        if (this.vn == null || !this.vn.contains(Integer.valueOf((int) j))) {
-            if (this.vo == null || !this.vo.contains(view)) {
-                if (this.vp != null && view != null) {
-                    int size = this.vp.size();
+        if (this.vm == null || !this.vm.contains(Integer.valueOf((int) j))) {
+            if (this.vn == null || !this.vn.contains(view)) {
+                if (this.vo != null && view != null) {
+                    int size = this.vo.size();
                     for (int i = 0; i < size; i++) {
-                        if (this.vp.get(i).isInstance(view)) {
+                        if (this.vo.get(i).isInstance(view)) {
                             return false;
                         }
                     }
                 }
-                if (this.vl.size() == 0 && this.vm.size() == 0) {
+                if (this.vk.size() == 0 && this.vl.size() == 0) {
                     return true;
                 }
-                if (this.vl.size() > 0) {
-                    for (int i2 = 0; i2 < this.vl.size(); i2++) {
-                        if (this.vl.get(i2).intValue() == j) {
+                if (this.vk.size() > 0) {
+                    for (int i2 = 0; i2 < this.vk.size(); i2++) {
+                        if (this.vk.get(i2).intValue() == j) {
                             return true;
                         }
                     }
                 }
-                if (view == null || this.vm.size() <= 0) {
+                if (view == null || this.vl.size() <= 0) {
                     return false;
                 }
-                for (int i3 = 0; i3 < this.vm.size(); i3++) {
-                    if (this.vm.get(i3) == view) {
+                for (int i3 = 0; i3 < this.vl.size(); i3++) {
+                    if (this.vl.get(i3) == view) {
                         return true;
                     }
                 }
@@ -311,13 +311,13 @@ public abstract class z implements Cloneable {
             animator.addListener(new AnimatorListenerAdapter() { // from class: android.support.b.z.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator2) {
-                    z.this.vy.add(animator2);
+                    z.this.vx.add(animator2);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     arrayMap.remove(animator2);
-                    z.this.vy.remove(animator2);
+                    z.this.vx.remove(animator2);
                 }
             });
             b(animator);
@@ -326,25 +326,25 @@ public abstract class z implements Cloneable {
 
     public z U(int i) {
         if (i > 0) {
-            this.vl.add(Integer.valueOf(i));
+            this.vk.add(Integer.valueOf(i));
         }
         return this;
     }
 
     public z V(int i) {
         if (i > 0) {
-            this.vl.remove(Integer.valueOf(i));
+            this.vk.remove(Integer.valueOf(i));
         }
         return this;
     }
 
     public z h(int i, boolean z) {
-        this.vn = a(this.vn, i, z);
+        this.vm = a(this.vm, i, z);
         return this;
     }
 
     public z i(int i, boolean z) {
-        this.vq = a(this.vq, i, z);
+        this.vp = a(this.vp, i, z);
         return this;
     }
 
@@ -359,12 +359,12 @@ public abstract class z implements Cloneable {
     }
 
     public z d(View view, boolean z) {
-        this.vo = c(this.vo, view, z);
+        this.vn = c(this.vn, view, z);
         return this;
     }
 
     public z e(View view, boolean z) {
-        this.vr = c(this.vr, view, z);
+        this.vq = c(this.vq, view, z);
         return this;
     }
 
@@ -379,12 +379,12 @@ public abstract class z implements Cloneable {
     }
 
     public z c(Class cls, boolean z) {
-        this.vp = a(this.vp, cls, z);
+        this.vo = a(this.vo, cls, z);
         return this;
     }
 
     public z d(Class cls, boolean z) {
-        this.vs = a(this.vs, cls, z);
+        this.vr = a(this.vr, cls, z);
         return this;
     }
 
@@ -399,32 +399,32 @@ public abstract class z implements Cloneable {
     }
 
     public z J(View view) {
-        this.vm.add(view);
+        this.vl.add(view);
         return this;
     }
 
     public z K(View view) {
         if (view != null) {
-            this.vm.remove(view);
+            this.vl.remove(view);
         }
         return this;
     }
 
     public List<Integer> getTargetIds() {
-        return this.vl;
+        return this.vk;
     }
 
     public List<View> getTargets() {
-        return this.vm;
+        return this.vl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(ViewGroup viewGroup, boolean z) {
         u(z);
-        if (this.vl.size() > 0 || this.vm.size() > 0) {
-            if (this.vl.size() > 0) {
-                for (int i = 0; i < this.vl.size(); i++) {
-                    int intValue = this.vl.get(i).intValue();
+        if (this.vk.size() > 0 || this.vl.size() > 0) {
+            if (this.vk.size() > 0) {
+                for (int i = 0; i < this.vk.size(); i++) {
+                    int intValue = this.vk.get(i).intValue();
                     View findViewById = viewGroup.findViewById(intValue);
                     if (findViewById != null) {
                         af afVar = new af();
@@ -435,22 +435,22 @@ public abstract class z implements Cloneable {
                             captureEndValues(afVar);
                         }
                         if (z) {
-                            this.vw.vL.put(findViewById, afVar);
+                            this.vv.vK.put(findViewById, afVar);
                             if (intValue >= 0) {
-                                this.vw.vM.put(intValue, afVar);
+                                this.vv.vL.put(intValue, afVar);
                             }
                         } else {
-                            this.vx.vL.put(findViewById, afVar);
+                            this.vw.vK.put(findViewById, afVar);
                             if (intValue >= 0) {
-                                this.vx.vM.put(intValue, afVar);
+                                this.vw.vL.put(intValue, afVar);
                             }
                         }
                     }
                 }
             }
-            if (this.vm.size() > 0) {
-                for (int i2 = 0; i2 < this.vm.size(); i2++) {
-                    View view = this.vm.get(i2);
+            if (this.vl.size() > 0) {
+                for (int i2 = 0; i2 < this.vl.size(); i2++) {
+                    View view = this.vl.get(i2);
                     if (view != null) {
                         af afVar2 = new af();
                         afVar2.view = view;
@@ -460,9 +460,9 @@ public abstract class z implements Cloneable {
                             captureEndValues(afVar2);
                         }
                         if (z) {
-                            this.vw.vL.put(view, afVar2);
+                            this.vv.vK.put(view, afVar2);
                         } else {
-                            this.vx.vL.put(view, afVar2);
+                            this.vw.vK.put(view, afVar2);
                         }
                     }
                 }
@@ -476,14 +476,14 @@ public abstract class z implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void u(boolean z) {
         if (z) {
-            this.vw.vL.clear();
-            this.vw.vM.clear();
-            this.vw.vN.clear();
+            this.vv.vK.clear();
+            this.vv.vL.clear();
+            this.vv.vM.clear();
             return;
         }
-        this.vx.vL.clear();
-        this.vx.vM.clear();
-        this.vx.vN.clear();
+        this.vw.vK.clear();
+        this.vw.vL.clear();
+        this.vw.vM.clear();
     }
 
     private void f(View view, boolean z) {
@@ -500,12 +500,12 @@ public abstract class z implements Cloneable {
                     i = -1;
                     itemIdAtPosition = listView.getItemIdAtPosition(listView.getPositionForView(view));
                 }
-                if (this.vn == null || !this.vn.contains(Integer.valueOf(i))) {
-                    if (this.vo == null || !this.vo.contains(view)) {
-                        if (this.vp != null && view != null) {
-                            int size = this.vp.size();
+                if (this.vm == null || !this.vm.contains(Integer.valueOf(i))) {
+                    if (this.vn == null || !this.vn.contains(view)) {
+                        if (this.vo != null && view != null) {
+                            int size = this.vo.size();
                             for (int i2 = 0; i2 < size; i2++) {
-                                if (this.vp.get(i2).isInstance(view)) {
+                                if (this.vo.get(i2).isInstance(view)) {
                                     return;
                                 }
                             }
@@ -519,28 +519,28 @@ public abstract class z implements Cloneable {
                         }
                         if (z) {
                             if (!z2) {
-                                this.vw.vL.put(view, afVar);
+                                this.vv.vK.put(view, afVar);
                                 if (i >= 0) {
-                                    this.vw.vM.put(i, afVar);
+                                    this.vv.vL.put(i, afVar);
                                 }
                             } else {
-                                this.vw.vN.put(itemIdAtPosition, afVar);
+                                this.vv.vM.put(itemIdAtPosition, afVar);
                             }
                         } else if (!z2) {
-                            this.vx.vL.put(view, afVar);
+                            this.vw.vK.put(view, afVar);
                             if (i >= 0) {
-                                this.vx.vM.put(i, afVar);
+                                this.vw.vL.put(i, afVar);
                             }
                         } else {
-                            this.vx.vN.put(itemIdAtPosition, afVar);
+                            this.vw.vM.put(itemIdAtPosition, afVar);
                         }
                         if (view instanceof ViewGroup) {
-                            if (this.vq == null || !this.vq.contains(Integer.valueOf(i))) {
-                                if (this.vr == null || !this.vr.contains(view)) {
-                                    if (this.vs != null && view != null) {
-                                        int size2 = this.vs.size();
+                            if (this.vp == null || !this.vp.contains(Integer.valueOf(i))) {
+                                if (this.vq == null || !this.vq.contains(view)) {
+                                    if (this.vr != null && view != null) {
+                                        int size2 = this.vr.size();
                                         for (int i3 = 0; i3 < size2; i3++) {
-                                            if (this.vs.get(i3).isInstance(view)) {
+                                            if (this.vr.get(i3).isInstance(view)) {
                                                 return;
                                             }
                                         }
@@ -559,19 +559,19 @@ public abstract class z implements Cloneable {
     }
 
     public af getTransitionValues(View view, boolean z) {
-        if (this.vt != null) {
-            return this.vt.getTransitionValues(view, z);
+        if (this.vs != null) {
+            return this.vs.getTransitionValues(view, z);
         }
-        ag agVar = z ? this.vw : this.vx;
-        af afVar = agVar.vL.get(view);
+        ag agVar = z ? this.vv : this.vw;
+        af afVar = agVar.vK.get(view);
         if (afVar == null) {
             int id = view.getId();
             if (id >= 0) {
-                afVar = agVar.vM.get(id);
+                afVar = agVar.vL.get(id);
             }
             if (afVar == null && (view.getParent() instanceof ListView)) {
                 ListView listView = (ListView) view.getParent();
-                return agVar.vN.get(listView.getItemIdAtPosition(listView.getPositionForView(view)));
+                return agVar.vM.get(listView.getItemIdAtPosition(listView.getPositionForView(view)));
             }
             return afVar;
         }
@@ -580,18 +580,18 @@ public abstract class z implements Cloneable {
 
     @RestrictTo
     public void L(View view) {
-        if (!this.vz) {
+        if (!this.vy) {
             ArrayMap<Animator, a> cX = cX();
             int size = cX.size();
             ap R = ap.R(view);
             for (int i = size - 1; i >= 0; i--) {
                 a valueAt = cX.valueAt(i);
-                if (valueAt.view != null && R.equals(valueAt.vD)) {
+                if (valueAt.view != null && R.equals(valueAt.vC)) {
                     cX.keyAt(i).cancel();
                 }
             }
-            if (this.sB != null && this.sB.size() > 0) {
-                ArrayList arrayList = (ArrayList) this.sB.clone();
+            if (this.sA != null && this.sA.size() > 0) {
+                ArrayList arrayList = (ArrayList) this.sA.clone();
                 int size2 = arrayList.size();
                 for (int i2 = 0; i2 < size2; i2++) {
                     ((c) arrayList.get(i2)).b(this);
@@ -604,18 +604,18 @@ public abstract class z implements Cloneable {
     @RestrictTo
     public void M(View view) {
         if (this.mPaused) {
-            if (!this.vz) {
+            if (!this.vy) {
                 ArrayMap<Animator, a> cX = cX();
                 int size = cX.size();
                 ap R = ap.R(view);
                 for (int i = size - 1; i >= 0; i--) {
                     a valueAt = cX.valueAt(i);
-                    if (valueAt.view != null && R.equals(valueAt.vD)) {
+                    if (valueAt.view != null && R.equals(valueAt.vC)) {
                         cX.keyAt(i).end();
                     }
                 }
-                if (this.sB != null && this.sB.size() > 0) {
-                    ArrayList arrayList = (ArrayList) this.sB.clone();
+                if (this.sA != null && this.sA.size() > 0) {
+                    ArrayList arrayList = (ArrayList) this.sA.clone();
                     int size2 = arrayList.size();
                     for (int i2 = 0; i2 < size2; i2++) {
                         ((c) arrayList.get(i2)).c(this);
@@ -634,10 +634,10 @@ public abstract class z implements Cloneable {
         for (int size = cX.size() - 1; size >= 0; size--) {
             Animator keyAt = cX.keyAt(size);
             if (keyAt != null && (aVar = cX.get(keyAt)) != null && aVar.view != null && aVar.view.getContext() == viewGroup.getContext()) {
-                af afVar = aVar.vC;
+                af afVar = aVar.vB;
                 View view = aVar.view;
-                af afVar2 = this.vx.vL != null ? this.vx.vL.get(view) : null;
-                af afVar3 = afVar2 == null ? this.vx.vM.get(view.getId()) : afVar2;
+                af afVar2 = this.vw.vK != null ? this.vw.vK.get(view) : null;
+                af afVar3 = afVar2 == null ? this.vw.vL.get(view.getId()) : afVar2;
                 if (afVar != null && afVar3 != null) {
                     for (String str : afVar.values.keySet()) {
                         Object obj = afVar.values.get(str);
@@ -658,7 +658,7 @@ public abstract class z implements Cloneable {
                 }
             }
         }
-        a(viewGroup, this.vw, this.vx);
+        a(viewGroup, this.vv, this.vw);
         cY();
     }
 
@@ -690,54 +690,54 @@ public abstract class z implements Cloneable {
     /* JADX INFO: Access modifiers changed from: protected */
     @RestrictTo
     public void start() {
-        if (this.vv == 0) {
-            if (this.sB != null && this.sB.size() > 0) {
-                ArrayList arrayList = (ArrayList) this.sB.clone();
+        if (this.vu == 0) {
+            if (this.sA != null && this.sA.size() > 0) {
+                ArrayList arrayList = (ArrayList) this.sA.clone();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     ((c) arrayList.get(i)).d(this);
                 }
             }
-            this.vz = false;
+            this.vy = false;
         }
-        this.vv++;
+        this.vu++;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @RestrictTo
     public void end() {
-        this.vv--;
-        if (this.vv == 0) {
-            if (this.sB != null && this.sB.size() > 0) {
-                ArrayList arrayList = (ArrayList) this.sB.clone();
+        this.vu--;
+        if (this.vu == 0) {
+            if (this.sA != null && this.sA.size() > 0) {
+                ArrayList arrayList = (ArrayList) this.sA.clone();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     ((c) arrayList.get(i)).a(this);
                 }
             }
-            for (int i2 = 0; i2 < this.vw.vN.size(); i2++) {
-                View view = this.vw.vN.valueAt(i2).view;
+            for (int i2 = 0; i2 < this.vv.vM.size(); i2++) {
+                View view = this.vv.vM.valueAt(i2).view;
             }
-            for (int i3 = 0; i3 < this.vx.vN.size(); i3++) {
-                View view2 = this.vx.vN.valueAt(i3).view;
+            for (int i3 = 0; i3 < this.vw.vM.size(); i3++) {
+                View view2 = this.vw.vM.valueAt(i3).view;
             }
-            this.vz = true;
+            this.vy = true;
         }
     }
 
     public z a(c cVar) {
-        if (this.sB == null) {
-            this.sB = new ArrayList<>();
+        if (this.sA == null) {
+            this.sA = new ArrayList<>();
         }
-        this.sB.add(cVar);
+        this.sA.add(cVar);
         return this;
     }
 
     public z b(c cVar) {
-        if (this.sB != null) {
-            this.sB.remove(cVar);
-            if (this.sB.size() == 0) {
-                this.sB = null;
+        if (this.sA != null) {
+            this.sA.remove(cVar);
+            if (this.sA.size() == 0) {
+                this.sA = null;
             }
         }
         return this;
@@ -755,8 +755,8 @@ public abstract class z implements Cloneable {
             z zVar = (z) super.clone();
             try {
                 zVar.mAnimators = new ArrayList<>();
+                zVar.vv = new ag();
                 zVar.vw = new ag();
-                zVar.vx = new ag();
                 return zVar;
             } catch (CloneNotSupportedException e) {
                 return zVar;
@@ -777,31 +777,31 @@ public abstract class z implements Cloneable {
         if (this.mDuration != -1) {
             str3 = str3 + "dur(" + this.mDuration + ") ";
         }
-        if (this.vj != -1) {
-            str3 = str3 + "dly(" + this.vj + ") ";
+        if (this.vi != -1) {
+            str3 = str3 + "dly(" + this.vi + ") ";
         }
-        if (this.vk != null) {
-            str3 = str3 + "interp(" + this.vk + ") ";
+        if (this.vj != null) {
+            str3 = str3 + "interp(" + this.vj + ") ";
         }
-        if (this.vl.size() > 0 || this.vm.size() > 0) {
+        if (this.vk.size() > 0 || this.vl.size() > 0) {
             String str4 = str3 + "tgts(";
-            if (this.vl.size() > 0) {
+            if (this.vk.size() > 0) {
                 str2 = str4;
-                for (int i = 0; i < this.vl.size(); i++) {
+                for (int i = 0; i < this.vk.size(); i++) {
                     if (i > 0) {
                         str2 = str2 + ", ";
                     }
-                    str2 = str2 + this.vl.get(i);
+                    str2 = str2 + this.vk.get(i);
                 }
             } else {
                 str2 = str4;
             }
-            if (this.vm.size() > 0) {
-                for (int i2 = 0; i2 < this.vm.size(); i2++) {
+            if (this.vl.size() > 0) {
+                for (int i2 = 0; i2 < this.vl.size(); i2++) {
                     if (i2 > 0) {
                         str2 = str2 + ", ";
                     }
-                    str2 = str2 + this.vm.get(i2);
+                    str2 = str2 + this.vl.get(i2);
                 }
             }
             return str2 + ")";
@@ -833,15 +833,15 @@ public abstract class z implements Cloneable {
     /* loaded from: classes2.dex */
     public static class a {
         String name;
-        af vC;
-        ap vD;
+        af vB;
+        ap vC;
         View view;
 
         a(View view, String str, ap apVar, af afVar) {
             this.view = view;
             this.name = str;
-            this.vC = afVar;
-            this.vD = apVar;
+            this.vB = afVar;
+            this.vC = apVar;
         }
     }
 

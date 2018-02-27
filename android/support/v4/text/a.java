@@ -6,11 +6,11 @@ import java.lang.reflect.Method;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 class a {
-    private static Method Be;
+    private static Method AZ;
 
     static {
         try {
-            Be = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
+            AZ = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
@@ -18,7 +18,7 @@ class a {
 
     public static String maximizeAndGetScript(Locale locale) {
         try {
-            return ((Locale) Be.invoke(null, locale)).getScript();
+            return ((Locale) AZ.invoke(null, locale)).getScript();
         } catch (IllegalAccessException e) {
             Log.w("ICUCompatIcs", e);
             return locale.getScript();

@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private volatile int dmw;
+    private static final String[] dml = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] dmm = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] dmn = {"111.206.37.190"};
+    private static final String[] dmo = {"115.239.211.146", "180.97.33.196"};
+    private volatile int dmk;
     private volatile String imsi;
-    private static final String[] dmx = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dmy = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dmz = {"111.206.37.190"};
-    private static final String[] dmA = {"115.239.211.146", "180.97.33.196"};
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String apv() {
-        apw();
+    public String apu() {
+        apv();
         if (j.oK()) {
-            return dmA[new Random().nextInt(dmA.length)];
+            return dmo[new Random().nextInt(dmo.length)];
         }
         if (j.oL()) {
-            if (this.dmw == 1) {
-                return dmx[new Random().nextInt(dmx.length)];
+            if (this.dmk == 1) {
+                return dml[new Random().nextInt(dml.length)];
             }
-            if (this.dmw == 2) {
-                return dmy[new Random().nextInt(dmy.length)];
+            if (this.dmk == 2) {
+                return dmm[new Random().nextInt(dmm.length)];
             }
-            if (this.dmw == 3) {
-                return dmz[new Random().nextInt(dmz.length)];
+            if (this.dmk == 3) {
+                return dmn[new Random().nextInt(dmn.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void apw() {
+    protected void apv() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.dmw = 0;
+        this.dmk = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.dmw = 1;
+                this.dmk = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.dmw = 2;
+                this.dmk = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.dmw = 3;
+                this.dmk = 3;
             }
         }
     }

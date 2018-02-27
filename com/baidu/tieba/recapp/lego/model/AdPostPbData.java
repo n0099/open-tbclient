@@ -44,41 +44,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.azQ = optJSONObject.optString("als_stat");
-            this.buttonClick.azR = optJSONObject.optString("url_stat");
+            this.buttonClick.azH = optJSONObject.optString("als_stat");
+            this.buttonClick.azI = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.gDB = new PostAdBaseData.a.C0226a();
-                this.extraData.gDB.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.gDB.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.gDm = new PostAdBaseData.a.C0227a();
+                this.extraData.gDm.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.gDm.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.gDB == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.gDm == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.gDB == null) {
+        if (this.extraData == null || this.extraData.gDm == null) {
             return null;
         }
-        return this.extraData.gDB.downloadUrl;
+        return this.extraData.gDm.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.gDB == null) {
+        if (this.extraData == null || this.extraData.gDm == null) {
             return null;
         }
-        return this.extraData.gDB.packageName;
+        return this.extraData.gDm.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.gDB == null) {
+        if (this.extraData == null || this.extraData.gDm == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -89,23 +89,23 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     private void f(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
             if ("apk_download".equals(this.style)) {
-                advertAppInfo.aKH = 3;
+                advertAppInfo.aKw = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.aKF)) {
-                advertAppInfo.aKF = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.aKu)) {
+                advertAppInfo.aKu = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
-            advertAppInfo.aKJ = apkDownloadUrl();
+            advertAppInfo.aKy = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.aKK = apkDownloadPackage();
-            advertAppInfo.aKG = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.aKR == null) {
-                advertAppInfo.aKR = new AdvertAppInfo.a();
+            advertAppInfo.aKz = apkDownloadPackage();
+            advertAppInfo.aKv = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.aKG == null) {
+                advertAppInfo.aKG = new AdvertAppInfo.a();
             }
-            advertAppInfo.aKR.userPortrait = this.portrait;
-            advertAppInfo.aKR.userName = this.title;
+            advertAppInfo.aKG.userPortrait = this.portrait;
+            advertAppInfo.aKG.userName = this.title;
         }
     }
 

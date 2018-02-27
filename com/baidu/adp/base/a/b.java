@@ -17,16 +17,16 @@ import com.baidu.adp.lib.util.BdLog;
 import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
-    private SQLiteDatabase abI = null;
-    private a.InterfaceC0014a abJ = null;
-    private a abK;
+    private SQLiteDatabase abC = null;
+    private a.InterfaceC0014a abD = null;
+    private a abE;
 
     public b(a aVar) {
-        this.abK = aVar;
+        this.abE = aVar;
     }
 
     public void a(a.InterfaceC0014a interfaceC0014a) {
-        this.abJ = interfaceC0014a;
+        this.abD = interfaceC0014a;
     }
 
     public SQLiteDatabase jM() {
@@ -35,15 +35,15 @@ public class b {
 
     protected SQLiteDatabase T(boolean z) {
         U(z);
-        return this.abI;
+        return this.abC;
     }
 
     private void U(boolean z) {
         synchronized (b.class) {
-            if (this.abI == null || !this.abI.isOpen()) {
+            if (this.abC == null || !this.abC.isOpen()) {
                 try {
-                    this.abK.a(this.abJ);
-                    this.abI = this.abK.getWritableDatabase();
+                    this.abE.a(this.abD);
+                    this.abC = this.abE.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
                         a(e, "ensureDatabaseReady");
@@ -93,9 +93,9 @@ public class b {
 
     public void jN() {
         try {
-            if (this.abI != null) {
-                this.abI.close();
-                this.abI = null;
+            if (this.abC != null) {
+                this.abC.close();
+                this.abC = null;
             }
         } catch (Exception e) {
             BdLog.e("closeDatabase：" + e.getMessage());
@@ -107,10 +107,10 @@ public class b {
         synchronized (b.class) {
             jN();
             try {
-                al = this.abK.al(BdBaseApplication.getInst().getContext());
+                al = this.abE.al(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
-                this.abI = null;
+                this.abC = null;
                 return false;
             }
         }
@@ -128,24 +128,24 @@ public class b {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i = -14;
-                this.abI = null;
+                this.abC = null;
             } else if (th instanceof SQLiteAbortException) {
                 i = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i = -15;
-                this.abI = null;
+                this.abC = null;
             } else if (th instanceof SQLiteFullException) {
                 i = -16;
-                this.abI = null;
+                this.abC = null;
             } else if (th instanceof SQLiteDoneException) {
                 i = -19;
-                this.abI = null;
+                this.abC = null;
             } else if (th instanceof SQLiteMisuseException) {
                 i = -17;
             } else {
-                this.abI = null;
+                this.abC = null;
                 i = -17;
             }
             a(str, i, th.getMessage(), new Object[0]);

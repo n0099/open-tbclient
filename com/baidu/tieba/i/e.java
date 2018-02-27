@@ -8,14 +8,14 @@ public interface e {
 
         void onChange(boolean z);
 
-        void sg(int i);
+        void sh(int i);
     }
 
     void a(a aVar);
 
+    void aWJ();
+
     void aWK();
 
     void aWL();
-
-    void aWM();
 }

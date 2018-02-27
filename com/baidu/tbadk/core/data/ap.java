@@ -7,34 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> aNK = new ArrayList<>();
-    private ArrayList<UserData> aNL = new ArrayList<>();
-    private al aNM = new al();
-    private int aNN = 0;
-    private int aNO = 0;
+    private ArrayList<UserData> aNz = new ArrayList<>();
+    private ArrayList<UserData> aNA = new ArrayList<>();
+    private al aNB = new al();
+    private int aNC = 0;
+    private int aND = 0;
 
     public void a(al alVar) {
-        this.aNM = alVar;
+        this.aNB = alVar;
     }
 
     public al yA() {
-        return this.aNM;
+        return this.aNB;
     }
 
     public ArrayList<UserData> yB() {
-        return this.aNK;
+        return this.aNz;
     }
 
     public ArrayList<UserData> yC() {
-        return this.aNL;
+        return this.aNA;
     }
 
     public int yD() {
-        return this.aNN;
+        return this.aNC;
     }
 
     public int yE() {
-        return this.aNO;
+        return this.aND;
     }
 
     public void parserJson(String str) {
@@ -55,7 +55,7 @@ public class ap {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.aNK.add(userData);
+                        this.aNz.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -63,12 +63,12 @@ public class ap {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.aNL.add(userData2);
+                        this.aNA.add(userData2);
                     }
                 }
-                this.aNM.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-                this.aNN = jSONObject.optInt("tafriendnum", 0);
-                this.aNO = jSONObject.optInt("commonfriendnum", 0);
+                this.aNB.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
+                this.aNC = jSONObject.optInt("tafriendnum", 0);
+                this.aND = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

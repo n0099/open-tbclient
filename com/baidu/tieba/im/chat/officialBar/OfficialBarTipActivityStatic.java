@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.atomData.OfficialBarTipActivityConfig;
 /* loaded from: classes3.dex */
 public class OfficialBarTipActivityStatic {
     static {
-        aBQ();
+        aBP();
     }
 
-    private static void aBQ() {
+    private static void aBP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008022, new CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {

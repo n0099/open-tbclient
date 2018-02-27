@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView {
-    private d Mt;
-    private i Mu;
+    private d Mo;
+    private i Mp;
 
     public AppCompatTextView(Context context) {
         this(context, null);
@@ -23,42 +23,42 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
 
     public AppCompatTextView(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.Mt = new d(this);
-        this.Mt.loadFromAttributes(attributeSet, i);
-        this.Mu = i.d(this);
-        this.Mu.loadFromAttributes(attributeSet, i);
-        this.Mu.fQ();
+        this.Mo = new d(this);
+        this.Mo.loadFromAttributes(attributeSet, i);
+        this.Mp = i.d(this);
+        this.Mp.loadFromAttributes(attributeSet, i);
+        this.Mp.fQ();
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
         super.setBackgroundResource(i);
-        if (this.Mt != null) {
-            this.Mt.be(i);
+        if (this.Mo != null) {
+            this.Mo.be(i);
         }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
-        if (this.Mt != null) {
-            this.Mt.c(drawable);
+        if (this.Mo != null) {
+            this.Mo.c(drawable);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintList(ColorStateList colorStateList) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintList(colorStateList);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public ColorStateList getSupportBackgroundTintList() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintList();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintList();
         }
         return null;
     }
@@ -66,16 +66,16 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintMode(mode);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintMode(mode);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintMode();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintMode();
         }
         return null;
     }
@@ -83,19 +83,19 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     @Override // android.widget.TextView
     public void setTextAppearance(Context context, int i) {
         super.setTextAppearance(context, i);
-        if (this.Mu != null) {
-            this.Mu.m(context, i);
+        if (this.Mp != null) {
+            this.Mp.m(context, i);
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Mt != null) {
-            this.Mt.fI();
+        if (this.Mo != null) {
+            this.Mo.fI();
         }
-        if (this.Mu != null) {
-            this.Mu.fQ();
+        if (this.Mp != null) {
+            this.Mp.fQ();
         }
     }
 }

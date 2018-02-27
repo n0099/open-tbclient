@@ -4,8 +4,8 @@ import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class bk {
-    public WriteData aQR;
-    public com.baidu.tbadk.coreExtra.data.t aQS;
-    public AccessState aQT;
-    public boolean aQU;
+    public WriteData aQG;
+    public com.baidu.tbadk.coreExtra.data.t aQH;
+    public AccessState aQI;
+    public boolean aQJ;
 }

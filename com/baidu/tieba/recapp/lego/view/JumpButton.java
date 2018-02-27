@@ -14,7 +14,7 @@ public class JumpButton extends TextView {
 
     private void init() {
         aj.s(this, d.f.btn_focus_border_bg);
-        aj.e(this, d.C0140d.btn_forum_focus_color, 1);
+        aj.e(this, d.C0141d.btn_forum_focus_color, 1);
         int t = l.t(getContext(), d.e.ds144);
         int t2 = l.t(getContext(), d.e.ds50);
         setWidth(t);

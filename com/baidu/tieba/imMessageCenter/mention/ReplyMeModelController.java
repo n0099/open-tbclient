@@ -20,67 +20,67 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<n>, NetModel.b<m, n> {
-    private FeedData eSk;
-    private f eSl;
-    private p eTe;
-    private m eTf;
-    private ReplyMeNetModel eTg;
-    private ReplyMeCacheModel eTh;
+    private FeedData eRY;
+    private f eRZ;
+    private p eSS;
+    private m eST;
+    private ReplyMeNetModel eSU;
+    private ReplyMeCacheModel eSV;
 
     public ReplyMeModelController(p pVar) {
         super(pVar.getPageContext());
-        this.eTe = pVar;
+        this.eSS = pVar;
     }
 
     public void l(Bundle bundle) {
-        this.eTf = new m();
-        this.eTg = new ReplyMeNetModel(this.eTe.getPageContext(), this.eTf);
-        this.eTg.a(this);
-        this.eTg.setUniqueId(this.eTe.getUniqueId());
-        this.eTh = new ReplyMeCacheModel(this.eTe.getPageContext());
-        this.eTh.a(this);
-        this.eTh.setUniqueId(this.eTe.getUniqueId());
-        this.eSl = new f();
+        this.eST = new m();
+        this.eSU = new ReplyMeNetModel(this.eSS.getPageContext(), this.eST);
+        this.eSU.a(this);
+        this.eSU.setUniqueId(this.eSS.getUniqueId());
+        this.eSV = new ReplyMeCacheModel(this.eSS.getPageContext());
+        this.eSV.a(this);
+        this.eSV.setUniqueId(this.eSS.getUniqueId());
+        this.eRZ = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean amN() {
-        if (this.eTg.El() || !aNt()) {
+    public boolean amM() {
+        if (this.eSU.Ek() || !aNs()) {
             return false;
         }
-        this.eTf.d(this.eSk);
-        this.eTg.setNeedCache(false);
-        this.eTg.Nw();
+        this.eST.d(this.eRY);
+        this.eSU.setNeedCache(false);
+        this.eSU.Nv();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aNs() {
-        if (this.eTg.El() || !aNt()) {
+    public boolean aNr() {
+        if (this.eSU.Ek() || !aNs()) {
             return false;
         }
-        this.eSk = null;
-        this.eTf.reset();
-        this.eTg.setNeedCache(true);
-        this.eTg.Nw();
+        this.eRY = null;
+        this.eST.reset();
+        this.eSU.setNeedCache(true);
+        this.eSU.Nv();
         return true;
     }
 
-    protected boolean aNt() {
+    protected boolean aNs() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.eSl != null && this.eSl.eSV != null) {
-            this.eSl.eSV.clear();
+        if (this.eRZ != null && this.eRZ.eSJ != null) {
+            this.eRZ.eSJ.clear();
         }
-        this.eTe.aNM();
-        this.eTe.b(false, (ArrayList<com.baidu.adp.widget.ListView.i>) null);
+        this.eSS.aNL();
+        this.eSS.b(false, (ArrayList<com.baidu.adp.widget.ListView.i>) null);
         return false;
     }
 
-    public boolean amM() {
-        if (aNt()) {
-            this.eTh.a((com.baidu.tbadk.mvc.b.e) this.eTf);
+    public boolean amL() {
+        if (aNs()) {
+            this.eSV.a((com.baidu.tbadk.mvc.b.e) this.eST);
             return true;
         }
         return true;
@@ -90,13 +90,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z2;
         boolean z3;
         if (mVar.getUpdateType() != 4) {
-            this.eSl.aNF().clear();
+            this.eRZ.aNE().clear();
         }
-        this.eSl.a(nVar);
-        if (nVar != null && nVar.aNF() != null && nVar.aNF().size() > 0) {
-            this.eSk = nVar.aNF().get(nVar.aNF().size() - 1);
-            if (this.eSl.yA() != null) {
-                z3 = this.eSl.yA().yw() == 1;
+        this.eRZ.a(nVar);
+        if (nVar != null && nVar.aNE() != null && nVar.aNE().size() > 0) {
+            this.eRY = nVar.aNE().get(nVar.aNE().size() - 1);
+            if (this.eRZ.yA() != null) {
+                z3 = this.eRZ.yA().yw() == 1;
             } else {
                 z3 = true;
             }
@@ -107,12 +107,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 z2 = z3;
             }
         } else {
-            this.eSk = null;
+            this.eRY = null;
             z2 = false;
         }
-        com.baidu.tbadk.coreExtra.messageCenter.a.GJ().GX();
+        com.baidu.tbadk.coreExtra.messageCenter.a.GI().GW();
         ArrayList<com.baidu.adp.widget.ListView.i> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.eSl.eSV.iterator();
+        Iterator<FeedData> it = this.eRZ.eSJ.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
             aVar.e(it.next());
@@ -121,19 +121,19 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             }
             arrayList.add(aVar);
         }
-        this.eTe.b(z2, arrayList);
+        this.eSS.b(z2, arrayList);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<n>> readCacheRespMsg, ReadCacheMessage<n> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.eTf, readCacheRespMsg.getData().get(0), true);
+            a(this.eST, readCacheRespMsg.getData().get(0), true);
         }
-        this.eSk = null;
-        this.eTf.reset();
-        this.eTg.setNeedCache(true);
-        this.eTg.Nw();
+        this.eRY = null;
+        this.eST.reset();
+        this.eSU.setNeedCache(true);
+        this.eSU.Nv();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -150,7 +150,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.GI().setMsgReplyme(0);
             nVar = null;
         }
         if (r1 == null || nVar == null || !a(r1, nVar, false)) {
@@ -162,7 +162,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eTe.a(errorData);
+                this.eSS.a(errorData);
             }
         }
     }
@@ -177,7 +177,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.GI().setMsgReplyme(0);
             nVar = null;
         }
         if (r1 == null || nVar == null || !a(r1, nVar, false)) {
@@ -189,7 +189,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eTe.a(errorData);
+                this.eSS.a(errorData);
             }
         }
     }

@@ -34,7 +34,7 @@ import java.net.URLEncoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class AdStatic {
-    public static boolean aHU = true;
+    public static boolean aHJ = true;
 
     static {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.ad.browser.AdStatic.1
@@ -46,7 +46,7 @@ public class AdStatic {
                 }
             }
         });
-        com.baidu.tieba.ad.a.UA().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.Uz().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -64,7 +64,7 @@ public class AdStatic {
     }
 
     private static void wx() {
-        com.baidu.tieba.ad.a.UA().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+        com.baidu.tieba.ad.a.Uz().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 Bundle hv;
@@ -207,7 +207,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
         String cv = cv(str);
-        if (!cy(cv) && wy() && cA("com.baidu.searchbox") && cz(cv) && aHU) {
+        if (!cy(cv) && wy() && cA("com.baidu.searchbox") && cz(cv) && aHJ) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -262,7 +262,7 @@ public class AdStatic {
     }
 
     private static void wz() {
-        com.baidu.tieba.ad.a.UA().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+        com.baidu.tieba.ad.a.Uz().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -332,7 +332,7 @@ public class AdStatic {
     }
 
     private static void wA() {
-        com.baidu.tieba.ad.a.UA().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+        com.baidu.tieba.ad.a.Uz().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

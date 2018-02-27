@@ -1,8 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 /* loaded from: classes.dex */
 public enum BiometricType {
-    LIVENESS_RECOG("liveness_recog"),
-    VOICE_IDENTIFY("VOICE_IDENTIFY");
+    LIVENESS_RECOG("liveness_recog");
 
     BiometricType(String str) {
     }

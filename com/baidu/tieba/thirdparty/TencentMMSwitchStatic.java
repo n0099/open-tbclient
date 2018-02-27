@@ -3,13 +3,13 @@ package com.baidu.tieba.thirdparty;
 import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.d;
 import com.tencent.mm.sdk.constants.ConstantsAPI;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TencentMMSwitchStatic extends a {
-    public static final String[] hmY;
+    public static final String[] hmL;
 
     static {
         d.mA().f(TencentMMSwitchStatic.class);
-        hmY = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
+        hmL = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -23,7 +23,7 @@ public class TencentMMSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
-        return hmY;
+        return hmL;
     }
 
     @Override // com.baidu.adp.lib.b.a

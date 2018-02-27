@@ -22,7 +22,7 @@ public class q implements com.baidu.b.a.b.c {
             bVar.setScaleType(ImageView.ScaleType.FIT_XY);
             bVar.setDrawerType(1);
             bVar.setDefaultResource(17170445);
-            bVar.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+            bVar.setDefaultBgResource(d.C0141d.cp_bg_line_e);
             return bVar;
         } else if ("video".equalsIgnoreCase(str)) {
             View inflate = LayoutInflater.from(context).inflate(d.h.ad_card_video_view, (ViewGroup) null);
@@ -43,8 +43,8 @@ public class q implements com.baidu.b.a.b.c {
             return false;
         }
         if (view instanceof com.baidu.tbadk.widget.b) {
-            if (aVar.azs > 0.0f) {
-                ((com.baidu.tbadk.widget.b) view).setRadius((int) (aVar.azs * view.getResources().getDisplayMetrics().density));
+            if (aVar.azj > 0.0f) {
+                ((com.baidu.tbadk.widget.b) view).setRadius((int) (aVar.azj * view.getResources().getDisplayMetrics().density));
             } else {
                 ((com.baidu.tbadk.widget.b) view).setRadius(0);
             }
@@ -56,7 +56,7 @@ public class q implements com.baidu.b.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.azr;
+            builder.thumbnail_url = aVar.azi;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);

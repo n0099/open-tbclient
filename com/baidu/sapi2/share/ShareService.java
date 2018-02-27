@@ -72,7 +72,7 @@ public final class ShareService extends Service {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
-            if (!c.b(ShareService.this)) {
+            if (!d.b(ShareService.this)) {
                 return false;
             }
             if (SapiAccountManager.getReceiveShareListener() != null) {
@@ -112,14 +112,14 @@ public final class ShareService extends Service {
             if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
                 int i3 = readBundle.getInt("SDK_VERSION");
                 if (!z) {
-                    c.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
+                    d.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
                 }
                 switch (shareModel.b()) {
                     case VALIDATE:
-                        c.a(ShareService.a, ShareService.b, shareModel, i3, string, z);
+                        d.a(ShareService.a, ShareService.b, shareModel, i3, string, z);
                         break;
                     case INVALIDATE:
-                        c.a(ShareService.a, shareModel);
+                        d.a(ShareService.a, shareModel);
                         break;
                     case SYNC_REQ:
                         ShareService.this.a(parcel2);
@@ -169,7 +169,7 @@ public final class ShareService extends Service {
         for (SapiAccount sapiAccount2 : shareModel.a()) {
             sapiAccount2.app = SapiUtils.getAppName(a);
         }
-        c.a(a, b, shareModel);
+        d.a(a, b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
         if (c.getReloginCredentials() != null) {
             bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));

@@ -4,9 +4,9 @@ import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0279d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0280d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = Integer.MAX_VALUE;

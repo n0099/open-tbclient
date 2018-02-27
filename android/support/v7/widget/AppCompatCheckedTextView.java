@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.CheckedTextView;
 /* loaded from: classes2.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
-    private static final int[] Iq = {16843016};
-    private i Mu;
+    private static final int[] Il = {16843016};
+    private i Mp;
 
     public AppCompatCheckedTextView(Context context) {
         this(context, null);
@@ -19,10 +19,10 @@ public class AppCompatCheckedTextView extends CheckedTextView {
 
     public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.Mu = i.d(this);
-        this.Mu.loadFromAttributes(attributeSet, i);
-        this.Mu.fQ();
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, Iq, i, 0);
+        this.Mp = i.d(this);
+        this.Mp.loadFromAttributes(attributeSet, i);
+        this.Mp.fQ();
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, Il, i, 0);
         setCheckMarkDrawable(obtainStyledAttributes.getDrawable(0));
         obtainStyledAttributes.recycle();
     }
@@ -35,16 +35,16 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     @Override // android.widget.TextView
     public void setTextAppearance(Context context, int i) {
         super.setTextAppearance(context, i);
-        if (this.Mu != null) {
-            this.Mu.m(context, i);
+        if (this.Mp != null) {
+            this.Mp.m(context, i);
         }
     }
 
     @Override // android.widget.CheckedTextView, android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Mu != null) {
-            this.Mu.fQ();
+        if (this.Mp != null) {
+            this.Mp.fQ();
         }
     }
 }

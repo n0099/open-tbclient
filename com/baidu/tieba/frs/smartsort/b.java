@@ -12,29 +12,29 @@ import com.baidu.tieba.frs.i;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class b {
-    private au ccx;
-    private TextView dPd;
-    private final i dSV;
-    private boolean dTW;
-    private int dTX = -1;
-    private int duM;
+    private au cck;
+    private TextView dOR;
+    private final i dSJ;
+    private boolean dTK;
+    private int dTL = -1;
+    private int duA;
 
     public b(i iVar) {
-        this.duM = 0;
+        this.duA = 0;
         if (iVar == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dSV = iVar;
+        this.dSJ = iVar;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.duM = UtilHelper.getStatusBarHeight();
+            this.duA = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void azL() {
-        if (this.dTW && this.dTX >= 0) {
-            nK(this.dTX);
+    public void azK() {
+        if (this.dTK && this.dTL >= 0) {
+            nK(this.dTL);
         }
-        this.dTW = false;
+        this.dTK = false;
     }
 
     public void nJ(int i) {
@@ -50,48 +50,48 @@ public class b {
     private void nK(int i) {
         FrameLayout frameLayout;
         String string;
-        k auT = this.dSV.auT();
-        if (auT != null && auT.getListView() != null && (frameLayout = (FrameLayout) auT.avX()) != null) {
-            if (this.dPd == null && this.dSV.getPageContext() != null) {
-                this.dPd = new TextView(this.dSV.getPageContext().getPageActivity());
-                this.dPd.setTextSize(0, this.dSV.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.dPd.setGravity(17);
+        k auS = this.dSJ.auS();
+        if (auS != null && auS.getListView() != null && (frameLayout = (FrameLayout) auS.avW()) != null) {
+            if (this.dOR == null && this.dSJ.getPageContext() != null) {
+                this.dOR = new TextView(this.dSJ.getPageContext().getPageActivity());
+                this.dOR.setTextSize(0, this.dSJ.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.dOR.setGravity(17);
             }
-            if (this.dPd != null) {
+            if (this.dOR != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_nodata);
                 }
-                this.dPd.setText(string);
+                this.dOR.setText(string);
             }
-            aj.s(this.dPd, d.C0140d.common_color_10260);
-            aj.r(this.dPd, d.C0140d.cp_cont_g);
+            aj.s(this.dOR, d.C0141d.common_color_10260);
+            aj.r(this.dOR, d.C0141d.cp_cont_g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.t(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (auT.avD() != null && auT.avD().getLayoutParams() != null) {
-                layoutParams.topMargin = auT.avD().getLayoutParams().height;
+            if (auS.avC() != null && auS.avC().getLayoutParams() != null) {
+                layoutParams.topMargin = auS.avC().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.ccx == null) {
-                this.ccx = new au();
+            if (this.cck == null) {
+                this.cck = new au();
             }
-            this.ccx.a(this.dPd, frameLayout, layoutParams, 2000);
-            this.dTX = -1;
+            this.cck.a(this.dOR, frameLayout, layoutParams, 2000);
+            this.dTL = -1;
         }
     }
 
     public void gq(boolean z) {
-        this.dTW = z;
+        this.dTK = z;
     }
 
     public void nL(int i) {
-        this.dTX = i;
+        this.dTL = i;
     }
 
     public void onDestroy() {
-        if (this.ccx != null) {
-            this.ccx.onDestroy();
+        if (this.cck != null) {
+            this.cck.onDestroy();
         }
     }
 }

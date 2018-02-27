@@ -4,8 +4,8 @@ import android.location.Location;
 /* loaded from: classes.dex */
 public class h {
     private static long a;
-    private static Location aBT;
-    private static com.baidu.location.f.a aBy;
+    private static Location aBK;
+    private static com.baidu.location.f.a aBp;
     private static String d;
 
     public static String a() {
@@ -25,18 +25,18 @@ public class h {
     }
 
     public static void c(Location location) {
-        aBT = location;
+        aBK = location;
     }
 
     public static void c(com.baidu.location.f.a aVar) {
-        aBy = aVar;
+        aBp = aVar;
     }
 
     public static com.baidu.location.f.a uv() {
-        return aBy;
+        return aBp;
     }
 
     public static Location uw() {
-        return aBT;
+        return aBK;
     }
 }

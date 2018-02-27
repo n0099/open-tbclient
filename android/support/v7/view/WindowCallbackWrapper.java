@@ -16,132 +16,132 @@ import java.util.List;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class WindowCallbackWrapper implements Window.Callback {
-    final Window.Callback Hq;
+    final Window.Callback Hl;
 
     public WindowCallbackWrapper(Window.Callback callback) {
         if (callback == null) {
             throw new IllegalArgumentException("Window callback may not be null");
         }
-        this.Hq = callback;
+        this.Hl = callback;
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return this.Hq.dispatchKeyEvent(keyEvent);
+        return this.Hl.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return this.Hq.dispatchKeyShortcutEvent(keyEvent);
+        return this.Hl.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.Hq.dispatchTouchEvent(motionEvent);
+        return this.Hl.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.Hq.dispatchTrackballEvent(motionEvent);
+        return this.Hl.dispatchTrackballEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return this.Hq.dispatchGenericMotionEvent(motionEvent);
+        return this.Hl.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.Hq.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        return this.Hl.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        return this.Hq.onCreatePanelView(i);
+        return this.Hl.onCreatePanelView(i);
     }
 
     @Override // android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.Hq.onCreatePanelMenu(i, menu);
+        return this.Hl.onCreatePanelMenu(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.Hq.onPreparePanel(i, view, menu);
+        return this.Hl.onPreparePanel(i, view, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        return this.Hq.onMenuOpened(i, menu);
+        return this.Hl.onMenuOpened(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.Hq.onMenuItemSelected(i, menuItem);
+        return this.Hl.onMenuItemSelected(i, menuItem);
     }
 
     @Override // android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        this.Hq.onWindowAttributesChanged(layoutParams);
+        this.Hl.onWindowAttributesChanged(layoutParams);
     }
 
     @Override // android.view.Window.Callback
     public void onContentChanged() {
-        this.Hq.onContentChanged();
+        this.Hl.onContentChanged();
     }
 
     @Override // android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        this.Hq.onWindowFocusChanged(z);
+        this.Hl.onWindowFocusChanged(z);
     }
 
     @Override // android.view.Window.Callback
     public void onAttachedToWindow() {
-        this.Hq.onAttachedToWindow();
+        this.Hl.onAttachedToWindow();
     }
 
     @Override // android.view.Window.Callback
     public void onDetachedFromWindow() {
-        this.Hq.onDetachedFromWindow();
+        this.Hl.onDetachedFromWindow();
     }
 
     @Override // android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        this.Hq.onPanelClosed(i, menu);
+        this.Hl.onPanelClosed(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onSearchRequested(SearchEvent searchEvent) {
-        return this.Hq.onSearchRequested(searchEvent);
+        return this.Hl.onSearchRequested(searchEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean onSearchRequested() {
-        return this.Hq.onSearchRequested();
+        return this.Hl.onSearchRequested();
     }
 
     @Override // android.view.Window.Callback
     public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        return this.Hq.onWindowStartingActionMode(callback);
+        return this.Hl.onWindowStartingActionMode(callback);
     }
 
     @Override // android.view.Window.Callback
     public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        return this.Hq.onWindowStartingActionMode(callback, i);
+        return this.Hl.onWindowStartingActionMode(callback, i);
     }
 
     @Override // android.view.Window.Callback
     public void onActionModeStarted(android.view.ActionMode actionMode) {
-        this.Hq.onActionModeStarted(actionMode);
+        this.Hl.onActionModeStarted(actionMode);
     }
 
     @Override // android.view.Window.Callback
     public void onActionModeFinished(android.view.ActionMode actionMode) {
-        this.Hq.onActionModeFinished(actionMode);
+        this.Hl.onActionModeFinished(actionMode);
     }
 
     @Override // android.view.Window.Callback
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-        this.Hq.onProvideKeyboardShortcuts(list, menu, i);
+        this.Hl.onProvideKeyboardShortcuts(list, menu, i);
     }
 }

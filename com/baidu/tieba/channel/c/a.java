@@ -9,10 +9,10 @@ public class a extends ReplacementSpan {
     private int mHeight;
     private int mWidth;
     private int padding;
-    private Drawable wz;
+    private Drawable wy;
 
     public a(Drawable drawable, int i, int i2, int i3) {
-        this.wz = drawable;
+        this.wy = drawable;
         this.mWidth = i;
         this.mHeight = i2;
         this.padding = i3;
@@ -25,7 +25,7 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        this.wz.setBounds(((int) f) + this.padding, (int) (i3 + paint.descent()), ((int) f) + this.mWidth + this.padding, (int) (i3 + paint.descent() + this.mHeight));
-        this.wz.draw(canvas);
+        this.wy.setBounds(((int) f) + this.padding, (int) (i3 + paint.descent()), ((int) f) + this.mWidth + this.padding, (int) (i3 + paint.descent() + this.mHeight));
+        this.wy.draw(canvas);
     }
 }

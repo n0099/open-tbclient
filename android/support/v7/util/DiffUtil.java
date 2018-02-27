@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DiffUtil {
-    private static final Comparator<c> FF = new Comparator<c>() { // from class: android.support.v7.util.DiffUtil.1
+    private static final Comparator<c> FA = new Comparator<c>() { // from class: android.support.v7.util.DiffUtil.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -37,45 +37,45 @@ public class DiffUtil {
         ArrayList arrayList3 = new ArrayList();
         while (!arrayList2.isEmpty()) {
             b bVar = (b) arrayList2.remove(arrayList2.size() - 1);
-            c a2 = a(callback, bVar.FT, bVar.FU, bVar.FV, bVar.FW, iArr, iArr2, abs);
+            c a2 = a(callback, bVar.FN, bVar.FO, bVar.FP, bVar.FQ, iArr, iArr2, abs);
             if (a2 != null) {
                 if (a2.size > 0) {
                     arrayList.add(a2);
                 }
-                a2.x += bVar.FT;
-                a2.y += bVar.FV;
+                a2.x += bVar.FN;
+                a2.y += bVar.FP;
                 b bVar2 = arrayList3.isEmpty() ? new b() : (b) arrayList3.remove(arrayList3.size() - 1);
-                bVar2.FT = bVar.FT;
-                bVar2.FV = bVar.FV;
-                if (a2.FX) {
-                    bVar2.FU = a2.x;
-                    bVar2.FW = a2.y;
-                } else if (a2.FR) {
-                    bVar2.FU = a2.x - 1;
-                    bVar2.FW = a2.y;
+                bVar2.FN = bVar.FN;
+                bVar2.FP = bVar.FP;
+                if (a2.FR) {
+                    bVar2.FO = a2.x;
+                    bVar2.FQ = a2.y;
+                } else if (a2.FM) {
+                    bVar2.FO = a2.x - 1;
+                    bVar2.FQ = a2.y;
                 } else {
-                    bVar2.FU = a2.x;
-                    bVar2.FW = a2.y - 1;
+                    bVar2.FO = a2.x;
+                    bVar2.FQ = a2.y - 1;
                 }
                 arrayList2.add(bVar2);
-                if (a2.FX) {
-                    if (a2.FR) {
-                        bVar.FT = a2.x + a2.size + 1;
-                        bVar.FV = a2.y + a2.size;
+                if (a2.FR) {
+                    if (a2.FM) {
+                        bVar.FN = a2.x + a2.size + 1;
+                        bVar.FP = a2.y + a2.size;
                     } else {
-                        bVar.FT = a2.x + a2.size;
-                        bVar.FV = a2.y + a2.size + 1;
+                        bVar.FN = a2.x + a2.size;
+                        bVar.FP = a2.y + a2.size + 1;
                     }
                 } else {
-                    bVar.FT = a2.x + a2.size;
-                    bVar.FV = a2.y + a2.size;
+                    bVar.FN = a2.x + a2.size;
+                    bVar.FP = a2.y + a2.size;
                 }
                 arrayList2.add(bVar);
             } else {
                 arrayList3.add(bVar);
             }
         }
-        Collections.sort(arrayList, FF);
+        Collections.sort(arrayList, FA);
         return new DiffResult(callback, arrayList, iArr, iArr2, z);
     }
 
@@ -113,8 +113,8 @@ public class DiffUtil {
                     cVar.x = iArr2[i5 + i13];
                     cVar.y = cVar.x - i13;
                     cVar.size = iArr[i5 + i13] - iArr2[i5 + i13];
-                    cVar.FR = z2;
-                    cVar.FX = false;
+                    cVar.FM = z2;
+                    cVar.FR = false;
                     return cVar;
                 }
             }
@@ -137,8 +137,8 @@ public class DiffUtil {
                     cVar2.x = iArr2[i5 + i17];
                     cVar2.y = cVar2.x - i17;
                     cVar2.size = iArr[i5 + i17] - iArr2[i5 + i17];
-                    cVar2.FR = z;
-                    cVar2.FX = true;
+                    cVar2.FM = z;
+                    cVar2.FR = true;
                     return cVar2;
                 }
             }
@@ -164,8 +164,8 @@ public class DiffUtil {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class c {
+        boolean FM;
         boolean FR;
-        boolean FX;
         int size;
         int x;
         int y;
@@ -177,67 +177,67 @@ public class DiffUtil {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
-        int FT;
-        int FU;
-        int FV;
-        int FW;
+        int FN;
+        int FO;
+        int FP;
+        int FQ;
 
         public b() {
         }
 
         public b(int i, int i2, int i3, int i4) {
-            this.FT = i;
-            this.FU = i2;
-            this.FV = i3;
-            this.FW = i4;
+            this.FN = i;
+            this.FO = i2;
+            this.FP = i3;
+            this.FQ = i4;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class DiffResult {
-        private final List<c> FG;
-        private final int[] FH;
-        private final int[] FI;
-        private final Callback FJ;
-        private final int FK;
-        private final int FL;
-        private final boolean FM;
+        private final List<c> FB;
+        private final int[] FC;
+        private final int[] FD;
+        private final Callback FE;
+        private final int FF;
+        private final int FG;
+        private final boolean FH;
 
         DiffResult(Callback callback, List<c> list, int[] iArr, int[] iArr2, boolean z) {
-            this.FG = list;
-            this.FH = iArr;
-            this.FI = iArr2;
-            Arrays.fill(this.FH, 0);
-            Arrays.fill(this.FI, 0);
-            this.FJ = callback;
-            this.FK = callback.getOldListSize();
-            this.FL = callback.getNewListSize();
-            this.FM = z;
+            this.FB = list;
+            this.FC = iArr;
+            this.FD = iArr2;
+            Arrays.fill(this.FC, 0);
+            Arrays.fill(this.FD, 0);
+            this.FE = callback;
+            this.FF = callback.getOldListSize();
+            this.FG = callback.getNewListSize();
+            this.FH = z;
             eA();
             eB();
         }
 
         private void eA() {
-            c cVar = this.FG.isEmpty() ? null : this.FG.get(0);
+            c cVar = this.FB.isEmpty() ? null : this.FB.get(0);
             if (cVar == null || cVar.x != 0 || cVar.y != 0) {
                 c cVar2 = new c();
                 cVar2.x = 0;
                 cVar2.y = 0;
-                cVar2.FR = false;
+                cVar2.FM = false;
                 cVar2.size = 0;
-                cVar2.FX = false;
-                this.FG.add(0, cVar2);
+                cVar2.FR = false;
+                this.FB.add(0, cVar2);
             }
         }
 
         private void eB() {
-            int i = this.FK;
-            int i2 = this.FL;
-            for (int size = this.FG.size() - 1; size >= 0; size--) {
-                c cVar = this.FG.get(size);
+            int i = this.FF;
+            int i2 = this.FG;
+            for (int size = this.FB.size() - 1; size >= 0; size--) {
+                c cVar = this.FB.get(size);
                 int i3 = cVar.x + cVar.size;
                 int i4 = cVar.y + cVar.size;
-                if (this.FM) {
+                if (this.FH) {
                     while (i > i3) {
                         d(i, i2, size);
                         i--;
@@ -250,9 +250,9 @@ public class DiffUtil {
                 for (int i5 = 0; i5 < cVar.size; i5++) {
                     int i6 = cVar.x + i5;
                     int i7 = cVar.y + i5;
-                    int i8 = this.FJ.areContentsTheSame(i6, i7) ? 1 : 2;
-                    this.FH[i6] = (i7 << 5) | i8;
-                    this.FI[i7] = i8 | (i6 << 5);
+                    int i8 = this.FE.areContentsTheSame(i6, i7) ? 1 : 2;
+                    this.FC[i6] = (i7 << 5) | i8;
+                    this.FD[i7] = i8 | (i6 << 5);
                 }
                 i = cVar.x;
                 i2 = cVar.y;
@@ -260,13 +260,13 @@ public class DiffUtil {
         }
 
         private void d(int i, int i2, int i3) {
-            if (this.FH[i - 1] == 0) {
+            if (this.FC[i - 1] == 0) {
                 b(i, i2, i3, false);
             }
         }
 
         private void e(int i, int i2, int i3) {
-            if (this.FI[i2 - 1] == 0) {
+            if (this.FD[i2 - 1] == 0) {
                 b(i, i2, i3, true);
             }
         }
@@ -285,25 +285,25 @@ public class DiffUtil {
             }
             int i7 = i5;
             while (i3 >= 0) {
-                c cVar = this.FG.get(i3);
+                c cVar = this.FB.get(i3);
                 int i8 = cVar.x + cVar.size;
                 int i9 = cVar.y + cVar.size;
                 if (z) {
                     for (int i10 = i7 - 1; i10 >= i8; i10--) {
-                        if (this.FJ.areItemsTheSame(i10, i4)) {
-                            int i11 = this.FJ.areContentsTheSame(i10, i4) ? 8 : 4;
-                            this.FI[i4] = (i10 << 5) | 16;
-                            this.FH[i10] = i11 | (i4 << 5);
+                        if (this.FE.areItemsTheSame(i10, i4)) {
+                            int i11 = this.FE.areContentsTheSame(i10, i4) ? 8 : 4;
+                            this.FD[i4] = (i10 << 5) | 16;
+                            this.FC[i10] = i11 | (i4 << 5);
                             return true;
                         }
                     }
                     continue;
                 } else {
                     for (int i12 = i2 - 1; i12 >= i9; i12--) {
-                        if (this.FJ.areItemsTheSame(i4, i12)) {
-                            int i13 = this.FJ.areContentsTheSame(i4, i12) ? 8 : 4;
-                            this.FH[i - 1] = (i12 << 5) | 16;
-                            this.FI[i12] = ((i - 1) << 5) | i13;
+                        if (this.FE.areItemsTheSame(i4, i12)) {
+                            int i13 = this.FE.areContentsTheSame(i4, i12) ? 8 : 4;
+                            this.FC[i - 1] = (i12 << 5) | 16;
+                            this.FD[i12] = ((i - 1) << 5) | i13;
                             return true;
                         }
                     }
@@ -348,12 +348,12 @@ public class DiffUtil {
                 batchingListUpdateCallback = new BatchingListUpdateCallback(listUpdateCallback);
             }
             List<a> arrayList = new ArrayList<>();
-            int i = this.FK;
-            int i2 = this.FL;
-            int size = this.FG.size() - 1;
+            int i = this.FF;
+            int i2 = this.FG;
+            int size = this.FB.size() - 1;
             int i3 = i2;
             while (size >= 0) {
-                c cVar = this.FG.get(size);
+                c cVar = this.FB.get(size);
                 int i4 = cVar.size;
                 int i5 = cVar.x + i4;
                 int i6 = cVar.y + i4;
@@ -364,8 +364,8 @@ public class DiffUtil {
                     a(arrayList, batchingListUpdateCallback, i5, i3 - i6, i6);
                 }
                 for (int i7 = i4 - 1; i7 >= 0; i7--) {
-                    if ((this.FH[cVar.x + i7] & 31) == 2) {
-                        batchingListUpdateCallback.onChanged(cVar.x + i7, 1, this.FJ.getChangePayload(cVar.x + i7, cVar.y + i7));
+                    if ((this.FC[cVar.x + i7] & 31) == 2) {
+                        batchingListUpdateCallback.onChanged(cVar.x + i7, 1, this.FE.getChangePayload(cVar.x + i7, cVar.y + i7));
                     }
                 }
                 i = cVar.x;
@@ -379,7 +379,7 @@ public class DiffUtil {
             int size = list.size() - 1;
             while (size >= 0) {
                 a aVar = list.get(size);
-                if (aVar.FP != i || aVar.FR != z) {
+                if (aVar.FK != i || aVar.FM != z) {
                     size--;
                 } else {
                     list.remove(size);
@@ -389,7 +389,7 @@ public class DiffUtil {
                             return aVar;
                         }
                         a aVar2 = list.get(i2);
-                        aVar2.FQ = (z ? 1 : -1) + aVar2.FQ;
+                        aVar2.FL = (z ? 1 : -1) + aVar2.FL;
                         size = i2 + 1;
                     }
                 }
@@ -398,25 +398,25 @@ public class DiffUtil {
         }
 
         private void a(List<a> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
-            if (!this.FM) {
+            if (!this.FH) {
                 listUpdateCallback.onInserted(i, i2);
                 return;
             }
             for (int i4 = i2 - 1; i4 >= 0; i4--) {
-                int i5 = this.FI[i3 + i4] & 31;
+                int i5 = this.FD[i3 + i4] & 31;
                 switch (i5) {
                     case 0:
                         listUpdateCallback.onInserted(i, 1);
                         for (a aVar : list) {
-                            aVar.FQ++;
+                            aVar.FL++;
                         }
                         break;
                     case 4:
                     case 8:
-                        int i6 = this.FI[i3 + i4] >> 5;
-                        listUpdateCallback.onMoved(b(list, i6, true).FQ, i);
+                        int i6 = this.FD[i3 + i4] >> 5;
+                        listUpdateCallback.onMoved(b(list, i6, true).FL, i);
                         if (i5 == 4) {
-                            listUpdateCallback.onChanged(i, 1, this.FJ.getChangePayload(i6, i3 + i4));
+                            listUpdateCallback.onChanged(i, 1, this.FE.getChangePayload(i6, i3 + i4));
                             break;
                         } else {
                             break;
@@ -431,26 +431,26 @@ public class DiffUtil {
         }
 
         private void b(List<a> list, ListUpdateCallback listUpdateCallback, int i, int i2, int i3) {
-            if (!this.FM) {
+            if (!this.FH) {
                 listUpdateCallback.onRemoved(i, i2);
                 return;
             }
             for (int i4 = i2 - 1; i4 >= 0; i4--) {
-                int i5 = this.FH[i3 + i4] & 31;
+                int i5 = this.FC[i3 + i4] & 31;
                 switch (i5) {
                     case 0:
                         listUpdateCallback.onRemoved(i + i4, 1);
                         for (a aVar : list) {
-                            aVar.FQ--;
+                            aVar.FL--;
                         }
                         break;
                     case 4:
                     case 8:
-                        int i6 = this.FH[i3 + i4] >> 5;
+                        int i6 = this.FC[i3 + i4] >> 5;
                         a b = b(list, i6, false);
-                        listUpdateCallback.onMoved(i + i4, b.FQ - 1);
+                        listUpdateCallback.onMoved(i + i4, b.FL - 1);
                         if (i5 == 4) {
-                            listUpdateCallback.onChanged(b.FQ - 1, 1, this.FJ.getChangePayload(i3 + i4, i6));
+                            listUpdateCallback.onChanged(b.FL - 1, 1, this.FE.getChangePayload(i3 + i4, i6));
                             break;
                         } else {
                             break;
@@ -468,14 +468,14 @@ public class DiffUtil {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        int FP;
-        int FQ;
-        boolean FR;
+        int FK;
+        int FL;
+        boolean FM;
 
         public a(int i, int i2, boolean z) {
-            this.FP = i;
-            this.FQ = i2;
-            this.FR = z;
+            this.FK = i;
+            this.FL = i2;
+            this.FM = z;
         }
     }
 }

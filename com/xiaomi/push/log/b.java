@@ -16,16 +16,16 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static volatile b c = null;
-    private final ConcurrentLinkedQueue<C0288b> a = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<C0289b> a = new ConcurrentLinkedQueue<>();
     private Context b;
 
     /* loaded from: classes2.dex */
-    class a extends C0288b {
+    class a extends C0289b {
         a() {
             super();
         }
 
-        @Override // com.xiaomi.push.log.b.C0288b, com.xiaomi.channel.commonutils.misc.h.b
+        @Override // com.xiaomi.push.log.b.C0289b, com.xiaomi.channel.commonutils.misc.h.b
         public void b() {
             b.this.b();
         }
@@ -34,11 +34,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.push.log.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0288b extends h.b {
+    public class C0289b extends h.b {
         long i = System.currentTimeMillis();
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0288b() {
+        public C0289b() {
         }
 
         @Override // com.xiaomi.channel.commonutils.misc.h.b
@@ -55,7 +55,7 @@ public class b {
     }
 
     /* loaded from: classes2.dex */
-    class c extends C0288b {
+    class c extends C0289b {
         String a;
         String b;
         File c;
@@ -101,7 +101,7 @@ public class b {
             return true;
         }
 
-        @Override // com.xiaomi.push.log.b.C0288b, com.xiaomi.channel.commonutils.misc.h.b
+        @Override // com.xiaomi.push.log.b.C0289b, com.xiaomi.channel.commonutils.misc.h.b
         public void b() {
             try {
                 if (f()) {
@@ -130,7 +130,7 @@ public class b {
             b.this.a((1 << this.d) * 1000);
         }
 
-        @Override // com.xiaomi.push.log.b.C0288b
+        @Override // com.xiaomi.push.log.b.C0289b
         public boolean d() {
             return com.xiaomi.channel.commonutils.network.d.f(b.this.b) || (this.f && com.xiaomi.channel.commonutils.network.d.d(b.this.b));
         }
@@ -156,7 +156,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        C0288b peek = this.a.peek();
+        C0289b peek = this.a.peek();
         if (peek == null || !peek.d()) {
             return;
         }

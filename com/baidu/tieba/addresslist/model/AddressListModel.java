@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bVM;
+    private a bVA;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bVM = a.UM();
+        this.bVA = a.UL();
     }
 
-    public void a(a.InterfaceC0127a interfaceC0127a) {
-        this.bVM.a(interfaceC0127a);
+    public void a(a.InterfaceC0128a interfaceC0128a) {
+        this.bVA.a(interfaceC0128a);
     }
 
-    public void b(a.InterfaceC0127a interfaceC0127a) {
-        this.bVM.b(interfaceC0127a);
+    public void b(a.InterfaceC0128a interfaceC0128a) {
+        this.bVA.b(interfaceC0128a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Ve() {
-        return this.bVM.UN();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Vd() {
+        return this.bVA.UM();
     }
 
-    public void Vf() {
+    public void Ve() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void Va() {
+    public void UZ() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void af(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bVM.ac(list);
+        this.bVA.ac(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bVM.a(aVar);
+        this.bVA.a(aVar);
     }
 
     public void aI(long j) {
-        this.bVM.aI(j);
+        this.bVA.aI(j);
     }
 
     public int iv(String str) {
         int i;
         if (c.fF(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> UN = this.bVM.UN();
-            if (UN != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : UN) {
-                    if (str.equals(aVar.IU())) {
-                        i = UN.indexOf(aVar);
+            List<com.baidu.tbadk.coreExtra.relationship.a> UM = this.bVA.UM();
+            if (UM != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : UM) {
+                    if (str.equals(aVar.IT())) {
+                        i = UM.indexOf(aVar);
                         break;
                     }
                 }

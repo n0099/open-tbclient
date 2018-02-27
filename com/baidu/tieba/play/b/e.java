@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class e {
-    public static void tU(int i) {
+    public static void tV(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new ak("c12493").s("obj_type", i2));
     }
 
-    public static void tV(int i) {
+    public static void tW(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -46,7 +46,7 @@ public class e {
         TiebaStatic.log(new ak("c12026").ab("tid", str));
     }
 
-    public static void tW(int i) {
+    public static void tX(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;

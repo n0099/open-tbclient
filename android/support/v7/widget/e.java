@@ -13,31 +13,31 @@ import android.util.AttributeSet;
 import android.widget.CompoundButton;
 /* loaded from: classes2.dex */
 class e {
-    private final CompoundButton MC;
-    private ColorStateList MD = null;
-    private PorterDuff.Mode ME = null;
-    private boolean MF = false;
-    private boolean MG = false;
-    private boolean MH;
+    private boolean MC;
+    private final CompoundButton Mx;
+    private ColorStateList My = null;
+    private PorterDuff.Mode Mz = null;
+    private boolean MA = false;
+    private boolean MB = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CompoundButton compoundButton) {
-        this.MC = compoundButton;
+        this.Mx = compoundButton;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
-        TypedArray obtainStyledAttributes = this.MC.getContext().obtainStyledAttributes(attributeSet, R.styleable.CompoundButton, i, 0);
+        TypedArray obtainStyledAttributes = this.Mx.getContext().obtainStyledAttributes(attributeSet, R.styleable.CompoundButton, i, 0);
         try {
             if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_android_button) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.CompoundButton_android_button, 0)) != 0) {
-                this.MC.setButtonDrawable(AppCompatResources.getDrawable(this.MC.getContext(), resourceId));
+                this.Mx.setButtonDrawable(AppCompatResources.getDrawable(this.Mx.getContext(), resourceId));
             }
             if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTint)) {
-                CompoundButtonCompat.setButtonTintList(this.MC, obtainStyledAttributes.getColorStateList(R.styleable.CompoundButton_buttonTint));
+                CompoundButtonCompat.setButtonTintList(this.Mx, obtainStyledAttributes.getColorStateList(R.styleable.CompoundButton_buttonTint));
             }
             if (obtainStyledAttributes.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
-                CompoundButtonCompat.setButtonTintMode(this.MC, DrawableUtils.a(obtainStyledAttributes.getInt(R.styleable.CompoundButton_buttonTintMode, -1), null));
+                CompoundButtonCompat.setButtonTintMode(this.Mx, DrawableUtils.a(obtainStyledAttributes.getInt(R.styleable.CompoundButton_buttonTintMode, -1), null));
             }
         } finally {
             obtainStyledAttributes.recycle();
@@ -46,53 +46,53 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setSupportButtonTintList(ColorStateList colorStateList) {
-        this.MD = colorStateList;
-        this.MF = true;
+        this.My = colorStateList;
+        this.MA = true;
         fK();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ColorStateList getSupportButtonTintList() {
-        return this.MD;
+        return this.My;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setSupportButtonTintMode(PorterDuff.Mode mode) {
-        this.ME = mode;
-        this.MG = true;
+        this.Mz = mode;
+        this.MB = true;
         fK();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public PorterDuff.Mode getSupportButtonTintMode() {
-        return this.ME;
+        return this.Mz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fJ() {
-        if (this.MH) {
-            this.MH = false;
+        if (this.MC) {
+            this.MC = false;
             return;
         }
-        this.MH = true;
+        this.MC = true;
         fK();
     }
 
     void fK() {
-        Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.MC);
+        Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.Mx);
         if (buttonDrawable != null) {
-            if (this.MF || this.MG) {
+            if (this.MA || this.MB) {
                 Drawable mutate = DrawableCompat.wrap(buttonDrawable).mutate();
-                if (this.MF) {
-                    DrawableCompat.setTintList(mutate, this.MD);
+                if (this.MA) {
+                    DrawableCompat.setTintList(mutate, this.My);
                 }
-                if (this.MG) {
-                    DrawableCompat.setTintMode(mutate, this.ME);
+                if (this.MB) {
+                    DrawableCompat.setTintMode(mutate, this.Mz);
                 }
                 if (mutate.isStateful()) {
-                    mutate.setState(this.MC.getDrawableState());
+                    mutate.setState(this.Mx.getDrawableState());
                 }
-                this.MC.setButtonDrawable(mutate);
+                this.Mx.setButtonDrawable(mutate);
             }
         }
     }
@@ -100,7 +100,7 @@ class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int bf(int i) {
         Drawable buttonDrawable;
-        if (Build.VERSION.SDK_INT < 17 && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.MC)) != null) {
+        if (Build.VERSION.SDK_INT < 17 && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.Mx)) != null) {
             return i + buttonDrawable.getIntrinsicWidth();
         }
         return i;

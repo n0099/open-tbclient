@@ -1,7 +1,7 @@
 package com.tencent.open.a;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static int a = 62;
     public static int b = 60;

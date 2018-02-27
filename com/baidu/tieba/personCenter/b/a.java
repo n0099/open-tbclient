@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c giO;
-    private d gjc;
-    private com.baidu.tieba.personCenter.a.a gjd;
-    private com.baidu.tieba.personCenter.a.b gje;
+    private com.baidu.tieba.personCenter.a.c giD;
+    private d giR;
+    private com.baidu.tieba.personCenter.a.a giS;
+    private com.baidu.tieba.personCenter.a.b giT;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gjc = new d(tbPageContext, f.gjH);
-        this.gjd = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gjs);
-        this.gje = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gjt);
-        this.giO = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gjG);
-        this.mAdapters.add(this.gjc);
-        this.mAdapters.add(this.gjd);
-        this.mAdapters.add(this.gje);
-        this.mAdapters.add(this.giO);
+        this.giR = new d(tbPageContext, f.gjw);
+        this.giS = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.gjh);
+        this.giT = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.gji);
+        this.giD = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.gjv);
+        this.mAdapters.add(this.giR);
+        this.mAdapters.add(this.giS);
+        this.mAdapters.add(this.giT);
+        this.mAdapters.add(this.giD);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void biG() {
-        this.gjd.biG();
+    public void biF() {
+        this.giS.biF();
     }
 
-    public void biH() {
-        this.gjd.destroy();
+    public void biG() {
+        this.giS.destroy();
     }
 }

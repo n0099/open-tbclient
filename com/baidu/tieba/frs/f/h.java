@@ -154,7 +154,7 @@ public class h {
 
     public static void a(TbPageContext tbPageContext, l lVar) {
         if (tbPageContext != null && lVar != null) {
-            com.baidu.tbadk.browser.b.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bas().getId(), true, true, true);
+            com.baidu.tbadk.browser.b.a(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + lVar.bar().getId(), true, true, true);
         }
     }
 
@@ -214,7 +214,7 @@ public class h {
         PhotoLiveActivityConfig xD;
         if (iVar != null && bdVar != null) {
             if (bdVar.getThreadType() == 33 || (bdVar instanceof as)) {
-                if (bdVar.zK() > 0 && com.baidu.tieba.tbadkCore.util.f.bxT()) {
+                if (bdVar.zK() > 0 && com.baidu.tieba.tbadkCore.util.f.bxS()) {
                     xD = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), bdVar.getTid()).cR("from_frs").eC(18003).cP(String.valueOf(bdVar.zK())).xD();
                 } else {
                     xD = new PhotoLiveActivityConfig.a(iVar.getPageContext().getPageActivity(), bdVar.getTid()).cR("from_frs").eC(18003).xD();
@@ -227,7 +227,7 @@ public class h {
     public static void a(com.baidu.tieba.frs.i iVar, bd bdVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
         if (iVar != null && bdVar != null) {
-            if (bdVar.zK() > 0 && com.baidu.tieba.tbadkCore.util.f.bxT()) {
+            if (bdVar.zK() > 0 && com.baidu.tieba.tbadkCore.util.f.bxS()) {
                 createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createHistoryCfg(bdVar.getTid(), String.valueOf(bdVar.zK()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(iVar.getPageContext().getPageActivity()).createFromThreadCfg(bdVar, iVar.getForumName(), "frs_page", 18003, true, false, z);

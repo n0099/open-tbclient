@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class e {
-    private static final String gRY = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private static final String gRJ = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     private x mNetWork = null;
 
-    public String bty() {
-        this.mNetWork = new x(gRY);
-        this.mNetWork.Cz().Dw().aYk = true;
-        this.mNetWork.Cz().Dw().mIsNeedTbs = true;
-        return this.mNetWork.Cb();
+    public String btx() {
+        this.mNetWork = new x(gRJ);
+        this.mNetWork.Cy().Dv().aXY = true;
+        this.mNetWork.Cy().Dv().mIsNeedTbs = true;
+        return this.mNetWork.Ca();
     }
 
     public String sq(String str) {
@@ -22,12 +22,12 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(gRY);
+        this.mNetWork = new x(gRJ);
         this.mNetWork.n("user_id", str2);
         this.mNetWork.n("forum_ids", str);
-        this.mNetWork.Cz().Dw().aYk = true;
-        this.mNetWork.Cz().Dw().mIsNeedTbs = true;
-        return this.mNetWork.Cb();
+        this.mNetWork.Cy().Dv().aXY = true;
+        this.mNetWork.Cy().Dv().mIsNeedTbs = true;
+        return this.mNetWork.Ca();
     }
 
     public void cancel() {
@@ -38,7 +38,7 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.Cz().Dx().isRequestSuccess();
+            return this.mNetWork.Cy().Dw().isRequestSuccess();
         }
         return false;
     }

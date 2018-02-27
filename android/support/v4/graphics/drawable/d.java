@@ -5,49 +5,49 @@ import android.util.Log;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 class d {
-    private static Method ws;
-    private static boolean wt;
-    private static Method wu;
-    private static boolean wv;
+    private static Method wr;
+    private static boolean ws;
+    private static Method wt;
+    private static boolean wu;
 
     public static boolean setLayoutDirection(Drawable drawable, int i) {
-        if (!wt) {
+        if (!ws) {
             try {
-                ws = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
-                ws.setAccessible(true);
+                wr = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
+                wr.setAccessible(true);
             } catch (NoSuchMethodException e) {
                 Log.i("DrawableCompatJellybeanMr1", "Failed to retrieve setLayoutDirection(int) method", e);
             }
-            wt = true;
+            ws = true;
         }
-        if (ws != null) {
+        if (wr != null) {
             try {
-                ws.invoke(drawable, Integer.valueOf(i));
+                wr.invoke(drawable, Integer.valueOf(i));
                 return true;
             } catch (Exception e2) {
                 Log.i("DrawableCompatJellybeanMr1", "Failed to invoke setLayoutDirection(int) via reflection", e2);
-                ws = null;
+                wr = null;
             }
         }
         return false;
     }
 
     public static int getLayoutDirection(Drawable drawable) {
-        if (!wv) {
+        if (!wu) {
             try {
-                wu = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
-                wu.setAccessible(true);
+                wt = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
+                wt.setAccessible(true);
             } catch (NoSuchMethodException e) {
                 Log.i("DrawableCompatJellybeanMr1", "Failed to retrieve getLayoutDirection() method", e);
             }
-            wv = true;
+            wu = true;
         }
-        if (wu != null) {
+        if (wt != null) {
             try {
-                return ((Integer) wu.invoke(drawable, new Object[0])).intValue();
+                return ((Integer) wt.invoke(drawable, new Object[0])).intValue();
             } catch (Exception e2) {
                 Log.i("DrawableCompatJellybeanMr1", "Failed to invoke getLayoutDirection() via reflection", e2);
-                wu = null;
+                wt = null;
             }
         }
         return -1;

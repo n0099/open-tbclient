@@ -30,8 +30,8 @@ public class l extends com.baidu.tieba.frs.g<m, n> {
                 } else if (view.getId() == d.g.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.atV() != null) {
-                        String[] split = !StringUtils.isNull(mVar.atV().member_group_type) ? mVar.atV().member_group_type.split("_") : null;
+                    if (mVar != null && mVar.atU() != null) {
+                        String[] split = !StringUtils.isNull(mVar.atU().member_group_type) ? mVar.atU().member_group_type.split("_") : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -60,18 +60,18 @@ public class l extends com.baidu.tieba.frs.g<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.atV() != null) {
-            MemberGroupInfo atV = mVar.atV();
-            if (atV.member_group_list != null && atV.member_group_list.size() > 0 && !StringUtils.isNull(atV.member_group_type)) {
+        if (mVar != null && mVar.atU() != null) {
+            MemberGroupInfo atU = mVar.atU();
+            if (atU.member_group_list != null && atU.member_group_list.size() > 0 && !StringUtils.isNull(atU.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(atV.member_group_type) ? atV.member_group_type.split("_") : null;
+                String[] split = !StringUtils.isNull(atU.member_group_type) ? atU.member_group_type.split("_") : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + atV.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + atU.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : atV.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : atU.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -80,13 +80,13 @@ public class l extends com.baidu.tieba.frs.g<m, n> {
                     }
                 }
                 nVar.fF(this.mSkinType == 1);
-                aj.t(nVar.dCg, d.C0140d.cp_bg_line_d);
-                aj.t(nVar.dCh, d.C0140d.cp_bg_line_b);
-                aj.e(nVar.mTitleView, d.C0140d.cp_cont_c, 1);
-                aj.e(nVar.dCc, d.C0140d.cp_cont_f, 1);
-                aj.e(nVar.dCd, d.C0140d.cp_cont_f, 1);
-                aj.e(nVar.dCe, d.C0140d.cp_cont_f, 1);
-                aj.e(nVar.dCf, d.C0140d.cp_cont_f, 1);
+                aj.t(nVar.dBU, d.C0141d.cp_bg_line_d);
+                aj.t(nVar.dBV, d.C0141d.cp_bg_line_b);
+                aj.e(nVar.mTitleView, d.C0141d.cp_cont_c, 1);
+                aj.e(nVar.dBQ, d.C0141d.cp_cont_f, 1);
+                aj.e(nVar.dBR, d.C0141d.cp_cont_f, 1);
+                aj.e(nVar.dBS, d.C0141d.cp_cont_f, 1);
+                aj.e(nVar.dBT, d.C0141d.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aj.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
             }
         }

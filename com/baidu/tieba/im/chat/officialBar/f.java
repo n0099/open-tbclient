@@ -3,16 +3,16 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class f {
-    public static f exK = new f();
-    private com.baidu.adp.lib.e.b<k> exA;
-    private com.baidu.adp.lib.e.b<e> exy;
-    private com.baidu.adp.lib.e.b<d> exz;
+    public static f exy = new f();
+    private com.baidu.adp.lib.e.b<e> exl;
+    private com.baidu.adp.lib.e.b<d> exm;
+    private com.baidu.adp.lib.e.b<k> exn;
 
     private void bF(final Context context) {
-        this.exy = new com.baidu.adp.lib.e.b<e>(new com.baidu.adp.lib.e.c<e>() { // from class: com.baidu.tieba.im.chat.officialBar.f.1
+        this.exl = new com.baidu.adp.lib.e.b<e>(new com.baidu.adp.lib.e.c<e>() { // from class: com.baidu.tieba.im.chat.officialBar.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGf */
+            /* renamed from: aGe */
             public e nl() {
                 return new e(context);
             }
@@ -47,10 +47,10 @@ public class f {
     }
 
     private void bG(final Context context) {
-        this.exz = new com.baidu.adp.lib.e.b<d>(new com.baidu.adp.lib.e.c<d>() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
+        this.exm = new com.baidu.adp.lib.e.b<d>(new com.baidu.adp.lib.e.c<d>() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGg */
+            /* renamed from: aGf */
             public d nl() {
                 return new d(context);
             }
@@ -85,10 +85,10 @@ public class f {
     }
 
     private void bH(final Context context) {
-        this.exA = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<k>() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
+        this.exn = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<k>() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGh */
+            /* renamed from: aGg */
             public k nl() {
                 return new k(context);
             }
@@ -122,23 +122,23 @@ public class f {
     }
 
     public com.baidu.adp.lib.e.b<e> bI(Context context) {
-        if (this.exy == null) {
+        if (this.exl == null) {
             bF(context);
         }
-        return this.exy;
+        return this.exl;
     }
 
     public com.baidu.adp.lib.e.b<d> bJ(Context context) {
-        if (this.exz == null) {
+        if (this.exm == null) {
             bG(context);
         }
-        return this.exz;
+        return this.exm;
     }
 
     public com.baidu.adp.lib.e.b<k> bK(Context context) {
-        if (this.exA == null) {
+        if (this.exn == null) {
             bH(context);
         }
-        return this.exA;
+        return this.exn;
     }
 }

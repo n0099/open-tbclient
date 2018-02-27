@@ -11,14 +11,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class ContentFrameLayout extends FrameLayout {
+    private TypedValue NN;
+    private TypedValue NP;
+    private TypedValue NQ;
+    private TypedValue NR;
+    private TypedValue NT;
     private TypedValue NU;
-    private TypedValue NV;
-    private TypedValue NW;
-    private TypedValue NX;
-    private TypedValue NY;
-    private TypedValue NZ;
-    private final Rect Oa;
-    private OnAttachListener Ob;
+    private final Rect NV;
+    private OnAttachListener NW;
 
     /* loaded from: classes2.dex */
     public interface OnAttachListener {
@@ -37,7 +37,7 @@ public class ContentFrameLayout extends FrameLayout {
 
     public ContentFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Oa = new Rect();
+        this.NV = new Rect();
     }
 
     @RestrictTo
@@ -46,12 +46,12 @@ public class ContentFrameLayout extends FrameLayout {
     }
 
     public void setAttachListener(OnAttachListener onAttachListener) {
-        this.Ob = onAttachListener;
+        this.NW = onAttachListener;
     }
 
     @RestrictTo
     public void setDecorPadding(int i, int i2, int i3, int i4) {
-        this.Oa.set(i, i2, i3, i4);
+        this.NV.set(i, i2, i3, i4);
         if (ViewCompat.isLaidOut(this)) {
             requestLayout();
         }
@@ -84,7 +84,7 @@ public class ContentFrameLayout extends FrameLayout {
         int mode = View.MeasureSpec.getMode(i);
         int mode2 = View.MeasureSpec.getMode(i2);
         if (mode == Integer.MIN_VALUE) {
-            TypedValue typedValue2 = z3 ? this.NX : this.NW;
+            TypedValue typedValue2 = z3 ? this.NR : this.NQ;
             if (typedValue2 != null && typedValue2.type != 0) {
                 if (typedValue2.type == 5) {
                     fraction3 = (int) typedValue2.getDimension(displayMetrics);
@@ -92,10 +92,10 @@ public class ContentFrameLayout extends FrameLayout {
                     fraction3 = typedValue2.type == 6 ? (int) typedValue2.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels) : 0;
                 }
                 if (fraction3 > 0) {
-                    i = View.MeasureSpec.makeMeasureSpec(Math.min(fraction3 - (this.Oa.left + this.Oa.right), View.MeasureSpec.getSize(i)), 1073741824);
+                    i = View.MeasureSpec.makeMeasureSpec(Math.min(fraction3 - (this.NV.left + this.NV.right), View.MeasureSpec.getSize(i)), 1073741824);
                     z = true;
                     if (mode2 == Integer.MIN_VALUE) {
-                        TypedValue typedValue3 = z3 ? this.NY : this.NZ;
+                        TypedValue typedValue3 = z3 ? this.NT : this.NU;
                         if (typedValue3 != null && typedValue3.type != 0) {
                             if (typedValue3.type == 5) {
                                 fraction2 = (int) typedValue3.getDimension(displayMetrics);
@@ -103,7 +103,7 @@ public class ContentFrameLayout extends FrameLayout {
                                 fraction2 = typedValue3.type == 6 ? (int) typedValue3.getFraction(displayMetrics.heightPixels, displayMetrics.heightPixels) : 0;
                             }
                             if (fraction2 > 0) {
-                                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(fraction2 - (this.Oa.top + this.Oa.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
+                                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(fraction2 - (this.NV.top + this.NV.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
                             }
                         }
                     }
@@ -111,7 +111,7 @@ public class ContentFrameLayout extends FrameLayout {
                     measuredWidth = getMeasuredWidth();
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
                     if (!z && mode == Integer.MIN_VALUE) {
-                        typedValue = !z3 ? this.NV : this.NU;
+                        typedValue = !z3 ? this.NP : this.NN;
                         if (typedValue != null && typedValue.type != 0) {
                             if (typedValue.type != 5) {
                                 fraction = (int) typedValue.getDimension(displayMetrics);
@@ -119,7 +119,7 @@ public class ContentFrameLayout extends FrameLayout {
                                 fraction = typedValue.type == 6 ? (int) typedValue.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels) : 0;
                             }
                             if (fraction > 0) {
-                                fraction -= this.Oa.left + this.Oa.right;
+                                fraction -= this.NV.left + this.NV.right;
                             }
                             if (measuredWidth < fraction) {
                                 i3 = View.MeasureSpec.makeMeasureSpec(fraction, 1073741824);
@@ -162,60 +162,60 @@ public class ContentFrameLayout extends FrameLayout {
     }
 
     public TypedValue getMinWidthMajor() {
+        if (this.NN == null) {
+            this.NN = new TypedValue();
+        }
+        return this.NN;
+    }
+
+    public TypedValue getMinWidthMinor() {
+        if (this.NP == null) {
+            this.NP = new TypedValue();
+        }
+        return this.NP;
+    }
+
+    public TypedValue getFixedWidthMajor() {
+        if (this.NQ == null) {
+            this.NQ = new TypedValue();
+        }
+        return this.NQ;
+    }
+
+    public TypedValue getFixedWidthMinor() {
+        if (this.NR == null) {
+            this.NR = new TypedValue();
+        }
+        return this.NR;
+    }
+
+    public TypedValue getFixedHeightMajor() {
+        if (this.NT == null) {
+            this.NT = new TypedValue();
+        }
+        return this.NT;
+    }
+
+    public TypedValue getFixedHeightMinor() {
         if (this.NU == null) {
             this.NU = new TypedValue();
         }
         return this.NU;
     }
 
-    public TypedValue getMinWidthMinor() {
-        if (this.NV == null) {
-            this.NV = new TypedValue();
-        }
-        return this.NV;
-    }
-
-    public TypedValue getFixedWidthMajor() {
-        if (this.NW == null) {
-            this.NW = new TypedValue();
-        }
-        return this.NW;
-    }
-
-    public TypedValue getFixedWidthMinor() {
-        if (this.NX == null) {
-            this.NX = new TypedValue();
-        }
-        return this.NX;
-    }
-
-    public TypedValue getFixedHeightMajor() {
-        if (this.NY == null) {
-            this.NY = new TypedValue();
-        }
-        return this.NY;
-    }
-
-    public TypedValue getFixedHeightMinor() {
-        if (this.NZ == null) {
-            this.NZ = new TypedValue();
-        }
-        return this.NZ;
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.Ob != null) {
-            this.Ob.onAttachedFromWindow();
+        if (this.NW != null) {
+            this.NW.onAttachedFromWindow();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.Ob != null) {
-            this.Ob.onDetachedFromWindow();
+        if (this.NW != null) {
+            this.NW.onDetachedFromWindow();
         }
     }
 }

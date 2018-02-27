@@ -20,19 +20,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g alH;
-    private h alK;
-    private a alL;
+    private static volatile g alB;
+    private h alE;
+    private a alF;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private String uid;
-    private final SimpleDateFormat alI = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> alJ = new ConcurrentHashMap<>();
+    private final SimpleDateFormat alC = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> alD = new ConcurrentHashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.b.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.alJ.entrySet()) {
+                    for (Map.Entry entry : g.this.alD.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.nP() > 0) {
                             g.this.a(aVar, true, true);
@@ -47,7 +47,7 @@ public class g {
             }
         }
     };
-    private i ale = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
+    private i akY = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
         @Override // com.baidu.adp.lib.stats.b.i
         public void g(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.b(aVar)) {
@@ -60,22 +60,22 @@ public class g {
     };
 
     public static g oj() {
-        if (alH == null) {
+        if (alB == null) {
             synchronized (g.class) {
-                if (alH == null) {
-                    alH = new g();
+                if (alB == null) {
+                    alB = new g();
                 }
             }
         }
-        return alH;
+        return alB;
     }
 
     public void init() {
-        if (this.alL == null) {
-            this.alL = new a();
+        if (this.alF == null) {
+            this.alF = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.alL, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.alF, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
     }
@@ -99,23 +99,23 @@ public class g {
         String ay;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.alJ.get((ay = com.baidu.adp.lib.stats.base.a.ay(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.alD.get((ay = com.baidu.adp.lib.stats.base.a.ay(str)))) == null) {
                 if ("alert".equals(ay)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if ("error".equals(ay)) {
-                    aVar = new c(this.ale);
+                    aVar = new c(this.akY);
                 } else if ("dbg".equals(ay)) {
-                    aVar = new b(this.ale);
+                    aVar = new b(this.akY);
                 } else if ("stat".equals(ay)) {
-                    aVar = new f(this.ale);
+                    aVar = new f(this.akY);
                 } else if ("pfmonitor".equals(ay)) {
-                    aVar = new e(this.ale);
+                    aVar = new e(this.akY);
                 } else {
-                    aVar = new c(this.ale);
+                    aVar = new c(this.akY);
                 }
                 if (aVar != null) {
                     aVar.ax(ay);
-                    this.alJ.put(ay, aVar);
+                    this.alD.put(ay, aVar);
                 }
             }
         }
@@ -197,19 +197,19 @@ public class g {
     }
 
     public void ok() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alD.entrySet()) {
             e(entry.getValue());
         }
     }
 
     public void ol() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alD.entrySet()) {
             d(entry.getValue());
         }
     }
 
     public void om() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alD.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             a(value, false, false);
             d(value);
@@ -223,7 +223,7 @@ public class g {
     }
 
     public void on() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alD.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             e(value);
             f(value);
@@ -267,7 +267,7 @@ public class g {
     }
 
     public void op() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alJ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.alD.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
                 long av = this.mBdLogSetting.av(value.nS());
@@ -341,9 +341,9 @@ public class g {
     }
 
     public void oq() {
-        if (this.alK == null) {
-            this.alK = new h();
+        if (this.alE == null) {
+            this.alE = new h();
         }
-        this.alK.oq();
+        this.alE.oq();
     }
 }

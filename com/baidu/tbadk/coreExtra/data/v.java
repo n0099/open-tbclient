@@ -6,71 +6,71 @@ import org.json.JSONObject;
 public class v {
     private a activityPrizeData;
     private long biA;
-    private int biB;
-    private String biD;
-    private String biE;
-    private String biF;
-    public int biH;
-    private String biJ;
-    private String biK;
-    private int biL;
-    private long biM;
-    private q biN;
-    private String biO;
-    private String bip;
-    private String biq;
+    private q biB;
+    private String biC;
+    private String bib;
+    private String bic;
+    private String bie;
+    private String bif;
+    private String bih;
+    private String bii;
+    private String bij;
+    private String bik;
+    private long bil;
+    private int bim;
+    private int bin;
+    private long bio;
+    private int bip;
     private String bir;
     private String bis;
     private String bit;
-    private String biu;
-    private String biv;
-    private String biw;
-    private long bix;
-    private int biy;
+    public int biv;
+    private String bix;
+    private String biy;
     private int biz;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
     private String uegVoiceWarning;
-    private int biC = 0;
-    private int biG = 2;
-    private String biI = "";
-    private int biP = 0;
+    private int biq = 0;
+    private int biu = 2;
+    private String biw = "";
+    private int biD = 0;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bip = jSONObject.optString("drop_pic");
-                this.biq = jSONObject.optString("drop_pic_md5");
-                this.bir = jSONObject.optString("drop_pic_num");
-                this.bis = jSONObject.optString("drop_bg_color_day");
-                this.bit = jSONObject.optString("drop_bg_color_night");
-                this.biu = jSONObject.optString("apply_vip_live_room_pid");
-                this.biD = jSONObject.optString("max_cache");
-                this.biE = jSONObject.optString("frs_max_cache");
-                this.biF = jSONObject.optString("frs_pn");
-                this.biv = jSONObject.optString("tail_link");
-                this.biw = jSONObject.optString("bubble_link");
-                this.bix = jSONObject.optLong("use_duration");
-                this.biy = jSONObject.optInt("xiaoying_time");
+                this.bib = jSONObject.optString("drop_pic");
+                this.bic = jSONObject.optString("drop_pic_md5");
+                this.bie = jSONObject.optString("drop_pic_num");
+                this.bif = jSONObject.optString("drop_bg_color_day");
+                this.bih = jSONObject.optString("drop_bg_color_night");
+                this.bii = jSONObject.optString("apply_vip_live_room_pid");
+                this.bir = jSONObject.optString("max_cache");
+                this.bis = jSONObject.optString("frs_max_cache");
+                this.bit = jSONObject.optString("frs_pn");
+                this.bij = jSONObject.optString("tail_link");
+                this.bik = jSONObject.optString("bubble_link");
+                this.bil = jSONObject.optLong("use_duration");
+                this.bim = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.biK = jSONObject.optString("url_analyze_text");
-                this.biz = jSONObject.optInt("new_resign", 0);
-                this.biA = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.biB = jSONObject.optInt("personalized_max_count", 300);
+                this.biy = jSONObject.optString("url_analyze_text");
+                this.bin = jSONObject.optInt("new_resign", 0);
+                this.bio = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.bip = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.biG = jSONObject.optInt("localvideo_open", 2);
-                this.biH = jSONObject.optInt("card_show_statistic", 200);
-                this.biI = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.pageStayDuration.e.NR().m13if(jSONObject.optInt("statlog_path_max", 3));
-                this.biC = jSONObject.optInt("photo_cache_num", 30);
+                this.biu = jSONObject.optInt("localvideo_open", 2);
+                this.biv = jSONObject.optInt("card_show_statistic", 200);
+                this.biw = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.pageStayDuration.e.NQ().m13if(jSONObject.optInt("statlog_path_max", 3));
+                this.biq = jSONObject.optInt("photo_cache_num", 30);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.biJ = jSONObject.optString("nickname_activity_link");
-                this.biL = jSONObject.optInt("android_tab_show", 7);
-                this.biM = jSONObject.optLong("android_new_log_upload_interval", 0L);
+                this.bix = jSONObject.optString("nickname_activity_link");
+                this.biz = jSONObject.optInt("android_tab_show", 7);
+                this.biA = jSONObject.optLong("android_new_log_upload_interval", 0L);
                 JSONObject optJSONObject = jSONObject.optJSONObject("laxin_config");
                 if (optJSONObject != null) {
                     this.activityPrizeData = new a();
@@ -79,140 +79,140 @@ public class v {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("nani_video");
                 if (optJSONObject2 != null) {
-                    this.biN = new q();
-                    this.biN.parse(optJSONObject2);
+                    this.biB = new q();
+                    this.biB.parse(optJSONObject2);
                 }
                 com.baidu.tieba.im.db.n.pV(jSONObject.optInt("android_max_stranger"));
-                this.biP = jSONObject.optInt("style_ab_switch", 0);
-                this.biO = jSONObject.optString("android_splash_video");
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_config", this.biO);
+                this.biD = jSONObject.optInt("style_ab_switch", 0);
+                this.biC = jSONObject.optString("android_splash_video");
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_config", this.biC);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    public String Gf() {
+        return this.bii;
+    }
+
     public String Gg() {
-        return this.biu;
+        return this.bib;
     }
 
     public String Gh() {
-        return this.bip;
+        return this.bic;
     }
 
     public String Gi() {
-        return this.biq;
+        return this.bie;
     }
 
     public String Gj() {
-        return this.bir;
+        return this.bif;
     }
 
     public String Gk() {
-        return this.bis;
+        return this.bih;
     }
 
     public String Gl() {
-        return this.bit;
+        return this.bir;
     }
 
     public String Gm() {
-        return this.biD;
+        return this.bis;
     }
 
     public String Gn() {
-        return this.biE;
+        return this.bit;
     }
 
     public String Go() {
-        return this.biF;
+        return this.bij;
     }
 
     public String Gp() {
-        return this.biv;
+        return this.bik;
     }
 
-    public String Gq() {
-        return this.biw;
+    public long Gq() {
+        return this.bil;
     }
 
-    public long Gr() {
-        return this.bix;
+    public int Gr() {
+        return this.bim;
     }
 
-    public int Gs() {
-        return this.biy;
-    }
-
-    public long Gt() {
+    public long Gs() {
         return this.lastUpdateTime;
     }
 
-    public int Gu() {
-        return this.biL;
-    }
-
-    public long Gv() {
-        return this.biA;
-    }
-
-    public int Gw() {
-        return this.biB;
-    }
-
-    public int Gx() {
+    public int Gt() {
         return this.biz;
     }
 
-    public String Gy() {
+    public long Gu() {
+        return this.bio;
+    }
+
+    public int Gv() {
+        return this.bip;
+    }
+
+    public int Gw() {
+        return this.bin;
+    }
+
+    public String Gx() {
         return this.infoIconUrl;
     }
 
-    public String Gz() {
+    public String Gy() {
         return this.infoTargetUrl;
     }
 
-    public long GA() {
+    public long Gz() {
         return this.infoTimeStamp;
     }
 
-    public String GB() {
-        return this.biI;
+    public String GA() {
+        return this.biw;
     }
 
-    public boolean GC() {
-        return this.biG == 1;
+    public boolean GB() {
+        return this.biu == 1;
     }
 
-    public int GD() {
-        return this.biC;
+    public int GC() {
+        return this.biq;
     }
 
     public String getUegVoiceWarning() {
         return this.uegVoiceWarning;
     }
 
+    public String GD() {
+        return this.bix;
+    }
+
     public String GE() {
-        return this.biJ;
+        return this.biy;
     }
 
-    public String GF() {
-        return this.biK;
-    }
-
-    public long GG() {
-        return this.biM;
+    public long GF() {
+        return this.biA;
     }
 
     public a getActivityPrizeData() {
         return this.activityPrizeData;
     }
 
-    public int GH() {
-        return this.biP;
+    public int GG() {
+        return this.biD;
     }
 
-    public q GI() {
-        return this.biN;
+    public q GH() {
+        return this.biB;
     }
 }

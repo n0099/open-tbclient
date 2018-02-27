@@ -9,13 +9,13 @@ public interface h {
 
     void X(int i, String str);
 
+    void aWM();
+
     void aWN();
 
     void aWO();
 
     void aWP();
-
-    void aWQ();
 
     void h(int i, int i2, String str);
 

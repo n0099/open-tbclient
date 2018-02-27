@@ -14,7 +14,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    g An;
+    g Ai;
 
     /* loaded from: classes2.dex */
     public interface OnPrintFinishCallback {
@@ -46,14 +46,14 @@ public final class PrintHelper {
 
     /* loaded from: classes2.dex */
     private static final class f implements g {
-        int Ar;
-        int As;
+        int Am;
+        int An;
         int mScaleMode;
 
         private f() {
             this.mScaleMode = 2;
-            this.Ar = 2;
-            this.As = 1;
+            this.Am = 2;
+            this.An = 1;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
@@ -63,22 +63,22 @@ public final class PrintHelper {
 
         @Override // android.support.v4.print.PrintHelper.g
         public int getColorMode() {
-            return this.Ar;
+            return this.Am;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public void setColorMode(int i) {
-            this.Ar = i;
+            this.Am = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public void setOrientation(int i) {
-            this.As = i;
+            this.An = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public int getOrientation() {
-            return this.As;
+            return this.An;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
@@ -97,40 +97,40 @@ public final class PrintHelper {
 
     /* loaded from: classes2.dex */
     private static class d<RealHelper extends PrintHelperKitkat> implements g {
-        private final RealHelper Ao;
+        private final RealHelper Aj;
 
         protected d(RealHelper realhelper) {
-            this.Ao = realhelper;
+            this.Aj = realhelper;
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public void setScaleMode(int i) {
-            this.Ao.setScaleMode(i);
+            this.Aj.setScaleMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public int getScaleMode() {
-            return this.Ao.getScaleMode();
+            return this.Aj.getScaleMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public void setColorMode(int i) {
-            this.Ao.setColorMode(i);
+            this.Aj.setColorMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public int getColorMode() {
-            return this.Ao.getColorMode();
+            return this.Aj.getColorMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public void setOrientation(int i) {
-            this.Ao.setOrientation(i);
+            this.Aj.setOrientation(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.g
         public int getOrientation() {
-            return this.Ao.getOrientation();
+            return this.Aj.getOrientation();
         }
 
         @Override // android.support.v4.print.PrintHelper.g
@@ -144,7 +144,7 @@ public final class PrintHelper {
                     }
                 };
             }
-            this.Ao.a(str, bitmap, onPrintFinishCallback2);
+            this.Aj.a(str, bitmap, onPrintFinishCallback2);
         }
 
         @Override // android.support.v4.print.PrintHelper.g
@@ -158,7 +158,7 @@ public final class PrintHelper {
                     }
                 };
             }
-            this.Ao.a(str, uri, onPrintFinishCallback2);
+            this.Aj.a(str, uri, onPrintFinishCallback2);
         }
     }
 
@@ -193,59 +193,59 @@ public final class PrintHelper {
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
             if (Build.VERSION.SDK_INT >= 24) {
-                this.An = new c(context);
+                this.Ai = new c(context);
                 return;
             } else if (Build.VERSION.SDK_INT >= 23) {
-                this.An = new b(context);
+                this.Ai = new b(context);
                 return;
             } else if (Build.VERSION.SDK_INT >= 20) {
-                this.An = new a(context);
+                this.Ai = new a(context);
                 return;
             } else {
-                this.An = new e(context);
+                this.Ai = new e(context);
                 return;
             }
         }
-        this.An = new f();
+        this.Ai = new f();
     }
 
     public void setScaleMode(int i) {
-        this.An.setScaleMode(i);
+        this.Ai.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.An.getScaleMode();
+        return this.Ai.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.An.setColorMode(i);
+        this.Ai.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.An.getColorMode();
+        return this.Ai.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.An.setOrientation(i);
+        this.Ai.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.An.getOrientation();
+        return this.Ai.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.An.printBitmap(str, bitmap, (OnPrintFinishCallback) null);
+        this.Ai.printBitmap(str, bitmap, (OnPrintFinishCallback) null);
     }
 
     public void printBitmap(String str, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
-        this.An.printBitmap(str, bitmap, onPrintFinishCallback);
+        this.Ai.printBitmap(str, bitmap, onPrintFinishCallback);
     }
 
     public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-        this.An.printBitmap(str, uri, (OnPrintFinishCallback) null);
+        this.Ai.printBitmap(str, uri, (OnPrintFinishCallback) null);
     }
 
     public void printBitmap(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
-        this.An.printBitmap(str, uri, onPrintFinishCallback);
+        this.Ai.printBitmap(str, uri, onPrintFinishCallback);
     }
 }

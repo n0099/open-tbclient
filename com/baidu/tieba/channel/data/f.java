@@ -7,16 +7,16 @@ public class f {
     private String channel_avatar;
     private String channel_name;
     private String create_time;
-    private String dcX;
+    private String dcL;
     private String description;
     private String follow_time;
     private String user_id;
 
-    public String amm() {
-        return this.dcX;
+    public String aml() {
+        return this.dcL;
     }
 
-    public String amn() {
+    public String amm() {
         return this.channel_name;
     }
 
@@ -24,12 +24,12 @@ public class f {
         return this.description;
     }
 
-    public String amo() {
+    public String amn() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.dcX = jSONObject.optString("channel_id");
+        this.dcL = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

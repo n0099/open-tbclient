@@ -8,38 +8,38 @@ import com.baidu.tbadk.a.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> eZz;
+    private final HashMap<String, f> eZn;
 
     private b() {
-        this.eZz = new HashMap<>();
+        this.eZn = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0223b {
-        private static b gCd = new b();
+    public static class C0224b {
+        private static b gBO = new b();
     }
 
-    public static b bog() {
-        return C0223b.gCd;
+    public static b bof() {
+        return C0224b.gBO;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a rK = a.rK(str);
-            f fVar = this.eZz.get(rK.getKey());
+            f fVar = this.eZn.get(rK.getKey());
             if (fVar != null && rK.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    rK.aPr().putAll(hashMap);
+                    rK.aPq().putAll(hashMap);
                 }
-                fVar.a(obj, rK.aPr(), str, dVar);
+                fVar.a(obj, rK.aPq(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.eZz.put(str, fVar);
+        this.eZn.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.a.a aVar) {
@@ -48,36 +48,36 @@ public class b implements e {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean aNa;
-        HashMap<String, String> eZA;
+        private boolean aMP;
+        HashMap<String, String> eZo;
         String key;
 
         public boolean isValid() {
-            return this.aNa;
+            return this.aMP;
         }
 
         public String getKey() {
             return this.key;
         }
 
-        public HashMap<String, String> aPr() {
-            return this.eZA;
+        public HashMap<String, String> aPq() {
+            return this.eZo;
         }
 
         private a(String str) {
-            this.aNa = false;
+            this.aMP = false;
             Uri parse = Uri.parse(str);
-            this.aNa = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.aNa) {
+            this.aMP = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.aMP) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eZA = new HashMap<>();
+                this.eZo = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eZA.put(str2, parse.getQueryParameter(str2));
+                    this.eZo.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eZA = new HashMap<>();
+            this.eZo = new HashMap<>();
         }
 
         public static a rK(String str) {

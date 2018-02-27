@@ -30,18 +30,18 @@ public class FloatingActionButton extends ab {
     public static final int SIZE_AUTO = -1;
     public static final int SIZE_MINI = 1;
     public static final int SIZE_NORMAL = 0;
+    private int mBorderWidth;
     private int mSize;
-    private final Rect oA;
-    private AppCompatImageHelper oB;
-    private i oC;
+    private AppCompatImageHelper oA;
+    private i oB;
     private ColorStateList or;
     private PorterDuff.Mode ot;
     private int ou;
-    private int ov;
-    int ow;
-    private int ox;
-    boolean oy;
-    final Rect oz;
+    int ov;
+    private int ow;
+    boolean ox;
+    final Rect oy;
+    private final Rect oz;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo
@@ -73,23 +73,23 @@ public class FloatingActionButton extends ab {
 
     public FloatingActionButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        this.oy = new Rect();
         this.oz = new Rect();
-        this.oA = new Rect();
         r.R(context);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton, i, R.style.Widget_Design_FloatingActionButton);
         this.or = obtainStyledAttributes.getColorStateList(R.styleable.FloatingActionButton_backgroundTint);
         this.ot = z.a(obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_backgroundTintMode, -1), null);
-        this.ov = obtainStyledAttributes.getColor(R.styleable.FloatingActionButton_rippleColor, 0);
+        this.ou = obtainStyledAttributes.getColor(R.styleable.FloatingActionButton_rippleColor, 0);
         this.mSize = obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_fabSize, -1);
-        this.ou = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_borderWidth, 0);
+        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_borderWidth, 0);
         float dimension = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_elevation, 0.0f);
         float dimension2 = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_pressedTranslationZ, 0.0f);
-        this.oy = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_useCompatPadding, false);
+        this.ox = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_useCompatPadding, false);
         obtainStyledAttributes.recycle();
-        this.oB = new AppCompatImageHelper(this);
-        this.oB.loadFromAttributes(attributeSet, i);
-        this.ox = (int) getResources().getDimension(R.dimen.design_fab_image_size);
-        getImpl().a(this.or, this.ot, this.ov, this.ou);
+        this.oA = new AppCompatImageHelper(this);
+        this.oA.loadFromAttributes(attributeSet, i);
+        this.ow = (int) getResources().getDimension(R.dimen.design_fab_image_size);
+        getImpl().a(this.or, this.ot, this.ou, this.mBorderWidth);
         getImpl().setElevation(dimension);
         getImpl().m(dimension2);
     }
@@ -97,19 +97,19 @@ public class FloatingActionButton extends ab {
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
         int sizeDimension = getSizeDimension();
-        this.ow = (sizeDimension - this.ox) / 2;
+        this.ov = (sizeDimension - this.ow) / 2;
         getImpl().bV();
         int min = Math.min(resolveAdjustedSize(sizeDimension, i), resolveAdjustedSize(sizeDimension, i2));
-        setMeasuredDimension(this.oz.left + min + this.oz.right, min + this.oz.top + this.oz.bottom);
+        setMeasuredDimension(this.oy.left + min + this.oy.right, min + this.oy.top + this.oy.bottom);
     }
 
     public int getRippleColor() {
-        return this.ov;
+        return this.ou;
     }
 
     public void setRippleColor(int i) {
-        if (this.ov != i) {
-            this.ov = i;
+        if (this.ou != i) {
+            this.ou = i;
             getImpl().setRippleColor(i);
         }
     }
@@ -157,7 +157,7 @@ public class FloatingActionButton extends ab {
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.oB.setImageResource(i);
+        this.oA.setImageResource(i);
     }
 
     public void show() {
@@ -185,14 +185,14 @@ public class FloatingActionButton extends ab {
     }
 
     public void setUseCompatPadding(boolean z) {
-        if (this.oy != z) {
-            this.oy = z;
+        if (this.ox != z) {
+            this.ox = z;
             getImpl().bP();
         }
     }
 
     public boolean getUseCompatPadding() {
-        return this.oy;
+        return this.ox;
     }
 
     public void setSize(int i) {
@@ -271,10 +271,10 @@ public class FloatingActionButton extends ab {
     public boolean getContentRect(Rect rect) {
         if (ViewCompat.isLaidOut(this)) {
             rect.set(0, 0, getWidth(), getHeight());
-            rect.left += this.oz.left;
-            rect.top += this.oz.top;
-            rect.right -= this.oz.right;
-            rect.bottom -= this.oz.bottom;
+            rect.left += this.oy.left;
+            rect.top += this.oy.top;
+            rect.right -= this.oy.right;
+            rect.bottom -= this.oy.bottom;
             return true;
         }
         return false;
@@ -300,7 +300,7 @@ public class FloatingActionButton extends ab {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!getContentRect(this.oA) || this.oA.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+        if (!getContentRect(this.oz) || this.oz.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
             return super.onTouchEvent(motionEvent);
         }
         return false;
@@ -309,26 +309,26 @@ public class FloatingActionButton extends ab {
     /* loaded from: classes2.dex */
     public static class Behavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
         private Rect mTmpRect;
-        private OnVisibilityChangedListener oF;
-        private boolean oG;
+        private OnVisibilityChangedListener oE;
+        private boolean oF;
 
         public Behavior() {
-            this.oG = true;
+            this.oF = true;
         }
 
         public Behavior(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton_Behavior_Layout);
-            this.oG = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide, true);
+            this.oF = obtainStyledAttributes.getBoolean(R.styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide, true);
             obtainStyledAttributes.recycle();
         }
 
         public void setAutoHideEnabled(boolean z) {
-            this.oG = z;
+            this.oF = z;
         }
 
         public boolean isAutoHideEnabled() {
-            return this.oG;
+            return this.oF;
         }
 
         @Override // android.support.design.widget.CoordinatorLayout.Behavior
@@ -361,7 +361,7 @@ public class FloatingActionButton extends ab {
         }
 
         private boolean a(View view, FloatingActionButton floatingActionButton) {
-            return this.oG && ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).getAnchorId() == view.getId() && floatingActionButton.getUserSetVisibility() == 0;
+            return this.oF && ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).getAnchorId() == view.getId() && floatingActionButton.getUserSetVisibility() == 0;
         }
 
         private boolean a(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, FloatingActionButton floatingActionButton) {
@@ -372,9 +372,9 @@ public class FloatingActionButton extends ab {
                 Rect rect = this.mTmpRect;
                 v.b(coordinatorLayout, appBarLayout, rect);
                 if (rect.bottom <= appBarLayout.getMinimumHeightForVisibleOverlappingContent()) {
-                    floatingActionButton.b(this.oF, false);
+                    floatingActionButton.b(this.oE, false);
                 } else {
-                    floatingActionButton.a(this.oF, false);
+                    floatingActionButton.a(this.oE, false);
                 }
                 return true;
             }
@@ -384,9 +384,9 @@ public class FloatingActionButton extends ab {
         private boolean b(View view, FloatingActionButton floatingActionButton) {
             if (a(view, floatingActionButton)) {
                 if (view.getTop() < ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).topMargin + (floatingActionButton.getHeight() / 2)) {
-                    floatingActionButton.b(this.oF, false);
+                    floatingActionButton.b(this.oE, false);
                 } else {
-                    floatingActionButton.a(this.oF, false);
+                    floatingActionButton.a(this.oE, false);
                 }
                 return true;
             }
@@ -418,7 +418,7 @@ public class FloatingActionButton extends ab {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.design.widget.CoordinatorLayout.Behavior
         public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, Rect rect) {
-            Rect rect2 = floatingActionButton.oz;
+            Rect rect2 = floatingActionButton.oy;
             rect.set(floatingActionButton.getLeft() + rect2.left, floatingActionButton.getTop() + rect2.top, floatingActionButton.getRight() - rect2.right, floatingActionButton.getBottom() - rect2.bottom);
             return true;
         }
@@ -426,7 +426,7 @@ public class FloatingActionButton extends ab {
         private void a(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton) {
             int i;
             int i2 = 0;
-            Rect rect = floatingActionButton.oz;
+            Rect rect = floatingActionButton.oy;
             if (rect != null && rect.centerX() > 0 && rect.centerY() > 0) {
                 CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams();
                 if (floatingActionButton.getRight() >= coordinatorLayout.getWidth() - layoutParams.rightMargin) {
@@ -458,21 +458,21 @@ public class FloatingActionButton extends ab {
     }
 
     private i getImpl() {
-        if (this.oC == null) {
-            this.oC = bK();
+        if (this.oB == null) {
+            this.oB = bK();
         }
-        return this.oC;
+        return this.oB;
     }
 
     private i bK() {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            return new j(this, new a(), z.sS);
+            return new j(this, new a(), z.sR);
         }
         if (i >= 14) {
-            return new h(this, new a(), z.sS);
+            return new h(this, new a(), z.sR);
         }
-        return new g(this, new a(), z.sS);
+        return new g(this, new a(), z.sR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -488,8 +488,8 @@ public class FloatingActionButton extends ab {
 
         @Override // android.support.design.widget.o
         public void e(int i, int i2, int i3, int i4) {
-            FloatingActionButton.this.oz.set(i, i2, i3, i4);
-            FloatingActionButton.this.setPadding(FloatingActionButton.this.ow + i, FloatingActionButton.this.ow + i2, FloatingActionButton.this.ow + i3, FloatingActionButton.this.ow + i4);
+            FloatingActionButton.this.oy.set(i, i2, i3, i4);
+            FloatingActionButton.this.setPadding(FloatingActionButton.this.ov + i, FloatingActionButton.this.ov + i2, FloatingActionButton.this.ov + i3, FloatingActionButton.this.ov + i4);
         }
 
         @Override // android.support.design.widget.o
@@ -499,7 +499,7 @@ public class FloatingActionButton extends ab {
 
         @Override // android.support.design.widget.o
         public boolean bN() {
-            return FloatingActionButton.this.oy;
+            return FloatingActionButton.this.ox;
         }
     }
 }

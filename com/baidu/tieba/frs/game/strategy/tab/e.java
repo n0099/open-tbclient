@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.game.strategy.view.a {
-    private LabelDataList dOD;
-    private int dOE = 0;
+    private LabelDataList dOr;
+    private int dOs = 0;
     private final int mContentHeight;
     private Context mContext;
 
@@ -21,34 +21,34 @@ public class e extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int axU() {
+    public int axT() {
         return this.mContentHeight;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public View c(int i, View view, ViewGroup viewGroup) {
-        TextView axW;
+        TextView axV;
         if (view instanceof TextView) {
-            axW = (TextView) view;
+            axV = (TextView) view;
         } else {
-            axW = axW();
+            axV = axV();
         }
-        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) v.f(this.dOD, i);
+        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) v.f(this.dOr, i);
         if (aVar != null) {
-            axW.setText(aVar.labelName);
+            axV.setText(aVar.labelName);
         }
-        b(axW, this.dOE == i);
-        return axW;
+        b(axV, this.dOs == i);
+        return axV;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int axV() {
-        return v.D(this.dOD);
+    public int axU() {
+        return v.D(this.dOr);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public Object nt(int i) {
-        return v.f(this.dOD, i);
+        return v.f(this.dOr, i);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
@@ -57,32 +57,32 @@ public class e extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     public void a(LabelDataList labelDataList) {
-        this.dOD = labelDataList;
+        this.dOr = labelDataList;
         notifyDataSetChanged();
     }
 
-    private TextView axW() {
+    private TextView axV() {
         TextView textView = new TextView(this.mContext);
         textView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(d.e.fontsize26));
         textView.setGravity(17);
-        textView.setHeight(axU());
+        textView.setHeight(axT());
         return textView;
     }
 
     public void b(TextView textView, boolean z) {
         if (z) {
-            aj.r(textView, d.C0140d.cp_link_tip_a);
+            aj.r(textView, d.C0141d.cp_link_tip_a);
             aj.s(textView, d.f.shape_frs_game_label_item_bg_s);
             return;
         }
-        aj.r(textView, d.C0140d.cp_cont_f);
+        aj.r(textView, d.C0141d.cp_cont_f);
         aj.s(textView, d.f.shape_frs_game_label_item_bg_n);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public void nv(int i) {
-        this.dOE = i;
-        this.dOD.setSelectedIndex(i);
+        this.dOs = i;
+        this.dOr.setSelectedIndex(i);
         notifyDataSetChanged();
     }
 }

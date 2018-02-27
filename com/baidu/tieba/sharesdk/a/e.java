@@ -25,80 +25,80 @@ import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes3.dex */
 public class e extends a {
-    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bwl;
-    private com.baidu.tieba.sharesdk.b.b gPB;
-    private IWeiboShareAPI gPC;
-    private IWeiboHandler.Response gPD;
-    private ShareEntity gPq;
+    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bvY;
+    private ShareEntity gPb;
+    private com.baidu.tieba.sharesdk.b.b gPm;
+    private IWeiboShareAPI gPn;
+    private IWeiboHandler.Response gPo;
 
     public e(Context context, com.baidu.tieba.sharesdk.b.b bVar, IWeiboHandler.Response response) {
         super(context);
-        this.bwl = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
+        this.bvY = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.gPq, (Bitmap) null);
+                    e.this.a(e.this.gPb, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.gPq, aVar.sh());
+                e.this.a(e.this.gPb, aVar.sh());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.gPB != null) {
-                    e.this.gPB.cA(6, 3);
+                if (e.this.gPm != null) {
+                    e.this.gPm.cA(6, 3);
                 }
-                e.this.uX(3);
+                e.this.uY(3);
             }
         };
         this.context = context;
-        this.gPB = bVar;
-        this.gPD = response;
-        this.gPC = WeiboShareSDK.createWeiboAPI(getAppContext(), "3826995480");
-        if (this.gPC != null) {
-            this.gPC.registerApp();
+        this.gPm = bVar;
+        this.gPo = response;
+        this.gPn = WeiboShareSDK.createWeiboAPI(getAppContext(), "3826995480");
+        if (this.gPn != null) {
+            this.gPn.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gPC == null) {
-            uX(2);
+        if (shareEntity == null || this.gPn == null) {
+            uY(2);
             if (bVar != null) {
                 bVar.cA(6, 2);
                 return;
             }
             return;
         }
-        this.gPq = shareEntity;
-        this.gPB = bVar;
+        this.gPb = shareEntity;
+        this.gPm = bVar;
         String ya = shareEntity.ya();
         if (!TextUtils.isEmpty(ya) && (ya.startsWith("http://") || ya.startsWith("https://"))) {
-            com.baidu.adp.lib.f.c.nm().a(ya, 10, this.bwl, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.nm().a(ya, 10, this.bvY, 0, 0, getPageId(), new Object[0]);
         } else if (ri(ya)) {
-            a(this.gPq, sk(ya));
+            a(this.gPb, sk(ya));
         } else {
-            a(this.gPq, bsk());
+            a(this.gPb, bsj());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.gPq == null || this.gPC == null || !(this.context instanceof Activity)) {
-            if (this.gPB != null) {
-                this.gPB.cA(6, 2);
+        if (this.gPb == null || this.gPn == null || !(this.context instanceof Activity)) {
+            if (this.gPm != null) {
+                this.gPm.cA(6, 2);
             }
-            uX(2);
+            uY(2);
             return;
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
         if (!TextUtils.isEmpty(shareEntity.getContent())) {
-            weiboMultiMessage.textObject = bsl();
+            weiboMultiMessage.textObject = bsk();
         }
         if (bitmap != null) {
             weiboMultiMessage.imageObject = t(bitmap);
@@ -113,11 +113,11 @@ public class e extends a {
         Activity activity = (Activity) this.context;
         AuthInfo authInfo = new AuthInfo(this.context, "3826995480", "https://tieba.baidu.com", "invitation_write");
         Oauth2AccessToken ch = com.baidu.tieba.sharesdk.c.c.ch(getAppContext());
-        this.gPC.sendRequest(activity, sendMultiMessageToWeiboRequest, authInfo, ch != null ? ch.getToken() : "", new WeiboAuthListener() { // from class: com.baidu.tieba.sharesdk.a.e.2
+        this.gPn.sendRequest(activity, sendMultiMessageToWeiboRequest, authInfo, ch != null ? ch.getToken() : "", new WeiboAuthListener() { // from class: com.baidu.tieba.sharesdk.a.e.2
             @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
             public void onWeiboException(WeiboException weiboException) {
-                if (e.this.gPB != null) {
-                    e.this.gPB.cA(6, 2);
+                if (e.this.gPm != null) {
+                    e.this.gPm.cA(6, 2);
                 }
                 e.this.si(e.this.getString(d.j.share_weibosdk_auth_failed, new Object[0]));
             }
@@ -130,8 +130,8 @@ public class e extends a {
 
             @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
             public void onCancel() {
-                if (e.this.gPB != null) {
-                    e.this.gPB.cA(6, 3);
+                if (e.this.gPm != null) {
+                    e.this.gPm.cA(6, 3);
                 }
                 e.this.si(e.this.getString(d.j.share_weibosdk_auth_failed, new Object[0]));
             }
@@ -187,13 +187,13 @@ public class e extends a {
         return webpageObject;
     }
 
-    private TextObject bsl() {
-        if (this.gPq == null) {
+    private TextObject bsk() {
+        if (this.gPb == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = sm(this.gPq.getTitle());
-        textObject.text = sm(this.gPq.getContent());
+        textObject.title = sm(this.gPb.getTitle());
+        textObject.text = sm(this.gPb.getContent());
         return textObject;
     }
 
@@ -210,8 +210,8 @@ public class e extends a {
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void F(Intent intent) {
-        if (this.gPC != null && this.gPD != null) {
-            this.gPC.handleWeiboResponse(intent, this.gPD);
+        if (this.gPn != null && this.gPo != null) {
+            this.gPn.handleWeiboResponse(intent, this.gPo);
         }
     }
 
@@ -219,34 +219,34 @@ public class e extends a {
         if (baseResponse != null) {
             switch (baseResponse.errCode) {
                 case 0:
-                    if (this.gPB != null) {
-                        this.gPB.cA(6, 1);
+                    if (this.gPm != null) {
+                        this.gPm.cA(6, 1);
                     }
-                    uX(1);
+                    uY(1);
                     return;
                 case 1:
-                    if (this.gPB != null) {
-                        this.gPB.cA(6, 3);
+                    if (this.gPm != null) {
+                        this.gPm.cA(6, 3);
                     }
-                    uX(3);
+                    uY(3);
                     return;
                 case 2:
-                    if (this.gPB != null) {
-                        this.gPB.cA(6, 2);
+                    if (this.gPm != null) {
+                        this.gPm.cA(6, 2);
                     }
-                    uX(2);
+                    uY(2);
                     return;
                 default:
-                    if (this.gPB != null) {
-                        this.gPB.cA(6, 2);
+                    if (this.gPm != null) {
+                        this.gPm.cA(6, 2);
                     }
-                    uX(2);
+                    uY(2);
                     return;
             }
         }
-        if (this.gPB != null) {
-            this.gPB.cA(6, 2);
+        if (this.gPm != null) {
+            this.gPm.cA(6, 2);
         }
-        uX(2);
+        uY(2);
     }
 }

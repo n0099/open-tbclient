@@ -75,44 +75,44 @@ class a {
 
     /* loaded from: classes2.dex */
     static class b<T extends InterfaceC0003a> extends MediaBrowser.ConnectionCallback {
-        protected final T xD;
+        protected final T xy;
 
         public b(T t) {
-            this.xD = t;
+            this.xy = t;
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnected() {
-            this.xD.onConnected();
+            this.xy.onConnected();
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnectionSuspended() {
-            this.xD.onConnectionSuspended();
+            this.xy.onConnectionSuspended();
         }
 
         @Override // android.media.browse.MediaBrowser.ConnectionCallback
         public void onConnectionFailed() {
-            this.xD.onConnectionFailed();
+            this.xy.onConnectionFailed();
         }
     }
 
     /* loaded from: classes2.dex */
     static class e<T extends d> extends MediaBrowser.SubscriptionCallback {
-        protected final T xE;
+        protected final T xz;
 
         public e(T t) {
-            this.xE = t;
+            this.xz = t;
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onChildrenLoaded(String str, List<MediaBrowser.MediaItem> list) {
-            this.xE.onChildrenLoaded(str, list);
+            this.xz.onChildrenLoaded(str, list);
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onError(String str) {
-            this.xE.onError(str);
+            this.xz.onError(str);
         }
     }
 

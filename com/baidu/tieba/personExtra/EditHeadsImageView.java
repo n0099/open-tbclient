@@ -10,44 +10,44 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
-    private int gln;
-    private int glo;
-    private float glp;
-    private float glq;
-    private int glr;
+    private int glc;
+    private int gld;
+    private float gle;
+    private float glf;
+    private int glg;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gln = 0;
-        this.glo = 0;
-        this.glp = 0.42857143f;
-        this.glr = 0;
-        this.glq = 1.0f;
+        this.glc = 0;
+        this.gld = 0;
+        this.gle = 0.42857143f;
+        this.glg = 0;
+        this.glf = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gln = 0;
-        this.glo = 0;
-        this.glp = 0.42857143f;
-        this.glr = 0;
-        this.glq = 1.0f;
+        this.glc = 0;
+        this.gld = 0;
+        this.gle = 0.42857143f;
+        this.glg = 0;
+        this.glf = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.gln = 0;
-        this.glo = 0;
-        this.glp = 0.42857143f;
-        this.glr = 0;
-        this.glq = 1.0f;
+        this.glc = 0;
+        this.gld = 0;
+        this.gle = 0.42857143f;
+        this.glg = 0;
+        this.glf = 1.0f;
         init();
     }
 
     private void init() {
-        this.glr = getResources().getColor(d.C0140d.common_color_10226);
+        this.glg = getResources().getColor(d.C0141d.common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -62,20 +62,20 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.glq * getWidth();
+        float width = this.glf * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.gln = (int) (((i4 - i2) - width) * this.glp);
-        this.glo = (int) (((i4 - i2) - width) * (1.0f - this.glp));
-        q(0, this.gln, 0, this.glo);
+        this.glc = (int) (((i4 - i2) - width) * this.gle);
+        this.gld = (int) (((i4 - i2) - width) * (1.0f - this.gle));
+        q(0, this.glc, 0, this.gld);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        canvas.drawColor(this.glr);
+        canvas.drawColor(this.glg);
         super.onDraw(canvas);
         canvas.restore();
     }
@@ -85,7 +85,7 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.gln, getWidth(), (getHeight() - this.glo) - this.gln);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.glc, getWidth(), (getHeight() - this.gld) - this.glc);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -98,7 +98,7 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.glq = f;
+        this.glf = f;
         invalidate();
     }
 }

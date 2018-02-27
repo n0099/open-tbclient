@@ -26,14 +26,14 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class l extends BaseAdapter {
-    private boolean eEA;
-    private final MembersActivity eEw;
-    private a eEx;
-    private boolean eEy;
-    private final Set<Long> eEB = new HashSet();
-    private final List<UserData> eEC = new ArrayList();
-    private ArrayList<IconData> eED = null;
-    private boolean eEz = false;
+    private final MembersActivity eEk;
+    private a eEl;
+    private boolean eEm;
+    private boolean eEo;
+    private final Set<Long> eEp = new HashSet();
+    private final List<UserData> eEq = new ArrayList();
+    private ArrayList<IconData> eEr = null;
+    private boolean eEn = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,18 +41,18 @@ public class l extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.eEx = aVar;
+        this.eEl = aVar;
     }
 
     public void ci(List<UserData> list) {
-        this.eEC.addAll(list);
+        this.eEq.addAll(list);
     }
 
     public void cj(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.eEC.iterator();
+                Iterator<UserData> it = this.eEq.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -62,63 +62,63 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void aJb() {
-        this.eEB.clear();
+    public void aJa() {
+        this.eEp.clear();
     }
 
-    public Set<Long> aJc() {
-        return this.eEB;
+    public Set<Long> aJb() {
+        return this.eEp;
     }
 
     public void f(Long l) {
-        if (this.eEB.contains(l)) {
-            this.eEB.remove(l);
+        if (this.eEp.contains(l)) {
+            this.eEp.remove(l);
         } else {
-            this.eEB.add(l);
+            this.eEp.add(l);
         }
         notifyDataSetChanged();
-        if (this.eEx != null) {
-            this.eEx.qb(this.eEB.size());
+        if (this.eEl != null) {
+            this.eEl.qb(this.eEp.size());
         }
     }
 
     public void reset(boolean z) {
         if (z) {
-            this.eEC.clear();
+            this.eEq.clear();
         }
-        this.eEz = false;
-        this.eEy = true;
+        this.eEn = false;
+        this.eEm = true;
     }
 
     public l(MembersActivity membersActivity) {
-        this.eEw = membersActivity;
+        this.eEk = membersActivity;
     }
 
     public void hy(boolean z) {
-        this.eEy = z;
+        this.eEm = z;
     }
 
-    public boolean aml() {
-        return this.eEy;
+    public boolean amk() {
+        return this.eEm;
     }
 
     public void hz(boolean z) {
-        this.eEz = z;
+        this.eEn = z;
     }
 
-    public boolean aGe() {
-        return this.eEA;
+    public boolean aGd() {
+        return this.eEo;
     }
 
     public void hA(boolean z) {
-        this.eEA = z;
+        this.eEo = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eEC != null) {
-            int size = this.eEC.size();
-            if (this.eEz) {
+        if (this.eEq != null) {
+            int size = this.eEq.size();
+            if (this.eEn) {
                 return size + 1;
             }
             return size;
@@ -128,15 +128,15 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i >= this.eEC.size()) {
+        if (i < 0 || i >= this.eEq.size()) {
             return null;
         }
-        return this.eEC.get(i);
+        return this.eEq.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.eEz && i == getCount() - 1) {
+        if (this.eEn && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -156,27 +156,27 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         View view2;
-        if (this.eEC != null) {
+        if (this.eEq != null) {
             if (view == null) {
                 b bVar2 = new b();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.eEw.getPageContext().getPageActivity()).inflate(d.h.im_members_list_foot, viewGroup, false);
-                    bVar2.eEF = (LinearLayout) inflate.findViewById(d.g.list_more);
-                    bVar2.eEG = (TextView) inflate.findViewById(d.g.more_title);
-                    bVar2.eEH = (ProgressBar) inflate.findViewById(d.g.more_progress);
+                    View inflate = LayoutInflater.from(this.eEk.getPageContext().getPageActivity()).inflate(d.h.im_members_list_foot, viewGroup, false);
+                    bVar2.eEt = (LinearLayout) inflate.findViewById(d.g.list_more);
+                    bVar2.eEu = (TextView) inflate.findViewById(d.g.more_title);
+                    bVar2.eEv = (ProgressBar) inflate.findViewById(d.g.more_progress);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.eEw.getPageContext().getPageActivity()).inflate(d.h.im_members_list_item, viewGroup, false);
-                    bVar2.eEJ = (HeadImageView) inflate2.findViewById(d.g.item_head);
-                    bVar2.eEJ.setIsRound(false);
-                    bVar2.eEJ.setAutoChangeStyle(true);
-                    bVar2.eDy = (TextView) inflate2.findViewById(d.g.item_name);
-                    bVar2.eEK = (ImageView) inflate2.findViewById(d.g.item_sex);
-                    bVar2.eEL = (TextView) inflate2.findViewById(d.g.item_time);
-                    bVar2.eEM = (TextView) inflate2.findViewById(d.g.item_address);
-                    bVar2.eEI = (ImageView) inflate2.findViewById(d.g.item_check);
-                    bVar2.beF = (UserIconBox) inflate2.findViewById(d.g.user_tshow_icon_box);
-                    bVar2.eEN = inflate2.findViewById(d.g.list_line);
+                    View inflate2 = LayoutInflater.from(this.eEk.getPageContext().getPageActivity()).inflate(d.h.im_members_list_item, viewGroup, false);
+                    bVar2.eEx = (HeadImageView) inflate2.findViewById(d.g.item_head);
+                    bVar2.eEx.setIsRound(false);
+                    bVar2.eEx.setAutoChangeStyle(true);
+                    bVar2.eDm = (TextView) inflate2.findViewById(d.g.item_name);
+                    bVar2.eEy = (ImageView) inflate2.findViewById(d.g.item_sex);
+                    bVar2.eEz = (TextView) inflate2.findViewById(d.g.item_time);
+                    bVar2.eEA = (TextView) inflate2.findViewById(d.g.item_address);
+                    bVar2.eEw = (ImageView) inflate2.findViewById(d.g.item_check);
+                    bVar2.bes = (UserIconBox) inflate2.findViewById(d.g.user_tshow_icon_box);
+                    bVar2.eEB = inflate2.findViewById(d.g.list_line);
                     view2 = inflate2;
                 }
                 view2.setTag(bVar2);
@@ -186,64 +186,64 @@ public class l extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (getItemViewType(i) == 1) {
-                if (this.eEy) {
-                    bVar.eEG.setText(d.j.members_load_more_person);
-                    bVar.eEH.setVisibility(0);
+                if (this.eEm) {
+                    bVar.eEu.setText(d.j.members_load_more_person);
+                    bVar.eEv.setVisibility(0);
                 } else {
-                    bVar.eEG.setText(d.j.members_no_more_person);
-                    bVar.eEH.setVisibility(8);
+                    bVar.eEu.setText(d.j.members_no_more_person);
+                    bVar.eEv.setVisibility(8);
                 }
             } else {
                 TbadkApplication.getInst().getSkinType();
                 UserData userData = (UserData) getItem(i);
-                bVar.eEJ.setTag(null);
+                bVar.eEx.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    bVar.eEJ.startLoad(portrait, 12, false);
+                    bVar.eEx.startLoad(portrait, 12, false);
                 }
-                bVar.eDy.setText(userData.getUserName());
+                bVar.eDm.setText(userData.getUserName());
                 switch (userData.getSex()) {
                     case 1:
-                        bVar.eEK.setVisibility(0);
-                        aj.c(bVar.eEK, d.f.icon_pop_qz_boy);
+                        bVar.eEy.setVisibility(0);
+                        aj.c(bVar.eEy, d.f.icon_pop_qz_boy);
                         break;
                     case 2:
-                        bVar.eEK.setVisibility(0);
-                        aj.c(bVar.eEK, d.f.icon_pop_qz_girl);
+                        bVar.eEy.setVisibility(0);
+                        aj.c(bVar.eEy, d.f.icon_pop_qz_girl);
                         break;
                     default:
-                        bVar.eEK.setVisibility(8);
+                        bVar.eEy.setVisibility(8);
                         break;
                 }
-                bVar.eEL.setText(d(userData));
-                bVar.eEM.setText(userData.getPosition());
-                this.eED = userData.getTShowInfo();
-                if (bVar.beF != null) {
-                    bVar.beF.a(this.eED, 2, this.eEw.getResources().getDimensionPixelSize(d.e.ds38), this.eEw.getResources().getDimensionPixelSize(d.e.ds38), this.eEw.getResources().getDimensionPixelSize(d.e.ds8), true);
+                bVar.eEz.setText(d(userData));
+                bVar.eEA.setText(userData.getPosition());
+                this.eEr = userData.getTShowInfo();
+                if (bVar.bes != null) {
+                    bVar.bes.a(this.eEr, 2, this.eEk.getResources().getDimensionPixelSize(d.e.ds38), this.eEk.getResources().getDimensionPixelSize(d.e.ds38), this.eEk.getResources().getDimensionPixelSize(d.e.ds8), true);
                 }
-                if (this.eEA) {
-                    bVar.eEI.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                if (this.eEo) {
+                    bVar.eEw.setVisibility(userData.getPermission().isController() ? 4 : 0);
                     Long valueOf = Long.valueOf(userData.getUserIdLong());
-                    bVar.eEI.setTag(valueOf);
-                    bVar.eEI.setSelected(this.eEB.contains(valueOf));
-                    bVar.eEI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
+                    bVar.eEw.setTag(valueOf);
+                    bVar.eEw.setSelected(this.eEp.contains(valueOf));
+                    bVar.eEw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
                             view3.setSelected(!view3.isSelected());
                             boolean isSelected = view3.isSelected();
                             Long l = (Long) view3.getTag();
                             if (isSelected) {
-                                l.this.eEB.add(l);
+                                l.this.eEp.add(l);
                             } else {
-                                l.this.eEB.remove(l);
+                                l.this.eEp.remove(l);
                             }
-                            if (l.this.eEx != null) {
-                                l.this.eEx.qb(l.this.eEB.size());
+                            if (l.this.eEl != null) {
+                                l.this.eEl.qb(l.this.eEp.size());
                             }
                         }
                     });
                 } else {
-                    bVar.eEI.setVisibility(8);
+                    bVar.eEw.setVisibility(8);
                 }
                 bU(view);
             }
@@ -252,14 +252,14 @@ public class l extends BaseAdapter {
     }
 
     private void bU(View view) {
-        this.eEw.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
-        this.eEw.getLayoutMode().aM(view);
+        this.eEk.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
+        this.eEk.getLayoutMode().aM(view);
     }
 
     private String d(UserData userData) {
         long lastReplyTime;
-        MembersModel aIV = this.eEw.aIV();
-        switch (aIV.getOrderType()) {
+        MembersModel aIU = this.eEk.aIU();
+        switch (aIU.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -274,8 +274,8 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (aIV.getOrderType() == 1) {
-                return this.eEw.getPageContext().getString(d.j.members_no_speak);
+            if (aIU.getOrderType() == 1) {
+                return this.eEk.getPageContext().getString(d.j.members_no_speak);
             }
             return "";
         }
@@ -284,17 +284,17 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     static class b {
-        UserIconBox beF = null;
-        TextView eDy;
-        LinearLayout eEF;
-        TextView eEG;
-        ProgressBar eEH;
-        ImageView eEI;
-        HeadImageView eEJ;
-        ImageView eEK;
-        TextView eEL;
-        TextView eEM;
-        View eEN;
+        UserIconBox bes = null;
+        TextView eDm;
+        TextView eEA;
+        View eEB;
+        LinearLayout eEt;
+        TextView eEu;
+        ProgressBar eEv;
+        ImageView eEw;
+        HeadImageView eEx;
+        ImageView eEy;
+        TextView eEz;
 
         b() {
         }

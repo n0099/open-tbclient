@@ -19,9 +19,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern aXV = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern aXJ = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String J(String str, boolean z) {
+    public static String I(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -193,7 +193,7 @@ public class e {
             if (nP == null) {
                 return null;
             }
-            Matcher matcher = aXV.matcher(nP);
+            Matcher matcher = aXJ.matcher(nP);
             while (matcher.find()) {
                 String group = matcher.group();
                 nP = nP.replace(group, group.replace("#(", "[").replace(")", "]"));
@@ -468,7 +468,7 @@ public class e {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.eBt = split[0];
+        dVar.eBh = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

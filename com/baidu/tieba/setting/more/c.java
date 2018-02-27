@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
 /* loaded from: classes3.dex */
 public interface c {
-    void uP(int i);
+    void uQ(int i);
 }

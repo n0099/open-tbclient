@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView evg;
-    protected ImageView evh;
+    protected TextView euU;
+    protected ImageView euV;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -26,12 +26,12 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
             this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.group_info_btn, talkableActivity);
-            this.evg = (TextView) this.mBtnGroupInfo.findViewById(d.g.group_info_btn_txt);
-            this.evg.setText(string);
-            this.evh = (ImageView) this.mBtnGroupInfo.findViewById(d.g.red_dot);
-            this.evh.setVisibility(8);
+            this.euU = (TextView) this.mBtnGroupInfo.findViewById(d.g.group_info_btn_txt);
+            this.euU.setText(string);
+            this.euV = (ImageView) this.mBtnGroupInfo.findViewById(d.g.red_dot);
+            this.euV.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
-                aFv();
+                aFu();
             }
             if (MessageManager.getInstance().findTask(2008011) == null) {
                 this.mBtnGroupInfo.setVisibility(4);
@@ -44,19 +44,19 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.evg != null) {
-            aj.e(this.evg, d.C0140d.cp_cont_b, 1);
+        if (this.euU != null) {
+            aj.e(this.euU, d.C0141d.cp_cont_b, 1);
+        }
+    }
+
+    public void aFu() {
+        if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_shown_group_btn_dot", false)) {
+            this.euV.setVisibility(0);
         }
     }
 
     public void aFv() {
-        if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_shown_group_btn_dot", false)) {
-            this.evh.setVisibility(0);
-        }
-    }
-
-    public void aFw() {
-        this.evh.setVisibility(8);
+        this.euV.setVisibility(8);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("has_shown_group_btn_dot", true);
     }
 }

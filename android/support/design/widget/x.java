@@ -6,35 +6,35 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 class x<V extends View> extends CoordinatorLayout.Behavior<V> {
-    private y sL;
+    private y sK;
+    private int sL;
     private int sM;
-    private int sN;
 
     public x() {
+        this.sL = 0;
         this.sM = 0;
-        this.sN = 0;
     }
 
     public x(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.sL = 0;
         this.sM = 0;
-        this.sN = 0;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, V v, int i) {
         layoutChild(coordinatorLayout, v, i);
-        if (this.sL == null) {
-            this.sL = new y(v);
+        if (this.sK == null) {
+            this.sK = new y(v);
         }
-        this.sL.cK();
+        this.sK.cK();
+        if (this.sL != 0) {
+            this.sK.setTopAndBottomOffset(this.sL);
+            this.sL = 0;
+        }
         if (this.sM != 0) {
-            this.sL.setTopAndBottomOffset(this.sM);
+            this.sK.setLeftAndRightOffset(this.sM);
             this.sM = 0;
-        }
-        if (this.sN != 0) {
-            this.sL.setLeftAndRightOffset(this.sN);
-            this.sN = 0;
             return true;
         }
         return true;
@@ -46,31 +46,31 @@ class x<V extends View> extends CoordinatorLayout.Behavior<V> {
     }
 
     public boolean setTopAndBottomOffset(int i) {
-        if (this.sL != null) {
-            return this.sL.setTopAndBottomOffset(i);
+        if (this.sK != null) {
+            return this.sK.setTopAndBottomOffset(i);
+        }
+        this.sL = i;
+        return false;
+    }
+
+    public boolean setLeftAndRightOffset(int i) {
+        if (this.sK != null) {
+            return this.sK.setLeftAndRightOffset(i);
         }
         this.sM = i;
         return false;
     }
 
-    public boolean setLeftAndRightOffset(int i) {
-        if (this.sL != null) {
-            return this.sL.setLeftAndRightOffset(i);
-        }
-        this.sN = i;
-        return false;
-    }
-
     public int getTopAndBottomOffset() {
-        if (this.sL != null) {
-            return this.sL.getTopAndBottomOffset();
+        if (this.sK != null) {
+            return this.sK.getTopAndBottomOffset();
         }
         return 0;
     }
 
     public int getLeftAndRightOffset() {
-        if (this.sL != null) {
-            return this.sL.getLeftAndRightOffset();
+        if (this.sK != null) {
+            return this.sK.getLeftAndRightOffset();
         }
         return 0;
     }

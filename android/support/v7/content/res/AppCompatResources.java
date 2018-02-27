@@ -14,9 +14,9 @@ import android.util.TypedValue;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public final class AppCompatResources {
-    private static final ThreadLocal<TypedValue> EQ = new ThreadLocal<>();
-    private static final WeakHashMap<Context, SparseArray<a>> ER = new WeakHashMap<>(0);
-    private static final Object ES = new Object();
+    private static final ThreadLocal<TypedValue> EL = new ThreadLocal<>();
+    private static final WeakHashMap<Context, SparseArray<a>> EM = new WeakHashMap<>(0);
+    private static final Object EN = new Object();
 
     private AppCompatResources() {
     }
@@ -56,11 +56,11 @@ public final class AppCompatResources {
 
     private static ColorStateList g(Context context, int i) {
         a aVar;
-        synchronized (ES) {
-            SparseArray<a> sparseArray = ER.get(context);
+        synchronized (EN) {
+            SparseArray<a> sparseArray = EM.get(context);
             if (sparseArray != null && sparseArray.size() > 0 && (aVar = sparseArray.get(i)) != null) {
-                if (aVar.EU.equals(context.getResources().getConfiguration())) {
-                    return aVar.ET;
+                if (aVar.EP.equals(context.getResources().getConfiguration())) {
+                    return aVar.EO;
                 }
                 sparseArray.remove(i);
             }
@@ -69,11 +69,11 @@ public final class AppCompatResources {
     }
 
     private static void a(Context context, int i, ColorStateList colorStateList) {
-        synchronized (ES) {
-            SparseArray<a> sparseArray = ER.get(context);
+        synchronized (EN) {
+            SparseArray<a> sparseArray = EM.get(context);
             if (sparseArray == null) {
                 sparseArray = new SparseArray<>();
-                ER.put(context, sparseArray);
+                EM.put(context, sparseArray);
             }
             sparseArray.append(i, new a(colorStateList, context.getResources().getConfiguration()));
         }
@@ -87,10 +87,10 @@ public final class AppCompatResources {
     }
 
     private static TypedValue ev() {
-        TypedValue typedValue = EQ.get();
+        TypedValue typedValue = EL.get();
         if (typedValue == null) {
             TypedValue typedValue2 = new TypedValue();
-            EQ.set(typedValue2);
+            EL.set(typedValue2);
             return typedValue2;
         }
         return typedValue;
@@ -99,12 +99,12 @@ public final class AppCompatResources {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        final ColorStateList ET;
-        final Configuration EU;
+        final ColorStateList EO;
+        final Configuration EP;
 
         a(ColorStateList colorStateList, Configuration configuration) {
-            this.ET = colorStateList;
-            this.EU = configuration;
+            this.EO = colorStateList;
+            this.EP = configuration;
         }
     }
 }

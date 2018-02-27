@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private static Map<String, String> fiu;
+    private static Map<String, String> fii;
 
     public static void oG(String str) {
         try {
@@ -16,16 +16,16 @@ public class a {
         }
     }
 
-    public static Map<String, String> aRS() {
-        if (fiu == null) {
+    public static Map<String, String> aRR() {
+        if (fii == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                 declaredField.setAccessible(true);
-                fiu = (Map) declaredField.get(null);
+                fii = (Map) declaredField.get(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return fiu;
+        return fii;
     }
 }

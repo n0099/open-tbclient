@@ -19,33 +19,33 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 public class g extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private e eSD;
-    private ViewEventCenter eSt;
-    private boolean eSE = false;
-    private CustomMessageListener cdn = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
+    private ViewEventCenter eSh;
+    private e eSr;
+    private boolean eSs = false;
+    private CustomMessageListener cdb = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (g.this.eSD != null) {
-                    g.this.eSD.ih(true);
+                if (g.this.eSr != null) {
+                    g.this.eSr.ih(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (g.this.eSD != null) {
-                    g.this.eSD.axD();
-                    g.this.eSD.G(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (g.this.eSr != null) {
+                    g.this.eSr.axC();
+                    g.this.eSr.G(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener eSu = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
+    private CustomMessageListener eSi = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (g.this.eSD != null) {
-                    g.this.eSD.onNewIntent(intent);
+                if (g.this.eSr != null) {
+                    g.this.eSr.onNewIntent(intent);
                 }
             }
         }
@@ -53,26 +53,26 @@ public class g extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eSD = new e(this);
+        this.eSr = new e(this);
         if (bundle != null) {
-            this.eSD.o(bundle);
+            this.eSr.o(bundle);
         } else {
-            this.eSD.o((Bundle) null);
+            this.eSr.o((Bundle) null);
         }
-        View YO = this.eSD.YO();
-        this.eSD.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        NL().addEventDelegate(this);
-        registerListener(this.cdn);
-        registerListener(this.eSu);
-        return YO;
+        View YN = this.eSr.YN();
+        this.eSr.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        NK().addEventDelegate(this);
+        registerListener(this.cdb);
+        registerListener(this.eSi);
+        return YN;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && Q(getActivity().getIntent())) {
-            this.eSD.onNewIntent(getActivity().getIntent());
+            this.eSr.onNewIntent(getActivity().getIntent());
         } else {
-            this.eSD.axD();
+            this.eSr.axC();
         }
         super.onViewCreated(view, bundle);
     }
@@ -82,7 +82,7 @@ public class g extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Nc() {
+    public boolean Nb() {
         return false;
     }
 
@@ -91,17 +91,17 @@ public class g extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.
         return bVar == null;
     }
 
-    public ViewEventCenter NL() {
-        if (this.eSt == null) {
-            this.eSt = new ViewEventCenter();
+    public ViewEventCenter NK() {
+        if (this.eSh == null) {
+            this.eSh = new ViewEventCenter();
         }
-        return this.eSt;
+        return this.eSh;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.eSD != null) {
-            this.eSD.b(getPageContext(), i);
+        if (this.eSr != null) {
+            this.eSr.b(getPageContext(), i);
         }
     }
 
@@ -140,15 +140,15 @@ public class g extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.eSD.onActivityDestroy();
+        this.eSr.onActivityDestroy();
     }
 
     public void ij(boolean z) {
-        this.eSE = z;
+        this.eSs = z;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void bu(boolean z) {
-        this.eSD.m17if(z);
+        this.eSr.m17if(z);
     }
 }

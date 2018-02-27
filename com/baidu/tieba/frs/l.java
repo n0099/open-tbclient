@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class l extends g<m, n> {
-    private final int dGJ;
+    private final int dGx;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dGJ = (com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.dGx = (com.baidu.adp.lib.util.l.aq(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class l extends g<m, n> {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.dGJ;
+        generateLayoutParamsByParent.height = this.dGx;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new n(inflate);
     }
@@ -35,12 +35,12 @@ public class l extends g<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.awf() == 6) {
-            nVar.dGM.setText(d.j.attention_no_post_tip);
+        if (mVar.awe() == 6) {
+            nVar.dGA.setText(d.j.attention_no_post_tip);
         } else {
-            nVar.dGM.setText(d.j.no_data_text);
+            nVar.dGA.setText(d.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.aj.e(nVar.dGM, d.C0140d.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.aj.e(nVar.dGA, d.C0141d.cp_cont_b, 1);
         return view;
     }
 }

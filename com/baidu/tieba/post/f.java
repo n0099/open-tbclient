@@ -6,37 +6,37 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes3.dex */
 public class f extends FragmentPagerAdapter {
-    private int[] clo;
-    private j gxj;
-    private i gxk;
+    private int[] clc;
+    private j gwY;
+    private i gwZ;
 
     public f(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.bmk());
-        this.gxk = new i();
-        this.gxk.setArguments(bundle);
-        this.gxk.a(personPostActivity);
-        this.gxj = new j();
-        this.gxj.setArguments(bundle);
-        this.gxj.a((d) personPostActivity);
-        this.gxj.a((b) personPostActivity);
-        this.clo = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.bmj());
+        this.gwZ = new i();
+        this.gwZ.setArguments(bundle);
+        this.gwZ.a(personPostActivity);
+        this.gwY = new j();
+        this.gwY.setArguments(bundle);
+        this.gwY.a((d) personPostActivity);
+        this.gwY.a((b) personPostActivity);
+        this.clc = new int[]{0, 1};
     }
 
-    public j bml() {
-        return this.gxj;
+    public j bmk() {
+        return this.gwY;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.gxj;
+                return this.gwY;
             case 1:
-                return this.gxk;
+                return this.gwZ;
             default:
                 return null;
         }
@@ -48,6 +48,6 @@ public class f extends FragmentPagerAdapter {
     }
 
     public int qx(int i) {
-        return this.clo[i];
+        return this.clc[i];
     }
 }

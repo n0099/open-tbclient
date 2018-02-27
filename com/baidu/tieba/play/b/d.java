@@ -3,40 +3,40 @@ package com.baidu.tieba.play.b;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d implements b {
-    public final int gwv;
-    public final int gww;
+    public final int gwk;
+    public final int gwl;
     public final String msg;
     public final int what;
 
     public d(int i, int i2, int i3) {
-        this.gwv = i;
+        this.gwk = i;
         this.what = i2;
-        this.gww = i3;
+        this.gwl = i3;
         this.msg = "";
     }
 
     public d(int i, int i2, int i3, String str) {
-        this.gwv = i;
+        this.gwk = i;
         this.what = i2;
-        this.gww = i3;
+        this.gwl = i3;
         this.msg = str;
     }
 
     @Override // com.baidu.tieba.play.b.b
-    public JSONObject bmc() {
+    public JSONObject bmb() {
         String str;
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.gwv == -100) {
+            if (this.gwk == -100) {
                 str = "system";
-            } else if (this.gwv == -200) {
+            } else if (this.gwk == -200) {
                 str = "ijkplayer";
             } else {
                 str = "unknown";
             }
             jSONObject.put("player", str);
             jSONObject.put("what", this.what);
-            jSONObject.put("extra", this.gww);
+            jSONObject.put("extra", this.gwl);
             jSONObject.put("msg", this.msg);
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,60 +6,60 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a hbW;
-    private final int hbX = 10;
-    private final int hbY = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    public String hbZ = null;
-    public boolean aYM = false;
+    private com.baidu.adp.lib.stats.a hbH;
+    private final int hbI = 10;
+    private final int hbJ = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
+    public String hbK = null;
+    public boolean aYA = false;
 
     public b(String str) {
-        aa(str, false);
+        Z(str, false);
     }
 
-    public void aa(String str, boolean z) {
-        this.hbZ = str;
-        this.aYM = z;
-        this.hbW = new com.baidu.adp.lib.stats.a("dbg");
+    public void Z(String str, boolean z) {
+        this.hbK = str;
+        this.aYA = z;
+        this.hbH = new com.baidu.adp.lib.stats.a("dbg");
         c.j(str, getNetType(), z);
     }
 
     public void start() {
-        this.hbW.nw();
+        this.hbH.nw();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bxm;
-        if (this.hbW != null && (bxm = bxm()) != null) {
+        e bxl;
+        if (this.hbH != null && (bxl = bxl()) != null) {
             if (z) {
-                if (bxm.hce != null) {
-                    bxm.hce.num++;
+                if (bxl.hbP != null) {
+                    bxl.hbP.num++;
                     if (z2) {
-                        bxm.hce.hcb += j2;
-                        bxm.hce.size += j;
+                        bxl.hbP.hbM += j2;
+                        bxl.hbP.size += j;
                     } else {
-                        bxm.hce.hcc++;
+                        bxl.hbP.hbN++;
                     }
                 } else {
                     return;
                 }
-            } else if (bxm.hcf != null) {
-                bxm.hcf.num++;
+            } else if (bxl.hbQ != null) {
+                bxl.hbQ.num++;
                 if (z2) {
-                    bxm.hcf.hcb += j3;
-                    bxm.hcf.size += j;
+                    bxl.hbQ.hbM += j3;
+                    bxl.hbQ.size += j;
                     j2 = j3;
                 } else {
-                    bxm.hcf.hcc++;
+                    bxl.hbQ.hbN++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.hbW = null;
+            this.hbH = null;
             if (z2) {
-                c.a(bxm, 10);
+                c.a(bxl, 10);
             }
-            if (this.hbZ == "frsStat") {
+            if (this.hbK == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -76,20 +76,20 @@ public class b {
     }
 
     public void destory() {
-        e bxm;
-        if (this.hbW != null && (bxm = bxm()) != null && bxm.hcg != null) {
-            long nx = this.hbW.nx();
+        e bxl;
+        if (this.hbH != null && (bxl = bxl()) != null && bxl.hbR != null) {
+            long nx = this.hbH.nx();
             if (nx > 3000) {
-                d dVar = bxm.hcg;
-                dVar.hcb = nx + dVar.hcb;
-                bxm.hcg.num++;
-                c.a(bxm, 10);
+                d dVar = bxl.hbR;
+                dVar.hbM = nx + dVar.hbM;
+                bxl.hbR.num++;
+                c.a(bxl, 10);
             }
         }
     }
 
-    private e bxm() {
-        return c.k(this.hbZ, getNetType(), this.aYM);
+    private e bxl() {
+        return c.k(this.hbK, getNetType(), this.aYA);
     }
 
     private String getNetType() {

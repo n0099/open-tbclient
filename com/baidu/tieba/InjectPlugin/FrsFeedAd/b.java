@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements i, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> bND = new SparseArray<>();
-    private Object bNE;
-    private int bNF;
+    private static SparseArray<BdUniqueId> bNq = new SparseArray<>();
+    private Object bNr;
+    private int bNs;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return bND.get(this.bNF);
+        return bNq.get(this.bNs);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object Sn() {
-        return this.bNE;
+    public Object Sm() {
+        return this.bNr;
     }
 
     public void aK(Object obj) {
-        this.bNE = obj;
+        this.bNr = obj;
     }
 
-    public int So() {
-        return this.bNF;
+    public int Sn() {
+        return this.bNs;
     }
 
     public void jb(int i) {
-        this.bNF = i;
+        this.bNs = i;
     }
 
     public static void T(List<Integer> list) {
-        if (bND.size() <= 0 && list != null) {
+        if (bNq.size() <= 0 && list != null) {
             for (Integer num : list) {
-                bND.put(num.intValue(), BdUniqueId.gen());
+                bNq.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> Sp() {
+    public static List<BdUniqueId> So() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bND.size(); i++) {
-            arrayList.add(bND.valueAt(i));
+        for (int i = 0; i < bNq.size(); i++) {
+            arrayList.add(bNq.valueAt(i));
         }
         return arrayList;
     }
 
     public static int i(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (bND.size() == 0 || (indexOfValue = bND.indexOfValue(bdUniqueId)) == -1 || bND.size() <= indexOfValue) {
+        if (bNq.size() == 0 || (indexOfValue = bNq.indexOfValue(bdUniqueId)) == -1 || bNq.size() <= indexOfValue) {
             return -1;
         }
-        return bND.keyAt(indexOfValue);
+        return bNq.keyAt(indexOfValue);
     }
 }

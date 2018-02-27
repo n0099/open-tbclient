@@ -12,11 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends o {
-    private m aTN;
+    private m aTC;
 
     public d(m mVar) {
         super(mVar);
-        this.aTN = mVar;
+        this.aTC = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,12 +36,12 @@ public class d extends o {
             dVar.title = optString;
             dVar.content = optString2;
             if (optString3 == null) {
-                dVar.blB = null;
+                dVar.blo = null;
             } else {
-                dVar.blB = Uri.parse(optString3);
+                dVar.blo = Uri.parse(optString3);
             }
             dVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aTN.getContext(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.aTC.getContext(), dVar, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern bCj = Pattern.compile("#.+?#", 2);
+    private static final Pattern bBW = Pattern.compile("#.+?#", 2);
 
     public static boolean cD(boolean z) {
         boolean appResponseToIntentClass;
@@ -34,7 +34,7 @@ public class a {
         return false;
     }
 
-    public static boolean OI() {
+    public static boolean OH() {
         return PluginPackageManager.qS().bw("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -54,7 +54,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (OI()) {
+        } else if (OH()) {
             String string4 = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(d.j.setup);
             if (z) {
@@ -106,7 +106,7 @@ public class a {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = bCj.matcher(str);
+        Matcher matcher = bBW.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new c(18, "") { // from class: com.baidu.tbadk.plugins.a.4

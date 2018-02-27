@@ -14,16 +14,16 @@ import com.baidu.tbadk.editortools.s;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class c extends LinearLayout implements View.OnClickListener, s {
-    private PbNewLocationInfoView buA;
-    private ImageView buC;
-    private boolean ezq;
-    private i fgE;
-    private int fgF;
+    private PbNewLocationInfoView bun;
+    private ImageView bup;
+    private boolean eze;
+    private i fgs;
+    private int fgt;
 
     public c(Context context) {
         super(context);
-        this.fgF = 0;
-        this.ezq = true;
+        this.fgt = 0;
+        this.eze = true;
         initView();
     }
 
@@ -36,22 +36,22 @@ public class c extends LinearLayout implements View.OnClickListener, s {
         setLayoutParams(aVar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.t(getContext(), d.e.ds24), 0);
-        this.buA = new PbNewLocationInfoView(getContext());
+        this.bun = new PbNewLocationInfoView(getContext());
         setOnClickListener(this);
-        addView(this.buA, layoutParams);
-        this.buC = new ImageView(getContext());
-        this.buC.setOnClickListener(this);
-        addView(this.buC, new LinearLayout.LayoutParams(l.t(getContext(), d.e.ds24), l.t(getContext(), d.e.ds24)));
+        addView(this.bun, layoutParams);
+        this.bup = new ImageView(getContext());
+        this.bup.setOnClickListener(this);
+        addView(this.bup, new LinearLayout.LayoutParams(l.t(getContext(), d.e.ds24), l.t(getContext(), d.e.ds24)));
     }
 
-    public void En() {
-        this.buA.onChangeSkinType();
+    public void Em() {
+        this.bun.onChangeSkinType();
         aj.s(this, d.f.pb_new_locatin_view_selector);
-        aj.c(this.buC, d.f.icon_edit_close_n);
+        aj.c(this.bup, d.f.icon_edit_close_n);
     }
 
     public void S(int i, String str) {
-        this.buA.j(i, str);
+        this.bun.j(i, str);
     }
 
     public void setLocationInfoViewState(int i) {
@@ -59,18 +59,18 @@ public class c extends LinearLayout implements View.OnClickListener, s {
     }
 
     public int getLocationInfoViewState() {
-        return this.buA.getState();
+        return this.bun.getState();
     }
 
     public int getLocationInfoViewVisibility() {
-        return this.buA.getVisibility();
+        return this.bun.getVisibility();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
-        } else if (view == this.buC) {
+        } else if (view == this.bup) {
             hide();
             b(new com.baidu.tbadk.editortools.a(20, -1, null));
         }
@@ -85,7 +85,7 @@ public class c extends LinearLayout implements View.OnClickListener, s {
                     return;
                 }
                 com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
-                if (aVar2.bua) {
+                if (aVar2.btN) {
                     th();
                     if (TextUtils.isEmpty(aVar2.addr)) {
                         setLocationInfoViewState(aVar2.state);
@@ -104,24 +104,24 @@ public class c extends LinearLayout implements View.OnClickListener, s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.fgE = iVar;
+        this.fgs = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.fgE != null) {
-            this.fgE.b(aVar);
+        if (this.fgs != null) {
+            this.fgs.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.fgF = i;
+        this.fgt = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.fgF;
+        return this.fgt;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -130,8 +130,8 @@ public class c extends LinearLayout implements View.OnClickListener, s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void th() {
-        if (this.ezq) {
-            this.ezq = false;
+        if (this.eze) {
+            this.eze = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, "first"));
         }
         setVisibility(0);
@@ -144,6 +144,6 @@ public class c extends LinearLayout implements View.OnClickListener, s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        En();
+        Em();
     }
 }

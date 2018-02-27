@@ -24,22 +24,22 @@ class i extends h {
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspot(float f, float f2) {
-        this.wz.setHotspot(f, f2);
+        this.wy.setHotspot(f, f2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        this.wz.setHotspotBounds(i, i2, i3, i4);
+        this.wy.setHotspotBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void getOutline(Outline outline) {
-        this.wz.getOutline(outline);
+        this.wy.getOutline(outline);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Rect getDirtyBounds() {
-        return this.wz.getDirtyBounds();
+        return this.wy.getDirtyBounds();
     }
 
     @Override // android.support.v4.graphics.drawable.DrawableWrapperGingerbread, android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
@@ -47,7 +47,7 @@ class i extends h {
         if (dh()) {
             super.setTintList(colorStateList);
         } else {
-            this.wz.setTintList(colorStateList);
+            this.wy.setTintList(colorStateList);
         }
     }
 
@@ -56,7 +56,7 @@ class i extends h {
         if (dh()) {
             super.setTint(i);
         } else {
-            this.wz.setTint(i);
+            this.wy.setTint(i);
         }
     }
 
@@ -65,7 +65,7 @@ class i extends h {
         if (dh()) {
             super.setTintMode(mode);
         } else {
-            this.wz.setTintMode(mode);
+            this.wy.setTintMode(mode);
         }
     }
 
@@ -81,7 +81,7 @@ class i extends h {
     @Override // android.support.v4.graphics.drawable.DrawableWrapperGingerbread
     protected boolean dh() {
         if (Build.VERSION.SDK_INT == 21) {
-            Drawable drawable = this.wz;
+            Drawable drawable = this.wy;
             return (drawable instanceof GradientDrawable) || (drawable instanceof DrawableContainer) || (drawable instanceof InsetDrawable);
         }
         return false;
@@ -89,7 +89,7 @@ class i extends h {
 
     @Override // android.support.v4.graphics.drawable.h, android.support.v4.graphics.drawable.g, android.support.v4.graphics.drawable.DrawableWrapperGingerbread
     DrawableWrapperGingerbread.DrawableWrapperState dg() {
-        return new a(this.wy, null);
+        return new a(this.wx, null);
     }
 
     /* loaded from: classes2.dex */

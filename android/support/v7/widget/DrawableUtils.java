@@ -19,12 +19,12 @@ import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
-    private static Class<?> OH;
+    private static Class<?> OC;
 
     static {
         if (Build.VERSION.SDK_INT >= 18) {
             try {
-                OH = Class.forName("android.graphics.Insets");
+                OC = Class.forName("android.graphics.Insets");
             } catch (ClassNotFoundException e) {
             }
         }
@@ -35,13 +35,13 @@ public class DrawableUtils {
 
     public static Rect getOpticalBounds(Drawable drawable) {
         Field[] fields;
-        if (OH != null) {
+        if (OC != null) {
             try {
                 Drawable unwrap = DrawableCompat.unwrap(drawable);
                 Object invoke = unwrap.getClass().getMethod("getOpticalInsets", new Class[0]).invoke(unwrap, new Object[0]);
                 if (invoke != null) {
                     Rect rect = new Rect();
-                    for (Field field : OH.getFields()) {
+                    for (Field field : OC.getFields()) {
                         String name = field.getName();
                         char c = 65535;
                         switch (name.hashCode()) {

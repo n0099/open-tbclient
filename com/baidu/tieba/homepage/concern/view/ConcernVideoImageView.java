@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ConcernVideoImageView extends RelativeLayout {
-    private TbImageView eho;
+    private TbImageView ehc;
 
     public ConcernVideoImageView(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class ConcernVideoImageView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.concern_video_img_layout, (ViewGroup) this, true);
-        this.eho = (TbImageView) findViewById(d.g.concern_video_img);
-        this.eho.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        this.ehc = (TbImageView) findViewById(d.g.concern_video_img);
+        this.ehc.setDefaultBgResource(d.C0141d.cp_bg_line_e);
         int ao = l.ao(getContext()) - l.t(getContext(), d.e.ds68);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eho.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ehc.getLayoutParams();
         layoutParams.height = (ao * 9) / 16;
         layoutParams.width = ao;
     }
 
     public void setData(List<MediaData> list) {
         if (!v.E(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.eho.startLoad(list.get(0).getPicUrl(), 10, false);
+            this.ehc.startLoad(list.get(0).getPicUrl(), 10, false);
         }
     }
 }

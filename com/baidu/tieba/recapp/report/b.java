@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b gHu;
-    private CustomMessageListener gHw = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gHf;
+    private CustomMessageListener gHh = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oJ() && b.this.gHv != null) {
-                b.this.gHv.boZ();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.oJ() && b.this.gHg != null) {
+                b.this.gHg.boY();
             }
         }
     };
-    private c gHv = new f();
+    private c gHg = new f();
 
-    public static b boX() {
-        if (gHu == null) {
+    public static b boW() {
+        if (gHf == null) {
             synchronized (b.class) {
-                if (gHu == null) {
-                    gHu = new b();
+                if (gHf == null) {
+                    gHf = new b();
                 }
             }
         }
-        return gHu;
+        return gHf;
     }
 
-    private boolean boY() {
+    private boolean boX() {
         return com.baidu.adp.lib.b.d.mA().an("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gHw);
+        MessageManager.getInstance().registerListener(this.gHh);
     }
 
     public void a(a aVar) {
-        if (boY() && aVar != null && this.gHv != null) {
+        if (boX() && aVar != null && this.gHg != null) {
             if (j.oJ()) {
-                this.gHv.b(aVar);
+                this.gHg.b(aVar);
             } else {
-                this.gHv.c(aVar);
+                this.gHg.c(aVar);
             }
         }
     }

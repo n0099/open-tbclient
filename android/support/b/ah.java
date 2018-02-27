@@ -16,10 +16,10 @@ public class ah extends ai {
     }
 
     public void add(View view) {
-        this.vO.add(view);
+        this.vN.add(view);
     }
 
     public void remove(View view) {
-        this.vO.remove(view);
+        this.vN.remove(view);
     }
 }

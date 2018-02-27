@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class t extends g<com.baidu.tbadk.core.data.au, a> {
-    private com.baidu.tieba.frs.view.d dHa;
+    private com.baidu.tieba.frs.view.d dGO;
 
     public t(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -19,8 +19,8 @@ public class t extends g<com.baidu.tbadk.core.data.au, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: at */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dHa = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
-        return new a(this.dHa);
+        this.dGO = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
+        return new a(this.dGO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class t extends g<com.baidu.tbadk.core.data.au, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.au auVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, auVar, aVar);
-        this.dHa = aVar.dHb;
+        this.dGO = aVar.dGP;
         ArrayList<com.baidu.tbadk.core.data.aw> yG = auVar.yG();
         if (yG.size() <= 0) {
             return null;
@@ -49,18 +49,18 @@ public class t extends g<com.baidu.tbadk.core.data.au, a> {
                 uVar.a(arVar);
             }
         }
-        this.dHa.d(this.mPageContext, this.mSkinType);
-        aVar.dHb.a(uVar);
+        this.dGO.d(this.mPageContext, this.mSkinType);
+        aVar.dGP.a(uVar);
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public class a extends r.a {
-        public com.baidu.tieba.frs.view.d dHb;
+        public com.baidu.tieba.frs.view.d dGP;
 
         public a(com.baidu.tieba.frs.view.d dVar) {
             super(dVar.getView());
-            this.dHb = dVar;
+            this.dGP = dVar;
         }
     }
 }

@@ -28,11 +28,11 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class b extends BaseFragment implements aj {
-    private boolean dyG;
-    private c efI;
-    private c.a efJ;
-    private boolean efK = false;
-    private CustomMessageListener cht = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.b.1
+    private boolean dyu;
+    private c efw;
+    private c.a efx;
+    private boolean efy = false;
+    private CustomMessageListener chh = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,26 +40,26 @@ public class b extends BaseFragment implements aj {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(b.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().biU != null) {
-                        if (AntiHelper.a(b.this.getActivity(), updateAttentionMessage.getData().biU, b.this.dFu) != null) {
-                            TiebaStatic.log(new ak("c12534").s("obj_locate", aq.a.aXK));
+                    if (updateAttentionMessage.getData().biH != null) {
+                        if (AntiHelper.a(b.this.getActivity(), updateAttentionMessage.getData().biH, b.this.dFi) != null) {
+                            TiebaStatic.log(new ak("c12534").s("obj_locate", aq.a.aXy));
                         }
-                    } else if (updateAttentionMessage.getData().apP && updateAttentionMessage.getData().isAttention) {
+                    } else if (updateAttentionMessage.getData().apG && updateAttentionMessage.getData().isAttention) {
                         l.showToast(b.this.getActivity(), d.j.attention_success);
                     }
                 }
             }
         }
     };
-    private final AntiHelper.a dFu = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.b.2
+    private final AntiHelper.a dFi = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.b.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ak("c12536").s("obj_locate", aq.a.aXK));
+            TiebaStatic.log(new ak("c12536").s("obj_locate", aq.a.aXy));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ak("c12535").s("obj_locate", aq.a.aXK));
+            TiebaStatic.log(new ak("c12535").s("obj_locate", aq.a.aXy));
         }
     };
 
@@ -68,25 +68,25 @@ public class b extends BaseFragment implements aj {
 
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
-        this.efI = new c(context);
-        this.efI.ayf();
-        registerListener(this.cht);
+        this.efw = new c(context);
+        this.efw.aye();
+        registerListener(this.chh);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.efI.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.efI.getParent()).removeView(this.efI);
-            if (this.efJ != null) {
-                this.efI.setCallback(this.efJ);
+        if (this.efw.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.efw.getParent()).removeView(this.efw);
+            if (this.efx != null) {
+                this.efw.setCallback(this.efx);
             }
         }
-        this.efI.setPageUniqueId(getUniqueId());
-        if (this.efK) {
-            this.efI.ayf();
-            this.efK = false;
+        this.efw.setPageUniqueId(getUniqueId());
+        if (this.efy) {
+            this.efw.aye();
+            this.efy = false;
         }
-        return this.efI;
+        return this.efw;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -96,15 +96,15 @@ public class b extends BaseFragment implements aj {
 
     @Override // com.baidu.tieba.frs.aj
     public void setHeaderViewHeight(int i) {
-        if (this.efI != null) {
-            this.efI.setHeaderViewHeight(i);
+        if (this.efw != null) {
+            this.efw.setHeaderViewHeight(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
-        if (this.efI != null) {
-            this.efI.setRecommendFrsNavigationAnimDispatcher(sVar);
+        if (this.efw != null) {
+            this.efw.setRecommendFrsNavigationAnimDispatcher(sVar);
         }
     }
 
@@ -120,15 +120,15 @@ public class b extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.efI != null) {
-            this.efI.onResume();
+        if (this.efw != null) {
+            this.efw.onResume();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.efI.setTabInForeBackgroundState(true);
+        this.efw.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -138,77 +138,77 @@ public class b extends BaseFragment implements aj {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.cht);
+        MessageManager.getInstance().unRegisterListener(this.chh);
         super.onDetach();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.efI.onDestroy();
-        this.efK = true;
+        this.efw.onDestroy();
+        this.efy = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.dyG) {
-                if (this.efI != null) {
-                    this.efI.aCf();
+            if (!this.dyu) {
+                if (this.efw != null) {
+                    this.efw.aCe();
                 }
-                this.dyG = true;
+                this.dyu = true;
             }
-            this.efI.aCi();
+            this.efw.aCh();
             return;
         }
-        this.efI.aCj();
+        this.efw.aCi();
         completePullRefresh();
     }
 
-    public void XL() {
-        this.efI.setViewForeground(true);
+    public void XK() {
+        this.efw.setViewForeground(true);
     }
 
     public void completePullRefresh() {
-        this.efI.completePullRefresh();
+        this.efw.completePullRefresh();
     }
 
     public void setCallback(c.a aVar) {
-        this.efJ = aVar;
-        this.efI.setCallback(aVar);
+        this.efx = aVar;
+        this.efw.setCallback(aVar);
     }
 
     public void Y(String str, int i) {
-        this.efI.Y(str, i);
+        this.efw.Y(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.efI != null) {
-            this.efI.a(dataRes, z);
+        if (this.efw != null) {
+            this.efw.a(dataRes, z);
         }
     }
 
-    public void aCe() {
-        if (this.efI != null) {
-            this.efI.aCf();
-            this.dyG = true;
+    public void aCd() {
+        if (this.efw != null) {
+            this.efw.aCe();
+            this.dyu = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.aj
+    public void Xo() {
+        if (this.dyu) {
+            this.efw.reload();
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Xp() {
-        if (this.dyG) {
-            this.efI.reload();
-        }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Xq() {
-    }
-
-    @Override // com.baidu.tieba.frs.aj
-    public void Xr() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -233,11 +233,11 @@ public class b extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.efI.onChangeSkinType(i);
+        this.efw.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void En() {
+    public void Em() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 

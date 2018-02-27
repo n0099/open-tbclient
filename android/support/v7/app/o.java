@@ -10,35 +10,35 @@ import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 class o {
-    private static o Eb;
-    private final LocationManager Ec;
-    private final a Ed = new a();
+    private static o DW;
+    private final LocationManager DX;
+    private final a DY = new a();
     private final Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static o W(Context context) {
-        if (Eb == null) {
+        if (DW == null) {
             Context applicationContext = context.getApplicationContext();
-            Eb = new o(applicationContext, (LocationManager) applicationContext.getSystemService(Headers.LOCATION));
+            DW = new o(applicationContext, (LocationManager) applicationContext.getSystemService(Headers.LOCATION));
         }
-        return Eb;
+        return DW;
     }
 
     o(Context context, LocationManager locationManager) {
         this.mContext = context;
-        this.Ec = locationManager;
+        this.DX = locationManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isNight() {
-        a aVar = this.Ed;
+        a aVar = this.DY;
         if (eo()) {
-            return aVar.Ee;
+            return aVar.DZ;
         }
         Location en = en();
         if (en != null) {
             a(en);
-            return aVar.Ee;
+            return aVar.DZ;
         }
         Log.i("TwilightManager", "Could not get last known location. This is probably because the app does not have any location permissions. Falling back to hardcoded sunrise/sunset values.");
         int i = Calendar.getInstance().get(11);
@@ -58,10 +58,10 @@ class o {
     }
 
     private Location A(String str) {
-        if (this.Ec != null) {
+        if (this.DX != null) {
             try {
-                if (this.Ec.isProviderEnabled(str)) {
-                    return this.Ec.getLastKnownLocation(str);
+                if (this.DX.isProviderEnabled(str)) {
+                    return this.DX.getLastKnownLocation(str);
                 }
             } catch (Exception e) {
                 Log.d("TwilightManager", "Failed to get last known location", e);
@@ -71,23 +71,23 @@ class o {
     }
 
     private boolean eo() {
-        return this.Ed != null && this.Ed.Ej > System.currentTimeMillis();
+        return this.DY != null && this.DY.Ee > System.currentTimeMillis();
     }
 
     private void a(Location location) {
         long j;
         long j2;
-        a aVar = this.Ed;
+        a aVar = this.DY;
         long currentTimeMillis = System.currentTimeMillis();
         n em = n.em();
         em.a(currentTimeMillis - 86400000, location.getLatitude(), location.getLongitude());
-        long j3 = em.DZ;
+        long j3 = em.DU;
         em.a(currentTimeMillis, location.getLatitude(), location.getLongitude());
         boolean z = em.state == 1;
-        long j4 = em.Ea;
-        long j5 = em.DZ;
+        long j4 = em.DV;
+        long j5 = em.DU;
         em.a(86400000 + currentTimeMillis, location.getLatitude(), location.getLongitude());
-        long j6 = em.Ea;
+        long j6 = em.DV;
         if (j4 == -1 || j5 == -1) {
             j = 43200000 + currentTimeMillis;
         } else {
@@ -100,23 +100,23 @@ class o {
             }
             j = j2 + 60000;
         }
-        aVar.Ee = z;
-        aVar.Ef = j3;
-        aVar.Eg = j4;
-        aVar.Eh = j5;
-        aVar.Ei = j6;
-        aVar.Ej = j;
+        aVar.DZ = z;
+        aVar.Ea = j3;
+        aVar.Eb = j4;
+        aVar.Ec = j5;
+        aVar.Ed = j6;
+        aVar.Ee = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean Ee;
-        long Ef;
-        long Eg;
-        long Eh;
-        long Ei;
-        long Ej;
+        boolean DZ;
+        long Ea;
+        long Eb;
+        long Ec;
+        long Ed;
+        long Ee;
 
         a() {
         }

@@ -31,7 +31,7 @@ public class a {
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.i> list, int i) {
         if (lVar != null) {
-            a(bVar, lVar.bas(), list, false, i);
+            a(bVar, lVar.bar(), list, false, i);
         }
     }
 
@@ -39,7 +39,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.D(list) > 0 && v.D(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.has) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.had) {
                 com.baidu.adp.widget.ListView.i iVar = (com.baidu.adp.widget.ListView.i) v.f(list, i);
                 if (iVar != null && (indexOf = list2.indexOf(iVar)) >= 0) {
                     eVar.cG(i, indexOf);

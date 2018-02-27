@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class s extends a {
-    private boolean aZj;
+    private boolean aYX;
     private int procType;
 
     public s(boolean z, int i) {
-        this.aZj = true;
+        this.aYX = true;
         this.procType = 0;
-        this.aZj = z;
+        this.aYX = z;
         this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int DL() {
+    public int DK() {
         return this.procType;
     }
 
@@ -35,16 +35,16 @@ public class s extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aZj;
+        return this.aYX;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DJ() {
+    public boolean DI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DK() {
+    public boolean DJ() {
         return false;
     }
 
@@ -67,7 +67,7 @@ public class s extends a {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(eK);
-            aVar.ajS = dVar;
+            aVar.ajM = dVar;
         }
         boolean oK = com.baidu.adp.lib.util.j.oK();
         if (!com.baidu.adp.lib.Disk.d.ll().c(eK)) {
@@ -107,7 +107,7 @@ public class s extends a {
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.ajS = dVar;
+                aVar.ajM = dVar;
             }
         }
         return aVar2;

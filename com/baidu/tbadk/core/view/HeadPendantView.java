@@ -14,150 +14,150 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class HeadPendantView extends FrameLayout {
-    private int baD;
-    public boolean baF;
-    private int baH;
-    private Drawable baI;
-    private TbImageView baL;
-    protected HeadImageView baM;
-    private boolean baN;
-    private boolean baO;
+    protected HeadImageView baA;
+    private boolean baB;
+    private boolean baC;
+    private int baq;
+    public boolean bat;
+    private int bav;
+    private Drawable baw;
+    private TbImageView baz;
     public boolean isBigV;
     private Context mContext;
     private BdUniqueId mPageId;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.baD = 0;
-        this.baF = false;
+        this.baq = 0;
+        this.bat = false;
         this.isBigV = false;
-        this.baH = 0;
-        this.baI = null;
+        this.bav = 0;
+        this.baw = null;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.baD = 0;
-        this.baF = false;
+        this.baq = 0;
+        this.bat = false;
         this.isBigV = false;
-        this.baH = 0;
-        this.baI = null;
+        this.bav = 0;
+        this.baw = null;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context) {
         super(context);
-        this.baD = 0;
-        this.baF = false;
+        this.baq = 0;
+        this.bat = false;
         this.isBigV = false;
-        this.baH = 0;
-        this.baI = null;
+        this.bav = 0;
+        this.baw = null;
         this.mContext = context;
         init();
     }
 
-    public boolean DS() {
-        return this.baO;
+    public boolean DR() {
+        return this.baC;
     }
 
-    public void DT() {
-        this.baN = true;
-        if (this.baL == null) {
-            this.baL = new TbImageView(this.mContext);
-            this.baL.setPageId(this.mPageId);
-            this.baL.setDefaultBgResource(0);
-            this.baL.setDefaultResource(0);
-            this.baL.setDefaultErrorResource(0);
-            this.baL.setImageDrawable(null);
-            this.baL.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            addView(this.baL);
+    public void DS() {
+        this.baB = true;
+        if (this.baz == null) {
+            this.baz = new TbImageView(this.mContext);
+            this.baz.setPageId(this.mPageId);
+            this.baz.setDefaultBgResource(0);
+            this.baz.setDefaultResource(0);
+            this.baz.setDefaultErrorResource(0);
+            this.baz.setImageDrawable(null);
+            this.baz.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            addView(this.baz);
         }
     }
 
     public void setHasPendantStyle(boolean z) {
-        this.baN = z;
+        this.baB = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.baN) {
+        if (this.baB) {
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
-            ((FrameLayout.LayoutParams) this.baM.getLayoutParams()).setMargins((int) (size * 0.13f), (int) (size2 * 0.13f), (int) (size * 0.13f), (int) (size2 * 0.13f));
+            ((FrameLayout.LayoutParams) this.baA.getLayoutParams()).setMargins((int) (size * 0.13f), (int) (size2 * 0.13f), (int) (size * 0.13f), (int) (size2 * 0.13f));
         }
         super.onMeasure(i, i2);
     }
 
     public void eS(String str) {
-        if (this.baL != null) {
+        if (this.baz != null) {
             if (!StringUtils.isNull(str)) {
-                this.baO = true;
-                this.baL.setVisibility(0);
-                this.baL.setImageDrawable(null);
-                this.baL.startLoad(str, 10, false);
+                this.baC = true;
+                this.baz.setVisibility(0);
+                this.baz.setImageDrawable(null);
+                this.baz.startLoad(str, 10, false);
                 return;
             }
-            this.baL.setVisibility(8);
-            this.baO = false;
+            this.baz.setVisibility(8);
+            this.baC = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.baL.setAutoChangeStyle(z);
-        this.baM.setAutoChangeStyle(z);
+        this.baz.setAutoChangeStyle(z);
+        this.baA.setAutoChangeStyle(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.baM = new HeadImageView(this.mContext);
-        this.baM.setDefaultBgResource(d.f.transparent_bg);
-        this.baM.setDefaultResource(d.C0140d.cp_bg_line_e);
-        this.baM.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.baA = new HeadImageView(this.mContext);
+        this.baA.setDefaultBgResource(d.f.transparent_bg);
+        this.baA.setDefaultResource(d.C0141d.cp_bg_line_e);
+        this.baA.setDefaultErrorResource(d.f.icon_default_avatar100);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.baM.setLayoutParams(layoutParams);
-        addView(this.baM);
+        this.baA.setLayoutParams(layoutParams);
+        addView(this.baA);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.baM != null) {
-            this.baM.setPageId(bdUniqueId);
+        if (this.baA != null) {
+            this.baA.setPageId(bdUniqueId);
         }
-        if (this.baL != null) {
-            this.baL.setPageId(bdUniqueId);
+        if (this.baz != null) {
+            this.baz.setPageId(bdUniqueId);
         }
     }
 
     public TbImageView getPendantView() {
-        return this.baL;
+        return this.baz;
     }
 
     public HeadImageView getHeadView() {
-        return this.baM;
+        return this.baA;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.baH != 0) {
+            if (this.bav != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.baH);
+                paint.setColor(this.bav);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.baF && !this.isBigV && !DS()) {
-                Drawable drawable = this.baI == null ? aj.getDrawable(d.f.pic_home_shen_avatar) : this.baI;
+            if (this.bat && !this.isBigV && !DR()) {
+                Drawable drawable = this.baw == null ? aj.getDrawable(d.f.pic_home_shen_avatar) : this.baw;
                 if (drawable != null) {
                     int t = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds30);
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.baF) {
-                        drawable.setBounds((width - t) - this.baD, (height - t) - this.baD, width - this.baD, height - this.baD);
+                    if (this.bat) {
+                        drawable.setBounds((width - t) - this.baq, (height - t) - this.baq, width - this.baq, height - this.baq);
                     }
                     drawable.draw(canvas);
                 }
@@ -166,16 +166,16 @@ public class HeadPendantView extends FrameLayout {
     }
 
     public void setGodIconMargin(int i) {
-        this.baF = true;
+        this.bat = true;
         getHeadView().setDefaultResource(17170445);
         getHeadView().setDefaultErrorResource(d.f.icon_default_avatar100);
-        getHeadView().setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        getHeadView().setDefaultBgResource(d.C0141d.cp_bg_line_e);
         getHeadView().setIsRound(true);
         if (i > 0) {
-            this.baD = com.baidu.adp.lib.util.l.t(this.mContext, i);
+            this.baq = com.baidu.adp.lib.util.l.t(this.mContext, i);
         }
         if (i < 0) {
-            this.baF = false;
+            this.bat = false;
         }
         invalidate();
     }
@@ -185,12 +185,12 @@ public class HeadPendantView extends FrameLayout {
             setGodIconMargin(0);
             return;
         }
-        this.baF = false;
+        this.bat = false;
         getHeadView().setDefaultResource(17170445);
         getHeadView().setDefaultErrorResource(d.f.icon_default_avatar100);
-        getHeadView().setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        getHeadView().setDefaultBgResource(d.C0141d.cp_bg_line_e);
         getHeadView().setIsRound(true);
-        this.baD = 0;
+        this.baq = 0;
         invalidate();
     }
 

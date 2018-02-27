@@ -29,7 +29,7 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
         if (vVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (vVar.mSkinType != skinType) {
-                com.baidu.tbadk.n.a.a(this.fNb.getPageContext(), vVar.getView());
+                com.baidu.tbadk.n.a.a(this.fMQ.getPageContext(), vVar.getView());
             }
             vVar.mSkinType = skinType;
         }
@@ -42,17 +42,17 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, v vVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, vVar);
         a(vVar);
-        vVar.fPJ.setOnClickListener(this);
-        vVar.fPI.setOnClickListener(this);
-        vVar.fPJ.setTag(aVar);
-        vVar.fPI.setTag(aVar);
+        vVar.fPy.setOnClickListener(this);
+        vVar.fPx.setOnClickListener(this);
+        vVar.fPy.setTag(aVar);
+        vVar.fPx.setTag(aVar);
         if (aVar != null) {
-            vVar.fPH.startLoad(aVar.getPortrait(), 28, false);
-            vVar.cqu.setText(aVar.getUserName());
-            vVar.exs.setText(aVar.bam());
+            vVar.fPw.startLoad(aVar.getPortrait(), 28, false);
+            vVar.cqi.setText(aVar.getUserName());
+            vVar.exg.setText(aVar.bal());
             vVar.text.setText(aVar.getText());
-            vVar.fPI.startLoad(aVar.getPicUrl(), 10, false);
-            vVar.fPJ.setText(aVar.ban());
+            vVar.fPx.startLoad(aVar.getPicUrl(), 10, false);
+            vVar.fPy.setText(aVar.bam());
         }
         return view;
     }
@@ -62,9 +62,9 @@ public class u extends k<com.baidu.tieba.pb.data.a, v> implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && ay.ba(this.mContext)) {
-            String bao = ((com.baidu.tieba.pb.data.a) view.getTag()).bao();
-            if (!StringUtils.isNull(bao)) {
-                com.baidu.tbadk.core.util.aw.Du().c(this.fNb.getPageContext(), new String[]{bao});
+            String ban = ((com.baidu.tieba.pb.data.a) view.getTag()).ban();
+            if (!StringUtils.isNull(ban)) {
+                com.baidu.tbadk.core.util.aw.Dt().c(this.fMQ.getPageContext(), new String[]{ban});
             }
         }
     }

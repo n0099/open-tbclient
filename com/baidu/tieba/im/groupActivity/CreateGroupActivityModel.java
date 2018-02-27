@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private BaseActivity bSO;
-    private GroupActivityData eFu;
-    RequestCreateGroupActivityMessage eFv;
+    private BaseActivity bSC;
+    private GroupActivityData eFi;
+    RequestCreateGroupActivityMessage eFj;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.eFu = new GroupActivityData();
-        this.bSO = baseActivity;
+        this.eFi = new GroupActivityData();
+        this.bSC = baseActivity;
     }
 
-    public GroupActivityData aJr() {
-        return this.eFu;
+    public GroupActivityData aJq() {
+        return this.eFi;
     }
 
     public void hF(boolean z) {
-        if (this.eFu != null) {
-            this.eFv = new RequestCreateGroupActivityMessage();
-            this.eFv.setCommitType(z ? 1 : 0);
+        if (this.eFi != null) {
+            this.eFj = new RequestCreateGroupActivityMessage();
+            this.eFj.setCommitType(z ? 1 : 0);
             if (z) {
-                this.eFv.setActivityId(this.eFu.getActivityId());
+                this.eFj.setActivityId(this.eFi.getActivityId());
             }
-            this.eFv.setgActivityArea(this.eFu.getgActivityArea());
-            this.eFv.setgActivityContent(this.eFu.getgActivityContent());
-            this.eFv.setgActivityTime(this.eFu.getgActivityTime());
-            this.eFv.setgActivityTitle(this.eFu.getgActivityTitle());
-            this.eFv.setGroupId(this.eFu.getGroupId());
-            this.bSO.sendMessage(this.eFv);
+            this.eFj.setgActivityArea(this.eFi.getgActivityArea());
+            this.eFj.setgActivityContent(this.eFi.getgActivityContent());
+            this.eFj.setgActivityTime(this.eFi.getgActivityTime());
+            this.eFj.setgActivityTitle(this.eFi.getgActivityTitle());
+            this.eFj.setGroupId(this.eFi.getGroupId());
+            this.bSC.sendMessage(this.eFj);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.eFv != null) {
+        if (this.eFj != null) {
         }
     }
 

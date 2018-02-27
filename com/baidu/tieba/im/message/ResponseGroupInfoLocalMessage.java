@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean eId;
-        private boolean eIe;
-        private GroupActivityData eKA;
-        private GroupData eKt;
-        private List<MemberData> eKu;
-        private List<PhotoUrlData> eKv;
-        private int eKw;
-        private int eKx;
-        private boolean eKy;
-        private boolean eKz;
+        private boolean eHR;
+        private boolean eHS;
+        private GroupData eKh;
+        private List<MemberData> eKi;
+        private List<PhotoUrlData> eKj;
+        private int eKk;
+        private int eKl;
+        private boolean eKm;
+        private boolean eKn;
+        private GroupActivityData eKo;
         private boolean isMemGroup;
 
-        public GroupActivityData aKQ() {
-            return this.eKA;
+        public GroupActivityData aKP() {
+            return this.eKo;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.eKA = groupActivityData;
+            this.eKo = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.eKt;
+            return this.eKh;
         }
 
         public void setGroup(GroupData groupData) {
-            this.eKt = groupData;
+            this.eKh = groupData;
         }
 
-        public List<MemberData> aKR() {
-            return this.eKu;
+        public List<MemberData> aKQ() {
+            return this.eKi;
         }
 
         public void cn(List<MemberData> list) {
-            this.eKu = list;
+            this.eKi = list;
         }
 
-        public List<PhotoUrlData> aKS() {
-            return this.eKv;
+        public List<PhotoUrlData> aKR() {
+            return this.eKj;
         }
 
         public void co(List<PhotoUrlData> list) {
-            this.eKv = list;
+            this.eKj = list;
         }
 
-        public int aKT() {
-            return this.eKw;
+        public int aKS() {
+            return this.eKk;
         }
 
         public void qp(int i) {
-            this.eKw = i;
+            this.eKk = i;
         }
 
-        public int aKU() {
-            return this.eKx;
+        public int aKT() {
+            return this.eKl;
         }
 
         public void qq(int i) {
-            this.eKx = i;
+            this.eKl = i;
         }
 
-        public boolean aKV() {
-            return this.eId;
+        public boolean aKU() {
+            return this.eHR;
         }
 
         public void hN(boolean z) {
-            this.eId = z;
+            this.eHR = z;
         }
 
-        public boolean aKW() {
-            return this.eIe;
+        public boolean aKV() {
+            return this.eHS;
         }
 
         public void hO(boolean z) {
-            this.eIe = z;
+            this.eHS = z;
         }
 
         public void hP(boolean z) {
-            this.eKy = z;
+            this.eKm = z;
         }
 
         public boolean isMemGroup() {
@@ -120,12 +120,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean aKX() {
-            return this.eKz;
+        public boolean aKW() {
+            return this.eKn;
         }
 
         public void hQ(boolean z) {
-            this.eKz = z;
+            this.eKn = z;
         }
     }
 

@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.widget.CheckBox;
 /* loaded from: classes2.dex */
 public class AppCompatCheckBox extends CheckBox implements TintableCompoundButton {
-    private e MB;
+    private e Mw;
 
     public AppCompatCheckBox(Context context) {
         this(context, null);
@@ -24,15 +24,15 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
 
     public AppCompatCheckBox(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.MB = new e(this);
-        this.MB.loadFromAttributes(attributeSet, i);
+        this.Mw = new e(this);
+        this.Mw.loadFromAttributes(attributeSet, i);
     }
 
     @Override // android.widget.CompoundButton
     public void setButtonDrawable(Drawable drawable) {
         super.setButtonDrawable(drawable);
-        if (this.MB != null) {
-            this.MB.fJ();
+        if (this.Mw != null) {
+            this.Mw.fJ();
         }
     }
 
@@ -44,22 +44,22 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
         int compoundPaddingLeft = super.getCompoundPaddingLeft();
-        return this.MB != null ? this.MB.bf(compoundPaddingLeft) : compoundPaddingLeft;
+        return this.Mw != null ? this.Mw.bf(compoundPaddingLeft) : compoundPaddingLeft;
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public void setSupportButtonTintList(ColorStateList colorStateList) {
-        if (this.MB != null) {
-            this.MB.setSupportButtonTintList(colorStateList);
+        if (this.Mw != null) {
+            this.Mw.setSupportButtonTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public ColorStateList getSupportButtonTintList() {
-        if (this.MB != null) {
-            return this.MB.getSupportButtonTintList();
+        if (this.Mw != null) {
+            return this.Mw.getSupportButtonTintList();
         }
         return null;
     }
@@ -67,16 +67,16 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public void setSupportButtonTintMode(PorterDuff.Mode mode) {
-        if (this.MB != null) {
-            this.MB.setSupportButtonTintMode(mode);
+        if (this.Mw != null) {
+            this.Mw.setSupportButtonTintMode(mode);
         }
     }
 
     @Override // android.support.v4.widget.TintableCompoundButton
     @RestrictTo
     public PorterDuff.Mode getSupportButtonTintMode() {
-        if (this.MB != null) {
-            return this.MB.getSupportButtonTintMode();
+        if (this.Mw != null) {
+            return this.Mw.getSupportButtonTintMode();
         }
         return null;
     }

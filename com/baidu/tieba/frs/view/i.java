@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class i extends LinearLayout {
-    private TextView bdY;
-    private ClickableHeaderImageView dZU;
-    private CardUserLikeButton dZV;
-    private TextView dZW;
+    private TextView bdM;
+    private ClickableHeaderImageView dZI;
+    private CardUserLikeButton dZJ;
+    private TextView dZK;
     private boolean isGod;
     private int mSkinType;
 
@@ -30,17 +30,17 @@ public class i extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_user_recommend_item, (ViewGroup) this, true);
-        this.dZU = (ClickableHeaderImageView) findViewById(d.g.user_recommend_head);
-        this.dZU.setAutoChangeStyle(true);
-        this.dZU.setDefaultResource(17170445);
-        this.dZU.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.dZU.setDefaultBgResource(d.C0140d.cp_bg_line_e);
-        this.dZU.setIsRound(true);
-        this.dZU.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.dZV = (CardUserLikeButton) findViewById(d.g.user_recommend_like_btn);
-        this.dZV.setGravity(17);
-        this.bdY = (TextView) findViewById(d.g.user_recommend_username);
-        this.dZW = (TextView) findViewById(d.g.user_recommend_fans_num);
+        this.dZI = (ClickableHeaderImageView) findViewById(d.g.user_recommend_head);
+        this.dZI.setAutoChangeStyle(true);
+        this.dZI.setDefaultResource(17170445);
+        this.dZI.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.dZI.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+        this.dZI.setIsRound(true);
+        this.dZI.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.dZJ = (CardUserLikeButton) findViewById(d.g.user_recommend_like_btn);
+        this.dZJ.setGravity(17);
+        this.bdM = (TextView) findViewById(d.g.user_recommend_username);
+        this.dZK = (TextView) findViewById(d.g.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -48,7 +48,7 @@ public class i extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                i.this.dZU.onClick(i.this.dZU);
+                i.this.dZI.onClick(i.this.dZI);
             }
         });
     }
@@ -57,9 +57,9 @@ public class i extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.bdY.setTextColor(aj.getColor(this.mSkinType, d.C0140d.cp_cont_r));
+                this.bdM.setTextColor(aj.getColor(this.mSkinType, d.C0141d.cp_cont_r));
             } else {
-                this.bdY.setTextColor(aj.getColor(this.mSkinType, d.C0140d.cp_cont_b));
+                this.bdM.setTextColor(aj.getColor(this.mSkinType, d.C0141d.cp_cont_b));
             }
         }
     }
@@ -67,30 +67,30 @@ public class i extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.dZW.setTextColor(aj.getColor(i, d.C0140d.cp_cont_d));
+            this.dZK.setTextColor(aj.getColor(i, d.C0141d.cp_cont_d));
             if (this.isGod) {
-                this.bdY.setTextColor(aj.getColor(i, d.C0140d.cp_cont_r));
+                this.bdM.setTextColor(aj.getColor(i, d.C0141d.cp_cont_r));
             } else {
-                this.bdY.setTextColor(aj.getColor(i, d.C0140d.cp_cont_b));
+                this.bdM.setTextColor(aj.getColor(i, d.C0141d.cp_cont_b));
             }
-            setBackgroundColor(aj.getColor(i, d.C0140d.cp_bg_line_d));
-            this.dZV.onChangeSkinType(i);
+            setBackgroundColor(aj.getColor(i, d.C0141d.cp_bg_line_d));
+            this.dZJ.onChangeSkinType(i);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.dZU;
+        return this.dZI;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.dZV;
+        return this.dZJ;
     }
 
     public TextView getUsername() {
-        return this.bdY;
+        return this.bdM;
     }
 
     public TextView getFansNum() {
-        return this.dZW;
+        return this.dZK;
     }
 }

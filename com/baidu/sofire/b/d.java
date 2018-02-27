@@ -41,7 +41,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
     public static boolean a = false;
-    public static MyReceiver aGr = null;
+    public static MyReceiver aGg = null;
     public static String b;
     public static String c;
 
@@ -370,7 +370,7 @@ public final class d {
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
                 jSONObject2.put("6", 1);
-                jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, 0);
+                jSONObject2.put("7", 0);
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
                 jSONObject2.put("9", "3.1.0");
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str);
@@ -557,10 +557,10 @@ public final class d {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!(activeNetworkInfo != null && 1 == activeNetworkInfo.getType())) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (aGr == null) {
-                    aGr = new MyReceiver().a();
+                if (aGg == null) {
+                    aGg = new MyReceiver().a();
                 }
-                context.getApplicationContext().registerReceiver(aGr, intentFilter);
+                context.getApplicationContext().registerReceiver(aGg, intentFilter);
                 a = true;
                 return false;
             }
@@ -837,7 +837,7 @@ public final class d {
             if (str9 == null) {
                 str9 = "";
             }
-            jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, str9);
+            jSONObject.put("7", str9);
             jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, f.a(context));
             String str10 = Build.MANUFACTURER;
             if (str10 == null) {
@@ -947,7 +947,7 @@ public final class d {
             jSONObject2.put("4", f.a(context));
             jSONObject2.put("5", optString);
             jSONObject2.put("6", optLong);
-            jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, optString2);
+            jSONObject2.put("7", optString2);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, optString3);
             jSONObject2.put("9", optString4);
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, optString5);
@@ -982,7 +982,7 @@ public final class d {
         e aB = e.aB(context);
         Message message = new Message();
         message.what = 8;
-        aB.aGu.aGS.sendMessage(message);
+        aB.aGj.aGH.sendMessage(message);
         com.baidu.sofire.rp.a.a aVar2 = new com.baidu.sofire.rp.a.a();
         aVar2.a = str;
         aVar2.b = str2;
@@ -998,13 +998,13 @@ public final class d {
                 eVar.a(aVar2);
             } else {
                 if (d != null && (indexOf = d.indexOf(aVar2)) != -1 && (aVar = d.get(indexOf)) != null) {
-                    eVar.aGM.putString("re_con", eVar.e.getString("re_con", "").replace(com.baidu.sofire.rp.a.a.b(aVar), com.baidu.sofire.rp.a.a.b(aVar2)));
-                    eVar.aGM.commit();
+                    eVar.aGB.putString("re_con", eVar.e.getString("re_con", "").replace(com.baidu.sofire.rp.a.a.b(aVar), com.baidu.sofire.rp.a.a.b(aVar2)));
+                    eVar.aGB.commit();
                 }
-                com.baidu.sofire.rp.e.a aVar3 = e.aB(context).aGu;
+                com.baidu.sofire.rp.e.a aVar3 = e.aB(context).aGj;
                 Message message2 = new Message();
                 message2.what = 7;
-                aVar3.aGS.sendMessage(message2);
+                aVar3.aGH.sendMessage(message2);
                 return;
             }
             if (!eVar.e.getBoolean("re_net_ins_" + aVar2.e, false)) {
@@ -1012,16 +1012,16 @@ public final class d {
                 Message message3 = new Message();
                 message3.what = 3;
                 message3.obj = aVar2;
-                aB2.aGu.aGS.sendMessage(message3);
+                aB2.aGj.aGH.sendMessage(message3);
             }
-            com.baidu.sofire.rp.e.a aVar4 = e.aB(context).aGu;
+            com.baidu.sofire.rp.e.a aVar4 = e.aB(context).aGj;
             Message message4 = new Message();
             message4.what = 7;
-            aVar4.aGS.sendMessage(message4);
+            aVar4.aGH.sendMessage(message4);
             e aB3 = e.aB(context);
             Message message5 = new Message();
             message5.what = 2;
-            aB3.aGu.aGS.sendMessage(message5);
+            aB3.aGj.aGH.sendMessage(message5);
         }
     }
 
@@ -1036,7 +1036,7 @@ public final class d {
             String optString = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
             int optInt = optJSONObject.optInt("5");
             int optInt2 = optJSONObject.optInt("6");
-            int optInt3 = optJSONObject.optInt(Constants.VIA_SHARE_TYPE_PUBLISHMOOD);
+            int optInt3 = optJSONObject.optInt("7");
             int optInt4 = optJSONObject.optInt(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             String optString2 = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
             int i = optInt2 != 0 ? optInt2 : 1;
@@ -1054,7 +1054,7 @@ public final class d {
             Message message = new Message();
             message.what = 1;
             message.obj = aVar;
-            aB.aGu.aGS.sendMessage(message);
+            aB.aGj.aGH.sendMessage(message);
         } catch (Exception e) {
             com.baidu.sofire.b.b(e);
         }
@@ -1075,8 +1075,8 @@ public final class d {
                         }
                     }
                     if (!TextUtils.isEmpty(str2)) {
-                        eVar.aGM.putString("al_da" + str2, optJSONObject.optString(str2));
-                        eVar.aGM.commit();
+                        eVar.aGB.putString("al_da" + str2, optJSONObject.optString(str2));
+                        eVar.aGB.commit();
                     }
                 }
             } catch (Exception e) {
@@ -1093,8 +1093,8 @@ public final class d {
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        eVar.aGM.putString("in_da" + str3, optJSONObject2.optString(str3));
-                        eVar.aGM.commit();
+                        eVar.aGB.putString("in_da" + str3, optJSONObject2.optString(str3));
+                        eVar.aGB.commit();
                     }
                 }
             } catch (Exception e2) {
@@ -1103,8 +1103,8 @@ public final class d {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("2");
                 if (optJSONArray != null) {
-                    eVar.aGM.putString("li_pk_s", optJSONArray.toString());
-                    eVar.aGM.commit();
+                    eVar.aGB.putString("li_pk_s", optJSONArray.toString());
+                    eVar.aGB.commit();
                 }
             } catch (Exception e3) {
                 com.baidu.sofire.b.b(e3);
@@ -1141,7 +1141,7 @@ public final class d {
             jSONObject.put("4", 0);
             jSONObject.put("5", 0);
             jSONObject.put("6", 1);
-            jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, 0);
+            jSONObject.put("7", 0);
             jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str);
             jSONObject.put("9", str2);
             jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str3);
@@ -1258,13 +1258,13 @@ public final class d {
                             if (callback != null) {
                                 callback.onBegin(new Object[0]);
                             }
-                            if (c.this.aGA.dX(i)) {
+                            if (c.this.aGp.dX(i)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                while (c.this.aGA.dX(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                                while (c.this.aGp.dX(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
                                     SystemClock.sleep(300L);
                                 }
                             }
-                            if (!c.this.aGA.dX(i)) {
+                            if (!c.this.aGp.dX(i)) {
                                 if (!c.this.e) {
                                     c.a(3);
                                     c.this.a((Callback) null);
@@ -1272,7 +1272,7 @@ public final class d {
                                 e aD = e.aD(c.b.getApplicationContext());
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 while (System.currentTimeMillis() - currentTimeMillis2 <= 120000) {
-                                    apkInfo2 = c.this.aGA.dW(i);
+                                    apkInfo2 = c.this.aGp.dW(i);
                                     if (apkInfo2 != null) {
                                         if (aD.cm(apkInfo2.packageName) == null) {
                                             if (apkInfo2.initStatus == -1) {

@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method fwP;
+    private static Method fwD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aXn();
+                    ((c.a) context).getSplash().aXm();
                 }
                 c = c(file2, file);
                 b(context, D(file2), E, c.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aXn();
+                ((c.a) context).getSplash().aXm();
             }
             c = c(file2, file);
             b(context, D(file2), E, c.size() + 1);
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (fwP != null) {
+        if (fwD != null) {
             try {
-                fwP.invoke(editor, new Object[0]);
+                fwD.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            fwP = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            fwD = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            fwP = null;
+            fwD = null;
         }
     }
 }

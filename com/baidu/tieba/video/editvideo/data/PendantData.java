@@ -31,7 +31,7 @@ public class PendantData extends OrmObject {
         this.pendantType = i;
     }
 
-    public void bBD() {
+    public void bBC() {
         if (!TextUtils.isEmpty(this.size)) {
             String[] split = this.size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 4) {

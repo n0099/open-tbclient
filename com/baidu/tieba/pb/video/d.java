@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.m;
 /* loaded from: classes2.dex */
 public class d {
-    public TextView gbp;
-    public TextView gbq;
+    public TextView gbe;
+    public TextView gbf;
     public View mRootView;
     public TextView mTitleView;
 
@@ -26,8 +26,8 @@ public class d {
         if (view != null) {
             this.mRootView = view;
             this.mTitleView = (TextView) this.mRootView.findViewById(d.g.view_video_title);
-            this.gbp = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
-            this.gbq = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
+            this.gbe = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
+            this.gbf = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
         }
     }
 
@@ -47,23 +47,23 @@ public class d {
                     @Override // com.baidu.tbadk.widget.richText.c, android.text.style.ClickableSpan, android.text.style.CharacterStyle
                     public void updateDrawState(TextPaint textPaint) {
                         super.updateDrawState(textPaint);
-                        textPaint.setColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(d.C0140d.cp_link_tip_c));
+                        textPaint.setColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(d.C0141d.cp_link_tip_c));
                         textPaint.setUnderlineText(false);
                     }
                 }));
             }
             this.mTitleView.setOnTouchListener(new m(spannableStringBuilder));
             this.mTitleView.setText(spannableStringBuilder);
-            this.mTitleView.setLinkTextColor(aj.getColor(d.C0140d.cp_link_tip_c));
-            this.gbp.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.F(bdVar.zf())));
-            this.gbq.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.F(bdVar.zF().play_count.intValue())));
-            Jb();
+            this.mTitleView.setLinkTextColor(aj.getColor(d.C0141d.cp_link_tip_c));
+            this.gbe.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), am.F(bdVar.zf())));
+            this.gbf.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), am.F(bdVar.zF().play_count.intValue())));
+            Ja();
         }
     }
 
-    public void Jb() {
-        aj.e(this.mTitleView, d.C0140d.cp_cont_b, 1);
-        aj.e(this.gbp, d.C0140d.cp_cont_f, 1);
-        aj.e(this.gbq, d.C0140d.cp_cont_f, 1);
+    public void Ja() {
+        aj.e(this.mTitleView, d.C0141d.cp_cont_b, 1);
+        aj.e(this.gbe, d.C0141d.cp_cont_f, 1);
+        aj.e(this.gbf, d.C0141d.cp_cont_f, 1);
     }
 }

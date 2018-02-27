@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.h;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.p;
+import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.ByteArrayInputStream;
@@ -409,7 +410,7 @@ public class d extends b {
                         hashMap.put("osSdkInt", Build.VERSION.SDK_INT + "");
                         if ((p.a() && PushSettings.m(d.this.a)) || ((p.c() && PushSettings.p(d.this.a)) || ((p.b() && PushSettings.n(d.this.a)) || (p.d() && PushSettings.o(d.this.a))))) {
                             hashMap.put("manufacture", Build.MANUFACTURER);
-                            hashMap.put("sdk_version", ((int) com.baidu.android.pushservice.a.a()) + "");
+                            hashMap.put(SapiContext.KEY_SDK_VERSION, ((int) com.baidu.android.pushservice.a.a()) + "");
                             hashMap.put("cuid", com.baidu.android.pushservice.k.e.a(d.this.a));
                             hashMap.put("channelid", PushSettings.a(d.this.a));
                             hashMap.put("package_name", d.this.a.getPackageName());

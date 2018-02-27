@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.xiaomi.mipush.sdk.Constants;
+import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -48,7 +48,7 @@ public class x implements Runnable {
                     if (jSONObject != null) {
                         String string = jSONObject.getString("channel_id");
                         String string2 = com.baidu.android.pushservice.h.f() ? jSONObject.getString("rsa_channel_token") : jSONObject.getString("channel_token");
-                        jSONObject.getString("expires_time");
+                        jSONObject.getString(Constants.PARAM_EXPIRES_TIME);
                         com.baidu.android.pushservice.j.a(this.a).a(string, string2);
                         z = true;
                     } else {
@@ -89,7 +89,7 @@ public class x implements Runnable {
 
     private HashMap<String, String> c() throws Exception {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("method", Constants.EXTRA_KEY_TOKEN);
+        hashMap.put("method", com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN);
         b.a(hashMap);
         hashMap.put("device_type", "3");
         String b = com.baidu.android.pushservice.k.e.b(this.a);

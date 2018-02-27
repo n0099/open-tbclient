@@ -30,31 +30,31 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class MenuBuilder implements SupportMenu {
-    private static final int[] IK = {1, 4, 5, 3, 2, 0};
-    private boolean IL;
-    private boolean IM;
-    private Callback IN;
-    private ContextMenu.ContextMenuInfo IU;
-    CharSequence IW;
-    Drawable IX;
-    View IY;
-    private MenuItemImpl Jf;
-    private boolean Jg;
+    private static final int[] IF = {1, 4, 5, 3, 2, 0};
+    private boolean IG;
+    private boolean IH;
+    private Callback II;
+    private ContextMenu.ContextMenuInfo IP;
+    CharSequence IQ;
+    Drawable IR;
+    View IS;
+    private MenuItemImpl Ja;
+    private boolean Jb;
     private final Context mContext;
     private final Resources mResources;
-    private int IT = 0;
-    private boolean IZ = false;
-    private boolean Ja = false;
-    private boolean Jb = false;
-    private boolean Jc = false;
-    private ArrayList<MenuItemImpl> Jd = new ArrayList<>();
-    private CopyOnWriteArrayList<WeakReference<MenuPresenter>> Je = new CopyOnWriteArrayList<>();
+    private int IO = 0;
+    private boolean IT = false;
+    private boolean IU = false;
+    private boolean IW = false;
+    private boolean IX = false;
+    private ArrayList<MenuItemImpl> IY = new ArrayList<>();
+    private CopyOnWriteArrayList<WeakReference<MenuPresenter>> IZ = new CopyOnWriteArrayList<>();
     private ArrayList<MenuItemImpl> mItems = new ArrayList<>();
-    private ArrayList<MenuItemImpl> IO = new ArrayList<>();
-    private boolean IP = true;
-    private ArrayList<MenuItemImpl> IQ = new ArrayList<>();
-    private ArrayList<MenuItemImpl> IR = new ArrayList<>();
-    private boolean IS = true;
+    private ArrayList<MenuItemImpl> IJ = new ArrayList<>();
+    private boolean IK = true;
+    private ArrayList<MenuItemImpl> IL = new ArrayList<>();
+    private ArrayList<MenuItemImpl> IM = new ArrayList<>();
+    private boolean IN = true;
 
     @RestrictTo
     /* loaded from: classes2.dex */
@@ -77,7 +77,7 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public MenuBuilder setDefaultShowAsAction(int i) {
-        this.IT = i;
+        this.IO = i;
         return this;
     }
 
@@ -86,31 +86,31 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public void addMenuPresenter(MenuPresenter menuPresenter, Context context) {
-        this.Je.add(new WeakReference<>(menuPresenter));
+        this.IZ.add(new WeakReference<>(menuPresenter));
         menuPresenter.initForMenu(context, this);
-        this.IS = true;
+        this.IN = true;
     }
 
     public void removeMenuPresenter(MenuPresenter menuPresenter) {
-        Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+        Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
         while (it.hasNext()) {
             WeakReference<MenuPresenter> next = it.next();
             MenuPresenter menuPresenter2 = next.get();
             if (menuPresenter2 == null || menuPresenter2 == menuPresenter) {
-                this.Je.remove(next);
+                this.IZ.remove(next);
             }
         }
     }
 
     private void B(boolean z) {
-        if (!this.Je.isEmpty()) {
+        if (!this.IZ.isEmpty()) {
             stopDispatchingItemsChanged();
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (it.hasNext()) {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                 } else {
                     menuPresenter.updateMenuView(z);
                 }
@@ -120,11 +120,11 @@ public class MenuBuilder implements SupportMenu {
     }
 
     private boolean a(SubMenuBuilder subMenuBuilder, MenuPresenter menuPresenter) {
-        if (this.Je.isEmpty()) {
+        if (this.IZ.isEmpty()) {
             return false;
         }
         boolean onSubMenuSelected = menuPresenter != null ? menuPresenter.onSubMenuSelected(subMenuBuilder) : false;
-        Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+        Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
         while (true) {
             boolean z = onSubMenuSelected;
             if (!it.hasNext()) {
@@ -133,7 +133,7 @@ public class MenuBuilder implements SupportMenu {
             WeakReference<MenuPresenter> next = it.next();
             MenuPresenter menuPresenter2 = next.get();
             if (menuPresenter2 == null) {
-                this.Je.remove(next);
+                this.IZ.remove(next);
             } else if (!z) {
                 z = menuPresenter2.onSubMenuSelected(subMenuBuilder);
             }
@@ -143,14 +143,14 @@ public class MenuBuilder implements SupportMenu {
 
     private void dispatchSaveInstanceState(Bundle bundle) {
         Parcelable onSaveInstanceState;
-        if (!this.Je.isEmpty()) {
+        if (!this.IZ.isEmpty()) {
             SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (it.hasNext()) {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                 } else {
                     int id = menuPresenter.getId();
                     if (id > 0 && (onSaveInstanceState = menuPresenter.onSaveInstanceState()) != null) {
@@ -165,13 +165,13 @@ public class MenuBuilder implements SupportMenu {
     private void dispatchRestoreInstanceState(Bundle bundle) {
         Parcelable parcelable;
         SparseArray sparseParcelableArray = bundle.getSparseParcelableArray("android:menu:presenters");
-        if (sparseParcelableArray != null && !this.Je.isEmpty()) {
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+        if (sparseParcelableArray != null && !this.IZ.isEmpty()) {
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (it.hasNext()) {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                 } else {
                     int id = menuPresenter.getId();
                     if (id > 0 && (parcelable = (Parcelable) sparseParcelableArray.get(id)) != null) {
@@ -246,15 +246,15 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public void setCallback(Callback callback) {
-        this.IN = callback;
+        this.II = callback;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MenuItem addInternal(int i, int i2, int i3, CharSequence charSequence) {
         int aS = aS(i3);
-        MenuItemImpl a = a(i, i2, i3, aS, charSequence, this.IT);
-        if (this.IU != null) {
-            a.a(this.IU);
+        MenuItemImpl a = a(i, i2, i3, aS, charSequence, this.IO);
+        if (this.IP != null) {
+            a.a(this.IP);
         }
         this.mItems.add(a(this.mItems, aS), a);
         onItemsChanged(true);
@@ -365,18 +365,18 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public void clearAll() {
-        this.IZ = true;
+        this.IT = true;
         clear();
         clearHeader();
-        this.IZ = false;
-        this.Ja = false;
+        this.IT = false;
+        this.IU = false;
         onItemsChanged(true);
     }
 
     @Override // android.view.Menu
     public void clear() {
-        if (this.Jf != null) {
-            collapseItemActionView(this.Jf);
+        if (this.Ja != null) {
+            collapseItemActionView(this.Ja);
         }
         this.mItems.clear();
         onItemsChanged(true);
@@ -434,7 +434,7 @@ public class MenuBuilder implements SupportMenu {
 
     @Override // android.view.Menu
     public boolean hasVisibleItems() {
-        if (this.Jg) {
+        if (this.Jb) {
             return true;
         }
         int size = size();
@@ -507,25 +507,25 @@ public class MenuBuilder implements SupportMenu {
 
     @Override // android.view.Menu
     public void setQwertyMode(boolean z) {
-        this.IL = z;
+        this.IG = z;
         onItemsChanged(false);
     }
 
     private static int aS(int i) {
         int i2 = ((-65536) & i) >> 16;
-        if (i2 < 0 || i2 >= IK.length) {
+        if (i2 < 0 || i2 >= IF.length) {
             throw new IllegalArgumentException("order does not contain a valid category.");
         }
-        return (IK[i2] << 16) | (65535 & i);
+        return (IF[i2] << 16) | (65535 & i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isQwertyMode() {
-        return this.IL;
+        return this.IG;
     }
 
     public void setShortcutsVisible(boolean z) {
-        if (this.IM != z) {
+        if (this.IH != z) {
             C(z);
             onItemsChanged(false);
         }
@@ -533,11 +533,11 @@ public class MenuBuilder implements SupportMenu {
 
     private void C(boolean z) {
         boolean z2 = true;
-        this.IM = (z && this.mResources.getConfiguration().keyboard != 1 && this.mResources.getBoolean(R.bool.abc_config_showMenuShortcutsWhenKeyboardPresent)) ? false : false;
+        this.IH = (z && this.mResources.getConfiguration().keyboard != 1 && this.mResources.getBoolean(R.bool.abc_config_showMenuShortcutsWhenKeyboardPresent)) ? false : false;
     }
 
     public boolean isShortcutsVisible() {
-        return this.IM;
+        return this.IH;
     }
 
     Resources getResources() {
@@ -550,12 +550,12 @@ public class MenuBuilder implements SupportMenu {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(MenuBuilder menuBuilder, MenuItem menuItem) {
-        return this.IN != null && this.IN.onMenuItemSelected(menuBuilder, menuItem);
+        return this.II != null && this.II.onMenuItemSelected(menuBuilder, menuItem);
     }
 
     public void changeMenuMode() {
-        if (this.IN != null) {
-            this.IN.onMenuModeChange(this);
+        if (this.II != null) {
+            this.II.onMenuModeChange(this);
         }
     }
 
@@ -601,7 +601,7 @@ public class MenuBuilder implements SupportMenu {
     }
 
     MenuItemImpl d(int i, KeyEvent keyEvent) {
-        ArrayList<MenuItemImpl> arrayList = this.Jd;
+        ArrayList<MenuItemImpl> arrayList = this.IY;
         arrayList.clear();
         a(arrayList, i, keyEvent);
         if (arrayList.isEmpty()) {
@@ -681,19 +681,19 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public final void close(boolean z) {
-        if (!this.Jc) {
-            this.Jc = true;
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+        if (!this.IX) {
+            this.IX = true;
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (it.hasNext()) {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                 } else {
                     menuPresenter.onCloseMenu(this, z);
                 }
             }
-            this.Jc = false;
+            this.IX = false;
         }
     }
 
@@ -703,72 +703,72 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public void onItemsChanged(boolean z) {
-        if (!this.IZ) {
+        if (!this.IT) {
             if (z) {
-                this.IP = true;
-                this.IS = true;
+                this.IK = true;
+                this.IN = true;
             }
             B(z);
             return;
         }
-        this.Ja = true;
+        this.IU = true;
     }
 
     public void stopDispatchingItemsChanged() {
-        if (!this.IZ) {
-            this.IZ = true;
-            this.Ja = false;
+        if (!this.IT) {
+            this.IT = true;
+            this.IU = false;
         }
     }
 
     public void startDispatchingItemsChanged() {
-        this.IZ = false;
-        if (this.Ja) {
-            this.Ja = false;
+        this.IT = false;
+        if (this.IU) {
+            this.IU = false;
             onItemsChanged(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(MenuItemImpl menuItemImpl) {
-        this.IP = true;
+        this.IK = true;
         onItemsChanged(true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(MenuItemImpl menuItemImpl) {
-        this.IS = true;
+        this.IN = true;
         onItemsChanged(true);
     }
 
     public ArrayList<MenuItemImpl> getVisibleItems() {
-        if (this.IP) {
-            this.IO.clear();
+        if (this.IK) {
+            this.IJ.clear();
             int size = this.mItems.size();
             for (int i = 0; i < size; i++) {
                 MenuItemImpl menuItemImpl = this.mItems.get(i);
                 if (menuItemImpl.isVisible()) {
-                    this.IO.add(menuItemImpl);
+                    this.IJ.add(menuItemImpl);
                 }
             }
-            this.IP = false;
-            this.IS = true;
-            return this.IO;
+            this.IK = false;
+            this.IN = true;
+            return this.IJ;
         }
-        return this.IO;
+        return this.IJ;
     }
 
     public void flagActionItems() {
         boolean flagActionItems;
         ArrayList<MenuItemImpl> visibleItems = getVisibleItems();
-        if (this.IS) {
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+        if (this.IN) {
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             boolean z = false;
             while (it.hasNext()) {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                     flagActionItems = z;
                 } else {
                     flagActionItems = menuPresenter.flagActionItems() | z;
@@ -776,61 +776,61 @@ public class MenuBuilder implements SupportMenu {
                 z = flagActionItems;
             }
             if (z) {
-                this.IQ.clear();
-                this.IR.clear();
+                this.IL.clear();
+                this.IM.clear();
                 int size = visibleItems.size();
                 for (int i = 0; i < size; i++) {
                     MenuItemImpl menuItemImpl = visibleItems.get(i);
                     if (menuItemImpl.isActionButton()) {
-                        this.IQ.add(menuItemImpl);
+                        this.IL.add(menuItemImpl);
                     } else {
-                        this.IR.add(menuItemImpl);
+                        this.IM.add(menuItemImpl);
                     }
                 }
             } else {
-                this.IQ.clear();
-                this.IR.clear();
-                this.IR.addAll(getVisibleItems());
+                this.IL.clear();
+                this.IM.clear();
+                this.IM.addAll(getVisibleItems());
             }
-            this.IS = false;
+            this.IN = false;
         }
     }
 
     public ArrayList<MenuItemImpl> getActionItems() {
         flagActionItems();
-        return this.IQ;
+        return this.IL;
     }
 
     public ArrayList<MenuItemImpl> getNonActionItems() {
         flagActionItems();
-        return this.IR;
+        return this.IM;
     }
 
     public void clearHeader() {
-        this.IX = null;
-        this.IW = null;
-        this.IY = null;
+        this.IR = null;
+        this.IQ = null;
+        this.IS = null;
         onItemsChanged(false);
     }
 
     private void a(int i, CharSequence charSequence, int i2, Drawable drawable, View view) {
         Resources resources = getResources();
         if (view != null) {
-            this.IY = view;
-            this.IW = null;
-            this.IX = null;
+            this.IS = view;
+            this.IQ = null;
+            this.IR = null;
         } else {
             if (i > 0) {
-                this.IW = resources.getText(i);
+                this.IQ = resources.getText(i);
             } else if (charSequence != null) {
-                this.IW = charSequence;
+                this.IQ = charSequence;
             }
             if (i2 > 0) {
-                this.IX = ContextCompat.getDrawable(getContext(), i2);
+                this.IR = ContextCompat.getDrawable(getContext(), i2);
             } else if (drawable != null) {
-                this.IX = drawable;
+                this.IR = drawable;
             }
-            this.IY = null;
+            this.IS = null;
         }
         onItemsChanged(false);
     }
@@ -866,15 +866,15 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public CharSequence getHeaderTitle() {
-        return this.IW;
+        return this.IQ;
     }
 
     public Drawable getHeaderIcon() {
-        return this.IX;
+        return this.IR;
     }
 
     public View getHeaderView() {
-        return this.IY;
+        return this.IS;
     }
 
     public MenuBuilder getRootMenu() {
@@ -882,23 +882,23 @@ public class MenuBuilder implements SupportMenu {
     }
 
     public void setCurrentMenuInfo(ContextMenu.ContextMenuInfo contextMenuInfo) {
-        this.IU = contextMenuInfo;
+        this.IP = contextMenuInfo;
     }
 
     public void setOptionalIconsVisible(boolean z) {
-        this.Jb = z;
+        this.IW = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean eW() {
-        return this.Jb;
+        return this.IW;
     }
 
     public boolean expandItemActionView(MenuItemImpl menuItemImpl) {
         boolean z = false;
-        if (!this.Je.isEmpty()) {
+        if (!this.IZ.isEmpty()) {
             stopDispatchingItemsChanged();
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (true) {
                 boolean z2 = z;
                 if (!it.hasNext()) {
@@ -908,7 +908,7 @@ public class MenuBuilder implements SupportMenu {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                     z = z2;
                 } else {
                     z = menuPresenter.expandItemActionView(this, menuItemImpl);
@@ -919,7 +919,7 @@ public class MenuBuilder implements SupportMenu {
             }
             startDispatchingItemsChanged();
             if (z) {
-                this.Jf = menuItemImpl;
+                this.Ja = menuItemImpl;
             }
         }
         return z;
@@ -927,9 +927,9 @@ public class MenuBuilder implements SupportMenu {
 
     public boolean collapseItemActionView(MenuItemImpl menuItemImpl) {
         boolean z = false;
-        if (!this.Je.isEmpty() && this.Jf == menuItemImpl) {
+        if (!this.IZ.isEmpty() && this.Ja == menuItemImpl) {
             stopDispatchingItemsChanged();
-            Iterator<WeakReference<MenuPresenter>> it = this.Je.iterator();
+            Iterator<WeakReference<MenuPresenter>> it = this.IZ.iterator();
             while (true) {
                 boolean z2 = z;
                 if (!it.hasNext()) {
@@ -939,7 +939,7 @@ public class MenuBuilder implements SupportMenu {
                 WeakReference<MenuPresenter> next = it.next();
                 MenuPresenter menuPresenter = next.get();
                 if (menuPresenter == null) {
-                    this.Je.remove(next);
+                    this.IZ.remove(next);
                     z = z2;
                 } else {
                     z = menuPresenter.collapseItemActionView(this, menuItemImpl);
@@ -950,17 +950,17 @@ public class MenuBuilder implements SupportMenu {
             }
             startDispatchingItemsChanged();
             if (z) {
-                this.Jf = null;
+                this.Ja = null;
             }
         }
         return z;
     }
 
     public MenuItemImpl getExpandedItem() {
-        return this.Jf;
+        return this.Ja;
     }
 
     public void setOverrideVisibleItems(boolean z) {
-        this.Jg = z;
+        this.Jb = z;
     }
 }

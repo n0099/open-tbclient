@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class MediaBrowserServiceCompatApi24 {
-    private static Field yk;
+    private static Field yf;
 
     /* loaded from: classes2.dex */
     public interface ServiceCompatProxy extends MediaBrowserServiceCompatApi23.ServiceCompatProxy {
@@ -21,8 +21,8 @@ class MediaBrowserServiceCompatApi24 {
 
     static {
         try {
-            yk = MediaBrowserService.Result.class.getDeclaredField("mFlags");
-            yk.setAccessible(true);
+            yf = MediaBrowserService.Result.class.getDeclaredField("mFlags");
+            yf.setAccessible(true);
         } catch (NoSuchFieldException e) {
             Log.w("MBSCompatApi24", e);
         }
@@ -42,23 +42,23 @@ class MediaBrowserServiceCompatApi24 {
 
     /* loaded from: classes2.dex */
     static class b {
-        MediaBrowserService.Result yj;
+        MediaBrowserService.Result ye;
 
         b(MediaBrowserService.Result result) {
-            this.yj = result;
+            this.ye = result;
         }
 
         public void c(List<Parcel> list, int i) {
             try {
-                MediaBrowserServiceCompatApi24.yk.setInt(this.yj, i);
+                MediaBrowserServiceCompatApi24.yf.setInt(this.ye, i);
             } catch (IllegalAccessException e) {
                 Log.w("MBSCompatApi24", e);
             }
-            this.yj.sendResult(h(list));
+            this.ye.sendResult(h(list));
         }
 
         public void detach() {
-            this.yj.detach();
+            this.ye.detach();
         }
 
         List<MediaBrowser.MediaItem> h(List<Parcel> list) {

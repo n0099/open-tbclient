@@ -3,7 +3,7 @@ package android.support.design.widget;
 import android.view.animation.Interpolator;
 /* loaded from: classes2.dex */
 class s {
-    private final e ss;
+    private final e sr;
 
     /* loaded from: classes2.dex */
     interface a {
@@ -87,37 +87,37 @@ class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(e eVar) {
-        this.ss = eVar;
+        this.sr = eVar;
     }
 
     public void start() {
-        this.ss.start();
+        this.sr.start();
     }
 
     public boolean isRunning() {
-        return this.ss.isRunning();
+        return this.sr.isRunning();
     }
 
     public void setInterpolator(Interpolator interpolator) {
-        this.ss.setInterpolator(interpolator);
+        this.sr.setInterpolator(interpolator);
     }
 
     public void a(final c cVar) {
         if (cVar != null) {
-            this.ss.a(new e.b() { // from class: android.support.design.widget.s.1
+            this.sr.a(new e.b() { // from class: android.support.design.widget.s.1
                 @Override // android.support.design.widget.s.e.b
                 public void cC() {
                     cVar.a(s.this);
                 }
             });
         } else {
-            this.ss.a((e.b) null);
+            this.sr.a((e.b) null);
         }
     }
 
     public void a(final a aVar) {
         if (aVar != null) {
-            this.ss.a(new e.a() { // from class: android.support.design.widget.s.2
+            this.sr.a(new e.a() { // from class: android.support.design.widget.s.2
                 @Override // android.support.design.widget.s.e.a
                 public void onAnimationStart() {
                     aVar.c(s.this);
@@ -134,43 +134,43 @@ class s {
                 }
             });
         } else {
-            this.ss.a((e.a) null);
+            this.sr.a((e.a) null);
         }
     }
 
     public void q(int i, int i2) {
-        this.ss.q(i, i2);
+        this.sr.q(i, i2);
     }
 
     public int cA() {
-        return this.ss.cA();
+        return this.sr.cA();
     }
 
     public void e(float f, float f2) {
-        this.ss.e(f, f2);
+        this.sr.e(f, f2);
     }
 
     public float cB() {
-        return this.ss.cB();
+        return this.sr.cB();
     }
 
     public void setDuration(long j) {
-        this.ss.setDuration(j);
+        this.sr.setDuration(j);
     }
 
     public void cancel() {
-        this.ss.cancel();
+        this.sr.cancel();
     }
 
     public float getAnimatedFraction() {
-        return this.ss.getAnimatedFraction();
+        return this.sr.getAnimatedFraction();
     }
 
     public void end() {
-        this.ss.end();
+        this.sr.end();
     }
 
     public long getDuration() {
-        return this.ss.getDuration();
+        return this.sr.getDuration();
     }
 }

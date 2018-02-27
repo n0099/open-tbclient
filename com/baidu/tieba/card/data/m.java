@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
 public class m extends c {
-    public bd bZr;
-    public static final BdUniqueId daq = BdUniqueId.gen();
-    public static final BdUniqueId dar = BdUniqueId.gen();
-    public static String das = "";
-    public static String dau = "";
-    public static String dav = "";
-    public static String daw = "";
-    public static String dax = "";
-    public static String daz = "";
-    public static String daA = "";
-    public boolean dal = false;
-    public boolean daB = true;
+    public static final BdUniqueId dae = BdUniqueId.gen();
+    public static final BdUniqueId daf = BdUniqueId.gen();
+    public static String dag = "";
+    public static String dah = "";
+    public static String dai = "";
+    public static String daj = "";
+    public static String dak = "";
+    public static String dal = "";
+    public static String dam = "";
+    public bd bZf;
+    public boolean cZZ = false;
+    public boolean dan = true;
     public int sourceType = 0;
 
     public m(bd bdVar) {
-        this.bZr = bdVar;
+        this.bZf = bdVar;
     }
 
     public static boolean M(bd bdVar) {
@@ -30,54 +30,54 @@ public class m extends c {
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        if (this.bZr == null) {
-            return daq;
+        if (this.bZf == null) {
+            return dae;
         }
-        if (this.bZr.zr() || this.bZr.zs()) {
-            return dar;
+        if (this.bZf.zr() || this.bZf.zs()) {
+            return daf;
         }
-        return daq;
+        return dae;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd WE() {
-        return this.bZr;
+    public bd WD() {
+        return this.bZf;
     }
 
     public ak kz(String str) {
         ak akVar = new ak(str);
-        if (this.bZr != null) {
-            akVar.f(ImageViewerConfig.FORUM_ID, this.bZr.getFid());
-            akVar.ab("tid", this.bZr.getTid());
+        if (this.bZf != null) {
+            akVar.f(ImageViewerConfig.FORUM_ID, this.bZf.getFid());
+            akVar.ab("tid", this.bZf.getTid());
             akVar.s("obj_type", 2);
-            if (this.bZr.zn() != null) {
-                akVar.ab("obj_id", this.bZr.zn().getUserId());
+            if (this.bZf.zn() != null) {
+                akVar.ab("obj_id", this.bZf.zn().getUserId());
             }
         }
         return akVar;
     }
 
-    public ak alK() {
-        ak s = s(daw, true);
-        if (s != null && WE() != null) {
-            bd WE = WE();
-            s.s("obj_name", WE.AA() != null && (WE.AA().bwX() != null || WE.AA().Rq() != null) ? 1 : 0);
-            if (WE.zn() != null) {
-                s.s("ab_type", WE.zn().hadConcerned() ? 1 : 0);
+    public ak alJ() {
+        ak r = r(daj, true);
+        if (r != null && WD() != null) {
+            bd WD = WD();
+            r.s("obj_name", WD.AA() != null && (WD.AA().bwW() != null || WD.AA().Rp() != null) ? 1 : 0);
+            if (WD.zn() != null) {
+                r.s("ab_type", WD.zn().hadConcerned() ? 1 : 0);
             }
         }
-        return s;
+        return r;
     }
 
     public ak N(bd bdVar) {
-        return (bdVar.Ao() == null || bdVar.Ao().channelId <= 0) ? s(dax, true) : s(daz, true);
+        return (bdVar.Ao() == null || bdVar.Ao().channelId <= 0) ? r(dak, true) : r(dal, true);
     }
 
-    public ak alM() {
-        return s(dau, true);
+    public ak alL() {
+        return r(dah, true);
     }
 
     public ak O(bd bdVar) {
-        return (bdVar.Ao() == null || bdVar.Ao().channelId <= 0) ? s(das, true) : s(daA, true);
+        return (bdVar.Ao() == null || bdVar.Ao().channelId <= 0) ? r(dag, true) : r(dam, true);
     }
 }

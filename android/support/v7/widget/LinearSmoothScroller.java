@@ -13,7 +13,7 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     public static final int SNAP_TO_ANY = 0;
     public static final int SNAP_TO_END = 1;
     public static final int SNAP_TO_START = -1;
-    private final float Qg;
+    private final float Qb;
     protected PointF mTargetVector;
     protected final LinearInterpolator mLinearInterpolator = new LinearInterpolator();
     protected final DecelerateInterpolator mDecelerateInterpolator = new DecelerateInterpolator();
@@ -21,7 +21,7 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     protected int mInterimTargetDy = 0;
 
     public LinearSmoothScroller(Context context) {
-        this.Qg = calculateSpeedPerPixel(context.getResources().getDisplayMetrics());
+        this.Qb = calculateSpeedPerPixel(context.getResources().getDisplayMetrics());
     }
 
     @Override // android.support.v7.widget.RecyclerView.SmoothScroller
@@ -68,7 +68,7 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     }
 
     protected int calculateTimeForScrolling(int i) {
-        return (int) Math.ceil(Math.abs(i) * this.Qg);
+        return (int) Math.ceil(Math.abs(i) * this.Qb);
     }
 
     protected int getHorizontalSnapPreference() {

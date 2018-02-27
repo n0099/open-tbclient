@@ -15,11 +15,11 @@ import com.baidu.tieba.channel.message.ResponseChannelFansListMessage;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
-    private boolean ccH;
-    private boolean clp;
-    private long dbL;
-    private a ddl;
-    private c ddm;
+    private boolean ccv;
+    private boolean cld;
+    private long dbz;
+    private a dcZ;
+    private c dda;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -31,8 +31,8 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
 
     public ChannelFansListModel(e<ChannelFansActivity> eVar, long j) {
         super(eVar);
-        this.clp = true;
-        this.ccH = false;
+        this.cld = true;
+        this.ccv = false;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST) { // from class: com.baidu.tieba.channel.model.ChannelFansListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -41,32 +41,32 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelFansListModel.this.a((ResponseChannelFansListMessage) httpResponsedMessage);
                     }
-                    if (ChannelFansListModel.this.ddl != null) {
-                        ChannelFansListModel.this.ddl.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.clp, ChannelFansListModel.this.ddm);
+                    if (ChannelFansListModel.this.dcZ != null) {
+                        ChannelFansListModel.this.dcZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.cld, ChannelFansListModel.this.dda);
                     }
-                    ChannelFansListModel.this.clp = false;
+                    ChannelFansListModel.this.cld = false;
                 }
             }
         };
-        this.dbL = j;
+        this.dbz = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseChannelFansListMessage responseChannelFansListMessage) {
         if (responseChannelFansListMessage != null) {
-            if (this.ddm == null) {
-                this.ddm = new c();
+            if (this.dda == null) {
+                this.dda = new c();
             }
             c data = responseChannelFansListMessage.getData();
             if (data != null) {
-                this.ddm.getItems().addAll(data.getItems());
-                this.ddm.setHasMore(data.hasMore());
+                this.dda.getItems().addAll(data.getItems());
+                this.dda.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
     }
 
-    public void WM() {
+    public void WL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getChannelFansList");
         tbHttpMessageTask.setResponsedClass(ResponseChannelFansListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -79,21 +79,21 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        amt();
+        ams();
         return false;
     }
 
-    private void amt() {
+    private void ams() {
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
-            if (!this.ccH) {
+            if (!this.ccv) {
                 this.mPageNum = 1;
-                this.ddm = null;
+                this.dda = null;
             } else {
                 this.mPageNum++;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST);
-            httpMessage.addParam("channel_id", this.dbL);
+            httpMessage.addParam("channel_id", this.dbz);
             httpMessage.addParam("pn", this.mPageNum);
             httpMessage.addParam("ps", 20);
             sendMessage(httpMessage);
@@ -110,10 +110,10 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
     }
 
     public void eT(boolean z) {
-        this.ccH = z;
+        this.ccv = z;
     }
 
     public void a(a aVar) {
-        this.ddl = aVar;
+        this.dcZ = aVar;
     }
 }

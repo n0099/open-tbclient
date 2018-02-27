@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 /* loaded from: classes3.dex */
 public class ForumSearchActivity extends BaseActivity {
-    b dCW;
+    b dCK;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dCW = new b(getPageContext());
-        setContentView(this.dCW.auh().aId);
+        this.dCK = new b(getPageContext());
+        setContentView(this.dCK.aug().aHS);
         Intent intent = getIntent();
         if (intent != null) {
-            this.dCW.setFrom(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
-            this.dCW.setLiveId(intent.getLongExtra("extra_key_live_id", 0L));
-            this.dCW.setOriginalThread((OriginalThreadInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
+            this.dCK.setFrom(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
+            this.dCK.setLiveId(intent.getLongExtra("extra_key_live_id", 0L));
+            this.dCK.setOriginalThread((OriginalThreadInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
         }
     }
 
@@ -27,6 +27,6 @@ public class ForumSearchActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dCW.onDestory();
+        this.dCK.onDestory();
     }
 }

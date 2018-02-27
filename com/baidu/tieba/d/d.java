@@ -18,27 +18,27 @@ import com.baidu.tieba.d.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class d implements a.InterfaceC0138a {
-    private static d dgz = null;
-    private a dgA;
-    private a dgB;
-    private ArrayList<TransmitForumData> dgC;
-    private ArrayList<TransmitForumData> dgE;
+public class d implements a.InterfaceC0139a {
+    private static d dgn = null;
+    private a dgo;
+    private a dgp;
+    private ArrayList<TransmitForumData> dgq;
+    private ArrayList<TransmitForumData> dgs;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean dgD = false;
-    private boolean dgF = false;
+    private boolean dgr = false;
+    private boolean dgt = false;
     private boolean isLoading = false;
 
-    public static d anj() {
-        if (dgz == null) {
+    public static d ani() {
+        if (dgn == null) {
             synchronized (d.class) {
-                if (dgz == null) {
-                    dgz = new d();
+                if (dgn == null) {
+                    dgn = new d();
                 }
             }
         }
-        return dgz;
+        return dgn;
     }
 
     private d() {
@@ -46,43 +46,43 @@ public class d implements a.InterfaceC0138a {
     }
 
     private void init() {
-        anl();
         ank();
+        anj();
         this.isLoading = false;
     }
 
-    private void ank() {
+    private void anj() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.dgB = (a) runTask.getData();
+            this.dgp = (a) runTask.getData();
         }
-        if (this.dgB != null) {
-            this.dgB.a(this);
+        if (this.dgp != null) {
+            this.dgp.a(this);
         }
     }
 
-    private void anl() {
+    private void ank() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.dgA = (a) runTask.getData();
+            this.dgo = (a) runTask.getData();
         }
-        if (this.dgA != null) {
-            this.dgA.a(this);
+        if (this.dgo != null) {
+            this.dgo.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.blC = ano();
+                shareDialogConfig.shareItem.blp = ann();
             }
             if (l.pa() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 this.isLoading = true;
-                if (this.dgA != null) {
-                    this.dgA.ane();
+                if (this.dgo != null) {
+                    this.dgo.and();
                 }
-                if (this.dgB != null) {
-                    this.dgB.ane();
+                if (this.dgp != null) {
+                    this.dgp.and();
                 }
             }
             shareDialogConfig.setIsShowTransmitShare(true);
@@ -92,32 +92,32 @@ public class d implements a.InterfaceC0138a {
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0138a
+    @Override // com.baidu.tieba.d.a.InterfaceC0139a
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.dgE = arrayList;
+                this.dgs = arrayList;
             }
-            this.dgF = true;
+            this.dgt = true;
         } else if (i == 2) {
             if (z) {
-                this.dgC = arrayList;
+                this.dgq = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.dgD = true;
+            this.dgr = true;
         }
-        anm();
+        anl();
     }
 
-    private void anm() {
-        if (this.dgA == null || this.dgD) {
-            if (this.dgB == null || this.dgF) {
-                this.dgD = false;
-                this.dgF = false;
+    private void anl() {
+        if (this.dgo == null || this.dgr) {
+            if (this.dgp == null || this.dgt) {
+                this.dgr = false;
+                this.dgt = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.E(this.dgC)) {
-                    Iterator<TransmitForumData> it = this.dgC.iterator();
+                if (!v.E(this.dgq)) {
+                    Iterator<TransmitForumData> it = this.dgq.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!bp(next.forumId)) {
@@ -125,8 +125,8 @@ public class d implements a.InterfaceC0138a {
                         }
                     }
                 }
-                if (!v.E(this.dgE)) {
-                    Iterator<TransmitForumData> it2 = this.dgE.iterator();
+                if (!v.E(this.dgs)) {
+                    Iterator<TransmitForumData> it2 = this.dgs.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!bp(next2.forumId)) {
@@ -134,14 +134,14 @@ public class d implements a.InterfaceC0138a {
                         }
                     }
                 }
-                this.dgC = null;
-                this.dgE = null;
-                ann();
+                this.dgq = null;
+                this.dgs = null;
+                anm();
             }
         }
     }
 
-    private void ann() {
+    private void anm() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
@@ -159,7 +159,7 @@ public class d implements a.InterfaceC0138a {
         return false;
     }
 
-    private Location ano() {
+    private Location ann() {
         if (ab.aS(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

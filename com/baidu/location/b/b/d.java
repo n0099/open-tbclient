@@ -4,11 +4,11 @@ import com.baidu.location.b.b.c;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class d implements Comparator<c.a> {
-    final /* synthetic */ c aCi;
+    final /* synthetic */ c aBZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aCi = cVar;
+        this.aBZ = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

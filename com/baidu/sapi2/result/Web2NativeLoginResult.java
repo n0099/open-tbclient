@@ -10,6 +10,6 @@ public class Web2NativeLoginResult extends SapiResult {
     public Web2NativeLoginResult() {
         this.msgMap.put(400021, "用户登录状态失效，请重新登录");
         this.msgMap.put(-101, ERROR_MSG_BDUSS_EMPTY);
-        this.msgMap.put(-202, "登录失败");
+        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }
 }

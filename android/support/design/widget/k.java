@@ -18,7 +18,7 @@ abstract class k<V extends View> extends x<V> {
     ScrollerCompat mScroller;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
-    private Runnable pi;
+    private Runnable ph;
 
     public k() {
         this.mActivePointerId = -1;
@@ -172,17 +172,17 @@ abstract class k<V extends View> extends x<V> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean a(CoordinatorLayout coordinatorLayout, V v, int i, int i2, float f) {
-        if (this.pi != null) {
-            v.removeCallbacks(this.pi);
-            this.pi = null;
+        if (this.ph != null) {
+            v.removeCallbacks(this.ph);
+            this.ph = null;
         }
         if (this.mScroller == null) {
             this.mScroller = ScrollerCompat.create(v.getContext());
         }
         this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
         if (this.mScroller.computeScrollOffset()) {
-            this.pi = new a(coordinatorLayout, v);
-            ViewCompat.postOnAnimation(v, this.pi);
+            this.ph = new a(coordinatorLayout, v);
+            ViewCompat.postOnAnimation(v, this.ph);
             return true;
         }
         a(coordinatorLayout, v);
@@ -213,23 +213,23 @@ abstract class k<V extends View> extends x<V> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a implements Runnable {
-        private final CoordinatorLayout pj;
-        private final V pl;
+        private final CoordinatorLayout pi;
+        private final V pj;
 
         a(CoordinatorLayout coordinatorLayout, V v) {
-            this.pj = coordinatorLayout;
-            this.pl = v;
+            this.pi = coordinatorLayout;
+            this.pj = v;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pl != null && k.this.mScroller != null) {
+            if (this.pj != null && k.this.mScroller != null) {
                 if (k.this.mScroller.computeScrollOffset()) {
-                    k.this.a(this.pj, this.pl, k.this.mScroller.getCurrY());
-                    ViewCompat.postOnAnimation(this.pl, this);
+                    k.this.a(this.pi, this.pj, k.this.mScroller.getCurrY());
+                    ViewCompat.postOnAnimation(this.pj, this);
                     return;
                 }
-                k.this.a(this.pj, this.pl);
+                k.this.a(this.pi, this.pj);
             }
         }
     }

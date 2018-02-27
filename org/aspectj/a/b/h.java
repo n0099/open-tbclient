@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 class h {
-    static h imN = new h();
-    static h imO;
-    static h imP;
-    boolean imE = true;
-    boolean imF = true;
-    boolean imG = false;
-    boolean imH = false;
-    boolean imI = false;
-    boolean imJ = true;
-    boolean imK = true;
-    boolean imL = true;
-    int imM;
+    static h imA = new h();
+    static h imB;
+    static h imC;
+    boolean imr = true;
+    boolean ims = true;
+    boolean imt = false;
+    boolean imu = false;
+    boolean imv = false;
+    boolean imw = true;
+    boolean imx = true;
+    boolean imy = true;
+    int imz;
 
     h() {
     }
 
     static {
-        imN.imE = true;
-        imN.imF = false;
-        imN.imG = false;
-        imN.imH = false;
-        imN.imI = true;
-        imN.imJ = false;
-        imN.imK = false;
-        imN.imM = 0;
-        imO = new h();
-        imO.imE = true;
-        imO.imF = true;
-        imO.imG = false;
-        imO.imH = false;
-        imO.imI = false;
-        imN.imM = 1;
-        imP = new h();
-        imP.imE = false;
-        imP.imF = true;
-        imP.imG = false;
-        imP.imH = true;
-        imP.imI = false;
-        imP.imL = false;
-        imP.imM = 2;
+        imA.imr = true;
+        imA.ims = false;
+        imA.imt = false;
+        imA.imu = false;
+        imA.imv = true;
+        imA.imw = false;
+        imA.imx = false;
+        imA.imz = 0;
+        imB = new h();
+        imB.imr = true;
+        imB.ims = true;
+        imB.imt = false;
+        imB.imu = false;
+        imB.imv = false;
+        imA.imz = 1;
+        imC = new h();
+        imC.imr = false;
+        imC.ims = true;
+        imC.imt = false;
+        imC.imu = true;
+        imC.imv = false;
+        imC.imy = false;
+        imC.imz = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,8 +52,8 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String zy(int i) {
-        if (this.imH) {
+    public String zz(int i) {
+        if (this.imu) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String o(Class cls) {
-        return b(cls, cls.getName(), this.imE);
+        return b(cls, cls.getName(), this.imr);
     }
 
     public String e(Class cls, String str) {
-        return b(cls, str, this.imI);
+        return b(cls, str, this.imv);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.imF) {
+            if (!this.ims) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.imG && clsArr != null && clsArr.length != 0) {
+        if (this.imt && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

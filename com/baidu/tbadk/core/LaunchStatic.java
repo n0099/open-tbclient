@@ -47,12 +47,12 @@ public class LaunchStatic {
         initRegisterTask();
         initRegisterListeners();
         xn();
-        at.OQ();
+        at.OP();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.aMq();
+        com.baidu.tieba.im.widget.c.aMp();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.aKO();
-        com.baidu.tieba.im.db.i.aIi();
+        ImMemoryCacheRegister.aKN();
+        com.baidu.tieba.im.db.i.aIh();
         com.baidu.tbadk.browser.e.init();
         h.init();
         com.baidu.tieba.wallet.d.init();
@@ -91,7 +91,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.Mp().HQ();
+        com.baidu.tbadk.getUserInfo.b.Mo().HP();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.aJ(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);

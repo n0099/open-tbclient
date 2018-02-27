@@ -17,17 +17,17 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public static final int SWIPE_DIRECTION_END_TO_START = 1;
     public static final int SWIPE_DIRECTION_START_TO_END = 0;
     ViewDragHelper lt;
-    OnDismissListener qo;
-    private boolean qp;
-    private boolean qr;
-    private float qq = 0.0f;
-    int qs = 2;
-    float qt = 0.5f;
-    float qu = 0.0f;
-    float qv = 0.5f;
+    OnDismissListener qn;
+    private boolean qo;
+    private boolean qq;
+    private float qp = 0.0f;
+    int qr = 2;
+    float qs = 0.5f;
+    float qt = 0.0f;
+    float qu = 0.5f;
     private final ViewDragHelper.Callback lE = new ViewDragHelper.Callback() { // from class: android.support.design.widget.SwipeDismissBehavior.1
         private int mActivePointerId = -1;
-        private int qw;
+        private int qv;
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view, int i) {
@@ -37,7 +37,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         @Override // android.support.v4.widget.ViewDragHelper.Callback
         public void onViewCaptured(View view, int i) {
             this.mActivePointerId = i;
-            this.qw = view.getLeft();
+            this.qv = view.getLeft();
             ViewParent parent = view.getParent();
             if (parent != null) {
                 parent.requestDisallowInterceptTouchEvent(true);
@@ -46,8 +46,8 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
         public void onViewDragStateChanged(int i) {
-            if (SwipeDismissBehavior.this.qo != null) {
-                SwipeDismissBehavior.this.qo.onDragStateChanged(i);
+            if (SwipeDismissBehavior.this.qn != null) {
+                SwipeDismissBehavior.this.qn.onDragStateChanged(i);
             }
         }
 
@@ -58,29 +58,29 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             int width = view.getWidth();
             boolean z = false;
             if (n(view, f)) {
-                i = view.getLeft() < this.qw ? this.qw - width : this.qw + width;
+                i = view.getLeft() < this.qv ? this.qv - width : this.qv + width;
                 z = true;
             } else {
-                i = this.qw;
+                i = this.qv;
             }
             if (SwipeDismissBehavior.this.lt.settleCapturedViewAt(i, view.getTop())) {
                 ViewCompat.postOnAnimation(view, new a(view, z));
-            } else if (z && SwipeDismissBehavior.this.qo != null) {
-                SwipeDismissBehavior.this.qo.onDismiss(view);
+            } else if (z && SwipeDismissBehavior.this.qn != null) {
+                SwipeDismissBehavior.this.qn.onDismiss(view);
             }
         }
 
         private boolean n(View view, float f) {
             if (f == 0.0f) {
-                return Math.abs(view.getLeft() - this.qw) >= Math.round(((float) view.getWidth()) * SwipeDismissBehavior.this.qt);
+                return Math.abs(view.getLeft() - this.qv) >= Math.round(((float) view.getWidth()) * SwipeDismissBehavior.this.qs);
             }
             boolean z = ViewCompat.getLayoutDirection(view) == 1;
-            if (SwipeDismissBehavior.this.qs == 2) {
+            if (SwipeDismissBehavior.this.qr == 2) {
                 return true;
             }
-            if (SwipeDismissBehavior.this.qs == 0) {
+            if (SwipeDismissBehavior.this.qr == 0) {
                 return z ? f < 0.0f : f > 0.0f;
-            } else if (SwipeDismissBehavior.this.qs == 1) {
+            } else if (SwipeDismissBehavior.this.qr == 1) {
                 return z ? f > 0.0f : f < 0.0f;
             } else {
                 return false;
@@ -97,25 +97,25 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             int width;
             int width2;
             boolean z = ViewCompat.getLayoutDirection(view) == 1;
-            if (SwipeDismissBehavior.this.qs == 0) {
+            if (SwipeDismissBehavior.this.qr == 0) {
                 if (z) {
-                    width = this.qw - view.getWidth();
-                    width2 = this.qw;
+                    width = this.qv - view.getWidth();
+                    width2 = this.qv;
                 } else {
-                    width = this.qw;
-                    width2 = this.qw + view.getWidth();
+                    width = this.qv;
+                    width2 = this.qv + view.getWidth();
                 }
-            } else if (SwipeDismissBehavior.this.qs == 1) {
+            } else if (SwipeDismissBehavior.this.qr == 1) {
                 if (z) {
-                    width = this.qw;
-                    width2 = this.qw + view.getWidth();
+                    width = this.qv;
+                    width2 = this.qv + view.getWidth();
                 } else {
-                    width = this.qw - view.getWidth();
-                    width2 = this.qw;
+                    width = this.qv - view.getWidth();
+                    width2 = this.qv;
                 }
             } else {
-                width = this.qw - view.getWidth();
-                width2 = this.qw + view.getWidth();
+                width = this.qv - view.getWidth();
+                width2 = this.qv + view.getWidth();
             }
             return SwipeDismissBehavior.clamp(width, i, width2);
         }
@@ -127,8 +127,8 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
-            float width = this.qw + (view.getWidth() * SwipeDismissBehavior.this.qu);
-            float width2 = this.qw + (view.getWidth() * SwipeDismissBehavior.this.qv);
+            float width = this.qv + (view.getWidth() * SwipeDismissBehavior.this.qt);
+            float width2 = this.qv + (view.getWidth() * SwipeDismissBehavior.this.qu);
             if (i <= width) {
                 ViewCompat.setAlpha(view, 1.0f);
             } else if (i >= width2) {
@@ -147,41 +147,41 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     }
 
     public void setListener(OnDismissListener onDismissListener) {
-        this.qo = onDismissListener;
+        this.qn = onDismissListener;
     }
 
     public void setSwipeDirection(int i) {
-        this.qs = i;
+        this.qr = i;
     }
 
     public void setDragDismissDistance(float f) {
-        this.qt = c(0.0f, f, 1.0f);
+        this.qs = c(0.0f, f, 1.0f);
     }
 
     public void setStartAlphaSwipeDistance(float f) {
-        this.qu = c(0.0f, f, 1.0f);
+        this.qt = c(0.0f, f, 1.0f);
     }
 
     public void setEndAlphaSwipeDistance(float f) {
-        this.qv = c(0.0f, f, 1.0f);
+        this.qu = c(0.0f, f, 1.0f);
     }
 
     public void setSensitivity(float f) {
-        this.qq = f;
-        this.qr = true;
+        this.qp = f;
+        this.qq = true;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
-        boolean z = this.qp;
+        boolean z = this.qo;
         switch (MotionEventCompat.getActionMasked(motionEvent)) {
             case 0:
-                this.qp = coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), (int) motionEvent.getY());
-                z = this.qp;
+                this.qo = coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), (int) motionEvent.getY());
+                z = this.qo;
                 break;
             case 1:
             case 3:
-                this.qp = false;
+                this.qo = false;
                 break;
         }
         if (z) {
@@ -207,8 +207,8 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     private void a(ViewGroup viewGroup) {
         ViewDragHelper create;
         if (this.lt == null) {
-            if (this.qr) {
-                create = ViewDragHelper.create(viewGroup, this.qq, this.lE);
+            if (this.qq) {
+                create = ViewDragHelper.create(viewGroup, this.qp, this.lE);
             } else {
                 create = ViewDragHelper.create(viewGroup, this.lE);
             }
@@ -219,19 +219,19 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     /* loaded from: classes2.dex */
     private class a implements Runnable {
         private final View mView;
-        private final boolean qy;
+        private final boolean qx;
 
         a(View view, boolean z) {
             this.mView = view;
-            this.qy = z;
+            this.qx = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (SwipeDismissBehavior.this.lt != null && SwipeDismissBehavior.this.lt.continueSettling(true)) {
                 ViewCompat.postOnAnimation(this.mView, this);
-            } else if (this.qy && SwipeDismissBehavior.this.qo != null) {
-                SwipeDismissBehavior.this.qo.onDismiss(this.mView);
+            } else if (this.qx && SwipeDismissBehavior.this.qn != null) {
+                SwipeDismissBehavior.this.qn.onDismiss(this.mView);
             }
         }
     }

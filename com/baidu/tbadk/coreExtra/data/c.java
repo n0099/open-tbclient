@@ -4,85 +4,85 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int bhf;
-    private long bhg;
-    private long bhh;
-    private String bhi;
+    private int bgT;
+    private long bgU;
+    private long bgV;
+    private String bgW;
+    private int bgQ = 1;
+    private int bgS = 0;
+    private int bgX = 0;
+    private int bgY = 1;
+    private int bgZ = 0;
+    private int bha = 0;
+    private int bhb = 300;
     private int bhc = 1;
-    private int bhe = 0;
-    private int bhj = 0;
-    private int bhk = 1;
-    private int bhl = 0;
-    private int bhm = 0;
-    private int bhn = 300;
-    private int bho = 1;
-    private e bhd = new e();
+    private e bgR = new e();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.bhc = jSONObject.optInt("als_control", 1);
-            this.bhe = jSONObject.optInt("not_use_lego_patch", 0);
-            this.bhk = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.bhm = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.bhd.parserJson(jSONObject);
+            this.bgQ = jSONObject.optInt("als_control", 1);
+            this.bgS = jSONObject.optInt("not_use_lego_patch", 0);
+            this.bgY = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.bha = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.bgR.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.bhf = optJSONObject.optInt("log_feed_switch", 0);
-                this.bhg = optJSONObject.optLong("start_time", -1L);
-                this.bhh = optJSONObject.optLong("end_time", -1L);
-                this.bhi = optJSONObject.optString("ext_info");
+                this.bgT = optJSONObject.optInt("log_feed_switch", 0);
+                this.bgU = optJSONObject.optLong("start_time", -1L);
+                this.bgV = optJSONObject.optLong("end_time", -1L);
+                this.bgW = optJSONObject.optString("ext_info");
             }
-            this.bhj = jSONObject.optInt("ad_collect_switch", 0);
+            this.bgX = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.bhn = optJSONObject2.optInt("interval", 300);
+                this.bhb = optJSONObject2.optInt("interval", 300);
             }
-            this.bho = jSONObject.optInt("video_page_style", 1);
-            this.bhl = jSONObject.optInt("ad_download_lib", 0);
+            this.bhc = jSONObject.optInt("video_page_style", 1);
+            this.bgZ = jSONObject.optInt("ad_download_lib", 0);
         }
     }
 
-    public e Fs() {
-        return this.bhd;
+    public e Fr() {
+        return this.bgR;
+    }
+
+    public boolean Fs() {
+        return this.bgQ > 0;
     }
 
     public boolean Ft() {
-        return this.bhc > 0;
-    }
-
-    public boolean Fu() {
-        if (this.bhf == 1) {
+        if (this.bgT == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.bhg < currentTimeMillis && currentTimeMillis < this.bhh;
+            return this.bgU < currentTimeMillis && currentTimeMillis < this.bgV;
         }
         return false;
     }
 
+    public boolean Fu() {
+        return this.bgY == 1;
+    }
+
     public boolean Fv() {
-        return this.bhk == 1;
+        return this.bha == 1;
     }
 
-    public boolean Fw() {
-        return this.bhm == 1;
+    public String Fw() {
+        return this.bgW;
     }
 
-    public String Fx() {
-        return this.bhi;
+    public boolean Fx() {
+        return this.bgX == 1;
     }
 
-    public boolean Fy() {
-        return this.bhj == 1;
+    public int Fy() {
+        return this.bhb;
     }
 
     public int Fz() {
-        return this.bhn;
+        return this.bhc;
     }
 
-    public int FA() {
-        return this.bho;
-    }
-
-    public boolean FB() {
-        return this.bhl == 0;
+    public boolean FA() {
+        return this.bgZ == 0;
     }
 }

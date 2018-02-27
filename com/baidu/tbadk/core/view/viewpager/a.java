@@ -28,7 +28,7 @@ public abstract class a extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> EF() {
+    public final ArrayList<Fragment> EE() {
         return this.mFragments;
     }
 

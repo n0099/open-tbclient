@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.ImMessageCenterActivityConfig;
 /* loaded from: classes2.dex */
 public class ImMessageCenterActivityStatic {
-    private static void aBQ() {
+    private static void aBP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new CustomMessageTask.CustomRunnable<ImMessageCenterActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ImMessageCenterActivityConfig> customMessage) {
@@ -22,6 +22,6 @@ public class ImMessageCenterActivityStatic {
     }
 
     static {
-        aBQ();
+        aBP();
     }
 }

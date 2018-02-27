@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T Mr;
+    private T Mm;
     private int subType;
     private String title;
 
@@ -42,7 +42,7 @@ public class a<T> {
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                             r2.setThreadType(optJSONObject.optInt("threadType"));
-                            this.Mr = r2;
+                            this.Mm = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -57,7 +57,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.Mr = r1;
+                            this.Mm = r1;
                             i = 1;
                         }
                     } else if (4 == this.subType) {
@@ -66,7 +66,7 @@ public class a<T> {
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.Mr = r12;
+                        this.Mm = r12;
                         i = 2;
                     }
                 }
@@ -80,7 +80,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aMp() {
-        return this.Mr;
+    public T aMo() {
+        return this.Mm;
     }
 }

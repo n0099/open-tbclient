@@ -11,73 +11,73 @@ import android.util.AttributeSet;
 import android.widget.SeekBar;
 /* loaded from: classes2.dex */
 class h extends g {
-    private final SeekBar Nj;
-    private Drawable Nk;
-    private ColorStateList Nl;
-    private PorterDuff.Mode Nm;
-    private boolean Nn;
-    private boolean No;
+    private final SeekBar Ne;
+    private Drawable Nf;
+    private ColorStateList Ng;
+    private PorterDuff.Mode Nh;
+    private boolean Ni;
+    private boolean Nj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(SeekBar seekBar) {
         super(seekBar);
-        this.Nl = null;
-        this.Nm = null;
-        this.Nn = false;
-        this.No = false;
-        this.Nj = seekBar;
+        this.Ng = null;
+        this.Nh = null;
+        this.Ni = false;
+        this.Nj = false;
+        this.Ne = seekBar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.widget.g
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         super.loadFromAttributes(attributeSet, i);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.Nj.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.Ne.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i, 0);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(R.styleable.AppCompatSeekBar_android_thumb);
         if (drawableIfKnown != null) {
-            this.Nj.setThumb(drawableIfKnown);
+            this.Ne.setThumb(drawableIfKnown);
         }
         setTickMark(obtainStyledAttributes.getDrawable(R.styleable.AppCompatSeekBar_tickMark));
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatSeekBar_tickMarkTintMode)) {
-            this.Nm = DrawableUtils.a(obtainStyledAttributes.getInt(R.styleable.AppCompatSeekBar_tickMarkTintMode, -1), this.Nm);
-            this.No = true;
+            this.Nh = DrawableUtils.a(obtainStyledAttributes.getInt(R.styleable.AppCompatSeekBar_tickMarkTintMode, -1), this.Nh);
+            this.Nj = true;
         }
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatSeekBar_tickMarkTint)) {
-            this.Nl = obtainStyledAttributes.getColorStateList(R.styleable.AppCompatSeekBar_tickMarkTint);
-            this.Nn = true;
+            this.Ng = obtainStyledAttributes.getColorStateList(R.styleable.AppCompatSeekBar_tickMarkTint);
+            this.Ni = true;
         }
         obtainStyledAttributes.recycle();
         fN();
     }
 
     void setTickMark(Drawable drawable) {
-        if (this.Nk != null) {
-            this.Nk.setCallback(null);
+        if (this.Nf != null) {
+            this.Nf.setCallback(null);
         }
-        this.Nk = drawable;
+        this.Nf = drawable;
         if (drawable != null) {
-            drawable.setCallback(this.Nj);
-            DrawableCompat.setLayoutDirection(drawable, ViewCompat.getLayoutDirection(this.Nj));
+            drawable.setCallback(this.Ne);
+            DrawableCompat.setLayoutDirection(drawable, ViewCompat.getLayoutDirection(this.Ne));
             if (drawable.isStateful()) {
-                drawable.setState(this.Nj.getDrawableState());
+                drawable.setState(this.Ne.getDrawableState());
             }
             fN();
         }
-        this.Nj.invalidate();
+        this.Ne.invalidate();
     }
 
     private void fN() {
-        if (this.Nk != null) {
-            if (this.Nn || this.No) {
-                this.Nk = DrawableCompat.wrap(this.Nk.mutate());
-                if (this.Nn) {
-                    DrawableCompat.setTintList(this.Nk, this.Nl);
+        if (this.Nf != null) {
+            if (this.Ni || this.Nj) {
+                this.Nf = DrawableCompat.wrap(this.Nf.mutate());
+                if (this.Ni) {
+                    DrawableCompat.setTintList(this.Nf, this.Ng);
                 }
-                if (this.No) {
-                    DrawableCompat.setTintMode(this.Nk, this.Nm);
+                if (this.Nj) {
+                    DrawableCompat.setTintMode(this.Nf, this.Nh);
                 }
-                if (this.Nk.isStateful()) {
-                    this.Nk.setState(this.Nj.getDrawableState());
+                if (this.Nf.isStateful()) {
+                    this.Nf.setState(this.Ne.getDrawableState());
                 }
             }
         }
@@ -85,33 +85,33 @@ class h extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void jumpDrawablesToCurrentState() {
-        if (this.Nk != null) {
-            this.Nk.jumpToCurrentState();
+        if (this.Nf != null) {
+            this.Nf.jumpToCurrentState();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void drawableStateChanged() {
-        Drawable drawable = this.Nk;
-        if (drawable != null && drawable.isStateful() && drawable.setState(this.Nj.getDrawableState())) {
-            this.Nj.invalidateDrawable(drawable);
+        Drawable drawable = this.Nf;
+        if (drawable != null && drawable.isStateful() && drawable.setState(this.Ne.getDrawableState())) {
+            this.Ne.invalidateDrawable(drawable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e(Canvas canvas) {
         int max;
-        if (this.Nk != null && (max = this.Nj.getMax()) > 1) {
-            int intrinsicWidth = this.Nk.getIntrinsicWidth();
-            int intrinsicHeight = this.Nk.getIntrinsicHeight();
+        if (this.Nf != null && (max = this.Ne.getMax()) > 1) {
+            int intrinsicWidth = this.Nf.getIntrinsicWidth();
+            int intrinsicHeight = this.Nf.getIntrinsicHeight();
             int i = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
             int i2 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
-            this.Nk.setBounds(-i, -i2, i, i2);
-            float width = ((this.Nj.getWidth() - this.Nj.getPaddingLeft()) - this.Nj.getPaddingRight()) / max;
+            this.Nf.setBounds(-i, -i2, i, i2);
+            float width = ((this.Ne.getWidth() - this.Ne.getPaddingLeft()) - this.Ne.getPaddingRight()) / max;
             int save = canvas.save();
-            canvas.translate(this.Nj.getPaddingLeft(), this.Nj.getHeight() / 2);
+            canvas.translate(this.Ne.getPaddingLeft(), this.Ne.getHeight() / 2);
             for (int i3 = 0; i3 <= max; i3++) {
-                this.Nk.draw(canvas);
+                this.Nf.draw(canvas);
                 canvas.translate(width, 0.0f);
             }
             canvas.restoreToCount(save);

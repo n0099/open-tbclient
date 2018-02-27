@@ -9,12 +9,12 @@ class b extends a {
 
     @Override // android.graphics.drawable.Drawable
     public void getOutline(Outline outline) {
-        if (this.JT.Ka) {
-            if (this.JT.JZ != null) {
-                this.JT.JZ.getOutline(outline);
+        if (this.JO.JV) {
+            if (this.JO.JU != null) {
+                this.JO.JU.getOutline(outline);
             }
-        } else if (this.JT.Iw != null) {
-            this.JT.Iw.getOutline(outline);
+        } else if (this.JO.Ir != null) {
+            this.JO.Ir.getOutline(outline);
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<VideoTitleData> hHM;
+    private List<VideoTitleData> hHz;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -22,17 +22,17 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.E(this.hHM)) {
+        if (v.E(this.hHz)) {
             return 0;
         }
-        return this.hHM.size();
+        return this.hHz.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: xw */
+    /* renamed from: xx */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.f(this.hHM, i);
+        return (VideoTitleData) v.f(this.hHz, i);
     }
 
     @Override // android.widget.Adapter
@@ -48,8 +48,8 @@ public class b extends BaseAdapter {
             a aVar2 = new a();
             aVar2.title = (TextView) view.findViewById(d.g.title);
             aVar2.divider = view.findViewById(d.g.divider_line);
-            aj.r(aVar2.title, d.C0140d.cp_cont_b);
-            aj.t(aVar2.divider, d.C0140d.cp_bg_line_c);
+            aj.r(aVar2.title, d.C0141d.cp_cont_b);
+            aj.t(aVar2.divider, d.C0141d.cp_bg_line_c);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -63,7 +63,7 @@ public class b extends BaseAdapter {
     }
 
     public void dS(List<VideoTitleData> list) {
-        this.hHM = list;
+        this.hHz = list;
         notifyDataSetChanged();
     }
 }

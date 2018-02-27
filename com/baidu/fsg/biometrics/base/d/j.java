@@ -8,6 +8,7 @@ import com.baidu.ar.util.Constants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.sapi2.SapiContext;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public final class j {
                     hashMap.put("name", str);
                     hashMap.put("clientfrom", "biometrics_sdk");
                     hashMap.put(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_APP_VERSION, h.c(context));
-                    hashMap.put("sdk_version", com.baidu.fsg.biometrics.base.c.a);
+                    hashMap.put(SapiContext.KEY_SDK_VERSION, com.baidu.fsg.biometrics.base.c.a);
                     hashMap.put(NotifyType.VIBRATE, String.valueOf(System.currentTimeMillis()));
                     if (map != null) {
                         for (Map.Entry<String, String> entry : map.entrySet()) {

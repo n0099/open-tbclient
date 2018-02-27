@@ -4,25 +4,24 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.a.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements c {
-    private static b fEo;
+    private static b fEd;
 
     private b() {
     }
 
-    public static synchronized b aZE() {
+    public static synchronized b aZD() {
         b bVar;
         synchronized (b.class) {
-            if (fEo == null) {
-                fEo = new b();
+            if (fEd == null) {
+                fEd = new b();
             }
-            bVar = fEo;
+            bVar = fEd;
         }
         return bVar;
     }
@@ -41,7 +40,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void Fc() {
+    public void Fb() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -69,16 +68,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData BM() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.a.c
-    public void a(a.InterfaceC0093a interfaceC0093a) {
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> Fd() {
+    public List<AccountData> Fc() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

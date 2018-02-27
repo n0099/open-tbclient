@@ -42,29 +42,29 @@ class MediaBrowserServiceCompatApi21 {
 
     /* loaded from: classes2.dex */
     static class c<T> {
-        MediaBrowserService.Result yj;
+        MediaBrowserService.Result ye;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(MediaBrowserService.Result result) {
-            this.yj = result;
+            this.ye = result;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: android.service.media.MediaBrowserService$Result */
         /* JADX WARN: Multi-variable type inference failed */
         public void sendResult(T t) {
             if (t instanceof List) {
-                this.yj.sendResult(h((List) t));
+                this.ye.sendResult(h((List) t));
             } else if (t instanceof Parcel) {
                 Parcel parcel = (Parcel) t;
-                this.yj.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
+                this.ye.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
                 parcel.recycle();
             } else {
-                this.yj.sendResult(null);
+                this.ye.sendResult(null);
             }
         }
 
         public void detach() {
-            this.yj.detach();
+            this.ye.detach();
         }
 
         List<MediaBrowser.MediaItem> h(List<Parcel> list) {
@@ -84,11 +84,11 @@ class MediaBrowserServiceCompatApi21 {
     /* loaded from: classes2.dex */
     static class a {
         final Bundle mExtras;
-        final String xq;
+        final String xl;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(String str, Bundle bundle) {
-            this.xq = str;
+            this.xl = str;
             this.mExtras = bundle;
         }
     }
@@ -109,7 +109,7 @@ class MediaBrowserServiceCompatApi21 {
             if (onGetRoot == null) {
                 return null;
             }
-            return new MediaBrowserService.BrowserRoot(onGetRoot.xq, onGetRoot.mExtras);
+            return new MediaBrowserService.BrowserRoot(onGetRoot.xl, onGetRoot.mExtras);
         }
 
         @Override // android.service.media.MediaBrowserService

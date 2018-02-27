@@ -11,17 +11,17 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static int count = 0;
-    private List<com.coloros.mcssdk.b.c> hOq;
-    private List<d> hOr;
-    private String hOs;
-    private String hOt;
-    private com.coloros.mcssdk.d.b hOu;
+    private List<com.coloros.mcssdk.b.c> hOd;
+    private List<d> hOe;
+    private String hOf;
+    private String hOg;
+    private com.coloros.mcssdk.d.b hOh;
     private String mAppKey;
     private Context mContext;
 
     private a() {
-        this.hOq = new ArrayList();
-        this.hOr = new ArrayList();
+        this.hOd = new ArrayList();
+        this.hOe = new ArrayList();
         synchronized (a.class) {
             if (count > 0) {
                 throw new RuntimeException("PushManager can't create again!");
@@ -43,7 +43,7 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", aVar.bJR());
+            intent.putExtra("taskID", aVar.bJQ());
             intent.putExtra("appPackage", aVar.getAppPackage());
             intent.putExtra("messageID", new StringBuilder().append(aVar.getMessageID()).toString());
             intent.putExtra("messageType", aVar.getType());
@@ -61,7 +61,7 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", dVar.bJR());
+            intent.putExtra("taskID", dVar.bJQ());
             intent.putExtra("appPackage", dVar.getAppPackage());
             intent.putExtra("messageID", new StringBuilder().append(dVar.getMessageID()).toString());
             intent.putExtra("messageType", dVar.getType());
@@ -74,13 +74,13 @@ public class a {
 
     private synchronized void a(d dVar) {
         if (dVar != null) {
-            this.hOr.add(dVar);
+            this.hOe.add(dVar);
         }
     }
 
     private synchronized void a(com.coloros.mcssdk.b.c cVar) {
         if (cVar != null) {
-            this.hOq.add(cVar);
+            this.hOd.add(cVar);
         }
     }
 
@@ -92,15 +92,15 @@ public class a {
         intent.putExtra(LegoListActivityConfig.PARAMS, str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra(WBConstants.SSO_APP_KEY, this.mAppKey);
-        intent.putExtra("appSecret", this.hOs);
-        intent.putExtra("registerID", this.hOt);
+        intent.putExtra("appSecret", this.hOf);
+        intent.putExtra("registerID", this.hOg);
         intent.putExtra("sdkVersion", getSDKVersion());
         this.mContext.startService(intent);
     }
 
-    public static a bJO() {
+    public static a bJN() {
         a aVar;
-        aVar = c.hOv;
+        aVar = c.hOi;
         return aVar;
     }
 
@@ -108,7 +108,7 @@ public class a {
         return com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs") && com.coloros.mcssdk.c.d.b(context, "com.coloros.mcs") >= 1012 && com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs", "supportOpenPush");
     }
 
-    private void xQ(int i) {
+    private void xR(int i) {
         ap(i, "");
     }
 
@@ -120,22 +120,22 @@ public class a {
             throw new IllegalArgumentException("the phone is not support oppo push!");
         }
         this.mAppKey = str;
-        this.hOs = str2;
+        this.hOf = str2;
         this.mContext = context.getApplicationContext();
-        this.hOu = bVar;
-        xQ(12289);
+        this.hOh = bVar;
+        xR(12289);
     }
 
-    public List<d> bJM() {
-        return this.hOr;
+    public List<d> bJL() {
+        return this.hOe;
     }
 
-    public List<com.coloros.mcssdk.b.c> bJN() {
-        return this.hOq;
+    public List<com.coloros.mcssdk.b.c> bJM() {
+        return this.hOd;
     }
 
-    public com.coloros.mcssdk.d.b bJP() {
-        return this.hOu;
+    public com.coloros.mcssdk.d.b bJO() {
+        return this.hOh;
     }
 
     public String getSDKVersion() {
@@ -143,6 +143,6 @@ public class a {
     }
 
     public void uS(String str) {
-        this.hOt = str;
+        this.hOg = str;
     }
 }

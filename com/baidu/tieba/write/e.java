@@ -11,21 +11,21 @@ import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class e extends PopupWindow {
-    private LinearLayout boK;
-    private int bvs;
+    private LinearLayout box;
+    private int bvf;
     private Context context;
     private int count;
-    private a hEj;
+    private a hDW;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void vl(int i);
+        void vm(int i);
     }
 
     public e(Context context) {
         super(context);
-        this.bvs = -1;
+        this.bvf = -1;
         this.context = context;
         init(context);
     }
@@ -33,10 +33,10 @@ public class e extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.boK = new LinearLayout(context);
-        this.boK.setOrientation(1);
-        this.boK.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.boK);
+        this.box = new LinearLayout(context);
+        this.box.setOrientation(1);
+        this.box.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.box);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class e extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.hEj));
-        this.boK.addView(view);
+        view.setOnClickListener(new b(this.count, this.hDW));
+        this.box.addView(view);
         this.count++;
     }
 
@@ -77,31 +77,31 @@ public class e extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.bvs != -1) {
-            this.boK.getChildAt(this.bvs).setSelected(false);
+        if (this.bvf != -1) {
+            this.box.getChildAt(this.bvf).setSelected(false);
         }
-        this.bvs = i;
-        this.boK.getChildAt(this.bvs).setSelected(true);
+        this.bvf = i;
+        this.box.getChildAt(this.bvf).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.hEj = aVar;
+        this.hDW = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a hEk;
+        private a hDX;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.hEk = aVar;
+            this.hDX = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.hEk != null) {
-                this.hEk.vl(this.position);
+            if (this.hDX != null) {
+                this.hDX.vm(this.position);
             }
         }
     }

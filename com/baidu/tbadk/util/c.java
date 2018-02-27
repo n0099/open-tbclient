@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] OW() {
+    public static String[] OV() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];

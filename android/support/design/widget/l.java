@@ -13,22 +13,22 @@ import java.util.List;
 abstract class l extends x<View> {
     final Rect nF;
     final Rect nG;
+    private int po;
     private int pp;
-    private int pq;
 
     abstract View f(List<View> list);
 
     public l() {
         this.nF = new Rect();
         this.nG = new Rect();
-        this.pp = 0;
+        this.po = 0;
     }
 
     public l(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.nF = new Rect();
         this.nG = new Rect();
-        this.pp = 0;
+        this.po = 0;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
@@ -70,11 +70,11 @@ abstract class l extends x<View> {
             GravityCompat.apply(y(layoutParams.gravity), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i);
             int C = C(f);
             view.layout(rect2.left, rect2.top - C, rect2.right, rect2.bottom - C);
-            this.pp = rect2.top - f.getBottom();
+            this.po = rect2.top - f.getBottom();
             return;
         }
         super.layoutChild(coordinatorLayout, view, i);
-        this.pp = 0;
+        this.po = 0;
     }
 
     float r(View view) {
@@ -83,10 +83,10 @@ abstract class l extends x<View> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final int C(View view) {
-        if (this.pq == 0) {
+        if (this.pp == 0) {
             return 0;
         }
-        return m.constrain((int) (r(view) * this.pq), 0, this.pq);
+        return m.constrain((int) (r(view) * this.pp), 0, this.pp);
     }
 
     private static int y(int i) {
@@ -103,14 +103,14 @@ abstract class l extends x<View> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final int cb() {
-        return this.pp;
+        return this.po;
     }
 
     public final void setOverlayTop(int i) {
-        this.pq = i;
+        this.pp = i;
     }
 
     public final int getOverlayTop() {
-        return this.pq;
+        return this.pp;
     }
 }

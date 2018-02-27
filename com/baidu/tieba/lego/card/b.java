@@ -11,28 +11,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> faD;
+    private final List<e> far;
 
     private b() {
-        this.faD = new ArrayList(4);
+        this.far = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b faE = new b();
+        private static final b fas = new b();
     }
 
-    public static b aPz() {
-        return a.faE;
+    public static b aPy() {
+        return a.fas;
     }
 
     public synchronized void a(e eVar) {
-        this.faD.add(eVar);
+        this.far.add(eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aPA() {
+    protected void aPz() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -46,7 +46,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.faD) {
+        for (e eVar : this.far) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -71,7 +71,7 @@ public class b extends e {
 
     private <T> k b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         k a2;
-        for (e eVar : this.faD) {
+        for (e eVar : this.far) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -104,6 +104,6 @@ public class b extends e {
     }
 
     public static ICardInfo I(JSONObject jSONObject) throws CardParseException {
-        return aPz().a(jSONObject, jSONObject.optInt("card_type"));
+        return aPy().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

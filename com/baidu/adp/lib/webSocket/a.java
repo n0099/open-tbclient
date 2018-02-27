@@ -6,8 +6,8 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int anu;
-    private final int anv;
+    private final int ano;
+    private final int anp;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -15,9 +15,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.anu = i;
-        this.anv = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.anu);
+        this.ano = i;
+        this.anp = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.ano);
         this.mBuffer.clear();
     }
 
@@ -41,7 +41,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.anv) + 1) * this.anv);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.anp) + 1) * this.anp);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);

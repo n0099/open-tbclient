@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class e implements ae, d {
-    private ArrayList<PreLoadImageInfo> gbk;
-    public String gbl;
+    private ArrayList<PreLoadImageInfo> gaZ;
+    public String gba;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.gbk = new ArrayList<>(1);
+            this.gaZ = new ArrayList<>(1);
             this.src = excContent.src;
-            this.gbl = excContent.bsize;
-            if (this.gbl != null) {
+            this.gba = excContent.bsize;
+            if (this.gba != null) {
                 try {
-                    String[] split = this.gbl.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.gba.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.g.b.h(split[0], 0);
                     this.height = com.baidu.adp.lib.g.b.h(split[1], 0);
                 } catch (Exception e) {
@@ -45,15 +45,15 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.gbk.add(preLoadImageInfo);
+            this.gaZ.add(preLoadImageInfo);
         }
     }
 
-    public String RB() {
+    public String RA() {
         return this.src;
     }
 
-    public int tn(int i) {
+    public int to(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.gbk;
+        return this.gaZ;
     }
 }

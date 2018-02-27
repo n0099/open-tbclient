@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     private static String d;
     static String a = null;
@@ -25,7 +25,7 @@ public class c {
         WifiManager wifiManager;
         WifiInfo connectionInfo;
         try {
-            Context a2 = com.tencent.open.utils.d.a();
+            Context a2 = com.tencent.open.utils.e.a();
             if (a2 != null && (wifiManager = (WifiManager) a2.getSystemService("wifi")) != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 return connectionInfo.getMacAddress();
             }

@@ -8,30 +8,30 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes3.dex */
 public class a implements TextWatcher {
-    private int hIM;
-    private boolean hIN = false;
-    private EditText rE;
+    private boolean hIA = false;
+    private int hIz;
+    private EditText rD;
 
     public a(int i, EditText editText) {
-        this.hIM = 0;
-        this.rE = null;
-        this.hIM = i;
-        this.rE = editText;
+        this.hIz = 0;
+        this.rD = null;
+        this.hIz = i;
+        this.rD = editText;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         Editable text;
-        if (this.rE != null && (text = this.rE.getText()) != null) {
-            int length = this.rE.getText().toString().trim().length();
-            if (length > 0 && !this.hIN) {
+        if (this.rD != null && (text = this.rD.getText()) != null) {
+            int length = this.rD.getText().toString().trim().length();
+            if (length > 0 && !this.hIA) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001357));
-                this.hIN = true;
+                this.hIA = true;
             }
-            if (length > this.hIM) {
+            if (length > this.hIz) {
                 int selectionEnd = Selection.getSelectionEnd(text);
-                this.rE.setText(text.toString().substring(0, this.hIM));
-                Editable text2 = this.rE.getText();
+                this.rD.setText(text.toString().substring(0, this.hIz));
+                Editable text2 = this.rD.getText();
                 if (selectionEnd > text2.length()) {
                     selectionEnd = text2.length();
                 }

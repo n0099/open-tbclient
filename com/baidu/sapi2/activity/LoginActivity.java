@@ -11,10 +11,9 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.callback.QrAppLoginCallback;
-import com.baidu.sapi2.callback.WebVoiceLoginCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
@@ -166,26 +165,7 @@ public class LoginActivity extends TitleActivity {
                 LoginActivity.this.startActivityForResult(intent, 2003);
             }
         });
-        this.sapiWebView.setQrAppLoginHandler(new Handler() { // from class: com.baidu.sapi2.activity.LoginActivity.5
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                super.handleMessage(message);
-                QrAppLoginCallback qrAppLoginCallback = PassportSDK.getInstance().getQrAppLoginCallback();
-                if (qrAppLoginCallback != null) {
-                    qrAppLoginCallback.handleQrAppLogin();
-                }
-            }
-        });
-        this.sapiWebView.setVoiceLoginHandler(new SapiWebView.VoiceLoginHandler() { // from class: com.baidu.sapi2.activity.LoginActivity.6
-            @Override // com.baidu.sapi2.SapiWebView.VoiceLoginHandler
-            public void handleVoiceLogin() {
-                WebVoiceLoginCallback webVoiceLoginCallback = PassportSDK.getInstance().getWebVoiceLoginCallback();
-                if (webVoiceLoginCallback != null) {
-                    webVoiceLoginCallback.handleVoiceLogin();
-                }
-            }
-        });
-        this.sapiWebView.setLoadExternalWebViewCallback(new SapiWebView.LoadExternalWebViewCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+        this.sapiWebView.setLoadExternalWebViewCallback(new SapiWebView.LoadExternalWebViewCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.5
             @Override // com.baidu.sapi2.SapiWebView.LoadExternalWebViewCallback
             public void loadExternalWebview(SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult) {
                 Intent intent = new Intent(LoginActivity.this, LoadExternalWebViewActivity.class);
@@ -194,7 +174,13 @@ public class LoginActivity extends TitleActivity {
                 LoginActivity.this.startActivityForResult(intent, 2005);
             }
         });
-        this.sapiWebView.setSystemUpwardSmsCallback(new SapiWebView.SystemUpwardSmsCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.8
+        this.sapiWebView.setShareAccountClickCallback(new SapiWebView.ShareAccountClickCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.6
+            @Override // com.baidu.sapi2.SapiWebView.ShareAccountClickCallback
+            public void onClick(String str, String str2) {
+                new ShareCallPacking().startLoginShareActivityForResult(LoginActivity.this, str, str2);
+            }
+        });
+        this.sapiWebView.setSystemUpwardSmsCallback(new SapiWebView.SystemUpwardSmsCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
             @Override // com.baidu.sapi2.SapiWebView.SystemUpwardSmsCallback
             public void onResult(SapiWebView.SystemUpwardSmsCallback.Result result) {
                 LoginActivity.this.result = result;
@@ -208,7 +194,7 @@ public class LoginActivity extends TitleActivity {
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
         List<NameValuePair> arrayList = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
         if (this.loginType != null && this.loginType.equals(WebLoginDTO.EXTRA_LOGIN_WITH_SMS)) {
-            this.sapiWebView.loadLogin(1, webLoginDTO.extraParams);
+            this.sapiWebView.loadLogin(1, arrayList);
             return;
         }
         if (!TextUtils.isEmpty(this.userName)) {
@@ -260,6 +246,12 @@ public class LoginActivity extends TitleActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
+        new ShareCallPacking().onLoginActivityActivityResult(this, new ShareCallPacking.ShareLoginCallBack() { // from class: com.baidu.sapi2.activity.LoginActivity.8
+            @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
+            public void onSuccess() {
+                LoginActivity.this.loginSucces(AccountType.NORMAL);
+            }
+        }, i, i2, intent);
         this.sapiWebView.onAuthorizedResult(i, i2, intent);
         if (i == 2001) {
             if (i2 == 1001) {
@@ -268,27 +260,26 @@ public class LoginActivity extends TitleActivity {
             if (i2 == 1002) {
                 this.authorizationListener.onFailed(intent.getIntExtra("result_code", -100), intent.getStringExtra("result_msg"));
             }
-        }
-        if (i == 2003) {
+        } else if (i == 2003) {
             if (i2 == 1001) {
                 this.authorizationListener.onSuccess();
             }
             if (i2 == 1002) {
                 this.authorizationListener.onFailed(intent.getIntExtra("result_code", -100), intent.getStringExtra("result_msg"));
             }
-        }
-        if (i == 2005 && i2 == -1) {
-            if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE.equals(intent.getStringExtra("business"))) {
-                this.sapiWebView.preSetUserName(intent.getStringExtra("username"));
-            } else {
+        } else if (i == 2005) {
+            if (i2 == -1) {
+                if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE.equals(intent.getStringExtra("business"))) {
+                    this.sapiWebView.preSetUserName(intent.getStringExtra("username"));
+                    return;
+                }
                 int type = AccountType.UNKNOWN.getType();
                 if (intent != null) {
                     type = intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType());
                 }
                 loginSucces(AccountType.getAccountType(type));
             }
-        }
-        if (i == 2004 && this.result != null) {
+        } else if (i == 2004 && this.result != null) {
             this.result.onFinish();
         }
     }

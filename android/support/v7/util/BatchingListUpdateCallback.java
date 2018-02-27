@@ -1,78 +1,78 @@
 package android.support.v7.util;
 /* loaded from: classes2.dex */
 public class BatchingListUpdateCallback implements ListUpdateCallback {
-    final ListUpdateCallback FA;
-    int FB = 0;
-    int FC = -1;
-    int FD = -1;
-    Object FE = null;
+    final ListUpdateCallback Fv;
+    int Fw = 0;
+    int Fx = -1;
+    int Fy = -1;
+    Object Fz = null;
 
     public BatchingListUpdateCallback(ListUpdateCallback listUpdateCallback) {
-        this.FA = listUpdateCallback;
+        this.Fv = listUpdateCallback;
     }
 
     public void dispatchLastEvent() {
-        if (this.FB != 0) {
-            switch (this.FB) {
+        if (this.Fw != 0) {
+            switch (this.Fw) {
                 case 1:
-                    this.FA.onInserted(this.FC, this.FD);
+                    this.Fv.onInserted(this.Fx, this.Fy);
                     break;
                 case 2:
-                    this.FA.onRemoved(this.FC, this.FD);
+                    this.Fv.onRemoved(this.Fx, this.Fy);
                     break;
                 case 3:
-                    this.FA.onChanged(this.FC, this.FD, this.FE);
+                    this.Fv.onChanged(this.Fx, this.Fy, this.Fz);
                     break;
             }
-            this.FE = null;
-            this.FB = 0;
+            this.Fz = null;
+            this.Fw = 0;
         }
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onInserted(int i, int i2) {
-        if (this.FB == 1 && i >= this.FC && i <= this.FC + this.FD) {
-            this.FD += i2;
-            this.FC = Math.min(i, this.FC);
+        if (this.Fw == 1 && i >= this.Fx && i <= this.Fx + this.Fy) {
+            this.Fy += i2;
+            this.Fx = Math.min(i, this.Fx);
             return;
         }
         dispatchLastEvent();
-        this.FC = i;
-        this.FD = i2;
-        this.FB = 1;
+        this.Fx = i;
+        this.Fy = i2;
+        this.Fw = 1;
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onRemoved(int i, int i2) {
-        if (this.FB == 2 && this.FC >= i && this.FC <= i + i2) {
-            this.FD += i2;
-            this.FC = i;
+        if (this.Fw == 2 && this.Fx >= i && this.Fx <= i + i2) {
+            this.Fy += i2;
+            this.Fx = i;
             return;
         }
         dispatchLastEvent();
-        this.FC = i;
-        this.FD = i2;
-        this.FB = 2;
+        this.Fx = i;
+        this.Fy = i2;
+        this.Fw = 2;
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onMoved(int i, int i2) {
         dispatchLastEvent();
-        this.FA.onMoved(i, i2);
+        this.Fv.onMoved(i, i2);
     }
 
     @Override // android.support.v7.util.ListUpdateCallback
     public void onChanged(int i, int i2, Object obj) {
-        if (this.FB == 3 && i <= this.FC + this.FD && i + i2 >= this.FC && this.FE == obj) {
-            int i3 = this.FC + this.FD;
-            this.FC = Math.min(i, this.FC);
-            this.FD = Math.max(i3, i + i2) - this.FC;
+        if (this.Fw == 3 && i <= this.Fx + this.Fy && i + i2 >= this.Fx && this.Fz == obj) {
+            int i3 = this.Fx + this.Fy;
+            this.Fx = Math.min(i, this.Fx);
+            this.Fy = Math.max(i3, i + i2) - this.Fx;
             return;
         }
         dispatchLastEvent();
-        this.FC = i;
-        this.FD = i2;
-        this.FE = obj;
-        this.FB = 3;
+        this.Fx = i;
+        this.Fy = i2;
+        this.Fz = obj;
+        this.Fw = 3;
     }
 }

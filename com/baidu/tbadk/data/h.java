@@ -3,15 +3,15 @@ package com.baidu.tbadk.data;
 import tbclient.Pendant;
 /* loaded from: classes.dex */
 public class h {
-    private long bru;
+    private long brh;
     private String imgUrl;
 
-    public long KE() {
-        return this.bru;
+    public long KD() {
+        return this.brh;
     }
 
     public void ab(long j) {
-        this.bru = j;
+        this.brh = j;
     }
 
     public String ya() {
@@ -24,7 +24,7 @@ public class h {
 
     public void a(Pendant pendant) {
         if (pendant != null) {
-            this.bru = pendant.props_id.longValue();
+            this.brh = pendant.props_id.longValue();
             this.imgUrl = pendant.img_url;
         }
     }

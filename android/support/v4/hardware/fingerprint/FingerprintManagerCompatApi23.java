@@ -86,51 +86,51 @@ public final class FingerprintManagerCompatApi23 {
 
     /* loaded from: classes2.dex */
     public static class CryptoObject {
-        private final Signature wP;
-        private final Cipher wQ;
-        private final Mac wR;
+        private final Signature wK;
+        private final Cipher wL;
+        private final Mac wM;
 
         public CryptoObject(Signature signature) {
-            this.wP = signature;
-            this.wQ = null;
-            this.wR = null;
+            this.wK = signature;
+            this.wL = null;
+            this.wM = null;
         }
 
         public CryptoObject(Cipher cipher) {
-            this.wQ = cipher;
-            this.wP = null;
-            this.wR = null;
+            this.wL = cipher;
+            this.wK = null;
+            this.wM = null;
         }
 
         public CryptoObject(Mac mac) {
-            this.wR = mac;
-            this.wQ = null;
-            this.wP = null;
+            this.wM = mac;
+            this.wL = null;
+            this.wK = null;
         }
 
         public Signature getSignature() {
-            return this.wP;
+            return this.wK;
         }
 
         public Cipher getCipher() {
-            return this.wQ;
+            return this.wL;
         }
 
         public Mac getMac() {
-            return this.wR;
+            return this.wM;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class AuthenticationResultInternal {
-        private CryptoObject wT;
+        private CryptoObject wO;
 
         public AuthenticationResultInternal(CryptoObject cryptoObject) {
-            this.wT = cryptoObject;
+            this.wO = cryptoObject;
         }
 
         public CryptoObject getCryptoObject() {
-            return this.wT;
+            return this.wO;
         }
     }
 

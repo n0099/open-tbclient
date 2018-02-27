@@ -7,11 +7,6 @@ import com.baidu.ar.util.Constants;
 import com.baidu.fsg.base.statistics.h;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
-import com.baidu.sapi2.callback.FaceCheckCallback;
-import com.baidu.sapi2.callback.FaceDelCallback;
-import com.baidu.sapi2.callback.FaceLoginCallback;
-import com.baidu.sapi2.callback.FaceModifyCallback;
-import com.baidu.sapi2.callback.FaceRegCallback;
 import com.baidu.sapi2.callback.FillUserProfileCallback;
 import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
@@ -23,22 +18,11 @@ import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.callback.IqiyiLoginCallback;
 import com.baidu.sapi2.callback.LoginCallback;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
-import com.baidu.sapi2.callback.QrPcLoginCallback;
 import com.baidu.sapi2.callback.SSOConfirmCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SetPopularPortraitCallback;
 import com.baidu.sapi2.callback.SetPortraitCallback;
-import com.baidu.sapi2.callback.VoiceCheckCallback;
-import com.baidu.sapi2.callback.VoiceCodeSetCallback;
-import com.baidu.sapi2.callback.VoiceLoginCallback;
-import com.baidu.sapi2.callback.VoiceSwitchSetCallback;
-import com.baidu.sapi2.callback.VoiceVerifyCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
-import com.baidu.sapi2.dto.FaceCheckDTO;
-import com.baidu.sapi2.dto.FaceDelDTO;
-import com.baidu.sapi2.dto.FaceLoginDTO;
-import com.baidu.sapi2.dto.FaceModifyDTO;
-import com.baidu.sapi2.dto.FaceRegDTO;
 import com.baidu.sapi2.dto.GetHistoryPortraitsDTO;
 import com.baidu.sapi2.dto.IqiyiLoginDTO;
 import com.baidu.sapi2.dto.LoginDTO;
@@ -46,10 +30,6 @@ import com.baidu.sapi2.dto.PhoneRegDTO;
 import com.baidu.sapi2.dto.QrLoginStstusCheckDTO;
 import com.baidu.sapi2.dto.SSOConfirmDTO;
 import com.baidu.sapi2.dto.SetPopularPortraitDTO;
-import com.baidu.sapi2.dto.VoiceCheckDTO;
-import com.baidu.sapi2.dto.VoiceCodeSetDTO;
-import com.baidu.sapi2.dto.VoiceSwitchSetDTO;
-import com.baidu.sapi2.dto.VoiceVerifyDTO;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.result.DynamicPwdLoginResult;
 import com.baidu.sapi2.result.FastRegResult;
@@ -59,13 +39,9 @@ import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.LoginResult;
 import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.result.PhoneRegResult;
-import com.baidu.sapi2.result.QrAppLoginResult;
-import com.baidu.sapi2.result.VoiceRegResult;
 import com.baidu.sapi2.service.interfaces.ISAccountService;
 import com.baidu.sapi2.shell.callback.FillUsernameCallBack;
 import com.baidu.sapi2.shell.callback.GetUserInfoCallBack;
-import com.baidu.sapi2.shell.callback.QrAppLoginCallBack;
-import com.baidu.sapi2.shell.callback.QrPCLoginCallBack;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.GetPortraitResponse;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
@@ -77,6 +53,7 @@ import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.tencent.open.SocialConstants;
+import com.tencent.open.SocialOperation;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -163,8 +140,6 @@ public final class SapiAccountService implements ISAccountService {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) == BiometricType.LIVENESS_RECOG) {
                 arrayList.add(new BasicNameValuePair("scanface", "1"));
-            } else if (list.get(i) == BiometricType.VOICE_IDENTIFY) {
-                arrayList.add(new BasicNameValuePair("voiceidentify", "1"));
             }
         }
         if (this.b.accountCenterRealAutnen) {
@@ -252,8 +227,6 @@ public final class SapiAccountService implements ISAccountService {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) == BiometricType.LIVENESS_RECOG) {
                 arrayList.add(new BasicNameValuePair("scanface", "1"));
-            } else if (list.get(i) == BiometricType.VOICE_IDENTIFY) {
-                arrayList.add(new BasicNameValuePair("voiceidentify", "1"));
             }
         }
         return SapiUtils.createRequestParams(arrayList);
@@ -271,19 +244,21 @@ public final class SapiAccountService implements ISAccountService {
         return this.c.q() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    String a(String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String a(String str, String str2, String str3) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("type", SocialType.QQ.getType() + ""));
+        arrayList.add(new BasicNameValuePair("type", SocialType.QQ_SSO.getType() + ""));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("appid", this.b.qqAppID));
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
+        arrayList.add(new BasicNameValuePair(SocialOperation.GAME_UNION_ID, str3));
         return this.c.q() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String a(String str, String str2, String str3) {
+    public String b(String str, String str2, String str3) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", SocialType.XIAOMI.getType() + ""));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
@@ -388,58 +363,6 @@ public final class SapiAccountService implements ISAccountService {
         this.c.a(fillUserProfileCallback, str);
     }
 
-    public void voiceCheck(VoiceCheckCallback voiceCheckCallback, VoiceCheckDTO voiceCheckDTO) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceCheck(voiceCheckCallback, voiceCheckDTO);
-    }
-
-    public void voiceCheck(VoiceCheckCallback voiceCheckCallback, String str) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceCheck(voiceCheckCallback, str, (String) null);
-    }
-
-    public void voiceCheckByUid(VoiceCheckCallback voiceCheckCallback, String str) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceCheck(voiceCheckCallback, (String) null, str);
-    }
-
-    public void voiceReg(SapiCallback<VoiceRegResult> sapiCallback, String str, String str2, String str3, boolean z) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceReg(sapiCallback, str, str2, str3, z);
-    }
-
-    public void voiceLogin(VoiceLoginCallback voiceLoginCallback, String str, String str2) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceLogin(voiceLoginCallback, str, str2);
-    }
-
-    public void voiceCodeSet(VoiceCodeSetCallback voiceCodeSetCallback, VoiceCodeSetDTO voiceCodeSetDTO) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceCodeSet(voiceCodeSetCallback, voiceCodeSetDTO);
-    }
-
-    public void voiceSwitchSet(VoiceSwitchSetCallback voiceSwitchSetCallback, VoiceSwitchSetDTO voiceSwitchSetDTO) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceSwitchSet(voiceSwitchSetCallback, voiceSwitchSetDTO);
-    }
-
-    public void voiceVerify(VoiceVerifyCallback voiceVerifyCallback, VoiceVerifyDTO voiceVerifyDTO) {
-        new VoiceService(this.b, SapiAccountManager.VERSION_NAME).voiceVerify(voiceVerifyCallback, voiceVerifyDTO);
-    }
-
-    public void faceCheck(FaceCheckCallback faceCheckCallback, FaceCheckDTO faceCheckDTO) {
-        new FaceService(this.b, SapiAccountManager.VERSION_NAME).faceCheck(faceCheckCallback, faceCheckDTO);
-    }
-
-    public void faceReg(FaceRegCallback faceRegCallback, FaceRegDTO faceRegDTO) {
-        new FaceService(this.b, SapiAccountManager.VERSION_NAME).faceReg(faceRegCallback, faceRegDTO);
-    }
-
-    public void faceLogin(FaceLoginCallback faceLoginCallback, FaceLoginDTO faceLoginDTO) {
-        new FaceService(this.b, SapiAccountManager.VERSION_NAME).faceLogin(faceLoginCallback, faceLoginDTO);
-    }
-
-    public void faceModify(FaceModifyCallback faceModifyCallback, FaceModifyDTO faceModifyDTO) {
-        new FaceService(this.b, SapiAccountManager.VERSION_NAME).faceModify(faceModifyCallback, faceModifyDTO);
-    }
-
-    public void faceDel(FaceDelCallback faceDelCallback, FaceDelDTO faceDelDTO) {
-        new FaceService(this.b, SapiAccountManager.VERSION_NAME).faceDel(faceDelCallback, faceDelDTO);
-    }
-
     @Deprecated
     public void setPortrait(SapiCallBack<SapiResponse> sapiCallBack, String str, String str2, String str3, byte[] bArr, String str4) {
         new PortraitService(this.b, SapiAccountManager.VERSION_NAME).setPortrait(sapiCallBack, str, str2, str3, bArr, str4);
@@ -485,24 +408,6 @@ public final class SapiAccountService implements ISAccountService {
 
     public void stopQrLoginStatusCheck() {
         QrCodeService.getInstance(this.b, SapiAccountManager.VERSION_NAME).stopLoginStatusCheck();
-    }
-
-    @Deprecated
-    public void qrPCLogin(QrPCLoginCallBack qrPCLoginCallBack, String str, String str2, String str3, String str4, String str5) {
-        QrCodeService.getInstance(this.b, SapiAccountManager.VERSION_NAME).qrPCLogin(qrPCLoginCallBack, str, str2, str3, str4, str5);
-    }
-
-    public void qrPcLogin(QrPcLoginCallback qrPcLoginCallback, String str, String str2, String str3) {
-        QrCodeService.getInstance(this.b, SapiAccountManager.VERSION_NAME).qrPcLogin(qrPcLoginCallback, str, str2, str3);
-    }
-
-    @Deprecated
-    public void qrAppLogin(QrAppLoginCallBack qrAppLoginCallBack, String str, String str2) {
-        QrCodeService.getInstance(this.b, SapiAccountManager.VERSION_NAME).qrAppLogin(qrAppLoginCallBack, str, str2);
-    }
-
-    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
-        QrCodeService.getInstance(this.b, SapiAccountManager.VERSION_NAME).qrAppLogin(sapiCallback, str, str2);
     }
 
     public void wapSSOConfirm(SSOConfirmCallback sSOConfirmCallback, SSOConfirmDTO sSOConfirmDTO) {

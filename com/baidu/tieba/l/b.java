@@ -10,46 +10,46 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c.a {
-    private final long gwY;
-    private final String gwZ;
-    private final int gwv;
-    private final int gww;
-    private com.baidu.tieba.i.a.e[] gxa;
+    private final long gwN;
+    private final String gwO;
+    private com.baidu.tieba.i.a.e[] gwP;
+    private final int gwk;
+    private final int gwl;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.i.a.e... eVarArr) {
         super(300);
-        this.gwv = i;
+        this.gwk = i;
         this.what = i2;
-        this.gww = i3;
-        this.gwY = j;
-        this.gwZ = str;
-        this.gxa = eVarArr;
+        this.gwl = i3;
+        this.gwN = j;
+        this.gwO = str;
+        this.gwP = eVarArr;
     }
 
     @Override // com.baidu.tieba.l.c.a, com.baidu.tieba.l.c
-    public JSONObject bmc() {
-        JSONObject bmc = super.bmc();
+    public JSONObject bmb() {
+        JSONObject bmb = super.bmb();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.gwv, this.what, this.gww, this.gwY).toString()));
-            if (this.gxa != null) {
-                int length = this.gxa.length;
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b(this.gwk, this.what, this.gwl, this.gwN).toString()));
+            if (this.gwP != null) {
+                int length = this.gwP.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.i.a.e eVar = this.gxa[i];
+                    com.baidu.tieba.i.a.e eVar = this.gwP[i];
                     if (eVar != null) {
                         jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.i.d.pt(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.gwZ)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.gwZ));
+            if (!StringUtils.isNull(this.gwO)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.gwO));
             }
-            bmc.put("ext", jSONArray);
+            bmb.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bmc;
+        return bmb;
     }
 
     public static JSONObject b(int i, int i2, int i3, long j) {

@@ -11,14 +11,14 @@ import java.lang.reflect.Method;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ViewUtils {
-    private static Method Yv;
+    private static Method Yp;
 
     static {
         if (Build.VERSION.SDK_INT >= 18) {
             try {
-                Yv = View.class.getDeclaredMethod("computeFitSystemWindows", Rect.class, Rect.class);
-                if (!Yv.isAccessible()) {
-                    Yv.setAccessible(true);
+                Yp = View.class.getDeclaredMethod("computeFitSystemWindows", Rect.class, Rect.class);
+                if (!Yp.isAccessible()) {
+                    Yp.setAccessible(true);
                 }
             } catch (NoSuchMethodException e) {
                 Log.d("ViewUtils", "Could not find method computeFitSystemWindows. Oh well.");
@@ -38,9 +38,9 @@ public class ViewUtils {
     }
 
     public static void computeFitSystemWindows(View view, Rect rect, Rect rect2) {
-        if (Yv != null) {
+        if (Yp != null) {
             try {
-                Yv.invoke(view, rect, rect2);
+                Yp.invoke(view, rect, rect2);
             } catch (Exception e) {
                 Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e);
             }

@@ -14,12 +14,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -76,7 +76,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zt(i)));
         this.dataCountry = i;
     }
 
@@ -86,7 +86,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zt(i)));
         this.dataLanguage = i;
     }
 
@@ -138,7 +138,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("4", "Dutch");
         language.put("5", "Swedish");
         language.put("6", "Spanish");
-        language.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, "Danish");
+        language.put("7", "Danish");
         language.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "Portuguese");
         language.put("9", "Norwegian");
         language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Hebrew");

@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 class e {
-    private final MediaMuxer hqf;
-    private volatile boolean hqh;
-    private volatile boolean hqi;
-    private int hqg = 2;
+    private final MediaMuxer hpS;
+    private volatile boolean hpU;
+    private volatile boolean hpV;
+    private int hpT = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.hqf = new MediaMuxer(str, 0);
+        this.hpS = new MediaMuxer(str, 0);
+    }
+
+    public void bBx() {
+        this.hpU = true;
     }
 
     public void bBy() {
-        this.hqh = true;
-    }
-
-    public void bBz() {
-        this.hqi = true;
+        this.hpV = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.hqi || !this.hqh) {
+        if (!this.hpV || !this.hpU) {
             z = false;
         } else {
-            if (this.hqg > 0 && this.hqi && this.hqh) {
-                this.hqf.start();
+            if (this.hpT > 0 && this.hpV && this.hpU) {
+                this.hpS.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.hqg > 0) {
+        if (this.hpT > 0) {
             try {
-                this.hqf.stop();
-                this.hqf.release();
+                this.hpS.stop();
+                this.hpS.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.hqf.addTrack(mediaFormat);
+        return this.hpS.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.hqf.writeSampleData(i, byteBuffer, bufferInfo);
+            this.hpS.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

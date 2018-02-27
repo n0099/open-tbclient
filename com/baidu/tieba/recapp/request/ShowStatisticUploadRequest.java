@@ -32,7 +32,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.Ft()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.Fs()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
@@ -52,8 +52,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.bDf);
-                        jSONObject.put("locate", bVar.cZO);
+                        jSONObject.put("tid", bVar.bCS);
+                        jSONObject.put("locate", bVar.cZC);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -74,9 +74,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put(Info.kBaiduPIDKey, bVar.bDg);
+                        jSONObject.put(Info.kBaiduPIDKey, bVar.bCT);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.cZO);
+                        jSONObject.put("locate", bVar.cZC);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);

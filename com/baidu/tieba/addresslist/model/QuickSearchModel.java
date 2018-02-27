@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a bVM;
-    private byte[] bVN;
+    private a bVA;
+    private byte[] bVB;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.bVN = new byte[0];
-        this.bVM = a.UM();
+        this.bVB = new byte[0];
+        this.bVA = a.UL();
     }
 
     @SuppressLint({"DefaultLocale"})
     public List<com.baidu.tbadk.coreExtra.relationship.a> iw(String str) {
-        synchronized (this.bVN) {
+        synchronized (this.bVB) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> UN = this.bVM.UN();
-            if (UN == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> UM = this.bVA.UM();
+            if (UM == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : UN) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : UM) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -38,7 +38,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : UN) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : UM) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

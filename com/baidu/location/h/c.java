@@ -8,7 +8,7 @@ import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c aEv = null;
+    private static c aEk = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -24,10 +24,10 @@ public class c {
     }
 
     public static c vn() {
-        if (aEv == null) {
-            aEv = new c();
+        if (aEk == null) {
+            aEk = new c();
         }
-        return aEv;
+        return aEk;
     }
 
     public String a(boolean z) {

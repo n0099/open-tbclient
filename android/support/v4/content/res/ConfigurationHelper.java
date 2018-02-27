@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.os.Build;
 /* loaded from: classes2.dex */
 public final class ConfigurationHelper {
-    private static final a wo;
+    private static final a wn;
 
     /* loaded from: classes2.dex */
     private interface a {
@@ -20,11 +20,11 @@ public final class ConfigurationHelper {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 17) {
-            wo = new d();
+            wn = new d();
         } else if (i >= 13) {
-            wo = new c();
+            wn = new c();
         } else {
-            wo = new b();
+            wn = new b();
         }
     }
 
@@ -90,18 +90,18 @@ public final class ConfigurationHelper {
     }
 
     public static int getScreenHeightDp(Resources resources) {
-        return wo.getScreenHeightDp(resources);
+        return wn.getScreenHeightDp(resources);
     }
 
     public static int getScreenWidthDp(Resources resources) {
-        return wo.getScreenWidthDp(resources);
+        return wn.getScreenWidthDp(resources);
     }
 
     public static int getSmallestScreenWidthDp(Resources resources) {
-        return wo.getSmallestScreenWidthDp(resources);
+        return wn.getSmallestScreenWidthDp(resources);
     }
 
     public static int getDensityDpi(Resources resources) {
-        return wo.getDensityDpi(resources);
+        return wn.getDensityDpi(resources);
     }
 }

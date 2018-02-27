@@ -4,17 +4,17 @@ import android.os.Build;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class u {
-    private static x vb;
+    private static x va;
 
     static {
         if (Build.VERSION.SDK_INT < 19) {
-            vb = new w();
+            va = new w();
         } else {
-            vb = new y();
+            va = new y();
         }
     }
 
     public static void a(ViewGroup viewGroup, n nVar) {
-        vb.a(viewGroup, nVar == null ? null : nVar.uS);
+        va.a(viewGroup, nVar == null ? null : nVar.uR);
     }
 }

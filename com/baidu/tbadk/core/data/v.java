@@ -9,24 +9,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class v {
-    private int aMA;
-    private String aMB;
-    public String aMC;
-    public float aMD;
-    public boolean aME = true;
-    private int aMx;
-    private String aMy;
-    private String aMz;
+    private int aMm;
+    private String aMn;
+    private String aMo;
+    private int aMp;
+    private String aMq;
+    public String aMr;
+    public float aMs;
+    public boolean aMt = true;
     private String mTagName;
     private int mType;
     private String mValue;
 
     public int yb() {
-        return this.aMx;
+        return this.aMm;
     }
 
     public String yc() {
-        return this.aMy;
+        return this.aMn;
     }
 
     public String getValue() {
@@ -38,21 +38,21 @@ public class v {
     }
 
     public String yd() {
-        return this.aMB;
+        return this.aMq;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aMx = jSONObject.optInt("bannerType");
-                this.aMy = jSONObject.optString("bannerUrl");
+                this.aMm = jSONObject.optInt("bannerType");
+                this.aMn = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.aMz = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
-                this.aMA = jSONObject.optInt("template_id");
-                this.aMB = jSONObject.optString("obj_id");
+                this.aMo = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
+                this.aMp = jSONObject.optInt("template_id");
+                this.aMq = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
-                this.aMC = jSONObject.optString("tag_name_url");
+                this.aMr = jSONObject.optString("tag_name_url");
                 cT(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -62,15 +62,15 @@ public class v {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.aMx = banner.banner_type.intValue();
-            this.aMy = banner.banner_url;
+            this.aMm = banner.banner_type.intValue();
+            this.aMn = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.aMz = banner.desc;
-            this.aMA = banner.template_id.intValue();
-            this.aMB = banner.obj_id;
+            this.aMo = banner.desc;
+            this.aMp = banner.template_id.intValue();
+            this.aMq = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.aMC = banner.tag_name_url;
+            this.aMr = banner.tag_name_url;
             cT(banner.tag_name_wh);
         }
     }
@@ -83,7 +83,7 @@ public class v {
                     int h = com.baidu.adp.lib.g.b.h(split[0], 1);
                     int h2 = com.baidu.adp.lib.g.b.h(split[1], 1);
                     if (h2 != 0) {
-                        this.aMD = h / h2;
+                        this.aMs = h / h2;
                     }
                 }
             } catch (Exception e) {
@@ -96,6 +96,6 @@ public class v {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.aMx == 1 || this.aMx == 4 || this.aMx == 2 || this.aMx == 3 : this.mType == 2 && !StringUtils.isNull(this.aMz);
+        return this.mType == 1 ? this.aMm == 1 || this.aMm == 4 || this.aMm == 2 || this.aMm == 3 : this.mType == 2 && !StringUtils.isNull(this.aMo);
     }
 }

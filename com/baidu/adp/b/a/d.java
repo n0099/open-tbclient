@@ -3,16 +3,16 @@ package com.baidu.adp.b.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable apq;
-    public com.baidu.adp.widget.a.a apr;
+    public BitmapDrawable aph;
+    public com.baidu.adp.widget.a.a api;
     public volatile boolean isDefault = true;
 
     public boolean qa() {
-        return (this.apq == null || this.apq.getBitmap() == null || this.apq.getBitmap().isRecycled()) ? false : true;
+        return (this.aph == null || this.aph.getBitmap() == null || this.aph.getBitmap().isRecycled()) ? false : true;
     }
 
     public boolean qb() {
-        return this.apr != null && this.apr.si();
+        return this.api != null && this.api.si();
     }
 
     public boolean isAvailable() {
@@ -21,26 +21,26 @@ public class d {
 
     public int getWidth() {
         if (qa()) {
-            return this.apq.getIntrinsicWidth();
+            return this.aph.getIntrinsicWidth();
         }
         if (qb()) {
-            return this.apr.getWidth();
+            return this.api.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
         if (qa()) {
-            return this.apq.getIntrinsicHeight();
+            return this.aph.getIntrinsicHeight();
         }
         if (qb()) {
-            return this.apr.getHeight();
+            return this.api.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.apr = null;
-        this.apq = null;
+        this.api = null;
+        this.aph = null;
     }
 }

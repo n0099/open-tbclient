@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class m implements View.OnTouchListener {
-    private final Spannable hBj;
-    private com.baidu.tbadk.widget.richText.c hBk = null;
+    private final Spannable hAW;
+    private com.baidu.tbadk.widget.richText.c hAX = null;
 
     public m(Spannable spannable) {
-        this.hBj = spannable;
+        this.hAW = spannable;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -23,10 +23,10 @@ public class m implements View.OnTouchListener {
         int action = motionEvent.getAction();
         if (view instanceof TextView) {
             TextView textView = (TextView) view;
-            if (action == 3 && this.hBk != null) {
-                this.hBk.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0140d.transparent));
+            if (action == 3 && this.hAX != null) {
+                this.hAX.setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0141d.transparent));
                 view.invalidate();
-                this.hBk = null;
+                this.hAX = null;
                 return false;
             }
             if (action == 1 || action == 0) {
@@ -38,28 +38,28 @@ public class m implements View.OnTouchListener {
                 }
                 int totalPaddingLeft = x - textView.getTotalPaddingLeft();
                 int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), totalPaddingLeft + textView.getScrollX());
-                if (this.hBj == null) {
+                if (this.hAW == null) {
                     return false;
                 }
-                com.baidu.tbadk.widget.richText.c[] cVarArr = (com.baidu.tbadk.widget.richText.c[]) this.hBj.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.c.class);
+                com.baidu.tbadk.widget.richText.c[] cVarArr = (com.baidu.tbadk.widget.richText.c[]) this.hAW.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.c.class);
                 if (cVarArr != null && cVarArr.length != 0 && cVarArr[0] != null) {
                     if (action == 1) {
-                        cVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0140d.transparent));
+                        cVarArr[0].setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0141d.transparent));
                         cVarArr[0].onClick(textView);
                         view.invalidate();
                     } else {
-                        this.hBk = cVarArr[0];
+                        this.hAX = cVarArr[0];
                         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                            cVarArr[0].setColor(aj.getColor(d.C0140d.cp_bg_line_c));
+                            cVarArr[0].setColor(aj.getColor(d.C0141d.cp_bg_line_c));
                         } else {
-                            cVarArr[0].setColor(aj.getColor(d.C0140d.cp_bg_line_z));
+                            cVarArr[0].setColor(aj.getColor(d.C0141d.cp_bg_line_z));
                         }
-                        Selection.setSelection(this.hBj, this.hBj.getSpanStart(cVarArr[0]), this.hBj.getSpanEnd(cVarArr[0]));
+                        Selection.setSelection(this.hAW, this.hAW.getSpanStart(cVarArr[0]), this.hAW.getSpanEnd(cVarArr[0]));
                         view.invalidate();
                     }
                     return true;
                 }
-                Selection.removeSelection(this.hBj);
+                Selection.removeSelection(this.hAW);
             }
             return false;
         }

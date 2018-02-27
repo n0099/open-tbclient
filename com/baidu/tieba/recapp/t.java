@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> gCb;
+    private List<AppData> gBM;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && bdUniqueId == AdvertAppInfo.aKo) {
+        if (nVar != null && bdUniqueId == AdvertAppInfo.aKd) {
             return new com.baidu.tieba.recapp.b.e(nVar, bdUniqueId);
         }
         return null;
@@ -27,10 +27,10 @@ public class t implements o {
         if (baseActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.aKx) {
+        if (bdUniqueId == AdvertAppInfo.aKm) {
             return new com.baidu.tieba.recapp.b.k(baseActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.aKt) {
+        if (bdUniqueId == AdvertAppInfo.aKi) {
             return new com.baidu.tieba.recapp.b.i(baseActivity, bdUniqueId);
         }
         return null;
@@ -38,7 +38,7 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (bdUniqueId == AdvertAppInfo.aKu) {
+        if (bdUniqueId == AdvertAppInfo.aKj) {
             return new com.baidu.tieba.recapp.b.a(tbPageContext, bdUniqueId);
         }
         if (bdUniqueId != null) {
@@ -58,35 +58,35 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j bnZ() {
-        return b.bnP();
+    public j bnY() {
+        return b.bnO();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l boa() {
-        return b.bnP();
+    public l bnZ() {
+        return b.bnO();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.n.a bob() {
-        return com.baidu.tieba.ad.statis.a.UG();
+    public com.baidu.tieba.n.a boa() {
+        return com.baidu.tieba.ad.statis.a.UF();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h boc() {
-        return com.baidu.tieba.ad.a.UA();
+    public h bob() {
+        return com.baidu.tieba.ad.a.Uz();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> bod() {
-        if (this.gCb == null) {
-            this.gCb = new ArrayList();
+    public List<AppData> boc() {
+        if (this.gBM == null) {
+            this.gBM = new ArrayList();
         }
-        return this.gCb;
+        return this.gBM;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void boe() {
-        AdDebugService.updateFloatView(this.gCb != null ? StringUtils.string(Integer.valueOf(this.gCb.size())) : "0");
+    public void bod() {
+        AdDebugService.updateFloatView(this.gBM != null ? StringUtils.string(Integer.valueOf(this.gBM.size())) : "0");
     }
 }

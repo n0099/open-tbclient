@@ -25,15 +25,15 @@ public class i {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String aED = "http://loc.map.baidu.com/sdk.php";
+    private static String aEs = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String aEE = "http://loc.map.baidu.com/user_err.php";
-    private static String aEF = "http://loc.map.baidu.com/oqur.php";
-    private static String aEG = "http://loc.map.baidu.com/tcu.php";
-    private static String aEH = "http://loc.map.baidu.com/rtbu.php";
-    private static String aEI = "http://loc.map.baidu.com/iofd.php";
-    private static String aEJ = "https://sapi.skyhookwireless.com/wps2/location";
-    private static String aEK = "http://loc.map.baidu.com/wloc";
+    private static String aEt = "http://loc.map.baidu.com/user_err.php";
+    private static String aEu = "http://loc.map.baidu.com/oqur.php";
+    private static String aEv = "http://loc.map.baidu.com/tcu.php";
+    private static String aEw = "http://loc.map.baidu.com/rtbu.php";
+    private static String aEx = "http://loc.map.baidu.com/iofd.php";
+    private static String aEy = "https://sapi.skyhookwireless.com/wps2/location";
+    private static String aEz = "http://loc.map.baidu.com/wloc";
     public static String f = "no";
     public static boolean g = false;
     public static boolean h = false;
@@ -45,8 +45,8 @@ public class i {
     public static int n = 3;
     public static double o = 0.0d;
     public static double p = 0.0d;
-    public static double aBV = 0.0d;
-    public static double aBW = 0.0d;
+    public static double aBM = 0.0d;
+    public static double aBN = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -58,7 +58,7 @@ public class i {
     public static int A = 3;
     public static int B = 10;
     public static int C = 2;
-    public static int aCw = 7;
+    public static int aCn = 7;
     public static int E = 20;
     public static int F = 70;
     public static int G = 120;
@@ -67,11 +67,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float aEL = 0.9f;
+    public static float aEA = 0.9f;
     public static int N = 10000;
-    public static float aEM = 0.5f;
-    public static float aEN = 0.0f;
-    public static float aEO = 0.1f;
+    public static float aEB = 0.5f;
+    public static float aEC = 0.0f;
+    public static float aED = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -84,18 +84,18 @@ public class i {
     public static int aa = 300;
     public static int ab = 1000;
     public static long ac = 900000;
-    public static long aEP = 420000;
-    public static long aEQ = 180000;
-    public static long aER = 0;
-    public static long aES = 15;
-    public static long aET = ReportUserInfoModel.TIME_INTERVAL;
+    public static long aEE = 420000;
+    public static long aEF = 180000;
+    public static long aEG = 0;
+    public static long aEH = 15;
+    public static long aEI = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float aEU = 6.0f;
-    public static float aEV = 10.0f;
+    public static float aEJ = 6.0f;
+    public static float aEK = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
@@ -179,9 +179,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < aEU && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
+                if (speed < aEJ && ((i4 == 1 || i4 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= aEV || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= aEK || (!(i4 == 1 || i4 == 0 || i4 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -262,11 +262,11 @@ public class i {
     }
 
     public static String c() {
-        return aED;
+        return aEs;
     }
 
     public static String d() {
-        return aEG;
+        return aEv;
     }
 
     public static boolean d(BDLocation bDLocation) {

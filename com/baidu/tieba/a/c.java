@@ -49,18 +49,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.bqQ == -100) {
+                if (aVar2.bqD == -100) {
                     TiebaStatic.log("c12679");
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
                     if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
                         com.baidu.tbadk.core.e.b.d(c.this.mPageContext.getPageActivity(), 15, true);
                         return;
                     } else {
-                        aw.Du().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        aw.Dt().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
                         return;
                     }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.bqP;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.bqC;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));

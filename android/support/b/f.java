@@ -15,24 +15,24 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.Map;
 /* loaded from: classes2.dex */
 class f extends z {
-    int[] uB = new int[2];
+    private static final String[] uy = {"android:changeBounds:bounds", "android:changeBounds:parent", "android:changeBounds:windowX", "android:changeBounds:windowY"};
+    private static l uz = new l();
+    int[] uA = new int[2];
+    boolean uB = false;
     boolean uC = false;
-    boolean uD = false;
-    private static final String[] uz = {"android:changeBounds:bounds", "android:changeBounds:parent", "android:changeBounds:windowX", "android:changeBounds:windowY"};
-    private static l uA = new l();
 
     @Override // android.support.b.z
     public String[] getTransitionProperties() {
-        return uz;
+        return uy;
     }
 
     private void a(af afVar) {
         View view = afVar.view;
         afVar.values.put("android:changeBounds:bounds", new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
         afVar.values.put("android:changeBounds:parent", afVar.view.getParent());
-        afVar.view.getLocationInWindow(this.uB);
-        afVar.values.put("android:changeBounds:windowX", Integer.valueOf(this.uB[0]));
-        afVar.values.put("android:changeBounds:windowY", Integer.valueOf(this.uB[1]));
+        afVar.view.getLocationInWindow(this.uA);
+        afVar.values.put("android:changeBounds:windowX", Integer.valueOf(this.uA[0]));
+        afVar.values.put("android:changeBounds:windowY", Integer.valueOf(this.uA[1]));
     }
 
     @Override // android.support.b.z
@@ -63,7 +63,7 @@ class f extends z {
         }
         final View view = afVar2.view;
         boolean z = viewGroup2 == viewGroup3 || viewGroup2.getId() == viewGroup3.getId();
-        if (!this.uD || z) {
+        if (!this.uC || z) {
             Rect rect = (Rect) afVar.values.get("android:changeBounds:bounds");
             Rect rect2 = (Rect) afVar2.values.get("android:changeBounds:bounds");
             int i5 = rect.left;
@@ -94,7 +94,7 @@ class f extends z {
                 }
             }
             if (i17 > 0) {
-                if (!this.uC) {
+                if (!this.uB) {
                     PropertyValuesHolder[] propertyValuesHolderArr = new PropertyValuesHolder[i17];
                     if (i5 != i6) {
                         view.setLeft(i5);
@@ -228,13 +228,13 @@ class f extends z {
             int intValue3 = ((Integer) afVar2.values.get("android:changeBounds:windowX")).intValue();
             int intValue4 = ((Integer) afVar2.values.get("android:changeBounds:windowY")).intValue();
             if (intValue != intValue3 || intValue2 != intValue4) {
-                viewGroup.getLocationInWindow(this.uB);
+                viewGroup.getLocationInWindow(this.uA);
                 Bitmap createBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
                 view.draw(new Canvas(createBitmap));
                 final BitmapDrawable bitmapDrawable = new BitmapDrawable(createBitmap);
                 view.setVisibility(4);
                 ai.Q(viewGroup).add(bitmapDrawable);
-                ObjectAnimator ofObject = ObjectAnimator.ofObject(bitmapDrawable, "bounds", uA, new Rect(intValue - this.uB[0], intValue2 - this.uB[1], (intValue - this.uB[0]) + view.getWidth(), (intValue2 - this.uB[1]) + view.getHeight()), new Rect(intValue3 - this.uB[0], intValue4 - this.uB[1], (intValue3 - this.uB[0]) + view.getWidth(), (intValue4 - this.uB[1]) + view.getHeight()));
+                ObjectAnimator ofObject = ObjectAnimator.ofObject(bitmapDrawable, "bounds", uz, new Rect(intValue - this.uA[0], intValue2 - this.uA[1], (intValue - this.uA[0]) + view.getWidth(), (intValue2 - this.uA[1]) + view.getHeight()), new Rect(intValue3 - this.uA[0], intValue4 - this.uA[1], (intValue3 - this.uA[0]) + view.getWidth(), (intValue4 - this.uA[1]) + view.getHeight()));
                 ofObject.addListener(new AnimatorListenerAdapter() { // from class: android.support.b.f.4
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {

@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class d {
-    public long ajf = -1;
-    public long ajg = -1;
+    public long aiZ = -1;
+    public long aja = -1;
     public long connectTime = -1;
-    public long ajh = -1;
-    public int aji = 0;
-    public long ajj = -1;
-    public long ajk = -1;
-    public String ajl = "";
-    public int ajm = -1;
+    public long ajb = -1;
+    public int ajc = 0;
+    public long ajd = -1;
+    public long aje = -1;
+    public String ajf = "";
+    public int ajg = -1;
     public int errorCode = 0;
-    public int ajn = 0;
-    public String ajo = null;
-    public String ajp = null;
+    public int ajh = 0;
+    public String aji = null;
+    public String ajj = null;
     public String url = null;
-    public String ajq = null;
-    public String ajr = null;
-    public int ajs = 0;
+    public String ajk = null;
+    public String ajl = null;
+    public int ajm = 0;
 }

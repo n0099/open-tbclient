@@ -9,26 +9,26 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 public class a extends BdTypeListView {
     public static int ExpandListView_expandDistance = 1;
-    private View auM;
-    private int auN;
-    private float auO;
-    private float auP;
-    private boolean auR;
-    private final int auU;
-    private final int auV;
-    private b hAb;
-    public InterfaceC0249a hAc;
-    private long hAd;
-    private long hAe;
-    private boolean hAf;
-    private Runnable hAg;
-    private int hAh;
+    private View auD;
+    private int auE;
+    private float auF;
+    private float auG;
+    private boolean auI;
+    private final int auL;
+    private final int auM;
+    private b hzO;
+    public InterfaceC0250a hzP;
+    private long hzQ;
+    private long hzR;
+    private boolean hzS;
+    private Runnable hzT;
+    private int hzU;
     private Handler mHandler;
     private final Scroller mScroller;
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0249a {
+    public interface InterfaceC0250a {
         void P(float f);
 
         void onRefresh();
@@ -37,68 +37,68 @@ public class a extends BdTypeListView {
     }
 
     public void setStarForum(boolean z) {
-        this.hAf = z;
+        this.hzS = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.hAf) {
+        if (this.hzS) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            if (this.auM == null) {
+            if (this.auD == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            this.auP = motionEvent.getY();
+            this.auG = motionEvent.getY();
             switch (action) {
                 case 0:
-                    this.hAd = System.currentTimeMillis() - this.hAe;
-                    this.hAe = System.currentTimeMillis();
-                    this.auR = false;
+                    this.hzQ = System.currentTimeMillis() - this.hzR;
+                    this.hzR = System.currentTimeMillis();
+                    this.auI = false;
                     setClickEventEnabled(true);
-                    if (this.auN == 0) {
-                        this.auN = this.auM.getHeight();
+                    if (this.auE == 0) {
+                        this.auE = this.auD.getHeight();
                     }
-                    int height = this.auM.getHeight();
-                    this.auO = this.auP;
-                    this.hAb = new b(0, height, 0, this.auV + height);
+                    int height = this.auD.getHeight();
+                    this.auF = this.auG;
+                    this.hzO = new b(0, height, 0, this.auM + height);
                     break;
                 case 1:
                 case 3:
-                    if (this.auR) {
+                    if (this.auI) {
                         setClickEventEnabled(false);
                         sq();
-                        this.auR = false;
-                    } else if (this.hAc != null) {
-                        this.hAc.ss();
+                        this.auI = false;
+                    } else if (this.hzP != null) {
+                        this.hzP.ss();
                     }
-                    this.mHandler.removeCallbacks(this.hAg);
-                    this.mHandler.postDelayed(this.hAg, 200L);
+                    this.mHandler.removeCallbacks(this.hzT);
+                    this.mHandler.postDelayed(this.hzT, 200L);
                     break;
                 case 2:
-                    float f = this.auP - this.auO;
-                    if (this.auM.getParent() == this && this.hAb != null && this.auM.isShown() && this.auM.getTop() >= 0 && Math.abs(f) >= this.auU && this.hAd > 400) {
-                        int Q = this.hAb.Q(this.auP - this.auO);
-                        if (Q > this.hAb.startY && Q <= this.hAb.endY) {
-                            this.auR = true;
+                    float f = this.auG - this.auF;
+                    if (this.auD.getParent() == this && this.hzO != null && this.auD.isShown() && this.auD.getTop() >= 0 && Math.abs(f) >= this.auL && this.hzQ > 400) {
+                        int Q = this.hzO.Q(this.auG - this.auF);
+                        if (Q > this.hzO.startY && Q <= this.hzO.endY) {
+                            this.auI = true;
                             setClickEventEnabled(false);
-                            this.auM.setLayoutParams(new AbsListView.LayoutParams(this.auM.getWidth(), Q));
-                            O(Q - this.hAb.startY);
+                            this.auD.setLayoutParams(new AbsListView.LayoutParams(this.auD.getWidth(), Q));
+                            O(Q - this.hzO.startY);
                             break;
-                        } else if (Q <= this.hAb.startY) {
-                            this.auR = false;
+                        } else if (Q <= this.hzO.startY) {
+                            this.auI = false;
                             break;
-                        } else if (Q > this.hAb.endY) {
-                            this.auR = true;
+                        } else if (Q > this.hzO.endY) {
+                            this.auI = true;
                             setClickEventEnabled(false);
                             break;
                         } else {
-                            this.auR = false;
+                            this.auI = false;
                             break;
                         }
                     } else {
-                        this.auR = false;
+                        this.auI = false;
                         break;
                     }
                     break;
@@ -116,7 +116,7 @@ public class a extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.auR) {
+        if (this.auI) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -124,37 +124,37 @@ public class a extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.auR) {
+        if (this.auI) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void sq() {
-        if (this.hAb != null) {
-            if (this.auM.getHeight() >= this.hAb.endY - (this.auV / 2)) {
+        if (this.hzO != null) {
+            if (this.auD.getHeight() >= this.hzO.endY - (this.auM / 2)) {
                 sr();
-            } else if (this.hAc != null) {
-                this.hAc.ss();
+            } else if (this.hzP != null) {
+                this.hzP.ss();
             }
-            this.mScroller.startScroll(0, this.auM.getHeight(), 0, this.hAb.startY - this.auM.getHeight(), 200);
+            this.mScroller.startScroll(0, this.auD.getHeight(), 0, this.hzO.startY - this.auD.getHeight(), 200);
             invalidate();
         }
     }
 
     public void sr() {
-        if (this.hAc != null) {
-            this.hAc.onRefresh();
+        if (this.hzP != null) {
+            this.hzP.onRefresh();
         }
     }
 
-    public void setPersonListRefreshListener(InterfaceC0249a interfaceC0249a) {
-        this.hAc = interfaceC0249a;
+    public void setPersonListRefreshListener(InterfaceC0250a interfaceC0250a) {
+        this.hzP = interfaceC0250a;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
     public void startPullRefresh() {
-        if (this.hAf) {
+        if (this.hzS) {
             super.startPullRefresh();
             return;
         }
@@ -162,33 +162,33 @@ public class a extends BdTypeListView {
             setSelection(10);
         }
         smoothScrollToPosition(0);
-        if (this.auM != null && !this.auR) {
-            this.auR = true;
-            this.mScroller.startScroll(0, getOriginalHeight() + this.auV, 0, -this.auV, 200);
+        if (this.auD != null && !this.auI) {
+            this.auI = true;
+            this.mScroller.startScroll(0, getOriginalHeight() + this.auM, 0, -this.auM, 200);
             sr();
             invalidate();
-            this.mHandler.removeCallbacks(this.hAg);
-            this.mHandler.postDelayed(this.hAg, 200L);
-            this.auR = false;
+            this.mHandler.removeCallbacks(this.hzT);
+            this.mHandler.postDelayed(this.hzT, 200L);
+            this.auI = false;
         }
     }
 
     private int getOriginalHeight() {
-        if (this.auN <= 0) {
-            this.auN = this.auM.getHeight();
+        if (this.auE <= 0) {
+            this.auE = this.auD.getHeight();
         }
-        return this.auN;
+        return this.auE;
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.hAf) {
+        if (this.hzS) {
             super.computeScroll();
         } else if (this.mScroller.computeScrollOffset()) {
             int currY = this.mScroller.getCurrY();
-            if (Math.abs(this.hAh - currY) > this.auU * 2) {
-                this.hAh = currY;
-                this.auM.setLayoutParams(new AbsListView.LayoutParams(this.auM.getWidth(), currY));
+            if (Math.abs(this.hzU - currY) > this.auL * 2) {
+                this.hzU = currY;
+                this.auD.setLayoutParams(new AbsListView.LayoutParams(this.auD.getWidth(), currY));
             }
         } else {
             scrollTo(0, 0);
@@ -197,9 +197,9 @@ public class a extends BdTypeListView {
     }
 
     private void O(float f) {
-        float f2 = 360.0f - ((f * 360.0f) / this.auV);
-        if (this.hAc != null) {
-            this.hAc.P(f2);
+        float f2 = 360.0f - ((f * 360.0f) / this.auM);
+        if (this.hzP != null) {
+            this.hzP.P(f2);
         }
     }
 

@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private d eXs;
-    private List<com.baidu.tieba.interestlabel.b.a> eXu;
-    private List<Integer> eXv = new ArrayList();
+    private d eXg;
+    private List<com.baidu.tieba.interestlabel.b.a> eXi;
+    private List<Integer> eXj = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(d dVar) {
-        this.eXs = dVar;
+        this.eXg = dVar;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.E(bVar.aOL())) {
+        if (bVar != null && !v.E(bVar.aOK())) {
             this.mLabelDataSet = bVar;
-            this.eXu = bVar.aOL();
-            if (!v.E(bVar.aOM())) {
-                this.eXv = new ArrayList(bVar.aOM());
+            this.eXi = bVar.aOK();
+            if (!v.E(bVar.aOL())) {
+                this.eXj = new ArrayList(bVar.aOL());
             }
         }
     }
 
-    public List<Integer> aOI() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aOM();
+    public List<Integer> aOH() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aOL();
     }
 
-    public List<Integer> aOJ() {
-        return this.eXv;
+    public List<Integer> aOI() {
+        return this.eXj;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.D(this.eXu);
+        return v.D(this.eXi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qR */
+    /* renamed from: qS */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.f(this.eXu, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.f(this.eXi, i);
     }
 
     @Override // android.widget.Adapter
@@ -65,20 +65,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0186b c0186b;
+        C0187b c0187b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.eXs.getContext()).inflate(d.h.item_label_layout, (ViewGroup) null);
-            C0186b c0186b2 = new C0186b();
-            c0186b2.eXx = (TextView) view2;
-            view2.setTag(c0186b2);
-            c0186b = c0186b2;
+            view2 = LayoutInflater.from(this.eXg.getContext()).inflate(d.h.item_label_layout, (ViewGroup) null);
+            C0187b c0187b2 = new C0187b();
+            c0187b2.eXl = (TextView) view2;
+            view2.setTag(c0187b2);
+            c0187b = c0187b2;
         } else {
-            c0186b = (C0186b) view.getTag();
+            c0187b = (C0187b) view.getTag();
             view2 = view;
         }
-        c0186b.eXx.setOnClickListener(new a(i));
-        a(c0186b.eXx, getItem(i));
+        c0187b.eXl.setOnClickListener(new a(i));
+        a(c0187b.eXl, getItem(i));
         return view2;
     }
 
@@ -92,10 +92,10 @@ public class b extends BaseAdapter {
             }
             textView.setText(str);
             if (aVar.isFollow) {
-                aj.r(textView, d.C0140d.cp_link_tip_a);
+                aj.r(textView, d.C0141d.cp_link_tip_a);
                 drawable = aj.getDrawable(d.f.icon_lable_confirm_s);
             } else {
-                aj.r(textView, d.C0140d.cp_cont_b);
+                aj.r(textView, d.C0141d.cp_cont_b);
                 drawable = aj.getDrawable(d.f.icon_lable_confirm_n);
             }
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
@@ -104,10 +104,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C0186b {
-        TextView eXx;
+    class C0187b {
+        TextView eXl;
 
-        C0186b() {
+        C0187b() {
         }
     }
 
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.eXv.add(Integer.valueOf(item.labelId));
+                    b.this.eXj.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.eXv.remove(Integer.valueOf(item.labelId));
+                    b.this.eXj.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.eXs != null) {
-                    b.this.eXs.io(v.D(b.this.eXv) > 0);
+                if (b.this.eXg != null) {
+                    b.this.eXg.io(v.D(b.this.eXj) > 0);
                 }
             }
         }

@@ -11,19 +11,19 @@ import com.baidu.sapi2.activity.FillUProfileActivity;
 import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.sapi2.activity.ModifyPwdActivity;
 import com.baidu.sapi2.activity.OperationRecordActivity;
+import com.baidu.sapi2.activity.QrLoginActivity;
 import com.baidu.sapi2.activity.RegisterActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
-import com.baidu.sapi2.callback.QrAppLoginCallback;
+import com.baidu.sapi2.callback.QrLoginCallback;
 import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.callback.WebBindWidgetCallback;
 import com.baidu.sapi2.callback.WebFillUProfileCallback;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.callback.WebSocialLoginCallback;
-import com.baidu.sapi2.callback.WebVoiceLoginCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
@@ -40,7 +40,7 @@ public final class PassportSDK {
     private ActivityResultCallback activityResultCallback;
     Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
     private ImageCropCallback imageCropCallback;
-    private QrAppLoginCallback qrAppLoginCallback;
+    private QrLoginCallback qrLoginCallback;
     private SapiWebCallback sapiWebCallback;
     private AbstractThirdPartyService thirdPartyService;
     private WebAuthListener webAuthListener;
@@ -50,7 +50,6 @@ public final class PassportSDK {
     private WebModifyPwdCallback webModifyPwdCallback;
     private WebRegDTO webRegDTO;
     private WebSocialLoginCallback webSocialLoginCallback;
-    private WebVoiceLoginCallback webVoiceLoginCallback;
 
     public static synchronized PassportSDK getInstance() {
         PassportSDK passportSDK;
@@ -76,14 +75,6 @@ public final class PassportSDK {
 
     public WebRegDTO getWebRegDTO() {
         return this.webRegDTO;
-    }
-
-    public WebVoiceLoginCallback getWebVoiceLoginCallback() {
-        return this.webVoiceLoginCallback;
-    }
-
-    public QrAppLoginCallback getQrAppLoginCallback() {
-        return this.qrAppLoginCallback;
     }
 
     public WebSocialLoginCallback getWebSocialLoginCallback() {
@@ -129,6 +120,10 @@ public final class PassportSDK {
     public AbstractThirdPartyService getThirdPartyService() {
         loadThirdPartyService();
         return this.thirdPartyService;
+    }
+
+    public QrLoginCallback getQrLoginCallback() {
+        return this.qrLoginCallback;
     }
 
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
@@ -178,14 +173,6 @@ public final class PassportSDK {
         }
         intent.setFlags(268435456);
         this.context.startActivity(intent);
-    }
-
-    private void setQrAppLoginCallback(QrAppLoginCallback qrAppLoginCallback) {
-        this.qrAppLoginCallback = qrAppLoginCallback;
-    }
-
-    public void setWebVoiceLoginCallback(WebVoiceLoginCallback webVoiceLoginCallback) {
-        this.webVoiceLoginCallback = webVoiceLoginCallback;
     }
 
     public void setWebSocialLoginCallback(WebSocialLoginCallback webSocialLoginCallback) {
@@ -246,11 +233,22 @@ public final class PassportSDK {
         this.context.startActivity(intent);
     }
 
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
+        loadQrLogin(qrLoginCallback, str, true);
+    }
+
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, boolean z) {
+        this.qrLoginCallback = qrLoginCallback;
+        Intent intent = new Intent(this.context, QrLoginActivity.class);
+        intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
+        intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
+        intent.setFlags(268435456);
+        this.context.startActivity(intent);
+    }
+
     public void release() {
         this.webAuthListener = null;
         this.webLoginDTO = null;
-        this.qrAppLoginCallback = null;
-        this.webVoiceLoginCallback = null;
         this.webSocialLoginCallback = null;
         this.accountCenterCallback = null;
         this.webFillUProfileCallback = null;
@@ -261,6 +259,7 @@ public final class PassportSDK {
         this.activityResultCallback = null;
         this.accountCenterDTO = null;
         this.accountRealNameCallback = null;
+        this.qrLoginCallback = null;
         PassportViewManager.getInstance().release();
     }
 

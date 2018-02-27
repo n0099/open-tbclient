@@ -60,16 +60,16 @@ class c {
 
     /* loaded from: classes2.dex */
     static class b<T extends a> implements RemoteControlClient.OnMetadataUpdateListener {
-        protected final T zY;
+        protected final T zT;
 
         public b(T t) {
-            this.zY = t;
+            this.zT = t;
         }
 
         @Override // android.media.RemoteControlClient.OnMetadataUpdateListener
         public void onMetadataUpdate(int i, Object obj) {
             if (i == 268435457 && (obj instanceof Rating)) {
-                this.zY.Q(obj);
+                this.zT.Q(obj);
             }
         }
     }

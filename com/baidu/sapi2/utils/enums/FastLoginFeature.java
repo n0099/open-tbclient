@@ -1,15 +1,13 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public enum FastLoginFeature {
     TX_WEIXIN_SSO("tweixin_sso"),
     SINA_WEIBO_SSO("tsina_sso"),
     SINA_WEIBO_WEBVIEW("tsina"),
     TX_WEIBO_WEBVIEW("tqq"),
-    TX_QQ_WEBVIEW(Constants.SOURCE_QZONE),
-    TX_QQ_SSO(Constants.SOURCE_QZONE),
+    TX_QQ_SSO("qq_sso"),
     QR_LOGIN("qr_app_login"),
     NM_LOGIN("nuomi_login"),
     VOICE_LOGIN("voice_login"),

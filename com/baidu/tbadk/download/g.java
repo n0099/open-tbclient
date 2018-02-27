@@ -19,22 +19,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g bsc;
-    private static DownloadData bse;
-    private static List<DownloadData> bsf = new LinkedList();
-    private SparseArray<c> bsd = new SparseArray<>();
+    private static g brP;
+    private static DownloadData brR;
+    private static List<DownloadData> brS = new LinkedList();
+    private SparseArray<c> brQ = new SparseArray<>();
 
-    public static g KZ() {
+    public static g KY() {
         synchronized (g.class) {
-            if (bsc == null) {
-                bsc = new g();
+            if (brP == null) {
+                brP = new g();
             }
         }
-        return bsc;
+        return brP;
     }
 
     private g() {
-        La();
+        KZ();
     }
 
     public void b(String str, String str2, String str3, int i, int i2) {
@@ -42,7 +42,7 @@ public class g {
     }
 
     public void a(String str, String str2, String str3, int i, int i2, boolean z) {
-        if (this.bsd.get(i2) == null) {
+        if (this.brQ.get(i2) == null) {
             throw new RuntimeException("you need register downloadType first");
         }
         DownloadData downloadData = new DownloadData(str);
@@ -58,16 +58,16 @@ public class g {
 
     private void h(DownloadData downloadData) {
         if (downloadData != null) {
-            bsf.add(downloadData);
-            KS();
+            brS.add(downloadData);
+            KR();
         }
     }
 
-    private void KS() {
-        if (bse == null && !bsf.isEmpty()) {
-            bse = bsf.get(0);
-            if (bse != null) {
-                j(i(bse));
+    private void KR() {
+        if (brR == null && !brS.isEmpty()) {
+            brR = brS.get(0);
+            if (brR != null) {
+                j(i(brR));
             }
         }
     }
@@ -81,15 +81,15 @@ public class g {
     private String A(String str, int i) {
         c hD = hD(i);
         StringBuilder sb = new StringBuilder();
-        sb.append(hD.brU).append("/").append(hD.brV).append("/").append(str);
-        if (!StringUtils.isNull(hD.brW)) {
-            sb.append(Constants.DOT).append(hD.brW);
+        sb.append(hD.brH).append("/").append(hD.brI).append("/").append(str);
+        if (!StringUtils.isNull(hD.brJ)) {
+            sb.append(Constants.DOT).append(hD.brJ);
         }
         return sb.toString();
     }
 
     public void hC(int i) {
-        List<DownloadData> rl = e.KU().rl();
+        List<DownloadData> rl = e.KT().rl();
         if (rl != null && rl.size() != 0) {
             for (DownloadData downloadData : rl) {
                 if (downloadData.getType() == i) {
@@ -131,12 +131,12 @@ public class g {
                     UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getPath());
                 }
             } else {
-                e.KU().a(downloadData, hD(downloadData.getType()).maxSize);
+                e.KT().a(downloadData, hD(downloadData.getType()).maxSize);
             }
-            bse = null;
-            if (!bsf.isEmpty()) {
-                bsf.remove(0);
-                KS();
+            brR = null;
+            if (!brS.isEmpty()) {
+                brS.remove(0);
+                KR();
             }
         }
     }
@@ -187,7 +187,7 @@ public class g {
     }
 
     public boolean gg(String str) {
-        for (DownloadData downloadData : e.KU().rl()) {
+        for (DownloadData downloadData : e.KT().rl()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -196,7 +196,7 @@ public class g {
     }
 
     public boolean gh(String str) {
-        for (DownloadData downloadData : e.KU().rl()) {
+        for (DownloadData downloadData : e.KT().rl()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
             }
@@ -206,13 +206,13 @@ public class g {
 
     public void B(String str, int i) {
         DownloadData downloadData = null;
-        for (DownloadData downloadData2 : e.KU().rl()) {
+        for (DownloadData downloadData2 : e.KT().rl()) {
             if (downloadData2.getId() == null || !downloadData2.getId().equals(str)) {
                 downloadData2 = downloadData;
             }
             downloadData = downloadData2;
         }
-        e.KU().z(str, i);
+        e.KT().z(str, i);
         if (downloadData != null) {
             int al = al(downloadData.getId(), downloadData.getName());
             String str2 = al + "%";
@@ -255,22 +255,22 @@ public class g {
     }
 
     public void a(int i, c cVar) {
-        this.bsd.put(i, cVar);
+        this.brQ.put(i, cVar);
     }
 
     public c hD(int i) {
-        c cVar = this.bsd.get(i);
+        c cVar = this.brQ.get(i);
         if (cVar == null) {
-            return this.bsd.get(10);
+            return this.brQ.get(10);
         }
         return cVar;
     }
 
-    private void La() {
+    private void KZ() {
         c cVar = new c();
-        cVar.brU = new File(k.BW());
-        cVar.brV = PhoneUtils.CPUInfo.FEATURE_COMMON;
-        cVar.brW = "";
-        this.bsd.put(10, cVar);
+        cVar.brH = new File(k.BV());
+        cVar.brI = PhoneUtils.CPUInfo.FEATURE_COMMON;
+        cVar.brJ = "";
+        this.brQ.put(10, cVar);
     }
 }

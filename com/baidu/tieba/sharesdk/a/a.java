@@ -56,7 +56,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uX(int i) {
+    public void uY(int i) {
         ad(i, null);
     }
 
@@ -91,7 +91,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bsk() {
+    public Bitmap bsj() {
         return BitmapHelper.getCashBitmap(d.f.icon);
     }
 

@@ -8,7 +8,7 @@ import com.baidu.tieba.d;
 public class c extends r {
     public c(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(d.j.video_title_str), 19);
-        this.btj = d.f.icon_video;
-        this.btp = new int[]{27};
+        this.bsW = d.f.icon_video;
+        this.btb = new int[]{27};
     }
 }

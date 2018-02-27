@@ -40,28 +40,28 @@ public class a extends g<com.baidu.tieba.g.b, b> implements c {
         if (bVar == null) {
             return null;
         }
-        aj.t(view, d.C0140d.cp_bg_line_d);
-        if (dUq != null) {
-            TiebaStatic.log(new ak("c12104").ab(ImageViewerConfig.FORUM_ID, dUq.dUg));
+        aj.t(view, d.C0141d.cp_bg_line_d);
+        if (dUe != null) {
+            TiebaStatic.log(new ak("c12104").ab(ImageViewerConfig.FORUM_ID, dUe.dTU));
         }
-        if (bVar2.dPw != null) {
-            bVar2.dPw.setData(bVar);
-            bVar2.dPw.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.dPk != null) {
+            bVar2.dPk.setData(bVar);
+            bVar2.dPk.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
                 public void b(com.baidu.tieba.g.a aVar, int i2) {
                     if (aVar != null) {
-                        if (c.dUq != null) {
-                            TiebaStatic.log(new ak("c12105").ab(ImageViewerConfig.FORUM_ID, c.dUq.dUg).s("obj_locate", i2 + 1));
+                        if (c.dUe != null) {
+                            TiebaStatic.log(new ak("c12105").ab(ImageViewerConfig.FORUM_ID, c.dUe.dTU).s("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.aBe())) {
-                            com.baidu.tbadk.browser.b.R(a.this.mPageContext.getPageActivity(), aVar.aBe());
+                        if (!StringUtils.isNull(aVar.aBd())) {
+                            com.baidu.tbadk.browser.b.R(a.this.mPageContext.getPageActivity(), aVar.aBd());
                         }
                     }
                 }
             });
         }
-        if (bVar2.dPx != null) {
-            bVar2.dPx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.dPl != null) {
+            bVar2.dPl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("game_rank_list_info", System.currentTimeMillis() + ",7");

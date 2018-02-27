@@ -26,26 +26,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private BaseActivity bSO;
-    private b fiv;
-    private d fiw;
-    private List<String> fiy = new ArrayList();
-    private boolean fiz;
+    private BaseActivity bSC;
+    private b fij;
+    private d fik;
+    private List<String> fil = new ArrayList();
+    private boolean fim;
     private TbPageContext mPageContext;
 
     public c(BaseActivity baseActivity, b bVar, d dVar) {
-        this.bSO = baseActivity;
+        this.bSC = baseActivity;
         this.mPageContext = baseActivity.getPageContext();
-        this.fiv = bVar;
-        this.fiw = dVar;
+        this.fij = bVar;
+        this.fik = dVar;
         init();
     }
 
     private void init() {
-        this.fiw.aSe();
-        this.fiw.aSe().addJsPromptInterface(new a());
+        this.fik.aSd();
+        this.fik.aSd().addJsPromptInterface(new a());
         initListener();
-        aRT();
+        aRS();
     }
 
     private void initListener() {
@@ -57,7 +57,7 @@ public class c {
         BaseWebView.f fVar = new BaseWebView.f() { // from class: com.baidu.tieba.mainentrance.a.c.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                if (webView == c.this.fiw.aSe()) {
+                if (webView == c.this.fik.aSd()) {
                     c.this.iF(false);
                 }
             }
@@ -68,54 +68,54 @@ public class c {
                 return c.this.iZ(str);
             }
         };
-        QuickWebView aSe = this.fiw.aSe();
-        if (aSe != null) {
-            aSe.setOnPageFinishedListener(cVar);
-            aSe.setOnReceivedErrorListener(fVar);
-            aSe.setOnLoadUrlListener(bVar);
+        QuickWebView aSd = this.fik.aSd();
+        if (aSd != null) {
+            aSd.setOnPageFinishedListener(cVar);
+            aSd.setOnReceivedErrorListener(fVar);
+            aSd.setOnLoadUrlListener(bVar);
         }
     }
 
-    private void aRT() {
+    private void aRS() {
         v.a(new u<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
             public List<String> doInBackground() {
-                return com.baidu.tieba.tbadkCore.util.a.bxJ();
+                return com.baidu.tieba.tbadkCore.util.a.bxI();
             }
         }, new h<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(List<String> list) {
                 if (!com.baidu.tbadk.core.util.v.E(list)) {
-                    c.this.fiy = list;
+                    c.this.fil = list;
                 }
             }
         });
     }
 
-    public void aRU() {
-        this.fiw.aRZ();
-        if (this.fiz) {
-            String aRV = aRV();
-            if (!StringUtils.isNull(aRV)) {
-                this.fiw.aSe().loadUrl("javascript:setSearchHistory('" + aRV + "')");
+    public void aRT() {
+        this.fik.aRY();
+        if (this.fim) {
+            String aRU = aRU();
+            if (!StringUtils.isNull(aRU)) {
+                this.fik.aSd().loadUrl("javascript:setSearchHistory('" + aRU + "')");
                 return;
             }
             return;
         }
-        this.fiw.aSe().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
+        this.fik.aSd().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aRV() {
-        int D = com.baidu.tbadk.core.util.v.D(this.fiy);
+    public String aRU() {
+        int D = com.baidu.tbadk.core.util.v.D(this.fil);
         if (D == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < D; i++) {
-            jSONArray.put(this.fiy.get(i));
+            jSONArray.put(this.fil.get(i));
         }
         return jSONArray.toString();
     }
@@ -124,21 +124,21 @@ public class c {
     public void iF(boolean z) {
         NoDataViewFactory.d gp;
         if (!z) {
-            this.fiw.aRK();
+            this.fik.aRJ();
             if (j.oJ()) {
                 gp = NoDataViewFactory.d.gp(d.j.text_no_search_record);
             } else {
                 gp = NoDataViewFactory.d.gp(d.j.neterror);
             }
-            this.fiw.a(gp);
+            this.fik.a(gp);
             return;
         }
-        this.fiw.aRZ();
+        this.fik.aRY();
     }
 
     public void oH(String str) {
-        if (!StringUtils.isNull(str) && this.fiy != null && !this.fiy.contains(str)) {
-            this.fiy.add(0, str);
+        if (!StringUtils.isNull(str) && this.fil != null && !this.fil.contains(str)) {
+            this.fil.add(0, str);
         }
     }
 
@@ -172,15 +172,15 @@ public class c {
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if ("getSearchHistory".equals(str2)) {
-                    jsPromptResult.confirm(c.this.aRV());
-                    c.this.fiz = true;
+                    jsPromptResult.confirm(c.this.aRU());
+                    c.this.fim = true;
                     return true;
                 } else if ("deleteSearchHistory".equals(str2)) {
                     oI(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("deleteAllSearchHistory".equals(str2)) {
-                    auo();
+                    aun();
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("openSearchPage".equals(str2)) {
@@ -200,7 +200,7 @@ public class c {
                 v.a(new u<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.u
-                    /* renamed from: aCY */
+                    /* renamed from: aCX */
                     public String doInBackground() {
                         com.baidu.tieba.tbadkCore.util.a.sS(optString);
                         return optString;
@@ -210,7 +210,7 @@ public class c {
                     @Override // com.baidu.tbadk.util.h
                     /* renamed from: mF */
                     public void onReturnDataInUI(String str2) {
-                        c.this.fiy.remove(str2);
+                        c.this.fil.remove(str2);
                     }
                 });
             } catch (Exception e) {
@@ -218,17 +218,17 @@ public class c {
             }
         }
 
-        private void auo() {
+        private void aun() {
             v.a(new u() { // from class: com.baidu.tieba.mainentrance.a.c.a.3
                 @Override // com.baidu.tbadk.util.u
                 public Object doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.bxL();
+                    com.baidu.tieba.tbadkCore.util.a.bxK();
                     return null;
                 }
             }, new h() { // from class: com.baidu.tieba.mainentrance.a.c.a.4
                 @Override // com.baidu.tbadk.util.h
                 public void onReturnDataInUI(Object obj) {
-                    c.this.fiy.clear();
+                    c.this.fil.clear();
                 }
             });
         }
@@ -236,8 +236,8 @@ public class c {
         private void oJ(String str) {
             try {
                 String optString = new JSONObject(str).optString("query");
-                if (c.this.fiv != null) {
-                    c.this.fiv.M(optString, true);
+                if (c.this.fij != null) {
+                    c.this.fij.L(optString, true);
                     TiebaStatic.log(new ak("c12034"));
                 }
             } catch (Exception e) {

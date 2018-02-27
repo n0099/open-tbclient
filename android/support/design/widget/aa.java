@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 /* loaded from: classes2.dex */
 class aa {
-    private static final int[] sT = {16843848};
+    private static final int[] sS = {16843848};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void F(View view) {
@@ -21,7 +21,7 @@ class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(View view, AttributeSet attributeSet, int i, int i2) {
         Context context = view.getContext();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sT, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sS, i, i2);
         try {
             if (obtainStyledAttributes.hasValue(0)) {
                 view.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));

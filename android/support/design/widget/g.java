@@ -15,80 +15,80 @@ import android.view.animation.AnimationUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class g extends i {
-    private final q oH;
-    n oI;
+    private final q oG;
+    n oH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ab abVar, o oVar, s.d dVar) {
         super(abVar, oVar, dVar);
-        this.oH = new q();
-        this.oH.a(PRESSED_ENABLED_STATE_SET, a(new b()));
-        this.oH.a(oZ, a(new b()));
-        this.oH.a(ENABLED_STATE_SET, a(new c()));
-        this.oH.a(EMPTY_STATE_SET, a(new a()));
+        this.oG = new q();
+        this.oG.a(PRESSED_ENABLED_STATE_SET, a(new b()));
+        this.oG.a(oY, a(new b()));
+        this.oG.a(ENABLED_STATE_SET, a(new c()));
+        this.oG.a(EMPTY_STATE_SET, a(new a()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void a(ColorStateList colorStateList, PorterDuff.Mode mode, int i, int i2) {
         Drawable[] drawableArr;
-        this.oT = DrawableCompat.wrap(bX());
-        DrawableCompat.setTintList(this.oT, colorStateList);
+        this.oS = DrawableCompat.wrap(bX());
+        DrawableCompat.setTintList(this.oS, colorStateList);
         if (mode != null) {
-            DrawableCompat.setTintMode(this.oT, mode);
+            DrawableCompat.setTintMode(this.oS, mode);
         }
-        this.oU = DrawableCompat.wrap(bX());
-        DrawableCompat.setTintList(this.oU, E(i));
+        this.oT = DrawableCompat.wrap(bX());
+        DrawableCompat.setTintList(this.oT, E(i));
         if (i2 > 0) {
-            this.oV = a(i2, colorStateList);
-            drawableArr = new Drawable[]{this.oV, this.oT, this.oU};
+            this.oU = a(i2, colorStateList);
+            drawableArr = new Drawable[]{this.oU, this.oS, this.oT};
         } else {
-            this.oV = null;
-            drawableArr = new Drawable[]{this.oT, this.oU};
+            this.oU = null;
+            drawableArr = new Drawable[]{this.oS, this.oT};
         }
-        this.oW = new LayerDrawable(drawableArr);
-        this.oI = new n(this.pa.getContext(), this.oW, this.pd.getRadius(), this.oX, this.oX + this.oY);
-        this.oI.m(false);
-        this.pd.setBackgroundDrawable(this.oI);
+        this.oV = new LayerDrawable(drawableArr);
+        this.oH = new n(this.oZ.getContext(), this.oV, this.pa.getRadius(), this.oW, this.oW + this.oX);
+        this.oH.m(false);
+        this.pa.setBackgroundDrawable(this.oH);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void setBackgroundTintList(ColorStateList colorStateList) {
-        if (this.oT != null) {
-            DrawableCompat.setTintList(this.oT, colorStateList);
+        if (this.oS != null) {
+            DrawableCompat.setTintList(this.oS, colorStateList);
         }
-        if (this.oV != null) {
-            this.oV.a(colorStateList);
+        if (this.oU != null) {
+            this.oU.a(colorStateList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void setBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.oT != null) {
-            DrawableCompat.setTintMode(this.oT, mode);
+        if (this.oS != null) {
+            DrawableCompat.setTintMode(this.oS, mode);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void setRippleColor(int i) {
-        if (this.oU != null) {
-            DrawableCompat.setTintList(this.oU, E(i));
+        if (this.oT != null) {
+            DrawableCompat.setTintList(this.oT, E(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public float getElevation() {
-        return this.oX;
+        return this.oW;
     }
 
     @Override // android.support.design.widget.i
     void c(float f, float f2) {
-        if (this.oI != null) {
-            this.oI.d(f, this.oY + f);
+        if (this.oH != null) {
+            this.oH.d(f, this.oX + f);
             bV();
         }
     }
@@ -96,34 +96,34 @@ public class g extends i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void c(int[] iArr) {
-        this.oH.d(iArr);
+        this.oG.d(iArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void bO() {
-        this.oH.jumpToCurrentState();
+        this.oG.jumpToCurrentState();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.i
     public void a(final i.a aVar, final boolean z) {
         if (!bZ()) {
-            this.oS = 1;
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.pa.getContext(), R.anim.design_fab_out);
+            this.oR = 1;
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.oZ.getContext(), R.anim.design_fab_out);
             loadAnimation.setInterpolator(android.support.design.widget.a.kC);
             loadAnimation.setDuration(200L);
             loadAnimation.setAnimationListener(new a.animation.Animation$AnimationListenerC0002a() { // from class: android.support.design.widget.g.1
                 @Override // android.support.design.widget.a.animation.Animation$AnimationListenerC0002a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    g.this.oS = 0;
-                    g.this.pa.e(8, z);
+                    g.this.oR = 0;
+                    g.this.oZ.e(8, z);
                     if (aVar != null) {
                         aVar.bM();
                     }
                 }
             });
-            this.pa.startAnimation(loadAnimation);
+            this.oZ.startAnimation(loadAnimation);
         }
     }
 
@@ -131,21 +131,21 @@ public class g extends i {
     @Override // android.support.design.widget.i
     public void b(final i.a aVar, boolean z) {
         if (!bY()) {
-            this.oS = 2;
-            this.pa.e(0, z);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.pa.getContext(), R.anim.design_fab_in);
+            this.oR = 2;
+            this.oZ.e(0, z);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.oZ.getContext(), R.anim.design_fab_in);
             loadAnimation.setDuration(200L);
             loadAnimation.setInterpolator(android.support.design.widget.a.kD);
             loadAnimation.setAnimationListener(new a.animation.Animation$AnimationListenerC0002a() { // from class: android.support.design.widget.g.2
                 @Override // android.support.design.widget.a.animation.Animation$AnimationListenerC0002a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    g.this.oS = 0;
+                    g.this.oR = 0;
                     if (aVar != null) {
                         aVar.bL();
                     }
                 }
             });
-            this.pa.startAnimation(loadAnimation);
+            this.oZ.startAnimation(loadAnimation);
         }
     }
 
@@ -156,12 +156,12 @@ public class g extends i {
 
     @Override // android.support.design.widget.i
     void c(Rect rect) {
-        this.oI.getPadding(rect);
+        this.oH.getPadding(rect);
     }
 
     private s a(d dVar) {
-        s cE = this.pe.cE();
-        cE.setInterpolator(oR);
+        s cE = this.pd.cE();
+        cE.setInterpolator(oQ);
         cE.setDuration(100L);
         cE.a((s.a) dVar);
         cE.a((s.c) dVar);
@@ -171,9 +171,9 @@ public class g extends i {
 
     /* loaded from: classes2.dex */
     private abstract class d extends s.b implements s.c {
-        private boolean oM;
+        private boolean oL;
+        private float oM;
         private float oN;
-        private float oO;
 
         protected abstract float bQ();
 
@@ -182,18 +182,18 @@ public class g extends i {
 
         @Override // android.support.design.widget.s.c
         public void a(s sVar) {
-            if (!this.oM) {
-                this.oN = g.this.oI.cd();
-                this.oO = bQ();
-                this.oM = true;
+            if (!this.oL) {
+                this.oM = g.this.oH.cd();
+                this.oN = bQ();
+                this.oL = true;
             }
-            g.this.oI.o(this.oN + ((this.oO - this.oN) * sVar.getAnimatedFraction()));
+            g.this.oH.o(this.oM + ((this.oN - this.oM) * sVar.getAnimatedFraction()));
         }
 
         @Override // android.support.design.widget.s.b, android.support.design.widget.s.a
         public void b(s sVar) {
-            g.this.oI.o(this.oO);
-            this.oM = false;
+            g.this.oH.o(this.oN);
+            this.oL = false;
         }
     }
 
@@ -205,7 +205,7 @@ public class g extends i {
 
         @Override // android.support.design.widget.g.d
         protected float bQ() {
-            return g.this.oX;
+            return g.this.oW;
         }
     }
 
@@ -217,7 +217,7 @@ public class g extends i {
 
         @Override // android.support.design.widget.g.d
         protected float bQ() {
-            return g.this.oX + g.this.oY;
+            return g.this.oW + g.this.oX;
         }
     }
 
@@ -234,6 +234,6 @@ public class g extends i {
     }
 
     private static ColorStateList E(int i) {
-        return new ColorStateList(new int[][]{oZ, PRESSED_ENABLED_STATE_SET, new int[0]}, new int[]{i, i, 0});
+        return new ColorStateList(new int[][]{oY, PRESSED_ENABLED_STATE_SET, new int[0]}, new int[]{i, i, 0});
     }
 }

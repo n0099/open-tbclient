@@ -5,7 +5,7 @@ import android.os.Build;
 import android.support.design.widget.s;
 /* loaded from: classes2.dex */
 class z {
-    static final s.d sS = new s.d() { // from class: android.support.design.widget.z.1
+    static final s.d sR = new s.d() { // from class: android.support.design.widget.z.1
         @Override // android.support.design.widget.s.d
         public s cE() {
             return new s(Build.VERSION.SDK_INT >= 12 ? new u() : new t());
@@ -14,7 +14,7 @@ class z {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static s cE() {
-        return sS.cE();
+        return sR.cE();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

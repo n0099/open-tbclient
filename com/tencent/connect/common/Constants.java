@@ -1,5 +1,5 @@
 package com.tencent.connect.common;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Constants {
     public static final int ACTIVITY_CANCEL = 0;
     public static final int ACTIVITY_OK = -1;
@@ -25,9 +25,6 @@ public class Constants {
     public static final int ERROR_UNKNOWN = -6;
     public static final int ERROR_URL = -3;
     public static final boolean FLAG_DEBUG = true;
-    public static final String GRAPH_BASE = "https://openmobile.qq.com/";
-    public static final String GRAPH_INTIMATE_FRIENDS = "friends/get_intimate_friends_weibo";
-    public static final String GRAPH_NICK_TIPS = "friends/match_nick_tips_weibo";
     public static final String HTTP_GET = "GET";
     public static final String HTTP_POST = "POST";
     public static final String KEY_ACTION = "key_action";
@@ -68,14 +65,17 @@ public class Constants {
     public static final String MSG_SOCKETTIMEOUT_ERROR = "网络连接超时!";
     public static final String MSG_UNKNOWN_ERROR = "未知错误!";
     public static final String MSG_URL_ERROR = "访问url有误!";
+    public static final String PACKAGE_QIM = "com.tencent.qim";
     public static final String PACKAGE_QQ = "com.tencent.mobileqq";
     public static final String PACKAGE_QQ_PAD = "com.tencent.minihd.qq";
     public static final String PACKAGE_QZONE = "com.qzone";
+    public static final String PACKAGE_TIM = "com.tencent.tim";
     public static final String PARAM_ACCESS_TOKEN = "access_token";
     public static final String PARAM_APP_ID = "appid";
     public static final String PARAM_CLIENT_ID = "client_id";
     public static final String PARAM_CONSUMER_KEY = "oauth_consumer_key";
     public static final String PARAM_EXPIRES_IN = "expires_in";
+    public static final String PARAM_EXPIRES_TIME = "expires_time";
     public static final String PARAM_HOPEN_ID = "hopenid";
     public static final String PARAM_KEY_STR = "keystr";
     public static final String PARAM_KEY_TYPE = "keytype";
@@ -99,10 +99,10 @@ public class Constants {
     public static final int REQUEST_SOCIAL_API = 11105;
     public static final int REQUEST_SOCIAL_H5 = 11106;
     public static final String SDK_BUILD = "5575";
-    public static final String SDK_QUA = "V1_AND_OpenSDK_3.1.0.lite_1077_RDM_B";
-    public static final String SDK_VERSION = "3.1.0.lite";
-    public static final String SDK_VERSION_REPORT = "OpenSdk_3.1.0.lite";
-    public static final String SDK_VERSION_STRING = "Android_SDK_3.1.0.lite";
+    public static final String SDK_QUA = "V1_AND_OpenSDK_3.3.0.lite_1077_RDM_B";
+    public static final String SDK_VERSION = "3.3.0.lite";
+    public static final String SDK_VERSION_REPORT = "OpenSdk_3.3.0.lite";
+    public static final String SDK_VERSION_STRING = "Android_SDK_3.3.0.lite";
     public static final String SIGNATRUE_QZONE = "ec96e9ac1149251acbb1b0c5777cae95";
     public static final String SOURCE_QQ = "QQ";
     public static final String SOURCE_QZONE = "qzone";
@@ -115,6 +115,7 @@ public class Constants {
     public static final String VIA_ACT_TYPE_EIGHTEEN = "18";
     public static final String VIA_ACT_TYPE_FIVE = "5";
     public static final String VIA_ACT_TYPE_NINETEEN = "19";
+    public static final String VIA_ACT_TYPE_SEVEN = "7";
     public static final String VIA_ACT_TYPE_THREE = "3";
     public static final String VIA_ACT_TYPE_TWENTY_EIGHT = "28";
     public static final String VIA_BIND_GROUP = "ANDROIDSDK.BINDGROUP.XX";

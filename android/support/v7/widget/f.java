@@ -15,11 +15,11 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 class f extends PopupWindow {
-    private static final boolean Na;
-    private boolean Nb;
+    private static final boolean MV;
+    private boolean MW;
 
     static {
-        Na = Build.VERSION.SDK_INT < 21;
+        MV = Build.VERSION.SDK_INT < 21;
     }
 
     public f(Context context, AttributeSet attributeSet, int i) {
@@ -51,7 +51,7 @@ class f extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void showAsDropDown(View view, int i, int i2) {
-        if (Na && this.Nb) {
+        if (MV && this.MW) {
             i2 -= view.getHeight();
         }
         super.showAsDropDown(view, i, i2);
@@ -60,7 +60,7 @@ class f extends PopupWindow {
     @Override // android.widget.PopupWindow
     @TargetApi(19)
     public void showAsDropDown(View view, int i, int i2, int i3) {
-        if (Na && this.Nb) {
+        if (MV && this.MW) {
             i2 -= view.getHeight();
         }
         super.showAsDropDown(view, i, i2, i3);
@@ -68,7 +68,7 @@ class f extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void update(View view, int i, int i2, int i3, int i4) {
-        super.update(view, i, (Na && this.Nb) ? i2 - view.getHeight() : i2, i3, i4);
+        super.update(view, i, (MV && this.MW) ? i2 - view.getHeight() : i2, i3, i4);
     }
 
     private static void a(final PopupWindow popupWindow) {
@@ -97,8 +97,8 @@ class f extends PopupWindow {
 
     @RestrictTo
     public void H(boolean z) {
-        if (Na) {
-            this.Nb = z;
+        if (MV) {
+            this.MW = z;
         } else {
             PopupWindowCompat.setOverlapAnchor(this, z);
         }

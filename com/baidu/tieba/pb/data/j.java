@@ -11,75 +11,75 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId fHZ = BdUniqueId.gen();
-    private long fIa;
-    private boolean fIb;
-    private ArrayList<MuteUser> fIc;
+    public static final BdUniqueId fHO = BdUniqueId.gen();
+    private long fHP;
+    private boolean fHQ;
+    private ArrayList<MuteUser> fHR;
     public long shareNum;
-    public int fHX = -1;
-    private boolean fId = false;
-    private boolean fIe = false;
-    private int fIf = 1;
+    public int fHM = -1;
+    private boolean fHS = false;
+    private boolean fHT = false;
+    private int fHU = 1;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return fHZ;
+        return fHO;
     }
 
     public void a(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.fIa = dataRes.thread.agree.agree_num.longValue();
-                this.fIb = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.fHX = dataRes.thread.agree.agree_type.intValue();
+                this.fHP = dataRes.thread.agree.agree_num.longValue();
+                this.fHQ = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.fHM = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.fIc == null) {
-                this.fIc = new ArrayList<>();
+            if (this.fHR == null) {
+                this.fHR = new ArrayList<>();
             }
-            this.fIc.clear();
+            this.fHR.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.fIc.add(muteUser);
+                        this.fHR.add(muteUser);
                     }
                 }
             }
             if (dataRes.thread != null) {
                 this.shareNum = dataRes.thread.share_num.longValue();
-                this.fIe = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+                this.fHT = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
             }
         }
     }
 
-    public long baV() {
-        return this.fIa;
+    public long baU() {
+        return this.fHP;
+    }
+
+    public boolean baV() {
+        return this.fHT;
     }
 
     public boolean baW() {
-        return this.fIe;
+        return this.fHQ;
     }
 
-    public boolean baX() {
-        return this.fIb;
+    public ArrayList<MuteUser> baX() {
+        return this.fHR;
     }
 
-    public ArrayList<MuteUser> baY() {
-        return this.fIc;
-    }
-
-    public void sA(int i) {
-        if (!this.fIb) {
-            sC(i);
+    public void sB(int i) {
+        if (!this.fHQ) {
+            sD(i);
             return;
         }
-        this.fHX = i;
-        this.fIb = true;
+        this.fHM = i;
+        this.fHQ = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.fIc.iterator();
+            Iterator<MuteUser> it = this.fHR.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -90,15 +90,15 @@ public class j implements com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public void sB(int i) {
-        this.fIf = i;
-    }
-
-    public int baZ() {
-        return this.fIf;
-    }
-
     public void sC(int i) {
+        this.fHU = i;
+    }
+
+    public int baY() {
+        return this.fHU;
+    }
+
+    public void sD(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
@@ -107,35 +107,35 @@ public class j implements com.baidu.adp.widget.ListView.i {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.fIc == null) {
-                this.fIc = new ArrayList<>();
+            if (this.fHR == null) {
+                this.fHR = new ArrayList<>();
             }
-            this.fIc.add(0, muteUser);
-            if (this.fIa < 0) {
-                this.fIa = 0L;
+            this.fHR.add(0, muteUser);
+            if (this.fHP < 0) {
+                this.fHP = 0L;
             }
-            this.fIa++;
-            this.fIb = true;
-            this.fHX = i;
+            this.fHP++;
+            this.fHQ = true;
+            this.fHM = i;
         }
     }
 
-    public void bba() {
+    public void baZ() {
         if (TbadkCoreApplication.isLogin()) {
-            this.fIa--;
-            if (this.fIa < 0) {
-                this.fIa = 0L;
+            this.fHP--;
+            if (this.fHP < 0) {
+                this.fHP = 0L;
             }
-            this.fIb = false;
-            this.fHX = -1;
-            if (!v.E(this.fIc)) {
+            this.fHQ = false;
+            this.fHM = -1;
+            if (!v.E(this.fHR)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.fIc.iterator();
+                    Iterator<MuteUser> it = this.fHR.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.fIc.remove(next);
+                            this.fHR.remove(next);
                             return;
                         }
                     }
@@ -145,10 +145,10 @@ public class j implements com.baidu.adp.widget.ListView.i {
     }
 
     public void jO(boolean z) {
-        this.fId = z;
+        this.fHS = z;
     }
 
-    public boolean bbb() {
-        return this.fId;
+    public boolean bba() {
+        return this.fHS;
     }
 }

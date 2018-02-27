@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 /* loaded from: classes2.dex */
 public final class BitmapCompat {
-    static final b wp;
+    static final b wo;
 
     /* loaded from: classes2.dex */
     interface b {
@@ -76,26 +76,26 @@ public final class BitmapCompat {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            wp = new e();
+            wo = new e();
         } else if (i >= 18) {
-            wp = new d();
+            wo = new d();
         } else if (i >= 12) {
-            wp = new c();
+            wo = new c();
         } else {
-            wp = new a();
+            wo = new a();
         }
     }
 
     public static boolean hasMipMap(Bitmap bitmap) {
-        return wp.hasMipMap(bitmap);
+        return wo.hasMipMap(bitmap);
     }
 
     public static void setHasMipMap(Bitmap bitmap, boolean z) {
-        wp.setHasMipMap(bitmap, z);
+        wo.setHasMipMap(bitmap, z);
     }
 
     public static int getAllocationByteCount(Bitmap bitmap) {
-        return wp.getAllocationByteCount(bitmap);
+        return wo.getAllocationByteCount(bitmap);
     }
 
     private BitmapCompat() {

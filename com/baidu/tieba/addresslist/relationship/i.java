@@ -4,17 +4,17 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class i extends BdAsyncTask<Void, Void, Void> {
-    private a bVS;
+    private a bVG;
 
     public i(a aVar) {
-        this.bVS = aVar;
+        this.bVG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (!f.Vg().a(this.bVS)) {
+        if (!f.Vf().a(this.bVG)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }

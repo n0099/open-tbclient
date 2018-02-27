@@ -19,8 +19,8 @@ public class b {
             }
             String[] strArr = {string, baseActivity.getResources().getString(d.j.channel_remove)};
             com.baidu.tbadk.core.dialog.b bVar2 = new com.baidu.tbadk.core.dialog.b(baseActivity.getPageContext().getPageActivity());
-            bVar2.a(strArr, new b.InterfaceC0096b() { // from class: com.baidu.tieba.channel.c.b.1
-                @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0096b
+            bVar2.a(strArr, new b.InterfaceC0097b() { // from class: com.baidu.tieba.channel.c.b.1
+                @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0097b
                 public void a(com.baidu.tbadk.core.dialog.b bVar3, int i2, View view) {
                     switch (i2) {
                         case 0:

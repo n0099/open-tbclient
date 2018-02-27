@@ -12,8 +12,8 @@ import com.baidu.tieba.personCenter.data.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private v<e> abv;
-    private a giS;
+    private v<e> abo;
+    private a giH;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
@@ -24,12 +24,12 @@ public class c {
 
     public void bu(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
-        awN();
+        awM();
         this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
-        this.giS = new a(this.mPageContext, this.mListView, this.abv);
+        this.giH = new a(this.mPageContext, this.mListView, this.abo);
     }
 
-    private void awN() {
+    private void awM() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -46,6 +46,6 @@ public class c {
     }
 
     public void b(v<e> vVar) {
-        this.abv = vVar;
+        this.abo = vVar;
     }
 }

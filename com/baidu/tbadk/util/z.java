@@ -95,17 +95,17 @@ public class z {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String bDF;
+        public String bDs;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.bDF = "";
+            this.bDs = "";
             this.BDUSS = str;
-            this.bDF = str2;
+            this.bDs = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bDF != null ? this.bDF.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bDs != null ? this.bDs.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -121,7 +121,7 @@ public class z {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.bDF == null ? aVar.bDF == null : this.bDF.equals(aVar.bDF);
+                return this.bDs == null ? aVar.bDs == null : this.bDs.equals(aVar.bDs);
             }
             return false;
         }

@@ -6,7 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 /* loaded from: classes2.dex */
 class ag {
-    public ArrayMap<View, af> vL = new ArrayMap<>();
-    public SparseArray<af> vM = new SparseArray<>();
-    public LongSparseArray<af> vN = new LongSparseArray<>();
+    public ArrayMap<View, af> vK = new ArrayMap<>();
+    public SparseArray<af> vL = new SparseArray<>();
+    public LongSparseArray<af> vM = new LongSparseArray<>();
 }

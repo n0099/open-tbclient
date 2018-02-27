@@ -6,14 +6,14 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class au {
-    private static String aXP;
-    private static String aXQ;
-    private static final HashMap<String, String> aXR = new HashMap<>();
+    private static String aXD;
+    private static String aXE;
+    private static final HashMap<String, String> aXF = new HashMap<>();
 
     public static void ev(String str) {
-        aXQ = str;
+        aXE = str;
         if (TextUtils.isEmpty(str)) {
-            aXP = str;
+            aXD = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(Constants.DOT);
@@ -21,17 +21,17 @@ public class au {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (aXR != null) {
-            str2 = aXR.get(str);
+        if (aXF != null) {
+            str2 = aXF.get(str);
         }
         if (str2 == null) {
             str2 = ew(str);
-            if (aXR != null) {
-                aXR.put(str, str2);
+            if (aXF != null) {
+                aXF.put(str, str2);
             }
         }
         if (str2 != null) {
-            aXP = str2 + System.currentTimeMillis();
+            aXD = str2 + System.currentTimeMillis();
         }
     }
 
@@ -46,11 +46,11 @@ public class au {
         return str;
     }
 
-    public static String Dq() {
-        return aXP;
+    public static String Dp() {
+        return aXD;
     }
 
-    public static String Dr() {
-        return aXQ;
+    public static String Dq() {
+        return aXE;
     }
 }

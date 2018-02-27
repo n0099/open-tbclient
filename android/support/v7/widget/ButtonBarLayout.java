@@ -13,22 +13,22 @@ import android.widget.LinearLayout;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ButtonBarLayout extends LinearLayout {
-    private boolean NL;
-    private int NM;
+    private boolean NG;
+    private int NH;
 
     public ButtonBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.NM = -1;
+        this.NH = -1;
         boolean z = ConfigurationHelper.getScreenHeightDp(getResources()) >= 320;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ButtonBarLayout);
-        this.NL = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, z);
+        this.NG = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, z);
         obtainStyledAttributes.recycle();
     }
 
     public void setAllowStacking(boolean z) {
-        if (this.NL != z) {
-            this.NL = z;
-            if (!this.NL && getOrientation() == 1) {
+        if (this.NG != z) {
+            this.NG = z;
+            if (!this.NG && getOrientation() == 1) {
                 setStacked(false);
             }
             requestLayout();
@@ -41,11 +41,11 @@ public class ButtonBarLayout extends LinearLayout {
         boolean z;
         boolean z2 = false;
         int size = View.MeasureSpec.getSize(i);
-        if (this.NL) {
-            if (size > this.NM && fR()) {
+        if (this.NG) {
+            if (size > this.NH && fR()) {
                 setStacked(false);
             }
-            this.NM = size;
+            this.NH = size;
         }
         if (fR() || View.MeasureSpec.getMode(i) != 1073741824) {
             i3 = i;
@@ -55,7 +55,7 @@ public class ButtonBarLayout extends LinearLayout {
             z = true;
         }
         super.onMeasure(i3, i2);
-        if (this.NL && !fR()) {
+        if (this.NG && !fR()) {
             if (Build.VERSION.SDK_INT >= 11) {
                 if ((ViewCompat.getMeasuredWidthAndState(this) & ViewCompat.MEASURED_STATE_MASK) == 16777216) {
                     z2 = true;

@@ -31,9 +31,9 @@ public final class RatingCompat implements Parcelable {
     public static final int RATING_NONE = 0;
     public static final int RATING_PERCENTAGE = 6;
     public static final int RATING_THUMB_UP_DOWN = 2;
-    private final int yx;
-    private final float yy;
-    private Object yz;
+    private final int ys;
+    private final float yt;
+    private Object yu;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo
@@ -48,23 +48,23 @@ public final class RatingCompat implements Parcelable {
     }
 
     RatingCompat(int i, float f) {
-        this.yx = i;
-        this.yy = f;
+        this.ys = i;
+        this.yt = f;
     }
 
     public String toString() {
-        return "Rating:style=" + this.yx + " rating=" + (this.yy < 0.0f ? "unrated" : String.valueOf(this.yy));
+        return "Rating:style=" + this.ys + " rating=" + (this.yt < 0.0f ? "unrated" : String.valueOf(this.yt));
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        return this.yx;
+        return this.ys;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.yx);
-        parcel.writeFloat(this.yy);
+        parcel.writeInt(this.ys);
+        parcel.writeFloat(this.yt);
     }
 
     public static RatingCompat newUnratedRating(int i) {
@@ -121,31 +121,31 @@ public final class RatingCompat implements Parcelable {
     }
 
     public boolean isRated() {
-        return this.yy >= 0.0f;
+        return this.yt >= 0.0f;
     }
 
     public int getRatingStyle() {
-        return this.yx;
+        return this.ys;
     }
 
     public boolean hasHeart() {
-        if (this.yx != 1) {
+        if (this.ys != 1) {
             return false;
         }
-        return this.yy == 1.0f;
+        return this.yt == 1.0f;
     }
 
     public boolean isThumbUp() {
-        return this.yx == 2 && this.yy == 1.0f;
+        return this.ys == 2 && this.yt == 1.0f;
     }
 
     public float getStarRating() {
-        switch (this.yx) {
+        switch (this.ys) {
             case 3:
             case 4:
             case 5:
                 if (isRated()) {
-                    return this.yy;
+                    return this.yt;
                 }
                 break;
         }
@@ -153,8 +153,8 @@ public final class RatingCompat implements Parcelable {
     }
 
     public float getPercentRating() {
-        if (this.yx == 6 && isRated()) {
-            return this.yy;
+        if (this.ys == 6 && isRated()) {
+            return this.yt;
         }
         return -1.0f;
     }
@@ -183,37 +183,37 @@ public final class RatingCompat implements Parcelable {
             } else {
                 ratingCompat = newUnratedRating(B);
             }
-            ratingCompat.yz = obj;
+            ratingCompat.yu = obj;
         }
         return ratingCompat;
     }
 
     public Object getRating() {
-        if (this.yz != null || Build.VERSION.SDK_INT < 19) {
-            return this.yz;
+        if (this.yu != null || Build.VERSION.SDK_INT < 19) {
+            return this.yu;
         }
         if (isRated()) {
-            switch (this.yx) {
+            switch (this.ys) {
                 case 1:
-                    this.yz = f.v(hasHeart());
+                    this.yu = f.v(hasHeart());
                     break;
                 case 2:
-                    this.yz = f.w(isThumbUp());
+                    this.yu = f.w(isThumbUp());
                     break;
                 case 3:
                 case 4:
                 case 5:
-                    this.yz = f.e(this.yx, getStarRating());
+                    this.yu = f.e(this.ys, getStarRating());
                     break;
                 case 6:
-                    this.yz = f.r(getPercentRating());
+                    this.yu = f.r(getPercentRating());
                     return null;
                 default:
                     return null;
             }
         } else {
-            this.yz = f.ai(this.yx);
+            this.yu = f.ai(this.ys);
         }
-        return this.yz;
+        return this.yu;
     }
 }

@@ -17,10 +17,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ay {
-    private static int aYa = -1;
-    private static int aYb = -1;
-    private static boolean aYc = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aYd = new com.baidu.adp.lib.e.a<>(500);
+    private static int aXO = -1;
+    private static int aXP = -1;
+    private static boolean aXQ = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aXR = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -30,13 +30,13 @@ public class ay {
 
     public static void aX(Context context) {
         mAppContext = context;
-        aYc = true;
+        aXQ = true;
     }
 
-    private static void Dv() {
+    private static void Du() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aYb = mAppContext.getResources().getColor(d.C0140d.common_color_10097);
-            aYa = mAppContext.getResources().getColor(d.C0140d.common_color_10004);
+            aXP = mAppContext.getResources().getColor(d.C0141d.common_color_10097);
+            aXO = mAppContext.getResources().getColor(d.C0141d.common_color_10004);
         }
     }
 
@@ -46,11 +46,11 @@ public class ay {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int bo(boolean z) {
-        if (aYc) {
-            aYc = false;
-            Dv();
+        if (aXQ) {
+            aXQ = false;
+            Du();
         }
-        return z ? aYa : aYb;
+        return z ? aXO : aXP;
     }
 
     public static void aR(View view) {
@@ -61,16 +61,16 @@ public class ay {
 
     public static void aS(View view) {
         if (view != null) {
-            aYd.remove(Integer.valueOf(System.identityHashCode(view)));
+            aXR.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void c(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aYd.get(Integer.valueOf(identityHashCode));
+        Integer num = aXR.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             d(viewGroup, i);
-            aYd.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aXR.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

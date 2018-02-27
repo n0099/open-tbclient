@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] hap = {3, 8, 13};
-    public static final int[] haq = {2, 12};
-    public static final int[] har = {20};
-    public static final int[] has = {3, 13, 23};
-    private SparseIntArray hat = new SparseIntArray();
-    private String hau;
-    private final int[] hav;
+    public static final int[] haa = {3, 8, 13};
+    public static final int[] hab = {2, 12};
+    public static final int[] hac = {20};
+    public static final int[] had = {3, 13, 23};
+    private SparseIntArray hae = new SparseIntArray();
+    private String haf;
+    private final int[] hag;
 
     public e(String str, int[] iArr) {
-        this.hav = iArr;
-        this.hau = str;
+        this.hag = iArr;
+        this.haf = str;
     }
 
-    public void vH(int i) {
+    public void vI(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.hat != null) {
-            this.hat.clear();
-            if (this.hav != null) {
-                for (int i2 : this.hav) {
+        if (this.hae != null) {
+            this.hae.clear();
+            if (this.hag != null) {
+                for (int i2 : this.hag) {
                     if (i2 >= 0) {
-                        this.hat.append(i2 + i, i2);
+                        this.hae.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void bww() {
-        vH(0);
+    public void bwv() {
+        vI(0);
     }
 
     public void cG(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.hat != null) {
-            this.hat.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.hae != null) {
+            this.hae.append(i2, i);
         }
     }
 
-    public int vI(int i) {
-        if (i >= 0 && this.hat != null) {
-            return this.hat.get(i, -1);
+    public int vJ(int i) {
+        if (i >= 0 && this.hae != null) {
+            return this.hae.get(i, -1);
         }
         return -1;
     }
 
-    public void vJ(int i) {
-        if (this.hat != null) {
-            this.hat.delete(i);
+    public void vK(int i) {
+        if (this.hae != null) {
+            this.hae.delete(i);
         }
     }
 }

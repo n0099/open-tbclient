@@ -50,12 +50,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean aqQ = false;
-    private static boolean aqR = false;
-    private static boolean aqS = false;
-    private static boolean aqT = false;
-    private static boolean aqU = false;
-    private static Signature[] aqV = null;
+    private static boolean aqH = false;
+    private static boolean aqI = false;
+    private static boolean aqJ = false;
+    private static boolean aqK = false;
+    private static boolean aqL = false;
+    private static Signature[] aqM = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting;
@@ -68,7 +68,7 @@ public class d {
             com.baidu.adp.plugin.b.a.qF().g("plugin_install", "intent_action_null", null);
             return;
         }
-        aqQ = intent.getBooleanExtra("is_debug_plugin", false);
+        aqH = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra("package_name");
@@ -391,7 +391,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !aqQ && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !aqH && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
             } catch (Exception e10) {
@@ -979,10 +979,10 @@ public class d {
 
     public static boolean qD() {
         String str;
-        if (aqS) {
-            return aqR;
+        if (aqJ) {
+            return aqI;
         }
-        aqS = true;
+        aqJ = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -997,11 +997,11 @@ public class d {
             }
         }
         if (lowerCase.contains(h.b) || str.contains(h.b) || qE()) {
-            aqR = true;
+            aqI = true;
         } else if (lowerCase.contains(h.a) || str.contains(h.a)) {
-            aqR = true;
+            aqI = true;
         }
-        return aqR;
+        return aqI;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=4] */
@@ -1011,10 +1011,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (aqU) {
-            return aqT;
+        if (aqL) {
+            return aqK;
         }
-        aqU = true;
+        aqL = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1057,7 +1057,7 @@ public class d {
                                 }
                             }
                         }
-                        aqT = ((Integer) objArr[1]).intValue() == 7;
+                        aqK = ((Integer) objArr[1]).intValue() == 7;
                         n.b((Reader) bufferedReader);
                         n.b((Reader) inputStreamReader);
                         n.d(fileInputStream);
@@ -1070,7 +1070,7 @@ public class d {
                             n.b((Reader) bufferedReader);
                             n.b((Reader) inputStreamReader2);
                             n.d(fileInputStream2);
-                            return aqT;
+                            return aqK;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1115,7 +1115,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return aqT;
+        return aqK;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1153,9 +1153,9 @@ public class d {
         Signature[] signatureArr;
         Signature[] bN;
         File file;
-        if (aqV == null) {
+        if (aqM == null) {
             try {
-                aqV = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                aqM = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.qF().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1182,11 +1182,11 @@ public class d {
         if (bN == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = aqV;
+        Signature[] signatureArr2 = aqM;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr2 = e.bN(file.getAbsolutePath());
-                aqV = signatureArr2;
+                aqM = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {

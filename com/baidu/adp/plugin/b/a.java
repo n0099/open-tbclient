@@ -16,31 +16,31 @@ import java.util.Map;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a aqY = null;
-    private HashMap<String, Integer> aqX = new HashMap<>();
+    private static volatile a aqP = null;
+    private HashMap<String, Integer> aqO = new HashMap<>();
 
     public static synchronized a qF() {
         a aVar;
         synchronized (a.class) {
-            if (aqY == null) {
+            if (aqP == null) {
                 synchronized (a.class) {
-                    if (aqY == null) {
-                        aqY = new a();
+                    if (aqP == null) {
+                        aqP = new a();
                     }
                 }
             }
-            aVar = aqY;
+            aVar = aqP;
         }
         return aVar;
     }
 
     public void bm(String str) {
         if (str != null) {
-            Integer num = this.aqX.get(str);
+            Integer num = this.aqO.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.aqX.put(str, Integer.valueOf(num.intValue() + 1));
+            this.aqO.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -134,7 +134,7 @@ public class a {
     }
 
     public void qG() {
-        if (this.aqX.size() != 0) {
+        if (this.aqO.size() != 0) {
             com.baidu.adp.lib.stats.a nn = nn();
             c(nn);
             BdStatisticsManager.getInstance().debug("pluginproxy", nn);
@@ -173,10 +173,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.aqX.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.aqO.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.aqX.clear();
+            this.aqO.clear();
         }
     }
 

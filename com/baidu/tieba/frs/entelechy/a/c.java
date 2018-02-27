@@ -11,23 +11,23 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.h>> implements com.baidu.tieba.frs.e.c {
-    private v clX;
-    private com.baidu.tieba.frs.entelechy.view.h dKv;
+    private v clL;
+    private com.baidu.tieba.frs.entelechy.view.h dKj;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.clX = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.c.1
+        this.clL = new v<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, bd bdVar) {
-                if (view != null && c.this.dKv != null && c.this.dKv.getView() != null && c.this.dKv.dMg != null && bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
+                if (view != null && c.this.dKj != null && c.this.dKj.getView() != null && c.this.dKj.dLU != null && bdVar != null && !StringUtils.isNull(bdVar.getTid())) {
                     if (view.getId() == d.g.card_root_view) {
-                        com.baidu.tieba.frs.e.b.azR().a(com.baidu.tieba.frs.e.c.dUq, bdVar, 1);
+                        com.baidu.tieba.frs.e.b.azQ().a(com.baidu.tieba.frs.e.c.dUe, bdVar, 1);
                     } else if (view.getId() == d.g.avatar) {
-                        com.baidu.tieba.frs.e.b.azR().a(com.baidu.tieba.frs.e.c.dUq, bdVar, 2);
+                        com.baidu.tieba.frs.e.b.azQ().a(com.baidu.tieba.frs.e.c.dUe, bdVar, 2);
                     } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dUq, bdVar.zM());
+                        com.baidu.tieba.frs.f.g.a(com.baidu.tieba.frs.e.c.dUe, bdVar.zM());
                     }
                 }
             }
@@ -40,9 +40,9 @@ public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ad */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dKv = new com.baidu.tieba.frs.entelechy.view.h(this.mPageContext, this.mPageId);
-        this.dKv.h(this.mPageId);
-        return new com.baidu.tieba.card.a.a(this.dKv);
+        this.dKj = new com.baidu.tieba.frs.entelechy.view.h(this.mPageContext, this.mPageId);
+        this.dKj.h(this.mPageId);
+        return new com.baidu.tieba.card.a.a(this.dKj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,12 +50,12 @@ public class c extends com.baidu.adp.widget.ListView.a<ar, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ar arVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.alY() == null) {
+        if (aVar == null || aVar.alX() == null) {
             return null;
         }
-        aVar.alY().a(arVar);
-        aVar.alY().b(this.clX);
-        com.baidu.tieba.frs.e.b.azR().a(dUq, arVar);
+        aVar.alX().a(arVar);
+        aVar.alX().b(this.clL);
+        com.baidu.tieba.frs.e.b.azQ().a(dUe, arVar);
         return aVar.getView();
     }
 }

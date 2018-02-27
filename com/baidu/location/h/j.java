@@ -8,27 +8,27 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f aEW;
+    final /* synthetic */ f aEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.aEW = fVar;
+        this.aEL = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.aEW.h = i.c();
-        this.aEW.b();
-        this.aEW.a();
+        this.aEL.h = i.c();
+        this.aEL.b();
+        this.aEL.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.aEW.i;
+        int i = this.aEL.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.aEW.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.aEL.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -73,8 +73,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.aEW.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.aEW.a(true);
+                this.aEL.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.aEL.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -93,7 +93,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.aEW.j = null;
-        this.aEW.a(false);
+        this.aEL.j = null;
+        this.aEL.a(false);
     }
 }

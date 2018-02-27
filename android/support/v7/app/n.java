@@ -1,9 +1,9 @@
 package android.support.v7.app;
 /* loaded from: classes2.dex */
 class n {
-    private static n DY;
-    public long DZ;
-    public long Ea;
+    private static n DT;
+    public long DU;
+    public long DV;
     public int state;
 
     n() {
@@ -11,10 +11,10 @@ class n {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static n em() {
-        if (DY == null) {
-            DY = new n();
+        if (DT == null) {
+            DT = new n();
         }
-        return DY;
+        return DT;
     }
 
     public void a(long j, double d, double d2) {
@@ -28,17 +28,17 @@ class n {
         double sin3 = (Math.sin(-0.10471975803375244d) - (Math.sin(d4) * Math.sin(asin))) / (Math.cos(asin) * Math.cos(d4));
         if (sin3 >= 1.0d) {
             this.state = 1;
-            this.DZ = -1L;
-            this.Ea = -1L;
+            this.DU = -1L;
+            this.DV = -1L;
         } else if (sin3 <= -1.0d) {
             this.state = 0;
-            this.DZ = -1L;
-            this.Ea = -1L;
+            this.DU = -1L;
+            this.DV = -1L;
         } else {
             float acos = (float) (Math.acos(sin3) / 6.283185307179586d);
-            this.DZ = Math.round((acos + sin2) * 8.64E7d) + 946728000000L;
-            this.Ea = Math.round((sin2 - acos) * 8.64E7d) + 946728000000L;
-            if (this.Ea < j && this.DZ > j) {
+            this.DU = Math.round((acos + sin2) * 8.64E7d) + 946728000000L;
+            this.DV = Math.round((sin2 - acos) * 8.64E7d) + 946728000000L;
+            if (this.DV < j && this.DU > j) {
                 this.state = 0;
             } else {
                 this.state = 1;

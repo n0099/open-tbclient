@@ -7,7 +7,7 @@ public class f {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean bht = false;
+    private boolean bhh = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -25,11 +25,11 @@ public class f {
         return this.packageName;
     }
 
-    public boolean FE() {
-        return this.bht;
+    public boolean FD() {
+        return this.bhh;
     }
 
     public void bD(boolean z) {
-        this.bht = z;
+        this.bhh = z;
     }
 }

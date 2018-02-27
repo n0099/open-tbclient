@@ -22,23 +22,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    public HandlerC0090a aGS = new HandlerC0090a(j.vC());
-    e aGT;
-    com.baidu.sofire.rp.d.a.a aGU;
-    public Receiver aGV;
+    public HandlerC0091a aGH = new HandlerC0091a(j.vC());
+    e aGI;
+    com.baidu.sofire.rp.d.a.a aGJ;
+    public Receiver aGK;
     public Context c;
 
     public a(Context context) {
         this.c = context.getApplicationContext();
-        this.aGT = new e(this.c);
-        this.aGU = new com.baidu.sofire.rp.d.a.a(this.c);
+        this.aGI = new e(this.c);
+        this.aGJ = new com.baidu.sofire.rp.d.a.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0090a extends Handler {
-        public HandlerC0090a(Looper looper) {
+    public class HandlerC0091a extends Handler {
+        public HandlerC0091a(Looper looper) {
             super(looper);
         }
 
@@ -64,7 +64,7 @@ public final class a {
                         com.baidu.sofire.rp.a.a aVar = (com.baidu.sofire.rp.a.a) message.obj;
                         if (aVar != null) {
                             a aVar2 = a.this;
-                            String string = aVar2.aGT.e.getString("al_da" + aVar.e, "");
+                            String string = aVar2.aGI.e.getString("al_da" + aVar.e, "");
                             com.baidu.sofire.rp.c.a aVar3 = new com.baidu.sofire.rp.c.a();
                             aVar3.b = aVar.e;
                             aVar3.g = 0;
@@ -73,9 +73,9 @@ public final class a {
                             aVar3.f = 1;
                             aVar3.d = d.a(aVar2.c, aVar, string, false).toString();
                             com.baidu.sofire.rp.b.a.aE(aVar2.c).a(aVar3);
-                            e eVar = aVar2.aGT;
-                            eVar.aGM.putBoolean("re_net_ins_" + aVar.e, true);
-                            eVar.aGM.commit();
+                            e eVar = aVar2.aGI;
+                            eVar.aGB.putBoolean("re_net_ins_" + aVar.e, true);
+                            eVar.aGB.commit();
                             String a = l.a(d.aA(aVar2.c).toString());
                             if (com.baidu.sofire.rp.b.a.aE(aVar2.c).b(a)) {
                                 aVar3.b = "1001001";
@@ -137,7 +137,7 @@ public final class a {
                         break;
                     case 11:
                         String valueOf2 = String.valueOf(message.obj);
-                        if (!a.this.aGU.a(new JSONArray().put(d.c(a.this.c, new JSONObject(valueOf2))).toString(), a.h(new JSONObject(valueOf2)))) {
+                        if (!a.this.aGJ.a(new JSONArray().put(d.c(a.this.c, new JSONObject(valueOf2))).toString(), a.h(new JSONObject(valueOf2)))) {
                             d.b(a.this.c, valueOf2);
                             break;
                         }
@@ -186,76 +186,76 @@ public final class a {
     }
 
     static /* synthetic */ void a(a aVar) {
-        if (System.currentTimeMillis() - aVar.aGT.e.getLong("re_net_pu_de", 0L) < 86400000) {
+        if (System.currentTimeMillis() - aVar.aGI.e.getLong("re_net_pu_de", 0L) < 86400000) {
             return;
         }
-        com.baidu.sofire.rp.d.a.a aVar2 = aVar.aGU;
+        com.baidu.sofire.rp.d.a.a aVar2 = aVar.aGJ;
         try {
             JSONObject jSONObject = new JSONObject(g.a(aVar2.a, d.a() + "plugin/v1/report/setting", "", false, true, null)).getJSONObject("c");
             e eVar = new e(aVar2.a);
             int optInt = jSONObject.optInt("n");
             if (optInt > 0) {
-                eVar.aGM.putInt("re_net_ty", optInt);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_ty", optInt);
+                eVar.aGB.commit();
             }
             int optInt2 = jSONObject.optInt("i");
             if (optInt2 > 0) {
-                eVar.aGM.putInt("re_net_hr", optInt2);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_hr", optInt2);
+                eVar.aGB.commit();
             }
             int optInt3 = jSONObject.optInt("i2");
             if (optInt3 > 0) {
-                eVar.aGM.putInt("re_net_hr_bc", optInt3);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_hr_bc", optInt3);
+                eVar.aGB.commit();
             }
             int optInt4 = jSONObject.optInt("w");
             if (optInt4 > 0) {
-                eVar.aGM.putInt("re_net_wt", optInt4);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_wt", optInt4);
+                eVar.aGB.commit();
             }
             if (jSONObject.optInt("s1") > 0) {
-                eVar.aGM.putInt("re_net_one_lt", jSONObject.optInt("s1"));
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_one_lt", jSONObject.optInt("s1"));
+                eVar.aGB.commit();
             }
             int optInt5 = jSONObject.optInt("s2");
             if (optInt5 > 0) {
-                eVar.aGM.putInt("re_net_dy_lt", optInt5);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_dy_lt", optInt5);
+                eVar.aGB.commit();
             }
             int optInt6 = jSONObject.optInt(Info.kBaiduTimeKey);
             if (optInt6 > 0) {
-                eVar.aGM.putInt("re_net_over", optInt6);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("re_net_over", optInt6);
+                eVar.aGB.commit();
             }
             int optInt7 = jSONObject.optInt("l1");
             if (optInt7 > 0) {
-                eVar.aGM.putInt("up_nu_co", optInt7);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("up_nu_co", optInt7);
+                eVar.aGB.commit();
             }
             int optInt8 = jSONObject.optInt("l2");
             if (optInt8 > 0) {
-                eVar.aGM.putInt("up_nu_li", optInt8);
-                eVar.aGM.commit();
+                eVar.aGB.putInt("up_nu_li", optInt8);
+                eVar.aGB.commit();
             }
         } catch (Throwable th) {
             d.a(th);
         }
-        e eVar2 = aVar.aGT;
-        eVar2.aGM.putLong("re_net_pu_de", System.currentTimeMillis());
-        eVar2.aGM.commit();
+        e eVar2 = aVar.aGI;
+        eVar2.aGB.putLong("re_net_pu_de", System.currentTimeMillis());
+        eVar2.aGB.commit();
     }
 
     static /* synthetic */ void b(a aVar) {
-        List<com.baidu.sofire.rp.a.a> d = aVar.aGT.d();
+        List<com.baidu.sofire.rp.a.a> d = aVar.aGI.d();
         if (d == null) {
             return;
         }
         for (com.baidu.sofire.rp.a.a aVar2 : d) {
-            if (aVar.a(aVar.aGT.e.getString("li_pk_s", ""), aVar2.b)) {
-                String string = aVar.aGT.e.getString("re_net_ali2_" + aVar2.d, "");
+            if (aVar.a(aVar.aGI.e.getString("li_pk_s", ""), aVar2.b)) {
+                String string = aVar.aGI.e.getString("re_net_ali2_" + aVar2.d, "");
                 String b = d.b();
                 if (!string.equals(b)) {
-                    String string2 = aVar.aGT.e.getString("al_da" + aVar2.d, "");
+                    String string2 = aVar.aGI.e.getString("al_da" + aVar2.d, "");
                     com.baidu.sofire.rp.c.a aVar3 = new com.baidu.sofire.rp.c.a();
                     aVar3.b = aVar2.d;
                     aVar3.g = 0;
@@ -273,9 +273,9 @@ public final class a {
                         com.baidu.sofire.rp.b.a.aE(aVar.c).a(aVar3);
                         com.baidu.sofire.rp.b.a.aE(aVar.c).a(a);
                     }
-                    e eVar = aVar.aGT;
-                    eVar.aGM.putString("re_net_ali2_" + aVar2.d, b);
-                    eVar.aGM.commit();
+                    e eVar = aVar.aGI;
+                    eVar.aGB.putString("re_net_ali2_" + aVar2.d, b);
+                    eVar.aGB.commit();
                 }
             }
         }
@@ -302,23 +302,23 @@ public final class a {
             if (a.size() <= 0) {
                 return;
             }
-            long j = aVar.aGT.e.getLong("re_day_len", 0L);
+            long j = aVar.aGI.e.getLong("re_day_len", 0L);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = aVar.aGT.e.getLong("re_day_b_t", 0L);
-            int i3 = aVar.aGT.e.getInt("re_net_dy_lt", 50);
+            long j2 = aVar.aGI.e.getLong("re_day_b_t", 0L);
+            int i3 = aVar.aGI.e.getInt("re_net_dy_lt", 50);
             if (j2 == 0) {
-                e eVar = aVar.aGT;
-                eVar.aGM.putLong("re_day_b_t", currentTimeMillis);
-                eVar.aGM.commit();
+                e eVar = aVar.aGI;
+                eVar.aGB.putLong("re_day_b_t", currentTimeMillis);
+                eVar.aGB.commit();
                 j2 = currentTimeMillis;
             }
             if (currentTimeMillis - j2 < 86400000) {
                 if (i == 3) {
-                    int i4 = aVar.aGT.e.getInt("g_r_d_d_n", 0);
+                    int i4 = aVar.aGI.e.getInt("g_r_d_d_n", 0);
                     if (i4 < 5) {
-                        e eVar2 = aVar.aGT;
-                        eVar2.aGM.putInt("g_r_d_d_n", i4 + 1);
-                        eVar2.aGM.commit();
+                        e eVar2 = aVar.aGI;
+                        eVar2.aGB.putInt("g_r_d_d_n", i4 + 1);
+                        eVar2.aGB.commit();
                     } else {
                         return;
                     }
@@ -328,19 +328,19 @@ public final class a {
                     return;
                 }
             } else {
-                e eVar3 = aVar.aGT;
-                eVar3.aGM.putLong("re_day_len", 0L);
-                eVar3.aGM.commit();
-                e eVar4 = aVar.aGT;
-                eVar4.aGM.putLong("re_day_b_t", currentTimeMillis);
-                eVar4.aGM.commit();
+                e eVar3 = aVar.aGI;
+                eVar3.aGB.putLong("re_day_len", 0L);
+                eVar3.aGB.commit();
+                e eVar4 = aVar.aGI;
+                eVar4.aGB.putLong("re_day_b_t", currentTimeMillis);
+                eVar4.aGB.commit();
                 if (i == 3) {
-                    e eVar5 = aVar.aGT;
-                    eVar5.aGM.putInt("g_r_d_d_n", 0);
-                    eVar5.aGM.commit();
+                    e eVar5 = aVar.aGI;
+                    eVar5.aGB.putInt("g_r_d_d_n", 0);
+                    eVar5.aGB.commit();
                 }
             }
-            int i5 = aVar.aGT.e.getInt("re_net_one_lt", 5);
+            int i5 = aVar.aGI.e.getInt("re_net_one_lt", 5);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             Iterator<com.baidu.sofire.rp.c.a> it = a.iterator();
@@ -408,13 +408,13 @@ public final class a {
                 }
                 i7 = i8 + 1;
             }
-            if (jSONArray.length() > 0 && aVar.aGU.a(jSONArray.toString(), null)) {
+            if (jSONArray.length() > 0 && aVar.aGJ.a(jSONArray.toString(), null)) {
                 com.baidu.sofire.rp.b.a.aE(aVar.c).a(arrayList3);
             }
             if (hashMap.size() > 0) {
                 for (String str2 : hashMap.keySet()) {
                     JSONArray jSONArray4 = (JSONArray) hashMap.get(str2);
-                    if (jSONArray4 != null && jSONArray4.length() > 0 && aVar.aGU.a(jSONArray4.toString(), str2)) {
+                    if (jSONArray4 != null && jSONArray4.length() > 0 && aVar.aGJ.a(jSONArray4.toString(), str2)) {
                         com.baidu.sofire.rp.b.a.aE(aVar.c).a((List) hashMap2.get(str2));
                     }
                 }
@@ -423,9 +423,9 @@ public final class a {
             if (2 == i2) {
                 return;
             }
-            e eVar6 = aVar.aGT;
-            eVar6.aGM.putLong("re_day_len", i6 + j);
-            eVar6.aGM.commit();
+            e eVar6 = aVar.aGI;
+            eVar6.aGB.putLong("re_day_len", i6 + j);
+            eVar6.aGB.commit();
         }
     }
 }

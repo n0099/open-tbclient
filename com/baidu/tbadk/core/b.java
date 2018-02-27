@@ -1,7 +1,18 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String aIN;
+    private String aIC;
+    private int aID;
+    private int aIE;
+    private int aIF;
+    private int aIG;
+    private int aIH;
+    private int aII;
+    private int aIJ;
+    private int aIK;
+    private int aIL;
+    private int aIM;
+    private int aIN;
     private int aIO;
     private int aIP;
     private int aIQ;
@@ -11,74 +22,63 @@ public class b {
     private int aIU;
     private int aIV;
     private int aIW;
-    private int aIX;
-    private int aIY;
-    private int aIZ;
-    private int aJa;
-    private int aJb;
-    private int aJc;
-    private int aJd;
-    private int aJe;
-    private int aJf;
-    private int aJg;
-    private int aJh;
-    private StringBuffer aJi = new StringBuffer();
+    private StringBuffer aIX = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.aJi.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.aIX.toString() + "]";
     }
 
     public void cH(String str) {
-        this.aJi.append(str).append(" || ");
+        this.aIX.append(str).append(" || ");
     }
 
     public int wQ() {
-        return this.aJc;
+        return this.aIR;
     }
 
     public void ec(int i) {
-        this.aJc = i;
+        this.aIR = i;
     }
 
     public int wR() {
-        return this.aJd;
+        return this.aIS;
     }
 
     public void ed(int i) {
-        this.aJd = i;
+        this.aIS = i;
     }
 
     public int wS() {
-        return this.aJa;
+        return this.aIP;
     }
 
     public void ee(int i) {
-        this.aJa = i;
+        this.aIP = i;
     }
 
     public int wT() {
-        return this.aJb;
+        return this.aIQ;
     }
 
     public void ef(int i) {
-        this.aJb = i;
+        this.aIQ = i;
     }
 
     public int wU() {
-        return this.aIY;
+        return this.aIN;
     }
 
     public void eg(int i) {
-        this.aIY = i;
+        this.aIN = i;
     }
 
     public int wV() {
-        return this.aIZ;
+        return this.aIO;
     }
 
     public void eh(int i) {
-        this.aIZ = i;
+        this.aIO = i;
     }
 
     public String getId() {
@@ -86,19 +86,19 @@ public class b {
     }
 
     public int wW() {
-        return this.aJe;
+        return this.aIT;
     }
 
     public void ei(int i) {
-        this.aJe = i;
+        this.aIT = i;
     }
 
     public int wX() {
-        return this.aJf;
+        return this.aIU;
     }
 
     public void ej(int i) {
-        this.aJf = i;
+        this.aIU = i;
     }
 
     public void setId(String str) {
@@ -106,102 +106,102 @@ public class b {
     }
 
     public void cI(String str) {
-        this.aIN = str;
+        this.aIC = str;
     }
 
     public int wY() {
-        return this.aIO;
+        return this.aID;
     }
 
     public void ek(int i) {
-        this.aIO = i;
+        this.aID = i;
     }
 
     public int wZ() {
-        return this.aIP;
+        return this.aIE;
     }
 
     public void el(int i) {
-        this.aIP = i;
+        this.aIE = i;
     }
 
     public int xa() {
-        return this.aIS;
+        return this.aIH;
     }
 
     public void em(int i) {
-        this.aIS = i;
+        this.aIH = i;
     }
 
     public int xb() {
-        return this.aIT;
+        return this.aII;
     }
 
     public void en(int i) {
-        this.aIT = i;
+        this.aII = i;
     }
 
     public int xc() {
-        return this.aIQ;
+        return this.aIF;
     }
 
     public void eo(int i) {
-        this.aIQ = i;
+        this.aIF = i;
     }
 
     public int xd() {
-        return this.aIR;
+        return this.aIG;
     }
 
     public void ep(int i) {
-        this.aIR = i;
+        this.aIG = i;
     }
 
     public int xe() {
-        return this.aIV;
+        return this.aIK;
     }
 
     public int xf() {
-        return this.aIU;
+        return this.aIJ;
     }
 
     public void eq(int i) {
-        this.aIU = i;
+        this.aIJ = i;
     }
 
     public void er(int i) {
-        this.aIV = i;
+        this.aIK = i;
     }
 
     public int xg() {
-        return this.aIX;
+        return this.aIM;
     }
 
     public void es(int i) {
-        this.aIX = i;
+        this.aIM = i;
     }
 
     public int xh() {
-        return this.aIW;
+        return this.aIL;
     }
 
     public void et(int i) {
-        this.aIW = i;
+        this.aIL = i;
     }
 
     public int xi() {
-        return this.aJg;
+        return this.aIV;
     }
 
     public void eu(int i) {
-        this.aJg = i;
+        this.aIV = i;
     }
 
     public int xj() {
-        return this.aJh;
+        return this.aIW;
     }
 
     public void ev(int i) {
-        this.aJh = i;
+        this.aIW = i;
     }
 }

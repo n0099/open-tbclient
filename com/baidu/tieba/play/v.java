@@ -16,25 +16,25 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class v extends RelativeLayout {
-    private boolean bHs;
-    private int bTB;
-    private MediaController.MediaPlayerControl bTC;
-    private TextView bTD;
-    private TextView bTE;
-    private boolean bTF;
-    private SeekBar bTG;
-    private SeekBar.OnSeekBarChangeListener bTJ;
-    private int bTK;
-    private SeekBar.OnSeekBarChangeListener bTL;
-    private b feI;
-    private a feJ;
+    private boolean bHf;
+    private int bTp;
+    private MediaController.MediaPlayerControl bTq;
+    private TextView bTr;
+    private TextView bTs;
+    private boolean bTt;
+    private SeekBar bTu;
+    private SeekBar.OnSeekBarChangeListener bTx;
+    private int bTy;
+    private SeekBar.OnSeekBarChangeListener bTz;
+    private b few;
+    private a fex;
     private Context mContext;
     private int mDuration;
     private Handler mHandler;
 
     /* loaded from: classes.dex */
     public interface a {
-        void UF();
+        void UE();
     }
 
     /* loaded from: classes.dex */
@@ -44,21 +44,21 @@ public class v extends RelativeLayout {
 
     public v(Context context) {
         super(context);
-        this.bTB = 50;
-        this.bHs = false;
-        this.bTF = true;
-        this.bTK = 0;
+        this.bTp = 50;
+        this.bHf = false;
+        this.bTt = true;
+        this.bTy = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!v.this.bHs && v.this.bTF && v.this.bTC != null && v.this.bTC.isPlaying()) {
-                            int UE = v.this.UE();
-                            if (v.this.feI != null) {
-                                v.this.feI.jo(UE);
+                        if (!v.this.bHf && v.this.bTt && v.this.bTq != null && v.this.bTq.isPlaying()) {
+                            int UD = v.this.UD();
+                            if (v.this.few != null) {
+                                v.this.few.jo(UD);
                             }
-                            sendMessageDelayed(obtainMessage(1), v.this.bTB - (UE % v.this.bTB));
+                            sendMessageDelayed(obtainMessage(1), v.this.bTp - (UD % v.this.bTp));
                             return;
                         }
                         return;
@@ -67,12 +67,12 @@ public class v extends RelativeLayout {
                 }
             }
         };
-        this.bTL = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+        this.bTz = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                v.this.bHs = true;
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStartTrackingTouch(seekBar);
+                v.this.bHf = true;
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStartTrackingTouch(seekBar);
                 }
                 v.this.mHandler.removeMessages(1);
             }
@@ -80,26 +80,26 @@ public class v extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
                 if (z) {
-                    v.this.bTK = (int) ((v.this.bTC.getDuration() * i) / 10000);
-                    if (v.this.bTD != null) {
-                        v.this.bTD.setText(am.fV(v.this.bTK));
+                    v.this.bTy = (int) ((v.this.bTq.getDuration() * i) / 10000);
+                    if (v.this.bTr != null) {
+                        v.this.bTr.setText(am.fV(v.this.bTy));
                     }
-                    if (v.this.feJ != null) {
-                        v.this.feJ.UF();
+                    if (v.this.fex != null) {
+                        v.this.fex.UE();
                     }
-                    if (v.this.bTJ != null) {
-                        v.this.bTJ.onProgressChanged(seekBar, v.this.bTK, z);
+                    if (v.this.bTx != null) {
+                        v.this.bTx.onProgressChanged(seekBar, v.this.bTy, z);
                     }
                 }
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                v.this.bTC.seekTo(v.this.bTK);
-                v.this.bHs = false;
+                v.this.bTq.seekTo(v.this.bTy);
+                v.this.bHf = false;
                 v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStopTrackingTouch(seekBar);
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -108,21 +108,21 @@ public class v extends RelativeLayout {
 
     public v(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bTB = 50;
-        this.bHs = false;
-        this.bTF = true;
-        this.bTK = 0;
+        this.bTp = 50;
+        this.bHf = false;
+        this.bTt = true;
+        this.bTy = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!v.this.bHs && v.this.bTF && v.this.bTC != null && v.this.bTC.isPlaying()) {
-                            int UE = v.this.UE();
-                            if (v.this.feI != null) {
-                                v.this.feI.jo(UE);
+                        if (!v.this.bHf && v.this.bTt && v.this.bTq != null && v.this.bTq.isPlaying()) {
+                            int UD = v.this.UD();
+                            if (v.this.few != null) {
+                                v.this.few.jo(UD);
                             }
-                            sendMessageDelayed(obtainMessage(1), v.this.bTB - (UE % v.this.bTB));
+                            sendMessageDelayed(obtainMessage(1), v.this.bTp - (UD % v.this.bTp));
                             return;
                         }
                         return;
@@ -131,12 +131,12 @@ public class v extends RelativeLayout {
                 }
             }
         };
-        this.bTL = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+        this.bTz = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                v.this.bHs = true;
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStartTrackingTouch(seekBar);
+                v.this.bHf = true;
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStartTrackingTouch(seekBar);
                 }
                 v.this.mHandler.removeMessages(1);
             }
@@ -144,26 +144,26 @@ public class v extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
                 if (z) {
-                    v.this.bTK = (int) ((v.this.bTC.getDuration() * i) / 10000);
-                    if (v.this.bTD != null) {
-                        v.this.bTD.setText(am.fV(v.this.bTK));
+                    v.this.bTy = (int) ((v.this.bTq.getDuration() * i) / 10000);
+                    if (v.this.bTr != null) {
+                        v.this.bTr.setText(am.fV(v.this.bTy));
                     }
-                    if (v.this.feJ != null) {
-                        v.this.feJ.UF();
+                    if (v.this.fex != null) {
+                        v.this.fex.UE();
                     }
-                    if (v.this.bTJ != null) {
-                        v.this.bTJ.onProgressChanged(seekBar, v.this.bTK, z);
+                    if (v.this.bTx != null) {
+                        v.this.bTx.onProgressChanged(seekBar, v.this.bTy, z);
                     }
                 }
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                v.this.bTC.seekTo(v.this.bTK);
-                v.this.bHs = false;
+                v.this.bTq.seekTo(v.this.bTy);
+                v.this.bHf = false;
                 v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStopTrackingTouch(seekBar);
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -172,21 +172,21 @@ public class v extends RelativeLayout {
 
     public v(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bTB = 50;
-        this.bHs = false;
-        this.bTF = true;
-        this.bTK = 0;
+        this.bTp = 50;
+        this.bHf = false;
+        this.bTt = true;
+        this.bTy = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.v.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!v.this.bHs && v.this.bTF && v.this.bTC != null && v.this.bTC.isPlaying()) {
-                            int UE = v.this.UE();
-                            if (v.this.feI != null) {
-                                v.this.feI.jo(UE);
+                        if (!v.this.bHf && v.this.bTt && v.this.bTq != null && v.this.bTq.isPlaying()) {
+                            int UD = v.this.UD();
+                            if (v.this.few != null) {
+                                v.this.few.jo(UD);
                             }
-                            sendMessageDelayed(obtainMessage(1), v.this.bTB - (UE % v.this.bTB));
+                            sendMessageDelayed(obtainMessage(1), v.this.bTp - (UD % v.this.bTp));
                             return;
                         }
                         return;
@@ -195,12 +195,12 @@ public class v extends RelativeLayout {
                 }
             }
         };
-        this.bTL = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
+        this.bTz = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.v.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                v.this.bHs = true;
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStartTrackingTouch(seekBar);
+                v.this.bHf = true;
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStartTrackingTouch(seekBar);
                 }
                 v.this.mHandler.removeMessages(1);
             }
@@ -208,26 +208,26 @@ public class v extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
                 if (z) {
-                    v.this.bTK = (int) ((v.this.bTC.getDuration() * i2) / 10000);
-                    if (v.this.bTD != null) {
-                        v.this.bTD.setText(am.fV(v.this.bTK));
+                    v.this.bTy = (int) ((v.this.bTq.getDuration() * i2) / 10000);
+                    if (v.this.bTr != null) {
+                        v.this.bTr.setText(am.fV(v.this.bTy));
                     }
-                    if (v.this.feJ != null) {
-                        v.this.feJ.UF();
+                    if (v.this.fex != null) {
+                        v.this.fex.UE();
                     }
-                    if (v.this.bTJ != null) {
-                        v.this.bTJ.onProgressChanged(seekBar, v.this.bTK, z);
+                    if (v.this.bTx != null) {
+                        v.this.bTx.onProgressChanged(seekBar, v.this.bTy, z);
                     }
                 }
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                v.this.bTC.seekTo(v.this.bTK);
-                v.this.bHs = false;
+                v.this.bTq.seekTo(v.this.bTy);
+                v.this.bHf = false;
                 v.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (v.this.bTJ != null) {
-                    v.this.bTJ.onStopTrackingTouch(seekBar);
+                if (v.this.bTx != null) {
+                    v.this.bTx.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -238,10 +238,10 @@ public class v extends RelativeLayout {
         this.mContext = context;
         View bq = bq(context);
         addView(bq, -1, (int) context.getResources().getDimension(d.e.ds80));
-        this.bTD = (TextView) bq.findViewById(d.g.textview_cur_time);
-        this.bTE = (TextView) bq.findViewById(d.g.textview_duration);
-        this.bTG = (SeekBar) bq.findViewById(d.g.pb_video_controller_seekBar);
-        this.bTG.setOnSeekBarChangeListener(this.bTL);
+        this.bTr = (TextView) bq.findViewById(d.g.textview_cur_time);
+        this.bTs = (TextView) bq.findViewById(d.g.textview_duration);
+        this.bTu = (SeekBar) bq.findViewById(d.g.pb_video_controller_seekBar);
+        this.bTu.setOnSeekBarChangeListener(this.bTz);
     }
 
     protected View bq(Context context) {
@@ -249,63 +249,63 @@ public class v extends RelativeLayout {
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.bTC = mediaPlayerControl;
+        this.bTq = mediaPlayerControl;
     }
 
     public void aU(int i, int i2) {
         this.mDuration = i2;
-        this.bTF = false;
+        this.bTt = false;
         this.mHandler.removeMessages(1);
-        this.bTG.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-        if (this.bTD != null) {
-            this.bTD.setText(am.fV(i));
+        this.bTu.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.bTr != null) {
+            this.bTr.setText(am.fV(i));
         }
-        if (this.bTE != null) {
-            this.bTE.setText(am.fV(this.mDuration));
+        if (this.bTs != null) {
+            this.bTs.setText(am.fV(this.mDuration));
         }
     }
 
     public void showProgress() {
-        if (this.bTC != null) {
-            this.bTB = ((this.bTC.getDuration() / 200) / 50) * 50;
-            if (this.bTB < 50) {
-                this.bTB = 50;
-            } else if (this.bTB > 500) {
-                this.bTB = 500;
+        if (this.bTq != null) {
+            this.bTp = ((this.bTq.getDuration() / 200) / 50) * 50;
+            if (this.bTp < 50) {
+                this.bTp = 50;
+            } else if (this.bTp > 500) {
+                this.bTp = 500;
             }
-            this.bTF = true;
+            this.bTt = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.bTB - (this.bTC.getCurrentPosition() % this.bTB));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.bTp - (this.bTq.getCurrentPosition() % this.bTp));
         }
     }
 
-    public void UD() {
-        this.bTF = false;
+    public void UC() {
+        this.bTt = false;
         this.mHandler.removeMessages(1);
-        this.bTG.setProgress(0);
-        if (this.bTD != null) {
-            this.bTD.setText(am.fV(0));
+        this.bTu.setProgress(0);
+        if (this.bTr != null) {
+            this.bTr.setText(am.fV(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int UE() {
-        if (this.bTC == null || this.bHs) {
+    public int UD() {
+        if (this.bTq == null || this.bHf) {
             return 0;
         }
-        int currentPosition = this.bTC.getCurrentPosition();
-        int duration = this.bTC.getDuration();
+        int currentPosition = this.bTq.getCurrentPosition();
+        int duration = this.bTq.getDuration();
         if (currentPosition > duration) {
             currentPosition = duration;
         }
-        if (this.bTG != null) {
+        if (this.bTu != null) {
             if (duration > 0) {
-                this.bTG.setProgress((int) ((10000 * currentPosition) / duration));
+                this.bTu.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.bTC.getBufferPercentage();
+            this.bTq.getBufferPercentage();
         }
-        if (this.bTD != null) {
-            this.bTD.setText(am.fV(currentPosition));
+        if (this.bTr != null) {
+            this.bTr.setText(am.fV(currentPosition));
             return currentPosition;
         }
         return currentPosition;
@@ -320,18 +320,18 @@ public class v extends RelativeLayout {
                 this.mHandler.removeMessages(1);
             }
         } else {
-            this.bTC.seekTo(i);
-            if (this.bTD != null) {
-                this.bTD.setText(am.fV(i));
+            this.bTq.seekTo(i);
+            if (this.bTr != null) {
+                this.bTr.setText(am.fV(i));
             }
             showProgress();
         }
-        if (!this.bTC.isPlaying()) {
-            this.bTG.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
+        if (!this.bTq.isPlaying()) {
+            this.bTu.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
         }
     }
 
-    public String tT(int i) {
+    public String tU(int i) {
         if (i < 0) {
             i = 0;
         }
@@ -339,12 +339,12 @@ public class v extends RelativeLayout {
     }
 
     public int getSeekPosition() {
-        return this.bTK;
+        return this.bTy;
     }
 
     public int getCurProgress() {
-        if (this.bTG != null) {
-            return this.bTG.getProgress();
+        if (this.bTu != null) {
+            return this.bTu.getProgress();
         }
         return 0;
     }
@@ -356,14 +356,14 @@ public class v extends RelativeLayout {
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.feI = bVar;
+        this.few = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.feJ = aVar;
+        this.fex = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.bTJ = onSeekBarChangeListener;
+        this.bTx = onSeekBarChangeListener;
     }
 }

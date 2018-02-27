@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
-    boolean Vq = true;
+    boolean Vk = true;
 
     public abstract boolean animateAdd(RecyclerView.ViewHolder viewHolder);
 
@@ -15,16 +15,16 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     public abstract boolean animateRemove(RecyclerView.ViewHolder viewHolder);
 
     public boolean getSupportsChangeAnimations() {
-        return this.Vq;
+        return this.Vk;
     }
 
     public void setSupportsChangeAnimations(boolean z) {
-        this.Vq = z;
+        this.Vk = z;
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator
     public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
-        return !this.Vq || viewHolder.isInvalid();
+        return !this.Vk || viewHolder.isInvalid();
     }
 
     @Override // android.support.v7.widget.RecyclerView.ItemAnimator

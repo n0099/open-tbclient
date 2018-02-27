@@ -15,9 +15,9 @@ import java.lang.ref.WeakReference;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class StandaloneActionMode extends ActionMode implements MenuBuilder.Callback {
-    private ActionMode.Callback EN;
-    private WeakReference<View> EO;
-    private ActionBarContextView Eq;
+    private ActionMode.Callback EI;
+    private WeakReference<View> EJ;
+    private ActionBarContextView El;
     private Context mContext;
     private boolean mFinished;
     private boolean mFocusable;
@@ -25,8 +25,8 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     public StandaloneActionMode(Context context, ActionBarContextView actionBarContextView, ActionMode.Callback callback, boolean z) {
         this.mContext = context;
-        this.Eq = actionBarContextView;
-        this.EN = callback;
+        this.El = actionBarContextView;
+        this.EI = callback;
         this.mMenu = new MenuBuilder(actionBarContextView.getContext()).setDefaultShowAsAction(1);
         this.mMenu.setCallback(this);
         this.mFocusable = z;
@@ -34,12 +34,12 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     @Override // android.support.v7.view.ActionMode
     public void setTitle(CharSequence charSequence) {
-        this.Eq.setTitle(charSequence);
+        this.El.setTitle(charSequence);
     }
 
     @Override // android.support.v7.view.ActionMode
     public void setSubtitle(CharSequence charSequence) {
-        this.Eq.setSubtitle(charSequence);
+        this.El.setSubtitle(charSequence);
     }
 
     @Override // android.support.v7.view.ActionMode
@@ -55,31 +55,31 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     @Override // android.support.v7.view.ActionMode
     public void setTitleOptionalHint(boolean z) {
         super.setTitleOptionalHint(z);
-        this.Eq.setTitleOptional(z);
+        this.El.setTitleOptional(z);
     }
 
     @Override // android.support.v7.view.ActionMode
     public boolean isTitleOptional() {
-        return this.Eq.isTitleOptional();
+        return this.El.isTitleOptional();
     }
 
     @Override // android.support.v7.view.ActionMode
     public void setCustomView(View view) {
-        this.Eq.setCustomView(view);
-        this.EO = view != null ? new WeakReference<>(view) : null;
+        this.El.setCustomView(view);
+        this.EJ = view != null ? new WeakReference<>(view) : null;
     }
 
     @Override // android.support.v7.view.ActionMode
     public void invalidate() {
-        this.EN.onPrepareActionMode(this, this.mMenu);
+        this.EI.onPrepareActionMode(this, this.mMenu);
     }
 
     @Override // android.support.v7.view.ActionMode
     public void finish() {
         if (!this.mFinished) {
             this.mFinished = true;
-            this.Eq.sendAccessibilityEvent(32);
-            this.EN.onDestroyActionMode(this);
+            this.El.sendAccessibilityEvent(32);
+            this.EI.onDestroyActionMode(this);
         }
     }
 
@@ -90,30 +90,30 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     @Override // android.support.v7.view.ActionMode
     public CharSequence getTitle() {
-        return this.Eq.getTitle();
+        return this.El.getTitle();
     }
 
     @Override // android.support.v7.view.ActionMode
     public CharSequence getSubtitle() {
-        return this.Eq.getSubtitle();
+        return this.El.getSubtitle();
     }
 
     @Override // android.support.v7.view.ActionMode
     public View getCustomView() {
-        if (this.EO != null) {
-            return this.EO.get();
+        if (this.EJ != null) {
+            return this.EJ.get();
         }
         return null;
     }
 
     @Override // android.support.v7.view.ActionMode
     public MenuInflater getMenuInflater() {
-        return new SupportMenuInflater(this.Eq.getContext());
+        return new SupportMenuInflater(this.El.getContext());
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder.Callback
     public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-        return this.EN.onActionItemClicked(this, menuItem);
+        return this.EI.onActionItemClicked(this, menuItem);
     }
 
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
@@ -121,7 +121,7 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
 
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
         if (subMenuBuilder.hasVisibleItems()) {
-            new MenuPopupHelper(this.Eq.getContext(), subMenuBuilder).show();
+            new MenuPopupHelper(this.El.getContext(), subMenuBuilder).show();
         }
         return true;
     }
@@ -132,7 +132,7 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     @Override // android.support.v7.view.menu.MenuBuilder.Callback
     public void onMenuModeChange(MenuBuilder menuBuilder) {
         invalidate();
-        this.Eq.showOverflowMenu();
+        this.El.showOverflowMenu();
     }
 
     @Override // android.support.v7.view.ActionMode

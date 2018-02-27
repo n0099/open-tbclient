@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 class j extends ao {
     private static boolean DBG = false;
-    private int uH;
+    private int uG;
 
     public j() {
         this(3);
     }
 
     public j(int i) {
-        this.uH = i;
+        this.uG = i;
     }
 
     private Animator a(View view, float f, float f2, AnimatorListenerAdapter animatorListenerAdapter) {
@@ -54,7 +54,7 @@ class j extends ao {
 
     @Override // android.support.b.ao
     public Animator a(ViewGroup viewGroup, af afVar, int i, af afVar2, int i2) {
-        if ((this.uH & 1) != 1 || afVar2 == null) {
+        if ((this.uG & 1) != 1 || afVar2 == null) {
             return null;
         }
         final View view = afVar2.view;
@@ -64,7 +64,7 @@ class j extends ao {
         view.setAlpha(0.0f);
         a(new z.d() { // from class: android.support.b.j.1
             boolean mCanceled = false;
-            float uI;
+            float uH;
 
             @Override // android.support.b.z.d, android.support.b.z.c
             public void a(z zVar) {
@@ -75,13 +75,13 @@ class j extends ao {
 
             @Override // android.support.b.z.d, android.support.b.z.c
             public void b(z zVar) {
-                this.uI = view.getAlpha();
+                this.uH = view.getAlpha();
                 view.setAlpha(1.0f);
             }
 
             @Override // android.support.b.z.d, android.support.b.z.c
             public void c(z zVar) {
-                view.setAlpha(this.uI);
+                view.setAlpha(this.uH);
             }
         });
         return a(view, 0.0f, 1.0f, null);
@@ -92,7 +92,7 @@ class j extends ao {
         final View view;
         final View view2;
         View view3;
-        if ((this.uH & 2) != 2) {
+        if ((this.uG & 2) != 2) {
             return null;
         }
         final View view4 = afVar != null ? afVar.view : null;
@@ -112,7 +112,7 @@ class j extends ao {
                         view2 = view4;
                     } else if ((view4.getParent() instanceof View) && view4.getParent().getParent() == null) {
                         int id = ((View) view4.getParent()).getId();
-                        if (id == -1 || viewGroup.findViewById(id) == null || !this.vu) {
+                        if (id == -1 || viewGroup.findViewById(id) == null || !this.vt) {
                             view3 = null;
                             view4 = null;
                         } else {
@@ -162,13 +162,13 @@ class j extends ao {
             view.setVisibility(0);
             return a(view4, 1.0f, 0.0f, new AnimatorListenerAdapter() { // from class: android.support.b.j.3
                 boolean mCanceled = false;
-                float uI = -1.0f;
+                float uH = -1.0f;
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     this.mCanceled = true;
-                    if (this.uI >= 0.0f) {
-                        view4.setAlpha(this.uI);
+                    if (this.uH >= 0.0f) {
+                        view4.setAlpha(this.uH);
                     }
                 }
 

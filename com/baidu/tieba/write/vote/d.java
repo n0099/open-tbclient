@@ -12,13 +12,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.base.c<WriteVoteActivity> {
-    private WriteVoteActivity hIT;
-    private ImageView hIW;
-    private EditText hIX;
-    private ImageView hIY;
-    private ImageFileInfo hIZ;
-    private LayoutInflater hJa;
-    private b hJb;
+    private WriteVoteActivity hIG;
+    private ImageView hIJ;
+    private EditText hIK;
+    private ImageView hIL;
+    private ImageFileInfo hIM;
+    private LayoutInflater hIN;
+    private b hIO;
     private View.OnClickListener mClickListener;
     private int mId;
     private View mRootView;
@@ -30,59 +30,59 @@ public class d extends com.baidu.adp.base.c<WriteVoteActivity> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.vote.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != d.this.hIW) {
-                    if (view == d.this.hIY) {
-                        d.this.hJb.xA(d.this.mId);
+                if (view != d.this.hIJ) {
+                    if (view == d.this.hIL) {
+                        d.this.hIO.xB(d.this.mId);
                     }
-                } else if (d.this.bHz()) {
-                    d.this.hJb.am(d.this.mId, d.this.hIZ.getFilePath());
+                } else if (d.this.bHy()) {
+                    d.this.hIO.am(d.this.mId, d.this.hIM.getFilePath());
                 } else {
-                    d.this.hJb.xz(d.this.mId);
+                    d.this.hIO.xA(d.this.mId);
                 }
             }
         };
-        this.hIT = writeVoteActivity;
+        this.hIG = writeVoteActivity;
         this.mType = i;
-        this.hJb = writeVoteActivity;
+        this.hIO = writeVoteActivity;
         this.mId = BdUniqueId.gen().getId();
-        this.hJa = LayoutInflater.from(getActivity());
+        this.hIN = LayoutInflater.from(getActivity());
         initView();
     }
 
     private void initView() {
         if (this.mType == 0) {
-            this.mRootView = this.hJa.inflate(d.h.vote_pic_item, (ViewGroup) null);
-            this.hIW = (ImageView) this.mRootView.findViewById(d.g.item_pic);
+            this.mRootView = this.hIN.inflate(d.h.vote_pic_item, (ViewGroup) null);
+            this.hIJ = (ImageView) this.mRootView.findViewById(d.g.item_pic);
         } else {
-            this.mRootView = this.hJa.inflate(d.h.vote_text_item, (ViewGroup) null);
-            this.hIW = (ImageView) this.mRootView.findViewById(d.g.item_icon);
+            this.mRootView = this.hIN.inflate(d.h.vote_text_item, (ViewGroup) null);
+            this.hIJ = (ImageView) this.mRootView.findViewById(d.g.item_icon);
         }
-        this.hIX = (EditText) this.mRootView.findViewById(d.g.item_edittext);
-        this.hIY = (ImageView) this.mRootView.findViewById(d.g.item_delete);
-        this.hIW.setOnClickListener(this.mClickListener);
-        this.hIY.setOnClickListener(this.mClickListener);
+        this.hIK = (EditText) this.mRootView.findViewById(d.g.item_edittext);
+        this.hIL = (ImageView) this.mRootView.findViewById(d.g.item_delete);
+        this.hIJ.setOnClickListener(this.mClickListener);
+        this.hIL.setOnClickListener(this.mClickListener);
         if (this.mType == 0) {
-            this.hIX.addTextChangedListener(new a(10, this.hIX));
+            this.hIK.addTextChangedListener(new a(10, this.hIK));
         } else {
-            this.hIX.addTextChangedListener(new a(15, this.hIX));
+            this.hIK.addTextChangedListener(new a(15, this.hIK));
         }
-        bHE();
+        bHD();
+    }
+
+    public boolean bHy() {
+        return (this.hIM == null || TextUtils.isEmpty(this.hIM.getFilePath())) ? false : true;
     }
 
     public boolean bHz() {
-        return (this.hIZ == null || TextUtils.isEmpty(this.hIZ.getFilePath())) ? false : true;
-    }
-
-    public boolean bHA() {
-        return !TextUtils.isEmpty(bHB());
+        return !TextUtils.isEmpty(bHA());
     }
 
     public void a(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
         if (this.mType == 0) {
-            this.hIZ = imageFileInfo;
+            this.hIM = imageFileInfo;
             if (aVar != null) {
-                aVar.a(this.hIW);
-                this.hIW.setContentDescription(getActivity().getString(d.j.look_big_photo));
+                aVar.a(this.hIJ);
+                this.hIJ.setContentDescription(getActivity().getString(d.j.look_big_photo));
             }
         }
     }
@@ -95,41 +95,41 @@ public class d extends com.baidu.adp.base.c<WriteVoteActivity> {
         return this.mId;
     }
 
-    public String bHB() {
-        return this.hIX == null ? "" : this.hIX.getText().toString().trim();
+    public String bHA() {
+        return this.hIK == null ? "" : this.hIK.getText().toString().trim();
     }
 
     public void setEditText(String str) {
-        if (this.hIX != null) {
-            this.hIX.setText(str);
+        if (this.hIK != null) {
+            this.hIK.setText(str);
         }
     }
 
-    public void xD(int i) {
-        if (this.hIX != null) {
-            this.hIX.setText("");
-            this.hIX.setHint(i);
-            this.hIX.requestFocus();
+    public void xE(int i) {
+        if (this.hIK != null) {
+            this.hIK.setText("");
+            this.hIK.setHint(i);
+            this.hIK.requestFocus();
         }
     }
 
-    public void bHC() {
-        if (this.hIX != null) {
-            this.hIX.requestFocus();
+    public void bHB() {
+        if (this.hIK != null) {
+            this.hIK.requestFocus();
         }
     }
 
-    public ImageFileInfo bHD() {
-        return this.hIZ;
+    public ImageFileInfo bHC() {
+        return this.hIM;
     }
 
-    public void bHE() {
+    public void bHD() {
         if (this.mRootView != null) {
-            com.baidu.tbadk.n.a.a(this.hIT.getPageContext(), this.mRootView);
+            com.baidu.tbadk.n.a.a(this.hIG.getPageContext(), this.mRootView);
         }
     }
 
     private Activity getActivity() {
-        return this.hIT.getPageContext().getPageActivity();
+        return this.hIG.getPageContext().getPageActivity();
     }
 }

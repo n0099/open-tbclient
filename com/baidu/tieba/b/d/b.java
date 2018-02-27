@@ -11,11 +11,11 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 /* loaded from: classes.dex */
 class b implements EGL11 {
-    private EGL10 cUX;
-    Writer cUY;
-    boolean cUZ;
-    boolean cVa;
-    private int cVb;
+    private EGL10 cUL;
+    Writer cUM;
+    boolean cUN;
+    boolean cUO;
+    private int cUP;
 
     @Override // javax.microedition.khronos.egl.EGL10
     public boolean eglChooseConfig(EGLDisplay eGLDisplay, int[] iArr, EGLConfig[] eGLConfigArr, int i, int[] iArr2) {
@@ -24,7 +24,7 @@ class b implements EGL11 {
         a("attrib_list", iArr);
         S("config_size", i);
         end();
-        boolean eglChooseConfig = this.cUX.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, i, iArr2);
+        boolean eglChooseConfig = this.cUL.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, i, iArr2);
         k("configs", eGLConfigArr);
         a("num_config", iArr2);
         eE(eglChooseConfig);
@@ -39,7 +39,7 @@ class b implements EGL11 {
         a("surface", eGLSurface);
         i("native_pixmap", obj);
         end();
-        boolean eglCopyBuffers = this.cUX.eglCopyBuffers(eGLDisplay, eGLSurface, obj);
+        boolean eglCopyBuffers = this.cUL.eglCopyBuffers(eGLDisplay, eGLSurface, obj);
         eE(eglCopyBuffers);
         checkError();
         return eglCopyBuffers;
@@ -53,7 +53,7 @@ class b implements EGL11 {
         a("share_context", eGLContext);
         a("attrib_list", iArr);
         end();
-        EGLContext eglCreateContext = this.cUX.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
+        EGLContext eglCreateContext = this.cUL.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
         aS(eglCreateContext);
         checkError();
         return eglCreateContext;
@@ -66,7 +66,7 @@ class b implements EGL11 {
         i("config", eGLConfig);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreatePbufferSurface = this.cUX.eglCreatePbufferSurface(eGLDisplay, eGLConfig, iArr);
+        EGLSurface eglCreatePbufferSurface = this.cUL.eglCreatePbufferSurface(eGLDisplay, eGLConfig, iArr);
         aS(eglCreatePbufferSurface);
         checkError();
         return eglCreatePbufferSurface;
@@ -80,7 +80,7 @@ class b implements EGL11 {
         i("native_pixmap", obj);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreatePixmapSurface = this.cUX.eglCreatePixmapSurface(eGLDisplay, eGLConfig, obj, iArr);
+        EGLSurface eglCreatePixmapSurface = this.cUL.eglCreatePixmapSurface(eGLDisplay, eGLConfig, obj, iArr);
         aS(eglCreatePixmapSurface);
         checkError();
         return eglCreatePixmapSurface;
@@ -94,7 +94,7 @@ class b implements EGL11 {
         i("native_window", obj);
         a("attrib_list", iArr);
         end();
-        EGLSurface eglCreateWindowSurface = this.cUX.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, iArr);
+        EGLSurface eglCreateWindowSurface = this.cUL.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, iArr);
         aS(eglCreateWindowSurface);
         checkError();
         return eglCreateWindowSurface;
@@ -106,7 +106,7 @@ class b implements EGL11 {
         a("display", eGLDisplay);
         a("context", eGLContext);
         end();
-        boolean eglDestroyContext = this.cUX.eglDestroyContext(eGLDisplay, eGLContext);
+        boolean eglDestroyContext = this.cUL.eglDestroyContext(eGLDisplay, eGLContext);
         eE(eglDestroyContext);
         checkError();
         return eglDestroyContext;
@@ -118,7 +118,7 @@ class b implements EGL11 {
         a("display", eGLDisplay);
         a("surface", eGLSurface);
         end();
-        boolean eglDestroySurface = this.cUX.eglDestroySurface(eGLDisplay, eGLSurface);
+        boolean eglDestroySurface = this.cUL.eglDestroySurface(eGLDisplay, eGLSurface);
         eE(eglDestroySurface);
         checkError();
         return eglDestroySurface;
@@ -131,7 +131,7 @@ class b implements EGL11 {
         i("config", eGLConfig);
         S("attribute", i);
         end();
-        boolean eglGetConfigAttrib = this.cUX.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, iArr);
+        boolean eglGetConfigAttrib = this.cUL.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, iArr);
         a("value", iArr);
         eE(eglGetConfigAttrib);
         checkError();
@@ -144,7 +144,7 @@ class b implements EGL11 {
         a("display", eGLDisplay);
         S("config_size", i);
         end();
-        boolean eglGetConfigs = this.cUX.eglGetConfigs(eGLDisplay, eGLConfigArr, i, iArr);
+        boolean eglGetConfigs = this.cUL.eglGetConfigs(eGLDisplay, eGLConfigArr, i, iArr);
         k("configs", eGLConfigArr);
         a("num_config", iArr);
         eE(eglGetConfigs);
@@ -156,7 +156,7 @@ class b implements EGL11 {
     public EGLContext eglGetCurrentContext() {
         kn("eglGetCurrentContext");
         end();
-        EGLContext eglGetCurrentContext = this.cUX.eglGetCurrentContext();
+        EGLContext eglGetCurrentContext = this.cUL.eglGetCurrentContext();
         aS(eglGetCurrentContext);
         checkError();
         return eglGetCurrentContext;
@@ -166,7 +166,7 @@ class b implements EGL11 {
     public EGLDisplay eglGetCurrentDisplay() {
         kn("eglGetCurrentDisplay");
         end();
-        EGLDisplay eglGetCurrentDisplay = this.cUX.eglGetCurrentDisplay();
+        EGLDisplay eglGetCurrentDisplay = this.cUL.eglGetCurrentDisplay();
         aS(eglGetCurrentDisplay);
         checkError();
         return eglGetCurrentDisplay;
@@ -177,7 +177,7 @@ class b implements EGL11 {
         kn("eglGetCurrentSurface");
         S("readdraw", i);
         end();
-        EGLSurface eglGetCurrentSurface = this.cUX.eglGetCurrentSurface(i);
+        EGLSurface eglGetCurrentSurface = this.cUL.eglGetCurrentSurface(i);
         aS(eglGetCurrentSurface);
         checkError();
         return eglGetCurrentSurface;
@@ -188,7 +188,7 @@ class b implements EGL11 {
         kn("eglGetDisplay");
         i("native_display", obj);
         end();
-        EGLDisplay eglGetDisplay = this.cUX.eglGetDisplay(obj);
+        EGLDisplay eglGetDisplay = this.cUL.eglGetDisplay(obj);
         aS(eglGetDisplay);
         checkError();
         return eglGetDisplay;
@@ -198,7 +198,7 @@ class b implements EGL11 {
     public int eglGetError() {
         kn("eglGetError");
         end();
-        int eglGetError = this.cUX.eglGetError();
+        int eglGetError = this.cUL.eglGetError();
         ko(ly(eglGetError));
         return eglGetError;
     }
@@ -208,7 +208,7 @@ class b implements EGL11 {
         kn("eglInitialize");
         a("display", eGLDisplay);
         end();
-        boolean eglInitialize = this.cUX.eglInitialize(eGLDisplay, iArr);
+        boolean eglInitialize = this.cUL.eglInitialize(eGLDisplay, iArr);
         eE(eglInitialize);
         a("major_minor", iArr);
         checkError();
@@ -223,7 +223,7 @@ class b implements EGL11 {
         a("read", eGLSurface2);
         a("context", eGLContext);
         end();
-        boolean eglMakeCurrent = this.cUX.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface2, eGLContext);
+        boolean eglMakeCurrent = this.cUL.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface2, eGLContext);
         eE(eglMakeCurrent);
         checkError();
         return eglMakeCurrent;
@@ -236,7 +236,7 @@ class b implements EGL11 {
         a("context", eGLContext);
         S("attribute", i);
         end();
-        boolean eglQueryContext = this.cUX.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
+        boolean eglQueryContext = this.cUL.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
         lw(iArr[0]);
         eE(eglQueryContext);
         checkError();
@@ -249,7 +249,7 @@ class b implements EGL11 {
         a("display", eGLDisplay);
         S("name", i);
         end();
-        String eglQueryString = this.cUX.eglQueryString(eGLDisplay, i);
+        String eglQueryString = this.cUL.eglQueryString(eGLDisplay, i);
         ko(eglQueryString);
         checkError();
         return eglQueryString;
@@ -262,7 +262,7 @@ class b implements EGL11 {
         a("surface", eGLSurface);
         S("attribute", i);
         end();
-        boolean eglQuerySurface = this.cUX.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
+        boolean eglQuerySurface = this.cUL.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
         lw(iArr[0]);
         eE(eglQuerySurface);
         checkError();
@@ -275,7 +275,7 @@ class b implements EGL11 {
         a("display", eGLDisplay);
         a("surface", eGLSurface);
         end();
-        boolean eglSwapBuffers = this.cUX.eglSwapBuffers(eGLDisplay, eGLSurface);
+        boolean eglSwapBuffers = this.cUL.eglSwapBuffers(eGLDisplay, eGLSurface);
         eE(eglSwapBuffers);
         checkError();
         return eglSwapBuffers;
@@ -286,7 +286,7 @@ class b implements EGL11 {
         kn("eglTerminate");
         a("display", eGLDisplay);
         end();
-        boolean eglTerminate = this.cUX.eglTerminate(eGLDisplay);
+        boolean eglTerminate = this.cUL.eglTerminate(eGLDisplay);
         eE(eglTerminate);
         checkError();
         return eglTerminate;
@@ -296,7 +296,7 @@ class b implements EGL11 {
     public boolean eglWaitGL() {
         kn("eglWaitGL");
         end();
-        boolean eglWaitGL = this.cUX.eglWaitGL();
+        boolean eglWaitGL = this.cUL.eglWaitGL();
         eE(eglWaitGL);
         checkError();
         return eglWaitGL;
@@ -308,18 +308,18 @@ class b implements EGL11 {
         S("engine", i);
         i("bindTarget", obj);
         end();
-        boolean eglWaitNative = this.cUX.eglWaitNative(i, obj);
+        boolean eglWaitNative = this.cUL.eglWaitNative(i, obj);
         eE(eglWaitNative);
         checkError();
         return eglWaitNative;
     }
 
     private void checkError() {
-        int eglGetError = this.cUX.eglGetError();
+        int eglGetError = this.cUL.eglGetError();
         if (eglGetError != 12288) {
             String str = "eglError: " + ly(eglGetError);
             km(str);
-            if (this.cVa) {
+            if (this.cUO) {
                 throw new GLException(eglGetError, str);
             }
         }
@@ -331,23 +331,23 @@ class b implements EGL11 {
 
     private void log(String str) {
         try {
-            this.cUY.write(str);
+            this.cUM.write(str);
         } catch (IOException e) {
         }
     }
 
     private void kn(String str) {
         log(str + '(');
-        this.cVb = 0;
+        this.cUP = 0;
     }
 
     private void aG(String str, String str2) {
-        int i = this.cVb;
-        this.cVb = i + 1;
+        int i = this.cUP;
+        this.cUP = i + 1;
         if (i > 0) {
             log(", ");
         }
-        if (this.cUZ) {
+        if (this.cUN) {
             log(str + "=");
         }
         log(str2);
@@ -360,9 +360,9 @@ class b implements EGL11 {
 
     private void flush() {
         try {
-            this.cUY.flush();
+            this.cUM.flush();
         } catch (IOException e) {
-            this.cUY = null;
+            this.cUM = null;
         }
     }
 

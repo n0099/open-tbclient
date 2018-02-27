@@ -20,45 +20,45 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHolder.Callback, h {
-    private int dAn;
-    private int dAo;
-    private com.baidu.tieba.i.h hbR;
-    private i huW;
-    private h.a hvd;
-    private MediaRecorder hyu;
-    private boolean hyv;
-    private boolean hyw;
-    private boolean hyx;
+    private int dAb;
+    private int dAc;
+    private com.baidu.tieba.i.h hbC;
+    private i huJ;
+    private h.a huQ;
+    private MediaRecorder hyh;
+    private boolean hyi;
+    private boolean hyj;
+    private boolean hyk;
     private SurfaceHolder mSurfaceHolder;
 
     public n(Context context, i iVar) {
         super(context);
-        this.dAn = 720;
-        this.dAo = TbConfig.HEAD_IMG_SIZE;
+        this.dAb = 720;
+        this.dAc = TbConfig.HEAD_IMG_SIZE;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, com.baidu.tieba.i.k.class);
         com.baidu.tieba.i.k kVar = runTask != null ? (com.baidu.tieba.i.k) runTask.getData() : null;
         if (kVar != null) {
-            this.hbR = kVar.aXg();
+            this.hbC = kVar.aXf();
         }
-        this.huW = iVar;
+        this.huJ = iVar;
         getHolder().addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         this.mSurfaceHolder = surfaceHolder;
-        bDd();
-        this.hyw = true;
+        bDc();
+        this.hyj = true;
     }
 
-    private void bDd() {
-        Handler mainHandler = this.huW.getMainHandler();
+    private void bDc() {
+        Handler mainHandler = this.huJ.getMainHandler();
         mainHandler.sendMessage(mainHandler.obtainMessage(1));
     }
 
     public void onResume() {
-        if (this.hyw) {
-            bDd();
+        if (this.hyj) {
+            bDc();
         }
     }
 
@@ -72,15 +72,15 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
 
     @Override // com.baidu.tieba.video.record.h
     public void g(Camera camera) {
-        if (!this.hyv && camera != null) {
-            this.hyv = true;
+        if (!this.hyi && camera != null) {
+            this.hyi = true;
             try {
                 camera.setPreviewDisplay(this.mSurfaceHolder);
                 camera.setPreviewCallback(this);
             } catch (IOException e) {
                 e.printStackTrace();
-                if (this.hbR != null) {
-                    this.hbR.U(27, com.baidu.tieba.i.a.i(e));
+                if (this.hbC != null) {
+                    this.hbC.U(27, com.baidu.tieba.i.a.i(e));
                 }
             }
             camera.startPreview();
@@ -90,15 +90,15 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
     @Override // com.baidu.tieba.video.record.h
     public void h(Camera camera) {
         if (camera != null) {
-            this.hyu = new MediaRecorder();
-            this.hyu.reset();
+            this.hyh = new MediaRecorder();
+            this.hyh.reset();
             try {
                 camera.unlock();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.hyu.setCamera(camera);
-            this.hyu.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.n.1
+            this.hyh.setCamera(camera);
+            this.hyh.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.n.1
                 @Override // android.media.MediaRecorder.OnErrorListener
                 public void onError(MediaRecorder mediaRecorder, int i, int i2) {
                     if (mediaRecorder != null) {
@@ -110,41 +110,41 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
                             e2.printStackTrace();
                         }
                     }
-                    if (n.this.hbR != null) {
-                        n.this.hbR.U(28, "what-->" + i + "  extra-->" + i2);
+                    if (n.this.hbC != null) {
+                        n.this.hbC.U(28, "what-->" + i + "  extra-->" + i2);
                     }
                 }
             });
             if (this.mSurfaceHolder != null) {
-                this.hyu.setPreviewDisplay(this.mSurfaceHolder.getSurface());
+                this.hyh.setPreviewDisplay(this.mSurfaceHolder.getSurface());
             }
-            this.hyu.setVideoSource(1);
-            this.hyu.setAudioSource(1);
-            this.hyu.setOutputFormat(2);
-            this.hyu.setVideoEncoder(2);
-            this.hyu.setAudioEncoder(3);
-            this.hyu.setAudioSamplingRate(48000);
-            this.hyu.setAudioChannels(1);
-            this.hyu.setVideoEncodingBitRate(2097152);
-            this.hyu.setVideoFrameRate(20);
-            if (this.huW.hvz) {
-                this.hyu.setOrientationHint(SubsamplingScaleImageView.ORIENTATION_270);
+            this.hyh.setVideoSource(1);
+            this.hyh.setAudioSource(1);
+            this.hyh.setOutputFormat(2);
+            this.hyh.setVideoEncoder(2);
+            this.hyh.setAudioEncoder(3);
+            this.hyh.setAudioSamplingRate(48000);
+            this.hyh.setAudioChannels(1);
+            this.hyh.setVideoEncodingBitRate(2097152);
+            this.hyh.setVideoFrameRate(20);
+            if (this.huJ.hvm) {
+                this.hyh.setOrientationHint(SubsamplingScaleImageView.ORIENTATION_270);
             } else {
-                this.hyu.setOrientationHint(90);
+                this.hyh.setOrientationHint(90);
             }
-            this.hyu.setVideoSize(1280, 720);
-            File file = new File(com.baidu.tieba.video.b.hnQ);
+            this.hyh.setVideoSize(1280, 720);
+            File file = new File(com.baidu.tieba.video.b.hnD);
             if (!com.baidu.tbadk.core.util.k.dz(file.getAbsolutePath())) {
                 file.mkdirs();
             }
-            this.hyu.setOutputFile(this.huW.bDg());
+            this.hyh.setOutputFile(this.huJ.bDf());
             try {
-                this.hyu.prepare();
-                this.hyu.start();
+                this.hyh.prepare();
+                this.hyh.start();
             } catch (Throwable th2) {
                 th2.printStackTrace();
-                if (this.hbR != null) {
-                    this.hbR.U(28, com.baidu.tieba.i.a.i(th2));
+                if (this.hbC != null) {
+                    this.hbC.U(28, com.baidu.tieba.i.a.i(th2));
                 }
             }
         }
@@ -152,14 +152,14 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
 
     @Override // com.baidu.tieba.video.record.h
     public void i(Camera camera) {
-        if (this.hyu != null) {
+        if (this.hyh != null) {
             try {
-                this.hyu.stop();
-                this.hyu.release();
+                this.hyh.stop();
+                this.hyh.release();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.hbR != null) {
-                    this.hbR.U(29, com.baidu.tieba.i.a.i(e));
+                if (this.hbC != null) {
+                    this.hbC.U(29, com.baidu.tieba.i.a.i(e));
                 }
             }
         }
@@ -167,8 +167,8 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
 
     @Override // com.baidu.tieba.video.record.h
     public void j(Camera camera) {
-        if (this.hyv) {
-            this.hyv = false;
+        if (this.hyi) {
+            this.hyi = false;
         }
     }
 
@@ -178,24 +178,24 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.huW.b(motionEvent, getParent());
+        return this.huJ.b(motionEvent, getParent());
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        if (this.hyx) {
+        if (this.hyk) {
             if (bArr != null) {
                 Camera.Size previewSize = camera.getParameters().getPreviewSize();
                 k(bArr, previewSize.width, previewSize.height);
             }
-            this.hyx = false;
+            this.hyk = false;
         }
     }
 
     @Override // com.baidu.tieba.video.record.h
     public void a(h.a aVar) {
-        this.hvd = aVar;
-        this.hyx = true;
+        this.huQ = aVar;
+        this.hyk = true;
     }
 
     @Override // com.baidu.tieba.video.record.h
@@ -219,7 +219,7 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
                             bitmap = a;
                         }
                     }
-                    return com.baidu.tbadk.core.util.k.a(com.baidu.tieba.video.b.hnT, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    return com.baidu.tbadk.core.util.k.a(com.baidu.tieba.video.b.hnG, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
                         bitmap.recycle();
@@ -231,8 +231,8 @@ public class n extends SurfaceView implements Camera.PreviewCallback, SurfaceHol
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public void onPostExecute(String str) {
-                if (n.this.hvd != null) {
-                    n.this.hvd.n(!TextUtils.isEmpty(str), str);
+                if (n.this.huQ != null) {
+                    n.this.huQ.n(!TextUtils.isEmpty(str), str);
                 }
             }
         }.execute(new Void[0]);

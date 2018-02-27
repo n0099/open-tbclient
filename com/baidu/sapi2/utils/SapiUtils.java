@@ -23,6 +23,8 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemClock;
 import android.telephony.SmsManager;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -39,6 +41,7 @@ import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.base.utils.EncodeUtils;
 import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.sapi2.utils.enums.BiometricType;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -126,7 +129,8 @@ public class SapiUtils {
                 fileReader.close();
             }
             if (!TextUtils.isEmpty(readLine)) {
-                return readLine.split(":\\s+", 2)[1];
+                String[] split = readLine.split(":\\s+", 2);
+                return split.length > 1 ? split[1] : "";
             }
         } catch (FileNotFoundException e2) {
             Log.e(e2);
@@ -144,7 +148,8 @@ public class SapiUtils {
                 fileReader.close();
             }
             if (!TextUtils.isEmpty(readLine)) {
-                return readLine.split(":\\s+", 2)[1].replace("kB", "").trim();
+                String[] split = readLine.split(":\\s+", 2);
+                return split.length > 1 ? split[1].replace("kB", "").trim() : "";
             }
         } catch (FileNotFoundException e2) {
             Log.e(e2);
@@ -321,7 +326,7 @@ public class SapiUtils {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [514=5, 516=4, 517=4, 518=4, 522=4, 523=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [517=5, 519=4, 520=4, 521=4, 525=4, 526=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -422,6 +427,28 @@ public class SapiUtils {
             process = null;
         }
         return false;
+    }
+
+    public static String getIccid(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT >= 22) {
+                StringBuilder sb = new StringBuilder();
+                for (SubscriptionInfo subscriptionInfo : SubscriptionManager.from(context).getActiveSubscriptionInfoList()) {
+                    sb.append(subscriptionInfo.getIccId()).append(e);
+                }
+                if (sb.length() > 0) {
+                    return sb.toString().substring(0, sb.length() - 1);
+                }
+            } else {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                if (telephonyManager != null) {
+                    return telephonyManager.getSimSerialNumber();
+                }
+            }
+        } catch (Exception e2) {
+            Log.e(e2);
+        }
+        return null;
     }
 
     public static String getWifiInfo(Context context) {
@@ -806,6 +833,15 @@ public class SapiUtils {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
         if (inputMethodManager.isActive() && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
             inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 2);
+        }
+    }
+
+    public static boolean withLivenessAbility() {
+        try {
+            Class.forName("com.baidu.fsg.api.BaiduRIM");
+            return ServiceManager.getInstance().getIsAccountManager().getConfignation().biometricTypeList.contains(BiometricType.LIVENESS_RECOG);
+        } catch (Throwable th) {
+            return false;
         }
     }
 

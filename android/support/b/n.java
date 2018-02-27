@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class n implements r {
-    q uS;
+    q uR;
 
     /* loaded from: classes2.dex */
     public interface a extends s<n> {
@@ -28,28 +28,28 @@ public abstract class n implements r {
     public n(boolean z) {
         if (!z) {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.uS = new o();
+                this.uR = new o();
             } else if (Build.VERSION.SDK_INT >= 19) {
-                this.uS = new t();
+                this.uR = new t();
             } else {
-                this.uS = new p();
+                this.uR = new p();
             }
-            this.uS.a(this);
+            this.uR.a(this);
         }
     }
 
     public n addListener(a aVar) {
-        this.uS.a(aVar);
+        this.uR.a(aVar);
         return this;
     }
 
     public n addTarget(View view) {
-        this.uS.H(view);
+        this.uR.H(view);
         return this;
     }
 
     public n addTarget(int i) {
-        this.uS.T(i);
+        this.uR.T(i);
         return this;
     }
 
@@ -59,98 +59,98 @@ public abstract class n implements r {
     }
 
     public n excludeChildren(View view, boolean z) {
-        this.uS.b(view, z);
+        this.uR.b(view, z);
         return this;
     }
 
     public n excludeChildren(int i, boolean z) {
-        this.uS.f(i, z);
+        this.uR.f(i, z);
         return this;
     }
 
     public n excludeChildren(Class cls, boolean z) {
-        this.uS.a(cls, z);
+        this.uR.a(cls, z);
         return this;
     }
 
     public n excludeTarget(View view, boolean z) {
-        this.uS.c(view, z);
+        this.uR.c(view, z);
         return this;
     }
 
     public n excludeTarget(int i, boolean z) {
-        this.uS.g(i, z);
+        this.uR.g(i, z);
         return this;
     }
 
     public n excludeTarget(Class cls, boolean z) {
-        this.uS.b(cls, z);
+        this.uR.b(cls, z);
         return this;
     }
 
     public long getDuration() {
-        return this.uS.getDuration();
+        return this.uR.getDuration();
     }
 
     public n setDuration(long j) {
-        this.uS.f(j);
+        this.uR.f(j);
         return this;
     }
 
     public TimeInterpolator getInterpolator() {
-        return this.uS.getInterpolator();
+        return this.uR.getInterpolator();
     }
 
     public n setInterpolator(TimeInterpolator timeInterpolator) {
-        this.uS.a(timeInterpolator);
+        this.uR.a(timeInterpolator);
         return this;
     }
 
     public String getName() {
-        return this.uS.getName();
+        return this.uR.getName();
     }
 
     public long getStartDelay() {
-        return this.uS.getStartDelay();
+        return this.uR.getStartDelay();
     }
 
     public n setStartDelay(long j) {
-        this.uS.g(j);
+        this.uR.g(j);
         return this;
     }
 
     public List<Integer> getTargetIds() {
-        return this.uS.getTargetIds();
+        return this.uR.getTargetIds();
     }
 
     public List<View> getTargets() {
-        return this.uS.getTargets();
+        return this.uR.getTargets();
     }
 
     public String[] getTransitionProperties() {
-        return this.uS.getTransitionProperties();
+        return this.uR.getTransitionProperties();
     }
 
     public af getTransitionValues(View view, boolean z) {
-        return this.uS.getTransitionValues(view, z);
+        return this.uR.getTransitionValues(view, z);
     }
 
     public n removeListener(a aVar) {
-        this.uS.b(aVar);
+        this.uR.b(aVar);
         return this;
     }
 
     public n removeTarget(View view) {
-        this.uS.I(view);
+        this.uR.I(view);
         return this;
     }
 
     public n removeTarget(int i) {
-        this.uS.S(i);
+        this.uR.S(i);
         return this;
     }
 
     public String toString() {
-        return this.uS.toString();
+        return this.uR.toString();
     }
 }

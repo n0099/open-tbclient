@@ -17,11 +17,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private TextView gOu;
-    private TbImageView gOv;
-    private TextView gOw;
-    private BdSwitchView gOx;
-    private int gOy;
+    private TextView gOf;
+    private TbImageView gOg;
+    private TextView gOh;
+    private BdSwitchView gOi;
+    private int gOj;
     private View mBottomLine;
 
     public MsgSettingItemView(Context context) {
@@ -37,34 +37,34 @@ public class MsgSettingItemView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(d.h.msg_setting_item_view, (ViewGroup) this, true);
-        this.gOu = (TextView) findViewById(d.g.setting_text);
-        this.gOv = (TbImageView) findViewById(d.g.setting_tip_image);
-        this.gOw = (TextView) findViewById(d.g.setting_tip);
-        this.gOx = (BdSwitchView) findViewById(d.g.setting_switch);
-        l.a(context, this.gOx, 10, 10, 10, 10);
+        this.gOf = (TextView) findViewById(d.g.setting_text);
+        this.gOg = (TbImageView) findViewById(d.g.setting_tip_image);
+        this.gOh = (TextView) findViewById(d.g.setting_tip);
+        this.gOi = (BdSwitchView) findViewById(d.g.setting_switch);
+        l.a(context, this.gOi, 10, 10, 10, 10);
         this.mBottomLine = findViewById(d.g.bottom_line_ll);
     }
 
     public void setTipImageResource(int i) {
-        this.gOy = i;
-        aj.c(this.gOv, this.gOy);
-        this.gOv.setVisibility(0);
+        this.gOj = i;
+        aj.c(this.gOg, this.gOj);
+        this.gOg.setVisibility(0);
     }
 
     public void setTipImageListener(View.OnClickListener onClickListener) {
-        this.gOv.setOnClickListener(onClickListener);
+        this.gOg.setOnClickListener(onClickListener);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.gOu.setText(str);
+        this.gOf.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.gOu.setText(i);
+            this.gOf.setText(i);
         }
     }
 
@@ -72,43 +72,43 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.gOw.setVisibility(0);
-        this.gOw.setText(str);
+        this.gOh.setVisibility(0);
+        this.gOh.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.gOw.setVisibility(0);
-            this.gOw.setText(i);
+            this.gOh.setVisibility(0);
+            this.gOh.setText(i);
         }
     }
 
     public void rK() {
-        this.gOx.rK();
+        this.gOi.rK();
     }
 
     public void rJ() {
-        this.gOx.rJ();
+        this.gOi.rJ();
     }
 
     public void rI() {
-        this.gOx.rI();
+        this.gOi.rI();
     }
 
     public void rH() {
-        this.gOx.rH();
+        this.gOi.rH();
     }
 
     public void setSwitchStateNoCallback(boolean z) {
         if (z) {
-            this.gOx.rH();
+            this.gOi.rH();
         } else {
-            this.gOx.rI();
+            this.gOi.rI();
         }
     }
 
     public boolean nv() {
-        return this.gOx.nv();
+        return this.gOi.nv();
     }
 
     public void setLineVisibility(boolean z) {
@@ -120,21 +120,21 @@ public class MsgSettingItemView extends LinearLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.gOx;
+        return this.gOi;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.gOx.setOnSwitchStateChangeListener(aVar);
+        this.gOi.setOnSwitchStateChangeListener(aVar);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void d(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().aQ(i == 1);
         tbPageContext.getLayoutMode().aM(this);
-        this.gOx.a(aj.fO(d.f.bg_switch_open), aj.fO(d.f.bg_switch_close), aj.fO(d.f.btn_handle));
-        aj.t(this, d.C0140d.cp_bg_line_d);
-        if (this.gOy != 0) {
-            aj.c(this.gOv, this.gOy);
+        this.gOi.a(aj.fO(d.f.bg_switch_open), aj.fO(d.f.bg_switch_close), aj.fO(d.f.btn_handle));
+        aj.t(this, d.C0141d.cp_bg_line_d);
+        if (this.gOj != 0) {
+            aj.c(this.gOg, this.gOj);
         }
     }
 }

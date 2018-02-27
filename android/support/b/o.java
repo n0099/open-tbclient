@@ -3,7 +3,7 @@ package android.support.b;
 class o extends t {
     @Override // android.support.b.t, android.support.b.q
     public q S(int i) {
-        this.uY.removeTarget(i);
+        this.uX.removeTarget(i);
         return this;
     }
 }

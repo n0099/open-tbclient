@@ -30,27 +30,27 @@ public class a extends com.baidu.tbadk.a.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0222a c0222a = new C0222a(str, str2, hashMap, dVar);
-                c0222a.setPriority(2);
-                c0222a.execute(new Object[0]);
+                C0223a c0223a = new C0223a(str, str2, hashMap, dVar);
+                c0223a.setPriority(2);
+                c0223a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0222a extends BdAsyncTask<Object, Integer, h> {
-        private String aHc;
-        private HashMap<String, String> eZC;
-        private d eZD;
+    private class C0223a extends BdAsyncTask<Object, Integer, h> {
+        private String aGR;
+        private HashMap<String, String> eZq;
+        private d eZr;
         private volatile x mNetwork = null;
         private String postUrl;
 
-        public C0222a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.aHc = str;
+        public C0223a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+            this.aGR = str;
             this.postUrl = str2;
-            this.eZC = hashMap;
-            this.eZD = dVar;
+            this.eZq = hashMap;
+            this.eZr = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,39 +61,39 @@ public class a extends com.baidu.tbadk.a.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.eZC.keySet();
+                Set<String> keySet = this.eZq.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.n(str, this.eZC.get(str));
+                            this.mNetwork.n(str, this.eZq.get(str));
                         }
                     }
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.Cz().Dw().mIsNeedTbs = true;
-                String Cb = this.mNetwork.Cb();
-                if (!this.mNetwork.Cz().Dx().CC()) {
-                    hVar.errorCode = this.mNetwork.CE();
-                    hVar.errorString = this.mNetwork.Cd();
-                } else {
+                this.mNetwork.Cy().Dv().mIsNeedTbs = true;
+                String Ca = this.mNetwork.Ca();
+                if (!this.mNetwork.Cy().Dw().CB()) {
                     hVar.errorCode = this.mNetwork.CD();
+                    hVar.errorString = this.mNetwork.Cc();
+                } else {
+                    hVar.errorCode = this.mNetwork.CC();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.Cz().Dx().isRequestSuccess() && !TextUtils.isEmpty(Cb)) {
-                    JSONObject jSONObject = new JSONObject(Cb);
+                if (this.mNetwork.Cy().Dw().isRequestSuccess() && !TextUtils.isEmpty(Ca)) {
+                    JSONObject jSONObject = new JSONObject(Ca);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
-                            hVar.aHd = true;
-                            hVar.aHc = this.aHc;
+                            hVar.aGS = true;
+                            hVar.aGR = this.aGR;
                             return hVar;
                         }
                         String str2 = "";
                         if (jSONObject.has("msg")) {
                             str2 = jSONObject.optString("msg", "");
                         }
-                        hVar.aHd = false;
-                        hVar.aHc = this.aHc;
+                        hVar.aGS = false;
+                        hVar.aGR = this.aGR;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -101,8 +101,8 @@ public class a extends com.baidu.tbadk.a.a {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            hVar.aHd = false;
-            hVar.aHc = this.aHc;
+            hVar.aGS = false;
+            hVar.aGR = this.aGR;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.eZD != null) {
-                this.eZD.ak(hVar);
+            if (this.eZr != null) {
+                this.eZr.ak(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.eZD != null) {
-                this.eZD.ak(null);
+            if (this.eZr != null) {
+                this.eZr.ak(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.a.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.eZD != null) {
-                this.eZD.ak(null);
+            if (this.eZr != null) {
+                this.eZr.ak(null);
             }
         }
     }

@@ -44,9 +44,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b aCh;
+    private static volatile b aBY;
     private final Context a;
-    private PublicKey aCg;
+    private PublicKey aBX;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -252,7 +252,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.aCg);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.aBX);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -282,7 +282,7 @@ public final class c {
             th = th;
         }
         try {
-            this.aCg = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.aBX = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -392,16 +392,16 @@ public final class c {
     }
 
     private static b aw(Context context) {
-        if (aCh == null) {
+        if (aBY == null) {
             synchronized (b.class) {
-                if (aCh == null) {
+                if (aBY == null) {
                     SystemClock.uptimeMillis();
-                    aCh = new c(context).uz();
+                    aBY = new c(context).uz();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return aCh;
+        return aBY;
     }
 
     public static String b(Context context) {

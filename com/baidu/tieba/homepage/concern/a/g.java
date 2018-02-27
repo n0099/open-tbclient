@@ -16,25 +16,25 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<s>> {
-    public BdUniqueId bII;
-    private k cVI;
+    public BdUniqueId bIv;
+    private k cVw;
     public int cardShowType;
-    private s dLf;
-    private v egi;
+    private s dKT;
+    private v efW;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.cardShowType = 0;
-        this.egi = new v<be>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
+        this.efW = new v<be>() { // from class: com.baidu.tieba.homepage.concern.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, be beVar) {
-                k kVar = g.this.cVI;
-                if (view != null && g.this.dLf != null && g.this.dLf.getView() != null && kVar != null && kVar.WE() != null && !StringUtils.isNull(kVar.WE().getTid())) {
+                k kVar = g.this.cVw;
+                if (view != null && g.this.dKT != null && g.this.dKT.getView() != null && kVar != null && kVar.WD() != null && !StringUtils.isNull(kVar.WD().getTid())) {
                     ak akVar = new ak("c12352");
-                    if ((g.this.dLf.getHeaderImg() == null || view.getId() != g.this.dLf.getHeaderImg().getId()) && (g.this.dLf.akS() == null || view.getId() != g.this.dLf.akS().getId())) {
-                        if (view.getId() == g.this.dLf.cYC.getId()) {
+                    if ((g.this.dKT.getHeaderImg() == null || view.getId() != g.this.dKT.getHeaderImg().getId()) && (g.this.dKT.akR() == null || view.getId() != g.this.dKT.akR().getId())) {
+                        if (view.getId() == g.this.dKT.cYq.getId()) {
                             akVar.s("obj_locate", 3);
                         } else {
                             akVar.s("obj_locate", 2);
@@ -58,22 +58,22 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ad */
     public com.baidu.tieba.card.a.a<s> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dLf = new s(this.mPageContext);
-        this.dLf.j(this.bII);
-        this.dLf.eL(false);
-        this.dLf.setIsFromConcern(true);
-        this.dLf.b(this.egi);
-        this.dLf.currentPageType = 1;
-        if (this.dLf.cmk != null) {
-            this.dLf.cmk.aQE = 1;
+        this.dKT = new s(this.mPageContext);
+        this.dKT.j(this.bIv);
+        this.dKT.eL(false);
+        this.dKT.setIsFromConcern(true);
+        this.dKT.b(this.efW);
+        this.dKT.currentPageType = 1;
+        if (this.dKT.clX != null) {
+            this.dKT.clX.aQt = 1;
         }
-        if (this.dLf.cmX != null && this.dLf.cmX.bez != null) {
-            this.dLf.cmX.bez.aQE = 1;
+        if (this.dKT.cmL != null && this.dKT.cmL.bem != null) {
+            this.dKT.cmL.bem.aQt = 1;
         }
-        if (this.dLf.cYC != null) {
-            this.dLf.cYC.cZh = 1;
+        if (this.dKT.cYq != null) {
+            this.dKT.cYq.cYV = 1;
         }
-        return new com.baidu.tieba.card.a.a<>(this.dLf);
+        return new com.baidu.tieba.card.a.a<>(this.dKT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,18 +81,18 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<s> aVar) {
-        if (kVar == null || aVar == null || aVar.alY() == null) {
+        if (kVar == null || aVar == null || aVar.alX() == null) {
             return null;
         }
-        this.cVI = kVar;
+        this.cVw = kVar;
         kVar.lD(i + 1);
-        r.alt().a(kVar.kz("c12351"));
-        be beVar = new be(kVar.WE());
+        r.als().a(kVar.kz("c12351"));
+        be beVar = new be(kVar.WD());
         beVar.stType = "personalize_page";
-        beVar.aQC = 9;
-        beVar.aQD = 4;
-        beVar.threadData.aQz = this.cardShowType;
-        aVar.alY().a(beVar);
+        beVar.aQr = 9;
+        beVar.aQs = 4;
+        beVar.threadData.aQo = this.cardShowType;
+        aVar.alX().a(beVar);
         return aVar.getView();
     }
 }

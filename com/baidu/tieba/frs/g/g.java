@@ -19,9 +19,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class g {
-    private com.baidu.tieba.NEGFeedBack.c cmv;
-    private ViewGroup cmw;
-    private c.a cmx = new c.a() { // from class: com.baidu.tieba.frs.g.g.1
+    private com.baidu.tieba.NEGFeedBack.c cmj;
+    private ViewGroup cmk;
+    private c.a cml = new c.a() { // from class: com.baidu.tieba.frs.g.g.1
         @Override // com.baidu.tieba.NEGFeedBack.c.a
         public void a(ah ahVar) {
             TiebaStatic.log(new ak("c11973").ab(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ab("tid", ahVar.getTid()).ab("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -50,64 +50,64 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.cmw = viewGroup;
+        this.cmk = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean aAu() {
-        return this.cmv != null && this.cmv.getVisibility() == 0;
+    public boolean aAt() {
+        return this.cmj != null && this.cmj.getVisibility() == 0;
     }
 
     public void W(bd bdVar) {
         int i = 0;
-        if (bdVar != null && this.mPageContext != null && this.cmw != null) {
+        if (bdVar != null && this.mPageContext != null && this.cmk != null) {
             boolean z = (bdVar.zn() == null || bdVar.zn().getUserId() == null || !bdVar.zn().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (bdVar.An() && bdVar.yo() != null && !z) {
-                if (this.cmv == null) {
-                    this.cmv = new com.baidu.tieba.NEGFeedBack.c(this.mPageContext);
-                    this.cmv.setUniqueId(this.mBdUniqueId);
-                    this.cmv.setId(d.g.negative_feedback_view);
-                    this.cmv.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.j.bad_quality), "", ""});
-                    this.cmv.setEventCallback(this.cmx);
-                    this.cmv.a(this.cmw, l.t(this.mPageContext.getPageActivity(), d.e.tbds120), 0);
-                    this.cmv.onChangeSkinType();
+                if (this.cmj == null) {
+                    this.cmj = new com.baidu.tieba.NEGFeedBack.c(this.mPageContext);
+                    this.cmj.setUniqueId(this.mBdUniqueId);
+                    this.cmj.setId(d.g.negative_feedback_view);
+                    this.cmj.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.j.bad_quality), "", ""});
+                    this.cmj.setEventCallback(this.cml);
+                    this.cmj.a(this.cmk, l.t(this.mPageContext.getPageActivity(), d.e.tbds120), 0);
+                    this.cmj.onChangeSkinType();
                 }
-                if (this.cmv.getVisibility() != 0) {
-                    this.cmv.setVisibility(0);
+                if (this.cmj.getVisibility() != 0) {
+                    this.cmj.setVisibility(0);
                 }
                 ah ahVar = new ah();
                 ahVar.cV(bdVar.getTid());
                 ahVar.setFid(bdVar.getFid());
                 ahVar.a(bdVar.yo());
-                this.cmv.setData(ahVar);
+                this.cmj.setData(ahVar);
             } else {
-                if (this.cmv != null && this.cmv.getVisibility() != 8) {
-                    this.cmv.setVisibility(8);
+                if (this.cmj != null && this.cmj.getVisibility() != 8) {
+                    this.cmj.setVisibility(8);
                 }
                 i = l.t(this.mPageContext.getPageActivity(), d.e.ds32);
             }
-            if (this.cmw.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmw.getLayoutParams();
+            if (this.cmk.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cmk.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.cmw.setLayoutParams(layoutParams);
+                this.cmk.setLayoutParams(layoutParams);
             }
-            if (this.cmw.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cmw.getLayoutParams();
+            if (this.cmk.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cmk.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.cmw.setLayoutParams(layoutParams2);
+                this.cmk.setLayoutParams(layoutParams2);
             }
-            if (this.cmv != null) {
-                this.cmv.Ta();
+            if (this.cmj != null) {
+                this.cmj.SZ();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.cmv != null) {
-            this.cmv.onChangeSkinType();
+        if (this.cmj != null) {
+            this.cmj.onChangeSkinType();
         }
     }
 }

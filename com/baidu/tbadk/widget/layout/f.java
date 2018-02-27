@@ -7,20 +7,20 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int bJs;
-    private int bJt;
-    private double bJu;
+    private int bJf;
+    private int bJg;
+    private double bJh;
 
     public f() {
-        this.bJs = 3;
-        this.bJt = this.bJs;
+        this.bJf = 3;
+        this.bJg = this.bJf;
     }
 
     public f(int i) {
-        this.bJs = 3;
-        this.bJt = this.bJs;
+        this.bJf = 3;
+        this.bJg = this.bJf;
         if (i > 0) {
-            this.bJt = i;
+            this.bJg = i;
         }
     }
 
@@ -41,15 +41,15 @@ public class f implements c {
         }
         int D = v.D(list);
         if (D >= 2) {
-            bVar.setImageMaxChildCount(this.bJs);
+            bVar.setImageMaxChildCount(this.bJf);
             bVar.setCanCenterStart(false);
         } else {
             bVar.setImageMaxChildCount(-1);
             bVar.setCanCenterStart(true);
         }
-        int i3 = D - this.bJt;
+        int i3 = D - this.bJg;
         if (i3 > 0) {
-            i2 = this.bJt + i;
+            i2 = this.bJg + i;
             List<MediaData> b = v.b(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.c(b, i, true);
@@ -67,13 +67,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.bJu > 0.0d) {
-            return this.bJu;
+        if (this.bJh > 0.0d) {
+            return this.bJh;
         }
         return 0.6666666666666666d;
     }
 
     public void h(double d) {
-        this.bJu = d;
+        this.bJh = d;
     }
 }

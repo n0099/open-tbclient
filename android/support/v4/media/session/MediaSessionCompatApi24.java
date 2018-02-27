@@ -42,22 +42,22 @@ class MediaSessionCompatApi24 {
 
         @Override // android.media.session.MediaSession.Callback
         public void onPrepare() {
-            ((Callback) this.zZ).onPrepare();
+            ((Callback) this.zU).onPrepare();
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPrepareFromMediaId(String str, Bundle bundle) {
-            ((Callback) this.zZ).onPrepareFromMediaId(str, bundle);
+            ((Callback) this.zU).onPrepareFromMediaId(str, bundle);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPrepareFromSearch(String str, Bundle bundle) {
-            ((Callback) this.zZ).onPrepareFromSearch(str, bundle);
+            ((Callback) this.zU).onPrepareFromSearch(str, bundle);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPrepareFromUri(Uri uri, Bundle bundle) {
-            ((Callback) this.zZ).onPrepareFromUri(uri, bundle);
+            ((Callback) this.zU).onPrepareFromUri(uri, bundle);
         }
     }
 }

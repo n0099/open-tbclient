@@ -9,9 +9,9 @@ import java.security.InvalidParameterException;
 public abstract class c implements BdSwipeRefreshLayout.b {
     private Context mContext;
     private View mView = null;
-    private boolean auY = true;
-    private int auZ = 0;
-    private int ava = 0;
+    private boolean auP = true;
+    private int auQ = 0;
+    private int auR = 0;
 
     public abstract void aD(boolean z);
 
@@ -47,8 +47,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             aI(this.mView);
-            this.auZ = this.mView.getMeasuredHeight();
-            this.ava = this.mView.getMeasuredWidth();
+            this.auQ = this.mView.getMeasuredHeight();
+            this.auR = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -60,11 +60,11 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public boolean sx() {
-        return this.auY;
+        return this.auP;
     }
 
     public void aG(boolean z) {
-        this.auY = z;
+        this.auP = z;
     }
 
     private void aI(View view) {
@@ -84,7 +84,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public int sy() {
-        return this.auZ;
+        return this.auQ;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

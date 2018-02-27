@@ -1,17 +1,12 @@
 package com.baidu.tbadk.coreExtra.a;
 
-import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    AccountData BM();
+    void Fb();
 
-    void Fc();
-
-    List<AccountData> Fd();
-
-    void a(a.InterfaceC0093a interfaceC0093a);
+    List<AccountData> Fc();
 
     void f(AccountData accountData);
 

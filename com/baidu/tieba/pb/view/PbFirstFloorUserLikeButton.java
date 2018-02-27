@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation gcL;
+    private AlphaAnimation gcA;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -35,16 +35,16 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void bz(boolean z) {
-        this.bfw = z;
+        this.bfk = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.bfu);
+            setText(this.bfi);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.bfv);
+            setText(this.bfj);
             setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -58,14 +58,14 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
         if (z2) {
-            this.bfw = z;
+            this.bfk = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.gcL == null) {
-                        this.gcL = new AlphaAnimation(1.0f, 0.0f);
-                        this.gcL.setDuration(500L);
-                        this.gcL.setFillAfter(true);
-                        this.gcL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.gcA == null) {
+                        this.gcA = new AlphaAnimation(1.0f, 0.0f);
+                        this.gcA.setDuration(500L);
+                        this.gcA.setFillAfter(true);
+                        this.gcA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.gcL.cancel();
+                        this.gcA.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.gcL);
+                        startAnimation(this.gcA);
                         return;
                     } else {
                         setVisibility(8);
@@ -93,7 +93,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.bfv);
+                setText(this.bfj);
                 setPadding(getResources().getDimensionPixelSize(d.e.tbds18), 0, getResources().getDimensionPixelSize(d.e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -105,8 +105,8 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        aj.e(this, d.C0140d.cp_cont_g, 1);
-        if (this.bfw) {
+        aj.e(this, d.C0141d.cp_cont_g, 1);
+        if (this.bfk) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;

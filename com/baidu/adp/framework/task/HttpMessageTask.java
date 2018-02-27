@@ -96,8 +96,8 @@ public class HttpMessageTask extends MessageTask {
 
     /* loaded from: classes.dex */
     public static class a {
-        private String aeZ;
-        private boolean afa;
+        private String aeT;
+        private boolean aeU;
         private int mCmd;
 
         public int getCmd() {
@@ -105,11 +105,11 @@ public class HttpMessageTask extends MessageTask {
         }
 
         public String lb() {
-            return this.aeZ;
+            return this.aeT;
         }
 
         public boolean lc() {
-            return this.afa;
+            return this.aeU;
         }
     }
 }

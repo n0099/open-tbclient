@@ -11,20 +11,20 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends b {
-    private IUiListener gPw;
-    private final com.baidu.adp.lib.f.b<e.a> gPx;
+    private IUiListener gPh;
+    private final com.baidu.adp.lib.f.b<e.a> gPi;
 
     public c(Context context) {
         super(context);
-        this.gPx = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.gPi = new com.baidu.adp.lib.f.b<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             /* renamed from: a */
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.aZo == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.uX(2);
+                if (aVar == null || aVar.aZc == null || TextUtils.isEmpty(aVar.path)) {
+                    c.this.uY(2);
                 }
                 c.this.sl(aVar.path);
             }
@@ -33,27 +33,27 @@ public class c extends b {
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.uX(3);
+                c.this.uY(3);
             }
         };
-        this.gPp = 4;
+        this.gPa = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gPv == null) {
-            uX(2);
+        if (shareEntity == null || this.gPg == null) {
+            uY(2);
             if (bVar != null) {
                 bVar.cA(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            uX(2);
+            uY(2);
             if (bVar != null) {
                 bVar.cA(0, 2);
             }
         } else {
-            this.gPw = new b.a(bVar);
-            if (shareEntity.bsj()) {
+            this.gPh = new b.a(bVar);
+            if (shareEntity.bsi()) {
                 a(shareEntity);
             } else {
                 b(shareEntity);
@@ -66,7 +66,7 @@ public class c extends b {
         if (ri(ya)) {
             sl(ya);
         } else {
-            com.baidu.adp.lib.f.c.nm().a(ya, 34, this.gPx, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.nm().a(ya, 34, this.gPi, 0, 0, getPageId(), new Object[0]);
         }
     }
 
@@ -76,8 +76,8 @@ public class c extends b {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.gPw != null) {
-            this.gPv.shareToQQ((Activity) this.context, bundle, this.gPw);
+        if (this.gPh != null) {
+            this.gPg.shareToQQ((Activity) this.context, bundle, this.gPh);
         }
     }
 
@@ -92,8 +92,8 @@ public class c extends b {
             arrayList.add(shareEntity.ya());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.gPw != null) {
-            this.gPv.shareToQzone((Activity) this.context, bundle, this.gPw);
+        if (this.gPh != null) {
+            this.gPg.shareToQzone((Activity) this.context, bundle, this.gPh);
         }
     }
 }

@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.view.GodHeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class f extends r.a {
-    public TextView bNf;
-    public View bQs;
-    public GodHeadImageView dBn;
-    public TextView dBo;
-    public TextView dcf;
+    public TextView bMS;
+    public View bQf;
+    public GodHeadImageView dBb;
+    public TextView dBc;
+    public TextView dbT;
     public int mSkinType;
 
     public f(View view) {
         super(view);
         this.mSkinType = 3;
-        this.dBn = (GodHeadImageView) view.findViewById(d.g.item_head);
-        this.dBn.setShapeType(0);
-        this.dBn.setShowType(1);
-        this.dBn.setRadius(14);
-        this.bNf = (TextView) view.findViewById(d.g.item_manito_name);
-        this.dcf = (TextView) view.findViewById(d.g.item_manito_intro);
-        this.dBo = (TextView) view.findViewById(d.g.item_manito_fans);
-        this.bQs = view.findViewById(d.g.divider_line);
+        this.dBb = (GodHeadImageView) view.findViewById(d.g.item_head);
+        this.dBb.setShapeType(0);
+        this.dBb.setShowType(1);
+        this.dBb.setRadius(14);
+        this.bMS = (TextView) view.findViewById(d.g.item_manito_name);
+        this.dbT = (TextView) view.findViewById(d.g.item_manito_intro);
+        this.dBc = (TextView) view.findViewById(d.g.item_manito_fans);
+        this.bQf = view.findViewById(d.g.divider_line);
     }
 }

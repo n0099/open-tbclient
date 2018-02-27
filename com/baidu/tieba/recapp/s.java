@@ -30,9 +30,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.aKG;
-        if (StringUtils.isNull(str) && advertAppInfo.aKR != null) {
-            str = advertAppInfo.aKR.userName;
+        String str = advertAppInfo.aKv;
+        if (StringUtils.isNull(str) && advertAppInfo.aKG != null) {
+            str = advertAppInfo.aKG.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -48,17 +48,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.KM().b(advertAppInfo);
-        String str2 = advertAppInfo.aKG;
+        com.baidu.tbadk.distribute.a.KL().b(advertAppInfo);
+        String str2 = advertAppInfo.aKv;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bol().a(advertAppInfo.aKK, advertAppInfo.aKJ, str2, i, com.baidu.tieba.recapp.download.d.rL(advertAppInfo.aKK).intValue(), null, true, false, true, advertAppInfo.aKR.userPortrait, downloadStaticsData, advertAppInfo.aKR.userName);
+        com.baidu.tieba.recapp.download.d.bok().a(advertAppInfo.aKz, advertAppInfo.aKy, str2, i, com.baidu.tieba.recapp.download.d.rL(advertAppInfo.aKz).intValue(), null, true, false, true, advertAppInfo.aKG.userPortrait, downloadStaticsData, advertAppInfo.aKG.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bol().i(advertAppInfo.aKJ, advertAppInfo.aKK, true);
+        com.baidu.tieba.recapp.download.d.bok().i(advertAppInfo.aKy, advertAppInfo.aKz, true);
     }
 
     public static final void ao(Context context, String str) {
@@ -166,7 +166,7 @@ public class s {
             tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.s.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void q(String str2, boolean z) {
+                public void p(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -186,11 +186,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bof().sendFRS(z, str, str2, str3, list, str4);
+        r.boe().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bof().a(z, str, str2, str3, str4, list, str5);
+        r.boe().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int f(TbPageContext tbPageContext, String str) {
@@ -209,15 +209,15 @@ public class s {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h boc = r.bof().boc();
-        if (boc == null) {
+        h bob = r.boe().bob();
+        if (bob == null) {
             return false;
         }
-        if (boc.ih(str)) {
-            boc.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bob.ih(str)) {
+            bob.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return boc.c(tbPageContext.getPageActivity(), strArr);
+        return bob.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int ap(Context context, String str) {
@@ -236,14 +236,14 @@ public class s {
 
     private static boolean aq(Context context, String str) {
         String[] strArr = {str};
-        h boc = r.bof().boc();
-        if (boc == null) {
+        h bob = r.boe().bob();
+        if (bob == null) {
             return false;
         }
-        if (boc.ih(str)) {
-            boc.a(context, strArr, true);
+        if (bob.ih(str)) {
+            bob.a(context, strArr, true);
             return true;
         }
-        return boc.c(context, strArr);
+        return bob.c(context, strArr);
     }
 }

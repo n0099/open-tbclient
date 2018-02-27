@@ -40,14 +40,14 @@ public class b extends g<bd, c> implements com.baidu.tieba.frs.e.c {
         cVar.mTitle.setText(bdVar.getTitle());
         com.baidu.tieba.tbadkCore.util.e readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.sW(bdVar.getId())) {
-            aj.e(cVar.mTitle, d.C0140d.cp_cont_c, 1);
+            aj.e(cVar.mTitle, d.C0141d.cp_cont_c, 1);
         }
         if (bdVar.zi() == 1) {
             bitmapDrawable = (BitmapDrawable) aj.getDrawable(d.f.icon_top);
         } else {
             bitmapDrawable = bdVar.zi() == 2 ? (BitmapDrawable) aj.getDrawable(d.f.icon_notice) : null;
         }
-        aj.s(cVar.dNj, d.f.frs_top_item_bg);
+        aj.s(cVar.dMX, d.f.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

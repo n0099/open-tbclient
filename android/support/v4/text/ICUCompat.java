@@ -4,7 +4,7 @@ import android.os.Build;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class ICUCompat {
-    private static final a Bd;
+    private static final a AY;
 
     /* loaded from: classes2.dex */
     interface a {
@@ -47,16 +47,16 @@ public final class ICUCompat {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            Bd = new d();
+            AY = new d();
         } else if (i >= 14) {
-            Bd = new c();
+            AY = new c();
         } else {
-            Bd = new b();
+            AY = new b();
         }
     }
 
     public static String maximizeAndGetScript(Locale locale) {
-        return Bd.maximizeAndGetScript(locale);
+        return AY.maximizeAndGetScript(locale);
     }
 
     private ICUCompat() {

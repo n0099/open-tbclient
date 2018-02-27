@@ -26,7 +26,7 @@ public class d extends MenuItemWrapperICS {
 
     /* loaded from: classes2.dex */
     class a extends MenuItemWrapperICS.a implements ActionProvider.VisibilityListener {
-        ActionProvider.VisibilityListener JA;
+        ActionProvider.VisibilityListener Jv;
 
         public a(Context context, android.view.ActionProvider actionProvider) {
             super(context, actionProvider);
@@ -34,28 +34,28 @@ public class d extends MenuItemWrapperICS {
 
         @Override // android.support.v4.view.ActionProvider
         public View onCreateActionView(MenuItem menuItem) {
-            return this.Jx.onCreateActionView(menuItem);
+            return this.Js.onCreateActionView(menuItem);
         }
 
         @Override // android.support.v4.view.ActionProvider
         public boolean overridesItemVisibility() {
-            return this.Jx.overridesItemVisibility();
+            return this.Js.overridesItemVisibility();
         }
 
         @Override // android.support.v4.view.ActionProvider
         public boolean isVisible() {
-            return this.Jx.isVisible();
+            return this.Js.isVisible();
         }
 
         @Override // android.support.v4.view.ActionProvider
         public void refreshVisibility() {
-            this.Jx.refreshVisibility();
+            this.Js.refreshVisibility();
         }
 
         @Override // android.support.v4.view.ActionProvider
         public void setVisibilityListener(ActionProvider.VisibilityListener visibilityListener) {
-            this.JA = visibilityListener;
-            android.view.ActionProvider actionProvider = this.Jx;
+            this.Jv = visibilityListener;
+            android.view.ActionProvider actionProvider = this.Js;
             if (visibilityListener == null) {
                 this = null;
             }
@@ -64,8 +64,8 @@ public class d extends MenuItemWrapperICS {
 
         @Override // android.view.ActionProvider.VisibilityListener
         public void onActionProviderVisibilityChanged(boolean z) {
-            if (this.JA != null) {
-                this.JA.onActionProviderVisibilityChanged(z);
+            if (this.Jv != null) {
+                this.Jv.onActionProviderVisibilityChanged(z);
             }
         }
     }

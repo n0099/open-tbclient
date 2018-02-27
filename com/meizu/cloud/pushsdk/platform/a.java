@@ -41,7 +41,7 @@ public final class a {
     }
 
     public static HostnameVerifier b() {
-        return new C0270a();
+        return new C0271a();
     }
 
     /* loaded from: classes2.dex */
@@ -65,8 +65,8 @@ public final class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.platform.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0270a implements HostnameVerifier {
-        private C0270a() {
+    private static class C0271a implements HostnameVerifier {
+        private C0271a() {
         }
 
         @Override // javax.net.ssl.HostnameVerifier

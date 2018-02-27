@@ -11,26 +11,26 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout bCE;
+    private LinearLayout bCr;
     private Context context;
-    private float ghP;
+    private float ghE;
     private View mContentView;
 
     public e(Context context) {
         super(context, 16973835);
-        this.ghP = 0.3f;
+        this.ghE = 0.3f;
         this.context = context;
     }
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.ghP = 0.3f;
+        this.ghE = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
     public void aC(float f) {
-        this.ghP = f;
+        this.ghE = f;
     }
 
     @Override // android.app.Dialog
@@ -47,30 +47,30 @@ public class e extends Dialog {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(d.C0140d.transparent);
-        getWindow().setDimAmount(this.ghP);
+        getWindow().setBackgroundDrawableResource(d.C0141d.transparent);
+        getWindow().setDimAmount(this.ghE);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.bCE = (LinearLayout) findViewById(d.g.root_view);
-        this.bCE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.bCr = (LinearLayout) findViewById(d.g.root_view);
+        this.bCr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
         if (this.mContentView != null) {
-            this.bCE.removeAllViews();
+            this.bCr.removeAllViews();
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.bCE.addView(this.mContentView);
+                    this.bCr.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.bCE.addView(this.mContentView);
+            this.bCr.addView(this.mContentView);
         }
     }
 }

@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0142a cop;
-    private float dnw;
-    private float dnx;
-    private float dny;
-    private float dnz;
+    private InterfaceC0143a cod;
+    private float dnk;
+    private float dnl;
+    private float dnm;
+    private float dnn;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.e.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.cop.aY(i, i2);
+                    a.this.cod.aY(i, i2);
                     return true;
                 case 1:
-                    a.this.cop.aZ(i, i2);
+                    a.this.cod.aZ(i, i2);
                     return true;
                 case 2:
-                    a.this.cop.ba(i, i2);
+                    a.this.cod.ba(i, i2);
                     return true;
                 default:
                     return false;
@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0142a {
+    public interface InterfaceC0143a {
         void aY(int i, int i2);
 
         void aZ(int i, int i2);
@@ -42,41 +42,41 @@ public class a {
         void ba(int i, int i2);
     }
 
-    public void a(InterfaceC0142a interfaceC0142a) {
-        this.cop = interfaceC0142a;
+    public void a(InterfaceC0143a interfaceC0143a) {
+        this.cod = interfaceC0143a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.dny = motionEvent.getRawX();
-                this.dnz = motionEvent.getRawY();
+                this.dnm = motionEvent.getRawX();
+                this.dnn = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
-                if (this.cop != null) {
-                    int i = (int) (this.dnw - this.dny);
-                    if (Math.abs(i) >= Math.abs((int) (this.dnx - this.dnz))) {
-                        bo(i, (int) this.dny);
+                if (this.cod != null) {
+                    int i = (int) (this.dnk - this.dnm);
+                    if (Math.abs(i) >= Math.abs((int) (this.dnl - this.dnn))) {
+                        bo(i, (int) this.dnm);
                     }
                 }
-                this.dny = 0.0f;
-                this.dnz = 0.0f;
+                this.dnm = 0.0f;
+                this.dnn = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.dnw);
-                int i3 = (int) (rawY - this.dnx);
-                if (this.cop != null) {
+                int i2 = (int) (rawX - this.dnk);
+                int i3 = (int) (rawY - this.dnl);
+                if (this.cod != null) {
                     if (i3 > 0) {
                         bm(i2, i3);
                     } else {
                         bn(i2, i3);
                     }
                 }
-                this.dnw = rawX;
-                this.dnx = rawY;
+                this.dnk = rawX;
+                this.dnl = rawY;
                 return true;
             default:
                 return true;

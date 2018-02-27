@@ -17,31 +17,31 @@ import com.baidu.tieba.im.model.GroupLevelModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
-    private GroupLevelModel eDO;
-    private k eDP;
-    private com.baidu.tbadk.core.dialog.a eDQ;
-    private a.b eDR = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
+    private GroupLevelModel eDC;
+    private k eDD;
+    private com.baidu.tbadk.core.dialog.a eDE;
+    private a.b eDF = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             RequestUpgradeMemberGroupMessage requestUpgradeMemberGroupMessage = new RequestUpgradeMemberGroupMessage();
-            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.eDO.getGroupId());
+            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.eDC.getGroupId());
             requestUpgradeMemberGroupMessage.setUpOrDown(true);
             GroupLevelActivity.this.sendMessage(requestUpgradeMemberGroupMessage);
             aVar.dismiss();
         }
     };
-    private a.b eDS = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
+    private a.b eDG = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
         }
     };
-    private com.baidu.adp.framework.listener.c evb = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
+    private com.baidu.adp.framework.listener.c euP = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             GroupLevelInfo.LevelInfo levelInfo;
-            GroupLevelActivity.this.eDP.hx(false);
+            GroupLevelActivity.this.eDD.hx(false);
             if (socketResponsedMessage == null) {
                 GroupLevelActivity.this.showToast(d.j.neterror);
             } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
@@ -69,22 +69,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
                         int activeDay = groupLevelInfo.getActiveDay();
                         int thresholdDay = levelInfo.getThresholdDay();
                         String intro = levelInfo.getIntro();
-                        GroupLevelActivity.this.eDP.L(grade, groupLevelInfo.isMemGroup());
-                        GroupLevelActivity.this.eDP.aIU().setText(intro);
-                        GroupLevelActivity.this.eDP.Z(grade, activeDay, thresholdDay);
-                        GroupLevelActivity.this.eDP.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                        TextView[] aIS = GroupLevelActivity.this.eDP.aIS();
+                        GroupLevelActivity.this.eDD.L(grade, groupLevelInfo.isMemGroup());
+                        GroupLevelActivity.this.eDD.aIT().setText(intro);
+                        GroupLevelActivity.this.eDD.Z(grade, activeDay, thresholdDay);
+                        GroupLevelActivity.this.eDD.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
+                        TextView[] aIR = GroupLevelActivity.this.eDD.aIR();
                         for (int i = 1; i < levelInfos.size(); i++) {
                             int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                            if (i <= aIS.length) {
-                                aIS[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
+                            if (i <= aIR.length) {
+                                aIR[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
                             }
                         }
-                        TextView[] aIT = GroupLevelActivity.this.eDP.aIT();
+                        TextView[] aIS = GroupLevelActivity.this.eDD.aIS();
                         for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                             int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                            if (i2 <= aIT.length) {
-                                aIT[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
+                            if (i2 <= aIS.length) {
+                                aIS[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
                             }
                         }
                     }
@@ -115,23 +115,23 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.eDP.hx(true);
-        this.eDO.sendMessage(this.eDO.getGroupId(), getUniqueId());
+        this.eDD.hx(true);
+        this.eDC.sendMessage(this.eDC.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.eDO.saveInstance(bundle);
+        this.eDC.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eDP.aIQ()) {
+        if (view == this.eDD.aIP()) {
             closeActivity();
-        } else if (view == this.eDP.aIR()) {
+        } else if (view == this.eDD.aIQ()) {
             TiebaStatic.log("im_group_level_upgrade_mem");
-            this.eDQ.AU();
+            this.eDE.AU();
         }
     }
 
@@ -139,7 +139,7 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eDP.onChangeSkinType(i);
+        this.eDD.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,22 +149,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     }
 
     public void initData(Bundle bundle) {
-        this.eDO = new GroupLevelModel(this);
+        this.eDC = new GroupLevelModel(this);
         if (bundle == null) {
-            this.eDO.initWithIntent(getIntent());
+            this.eDC.initWithIntent(getIntent());
         } else {
-            this.eDO.initWithBundle(bundle);
+            this.eDC.initWithBundle(bundle);
         }
-        registerListener(103006, this.evb);
-        registerListener(103105, this.evb);
+        registerListener(103006, this.euP);
+        registerListener(103105, this.euP);
     }
 
     private void t(Bundle bundle) {
-        this.eDP = new k(this, this.eDO.isMem());
-        this.eDQ = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.eDQ.fb(d.j.upgrade_mem_group_if_up);
-        this.eDQ.a(d.j.confirm, this.eDR);
-        this.eDQ.b(d.j.cancel, this.eDS);
-        this.eDQ.b(getPageContext());
+        this.eDD = new k(this, this.eDC.isMem());
+        this.eDE = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.eDE.fb(d.j.upgrade_mem_group_if_up);
+        this.eDE.a(d.j.confirm, this.eDF);
+        this.eDE.b(d.j.cancel, this.eDG);
+        this.eDE.b(getPageContext());
     }
 }

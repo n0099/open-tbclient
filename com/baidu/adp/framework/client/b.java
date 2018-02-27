@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.acl.dispatchResponsedMessage(customResponsedMessage);
+                    this.acf.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
                 return;
@@ -49,7 +49,7 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.acl.dispatchResponsedMessage(customResponsedMessage);
+                    this.acf.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
                 new a(customMessage, customMessageTask).execute(new String[0]);
@@ -61,16 +61,16 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
-        private CustomMessage acm;
-        private CustomMessageTask acn;
+        private CustomMessage acg;
+        private CustomMessageTask ach;
 
         public CustomMessage jV() {
-            return this.acm;
+            return this.acg;
         }
 
         public a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-            this.acm = null;
-            this.acn = null;
+            this.acg = null;
+            this.ach = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             setTag(customMessage.getTag());
@@ -79,8 +79,8 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
             if (customMessageTask.isImme()) {
                 setPriority(4);
             }
-            this.acm = customMessage;
-            this.acn = customMessageTask;
+            this.acg = customMessage;
+            this.ach = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */
         public CustomResponsedMessage doInBackground(String... strArr) {
-            if (this.acn == null) {
+            if (this.ach == null) {
                 return null;
             }
-            if (this.acn.getRunnable() == null) {
-                BdLog.e("CustomTask :" + this.acn.getClass().getName() + "did not contain a runnable!!");
+            if (this.ach.getRunnable() == null) {
+                BdLog.e("CustomTask :" + this.ach.getClass().getName() + "did not contain a runnable!!");
                 return null;
             }
             try {
-                return this.acn.getRunnable().run(this.acm);
+                return this.ach.getRunnable().run(this.acg);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -109,11 +109,11 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
         /* renamed from: a */
         public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                customResponsedMessage.setOrginalMessage(this.acm);
-                b.this.acl.dispatchResponsedMessage(customResponsedMessage);
+                customResponsedMessage.setOrginalMessage(this.acg);
+                b.this.acf.dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
-            BdLog.e("CustomTask :" + this.acn.getClass().getName() + "returns a NULL!!");
+            BdLog.e("CustomTask :" + this.ach.getClass().getName() + "returns a NULL!!");
         }
     }
 

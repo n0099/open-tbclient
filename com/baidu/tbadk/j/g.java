@@ -12,102 +12,102 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends a {
-    protected TbImageView bxI;
-    protected TextView bxJ;
-    protected TextView bxK;
-    protected TextView bxL;
-    private LinearLayout bxM;
+    protected TbImageView bxv;
+    protected TextView bxw;
+    protected TextView bxx;
+    protected TextView bxy;
+    private LinearLayout bxz;
 
     public TextView getTitleView() {
-        return this.bxK;
+        return this.bxx;
     }
 
-    public TextView MQ() {
-        return this.bxL;
+    public TextView MP() {
+        return this.bxy;
     }
 
     public g(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(d.h.net_refresh_view_layout, (ViewGroup) null));
-        this.bxI = (TbImageView) this.bxA.findViewById(d.g.net_refresh_image);
-        this.bxJ = (TextView) this.bxA.findViewById(d.g.net_refresh_desc);
-        this.bxK = (TextView) this.bxA.findViewById(d.g.net_refresh_title);
-        this.bxM = (LinearLayout) this.bxA.findViewById(d.g.net_refresh_info_layout);
-        this.bxL = (TextView) this.bxA.findViewById(d.g.net_refresh_button);
-        this.bxL.setOnClickListener(onClickListener);
-        this.bxA.setOnClickListener(null);
+        this.bxv = (TbImageView) this.bxn.findViewById(d.g.net_refresh_image);
+        this.bxw = (TextView) this.bxn.findViewById(d.g.net_refresh_desc);
+        this.bxx = (TextView) this.bxn.findViewById(d.g.net_refresh_title);
+        this.bxz = (LinearLayout) this.bxn.findViewById(d.g.net_refresh_info_layout);
+        this.bxy = (TextView) this.bxn.findViewById(d.g.net_refresh_button);
+        this.bxy.setOnClickListener(onClickListener);
+        this.bxn.setOnClickListener(null);
     }
 
     public void gW(String str) {
         if (str == null) {
-            this.bxJ.setVisibility(8);
+            this.bxw.setVisibility(8);
             return;
         }
-        this.bxJ.setVisibility(0);
-        this.bxJ.setText(str);
+        this.bxw.setVisibility(0);
+        this.bxw.setText(str);
     }
 
     public void ia(int i) {
-        ((LinearLayout.LayoutParams) this.bxM.getLayoutParams()).topMargin = i;
+        ((LinearLayout.LayoutParams) this.bxz.getLayoutParams()).topMargin = i;
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.bxK.setText(str);
+            this.bxx.setText(str);
         }
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.bxL.setText(str);
+            this.bxy.setText(str);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.j.a
+    public void MJ() {
+        super.MJ();
+        onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.j.a
     public void MK() {
         super.MK();
-        onChangeSkinType();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.j.a
-    public void ML() {
-        super.ML();
-        this.bxI.setImageResource(0);
+        this.bxv.setImageResource(0);
     }
 
     public void ib(int i) {
-        ViewGroup.LayoutParams layoutParams = this.bxI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bxv.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.bxI.setLayoutParams(marginLayoutParams);
+            this.bxv.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void MR() {
-        this.bxL.setVisibility(0);
-        this.bxK.setVisibility(0);
-        aj.e(this.bxJ, d.C0140d.cp_cont_d, 1);
+    public void MQ() {
+        this.bxy.setVisibility(0);
+        this.bxx.setVisibility(0);
+        aj.e(this.bxw, d.C0141d.cp_cont_d, 1);
     }
 
-    public void MS() {
-        this.bxL.setVisibility(8);
-        this.bxK.setVisibility(8);
-        aj.e(this.bxJ, d.C0140d.cp_cont_b, 1);
+    public void MR() {
+        this.bxy.setVisibility(8);
+        this.bxx.setVisibility(8);
+        aj.e(this.bxw, d.C0141d.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        aj.c(this.bxI, d.f.net_refresh_emotion);
-        aj.b(this.bxJ, d.C0140d.cp_cont_d, 1, skinType);
-        aj.b(this.bxK, d.C0140d.cp_cont_b, 1, skinType);
-        aj.b(this.bxL, d.C0140d.cp_cont_g, 1, skinType);
-        aj.f(this.bxL, d.f.btn_appdownload, skinType);
-        aj.t(this.bxA, d.C0140d.cp_bg_line_d);
+        aj.c(this.bxv, d.f.net_refresh_emotion);
+        aj.b(this.bxw, d.C0141d.cp_cont_d, 1, skinType);
+        aj.b(this.bxx, d.C0141d.cp_cont_b, 1, skinType);
+        aj.b(this.bxy, d.C0141d.cp_cont_g, 1, skinType);
+        aj.f(this.bxy, d.f.btn_appdownload, skinType);
+        aj.t(this.bxn, d.C0141d.cp_bg_line_d);
     }
 
-    public View MP() {
-        return this.bxA;
+    public View MO() {
+        return this.bxn;
     }
 }

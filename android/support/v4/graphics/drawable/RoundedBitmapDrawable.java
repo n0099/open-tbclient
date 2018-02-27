@@ -15,18 +15,18 @@ import android.util.DisplayMetrics;
 /* loaded from: classes2.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
     final Bitmap mBitmap;
-    private float pA;
-    private int wB;
-    private final BitmapShader wC;
-    private boolean wH;
-    private int wI;
-    private int wJ;
+    private int mBitmapHeight;
+    private final BitmapShader mBitmapShader;
+    private int mBitmapWidth;
+    private float pz;
+    private int wA;
+    private boolean wE;
     private int mGravity = 119;
     private final Paint mPaint = new Paint(3);
-    private final Matrix wD = new Matrix();
-    final Rect wE = new Rect();
-    private final RectF wF = new RectF();
-    private boolean wG = true;
+    private final Matrix mShaderMatrix = new Matrix();
+    final Rect wB = new Rect();
+    private final RectF wC = new RectF();
+    private boolean wD = true;
 
     public final Paint getPaint() {
         return this.mPaint;
@@ -37,8 +37,8 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     private void di() {
-        this.wI = this.mBitmap.getScaledWidth(this.wB);
-        this.wJ = this.mBitmap.getScaledHeight(this.wB);
+        this.mBitmapWidth = this.mBitmap.getScaledWidth(this.wA);
+        this.mBitmapHeight = this.mBitmap.getScaledHeight(this.wA);
     }
 
     public void setTargetDensity(Canvas canvas) {
@@ -50,11 +50,11 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     public void setTargetDensity(int i) {
-        if (this.wB != i) {
+        if (this.wA != i) {
             if (i == 0) {
                 i = 160;
             }
-            this.wB = i;
+            this.wA = i;
             if (this.mBitmap != null) {
                 di();
             }
@@ -69,7 +69,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     public void setGravity(int i) {
         if (this.mGravity != i) {
             this.mGravity = i;
-            this.wG = true;
+            this.wD = true;
             invalidateSelf();
         }
     }
@@ -109,24 +109,24 @@ public abstract class RoundedBitmapDrawable extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void dj() {
-        if (this.wG) {
-            if (this.wH) {
-                int min = Math.min(this.wI, this.wJ);
-                a(this.mGravity, min, min, getBounds(), this.wE);
-                int min2 = Math.min(this.wE.width(), this.wE.height());
-                this.wE.inset(Math.max(0, (this.wE.width() - min2) / 2), Math.max(0, (this.wE.height() - min2) / 2));
-                this.pA = min2 * 0.5f;
+        if (this.wD) {
+            if (this.wE) {
+                int min = Math.min(this.mBitmapWidth, this.mBitmapHeight);
+                a(this.mGravity, min, min, getBounds(), this.wB);
+                int min2 = Math.min(this.wB.width(), this.wB.height());
+                this.wB.inset(Math.max(0, (this.wB.width() - min2) / 2), Math.max(0, (this.wB.height() - min2) / 2));
+                this.pz = min2 * 0.5f;
             } else {
-                a(this.mGravity, this.wI, this.wJ, getBounds(), this.wE);
+                a(this.mGravity, this.mBitmapWidth, this.mBitmapHeight, getBounds(), this.wB);
             }
-            this.wF.set(this.wE);
-            if (this.wC != null) {
-                this.wD.setTranslate(this.wF.left, this.wF.top);
-                this.wD.preScale(this.wF.width() / this.mBitmap.getWidth(), this.wF.height() / this.mBitmap.getHeight());
-                this.wC.setLocalMatrix(this.wD);
-                this.mPaint.setShader(this.wC);
+            this.wC.set(this.wB);
+            if (this.mBitmapShader != null) {
+                this.mShaderMatrix.setTranslate(this.wC.left, this.wC.top);
+                this.mShaderMatrix.preScale(this.wC.width() / this.mBitmap.getWidth(), this.wC.height() / this.mBitmap.getHeight());
+                this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);
+                this.mPaint.setShader(this.mBitmapShader);
             }
-            this.wG = false;
+            this.wD = false;
         }
     }
 
@@ -136,9 +136,9 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         if (bitmap != null) {
             dj();
             if (this.mPaint.getShader() == null) {
-                canvas.drawBitmap(bitmap, (Rect) null, this.wE, this.mPaint);
+                canvas.drawBitmap(bitmap, (Rect) null, this.wB, this.mPaint);
             } else {
-                canvas.drawRoundRect(this.wF, this.pA, this.pA, this.mPaint);
+                canvas.drawRoundRect(this.wC, this.pz, this.pz, this.mPaint);
             }
         }
     }
@@ -168,11 +168,11 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     public void setCircular(boolean z) {
-        this.wH = z;
-        this.wG = true;
+        this.wE = z;
+        this.wD = true;
         if (z) {
             dk();
-            this.mPaint.setShader(this.wC);
+            this.mPaint.setShader(this.mBitmapShader);
             invalidateSelf();
             return;
         }
@@ -180,22 +180,22 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     private void dk() {
-        this.pA = Math.min(this.wJ, this.wI) / 2;
+        this.pz = Math.min(this.mBitmapHeight, this.mBitmapWidth) / 2;
     }
 
     public boolean isCircular() {
-        return this.wH;
+        return this.wE;
     }
 
     public void setCornerRadius(float f) {
-        if (this.pA != f) {
-            this.wH = false;
+        if (this.pz != f) {
+            this.wE = false;
             if (q(f)) {
-                this.mPaint.setShader(this.wC);
+                this.mPaint.setShader(this.mBitmapShader);
             } else {
                 this.mPaint.setShader(null);
             }
-            this.pA = f;
+            this.pz = f;
             invalidateSelf();
         }
     }
@@ -203,47 +203,47 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        if (this.wH) {
+        if (this.wE) {
             dk();
         }
-        this.wG = true;
+        this.wD = true;
     }
 
     public float getCornerRadius() {
-        return this.pA;
+        return this.pz;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.wI;
+        return this.mBitmapWidth;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.wJ;
+        return this.mBitmapHeight;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
         Bitmap bitmap;
-        return (this.mGravity != 119 || this.wH || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || q(this.pA)) ? -3 : -1;
+        return (this.mGravity != 119 || this.wE || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || q(this.pz)) ? -3 : -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
-        this.wB = 160;
+        this.wA = 160;
         if (resources != null) {
-            this.wB = resources.getDisplayMetrics().densityDpi;
+            this.wA = resources.getDisplayMetrics().densityDpi;
         }
         this.mBitmap = bitmap;
         if (this.mBitmap != null) {
             di();
-            this.wC = new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            this.mBitmapShader = new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
             return;
         }
-        this.wJ = -1;
-        this.wI = -1;
-        this.wC = null;
+        this.mBitmapHeight = -1;
+        this.mBitmapWidth = -1;
+        this.mBitmapShader = null;
     }
 
     private static boolean q(float f) {

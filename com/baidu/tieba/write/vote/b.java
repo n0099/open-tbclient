@@ -5,5 +5,5 @@ public interface b {
 
     void xA(int i);
 
-    void xz(int i);
+    void xB(int i);
 }

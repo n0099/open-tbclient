@@ -6,13 +6,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 public class VerticalViewPager extends ViewPager {
-    private a hzD;
+    private a hzq;
     private float mLastX;
     private float mLastY;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bEA();
+        void bEz();
     }
 
     public VerticalViewPager(Context context) {
@@ -34,7 +34,7 @@ public class VerticalViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (this.hzD != null) {
+        if (this.hzq != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mLastX = motionEvent.getX();
@@ -42,7 +42,7 @@ public class VerticalViewPager extends ViewPager {
                     break;
                 case 1:
                     if (this.mLastX - motionEvent.getX() > 50.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY)) {
-                        this.hzD.bEA();
+                        this.hzq.bEz();
                         z = true;
                         break;
                     } else if (Math.abs(motionEvent.getY() - this.mLastY) > 10.0f || Math.abs(motionEvent.getX() - this.mLastX) > 10.0f) {
@@ -67,7 +67,7 @@ public class VerticalViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.hzD != null) {
+        if (this.hzq != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mLastX = motionEvent.getX();
@@ -75,7 +75,7 @@ public class VerticalViewPager extends ViewPager {
                     break;
                 case 1:
                     if (this.mLastX - motionEvent.getX() > 50.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY)) {
-                        this.hzD.bEA();
+                        this.hzq.bEz();
                         break;
                     }
                     break;
@@ -85,6 +85,6 @@ public class VerticalViewPager extends ViewPager {
     }
 
     public void setOnTouchDirectionListener(a aVar) {
-        this.hzD = aVar;
+        this.hzq = aVar;
     }
 }

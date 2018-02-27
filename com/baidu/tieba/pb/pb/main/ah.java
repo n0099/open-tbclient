@@ -19,103 +19,103 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ah extends r.a {
-    private TbPageContext aRR;
-    View.OnClickListener bbY;
+    private TbPageContext aRG;
+    View.OnClickListener bbM;
     public View devider;
-    public TextView fSC;
-    public TextView fSD;
-    public TbImageView fSE;
-    public TextView fSF;
-    public TextView fSG;
-    public TextView fSH;
-    public TextView fSI;
-    public TbImageView fSJ;
-    public LinearLayout fSK;
-    private com.baidu.tbadk.core.data.ao fSL;
+    private com.baidu.tbadk.core.data.ao fSA;
+    public TextView fSr;
+    public TextView fSs;
+    public TbImageView fSt;
+    public TextView fSu;
+    public TextView fSv;
+    public TextView fSw;
+    public TextView fSx;
+    public TbImageView fSy;
+    public LinearLayout fSz;
 
     public ah(TbPageContext tbPageContext, View view) {
         super(view);
-        this.bbY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ah.1
+        this.bbM = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ah.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (ay.ba(ah.this.aRR.getPageActivity()) && com.baidu.adp.lib.util.l.pa() && ah.this.fSL != null && !StringUtils.isNull(ah.this.fSL.aLV)) {
+                if (ay.ba(ah.this.aRG.getPageActivity()) && com.baidu.adp.lib.util.l.pa() && ah.this.fSA != null && !StringUtils.isNull(ah.this.fSA.aLK)) {
                     if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                        com.baidu.adp.lib.util.l.showToast(ah.this.aRR.getPageActivity(), d.j.book_plugin_not_install_tip);
-                    } else if (view2 == ah.this.fSI) {
-                        String str = ah.this.fSL.aLV;
+                        com.baidu.adp.lib.util.l.showToast(ah.this.aRG.getPageActivity(), d.j.book_plugin_not_install_tip);
+                    } else if (view2 == ah.this.fSx) {
+                        String str = ah.this.fSA.aLK;
                         com.baidu.tbadk.core.data.ak akVar = new com.baidu.tbadk.core.data.ak();
-                        akVar.pageContext = (TbPageContext) com.baidu.adp.base.i.ak(ah.this.aRR.getPageActivity());
-                        akVar.aLV = str;
+                        akVar.pageContext = (TbPageContext) com.baidu.adp.base.i.ak(ah.this.aRG.getPageActivity());
+                        akVar.aLK = str;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, akVar));
                         TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11387").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 6).ab("obj_locate", "0").ab("obj_param1", str));
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSL.aLV).ab("obj_locate", "3"));
-                    } else if (view2 == ah.this.fSK) {
-                        ah.this.aRR.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(ah.this.aRR.getPageActivity(), ah.this.fSL.aLV)));
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSL.aLV).ab("obj_locate", "1"));
-                    } else if (view2 == ah.this.fSD && !StringUtils.isNull(ah.this.fSL.aNG)) {
-                        com.baidu.tbadk.core.util.aw.Du().c((TbPageContext) com.baidu.adp.base.i.ak(ah.this.aRR.getPageActivity()), new String[]{ah.this.fSL.aNG});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSL.aLV).ab("obj_locate", "2"));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSA.aLK).ab("obj_locate", "3"));
+                    } else if (view2 == ah.this.fSz) {
+                        ah.this.aRG.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(ah.this.aRG.getPageActivity(), ah.this.fSA.aLK)));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSA.aLK).ab("obj_locate", "1"));
+                    } else if (view2 == ah.this.fSs && !StringUtils.isNull(ah.this.fSA.aNv)) {
+                        com.baidu.tbadk.core.util.aw.Dt().c((TbPageContext) com.baidu.adp.base.i.ak(ah.this.aRG.getPageActivity()), new String[]{ah.this.fSA.aNv});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11442").ab("obj_id", ah.this.fSA.aLK).ab("obj_locate", "2"));
                     }
                 }
             }
         };
-        this.aRR = tbPageContext;
-        this.fSC = (TextView) view.findViewById(d.g.textview_recommend_title);
-        this.fSD = (TextView) view.findViewById(d.g.textview_recommend_option_btn);
-        this.fSE = (TbImageView) view.findViewById(d.g.novel_cover);
-        this.fSF = (TextView) view.findViewById(d.g.novel_title);
-        this.fSG = (TextView) view.findViewById(d.g.novel_author);
-        this.fSH = (TextView) view.findViewById(d.g.novel_read_number);
-        this.fSI = (TextView) view.findViewById(d.g.novel_read_btn);
-        this.fSK = (LinearLayout) view.findViewById(d.g.novel_recommend_item_layout);
-        this.fSJ = (TbImageView) view.findViewById(d.g.novel_subscription);
-        this.fSJ.setDefaultResource(d.f.transparent_bg);
-        this.fSJ.setDefaultBgResource(d.f.transparent_bg);
-        this.fSJ.setDefaultErrorResource(d.f.transparent_bg);
+        this.aRG = tbPageContext;
+        this.fSr = (TextView) view.findViewById(d.g.textview_recommend_title);
+        this.fSs = (TextView) view.findViewById(d.g.textview_recommend_option_btn);
+        this.fSt = (TbImageView) view.findViewById(d.g.novel_cover);
+        this.fSu = (TextView) view.findViewById(d.g.novel_title);
+        this.fSv = (TextView) view.findViewById(d.g.novel_author);
+        this.fSw = (TextView) view.findViewById(d.g.novel_read_number);
+        this.fSx = (TextView) view.findViewById(d.g.novel_read_btn);
+        this.fSz = (LinearLayout) view.findViewById(d.g.novel_recommend_item_layout);
+        this.fSy = (TbImageView) view.findViewById(d.g.novel_subscription);
+        this.fSy.setDefaultResource(d.f.transparent_bg);
+        this.fSy.setDefaultBgResource(d.f.transparent_bg);
+        this.fSy.setDefaultErrorResource(d.f.transparent_bg);
         this.devider = view.findViewById(d.g.recommend_devider);
-        this.fSI.setOnClickListener(this.bbY);
-        this.fSK.setOnClickListener(this.bbY);
-        this.fSD.setOnClickListener(this.bbY);
+        this.fSx.setOnClickListener(this.bbM);
+        this.fSz.setOnClickListener(this.bbM);
+        this.fSs.setOnClickListener(this.bbM);
     }
 
     public void a(com.baidu.tbadk.core.data.ao aoVar) {
         if (aoVar != null) {
-            this.fSL = aoVar;
-            this.fSC.setText(aoVar.aNE);
-            this.fSD.setText(aoVar.aNF);
-            this.fSJ.startLoad(aoVar.aNJ, 10, false);
-            this.fSE.startLoad(aoVar.aLX, 10, false);
-            this.fSI.setText(aoVar.aNI);
-            this.fSF.setText(aoVar.aLW);
-            List<String> list = aoVar.aNH;
+            this.fSA = aoVar;
+            this.fSr.setText(aoVar.aNt);
+            this.fSs.setText(aoVar.aNu);
+            this.fSy.startLoad(aoVar.aNy, 10, false);
+            this.fSt.startLoad(aoVar.aLM, 10, false);
+            this.fSx.setText(aoVar.aNx);
+            this.fSu.setText(aoVar.aLL);
+            List<String> list = aoVar.aNw;
             if (list != null) {
                 switch (list.size()) {
                     case 1:
                         if (list.get(0) != null) {
-                            this.fSG.setText(list.get(0));
+                            this.fSv.setText(list.get(0));
                             break;
                         }
                         break;
                     case 2:
                         if (list.get(0) != null) {
-                            this.fSG.setText(list.get(0));
+                            this.fSv.setText(list.get(0));
                         }
                         if (list.get(1) != null) {
-                            this.fSH.setText(list.get(1));
+                            this.fSw.setText(list.get(1));
                             break;
                         }
                         break;
                 }
             }
-            com.baidu.tbadk.core.util.aj.e(this.fSC, d.C0140d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aj.e(this.fSD, d.C0140d.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aj.e(this.fSF, d.C0140d.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.aj.e(this.fSG, d.C0140d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aj.e(this.fSH, d.C0140d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aj.e(this.fSI, d.C0140d.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aj.t(this.devider, d.C0140d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.aj.s(this.fSI, d.f.btn_pb_novel_recommend_read);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11441").ab("obj_id", this.fSL.aLV));
+            com.baidu.tbadk.core.util.aj.e(this.fSr, d.C0141d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aj.e(this.fSs, d.C0141d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.aj.e(this.fSu, d.C0141d.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.aj.e(this.fSv, d.C0141d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aj.e(this.fSw, d.C0141d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aj.e(this.fSx, d.C0141d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.aj.t(this.devider, d.C0141d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.aj.s(this.fSx, d.f.btn_pb_novel_recommend_read);
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ak("c11441").ab("obj_id", this.fSA.aLK));
         }
     }
 }

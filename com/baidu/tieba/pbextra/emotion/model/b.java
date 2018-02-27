@@ -8,88 +8,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 class b {
-    private int ggc;
-    private int ggd;
-    private byte[] gge;
-    private int ggf;
-    private int ggg;
-    private int ggh;
+    private int gfR;
+    private int gfS;
+    private byte[] gfT;
+    private int gfU;
+    private int gfV;
+    private int gfW;
+    int gfX;
+    int gfZ;
+    int ggg;
+    int ggh;
     int ggi;
-    int ggk;
-    int ggr;
-    int ggs;
-    int ggt;
-    int ggx;
-    int ggj = 12;
-    int ggl = 4096;
-    int[] ggm = new int[StatusCode.ERROR_NOT_LOGIN];
-    int[] ggn = new int[StatusCode.ERROR_NOT_LOGIN];
-    int ggo = StatusCode.ERROR_NOT_LOGIN;
-    int ggp = 0;
-    boolean ggq = false;
-    int ggu = 0;
-    int ggv = 0;
-    int[] ggw = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] ggy = new byte[256];
+    int ggm;
+    int gfY = 12;
+    int gga = 4096;
+    int[] ggb = new int[StatusCode.ERROR_NOT_LOGIN];
+    int[] ggc = new int[StatusCode.ERROR_NOT_LOGIN];
+    int ggd = StatusCode.ERROR_NOT_LOGIN;
+    int gge = 0;
+    boolean ggf = false;
+    int ggj = 0;
+    int ggk = 0;
+    int[] ggl = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] ggn = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.ggc = i;
-        this.ggd = i2;
-        this.gge = bArr;
-        this.ggf = Math.max(2, i3);
+        this.gfR = i;
+        this.gfS = i2;
+        this.gfT = bArr;
+        this.gfU = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.ggy;
-        int i = this.ggx;
-        this.ggx = i + 1;
+        byte[] bArr = this.ggn;
+        int i = this.ggm;
+        this.ggm = i + 1;
         bArr[i] = b;
-        if (this.ggx >= 254) {
+        if (this.ggm >= 254) {
             f(outputStream);
         }
     }
 
     void e(OutputStream outputStream) throws IOException {
-        tw(this.ggo);
-        this.ggp = this.ggs + 2;
-        this.ggq = true;
-        b(this.ggs, outputStream);
+        tx(this.ggd);
+        this.gge = this.ggh + 2;
+        this.ggf = true;
+        b(this.ggh, outputStream);
     }
 
-    void tw(int i) {
+    void tx(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.ggm[i2] = -1;
+            this.ggb[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.ggr = i;
-        this.ggq = false;
-        this.ggi = this.ggr;
-        this.ggk = tx(this.ggi);
-        this.ggs = 1 << (i - 1);
-        this.ggt = this.ggs + 1;
-        this.ggp = this.ggs + 2;
-        this.ggx = 0;
-        int bid = bid();
-        for (int i3 = this.ggo; i3 < 65536; i3 *= 2) {
+        this.ggg = i;
+        this.ggf = false;
+        this.gfX = this.ggg;
+        this.gfZ = ty(this.gfX);
+        this.ggh = 1 << (i - 1);
+        this.ggi = this.ggh + 1;
+        this.gge = this.ggh + 2;
+        this.ggm = 0;
+        int bic = bic();
+        for (int i3 = this.ggd; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.ggo;
-        tw(i5);
-        b(this.ggs, outputStream);
+        int i5 = this.ggd;
+        tx(i5);
+        b(this.ggh, outputStream);
         while (true) {
-            int bid2 = bid();
-            if (bid2 != -1) {
-                int i6 = (bid2 << this.ggj) + bid;
-                int i7 = (bid2 << i4) ^ bid;
-                if (this.ggm[i7] == i6) {
-                    bid = this.ggn[i7];
+            int bic2 = bic();
+            if (bic2 != -1) {
+                int i6 = (bic2 << this.gfY) + bic;
+                int i7 = (bic2 << i4) ^ bic;
+                if (this.ggb[i7] == i6) {
+                    bic = this.ggc[i7];
                 } else {
-                    if (this.ggm[i7] >= 0) {
+                    if (this.ggb[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -99,28 +99,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.ggm[i7] == i6) {
-                                bid = this.ggn[i7];
+                            if (this.ggb[i7] == i6) {
+                                bic = this.ggc[i7];
                                 break;
                             }
-                        } while (this.ggm[i7] >= 0);
+                        } while (this.ggb[i7] >= 0);
                     }
-                    b(bid, outputStream);
-                    if (this.ggp < this.ggl) {
-                        int[] iArr = this.ggn;
-                        int i9 = this.ggp;
-                        this.ggp = i9 + 1;
+                    b(bic, outputStream);
+                    if (this.gge < this.gga) {
+                        int[] iArr = this.ggc;
+                        int i9 = this.gge;
+                        this.gge = i9 + 1;
                         iArr[i7] = i9;
-                        this.ggm[i7] = i6;
-                        bid = bid2;
+                        this.ggb[i7] = i6;
+                        bic = bic2;
                     } else {
                         e(outputStream);
-                        bid = bid2;
+                        bic = bic2;
                     }
                 }
             } else {
-                b(bid, outputStream);
-                b(this.ggt, outputStream);
+                b(bic, outputStream);
+                b(this.ggi, outputStream);
                 return;
             }
         }
@@ -128,69 +128,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.ggf);
-        this.ggg = this.ggc * this.ggd;
-        this.ggh = 0;
-        a(this.ggf + 1, outputStream);
+        outputStream.write(this.gfU);
+        this.gfV = this.gfR * this.gfS;
+        this.gfW = 0;
+        a(this.gfU + 1, outputStream);
         outputStream.write(0);
     }
 
     void f(OutputStream outputStream) throws IOException {
-        if (this.ggx > 0) {
-            outputStream.write(this.ggx);
-            outputStream.write(this.ggy, 0, this.ggx);
-            this.ggx = 0;
+        if (this.ggm > 0) {
+            outputStream.write(this.ggm);
+            outputStream.write(this.ggn, 0, this.ggm);
+            this.ggm = 0;
         }
     }
 
-    final int tx(int i) {
+    final int ty(int i) {
         return (1 << i) - 1;
     }
 
-    private int bid() {
-        if (this.ggg == 0) {
+    private int bic() {
+        if (this.gfV == 0) {
             return -1;
         }
-        this.ggg--;
-        byte[] bArr = this.gge;
-        int i = this.ggh;
-        this.ggh = i + 1;
+        this.gfV--;
+        byte[] bArr = this.gfT;
+        int i = this.gfW;
+        this.gfW = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.ggu &= this.ggw[this.ggv];
-        if (this.ggv > 0) {
-            this.ggu |= i << this.ggv;
+        this.ggj &= this.ggl[this.ggk];
+        if (this.ggk > 0) {
+            this.ggj |= i << this.ggk;
         } else {
-            this.ggu = i;
+            this.ggj = i;
         }
-        this.ggv += this.ggi;
-        while (this.ggv >= 8) {
-            a((byte) (this.ggu & 255), outputStream);
-            this.ggu >>= 8;
-            this.ggv -= 8;
+        this.ggk += this.gfX;
+        while (this.ggk >= 8) {
+            a((byte) (this.ggj & 255), outputStream);
+            this.ggj >>= 8;
+            this.ggk -= 8;
         }
-        if (this.ggp > this.ggk || this.ggq) {
-            if (this.ggq) {
-                int i2 = this.ggr;
-                this.ggi = i2;
-                this.ggk = tx(i2);
-                this.ggq = false;
+        if (this.gge > this.gfZ || this.ggf) {
+            if (this.ggf) {
+                int i2 = this.ggg;
+                this.gfX = i2;
+                this.gfZ = ty(i2);
+                this.ggf = false;
             } else {
-                this.ggi++;
-                if (this.ggi == this.ggj) {
-                    this.ggk = this.ggl;
+                this.gfX++;
+                if (this.gfX == this.gfY) {
+                    this.gfZ = this.gga;
                 } else {
-                    this.ggk = tx(this.ggi);
+                    this.gfZ = ty(this.gfX);
                 }
             }
         }
-        if (i == this.ggt) {
-            while (this.ggv > 0) {
-                a((byte) (this.ggu & 255), outputStream);
-                this.ggu >>= 8;
-                this.ggv -= 8;
+        if (i == this.ggi) {
+            while (this.ggk > 0) {
+                a((byte) (this.ggj & 255), outputStream);
+                this.ggj >>= 8;
+                this.ggk -= 8;
             }
             f(outputStream);
         }

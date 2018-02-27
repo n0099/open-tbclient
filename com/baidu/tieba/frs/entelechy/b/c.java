@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes2.dex */
 public interface c {
-    void axA();
+    boolean axx();
 
-    boolean axy();
+    void axy();
 
     void axz();
 

@@ -20,26 +20,26 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
-    private String dNQ;
-    private c dNT;
-    private List<f> dOc;
+    private String dNE;
+    private c dNH;
+    private List<f> dNQ;
     private Context mContext;
     private long mFid;
     private BdUniqueId mPageId;
-    private int bZU = 0;
-    private int dOe = 0;
-    private int dOf = 0;
+    private int bZI = 0;
+    private int dNS = 0;
+    private int dNT = 0;
     private boolean mIsLoading = false;
     private Handler mHandler = new Handler();
-    private a.InterfaceC0153a dOh = new a.InterfaceC0153a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
-        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0153a
+    private a.InterfaceC0154a dNV = new a.InterfaceC0154a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
+        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0154a
         public void e(List<f> list, List<i> list2, boolean z) {
-            if (b.this.dOc != null && b.this.dNT != null) {
-                b.this.dNT.a(0, 0, list2, list, z, true, -1);
+            if (b.this.dNQ != null && b.this.dNH != null) {
+                b.this.dNH.a(0, 0, list2, list, z, true, -1);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a dOi = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478) { // from class: com.baidu.tieba.frs.game.strategy.a.b.2
+    private com.baidu.adp.framework.listener.a dNW = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478) { // from class: com.baidu.tieba.frs.game.strategy.a.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<i> threadList;
@@ -51,32 +51,32 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
             if (responsedMessage != null) {
                 b.this.mIsLoading = false;
                 if (responsedMessage.hasError()) {
-                    if (b.this.dNT != null) {
-                        b.this.dNT.e(b.this.bZU, b.this.dOe, responsedMessage.getErrorString());
+                    if (b.this.dNH != null) {
+                        b.this.dNH.e(b.this.bZI, b.this.dNS, responsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 if (responsedMessage instanceof FrsGameStrategySocketResponseMessage) {
                     FrsGameStrategySocketResponseMessage frsGameStrategySocketResponseMessage = (FrsGameStrategySocketResponseMessage) responsedMessage;
-                    if (b.this.dOc == null) {
-                        b.this.dOc = frsGameStrategySocketResponseMessage.getTabList();
+                    if (b.this.dNQ == null) {
+                        b.this.dNQ = frsGameStrategySocketResponseMessage.getTabList();
                     }
                     threadList = frsGameStrategySocketResponseMessage.getThreadList();
                     hasMore = frsGameStrategySocketResponseMessage.hasMore();
                 } else if (responsedMessage instanceof FrsGameStrategyHttpResponseMessage) {
                     FrsGameStrategyHttpResponseMessage frsGameStrategyHttpResponseMessage = (FrsGameStrategyHttpResponseMessage) responsedMessage;
-                    if (b.this.dOc == null) {
-                        b.this.dOc = frsGameStrategyHttpResponseMessage.getTabList();
+                    if (b.this.dNQ == null) {
+                        b.this.dNQ = frsGameStrategyHttpResponseMessage.getTabList();
                     }
                     threadList = frsGameStrategyHttpResponseMessage.getThreadList();
                     hasMore = frsGameStrategyHttpResponseMessage.hasMore();
                 } else {
                     return;
                 }
-                int i2 = b.this.bZU;
-                int i3 = b.this.dOe;
-                if (b.this.bZU == 0 && b.this.dOe == 0 && !v.E(b.this.dOc) && (fVar = (f) b.this.dOc.get(0)) != null) {
+                int i2 = b.this.bZI;
+                int i3 = b.this.dNS;
+                if (b.this.bZI == 0 && b.this.dNS == 0 && !v.E(b.this.dNQ) && (fVar = (f) b.this.dNQ.get(0)) != null) {
                     i2 = fVar.tabId;
                     if (fVar.extra instanceof LabelDataList) {
                         LabelDataList labelDataList = (LabelDataList) fVar.extra;
@@ -86,57 +86,57 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
                     }
                 }
                 String bA = b.this.bA(i2, i3);
-                com.baidu.tieba.frs.game.strategy.data.c cVar2 = (com.baidu.tieba.frs.game.strategy.data.c) b.this.dOd.get(bA);
+                com.baidu.tieba.frs.game.strategy.data.c cVar2 = (com.baidu.tieba.frs.game.strategy.data.c) b.this.dNR.get(bA);
                 if (cVar2 == null) {
                     com.baidu.tieba.frs.game.strategy.data.c cVar3 = new com.baidu.tieba.frs.game.strategy.data.c();
-                    b.this.dOd.put(bA, cVar3);
+                    b.this.dNR.put(bA, cVar3);
                     cVar3.key = bA;
-                    cVar3.dNY = i2;
+                    cVar3.dNM = i2;
                     cVar3.labelId = i3;
-                    b.this.dOd.put(bA, cVar3);
+                    b.this.dNR.put(bA, cVar3);
                     cVar = cVar3;
                 } else {
                     cVar = cVar2;
                 }
                 cVar.hasMore = hasMore;
-                cVar.pn = b.this.dOf;
+                cVar.pn = b.this.dNT;
                 if (!v.E(threadList)) {
-                    if (b.this.dOf == 0) {
-                        if (v.E(cVar.dNZ)) {
-                            cVar.dNZ = threadList;
+                    if (b.this.dNT == 0) {
+                        if (v.E(cVar.dNN)) {
+                            cVar.dNN = threadList;
                         } else {
                             i = cVar.bo(threadList);
                         }
                     } else {
-                        cVar.dNZ.addAll(threadList);
+                        cVar.dNN.addAll(threadList);
                     }
                 }
-                if (b.this.dNT != null) {
-                    b.this.dNT.a(b.this.bZU, b.this.dOe, cVar.dNZ, b.this.dOc, cVar.hasMore, false, i);
+                if (b.this.dNH != null) {
+                    b.this.dNH.a(b.this.bZI, b.this.dNS, cVar.dNN, b.this.dNQ, cVar.hasMore, false, i);
                 }
             }
         }
     };
-    private final HashMap<String, com.baidu.tieba.frs.game.strategy.data.c> dOd = new HashMap<>();
-    private a dOg = new a();
+    private final HashMap<String, com.baidu.tieba.frs.game.strategy.data.c> dNR = new HashMap<>();
+    private a dNU = new a();
 
     public b(Context context, BdUniqueId bdUniqueId, long j, String str) {
         this.mFid = 0L;
         this.mContext = context;
         this.mPageId = bdUniqueId;
         this.mFid = j;
-        this.dNQ = str;
-        this.dOg.a(this.dOh);
-        avz();
-        WM();
+        this.dNE = str;
+        this.dNU.a(this.dNV);
+        avy();
+        WL();
     }
 
-    private void avz() {
-        this.dOi.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.dOi);
+    private void avy() {
+        this.dNW.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.dNW);
     }
 
-    private static void WM() {
+    private static void WL() {
         com.baidu.tieba.tbadkCore.a.a.a(309478, FrsGameStrategySocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, com.baidu.tieba.tbadkCore.a.a.aJ("c/f/game/gameForumGuideTab", 309478));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -158,25 +158,25 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
             }, 1000L);
             return;
         }
-        this.bZU = i;
-        this.dOe = i2;
+        this.bZI = i;
+        this.dNS = i2;
         if (i == 0 && i2 == 0) {
-            this.dOg.lR(String.valueOf(this.mFid));
+            this.dNU.lR(String.valueOf(this.mFid));
         } else {
             String bA = bA(i, i2);
-            com.baidu.tieba.frs.game.strategy.data.c cVar = this.dOd.get(bA);
+            com.baidu.tieba.frs.game.strategy.data.c cVar = this.dNR.get(bA);
             if (cVar == null) {
                 cVar = new com.baidu.tieba.frs.game.strategy.data.c();
-                this.dOd.put(bA, cVar);
+                this.dNR.put(bA, cVar);
             }
             cVar.key = bA;
-            cVar.dNY = this.bZU;
-            cVar.labelId = this.dOe;
+            cVar.dNM = this.bZI;
+            cVar.labelId = this.dNS;
             cVar.pn = 0;
             cVar.hasMore = true;
         }
-        this.dOf = 0;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.dOf, this.bZU, this.dOe);
+        this.dNT = 0;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.dNT, this.bZI, this.dNS);
         frsGameStrategyRequestMessage.setTag(this.mPageId);
         MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
         this.mIsLoading = true;
@@ -194,48 +194,48 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
             }, 1000L);
             return;
         }
-        this.bZU = i;
+        this.bZI = i;
         if (i == 0 && i2 == 0) {
             f np = np(i);
             if (np != null && (np.extra instanceof LabelDataList)) {
                 LabelDataList labelDataList = (LabelDataList) np.extra;
                 if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
-                    this.dOe = aVar.labelId;
+                    this.dNS = aVar.labelId;
                 }
             }
         } else {
-            this.dOe = i2;
+            this.dNS = i2;
         }
         String bA = bA(i, i2);
-        com.baidu.tieba.frs.game.strategy.data.c cVar = this.dOd.get(bA);
+        com.baidu.tieba.frs.game.strategy.data.c cVar = this.dNR.get(bA);
         if (cVar == null) {
             cVar = new com.baidu.tieba.frs.game.strategy.data.c();
-            this.dOd.put(bA, cVar);
+            this.dNR.put(bA, cVar);
             cVar.key = bA;
-            cVar.dNY = this.dOe;
-            cVar.labelId = this.bZU;
+            cVar.dNM = this.dNS;
+            cVar.labelId = this.bZI;
             cVar.hasMore = true;
-            this.dOd.put(bA, cVar);
+            this.dNR.put(bA, cVar);
         }
-        this.dOf = cVar.pn + 1;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.dOf, this.bZU, this.dOe);
+        this.dNT = cVar.pn + 1;
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.dNT, this.bZI, this.dNS);
         frsGameStrategyRequestMessage.setTag(this.mPageId);
         MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
         this.mIsLoading = true;
     }
 
     public void a(c cVar) {
-        this.dNT = cVar;
+        this.dNH = cVar;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.b
     public boolean bz(int i, int i2) {
         com.baidu.tieba.frs.game.strategy.data.c bB = bB(i, i2);
-        if (bB == null || v.E(bB.dNZ)) {
+        if (bB == null || v.E(bB.dNN)) {
             return false;
         }
-        if (this.dNT != null) {
-            this.dNT.a(i, i2, bB.dNZ, this.dOc, bB.hasMore, false, -1);
+        if (this.dNH != null) {
+            this.dNH.a(i, i2, bB.dNN, this.dNQ, bB.hasMore, false, -1);
         }
         return true;
     }
@@ -247,10 +247,10 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
 
     @Override // com.baidu.tieba.frs.game.strategy.tab.b
     public f no(int i) {
-        if (v.E(this.dOc)) {
+        if (v.E(this.dNQ)) {
             return null;
         }
-        for (f fVar : this.dOc) {
+        for (f fVar : this.dNQ) {
             if (fVar != null && fVar.tabId == i) {
                 return fVar;
             }
@@ -259,10 +259,10 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
     }
 
     private f np(int i) {
-        if (v.E(this.dOc)) {
+        if (v.E(this.dNQ)) {
             return null;
         }
-        for (f fVar : this.dOc) {
+        for (f fVar : this.dNQ) {
             if (fVar != null && fVar.tabId == i) {
                 return fVar;
             }
@@ -276,7 +276,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.b {
     }
 
     public com.baidu.tieba.frs.game.strategy.data.c bB(int i, int i2) {
-        return this.dOd.get(bA(i, i2));
+        return this.dNR.get(bA(i, i2));
     }
 
     public void onDestory() {

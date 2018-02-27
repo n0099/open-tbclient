@@ -427,7 +427,7 @@ public class AidTask implements Serializable {
             }
             String serialNo = getSerialNo();
             if (!TextUtils.isEmpty(serialNo)) {
-                jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHMOOD, serialNo);
+                jSONObject.put("7", serialNo);
             }
             String androidId = getAndroidId(context);
             if (!TextUtils.isEmpty(androidId)) {

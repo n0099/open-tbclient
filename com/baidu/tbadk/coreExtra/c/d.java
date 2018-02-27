@@ -10,57 +10,57 @@ import com.baidu.tbadk.core.util.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String blN = k.ame + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public int aQD;
-    public String blE;
-    public String blF;
-    public int blI;
-    private Bundle blL;
-    public String blz;
+    public static final String blA = k.alY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public int aQs;
+    public String blm;
+    public String blr;
+    public String bls;
+    public int blv;
+    private Bundle bly;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String price;
     public String tid;
     public String uid;
-    public boolean blr = false;
-    public boolean bls = false;
-    public boolean blt = false;
-    public boolean blu = false;
-    public boolean blv = false;
+    public boolean ble = false;
+    public boolean blf = false;
+    public boolean blg = false;
+    public boolean blh = false;
+    public boolean bli = false;
+    public boolean blj = false;
+    public boolean blk = false;
+    public String bll = "";
+    public int blt = 0;
+    public int blu = 3;
     public boolean blw = false;
-    public boolean blx = false;
-    public String bly = "";
-    public int blG = 0;
-    public int blH = 3;
-    public boolean blJ = false;
-    public boolean blM = true;
+    public boolean blz = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String blA = null;
-    public Uri blB = null;
-    public Location blC = null;
-    private WeakReference<Bitmap> blK = null;
-    public String blD = null;
+    public String bln = null;
+    public Uri blo = null;
+    public Location blp = null;
+    private WeakReference<Bitmap> blx = null;
+    public String blq = null;
     public String extData = null;
 
-    public Bundle IX() {
-        return this.blL;
+    public Bundle IW() {
+        return this.bly;
     }
 
     public void i(Bundle bundle) {
-        this.blL = bundle;
+        this.bly = bundle;
     }
 
-    public Bitmap IY() {
+    public Bitmap IX() {
         Bitmap bitmap;
-        if (this.blK == null || (bitmap = this.blK.get()) == null || bitmap.isRecycled()) {
+        if (this.blx == null || (bitmap = this.blx.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void j(Bitmap bitmap) {
-        this.blK = new WeakReference<>(bitmap);
+        this.blx = new WeakReference<>(bitmap);
     }
 }

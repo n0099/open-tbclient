@@ -11,13 +11,13 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b hqx;
-    private HashMap<String, String> hqs;
-    private DownloadData hqt;
+    private static volatile b hqk;
+    private HashMap<String, String> hqf;
+    private DownloadData hqg;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bAS();
+        void bAR();
 
         void cj(String str, String str2);
 
@@ -27,15 +27,15 @@ public class b {
     private b() {
     }
 
-    public static b bBH() {
-        if (hqx == null) {
+    public static b bBG() {
+        if (hqk == null) {
             synchronized (b.class) {
-                if (hqx == null) {
-                    hqx = new b();
+                if (hqk == null) {
+                    hqk = new b();
                 }
             }
         }
-        return hqx;
+        return hqk;
     }
 
     public String tO(String str) {
@@ -43,29 +43,29 @@ public class b {
         if (eu == null) {
             return null;
         }
-        if (this.hqs == null) {
-            this.hqs = new HashMap<>();
-            bBI();
-            if (this.hqs.size() > 0) {
-                return this.hqs.get(eu);
+        if (this.hqf == null) {
+            this.hqf = new HashMap<>();
+            bBH();
+            if (this.hqf.size() > 0) {
+                return this.hqf.get(eu);
             }
             return null;
         }
-        return this.hqs.get(eu);
+        return this.hqf.get(eu);
     }
 
-    public void bBI() {
-        if (this.hqs == null) {
-            this.hqs = new HashMap<>();
+    public void bBH() {
+        if (this.hqf == null) {
+            this.hqf = new HashMap<>();
         } else {
-            this.hqs.clear();
+            this.hqf.clear();
         }
-        File file = new File(com.baidu.tieba.video.b.hnS);
+        File file = new File(com.baidu.tieba.video.b.hnF);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.hqs.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
+                    this.hqf.put(file2.getName().substring(0, file2.getName().lastIndexOf(Constants.DOT)), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,10 +74,10 @@ public class b {
     public void a(String str, final String str2, final a aVar) {
         String eu;
         if (!TextUtils.isEmpty(str2) && (eu = ap.eu(str2)) != null) {
-            if (this.hqt != null) {
-                e.KU().o(this.hqt.getUrl(), true);
+            if (this.hqg != null) {
+                e.KT().n(this.hqg.getUrl(), true);
             }
-            File file = new File(com.baidu.tieba.video.b.hnS);
+            File file = new File(com.baidu.tieba.video.b.hnF);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -85,7 +85,7 @@ public class b {
             downloadData.setType(18);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(com.baidu.tieba.video.b.hnS + eu + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
+            downloadData.setPath(com.baidu.tieba.video.b.hnF + eu + (Constants.DOT + str2.substring(str2.lastIndexOf(Constants.DOT) + 1)));
             downloadData.setCallback(new d() { // from class: com.baidu.tieba.video.editvideo.model.b.1
                 @Override // com.baidu.tbadk.download.d
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -94,11 +94,11 @@ public class b {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (b.this.hqt != null && downloadData2.getUrl().equals(b.this.hqt.getUrl())) {
-                            b.this.hqt = null;
+                        if (b.this.hqg != null && downloadData2.getUrl().equals(b.this.hqg.getUrl())) {
+                            b.this.hqg = null;
                         }
                         if (aVar != null) {
-                            aVar.bAS();
+                            aVar.bAR();
                         }
                     }
                 }
@@ -116,11 +116,11 @@ public class b {
                 @Override // com.baidu.tbadk.download.d
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (b.this.hqt != null && downloadData2.getUrl().equals(b.this.hqt.getUrl())) {
-                            b.this.hqt = null;
+                        if (b.this.hqg != null && downloadData2.getUrl().equals(b.this.hqg.getUrl())) {
+                            b.this.hqg = null;
                         }
                         if (aVar != null) {
-                            b.this.hqs.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.hnS.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
+                            b.this.hqf.put(downloadData2.getPath().substring(com.baidu.tieba.video.b.hnF.length(), downloadData2.getPath().lastIndexOf(Constants.DOT)), downloadData2.getPath());
                             aVar.cj(str2, downloadData2.getPath());
                         }
                     }
@@ -132,16 +132,16 @@ public class b {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (b.this.hqt != null && downloadData2.getUrl().equals(b.this.hqt.getUrl())) {
-                        b.this.hqt = null;
+                    if (b.this.hqg != null && downloadData2.getUrl().equals(b.this.hqg.getUrl())) {
+                        b.this.hqg = null;
                     }
                     if (aVar != null) {
                         aVar.tE(str3);
                     }
                 }
             });
-            this.hqt = downloadData;
-            e.KU().f(downloadData);
+            this.hqg = downloadData;
+            e.KT().f(downloadData);
         }
     }
 }
