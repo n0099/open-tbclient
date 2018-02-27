@@ -6,17 +6,17 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b bpX = new b();
+        private static b bpK = new b();
     }
 
-    public static b JZ() {
-        return a.bpX;
+    public static b JY() {
+        return a.bpK;
     }
 
     private b() {
     }
 
-    public void Ka() {
+    public void JZ() {
         fT("kLCSError=1");
     }
 
@@ -29,6 +29,6 @@ public class b {
     }
 
     private void fT(String str) {
-        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.aJA, str);
+        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.aJp, str);
     }
 }

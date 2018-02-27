@@ -30,22 +30,22 @@ import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo
 /* loaded from: classes2.dex */
 public final class AppCompatDrawableManager {
-    private static AppCompatDrawableManager MJ;
-    private WeakHashMap<Context, SparseArray<ColorStateList>> MS;
-    private ArrayMap<String, c> MT;
-    private SparseArray<String> MU;
-    private final Object MV = new Object();
-    private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> MW = new WeakHashMap<>(0);
-    private TypedValue MX;
-    private boolean MY;
-    private static final PorterDuff.Mode MI = PorterDuff.Mode.SRC_IN;
-    private static final b MK = new b(6);
-    private static final int[] MM = {R.drawable.abc_textfield_search_default_mtrl_alpha, R.drawable.abc_textfield_default_mtrl_alpha, R.drawable.abc_ab_share_pack_mtrl_alpha};
-    private static final int[] MN = {R.drawable.abc_ic_commit_search_api_mtrl_alpha, R.drawable.abc_seekbar_tick_mark_material, R.drawable.abc_ic_menu_share_mtrl_alpha, R.drawable.abc_ic_menu_copy_mtrl_am_alpha, R.drawable.abc_ic_menu_cut_mtrl_alpha, R.drawable.abc_ic_menu_selectall_mtrl_alpha, R.drawable.abc_ic_menu_paste_mtrl_am_alpha};
-    private static final int[] MO = {R.drawable.abc_textfield_activated_mtrl_alpha, R.drawable.abc_textfield_search_activated_mtrl_alpha, R.drawable.abc_cab_background_top_mtrl_alpha, R.drawable.abc_text_cursor_material, R.drawable.abc_text_select_handle_left_mtrl_dark, R.drawable.abc_text_select_handle_middle_mtrl_dark, R.drawable.abc_text_select_handle_right_mtrl_dark, R.drawable.abc_text_select_handle_left_mtrl_light, R.drawable.abc_text_select_handle_middle_mtrl_light, R.drawable.abc_text_select_handle_right_mtrl_light};
-    private static final int[] MP = {R.drawable.abc_popup_background_mtrl_mult, R.drawable.abc_cab_background_internal_bg, R.drawable.abc_menu_hardkey_panel_mtrl_mult};
-    private static final int[] MQ = {R.drawable.abc_tab_indicator_material, R.drawable.abc_textfield_search_material};
-    private static final int[] MR = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
+    private static AppCompatDrawableManager ME;
+    private WeakHashMap<Context, SparseArray<ColorStateList>> MN;
+    private ArrayMap<String, c> MO;
+    private SparseArray<String> MP;
+    private final Object MQ = new Object();
+    private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> MR = new WeakHashMap<>(0);
+    private TypedValue MS;
+    private boolean MT;
+    private static final PorterDuff.Mode MD = PorterDuff.Mode.SRC_IN;
+    private static final b MF = new b(6);
+    private static final int[] MG = {R.drawable.abc_textfield_search_default_mtrl_alpha, R.drawable.abc_textfield_default_mtrl_alpha, R.drawable.abc_ab_share_pack_mtrl_alpha};
+    private static final int[] MH = {R.drawable.abc_ic_commit_search_api_mtrl_alpha, R.drawable.abc_seekbar_tick_mark_material, R.drawable.abc_ic_menu_share_mtrl_alpha, R.drawable.abc_ic_menu_copy_mtrl_am_alpha, R.drawable.abc_ic_menu_cut_mtrl_alpha, R.drawable.abc_ic_menu_selectall_mtrl_alpha, R.drawable.abc_ic_menu_paste_mtrl_am_alpha};
+    private static final int[] MI = {R.drawable.abc_textfield_activated_mtrl_alpha, R.drawable.abc_textfield_search_activated_mtrl_alpha, R.drawable.abc_cab_background_top_mtrl_alpha, R.drawable.abc_text_cursor_material, R.drawable.abc_text_select_handle_left_mtrl_dark, R.drawable.abc_text_select_handle_middle_mtrl_dark, R.drawable.abc_text_select_handle_right_mtrl_dark, R.drawable.abc_text_select_handle_left_mtrl_light, R.drawable.abc_text_select_handle_middle_mtrl_light, R.drawable.abc_text_select_handle_right_mtrl_light};
+    private static final int[] MJ = {R.drawable.abc_popup_background_mtrl_mult, R.drawable.abc_cab_background_internal_bg, R.drawable.abc_menu_hardkey_panel_mtrl_mult};
+    private static final int[] MK = {R.drawable.abc_tab_indicator_material, R.drawable.abc_textfield_search_material};
+    private static final int[] MM = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -54,11 +54,11 @@ public final class AppCompatDrawableManager {
     }
 
     public static AppCompatDrawableManager get() {
-        if (MJ == null) {
-            MJ = new AppCompatDrawableManager();
-            a(MJ);
+        if (ME == null) {
+            ME = new AppCompatDrawableManager();
+            a(ME);
         }
-        return MJ;
+        return ME;
     }
 
     private static void a(AppCompatDrawableManager appCompatDrawableManager) {
@@ -95,8 +95,8 @@ public final class AppCompatDrawableManager {
     }
 
     public void onConfigurationChanged(Context context) {
-        synchronized (this.MV) {
-            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MW.get(context);
+        synchronized (this.MQ) {
+            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
             if (longSparseArray != null) {
                 longSparseArray.clear();
             }
@@ -108,10 +108,10 @@ public final class AppCompatDrawableManager {
     }
 
     private Drawable i(Context context, int i) {
-        if (this.MX == null) {
-            this.MX = new TypedValue();
+        if (this.MS == null) {
+            this.MS = new TypedValue();
         }
-        TypedValue typedValue = this.MX;
+        TypedValue typedValue = this.MS;
         context.getResources().getValue(i, typedValue, true);
         long a2 = a(typedValue);
         Drawable e = e(context, a2);
@@ -143,15 +143,15 @@ public final class AppCompatDrawableManager {
             return wrap;
         } else if (i == R.drawable.abc_seekbar_track_material) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
-            a(layerDrawable.findDrawableByLayerId(16908288), s.n(context, R.attr.colorControlNormal), MI);
-            a(layerDrawable.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlNormal), MI);
-            a(layerDrawable.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MI);
+            a(layerDrawable.findDrawableByLayerId(16908288), s.n(context, R.attr.colorControlNormal), MD);
+            a(layerDrawable.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlNormal), MD);
+            a(layerDrawable.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MD);
             return drawable;
         } else if (i == R.drawable.abc_ratingbar_material || i == R.drawable.abc_ratingbar_indicator_material || i == R.drawable.abc_ratingbar_small_material) {
             LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
-            a(layerDrawable2.findDrawableByLayerId(16908288), s.p(context, R.attr.colorControlNormal), MI);
-            a(layerDrawable2.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlActivated), MI);
-            a(layerDrawable2.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MI);
+            a(layerDrawable2.findDrawableByLayerId(16908288), s.p(context, R.attr.colorControlNormal), MD);
+            a(layerDrawable2.findDrawableByLayerId(16908303), s.n(context, R.attr.colorControlActivated), MD);
+            a(layerDrawable2.findDrawableByLayerId(16908301), s.n(context, R.attr.colorControlActivated), MD);
             return drawable;
         } else if (!a(context, i, drawable) && z) {
             return null;
@@ -170,21 +170,21 @@ public final class AppCompatDrawableManager {
         XmlResourceParser xml;
         AttributeSet asAttributeSet;
         int next;
-        if (this.MT == null || this.MT.isEmpty()) {
+        if (this.MO == null || this.MO.isEmpty()) {
             return null;
         }
-        if (this.MU != null) {
-            String str = this.MU.get(i);
-            if ("appcompat_skip_skip".equals(str) || (str != null && this.MT.get(str) == null)) {
+        if (this.MP != null) {
+            String str = this.MP.get(i);
+            if ("appcompat_skip_skip".equals(str) || (str != null && this.MO.get(str) == null)) {
                 return null;
             }
         } else {
-            this.MU = new SparseArray<>();
+            this.MP = new SparseArray<>();
         }
-        if (this.MX == null) {
-            this.MX = new TypedValue();
+        if (this.MS == null) {
+            this.MS = new TypedValue();
         }
-        TypedValue typedValue = this.MX;
+        TypedValue typedValue = this.MS;
         Resources resources = context.getResources();
         resources.getValue(i, typedValue, true);
         long a2 = a(typedValue);
@@ -209,8 +209,8 @@ public final class AppCompatDrawableManager {
                 throw new XmlPullParserException("No start tag found");
             }
             String name = xml.getName();
-            this.MU.append(i, name);
-            c cVar = this.MT.get(name);
+            this.MP.append(i, name);
+            c cVar = this.MO.get(name);
             if (cVar != null) {
                 e = cVar.a(context, xml, asAttributeSet, context.getTheme());
             }
@@ -221,7 +221,7 @@ public final class AppCompatDrawableManager {
             }
             drawable = e;
             if (drawable != null) {
-                this.MU.append(i, "appcompat_skip_skip");
+                this.MP.append(i, "appcompat_skip_skip");
                 return drawable;
             }
             return drawable;
@@ -232,8 +232,8 @@ public final class AppCompatDrawableManager {
     }
 
     private Drawable e(Context context, long j) {
-        synchronized (this.MV) {
-            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MW.get(context);
+        synchronized (this.MQ) {
+            LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
             if (longSparseArray == null) {
                 return null;
             }
@@ -252,11 +252,11 @@ public final class AppCompatDrawableManager {
     private boolean a(Context context, long j, Drawable drawable) {
         Drawable.ConstantState constantState = drawable.getConstantState();
         if (constantState != null) {
-            synchronized (this.MV) {
-                LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MW.get(context);
+            synchronized (this.MQ) {
+                LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.MR.get(context);
                 if (longSparseArray == null) {
                     longSparseArray = new LongSparseArray<>();
-                    this.MW.put(context, longSparseArray);
+                    this.MR.put(context, longSparseArray);
                 }
                 longSparseArray.put(j, new WeakReference<>(constantState));
             }
@@ -283,18 +283,18 @@ public final class AppCompatDrawableManager {
         int i3;
         PorterDuff.Mode mode;
         boolean z;
-        PorterDuff.Mode mode2 = MI;
-        if (b(MM, i)) {
+        PorterDuff.Mode mode2 = MD;
+        if (b(MG, i)) {
             i3 = R.attr.colorControlNormal;
             mode = mode2;
             z = true;
             i2 = -1;
-        } else if (b(MO, i)) {
+        } else if (b(MI, i)) {
             i3 = R.attr.colorControlActivated;
             mode = mode2;
             z = true;
             i2 = -1;
-        } else if (b(MP, i)) {
+        } else if (b(MJ, i)) {
             z = true;
             mode = PorterDuff.Mode.MULTIPLY;
             i3 = 16842801;
@@ -330,10 +330,10 @@ public final class AppCompatDrawableManager {
     }
 
     private void a(String str, c cVar) {
-        if (this.MT == null) {
-            this.MT = new ArrayMap<>();
+        if (this.MO == null) {
+            this.MO = new ArrayMap<>();
         }
-        this.MT.put(str, cVar);
+        this.MO.put(str, cVar);
     }
 
     private static boolean b(int[] iArr, int i) {
@@ -376,11 +376,11 @@ public final class AppCompatDrawableManager {
                 l = c(context, colorStateList);
             } else if (i == R.drawable.abc_spinner_mtrl_am_alpha || i == R.drawable.abc_spinner_textfield_background_material) {
                 l = AppCompatResources.getColorStateList(context, R.color.abc_tint_spinner);
-            } else if (b(MN, i)) {
+            } else if (b(MH, i)) {
                 l = s.o(context, R.attr.colorControlNormal);
-            } else if (b(MQ, i)) {
+            } else if (b(MK, i)) {
                 l = AppCompatResources.getColorStateList(context, R.color.abc_tint_default);
-            } else if (b(MR, i)) {
+            } else if (b(MM, i)) {
                 l = AppCompatResources.getColorStateList(context, R.color.abc_tint_btn_checkable);
             } else if (i == R.drawable.abc_seekbar_thumb_material) {
                 l = AppCompatResources.getColorStateList(context, R.color.abc_tint_seek_thumb);
@@ -394,20 +394,20 @@ public final class AppCompatDrawableManager {
 
     private ColorStateList l(Context context, int i) {
         SparseArray<ColorStateList> sparseArray;
-        if (this.MS != null && (sparseArray = this.MS.get(context)) != null) {
+        if (this.MN != null && (sparseArray = this.MN.get(context)) != null) {
             return sparseArray.get(i);
         }
         return null;
     }
 
     private void c(Context context, int i, ColorStateList colorStateList) {
-        if (this.MS == null) {
-            this.MS = new WeakHashMap<>();
+        if (this.MN == null) {
+            this.MN = new WeakHashMap<>();
         }
-        SparseArray<ColorStateList> sparseArray = this.MS.get(context);
+        SparseArray<ColorStateList> sparseArray = this.MN.get(context);
         if (sparseArray == null) {
             sparseArray = new SparseArray<>();
-            this.MS.put(context, sparseArray);
+            this.MN.put(context, sparseArray);
         }
         sparseArray.append(i, colorStateList);
     }
@@ -472,8 +472,8 @@ public final class AppCompatDrawableManager {
             Log.d("AppCompatDrawableManager", "Mutated drawable is not the same instance as the input.");
             return;
         }
-        if (tVar.Xk || tVar.Xj) {
-            drawable.setColorFilter(a(tVar.Xk ? tVar.Xi : null, tVar.Xj ? tVar.uq : MI, iArr));
+        if (tVar.Xe || tVar.Xd) {
+            drawable.setColorFilter(a(tVar.Xe ? tVar.Xc : null, tVar.Xd ? tVar.uo : MD, iArr));
         } else {
             drawable.clearColorFilter();
         }
@@ -490,10 +490,10 @@ public final class AppCompatDrawableManager {
     }
 
     public static PorterDuffColorFilter getPorterDuffColorFilter(int i, PorterDuff.Mode mode) {
-        PorterDuffColorFilter c2 = MK.c(i, mode);
+        PorterDuffColorFilter c2 = MF.c(i, mode);
         if (c2 == null) {
             PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(i, mode);
-            MK.a(i, mode, porterDuffColorFilter);
+            MF.a(i, mode, porterDuffColorFilter);
             return porterDuffColorFilter;
         }
         return c2;
@@ -504,17 +504,17 @@ public final class AppCompatDrawableManager {
             drawable = drawable.mutate();
         }
         if (mode == null) {
-            mode = MI;
+            mode = MD;
         }
         drawable.setColorFilter(getPorterDuffColorFilter(i, mode));
     }
 
     private void X(Context context) {
-        if (!this.MY) {
-            this.MY = true;
+        if (!this.MT) {
+            this.MT = true;
             Drawable drawable = getDrawable(context, R.drawable.abc_vector_test);
             if (drawable == null || !e(drawable)) {
-                this.MY = false;
+                this.MT = false;
                 throw new IllegalStateException("This app has been built with an incorrect configuration. Please configure your build for VectorDrawableCompat.");
             }
         }

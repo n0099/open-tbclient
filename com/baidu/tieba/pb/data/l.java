@@ -10,8 +10,8 @@ import tbclient.Post;
 /* loaded from: classes2.dex */
 public class l {
     public String forum_top_list;
-    public final List<PostData> fIp = new ArrayList();
-    public final List<Long> fIq = new ArrayList();
+    public final List<PostData> fIe = new ArrayList();
+    public final List<Long> fIf = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -26,19 +26,19 @@ public class l {
         if (pbTopAgreePost.post_list != null && pbTopAgreePost.post_list.size() > 0) {
             for (Post post : pbTopAgreePost.post_list) {
                 PostData postData = new PostData();
-                postData.hbw = 102;
+                postData.hbh = 102;
                 postData.a(post, context);
-                this.fIp.add(postData);
+                this.fIe.add(postData);
             }
         }
-        if (!v.E(this.fIp)) {
-            this.fIp.get(0).hbx = true;
-            setCount(this.fIp.size());
+        if (!v.E(this.fIe)) {
+            this.fIe.get(0).hbi = true;
+            setCount(this.fIe.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.fIq.add(l);
+                this.fIf.add(l);
             }
         }
         this.forum_top_list = pbTopAgreePost.forum_top_list;

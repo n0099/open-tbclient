@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.message.GameLaunchMessage;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class aw {
-    private static aw fWM = null;
+    private static aw fWB = null;
 
-    public static aw bfX() {
-        if (fWM == null) {
+    public static aw bfW() {
+        if (fWB == null) {
             synchronized (aw.class) {
-                if (fWM == null) {
-                    fWM = new aw();
+                if (fWB == null) {
+                    fWB = new aw();
                 }
             }
         }
-        return fWM;
+        return fWB;
     }
 
     public void d(TbPageContext tbPageContext, String str) {
@@ -27,9 +27,9 @@ public class aw {
             if (qB(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
             } else if (qC(str)) {
-                com.baidu.tbadk.core.util.aw.Du().a(tbPageContext, new String[]{str}, true);
+                com.baidu.tbadk.core.util.aw.Dt().a(tbPageContext, new String[]{str}, true);
             } else {
-                com.baidu.tbadk.core.util.aw.Du().c(tbPageContext, new String[]{str});
+                com.baidu.tbadk.core.util.aw.Dt().c(tbPageContext, new String[]{str});
             }
         }
     }

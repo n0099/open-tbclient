@@ -24,8 +24,8 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.chosen.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0207a {
-        TbImageView bMP;
+    public static class C0208a {
+        TbImageView bMC;
     }
 
     public a(Context context) {
@@ -53,7 +53,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sx */
+    /* renamed from: sy */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -109,33 +109,33 @@ public class a extends BaseAdapter {
     }
 
     private View f(int i, View view) {
-        C0207a c0207a;
-        if (view == null || !(view.getTag() instanceof C0207a)) {
+        C0208a c0208a;
+        if (view == null || !(view.getTag() instanceof C0208a)) {
             view = LayoutInflater.from(this.context).inflate(d.h.chosen_pb_image_item, (ViewGroup) null);
-            c0207a = new C0207a();
-            c0207a.bMP = (TbImageView) view.findViewById(d.g.pb_chosen_list_image);
-            view.setTag(c0207a);
+            c0208a = new C0208a();
+            c0208a.bMC = (TbImageView) view.findViewById(d.g.pb_chosen_list_image);
+            view.setTag(c0208a);
         } else {
-            c0207a = (C0207a) view.getTag();
+            c0208a = (C0208a) view.getTag();
         }
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.gbl) || "1".equals(eVar.gbl)) {
-                c0207a.bMP.setVisibility(8);
+            if (StringUtils.isNull(eVar.gba) || "1".equals(eVar.gba)) {
+                c0208a.bMC.setVisibility(8);
             } else {
-                c0207a.bMP.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0207a.bMP.getLayoutParams();
+                c0208a.bMC.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0208a.bMC.getLayoutParams();
                 int i2 = this.maxWidth;
-                int tn = eVar.tn(i2);
+                int i3 = eVar.to(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, tn);
+                    layoutParams = new AbsListView.LayoutParams(i2, i3);
                 } else {
-                    layoutParams.height = tn;
+                    layoutParams.height = i3;
                     layoutParams.width = i2;
                 }
-                c0207a.bMP.setLayoutParams(layoutParams);
-                c0207a.bMP.startLoad(eVar.RB(), 17, false);
+                c0208a.bMC.setLayoutParams(layoutParams);
+                c0208a.bMC.startLoad(eVar.RA(), 17, false);
             }
         }
         return view;
@@ -155,8 +155,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.g) {
             com.baidu.tieba.pb.b.a.g gVar = (com.baidu.tieba.pb.b.a.g) item;
-            textView.setText(gVar.bhg());
-            switch (gVar.bhi()) {
+            textView.setText(gVar.bhf());
+            switch (gVar.bhh()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -167,12 +167,12 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.bhj())) {
-                if (!aj.a(textView, gVar.bhj())) {
-                    aj.e(textView, d.C0140d.cp_cont_b, 1);
+            if (!StringUtils.isNull(gVar.bhi())) {
+                if (!aj.a(textView, gVar.bhi())) {
+                    aj.e(textView, d.C0141d.cp_cont_b, 1);
                 }
             } else {
-                aj.e(textView, d.C0140d.cp_cont_b, 1);
+                aj.e(textView, d.C0141d.cp_cont_b, 1);
             }
             if (gVar.getTextSize() > 0) {
                 textView.setTextSize(0, gVar.getTextSize());

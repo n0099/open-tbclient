@@ -924,7 +924,7 @@ public class EnhancedService extends AbstractService {
             hashMap.put("pis_di", pisDeviceInfo);
         }
         hashMap.put("clientfrom", "mobilesdk_enhanced");
-        hashMap.put("sdk_version", "3");
+        hashMap.put(SapiContext.KEY_SDK_VERSION, "3");
         return hashMap;
     }
 

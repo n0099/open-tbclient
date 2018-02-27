@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private b dOP;
+    private b dOD;
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
     private com.baidu.adp.base.e mPageContext;
@@ -20,8 +20,8 @@ public class c {
     }
 
     private void initAdapters() {
-        this.dOP = new b((TbPageContext) this.mPageContext, com.baidu.tieba.frs.game.strategy.data.b.dNX);
-        this.mAdapters.add(this.dOP);
+        this.dOD = new b((TbPageContext) this.mPageContext, com.baidu.tieba.frs.game.strategy.data.b.dNL);
+        this.mAdapters.add(this.dOD);
         this.mListView.addAdapters(this.mAdapters);
     }
 

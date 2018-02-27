@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     private static String c;
     private String a;
@@ -25,7 +25,7 @@ public class b {
         public void run() {
             boolean z;
             com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-            String str = "share_qq_" + i.f(b.this.a) + ".jpg";
+            String str = "share_qq_" + j.f(b.this.a) + ".jpg";
             String str2 = b.c + str;
             File file = new File(str2);
             Message obtainMessage = b.this.e.obtainMessage();
@@ -71,7 +71,7 @@ public class b {
         com.tencent.open.a.f.a("AsynLoadImg", "--save---");
         if (str == null || str.equals("")) {
             cVar.a(1, (String) null);
-        } else if (!i.b()) {
+        } else if (!j.b()) {
             cVar.a(2, (String) null);
         } else {
             c = Environment.getExternalStorageDirectory() + "/tmp/";

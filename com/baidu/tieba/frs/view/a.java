@@ -7,7 +7,7 @@ import android.widget.Adapter;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public class a extends LinearLayout {
-    private Adapter dXp;
+    private Adapter dXd;
     private final DataSetObserver mDataSetObserver;
 
     public a(Context context) {
@@ -15,12 +15,12 @@ public class a extends LinearLayout {
         this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.frs.view.a.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                if (a.this.dXp != null) {
-                    int count = a.this.dXp.getCount();
+                if (a.this.dXd != null) {
+                    int count = a.this.dXd.getCount();
                     int childCount = a.this.getChildCount() - count;
                     for (int i = 0; i < count; i++) {
                         View childAt = a.this.getChildAt(i);
-                        View view = a.this.dXp.getView(i, childAt, a.this);
+                        View view = a.this.dXd.getView(i, childAt, a.this);
                         if (childAt == null && view != null) {
                             a.this.addView(view);
                         }
@@ -39,12 +39,12 @@ public class a extends LinearLayout {
     }
 
     public void setAdapter(Adapter adapter) {
-        if (this.dXp != null) {
-            this.dXp.unregisterDataSetObserver(this.mDataSetObserver);
+        if (this.dXd != null) {
+            this.dXd.unregisterDataSetObserver(this.mDataSetObserver);
         }
-        this.dXp = adapter;
-        if (this.dXp != null) {
-            this.dXp.registerDataSetObserver(this.mDataSetObserver);
+        this.dXd = adapter;
+        if (this.dXd != null) {
+            this.dXd.registerDataSetObserver(this.mDataSetObserver);
         }
     }
 }

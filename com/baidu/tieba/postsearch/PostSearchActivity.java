@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dDb;
-    private h gyc;
-    private e gyd;
+    public String dCP;
+    private h gxR;
+    private e gxS;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.tY(i);
+            PostSearchActivity.this.tZ(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gyc = new h(this);
-        this.gyc.initView();
-        this.gyc.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gyd = new e(this);
+        this.gxR = new h(this);
+        this.gxR.initView();
+        this.gxR.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gxS = new e(this);
         initData();
     }
 
     public void rw(String str) {
-        this.dDb = str;
-        this.gyc.ue(1);
-        this.gyd.bnd();
-        this.gyc.VU();
+        this.dCP = str;
+        this.gxR.uf(1);
+        this.gxS.bnc();
+        this.gxR.VT();
     }
 
     public void rv(String str) {
-        this.gyc.rv(str);
+        this.gxR.rv(str);
     }
 
-    public void bmN() {
-        this.gyc.ar(this.gyd.gyB);
+    public void bmM() {
+        this.gxR.ar(this.gxS.gyq);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aLK())) {
-            this.gyc.VV();
-            this.gyc.bnh();
+        if (i == 1 && (bVar == null || !bVar.aLJ())) {
+            this.gxR.VU();
+            this.gxR.bng();
             return;
         }
-        this.gyc.VV();
-        this.gyc.bmV();
-        this.gyc.a(i, bVar, z);
+        this.gxR.VU();
+        this.gxR.bmU();
+        this.gxR.a(i, bVar, z);
     }
 
-    public boolean bmO() {
-        return this.gyc.bmO();
+    public boolean bmN() {
+        return this.gxR.bmN();
     }
 
-    public void bmJ() {
-        this.gyc.bmJ();
+    public void bmI() {
+        this.gxR.bmI();
     }
 
-    public e bmP() {
-        return this.gyd;
+    public e bmO() {
+        return this.gxS;
     }
 
-    public h bmQ() {
-        return this.gyc;
+    public h bmP() {
+        return this.gxR;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gyc.onChangeSkinType(i);
+        this.gxR.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gyd.bna();
+        this.gxS.bmZ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gyc != null) {
-            this.gyc.onDestroy();
+        if (this.gxR != null) {
+            this.gxR.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tY(int i) {
+    public void tZ(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

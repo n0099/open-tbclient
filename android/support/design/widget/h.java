@@ -13,7 +13,7 @@ class h extends g {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ab abVar, o oVar, s.d dVar) {
         super(abVar, oVar, dVar);
-        this.mRotation = this.pa.getRotation();
+        this.mRotation = this.oZ.getRotation();
     }
 
     @Override // android.support.design.widget.i
@@ -23,7 +23,7 @@ class h extends g {
 
     @Override // android.support.design.widget.i
     void bS() {
-        float rotation = this.pa.getRotation();
+        float rotation = this.oZ.getRotation();
         if (this.mRotation != rotation) {
             this.mRotation = rotation;
             bU();
@@ -34,28 +34,28 @@ class h extends g {
     @Override // android.support.design.widget.g, android.support.design.widget.i
     public void a(final i.a aVar, final boolean z) {
         if (!bZ()) {
-            this.pa.animate().cancel();
+            this.oZ.animate().cancel();
             if (bT()) {
-                this.oS = 1;
-                this.pa.animate().scaleX(0.0f).scaleY(0.0f).alpha(0.0f).setDuration(200L).setInterpolator(a.kC).setListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.h.1
-                    private boolean oP;
+                this.oR = 1;
+                this.oZ.animate().scaleX(0.0f).scaleY(0.0f).alpha(0.0f).setDuration(200L).setInterpolator(a.kC).setListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.h.1
+                    private boolean oO;
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
-                        h.this.pa.e(0, z);
-                        this.oP = false;
+                        h.this.oZ.e(0, z);
+                        this.oO = false;
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        this.oP = true;
+                        this.oO = true;
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        h.this.oS = 0;
-                        if (!this.oP) {
-                            h.this.pa.e(8, z);
+                        h.this.oR = 0;
+                        if (!this.oO) {
+                            h.this.oZ.e(8, z);
                             if (aVar != null) {
                                 aVar.bM();
                             }
@@ -64,7 +64,7 @@ class h extends g {
                 });
                 return;
             }
-            this.pa.e(8, z);
+            this.oZ.e(8, z);
             if (aVar != null) {
                 aVar.bM();
             }
@@ -75,23 +75,23 @@ class h extends g {
     @Override // android.support.design.widget.g, android.support.design.widget.i
     public void b(final i.a aVar, final boolean z) {
         if (!bY()) {
-            this.pa.animate().cancel();
+            this.oZ.animate().cancel();
             if (bT()) {
-                this.oS = 2;
-                if (this.pa.getVisibility() != 0) {
-                    this.pa.setAlpha(0.0f);
-                    this.pa.setScaleY(0.0f);
-                    this.pa.setScaleX(0.0f);
+                this.oR = 2;
+                if (this.oZ.getVisibility() != 0) {
+                    this.oZ.setAlpha(0.0f);
+                    this.oZ.setScaleY(0.0f);
+                    this.oZ.setScaleX(0.0f);
                 }
-                this.pa.animate().scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(a.kD).setListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.h.2
+                this.oZ.animate().scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(a.kD).setListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.h.2
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
-                        h.this.pa.e(0, z);
+                        h.this.oZ.e(0, z);
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        h.this.oS = 0;
+                        h.this.oR = 0;
                         if (aVar != null) {
                             aVar.bL();
                         }
@@ -99,10 +99,10 @@ class h extends g {
                 });
                 return;
             }
-            this.pa.e(0, z);
-            this.pa.setAlpha(1.0f);
-            this.pa.setScaleY(1.0f);
-            this.pa.setScaleX(1.0f);
+            this.oZ.e(0, z);
+            this.oZ.setAlpha(1.0f);
+            this.oZ.setScaleY(1.0f);
+            this.oZ.setScaleX(1.0f);
             if (aVar != null) {
                 aVar.bL();
             }
@@ -110,24 +110,24 @@ class h extends g {
     }
 
     private boolean bT() {
-        return ViewCompat.isLaidOut(this.pa) && !this.pa.isInEditMode();
+        return ViewCompat.isLaidOut(this.oZ) && !this.oZ.isInEditMode();
     }
 
     private void bU() {
         if (Build.VERSION.SDK_INT == 19) {
             if (this.mRotation % 90.0f != 0.0f) {
-                if (this.pa.getLayerType() != 1) {
-                    this.pa.setLayerType(1, null);
+                if (this.oZ.getLayerType() != 1) {
+                    this.oZ.setLayerType(1, null);
                 }
-            } else if (this.pa.getLayerType() != 0) {
-                this.pa.setLayerType(0, null);
+            } else if (this.oZ.getLayerType() != 0) {
+                this.oZ.setLayerType(0, null);
             }
         }
-        if (this.oI != null) {
-            this.oI.setRotation(-this.mRotation);
+        if (this.oH != null) {
+            this.oH.setRotation(-this.mRotation);
         }
-        if (this.oV != null) {
-            this.oV.setRotation(-this.mRotation);
+        if (this.oU != null) {
+            this.oU.setRotation(-this.mRotation);
         }
     }
 }

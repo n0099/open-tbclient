@@ -7,12 +7,12 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements i {
-    public static final BdUniqueId dQe = BdUniqueId.gen();
+    public static final BdUniqueId dPS = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String dQf;
-    public int dQg;
-    public boolean dQh;
+    public String dPT;
+    public int dPU;
+    public boolean dPV;
     public String forumId;
     public String id;
     public String portrait;
@@ -27,10 +27,10 @@ public class b implements i {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(WBConstants.GAME_PARAMS_SCORE);
             this.createTime = jSONObject.optString(WBConstants.GAME_PARAMS_GAME_CREATE_TIME);
-            this.dQf = jSONObject.optString("time_passed");
+            this.dPT = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.dQg = jSONObject.optInt("zan_num");
-            this.dQh = jSONObject.optInt("is_zan", 0) == 1;
+            this.dPU = jSONObject.optInt("zan_num");
+            this.dPV = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
         }
@@ -38,6 +38,6 @@ public class b implements i {
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dQe;
+        return dPS;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tieba.card.v;
 import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
-    private v<e> abv;
+    private v<e> abo;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -22,7 +22,7 @@ public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* renamed from: ad */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.personCenter.view.d dVar = new com.baidu.tieba.personCenter.view.d(this.mPageContext);
-        dVar.b(this.abv);
+        dVar.b(this.abo);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
 
@@ -31,11 +31,11 @@ public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
-        aVar.alY().a(eVar);
+        aVar.alX().a(eVar);
         return aVar.getView();
     }
 
     public void b(v<e> vVar) {
-        this.abv = vVar;
+        this.abo = vVar;
     }
 }

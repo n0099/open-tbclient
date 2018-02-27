@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String bSL;
-    private String eah;
-    private String eai;
-    private String eaj;
-    private String eak;
-    private String eal;
+    private String bSz;
+    private String dZV;
+    private String dZW;
+    private String dZX;
+    private String dZY;
+    private String dZZ;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.eah = String.valueOf(esportRank.rank);
-            this.eai = esportRank.text;
-            this.bSL = esportRank.url;
+            this.dZV = String.valueOf(esportRank.rank);
+            this.dZW = esportRank.text;
+            this.bSz = esportRank.url;
             if (esportRank.user != null) {
-                this.eaj = esportRank.user.steam_name;
-                this.eak = esportRank.user.steam_portrait;
+                this.dZX = esportRank.user.steam_name;
+                this.dZY = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String aAY() {
+    public String aAX() {
         return this.mTitle;
     }
 
+    public String aAY() {
+        return this.dZV;
+    }
+
     public String aAZ() {
-        return this.eah;
+        return this.dZW;
     }
 
     public String aBa() {
-        return this.eai;
+        return this.dZX;
     }
 
     public String aBb() {
-        return this.eaj;
+        return this.dZY;
     }
 
     public String aBc() {
-        return this.eak;
-    }
-
-    public String aBd() {
-        return this.eal;
+        return this.dZZ;
     }
 
     public void mt(String str) {
-        this.eal = str;
+        this.dZZ = str;
     }
 
-    public String aBe() {
-        return this.bSL;
+    public String aBd() {
+        return this.bSz;
     }
 
     public void mu(String str) {
-        this.bSL = str;
+        this.bSz = str;
     }
 }

@@ -46,27 +46,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private AlertDialog aRn;
-    private TextView gPL;
-    private final LinearLayout gPM;
-    private final LinearLayout gPN;
-    private View.OnClickListener gPP;
-    private SparseArray<String> gPS;
-    private SparseArray<r> gPT;
+    private AlertDialog aRc;
+    private View.OnClickListener gPA;
+    private SparseArray<String> gPD;
+    private SparseArray<r> gPE;
+    private TextView gPw;
+    private final LinearLayout gPx;
+    private final LinearLayout gPy;
     private int hideMode;
     private final Context mContext;
     private boolean mIsLandscape;
     private DialogInterface.OnDismissListener mOnDismissListener;
-    private final SparseArray<d> gPQ = new SparseArray<>(8);
-    private boolean gPR = false;
-    private boolean gPU = true;
-    private final List<View> gPO = new ArrayList();
+    private final SparseArray<d> gPB = new SparseArray<>(8);
+    private boolean gPC = false;
+    private boolean gPF = true;
+    private final List<View> gPz = new ArrayList();
     private final View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(d.h.share_dialog_content, (ViewGroup) null);
-    private final TextView gPI = (TextView) this.mRootView.findViewById(d.g.share_dialog_title);
-    private final View gPJ = this.mRootView.findViewById(d.g.share_dialog_content);
+    private final TextView gPt = (TextView) this.mRootView.findViewById(d.g.share_dialog_title);
+    private final View gPu = this.mRootView.findViewById(d.g.share_dialog_content);
     private final View mLine = this.mRootView.findViewById(d.g.line);
     private final View mLine2 = this.mRootView.findViewById(d.g.line_2);
-    private final TextView gPK = (TextView) this.mRootView.findViewById(d.g.btnShareCancel);
+    private final TextView gPv = (TextView) this.mRootView.findViewById(d.g.btnShareCancel);
 
     public a(Context context, boolean z, int i) {
         this.mIsLandscape = false;
@@ -74,35 +74,35 @@ public class a implements View.OnClickListener {
         this.hideMode = i;
         this.mContext = context;
         this.mIsLandscape = z;
-        this.gPK.setOnClickListener(this);
-        if (!va(i)) {
+        this.gPv.setOnClickListener(this);
+        if (!vb(i)) {
             cB(d.j.share_weixin, d.f.icon_weixin);
         }
-        if (!vb(i)) {
+        if (!vc(i)) {
             cB(d.j.share_weixin_timeline, d.f.icon_weixin_q);
         }
-        if (!vc(i)) {
+        if (!vd(i)) {
             cB(d.j.share_qzone, d.f.icon_qq_zone);
         }
-        if (!vd(i)) {
+        if (!ve(i)) {
             cB(d.j.share_qq_friends, d.f.icon_qq_share);
         }
-        if (!ve(i)) {
+        if (!vf(i)) {
             cB(d.j.share_sina_weibo, d.f.icon_sina);
         }
-        this.gPM = (LinearLayout) this.mRootView.findViewById(d.g.share_dialog_line_1);
-        this.gPN = (LinearLayout) this.mRootView.findViewById(d.g.share_dialog_line_2);
-        if (!e.IZ()) {
-            this.gPM.setVisibility(8);
-            this.gPN.setVisibility(8);
+        this.gPx = (LinearLayout) this.mRootView.findViewById(d.g.share_dialog_line_1);
+        this.gPy = (LinearLayout) this.mRootView.findViewById(d.g.share_dialog_line_2);
+        if (!e.IY()) {
+            this.gPx.setVisibility(8);
+            this.gPy.setVisibility(8);
         }
     }
 
-    private void YY() {
+    private void YX() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001277, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sharesdk.d.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (a.this.aRn != null && a.this.aRn.isShowing()) {
+                if (a.this.aRc != null && a.this.aRc.isShowing()) {
                     a.this.dismiss();
                     return null;
                 }
@@ -117,10 +117,10 @@ public class a implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(d.h.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(bsq());
+        textView.setLayoutParams(bsp());
         textView.setTag(Integer.valueOf(i2));
         textView.setOnClickListener(this);
-        this.gPO.add(textView);
+        this.gPz.add(textView);
         return textView;
     }
 
@@ -128,12 +128,12 @@ public class a implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(d.h.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(bsq());
+        textView.setLayoutParams(bsp());
         textView.setTag(Integer.valueOf(i2));
         return textView;
     }
 
-    public LinearLayout.LayoutParams bsq() {
+    public LinearLayout.LayoutParams bsp() {
         if (!this.mIsLandscape) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -146,68 +146,68 @@ public class a implements View.OnClickListener {
         return layoutParams2;
     }
 
-    public int bsr() {
-        if (this.gPO == null) {
+    public int bsq() {
+        if (this.gPz == null) {
             return 0;
         }
-        return this.gPO.size();
+        return this.gPz.size();
     }
 
     public void b(View view, View.OnClickListener onClickListener) {
-        this.gPO.add(0, view);
+        this.gPz.add(0, view);
         if (onClickListener != null) {
-            view.setOnClickListener(new View$OnClickListenerC0231a(onClickListener));
+            view.setOnClickListener(new View$OnClickListenerC0232a(onClickListener));
         }
     }
 
     public void a(TextView textView, int i, View.OnClickListener onClickListener) {
-        if (i <= this.gPO.size() && i >= 0) {
-            this.gPO.add(i, textView);
+        if (i <= this.gPz.size() && i >= 0) {
+            this.gPz.add(i, textView);
             if (onClickListener != null) {
-                textView.setOnClickListener(new View$OnClickListenerC0231a(onClickListener));
+                textView.setOnClickListener(new View$OnClickListenerC0232a(onClickListener));
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.sharesdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class View$OnClickListenerC0231a implements View.OnClickListener {
-        private View.OnClickListener gPW;
+    class View$OnClickListenerC0232a implements View.OnClickListener {
+        private View.OnClickListener gPH;
 
-        public View$OnClickListenerC0231a(View.OnClickListener onClickListener) {
-            this.gPW = onClickListener;
+        public View$OnClickListenerC0232a(View.OnClickListener onClickListener) {
+            this.gPH = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a.this.dismiss();
-            if (this.gPW != null) {
-                this.gPW.onClick(view);
+            if (this.gPH != null) {
+                this.gPH.onClick(view);
             }
         }
     }
 
     public void setIsCopyLink(boolean z) {
-        this.gPU = z;
+        this.gPF = z;
     }
 
     public void e(SparseArray<String> sparseArray) {
-        this.gPS = sparseArray;
+        this.gPD = sparseArray;
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar, boolean z) {
-        Location ano;
-        if (z && (ano = ano()) != null) {
-            dVar.blC = ano;
+        Location ann;
+        if (z && (ann = ann()) != null) {
+            dVar.blp = ann;
         }
-        this.gPQ.put(1, dVar);
-        this.gPI.setVisibility(dVar.blx ? 0 : 8);
-        if (!StringUtils.isNull(dVar.bly)) {
-            this.gPI.setText(dVar.bly);
+        this.gPB.put(1, dVar);
+        this.gPt.setVisibility(dVar.blk ? 0 : 8);
+        if (!StringUtils.isNull(dVar.bll)) {
+            this.gPt.setText(dVar.bll);
         }
     }
 
-    private Location ano() {
+    private Location ann() {
         if (ab.aS(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
@@ -227,35 +227,35 @@ public class a implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.gPP = onClickListener;
+            this.gPA = onClickListener;
         }
     }
 
-    public void bss() {
-        if (this.gPU) {
-            this.gPL = cB(d.j.share_copy, d.f.icon_copy_link);
+    public void bsr() {
+        if (this.gPF) {
+            this.gPw = cB(d.j.share_copy, d.f.icon_copy_link);
         }
-        int size = this.gPO.size();
+        int size = this.gPz.size();
         if (size < 8) {
             for (int i = 0; i < 8 - size; i++) {
                 TextView cC = cC(d.j.share_weixin_timeline, d.f.icon_weixin_q);
                 cC.setVisibility(4);
-                this.gPO.add(cC);
+                this.gPz.add(cC);
             }
         }
         if (!this.mIsLandscape) {
             for (int i2 = 0; i2 < 8; i2++) {
                 if (i2 < 4) {
-                    this.gPM.addView(this.gPO.get(i2));
+                    this.gPx.addView(this.gPz.get(i2));
                 } else {
-                    this.gPN.addView(this.gPO.get(i2));
+                    this.gPy.addView(this.gPz.get(i2));
                 }
             }
             return;
         }
         for (int i3 = 0; i3 < 8; i3++) {
             if (i3 < 6) {
-                this.gPM.addView(this.gPO.get(i3));
+                this.gPx.addView(this.gPz.get(i3));
             }
         }
     }
@@ -263,13 +263,13 @@ public class a implements View.OnClickListener {
     public void show() {
         if (!j.oJ()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
-        } else if (!e.IZ()) {
+        } else if (!e.IY()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.plugin_share_install_failure);
         } else {
-            bss();
-            this.aRn = new AlertDialog.Builder(this.mContext).create();
-            this.aRn.setCanceledOnTouchOutside(true);
-            this.aRn.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
+            bsr();
+            this.aRc = new AlertDialog.Builder(this.mContext).create();
+            this.aRc.setCanceledOnTouchOutside(true);
+            this.aRc.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     if (a.this.mOnDismissListener != null) {
@@ -279,15 +279,15 @@ public class a implements View.OnClickListener {
                 }
             });
             if (this.mContext instanceof Activity) {
-                g.a(this.aRn, (Activity) this.mContext);
+                g.a(this.aRc, (Activity) this.mContext);
             }
-            Window window = this.aRn.getWindow();
+            Window window = this.aRc.getWindow();
             window.setWindowAnimations(d.k.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            bst();
-            YY();
+            bss();
+            YX();
         }
     }
 
@@ -298,10 +298,10 @@ public class a implements View.OnClickListener {
     }
 
     public void dismiss() {
-        if (this.aRn != null) {
-            this.gPR = false;
+        if (this.aRc != null) {
+            this.gPC = false;
             if (this.mContext instanceof Activity) {
-                g.b(this.aRn, (Activity) this.mContext);
+                g.b(this.aRc, (Activity) this.mContext);
             }
         }
     }
@@ -314,11 +314,11 @@ public class a implements View.OnClickListener {
             i = ((Integer) view.getTag()).intValue();
         }
         dismiss();
-        if (this.gPQ.size() != 0) {
-            if (view.getId() == d.g.btnShareCancel || !this.gPR) {
-                this.gPR = true;
+        if (this.gPB.size() != 0) {
+            if (view.getId() == d.g.btnShareCancel || !this.gPC) {
+                this.gPC = true;
                 e eVar = new e(this.mContext, null);
-                com.baidu.tbadk.coreExtra.c.d uY = uY(1);
+                com.baidu.tbadk.coreExtra.c.d uZ = uZ(1);
                 if (id == d.g.btnShareCancel) {
                     l("share_cancel", new Object[0]);
                     dismiss();
@@ -328,11 +328,11 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_weixin", new Object[0]);
-                    uZ(3);
-                    com.baidu.tbadk.coreExtra.c.d uY2 = uY(3);
-                    b(uY2, 4);
-                    if (uY2 != null) {
-                        eVar.b(uY2);
+                    va(3);
+                    com.baidu.tbadk.coreExtra.c.d uZ2 = uZ(3);
+                    b(uZ2, 4);
+                    if (uZ2 != null) {
+                        eVar.b(uZ2);
                     }
                 } else if (i == d.f.icon_weixin_q) {
                     if (!j.oJ()) {
@@ -340,25 +340,25 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_pyq", new Object[0]);
-                    uZ(2);
-                    com.baidu.tbadk.coreExtra.c.d uY3 = uY(2);
-                    b(uY3, 3);
-                    if (uY3 != null) {
-                        if (uY3.bls) {
-                            uY3.content = "【" + uY3.title + "】 " + uY3.content;
+                    va(2);
+                    com.baidu.tbadk.coreExtra.c.d uZ3 = uZ(2);
+                    b(uZ3, 3);
+                    if (uZ3 != null) {
+                        if (uZ3.blf) {
+                            uZ3.content = "【" + uZ3.title + "】 " + uZ3.content;
                         }
-                        eVar.c(uY3);
+                        eVar.c(uZ3);
                     }
                 } else if (i == d.f.icon_qq_zone) {
                     if (!j.oJ()) {
                         l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
                     } else if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         l("share_to_qzone", new Object[0]);
-                        uZ(4);
-                        com.baidu.tbadk.coreExtra.c.d uY4 = uY(4);
-                        b(uY4, 5);
-                        if (uY4 != null) {
-                            eVar.e(uY4);
+                        va(4);
+                        com.baidu.tbadk.coreExtra.c.d uZ4 = uZ(4);
+                        b(uZ4, 5);
+                        if (uZ4 != null) {
+                            eVar.e(uZ4);
                         }
                     } else {
                         BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bc();
@@ -369,14 +369,14 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_qweibo", new Object[0]);
-                    uZ(5);
-                    com.baidu.tbadk.coreExtra.c.d uY5 = uY(5);
-                    b(uY5, 6);
-                    if (uY5 != null) {
-                        if (!uY5.blr) {
-                            uY5.content = j(uY5);
+                    va(5);
+                    com.baidu.tbadk.coreExtra.c.d uZ5 = uZ(5);
+                    b(uZ5, 6);
+                    if (uZ5 != null) {
+                        if (!uZ5.ble) {
+                            uZ5.content = j(uZ5);
                         }
-                        eVar.f(uY5);
+                        eVar.f(uZ5);
                     }
                 } else if (i == d.f.icon_sina) {
                     if (!j.oJ()) {
@@ -384,14 +384,14 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_sweibo", new Object[0]);
-                    uZ(6);
-                    com.baidu.tbadk.coreExtra.c.d uY6 = uY(6);
-                    b(uY6, 7);
-                    if (uY6 != null) {
-                        if (!uY6.blr) {
-                            uY6.content = j(uY6);
+                    va(6);
+                    com.baidu.tbadk.coreExtra.c.d uZ6 = uZ(6);
+                    b(uZ6, 7);
+                    if (uZ6 != null) {
+                        if (!uZ6.ble) {
+                            uZ6.content = j(uZ6);
                         }
-                        eVar.g(uY6);
+                        eVar.g(uZ6);
                     }
                 } else if (i == d.f.icon_renren) {
                     if (!j.oJ()) {
@@ -399,40 +399,40 @@ public class a implements View.OnClickListener {
                         return;
                     }
                     l("share_to_renren", new Object[0]);
-                    uZ(7);
-                    com.baidu.tbadk.coreExtra.c.d uY7 = uY(7);
-                    b(uY7, 8);
-                    if (uY7 != null) {
-                        if (!uY7.blr) {
-                            uY7.content = j(uY7);
+                    va(7);
+                    com.baidu.tbadk.coreExtra.c.d uZ7 = uZ(7);
+                    b(uZ7, 8);
+                    if (uZ7 != null) {
+                        if (!uZ7.ble) {
+                            uZ7.content = j(uZ7);
                         }
-                        eVar.h(uY7);
+                        eVar.h(uZ7);
                     }
                 } else if (i == d.f.icon_qq_share) {
                     if (!j.oJ()) {
                         l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
                     } else if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                         l("share_to_qq_friend", new Object[0]);
-                        uZ(8);
-                        com.baidu.tbadk.coreExtra.c.d uY8 = uY(8);
-                        b(uY8, 9);
-                        if (uY8 != null) {
-                            eVar.d(uY8);
+                        va(8);
+                        com.baidu.tbadk.coreExtra.c.d uZ8 = uZ(8);
+                        b(uZ8, 9);
+                        if (uZ8 != null) {
+                            eVar.d(uZ8);
                         }
                     } else {
                         BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bc();
                     }
                 } else if (i == d.f.icon_copy_link) {
-                    b(uY, 10);
-                    if (this.gPP != null) {
-                        this.gPP.onClick(view);
+                    b(uZ, 10);
+                    if (this.gPA != null) {
+                        this.gPA.onClick(view);
                     } else {
-                        com.baidu.adp.lib.util.a.aE(uY.linkUrl);
+                        com.baidu.adp.lib.util.a.aE(uZ.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(d.j.copy_pb_url_success));
                     }
-                    i(uY);
-                    if (uY != null && uY.blr) {
-                        af(8, uY.blD);
+                    i(uZ);
+                    if (uZ != null && uZ.ble) {
+                        af(8, uZ.blq);
                     }
                 }
             }
@@ -441,13 +441,13 @@ public class a implements View.OnClickListener {
 
     private void i(com.baidu.tbadk.coreExtra.c.d dVar) {
         ak s = new ak("share_success").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
-        if (dVar.blH != 0) {
-            s.s("obj_param1", dVar.blH);
-            if (dVar.blH == 2) {
+        if (dVar.blu != 0) {
+            s.s("obj_param1", dVar.blu);
+            if (dVar.blu == 2) {
                 s.ab(ImageViewerConfig.FORUM_ID, dVar.fid);
-            } else if (dVar.blH == 3) {
-                if (dVar.blI != 0) {
-                    s.s("obj_type", dVar.blI);
+            } else if (dVar.blu == 3) {
+                if (dVar.blv != 0) {
+                    s.s("obj_type", dVar.blv);
                 }
                 s.ab("tid", dVar.tid).ab(ImageViewerConfig.FORUM_ID, dVar.fid);
             }
@@ -455,26 +455,26 @@ public class a implements View.OnClickListener {
         TiebaStatic.log(s);
     }
 
-    private com.baidu.tbadk.coreExtra.c.d uY(int i) {
-        com.baidu.tbadk.coreExtra.c.d dVar = this.gPQ.get(i);
+    private com.baidu.tbadk.coreExtra.c.d uZ(int i) {
+        com.baidu.tbadk.coreExtra.c.d dVar = this.gPB.get(i);
         if (dVar == null) {
-            return this.gPQ.get(1);
+            return this.gPB.get(1);
         }
         return dVar;
     }
 
-    private void uZ(int i) {
+    private void va(int i) {
         if (i <= 8 && i > 0) {
-            this.gPR = true;
-            if (this.gPT != null) {
-                r rVar = this.gPT.get(i);
-                if (!StringUtils.isNull(rVar.FU()) && rVar.FV() != null && rVar.FV().size() > 0) {
-                    l(rVar.FU(), rVar.FV());
+            this.gPC = true;
+            if (this.gPE != null) {
+                r rVar = this.gPE.get(i);
+                if (!StringUtils.isNull(rVar.FT()) && rVar.FU() != null && rVar.FU().size() > 0) {
+                    l(rVar.FT(), rVar.FU());
                     return;
                 }
             }
-            if (this.gPS != null) {
-                String str = this.gPS.get(i);
+            if (this.gPD != null) {
+                String str = this.gPD.get(i);
                 if (!am.isEmpty(str)) {
                     l(str, new Object[0]);
                 }
@@ -492,44 +492,44 @@ public class a implements View.OnClickListener {
 
     private void b(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.bls) {
+            if (dVar.blf) {
                 TiebaStatic.log(new ak("c10125").ab(ImageViewerConfig.FORUM_ID, dVar.extData).s("obj_type", i));
-            } else if (dVar.blt || dVar.blw) {
-                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blG).s("obj_param1", dVar.blH).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.blu) {
+            } else if (dVar.blg || dVar.blj) {
+                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blt).s("obj_param1", dVar.blu).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.blh) {
                 TiebaStatic.log(new ak("c10427").ab("tid", dVar.extData).s("obj_type", i));
-            } else if (dVar.blr) {
-                af(i, dVar.blD);
-            } else if (dVar.blv) {
+            } else if (dVar.ble) {
+                af(i, dVar.blq);
+            } else if (dVar.bli) {
                 TiebaStatic.log(new ak("c10125").s("obj_param1", 7).s("obj_type", i).ab(ImageViewerConfig.FORUM_ID, dVar.extData));
             }
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void bst() {
-        int size = this.gPO.size();
+    private void bss() {
+        int size = this.gPz.size();
         for (int i = 0; i < size; i++) {
-            View view = this.gPO.get(i);
+            View view = this.gPz.get(i);
             if (view instanceof TextView) {
-                a((TextView) view, ((Integer) view.getTag()).intValue(), d.C0140d.cp_cont_j);
+                a((TextView) view, ((Integer) view.getTag()).intValue(), d.C0141d.cp_cont_j);
             }
         }
-        aj.s(this.mRootView, d.C0140d.cp_bg_line_e);
-        aj.e(this.gPI, d.C0140d.cp_cont_j, 1);
-        com.baidu.tbadk.coreExtra.c.d uY = uY(1);
-        if (uY != null && StringUtils.isNull(uY.bly)) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.gPI.getText().toString());
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.mContext.getResources().getColor(d.C0140d.cp_cont_h)), 23, 30, 33);
+        aj.s(this.mRootView, d.C0141d.cp_bg_line_e);
+        aj.e(this.gPt, d.C0141d.cp_cont_j, 1);
+        com.baidu.tbadk.coreExtra.c.d uZ = uZ(1);
+        if (uZ != null && StringUtils.isNull(uZ.bll)) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.gPt.getText().toString());
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.mContext.getResources().getColor(d.C0141d.cp_cont_h)), 23, 30, 33);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.mContext.getResources().getColor(d.C0140d.cp_cont_h_1)), 23, 30, 33);
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.mContext.getResources().getColor(d.C0141d.cp_cont_h_1)), 23, 30, 33);
             }
-            this.gPI.setText(spannableStringBuilder);
+            this.gPt.setText(spannableStringBuilder);
         }
-        aj.e(this.gPK, d.C0140d.cp_cont_b, 1);
-        aj.s(this.gPK, d.f.dialog_share_cancel_button_bg_selector);
-        aj.s(this.mLine, d.C0140d.cp_bg_line_a);
-        aj.s(this.mLine2, d.C0140d.cp_bg_line_a);
+        aj.e(this.gPv, d.C0141d.cp_cont_b, 1);
+        aj.s(this.gPv, d.f.dialog_share_cancel_button_bg_selector);
+        aj.s(this.mLine, d.C0141d.cp_bg_line_a);
+        aj.s(this.mLine2, d.C0141d.cp_bg_line_a);
     }
 
     private void a(TextView textView, int i, int i2) {
@@ -545,23 +545,23 @@ public class a implements View.OnClickListener {
         return str;
     }
 
-    private boolean va(int i) {
+    private boolean vb(int i) {
         return (i & 1) > 0;
     }
 
-    private boolean vb(int i) {
+    private boolean vc(int i) {
         return (i & 2) > 0;
     }
 
-    private boolean vc(int i) {
+    private boolean vd(int i) {
         return (i & 4) > 0;
     }
 
-    private boolean vd(int i) {
+    private boolean ve(int i) {
         return (i & 8) > 0;
     }
 
-    private boolean ve(int i) {
+    private boolean vf(int i) {
         return (i & 16) > 0;
     }
 }

@@ -6,6 +6,6 @@ class a extends PrintHelperKitkat {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
         super(context);
-        this.Au = false;
+        this.Ap = false;
     }
 }

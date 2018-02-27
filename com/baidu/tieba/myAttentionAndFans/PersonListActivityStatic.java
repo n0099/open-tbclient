@@ -16,17 +16,17 @@ public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        auB();
+        auA();
     }
 
-    public static void auB() {
+    public static void auA() {
         com.baidu.tbadk.ala.b.vL().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.d
             public View aG(Context context) {
                 TextView aF = com.baidu.tbadk.ala.c.aF(context);
                 if (aF != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    aj.r(aF, d.C0140d.cp_link_tip_a);
+                    aj.r(aF, d.C0141d.cp_link_tip_a);
                     layoutParams.setMargins(l.t(context, d.e.ds8), 0, l.t(context, d.e.ds8), 0);
                     layoutParams.gravity = 16;
                     aF.setLayoutParams(layoutParams);

@@ -5,26 +5,26 @@ import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 class a extends Drawable {
-    final ActionBarContainer JT;
+    final ActionBarContainer JO;
 
     public a(ActionBarContainer actionBarContainer) {
-        this.JT = actionBarContainer;
+        this.JO = actionBarContainer;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.JT.Ka) {
-            if (this.JT.JZ != null) {
-                this.JT.JZ.draw(canvas);
+        if (this.JO.JV) {
+            if (this.JO.JU != null) {
+                this.JO.JU.draw(canvas);
                 return;
             }
             return;
         }
-        if (this.JT.Iw != null) {
-            this.JT.Iw.draw(canvas);
+        if (this.JO.Ir != null) {
+            this.JO.Ir.draw(canvas);
         }
-        if (this.JT.JY != null && this.JT.Kb) {
-            this.JT.JY.draw(canvas);
+        if (this.JO.JT != null && this.JO.JW) {
+            this.JO.JT.draw(canvas);
         }
     }
 

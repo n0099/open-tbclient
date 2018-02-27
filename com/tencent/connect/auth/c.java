@@ -11,12 +11,11 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.a.f;
-import com.tencent.open.utils.d;
+import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     private AuthAgent a;
     private QQToken b;
@@ -30,7 +29,7 @@ public class c {
     }
 
     public static c a(String str, Context context) {
-        d.a(context.getApplicationContext());
+        e.a(context.getApplicationContext());
         f.c("openSDK_LOG.QQAuth", "QQAuth -- createInstance() --start");
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -65,29 +64,29 @@ public class c {
     private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2) {
         String str3;
         String packageName = activity.getApplicationContext().getPackageName();
-        Iterator<ApplicationInfo> it = activity.getPackageManager().getInstalledApplications(128).iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                str3 = null;
-                break;
+        try {
+            Iterator<ApplicationInfo> it = activity.getPackageManager().getInstalledApplications(128).iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    str3 = null;
+                    break;
+                }
+                ApplicationInfo next = it.next();
+                if (packageName.equals(next.packageName)) {
+                    str3 = next.sourceDir;
+                    break;
+                }
             }
-            ApplicationInfo next = it.next();
-            if (packageName.equals(next.packageName)) {
-                str3 = next.sourceDir;
-                break;
-            }
-        }
-        if (str3 != null) {
-            try {
+            if (str3 != null) {
                 String a = com.tencent.open.utils.a.a(new File(str3));
                 if (!TextUtils.isEmpty(a)) {
                     f.a("openSDK_LOG.QQAuth", "-->login channelId: " + a);
                     return a(activity, str, iUiListener, a, a, "");
                 }
-            } catch (IOException e) {
-                f.b("openSDK_LOG.QQAuth", "-->login get channel id exception.", e);
-                e.printStackTrace();
             }
+        } catch (Throwable th) {
+            f.b("openSDK_LOG.QQAuth", "-->login get channel id exception.", th);
+            th.printStackTrace();
         }
         f.b("openSDK_LOG.QQAuth", "-->login channelId is null ");
         BaseApi.isOEM = false;

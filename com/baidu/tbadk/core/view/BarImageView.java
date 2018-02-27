@@ -19,7 +19,7 @@ public class BarImageView extends com.baidu.tbadk.widget.b {
     public BarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = d.f.icon_default_ba_120;
-        this.mDefaultBgId = d.C0140d.cp_bg_line_e;
+        this.mDefaultBgId = d.C0141d.cp_bg_line_e;
         init();
     }
 

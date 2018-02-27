@@ -19,10 +19,10 @@ public class DialogUtil {
         return aVar;
     }
 
-    public static com.baidu.tbadk.core.dialog.b orderMembers(Activity activity, b.InterfaceC0096b interfaceC0096b) {
+    public static com.baidu.tbadk.core.dialog.b orderMembers(Activity activity, b.InterfaceC0097b interfaceC0097b) {
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(activity);
         bVar.dl(TbadkApplication.getInst().getString(d.j.members_order));
-        bVar.a(activity.getResources().getStringArray(d.b.members_order_by), interfaceC0096b);
+        bVar.a(activity.getResources().getStringArray(d.b.members_order_by), interfaceC0097b);
         bVar.d(i.ak(activity));
         bVar.AX();
         return bVar;

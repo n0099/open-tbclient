@@ -8,12 +8,12 @@ import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class f extends e {
-    private final UiModeManager CO;
+    private final UiModeManager CJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Context context, Window window, AppCompatCallback appCompatCallback) {
         super(context, window, appCompatCallback);
-        this.CO = (UiModeManager) context.getSystemService("uimode");
+        this.CJ = (UiModeManager) context.getSystemService("uimode");
     }
 
     @Override // android.support.v7.app.e, android.support.v7.app.b
@@ -24,7 +24,7 @@ public class f extends e {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.app.e
     public int ax(int i) {
-        if (i == 0 && this.CO.getNightMode() == 0) {
+        if (i == 0 && this.CJ.getNightMode() == 0) {
             return -1;
         }
         return super.ax(i);

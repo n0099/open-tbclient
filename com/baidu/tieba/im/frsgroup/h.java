@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId eDH = BdUniqueId.gen();
-    private Object bNP;
-    private NoDataViewFactory.ImgType eDI;
-    private String eDJ;
-    private String eDK;
-    private String eDL;
-    private int eDM;
+    public static final BdUniqueId eDv = BdUniqueId.gen();
+    private Object bNC;
+    private int eDA;
+    private NoDataViewFactory.ImgType eDw;
+    private String eDx;
+    private String eDy;
+    private String eDz;
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return eDH;
+        return eDv;
     }
 
-    public String aIL() {
-        return this.eDJ;
+    public String aIK() {
+        return this.eDx;
     }
 
     public void nt(String str) {
-        this.eDJ = str;
+        this.eDx = str;
     }
 
-    public String aIM() {
-        return this.eDK;
+    public String aIL() {
+        return this.eDy;
     }
 
     public void nu(String str) {
-        this.eDK = str;
+        this.eDy = str;
     }
 
-    public String aIN() {
-        return this.eDL;
+    public String aIM() {
+        return this.eDz;
     }
 
     public void nv(String str) {
-        this.eDL = str;
+        this.eDz = str;
     }
 
-    public int aIO() {
-        return this.eDM;
+    public int aIN() {
+        return this.eDA;
     }
 
     public void pZ(int i) {
-        this.eDM = i;
+        this.eDA = i;
     }
 
-    public Object Sy() {
-        return this.bNP;
+    public Object Sx() {
+        return this.bNC;
     }
 
     public void setExtraData(Object obj) {
-        this.bNP = obj;
+        this.bNC = obj;
     }
 
-    public NoDataViewFactory.ImgType aIP() {
-        return this.eDI;
+    public NoDataViewFactory.ImgType aIO() {
+        return this.eDw;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.eDI = imgType;
+        this.eDw = imgType;
     }
 }

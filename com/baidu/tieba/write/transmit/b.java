@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private static int fCi = 3;
+    private static int fBW = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.En();
+            aVar.Em();
             aVar.a(this.mDataList.get(i));
         }
         return view;
@@ -60,32 +60,32 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public TextView beO;
-        public BarImageView fCk;
-        public View hHg;
+        public TextView beC;
+        public BarImageView fBY;
+        public View hGT;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.beO = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.fCk = (BarImageView) view.findViewById(d.g.forum_avatar);
-                this.hHg = view.findViewById(d.g.divider_line);
+                this.beC = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.fBY = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.hGT = view.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.beO.setText(transmitForumData.forumName);
-                this.fCk.startLoad(transmitForumData.avatar, 10, false);
+                this.beC.setText(transmitForumData.forumName);
+                this.fBY.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void En() {
-            if (b.fCi != this.mSkinType) {
-                aj.r(this.beO, d.C0140d.cp_cont_b);
-                aj.t(this.hHg, d.C0140d.cp_bg_line_c);
+        public void Em() {
+            if (b.fBW != this.mSkinType) {
+                aj.r(this.beC, d.C0141d.cp_cont_b);
+                aj.t(this.hGT, d.C0141d.cp_bg_line_c);
             }
-            this.mSkinType = b.fCi;
+            this.mSkinType = b.fBW;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (fCi != i) {
+        if (fBW != i) {
             notifyDataSetChanged();
         }
-        fCi = i;
+        fBW = i;
     }
 }

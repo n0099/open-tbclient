@@ -4,12 +4,12 @@ public class aq {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int aXH = 1;
-        public static int aXI = 2;
-        public static int aXJ = 3;
-        public static int aXK = 4;
-        public static int aXL = 5;
-        public static int aXM = 6;
-        public static int aXN = 7;
+        public static int aXv = 1;
+        public static int aXw = 2;
+        public static int aXx = 3;
+        public static int aXy = 4;
+        public static int aXz = 5;
+        public static int aXA = 6;
+        public static int aXB = 7;
     }
 }

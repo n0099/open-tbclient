@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 class v {
-    private static final a sI;
+    private static final a sH;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
@@ -39,14 +39,14 @@ class v {
 
     static {
         if (Build.VERSION.SDK_INT >= 11) {
-            sI = new c();
+            sH = new c();
         } else {
-            sI = new b();
+            sH = new b();
         }
     }
 
     static void a(ViewGroup viewGroup, View view, Rect rect) {
-        sI.a(viewGroup, view, rect);
+        sH.a(viewGroup, view, rect);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bgR = null;
-    private boolean bgQ;
-    private int bgS;
+    private static volatile a bgF = null;
+    private boolean bgE;
+    private int bgG;
 
     private a() {
-        this.bgQ = false;
-        this.bgS = 0;
+        this.bgE = false;
+        this.bgG = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.ad(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.lm()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.bgS = Integer.parseInt(content);
+                    this.bgG = Integer.parseInt(content);
                 }
-                if (this.bgS == 1 || this.bgS == 2) {
-                    this.bgQ = true;
+                if (this.bgG == 1 || this.bgG == 2) {
+                    this.bgE = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a Fe() {
-        if (bgR == null) {
+    public static a Fd() {
+        if (bgF == null) {
             synchronized (a.class) {
-                if (bgR == null) {
-                    bgR = new a();
+                if (bgF == null) {
+                    bgF = new a();
                 }
             }
         }
-        return bgR;
+        return bgF;
     }
 
-    public boolean Ff() {
-        return this.bgQ;
+    public boolean Fe() {
+        return this.bgE;
     }
 
-    public int Fg() {
-        return this.bgS;
+    public int Ff() {
+        return this.bgG;
     }
 
-    public String Fh() {
-        return this.bgQ ? "pub_env=" + this.bgS + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String Fg() {
+        return this.bgE ? "pub_env=" + this.bgG + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

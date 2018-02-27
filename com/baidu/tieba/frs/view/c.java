@@ -38,65 +38,65 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public abstract class c {
-    private static HashMap<Integer, String> dYA = new HashMap<>();
-    private static HashSet<Integer> dYB = new HashSet<>();
-    protected PopupWindow QJ;
-    protected TbPageContext aRR;
-    protected View cMb;
-    public TextView dDI;
-    protected com.baidu.tieba.frs.i dFP;
-    protected l dVU;
-    protected int dVr;
+    private static HashMap<Integer, String> dYo = new HashMap<>();
+    private static HashSet<Integer> dYp = new HashSet<>();
+    protected PopupWindow QE;
+    protected TbPageContext aRG;
+    protected View cLP;
+    public TextView dDw;
+    protected com.baidu.tieba.frs.i dFD;
+    protected l dVI;
+    protected int dVf;
+    protected TextView dXA;
+    protected ImageView dXB;
+    protected View dXC;
+    protected ViewGroup dXD;
+    protected TextView dXE;
+    protected View dXF;
+    protected a dXG;
+    protected ViewGroup dXH;
     protected TextView dXI;
     protected TextView dXJ;
-    protected TextView dXK;
-    protected TextView dXL;
-    protected TextView dXM;
-    protected ImageView dXN;
+    protected TbImageView dXK;
+    protected LinearLayout dXL;
+    protected bf dXM;
+    protected bi dXN;
     protected View dXO;
-    protected ViewGroup dXP;
+    protected TextView dXP;
     protected TextView dXQ;
-    protected View dXR;
-    protected a dXS;
-    protected ViewGroup dXT;
-    protected TextView dXU;
-    protected TextView dXV;
-    protected TbImageView dXW;
-    protected LinearLayout dXX;
-    protected bf dXY;
-    protected bi dXZ;
-    protected RelativeLayout dYF;
-    protected RelativeLayout dYG;
-    protected View dYH;
-    protected TextView dYI;
-    protected RelativeLayout dYJ;
-    protected TextView dYK;
-    protected View dYa;
-    protected TextView dYb;
-    protected TextView dYc;
-    protected ImageView dYd;
-    protected PopupWindow dYe;
-    protected BarImageView dYf;
-    protected UserIconBox dYg;
-    protected ArrayList<com.baidu.tbadk.core.data.g> dYh;
-    protected com.baidu.tieba.frs.f.b dYi;
-    protected g dYj;
-    protected ai dYk;
-    protected String dYl;
-    protected String dYm;
-    protected String dYn;
-    protected bd dYo;
-    protected int dYp;
-    protected int dYq;
-    protected int dYr;
-    protected int dYs;
-    protected boolean dYt;
-    protected boolean dYu;
-    protected boolean dYv;
-    protected boolean dYw;
-    protected boolean dYx;
-    protected boolean dYy;
-    protected float dYz;
+    protected ImageView dXR;
+    protected PopupWindow dXS;
+    protected BarImageView dXT;
+    protected UserIconBox dXU;
+    protected ArrayList<com.baidu.tbadk.core.data.g> dXV;
+    protected com.baidu.tieba.frs.f.b dXW;
+    protected g dXX;
+    protected ai dXY;
+    protected String dXZ;
+    protected TextView dXw;
+    protected TextView dXx;
+    protected TextView dXy;
+    protected TextView dXz;
+    protected String dYa;
+    protected String dYb;
+    protected bd dYc;
+    protected int dYd;
+    protected int dYe;
+    protected int dYf;
+    protected int dYg;
+    protected boolean dYh;
+    protected boolean dYi;
+    protected boolean dYj;
+    protected boolean dYk;
+    protected boolean dYl;
+    protected boolean dYm;
+    protected float dYn;
+    protected RelativeLayout dYt;
+    protected RelativeLayout dYu;
+    protected View dYv;
+    protected TextView dYw;
+    protected RelativeLayout dYx;
+    protected TextView dYy;
     protected String mForumId;
     protected String mForumName;
     protected Handler mHandler;
@@ -105,31 +105,31 @@ public abstract class c {
     protected int mMemberType;
     protected View mParent;
     protected TextView mTitleText;
-    protected int dXF = 0;
-    protected int dXG = 0;
-    protected int dXH = 0;
-    private boolean dYC = false;
-    protected HashSet<String> dYD = new HashSet<>();
-    protected final Runnable dYE = new Runnable() { // from class: com.baidu.tieba.frs.view.c.1
+    protected int dXt = 0;
+    protected int dXu = 0;
+    protected int dXv = 0;
+    private boolean dYq = false;
+    protected HashSet<String> dYr = new HashSet<>();
+    protected final Runnable dYs = new Runnable() { // from class: com.baidu.tieba.frs.view.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.QJ != null && c.this.QJ.isShowing() && !c.this.dYu) {
-                com.baidu.adp.lib.g.g.a(c.this.QJ, c.this.aRR.getPageActivity());
+            if (c.this.QE != null && c.this.QE.isShowing() && !c.this.dYi) {
+                com.baidu.adp.lib.g.g.a(c.this.QE, c.this.aRG.getPageActivity());
             }
         }
     };
-    protected final View.OnClickListener dYL = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.2
+    protected final View.OnClickListener dYz = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.tbadkCore.g gVar;
-            if ((c.this.aRR == null || ay.ba(c.this.aRR.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.g) && (gVar = (com.baidu.tieba.tbadkCore.g) view.getTag()) != null && !StringUtils.isNull(gVar.getUrl())) {
+            if ((c.this.aRG == null || ay.ba(c.this.aRG.getPageActivity())) && view != null && (view.getTag() instanceof com.baidu.tieba.tbadkCore.g) && (gVar = (com.baidu.tieba.tbadkCore.g) view.getTag()) != null && !StringUtils.isNull(gVar.getUrl())) {
                 String url = gVar.getUrl();
                 if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    com.baidu.adp.lib.util.l.showToast(c.this.aRR.getPageActivity(), d.j.book_plugin_not_install_tip);
+                    com.baidu.adp.lib.util.l.showToast(c.this.aRG.getPageActivity(), d.j.book_plugin_not_install_tip);
                     return;
                 }
-                aw.Du().c(c.this.aRR, new String[]{url});
-                a.C0235a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.buM(), c.this.dFP.getForumId(), c.this.dFP.getForumName(), null);
+                aw.Dt().c(c.this.aRG, new String[]{url});
+                a.C0236a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.buL(), c.this.dFD.getForumId(), c.this.dFD.getForumName(), null);
                 b.ce("obj_url", gVar.getUrl());
                 b.save();
             }
@@ -138,7 +138,7 @@ public abstract class c {
 
     public abstract void a(ForumData forumData, l lVar);
 
-    public abstract void axg();
+    public abstract void axf();
 
     public abstract void changeSkinType(int i);
 
@@ -147,15 +147,15 @@ public abstract class c {
     public abstract void p(View view, boolean z);
 
     static {
-        dYA.put(1, "c0117");
-        dYA.put(2, "c0124");
-        dYA.put(3, "c0125");
-        dYA.put(4, "c0126");
-        dYA.put(5, "c0127");
+        dYo.put(1, "c0117");
+        dYo.put(2, "c0124");
+        dYo.put(3, "c0125");
+        dYo.put(4, "c0126");
+        dYo.put(5, "c0127");
     }
 
-    public boolean aAM() {
-        return this.dYt;
+    public boolean aAL() {
+        return this.dYh;
     }
 
     public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
@@ -204,10 +204,10 @@ public abstract class c {
         });
     }
 
-    public boolean aAN() {
+    public boolean aAM() {
         int[] iArr = new int[2];
         try {
-            this.dYd.getLocationOnScreen(iArr);
+            this.dXR.getLocationOnScreen(iArr);
             return iArr[0] >= 160 && iArr[1] >= 105;
         } catch (NullPointerException e) {
             return false;
@@ -218,150 +218,150 @@ public abstract class c {
         return this.mParent;
     }
 
+    public View aAN() {
+        return this.dXC;
+    }
+
     public View aAO() {
-        return this.dXO;
+        return this.dXG;
     }
 
-    public View aAP() {
-        return this.dXS;
+    public BarImageView aAP() {
+        return this.dXT;
     }
 
-    public BarImageView aAQ() {
-        return this.dYf;
-    }
-
-    public TextView aAR() {
+    public TextView aAQ() {
         return this.mTitleText;
     }
 
-    public TextView aAS() {
-        return this.dDI;
+    public TextView aAR() {
+        return this.dDw;
     }
 
-    public boolean aAp() {
-        return this.dYx;
+    public boolean aAo() {
+        return this.dYl;
     }
 
     public void gz(boolean z) {
-        this.dYw = z;
-        if (this.dYw) {
-            this.dXL.setVisibility(0);
+        this.dYk = z;
+        if (this.dYk) {
+            this.dXz.setVisibility(0);
         } else {
-            this.dXL.setVisibility(4);
+            this.dXz.setVisibility(4);
         }
     }
 
-    public boolean aAq() {
-        return this.dYy;
+    public boolean aAp() {
+        return this.dYm;
     }
 
     public void onDestory() {
-        this.dYu = true;
-        dYB.clear();
+        this.dYi = true;
+        dYp.clear();
     }
 
     public void onStop() {
-        aAT();
+        aAS();
     }
 
     public void gr(boolean z) {
         if (!z) {
-            aAT();
+            aAS();
         }
     }
 
-    private void aAT() {
-        if (this.dYe != null && this.dYe.isShowing()) {
-            this.dYe.dismiss();
+    private void aAS() {
+        if (this.dXS != null && this.dXS.isShowing()) {
+            this.dXS.dismiss();
         }
-        if (this.QJ != null && this.QJ.isShowing()) {
-            this.QJ.dismiss();
+        if (this.QE != null && this.QE.isShowing()) {
+            this.QE.dismiss();
         }
     }
 
     public void gA(boolean z) {
-        this.dYv = z;
+        this.dYj = z;
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
-        this.dYl = str;
+        this.dXZ = str;
         this.mLevel = i2;
         if (i == 0) {
-            this.dYt = false;
-            this.dYC = false;
-            this.dYF.setVisibility(0);
-            this.dYG.setVisibility(8);
+            this.dYh = false;
+            this.dYq = false;
+            this.dYt.setVisibility(0);
+            this.dYu.setVisibility(8);
             return;
         }
-        this.dYt = true;
-        this.dYF.setVisibility(8);
-        this.dYG.setVisibility(0);
-        if (z && !this.dYC) {
-            axh();
-            this.dYC = true;
+        this.dYh = true;
+        this.dYt.setVisibility(8);
+        this.dYu.setVisibility(0);
+        if (z && !this.dYq) {
+            axg();
+            this.dYq = true;
         }
         c(false, f);
     }
 
-    protected void axh() {
+    protected void axg() {
     }
 
     public void od(int i) {
         if (i == 0) {
-            this.dYt = false;
-            this.dYC = false;
-            this.dYF.setVisibility(0);
-            this.dYG.setVisibility(8);
+            this.dYh = false;
+            this.dYq = false;
+            this.dYt.setVisibility(0);
+            this.dYu.setVisibility(8);
             return;
         }
-        this.dYt = true;
-        this.dYF.setVisibility(8);
-        this.dYG.setVisibility(0);
+        this.dYh = true;
+        this.dYt.setVisibility(8);
+        this.dYu.setVisibility(0);
     }
 
     public void oe(int i) {
         if (i == 0) {
-            this.dYx = false;
-            this.dXL.setText(d.j.sign);
-            axc();
+            this.dYl = false;
+            this.dXz.setText(d.j.sign);
+            axb();
             return;
         }
-        this.dYx = true;
-        this.dXL.setText(d.j.signed);
-        axb();
-    }
-
-    protected void axc() {
+        this.dYl = true;
+        this.dXz.setText(d.j.signed);
+        axa();
     }
 
     protected void axb() {
+    }
+
+    protected void axa() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void axi() {
+    public void axh() {
         if (this.mMemberType != 0) {
-            aj.c(this.dYd, d.f.icon_speed_orange);
+            aj.c(this.dXR, d.f.icon_speed_orange);
         } else {
-            aj.c(this.dYd, d.f.icon_speed_gray);
+            aj.c(this.dXR, d.f.icon_speed_gray);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TextView textView, TextView textView2) {
-        textView.setText(String.valueOf(this.dYs));
-        if (this.dVr >= 10000) {
-            if (this.dVr % 10000 == 0) {
-                textView2.setText(this.aRR.getString(d.j.experience_divider) + String.valueOf(this.dVr / 10000) + this.aRR.getString(d.j.member_count_unit));
+        textView.setText(String.valueOf(this.dYg));
+        if (this.dVf >= 10000) {
+            if (this.dVf % 10000 == 0) {
+                textView2.setText(this.aRG.getString(d.j.experience_divider) + String.valueOf(this.dVf / 10000) + this.aRG.getString(d.j.member_count_unit));
                 return;
             } else {
-                textView2.setText(this.aRR.getString(d.j.experience_divider) + String.valueOf(this.dVr / 10000.0f) + this.aRR.getString(d.j.member_count_unit));
+                textView2.setText(this.aRG.getString(d.j.experience_divider) + String.valueOf(this.dVf / 10000.0f) + this.aRG.getString(d.j.member_count_unit));
                 return;
             }
         }
-        textView2.setText(this.aRR.getString(d.j.experience_divider) + String.valueOf(this.dVr));
+        textView2.setText(this.aRG.getString(d.j.experience_divider) + String.valueOf(this.dVf));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -380,12 +380,12 @@ public abstract class c {
     public void c(boolean z, float f) {
     }
 
-    public void awU() {
+    public void awT() {
     }
 
     public void x(int i, int i2, int i3, int i4) {
-        if (this.dYJ != null) {
-            this.dYJ.setPadding(i, i2, i3, i4);
+        if (this.dYx != null) {
+            this.dYx.setPadding(i, i2, i3, i4);
         }
     }
 }

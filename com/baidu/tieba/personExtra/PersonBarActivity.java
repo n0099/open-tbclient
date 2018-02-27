@@ -5,77 +5,77 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private b glu = null;
-    private PersonBarModel glv = null;
+    private b glj = null;
+    private PersonBarModel glk = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gku && this.requestCode != 23011) {
+        if (this.gkj && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.glv = new PersonBarModel(getPageContext(), aLq());
-        this.glv.setSex(getSex());
-        this.glv.setId(getUid());
-        this.glv.setUniqueId(getUniqueId());
+        this.glk = new PersonBarModel(getPageContext(), aLp());
+        this.glk.setSex(getSex());
+        this.glk.setId(getUid());
+        this.glk.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public a a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.glu == null) {
-            this.glu = new b(this, aLq());
+        if (this.glj == null) {
+            this.glj = new b(this, aLp());
         }
-        return this.glu;
+        return this.glj;
     }
 
-    public PersonBarModel bjj() {
-        return this.glv;
+    public PersonBarModel bji() {
+        return this.glk;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biQ() {
+    public String biP() {
         return getPageContext().getString(d.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biR() {
+    public String biQ() {
         return getPageContext().getString(d.j.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biS() {
+    public String biR() {
         return getPageContext().getString(d.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biT() {
+    public String biS() {
         return getPageContext().getString(d.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biU() {
+    public String biT() {
         return getPageContext().getString(d.j.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String biY() {
+    public String biX() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int biZ() {
+    public int biY() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        e bjt;
+        e bjs;
         super.onPageSelected(i);
-        if (this.glu != null && this.glu.getItem(i) != null && (baseFragment = (BaseFragment) this.glu.getItem(i)) != null && (baseFragment instanceof d) && (bjt = ((d) baseFragment).bjt()) != null) {
-            bjt.cX(false);
-            bjt.notifyDataSetChanged();
+        if (this.glj != null && this.glj.getItem(i) != null && (baseFragment = (BaseFragment) this.glj.getItem(i)) != null && (baseFragment instanceof d) && (bjs = ((d) baseFragment).bjs()) != null) {
+            bjs.cX(false);
+            bjs.notifyDataSetChanged();
         }
     }
 

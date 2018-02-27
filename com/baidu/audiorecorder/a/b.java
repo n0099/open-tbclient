@@ -11,11 +11,11 @@ import com.baidu.tieba.d;
 public class b extends r {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(d.j.msglist_voice), 6);
-        this.btj = d.f.btn_pb_add_microphone;
-        this.btm = 6;
-        this.bto = true;
-        this.bsw = new e(context);
-        this.btp = new int[]{1, 9};
+        this.bsW = d.f.btn_pb_add_microphone;
+        this.bsZ = 6;
+        this.bta = true;
+        this.bsj = new e(context);
+        this.btb = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.r

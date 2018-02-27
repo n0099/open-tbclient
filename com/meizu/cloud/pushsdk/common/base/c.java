@@ -57,7 +57,7 @@ public class c implements c.a {
     }
 
     @Override // com.meizu.cloud.pushsdk.common.b.c.a
-    public void a(c.a.EnumC0268a enumC0268a, String str, String str2) {
+    public void a(c.a.EnumC0269a enumC0269a, String str, String str2) {
         String str3;
         try {
             a();
@@ -65,10 +65,10 @@ public class c implements c.a {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 sb.append("/");
-                if (enumC0268a == c.a.EnumC0268a.DEBUG) {
+                if (enumC0269a == c.a.EnumC0269a.DEBUG) {
                     str3 = "D";
                 } else {
-                    str3 = enumC0268a == c.a.EnumC0268a.INFO ? "I" : enumC0268a == c.a.EnumC0268a.WARN ? "W" : "E";
+                    str3 = enumC0269a == c.a.EnumC0269a.INFO ? "I" : enumC0269a == c.a.EnumC0269a.WARN ? "W" : "E";
                 }
                 sb.append(str3);
                 sb.append(": ");

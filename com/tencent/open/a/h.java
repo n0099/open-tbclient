@@ -4,7 +4,7 @@ import android.text.format.Time;
 import android.util.Log;
 import com.baidu.sapi2.base.network.Apn;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static final h a = new h();
 

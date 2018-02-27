@@ -10,7 +10,7 @@ import android.view.View;
 public final class TabItem extends View {
     final Drawable mIcon;
     final CharSequence mText;
-    final int qz;
+    final int qy;
 
     public TabItem(Context context) {
         this(context, null);
@@ -21,7 +21,7 @@ public final class TabItem extends View {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
         this.mText = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
         this.mIcon = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.qz = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.qy = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

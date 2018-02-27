@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    private final g aYj = new g();
+    private final g aXX = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aYk = true;
+    public boolean aXY = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean aYl = false;
-    public int aYm = 0;
+    public boolean aXZ = false;
+    public int aYa = 0;
 
-    public g Dz() {
-        return this.aYj;
+    public g Dy() {
+        return this.aXX;
     }
 
     public void a(q qVar) {
@@ -62,20 +62,20 @@ public class b {
         }
         int oP = j.oP();
         qVar.n("net_type", String.valueOf(oP));
-        String Fh = com.baidu.tbadk.coreExtra.b.a.Fe().Fh();
+        String Fg = com.baidu.tbadk.coreExtra.b.a.Fd().Fg();
         if (1 == oP) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = Fh + "ka=open";
+                str = Fg + "ka=open";
                 z = true;
             }
-            str = Fh;
+            str = Fg;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = Fh + "ka=open";
+                str = Fg + "ka=open";
                 z = true;
             }
-            str = Fh;
+            str = Fg;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -91,18 +91,18 @@ public class b {
         }
     }
 
-    public String DA() {
-        if (this.aYj.mUrl == null) {
+    public String Dz() {
+        if (this.aXX.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aYj.mUrl.startsWith(str)) {
-            int indexOf = this.aYj.mUrl.indexOf(63);
+        if (this.aXX.mUrl.startsWith(str)) {
+            int indexOf = this.aXX.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aYj.mUrl.length();
+                indexOf = this.aXX.mUrl.length();
             }
-            return this.aYj.mUrl.substring(str.length(), indexOf);
+            return this.aXX.mUrl.substring(str.length(), indexOf);
         }
-        return this.aYj.mUrl;
+        return this.aXX.mUrl;
     }
 }

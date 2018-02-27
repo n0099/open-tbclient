@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends PagerAdapter {
-    private AlbumActivity hEK;
-    private Map<Integer, Boolean> hEU = new HashMap();
+    private Map<Integer, Boolean> hEH = new HashMap();
+    private AlbumActivity hEx;
     private LayoutInflater kh;
     private List<ImageFileInfo> mList;
 
     public c(AlbumActivity albumActivity) {
-        this.hEK = albumActivity;
-        this.kh = LayoutInflater.from(this.hEK.getPageContext().getPageActivity());
+        this.hEx = albumActivity;
+        this.kh = LayoutInflater.from(this.hEx.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class c extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo ss(int i) {
+    public ImageFileInfo st(int i) {
         return (ImageFileInfo) v.f(this.mList, i);
     }
 
-    public boolean xm(int i) {
-        if (this.hEU.get(Integer.valueOf(i)) == null) {
+    public boolean xn(int i) {
+        if (this.hEH.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hEU.get(Integer.valueOf(i)).booleanValue();
+        return this.hEH.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -72,14 +72,14 @@ public class c extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo ss = ss(i);
-        if (ss != null) {
-            tbImageView2.startLoad(ss.getFilePath(), 35, false, true);
-            tbImageView.startLoad(ss.getFilePath(), 36, false);
-            this.hEU.put(Integer.valueOf(i), true);
+        ImageFileInfo st = st(i);
+        if (st != null) {
+            tbImageView2.startLoad(st.getFilePath(), 35, false, true);
+            tbImageView.startLoad(st.getFilePath(), 36, false);
+            this.hEH.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        aj.t(inflate, d.C0140d.cp_bg_line_d);
+        aj.t(inflate, d.C0141d.cp_bg_line_d);
         return inflate;
     }
 }

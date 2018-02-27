@@ -233,50 +233,50 @@ class MediaControllerCompatApi21 {
 
     /* loaded from: classes2.dex */
     static class a<T extends Callback> extends MediaController.Callback {
-        protected final T zp;
+        protected final T zk;
 
         public a(T t) {
-            this.zp = t;
+            this.zk = t;
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionDestroyed() {
-            this.zp.onSessionDestroyed();
+            this.zk.onSessionDestroyed();
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionEvent(String str, Bundle bundle) {
-            this.zp.onSessionEvent(str, bundle);
+            this.zk.onSessionEvent(str, bundle);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onPlaybackStateChanged(PlaybackState playbackState) {
-            this.zp.onPlaybackStateChanged(playbackState);
+            this.zk.onPlaybackStateChanged(playbackState);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onMetadataChanged(MediaMetadata mediaMetadata) {
-            this.zp.onMetadataChanged(mediaMetadata);
+            this.zk.onMetadataChanged(mediaMetadata);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueChanged(List<MediaSession.QueueItem> list) {
-            this.zp.onQueueChanged(list);
+            this.zk.onQueueChanged(list);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onQueueTitleChanged(CharSequence charSequence) {
-            this.zp.onQueueTitleChanged(charSequence);
+            this.zk.onQueueTitleChanged(charSequence);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onExtrasChanged(Bundle bundle) {
-            this.zp.onExtrasChanged(bundle);
+            this.zk.onExtrasChanged(bundle);
         }
 
         @Override // android.media.session.MediaController.Callback
         public void onAudioInfoChanged(MediaController.PlaybackInfo playbackInfo) {
-            this.zp.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
+            this.zk.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
         }
     }
 }

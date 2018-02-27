@@ -9,43 +9,43 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeRecyclerView extends h implements n<BdTypeRecyclerView> {
-    q avF;
+    q avw;
 
     public BdTypeRecyclerView(Context context) {
         super(context);
-        this.avF = null;
+        this.avw = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.avF = null;
+        this.avw = null;
         init();
     }
 
     public BdTypeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.avF = null;
+        this.avw = null;
         init();
     }
 
     private void init() {
-        if (this.avF == null) {
-            this.avF = new q();
+        if (this.avw == null) {
+            this.avw = new q();
         }
         super.setOnItemClickListener(new h.a() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.1
             @Override // com.baidu.adp.widget.ListView.h.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.avF != null) {
-                    BdTypeRecyclerView.this.avF.a(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.avw != null) {
+                    BdTypeRecyclerView.this.avw.a(viewGroup, view, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new h.b() { // from class: com.baidu.adp.widget.ListView.BdTypeRecyclerView.2
             @Override // com.baidu.adp.widget.ListView.h.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
-                if (BdTypeRecyclerView.this.avF != null) {
-                    return BdTypeRecyclerView.this.avF.b(viewGroup, view, i, j);
+                if (BdTypeRecyclerView.this.avw != null) {
+                    return BdTypeRecyclerView.this.avw.b(viewGroup, view, i, j);
                 }
                 return false;
             }
@@ -72,22 +72,22 @@ public class BdTypeRecyclerView extends h implements n<BdTypeRecyclerView> {
     public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.avF.addAdapter(it.next());
+            this.avw.addAdapter(it.next());
         }
-        setAdapter(this.avF);
+        setAdapter(this.avw);
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public void setData(List<i> list) {
-        this.avF.setData(list);
+        this.avw.setData(list);
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public List<i> getData() {
-        return this.avF.getData();
+        return this.avw.getData();
     }
 
     public i getItem(int i) {
-        return this.avF.getItem(i);
+        return this.avw.getItem(i);
     }
 }

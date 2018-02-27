@@ -10,7 +10,7 @@ import javax.crypto.Cipher;
 import javax.crypto.Mac;
 /* loaded from: classes2.dex */
 public final class FingerprintManagerCompat {
-    static final b wM;
+    static final b wH;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -32,71 +32,71 @@ public final class FingerprintManagerCompat {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            wM = new a();
+            wH = new a();
         } else {
-            wM = new c();
+            wH = new c();
         }
     }
 
     public boolean hasEnrolledFingerprints() {
-        return wM.hasEnrolledFingerprints(this.mContext);
+        return wH.hasEnrolledFingerprints(this.mContext);
     }
 
     public boolean isHardwareDetected() {
-        return wM.isHardwareDetected(this.mContext);
+        return wH.isHardwareDetected(this.mContext);
     }
 
     public void authenticate(CryptoObject cryptoObject, int i, CancellationSignal cancellationSignal, AuthenticationCallback authenticationCallback, Handler handler) {
-        wM.a(this.mContext, cryptoObject, i, cancellationSignal, authenticationCallback, handler);
+        wH.a(this.mContext, cryptoObject, i, cancellationSignal, authenticationCallback, handler);
     }
 
     /* loaded from: classes2.dex */
     public static class CryptoObject {
-        private final Signature wP;
-        private final Cipher wQ;
-        private final Mac wR;
+        private final Signature wK;
+        private final Cipher wL;
+        private final Mac wM;
 
         public CryptoObject(Signature signature) {
-            this.wP = signature;
-            this.wQ = null;
-            this.wR = null;
+            this.wK = signature;
+            this.wL = null;
+            this.wM = null;
         }
 
         public CryptoObject(Cipher cipher) {
-            this.wQ = cipher;
-            this.wP = null;
-            this.wR = null;
+            this.wL = cipher;
+            this.wK = null;
+            this.wM = null;
         }
 
         public CryptoObject(Mac mac) {
-            this.wR = mac;
-            this.wQ = null;
-            this.wP = null;
+            this.wM = mac;
+            this.wL = null;
+            this.wK = null;
         }
 
         public Signature getSignature() {
-            return this.wP;
+            return this.wK;
         }
 
         public Cipher getCipher() {
-            return this.wQ;
+            return this.wL;
         }
 
         public Mac getMac() {
-            return this.wR;
+            return this.wM;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class AuthenticationResult {
-        private CryptoObject wO;
+        private CryptoObject wJ;
 
         public AuthenticationResult(CryptoObject cryptoObject) {
-            this.wO = cryptoObject;
+            this.wJ = cryptoObject;
         }
 
         public CryptoObject getCryptoObject() {
-            return this.wO;
+            return this.wJ;
         }
     }
 

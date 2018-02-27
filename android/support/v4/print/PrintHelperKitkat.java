@@ -29,14 +29,14 @@ import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class PrintHelperKitkat {
-    int As;
+    int An;
     final Context mContext;
-    BitmapFactory.Options At = null;
+    BitmapFactory.Options Ao = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
-    int Ar = 2;
-    protected boolean Au = true;
-    protected boolean Av = true;
+    int Am = 2;
+    protected boolean Ap = true;
+    protected boolean Aq = true;
 
     /* loaded from: classes2.dex */
     public interface OnPrintFinishCallback {
@@ -57,22 +57,22 @@ public class PrintHelperKitkat {
     }
 
     public void setColorMode(int i) {
-        this.Ar = i;
+        this.Am = i;
     }
 
     public void setOrientation(int i) {
-        this.As = i;
+        this.An = i;
     }
 
     public int getOrientation() {
-        if (this.As == 0) {
+        if (this.An == 0) {
             return 1;
         }
-        return this.As;
+        return this.An;
     }
 
     public int getColorMode() {
-        return this.Ar;
+        return this.Am;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,17 +100,17 @@ public class PrintHelperKitkat {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
             printManager.print(str, new PrintDocumentAdapter() { // from class: android.support.v4.print.PrintHelperKitkat.1
-                private PrintAttributes Aw;
+                private PrintAttributes Ar;
 
                 @Override // android.print.PrintDocumentAdapter
                 public void onLayout(PrintAttributes printAttributes, PrintAttributes printAttributes2, CancellationSignal cancellationSignal, PrintDocumentAdapter.LayoutResultCallback layoutResultCallback, Bundle bundle) {
-                    this.Aw = printAttributes2;
+                    this.Ar = printAttributes2;
                     layoutResultCallback.onLayoutFinished(new PrintDocumentInfo.Builder(str).setContentType(1).setPageCount(1).build(), printAttributes2.equals(printAttributes) ? false : true);
                 }
 
                 @Override // android.print.PrintDocumentAdapter
                 public void onWrite(PageRange[] pageRangeArr, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
-                    PrintHelperKitkat.this.a(this.Aw, i, bitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback);
+                    PrintHelperKitkat.this.a(this.Ar, i, bitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback);
                 }
 
                 @Override // android.print.PrintDocumentAdapter
@@ -119,7 +119,7 @@ public class PrintHelperKitkat {
                         onPrintFinishCallback.onFinish();
                     }
                 }
-            }, new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.Ar).build());
+            }, new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.Am).build());
         }
     }
 
@@ -141,7 +141,7 @@ public class PrintHelperKitkat {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Type inference failed for: r0v3, types: [android.support.v4.print.PrintHelperKitkat$2] */
     public void a(final PrintAttributes printAttributes, final int i, final Bitmap bitmap, final ParcelFileDescriptor parcelFileDescriptor, final CancellationSignal cancellationSignal, final PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
-        final PrintAttributes build = this.Av ? printAttributes : a(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build();
+        final PrintAttributes build = this.Aq ? printAttributes : a(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build();
         new AsyncTask<Void, Void, Throwable>() { // from class: android.support.v4.print.PrintHelperKitkat.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -159,7 +159,7 @@ public class PrintHelperKitkat {
                         return null;
                     }
                     PdfDocument.Page startPage = printedPdfDocument.startPage(1);
-                    if (PrintHelperKitkat.this.Av) {
+                    if (PrintHelperKitkat.this.Aq) {
                         rectF = new RectF(startPage.getInfo().getContentRect());
                     } else {
                         PrintedPdfDocument printedPdfDocument2 = new PrintedPdfDocument(PrintHelperKitkat.this.mContext, printAttributes);
@@ -169,7 +169,7 @@ public class PrintHelperKitkat {
                         printedPdfDocument2.close();
                     }
                     Matrix a = PrintHelperKitkat.this.a(c.getWidth(), c.getHeight(), rectF, i);
-                    if (!PrintHelperKitkat.this.Av) {
+                    if (!PrintHelperKitkat.this.Aq) {
                         a.postTranslate(rectF.left, rectF.top);
                         startPage.getCanvas().clipRect(rectF);
                     }
@@ -228,10 +228,10 @@ public class PrintHelperKitkat {
         AnonymousClass3 anonymousClass3 = new AnonymousClass3(str, uri, onPrintFinishCallback, this.mScaleMode);
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.Ar);
-        if (this.As == 1 || this.As == 0) {
+        builder.setColorMode(this.Am);
+        if (this.An == 1 || this.An == 0) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (this.As == 2) {
+        } else if (this.An == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, anonymousClass3, builder.build());
@@ -241,33 +241,33 @@ public class PrintHelperKitkat {
     /* renamed from: android.support.v4.print.PrintHelperKitkat$3  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass3 extends PrintDocumentAdapter {
-        final /* synthetic */ OnPrintFinishCallback AA;
-        AsyncTask<Uri, Boolean, Bitmap> AH;
-        final /* synthetic */ Uri AI;
-        private PrintAttributes Aw;
-        final /* synthetic */ String Ax;
-        final /* synthetic */ int Ay;
+        AsyncTask<Uri, Boolean, Bitmap> AC;
+        final /* synthetic */ Uri AD;
+        private PrintAttributes Ar;
+        final /* synthetic */ String As;
+        final /* synthetic */ int At;
+        final /* synthetic */ OnPrintFinishCallback Av;
         Bitmap mBitmap = null;
 
         AnonymousClass3(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback, int i) {
-            this.Ax = str;
-            this.AI = uri;
-            this.AA = onPrintFinishCallback;
-            this.Ay = i;
+            this.As = str;
+            this.AD = uri;
+            this.Av = onPrintFinishCallback;
+            this.At = i;
         }
 
         /* JADX WARN: Type inference failed for: r0v2, types: [android.support.v4.print.PrintHelperKitkat$3$1] */
         @Override // android.print.PrintDocumentAdapter
         public void onLayout(final PrintAttributes printAttributes, final PrintAttributes printAttributes2, final CancellationSignal cancellationSignal, final PrintDocumentAdapter.LayoutResultCallback layoutResultCallback, Bundle bundle) {
             synchronized (this) {
-                this.Aw = printAttributes2;
+                this.Ar = printAttributes2;
             }
             if (cancellationSignal.isCanceled()) {
                 layoutResultCallback.onLayoutCancelled();
             } else if (this.mBitmap != null) {
-                layoutResultCallback.onLayoutFinished(new PrintDocumentInfo.Builder(this.Ax).setContentType(1).setPageCount(1).build(), printAttributes2.equals(printAttributes) ? false : true);
+                layoutResultCallback.onLayoutFinished(new PrintDocumentInfo.Builder(this.As).setContentType(1).setPageCount(1).build(), printAttributes2.equals(printAttributes) ? false : true);
             } else {
-                this.AH = new AsyncTask<Uri, Boolean, Bitmap>() { // from class: android.support.v4.print.PrintHelperKitkat.3.1
+                this.AC = new AsyncTask<Uri, Boolean, Bitmap>() { // from class: android.support.v4.print.PrintHelperKitkat.3.1
                     @Override // android.os.AsyncTask
                     protected void onPreExecute() {
                         cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: android.support.v4.print.PrintHelperKitkat.3.1.1
@@ -282,10 +282,9 @@ public class PrintHelperKitkat {
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // android.os.AsyncTask
-                    /* renamed from: a */
                     public Bitmap doInBackground(Uri... uriArr) {
                         try {
-                            return PrintHelperKitkat.this.a(AnonymousClass3.this.AI, 3500);
+                            return PrintHelperKitkat.this.a(AnonymousClass3.this.AD, 3500);
                         } catch (FileNotFoundException e) {
                             return null;
                         }
@@ -297,9 +296,9 @@ public class PrintHelperKitkat {
                     public void onPostExecute(Bitmap bitmap) {
                         PrintAttributes.MediaSize mediaSize;
                         super.onPostExecute((AnonymousClass1) bitmap);
-                        if (bitmap != null && (!PrintHelperKitkat.this.Au || PrintHelperKitkat.this.As == 0)) {
+                        if (bitmap != null && (!PrintHelperKitkat.this.Ap || PrintHelperKitkat.this.An == 0)) {
                             synchronized (this) {
-                                mediaSize = AnonymousClass3.this.Aw.getMediaSize();
+                                mediaSize = AnonymousClass3.this.Ar.getMediaSize();
                             }
                             if (mediaSize != null && mediaSize.isPortrait() != PrintHelperKitkat.d(bitmap)) {
                                 Matrix matrix = new Matrix();
@@ -309,11 +308,11 @@ public class PrintHelperKitkat {
                         }
                         AnonymousClass3.this.mBitmap = bitmap;
                         if (bitmap != null) {
-                            layoutResultCallback.onLayoutFinished(new PrintDocumentInfo.Builder(AnonymousClass3.this.Ax).setContentType(1).setPageCount(1).build(), printAttributes2.equals(printAttributes) ? false : true);
+                            layoutResultCallback.onLayoutFinished(new PrintDocumentInfo.Builder(AnonymousClass3.this.As).setContentType(1).setPageCount(1).build(), printAttributes2.equals(printAttributes) ? false : true);
                         } else {
                             layoutResultCallback.onLayoutFailed(null);
                         }
-                        AnonymousClass3.this.AH = null;
+                        AnonymousClass3.this.AC = null;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -322,7 +321,7 @@ public class PrintHelperKitkat {
                     /* renamed from: f */
                     public void onCancelled(Bitmap bitmap) {
                         layoutResultCallback.onLayoutCancelled();
-                        AnonymousClass3.this.AH = null;
+                        AnonymousClass3.this.AC = null;
                     }
                 }.execute(new Uri[0]);
             }
@@ -331,9 +330,9 @@ public class PrintHelperKitkat {
         /* JADX INFO: Access modifiers changed from: private */
         public void dE() {
             synchronized (PrintHelperKitkat.this.mLock) {
-                if (PrintHelperKitkat.this.At != null) {
-                    PrintHelperKitkat.this.At.requestCancelDecode();
-                    PrintHelperKitkat.this.At = null;
+                if (PrintHelperKitkat.this.Ao != null) {
+                    PrintHelperKitkat.this.Ao.requestCancelDecode();
+                    PrintHelperKitkat.this.Ao = null;
                 }
             }
         }
@@ -342,11 +341,11 @@ public class PrintHelperKitkat {
         public void onFinish() {
             super.onFinish();
             dE();
-            if (this.AH != null) {
-                this.AH.cancel(true);
+            if (this.AC != null) {
+                this.AC.cancel(true);
             }
-            if (this.AA != null) {
-                this.AA.onFinish();
+            if (this.Av != null) {
+                this.Av.onFinish();
             }
             if (this.mBitmap != null) {
                 this.mBitmap.recycle();
@@ -356,7 +355,7 @@ public class PrintHelperKitkat {
 
         @Override // android.print.PrintDocumentAdapter
         public void onWrite(PageRange[] pageRangeArr, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
-            PrintHelperKitkat.this.a(this.Aw, this.Ay, this.mBitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback);
+            PrintHelperKitkat.this.a(this.Ar, this.At, this.mBitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback);
         }
     }
 
@@ -382,19 +381,19 @@ public class PrintHelperKitkat {
             }
             if (i2 > 0 && Math.min(i3, i4) / i2 > 0) {
                 synchronized (this.mLock) {
-                    this.At = new BitmapFactory.Options();
-                    this.At.inMutable = true;
-                    this.At.inSampleSize = i2;
-                    options = this.At;
+                    this.Ao = new BitmapFactory.Options();
+                    this.Ao.inMutable = true;
+                    this.Ao.inSampleSize = i2;
+                    options = this.Ao;
                 }
                 try {
                     bitmap = a(uri, options);
                     synchronized (this.mLock) {
-                        this.At = null;
+                        this.Ao = null;
                     }
                 } catch (Throwable th) {
                     synchronized (this.mLock) {
-                        this.At = null;
+                        this.Ao = null;
                         throw th;
                     }
                 }

@@ -2,12 +2,12 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
     public String akA;
-    public String akB;
-    public String akC;
-    public String akD;
-    public String akE;
-    public String akF;
-    public String akG;
+    public String akq;
+    public String akr;
+    public String aks;
+    public String akt;
+    public String aku;
+    public String akv;
     public String akw;
     public String akx;
     public String aky;

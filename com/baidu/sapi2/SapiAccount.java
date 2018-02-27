@@ -535,7 +535,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
 
     private boolean b() {
         Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
-        for (String str : SapiContext.getInstance(context).getSapiOptions().c()) {
+        for (String str : SapiContext.getInstance(context).getSapiOptions().d()) {
             if (context.getPackageName().matches(str)) {
                 return true;
             }

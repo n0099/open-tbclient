@@ -24,9 +24,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private SparseArray<String> gPS;
-    private a gTF;
-    private LinearLayout hnf;
+    private SparseArray<String> gPD;
+    private a gTq;
+    private LinearLayout hmS;
     private Context mContext;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
 
@@ -35,21 +35,21 @@ public class c implements View.OnClickListener {
     }
 
     public void setShareItemClickListener(a aVar) {
-        this.gTF = aVar;
+        this.gTq = aVar;
     }
 
-    public LinearLayout bAu() {
-        if (this.hnf == null) {
+    public LinearLayout bAt() {
+        if (this.hmS == null) {
             initView();
         }
-        return this.hnf;
+        return this.hmS;
     }
 
     private void initView() {
-        this.hnf = new LinearLayout(this.mContext);
-        this.hnf.setOrientation(0);
+        this.hmS = new LinearLayout(this.mContext);
+        this.hmS.setOrientation(0);
         int t = l.t(this.mContext, d.e.ds18);
-        this.hnf.setPadding(t, l.t(this.mContext, d.e.ds30), t, l.t(this.mContext, d.e.ds26));
+        this.hmS.setPadding(t, l.t(this.mContext, d.e.ds30), t, l.t(this.mContext, d.e.ds26));
         al(d.f.icon_weixin_n, d.j.share_weixin, 4);
         al(d.f.icon_weixin_q_n, d.j.share_weixin_timeline, 3);
         al(d.f.icon_qq_zone_n, d.j.share_qzone, 5);
@@ -59,14 +59,14 @@ public class c implements View.OnClickListener {
     }
 
     private void al(int i, int i2, int i3) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.share_dialog_outer_item, (ViewGroup) this.hnf, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.share_dialog_outer_item, (ViewGroup) this.hmS, false);
         TextView textView = (TextView) viewGroup.findViewById(d.g.name);
         aj.c((ImageView) viewGroup.findViewById(d.g.photo), i);
         textView.setText(i2);
-        aj.r(textView, d.C0140d.cp_cont_f);
+        aj.r(textView, d.C0141d.cp_cont_f);
         viewGroup.setTag(Integer.valueOf(i3));
         viewGroup.setOnClickListener(this);
-        this.hnf.addView(viewGroup);
+        this.hmS.addView(viewGroup);
     }
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -75,8 +75,8 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gTF != null) {
-            this.gTF.cN(view);
+        if (this.gTq != null) {
+            this.gTq.cN(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -88,17 +88,17 @@ public class c implements View.OnClickListener {
             com.baidu.tbadk.coreExtra.c.d dVar = this.mShareItem;
             if (num.intValue() == 4) {
                 l("share_to_weixin", new Object[0]);
-                uZ(3);
+                va(3);
                 b(dVar, 4);
                 if (dVar != null) {
                     eVar.b(dVar);
                 }
             } else if (num.intValue() == 3) {
                 l("share_to_pyq", new Object[0]);
-                uZ(2);
+                va(2);
                 b(dVar, 3);
                 if (dVar != null) {
-                    if (dVar.bls) {
+                    if (dVar.blf) {
                         dVar.content = "【" + dVar.title + "】 " + dVar.content;
                     }
                     eVar.c(dVar);
@@ -106,7 +106,7 @@ public class c implements View.OnClickListener {
             } else if (num.intValue() == 5) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qzone", new Object[0]);
-                    uZ(4);
+                    va(4);
                     b(dVar, 5);
                     if (dVar != null) {
                         eVar.e(dVar);
@@ -118,7 +118,7 @@ public class c implements View.OnClickListener {
             } else if (num.intValue() == 9) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qq_friend", new Object[0]);
-                    uZ(8);
+                    va(8);
                     b(dVar, 9);
                     if (dVar != null) {
                         eVar.d(dVar);
@@ -129,10 +129,10 @@ public class c implements View.OnClickListener {
                 BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).Bc();
             } else if (num.intValue() == 7) {
                 l("share_to_sweibo", new Object[0]);
-                uZ(6);
+                va(6);
                 b(dVar, 7);
                 if (dVar != null) {
-                    if (!dVar.blr) {
+                    if (!dVar.ble) {
                         dVar.content = j(dVar);
                     }
                     eVar.g(dVar);
@@ -143,8 +143,8 @@ public class c implements View.OnClickListener {
                 com.baidu.adp.lib.util.a.aE(dVar.linkUrl);
                 l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(d.j.copy_pb_url_success));
                 i(dVar);
-                if (dVar != null && dVar.blr) {
-                    af(8, dVar.blD);
+                if (dVar != null && dVar.ble) {
+                    af(8, dVar.blq);
                 }
             }
         }
@@ -152,15 +152,15 @@ public class c implements View.OnClickListener {
 
     private void b(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.bls) {
+            if (dVar.blf) {
                 TiebaStatic.log(new ak("c10125").ab(ImageViewerConfig.FORUM_ID, dVar.extData).s("obj_type", i));
-            } else if (dVar.blt || dVar.blw) {
-                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blG).s("obj_param1", dVar.blH).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.blu) {
+            } else if (dVar.blg || dVar.blj) {
+                TiebaStatic.log(new ak("c10125").ab("tid", dVar.extData).s("obj_type", i).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.blt).s("obj_param1", dVar.blu).ab(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.blh) {
                 TiebaStatic.log(new ak("c10427").ab("tid", dVar.extData).s("obj_type", i));
-            } else if (dVar.blr) {
-                af(i, dVar.blD);
-            } else if (dVar.blv) {
+            } else if (dVar.ble) {
+                af(i, dVar.blq);
+            } else if (dVar.bli) {
                 TiebaStatic.log(new ak("c10125").s("obj_param1", 7).s("obj_type", i).ab(ImageViewerConfig.FORUM_ID, dVar.extData));
             }
         }
@@ -170,9 +170,9 @@ public class c implements View.OnClickListener {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private void uZ(int i) {
-        if (i <= 8 && i > 0 && this.gPS != null) {
-            String str = this.gPS.get(i);
+    private void va(int i) {
+        if (i <= 8 && i > 0 && this.gPD != null) {
+            String str = this.gPD.get(i);
             if (!am.isEmpty(str)) {
                 l(str, new Object[0]);
             }
@@ -185,13 +185,13 @@ public class c implements View.OnClickListener {
 
     private void i(com.baidu.tbadk.coreExtra.c.d dVar) {
         ak s = new ak("share_success").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
-        if (dVar.blH != 0) {
-            s.s("obj_param1", dVar.blH);
-            if (dVar.blH == 2) {
+        if (dVar.blu != 0) {
+            s.s("obj_param1", dVar.blu);
+            if (dVar.blu == 2) {
                 s.ab(ImageViewerConfig.FORUM_ID, dVar.fid);
-            } else if (dVar.blH == 3) {
-                if (dVar.blI != 0) {
-                    s.s("obj_type", dVar.blI);
+            } else if (dVar.blu == 3) {
+                if (dVar.blv != 0) {
+                    s.s("obj_type", dVar.blv);
                 }
                 s.ab("tid", dVar.tid).ab(ImageViewerConfig.FORUM_ID, dVar.fid);
             }

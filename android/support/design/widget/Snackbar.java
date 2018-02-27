@@ -38,7 +38,7 @@ public final class Snackbar {
     public static final int LENGTH_INDEFINITE = -2;
     public static final int LENGTH_LONG = 0;
     public static final int LENGTH_SHORT = -1;
-    static final Handler pM = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: android.support.design.widget.Snackbar.1
+    static final Handler pL = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: android.support.design.widget.Snackbar.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
@@ -56,18 +56,18 @@ public final class Snackbar {
     private final AccessibilityManager mAccessibilityManager;
     private final Context mContext;
     private int mDuration;
-    private final ViewGroup pN;
-    final SnackbarLayout pO;
-    private Callback pP;
-    final p.a pQ = new p.a() { // from class: android.support.design.widget.Snackbar.4
+    private final ViewGroup pM;
+    final SnackbarLayout pN;
+    private Callback pO;
+    final p.a pP = new p.a() { // from class: android.support.design.widget.Snackbar.4
         @Override // android.support.design.widget.p.a
         public void show() {
-            Snackbar.pM.sendMessage(Snackbar.pM.obtainMessage(0, Snackbar.this));
+            Snackbar.pL.sendMessage(Snackbar.pL.obtainMessage(0, Snackbar.this));
         }
 
         @Override // android.support.design.widget.p.a
         public void K(int i) {
-            Snackbar.pM.sendMessage(Snackbar.pM.obtainMessage(1, i, 0, Snackbar.this));
+            Snackbar.pL.sendMessage(Snackbar.pL.obtainMessage(1, i, 0, Snackbar.this));
         }
     };
 
@@ -99,10 +99,10 @@ public final class Snackbar {
     }
 
     private Snackbar(ViewGroup viewGroup) {
-        this.pN = viewGroup;
+        this.pM = viewGroup;
         this.mContext = viewGroup.getContext();
         r.R(this.mContext);
-        this.pO = (SnackbarLayout) LayoutInflater.from(this.mContext).inflate(R.layout.design_layout_snackbar, this.pN, false);
+        this.pN = (SnackbarLayout) LayoutInflater.from(this.mContext).inflate(R.layout.design_layout_snackbar, this.pM, false);
         this.mAccessibilityManager = (AccessibilityManager) this.mContext.getSystemService("accessibility");
     }
 
@@ -149,7 +149,7 @@ public final class Snackbar {
     }
 
     public Snackbar setAction(CharSequence charSequence, final View.OnClickListener onClickListener) {
-        Button actionView = this.pO.getActionView();
+        Button actionView = this.pN.getActionView();
         if (TextUtils.isEmpty(charSequence) || onClickListener == null) {
             actionView.setVisibility(8);
             actionView.setOnClickListener(null);
@@ -168,17 +168,17 @@ public final class Snackbar {
     }
 
     public Snackbar setActionTextColor(ColorStateList colorStateList) {
-        this.pO.getActionView().setTextColor(colorStateList);
+        this.pN.getActionView().setTextColor(colorStateList);
         return this;
     }
 
     public Snackbar setActionTextColor(int i) {
-        this.pO.getActionView().setTextColor(i);
+        this.pN.getActionView().setTextColor(i);
         return this;
     }
 
     public Snackbar setText(CharSequence charSequence) {
-        this.pO.getMessageView().setText(charSequence);
+        this.pN.getMessageView().setText(charSequence);
         return this;
     }
 
@@ -196,11 +196,11 @@ public final class Snackbar {
     }
 
     public View getView() {
-        return this.pO;
+        return this.pN;
     }
 
     public void show() {
-        p.ch().a(this.mDuration, this.pQ);
+        p.ch().a(this.mDuration, this.pP);
     }
 
     public void dismiss() {
@@ -208,25 +208,25 @@ public final class Snackbar {
     }
 
     void G(int i) {
-        p.ch().a(this.pQ, i);
+        p.ch().a(this.pP, i);
     }
 
     public Snackbar setCallback(Callback callback) {
-        this.pP = callback;
+        this.pO = callback;
         return this;
     }
 
     public boolean isShown() {
-        return p.ch().e(this.pQ);
+        return p.ch().e(this.pP);
     }
 
     public boolean isShownOrQueued() {
-        return p.ch().f(this.pQ);
+        return p.ch().f(this.pP);
     }
 
     final void ce() {
-        if (this.pO.getParent() == null) {
-            ViewGroup.LayoutParams layoutParams = this.pO.getLayoutParams();
+        if (this.pN.getParent() == null) {
+            ViewGroup.LayoutParams layoutParams = this.pN.getLayoutParams();
             if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                 CoordinatorLayout.LayoutParams layoutParams2 = (CoordinatorLayout.LayoutParams) layoutParams;
                 a aVar = new a();
@@ -244,11 +244,11 @@ public final class Snackbar {
                     public void onDragStateChanged(int i) {
                         switch (i) {
                             case 0:
-                                p.ch().d(Snackbar.this.pQ);
+                                p.ch().d(Snackbar.this.pP);
                                 return;
                             case 1:
                             case 2:
-                                p.ch().c(Snackbar.this.pQ);
+                                p.ch().c(Snackbar.this.pP);
                                 return;
                             default:
                                 return;
@@ -258,9 +258,9 @@ public final class Snackbar {
                 layoutParams2.setBehavior(aVar);
                 layoutParams2.insetEdge = 80;
             }
-            this.pN.addView(this.pO);
+            this.pM.addView(this.pN);
         }
-        this.pO.setOnAttachStateChangeListener(new SnackbarLayout.a() { // from class: android.support.design.widget.Snackbar.6
+        this.pN.setOnAttachStateChangeListener(new SnackbarLayout.a() { // from class: android.support.design.widget.Snackbar.6
             @Override // android.support.design.widget.Snackbar.SnackbarLayout.a
             public void onViewAttachedToWindow(View view) {
             }
@@ -268,7 +268,7 @@ public final class Snackbar {
             @Override // android.support.design.widget.Snackbar.SnackbarLayout.a
             public void onViewDetachedFromWindow(View view) {
                 if (Snackbar.this.isShownOrQueued()) {
-                    Snackbar.pM.post(new Runnable() { // from class: android.support.design.widget.Snackbar.6.1
+                    Snackbar.pL.post(new Runnable() { // from class: android.support.design.widget.Snackbar.6.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Snackbar.this.J(3);
@@ -277,7 +277,7 @@ public final class Snackbar {
                 }
             }
         });
-        if (ViewCompat.isLaidOut(this.pO)) {
+        if (ViewCompat.isLaidOut(this.pN)) {
             if (shouldAnimate()) {
                 cf();
                 return;
@@ -286,10 +286,10 @@ public final class Snackbar {
                 return;
             }
         }
-        this.pO.setOnLayoutChangeListener(new SnackbarLayout.b() { // from class: android.support.design.widget.Snackbar.7
+        this.pN.setOnLayoutChangeListener(new SnackbarLayout.b() { // from class: android.support.design.widget.Snackbar.7
             @Override // android.support.design.widget.Snackbar.SnackbarLayout.b
             public void a(View view, int i, int i2, int i3, int i4) {
-                Snackbar.this.pO.setOnLayoutChangeListener(null);
+                Snackbar.this.pN.setOnLayoutChangeListener(null);
                 if (Snackbar.this.shouldAnimate()) {
                     Snackbar.this.cf();
                 } else {
@@ -301,11 +301,11 @@ public final class Snackbar {
 
     void cf() {
         if (Build.VERSION.SDK_INT >= 14) {
-            ViewCompat.setTranslationY(this.pO, this.pO.getHeight());
-            ViewCompat.animate(this.pO).translationY(0.0f).setInterpolator(android.support.design.widget.a.kB).setDuration(250L).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.Snackbar.8
+            ViewCompat.setTranslationY(this.pN, this.pN.getHeight());
+            ViewCompat.animate(this.pN).translationY(0.0f).setInterpolator(android.support.design.widget.a.kB).setDuration(250L).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.Snackbar.8
                 @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                 public void onAnimationStart(View view) {
-                    Snackbar.this.pO.m(70, SubsamplingScaleImageView.ORIENTATION_180);
+                    Snackbar.this.pN.m(70, SubsamplingScaleImageView.ORIENTATION_180);
                 }
 
                 @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
@@ -315,7 +315,7 @@ public final class Snackbar {
             }).start();
             return;
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.pO.getContext(), R.anim.design_snackbar_in);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.pN.getContext(), R.anim.design_snackbar_in);
         loadAnimation.setInterpolator(android.support.design.widget.a.kB);
         loadAnimation.setDuration(250L);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: android.support.design.widget.Snackbar.9
@@ -332,15 +332,15 @@ public final class Snackbar {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.pO.startAnimation(loadAnimation);
+        this.pN.startAnimation(loadAnimation);
     }
 
     private void H(final int i) {
         if (Build.VERSION.SDK_INT >= 14) {
-            ViewCompat.animate(this.pO).translationY(this.pO.getHeight()).setInterpolator(android.support.design.widget.a.kB).setDuration(250L).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.Snackbar.10
+            ViewCompat.animate(this.pN).translationY(this.pN.getHeight()).setInterpolator(android.support.design.widget.a.kB).setDuration(250L).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.design.widget.Snackbar.10
                 @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
                 public void onAnimationStart(View view) {
-                    Snackbar.this.pO.n(0, SubsamplingScaleImageView.ORIENTATION_180);
+                    Snackbar.this.pN.n(0, SubsamplingScaleImageView.ORIENTATION_180);
                 }
 
                 @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
@@ -350,7 +350,7 @@ public final class Snackbar {
             }).start();
             return;
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.pO.getContext(), R.anim.design_snackbar_out);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.pN.getContext(), R.anim.design_snackbar_out);
         loadAnimation.setInterpolator(android.support.design.widget.a.kB);
         loadAnimation.setDuration(250L);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: android.support.design.widget.Snackbar.2
@@ -367,11 +367,11 @@ public final class Snackbar {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.pO.startAnimation(loadAnimation);
+        this.pN.startAnimation(loadAnimation);
     }
 
     final void I(int i) {
-        if (shouldAnimate() && this.pO.getVisibility() == 0) {
+        if (shouldAnimate() && this.pN.getVisibility() == 0) {
             H(i);
         } else {
             J(i);
@@ -379,23 +379,23 @@ public final class Snackbar {
     }
 
     void cg() {
-        p.ch().b(this.pQ);
-        if (this.pP != null) {
-            this.pP.onShown(this);
+        p.ch().b(this.pP);
+        if (this.pO != null) {
+            this.pO.onShown(this);
         }
     }
 
     void J(int i) {
-        p.ch().a(this.pQ);
-        if (this.pP != null) {
-            this.pP.onDismissed(this, i);
+        p.ch().a(this.pP);
+        if (this.pO != null) {
+            this.pO.onDismissed(this, i);
         }
         if (Build.VERSION.SDK_INT < 11) {
-            this.pO.setVisibility(8);
+            this.pN.setVisibility(8);
         }
-        ViewParent parent = this.pO.getParent();
+        ViewParent parent = this.pN.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.pO);
+            ((ViewGroup) parent).removeView(this.pN);
         }
     }
 
@@ -407,11 +407,11 @@ public final class Snackbar {
     /* loaded from: classes2.dex */
     public static class SnackbarLayout extends LinearLayout {
         private int mMaxWidth;
-        private TextView pV;
-        private Button pW;
-        private int pX;
-        private b pY;
-        private a pZ;
+        private TextView pU;
+        private Button pV;
+        private int pW;
+        private b pX;
+        private a pY;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
@@ -435,7 +435,7 @@ public final class Snackbar {
             super(context, attributeSet);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);
-            this.pX = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
+            this.pW = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
             if (obtainStyledAttributes.hasValue(R.styleable.SnackbarLayout_elevation)) {
                 ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(R.styleable.SnackbarLayout_elevation, 0));
             }
@@ -457,16 +457,16 @@ public final class Snackbar {
         @Override // android.view.View
         protected void onFinishInflate() {
             super.onFinishInflate();
-            this.pV = (TextView) findViewById(R.id.snackbar_text);
-            this.pW = (Button) findViewById(R.id.snackbar_action);
+            this.pU = (TextView) findViewById(R.id.snackbar_text);
+            this.pV = (Button) findViewById(R.id.snackbar_action);
         }
 
         TextView getMessageView() {
-            return this.pV;
+            return this.pU;
         }
 
         Button getActionView() {
-            return this.pW;
+            return this.pV;
         }
 
         @Override // android.widget.LinearLayout, android.view.View
@@ -479,8 +479,8 @@ public final class Snackbar {
             }
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical_2lines);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical);
-            boolean z2 = this.pV.getLayout().getLineCount() > 1;
-            if (z2 && this.pX > 0 && this.pW.getMeasuredWidth() > this.pX) {
+            boolean z2 = this.pU.getLayout().getLineCount() > 1;
+            if (z2 && this.pW > 0 && this.pV.getMeasuredWidth() > this.pW) {
                 if (c(1, dimensionPixelSize, dimensionPixelSize - dimensionPixelSize2)) {
                     z = true;
                 }
@@ -500,36 +500,36 @@ public final class Snackbar {
         }
 
         void m(int i, int i2) {
-            ViewCompat.setAlpha(this.pV, 0.0f);
-            ViewCompat.animate(this.pV).alpha(1.0f).setDuration(i2).setStartDelay(i).start();
-            if (this.pW.getVisibility() == 0) {
-                ViewCompat.setAlpha(this.pW, 0.0f);
-                ViewCompat.animate(this.pW).alpha(1.0f).setDuration(i2).setStartDelay(i).start();
+            ViewCompat.setAlpha(this.pU, 0.0f);
+            ViewCompat.animate(this.pU).alpha(1.0f).setDuration(i2).setStartDelay(i).start();
+            if (this.pV.getVisibility() == 0) {
+                ViewCompat.setAlpha(this.pV, 0.0f);
+                ViewCompat.animate(this.pV).alpha(1.0f).setDuration(i2).setStartDelay(i).start();
             }
         }
 
         void n(int i, int i2) {
-            ViewCompat.setAlpha(this.pV, 1.0f);
-            ViewCompat.animate(this.pV).alpha(0.0f).setDuration(i2).setStartDelay(i).start();
-            if (this.pW.getVisibility() == 0) {
-                ViewCompat.setAlpha(this.pW, 1.0f);
-                ViewCompat.animate(this.pW).alpha(0.0f).setDuration(i2).setStartDelay(i).start();
+            ViewCompat.setAlpha(this.pU, 1.0f);
+            ViewCompat.animate(this.pU).alpha(0.0f).setDuration(i2).setStartDelay(i).start();
+            if (this.pV.getVisibility() == 0) {
+                ViewCompat.setAlpha(this.pV, 1.0f);
+                ViewCompat.animate(this.pV).alpha(0.0f).setDuration(i2).setStartDelay(i).start();
             }
         }
 
         @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
         protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
             super.onLayout(z, i, i2, i3, i4);
-            if (this.pY != null) {
-                this.pY.a(this, i, i2, i3, i4);
+            if (this.pX != null) {
+                this.pX.a(this, i, i2, i3, i4);
             }
         }
 
         @Override // android.view.ViewGroup, android.view.View
         protected void onAttachedToWindow() {
             super.onAttachedToWindow();
-            if (this.pZ != null) {
-                this.pZ.onViewAttachedToWindow(this);
+            if (this.pY != null) {
+                this.pY.onViewAttachedToWindow(this);
             }
             ViewCompat.requestApplyInsets(this);
         }
@@ -537,17 +537,17 @@ public final class Snackbar {
         @Override // android.view.ViewGroup, android.view.View
         protected void onDetachedFromWindow() {
             super.onDetachedFromWindow();
-            if (this.pZ != null) {
-                this.pZ.onViewDetachedFromWindow(this);
+            if (this.pY != null) {
+                this.pY.onViewDetachedFromWindow(this);
             }
         }
 
         void setOnLayoutChangeListener(b bVar) {
-            this.pY = bVar;
+            this.pX = bVar;
         }
 
         void setOnAttachStateChangeListener(a aVar) {
-            this.pZ = aVar;
+            this.pY = aVar;
         }
 
         private boolean c(int i, int i2, int i3) {
@@ -556,8 +556,8 @@ public final class Snackbar {
                 setOrientation(i);
                 z = true;
             }
-            if (this.pV.getPaddingTop() != i2 || this.pV.getPaddingBottom() != i3) {
-                b(this.pV, i2, i3);
+            if (this.pU.getPaddingTop() != i2 || this.pU.getPaddingBottom() != i3) {
+                b(this.pU, i2, i3);
                 return true;
             }
             return z;
@@ -590,11 +590,11 @@ public final class Snackbar {
             if (coordinatorLayout.isPointInChildBounds(snackbarLayout, (int) motionEvent.getX(), (int) motionEvent.getY())) {
                 switch (motionEvent.getActionMasked()) {
                     case 0:
-                        p.ch().c(Snackbar.this.pQ);
+                        p.ch().c(Snackbar.this.pP);
                         break;
                     case 1:
                     case 3:
-                        p.ch().d(Snackbar.this.pQ);
+                        p.ch().d(Snackbar.this.pP);
                         break;
                 }
             }

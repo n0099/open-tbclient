@@ -24,43 +24,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aWI;
+        String[] aWH;
         if (bVar == null) {
             return null;
         }
         try {
-            aWI = aWI();
+            aWH = aWH();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aWI != null) {
+        if (aWH != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aWJ()));
-            arrayList.add(new BasicNameValuePair("cert_id", aWI[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aWI()));
+            arrayList.add(new BasicNameValuePair("cert_id", aWH[0]));
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", bVar.akE);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aJN);
+            jSONObject.put("bduss", bVar.aky);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aJC);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aWI[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aWH[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            xVar.Cz().Dw().mIsNeedAddCommenParam = false;
-            xVar.Cz().Dw().mIsUseCurrentBDUSS = false;
+            xVar.Cy().Dv().mIsNeedAddCommenParam = false;
+            xVar.Cy().Dv().mIsUseCurrentBDUSS = false;
             xVar.m(arrayList);
-            xVar.Cz().Dw().Dz().aYL = true;
-            xVar.Cz().Dw().Dz().mIsBaiduServer = false;
-            String Cb = xVar.Cb();
-            if (xVar.Cz().Dx().isRequestSuccess() && !am.isEmpty(Cb)) {
-                JSONObject jSONObject2 = new JSONObject(Cb);
+            xVar.Cy().Dv().Dy().aYz = true;
+            xVar.Cy().Dv().Dy().mIsBaiduServer = false;
+            String Ca = xVar.Ca();
+            if (xVar.Cy().Dw().isRequestSuccess() && !am.isEmpty(Ca)) {
+                JSONObject jSONObject2 = new JSONObject(Ca);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
-                    bVar2.akE = jSONObject2.optString("bduss");
-                    bVar2.aJN = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-                    bVar2.aJO = jSONObject2.optString("uname");
+                    bVar2.aky = jSONObject2.optString("bduss");
+                    bVar2.aJC = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.aJD = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,19 +70,19 @@ public class d {
         return null;
     }
 
-    private static String[] aWI() {
+    private static String[] aWH() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
-            xVar.Cz().Dw().mIsNeedAddCommenParam = false;
-            xVar.Cz().Dw().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(xVar.Cc()));
+            xVar.Cy().Dv().mIsNeedAddCommenParam = false;
+            xVar.Cy().Dv().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(xVar.Cb()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String aWJ() {
+    private static String aWI() {
         if (j.oK()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
         }

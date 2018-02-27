@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
 import android.support.v4.media.TransportMediator;
-import com.baidu.sapi2.SapiAccountManager;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeReaderVariable;
 import com.coremedia.iso.IsoTypeWriter;
@@ -17,18 +16,18 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static final String TYPE = "iloc";
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_9 = null;
     public int baseOffsetSize;
     public int indexSize;
     public List<Item> items;
@@ -46,7 +45,7 @@ public class ItemLocationBox extends AbstractFullBox {
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "createItem", "com.coremedia.iso.boxes.ItemLocationBox", "int:int:int:long:java.util.List", "itemId:constructionMethod:dataReferenceIndex:baseOffset:extents", "", "com.coremedia.iso.boxes.ItemLocationBox$Item"), 160);
         ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "createExtent", "com.coremedia.iso.boxes.ItemLocationBox", "long:long:long", "extentOffset:extentLength:extentIndex", "", "com.coremedia.iso.boxes.ItemLocationBox$Extent"), 285);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), TransportMediator.KEYCODE_MEDIA_PAUSE);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "lengthSize", "", "void"), SapiAccountManager.VERSION_CODE);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "lengthSize", "", "void"), 131);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 135);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "baseOffsetSize", "", "void"), 139);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 143);
@@ -116,7 +115,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zt(i)));
         this.offsetSize = i;
     }
 
@@ -126,7 +125,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setLengthSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.zt(i)));
         this.lengthSize = i;
     }
 
@@ -136,7 +135,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setBaseOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.zt(i)));
         this.baseOffsetSize = i;
     }
 
@@ -146,7 +145,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setIndexSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zs(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.zt(i)));
         this.indexSize = i;
     }
 
@@ -161,7 +160,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.zs(i), org.aspectj.a.a.a.zs(i2), org.aspectj.a.a.a.zs(i3), org.aspectj.a.a.a.dV(j), list}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.zt(i), org.aspectj.a.a.a.zt(i2), org.aspectj.a.a.a.zt(i3), org.aspectj.a.a.a.dV(j), list}));
         return new Item(i, i2, i3, j, list);
     }
 

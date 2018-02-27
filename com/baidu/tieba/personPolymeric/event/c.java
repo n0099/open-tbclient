@@ -45,17 +45,17 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private e goK;
-    private com.baidu.tieba.personPolymeric.b.a gol;
+    private com.baidu.tieba.personPolymeric.b.a gnZ;
+    private e goz;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.goK = eVar;
-        if (this.goK != null) {
-            this.gol = this.goK.bjZ();
+        this.goz = eVar;
+        if (this.goz != null) {
+            this.gnZ = this.goz.bjY();
         }
     }
 
@@ -73,12 +73,12 @@ public class c extends a {
         int i2 = 1;
         super.a(view, aVar);
         if (aVar != null) {
-            if (aVar.dry == null) {
+            if (aVar.drm == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.dry.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.drm.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.drx) {
+            switch (aVar.drl) {
                 case 1:
                     if (userData != null) {
                         i iVar = new i();
@@ -87,7 +87,7 @@ public class c extends a {
                         iVar.bY(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(iVar);
-                        this.goK.bka().a((com.baidu.adp.widget.ListView.i) iVar, (List<com.baidu.adp.widget.ListView.i>) arrayList, 0);
+                        this.goz.bjZ().a((com.baidu.adp.widget.ListView.i) iVar, (List<com.baidu.adp.widget.ListView.i>) arrayList, 0);
                         return;
                     }
                     return;
@@ -111,9 +111,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.gol != null && this.gol.bjU() != null) {
+                    if (this.gnZ != null && this.gnZ.bjT() != null) {
                         TiebaStatic.log("c12207");
-                        this.gol.bjU().bkg();
+                        this.gnZ.bjT().bkf();
                         return;
                     }
                     return;
@@ -160,8 +160,8 @@ public class c extends a {
                             personChangeData.setIntro(userData.getIntro());
                             personChangeData.setNameShow(userData.getName_show());
                             personChangeData.setMem(userData.getIsMem());
-                            if (aVar.dry != null) {
-                                personChangeData.setNickNameLeftDays(aVar.dry.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.drm != null) {
+                                personChangeData.setNickNameLeftDays(aVar.drm.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -181,7 +181,7 @@ public class c extends a {
                     }
                     return;
                 case 13:
-                    aw.Du().c(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
+                    aw.Dt().c(this.mPageContext, new String[]{TbConfig.WEB_URL_FANS});
                     return;
                 case 14:
                     BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mPageContext.getPageActivity(), 0L);
@@ -189,33 +189,33 @@ public class c extends a {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
                     return;
                 case 15:
-                    tM(8);
+                    tN(8);
                     if (userData != null && userData.membershipInfo != null) {
                         String str3 = userData.membershipInfo.mLink;
                         if (!StringUtils.isNull(str3)) {
-                            aw.Du().c(this.mPageContext, new String[]{str3});
+                            aw.Dt().c(this.mPageContext, new String[]{str3});
                             return;
                         }
                         return;
                     }
                     return;
                 case 16:
-                    tM(7);
-                    com.baidu.tieba.m.a.bpm().c(7, false, this.isHost);
+                    tN(7);
+                    com.baidu.tieba.m.a.bpl().c(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
-                    tM(12);
+                    tN(12);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ConsumptionRecordsActivityConfig(TbadkCoreApplication.getInst().getApplicationContext())));
                     return;
                 case 20:
-                    tM(2);
-                    com.baidu.tieba.m.a.bpm().c(3, false, this.isHost);
+                    tN(2);
+                    com.baidu.tieba.m.a.bpl().c(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 21:
-                    tM(5);
+                    tN(5);
                     TiebaStatic.log(new ak("c11590").s("obj_locate", 2).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -227,26 +227,26 @@ public class c extends a {
                     }
                     return;
                 case 24:
-                    tM(3);
-                    com.baidu.tieba.m.a.bpm().c(4, false, this.isHost);
+                    tN(3);
+                    com.baidu.tieba.m.a.bpl().c(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 27:
-                    tM(10);
+                    tN(10);
                     TiebaStatic.log(new ak("c11948"));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigImgPbActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 29:
                     if (userData != null) {
-                        tM(6);
+                        tN(6);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
                         return;
                     }
                     return;
                 case 30:
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(ChannelHomeActivityConfig.class)) {
-                        tM(7);
+                        tN(7);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(this.mPageContext.getPageActivity(), 4)));
                         return;
                     }
@@ -259,18 +259,18 @@ public class c extends a {
                     }
                     return;
                 case 32:
-                    tM(1);
-                    com.baidu.tieba.m.a.bpm().c(8, false, this.isHost);
+                    tN(1);
+                    com.baidu.tieba.m.a.bpl().c(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 33:
-                    tM(9);
-                    aw.Du().a(this.mPageContext, new String[]{aVar.dry.getString("book_jump_link")}, true);
+                    tN(9);
+                    aw.Dt().a(this.mPageContext, new String[]{aVar.drm.getString("book_jump_link")}, true);
                     return;
                 case 34:
                     if (ay.ba(this.mPageContext.getPageActivity())) {
-                        tM(4);
-                        com.baidu.tieba.m.a.bpm().c(1, false, this.isHost);
+                        tN(4);
+                        com.baidu.tieba.m.a.bpl().c(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -279,8 +279,8 @@ public class c extends a {
                     }
                     return;
                 case 35:
-                    tM(11);
-                    aw.Du().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    tN(11);
+                    aw.Dt().a(this.mPageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case 36:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921008, false));
@@ -316,7 +316,7 @@ public class c extends a {
         }
     }
 
-    private void tM(int i) {
+    private void tN(int i) {
         TiebaStatic.log(new ak("c12044").s("obj_locate", i));
     }
 

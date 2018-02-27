@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView eNC;
+    protected TextView eNq;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.eNC = null;
+        this.eNq = null;
         setContentView(d.h.update_group_info_activity);
         qE(d.j.group_update_info);
-        this.eNC = (TextView) this.eND.findViewById(d.g.edit_count);
+        this.eNq = (TextView) this.eNr.findViewById(d.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aMg() {
+    public void aMf() {
         String obj;
-        if (this.rE.getText() != null && (obj = this.rE.getText().toString()) != null) {
+        if (this.rD.getText() != null && (obj = this.rD.getText().toString()) != null) {
             int length = obj.length();
             B(length, length, 15, 300);
             int i = 300 - length;
-            this.eNC.setText(String.valueOf(i));
+            this.eNq.setText(String.valueOf(i));
             if (i <= 50) {
-                this.eNC.setVisibility(0);
+                this.eNq.setVisibility(0);
             } else {
-                this.eNC.setVisibility(8);
+                this.eNq.setVisibility(8);
             }
             if (i == 0) {
-                this.eNC.setTextColor(this.eND.getResources().getColor(d.C0140d.common_color_10170));
+                this.eNq.setTextColor(this.eNr.getResources().getColor(d.C0141d.common_color_10170));
             } else {
-                aGM();
+                aGL();
             }
         }
     }
 
-    private void aGM() {
-        this.eND.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
-        this.eND.getLayoutMode().aM(this.eNC);
+    private void aGL() {
+        this.eNr.getLayoutMode().aQ(TbadkApplication.getInst().getSkinType() == 1);
+        this.eNr.getLayoutMode().aM(this.eNq);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aMh() {
+    public int aMg() {
         return d.j.group_step_info_error;
     }
 }

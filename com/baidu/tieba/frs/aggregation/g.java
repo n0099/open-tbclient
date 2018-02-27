@@ -29,12 +29,12 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g extends BaseFragment implements View.OnClickListener, c {
-    private FrameLayout caW;
-    private NoNetworkView cbj;
-    private BdTypeListView dIT;
-    private PbListView dIU;
-    private e dIV;
-    private i dIW;
+    private FrameLayout caK;
+    private NoNetworkView caX;
+    private BdTypeListView dIH;
+    private PbListView dII;
+    private e dIJ;
+    private i dIK;
     private boolean isFullScreen;
     private String mFrom;
     private String mId;
@@ -50,8 +50,8 @@ public class g extends BaseFragment implements View.OnClickListener, c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.oJ()) {
                 if (g.this.mNoDataView != null) {
-                    g.this.dIW.awO();
-                } else if (j.oL() && g.this.dIV != null && g.this.dIV.awH()) {
+                    g.this.dIK.awN();
+                } else if (j.oL() && g.this.dIJ != null && g.this.dIJ.awG()) {
                     g.this.getPageContext().showToast(d.j.video_mobile_play_tips);
                 }
             }
@@ -62,8 +62,8 @@ public class g extends BaseFragment implements View.OnClickListener, c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && g.this.dIV != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.apP) {
-                g.this.dIV.G(data.toUid, data.isAttention);
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && g.this.dIJ != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.apG) {
+                g.this.dIJ.F(data.toUid, data.isAttention);
             }
         }
     };
@@ -89,12 +89,12 @@ public class g extends BaseFragment implements View.OnClickListener, c {
             this.st_type = arguments.getString("st_type");
             this.yuelaou_locate = arguments.getString("yuelaou_locate");
         }
-        this.dIW = new i(getPageContext(), this);
-        this.dIW.setId(this.mId);
-        this.dIW.setFrom(this.mFrom);
-        this.dIW.lN(this.st_type);
-        this.dIW.setLocation(this.yuelaou_locate);
-        this.dIW.awO();
+        this.dIK = new i(getPageContext(), this);
+        this.dIK.setId(this.mId);
+        this.dIK.setFrom(this.mFrom);
+        this.dIK.lN(this.st_type);
+        this.dIK.setLocation(this.yuelaou_locate);
+        this.dIK.awN();
         registerListener(this.mNetworkChangedMessageListener);
         registerListener(this.mAttentionListener);
     }
@@ -107,49 +107,49 @@ public class g extends BaseFragment implements View.OnClickListener, c {
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.caW = (FrameLayout) view.findViewById(d.g.container);
+        this.caK = (FrameLayout) view.findViewById(d.g.container);
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.navigation_bar);
-        awN();
-        this.cbj = (NoNetworkView) view.findViewById(d.g.no_network_view);
+        awM();
+        this.caX = (NoNetworkView) view.findViewById(d.g.no_network_view);
         if (!j.oJ()) {
-            this.cbj.setVisibility(0);
+            this.caX.setVisibility(0);
         }
-        this.dIT = (BdTypeListView) view.findViewById(d.g.listView);
+        this.dIH = (BdTypeListView) view.findViewById(d.g.listView);
         this.mPullView = new k(getPageContext());
         this.mPullView.st();
         this.mPullView.a(new j.b() { // from class: com.baidu.tieba.frs.aggregation.g.1
             @Override // com.baidu.tbadk.core.view.j.b
             public void bw(boolean z) {
-                g.this.dIW.awO();
+                g.this.dIK.awN();
             }
         });
         this.mPullView.setTag(getUniqueId());
-        this.dIT.setPullRefresh(this.mPullView);
-        this.dIU = new PbListView(getPageContext().getPageActivity());
-        this.dIU.st();
-        this.dIU.Ec();
-        this.dIU.setText(getResources().getString(d.j.list_has_no_more));
-        this.dIU.Eg();
-        this.dIT.setNextPage(this.dIU);
-        this.dIT.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.g.2
+        this.dIH.setPullRefresh(this.mPullView);
+        this.dII = new PbListView(getPageContext().getPageActivity());
+        this.dII.st();
+        this.dII.Eb();
+        this.dII.setText(getResources().getString(d.j.list_has_no_more));
+        this.dII.Ef();
+        this.dIH.setNextPage(this.dII);
+        this.dIH.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.g.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    g.this.dIW.awQ();
+                    g.this.dIK.awP();
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (g.this.dIV != null) {
-                    if (i > g.this.dIV.awK() || i + i2 < g.this.dIV.awK()) {
-                        g.this.dIV.awL();
+                if (g.this.dIJ != null) {
+                    if (i > g.this.dIJ.awJ() || i + i2 < g.this.dIJ.awJ()) {
+                        g.this.dIJ.awK();
                     }
                 }
             }
         });
-        this.dIV = new e(getPageContext(), this.dIT, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
-        VU();
+        this.dIJ = new e(getPageContext(), this.dIH, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
+        VT();
     }
 
     private void o(View view, boolean z) {
@@ -159,27 +159,27 @@ public class g extends BaseFragment implements View.OnClickListener, c {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         g.this.hideNoDataView();
-                        g.this.dIW.awO();
+                        g.this.dIK.awN();
                     }
                 })));
             } else {
-                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.caW, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(getActivity(), d.e.ds220)), NoDataViewFactory.d.gp(d.j.video_no_data), null);
+                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.caK, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(getActivity(), d.e.ds220)), NoDataViewFactory.d.gp(d.j.video_no_data), null);
             }
         }
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.dIT.setVisibility(8);
+        this.dIH.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
         if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
             this.mNoDataView.setVisibility(8);
-            this.dIT.setVisibility(0);
+            this.dIH.setVisibility(0);
         }
     }
 
-    private void awN() {
+    private void awM() {
         if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.mFrom)) {
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.j.video_aggregation_title));
         } else {
@@ -196,12 +196,12 @@ public class g extends BaseFragment implements View.OnClickListener, c {
     }
 
     public void ne(int i) {
-        if (this.dIT != null && this.dIV != null) {
-            if (i == 1 && this.dIV.awH()) {
-                this.dIV.awI();
+        if (this.dIH != null && this.dIJ != null) {
+            if (i == 1 && this.dIJ.awG()) {
+                this.dIJ.awH();
             }
             if (i == 2) {
-                this.dIV.awJ();
+                this.dIJ.awI();
             }
         }
     }
@@ -210,8 +210,8 @@ public class g extends BaseFragment implements View.OnClickListener, c {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.cbj.onChangeSkinType(getPageContext(), i);
-        aj.t(this.caW, d.C0140d.cp_cont_g);
+        this.caX.onChangeSkinType(getPageContext(), i);
+        aj.t(this.caK, d.C0141d.cp_cont_g);
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
@@ -224,8 +224,8 @@ public class g extends BaseFragment implements View.OnClickListener, c {
             this.isFullScreen = false;
             this.mNavigationBar.setVisibility(0);
         }
-        if (this.dIV != null) {
-            this.dIV.onConfigurationChanged(configuration);
+        if (this.dIJ != null) {
+            this.dIJ.onConfigurationChanged(configuration);
         }
     }
 
@@ -244,25 +244,25 @@ public class g extends BaseFragment implements View.OnClickListener, c {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dIW != null) {
-            this.dIW.awP();
+        if (this.dIK != null) {
+            this.dIK.awO();
         }
-        if (this.dIV != null) {
-            this.dIV.onDestroy();
+        if (this.dIJ != null) {
+            this.dIJ.onDestroy();
         }
     }
 
-    public void VU() {
-        if (getPageContext() != null && this.caW != null) {
-            showLoadingView(this.caW, false, l.t(getPageContext().getPageActivity(), d.e.ds360));
+    public void VT() {
+        if (getPageContext() != null && this.caK != null) {
+            showLoadingView(this.caK, false, l.t(getPageContext().getPageActivity(), d.e.ds360));
         }
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void VV() {
-        if (this.caW != null) {
-            this.dIT.completePullRefreshPostDelayed(2000L);
-            hideLoadingView(this.caW);
+    public void VU() {
+        if (this.caK != null) {
+            this.dIH.completePullRefreshPostDelayed(2000L);
+            hideLoadingView(this.caK);
         }
     }
 
@@ -271,9 +271,9 @@ public class g extends BaseFragment implements View.OnClickListener, c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void Mj() {
+    public void Mi() {
         if (v.E(this.mListData)) {
-            o(this.caW, true);
+            o(this.caK, true);
         }
     }
 
@@ -286,25 +286,25 @@ public class g extends BaseFragment implements View.OnClickListener, c {
                 this.mListData.addAll(list);
             }
             if (z && list.size() == 0) {
-                o(this.caW, false);
+                o(this.caK, false);
                 return;
             }
-            this.dIV.setData(list, z);
+            this.dIJ.setData(list, z);
             if (!z2) {
-                this.dIU.Eh();
+                this.dII.Eg();
             }
             hideNoDataView();
             if (this.mNoDataView != null) {
-                this.caW.removeView(this.mNoDataView);
+                this.caK.removeView(this.mNoDataView);
                 this.mNoDataView = null;
             }
         }
     }
 
     public boolean nc(int i) {
-        if (this.dIV == null) {
+        if (this.dIJ == null) {
             return false;
         }
-        return this.dIV.nc(i);
+        return this.dIJ.nc(i);
     }
 }

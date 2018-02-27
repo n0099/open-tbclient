@@ -17,35 +17,35 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private View aRB;
-    private g aRQ;
-    private TbPageContext<?> aRR;
-    private AlertDialog aRn;
-    private BdListView avh;
+    private g aRF;
+    private TbPageContext<?> aRG;
+    private AlertDialog aRc;
+    private View aRq;
+    private BdListView auY;
     private ArrayList<h> mItems;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private ViewGroup mRootView;
     private String mTitle;
     private TextView mTitleView;
-    private int aRD = -1;
-    private int aRc = -1;
-    private boolean aRp = false;
+    private int aRs = -1;
+    private int aQR = -1;
+    private boolean aRe = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int aRK = d.k.dialog_ani_b2t;
-        public static final int aRL = d.k.dialog_ani_t2b;
+        public static final int aRz = d.k.dialog_ani_b2t;
+        public static final int aRA = d.k.dialog_ani_t2b;
         public static final int LEFT_TO_RIGHT = d.k.dialog_ani_l2r;
         public static final int RIGHT_TO_LEFT = d.k.dialog_ani_r2l;
     }
 
     public e(TbPageContext<?> tbPageContext) {
-        this.aRR = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.aRR.getPageActivity()).inflate(d.h.dialog_rich_layout, (ViewGroup) null);
+        this.aRG = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.aRG.getPageActivity()).inflate(d.h.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.dialog_title_list);
-        this.avh = (BdListView) this.mRootView.findViewById(d.g.dialog_content_list);
-        this.aRB = this.mRootView.findViewById(d.g.line_bg);
-        this.aRQ = new g(this.aRR);
+        this.auY = (BdListView) this.mRootView.findViewById(d.g.dialog_content_list);
+        this.aRq = this.mRootView.findViewById(d.g.line_bg);
+        this.aRF = new g(this.aRG);
     }
 
     public View getRootView() {
@@ -58,7 +58,7 @@ public class e {
     }
 
     public e fk(int i) {
-        return dm(this.aRR.getResources().getString(i));
+        return dm(this.aRG.getResources().getString(i));
     }
 
     public e a(ArrayList<h> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -66,26 +66,26 @@ public class e {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
                 this.mOnItemClickListener = onItemClickListener;
-                this.avh.setOnItemClickListener(this.mOnItemClickListener);
+                this.auY.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
     public e AY() {
-        if (!this.aRp) {
-            this.aRp = true;
+        if (!this.aRe) {
+            this.aRe = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.aRB.setVisibility(0);
+                this.aRq.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.aRB.setVisibility(8);
+                this.aRq.setVisibility(8);
             }
-            this.avh.setAdapter((ListAdapter) this.aRQ);
-            this.aRQ.setData(this.mItems);
-            c(this.aRR);
+            this.auY.setAdapter((ListAdapter) this.aRF);
+            this.aRF.setData(this.mItems);
+            c(this.aRG);
         }
         return this;
     }
@@ -98,30 +98,30 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.aRQ.setData(this.mItems);
+        this.aRF.setData(this.mItems);
     }
 
     public e AZ() {
-        if (!this.aRp) {
+        if (!this.aRe) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.aRn != null) {
-            com.baidu.adp.lib.g.g.a(this.aRn, this.aRR);
+        if (this.aRc != null) {
+            com.baidu.adp.lib.g.g.a(this.aRc, this.aRG);
         } else {
-            this.aRn = new AlertDialog.Builder(this.aRR.getPageActivity()).create();
-            this.aRn.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.g.g.a(this.aRn, this.aRR.getPageActivity())) {
-                Window window = this.aRn.getWindow();
-                if (this.aRD == -1) {
-                    this.aRD = a.aRK;
+            this.aRc = new AlertDialog.Builder(this.aRG.getPageActivity()).create();
+            this.aRc.setCanceledOnTouchOutside(true);
+            if (com.baidu.adp.lib.g.g.a(this.aRc, this.aRG.getPageActivity())) {
+                Window window = this.aRc.getWindow();
+                if (this.aRs == -1) {
+                    this.aRs = a.aRz;
                 }
-                if (this.aRc == -1) {
-                    this.aRc = 17;
+                if (this.aQR == -1) {
+                    this.aQR = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.aRc);
+                window.setGravity(this.aQR);
                 window.setBackgroundDrawableResource(d.f.transparent_bg);
                 window.setContentView(this.mRootView);
             }
@@ -139,8 +139,8 @@ public class e {
     }
 
     public void dismiss() {
-        if (this.aRn != null) {
-            com.baidu.adp.lib.g.g.b(this.aRn, this.aRR.getPageActivity());
+        if (this.aRc != null) {
+            com.baidu.adp.lib.g.g.b(this.aRc, this.aRG.getPageActivity());
         }
     }
 }

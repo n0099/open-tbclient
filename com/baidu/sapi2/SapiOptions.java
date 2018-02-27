@@ -38,121 +38,124 @@ public final class SapiOptions {
     private static final String v = "share_livinguname_enabled";
     private static final String w = "face_login_check_enabled";
     private static final String x = "di_except_index";
-    private LoginShareStrategy A;
-    private boolean C;
+    private static final String y = "share_account_gray";
+    private LoginShareStrategy B;
     private boolean D;
+    private boolean E;
     public boolean faceLoginCheckEnabled;
+    public int shareAccountGray;
     public boolean shareLivingunameEnabled;
     public boolean smsFaceLoginEnable;
-    private boolean B = true;
-    private Map<String, LoginShareStrategy> E = new HashMap();
-    private Map<String, String> F = new HashMap();
+    private boolean C = true;
+    private Map<String, LoginShareStrategy> F = new HashMap();
     private Map<String, String> G = new HashMap();
-    private List<String> H = new ArrayList();
+    private Map<String, String> H = new HashMap();
     private List<String> I = new ArrayList();
     private List<String> J = new ArrayList();
+    private List<String> K = new ArrayList();
     public List<Integer> diExceptIndex = new ArrayList();
     public int configType = 0;
     public int configStep = 300;
-    private Cache y = new Cache();
-    private String z = SapiEnv.FAST_REG_SMS_NUMBER;
+    private Cache z = new Cache();
+    private String A = SapiEnv.FAST_REG_SMS_NUMBER;
 
     public String getFastRegSmsNum() {
-        return this.z;
-    }
-
-    public LoginShareStrategy getGlobalShareStrategy() {
         return this.A;
     }
 
-    public boolean getDefaultHttpsEnabled() {
+    public LoginShareStrategy getGlobalShareStrategy() {
         return this.B;
     }
 
-    public boolean getSofireSdkEnabled() {
+    public boolean getDefaultHttpsEnabled() {
         return this.C;
     }
 
-    public boolean getPluginsEnabled() {
+    public boolean getSofireSdkEnabled() {
         return this.D;
     }
 
-    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
+    public boolean getPluginsEnabled() {
         return this.E;
     }
 
+    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
+        return this.F;
+    }
+
     public Map<String, String> getPluginsSuffix() {
-        return this.G;
+        return this.H;
     }
 
     public Map<String, String> getAuthorizedPackages() {
-        return !this.F.isEmpty() ? this.F : a();
+        return !this.G.isEmpty() ? this.G : a();
     }
 
     public List<String> getAuthorizedDomains() {
-        return !this.H.isEmpty() ? this.H : e();
+        return !this.I.isEmpty() ? this.I : f();
     }
 
     public List<String> getLoginCookieDiKeys() {
-        return this.I;
-    }
-
-    public List<String> getPreFetchTplList() {
         return this.J;
     }
 
+    public List<String> getPreFetchTplList() {
+        return this.K;
+    }
+
     public Cache getCache() {
-        return this.y;
+        return this.z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setCache(Cache cache) {
-        this.y = cache;
+        this.z = cache;
     }
 
     public String toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(j, this.y.a());
-            jSONObject.put(a, this.z);
+            jSONObject.put(j, this.z.a());
+            jSONObject.put(a, this.A);
             jSONObject.put(t, this.configStep);
             jSONObject.put(s, this.configType);
             jSONObject.put(u, this.smsFaceLoginEnable);
             jSONObject.put(v, this.shareLivingunameEnabled);
             jSONObject.put(w, this.faceLoginCheckEnabled);
-            if (this.A != null) {
-                jSONObject.put(b, this.A.getStrValue());
+            jSONObject.put(y, this.shareAccountGray);
+            if (this.B != null) {
+                jSONObject.put(b, this.B.getStrValue());
             }
-            jSONObject.put(d, this.B);
-            jSONObject.put(e, this.C);
-            jSONObject.put(f, this.D);
+            jSONObject.put(d, this.C);
+            jSONObject.put(e, this.D);
+            jSONObject.put(f, this.E);
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, LoginShareStrategy> entry : this.E.entrySet()) {
+            for (Map.Entry<String, LoginShareStrategy> entry : this.F.entrySet()) {
                 jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
             }
             jSONObject.put(c, jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            for (Map.Entry<String, String> entry2 : this.F.entrySet()) {
+            for (Map.Entry<String, String> entry2 : this.G.entrySet()) {
                 jSONObject3.put(entry2.getKey(), entry2.getValue());
             }
             jSONObject.put(h, jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            for (Map.Entry<String, String> entry3 : this.G.entrySet()) {
+            for (Map.Entry<String, String> entry3 : this.H.entrySet()) {
                 jSONObject4.put(entry3.getKey(), entry3.getValue());
             }
             jSONObject.put(g, jSONObject4);
             JSONArray jSONArray = new JSONArray();
-            for (String str : this.H) {
+            for (String str : this.I) {
                 jSONArray.put(str);
             }
             jSONObject.put(i, jSONArray);
             JSONArray jSONArray2 = new JSONArray();
-            for (String str2 : this.I) {
+            for (String str2 : this.J) {
                 jSONArray2.put(str2);
             }
             jSONObject.put(q, jSONArray2);
             JSONArray jSONArray3 = new JSONArray();
-            for (String str3 : this.J) {
+            for (String str3 : this.K) {
                 jSONArray3.put(str3);
             }
             jSONObject.put(r, jSONArray3);
@@ -169,26 +172,27 @@ public final class SapiOptions {
 
     public static SapiOptions fromJSON(JSONObject jSONObject) {
         SapiOptions sapiOptions = new SapiOptions();
-        sapiOptions.y = Cache.a(jSONObject.optJSONObject(j));
-        sapiOptions.z = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
+        sapiOptions.z = Cache.a(jSONObject.optJSONObject(j));
+        sapiOptions.A = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
         sapiOptions.configType = jSONObject.optInt(s, 0);
         sapiOptions.configStep = jSONObject.optInt(t, 300);
         sapiOptions.smsFaceLoginEnable = jSONObject.optBoolean(u);
         sapiOptions.faceLoginCheckEnabled = jSONObject.optBoolean(w, true);
         sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(v);
-        sapiOptions.B = jSONObject.optBoolean(d, true);
-        sapiOptions.C = jSONObject.optBoolean(e);
-        sapiOptions.D = jSONObject.optBoolean(f);
+        sapiOptions.C = jSONObject.optBoolean(d, true);
+        sapiOptions.D = jSONObject.optBoolean(e);
+        sapiOptions.E = jSONObject.optBoolean(f);
+        sapiOptions.shareAccountGray = jSONObject.optInt(y, 0);
         String optString = jSONObject.optString(b);
         if (!TextUtils.isEmpty(optString)) {
-            sapiOptions.A = LoginShareStrategy.mapStrToValue(optString);
+            sapiOptions.B = LoginShareStrategy.mapStrToValue(optString);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(c);
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                sapiOptions.E.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
+                sapiOptions.F.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(h);
@@ -198,7 +202,7 @@ public final class SapiOptions {
                 String next2 = keys2.next();
                 String optString2 = optJSONObject2.optString(next2);
                 if (!TextUtils.isEmpty(next2) && !TextUtils.isEmpty(optString2)) {
-                    sapiOptions.F.put(next2, optString2);
+                    sapiOptions.G.put(next2, optString2);
                 }
             }
         }
@@ -209,7 +213,7 @@ public final class SapiOptions {
                 String next3 = keys3.next();
                 String optString3 = optJSONObject3.optString(next3);
                 if (!TextUtils.isEmpty(next3) && !TextUtils.isEmpty(next3)) {
-                    sapiOptions.G.put(next3, optString3);
+                    sapiOptions.H.put(next3, optString3);
                 }
             }
         }
@@ -217,7 +221,7 @@ public final class SapiOptions {
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
-                    sapiOptions.H.add(optJSONArray.optString(i2));
+                    sapiOptions.I.add(optJSONArray.optString(i2));
                 }
             }
         }
@@ -225,7 +229,7 @@ public final class SapiOptions {
         if (optJSONArray2 != null) {
             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                 if (!TextUtils.isEmpty(optJSONArray2.optString(i3))) {
-                    sapiOptions.I.add(optJSONArray2.optString(i3));
+                    sapiOptions.J.add(optJSONArray2.optString(i3));
                 }
             }
         }
@@ -233,7 +237,7 @@ public final class SapiOptions {
         if (optJSONArray3 != null) {
             for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                 if (!TextUtils.isEmpty(optJSONArray3.optString(i4))) {
-                    sapiOptions.J.add(optJSONArray3.optString(i4));
+                    sapiOptions.K.add(optJSONArray3.optString(i4));
                 }
             }
         }
@@ -409,6 +413,10 @@ public final class SapiOptions {
         hashMap.put("com.baidu.album", "4ffb648ae77dbfc7f8d57593d9a6b50c");
         hashMap.put("com.baidu.eduai", "5a9c869602eb27e97af3eaec4d88160b");
         hashMap.put("com.baidu.eureka", "934e69310f5eb3234ba2067d67694ec9");
+        hashMap.put("com.baidu.aiting", "0fb46b5e8f8d50dd5a8cda441c8af10d");
+        hashMap.put("com.baidu.car.faceos", "9b284760b6eed6ad6ff793c5ad32736a");
+        hashMap.put("com.baidu.nani", "dd473ebed169a590680a89351a596f60");
+        hashMap.put("com.baidu.car.radio", "246ed007729a5f84a1886adfebce0d63");
         return hashMap;
     }
 
@@ -429,6 +437,13 @@ public final class SapiOptions {
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<String> c() {
         ArrayList arrayList = new ArrayList();
+        arrayList.add("com.baidu.passport.securitycenter");
+        return arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<String> d() {
+        ArrayList arrayList = new ArrayList();
         arrayList.add("com.baidu.searchbox(.*)");
         arrayList.add("com.baidu.browser.(.+)");
         arrayList.add("com.baidu.passport.securitycenter");
@@ -436,7 +451,7 @@ public final class SapiOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<String> d() {
+    public List<String> e() {
         ArrayList arrayList = new ArrayList();
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         String replaceAll = confignation.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
@@ -446,7 +461,7 @@ public final class SapiOptions {
         return arrayList;
     }
 
-    static List<String> e() {
+    static List<String> f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");
@@ -464,7 +479,7 @@ public final class SapiOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<String> f() {
+    public static List<String> g() {
         ArrayList arrayList = new ArrayList(1);
         arrayList.add("com.baidu.BaiduMap(.*)");
         return arrayList;

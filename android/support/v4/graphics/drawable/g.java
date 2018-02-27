@@ -17,12 +17,12 @@ class g extends DrawableWrapperGingerbread {
 
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
-        this.wz.jumpToCurrentState();
+        this.wy.jumpToCurrentState();
     }
 
     @Override // android.support.v4.graphics.drawable.DrawableWrapperGingerbread
     DrawableWrapperGingerbread.DrawableWrapperState dg() {
-        return new a(this.wy, null);
+        return new a(this.wx, null);
     }
 
     /* loaded from: classes2.dex */

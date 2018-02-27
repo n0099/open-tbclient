@@ -6,24 +6,24 @@ import android.view.View;
 @RestrictTo
 /* loaded from: classes2.dex */
 public final class AnimatorCompatHelper {
-    private static final a wc;
+    private static final a wb;
 
     static {
         if (Build.VERSION.SDK_INT >= 12) {
-            wc = new c();
+            wb = new c();
         } else {
-            wc = new b();
+            wb = new b();
         }
     }
 
     public static ValueAnimatorCompat emptyValueAnimator() {
-        return wc.emptyValueAnimator();
+        return wb.emptyValueAnimator();
     }
 
     private AnimatorCompatHelper() {
     }
 
     public static void clearInterpolator(View view) {
-        wc.clearInterpolator(view);
+        wb.clearInterpolator(view);
     }
 }

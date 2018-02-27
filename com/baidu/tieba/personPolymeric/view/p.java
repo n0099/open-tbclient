@@ -11,20 +11,20 @@ import com.baidu.tieba.d;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class p implements View.OnClickListener {
-    private com.baidu.tieba.personPolymeric.event.b goc = new com.baidu.tieba.personPolymeric.event.b();
-    protected com.baidu.tieba.view.i grI;
-    private com.baidu.tieba.personPolymeric.c.a grJ;
+    private com.baidu.tieba.personPolymeric.event.b gnR = new com.baidu.tieba.personPolymeric.event.b();
+    protected com.baidu.tieba.view.i grx;
+    private com.baidu.tieba.personPolymeric.c.a gry;
     private boolean mIsHost;
 
     public p(Context context) {
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.i iVar) {
-        this.grI = iVar;
+        this.grx = iVar;
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.grJ = aVar;
+        this.gry = aVar;
     }
 
     public void setIsHost(boolean z) {
@@ -33,49 +33,49 @@ public class p implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.grI != null && this.grJ != null && this.grJ.getUserData() != null) {
-            UserData userData = this.grJ.getUserData();
-            this.goc.drx = -1;
+        if (this.grx != null && this.gry != null && this.gry.getUserData() != null) {
+            UserData userData = this.gry.getUserData();
+            this.gnR.drl = -1;
             if (view.getId() == d.g.person_polymeric_header_user_img) {
                 TiebaStatic.log(new ak("c12502").ab("obj_locate", "5"));
-                this.goc.drx = 1;
-                this.goc.dry = new Bundle();
-                this.goc.dry.putSerializable(UserData.TYPE_USER, userData);
+                this.gnR.drl = 1;
+                this.gnR.drm = new Bundle();
+                this.gnR.drm.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.person_polymeric_header_user_vip_icon) {
                 TiebaStatic.log(new ak("c12502").ab("obj_locate", "6"));
-                this.goc.drx = 2;
+                this.gnR.drl = 2;
             } else if (view.getId() == d.g.person_polymeric_header_label_box) {
                 TiebaStatic.log(new ak("c12502").ab("obj_locate", "4"));
-                this.goc.drx = 3;
-                this.goc.dry = new Bundle();
-                this.goc.dry.putSerializable(UserData.TYPE_USER, userData);
+                this.gnR.drl = 3;
+                this.gnR.drm = new Bundle();
+                this.gnR.drm.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.container_send_gift) {
                 TiebaStatic.log(new ak("c12503").ab("obj_locate", "3"));
-                this.goc.drx = 12;
-                this.goc.dry = new Bundle();
-                this.goc.dry.putSerializable(UserData.TYPE_USER, userData);
+                this.gnR.drl = 12;
+                this.gnR.drm = new Bundle();
+                this.gnR.drm.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.seal_prefix_view) {
-                this.goc.drx = 13;
+                this.gnR.drl = 13;
             } else if (view.getId() == d.g.person_center_header_tdou_txt || view.getId() == d.g.textview_get_tdou) {
                 if (view.getId() == d.g.person_center_header_tdou_txt) {
                     TiebaStatic.log(new ak("c12502").ab("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
                 } else if (view.getId() == d.g.textview_get_tdou) {
                     TiebaStatic.log(new ak("c12502").ab("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
                 }
-                this.goc.drx = 14;
+                this.gnR.drl = 14;
             } else if (view.getId() == d.g.person_polymeric_header_user_name_txt || view.getId() == d.g.person_polymeric_header_sign_txt) {
                 if (view.getId() == d.g.person_polymeric_header_user_name_txt) {
-                    TiebaStatic.log(new ak("c12502").ab("obj_locate", Constants.VIA_SHARE_TYPE_PUBLISHMOOD));
+                    TiebaStatic.log(new ak("c12502").ab("obj_locate", "7"));
                 } else if (view.getId() == d.g.person_polymeric_header_sign_txt) {
                     TiebaStatic.log(new ak("c12502").ab("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
                 }
                 if (this.mIsHost) {
-                    this.goc.dry = new Bundle();
-                    this.goc.dry.putSerializable(UserData.TYPE_USER, userData);
-                    if (this.grJ != null && this.grJ.gpD != null) {
-                        this.goc.dry.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.grJ.gpD.left_days.intValue());
+                    this.gnR.drm = new Bundle();
+                    this.gnR.drm.putSerializable(UserData.TYPE_USER, userData);
+                    if (this.gry != null && this.gry.gps != null) {
+                        this.gnR.drm.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.gry.gps.left_days.intValue());
                     }
-                    this.goc.drx = 11;
+                    this.gnR.drl = 11;
                 } else {
                     view.requestLayout();
                     if (view instanceof TextView) {
@@ -88,11 +88,11 @@ public class p implements View.OnClickListener {
                 } else {
                     TiebaStatic.log(new ak("c12503").ab("obj_locate", "5"));
                 }
-                this.goc.drx = 34;
-                this.goc.dry = new Bundle();
-                this.goc.dry.putSerializable(UserData.TYPE_USER, userData);
+                this.gnR.drl = 34;
+                this.gnR.drm = new Bundle();
+                this.gnR.drm.putSerializable(UserData.TYPE_USER, userData);
             }
-            this.grI.a(view, this.goc);
+            this.grx.a(view, this.gnR);
         }
     }
 }

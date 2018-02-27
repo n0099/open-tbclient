@@ -11,7 +11,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class e {
     public SharedPreferences a;
-    public SharedPreferences.Editor aGM;
+    public SharedPreferences.Editor aGB;
     public SharedPreferences b;
     public SharedPreferences.Editor c;
     public SharedPreferences.Editor d;
@@ -26,7 +26,7 @@ public final class e {
             this.b = context.getSharedPreferences("leroadcfg", 4);
             this.d = this.b.edit();
             this.e = context.getSharedPreferences("re_po_rt", 4);
-            this.aGM = this.e.edit();
+            this.aGB = this.e.edit();
         } catch (Throwable th) {
             th.getMessage();
         }
@@ -174,8 +174,8 @@ public final class e {
     }
 
     public final void a(com.baidu.sofire.rp.a.a aVar) {
-        this.aGM.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.rp.a.a.b(aVar));
-        this.aGM.commit();
+        this.aGB.putString("re_con", this.e.getString("re_con", "") + "||" + com.baidu.sofire.rp.a.a.b(aVar));
+        this.aGB.commit();
     }
 
     public final List<com.baidu.sofire.rp.a.a> d() {

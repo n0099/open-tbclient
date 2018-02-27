@@ -8,19 +8,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 /* loaded from: classes3.dex */
 public class a extends PagerAdapter {
-    private b dOn;
-    private d dOo;
-    private com.baidu.tieba.frs.game.strategy.view.d dOp;
+    private b dOb;
+    private d dOc;
+    private com.baidu.tieba.frs.game.strategy.view.d dOd;
     private Context mContext;
     private BdUniqueId mPageId;
-    private final com.baidu.tieba.frs.game.strategy.view.d[] dOm = new com.baidu.tieba.frs.game.strategy.view.d[4];
+    private final com.baidu.tieba.frs.game.strategy.view.d[] dOa = new com.baidu.tieba.frs.game.strategy.view.d[4];
     private int mCount = 0;
-    private int Po = -1;
+    private int Pj = -1;
 
     public a(Context context, b bVar, d dVar) {
         this.mContext = context;
-        this.dOn = bVar;
-        this.dOo = dVar;
+        this.dOb = bVar;
+        this.dOc = dVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -36,15 +36,15 @@ public class a extends PagerAdapter {
         com.baidu.tieba.frs.game.strategy.view.d nq = nq(i2);
         if (nq == null) {
             com.baidu.tieba.frs.game.strategy.view.d dVar2 = new com.baidu.tieba.frs.game.strategy.view.d(this.mContext, this.mPageId);
-            dVar2.setFrsGameTabDataLoadListener(this.dOn);
+            dVar2.setFrsGameTabDataLoadListener(this.dOb);
             a(i2, dVar2);
             dVar = dVar2;
         } else {
-            if (nq == axT()) {
+            if (nq == axS()) {
                 nq = nq(3);
                 if (nq == null) {
                     com.baidu.tieba.frs.game.strategy.view.d dVar3 = new com.baidu.tieba.frs.game.strategy.view.d(this.mContext, this.mPageId);
-                    dVar3.setFrsGameTabDataLoadListener(this.dOn);
+                    dVar3.setFrsGameTabDataLoadListener(this.dOb);
                     a(3, dVar3);
                     dVar = dVar3;
                 } else if (nq.getParent() != null) {
@@ -57,7 +57,7 @@ public class a extends PagerAdapter {
             dVar = nq;
         }
         viewGroup.addView(dVar);
-        if (this.dOo != null && (nr = this.dOo.nr(i)) != null && (nr.extra instanceof LabelDataList)) {
+        if (this.dOc != null && (nr = this.dOc.nr(i)) != null && (nr.extra instanceof LabelDataList)) {
             dVar.bE(nr.tabId, ((LabelDataList) nr.extra).getSelectedLabelId());
         }
         return dVar;
@@ -69,10 +69,10 @@ public class a extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        if ((obj instanceof com.baidu.tieba.frs.game.strategy.view.d) && this.Po != i) {
-            this.Po = i;
-            this.dOp = (com.baidu.tieba.frs.game.strategy.view.d) obj;
-            this.dOp.aya();
+        if ((obj instanceof com.baidu.tieba.frs.game.strategy.view.d) && this.Pj != i) {
+            this.Pj = i;
+            this.dOd = (com.baidu.tieba.frs.game.strategy.view.d) obj;
+            this.dOd.axZ();
         }
     }
 
@@ -86,15 +86,15 @@ public class a extends PagerAdapter {
     }
 
     private com.baidu.tieba.frs.game.strategy.view.d nq(int i) {
-        if (i >= this.dOm.length) {
+        if (i >= this.dOa.length) {
             return null;
         }
-        return this.dOm[i];
+        return this.dOa[i];
     }
 
     private void a(int i, com.baidu.tieba.frs.game.strategy.view.d dVar) {
-        if (i < this.dOm.length) {
-            this.dOm[i] = dVar;
+        if (i < this.dOa.length) {
+            this.dOa[i] = dVar;
         }
     }
 
@@ -109,9 +109,9 @@ public class a extends PagerAdapter {
     public com.baidu.tieba.frs.game.strategy.view.d bC(int i, int i2) {
         com.baidu.tieba.frs.game.strategy.view.d[] dVarArr;
         if (i == 0 && i2 == 0) {
-            return this.dOm[0];
+            return this.dOa[0];
         }
-        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOm) {
+        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOa) {
             if (dVar != null && i == dVar.getTabId() && i2 == dVar.getLabelId()) {
                 return dVar;
             }
@@ -119,13 +119,13 @@ public class a extends PagerAdapter {
         return null;
     }
 
-    public com.baidu.tieba.frs.game.strategy.view.d axT() {
-        return this.dOp;
+    public com.baidu.tieba.frs.game.strategy.view.d axS() {
+        return this.dOd;
     }
 
     public void onChangeSkinType(int i) {
         com.baidu.tieba.frs.game.strategy.view.d[] dVarArr;
-        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOm) {
+        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOa) {
             if (dVar != null) {
                 dVar.onChangeSkinType(i);
             }
@@ -134,7 +134,7 @@ public class a extends PagerAdapter {
 
     public void onDestory() {
         com.baidu.tieba.frs.game.strategy.view.d[] dVarArr;
-        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOm) {
+        for (com.baidu.tieba.frs.game.strategy.view.d dVar : this.dOa) {
             if (dVar != null) {
                 dVar.onDestory();
             }

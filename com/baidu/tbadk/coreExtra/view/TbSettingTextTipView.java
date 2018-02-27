@@ -15,52 +15,52 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout boK;
-    protected TextView boL;
-    protected TextView boM;
-    private boolean boO;
-    private View boP;
-    protected ImageView boQ;
+    private boolean boB;
+    private View boC;
+    protected ImageView boD;
+    protected LinearLayout box;
+    protected TextView boy;
+    protected TextView boz;
     private View mBottomLine;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.boO = true;
+        this.boB = true;
         this.mContext = context;
-        Jw();
+        Jv();
         d(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.boO = true;
+        this.boB = true;
         this.mContext = context;
-        Jw();
+        Jv();
     }
 
     public void displayTip() {
-        if (this.boM != null) {
-            this.boM.setVisibility(0);
+        if (this.boz != null) {
+            this.boz.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.boM != null) {
-            this.boM.setTextColor(i);
+        if (this.boz != null) {
+            this.boz.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.boM != null) {
+        if (this.boz != null) {
         }
     }
 
     public void o(int i, int i2, int i3, int i4) {
-        if (this.boM != null) {
+        if (this.boz != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.boM.setLayoutParams(layoutParams);
+            this.boz.setLayoutParams(layoutParams);
         }
     }
 
@@ -68,37 +68,37 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.boQ.setVisibility(8);
+        this.boD.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.boL.setText(str);
+        this.boy.setText(str);
     }
 
     public void setText(int i) {
-        this.boL.setText(i);
+        this.boy.setText(i);
     }
 
     public void setTip(String str) {
-        this.boM.setText(str);
+        this.boz.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.boM.getText();
+        return this.boz.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.boM.setBackgroundDrawable(drawable);
+        this.boz.setBackgroundDrawable(drawable);
     }
 
-    protected void Jw() {
+    protected void Jv() {
         LayoutInflater.from(this.mContext).inflate(d.h.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.boK = (LinearLayout) findViewById(d.g.container);
-        this.boL = (TextView) findViewById(d.g.text);
-        this.boM = (TextView) findViewById(d.g.tip);
-        this.boQ = (ImageView) findViewById(d.g.arrow2);
+        this.box = (LinearLayout) findViewById(d.g.container);
+        this.boy = (TextView) findViewById(d.g.text);
+        this.boz = (TextView) findViewById(d.g.tip);
+        this.boD = (ImageView) findViewById(d.g.arrow2);
         this.mBottomLine = findViewById(d.g.bottom_line_ll);
-        this.boP = findViewById(d.g.top_line_ll);
+        this.boC = findViewById(d.g.top_line_ll);
     }
 
     protected void d(AttributeSet attributeSet) {
@@ -107,26 +107,26 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(d.l.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(d.l.TbSettingView_settingTip);
             if (string != null) {
-                this.boL.setText(string);
+                this.boy.setText(string);
             }
             if (string2 != null) {
-                this.boM.setText(string2);
+                this.boz.setText(string2);
             }
-            this.boO = obtainStyledAttributes.getBoolean(d.l.TbSettingView_settingShowArraw, true);
+            this.boB = obtainStyledAttributes.getBoolean(d.l.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.boK.setClickable(false);
-        this.boK.setFocusable(false);
-        if (!this.boO) {
-            this.boQ.setVisibility(4);
+        this.box.setClickable(false);
+        this.box.setFocusable(false);
+        if (!this.boB) {
+            this.boD.setVisibility(4);
         }
     }
 
     public void setTopLineVisibility(boolean z) {
         if (z) {
-            this.boP.setVisibility(0);
+            this.boC.setVisibility(0);
         } else {
-            this.boP.setVisibility(8);
+            this.boC.setVisibility(8);
         }
     }
 
@@ -139,22 +139,22 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setMainTextSize(float f) {
-        this.boL.setTextSize(0, f);
+        this.boy.setTextSize(0, f);
     }
 
     private void setTipTextSize(float f) {
-        this.boM.setTextSize(0, f);
+        this.boz.setTextSize(0, f);
     }
 
-    public void Jx() {
+    public void Jw() {
         int t = l.t(this.mContext, d.e.tbds42);
         int t2 = l.t(this.mContext, d.e.tbds33);
         setMainTextSize(t);
         setTipTextSize(t2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.boL.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.boy.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.boM.getLayoutParams()).setMargins(0, 0, l.t(this.mContext, d.e.tbds18), 0);
-        this.boK.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.boz.getLayoutParams()).setMargins(0, 0, l.t(this.mContext, d.e.tbds18), 0);
+        this.box.getLayoutParams().height = -1;
         requestLayout();
     }
 }

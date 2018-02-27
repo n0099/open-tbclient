@@ -24,7 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SapiDeviceInfo {
-    private static final int a = 7;
+    private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
     private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, "O", "K", "T", "T", "Q", "G", "L", "w", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
@@ -126,11 +126,12 @@ public class SapiDeviceInfo {
         arrayList.add("");
         arrayList.add(diExceptIndex.contains(34) ? "" : a.a().getAppZid());
         arrayList.add(diExceptIndex.contains(35) ? "" : "1.0.3");
+        arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
         return arrayList;
     }
 
     static String d() {
-        return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 7) + "0";
+        return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
     }
 
     public static String getDeviceInfo(String str) {
@@ -256,6 +257,7 @@ public class SapiDeviceInfo {
             arrayList.add("baidumap_cuid");
             arrayList.add("sf_zid");
             arrayList.add("hostver");
+            arrayList.add("iccid");
             return arrayList;
         }
 

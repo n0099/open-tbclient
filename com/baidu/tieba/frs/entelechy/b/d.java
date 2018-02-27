@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes2.dex */
 public interface d {
-    boolean avM();
+    boolean avL();
+
+    void axA();
 
     void axB();
 
     void axC();
 
-    void axD();
-
-    boolean axE();
+    boolean axD();
 
     void fN(boolean z);
 

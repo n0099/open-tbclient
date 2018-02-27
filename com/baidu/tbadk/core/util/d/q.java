@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class q extends a {
-    private boolean aZj;
-    private boolean aZk;
-    private boolean aZl;
+    private boolean aYX;
+    private boolean aYY;
+    private boolean aYZ;
     private int height;
     private int procType;
     private int width;
 
     public q(boolean z, boolean z2, boolean z3, int i) {
-        this.aZj = true;
-        this.aZk = false;
-        this.aZl = false;
+        this.aYX = true;
+        this.aYY = false;
+        this.aYZ = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.aZj = z;
-        this.aZk = z2;
-        this.aZl = z3;
+        this.aYX = z;
+        this.aYY = z2;
+        this.aYZ = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -39,21 +39,21 @@ public class q extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aZj;
+        return this.aYX;
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean DI() {
+        return this.aYZ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean DJ() {
-        return this.aZl;
+        return this.aYY;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DK() {
-        return this.aZk;
-    }
-
-    @Override // com.baidu.tbadk.core.util.d.a
-    public int DL() {
+    public int DK() {
         return this.procType;
     }
 
@@ -63,7 +63,7 @@ public class q extends a {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.Mx().hY(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Mw().hY(BitmapHelper.getBitmapSize(bitmap) * 2);
             return bitmap;
         }
         return bitmap;

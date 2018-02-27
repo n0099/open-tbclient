@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a aTf = null;
+    private a aSU = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h aTr = new h();
+        private static final h aTg = new h();
     }
 
     public static h Bs() {
-        return c.aTr;
+        return c.aTg;
     }
 
     public void a(int i, k kVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.aTf = new a(i, kVar);
-                this.aTf.Bu();
+                this.aSU = new a(i, kVar);
+                this.aSU.Bu();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a aTf;
-        private final List<Long> aTp = new ArrayList(240);
-        private final List<Integer> aTq = new ArrayList(15);
+        protected a aSU;
+        private final List<Long> aTe = new ArrayList(240);
+        private final List<Integer> aTf = new ArrayList(15);
 
         public b(a aVar) {
-            this.aTf = aVar;
+            this.aSU = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class h {
         }
 
         private void doFrame(long j) {
-            this.aTp.add(Long.valueOf(j));
-            this.aTf.Bu();
+            this.aTe.add(Long.valueOf(j));
+            this.aSU.Bu();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.aTf = null;
-            this.aTp.clear();
-            this.aTq.clear();
+            this.aSU = null;
+            this.aTe.clear();
+            this.aTf.clear();
         }
     }
 
@@ -79,31 +79,31 @@ public class h {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> aTg;
-        private final Object aTh;
-        private final Class<?> aTi;
-        private final Method aTj;
-        private final Object aTk;
-        private final Method aTl;
-        private final b aTm;
-        private final k aTn;
+        private final Class<?> aSV;
+        private final Object aSW;
+        private final Class<?> aSX;
+        private final Method aSY;
+        private final Object aSZ;
+        private final Method aTa;
+        private final b aTb;
+        private final k aTc;
         private int index;
 
         private a(int i, k kVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.aTi = Class.forName("android.view.Choreographer");
-            this.aTg = Class.forName("android.view.Choreographer$FrameCallback");
-            this.aTm = new b(this);
-            this.aTh = Proxy.newProxyInstance(this.aTg.getClassLoader(), new Class[]{this.aTg}, this.aTm);
-            this.aTj = this.aTi.getMethod("getInstance", new Class[0]);
-            this.aTk = this.aTj.invoke(null, new Object[0]);
-            this.aTl = this.aTi.getMethod("postFrameCallback", this.aTg);
+            this.aSX = Class.forName("android.view.Choreographer");
+            this.aSV = Class.forName("android.view.Choreographer$FrameCallback");
+            this.aTb = new b(this);
+            this.aSW = Proxy.newProxyInstance(this.aSV.getClassLoader(), new Class[]{this.aSV}, this.aTb);
+            this.aSY = this.aSX.getMethod("getInstance", new Class[0]);
+            this.aSZ = this.aSY.invoke(null, new Object[0]);
+            this.aTa = this.aSX.getMethod("postFrameCallback", this.aSV);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.aTn = kVar;
+            this.aTc = kVar;
         }
 
         private void Bt() throws InvocationTargetException, IllegalAccessException {
-            this.aTl.invoke(this.aTk, this.aTh);
+            this.aTa.invoke(this.aSZ, this.aSW);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -112,8 +112,8 @@ public class h {
                 com.baidu.adp.lib.g.e.ns().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.h.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.aTn.z(a.this.Bw());
-                        a.this.aTm.destroy();
+                        a.this.aTc.z(a.this.Bw());
+                        a.this.aTb.destroy();
                         a.this.destroy();
                     }
                 });
@@ -128,12 +128,12 @@ public class h {
         }
 
         private List<Long> Bv() {
-            return this.aTm.aTp;
+            return this.aTb.aTe;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.aTm.destroy();
+            this.aTb.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */

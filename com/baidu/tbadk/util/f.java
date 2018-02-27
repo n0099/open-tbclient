@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f bDa = new f();
-    private b bDb;
-    private a bDc;
+    private static f bCN = new f();
+    private b bCO;
+    private a bCP;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,22 +18,22 @@ public class f {
     private f() {
     }
 
-    public static f OX() {
-        return bDa;
+    public static f OW() {
+        return bCN;
     }
 
     public void a(a aVar) {
-        this.bDc = aVar;
-        if (this.bDb != null) {
-            this.bDb.cancel();
+        this.bCP = aVar;
+        if (this.bCO != null) {
+            this.bCO.cancel();
         }
-        this.bDb = new b();
-        this.bDb.setPriority(4);
-        this.bDb.execute(new String[0]);
+        this.bCO = new b();
+        this.bCO.setPriority(4);
+        this.bCO.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean OY() {
+    public boolean OX() {
         int i;
         long j = 0;
         byte[] dR = com.baidu.tbadk.core.util.k.dR(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,15 +69,15 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(f.this.OY());
+            return Boolean.valueOf(f.this.OX());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bDc != null && bool != null) {
-                f.this.bDc.aU(bool.booleanValue());
+            if (f.this.bCP != null && bool != null) {
+                f.this.bCP.aU(bool.booleanValue());
             }
         }
     }

@@ -12,20 +12,20 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0189a {
-        public String faK;
-        public Rect faL;
+    public static class C0190a {
+        public String fay;
+        public Rect faz;
         public String picUrl;
         public Rect rect;
 
-        public C0189a() {
+        public C0190a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.faK = "";
-            this.faL = new Rect(0, 0, 0, 0);
+            this.fay = "";
+            this.faz = new Rect(0, 0, 0, 0);
         }
 
-        private C0189a(JSONObject jSONObject) {
+        private C0190a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
             this.rect = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
@@ -34,8 +34,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean aPE() {
-            return (TextUtils.isEmpty(this.faK) || this.faL.isEmpty()) ? false : true;
+        public boolean aPD() {
+            return (TextUtils.isEmpty(this.fay) || this.faz.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -55,15 +55,15 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0189a os(String str) {
+        public static C0190a os(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0189a();
+                return new C0190a();
             }
             try {
-                return new C0189a(new JSONObject(str));
+                return new C0190a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0189a();
+                return new C0190a();
             }
         }
 
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.faK = jSONObject.optString("pic_url");
-                                this.faL = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.fay = jSONObject.optString("pic_url");
+                                this.faz = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

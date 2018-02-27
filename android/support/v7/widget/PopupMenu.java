@@ -13,11 +13,11 @@ import android.view.View;
 import android.widget.PopupWindow;
 /* loaded from: classes2.dex */
 public class PopupMenu {
-    private final View QW;
-    final MenuPopupHelper QX;
-    OnMenuItemClickListener QY;
-    OnDismissListener QZ;
-    private View.OnTouchListener Ra;
+    private final View QQ;
+    final MenuPopupHelper QR;
+    OnMenuItemClickListener QS;
+    OnDismissListener QT;
+    private View.OnTouchListener QU;
     private final Context mContext;
     private final MenuBuilder mMenu;
 
@@ -41,13 +41,13 @@ public class PopupMenu {
 
     public PopupMenu(Context context, View view, int i, int i2, int i3) {
         this.mContext = context;
-        this.QW = view;
+        this.QQ = view;
         this.mMenu = new MenuBuilder(context);
         this.mMenu.setCallback(new MenuBuilder.Callback() { // from class: android.support.v7.widget.PopupMenu.1
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-                if (PopupMenu.this.QY != null) {
-                    return PopupMenu.this.QY.onMenuItemClick(menuItem);
+                if (PopupMenu.this.QS != null) {
+                    return PopupMenu.this.QS.onMenuItemClick(menuItem);
                 }
                 return false;
             }
@@ -56,29 +56,29 @@ public class PopupMenu {
             public void onMenuModeChange(MenuBuilder menuBuilder) {
             }
         });
-        this.QX = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
-        this.QX.setGravity(i);
-        this.QX.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: android.support.v7.widget.PopupMenu.2
+        this.QR = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
+        this.QR.setGravity(i);
+        this.QR.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: android.support.v7.widget.PopupMenu.2
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (PopupMenu.this.QZ != null) {
-                    PopupMenu.this.QZ.onDismiss(PopupMenu.this);
+                if (PopupMenu.this.QT != null) {
+                    PopupMenu.this.QT.onDismiss(PopupMenu.this);
                 }
             }
         });
     }
 
     public void setGravity(int i) {
-        this.QX.setGravity(i);
+        this.QR.setGravity(i);
     }
 
     public int getGravity() {
-        return this.QX.getGravity();
+        return this.QR.getGravity();
     }
 
     public View.OnTouchListener getDragToOpenListener() {
-        if (this.Ra == null) {
-            this.Ra = new ForwardingListener(this.QW) { // from class: android.support.v7.widget.PopupMenu.3
+        if (this.QU == null) {
+            this.QU = new ForwardingListener(this.QQ) { // from class: android.support.v7.widget.PopupMenu.3
                 @Override // android.support.v7.widget.ForwardingListener
                 protected boolean onForwardingStarted() {
                     PopupMenu.this.show();
@@ -93,11 +93,11 @@ public class PopupMenu {
 
                 @Override // android.support.v7.widget.ForwardingListener
                 public ShowableListMenu getPopup() {
-                    return PopupMenu.this.QX.getPopup();
+                    return PopupMenu.this.QR.getPopup();
                 }
             };
         }
-        return this.Ra;
+        return this.QU;
     }
 
     public Menu getMenu() {
@@ -113,18 +113,18 @@ public class PopupMenu {
     }
 
     public void show() {
-        this.QX.show();
+        this.QR.show();
     }
 
     public void dismiss() {
-        this.QX.dismiss();
+        this.QR.dismiss();
     }
 
     public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
-        this.QY = onMenuItemClickListener;
+        this.QS = onMenuItemClickListener;
     }
 
     public void setOnDismissListener(OnDismissListener onDismissListener) {
-        this.QZ = onDismissListener;
+        this.QT = onDismissListener;
     }
 }

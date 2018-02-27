@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class LineCountNotifyTextView extends TextView {
-    private a bEK;
+    private a bEx;
 
     /* loaded from: classes.dex */
     public interface a {
-        void PQ();
+        void PP();
     }
 
     public LineCountNotifyTextView(Context context, AttributeSet attributeSet) {
@@ -18,14 +18,14 @@ public class LineCountNotifyTextView extends TextView {
     }
 
     public void setGetLineCountCallback(a aVar) {
-        this.bEK = aVar;
+        this.bEx = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bEK != null) {
-            this.bEK.PQ();
+        if (this.bEx != null) {
+            this.bEx.PP();
         }
     }
 }

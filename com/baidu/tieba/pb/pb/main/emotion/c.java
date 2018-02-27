@@ -27,20 +27,20 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
-    private i axP;
-    private ViewGroup crh;
-    private HListView dyK;
-    private List<String> fWQ;
-    private b fWR;
-    private QueryMatchEmotionModel fWS;
-    private String fWT;
-    private ViewGroup.LayoutParams fWU;
-    private GetEmotionPidModel fWV;
-    private Runnable fWW = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.1
+    private i axG;
+    private ViewGroup cqU;
+    private HListView dyy;
+    private List<String> fWF;
+    private b fWG;
+    private QueryMatchEmotionModel fWH;
+    private String fWI;
+    private ViewGroup.LayoutParams fWJ;
+    private GetEmotionPidModel fWK;
+    private Runnable fWL = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.fWT = "";
-            c.this.dyK.setVisibility(8);
+            c.this.fWI = "";
+            c.this.dyy.setVisibility(8);
         }
     };
     private Handler mHandler = new Handler();
@@ -48,65 +48,65 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
 
     public c(e eVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         this.mPageContext = eVar;
-        this.crh = viewGroup;
-        this.fWU = layoutParams;
+        this.cqU = viewGroup;
+        this.fWJ = layoutParams;
     }
 
     public void setData(List<String> list) {
-        this.fWQ = list;
+        this.fWF = list;
     }
 
     public void qD(String str) {
-        if (!TextUtils.isEmpty(str) && !v.E(this.fWQ) && this.fWQ.contains(str)) {
+        if (!TextUtils.isEmpty(str) && !v.E(this.fWF) && this.fWF.contains(str)) {
             qE(str);
         }
     }
 
     private void qE(String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(this.fWT)) {
-            this.fWT = str;
-            if (this.fWS == null) {
-                this.fWS = new QueryMatchEmotionModel(this.mPageContext);
+        if (!TextUtils.isEmpty(str) && !str.equals(this.fWI)) {
+            this.fWI = str;
+            if (this.fWH == null) {
+                this.fWH = new QueryMatchEmotionModel(this.mPageContext);
             }
-            this.fWS.a(str, this);
+            this.fWH.a(str, this);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.a
     public void m(String str, List<EmotionImageData> list) {
-        if (!TextUtils.isEmpty(str) && str.equals(this.fWT)) {
+        if (!TextUtils.isEmpty(str) && str.equals(this.fWI)) {
             if (v.E(list)) {
-                this.fWT = "";
-            } else if (this.crh != null && this.fWU != null) {
+                this.fWI = "";
+            } else if (this.cqU != null && this.fWJ != null) {
                 if (list.size() > 10) {
                     list = list.subList(0, 10);
                 }
                 TiebaStatic.log("c12488");
-                if (this.dyK == null || this.dyK.getParent() == null) {
-                    this.dyK = new HListView(this.mPageContext.getContext());
-                    aj.t(this.dyK, d.C0140d.cp_bg_line_d);
-                    this.dyK.setDividerWidth(l.t(this.mPageContext.getPageActivity(), d.e.ds7));
-                    this.dyK.setClipToPadding(false);
+                if (this.dyy == null || this.dyy.getParent() == null) {
+                    this.dyy = new HListView(this.mPageContext.getContext());
+                    aj.t(this.dyy, d.C0141d.cp_bg_line_d);
+                    this.dyy.setDividerWidth(l.t(this.mPageContext.getPageActivity(), d.e.ds7));
+                    this.dyy.setClipToPadding(false);
                     int t = l.t(this.mPageContext.getPageActivity(), d.e.ds10);
-                    this.dyK.setPadding(t, t, t, t);
-                    this.dyK.setSelector(d.f.list_selector_transparent);
-                    this.fWU.height = l.t(this.mPageContext.getPageActivity(), d.e.ds136);
-                    this.crh.addView(this.dyK, this.fWU);
-                    if (this.fWR == null) {
-                        this.fWR = new b();
-                        this.fWR.a((b.a) this);
-                        this.fWR.a((EmotionView.a) this);
-                        this.dyK.setAdapter((ListAdapter) this.fWR);
-                        this.dyK.setOnScrollListener(new AbsHListView.h() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.2
+                    this.dyy.setPadding(t, t, t, t);
+                    this.dyy.setSelector(d.f.list_selector_transparent);
+                    this.fWJ.height = l.t(this.mPageContext.getPageActivity(), d.e.ds136);
+                    this.cqU.addView(this.dyy, this.fWJ);
+                    if (this.fWG == null) {
+                        this.fWG = new b();
+                        this.fWG.a((b.a) this);
+                        this.fWG.a((EmotionView.a) this);
+                        this.dyy.setAdapter((ListAdapter) this.fWG);
+                        this.dyy.setOnScrollListener(new AbsHListView.h() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.2
                             @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.h
                             public void a(AbsHListView absHListView, int i) {
                                 switch (i) {
                                     case 0:
-                                        c.this.mHandler.removeCallbacks(c.this.fWW);
-                                        c.this.mHandler.postDelayed(c.this.fWW, TbConfig.NOTIFY_SOUND_INTERVAL);
+                                        c.this.mHandler.removeCallbacks(c.this.fWL);
+                                        c.this.mHandler.postDelayed(c.this.fWL, TbConfig.NOTIFY_SOUND_INTERVAL);
                                         return;
                                     case 1:
-                                        c.this.mHandler.removeCallbacks(c.this.fWW);
+                                        c.this.mHandler.removeCallbacks(c.this.fWL);
                                         return;
                                     default:
                                         return;
@@ -119,12 +119,12 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
                         });
                     }
                 }
-                this.dyK.setVisibility(0);
-                this.fWR.setData(list);
-                this.fWR.notifyDataSetChanged();
-                this.dyK.setSelection(0);
-                this.mHandler.removeCallbacks(this.fWW);
-                this.mHandler.postDelayed(this.fWW, TbConfig.NOTIFY_SOUND_INTERVAL);
+                this.dyy.setVisibility(0);
+                this.fWG.setData(list);
+                this.fWG.notifyDataSetChanged();
+                this.dyy.setSelection(0);
+                this.mHandler.removeCallbacks(this.fWL);
+                this.mHandler.postDelayed(this.fWL, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }
     }
@@ -133,30 +133,30 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     public void onFail(int i, String str) {
     }
 
-    public void Wk() {
-        if (this.dyK != null) {
-            this.dyK.setVisibility(8);
+    public void Wj() {
+        if (this.dyy != null) {
+            this.dyy.setVisibility(8);
         }
-        this.mHandler.removeCallbacks(this.fWW);
-        this.fWT = "";
+        this.mHandler.removeCallbacks(this.fWL);
+        this.fWI = "";
     }
 
-    public void awP() {
-        if (this.fWS != null) {
-            this.fWS.cancelLoadData();
+    public void awO() {
+        if (this.fWH != null) {
+            this.fWH.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.b.a
     public void d(final EmotionImageData emotionImageData) {
-        this.mHandler.removeCallbacks(this.fWW);
-        this.mHandler.postDelayed(this.fWW, TbConfig.NOTIFY_SOUND_INTERVAL);
-        if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getPicUrl()) && this.axP != null) {
+        this.mHandler.removeCallbacks(this.fWL);
+        this.mHandler.postDelayed(this.fWL, TbConfig.NOTIFY_SOUND_INTERVAL);
+        if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getPicUrl()) && this.axG != null) {
             if (TextUtils.isEmpty(emotionImageData.getPicId()) || emotionImageData.getPicId().equals("0")) {
-                if (this.fWV == null) {
-                    this.fWV = new GetEmotionPidModel();
+                if (this.fWK == null) {
+                    this.fWK = new GetEmotionPidModel();
                 }
-                this.fWV.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.3
+                this.fWK.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.3
                     @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                     public void a(com.baidu.tbadk.img.c cVar) {
                         if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
@@ -188,15 +188,15 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
         nVar.setWidth(emotionImageData.getWidth());
         nVar.setHeight(emotionImageData.getHeight());
         nVar.setUrl(emotionImageData.getPicUrl());
-        this.axP.b(new com.baidu.tbadk.editortools.a(24, -1, nVar));
+        this.axG.b(new com.baidu.tbadk.editortools.a(24, -1, nVar));
     }
 
     public void b(i iVar) {
-        this.axP = iVar;
+        this.axG = iVar;
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean arm() {
+    public boolean arl() {
         return true;
     }
 
@@ -206,13 +206,13 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void arp() {
-        this.mHandler.removeCallbacks(this.fWW);
+    public void aro() {
+        this.mHandler.removeCallbacks(this.fWL);
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void arq() {
-        this.mHandler.removeCallbacks(this.fWW);
-        this.mHandler.postDelayed(this.fWW, TbConfig.NOTIFY_SOUND_INTERVAL);
+    public void arp() {
+        this.mHandler.removeCallbacks(this.fWL);
+        this.mHandler.postDelayed(this.fWL, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 }

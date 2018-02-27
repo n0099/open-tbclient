@@ -13,22 +13,22 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Interpolator;
 /* loaded from: classes2.dex */
 abstract class i {
+    Drawable oS;
     Drawable oT;
-    Drawable oU;
-    b oV;
-    Drawable oW;
+    b oU;
+    Drawable oV;
+    float oW;
     float oX;
-    float oY;
-    final ab pa;
-    final o pd;
-    final s.d pe;
-    private ViewTreeObserver.OnPreDrawListener pf;
-    static final Interpolator oR = android.support.design.widget.a.kC;
+    final ab oZ;
+    final o pa;
+    final s.d pd;
+    private ViewTreeObserver.OnPreDrawListener pe;
+    static final Interpolator oQ = android.support.design.widget.a.kC;
     static final int[] PRESSED_ENABLED_STATE_SET = {16842919, 16842910};
-    static final int[] oZ = {16842908, 16842910};
+    static final int[] oY = {16842908, 16842910};
     static final int[] ENABLED_STATE_SET = {16842910};
     static final int[] EMPTY_STATE_SET = new int[0];
-    int oS = 0;
+    int oR = 0;
     private final Rect mTmpRect = new Rect();
 
     /* loaded from: classes2.dex */
@@ -74,30 +74,30 @@ abstract class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ab abVar, o oVar, s.d dVar) {
-        this.pa = abVar;
-        this.pd = oVar;
-        this.pe = dVar;
+        this.oZ = abVar;
+        this.pa = oVar;
+        this.pd = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void setElevation(float f) {
-        if (this.oX != f) {
-            this.oX = f;
-            c(f, this.oY);
+        if (this.oW != f) {
+            this.oW = f;
+            c(f, this.oX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void m(float f) {
-        if (this.oY != f) {
-            this.oY = f;
-            c(this.oX, f);
+        if (this.oX != f) {
+            this.oX = f;
+            c(this.oW, f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Drawable getContentBackground() {
-        return this.oW;
+        return this.oV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -105,7 +105,7 @@ abstract class i {
         Rect rect = this.mTmpRect;
         c(rect);
         d(rect);
-        this.pd.e(rect.left, rect.top, rect.right, rect.bottom);
+        this.pa.e(rect.left, rect.top, rect.right, rect.bottom);
     }
 
     void d(Rect rect) {
@@ -115,15 +115,15 @@ abstract class i {
     public void onAttachedToWindow() {
         if (bR()) {
             bv();
-            this.pa.getViewTreeObserver().addOnPreDrawListener(this.pf);
+            this.oZ.getViewTreeObserver().addOnPreDrawListener(this.pe);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onDetachedFromWindow() {
-        if (this.pf != null) {
-            this.pa.getViewTreeObserver().removeOnPreDrawListener(this.pf);
-            this.pf = null;
+        if (this.pe != null) {
+            this.oZ.getViewTreeObserver().removeOnPreDrawListener(this.pe);
+            this.pe = null;
         }
     }
 
@@ -133,7 +133,7 @@ abstract class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b a(int i, ColorStateList colorStateList) {
-        Context context = this.pa.getContext();
+        Context context = this.oZ.getContext();
         b bW = bW();
         bW.b(ContextCompat.getColor(context, R.color.design_fab_stroke_top_outer_color), ContextCompat.getColor(context, R.color.design_fab_stroke_top_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_outer_color));
         bW.f(i);
@@ -149,8 +149,8 @@ abstract class i {
     }
 
     private void bv() {
-        if (this.pf == null) {
-            this.pf = new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.design.widget.i.1
+        if (this.pe == null) {
+            this.pe = new ViewTreeObserver.OnPreDrawListener() { // from class: android.support.design.widget.i.1
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
                     i.this.bS();
@@ -170,11 +170,11 @@ abstract class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean bY() {
-        return this.pa.getVisibility() != 0 ? this.oS == 2 : this.oS != 1;
+        return this.oZ.getVisibility() != 0 ? this.oR == 2 : this.oR != 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean bZ() {
-        return this.pa.getVisibility() == 0 ? this.oS == 1 : this.oS != 2;
+        return this.oZ.getVisibility() == 0 ? this.oR == 1 : this.oR != 2;
     }
 }

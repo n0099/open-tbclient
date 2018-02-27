@@ -8,24 +8,24 @@ import com.meizu.cloud.pushsdk.common.b.h;
 import com.meizu.cloud.pushsdk.common.base.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c hZR;
-    public static boolean hZQ = false;
+    private static c hZE;
+    public static boolean hZD = false;
     public static boolean debug = false;
 
     public static void db(Context context) {
-        if (hZR == null) {
-            hZR = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
-            com.meizu.cloud.pushsdk.common.b.c.a(hZR);
+        if (hZE == null) {
+            hZE = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+            com.meizu.cloud.pushsdk.common.b.c.a(hZE);
             debug = h.b(context);
-            Log.e("DebugLogger", "isOnDebug " + hZQ + " debugConfig " + debug + " isDebuggable " + bNm());
-            if (!bNm()) {
-                com.meizu.cloud.pushsdk.common.b.c.a(c.d.CONSOLE, c.a.EnumC0268a.NULL);
+            Log.e("DebugLogger", "isOnDebug " + hZD + " debugConfig " + debug + " isDebuggable " + bNl());
+            if (!bNl()) {
+                com.meizu.cloud.pushsdk.common.b.c.a(c.d.CONSOLE, c.a.EnumC0269a.NULL);
             }
         }
     }
 
-    public static boolean bNm() {
-        return hZQ || debug;
+    public static boolean bNl() {
+        return hZD || debug;
     }
 
     public static void i(String str, String str2) {

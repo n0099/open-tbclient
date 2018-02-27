@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 /* loaded from: classes2.dex */
 public abstract class ActionMode {
-    private boolean GA;
-    private Object rs;
+    private boolean Gv;
+    private Object rr;
 
     /* loaded from: classes2.dex */
     public interface Callback {
@@ -46,19 +46,19 @@ public abstract class ActionMode {
     public abstract void setTitle(CharSequence charSequence);
 
     public void setTag(Object obj) {
-        this.rs = obj;
+        this.rr = obj;
     }
 
     public Object getTag() {
-        return this.rs;
+        return this.rr;
     }
 
     public void setTitleOptionalHint(boolean z) {
-        this.GA = z;
+        this.Gv = z;
     }
 
     public boolean getTitleOptionalHint() {
-        return this.GA;
+        return this.Gv;
     }
 
     public boolean isTitleOptional() {

@@ -9,20 +9,20 @@ import android.util.TypedValue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class s {
-    private static final ThreadLocal<TypedValue> EQ = new ThreadLocal<>();
+    private static final ThreadLocal<TypedValue> EL = new ThreadLocal<>();
     static final int[] lg = {-16842910};
     static final int[] FOCUSED_STATE_SET = {16842908};
-    static final int[] Xc = {16843518};
+    static final int[] WW = {16843518};
     static final int[] PRESSED_STATE_SET = {16842919};
     static final int[] jn = {16842912};
     static final int[] SELECTED_STATE_SET = {16842913};
-    static final int[] Xd = {-16842919, -16842908};
+    static final int[] WX = {-16842919, -16842908};
     static final int[] EMPTY_STATE_SET = new int[0];
-    private static final int[] Xe = new int[1];
+    private static final int[] WY = new int[1];
 
     public static int n(Context context, int i) {
-        Xe[0] = i;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xe);
+        WY[0] = i;
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, WY);
         try {
             return obtainStyledAttributes.getColor(0, 0);
         } finally {
@@ -31,8 +31,8 @@ public class s {
     }
 
     public static ColorStateList o(Context context, int i) {
-        Xe[0] = i;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Xe);
+        WY[0] = i;
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, WY);
         try {
             return obtainStyledAttributes.getColorStateList(0);
         } finally {
@@ -51,10 +51,10 @@ public class s {
     }
 
     private static TypedValue ev() {
-        TypedValue typedValue = EQ.get();
+        TypedValue typedValue = EL.get();
         if (typedValue == null) {
             TypedValue typedValue2 = new TypedValue();
-            EQ.set(typedValue2);
+            EL.set(typedValue2);
             return typedValue2;
         }
         return typedValue;

@@ -8,18 +8,18 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d amb = null;
+    private static d alV = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config amc = Bitmap.Config.RGB_565;
+    private Bitmap.Config alW = Bitmap.Config.RGB_565;
 
     public static synchronized d or() {
         d dVar;
         synchronized (d.class) {
-            if (amb == null) {
-                amb = new d();
+            if (alV == null) {
+                alV = new d();
             }
-            dVar = amb;
+            dVar = alV;
         }
         return dVar;
     }

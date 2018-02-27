@@ -19,19 +19,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0135a {
-        void akN();
+    public interface InterfaceC0136a {
+        void akM();
     }
 
-    public static boolean akM() {
+    public static boolean akL() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.getInst(), "com.baidu.tiebabz");
     }
 
-    public static void a(e<?> eVar, String str, String str2, InterfaceC0135a interfaceC0135a) {
-        if (!akM() || !i(eVar.getPageActivity(), str, str2)) {
+    public static void a(e<?> eVar, String str, String str2, InterfaceC0136a interfaceC0136a) {
+        if (!akL() || !i(eVar.getPageActivity(), str, str2)) {
             if (j.oJ()) {
                 if (!j.oK()) {
-                    a(eVar, interfaceC0135a);
+                    a(eVar, interfaceC0136a);
                     return;
                 }
                 return;
@@ -162,7 +162,7 @@ public class a {
         }
     }
 
-    private static void a(e<?> eVar, final InterfaceC0135a interfaceC0135a) {
+    private static void a(e<?> eVar, final InterfaceC0136a interfaceC0136a) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eVar.getPageActivity());
         aVar.dk(eVar.getString(d.j.bawu_center_3g_tips));
         aVar.a(d.j.download, new a.b() { // from class: com.baidu.tieba.c.a.1
@@ -176,8 +176,8 @@ public class a {
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (InterfaceC0135a.this != null) {
-                    InterfaceC0135a.this.akN();
+                if (InterfaceC0136a.this != null) {
+                    InterfaceC0136a.this.akM();
                 }
                 TiebaStatic.log("c11574");
             }

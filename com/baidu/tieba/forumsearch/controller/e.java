@@ -38,7 +38,7 @@ public class e {
         }
     }
 
-    public static ArrayList<String> aun() {
+    public static ArrayList<String> aum() {
         ArrayList<String> arrayList = null;
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
         if (StringUtils.isNull(string)) {
@@ -97,7 +97,7 @@ public class e {
         }
     }
 
-    public static void auo() {
+    public static void aun() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
     }
 }

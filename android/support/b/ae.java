@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 class ae extends z {
-    int vH;
-    ArrayList<z> vG = new ArrayList<>();
+    int vG;
+    ArrayList<z> vF = new ArrayList<>();
     boolean mStarted = false;
-    private boolean vI = true;
+    private boolean vH = true;
 
     public ae aa(int i) {
         switch (i) {
             case 0:
-                this.vI = true;
+                this.vH = true;
                 break;
             case 1:
-                this.vI = false;
+                this.vH = false;
                 break;
             default:
                 throw new AndroidRuntimeException("Invalid parameter for TransitionSet ordering: " + i);
@@ -31,8 +31,8 @@ class ae extends z {
 
     public ae e(z zVar) {
         if (zVar != null) {
-            this.vG.add(zVar);
-            zVar.vt = this;
+            this.vF.add(zVar);
+            zVar.vs = this;
             if (this.mDuration >= 0) {
                 zVar.h(this.mDuration);
             }
@@ -46,9 +46,9 @@ class ae extends z {
     public ae h(long j) {
         super.h(j);
         if (this.mDuration >= 0) {
-            int size = this.vG.size();
+            int size = this.vF.size();
             for (int i = 0; i < size; i++) {
-                this.vG.get(i).h(j);
+                this.vF.get(i).h(j);
             }
         }
         return this;
@@ -112,17 +112,17 @@ class ae extends z {
 
     private void da() {
         a aVar = new a(this);
-        Iterator<z> it = this.vG.iterator();
+        Iterator<z> it = this.vF.iterator();
         while (it.hasNext()) {
             it.next().a(aVar);
         }
-        this.vH = this.vG.size();
+        this.vG = this.vF.size();
     }
 
     @Override // android.support.b.z
     @RestrictTo
     protected void a(ViewGroup viewGroup, ag agVar, ag agVar2) {
-        Iterator<z> it = this.vG.iterator();
+        Iterator<z> it = this.vF.iterator();
         while (it.hasNext()) {
             it.next().a(viewGroup, agVar, agVar2);
         }
@@ -131,21 +131,21 @@ class ae extends z {
     @Override // android.support.b.z
     @RestrictTo
     protected void cY() {
-        if (this.vG.isEmpty()) {
+        if (this.vF.isEmpty()) {
             start();
             end();
             return;
         }
         da();
-        if (!this.vI) {
+        if (!this.vH) {
             int i = 1;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.vG.size()) {
+                if (i2 >= this.vF.size()) {
                     break;
                 }
-                final z zVar = this.vG.get(i2);
-                this.vG.get(i2 - 1).a(new z.d() { // from class: android.support.b.ae.1
+                final z zVar = this.vF.get(i2);
+                this.vF.get(i2 - 1).a(new z.d() { // from class: android.support.b.ae.1
                     @Override // android.support.b.z.d, android.support.b.z.c
                     public void a(z zVar2) {
                         zVar.cY();
@@ -154,14 +154,14 @@ class ae extends z {
                 });
                 i = i2 + 1;
             }
-            z zVar2 = this.vG.get(0);
+            z zVar2 = this.vF.get(0);
             if (zVar2 != null) {
                 zVar2.cY();
                 return;
             }
             return;
         }
-        Iterator<z> it = this.vG.iterator();
+        Iterator<z> it = this.vF.iterator();
         while (it.hasNext()) {
             it.next().cY();
         }
@@ -171,7 +171,7 @@ class ae extends z {
     public void captureStartValues(af afVar) {
         int id = afVar.view.getId();
         if (a(afVar.view, id)) {
-            Iterator<z> it = this.vG.iterator();
+            Iterator<z> it = this.vF.iterator();
             while (it.hasNext()) {
                 z next = it.next();
                 if (next.a(afVar.view, id)) {
@@ -185,7 +185,7 @@ class ae extends z {
     public void captureEndValues(af afVar) {
         int id = afVar.view.getId();
         if (a(afVar.view, id)) {
-            Iterator<z> it = this.vG.iterator();
+            Iterator<z> it = this.vF.iterator();
             while (it.hasNext()) {
                 z next = it.next();
                 if (next.a(afVar.view, id)) {
@@ -199,9 +199,9 @@ class ae extends z {
     @RestrictTo
     public void L(View view) {
         super.L(view);
-        int size = this.vG.size();
+        int size = this.vF.size();
         for (int i = 0; i < size; i++) {
-            this.vG.get(i).L(view);
+            this.vF.get(i).L(view);
         }
     }
 
@@ -209,9 +209,9 @@ class ae extends z {
     @RestrictTo
     public void M(View view) {
         super.M(view);
-        int size = this.vG.size();
+        int size = this.vF.size();
         for (int i = 0; i < size; i++) {
-            this.vG.get(i).M(view);
+            this.vF.get(i).M(view);
         }
     }
 
@@ -219,8 +219,8 @@ class ae extends z {
     String toString(String str) {
         String zVar = super.toString(str);
         int i = 0;
-        while (i < this.vG.size()) {
-            String str2 = zVar + "\n" + this.vG.get(i).toString(str + "  ");
+        while (i < this.vF.size()) {
+            String str2 = zVar + "\n" + this.vF.get(i).toString(str + "  ");
             i++;
             zVar = str2;
         }
@@ -232,10 +232,10 @@ class ae extends z {
     /* renamed from: db */
     public ae clone() {
         ae aeVar = (ae) super.clone();
-        aeVar.vG = new ArrayList<>();
-        int size = this.vG.size();
+        aeVar.vF = new ArrayList<>();
+        int size = this.vF.size();
         for (int i = 0; i < size; i++) {
-            aeVar.e(this.vG.get(i).clone());
+            aeVar.e(this.vF.get(i).clone());
         }
         return aeVar;
     }
@@ -243,27 +243,27 @@ class ae extends z {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends z.d {
-        ae vE;
+        ae vD;
 
         a(ae aeVar) {
-            this.vE = aeVar;
+            this.vD = aeVar;
         }
 
         @Override // android.support.b.z.d, android.support.b.z.c
         public void d(z zVar) {
-            if (!this.vE.mStarted) {
-                this.vE.start();
-                this.vE.mStarted = true;
+            if (!this.vD.mStarted) {
+                this.vD.start();
+                this.vD.mStarted = true;
             }
         }
 
         @Override // android.support.b.z.d, android.support.b.z.c
         public void a(z zVar) {
-            ae aeVar = this.vE;
-            aeVar.vH--;
-            if (this.vE.vH == 0) {
-                this.vE.mStarted = false;
-                this.vE.end();
+            ae aeVar = this.vD;
+            aeVar.vG--;
+            if (this.vD.vG == 0) {
+                this.vD.mStarted = false;
+                this.vD.end();
             }
             zVar.b(this);
         }

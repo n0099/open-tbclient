@@ -19,10 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SignStatic {
     static {
-        HQ();
+        HP();
     }
 
-    private static void HQ() {
+    private static void HP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001425, new CustomMessageTask.CustomRunnable<ForumData>() { // from class: com.baidu.tieba.SignStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
@@ -43,20 +43,20 @@ public class SignStatic {
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     xVar.n("kw", name);
                     xVar.n(ImageViewerConfig.FORUM_ID, id);
-                    xVar.Cz().Dw().mIsNeedTbs = true;
-                    String Cb = xVar.Cb();
-                    if (xVar.CC()) {
-                        if (xVar.Cz().Dx().isRequestSuccess()) {
+                    xVar.Cy().Dv().mIsNeedTbs = true;
+                    String Ca = xVar.Ca();
+                    if (xVar.CB()) {
+                        if (xVar.Cy().Dw().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(Cb);
+                            signData.parserJson(Ca);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!am.isEmpty(Cb)) {
-                                JSONObject jSONObject = new JSONObject(Cb);
-                                if (AntiHelper.vQ(xVar.CD()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (!am.isEmpty(Ca)) {
+                                JSONObject jSONObject = new JSONObject(Ca);
+                                if (AntiHelper.vR(xVar.CC()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
-                                    signData.parserJson(Cb);
+                                    signData.parserJson(Ca);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -64,7 +64,7 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = xVar.CD();
+                            signMessage.mSignErrorCode = xVar.CC();
                             signMessage.mSignErrorString = xVar.getErrorString();
                         }
                         signMessage.signData = signData;

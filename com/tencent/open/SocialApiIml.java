@@ -14,15 +14,15 @@ import com.tencent.connect.common.Constants;
 import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.HttpUtils;
-import com.tencent.open.utils.d;
 import com.tencent.open.utils.e;
 import com.tencent.open.utils.g;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.h;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SocialApiIml extends BaseApi {
     private Activity c;
 
@@ -55,7 +55,7 @@ public class SocialApiIml extends BaseApi {
         } else if (SocialConstants.ACTION_GIFT.equals(str)) {
             bundle.putString("type", SocialConstants.TYPE_FREEGIFT);
         }
-        a(activity, c, str, bundle, com.tencent.open.utils.f.a().a(d.a(), "http://qzs.qq.com/open/mobile/request/sdk_request.html?"), iUiListener, false);
+        a(activity, c, str, bundle, g.a().a(e.a(), "http://qzs.qq.com/open/mobile/request/sdk_request.html?"), iUiListener, false);
     }
 
     public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
@@ -66,14 +66,14 @@ public class SocialApiIml extends BaseApi {
             c = c(SocialConstants.ACTIVITY_INVITE);
         }
         bundle.putAll(b());
-        a(activity, c, SocialConstants.ACTION_INVITE, bundle, com.tencent.open.utils.f.a().a(d.a(), "http://qzs.qq.com/open/mobile/invite/sdk_invite.html?"), iUiListener, false);
+        a(activity, c, SocialConstants.ACTION_INVITE, bundle, g.a().a(e.a(), "http://qzs.qq.com/open/mobile/invite/sdk_invite.html?"), iUiListener, false);
     }
 
     public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
         this.c = activity;
         Intent c = c(SocialConstants.ACTIVITY_STORY);
         bundle.putAll(b());
-        a(activity, c, SocialConstants.ACTION_STORY, bundle, com.tencent.open.utils.f.a().a(d.a(), "http://qzs.qq.com/open/mobile/sendstory/sdk_sendstory_v1.3.html?"), iUiListener, false);
+        a(activity, c, SocialConstants.ACTION_STORY, bundle, g.a().a(e.a(), "http://qzs.qq.com/open/mobile/sendstory/sdk_sendstory_v1.3.html?"), iUiListener, false);
     }
 
     private void a(Activity activity, Intent intent, String str, Bundle bundle, String str2, IUiListener iUiListener, boolean z) {
@@ -83,7 +83,7 @@ public class SocialApiIml extends BaseApi {
             a(activity, intent, str, bundle, iUiListener);
             return;
         }
-        e a2 = e.a(d.a(), this.b.getAppId());
+        com.tencent.open.utils.f a2 = com.tencent.open.utils.f.a(e.a(), this.b.getAppId());
         if (z || a2.b("C_LoginH5")) {
             z2 = true;
         }
@@ -121,7 +121,7 @@ public class SocialApiIml extends BaseApi {
             return;
         }
         f.c("openSDK_LOG.SocialApiIml", "-->handleIntentWithH5--token activity not found");
-        String f = i.f("tencent&sdk&qazxc***14969%%" + this.b.getAccessToken() + this.b.getAppId() + this.b.getOpenId() + "qzone3.4");
+        String f = j.f("tencent&sdk&qazxc***14969%%" + this.b.getAccessToken() + this.b.getAppId() + this.b.getOpenId() + "qzone3.4");
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SocialConstants.PARAM_ENCRY_EOKEN, f);
@@ -144,7 +144,7 @@ public class SocialApiIml extends BaseApi {
             bundle.putString("openid", openId);
         }
         try {
-            bundle.putString(Constants.PARAM_PLATFORM_ID, d.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF));
+            bundle.putString(Constants.PARAM_PLATFORM_ID, e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF));
         } catch (Exception e) {
             e.printStackTrace();
             bundle.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
@@ -160,7 +160,7 @@ public class SocialApiIml extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements IUiListener {
         private IUiListener b;
         private String c;
@@ -212,7 +212,7 @@ public class SocialApiIml extends BaseApi {
         String appId = this.b.getAppId();
         String openId = this.b.getOpenId();
         if (accessToken != null && accessToken.length() > 0 && appId != null && appId.length() > 0 && openId != null && openId.length() > 0) {
-            str = i.f("tencent&sdk&qazxc***14969%%" + accessToken + appId + openId + "qzone3.4");
+            str = j.f("tencent&sdk&qazxc***14969%%" + accessToken + appId + openId + "qzone3.4");
         } else {
             str = null;
         }
@@ -222,7 +222,7 @@ public class SocialApiIml extends BaseApi {
         settings.setJavaScriptEnabled(true);
         settings.setDatabaseEnabled(true);
         String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + "_" + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
-        String a2 = com.tencent.open.utils.f.a().a(context, "http://qzs.qq.com");
+        String a2 = g.a().a(context, "http://qzs.qq.com");
         bVar.loadDataWithBaseURL(a2, str2, "text/html", "utf-8", a2);
     }
 
@@ -235,14 +235,14 @@ public class SocialApiIml extends BaseApi {
         intent2.setClassName("com.tencent.mobileqq", str);
         Intent intent3 = new Intent();
         intent3.setClassName(Constants.PACKAGE_QQ_PAD, str);
-        if (i.e(d.a()) && g.a(d.a(), intent3)) {
+        if (j.d(e.a()) && h.a(e.a(), intent3)) {
             return intent3;
         }
-        if (!g.a(d.a(), intent2) || g.c(d.a(), "4.7") < 0) {
-            if (!g.a(d.a(), intent) || g.a(g.a(d.a(), Constants.PACKAGE_QZONE), "4.2") < 0) {
+        if (!h.a(e.a(), intent2) || h.c(e.a(), "4.7") < 0) {
+            if (!h.a(e.a(), intent) || h.a(h.a(e.a(), Constants.PACKAGE_QZONE), "4.2") < 0) {
                 return null;
             }
-            if (g.a(d.a(), intent.getComponent().getPackageName(), Constants.SIGNATRUE_QZONE)) {
+            if (h.a(e.a(), intent.getComponent().getPackageName(), Constants.SIGNATRUE_QZONE)) {
                 return intent;
             }
             return null;

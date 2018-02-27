@@ -9,19 +9,19 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
-    private static final j a = new j(101010256);
-    private static final k b = new k(38651);
+    private static final k a = new k(101010256);
+    private static final l b = new l(38651);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0282a {
+    /* loaded from: classes2.dex */
+    public static class C0283a {
         Properties a;
         byte[] b;
 
-        private C0282a() {
+        private C0283a() {
             this.a = new Properties();
         }
 
@@ -31,13 +31,13 @@ public final class a {
                 int length = a.b.a().length;
                 byte[] bArr2 = new byte[length];
                 wrap.get(bArr2);
-                if (!a.b.equals(new k(bArr2))) {
+                if (!a.b.equals(new l(bArr2))) {
                     throw new ProtocolException("unknow protocl [" + Arrays.toString(bArr) + "]");
                 }
                 if (bArr.length - length > 2) {
                     byte[] bArr3 = new byte[2];
                     wrap.get(bArr3);
-                    int b = new k(bArr3).b();
+                    int b = new l(bArr3).b();
                     if ((bArr.length - length) - 2 >= b) {
                         byte[] bArr4 = new byte[b];
                         wrap.get(bArr4);
@@ -67,9 +67,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C0282a c0282a = new C0282a();
-                    c0282a.a(a2);
-                    str2 = c0282a.a.getProperty(str);
+                    C0283a c0283a = new C0283a();
+                    c0283a.a(a2);
+                    str2 = c0283a.a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }
@@ -118,7 +118,7 @@ public final class a {
         randomAccessFile.seek(16 + length + 4);
         byte[] bArr = new byte[2];
         randomAccessFile.readFully(bArr);
-        int b2 = new k(bArr).b();
+        int b2 = new l(bArr).b();
         if (b2 == 0) {
             return null;
         }

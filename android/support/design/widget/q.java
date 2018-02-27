@@ -5,45 +5,45 @@ import android.util.StateSet;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 final class q {
-    private final ArrayList<a> qg = new ArrayList<>();
-    private a qh = null;
-    s qi = null;
-    private final s.a qj = new s.b() { // from class: android.support.design.widget.q.1
+    private final ArrayList<a> qf = new ArrayList<>();
+    private a qg = null;
+    s qh = null;
+    private final s.a qi = new s.b() { // from class: android.support.design.widget.q.1
         @Override // android.support.design.widget.s.b, android.support.design.widget.s.a
         public void b(s sVar) {
-            if (q.this.qi == sVar) {
-                q.this.qi = null;
+            if (q.this.qh == sVar) {
+                q.this.qh = null;
             }
         }
     };
 
     public void a(int[] iArr, s sVar) {
         a aVar = new a(iArr, sVar);
-        sVar.a(this.qj);
-        this.qg.add(aVar);
+        sVar.a(this.qi);
+        this.qf.add(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(int[] iArr) {
         a aVar;
-        int size = this.qg.size();
+        int size = this.qf.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 aVar = null;
                 break;
             }
-            aVar = this.qg.get(i);
-            if (StateSet.stateSetMatches(aVar.qm, iArr)) {
+            aVar = this.qf.get(i);
+            if (StateSet.stateSetMatches(aVar.ql, iArr)) {
                 break;
             }
             i++;
         }
-        if (aVar != this.qh) {
-            if (this.qh != null) {
+        if (aVar != this.qg) {
+            if (this.qg != null) {
                 cancel();
             }
-            this.qh = aVar;
+            this.qg = aVar;
             if (aVar != null) {
                 a(aVar);
             }
@@ -51,33 +51,33 @@ final class q {
     }
 
     private void a(a aVar) {
-        this.qi = aVar.qn;
-        this.qi.start();
+        this.qh = aVar.qm;
+        this.qh.start();
     }
 
     private void cancel() {
-        if (this.qi != null) {
-            this.qi.cancel();
-            this.qi = null;
+        if (this.qh != null) {
+            this.qh.cancel();
+            this.qh = null;
         }
     }
 
     public void jumpToCurrentState() {
-        if (this.qi != null) {
-            this.qi.end();
-            this.qi = null;
+        if (this.qh != null) {
+            this.qh.end();
+            this.qh = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
-        final int[] qm;
-        final s qn;
+        final int[] ql;
+        final s qm;
 
         a(int[] iArr, s sVar) {
-            this.qm = iArr;
-            this.qn = sVar;
+            this.ql = iArr;
+            this.qm = sVar;
         }
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout fhx;
-    private TextView fhy;
-    private TextView fhz;
+    private RelativeLayout fhl;
+    private TextView fhm;
+    private TextView fhn;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -38,13 +38,13 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(d.h.home_search_focusbar, this);
-        this.fhx = (RelativeLayout) findViewById(d.g.focusbar_container);
-        this.fhz = (TextView) findViewById(d.g.focusbar_hint);
-        aj.e(this.fhz, d.C0140d.cp_cont_c, 1);
-        this.fhz.setVisibility(8);
-        this.fhy = (TextView) findViewById(d.g.focusbar_show);
-        aj.e(this.fhy, d.C0140d.cp_link_tip_a, 1);
-        this.fhy.setVisibility(8);
+        this.fhl = (RelativeLayout) findViewById(d.g.focusbar_container);
+        this.fhn = (TextView) findViewById(d.g.focusbar_hint);
+        aj.e(this.fhn, d.C0141d.cp_cont_c, 1);
+        this.fhn.setVisibility(8);
+        this.fhm = (TextView) findViewById(d.g.focusbar_show);
+        aj.e(this.fhm, d.C0141d.cp_link_tip_a, 1);
+        this.fhm.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

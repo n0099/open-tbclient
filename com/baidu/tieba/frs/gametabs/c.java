@@ -67,12 +67,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tbadk.browser.a implements am {
-    private String cZU;
-    private ImageView clk;
-    private NoNetworkView dRt;
-    private FrameLayout dRu;
-    private ImageView dRv;
-    private com.baidu.tieba.frs.b.a dRw;
+    private String cZI;
+    private ImageView ckY;
+    private NoNetworkView dRh;
+    private FrameLayout dRi;
+    private ImageView dRj;
+    private com.baidu.tieba.frs.b.a dRk;
     private boolean isLoading;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private String mBid;
@@ -81,10 +81,10 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     private View mRootView;
     private static boolean sFrameLostTracked = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
-    private ScrollBridgeWebview clu = null;
-    private boolean clp = true;
-    private boolean dRx = false;
-    private boolean dRy = false;
+    private ScrollBridgeWebview cli = null;
+    private boolean cld = true;
+    private boolean dRl = false;
+    private boolean dRm = false;
     protected boolean mShareResultToFe = false;
     private com.baidu.tieba.tbadkCore.e.c jsCallback = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.frs.gametabs.c.1
         @Override // com.baidu.tieba.tbadkCore.e.c
@@ -95,7 +95,7 @@ public class c extends com.baidu.tbadk.browser.a implements am {
             return false;
         }
     };
-    private CustomMessageListener cdm = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametabs.c.8
+    private CustomMessageListener cda = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametabs.c.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -103,32 +103,32 @@ public class c extends com.baidu.tbadk.browser.a implements am {
                 String[] split = ((String) customResponsedMessage.getData()).split("_");
                 if (split.length == 2) {
                     if ("FrsInfoTab".equals(split[0]) || "FrsRankList".equals(split[0])) {
-                        c.this.XL();
+                        c.this.XK();
                     }
                 }
             }
         }
     };
-    private CustomMessageListener cdn = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.gametabs.c.9
+    private CustomMessageListener cdb = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.gametabs.c.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && !StringUtils.isNull(c.this.mUrl)) {
                 c.this.isLoading = true;
-                c.this.showLoadingView(c.this.dRu);
+                c.this.showLoadingView(c.this.dRi);
                 c.this.loadUrl(c.this.mUrl);
             }
         }
     };
-    private CustomMessageListener dRz = new CustomMessageListener(2001227) { // from class: com.baidu.tieba.frs.gametabs.c.10
+    private CustomMessageListener dRn = new CustomMessageListener(2001227) { // from class: com.baidu.tieba.frs.gametabs.c.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001227 && c.this.dRy) {
-                if (c.this.clu != null) {
-                    c.this.clu.reload();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001227 && c.this.dRm) {
+                if (c.this.cli != null) {
+                    c.this.cli.reload();
                 }
-                c.this.dRy = false;
+                c.this.dRm = false;
             }
         }
     };
@@ -145,73 +145,73 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cZU = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.cZI = bundle.getString(ImageViewerConfig.FORUM_ID);
         } else if (getArguments() != null) {
-            this.cZU = getArguments().getString(ImageViewerConfig.FORUM_ID);
+            this.cZI = getArguments().getString(ImageViewerConfig.FORUM_ID);
         }
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
         this.jsBridge.a(new com.baidu.tbadk.browser.c(getPageContext().getPageActivity()));
         this.jsBridge.a(buildGameDownloadJSPrompt());
         initCookie();
-        registerListener(2001446, this.cdm, getBaseFragmentActivity().getUniqueId());
-        MessageManager.getInstance().registerListener(this.cdn);
-        MessageManager.getInstance().registerListener(this.dRz);
+        registerListener(2001446, this.cda, getBaseFragmentActivity().getUniqueId());
+        MessageManager.getInstance().registerListener(this.cdb);
+        MessageManager.getInstance().registerListener(this.dRn);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         ViewParent parent;
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.h.special_frs_web_index, (ViewGroup) null);
-        this.dRt = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
+        this.dRh = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.view_navigation_bar);
-        this.dRu = (FrameLayout) this.mRootView.findViewById(d.g.webview_container_layout);
-        ayK();
+        this.dRi = (FrameLayout) this.mRootView.findViewById(d.g.webview_container_layout);
+        ayJ();
         setNavBarVisibility(isNeedShowNavigationBar());
         aN(isNeedShowShareItem());
         gk(isNeedShowMenuItem());
         createWebView();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dRu.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dRi.getLayoutParams();
         layoutParams.addRule(3, d.g.view_navigation_bar);
-        this.dRu.setLayoutParams(layoutParams);
-        if (this.clu != null && (parent = this.clu.getParent()) != null && (parent instanceof ViewGroup)) {
-            ((ViewGroup) parent).removeView(this.clu);
+        this.dRi.setLayoutParams(layoutParams);
+        if (this.cli != null && (parent = this.cli.getParent()) != null && (parent instanceof ViewGroup)) {
+            ((ViewGroup) parent).removeView(this.cli);
         }
-        this.dRu.addView(this.clu);
+        this.dRi.addView(this.cli);
         return this.mRootView;
     }
 
-    public void ayK() {
+    public void ayJ() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNavigationBar.showBottomLine(true);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setmBackImageViewBg(d.f.icon_return_bg_s, d.f.icon_return_bg);
         this.mNavigationBar.setTitleText("");
-        aj.d(this.mNavigationBar.mTextTitle, d.C0140d.cp_cont_b, d.C0140d.s_navbar_title_color);
+        aj.d(this.mNavigationBar.mTextTitle, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.t(getPageContext().getPageActivity(), d.e.ds24), 0);
-        this.dRv = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.special_frs_web_navigation_share, (View.OnClickListener) null);
-        this.dRv.setLayoutParams(layoutParams);
-        this.dRv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.c.11
+        this.dRj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.special_frs_web_navigation_share, (View.OnClickListener) null);
+        this.dRj.setLayoutParams(layoutParams);
+        this.dRj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.c.11
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.a(c.this.createShareContent(null, null, null, null));
             }
         });
-        aj.a(this.dRv, d.f.icon_nav_share_selector, d.f.icon_nav_share_selector);
-        this.clk = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.clk.setLayoutParams(layoutParams);
-        this.clk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.c.12
+        aj.a(this.dRj, d.f.icon_nav_share_selector, d.f.icon_nav_share_selector);
+        this.ckY = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.ckY.setLayoutParams(layoutParams);
+        this.ckY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.c.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(c.this.cZU)) {
-                    c.this.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(c.this.getPageContext().getPageActivity(), c.this.cZU, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+                if (!StringUtils.isNull(c.this.cZI)) {
+                    c.this.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(c.this.getPageContext().getPageActivity(), c.this.cZI, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
                 }
             }
         });
-        if (this.clk != null) {
-            aj.a(this.clk, d.f.btn_more_selector_s, d.f.btn_more_selector);
+        if (this.ckY != null) {
+            aj.a(this.ckY, d.f.btn_more_selector_s, d.f.btn_more_selector);
         }
     }
 
@@ -224,39 +224,39 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     }
 
     public void aN(boolean z) {
-        if (this.dRv != null) {
+        if (this.dRj != null) {
             if (z) {
-                this.dRv.setVisibility(0);
+                this.dRj.setVisibility(0);
             } else {
-                this.dRv.setVisibility(8);
+                this.dRj.setVisibility(8);
             }
         }
     }
 
     public void gk(boolean z) {
         if (z) {
-            this.clk.setVisibility(0);
+            this.ckY.setVisibility(0);
         } else {
-            this.clk.setVisibility(8);
+            this.ckY.setVisibility(8);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(ImageViewerConfig.FORUM_ID, this.cZU);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.cZI);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.clu != null) {
-                if (this.clp) {
+            if (this.cli != null) {
+                if (this.cld) {
                     initData();
                 }
                 try {
-                    this.clu.onResume();
+                    this.cli.onResume();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -264,9 +264,9 @@ public class c extends com.baidu.tbadk.browser.a implements am {
             } else {
                 return;
             }
-        } else if (this.clu != null) {
+        } else if (this.cli != null) {
             try {
-                this.clu.onPause();
+                this.cli.onPause();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -274,27 +274,27 @@ public class c extends com.baidu.tbadk.browser.a implements am {
         } else {
             return;
         }
-        this.dRy = false;
+        this.dRm = false;
     }
 
     private void initData() {
         if (this.mUrl != null && this.mUrl.contains("redirect=1")) {
-            this.dRx = true;
+            this.dRl = true;
         }
         loadUrl(this.mUrl);
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921047, com.baidu.tieba.frs.b.a.class);
         if (runTask != null) {
-            this.dRw = (com.baidu.tieba.frs.b.a) runTask.getData();
-            if (this.dRw != null) {
-                this.dRw.init();
+            this.dRk = (com.baidu.tieba.frs.b.a) runTask.getData();
+            if (this.dRk != null) {
+                this.dRk.init();
             }
         }
     }
 
     protected void callHiddenWebViewMethod(String str) {
-        if (this.clu != null) {
+        if (this.cli != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.clu, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.cli, new Object[0]);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -302,30 +302,30 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     }
 
     public View createWebView() {
-        if (this.clu == null) {
-            this.clu = new ScrollBridgeWebview(getPageContext().getPageActivity());
-            this.clu.setNeedDisAllowParentInterceptTouchEvent(true);
-            this.clu.getSettings().setJavaScriptEnabled(true);
-            this.clu.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.clu.getSettings().setAllowFileAccess(true);
-            this.clu.getSettings().setDatabaseEnabled(true);
-            this.clu.getSettings().setDomStorageEnabled(true);
-            this.clu.getSettings().setSupportZoom(true);
-            this.clu.getSettings().setBuiltInZoomControls(true);
-            this.clu.getSettings().setUseWideViewPort(true);
-            this.clu.getSettings().setLoadWithOverviewMode(true);
-            this.clu.getSettings().setDatabasePath(getBaseFragmentActivity().getApplicationContext().getDir("databases", 0).getAbsolutePath());
-            this.clu.setHorizontalScrollBarEnabled(false);
-            this.clu.setHorizontalScrollbarOverlay(false);
-            this.clu.setInitialScale(100);
-            this.clu.setScrollBarStyle(33554432);
-            this.clu.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.clu.setWebViewClient(new a());
-            this.clu.setDownloadListener(new b());
+        if (this.cli == null) {
+            this.cli = new ScrollBridgeWebview(getPageContext().getPageActivity());
+            this.cli.setNeedDisAllowParentInterceptTouchEvent(true);
+            this.cli.getSettings().setJavaScriptEnabled(true);
+            this.cli.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.cli.getSettings().setAllowFileAccess(true);
+            this.cli.getSettings().setDatabaseEnabled(true);
+            this.cli.getSettings().setDomStorageEnabled(true);
+            this.cli.getSettings().setSupportZoom(true);
+            this.cli.getSettings().setBuiltInZoomControls(true);
+            this.cli.getSettings().setUseWideViewPort(true);
+            this.cli.getSettings().setLoadWithOverviewMode(true);
+            this.cli.getSettings().setDatabasePath(getBaseFragmentActivity().getApplicationContext().getDir("databases", 0).getAbsolutePath());
+            this.cli.setHorizontalScrollBarEnabled(false);
+            this.cli.setHorizontalScrollbarOverlay(false);
+            this.cli.setInitialScale(100);
+            this.cli.setScrollBarStyle(33554432);
+            this.cli.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.cli.setWebViewClient(new a());
+            this.cli.setDownloadListener(new b());
             com.baidu.tieba.frs.gametabs.b bVar = new com.baidu.tieba.frs.gametabs.b(getPageContext());
             bVar.setOnJsPromptCallback(this.jsCallback);
-            this.clu.setWebChromeClient(bVar);
-            this.clu.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.frs.gametabs.c.13
+            this.cli.setWebChromeClient(bVar);
+            this.cli.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.frs.gametabs.c.13
                 @Override // com.baidu.tbadk.core.hybrid.ScrollBridgeWebview.a
                 public void l(int i, int i2, int i3, int i4) {
                 }
@@ -338,9 +338,9 @@ public class c extends com.baidu.tbadk.browser.a implements am {
                 public void onScrollChanged(int i, int i2, int i3, int i4) {
                 }
             });
-            CompatibleUtile.getInstance().removeJavascriptInterface(this.clu);
+            CompatibleUtile.getInstance().removeJavascriptInterface(this.cli);
             boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
-            m a2 = r.a(isHybridBridgeEnabled, this.clu, (com.baidu.tbadk.core.hybrid.b) null);
+            m a2 = r.a(isHybridBridgeEnabled, this.cli, (com.baidu.tbadk.core.hybrid.b) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
                 a2.a(new o(a2) { // from class: com.baidu.tieba.frs.gametabs.c.14
@@ -368,7 +368,7 @@ public class c extends com.baidu.tbadk.browser.a implements am {
                 a2.a(new com.baidu.tbadk.browser.d(a2));
                 a2.a(new com.baidu.tbadk.core.hybrid.a.d(a2));
                 a2.a(new e(a2));
-                a2.a(new com.baidu.tieba.frs.gametabs.a(a2, this.cZU));
+                a2.a(new com.baidu.tieba.frs.gametabs.a(a2, this.cZI));
                 a2.a(new o(a2) { // from class: com.baidu.tieba.frs.gametabs.c.2
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.o
@@ -452,7 +452,7 @@ public class c extends com.baidu.tbadk.browser.a implements am {
                 });
             }
         }
-        return this.clu;
+        return this.cli;
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -476,8 +476,8 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     }
 
     public void loadUrl(String str) {
-        if (this.clu != null) {
-            CompatibleUtile.getInstance().loadUrl(this.clu, str);
+        if (this.cli != null) {
+            CompatibleUtile.getInstance().loadUrl(this.cli, str);
         }
     }
 
@@ -512,28 +512,28 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.cdn);
-        MessageManager.getInstance().unRegisterListener(this.dRz);
-        if (this.dRw != null) {
-            this.dRw.release();
-            this.dRw = null;
+        MessageManager.getInstance().unRegisterListener(this.cdb);
+        MessageManager.getInstance().unRegisterListener(this.dRn);
+        if (this.dRk != null) {
+            this.dRk.release();
+            this.dRk = null;
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.bxv();
+            this.jsBridge.bxu();
         }
-        if (this.clu != null) {
-            this.clu.getSettings().setBuiltInZoomControls(true);
-            this.clu.setVisibility(8);
+        if (this.cli != null) {
+            this.cli.getSettings().setBuiltInZoomControls(true);
+            this.cli.setVisibility(8);
             com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.gametabs.c.6
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (c.this.clu != null) {
-                            c.this.clu.destroy();
-                            c.this.clu = null;
+                        if (c.this.cli != null) {
+                            c.this.cli.destroy();
+                            c.this.cli = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -552,13 +552,13 @@ public class c extends com.baidu.tbadk.browser.a implements am {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (c.this.clu != null) {
+            if (c.this.cli != null) {
                 c.this.isLoading = false;
-                c.this.hideLoadingView(c.this.dRu);
+                c.this.hideLoadingView(c.this.dRi);
                 c.this.mUrl = str;
-                c.this.clu.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
-                if (c.this.clp) {
-                    c.this.clp = false;
+                c.this.cli.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
+                if (c.this.cld) {
+                    c.this.cld = false;
                 }
                 c.this.setNavBarVisibility(c.this.isNeedShowNavigationBar());
                 c.this.aN(c.this.isNeedShowShareItem());
@@ -569,8 +569,8 @@ public class c extends com.baidu.tbadk.browser.a implements am {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (c.this.clu != null) {
-                c.this.clu.stopLoading();
+            if (c.this.cli != null) {
+                c.this.cli.stopLoading();
                 c.this.onReceivedError(i);
             }
         }
@@ -578,10 +578,10 @@ public class c extends com.baidu.tbadk.browser.a implements am {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (c.this.clu != null) {
-                if (c.this.clp) {
+            if (c.this.cli != null) {
+                if (c.this.cld) {
                     c.this.isLoading = true;
-                    c.this.showLoadingView(c.this.dRu);
+                    c.this.showLoadingView(c.this.dRi);
                 }
                 c.this.mUrl = str;
             }
@@ -592,21 +592,21 @@ public class c extends com.baidu.tbadk.browser.a implements am {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (c.this.clp) {
-                c.this.clp = false;
+            if (c.this.cld) {
+                c.this.cld = false;
                 return false;
             } else if (!c.this.ma(str) || TbadkCoreApplication.isLogin() || c.this.getPageContext() == null) {
-                if (!c.this.iW(str) && c.this.getPageContext() != null && c.this.clu.isShown()) {
+                if (!c.this.iW(str) && c.this.getPageContext() != null && c.this.cli.isShown()) {
                     if (str.startsWith("tdoudiscount:")) {
-                        c.this.dRy = true;
+                        c.this.dRm = true;
                     }
                     if (!c.this.cs(str)) {
-                        if (c.this.dRx) {
-                            return aw.Du().b(c.this.getPageContext(), new String[]{str}) == 0;
+                        if (c.this.dRl) {
+                            return aw.Dt().b(c.this.getPageContext(), new String[]{str}) == 0;
                         }
-                        aw.Du().a(c.this.getPageContext(), new String[]{str}, true);
+                        aw.Dt().a(c.this.getPageContext(), new String[]{str}, true);
                     } else {
-                        return aw.Du().b(c.this.getPageContext(), new String[]{str}) == 0;
+                        return aw.Dt().b(c.this.getPageContext(), new String[]{str}) == 0;
                     }
                 }
                 return true;
@@ -637,8 +637,8 @@ public class c extends com.baidu.tbadk.browser.a implements am {
         int parseInt = Integer.parseInt(z.ar(str, "fid="));
         int parseInt2 = Integer.parseInt(z.ar(str, "gameid="));
         String ar = z.ar(str, "gamename=");
-        if (this.dRw != null) {
-            this.dRw.a(getPageContext(), ar, parseInt2, parseInt);
+        if (this.dRk != null) {
+            this.dRk.a(getPageContext(), ar, parseInt2, parseInt);
         }
         return true;
     }
@@ -695,9 +695,9 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     }
 
     public void onReceivedError(int i) {
-        if (this.clu != null) {
-            this.mUrl = this.clu.getUrl();
-            this.clu.stopLoading();
+        if (this.cli != null) {
+            this.mUrl = this.cli.getUrl();
+            this.cli.stopLoading();
         }
     }
 
@@ -740,12 +740,12 @@ public class c extends com.baidu.tbadk.browser.a implements am {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public NavigationBar avk() {
+    public NavigationBar avj() {
         return this.mNavigationBar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XL() {
+    public void XK() {
         if (!this.isLoading && !TextUtils.isEmpty(this.mUrl) && j.oJ()) {
             loadUrl(this.mUrl);
         }
@@ -766,7 +766,7 @@ public class c extends com.baidu.tbadk.browser.a implements am {
                     this.mHybridBridge.a(a2);
                 }
                 if (!StringUtils.isNull(this.mUrl) && this.mUrl.contains("topicgroupcallback=1") && intent != null && intent.getIntExtra("extra_share_status", -1) == 1) {
-                    this.clu.loadUrl("javascript:window.__js_bridge_topic_group_share_action()");
+                    this.cli.loadUrl("javascript:window.__js_bridge_topic_group_share_action()");
                 }
             }
         }

@@ -12,7 +12,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes2.dex */
 public final class DrawableCompat {
-    static final b wr;
+    static final b wq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -290,78 +290,78 @@ public final class DrawableCompat {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 23) {
-            wr = new g();
+            wq = new g();
         } else if (i >= 21) {
-            wr = new f();
+            wq = new f();
         } else if (i >= 19) {
-            wr = new e();
+            wq = new e();
         } else if (i >= 17) {
-            wr = new d();
+            wq = new d();
         } else if (i >= 11) {
-            wr = new c();
+            wq = new c();
         } else {
-            wr = new a();
+            wq = new a();
         }
     }
 
     public static void jumpToCurrentState(Drawable drawable) {
-        wr.jumpToCurrentState(drawable);
+        wq.jumpToCurrentState(drawable);
     }
 
     public static void setAutoMirrored(Drawable drawable, boolean z) {
-        wr.setAutoMirrored(drawable, z);
+        wq.setAutoMirrored(drawable, z);
     }
 
     public static boolean isAutoMirrored(Drawable drawable) {
-        return wr.isAutoMirrored(drawable);
+        return wq.isAutoMirrored(drawable);
     }
 
     public static void setHotspot(Drawable drawable, float f2, float f3) {
-        wr.setHotspot(drawable, f2, f3);
+        wq.setHotspot(drawable, f2, f3);
     }
 
     public static void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
-        wr.setHotspotBounds(drawable, i, i2, i3, i4);
+        wq.setHotspotBounds(drawable, i, i2, i3, i4);
     }
 
     public static void setTint(Drawable drawable, int i) {
-        wr.setTint(drawable, i);
+        wq.setTint(drawable, i);
     }
 
     public static void setTintList(Drawable drawable, ColorStateList colorStateList) {
-        wr.setTintList(drawable, colorStateList);
+        wq.setTintList(drawable, colorStateList);
     }
 
     public static void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
-        wr.setTintMode(drawable, mode);
+        wq.setTintMode(drawable, mode);
     }
 
     public static int getAlpha(Drawable drawable) {
-        return wr.getAlpha(drawable);
+        return wq.getAlpha(drawable);
     }
 
     public static void applyTheme(Drawable drawable, Resources.Theme theme) {
-        wr.applyTheme(drawable, theme);
+        wq.applyTheme(drawable, theme);
     }
 
     public static boolean canApplyTheme(Drawable drawable) {
-        return wr.canApplyTheme(drawable);
+        return wq.canApplyTheme(drawable);
     }
 
     public static ColorFilter getColorFilter(Drawable drawable) {
-        return wr.getColorFilter(drawable);
+        return wq.getColorFilter(drawable);
     }
 
     public static void clearColorFilter(Drawable drawable) {
-        wr.clearColorFilter(drawable);
+        wq.clearColorFilter(drawable);
     }
 
     public static void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        wr.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
+        wq.inflate(drawable, resources, xmlPullParser, attributeSet, theme);
     }
 
     public static Drawable wrap(Drawable drawable) {
-        return wr.wrap(drawable);
+        return wq.wrap(drawable);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: android.graphics.drawable.Drawable */
@@ -374,11 +374,11 @@ public final class DrawableCompat {
     }
 
     public static boolean setLayoutDirection(Drawable drawable, int i) {
-        return wr.setLayoutDirection(drawable, i);
+        return wq.setLayoutDirection(drawable, i);
     }
 
     public static int getLayoutDirection(Drawable drawable) {
-        return wr.getLayoutDirection(drawable);
+        return wq.getLayoutDirection(drawable);
     }
 
     private DrawableCompat() {

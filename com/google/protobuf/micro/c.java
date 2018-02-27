@@ -9,7 +9,7 @@ public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hYH;
+    private final OutputStream hYu;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -19,14 +19,14 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hYH = outputStream;
+        this.hYu = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hYH = null;
+        this.hYu = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
@@ -37,30 +37,30 @@ public final class c {
     }
 
     public static int ac(int i, boolean z) {
-        return yJ(i) + om(z);
+        return yK(i) + om(z);
     }
 
     public static int b(int i, com.google.protobuf.micro.a aVar) {
-        return yJ(i) + c(aVar);
+        return yK(i) + c(aVar);
     }
 
     public static int b(int i, e eVar) {
-        return yJ(i) + b(eVar);
+        return yK(i) + b(eVar);
     }
 
     public static int b(int i, String str) {
-        return yJ(i) + b(str);
+        return yK(i) + b(str);
     }
 
     public static int b(e eVar) {
         int b = eVar.b();
-        return b + yK(b);
+        return b + yL(b);
     }
 
     public static int b(String str) {
         try {
             byte[] bytes = str.getBytes("UTF-8");
-            return bytes.length + yK(bytes.length);
+            return bytes.length + yL(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
         }
@@ -68,32 +68,32 @@ public final class c {
 
     public static int c(int i) {
         if (i >= 0) {
-            return yK(i);
+            return yL(i);
         }
         return 10;
     }
 
     public static int c(int i, int i2) {
-        return yJ(i) + c(i2);
+        return yK(i) + c(i2);
     }
 
     public static int c(com.google.protobuf.micro.a aVar) {
-        return yK(aVar.a()) + aVar.a();
+        return yL(aVar.a()) + aVar.a();
     }
 
     public static int cV(int i, int i2) {
-        return yJ(i) + d(i2);
+        return yK(i) + d(i2);
     }
 
     public static int d(int i) {
-        return yK(i);
+        return yL(i);
     }
 
     private void d() {
-        if (this.hYH == null) {
+        if (this.hYu == null) {
             throw new a();
         }
-        this.hYH.write(this.a, 0, this.c);
+        this.hYu.write(this.a, 0, this.c);
         this.c = 0;
     }
 
@@ -138,11 +138,11 @@ public final class c {
     }
 
     public static int k(int i, long j) {
-        return yJ(i) + dr(j);
+        return yK(i) + dr(j);
     }
 
     public static int l(int i, long j) {
-        return yJ(i) + ds(j);
+        return yK(i) + ds(j);
     }
 
     public static c n(byte[] bArr, int i, int i2) {
@@ -153,11 +153,11 @@ public final class c {
         return 1;
     }
 
-    public static int yJ(int i) {
-        return yK(f.a(i, 0));
+    public static int yK(int i) {
+        return yL(f.a(i, 0));
     }
 
-    public static int yK(int i) {
+    public static int yL(int i) {
         if ((i & (-128)) == 0) {
             return 1;
         }
@@ -171,7 +171,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.hYH != null) {
+        if (this.hYu != null) {
             d();
         }
     }
@@ -248,7 +248,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hYH == null) {
+        if (this.hYu == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -286,7 +286,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hYH.write(bArr, i4, i5);
+            this.hYu.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);

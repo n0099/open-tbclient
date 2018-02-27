@@ -16,39 +16,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class f extends h {
-    private final CustomMessageListener bdV;
-    private String dRH;
-    private bd dTL;
-    private boolean dTM;
-    private PraiseModel dTN;
+    private final CustomMessageListener bdJ;
+    private String dRv;
+    private boolean dTA;
+    private PraiseModel dTB;
+    private bd dTz;
 
     public f(com.baidu.tieba.frs.i iVar) {
         super(iVar);
-        this.bdV = new CustomMessageListener(2004004) { // from class: com.baidu.tieba.frs.mc.f.2
+        this.bdJ = new CustomMessageListener(2004004) { // from class: com.baidu.tieba.frs.mc.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bd)) {
                     bd bdVar = (bd) customResponsedMessage.getData();
-                    f.this.dRH = bdVar.getId();
-                    if (!TextUtils.isEmpty(f.this.dRH) && bdVar.zc() != null) {
+                    f.this.dRv = bdVar.getId();
+                    if (!TextUtils.isEmpty(f.this.dRv) && bdVar.zc() != null) {
                         f.this.nB(bdVar.zc().getIsLike());
                     }
                 }
             }
         };
-        this.dSV.registerListener(this.bdV);
-        this.dTN = azD();
+        this.dSJ.registerListener(this.bdJ);
+        this.dTB = azC();
     }
 
-    public final PraiseModel azD() {
-        if (this.dTN == null) {
-            this.dTN = new PraiseModel(this.dSV.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
+    public final PraiseModel azC() {
+        if (this.dTB == null) {
+            this.dTB = new PraiseModel(this.dSJ.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.f.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void ir(String str) {
                     int i = 1;
-                    if (f.this.dTM) {
-                        if (f.this.dTL != null && f.this.dTL.zc().getIsLike() == 1) {
+                    if (f.this.dTA) {
+                        if (f.this.dTz != null && f.this.dTz.zc().getIsLike() == 1) {
                             i = 0;
                         }
                         f.this.nB(i);
@@ -58,23 +58,23 @@ public class f extends h {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void I(int i, String str) {
-                    if (f.this.dSV != null && f.this.dSV.getPageContext() != null && f.this.dTM && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.vQ(i)) {
-                            AntiHelper.ar(f.this.dSV.getPageContext().getPageActivity(), str);
+                    if (f.this.dSJ != null && f.this.dSJ.getPageContext() != null && f.this.dTA && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.vR(i)) {
+                            AntiHelper.ar(f.this.dSJ.getPageContext().getPageActivity(), str);
                         } else {
-                            f.this.dSV.showToast(str);
+                            f.this.dSJ.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.dTN;
+        return this.dTB;
     }
 
     public void nB(int i) {
         ArrayList<com.baidu.adp.widget.ListView.i> threadList;
-        l avl = this.dSV.avl();
-        if (avl != null && this.dEx != null && (threadList = avl.getThreadList()) != null) {
+        l avk = this.dSJ.avk();
+        if (avk != null && this.dEl != null && (threadList = avk.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.i> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -83,19 +83,19 @@ public class f extends h {
                 com.baidu.adp.widget.ListView.i next = it.next();
                 if (next instanceof bd) {
                     bd bdVar = (bd) next;
-                    if (bdVar == this.dTL) {
+                    if (bdVar == this.dTz) {
                         c(bdVar, i);
-                        this.dTL = null;
+                        this.dTz = null;
                         break;
-                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.dRH)) {
+                    } else if (bdVar.getId() != null && bdVar.getId().equals(this.dRv)) {
                         c(bdVar, i);
-                        this.dRH = null;
+                        this.dRv = null;
                         break;
                     }
                 }
             }
-            this.dEx.avW().b(threadList, avl);
-            this.dEx.avW().notifyDataSetChanged();
+            this.dEl.avV().b(threadList, avk);
+            this.dEl.avV().notifyDataSetChanged();
         }
     }
 
@@ -140,6 +140,6 @@ public class f extends h {
     }
 
     public void gp(boolean z) {
-        this.dTM = z;
+        this.dTA = z;
     }
 }

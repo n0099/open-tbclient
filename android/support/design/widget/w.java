@@ -8,25 +8,25 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 /* loaded from: classes2.dex */
 class w {
-    private static final ThreadLocal<Matrix> sJ = new ThreadLocal<>();
-    private static final ThreadLocal<RectF> sK = new ThreadLocal<>();
+    private static final ThreadLocal<Matrix> sI = new ThreadLocal<>();
+    private static final ThreadLocal<RectF> sJ = new ThreadLocal<>();
 
     public static void a(ViewGroup viewGroup, View view, Rect rect) {
         Matrix matrix;
-        Matrix matrix2 = sJ.get();
+        Matrix matrix2 = sI.get();
         if (matrix2 == null) {
             Matrix matrix3 = new Matrix();
-            sJ.set(matrix3);
+            sI.set(matrix3);
             matrix = matrix3;
         } else {
             matrix2.reset();
             matrix = matrix2;
         }
         a(viewGroup, view, matrix);
-        RectF rectF = sK.get();
+        RectF rectF = sJ.get();
         if (rectF == null) {
             rectF = new RectF();
-            sK.set(rectF);
+            sJ.set(rectF);
         }
         rectF.set(rect);
         matrix.mapRect(rectF);

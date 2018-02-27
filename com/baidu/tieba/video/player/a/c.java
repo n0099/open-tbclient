@@ -7,40 +7,40 @@ import android.view.ViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tbadk.j.a {
-    private View drq;
-    private View huI;
-    private a huJ;
+    private View dre;
+    private View huv;
+    private a huw;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bCN();
+        void bCM();
 
-        void bCO();
+        void bCN();
     }
 
     public c(Context context) {
         super(LayoutInflater.from(context).inflate(d.h.video_replay_layout, (ViewGroup) null));
-        this.drq = this.bxA.findViewById(d.g.video_replay_container);
-        this.huI = this.bxA.findViewById(d.g.video_reply_lay);
-        this.huI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.a.c.1
+        this.dre = this.bxn.findViewById(d.g.video_replay_container);
+        this.huv = this.bxn.findViewById(d.g.video_reply_lay);
+        this.huv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.huJ != null) {
-                    c.this.huJ.bCN();
+                if (c.this.huw != null) {
+                    c.this.huw.bCM();
                 }
             }
         });
-        this.drq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.a.c.2
+        this.dre.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.player.a.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.huJ != null) {
-                    c.this.huJ.bCO();
+                if (c.this.huw != null) {
+                    c.this.huw.bCN();
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        this.huJ = aVar;
+        this.huw = aVar;
     }
 }

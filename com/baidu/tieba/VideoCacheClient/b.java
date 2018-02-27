@@ -12,25 +12,25 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b bRV;
-    private int bRW = 0;
+    private static b bRI;
+    private int bRJ = 0;
 
     private b() {
-        a.TU();
+        a.TT();
     }
 
-    public static b TX() {
-        if (bRV == null) {
+    public static b TW() {
+        if (bRI == null) {
             synchronized (b.class) {
-                if (bRV == null) {
-                    bRV = new b();
+                if (bRI == null) {
+                    bRI = new b();
                 }
             }
         }
-        return bRV;
+        return bRI;
     }
 
-    private static long TS() {
+    private static long TR() {
         try {
             File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
             if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
@@ -44,24 +44,24 @@ public class b implements i {
         }
     }
 
-    private boolean TY() {
-        d.au(TAG, "sdcard avalible size " + ((TS() / 1024) / 1024) + "M");
-        return TS() > 314572800 && getPort() > 0;
+    private boolean TX() {
+        d.au(TAG, "sdcard avalible size " + ((TR() / 1024) / 1024) + "M");
+        return TR() > 314572800 && getPort() > 0;
     }
 
     public void bn(Context context) {
         if (context != null) {
-            e.bp(context).Tf();
+            e.bp(context).Te();
         }
     }
 
     @Override // com.baidu.tieba.play.i
     public String hW(String str) {
-        if (TY()) {
+        if (TX()) {
             String hX = hX(str);
             if (hX == null) {
                 String hU = hU(str);
-                if (hU != null && new File(c.bRH + hU + "/header_downloaded").exists()) {
+                if (hU != null && new File(c.bRu + hU + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -72,8 +72,8 @@ public class b implements i {
     }
 
     @Override // com.baidu.tieba.play.i
-    public String r(String str, boolean z) {
-        if (TY()) {
+    public String q(String str, boolean z) {
+        if (TX()) {
             String hX = hX(str);
             if (hX == null) {
                 String hU = hU(str);
@@ -81,7 +81,7 @@ public class b implements i {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.bRH + hU + "/header_downloaded").exists()) {
+                    if (new File(c.bRu + hU + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
@@ -97,7 +97,7 @@ public class b implements i {
     public String hX(String str) {
         String hU;
         File file;
-        if (str == null || !str.contains("/") || (hU = hU(str)) == null || (file = new File(c.bRH + hU + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hU = hU(str)) == null || (file = new File(c.bRu + hU + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -120,7 +120,7 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void hY(String str) {
-        a.TU().hV(str);
+        a.TT().hV(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -150,8 +150,8 @@ public class b implements i {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.bRW == 0) {
-            File file = new File(c.bRI);
+        if (this.bRJ == 0) {
+            File file = new File(c.bRv);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -195,7 +195,7 @@ public class b implements i {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.bRW;
+                                return this.bRJ;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -241,10 +241,10 @@ public class b implements i {
                 }
             }
         }
-        return this.bRW;
+        return this.bRJ;
     }
 
-    public void TZ() {
-        this.bRW = 0;
+    public void TY() {
+        this.bRJ = 0;
     }
 }

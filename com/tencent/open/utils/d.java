@@ -1,30 +1,37 @@
 package com.tencent.open.utils;
 
-import android.content.Context;
-import java.io.File;
-/* loaded from: classes3.dex */
-public final class d {
-    private static Context a;
+import android.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes2.dex */
+public class d {
+    private static byte[] a = {1, 2, 3, 4, 5, 6, 7, 8};
 
-    public static final Context a() {
-        if (a == null) {
+    public static String a(String str, String str2) {
+        try {
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(a);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, ivParameterSpec);
+            return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+        } catch (Exception e) {
+            com.tencent.open.a.f.c("DESUtils", "encode " + e.toString());
             return null;
         }
-        return a;
     }
 
-    public static final void a(Context context) {
-        a = context;
-    }
-
-    public static final String b() {
-        return a() == null ? "" : a().getPackageName();
-    }
-
-    public static final File c() {
-        if (a() == null) {
+    public static String b(String str, String str2) {
+        try {
+            byte[] decode = Base64.decode(str, 0);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(a);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, ivParameterSpec);
+            return new String(cipher.doFinal(decode));
+        } catch (Exception e) {
+            com.tencent.open.a.f.c("DESUtils", "decode " + e.toString());
             return null;
         }
-        return a().getFilesDir();
     }
 }

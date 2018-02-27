@@ -25,8 +25,6 @@ public interface ISapiConfiguration {
 
     Domain getEnvironment();
 
-    String getFaceAppName();
-
     List<FastLoginFeature> getFastLoginFeatureList();
 
     boolean getFastRegConfirm();

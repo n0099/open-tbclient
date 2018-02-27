@@ -18,10 +18,10 @@ import com.baidu.tieba.e.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes2.dex */
 public class PbTopTipView extends TextView {
-    private boolean cAK;
-    private Animation cAL;
-    private com.baidu.tieba.e.b coo;
-    private a.InterfaceC0142a cop;
+    private boolean cAy;
+    private Animation cAz;
+    private com.baidu.tieba.e.b coc;
+    private a.InterfaceC0143a cod;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private Runnable mRunnable;
@@ -36,19 +36,19 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.cop = new a.InterfaceC0142a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
-            @Override // com.baidu.tieba.e.a.InterfaceC0142a
+        this.cod = new a.InterfaceC0143a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+            @Override // com.baidu.tieba.e.a.InterfaceC0143a
             public void aY(int i, int i2) {
             }
 
-            @Override // com.baidu.tieba.e.a.InterfaceC0142a
+            @Override // com.baidu.tieba.e.a.InterfaceC0143a
             public void aZ(int i, int i2) {
-                if (af(i2) && PbTopTipView.this.cAK) {
+                if (af(i2) && PbTopTipView.this.cAy) {
                     PbTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.tieba.e.a.InterfaceC0142a
+            @Override // com.baidu.tieba.e.a.InterfaceC0143a
             public void ba(int i, int i2) {
             }
 
@@ -69,16 +69,16 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.coo = new com.baidu.tieba.e.b(getContext());
-        this.coo.a(this.cop);
+        this.coc = new com.baidu.tieba.e.b(getContext());
+        this.coc.a(this.cod);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.coo.onTouchEvent(motionEvent);
+                return PbTopTipView.this.coc.onTouchEvent(motionEvent);
             }
         });
-        ago();
-        this.cAL = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
+        agn();
+        this.cAz = AnimationUtils.loadAnimation(getContext(), d.a.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), d.a.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -97,8 +97,8 @@ public class PbTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.cAL.setDuration(400L);
-        this.cAL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.cAz.setDuration(400L);
+        this.cAz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -116,7 +116,7 @@ public class PbTopTipView extends TextView {
         });
     }
 
-    public void ago() {
+    public void agn() {
         int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(d.e.ds30);
         int statusBarHeight = (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) ? UtilHelper.getStatusBarHeight() + dimensionPixelOffset : dimensionPixelOffset;
         int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(d.e.ds34);
@@ -126,7 +126,7 @@ public class PbTopTipView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        ago();
+        agn();
     }
 
     public void setDuration(int i) {
@@ -135,7 +135,7 @@ public class PbTopTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        this.cAK = false;
+        this.cAy = false;
         removeCallbacks(this.mHideTipRunnable);
         if (this != null && getParent() != null) {
             clearAnimation();
@@ -153,13 +153,13 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.cAL);
-            this.cAK = true;
+            startAnimation(this.cAz);
+            this.cAy = true;
         }
     }
 
     public void hide() {
-        this.cAK = false;
+        this.cAy = false;
         onDestroy();
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
@@ -168,8 +168,8 @@ public class PbTopTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        aj.f(this, d.C0140d.cp_link_tip_a_alpha95, i);
-        aj.b(this, d.C0140d.cp_cont_i, 1, i);
+        aj.f(this, d.C0141d.cp_link_tip_a_alpha95, i);
+        aj.b(this, d.C0141d.cp_cont_i, 1, i);
     }
 
     public void onDestroy() {

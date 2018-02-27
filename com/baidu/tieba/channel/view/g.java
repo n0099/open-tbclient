@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class g implements e<com.baidu.tieba.channel.data.d> {
-    private ImageView ddM;
-    private h del;
-    public TextView dem;
-    private boolean den = false;
+    private ImageView ddA;
+    private h ddZ;
+    public TextView dea;
+    private boolean deb = false;
     private boolean isHost;
     private Context mContext;
     private NavigationBar mNavigationBar;
@@ -23,10 +23,10 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     public g(Context context, NavigationBar navigationBar, final com.baidu.tieba.channel.view.b bVar) {
         this.mContext = context;
         this.mNavigationBar = navigationBar;
-        this.dem = this.mNavigationBar.setCenterTextTitle("");
+        this.dea = this.mNavigationBar.setCenterTextTitle("");
         this.mNavigationBar.showBottomLine(false);
-        this.ddM = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
-        this.ddM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.1
+        this.ddA = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
+        this.ddA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (bVar != null) {
@@ -38,11 +38,11 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, com.baidu.tieba.channel.view.b bVar) {
-        if (this.del == null) {
+        if (this.ddZ == null) {
             this.isHost = z;
-            this.del = z ? new b(this, this.mContext, this.mNavigationBar) : new a(this, this.mContext, this.mNavigationBar);
-            if (this.del != null) {
-                this.del.a(z, bVar);
+            this.ddZ = z ? new b(this, this.mContext, this.mNavigationBar) : new a(this, this.mContext, this.mNavigationBar);
+            if (this.ddZ != null) {
+                this.ddZ.a(z, bVar);
             }
         }
     }
@@ -51,10 +51,10 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
     public void aT(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.amj() != null) {
-            this.dem.setText(dVar.amj().getChannelName());
-            if (this.del != null) {
-                this.del.aT(dVar);
+        if (dVar != null && dVar.ami() != null) {
+            this.dea.setText(dVar.ami().getChannelName());
+            if (this.ddZ != null) {
+                this.ddZ.aT(dVar);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -63,7 +63,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     @Override // com.baidu.tieba.channel.view.e
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(null, i);
-        if (this.del != null) {
+        if (this.ddZ != null) {
             this.mNavigationBar.getTopCoverBgView().setVisibility(0);
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
             this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(aj.fP(d.f.s_navbar_bg)));
@@ -72,40 +72,40 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     public void J(int i, int i2, int i3) {
         K(i, i2, i3);
-        amB();
-        amz();
         amA();
-        if (this.del != null) {
-            this.del.a(amC(), this.mNavigationBar.getBarBgView().getAlpha());
+        amy();
+        amz();
+        if (this.ddZ != null) {
+            this.ddZ.a(amB(), this.mNavigationBar.getBarBgView().getAlpha());
         }
     }
 
-    private void amz() {
+    private void amy() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
-        if (amC()) {
-            this.dem.setVisibility(0);
-            aj.d(this.dem, d.C0140d.cp_cont_b, d.C0140d.s_navbar_title_color);
-            this.dem.setAlpha(alpha);
+        if (amB()) {
+            this.dea.setVisibility(0);
+            aj.d(this.dea, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
+            this.dea.setAlpha(alpha);
             return;
         }
-        this.dem.setVisibility(8);
+        this.dea.setVisibility(8);
     }
 
     public void lP(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dem.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dea.getLayoutParams();
         if (layoutParams.leftMargin != i) {
             layoutParams.leftMargin = i;
             layoutParams.rightMargin = i;
         }
     }
 
-    private void amA() {
-        if (amC()) {
-            aj.a(this.ddM, d.f.icon_return_bg_s, d.f.icon_return_bg_s);
+    private void amz() {
+        if (amB()) {
+            aj.a(this.ddA, d.f.icon_return_bg_s, d.f.icon_return_bg_s);
         } else {
-            aj.a(this.ddM, d.f.icon_return_bg, d.f.icon_return_bg);
+            aj.a(this.ddA, d.f.icon_return_bg, d.f.icon_return_bg);
         }
-        bE(this.ddM);
+        bE(this.ddA);
     }
 
     private void K(int i, int i2, int i3) {
@@ -124,19 +124,19 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         }
     }
 
-    private void amB() {
+    private void amA() {
         if (2 == TbadkCoreApplication.getInst().getSkinType()) {
-            this.den = false;
+            this.deb = false;
         } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-            this.den = false;
+            this.deb = false;
         } else {
-            this.den = true;
+            this.deb = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean amC() {
-        return this.den;
+    public boolean amB() {
+        return this.deb;
     }
 
     public void bE(View view) {
@@ -154,32 +154,32 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     /* loaded from: classes3.dex */
     public static class a implements h<com.baidu.tieba.channel.data.d> {
-        private ImageView cvE;
-        private g dep;
-        private TextView deq;
-        private boolean der = false;
+        private ImageView cvs;
+        private g ded;
+        private TextView dee;
+        private boolean def = false;
         private Context mContext;
         private NavigationBar mNavigationBar;
 
         public a(g gVar, Context context, NavigationBar navigationBar) {
             this.mContext = context;
             this.mNavigationBar = navigationBar;
-            this.dep = gVar;
+            this.ded = gVar;
         }
 
         @Override // com.baidu.tieba.channel.view.e
         public void a(boolean z, final com.baidu.tieba.channel.view.b bVar) {
-            this.deq = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_subscriber_btn, (View.OnClickListener) null).findViewById(d.g.channel_nav_right_sub_btn);
-            this.cvE = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
-            this.deq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.1
+            this.dee = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_subscriber_btn, (View.OnClickListener) null).findViewById(d.g.channel_nav_right_sub_btn);
+            this.cvs = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
+            this.dee.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bVar != null) {
-                        bVar.a(a.this.der ? 17 : 5, view, null, -1);
+                        bVar.a(a.this.def ? 17 : 5, view, null, -1);
                     }
                 }
             });
-            this.cvE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.2
+            this.cvs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bVar != null) {
@@ -193,9 +193,9 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         @Override // com.baidu.tieba.channel.view.e
         /* renamed from: c */
         public void aT(com.baidu.tieba.channel.data.d dVar) {
-            if (dVar != null && dVar.amj() != null) {
-                this.der = dVar.amj().isSubscribe();
-                a(this.dep.amC(), this.mNavigationBar.getBarBgView().getAlpha());
+            if (dVar != null && dVar.ami() != null) {
+                this.def = dVar.ami().isSubscribe();
+                a(this.ded.amB(), this.mNavigationBar.getBarBgView().getAlpha());
             }
         }
 
@@ -206,19 +206,19 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         @Override // com.baidu.tieba.channel.view.h
         public void a(boolean z, float f) {
             b(z, f);
-            this.deq.setVisibility(8);
-            this.dep.lP(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
+            this.dee.setVisibility(8);
+            this.ded.lP(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
         }
 
         private void b(boolean z, float f) {
-            if (this.cvE != null) {
+            if (this.cvs != null) {
                 if (z) {
-                    aj.a(this.cvE, d.f.icon_more_bg_s, d.f.icon_more_bg_s);
+                    aj.a(this.cvs, d.f.icon_more_bg_s, d.f.icon_more_bg_s);
                 } else {
-                    aj.a(this.cvE, d.f.icon_more_bg, d.f.icon_more_bg);
+                    aj.a(this.cvs, d.f.icon_more_bg, d.f.icon_more_bg);
                 }
-                this.cvE.setVisibility(0);
-                this.dep.bE(this.cvE);
+                this.cvs.setVisibility(0);
+                this.ded.bE(this.cvs);
             }
         }
     }

@@ -16,7 +16,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mx().gP(eP(str));
+        com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mw().gP(eP(str));
         if (gP == null || gP.sh() == null) {
             return null;
         }
@@ -36,7 +36,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.Mx().c(eP(str), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Mw().c(eP(str), (com.baidu.adp.widget.a.a) obj);
         }
     }
 

@@ -6,15 +6,6 @@ import com.baidu.fsg.api.RimServiceCallback;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.biometrics.base.SapiBiometric;
-import com.baidu.sapi2.biometrics.base.SapiBiometricFactory;
-import com.baidu.sapi2.biometrics.voice.SapiVoiceOperation;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceIdentifyCallback;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceRegCallback;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceStatusCheckCallback;
-import com.baidu.sapi2.biometrics.voice.dto.VoiceIdentifyDTO;
-import com.baidu.sapi2.biometrics.voice.dto.VoiceRegDTO;
-import com.baidu.sapi2.biometrics.voice.dto.VoiceStatusCheckDTO;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
@@ -26,7 +17,6 @@ public class BiometricsManager {
     public static final String LIVENESS_RECOGNIZE_TYPE_CERTINFO = "certinfo";
     public static final String PASS_PRODUCT_ID = "pp";
     private static BiometricsManager instance;
-    private SapiBiometric voiceManager;
 
     public static BiometricsManager getInstance() {
         if (instance == null) {
@@ -72,46 +62,5 @@ public class BiometricsManager {
         bioScanFaceResult.transParamsList.add(new BasicNameValuePair("cuid", SapiUtils.getClientId(context)));
         hashMap.put("spParams", SapiUtils.createRequestParams(bioScanFaceResult.transParamsList));
         BaiduRIM.getInstance().accessRimService(context, hashMap, rimServiceCallback);
-    }
-
-    public void initVoiceManager(Context context) {
-        this.voiceManager = SapiBiometricFactory.getDefaultFactory().getBiometric(2);
-    }
-
-    public void voiceReg(String str, String str2, VoiceRegCallback voiceRegCallback, Context context) {
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        SapiVoiceOperation sapiVoiceOperation = new SapiVoiceOperation();
-        sapiVoiceOperation.operationType = SapiVoiceOperation.OperationType.REG;
-        VoiceRegDTO voiceRegDTO = new VoiceRegDTO();
-        voiceRegDTO.bduss = session.bduss;
-        voiceRegDTO.uid = session.uid;
-        voiceRegDTO.stoken = str;
-        voiceRegDTO.showGuidePage = true;
-        voiceRegDTO.voiceCredential = str2;
-        voiceRegDTO.passProductId = "pp";
-        this.voiceManager.execute(sapiVoiceOperation, voiceRegCallback, voiceRegDTO, context);
-    }
-
-    public void voiceIdentify(String str, VoiceIdentifyCallback voiceIdentifyCallback, Context context) {
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        SapiVoiceOperation sapiVoiceOperation = new SapiVoiceOperation();
-        sapiVoiceOperation.operationType = SapiVoiceOperation.OperationType.VERIFY;
-        VoiceIdentifyDTO voiceIdentifyDTO = new VoiceIdentifyDTO();
-        voiceIdentifyDTO.bduss = session.bduss;
-        voiceIdentifyDTO.uid = session.uid;
-        voiceIdentifyDTO.stoken = str;
-        voiceIdentifyDTO.passProductId = "pp";
-        this.voiceManager.execute(sapiVoiceOperation, voiceIdentifyCallback, voiceIdentifyDTO, context);
-    }
-
-    public void voiceStatusCheck(String str, VoiceStatusCheckCallback voiceStatusCheckCallback, Context context) {
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        SapiVoiceOperation sapiVoiceOperation = new SapiVoiceOperation();
-        sapiVoiceOperation.operationType = SapiVoiceOperation.OperationType.STATUSCHECK;
-        VoiceStatusCheckDTO voiceStatusCheckDTO = new VoiceStatusCheckDTO();
-        voiceStatusCheckDTO.bduss = session.bduss;
-        voiceStatusCheckDTO.stoken = str;
-        voiceStatusCheckDTO.passProductId = "pp";
-        this.voiceManager.execute(sapiVoiceOperation, voiceStatusCheckCallback, voiceStatusCheckDTO, context);
     }
 }

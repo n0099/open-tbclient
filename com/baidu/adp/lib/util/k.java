@@ -9,16 +9,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat amz = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat amA = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat amB = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat amC = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat amD = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat amE = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat amF = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat amG = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat amH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat amI = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat amt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat amu = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat amv = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat amw = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat amx = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat amy = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat amz = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat amA = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat amB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat amC = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -29,32 +29,32 @@ public class k {
 
     public static String a(Date date) {
         String format;
-        synchronized (amD) {
-            format = amD.format(date);
+        synchronized (amx) {
+            format = amx.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (amB) {
-            format = amB.format(date);
+        synchronized (amv) {
+            format = amv.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (amC) {
-            format = amC.format(date);
+        synchronized (amw) {
+            format = amw.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (amE) {
-            format = amE.format(date);
+        synchronized (amy) {
+            format = amy.format(date);
         }
         return format;
     }

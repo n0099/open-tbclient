@@ -9,11 +9,13 @@ import java.util.List;
 public interface s {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int awh();
+    int awg();
 
-    HashMap<Integer, bd> axn();
+    HashMap<Integer, bd> axm();
 
-    void axo();
+    void axn();
+
+    int axo();
 
     int axp();
 
@@ -21,9 +23,7 @@ public interface s {
 
     int axr();
 
-    int axs();
-
-    void axt();
+    void axs();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.i> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 

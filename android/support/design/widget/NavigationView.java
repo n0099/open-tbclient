@@ -34,9 +34,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     private static final int[] lg = {-16842910};
     private MenuInflater lh;
     private int mMaxWidth;
-    private final NavigationMenu pr;
-    private final NavigationMenuPresenter pt;
-    OnNavigationItemSelectedListener pu;
+    private final NavigationMenu pq;
+    private final NavigationMenuPresenter pr;
+    OnNavigationItemSelectedListener pt;
 
     /* loaded from: classes2.dex */
     public interface OnNavigationItemSelectedListener {
@@ -56,9 +56,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         ColorStateList n;
         int i2;
         boolean z;
-        this.pt = new NavigationMenuPresenter();
+        this.pr = new NavigationMenuPresenter();
         r.R(context);
-        this.pr = new NavigationMenu(context);
+        this.pq = new NavigationMenu(context);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.NavigationView, i, R.style.Widget_Design_NavigationView);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.NavigationView_android_background));
         if (obtainStyledAttributes.hasValue(R.styleable.NavigationView_elevation)) {
@@ -83,26 +83,26 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             colorStateList = n(16842806);
         }
         Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.NavigationView_itemBackground);
-        this.pr.setCallback(new MenuBuilder.Callback() { // from class: android.support.design.widget.NavigationView.1
+        this.pq.setCallback(new MenuBuilder.Callback() { // from class: android.support.design.widget.NavigationView.1
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
             public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
-                return NavigationView.this.pu != null && NavigationView.this.pu.onNavigationItemSelected(menuItem);
+                return NavigationView.this.pt != null && NavigationView.this.pt.onNavigationItemSelected(menuItem);
             }
 
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
             public void onMenuModeChange(MenuBuilder menuBuilder) {
             }
         });
-        this.pt.setId(1);
-        this.pt.initForMenu(context, this.pr);
-        this.pt.setItemIconTintList(n);
+        this.pr.setId(1);
+        this.pr.initForMenu(context, this.pq);
+        this.pr.setItemIconTintList(n);
         if (z) {
-            this.pt.setItemTextAppearance(i2);
+            this.pr.setItemTextAppearance(i2);
         }
-        this.pt.setItemTextColor(colorStateList);
-        this.pt.setItemBackground(drawable);
-        this.pr.addMenuPresenter(this.pt);
-        addView((View) this.pt.getMenuView(this));
+        this.pr.setItemTextColor(colorStateList);
+        this.pr.setItemBackground(drawable);
+        this.pq.addMenuPresenter(this.pr);
+        addView((View) this.pr.getMenuView(this));
         if (obtainStyledAttributes.hasValue(R.styleable.NavigationView_menu)) {
             inflateMenu(obtainStyledAttributes.getResourceId(R.styleable.NavigationView_menu, 0));
         }
@@ -116,7 +116,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.menuState = new Bundle();
-        this.pr.savePresenterStates(savedState.menuState);
+        this.pq.savePresenterStates(savedState.menuState);
         return savedState;
     }
 
@@ -128,11 +128,11 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.pr.restorePresenterStates(savedState.menuState);
+        this.pq.restorePresenterStates(savedState.menuState);
     }
 
     public void setNavigationItemSelectedListener(OnNavigationItemSelectedListener onNavigationItemSelectedListener) {
-        this.pu = onNavigationItemSelectedListener;
+        this.pt = onNavigationItemSelectedListener;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -151,58 +151,58 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     @Override // android.support.design.internal.ScrimInsetsFrameLayout
     @RestrictTo
     protected void onInsetsChanged(WindowInsetsCompat windowInsetsCompat) {
-        this.pt.dispatchApplyWindowInsets(windowInsetsCompat);
+        this.pr.dispatchApplyWindowInsets(windowInsetsCompat);
     }
 
     public void inflateMenu(int i) {
-        this.pt.setUpdateSuspended(true);
-        getMenuInflater().inflate(i, this.pr);
-        this.pt.setUpdateSuspended(false);
-        this.pt.updateMenuView(false);
+        this.pr.setUpdateSuspended(true);
+        getMenuInflater().inflate(i, this.pq);
+        this.pr.setUpdateSuspended(false);
+        this.pr.updateMenuView(false);
     }
 
     public Menu getMenu() {
-        return this.pr;
+        return this.pq;
     }
 
     public View inflateHeaderView(int i) {
-        return this.pt.inflateHeaderView(i);
+        return this.pr.inflateHeaderView(i);
     }
 
     public void addHeaderView(View view) {
-        this.pt.addHeaderView(view);
+        this.pr.addHeaderView(view);
     }
 
     public void removeHeaderView(View view) {
-        this.pt.removeHeaderView(view);
+        this.pr.removeHeaderView(view);
     }
 
     public int getHeaderCount() {
-        return this.pt.getHeaderCount();
+        return this.pr.getHeaderCount();
     }
 
     public View getHeaderView(int i) {
-        return this.pt.getHeaderView(i);
+        return this.pr.getHeaderView(i);
     }
 
     public ColorStateList getItemIconTintList() {
-        return this.pt.getItemTintList();
+        return this.pr.getItemTintList();
     }
 
     public void setItemIconTintList(ColorStateList colorStateList) {
-        this.pt.setItemIconTintList(colorStateList);
+        this.pr.setItemIconTintList(colorStateList);
     }
 
     public ColorStateList getItemTextColor() {
-        return this.pt.getItemTextColor();
+        return this.pr.getItemTextColor();
     }
 
     public void setItemTextColor(ColorStateList colorStateList) {
-        this.pt.setItemTextColor(colorStateList);
+        this.pr.setItemTextColor(colorStateList);
     }
 
     public Drawable getItemBackground() {
-        return this.pt.getItemBackground();
+        return this.pr.getItemBackground();
     }
 
     public void setItemBackgroundResource(int i) {
@@ -210,18 +210,18 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     public void setItemBackground(Drawable drawable) {
-        this.pt.setItemBackground(drawable);
+        this.pr.setItemBackground(drawable);
     }
 
     public void setCheckedItem(int i) {
-        MenuItem findItem = this.pr.findItem(i);
+        MenuItem findItem = this.pq.findItem(i);
         if (findItem != null) {
-            this.pt.setCheckedItem((MenuItemImpl) findItem);
+            this.pr.setCheckedItem((MenuItemImpl) findItem);
         }
     }
 
     public void setItemTextAppearance(int i) {
-        this.pt.setItemTextAppearance(i);
+        this.pr.setItemTextAppearance(i);
     }
 
     private MenuInflater getMenuInflater() {

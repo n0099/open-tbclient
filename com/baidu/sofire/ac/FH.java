@@ -163,7 +163,7 @@ public class FH {
         ApkInfo dW;
         com.baidu.sofire.core.e vF;
         try {
-            a aVar = a.aGn;
+            a aVar = a.aGc;
             if (aVar == null || (dW = aVar.dW(i)) == null || dW.initStatus != 1 || (vF = com.baidu.sofire.core.e.vF()) == null) {
                 return false;
             }

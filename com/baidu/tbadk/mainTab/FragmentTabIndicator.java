@@ -20,48 +20,48 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends e {
-    private int bxR;
-    public int bxS;
-    private int bxT;
-    private int bxU;
-    private TextView bxV;
-    private int bxW;
-    private int bxX;
-    private HashMap<String, e.a> bxY;
+    private int bxE;
+    public int bxF;
+    private int bxG;
+    private int bxH;
+    private TextView bxI;
+    private int bxJ;
+    private int bxK;
+    private HashMap<String, e.a> bxL;
     private ImageView mIconView;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.bxR = 0;
-        this.bxY = new HashMap<>();
+        this.bxE = 0;
+        this.bxL = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bxR = 0;
-        this.bxY = new HashMap<>();
+        this.bxE = 0;
+        this.bxL = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.bxW = getResources().getDimensionPixelSize(d.e.ds2);
-        this.bxX = getResources().getDimensionPixelSize(d.e.ds12);
-        this.bxV = new TextView(getContext());
+        this.bxJ = getResources().getDimensionPixelSize(d.e.ds2);
+        this.bxK = getResources().getDimensionPixelSize(d.e.ds12);
+        this.bxI = new TextView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.bxV.setLayoutParams(layoutParams);
-        this.bxV.setGravity(17);
-        this.bxV.setDuplicateParentStateEnabled(true);
-        addView(this.bxV);
+        this.bxI.setLayoutParams(layoutParams);
+        this.bxI.setGravity(17);
+        this.bxI.setDuplicateParentStateEnabled(true);
+        addView(this.bxI);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setContentTvTopMargin(int i) {
-        if (this.bxV.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bxV.getLayoutParams();
+        if (this.bxI.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bxI.getLayoutParams();
             layoutParams.topMargin = i;
-            this.bxV.setLayoutParams(layoutParams);
+            this.bxI.setLayoutParams(layoutParams);
         }
     }
 
@@ -70,7 +70,7 @@ public class FragmentTabIndicator extends e {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, e.a> entry : this.bxY.entrySet()) {
+        for (Map.Entry<String, e.a> entry : this.bxL.entrySet()) {
             e.a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -87,20 +87,20 @@ public class FragmentTabIndicator extends e {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, e.a>> it = this.bxY.entrySet().iterator();
-        while (it.hasNext() && this.bxV.getText() != null) {
+        Iterator<Map.Entry<String, e.a>> it = this.bxL.entrySet().iterator();
+        while (it.hasNext() && this.bxI.getText() != null) {
             e.a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.bxV.getPaint().measureText(this.bxV.getText().toString());
-            if (value.byr) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.aiE;
+            int measureText = (int) this.bxI.getPaint().measureText(this.bxI.getText().toString());
+            if (value.bye) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.aiy;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.aiE) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.aiy) - (measureText / 2);
             }
-            if (this.bxR == 1) {
-                i5 = measuredWidth - this.bxX;
-                measuredHeight = this.bxW;
+            if (this.bxE == 1) {
+                i5 = measuredWidth - this.bxK;
+                measuredHeight = this.bxJ;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -110,84 +110,84 @@ public class FragmentTabIndicator extends e {
     }
 
     public void setTipTopMargin(int i) {
-        this.bxW = i;
+        this.bxJ = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTipPosType(int i) {
-        this.bxR = i;
+        this.bxE = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void a(String str, e.a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.bxY.put(str, aVar);
+            this.bxL.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public e.a gX(String str) {
-        return this.bxY.get(str);
+        return this.bxL.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setText(int i) {
-        this.bxV.setText(i);
+        this.bxI.setText(i);
     }
 
     public void setWidth(int i) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, -2);
         layoutParams.gravity = 17;
-        this.bxV.setLayoutParams(layoutParams);
+        this.bxI.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setText(String str) {
-        this.bxV.setText(str);
-        this.bxV.setContentDescription(str);
+        this.bxI.setText(str);
+        this.bxI.setContentDescription(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.bxV.getText().toString();
+        String charSequence = this.bxI.getText().toString();
         if (z) {
             charSequence = getContext().getString(d.j.talk_checked_tip) + charSequence;
         }
-        this.bxV.setContentDescription(charSequence);
+        this.bxI.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.bxV.setText(spannableString);
+        this.bxI.setText(spannableString);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCompoundDrawablesTopResId(int i) {
-        this.bxT = i;
+        this.bxG = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.bxU = i;
+        this.bxH = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setCompoundDrawablePadding(int i) {
-        this.bxV.setCompoundDrawablePadding(i);
+        this.bxI.setCompoundDrawablePadding(i);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextSize(float f) {
-        this.bxV.setTextSize(f);
+        this.bxI.setTextSize(f);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextSize(int i, float f) {
-        this.bxV.setTextSize(i, f);
+        this.bxI.setTextSize(i, f);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setTextColorResId(int i) {
-        this.bxS = i;
+        this.bxF = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -198,34 +198,34 @@ public class FragmentTabIndicator extends e {
 
     @Override // com.baidu.tbadk.mainTab.e
     public void gB(int i) {
-        aj.e(this.bxV, this.bxS, 1);
-        if (this.bxV != null) {
-            if (this.bxV.getText() != null && am.isEmpty(this.bxV.getText().toString())) {
-                this.mIconView.setImageDrawable(aj.c((Resources) null, this.bxT));
+        aj.e(this.bxI, this.bxF, 1);
+        if (this.bxI != null) {
+            if (this.bxI.getText() != null && am.isEmpty(this.bxI.getText().toString())) {
+                this.mIconView.setImageDrawable(aj.c((Resources) null, this.bxG));
             } else {
-                this.bxV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.c((Resources) null, this.bxT), aj.getDrawable(this.bxU), (Drawable) null);
+                this.bxI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.c((Resources) null, this.bxG), aj.getDrawable(this.bxH), (Drawable) null);
             }
         }
-        for (Map.Entry<String, e.a> entry : this.bxY.entrySet()) {
+        for (Map.Entry<String, e.a> entry : this.bxL.entrySet()) {
             entry.getValue().gB(i);
         }
     }
 
-    public void MW() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bxV.getLayoutParams();
+    public void MV() {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bxI.getLayoutParams();
         layoutParams.width = -2;
-        this.bxV.setLayoutParams(layoutParams);
+        this.bxI.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public View getContentTv() {
-        return this.bxV;
+        return this.bxI;
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void aJ(int i, int i2) {
-        if (this.bxV != null) {
-            this.bxV.setVisibility(8);
+        if (this.bxI != null) {
+            this.bxI.setVisibility(8);
         }
         this.mIconView = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -1);
@@ -240,19 +240,19 @@ public class FragmentTabIndicator extends e {
         }
         this.mIconView.setLayoutParams(layoutParams);
         addView(this.mIconView);
-        this.mIconView.setImageDrawable(aj.c((Resources) null, this.bxT));
+        this.mIconView.setImageDrawable(aj.c((Resources) null, this.bxG));
     }
 
     @Override // com.baidu.tbadk.mainTab.e
     public void setIsContentSelectBold(boolean z) {
-        this.byq = z;
+        this.byd = z;
     }
 
     @Override // android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.byq) {
-            this.bxV.getPaint().setFakeBoldText(z);
+        if (this.byd) {
+            this.bxI.getPaint().setFakeBoldText(z);
         }
     }
 }

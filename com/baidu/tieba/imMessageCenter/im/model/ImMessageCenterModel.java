@@ -45,7 +45,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bj = b.aLU().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData bj = b.aLT().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bj != null) {
                 buildNormalItem.setGroupSetting(bj);
             }
@@ -65,7 +65,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(4));
-            PersonalSettingItemData bj = e.aLX().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            PersonalSettingItemData bj = e.aLW().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bj != null) {
                 buildNormalItem.setGroupSetting(bj);
             }
@@ -163,10 +163,10 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private boolean u(ImMessageCenterPojo imMessageCenterPojo) {
-        HashMap<Integer, HashSet> Hh = a.GJ().Hh();
-        if (Hh != null && Hh.size() > 0) {
-            HashSet hashSet = Hh.get(0);
-            HashSet hashSet2 = Hh.get(1);
+        HashMap<Integer, HashSet> Hg = a.GI().Hg();
+        if (Hg != null && Hg.size() > 0) {
+            HashSet hashSet = Hg.get(0);
+            HashSet hashSet2 = Hg.get(1);
             if (hashSet != null && !am.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }

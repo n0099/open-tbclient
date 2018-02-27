@@ -14,25 +14,25 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private final BaseActivity bSO;
-    private b bSP;
-    private AccountSafeModel bSQ;
-    private com.baidu.adp.framework.listener.a bSR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
+    private final BaseActivity bSC;
+    private b bSD;
+    private AccountSafeModel bSE;
+    private com.baidu.adp.framework.listener.a bSF = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.bSQ != null) {
-                a.this.bSQ.setLoading(false);
+            if (a.this.bSE != null) {
+                a.this.bSE.setLoading(false);
             }
-            a.this.bSO.closeLoadingDialog();
+            a.this.bSC.closeLoadingDialog();
             if (responsedMessage != null) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = a.this.bSO.getString(d.j.neterror);
+                        errorString = a.this.bSC.getString(d.j.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    a.this.bSO.showToast(errorString);
+                    a.this.bSC.showToast(errorString);
                     return;
                 }
                 com.baidu.tieba.setting.im.more.a aVar = null;
@@ -42,51 +42,51 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.bSQ != null) {
-                    a.this.bSQ.a(aVar);
+                if (a.this.bSE != null) {
+                    a.this.bSE.a(aVar);
                 }
-                if (a.this.bSP != null && a.this.bSQ != null && a.this.bSQ.Ut() != null) {
-                    a.this.bSP.a(a.this.bSQ.Ut().Uy());
+                if (a.this.bSD != null && a.this.bSE != null && a.this.bSE.Us() != null) {
+                    a.this.bSD.a(a.this.bSE.Us().Ux());
                 }
             }
         }
     };
 
     public a(BaseActivity baseActivity) {
-        this.bSO = baseActivity;
-        this.bSO.registerListener(this.bSR);
-        this.bSP = new b(this.bSO, this);
-        this.bSQ = new AccountSafeModel(this.bSO);
+        this.bSC = baseActivity;
+        this.bSC.registerListener(this.bSF);
+        this.bSD = new b(this.bSC, this);
+        this.bSE = new AccountSafeModel(this.bSC);
         if (j.oJ()) {
-            Uz();
+            Uy();
         } else {
-            this.bSO.showToast(d.j.neterror);
+            this.bSC.showToast(d.j.neterror);
         }
     }
 
     public View getRootView() {
-        return this.bSP.getView();
+        return this.bSD.getView();
     }
 
-    private void Uz() {
-        if (this.bSQ != null && !this.bSQ.El()) {
-            this.bSQ.Uw();
+    private void Uy() {
+        if (this.bSE != null && !this.bSE.Ek()) {
+            this.bSE.Uv();
         }
     }
 
     public void onDestroy() {
-        this.bSO.closeLoadingDialog();
-        if (this.bSQ != null) {
-            this.bSQ.cancelLoadData();
+        this.bSC.closeLoadingDialog();
+        if (this.bSE != null) {
+            this.bSE.cancelLoadData();
         }
-        if (this.bSP != null) {
-            this.bSP.release();
+        if (this.bSD != null) {
+            this.bSD.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bSP != null) {
-            this.bSP.hr(i);
+        if (this.bSD != null) {
+            this.bSD.hr(i);
         }
     }
 
@@ -95,12 +95,12 @@ public class a implements View.OnClickListener {
         if (view.getId() == d.g.bar_record) {
             TiebaStatic.log("c10013");
             if (!j.oJ()) {
-                this.bSO.showToast(d.j.neterror);
+                this.bSC.showToast(d.j.neterror);
             } else {
-                aw.Du().c(this.bSO.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                aw.Dt().c(this.bSC.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == d.g.account_status) {
-            AntiHelper.as(this.bSO, this.bSQ != null ? this.bSQ.Uu() : "");
+            AntiHelper.as(this.bSC, this.bSE != null ? this.bSE.Ut() : "");
         }
     }
 }

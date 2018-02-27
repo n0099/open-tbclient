@@ -18,48 +18,48 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements j, l {
-    private static volatile b gBt;
-    private final AtomicReference<com.baidu.adp.lib.cache.l<String>> gBu = new AtomicReference<>(null);
-    private AtomicReference<com.baidu.adp.lib.cache.l<String>> gBv = new AtomicReference<>(null);
-    private boolean gBz = false;
-    private boolean gBA = false;
-    private CustomMessageListener gBB = new CustomMessageListener(2921022) { // from class: com.baidu.tieba.recapp.b.1
+    private static volatile b gBe;
+    private final AtomicReference<com.baidu.adp.lib.cache.l<String>> gBf = new AtomicReference<>(null);
+    private AtomicReference<com.baidu.adp.lib.cache.l<String>> gBg = new AtomicReference<>(null);
+    private boolean gBk = false;
+    private boolean gBl = false;
+    private CustomMessageListener gBm = new CustomMessageListener(2921022) { // from class: com.baidu.tieba.recapp.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921022 && (customResponsedMessage.getData() instanceof String)) {
-                com.baidu.tieba.ad.a.UA().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
+                com.baidu.tieba.ad.a.Uz().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
             }
         }
     };
-    private HashMap<String, g> gBw = new HashMap<>();
-    private int gBx = 0;
-    private String gBy = bnU();
+    private HashMap<String, g> gBh = new HashMap<>();
+    private int gBi = 0;
+    private String gBj = bnT();
 
-    public static b bnP() {
-        if (gBt == null) {
+    public static b bnO() {
+        if (gBe == null) {
             synchronized (b.class) {
-                if (gBt == null) {
-                    gBt = new b();
+                if (gBe == null) {
+                    gBe = new b();
                 }
             }
         }
-        return gBt;
+        return gBe;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.gBB);
+        MessageManager.getInstance().registerListener(this.gBm);
     }
 
     @Override // com.baidu.tieba.recapp.j
-    public void bnQ() {
-        if (!this.gBz) {
+    public void bnP() {
+        if (!this.gBk) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.adp.lib.cache.l lVar = (com.baidu.adp.lib.cache.l) b.this.gBu.get();
+                    com.baidu.adp.lib.cache.l lVar = (com.baidu.adp.lib.cache.l) b.this.gBf.get();
                     if (lVar != null) {
-                        lVar.a(b.this.gBy, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.2.1
+                        lVar.a(b.this.gBj, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.2.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.adp.lib.cache.l.a
                             /* renamed from: aX */
@@ -69,8 +69,8 @@ public class b implements j, l {
                                     while (it.hasNext()) {
                                         g gVar = (g) it.next();
                                         if (gVar != null) {
-                                            b.this.gBw.put(gVar.forumName, gVar);
-                                            b.this.gBz = true;
+                                            b.this.gBh.put(gVar.forumName, gVar);
+                                            b.this.gBk = true;
                                         }
                                     }
                                 }
@@ -79,9 +79,9 @@ public class b implements j, l {
                     }
                 }
             };
-            if (this.gBu.get() == null) {
+            if (this.gBf.get() == null) {
                 synchronized (b.class) {
-                    new a(this.gBu, "frs.refresh.count", runnable).execute(new Void[0]);
+                    new a(this.gBf, "frs.refresh.count", runnable).execute(new Void[0]);
                 }
             }
         }
@@ -97,44 +97,44 @@ public class b implements j, l {
     }
 
     private void h(String str, boolean z, boolean z2) {
-        bnV();
-        g gVar = this.gBw.get(str);
+        bnU();
+        g gVar = this.gBh.get(str);
         if (gVar == null) {
             gVar = new g();
             gVar.forumName = str;
-            this.gBw.put(gVar.forumName, gVar);
+            this.gBh.put(gVar.forumName, gVar);
         }
         gVar.S(z, z2);
-        l(this.gBw);
+        l(this.gBh);
     }
 
     private synchronized void l(HashMap<String, g> hashMap) {
-        com.baidu.adp.lib.cache.l<String> lVar = this.gBu.get();
+        com.baidu.adp.lib.cache.l<String> lVar = this.gBf.get();
         if (lVar != null) {
             JSONArray jSONArray = new JSONArray();
             for (Map.Entry<String, g> entry : hashMap.entrySet()) {
-                JSONObject bnY = entry.getValue().bnY();
-                if (bnY != null) {
-                    jSONArray.put(bnY);
+                JSONObject bnX = entry.getValue().bnX();
+                if (bnX != null) {
+                    jSONArray.put(bnX);
                 }
             }
-            lVar.b(this.gBy, jSONArray.toString(), 86400000L);
+            lVar.b(this.gBj, jSONArray.toString(), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.j
-    public int V(String str, boolean z) {
+    public int U(String str, boolean z) {
         return i(str, true, z);
     }
 
     @Override // com.baidu.tieba.recapp.j
-    public int W(String str, boolean z) {
+    public int V(String str, boolean z) {
         return i(str, false, z);
     }
 
     private int i(String str, boolean z, boolean z2) {
-        g gVar = this.gBw.get(str);
-        if (gVar == null || !rI(bnU())) {
+        g gVar = this.gBh.get(str);
+        if (gVar == null || !rI(bnT())) {
             return 0;
         }
         return gVar.R(z, z2);
@@ -157,84 +157,84 @@ public class b implements j, l {
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public void bnR() {
-        if (!this.gBA) {
+    public void bnQ() {
+        if (!this.gBl) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    ((com.baidu.adp.lib.cache.l) b.this.gBv.get()).a(b.this.gBy, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.3.1
+                    ((com.baidu.adp.lib.cache.l) b.this.gBg.get()).a(b.this.gBj, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.3.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.lib.cache.l.a
                         /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
                                 try {
-                                    b.this.gBx = Integer.parseInt(str2);
+                                    b.this.gBi = Integer.parseInt(str2);
                                 } catch (NumberFormatException e) {
-                                    b.this.gBx = 0;
+                                    b.this.gBi = 0;
                                 }
-                                b.this.gBA = true;
+                                b.this.gBl = true;
                             }
                         }
                     });
                 }
             };
-            if (this.gBv.get() == null) {
+            if (this.gBg.get() == null) {
                 synchronized (b.class) {
-                    new a(this.gBv, "hot.splash.count", runnable).execute(new Void[0]);
+                    new a(this.gBg, "hot.splash.count", runnable).execute(new Void[0]);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public void bnS() {
-        com.baidu.adp.lib.cache.l<String> lVar = this.gBv.get();
+    public void bnR() {
+        com.baidu.adp.lib.cache.l<String> lVar = this.gBg.get();
         if (lVar != null) {
-            bnV();
-            this.gBx++;
-            lVar.b(this.gBy, Integer.toString(this.gBx), 86400000L);
+            bnU();
+            this.gBi++;
+            lVar.b(this.gBj, Integer.toString(this.gBi), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.l
-    public int bnT() {
-        if (rI(bnU())) {
-            return this.gBx;
+    public int bnS() {
+        if (rI(bnT())) {
+            return this.gBi;
         }
         return 0;
     }
 
-    private String bnU() {
+    private String bnT() {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 
     private boolean rI(String str) {
-        if (TextUtils.isEmpty(this.gBy)) {
+        if (TextUtils.isEmpty(this.gBj)) {
             return false;
         }
-        return this.gBy.equals(str);
+        return this.gBj.equals(str);
     }
 
-    private void bnV() {
-        String bnU = bnU();
-        if (!rI(bnU)) {
-            this.gBw.clear();
-            this.gBx = 0;
-            this.gBy = bnU;
+    private void bnU() {
+        String bnT = bnT();
+        if (!rI(bnT)) {
+            this.gBh.clear();
+            this.gBi = 0;
+            this.gBj = bnT;
         }
     }
 
     /* loaded from: classes3.dex */
     private static final class a extends BdAsyncTask<Void, Void, Void> {
-        private final AtomicReference<com.baidu.adp.lib.cache.l<String>> gBF;
-        private final String gBG;
-        private final Runnable gBH;
+        private final AtomicReference<com.baidu.adp.lib.cache.l<String>> gBq;
+        private final String gBr;
+        private final Runnable gBs;
 
         private a(AtomicReference<com.baidu.adp.lib.cache.l<String>> atomicReference, String str, Runnable runnable) {
-            this.gBF = atomicReference;
-            this.gBG = str;
-            this.gBH = runnable;
+            this.gBq = atomicReference;
+            this.gBr = str;
+            this.gBs = runnable;
             setPriority(4);
         }
 
@@ -242,10 +242,10 @@ public class b implements j, l {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (this.gBF.get() == null) {
+            if (this.gBq.get() == null) {
                 synchronized (b.class) {
-                    if (this.gBF.get() == null) {
-                        this.gBF.set(com.baidu.tbadk.core.c.a.AQ().dh(this.gBG));
+                    if (this.gBq.get() == null) {
+                        this.gBq.set(com.baidu.tbadk.core.c.a.AQ().dh(this.gBr));
                     }
                 }
             }
@@ -258,8 +258,8 @@ public class b implements j, l {
         /* renamed from: a */
         public void onPostExecute(Void r2) {
             super.onPostExecute(r2);
-            if (this.gBH != null) {
-                this.gBH.run();
+            if (this.gBs != null) {
+                this.gBs.run();
             }
         }
     }

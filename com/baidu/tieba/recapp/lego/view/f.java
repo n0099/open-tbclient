@@ -8,7 +8,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class f extends a {
-    private VrPicView gEK;
+    private VrPicView gEv;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -21,28 +21,28 @@ public class f extends a {
 
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void cL(View view) {
-        this.gEK = (VrPicView) view.findViewById(d.g.vr_pic_view);
+        this.gEv = (VrPicView) view.findViewById(d.g.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.gDE.setVisibility(0);
+            this.gDp.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            advertAppInfo.aKR.width = this.mMaxWidth;
-            advertAppInfo.aKR.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
-            advertAppInfo.aKR.aLb = str;
-            this.gEK.a(this.aRR, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.gEK.getLayoutParams();
+            advertAppInfo.aKG.width = this.mMaxWidth;
+            advertAppInfo.aKG.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
+            advertAppInfo.aKG.aKQ = str;
+            this.gEv.a(this.aRG, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.gEv.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = advertAppInfo.aKR.width;
-                layoutParams.height = advertAppInfo.aKR.height;
+                layoutParams.width = advertAppInfo.aKG.width;
+                layoutParams.height = advertAppInfo.aKG.height;
             }
-            this.gEK.setLayoutParams(layoutParams);
+            this.gEv.setLayoutParams(layoutParams);
             return;
         }
-        this.gDE.setVisibility(8);
+        this.gDp.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a

@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class m extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> gru;
-    private List<n> grv;
-    private com.baidu.adp.lib.e.b<n> grw;
+    private List<com.baidu.tieba.personPolymeric.c.f> grj;
+    private List<n> grk;
+    private com.baidu.adp.lib.e.b<n> grl;
     private Context mContext;
 
     public m(Context context) {
         super(context);
-        this.grv = new ArrayList();
+        this.grk = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.gru = list;
-        bkF();
+        this.grj = list;
+        bkE();
     }
 
-    private void bkF() {
-        if (!v.E(this.gru)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.gru) {
+    private void bkE() {
+        if (!v.E(this.grj)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.grj) {
                 if (fVar != null) {
-                    n nk = this.grw.nk();
+                    n nk = this.grl.nk();
                     nk.setData(fVar);
                     addView(nk, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.ao(this.mContext) - com.baidu.adp.lib.util.l.t(this.mContext, d.e.tbds88)) - com.baidu.adp.lib.util.l.t(this.mContext, d.e.tbds96)) / 2, -2));
-                    this.grv.add(nk);
+                    this.grk.add(nk);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!v.E(this.grv)) {
-            for (n nVar : this.grv) {
-                this.grw.ar(nVar);
+        if (!v.E(this.grk)) {
+            for (n nVar : this.grk) {
+                this.grl.ar(nVar);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<n> bVar) {
-        this.grw = bVar;
+        this.grl = bVar;
     }
 
     public void onChangeSkinType() {
-        for (n nVar : this.grv) {
+        for (n nVar : this.grk) {
             if (nVar != null) {
                 nVar.onChangeSkinType();
             }

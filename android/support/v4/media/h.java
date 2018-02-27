@@ -16,15 +16,15 @@ class h {
     final AudioManager mAudioManager;
     final Context mContext;
     final Intent mIntent;
-    final View yG;
-    final g yH;
-    final String yI;
-    final IntentFilter yJ;
-    PendingIntent yQ;
-    RemoteControlClient yR;
-    boolean yS;
-    boolean yU;
-    final ViewTreeObserver.OnWindowAttachListener yK = new ViewTreeObserver.OnWindowAttachListener() { // from class: android.support.v4.media.h.1
+    final View yB;
+    final g yC;
+    final String yD;
+    final IntentFilter yE;
+    PendingIntent yL;
+    RemoteControlClient yM;
+    boolean yN;
+    boolean yP;
+    final ViewTreeObserver.OnWindowAttachListener yF = new ViewTreeObserver.OnWindowAttachListener() { // from class: android.support.v4.media.h.1
         @Override // android.view.ViewTreeObserver.OnWindowAttachListener
         public void onWindowAttached() {
             h.this.dv();
@@ -35,7 +35,7 @@ class h {
             h.this.dA();
         }
     };
-    final ViewTreeObserver.OnWindowFocusChangeListener yL = new ViewTreeObserver.OnWindowFocusChangeListener() { // from class: android.support.v4.media.h.2
+    final ViewTreeObserver.OnWindowFocusChangeListener yG = new ViewTreeObserver.OnWindowFocusChangeListener() { // from class: android.support.v4.media.h.2
         @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
         public void onWindowFocusChanged(boolean z) {
             if (!z) {
@@ -45,142 +45,142 @@ class h {
             }
         }
     };
-    final BroadcastReceiver yM = new BroadcastReceiver() { // from class: android.support.v4.media.h.3
+    final BroadcastReceiver yH = new BroadcastReceiver() { // from class: android.support.v4.media.h.3
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             try {
-                h.this.yH.a((KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
+                h.this.yC.a((KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
             } catch (ClassCastException e) {
                 Log.w("TransportController", e);
             }
         }
     };
-    AudioManager.OnAudioFocusChangeListener yN = new AudioManager.OnAudioFocusChangeListener() { // from class: android.support.v4.media.h.4
+    AudioManager.OnAudioFocusChangeListener yI = new AudioManager.OnAudioFocusChangeListener() { // from class: android.support.v4.media.h.4
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
-            h.this.yH.ak(i);
+            h.this.yC.ak(i);
         }
     };
-    final RemoteControlClient.OnGetPlaybackPositionListener yO = new RemoteControlClient.OnGetPlaybackPositionListener() { // from class: android.support.v4.media.h.5
+    final RemoteControlClient.OnGetPlaybackPositionListener yJ = new RemoteControlClient.OnGetPlaybackPositionListener() { // from class: android.support.v4.media.h.5
         @Override // android.media.RemoteControlClient.OnGetPlaybackPositionListener
         public long onGetPlaybackPosition() {
-            return h.this.yH.du();
+            return h.this.yC.du();
         }
     };
-    final RemoteControlClient.OnPlaybackPositionUpdateListener yP = new RemoteControlClient.OnPlaybackPositionUpdateListener() { // from class: android.support.v4.media.h.6
+    final RemoteControlClient.OnPlaybackPositionUpdateListener yK = new RemoteControlClient.OnPlaybackPositionUpdateListener() { // from class: android.support.v4.media.h.6
         @Override // android.media.RemoteControlClient.OnPlaybackPositionUpdateListener
         public void onPlaybackPositionUpdate(long j) {
-            h.this.yH.l(j);
+            h.this.yC.l(j);
         }
     };
-    int yT = 0;
+    int yO = 0;
 
     public h(Context context, AudioManager audioManager, View view, g gVar) {
         this.mContext = context;
         this.mAudioManager = audioManager;
-        this.yG = view;
-        this.yH = gVar;
-        this.yI = context.getPackageName() + ":transport:" + System.identityHashCode(this);
-        this.mIntent = new Intent(this.yI);
+        this.yB = view;
+        this.yC = gVar;
+        this.yD = context.getPackageName() + ":transport:" + System.identityHashCode(this);
+        this.mIntent = new Intent(this.yD);
         this.mIntent.setPackage(context.getPackageName());
-        this.yJ = new IntentFilter();
-        this.yJ.addAction(this.yI);
-        this.yG.getViewTreeObserver().addOnWindowAttachListener(this.yK);
-        this.yG.getViewTreeObserver().addOnWindowFocusChangeListener(this.yL);
+        this.yE = new IntentFilter();
+        this.yE.addAction(this.yD);
+        this.yB.getViewTreeObserver().addOnWindowAttachListener(this.yF);
+        this.yB.getViewTreeObserver().addOnWindowFocusChangeListener(this.yG);
     }
 
     public Object getRemoteControlClient() {
-        return this.yR;
+        return this.yM;
     }
 
     public void destroy() {
         dA();
-        this.yG.getViewTreeObserver().removeOnWindowAttachListener(this.yK);
-        this.yG.getViewTreeObserver().removeOnWindowFocusChangeListener(this.yL);
+        this.yB.getViewTreeObserver().removeOnWindowAttachListener(this.yF);
+        this.yB.getViewTreeObserver().removeOnWindowFocusChangeListener(this.yG);
     }
 
     void dv() {
-        this.mContext.registerReceiver(this.yM, this.yJ);
-        this.yQ = PendingIntent.getBroadcast(this.mContext, 0, this.mIntent, 268435456);
-        this.yR = new RemoteControlClient(this.yQ);
-        this.yR.setOnGetPlaybackPositionListener(this.yO);
-        this.yR.setPlaybackPositionUpdateListener(this.yP);
+        this.mContext.registerReceiver(this.yH, this.yE);
+        this.yL = PendingIntent.getBroadcast(this.mContext, 0, this.mIntent, 268435456);
+        this.yM = new RemoteControlClient(this.yL);
+        this.yM.setOnGetPlaybackPositionListener(this.yJ);
+        this.yM.setPlaybackPositionUpdateListener(this.yK);
     }
 
     void dw() {
-        if (!this.yS) {
-            this.yS = true;
-            this.mAudioManager.registerMediaButtonEventReceiver(this.yQ);
-            this.mAudioManager.registerRemoteControlClient(this.yR);
-            if (this.yT == 3) {
+        if (!this.yN) {
+            this.yN = true;
+            this.mAudioManager.registerMediaButtonEventReceiver(this.yL);
+            this.mAudioManager.registerRemoteControlClient(this.yM);
+            if (this.yO == 3) {
                 dx();
             }
         }
     }
 
     void dx() {
-        if (!this.yU) {
-            this.yU = true;
-            this.mAudioManager.requestAudioFocus(this.yN, 3, 1);
+        if (!this.yP) {
+            this.yP = true;
+            this.mAudioManager.requestAudioFocus(this.yI, 3, 1);
         }
     }
 
     public void startPlaying() {
-        if (this.yT != 3) {
-            this.yT = 3;
-            this.yR.setPlaybackState(3);
+        if (this.yO != 3) {
+            this.yO = 3;
+            this.yM.setPlaybackState(3);
         }
-        if (this.yS) {
+        if (this.yN) {
             dx();
         }
     }
 
     public void a(boolean z, long j, int i) {
-        if (this.yR != null) {
-            this.yR.setPlaybackState(z ? 3 : 1, j, z ? 1.0f : 0.0f);
-            this.yR.setTransportControlFlags(i);
+        if (this.yM != null) {
+            this.yM.setPlaybackState(z ? 3 : 1, j, z ? 1.0f : 0.0f);
+            this.yM.setTransportControlFlags(i);
         }
     }
 
     public void pausePlaying() {
-        if (this.yT == 3) {
-            this.yT = 2;
-            this.yR.setPlaybackState(2);
+        if (this.yO == 3) {
+            this.yO = 2;
+            this.yM.setPlaybackState(2);
         }
         dy();
     }
 
     public void stopPlaying() {
-        if (this.yT != 1) {
-            this.yT = 1;
-            this.yR.setPlaybackState(1);
+        if (this.yO != 1) {
+            this.yO = 1;
+            this.yM.setPlaybackState(1);
         }
         dy();
     }
 
     void dy() {
-        if (this.yU) {
-            this.yU = false;
-            this.mAudioManager.abandonAudioFocus(this.yN);
+        if (this.yP) {
+            this.yP = false;
+            this.mAudioManager.abandonAudioFocus(this.yI);
         }
     }
 
     void dz() {
         dy();
-        if (this.yS) {
-            this.yS = false;
-            this.mAudioManager.unregisterRemoteControlClient(this.yR);
-            this.mAudioManager.unregisterMediaButtonEventReceiver(this.yQ);
+        if (this.yN) {
+            this.yN = false;
+            this.mAudioManager.unregisterRemoteControlClient(this.yM);
+            this.mAudioManager.unregisterMediaButtonEventReceiver(this.yL);
         }
     }
 
     void dA() {
         dz();
-        if (this.yQ != null) {
-            this.mContext.unregisterReceiver(this.yM);
-            this.yQ.cancel();
-            this.yQ = null;
-            this.yR = null;
+        if (this.yL != null) {
+            this.mContext.unregisterReceiver(this.yH);
+            this.yL.cancel();
+            this.yL = null;
+            this.yM = null;
         }
     }
 }

@@ -17,13 +17,13 @@ import com.baidu.tieba.d;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends o {
-    private m aTN;
-    private String cZU;
+    private m aTC;
+    private String cZI;
 
     public a(m mVar, String str) {
         super(mVar);
-        this.aTN = mVar;
-        this.cZU = str;
+        this.aTC = mVar;
+        this.cZI = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,16 +46,16 @@ public class a extends o {
                 if (StringUtils.isNull(optString2)) {
                     lZ(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.bol().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.rL(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.bok().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.rL(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new ak("c12775").ab(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cZU) ? "" : this.cZU));
+                TiebaStatic.log(new ak("c12775").ab(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cZI) ? "" : this.cZI));
             }
         }
     }
 
     private void lZ(String str) {
         try {
-            this.aTN.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
+            this.aTC.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

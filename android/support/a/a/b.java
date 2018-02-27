@@ -36,9 +36,9 @@ import org.xmlpull.v1.XmlPullParserException;
 public class b extends e implements Animatable {
     final Drawable.Callback mCallback;
     private Context mContext;
-    private a tc;
-    private ArgbEvaluator td;
-    C0000b te;
+    private a tb;
+    private ArgbEvaluator tc;
+    C0000b td;
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     public /* bridge */ /* synthetic */ void clearColorFilter() {
@@ -124,7 +124,7 @@ public class b extends e implements Animatable {
     }
 
     private b(Context context, a aVar, Resources resources) {
-        this.td = null;
+        this.tc = null;
         this.mCallback = new Drawable.Callback() { // from class: android.support.a.a.b.1
             @Override // android.graphics.drawable.Drawable.Callback
             public void invalidateDrawable(Drawable drawable) {
@@ -143,16 +143,16 @@ public class b extends e implements Animatable {
         };
         this.mContext = context;
         if (aVar != null) {
-            this.tc = aVar;
+            this.tb = aVar;
         } else {
-            this.tc = new a(context, aVar, this.mCallback, resources);
+            this.tb = new a(context, aVar, this.mCallback, resources);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        if (this.tq != null) {
-            this.tq.mutate();
+        if (this.tp != null) {
+            this.tp.mutate();
             return this;
         }
         throw new IllegalStateException("Mutate() is not supported for older platform");
@@ -162,9 +162,9 @@ public class b extends e implements Animatable {
         int next;
         if (Build.VERSION.SDK_INT >= 24) {
             b bVar = new b(context);
-            bVar.tq = ResourcesCompat.getDrawable(context.getResources(), i, context.getTheme());
-            bVar.tq.setCallback(bVar.mCallback);
-            bVar.te = new C0000b(bVar.tq.getConstantState());
+            bVar.tp = ResourcesCompat.getDrawable(context.getResources(), i, context.getTheme());
+            bVar.tp.setCallback(bVar.mCallback);
+            bVar.td = new C0000b(bVar.tp.getConstantState());
             return bVar;
         }
         try {
@@ -197,24 +197,24 @@ public class b extends e implements Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        if (this.tq != null) {
-            return new C0000b(this.tq.getConstantState());
+        if (this.tp != null) {
+            return new C0000b(this.tp.getConstantState());
         }
         return null;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        return this.tq != null ? this.tq.getChangingConfigurations() : super.getChangingConfigurations() | this.tc.tg;
+        return this.tp != null ? this.tp.getChangingConfigurations() : super.getChangingConfigurations() | this.tb.tf;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.tq != null) {
-            this.tq.draw(canvas);
+        if (this.tp != null) {
+            this.tp.draw(canvas);
             return;
         }
-        this.tc.th.draw(canvas);
+        this.tb.tg.draw(canvas);
         if (isStarted()) {
             invalidateSelf();
         }
@@ -222,113 +222,113 @@ public class b extends e implements Animatable {
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        if (this.tq != null) {
-            this.tq.setBounds(rect);
+        if (this.tp != null) {
+            this.tp.setBounds(rect);
         } else {
-            this.tc.th.setBounds(rect);
+            this.tb.tg.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        return this.tq != null ? this.tq.setState(iArr) : this.tc.th.setState(iArr);
+        return this.tp != null ? this.tp.setState(iArr) : this.tb.tg.setState(iArr);
     }
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        return this.tq != null ? this.tq.setLevel(i) : this.tc.th.setLevel(i);
+        return this.tp != null ? this.tp.setLevel(i) : this.tb.tg.setLevel(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.tq != null ? DrawableCompat.getAlpha(this.tq) : this.tc.th.getAlpha();
+        return this.tp != null ? DrawableCompat.getAlpha(this.tp) : this.tb.tg.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        if (this.tq != null) {
-            this.tq.setAlpha(i);
+        if (this.tp != null) {
+            this.tp.setAlpha(i);
         } else {
-            this.tc.th.setAlpha(i);
+            this.tb.tg.setAlpha(i);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        if (this.tq != null) {
-            this.tq.setColorFilter(colorFilter);
+        if (this.tp != null) {
+            this.tp.setColorFilter(colorFilter);
         } else {
-            this.tc.th.setColorFilter(colorFilter);
+            this.tb.tg.setColorFilter(colorFilter);
         }
     }
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTint(int i) {
-        if (this.tq != null) {
-            DrawableCompat.setTint(this.tq, i);
+        if (this.tp != null) {
+            DrawableCompat.setTint(this.tp, i);
         } else {
-            this.tc.th.setTint(i);
+            this.tb.tg.setTint(i);
         }
     }
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
-        if (this.tq != null) {
-            DrawableCompat.setTintList(this.tq, colorStateList);
+        if (this.tp != null) {
+            DrawableCompat.setTintList(this.tp, colorStateList);
         } else {
-            this.tc.th.setTintList(colorStateList);
+            this.tb.tg.setTintList(colorStateList);
         }
     }
 
     @Override // android.graphics.drawable.Drawable, android.support.v4.graphics.drawable.TintAwareDrawable
     public void setTintMode(PorterDuff.Mode mode) {
-        if (this.tq != null) {
-            DrawableCompat.setTintMode(this.tq, mode);
+        if (this.tp != null) {
+            DrawableCompat.setTintMode(this.tp, mode);
         } else {
-            this.tc.th.setTintMode(mode);
+            this.tb.tg.setTintMode(mode);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.tq != null) {
-            return this.tq.setVisible(z, z2);
+        if (this.tp != null) {
+            return this.tp.setVisible(z, z2);
         }
-        this.tc.th.setVisible(z, z2);
+        this.tb.tg.setVisible(z, z2);
         return super.setVisible(z, z2);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.tq != null ? this.tq.isStateful() : this.tc.th.isStateful();
+        return this.tp != null ? this.tp.isStateful() : this.tb.tg.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.tq != null ? this.tq.getOpacity() : this.tc.th.getOpacity();
+        return this.tp != null ? this.tp.getOpacity() : this.tb.tg.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.tq != null ? this.tq.getIntrinsicWidth() : this.tc.th.getIntrinsicWidth();
+        return this.tp != null ? this.tp.getIntrinsicWidth() : this.tb.tg.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.tq != null ? this.tq.getIntrinsicHeight() : this.tc.th.getIntrinsicHeight();
+        return this.tp != null ? this.tp.getIntrinsicHeight() : this.tb.tg.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        return this.tq != null ? DrawableCompat.isAutoMirrored(this.tq) : this.tc.th.isAutoMirrored();
+        return this.tp != null ? DrawableCompat.isAutoMirrored(this.tp) : this.tb.tg.isAutoMirrored();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        if (this.tq != null) {
-            this.tq.setAutoMirrored(z);
+        if (this.tp != null) {
+            this.tp.setAutoMirrored(z);
         } else {
-            this.tc.th.setAutoMirrored(z);
+            this.tb.tg.setAutoMirrored(z);
         }
     }
 
@@ -338,8 +338,8 @@ public class b extends e implements Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public void inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
-        if (this.tq != null) {
-            DrawableCompat.inflate(this.tq, resources, xmlPullParser, attributeSet, theme);
+        if (this.tp != null) {
+            DrawableCompat.inflate(this.tp, resources, xmlPullParser, attributeSet, theme);
             return;
         }
         int eventType = xmlPullParser.getEventType();
@@ -349,20 +349,20 @@ public class b extends e implements Animatable {
                 if (eventType == 2) {
                     String name = xmlPullParser.getName();
                     if ("animated-vector".equals(name)) {
-                        TypedArray a2 = a(resources, theme, attributeSet, android.support.a.a.a.sZ);
+                        TypedArray a2 = a(resources, theme, attributeSet, android.support.a.a.a.sY);
                         int resourceId = a2.getResourceId(0, 0);
                         if (resourceId != 0) {
                             f a3 = f.a(resources, resourceId, theme);
                             a3.t(false);
                             a3.setCallback(this.mCallback);
-                            if (this.tc.th != null) {
-                                this.tc.th.setCallback(null);
+                            if (this.tb.tg != null) {
+                                this.tb.tg.setCallback(null);
                             }
-                            this.tc.th = a3;
+                            this.tb.tg = a3;
                         }
                         a2.recycle();
                     } else if (BaiduRimConstants.ACTION_TARGET.equals(name)) {
-                        TypedArray obtainAttributes = resources.obtainAttributes(attributeSet, android.support.a.a.a.tb);
+                        TypedArray obtainAttributes = resources.obtainAttributes(attributeSet, android.support.a.a.a.sZ);
                         String string = obtainAttributes.getString(0);
                         int resourceId2 = obtainAttributes.getResourceId(1, 0);
                         if (resourceId2 != 0) {
@@ -391,15 +391,15 @@ public class b extends e implements Animatable {
 
     @Override // android.support.a.a.e, android.graphics.drawable.Drawable
     public void applyTheme(Resources.Theme theme) {
-        if (this.tq != null) {
-            DrawableCompat.applyTheme(this.tq, theme);
+        if (this.tp != null) {
+            DrawableCompat.applyTheme(this.tp, theme);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean canApplyTheme() {
-        if (this.tq != null) {
-            return DrawableCompat.canApplyTheme(this.tq);
+        if (this.tp != null) {
+            return DrawableCompat.canApplyTheme(this.tp);
         }
         return false;
     }
@@ -407,44 +407,44 @@ public class b extends e implements Animatable {
     /* renamed from: android.support.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0000b extends Drawable.ConstantState {
-        private final Drawable.ConstantState tj;
+        private final Drawable.ConstantState ti;
 
         public C0000b(Drawable.ConstantState constantState) {
-            this.tj = constantState;
+            this.ti = constantState;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable() {
             b bVar = new b();
-            bVar.tq = this.tj.newDrawable();
-            bVar.tq.setCallback(bVar.mCallback);
+            bVar.tp = this.ti.newDrawable();
+            bVar.tp.setCallback(bVar.mCallback);
             return bVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources) {
             b bVar = new b();
-            bVar.tq = this.tj.newDrawable(resources);
-            bVar.tq.setCallback(bVar.mCallback);
+            bVar.tp = this.ti.newDrawable(resources);
+            bVar.tp.setCallback(bVar.mCallback);
             return bVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public Drawable newDrawable(Resources resources, Resources.Theme theme) {
             b bVar = new b();
-            bVar.tq = this.tj.newDrawable(resources, theme);
-            bVar.tq.setCallback(bVar.mCallback);
+            bVar.tp = this.ti.newDrawable(resources, theme);
+            bVar.tp.setCallback(bVar.mCallback);
             return bVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public boolean canApplyTheme() {
-            return this.tj.canApplyTheme();
+            return this.ti.canApplyTheme();
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.tj.getChangingConfigurations();
+            return this.ti.getChangingConfigurations();
         }
     }
 
@@ -452,36 +452,36 @@ public class b extends e implements Animatable {
     /* loaded from: classes2.dex */
     public static class a extends Drawable.ConstantState {
         ArrayList<Animator> mAnimators;
-        int tg;
-        f th;
-        ArrayMap<Animator, String> ti;
+        int tf;
+        f tg;
+        ArrayMap<Animator, String> th;
 
         public a(Context context, a aVar, Drawable.Callback callback, Resources resources) {
             if (aVar != null) {
-                this.tg = aVar.tg;
-                if (aVar.th != null) {
-                    Drawable.ConstantState constantState = aVar.th.getConstantState();
+                this.tf = aVar.tf;
+                if (aVar.tg != null) {
+                    Drawable.ConstantState constantState = aVar.tg.getConstantState();
                     if (resources != null) {
-                        this.th = (f) constantState.newDrawable(resources);
+                        this.tg = (f) constantState.newDrawable(resources);
                     } else {
-                        this.th = (f) constantState.newDrawable();
+                        this.tg = (f) constantState.newDrawable();
                     }
-                    this.th = (f) this.th.mutate();
-                    this.th.setCallback(callback);
-                    this.th.setBounds(aVar.th.getBounds());
-                    this.th.t(false);
+                    this.tg = (f) this.tg.mutate();
+                    this.tg.setCallback(callback);
+                    this.tg.setBounds(aVar.tg.getBounds());
+                    this.tg.t(false);
                 }
                 if (aVar.mAnimators != null) {
                     int size = aVar.mAnimators.size();
                     this.mAnimators = new ArrayList<>(size);
-                    this.ti = new ArrayMap<>(size);
+                    this.th = new ArrayMap<>(size);
                     for (int i = 0; i < size; i++) {
                         Animator animator = aVar.mAnimators.get(i);
                         Animator clone = animator.clone();
-                        String str = aVar.ti.get(animator);
-                        clone.setTarget(this.th.x(str));
+                        String str = aVar.th.get(animator);
+                        clone.setTarget(this.tg.x(str));
                         this.mAnimators.add(clone);
-                        this.ti.put(clone, str);
+                        this.th.put(clone, str);
                     }
                 }
             }
@@ -499,7 +499,7 @@ public class b extends e implements Animatable {
 
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
-            return this.tg;
+            return this.tf;
         }
     }
 
@@ -520,33 +520,33 @@ public class b extends e implements Animatable {
             ObjectAnimator objectAnimator = (ObjectAnimator) animator;
             String propertyName = objectAnimator.getPropertyName();
             if ("fillColor".equals(propertyName) || "strokeColor".equals(propertyName)) {
-                if (this.td == null) {
-                    this.td = new ArgbEvaluator();
+                if (this.tc == null) {
+                    this.tc = new ArgbEvaluator();
                 }
-                objectAnimator.setEvaluator(this.td);
+                objectAnimator.setEvaluator(this.tc);
             }
         }
     }
 
     private void a(String str, Animator animator) {
-        animator.setTarget(this.tc.th.x(str));
+        animator.setTarget(this.tb.tg.x(str));
         if (Build.VERSION.SDK_INT < 21) {
             a(animator);
         }
-        if (this.tc.mAnimators == null) {
-            this.tc.mAnimators = new ArrayList<>();
-            this.tc.ti = new ArrayMap<>();
+        if (this.tb.mAnimators == null) {
+            this.tb.mAnimators = new ArrayList<>();
+            this.tb.th = new ArrayMap<>();
         }
-        this.tc.mAnimators.add(animator);
-        this.tc.ti.put(animator, str);
+        this.tb.mAnimators.add(animator);
+        this.tb.th.put(animator, str);
     }
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        if (this.tq != null) {
-            return ((AnimatedVectorDrawable) this.tq).isRunning();
+        if (this.tp != null) {
+            return ((AnimatedVectorDrawable) this.tp).isRunning();
         }
-        ArrayList<Animator> arrayList = this.tc.mAnimators;
+        ArrayList<Animator> arrayList = this.tb.mAnimators;
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             if (arrayList.get(i).isRunning()) {
@@ -557,7 +557,7 @@ public class b extends e implements Animatable {
     }
 
     private boolean isStarted() {
-        ArrayList<Animator> arrayList = this.tc.mAnimators;
+        ArrayList<Animator> arrayList = this.tb.mAnimators;
         if (arrayList == null) {
             return false;
         }
@@ -572,10 +572,10 @@ public class b extends e implements Animatable {
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        if (this.tq != null) {
-            ((AnimatedVectorDrawable) this.tq).start();
+        if (this.tp != null) {
+            ((AnimatedVectorDrawable) this.tp).start();
         } else if (!isStarted()) {
-            ArrayList<Animator> arrayList = this.tc.mAnimators;
+            ArrayList<Animator> arrayList = this.tb.mAnimators;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 arrayList.get(i).start();
@@ -586,11 +586,11 @@ public class b extends e implements Animatable {
 
     @Override // android.graphics.drawable.Animatable
     public void stop() {
-        if (this.tq != null) {
-            ((AnimatedVectorDrawable) this.tq).stop();
+        if (this.tp != null) {
+            ((AnimatedVectorDrawable) this.tp).stop();
             return;
         }
-        ArrayList<Animator> arrayList = this.tc.mAnimators;
+        ArrayList<Animator> arrayList = this.tb.mAnimators;
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             arrayList.get(i).end();

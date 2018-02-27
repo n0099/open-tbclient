@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dDw = BdUniqueId.gen();
-    private String dDb;
-    private String dDs;
-    private String dDt;
-    private String dDu;
-    private boolean dDv;
-    private String dpl;
+    public static final BdUniqueId dDk = BdUniqueId.gen();
+    private String dCP;
+    private String dDg;
+    private String dDh;
+    private String dDi;
+    private boolean dDj;
+    private String doZ;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.dDb = str;
+        this.dCP = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dDw;
+        return dDk;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.dpl = searchForum.avatar;
-            this.dDs = searchForum.post_num;
-            this.dDt = searchForum.concern_num;
-            this.dDu = searchForum.slogan;
+            this.doZ = searchForum.avatar;
+            this.dDg = searchForum.post_num;
+            this.dDh = searchForum.concern_num;
+            this.dDi = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.dDv = searchForum.has_concerned.intValue() != 0;
+            this.dDj = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.dpl;
+        return this.doZ;
+    }
+
+    public String aup() {
+        return this.dDh;
     }
 
     public String auq() {
-        return this.dDt;
-    }
-
-    public String aur() {
-        return this.dDs;
+        return this.dDg;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String aus() {
-        return this.dDb;
+    public String aur() {
+        return this.dCP;
     }
 }

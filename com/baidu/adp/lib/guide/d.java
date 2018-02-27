@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a aiq;
-    private boolean ait;
-    private List<b> aiu = new ArrayList();
-    private Configuration ail = new Configuration();
+    private a aik;
+    private boolean ain;
+    private List<b> aio = new ArrayList();
+    private Configuration aif = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,84 +18,84 @@ public class d {
     }
 
     public d cW(int i) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.ail.mAlpha = i;
+        this.aif.mAlpha = i;
         return this;
     }
 
     public d aG(View view) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.ail.yG = view;
+        this.aif.yB = view;
         return this;
     }
 
     public d cX(int i) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.ail.aie = i;
+        this.aif.ahY = i;
         return this;
     }
 
     public d aj(boolean z) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.ail.aig = z;
+        this.aif.aia = z;
         return this;
     }
 
     public d ak(boolean z) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.ail.aih = z;
+        this.aif.aib = z;
         return this;
     }
 
     public d a(b bVar) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.aiu.add(bVar);
+        this.aio.add(bVar);
         return this;
     }
 
     public d b(a aVar) {
-        if (this.ait) {
+        if (this.ain) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.aiq = aVar;
+        this.aik = aVar;
         return this;
     }
 
     public d al(boolean z) {
-        this.ail.aic = z;
+        this.aif.ahW = z;
         return this;
     }
 
     public c mD() {
         c cVar = new c();
-        cVar.a((b[]) this.aiu.toArray(new b[this.aiu.size()]));
-        cVar.a(this.ail);
-        cVar.a(this.aiq);
-        this.aiu = null;
-        this.ail = null;
-        this.aiq = null;
-        this.ait = true;
+        cVar.a((b[]) this.aio.toArray(new b[this.aio.size()]));
+        cVar.a(this.aif);
+        cVar.a(this.aik);
+        this.aio = null;
+        this.aif = null;
+        this.aik = null;
+        this.ain = true;
         return cVar;
     }
 }

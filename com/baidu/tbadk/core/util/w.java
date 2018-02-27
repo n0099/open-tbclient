@@ -7,40 +7,40 @@ import android.text.TextUtils;
 import com.baidu.ar.util.Constants;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection aVV;
-    private String aVW;
-    private String[] aVX;
-    private String[] aVY;
-    private boolean aVZ;
-    private a aWa;
+    private MediaScannerConnection aVJ;
+    private String aVK;
+    private String[] aVL;
+    private String[] aVM;
+    private boolean aVN;
+    private a aVO;
     private int length;
     private Context mContext;
     private String mPath;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cx();
+        void Cw();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.aVV = new MediaScannerConnection(this.mContext, this);
+        this.aVJ = new MediaScannerConnection(this.mContext, this);
     }
 
     public void ef(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf(Constants.DOT));
-        this.aVW = "image/jpeg";
+        this.aVK = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.aVW = "image/gif";
+            this.aVK = "image/gif";
         }
-        this.aVV.connect();
+        this.aVJ.connect();
     }
 
     public void eg(String str) {
         this.mPath = str;
-        this.aVW = eh(str);
-        this.aVV.connect();
+        this.aVK = eh(str);
+        this.aVJ.connect();
     }
 
     private String eh(String str) {
@@ -53,37 +53,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aVW)) {
-            this.aVV.scanFile(this.mPath, this.aVW);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aVK)) {
+            this.aVJ.scanFile(this.mPath, this.aVK);
         }
-        if (this.aVX != null && this.aVY != null && this.aVX.length == this.aVY.length) {
-            int length = this.aVX.length;
+        if (this.aVL != null && this.aVM != null && this.aVL.length == this.aVM.length) {
+            int length = this.aVL.length;
             for (int i = 0; i < length; i++) {
-                this.aVV.scanFile(this.aVX[i], this.aVY[i]);
+                this.aVJ.scanFile(this.aVL[i], this.aVM[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aVW) && str.equals(this.mPath)) {
-            this.aVV.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aVK) && str.equals(this.mPath)) {
+            this.aVJ.disconnect();
             this.mPath = null;
-            this.aVW = null;
-            this.aVZ = true;
-        } else if (this.aVX != null && this.aVY != null && this.aVX.length == this.aVY.length) {
+            this.aVK = null;
+            this.aVN = true;
+        } else if (this.aVL != null && this.aVM != null && this.aVL.length == this.aVM.length) {
             this.length--;
             if (this.length == 0) {
-                this.aVV.disconnect();
-                this.aVX = null;
-                this.aVY = null;
-                this.aVZ = true;
+                this.aVJ.disconnect();
+                this.aVL = null;
+                this.aVM = null;
+                this.aVN = true;
             } else {
-                this.aVZ = false;
+                this.aVN = false;
             }
         }
-        if (this.aVZ && this.aWa != null) {
-            this.aWa.Cx();
+        if (this.aVN && this.aVO != null) {
+            this.aVO.Cw();
         }
     }
 }

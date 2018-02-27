@@ -13,29 +13,29 @@ import android.view.ViewTreeObserver;
 @RestrictTo
 /* loaded from: classes2.dex */
 public abstract class ForwardingListener implements View.OnTouchListener {
-    private final float OQ;
-    private final int OR;
-    private final int OT;
-    final View OU;
-    private Runnable OV;
-    private Runnable OW;
-    private boolean OX;
-    private final int[] OY = new int[2];
+    private final float OJ;
+    private final int OL;
+    private final int OM;
+    final View OO;
+    private Runnable OP;
+    private Runnable OQ;
+    private boolean OR;
+    private final int[] OT = new int[2];
     private int mActivePointerId;
 
     public abstract ShowableListMenu getPopup();
 
     public ForwardingListener(View view) {
-        this.OU = view;
+        this.OO = view;
         view.setLongClickable(true);
         if (Build.VERSION.SDK_INT >= 12) {
             af(view);
         } else {
             ag(view);
         }
-        this.OQ = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
-        this.OR = ViewConfiguration.getTapTimeout();
-        this.OT = (this.OR + ViewConfiguration.getLongPressTimeout()) / 2;
+        this.OJ = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
+        this.OL = ViewConfiguration.getTapTimeout();
+        this.OM = (this.OL + ViewConfiguration.getLongPressTimeout()) / 2;
     }
 
     private void af(View view) {
@@ -56,13 +56,13 @@ public abstract class ForwardingListener implements View.OnTouchListener {
             boolean mIsAttached;
 
             {
-                this.mIsAttached = ForwardingListener.this.OU.isAttachedToWindow();
+                this.mIsAttached = ForwardingListener.this.OO.isAttachedToWindow();
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 boolean z = this.mIsAttached;
-                this.mIsAttached = ForwardingListener.this.OU.isAttachedToWindow();
+                this.mIsAttached = ForwardingListener.this.OO.isAttachedToWindow();
                 if (z && !this.mIsAttached) {
                     ForwardingListener.this.onDetachedFromWindow();
                 }
@@ -73,7 +73,7 @@ public abstract class ForwardingListener implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z;
-        boolean z2 = this.OX;
+        boolean z2 = this.OR;
         if (z2) {
             z = j(motionEvent) || !onForwardingStopped();
         } else {
@@ -81,21 +81,21 @@ public abstract class ForwardingListener implements View.OnTouchListener {
             if (z3) {
                 long uptimeMillis = SystemClock.uptimeMillis();
                 MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                this.OU.onTouchEvent(obtain);
+                this.OO.onTouchEvent(obtain);
                 obtain.recycle();
             }
             z = z3;
         }
-        this.OX = z;
+        this.OR = z;
         return z || z2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onDetachedFromWindow() {
-        this.OX = false;
+        this.OR = false;
         this.mActivePointerId = -1;
-        if (this.OV != null) {
-            this.OU.removeCallbacks(this.OV);
+        if (this.OP != null) {
+            this.OO.removeCallbacks(this.OP);
         }
     }
 
@@ -118,19 +118,19 @@ public abstract class ForwardingListener implements View.OnTouchListener {
     }
 
     private boolean i(MotionEvent motionEvent) {
-        View view = this.OU;
+        View view = this.OO;
         if (view.isEnabled()) {
             switch (MotionEventCompat.getActionMasked(motionEvent)) {
                 case 0:
                     this.mActivePointerId = motionEvent.getPointerId(0);
-                    if (this.OV == null) {
-                        this.OV = new a();
+                    if (this.OP == null) {
+                        this.OP = new a();
                     }
-                    view.postDelayed(this.OV, this.OR);
-                    if (this.OW == null) {
-                        this.OW = new b();
+                    view.postDelayed(this.OP, this.OL);
+                    if (this.OQ == null) {
+                        this.OQ = new b();
                     }
-                    view.postDelayed(this.OW, this.OT);
+                    view.postDelayed(this.OQ, this.OM);
                     return false;
                 case 1:
                 case 3:
@@ -138,7 +138,7 @@ public abstract class ForwardingListener implements View.OnTouchListener {
                     return false;
                 case 2:
                     int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                    if (findPointerIndex < 0 || a(view, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.OQ)) {
+                    if (findPointerIndex < 0 || a(view, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.OJ)) {
                         return false;
                     }
                     fX();
@@ -152,30 +152,30 @@ public abstract class ForwardingListener implements View.OnTouchListener {
     }
 
     private void fX() {
-        if (this.OW != null) {
-            this.OU.removeCallbacks(this.OW);
+        if (this.OQ != null) {
+            this.OO.removeCallbacks(this.OQ);
         }
-        if (this.OV != null) {
-            this.OU.removeCallbacks(this.OV);
+        if (this.OP != null) {
+            this.OO.removeCallbacks(this.OP);
         }
     }
 
     void fY() {
         fX();
-        View view = this.OU;
+        View view = this.OO;
         if (view.isEnabled() && !view.isLongClickable() && onForwardingStarted()) {
             view.getParent().requestDisallowInterceptTouchEvent(true);
             long uptimeMillis = SystemClock.uptimeMillis();
             MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
             view.onTouchEvent(obtain);
             obtain.recycle();
-            this.OX = true;
+            this.OR = true;
         }
     }
 
     private boolean j(MotionEvent motionEvent) {
         l lVar;
-        View view = this.OU;
+        View view = this.OO;
         ShowableListMenu popup = getPopup();
         if (popup == null || !popup.isShowing() || (lVar = (l) popup.getListView()) == null || !lVar.isShown()) {
             return false;
@@ -194,14 +194,14 @@ public abstract class ForwardingListener implements View.OnTouchListener {
     }
 
     private boolean a(View view, MotionEvent motionEvent) {
-        int[] iArr = this.OY;
+        int[] iArr = this.OT;
         view.getLocationOnScreen(iArr);
         motionEvent.offsetLocation(-iArr[0], -iArr[1]);
         return true;
     }
 
     private boolean b(View view, MotionEvent motionEvent) {
-        int[] iArr = this.OY;
+        int[] iArr = this.OT;
         view.getLocationOnScreen(iArr);
         motionEvent.offsetLocation(iArr[0], iArr[1]);
         return true;
@@ -215,7 +215,7 @@ public abstract class ForwardingListener implements View.OnTouchListener {
 
         @Override // java.lang.Runnable
         public void run() {
-            ViewParent parent = ForwardingListener.this.OU.getParent();
+            ViewParent parent = ForwardingListener.this.OO.getParent();
             if (parent != null) {
                 parent.requestDisallowInterceptTouchEvent(true);
             }

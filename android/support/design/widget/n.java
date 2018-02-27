@@ -15,38 +15,38 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.drawable.DrawableWrapper;
 /* loaded from: classes2.dex */
 class n extends DrawableWrapper {
-    static final double pw = Math.cos(Math.toRadians(45.0d));
+    static final double pv = Math.cos(Math.toRadians(45.0d));
     private float mRotation;
-    float pA;
-    Path pB;
+    Path pA;
+    float pB;
     float pC;
     float pD;
     float pE;
-    float pF;
-    private boolean pG;
+    private boolean pF;
+    private final int pG;
     private final int pH;
     private final int pI;
-    private final int pJ;
+    private boolean pJ;
     private boolean pK;
-    private boolean pL;
+    final Paint pw;
     final Paint px;
-    final Paint py;
-    final RectF pz;
+    final RectF py;
+    float pz;
 
     public n(Context context, Drawable drawable, float f, float f2, float f3) {
         super(drawable);
-        this.pG = true;
-        this.pK = true;
-        this.pL = false;
-        this.pH = ContextCompat.getColor(context, R.color.design_fab_shadow_start_color);
-        this.pI = ContextCompat.getColor(context, R.color.design_fab_shadow_mid_color);
-        this.pJ = ContextCompat.getColor(context, R.color.design_fab_shadow_end_color);
-        this.px = new Paint(5);
-        this.px.setStyle(Paint.Style.FILL);
-        this.pA = Math.round(f);
-        this.pz = new RectF();
-        this.py = new Paint(this.px);
-        this.py.setAntiAlias(false);
+        this.pF = true;
+        this.pJ = true;
+        this.pK = false;
+        this.pG = ContextCompat.getColor(context, R.color.design_fab_shadow_start_color);
+        this.pH = ContextCompat.getColor(context, R.color.design_fab_shadow_mid_color);
+        this.pI = ContextCompat.getColor(context, R.color.design_fab_shadow_end_color);
+        this.pw = new Paint(5);
+        this.pw.setStyle(Paint.Style.FILL);
+        this.pz = Math.round(f);
+        this.py = new RectF();
+        this.px = new Paint(this.pw);
+        this.px.setAntiAlias(false);
         d(f2, f3);
     }
 
@@ -56,20 +56,20 @@ class n extends DrawableWrapper {
     }
 
     public void m(boolean z) {
-        this.pK = z;
+        this.pJ = z;
         invalidateSelf();
     }
 
     @Override // android.support.v7.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         super.setAlpha(i);
+        this.pw.setAlpha(i);
         this.px.setAlpha(i);
-        this.py.setAlpha(i);
     }
 
     @Override // android.support.v7.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        this.pG = true;
+        this.pF = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,36 +80,36 @@ class n extends DrawableWrapper {
         float n = n(f);
         float n2 = n(f2);
         if (n > n2) {
-            if (!this.pL) {
-                this.pL = true;
+            if (!this.pK) {
+                this.pK = true;
             }
             n = n2;
         }
-        if (this.pF != n || this.pD != n2) {
-            this.pF = n;
-            this.pD = n2;
-            this.pE = Math.round(n * 1.5f);
+        if (this.pE != n || this.pC != n2) {
+            this.pE = n;
             this.pC = n2;
-            this.pG = true;
+            this.pD = Math.round(n * 1.5f);
+            this.pB = n2;
+            this.pF = true;
             invalidateSelf();
         }
     }
 
     @Override // android.support.v7.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        int ceil = (int) Math.ceil(a(this.pD, this.pA, this.pK));
-        int ceil2 = (int) Math.ceil(b(this.pD, this.pA, this.pK));
+        int ceil = (int) Math.ceil(a(this.pC, this.pz, this.pJ));
+        int ceil2 = (int) Math.ceil(b(this.pC, this.pz, this.pJ));
         rect.set(ceil2, ceil, ceil2, ceil);
         return true;
     }
 
     public static float a(float f, float f2, boolean z) {
-        return z ? (float) ((1.5f * f) + ((1.0d - pw) * f2)) : 1.5f * f;
+        return z ? (float) ((1.5f * f) + ((1.0d - pv) * f2)) : 1.5f * f;
     }
 
     public static float b(float f, float f2, boolean z) {
         if (z) {
-            return (float) (f + ((1.0d - pw) * f2));
+            return (float) (f + ((1.0d - pv) * f2));
         }
         return f;
     }
@@ -121,9 +121,9 @@ class n extends DrawableWrapper {
 
     @Override // android.support.v7.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.pG) {
+        if (this.pF) {
             e(getBounds());
-            this.pG = false;
+            this.pF = false;
         }
         d(canvas);
         super.draw(canvas);
@@ -139,93 +139,93 @@ class n extends DrawableWrapper {
 
     private void d(Canvas canvas) {
         int save = canvas.save();
-        canvas.rotate(this.mRotation, this.pz.centerX(), this.pz.centerY());
-        float f = (-this.pA) - this.pE;
-        float f2 = this.pA;
-        boolean z = this.pz.width() - (2.0f * f2) > 0.0f;
-        boolean z2 = this.pz.height() - (2.0f * f2) > 0.0f;
-        float f3 = this.pF - (this.pF * 0.25f);
-        float f4 = f2 / ((this.pF - (this.pF * 0.5f)) + f2);
+        canvas.rotate(this.mRotation, this.py.centerX(), this.py.centerY());
+        float f = (-this.pz) - this.pD;
+        float f2 = this.pz;
+        boolean z = this.py.width() - (2.0f * f2) > 0.0f;
+        boolean z2 = this.py.height() - (2.0f * f2) > 0.0f;
+        float f3 = this.pE - (this.pE * 0.25f);
+        float f4 = f2 / ((this.pE - (this.pE * 0.5f)) + f2);
         float f5 = f2 / (f3 + f2);
-        float f6 = f2 / (f2 + (this.pF - (this.pF * 1.0f)));
+        float f6 = f2 / (f2 + (this.pE - (this.pE * 1.0f)));
         int save2 = canvas.save();
-        canvas.translate(this.pz.left + f2, this.pz.top + f2);
+        canvas.translate(this.py.left + f2, this.py.top + f2);
         canvas.scale(f4, f5);
-        canvas.drawPath(this.pB, this.px);
+        canvas.drawPath(this.pA, this.pw);
         if (z) {
             canvas.scale(1.0f / f4, 1.0f);
-            canvas.drawRect(0.0f, f, this.pz.width() - (2.0f * f2), -this.pA, this.py);
+            canvas.drawRect(0.0f, f, this.py.width() - (2.0f * f2), -this.pz, this.px);
         }
         canvas.restoreToCount(save2);
         int save3 = canvas.save();
-        canvas.translate(this.pz.right - f2, this.pz.bottom - f2);
+        canvas.translate(this.py.right - f2, this.py.bottom - f2);
         canvas.scale(f4, f6);
         canvas.rotate(180.0f);
-        canvas.drawPath(this.pB, this.px);
+        canvas.drawPath(this.pA, this.pw);
         if (z) {
             canvas.scale(1.0f / f4, 1.0f);
-            canvas.drawRect(0.0f, f, this.pz.width() - (2.0f * f2), this.pE + (-this.pA), this.py);
+            canvas.drawRect(0.0f, f, this.py.width() - (2.0f * f2), this.pD + (-this.pz), this.px);
         }
         canvas.restoreToCount(save3);
         int save4 = canvas.save();
-        canvas.translate(this.pz.left + f2, this.pz.bottom - f2);
+        canvas.translate(this.py.left + f2, this.py.bottom - f2);
         canvas.scale(f4, f6);
         canvas.rotate(270.0f);
-        canvas.drawPath(this.pB, this.px);
+        canvas.drawPath(this.pA, this.pw);
         if (z2) {
             canvas.scale(1.0f / f6, 1.0f);
-            canvas.drawRect(0.0f, f, this.pz.height() - (2.0f * f2), -this.pA, this.py);
+            canvas.drawRect(0.0f, f, this.py.height() - (2.0f * f2), -this.pz, this.px);
         }
         canvas.restoreToCount(save4);
         int save5 = canvas.save();
-        canvas.translate(this.pz.right - f2, this.pz.top + f2);
+        canvas.translate(this.py.right - f2, this.py.top + f2);
         canvas.scale(f4, f5);
         canvas.rotate(90.0f);
-        canvas.drawPath(this.pB, this.px);
+        canvas.drawPath(this.pA, this.pw);
         if (z2) {
             canvas.scale(1.0f / f5, 1.0f);
-            canvas.drawRect(0.0f, f, this.pz.height() - (2.0f * f2), -this.pA, this.py);
+            canvas.drawRect(0.0f, f, this.py.height() - (2.0f * f2), -this.pz, this.px);
         }
         canvas.restoreToCount(save5);
         canvas.restoreToCount(save);
     }
 
     private void cc() {
-        RectF rectF = new RectF(-this.pA, -this.pA, this.pA, this.pA);
+        RectF rectF = new RectF(-this.pz, -this.pz, this.pz, this.pz);
         RectF rectF2 = new RectF(rectF);
-        rectF2.inset(-this.pE, -this.pE);
-        if (this.pB == null) {
-            this.pB = new Path();
+        rectF2.inset(-this.pD, -this.pD);
+        if (this.pA == null) {
+            this.pA = new Path();
         } else {
-            this.pB.reset();
+            this.pA.reset();
         }
-        this.pB.setFillType(Path.FillType.EVEN_ODD);
-        this.pB.moveTo(-this.pA, 0.0f);
-        this.pB.rLineTo(-this.pE, 0.0f);
-        this.pB.arcTo(rectF2, 180.0f, 90.0f, false);
-        this.pB.arcTo(rectF, 270.0f, -90.0f, false);
-        this.pB.close();
+        this.pA.setFillType(Path.FillType.EVEN_ODD);
+        this.pA.moveTo(-this.pz, 0.0f);
+        this.pA.rLineTo(-this.pD, 0.0f);
+        this.pA.arcTo(rectF2, 180.0f, 90.0f, false);
+        this.pA.arcTo(rectF, 270.0f, -90.0f, false);
+        this.pA.close();
         float f = -rectF2.top;
         if (f > 0.0f) {
-            float f2 = this.pA / f;
-            this.px.setShader(new RadialGradient(0.0f, 0.0f, f, new int[]{0, this.pH, this.pI, this.pJ}, new float[]{0.0f, f2, f2 + ((1.0f - f2) / 2.0f), 1.0f}, Shader.TileMode.CLAMP));
+            float f2 = this.pz / f;
+            this.pw.setShader(new RadialGradient(0.0f, 0.0f, f, new int[]{0, this.pG, this.pH, this.pI}, new float[]{0.0f, f2, f2 + ((1.0f - f2) / 2.0f), 1.0f}, Shader.TileMode.CLAMP));
         }
-        this.py.setShader(new LinearGradient(0.0f, rectF.top, 0.0f, rectF2.top, new int[]{this.pH, this.pI, this.pJ}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
-        this.py.setAntiAlias(false);
+        this.px.setShader(new LinearGradient(0.0f, rectF.top, 0.0f, rectF2.top, new int[]{this.pG, this.pH, this.pI}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
+        this.px.setAntiAlias(false);
     }
 
     private void e(Rect rect) {
-        float f = this.pD * 1.5f;
-        this.pz.set(rect.left + this.pD, rect.top + f, rect.right - this.pD, rect.bottom - f);
-        getWrappedDrawable().setBounds((int) this.pz.left, (int) this.pz.top, (int) this.pz.right, (int) this.pz.bottom);
+        float f = this.pC * 1.5f;
+        this.py.set(rect.left + this.pC, rect.top + f, rect.right - this.pC, rect.bottom - f);
+        getWrappedDrawable().setBounds((int) this.py.left, (int) this.py.top, (int) this.py.right, (int) this.py.bottom);
         cc();
     }
 
     public void o(float f) {
-        d(f, this.pD);
+        d(f, this.pC);
     }
 
     public float cd() {
-        return this.pF;
+        return this.pE;
     }
 }

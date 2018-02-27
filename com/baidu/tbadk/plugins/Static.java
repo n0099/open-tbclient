@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] bCk = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] bBX = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -35,7 +35,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.bCk;
+                    String[] strArr = Static.bBX;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {

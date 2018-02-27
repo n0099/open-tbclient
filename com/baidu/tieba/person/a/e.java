@@ -9,43 +9,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private HTypeListView bTP;
-    private c gie;
-    private b gif;
-    private a gig;
+    private HTypeListView bTD;
+    private c ghS;
+    private b ghT;
+    private a ghU;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.bTP = hTypeListView;
+        this.bTD = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.gie = new c(this.mTbPageContext, i.brv);
-        this.gif = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gim);
-        this.gig = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghO);
-        this.mAdapters.add(this.gie);
-        this.mAdapters.add(this.gif);
-        this.mAdapters.add(this.gig);
-        this.bTP.addAdapters(this.mAdapters);
+        this.ghS = new c(this.mTbPageContext, i.bri);
+        this.ghT = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gia);
+        this.ghU = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ghD);
+        this.mAdapters.add(this.ghS);
+        this.mAdapters.add(this.ghT);
+        this.mAdapters.add(this.ghU);
+        this.bTD.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<com.baidu.adp.widget.ListView.i> list) {
-        if (this.bTP != null) {
-            this.bTP.setData(list);
+        if (this.bTD != null) {
+            this.bTD.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bTP != null && (this.bTP.getAdapter() instanceof r)) {
-            ((r) this.bTP.getAdapter()).notifyDataSetChanged();
+        if (this.bTD != null && (this.bTD.getAdapter() instanceof r)) {
+            ((r) this.bTD.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.gie.r(onClickListener);
-        this.gif.r(onClickListener);
+        this.ghS.r(onClickListener);
+        this.ghT.r(onClickListener);
     }
 }

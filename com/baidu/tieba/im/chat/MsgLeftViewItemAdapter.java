@@ -34,17 +34,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView aFU = aVar.aFU();
-        aFU.pH(this.evZ);
-        aFU.hd(this.mNeedShowName);
+        MsgleftView aFT = aVar.aFT();
+        aFT.pH(this.evN);
+        aFT.hd(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        aFU.a(this.evP);
-        aFU.setOnItemViewLongClickListener(this.evQ);
-        aFU.setPosition(i);
-        aFU.bS(this.evW);
-        aFU.bR(chatMessage.getCacheData().getLastMsgTime());
-        aFU.a(viewGroup, chatMessage);
-        aFU.b(viewGroup, chatMessage);
+        aFT.a(this.evD);
+        aFT.setOnItemViewLongClickListener(this.evE);
+        aFT.setPosition(i);
+        aFT.bS(this.evK);
+        aFT.bR(chatMessage.getCacheData().getLastMsgTime());
+        aFT.a(viewGroup, chatMessage);
+        aFT.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().aQ(false);
         this.mPageContext.getLayoutMode().aM(view);
         return view;

@@ -23,11 +23,11 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c cVq = null;
-    private AlarmManager cVr;
-    private final int cVo = 7;
-    private int cVp = PersonListModel.CACHETIME;
-    private HttpMessageListener cbz = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
+    private static volatile c cVe = null;
+    private AlarmManager cVf;
+    private final int cVc = 7;
+    private int cVd = PersonListModel.CACHETIME;
+    private HttpMessageListener cbn = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -47,30 +47,30 @@ public class c {
 
     private c() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(KP());
-        messageManager.registerListener(this.cbz);
-        akL();
+        messageManager.registerTask(KO());
+        messageManager.registerListener(this.cbn);
+        akK();
     }
 
-    public static c akK() {
-        if (cVq == null) {
+    public static c akJ() {
+        if (cVe == null) {
             synchronized (c.class) {
-                if (cVq == null) {
-                    cVq = new c();
+                if (cVe == null) {
+                    cVe = new c();
                 }
             }
         }
-        return cVq;
+        return cVe;
     }
 
-    public void akL() {
-        if (this.cVr == null) {
+    public void akK() {
+        if (this.cVf == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(6, 7);
             PendingIntent broadcast = PendingIntent.getBroadcast(BdBaseApplication.getInst().getApp(), 0, new Intent("com.baidu.tieba.report.applist"), 134217728);
-            this.cVr = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
-            this.cVr.setRepeating(0, calendar.getTimeInMillis(), this.cVp, broadcast);
+            this.cVf = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+            this.cVf.setRepeating(0, calendar.getTimeInMillis(), this.cVd, broadcast);
         }
     }
 
@@ -78,7 +78,7 @@ public class c {
         if (d.mA().an("applist_switch") != 0) {
             long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("applist_report_time", 0L);
             long currentTimeMillis = System.currentTimeMillis() - j;
-            if (j == 0 || z || currentTimeMillis >= this.cVp) {
+            if (j == 0 || z || currentTimeMillis >= this.cVd) {
                 v.a(new u<Object>() { // from class: com.baidu.tieba.applist.c.2
                     @Override // com.baidu.tbadk.util.u
                     public Object doInBackground() {
@@ -90,7 +90,7 @@ public class c {
         }
     }
 
-    private HttpMessageTask KP() {
+    private HttpMessageTask KO() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_APPLIST, TbConfig.REPORT_APPLIST);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -106,7 +106,7 @@ public class c {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("com.baidu.tieba.report.applist")) {
-                c.akK().eG(true);
+                c.akJ().eG(true);
             }
         }
     }

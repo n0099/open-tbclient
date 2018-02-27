@@ -2,9 +2,9 @@ package com.tencent.connect.a;
 
 import android.content.Context;
 import com.tencent.connect.auth.QQToken;
-import com.tencent.open.utils.e;
+import com.tencent.open.utils.f;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     private static Class<?> a = null;
     private static Class<?> b = null;
@@ -15,7 +15,7 @@ public class a {
     private static boolean g = false;
 
     public static boolean a(Context context, QQToken qQToken) {
-        return e.a(context, qQToken.getAppId()).b("Common_ta_enable");
+        return f.a(context, qQToken.getAppId()).b("Common_ta_enable");
     }
 
     public static void b(Context context, QQToken qQToken) {

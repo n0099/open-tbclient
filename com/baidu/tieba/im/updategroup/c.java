@@ -10,9 +10,9 @@ public class c extends d {
         super(updateGroupActivity);
         setContentView(d.h.update_group_name_activity);
         qE(d.j.group_info_name);
-        this.ezV = (ImageButton) updateGroupActivity.findViewById(d.g.button_del);
-        this.ezV.setOnClickListener(updateGroupActivity);
-        this.rE.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.ezJ = (ImageButton) updateGroupActivity.findViewById(d.g.button_del);
+        this.ezJ.setOnClickListener(updateGroupActivity);
+        this.rD.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,19 +20,19 @@ public class c extends d {
     public void B(int i, int i2, int i3, int i4) {
         super.B(i, i2, i3, i4);
         if (i < 1) {
-            this.ezV.setVisibility(8);
+            this.ezJ.setVisibility(8);
         } else {
-            this.ezV.setVisibility(0);
+            this.ezJ.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aMg() {
-        B(this.rE.length(), f.d(this.rE) / 2, 2, 20);
+    public void aMf() {
+        B(this.rD.length(), f.d(this.rD) / 2, 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aMh() {
+    public int aMg() {
         return d.j.group_step_name_error;
     }
 }

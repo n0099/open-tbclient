@@ -24,28 +24,28 @@ public class a {
         if (xVar == null) {
             return false;
         }
-        if ((xVar.CC() ? xVar.CD() : xVar.CE()) == 1990055) {
-            aBN();
+        if ((xVar.CB() ? xVar.CC() : xVar.CD()) == 1990055) {
+            aBM();
             return true;
         }
         return false;
     }
 
-    public static void aBN() {
+    public static void aBM() {
         if (!l.oZ()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.h.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.aBO();
+                    a.aBN();
                 }
             });
         } else {
-            aBO();
+            aBN();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void aBO() {
+    public static final void aBN() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder("https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1");
         sb.append("&u=").append(URLEncoder.encode("http://tieba.baidu.com/?jump=finish_this_page"));

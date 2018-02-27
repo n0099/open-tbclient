@@ -45,7 +45,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.YM();
+                this.mSortType = frsRequestData.YL();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -60,7 +60,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         if (C != null && C.error != null) {
             if (C.error.errorno != null) {
                 setError(C.error.errorno.intValue());
-                this.responseData.gZm = C.error.errorno.intValue();
+                this.responseData.gYX = C.error.errorno.intValue();
             }
             setErrorString(C.error.usermsg);
         }
@@ -73,7 +73,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         int h;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bvp() != null && !StringUtils.isNull(this.responseData.bvp().xT(), true) && !this.responseData.bvp().xT().equals("0") && this.responseData.bvp().xU() == 3 && (h = com.baidu.adp.lib.g.b.h(this.responseData.bvp().xT(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(h))) != null) {
+        if (this.responseData.bvo() != null && !StringUtils.isNull(this.responseData.bvo().xT(), true) && !this.responseData.bvo().xT().equals("0") && this.responseData.bvo().xU() == 3 && (h = com.baidu.adp.lib.g.b.h(this.responseData.bvo().xT(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(h))) != null) {
             this.responseData.j(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -83,8 +83,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.v.D(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.bas() != null && z) {
-                c.buI().c(c.buI().d(this.responseData.bas().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            if (this.needCache && this.responseData.bar() != null && z) {
+                c.buH().c(c.buH().d(this.responseData.bar().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

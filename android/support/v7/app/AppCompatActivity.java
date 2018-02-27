@@ -23,9 +23,9 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public class AppCompatActivity extends FragmentActivity implements TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider, AppCompatCallback {
-    private AppCompatDelegate Ck;
-    private int Cl = 0;
-    private boolean Cm;
+    private AppCompatDelegate Cf;
+    private int Cg = 0;
+    private boolean Ch;
     private Resources mResources;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,11 +34,11 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
         AppCompatDelegate delegate = getDelegate();
         delegate.installViewFactory();
         delegate.onCreate(bundle);
-        if (delegate.applyDayNight() && this.Cl != 0) {
+        if (delegate.applyDayNight() && this.Cg != 0) {
             if (Build.VERSION.SDK_INT >= 23) {
-                onApplyThemeResource(getTheme(), this.Cl, false);
+                onApplyThemeResource(getTheme(), this.Cg, false);
             } else {
-                setTheme(this.Cl);
+                setTheme(this.Cg);
             }
         }
         super.onCreate(bundle);
@@ -47,7 +47,7 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
         super.setTheme(i);
-        this.Cl = i;
+        this.Cg = i;
     }
 
     @Override // android.app.Activity
@@ -270,10 +270,10 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
     }
 
     public AppCompatDelegate getDelegate() {
-        if (this.Ck == null) {
-            this.Ck = AppCompatDelegate.create(this, this);
+        if (this.Cf == null) {
+            this.Cf = AppCompatDelegate.create(this, this);
         }
-        return this.Ck;
+        return this.Cf;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -283,11 +283,11 @@ public class AppCompatActivity extends FragmentActivity implements TaskStackBuil
             if (action == 0) {
                 ActionBar supportActionBar = getSupportActionBar();
                 if (supportActionBar != null && supportActionBar.isShowing() && supportActionBar.requestFocus()) {
-                    this.Cm = true;
+                    this.Ch = true;
                     return true;
                 }
-            } else if (action == 1 && this.Cm) {
-                this.Cm = false;
+            } else if (action == 1 && this.Ch) {
+                this.Ch = false;
                 return true;
             }
         }

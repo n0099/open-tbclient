@@ -17,28 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends r.a {
-    public TextView aIe;
-    public int bfL;
-    public View dfQ;
-    public HTypeListView giB;
-    public e giC;
+    public TextView aHT;
+    public int bfz;
+    public View dfE;
+    public HTypeListView giq;
+    public e gir;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.bfL = 3;
+        this.bfz = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.dfQ = view.findViewById(d.g.divider_view_under_photo_album);
-        this.aIe = (TextView) view.findViewById(d.g.text_view_photo_album);
-        this.giB = (HTypeListView) view.findViewById(d.g.listview_photo_album);
-        this.giC = new e(this.mPageContext, this.giB);
+        this.dfE = view.findViewById(d.g.divider_view_under_photo_album);
+        this.aHT = (TextView) view.findViewById(d.g.text_view_photo_album);
+        this.giq = (HTypeListView) view.findViewById(d.g.listview_photo_album);
+        this.gir = new e(this.mPageContext, this.giq);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.giC.setDatas(da(fVar.getPhotoAlbum()));
+            this.gir.setDatas(da(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,13 +53,13 @@ public class d extends r.a {
         return list;
     }
 
-    public void Mv() {
-        if (this.bfL != TbadkCoreApplication.getInst().getSkinType()) {
-            this.bfL = TbadkCoreApplication.getInst().getSkinType();
-            aj.t(this.rootView, d.C0140d.cp_bg_line_d);
-            aj.t(this.dfQ, d.C0140d.cp_bg_line_c);
-            aj.e(this.aIe, d.C0140d.cp_cont_d, 1);
-            this.giC.notifyDataSetChanged();
+    public void Mu() {
+        if (this.bfz != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bfz = TbadkCoreApplication.getInst().getSkinType();
+            aj.t(this.rootView, d.C0141d.cp_bg_line_d);
+            aj.t(this.dfE, d.C0141d.cp_bg_line_c);
+            aj.e(this.aHT, d.C0141d.cp_cont_d, 1);
+            this.gir.notifyDataSetChanged();
         }
     }
 }

@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.view.View;
 /* loaded from: classes2.dex */
 class ap {
-    private final IBinder wb;
+    private final IBinder wa;
 
     private ap(IBinder iBinder) {
-        this.wb = iBinder;
+        this.wa = iBinder;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,6 +16,6 @@ class ap {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof ap) && ((ap) obj).wb.equals(this.wb);
+        return (obj instanceof ap) && ((ap) obj).wa.equals(this.wa);
     }
 }

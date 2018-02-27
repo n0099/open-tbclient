@@ -364,23 +364,23 @@ public final class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager aGw;
+        private X509TrustManager aGl;
 
         a(X509TrustManager x509TrustManager) {
-            this.aGw = null;
-            this.aGw = x509TrustManager;
+            this.aGl = null;
+            this.aGl = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.aGw.checkClientTrusted(x509CertificateArr, str);
+            this.aGl.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.aGw.checkServerTrusted(x509CertificateArr, str);
+                this.aGl.checkServerTrusted(x509CertificateArr, str);
             } catch (Throwable th) {
                 d.a(th);
                 for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
@@ -400,7 +400,7 @@ public final class k {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.aGw.getAcceptedIssuers();
+            return this.aGl.getAcceptedIssuers();
         }
     }
 

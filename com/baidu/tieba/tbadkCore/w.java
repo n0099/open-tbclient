@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class w {
-    private a hab;
+    private a gZM;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -26,17 +26,17 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.hab = aVar;
+        this.gZM = aVar;
     }
 
     public void t(String str, long j) {
-        new b(str, j, this.mFrom, this.hab).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.gZM).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private WeakReference<a> hac;
+        private WeakReference<a> gZN;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -45,10 +45,10 @@ public class w {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.hac = null;
+            this.gZN = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.hac = new WeakReference<>(aVar);
+            this.gZN = new WeakReference<>(aVar);
             this.mFrom = str2;
             setPriority(3);
         }
@@ -66,9 +66,9 @@ public class w {
                     this.mNetwork.n("kw", this.mForumName);
                     this.mNetwork.n("favo_type", "1");
                     this.mNetwork.n("st_type", this.mFrom);
-                    this.mNetwork.Cz().Dw().mIsNeedTbs = true;
-                    this.mNetwork.Cb();
-                    if (this.mNetwork.Cz().Dx().isRequestSuccess()) {
+                    this.mNetwork.Cy().Dv().mIsNeedTbs = true;
+                    this.mNetwork.Ca();
+                    if (this.mNetwork.Cy().Dw().isRequestSuccess()) {
                         i = 1;
                         return i;
                     }
@@ -86,12 +86,12 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.hac != null) {
+            if (this.gZN != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.hac.get();
+                a aVar2 = this.gZN.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.Cz().Dx().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.Cy().Dw().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.m(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
@@ -101,7 +101,7 @@ public class w {
                         aVar2.n(this.mForumName, this.mForumId);
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.CC() ? this.mNetwork.getErrorString() : this.mNetwork.CF();
+                            aVar.errorMessage = this.mNetwork.CB() ? this.mNetwork.getErrorString() : this.mNetwork.CE();
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, aVar));

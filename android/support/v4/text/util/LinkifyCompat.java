@@ -22,7 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class LinkifyCompat {
-    private static final String[] Bq = new String[0];
+    private static final String[] Bl = new String[0];
     private static final Comparator<a> COMPARATOR = new Comparator<a>() { // from class: android.support.v4.text.util.LinkifyCompat.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -71,7 +71,7 @@ public final class LinkifyCompat {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             a aVar = (a) it.next();
-            if (aVar.Br == null) {
+            if (aVar.Bm == null) {
                 a(aVar.url, aVar.start, aVar.end, spannable);
             }
         }
@@ -128,7 +128,7 @@ public final class LinkifyCompat {
             str = "";
         }
         if (strArr == null || strArr.length < 1) {
-            strArr = Bq;
+            strArr = Bl;
         }
         String[] strArr2 = new String[strArr.length + 1];
         strArr2[0] = str.toLowerCase(Locale.ROOT);
@@ -231,7 +231,7 @@ public final class LinkifyCompat {
         Object[] objArr = (URLSpan[]) spannable.getSpans(0, spannable.length(), URLSpan.class);
         for (int i3 = 0; i3 < objArr.length; i3++) {
             a aVar = new a();
-            aVar.Br = objArr[i3];
+            aVar.Bm = objArr[i3];
             aVar.start = spannable.getSpanStart(objArr[i3]);
             aVar.end = spannable.getSpanEnd(objArr[i3]);
             arrayList.add(aVar);
@@ -250,7 +250,7 @@ public final class LinkifyCompat {
                     i = aVar2.end - aVar2.start < aVar3.end - aVar3.start ? i2 : -1;
                 }
                 if (i != -1) {
-                    Object obj = arrayList.get(i).Br;
+                    Object obj = arrayList.get(i).Bm;
                     if (obj != null) {
                         spannable.removeSpan(obj);
                     }
@@ -268,7 +268,7 @@ public final class LinkifyCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        URLSpan Br;
+        URLSpan Bm;
         int end;
         int start;
         String url;

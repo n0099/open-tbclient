@@ -26,17 +26,17 @@ import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    private static a aCZ = null;
+    private static a aCO = null;
     private static final String k = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String b = null;
     private boolean c = false;
     private boolean d = false;
-    private double aDa = 0.0d;
-    private double aBR = 0.0d;
-    private double aDb = 0.0d;
+    private double aCP = 0.0d;
+    private double aBI = 0.0d;
+    private double aCQ = 0.0d;
     private double h = 0.0d;
-    private double aCH = 0.0d;
+    private double aCw = 0.0d;
     private volatile boolean j = false;
     private Handler m = new Handler();
 
@@ -260,9 +260,9 @@ public final class a {
             try {
                 this.b = str;
                 if (rawQuery.moveToFirst()) {
-                    this.aBR = rawQuery.getDouble(1) - 1235.4323d;
-                    this.aDa = rawQuery.getDouble(2) - 4326.0d;
-                    this.aDb = rawQuery.getDouble(3) - 2367.3217d;
+                    this.aBI = rawQuery.getDouble(1) - 1235.4323d;
+                    this.aCP = rawQuery.getDouble(2) - 4326.0d;
+                    this.aCQ = rawQuery.getDouble(3) - 2367.3217d;
                     this.c = true;
                 }
                 if (rawQuery != null) {
@@ -433,8 +433,8 @@ public final class a {
                         if (i7 > 8 && i7 > i6) {
                             cursor.moveToNext();
                         } else if (this.c) {
-                            Location.distanceBetween(d6, d5, this.aDb, this.aBR, new float[1]);
-                            if (fArr[0] > this.aDa + 2000.0d) {
+                            Location.distanceBetween(d6, d5, this.aCQ, this.aBI, new float[1]);
+                            if (fArr[0] > this.aCP + 2000.0d) {
                                 cursor.moveToNext();
                             } else {
                                 z3 = true;
@@ -512,7 +512,7 @@ public final class a {
                     if (i3 > 0) {
                         this.d = true;
                         this.h = d3 / i3;
-                        this.aCH = d4 / i3;
+                        this.aCw = d4 / i3;
                     }
                 }
                 if (cursor != null) {
@@ -555,14 +555,14 @@ public final class a {
         double d3 = 0.0d;
         if (this.d) {
             d2 = this.h;
-            d = this.aCH;
+            d = this.aCw;
             d3 = 246.4d;
             z2 = true;
             z3 = true;
         } else if (this.c) {
-            d2 = this.aBR;
-            d = this.aDb;
-            d3 = this.aDa;
+            d2 = this.aBI;
+            d = this.aCQ;
+            d3 = this.aCP;
             z2 = com.baidu.location.a.e.up().g();
             z3 = true;
         } else {
@@ -607,10 +607,10 @@ public final class a {
     public static synchronized a uK() {
         a aVar;
         synchronized (a.class) {
-            if (aCZ == null) {
-                aCZ = new a();
+            if (aCO == null) {
+                aCO = new a();
             }
-            aVar = aCZ;
+            aVar = aCO;
         }
         return aVar;
     }

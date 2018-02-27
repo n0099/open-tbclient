@@ -14,11 +14,11 @@ public class GroupMsglistAdapterStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.evV != null && aVar.context != null) {
+                    if (aVar.evJ != null && aVar.context != null) {
                         MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
                         msgActivityViewItemAdapter.hc(true);
                         msgActivityViewItemAdapter.hb(true);
-                        aVar.evV.add(msgActivityViewItemAdapter);
+                        aVar.evJ.add(msgActivityViewItemAdapter);
                     }
                 }
             }

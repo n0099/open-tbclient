@@ -14,9 +14,9 @@ import com.tencent.connect.auth.c;
 import com.tencent.open.TDialog;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.HttpUtils;
-import com.tencent.open.utils.d;
-import com.tencent.open.utils.g;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.e;
+import com.tencent.open.utils.h;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
@@ -27,7 +27,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseApi {
     protected c a;
     protected QQToken b;
@@ -60,7 +60,7 @@ public abstract class BaseApi {
             bundle.putString("openid", this.b.getOpenId());
             bundle.putString("appid_for_getting_config", this.b.getAppId());
         }
-        SharedPreferences sharedPreferences = d.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
+        SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
             bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + com.baidu.ar.util.Constants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
@@ -94,7 +94,7 @@ public abstract class BaseApi {
             bundle.putString("hopenid", openId);
         }
         bundle.putString("platform", "androidqz");
-        SharedPreferences sharedPreferences = d.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
+        SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
             bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + com.baidu.ar.util.Constants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
@@ -138,7 +138,7 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(Intent intent) {
         if (intent != null) {
-            return g.a(d.a(), intent);
+            return h.a(e.a(), intent);
         }
         return false;
     }
@@ -146,15 +146,19 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Intent b(String str) {
         Intent intent = new Intent();
-        if (i.e(d.a())) {
+        if (j.d(e.a())) {
             intent.setClassName(Constants.PACKAGE_QQ_PAD, str);
-            if (g.a(d.a(), intent)) {
+            if (h.a(e.a(), intent)) {
                 return intent;
             }
         }
         intent.setClassName("com.tencent.mobileqq", str);
-        if (!g.a(d.a(), intent)) {
-            return null;
+        if (!h.a(e.a(), intent)) {
+            intent.setClassName(Constants.PACKAGE_TIM, str);
+            if (!h.a(e.a(), intent)) {
+                return null;
+            }
+            return intent;
         }
         return intent;
     }
@@ -179,14 +183,14 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;
 
         public TempRequestListener(IUiListener iUiListener) {
             this.b = iUiListener;
-            this.c = new Handler(d.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
+            this.c = new Handler(e.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     if (message.what == 0) {

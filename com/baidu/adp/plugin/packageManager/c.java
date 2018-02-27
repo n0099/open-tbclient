@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c arr;
-    private ArrayList<String> arg = new ArrayList<>();
-    private a ars;
+    private static volatile c ari;
+    private ArrayList<String> aqX = new ArrayList<>();
+    private a arj;
 
     public static c qQ() {
-        if (arr == null) {
+        if (ari == null) {
             synchronized (c.class) {
-                if (arr == null) {
-                    arr = new c();
+                if (ari == null) {
+                    ari = new c();
                 }
             }
         }
-        return arr;
+        return ari;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.arg.iterator();
+            Iterator<String> it = this.aqX.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.arg.add(pluginSetting.packageName);
+                this.aqX.add(pluginSetting.packageName);
             }
             qM();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qM() {
-        if (this.arg.size() > 0 && this.ars == null) {
-            this.ars = new a(this.arg.get(0));
-            this.ars.execute(new String[0]);
+        if (this.aqX.size() > 0 && this.arj == null) {
+            this.arj = new a(this.aqX.get(0));
+            this.arj.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.ars = null;
-            if (c.this.arg.size() > 0) {
-                Iterator it = c.this.arg.iterator();
+            c.this.arj = null;
+            if (c.this.aqX.size() > 0) {
+                Iterator it = c.this.aqX.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.arg.remove(str);
+                        c.this.aqX.remove(str);
                         break;
                     }
                 }

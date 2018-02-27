@@ -34,24 +34,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdListView.e, j.b {
-    private ArrayList<MarkData> fyo;
-    private com.baidu.tieba.myCollection.baseEditMark.a fyl = null;
-    private h fyR = null;
-    private int fyn = -1;
+    private ArrayList<MarkData> fyc;
+    private com.baidu.tieba.myCollection.baseEditMark.a fxZ = null;
+    private h fyF = null;
+    private int fyb = -1;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.myCollection.g.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 if (!com.baidu.adp.lib.util.j.oJ()) {
-                    g.this.fyR.aIH();
-                    g.this.fyR.completePullRefresh();
-                    g.this.fyR.ct(false);
-                    g.this.fyR.fG(false);
+                    g.this.fyF.aIG();
+                    g.this.fyF.completePullRefresh();
+                    g.this.fyF.ct(false);
+                    g.this.fyF.fG(false);
                     return;
                 }
-                g.this.fyl.d(false);
-                g.this.fyR.fG(true);
+                g.this.fxZ.d(false);
+                g.this.fyF.fG(true);
             }
         }
     };
@@ -61,12 +61,12 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage.a data = ((UpdateAttentionMessage) customResponsedMessage).getData();
-                if (g.this.fyo != null && data != null) {
-                    if (data.biU != null && AntiHelper.a(g.this.getActivity(), data.biU, g.this.mInjectListener) != null) {
-                        TiebaStatic.log(new ak("c12534").s("obj_locate", aq.a.aXK));
+                if (g.this.fyc != null && data != null) {
+                    if (data.biH != null && AntiHelper.a(g.this.getActivity(), data.biH, g.this.mInjectListener) != null) {
+                        TiebaStatic.log(new ak("c12534").s("obj_locate", aq.a.aXy));
                     }
-                    if (data.apP) {
-                        Iterator it = g.this.fyo.iterator();
+                    if (data.apG) {
+                        Iterator it = g.this.fyc.iterator();
                         while (it.hasNext()) {
                             MarkData markData = (MarkData) it.next();
                             if (markData != null && am.equals(markData.getUesrId(), data.toUid)) {
@@ -77,7 +77,7 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
                         if (data.isAttention) {
                             l.showToast(g.this.getPageContext().getPageActivity(), d.j.attention_success);
                         }
-                        g.this.fyR.aXT();
+                        g.this.fyF.aXS();
                     }
                 }
             }
@@ -86,23 +86,23 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     private final AntiHelper.a mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.myCollection.g.6
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ak("c12536").s("obj_locate", aq.a.aXK));
+            TiebaStatic.log(new ak("c12536").s("obj_locate", aq.a.aXy));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ak("c12535").s("obj_locate", aq.a.aXK));
+            TiebaStatic.log(new ak("c12535").s("obj_locate", aq.a.aXy));
         }
     };
 
-    public static final g aXZ() {
+    public static final g aXY() {
         return new g();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        aYa();
+        aXZ();
         registerListener(this.mNetworkChangedMessageListener);
         registerListener(this.mAttentionListener);
     }
@@ -110,52 +110,52 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.edit_mark_activity, (ViewGroup) null);
-        this.fyl = new com.baidu.tieba.myCollection.baseEditMark.a();
-        this.fyR = new h(this, inflate);
-        this.fyR.c(new a.b() { // from class: com.baidu.tieba.myCollection.g.1
+        this.fxZ = new com.baidu.tieba.myCollection.baseEditMark.a();
+        this.fyF = new h(this, inflate);
+        this.fyF.c(new a.b() { // from class: com.baidu.tieba.myCollection.g.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
-                g.this.fyR.startRefresh(g.this.fyl.getOffset());
-                g.this.fyl.d(true);
+                g.this.fyF.startRefresh(g.this.fxZ.getOffset());
+                g.this.fxZ.d(true);
             }
         });
-        this.fyR.fG(com.baidu.adp.lib.util.j.oJ());
-        this.fyl.a(new d() { // from class: com.baidu.tieba.myCollection.g.2
+        this.fyF.fG(com.baidu.adp.lib.util.j.oJ());
+        this.fxZ.a(new d() { // from class: com.baidu.tieba.myCollection.g.2
             @Override // com.baidu.tieba.myCollection.d
             public void callback(Object... objArr) {
                 try {
                     if (((Integer) objArr[0]).intValue() == 0) {
-                        g.this.fyR.completePullRefresh();
+                        g.this.fyF.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r3 = (String) objArr[1];
                         }
-                        g.this.fyR.a(r3, g.this.fyl, ((Boolean) objArr[2]).booleanValue());
-                        g.this.fyo = g.this.fyl.aYd();
+                        g.this.fyF.a(r3, g.this.fxZ, ((Boolean) objArr[2]).booleanValue());
+                        g.this.fyc = g.this.fxZ.aYc();
                         g gVar = g.this;
-                        if (g.this.fyo != null && !g.this.fyo.isEmpty()) {
+                        if (g.this.fyc != null && !g.this.fyc.isEmpty()) {
                             r2 = true;
                         }
-                        gVar.aIK = r2;
+                        gVar.aIz = r2;
                     } else if (((Integer) objArr[0]).intValue() == 3) {
-                        g.this.fyR.completePullRefresh();
+                        g.this.fyF.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r3 = (String) objArr[1];
                         }
-                        g.this.fyR.a(r3, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
-                        g.this.fyR.a(g.this.fyl, false);
-                        g.this.aIK = false;
+                        g.this.fyF.a(r3, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
+                        g.this.fyF.a(g.this.fxZ, false);
+                        g.this.aIz = false;
                     } else if (((Integer) objArr[0]).intValue() == 1) {
                         boolean booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                        g.this.fyR.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
+                        g.this.fyF.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
                         if (booleanValue) {
-                            g.this.fyR.startRefresh(g.this.fyl.getOffset());
-                            g.this.fyl.d(true);
+                            g.this.fyF.startRefresh(g.this.fxZ.getOffset());
+                            g.this.fxZ.d(true);
                         }
                     } else if (((Integer) objArr[0]).intValue() == 2) {
-                        g.this.fyR.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, g.this.fyl);
-                        g.this.fyo = g.this.fyl.aYd();
-                        g.this.aIK = (g.this.fyo == null || g.this.fyo.isEmpty()) ? false : true;
+                        g.this.fyF.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, g.this.fxZ);
+                        g.this.fyc = g.this.fxZ.aYc();
+                        g.this.aIz = (g.this.fyc == null || g.this.fyc.isEmpty()) ? false : true;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -168,25 +168,25 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     }
 
     private void refresh() {
-        if (this.fyl.getCount() == 0) {
-            this.fyR.startRefresh(this.fyl.getOffset());
+        if (this.fxZ.getCount() == 0) {
+            this.fyF.startRefresh(this.fxZ.getOffset());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fyR != null) {
-            this.fyR.onChangeSkinType(i);
+        if (this.fyF != null) {
+            this.fyF.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.fyR != null) {
-            this.fyR.ah(this.fyo);
-            this.aIK = (this.fyo == null || this.fyo.isEmpty()) ? false : true;
+        if (this.fyF != null) {
+            this.fyF.ah(this.fyc);
+            this.aIz = (this.fyc == null || this.fyc.isEmpty()) ? false : true;
             eb(1);
             refresh();
         }
@@ -195,17 +195,17 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     @Override // com.baidu.tbadk.g.b, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.fyR.aYb();
+        this.fyF.aYa();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        this.fyR.onDestroy();
-        this.fyl.onDestroy();
+        this.fyF.onDestroy();
+        this.fxZ.onDestroy();
         super.onDestroy();
     }
 
-    private void aYa() {
+    private void aXZ() {
         registerListener(new CustomMessageListener(2022208) { // from class: com.baidu.tieba.myCollection.g.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -213,7 +213,7 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
                 if (customResponsedMessage.getData() instanceof Bundle) {
                     Bundle bundle = (Bundle) customResponsedMessage.getData();
                     if (bundle.getInt("fragment_type", -1) == g.this.getType()) {
-                        g.this.fyR.js(bundle.getBoolean("is_edit_state", false));
+                        g.this.fyF.js(bundle.getBoolean("is_edit_state", false));
                     }
                 }
             }
@@ -223,19 +223,19 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue = ((Integer) view.getTag()).intValue();
-        MarkData markData = (MarkData) v.f(this.fyo, intValue);
+        MarkData markData = (MarkData) v.f(this.fyc, intValue);
         if (markData != null) {
             boolean isShareThread = markData.isShareThread();
             ak akVar = new ak("c12529");
-            if (view.getId() == this.fyR.jt(isShareThread)) {
-                this.fyR.arB();
-                if (!this.fyl.sq(intValue)) {
-                    this.fyR.aIH();
+            if (view.getId() == this.fyF.jt(isShareThread)) {
+                this.fyF.arA();
+                if (!this.fxZ.sr(intValue)) {
+                    this.fyF.aIG();
                 }
-            } else if (view.getId() == this.fyR.ju(isShareThread)) {
-                this.fyR.e(markData);
+            } else if (view.getId() == this.fyF.ju(isShareThread)) {
+                this.fyF.e(markData);
                 akVar.s("obj_locate", 1);
-            } else if (view.getId() == this.fyR.jv(isShareThread)) {
+            } else if (view.getId() == this.fyF.jv(isShareThread)) {
                 akVar.s("obj_locate", 3);
                 d(markData);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
@@ -249,10 +249,10 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.fyl.aYd().size()) {
-            this.fyn = i;
-            MarkData markData = this.fyl.aYd().get(i);
-            MarkData markData2 = this.fyo.get(i);
+        if (i >= 0 && i < this.fxZ.aYc().size()) {
+            this.fyb = i;
+            MarkData markData = this.fxZ.aYc().get(i);
+            MarkData markData2 = this.fyc.get(i);
             ak akVar = new ak("c12529");
             akVar.s("obj_locate", 2);
             akVar.ab("tid", markData2.getId());
@@ -282,20 +282,20 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
     }
 
     private void d(MarkData markData) {
-        if (markData != null && this.fyl != null) {
-            int aYc = this.fyl.aYc();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.GJ().getMsgBookmark();
+        if (markData != null && this.fxZ != null) {
+            int aYb = this.fxZ.aYb();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.GI().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.GI().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.GJ().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.GI().setMsgBookmark(0);
                 }
-                if (aYc > 0) {
-                    this.fyl.sp(aYc - 1);
+                if (aYb > 0) {
+                    this.fxZ.sq(aYb - 1);
                 } else {
-                    this.fyl.sp(0);
+                    this.fxZ.sq(0);
                 }
             }
             markData.setNewCounts(0);
@@ -308,34 +308,34 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
         if (i2 == -1) {
             if (17001 == i) {
                 MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                if (this.fyl != null && markData != null && this.fyR != null && v.D(this.fyl.aYd()) > this.fyn && this.fyn >= 0) {
-                    this.fyl.aYd().get(this.fyn).setPostId(markData.getPostId());
-                    this.fyl.aYd().get(this.fyn).setHostMode(markData.getHostMode());
-                    this.fyl.aYd().get(this.fyn).setSequence(markData.getSequence());
-                    this.fyR.aXT();
+                if (this.fxZ != null && markData != null && this.fyF != null && v.D(this.fxZ.aYc()) > this.fyb && this.fyb >= 0) {
+                    this.fxZ.aYc().get(this.fyb).setPostId(markData.getPostId());
+                    this.fxZ.aYc().get(this.fyb).setHostMode(markData.getHostMode());
+                    this.fxZ.aYc().get(this.fyb).setSequence(markData.getSequence());
+                    this.fyF.aXS();
                 }
             }
-        } else if (i2 == 1 && 17001 == i && this.fyl != null && this.fyR != null && v.D(this.fyl.aYd()) > this.fyn && this.fyn >= 0) {
-            this.fyl.aYd().remove(this.fyn);
-            this.fyR.aXT();
-            this.fyR.a(this.fyl, false);
+        } else if (i2 == 1 && 17001 == i && this.fxZ != null && this.fyF != null && v.D(this.fxZ.aYc()) > this.fyb && this.fyb >= 0) {
+            this.fxZ.aYc().remove(this.fyb);
+            this.fyF.aXS();
+            this.fyF.a(this.fxZ, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void bw(boolean z) {
-        if (this.fyl != null && this.fyR != null) {
-            this.fyl.reset();
-            this.fyR.ct(true);
-            this.fyl.d(false);
+        if (this.fxZ != null && this.fyF != null) {
+            this.fxZ.reset();
+            this.fyF.ct(true);
+            this.fxZ.d(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.fyR != null && this.fyl != null && this.fyl.hasMore()) {
-            this.fyR.startRefresh(this.fyl.getOffset());
-            this.fyl.d(false);
+        if (this.fyF != null && this.fxZ != null && this.fxZ.hasMore()) {
+            this.fyF.startRefresh(this.fxZ.getOffset());
+            this.fxZ.d(false);
         }
     }
 
@@ -346,6 +346,6 @@ public class g extends com.baidu.tbadk.g.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.g.b
     public boolean wP() {
-        return this.fyo == null || this.fyo.isEmpty();
+        return this.fyc == null || this.fyc.isEmpty();
     }
 }

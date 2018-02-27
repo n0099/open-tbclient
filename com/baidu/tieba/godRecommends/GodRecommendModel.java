@@ -25,7 +25,7 @@ public class GodRecommendModel extends BdBaseModel {
         }
     }
 
-    public void aBE() {
+    public void aBD() {
         this.mIsLoading = false;
     }
 

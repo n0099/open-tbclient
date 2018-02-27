@@ -3,22 +3,22 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c bxP = MU();
-    protected e bxQ;
+    protected c bxC = MT();
+    protected e bxD;
 
-    public abstract c MU();
+    public abstract c MT();
 
     public abstract e bi(Context context);
 
     public abstract boolean isAvailable();
 
-    public void MT() {
+    public void MS() {
     }
 
     public void kg() {
     }
 
-    public c MV() {
-        return this.bxP;
+    public c MU() {
+        return this.bxC;
     }
 }

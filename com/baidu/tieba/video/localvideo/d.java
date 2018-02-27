@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class d {
     private long duration;
     private boolean hasLoaded = false;
-    private String htB;
+    private String hto;
     private long lastModified;
     private String mimeType;
     private Bitmap thumbnailBitmap;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void tV(String str) {
-        this.htB = str;
+        this.hto = str;
     }
 
     public long getLastModified() {
@@ -70,7 +70,7 @@ public class d {
         this.lastModified = j;
     }
 
-    public synchronized Bitmap bCx() {
+    public synchronized Bitmap bCw() {
         return this.thumbnailBitmap;
     }
 
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean bCy() {
+    public boolean bCx() {
         return this.hasLoaded;
     }
 }

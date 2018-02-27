@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.ar.util.Constants;
 import com.tencent.connect.auth.QQToken;
-import com.tencent.connect.common.Constants;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
 import java.io.ByteArrayOutputStream;
 import java.io.CharConversionException;
@@ -90,12 +90,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -104,7 +104,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -132,19 +132,19 @@ public class HttpUtils {
         long j2;
         JSONObject jSONObject4;
         long j3;
-        i.a openUrl2;
+        j.a openUrl2;
         JSONObject d;
         com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "OpenApi request");
         if (str.toLowerCase().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
             str3 = str;
             str4 = str;
         } else {
-            str4 = f.a().a(context, Constants.GRAPH_BASE) + str;
-            str3 = f.a().a(context, Constants.GRAPH_BASE) + str;
+            str4 = g.a().a(context, "https://openmobile.qq.com/") + str;
+            str3 = g.a().a(context, "https://openmobile.qq.com/") + str;
         }
         a(context, qQToken, str);
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        int a2 = e.a(context, qQToken.getAppId()).a("Common_HttpRetryCount");
+        int a2 = f.a(context, qQToken.getAppId()).a("Common_HttpRetryCount");
         com.tencent.open.a.f.a("OpenConfig_test", "config 1:Common_HttpRetryCount            config_value:" + a2 + "   appid:" + qQToken.getAppId() + "     url:" + str3);
         int i3 = a2 == 0 ? 3 : a2;
         com.tencent.open.a.f.a("OpenConfig_test", "config 1:Common_HttpRetryCount            result_value:" + i3 + "   appid:" + qQToken.getAppId() + "     url:" + str3);
@@ -157,7 +157,7 @@ public class HttpUtils {
                 try {
                     try {
                         openUrl2 = openUrl2(context, str4, str2, bundle);
-                        d = i.d(openUrl2.a);
+                        d = j.d(openUrl2.a);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, -4);
@@ -172,7 +172,7 @@ public class HttpUtils {
                 }
                 try {
                     try {
-                        i2 = d.getInt(com.baidu.ar.util.Constants.HTTP_RET);
+                        i2 = d.getInt(Constants.HTTP_RET);
                     } catch (JSONException e4) {
                         i2 = -4;
                     }
@@ -427,7 +427,7 @@ public class HttpUtils {
         return -2;
     }
 
-    public static i.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
+    public static j.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
         Bundle bundle2;
         HttpGet httpGet;
         int i;
@@ -478,26 +478,26 @@ public class HttpUtils {
             httpPost.setHeader("Content-Type", "multipart/form-data; boundary=3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f");
             httpPost.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byteArrayOutputStream.write(i.i("--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
-            byteArrayOutputStream.write(i.i(encodePostBody(bundle2, "3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f")));
+            byteArrayOutputStream.write(j.i("--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+            byteArrayOutputStream.write(j.i(encodePostBody(bundle2, "3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f")));
             if (!bundle3.isEmpty()) {
                 int size = bundle3.size();
-                byteArrayOutputStream.write(i.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+                byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                 int i2 = -1;
                 for (String str5 : bundle3.keySet()) {
                     i2++;
-                    byteArrayOutputStream.write(i.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"\r\n"));
-                    byteArrayOutputStream.write(i.i("Content-Type: content/unknown\r\n\r\n"));
+                    byteArrayOutputStream.write(j.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"\r\n"));
+                    byteArrayOutputStream.write(j.i("Content-Type: content/unknown\r\n\r\n"));
                     byte[] byteArray = bundle3.getByteArray(str5);
                     if (byteArray != null) {
                         byteArrayOutputStream.write(byteArray);
                     }
                     if (i2 < size - 1) {
-                        byteArrayOutputStream.write(i.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
+                        byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                     }
                 }
             }
-            byteArrayOutputStream.write(i.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
+            byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
             byte[] byteArray2 = byteArrayOutputStream.toByteArray();
             i = byteArray2.length + 0;
             byteArrayOutputStream.close();
@@ -509,7 +509,7 @@ public class HttpUtils {
         if (statusCode != 200) {
             throw new HttpStatusException(HttpStatusException.ERROR_INFO + statusCode);
         }
-        return new i.a(a(execute), i);
+        return new j.a(a(execute), i);
     }
 
     private static String a(HttpResponse httpResponse) throws IllegalStateException, IOException {
@@ -549,7 +549,7 @@ public class HttpUtils {
             schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
         }
         BasicHttpParams basicHttpParams = new BasicHttpParams();
-        e a2 = context != null ? e.a(context, str) : null;
+        f a2 = context != null ? f.a(context, str) : null;
         if (a2 != null) {
             i = a2.a("Common_HttpConnectionTimeout");
             i2 = a2.a("Common_SocketConnectionTimeout");
@@ -654,7 +654,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public final String a;
         public final int b;
@@ -701,7 +701,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends SSLSocketFactory {
         private final SSLContext a;
 
@@ -728,7 +728,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements X509TrustManager {
         X509TrustManager a;
 

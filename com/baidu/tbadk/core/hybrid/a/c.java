@@ -19,11 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends o {
-    private m aTN;
+    private m aTC;
 
     public c(m mVar) {
         super(mVar);
-        this.aTN = mVar;
+        this.aTC = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,7 +57,7 @@ public class c extends o {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTN.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.aTC.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 

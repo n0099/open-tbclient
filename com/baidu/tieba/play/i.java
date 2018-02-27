@@ -17,5 +17,5 @@ public interface i {
 
     void hY(String str);
 
-    String r(String str, boolean z);
+    String q(String str, boolean z);
 }

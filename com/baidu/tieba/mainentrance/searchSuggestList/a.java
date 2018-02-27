@@ -17,34 +17,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private String fhd;
-    private List<String> fir;
+    private String fgR;
+    private List<String> fif;
     private Context mContext;
 
     public a(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.fir = arrayList;
+        this.fif = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.fir = list;
-        if (this.fir != null) {
+        this.fif = list;
+        if (this.fif != null) {
             notifyDataSetChanged();
         }
     }
 
     public void oC(String str) {
         if (!StringUtils.isNull(str)) {
-            this.fhd = str.trim();
+            this.fgR = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fir == null) {
+        if (this.fif == null) {
             return 0;
         }
-        return this.fir.size();
+        return this.fif.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.fir.get(i);
+        return this.fif.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,27 +64,27 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0197a c0197a;
+        C0198a c0198a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(d.h.search_suggest_item, (ViewGroup) null);
-            C0197a c0197a2 = new C0197a();
-            c0197a2.mRootView = view.findViewById(d.g.rootview);
-            c0197a2.fis = (TextView) view.findViewById(d.g.searchSuggestTitle);
-            c0197a2.drs = view.findViewById(d.g.searchItemSep);
-            view.setTag(c0197a2);
-            c0197a = c0197a2;
+            C0198a c0198a2 = new C0198a();
+            c0198a2.mRootView = view.findViewById(d.g.rootview);
+            c0198a2.fig = (TextView) view.findViewById(d.g.searchSuggestTitle);
+            c0198a2.drg = view.findViewById(d.g.searchItemSep);
+            view.setTag(c0198a2);
+            c0198a = c0198a2;
         } else {
-            c0197a = (C0197a) view.getTag();
+            c0198a = (C0198a) view.getTag();
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            b(c0197a.fis, item);
+            b(c0198a.fig, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != c0197a.mSkinType) {
-                c0197a.mSkinType = skinType;
-                aj.s(c0197a.mRootView, d.f.addresslist_item_bg);
-                aj.r(c0197a.fis, d.C0140d.cp_cont_b);
-                aj.t(c0197a.drs, d.C0140d.cp_bg_line_c);
+            if (skinType != c0198a.mSkinType) {
+                c0198a.mSkinType = skinType;
+                aj.s(c0198a.mRootView, d.f.addresslist_item_bg);
+                aj.r(c0198a.fig, d.C0141d.cp_cont_b);
+                aj.t(c0198a.drg, d.C0141d.cp_bg_line_c);
             }
         }
         return view;
@@ -92,29 +92,29 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0197a {
-        View drs;
-        TextView fis;
+    private class C0198a {
+        View drg;
+        TextView fig;
         View mRootView;
         int mSkinType;
 
-        private C0197a() {
+        private C0198a() {
             this.mSkinType = 3;
         }
     }
 
     public void b(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.fhd)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.fgR)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.fhd.toLowerCase();
+            String lowerCase2 = this.fgR.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(aj.getColor(d.C0140d.cp_cont_h));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(aj.getColor(d.C0141d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.fhd.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.fgR.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

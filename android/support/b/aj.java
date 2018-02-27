@@ -10,36 +10,36 @@ public abstract class aj extends n implements am {
         super(true);
         if (!z) {
             if (Build.VERSION.SDK_INT >= 19) {
-                this.uS = new an();
+                this.uR = new an();
             } else {
-                this.uS = new ak();
+                this.uR = new ak();
             }
-            this.uS.a(this);
+            this.uR.a(this);
         }
     }
 
     @Override // android.support.b.n, android.support.b.r
     public void captureEndValues(af afVar) {
-        this.uS.captureEndValues(afVar);
+        this.uR.captureEndValues(afVar);
     }
 
     @Override // android.support.b.n, android.support.b.r
     public void captureStartValues(af afVar) {
-        this.uS.captureStartValues(afVar);
+        this.uR.captureStartValues(afVar);
     }
 
     @Override // android.support.b.am
     public boolean b(af afVar) {
-        return ((al) this.uS).b(afVar);
+        return ((al) this.uR).b(afVar);
     }
 
     @Override // android.support.b.am
     public Animator a(ViewGroup viewGroup, af afVar, int i, af afVar2, int i2) {
-        return ((al) this.uS).a(viewGroup, afVar, i, afVar2, i2);
+        return ((al) this.uR).a(viewGroup, afVar, i, afVar2, i2);
     }
 
     @Override // android.support.b.am
     public Animator b(ViewGroup viewGroup, af afVar, int i, af afVar2, int i2) {
-        return ((al) this.uS).b(viewGroup, afVar, i, afVar2, i2);
+        return ((al) this.uR).b(viewGroup, afVar, i, afVar2, i2);
     }
 }

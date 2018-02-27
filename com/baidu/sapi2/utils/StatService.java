@@ -57,7 +57,7 @@ public final class StatService {
                     hashMap.put("tpl", confignation.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
                     hashMap.put(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
-                    hashMap.put("sdk_version", isAccountManager.getVersionName());
+                    hashMap.put(SapiContext.KEY_SDK_VERSION, isAccountManager.getVersionName());
                     if (!TextUtils.isEmpty(confignation.clientId)) {
                         hashMap.put("cuid", confignation.clientId);
                     }

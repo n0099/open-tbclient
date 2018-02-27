@@ -11,15 +11,15 @@ public class e extends PbListView {
         super(tbPageContext.getPageActivity());
         this.context = tbPageContext;
         getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds74));
-        Ec();
+        Eb();
+        Ed();
         Ee();
-        Ef();
         setTextSize(d.e.ds30);
     }
 
     @Override // com.baidu.tbadk.core.view.PbListView
-    public void Eh() {
-        super.Eh();
+    public void Eg() {
+        super.Eg();
         setText(this.context.getResources().getString(d.j.list_no_more));
         getView().setVisibility(0);
     }

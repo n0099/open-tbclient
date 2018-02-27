@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View bxA;
-    private boolean bxB;
+    protected View bxn;
+    private boolean bxo;
 
     public a(View view) {
-        this.bxA = view;
+        this.bxn = view;
     }
 
-    public boolean MJ() {
-        return this.bxB;
+    public boolean MI() {
+        return this.bxo;
     }
 
     public void j(View view, boolean z) {
-        if (view != null && this.bxA != null && this.bxA.getParent() == null) {
-            this.bxB = true;
-            d.bl(view).a(view, this.bxA, z);
-            MK();
+        if (view != null && this.bxn != null && this.bxn.getParent() == null) {
+            this.bxo = true;
+            d.bl(view).a(view, this.bxn, z);
+            MJ();
         }
     }
 
     public void bk(View view) {
-        if (view != null && this.bxA != null && this.bxA.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.bxn != null && this.bxn.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                ML();
-                ((ViewGroup) view).removeView(this.bxA);
-                this.bxB = false;
+                MK();
+                ((ViewGroup) view).removeView(this.bxn);
+                this.bxo = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void MK() {
+    public void MJ() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ML() {
+    public void MK() {
     }
 }

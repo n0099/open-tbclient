@@ -5,12 +5,12 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class bf {
-    private String aQF;
-    private String aQG;
-    private int aQH;
-    private String aQI;
-    private long aQJ;
-    private String aQK;
+    private String aQu;
+    private String aQv;
+    private int aQw;
+    private String aQx;
+    private long aQy;
+    private String aQz;
     private String imgUrl;
     private String subTitle;
     private String summary;
@@ -24,35 +24,35 @@ public class bf {
     }
 
     public String AC() {
-        return this.aQG;
+        return this.aQv;
     }
 
     public int AD() {
-        return this.aQH;
+        return this.aQw;
     }
 
     public String AE() {
-        return this.aQI;
+        return this.aQx;
     }
 
     public long AF() {
-        return this.aQJ;
+        return this.aQy;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
             this.imgUrl = topCode.img_url;
-            this.aQF = topCode.game_link;
+            this.aQu = topCode.game_link;
             this.summary = topCode.summary;
-            this.aQG = topCode.code_link;
-            this.aQH = topCode.get_type.intValue();
-            this.aQI = topCode.surplusgift;
+            this.aQv = topCode.code_link;
+            this.aQw = topCode.get_type.intValue();
+            this.aQx = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.aQJ = 0L;
+                this.aQy = 0L;
             } else {
-                this.aQJ = topCode.giftworth.longValue();
+                this.aQy = topCode.giftworth.longValue();
             }
-            this.aQK = topCode.type_text;
+            this.aQz = topCode.type_text;
             this.subTitle = topCode.subtitle;
         }
     }
@@ -61,13 +61,13 @@ public class bf {
         if (jSONObject != null) {
             try {
                 this.imgUrl = jSONObject.optString("img_url");
-                this.aQF = jSONObject.optString("game_link");
+                this.aQu = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.aQG = jSONObject.optString("code_link");
-                this.aQH = jSONObject.optInt("get_type", 1);
-                this.aQI = jSONObject.optString("surplusgift");
-                this.aQJ = jSONObject.optLong("giftworth", 0L);
-                this.aQK = jSONObject.optString("type_text");
+                this.aQv = jSONObject.optString("code_link");
+                this.aQw = jSONObject.optInt("get_type", 1);
+                this.aQx = jSONObject.optString("surplusgift");
+                this.aQy = jSONObject.optLong("giftworth", 0L);
+                this.aQz = jSONObject.optString("type_text");
                 this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -76,7 +76,7 @@ public class bf {
     }
 
     public String AG() {
-        return this.aQK;
+        return this.aQz;
     }
 
     public String getSubTitle() {

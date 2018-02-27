@@ -66,7 +66,7 @@ public class H264TrackImpl extends AbstractTrack {
         STORE,
         END;
 
-        /* JADX DEBUG: Replace access to removed values field (hZo) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (hZb) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NALActions[] valuesCustom() {
             NALActions[] valuesCustom = values();
@@ -274,23 +274,23 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
         ByteBuffer buffer;
         DataSource dataSource;
-        long hZm = 0;
-        int hZn = 0;
+        long hYZ = 0;
+        int hZa = 0;
         long start;
 
-        public void bNd() throws IOException {
-            this.buffer = this.dataSource.map(this.hZm, Math.min(this.dataSource.size() - this.hZm, H264TrackImpl.BUFFER));
+        public void bNc() throws IOException {
+            this.buffer = this.dataSource.map(this.hYZ, Math.min(this.dataSource.size() - this.hYZ, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            bNd();
+            bNc();
         }
 
-        boolean bNe() throws IOException {
-            if (this.buffer.limit() - this.hZn >= 3) {
-                return this.buffer.get(this.hZn) == 0 && this.buffer.get(this.hZn + 1) == 0 && this.buffer.get(this.hZn + 2) == 1;
-            } else if (this.hZm + this.hZn != this.dataSource.size()) {
+        boolean bNd() throws IOException {
+            if (this.buffer.limit() - this.hZa >= 3) {
+                return this.buffer.get(this.hZa) == 0 && this.buffer.get(this.hZa + 1) == 0 && this.buffer.get(this.hZa + 2) == 1;
+            } else if (this.hYZ + this.hZa != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -298,33 +298,33 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean bNf() throws IOException {
-            if (this.buffer.limit() - this.hZn >= 3) {
-                return this.buffer.get(this.hZn) == 0 && this.buffer.get(this.hZn + 1) == 0 && (this.buffer.get(this.hZn + 2) == 0 || this.buffer.get(this.hZn + 2) == 1);
-            } else if (this.hZm + this.hZn + 3 > this.dataSource.size()) {
-                return this.hZm + ((long) this.hZn) == this.dataSource.size();
+        boolean bNe() throws IOException {
+            if (this.buffer.limit() - this.hZa >= 3) {
+                return this.buffer.get(this.hZa) == 0 && this.buffer.get(this.hZa + 1) == 0 && (this.buffer.get(this.hZa + 2) == 0 || this.buffer.get(this.hZa + 2) == 1);
+            } else if (this.hYZ + this.hZa + 3 > this.dataSource.size()) {
+                return this.hYZ + ((long) this.hZa) == this.dataSource.size();
             } else {
-                this.hZm = this.start;
-                this.hZn = 0;
-                bNd();
-                return bNf();
+                this.hYZ = this.start;
+                this.hZa = 0;
+                bNc();
+                return bNe();
             }
         }
 
+        void bNf() {
+            this.hZa++;
+        }
+
         void bNg() {
-            this.hZn++;
+            this.hZa += 3;
+            this.start = this.hYZ + this.hZa;
         }
 
-        void bNh() {
-            this.hZn += 3;
-            this.start = this.hZm + this.hZn;
-        }
-
-        public ByteBuffer bNi() {
-            if (this.start >= this.hZm) {
-                this.buffer.position((int) (this.start - this.hZm));
+        public ByteBuffer bNh() {
+            if (this.start >= this.hYZ) {
+                this.buffer.position((int) (this.start - this.hYZ));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.hZn - (this.start - this.hZm)));
+                slice.limit((int) (this.hZa - (this.start - this.hYZ)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.bNe()) {
+        while (!aVar.bNd()) {
             try {
-                aVar.bNg();
+                aVar.bNf();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.bNh();
-        while (!aVar.bNf()) {
-            aVar.bNg();
+        aVar.bNg();
+        while (!aVar.bNe()) {
+            aVar.bNf();
         }
-        return aVar.bNi();
+        return aVar.bNh();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {

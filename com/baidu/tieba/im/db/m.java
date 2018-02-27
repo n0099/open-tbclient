@@ -9,20 +9,20 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes.dex */
 public class m extends a {
-    private static a eBT;
-    public static String eBu = "tb_private_msg_";
+    private static a eBH;
+    public static String eBi = "tb_private_msg_";
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m aIs() {
+    public static synchronized m aIr() {
         m mVar;
         synchronized (m.class) {
-            if (eBT == null) {
-                eBT = new m();
+            if (eBH == null) {
+                eBH = new m();
             }
-            mVar = (m) eBT;
+            mVar = (m) eBH;
         }
         return mVar;
     }
@@ -48,10 +48,10 @@ public class m extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = eBu;
+            ?? r2 = eBi;
             try {
                 try {
-                    cursor = h.aIg().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.aIf().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {

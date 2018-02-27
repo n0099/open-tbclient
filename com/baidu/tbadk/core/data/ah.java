@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ah {
-    public SparseArray<String> aNr = null;
+    public SparseArray<String> aNg = null;
     private String fid;
     private String tid;
     private String type;
@@ -33,10 +33,10 @@ public class ah {
     }
 
     public SparseArray<String> yo() {
-        return this.aNr;
+        return this.aNg;
     }
 
     public void a(SparseArray<String> sparseArray) {
-        this.aNr = sparseArray;
+        this.aNg = sparseArray;
     }
 }

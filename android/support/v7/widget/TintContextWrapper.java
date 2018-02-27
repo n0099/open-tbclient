@@ -10,25 +10,25 @@ import java.util.ArrayList;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class TintContextWrapper extends ContextWrapper {
-    private static final Object Xg = new Object();
-    private static ArrayList<WeakReference<TintContextWrapper>> Xh;
+    private static final Object Xa = new Object();
+    private static ArrayList<WeakReference<TintContextWrapper>> Xb;
     private final Resources mResources;
     private final Resources.Theme mTheme;
 
     public static Context wrap(Context context) {
         if (Z(context)) {
-            synchronized (Xg) {
-                if (Xh == null) {
-                    Xh = new ArrayList<>();
+            synchronized (Xa) {
+                if (Xb == null) {
+                    Xb = new ArrayList<>();
                 } else {
-                    for (int size = Xh.size() - 1; size >= 0; size--) {
-                        WeakReference<TintContextWrapper> weakReference = Xh.get(size);
+                    for (int size = Xb.size() - 1; size >= 0; size--) {
+                        WeakReference<TintContextWrapper> weakReference = Xb.get(size);
                         if (weakReference == null || weakReference.get() == null) {
-                            Xh.remove(size);
+                            Xb.remove(size);
                         }
                     }
-                    for (int size2 = Xh.size() - 1; size2 >= 0; size2--) {
-                        WeakReference<TintContextWrapper> weakReference2 = Xh.get(size2);
+                    for (int size2 = Xb.size() - 1; size2 >= 0; size2--) {
+                        WeakReference<TintContextWrapper> weakReference2 = Xb.get(size2);
                         TintContextWrapper tintContextWrapper = weakReference2 != null ? weakReference2.get() : null;
                         if (tintContextWrapper != null && tintContextWrapper.getBaseContext() == context) {
                             return tintContextWrapper;
@@ -36,7 +36,7 @@ public class TintContextWrapper extends ContextWrapper {
                     }
                 }
                 TintContextWrapper tintContextWrapper2 = new TintContextWrapper(context);
-                Xh.add(new WeakReference<>(tintContextWrapper2));
+                Xb.add(new WeakReference<>(tintContextWrapper2));
                 return tintContextWrapper2;
             }
         }

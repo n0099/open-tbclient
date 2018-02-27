@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h amg = null;
+    private static h ama = null;
 
     public static h ov() {
         h hVar;
-        if (amg == null) {
+        if (ama == null) {
             synchronized (h.class) {
-                if (amg == null) {
-                    amg = new h();
+                if (ama == null) {
+                    ama = new h();
                 }
-                hVar = amg;
+                hVar = ama;
             }
             return hVar;
         }
-        return amg;
+        return ama;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String amh;
-        String ami;
-        StringBuilder amj;
-        i amk;
-        boolean aml = false;
+        String amb;
+        String amc;
+        StringBuilder amd;
+        i ame;
+        boolean amf = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.amh = str;
-            this.ami = str2;
-            this.amj = sb;
-            this.amk = iVar;
+            this.amb = str;
+            this.amc = str2;
+            this.amd = sb;
+            this.ame = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.aml = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.amh, this.amj);
-            if (!this.aml) {
-                h.this.a(this.ami, "".getBytes(), this.amj);
+            this.amf = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.amb, this.amd);
+            if (!this.amf) {
+                h.this.a(this.amc, "".getBytes(), this.amd);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.amj.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.amh + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.amj.toString(), new Object[0]);
+            if (this.amd.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.amb + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.amd.toString(), new Object[0]);
             }
-            if (this.amk != null) {
-                this.amk.Y(this.aml);
+            if (this.ame != null) {
+                this.ame.Y(this.amf);
             }
         }
     }

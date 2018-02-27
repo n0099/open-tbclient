@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VoteTextGroupView extends LinearLayout {
-    private com.baidu.tbadk.widget.vote.b bMJ;
-    private List<b> bMX;
-    private int bMY;
-    private com.baidu.tbadk.widget.vote.a bMZ;
-    private List<com.baidu.tbadk.widget.vote.a> bNa;
+    private List<b> bMK;
+    private int bML;
+    private com.baidu.tbadk.widget.vote.a bMM;
+    private List<com.baidu.tbadk.widget.vote.a> bMN;
+    private com.baidu.tbadk.widget.vote.b bMw;
     private int mMode;
 
     public void setMode(int i) {
@@ -29,36 +29,36 @@ public class VoteTextGroupView extends LinearLayout {
     }
 
     public void setOnVoteCheckedChangedListener(com.baidu.tbadk.widget.vote.b bVar) {
-        this.bMJ = bVar;
+        this.bMw = bVar;
     }
 
     public VoteTextGroupView(Context context) {
         super(context);
         this.mMode = 2;
-        this.bMY = -1;
-        this.bMZ = null;
-        this.bNa = new ArrayList();
+        this.bML = -1;
+        this.bMM = null;
+        this.bMN = new ArrayList();
         init(context);
     }
 
     public VoteTextGroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mMode = 2;
-        this.bMY = -1;
-        this.bMZ = null;
-        this.bNa = new ArrayList();
+        this.bML = -1;
+        this.bMM = null;
+        this.bMN = new ArrayList();
         init(context);
     }
 
     private void init(Context context) {
         setOrientation(1);
         setGravity(1);
-        this.bMX = new ArrayList();
+        this.bMK = new ArrayList();
     }
 
     public void S(List<com.baidu.tbadk.widget.vote.a> list) {
         if (list != null && !list.isEmpty()) {
-            this.bNa = list;
+            this.bMN = list;
             removeAllViews();
             LayoutInflater from = LayoutInflater.from(getContext());
             int size = list.size();
@@ -67,17 +67,17 @@ public class VoteTextGroupView extends LinearLayout {
                 if (aVar != null) {
                     b bVar = new b();
                     View inflate = from.inflate(d.h.vote_text_select_item, (ViewGroup) null);
-                    bVar.bNe = (RelativeLayout) inflate.findViewById(d.g.root_pb_vote);
-                    bVar.bNf = (TextView) inflate.findViewById(d.g.tv_name);
-                    bVar.bNg = (CheckBox) inflate.findViewById(d.g.cb_select);
-                    bVar.bNg.setClickable(false);
+                    bVar.bMR = (RelativeLayout) inflate.findViewById(d.g.root_pb_vote);
+                    bVar.bMS = (TextView) inflate.findViewById(d.g.tv_name);
+                    bVar.bMT = (CheckBox) inflate.findViewById(d.g.cb_select);
+                    bVar.bMT.setClickable(false);
                     inflate.setTag(bVar);
-                    bVar.bNf.setText(UtilHelper.getFixedText(aVar.KG(), 15, false));
-                    bVar.bNg.setChecked(aVar.isSelected());
-                    bVar.bNe.setOnClickListener(new a(aVar, i));
+                    bVar.bMS.setText(UtilHelper.getFixedText(aVar.KF(), 15, false));
+                    bVar.bMT.setChecked(aVar.isSelected());
+                    bVar.bMR.setOnClickListener(new a(aVar, i));
                     a(TbadkCoreApplication.getInst().getSkinType(), bVar);
                     addView(inflate);
-                    this.bMX.add(bVar);
+                    this.bMK.add(bVar);
                 }
             }
         }
@@ -85,63 +85,63 @@ public class VoteTextGroupView extends LinearLayout {
 
     private void a(int i, b bVar) {
         if (bVar != null) {
-            aj.e(bVar.bNf, d.C0140d.cp_cont_b, 1);
-            bVar.bNg.setButtonDrawable(aj.au(i, d.f.vote_text_check_box));
+            aj.e(bVar.bMS, d.C0141d.cp_cont_b, 1);
+            bVar.bMT.setButtonDrawable(aj.au(i, d.f.vote_text_check_box));
         }
     }
 
     /* loaded from: classes.dex */
     private class a implements View.OnClickListener {
-        private com.baidu.tbadk.widget.vote.a bNb;
-        private int bNc;
+        private com.baidu.tbadk.widget.vote.a bMO;
+        private int bMP;
 
         public a(com.baidu.tbadk.widget.vote.a aVar, int i) {
-            this.bNb = aVar;
-            this.bNc = i;
+            this.bMO = aVar;
+            this.bMP = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (VoteTextGroupView.this.bMX != null) {
+            if (VoteTextGroupView.this.bMK != null) {
                 if (VoteTextGroupView.this.mMode == 2) {
-                    if (VoteTextGroupView.this.bMY == -1 && VoteTextGroupView.this.bNa != null) {
-                        int size = VoteTextGroupView.this.bNa.size();
+                    if (VoteTextGroupView.this.bML == -1 && VoteTextGroupView.this.bMN != null) {
+                        int size = VoteTextGroupView.this.bMN.size();
                         for (int i = 0; i < size; i++) {
-                            com.baidu.tbadk.widget.vote.a aVar = (com.baidu.tbadk.widget.vote.a) VoteTextGroupView.this.bNa.get(i);
-                            if (aVar != null && this.bNc != i) {
-                                ((b) VoteTextGroupView.this.bMX.get(i)).bNg.setChecked(false);
-                                if (VoteTextGroupView.this.bMJ != null) {
-                                    VoteTextGroupView.this.bMJ.a(aVar, i, false);
+                            com.baidu.tbadk.widget.vote.a aVar = (com.baidu.tbadk.widget.vote.a) VoteTextGroupView.this.bMN.get(i);
+                            if (aVar != null && this.bMP != i) {
+                                ((b) VoteTextGroupView.this.bMK.get(i)).bMT.setChecked(false);
+                                if (VoteTextGroupView.this.bMw != null) {
+                                    VoteTextGroupView.this.bMw.a(aVar, i, false);
                                 }
                             }
                         }
                     }
-                    for (int i2 = 0; i2 < VoteTextGroupView.this.bMX.size(); i2++) {
-                        b bVar = (b) VoteTextGroupView.this.bMX.get(i2);
-                        if (this.bNc == i2) {
-                            if (this.bNc != VoteTextGroupView.this.bMY && VoteTextGroupView.this.bMY >= 0 && VoteTextGroupView.this.bMY < VoteTextGroupView.this.bMX.size()) {
-                                ((b) VoteTextGroupView.this.bMX.get(VoteTextGroupView.this.bMY)).bNg.setChecked(false);
-                                if (VoteTextGroupView.this.bMJ != null) {
-                                    VoteTextGroupView.this.bMJ.a(VoteTextGroupView.this.bMZ, VoteTextGroupView.this.bMY, false);
+                    for (int i2 = 0; i2 < VoteTextGroupView.this.bMK.size(); i2++) {
+                        b bVar = (b) VoteTextGroupView.this.bMK.get(i2);
+                        if (this.bMP == i2) {
+                            if (this.bMP != VoteTextGroupView.this.bML && VoteTextGroupView.this.bML >= 0 && VoteTextGroupView.this.bML < VoteTextGroupView.this.bMK.size()) {
+                                ((b) VoteTextGroupView.this.bMK.get(VoteTextGroupView.this.bML)).bMT.setChecked(false);
+                                if (VoteTextGroupView.this.bMw != null) {
+                                    VoteTextGroupView.this.bMw.a(VoteTextGroupView.this.bMM, VoteTextGroupView.this.bML, false);
                                 }
                             }
-                            VoteTextGroupView.this.bMY = this.bNc;
-                            VoteTextGroupView.this.bMZ = this.bNb;
-                            boolean isChecked = bVar.bNg.isChecked();
-                            bVar.bNg.setChecked(!isChecked);
-                            if (VoteTextGroupView.this.bMJ != null) {
-                                VoteTextGroupView.this.bMJ.a(this.bNb, this.bNc, !isChecked);
+                            VoteTextGroupView.this.bML = this.bMP;
+                            VoteTextGroupView.this.bMM = this.bMO;
+                            boolean isChecked = bVar.bMT.isChecked();
+                            bVar.bMT.setChecked(!isChecked);
+                            if (VoteTextGroupView.this.bMw != null) {
+                                VoteTextGroupView.this.bMw.a(this.bMO, this.bMP, !isChecked);
                             }
                         }
                     }
                 } else if (VoteTextGroupView.this.mMode == 1) {
-                    for (int i3 = 0; i3 < VoteTextGroupView.this.bMX.size(); i3++) {
-                        if (i3 == this.bNc) {
-                            b bVar2 = (b) VoteTextGroupView.this.bMX.get(i3);
-                            boolean isChecked2 = bVar2.bNg.isChecked();
-                            bVar2.bNg.setChecked(!isChecked2);
-                            if (VoteTextGroupView.this.bMJ != null) {
-                                VoteTextGroupView.this.bMJ.a(this.bNb, this.bNc, isChecked2 ? false : true);
+                    for (int i3 = 0; i3 < VoteTextGroupView.this.bMK.size(); i3++) {
+                        if (i3 == this.bMP) {
+                            b bVar2 = (b) VoteTextGroupView.this.bMK.get(i3);
+                            boolean isChecked2 = bVar2.bMT.isChecked();
+                            bVar2.bMT.setChecked(!isChecked2);
+                            if (VoteTextGroupView.this.bMw != null) {
+                                VoteTextGroupView.this.bMw.a(this.bMO, this.bMP, isChecked2 ? false : true);
                                 return;
                             }
                             return;
@@ -153,8 +153,8 @@ public class VoteTextGroupView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bMX != null && !this.bMX.isEmpty()) {
-            for (b bVar : this.bMX) {
+        if (this.bMK != null && !this.bMK.isEmpty()) {
+            for (b bVar : this.bMK) {
                 if (bVar != null) {
                     a(i, bVar);
                 }
@@ -165,9 +165,9 @@ public class VoteTextGroupView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public RelativeLayout bNe;
-        public TextView bNf;
-        public CheckBox bNg;
+        public RelativeLayout bMR;
+        public TextView bMS;
+        public CheckBox bMT;
 
         private b() {
         }

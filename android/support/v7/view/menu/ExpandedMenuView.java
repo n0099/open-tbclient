@@ -11,8 +11,8 @@ import android.widget.ListView;
 @RestrictTo
 /* loaded from: classes2.dex */
 public final class ExpandedMenuView extends ListView implements MenuBuilder.ItemInvoker, MenuView, AdapterView.OnItemClickListener {
-    private static final int[] Iq = {16842964, 16843049};
-    private int Ir;
+    private static final int[] Il = {16842964, 16843049};
+    private int Im;
     private MenuBuilder mMenu;
 
     public ExpandedMenuView(Context context, AttributeSet attributeSet) {
@@ -22,7 +22,7 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
     public ExpandedMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         setOnItemClickListener(this);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, Iq, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, Il, i, 0);
         if (obtainStyledAttributes.hasValue(0)) {
             setBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
         }
@@ -55,6 +55,6 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
 
     @Override // android.support.v7.view.menu.MenuView
     public int getWindowAnimations() {
-        return this.Ir;
+        return this.Im;
     }
 }

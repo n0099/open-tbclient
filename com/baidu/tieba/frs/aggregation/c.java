@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.aggregation;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface c {
-    void Mj();
+    void Mi();
 
-    void VV();
+    void VU();
 
     void a(List<f> list, boolean z, boolean z2);
 

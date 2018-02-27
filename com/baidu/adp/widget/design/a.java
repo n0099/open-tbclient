@@ -6,5 +6,5 @@ import android.view.View;
 public final class a extends View {
     final Drawable mIcon;
     final CharSequence mText;
-    final int qz;
+    final int qy;
 }

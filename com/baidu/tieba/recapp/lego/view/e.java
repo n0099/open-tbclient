@@ -8,7 +8,7 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 /* loaded from: classes3.dex */
 public class e extends a implements com.baidu.tieba.recapp.k {
-    public DistributeVideoView gCg;
+    public DistributeVideoView gBR;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext<?> tbPageContext) {
@@ -24,22 +24,22 @@ public class e extends a implements com.baidu.tieba.recapp.k {
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void cL(View view) {
         if (view != null) {
-            this.gCg = (DistributeVideoView) view.findViewById(d.g.advert_video);
-            this.gCg.setHolderView(view);
+            this.gBR = (DistributeVideoView) view.findViewById(d.g.advert_video);
+            this.gBR.setHolderView(view);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.videoInfo != null) {
-            this.gCg.setPageContext(this.mTbPageContext);
-            this.gCg.setVideoTailFrameData(adCard.tailFrame);
-            this.gCg.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
-            this.gCg.setChargeInfo(adCard.chargeInfo);
+            this.gBR.setPageContext(this.mTbPageContext);
+            this.gBR.setVideoTailFrameData(adCard.tailFrame);
+            this.gBR.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
+            this.gBR.setChargeInfo(adCard.chargeInfo);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.gCg.updateTailFrameView(advertAppInfo);
+            this.gBR.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null && advertAppInfo.advertAppContext != null) {
-                this.gCg.setStatisticInfo(advertAppInfo, advertAppInfo.advertAppContext.pn, advertAppInfo.advertAppContext.aKi);
+                this.gBR.setStatisticInfo(advertAppInfo, advertAppInfo.advertAppContext.pn, advertAppInfo.advertAppContext.aJX);
             }
         }
     }
@@ -47,7 +47,7 @@ public class e extends a implements com.baidu.tieba.recapp.k {
     @Override // com.baidu.tieba.lego.card.e.b, com.baidu.tieba.lego.card.e.k
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
         super.setDownloadAppCallback(cVar);
-        this.gCg.setDownloadCallback(cVar);
+        this.gBR.setDownloadCallback(cVar);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a
@@ -57,6 +57,6 @@ public class e extends a implements com.baidu.tieba.recapp.k {
 
     @Override // com.baidu.tieba.recapp.k
     public com.baidu.tieba.recapp.i getVideoOrVrView() {
-        return this.gCg;
+        return this.gBR;
     }
 }

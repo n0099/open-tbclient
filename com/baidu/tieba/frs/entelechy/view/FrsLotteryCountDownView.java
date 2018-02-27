@@ -17,16 +17,16 @@ import java.util.concurrent.TimeUnit;
 public class FrsLotteryCountDownView extends LinearLayout {
     private static final long INTERVAL_DAY = TimeUnit.DAYS.toMillis(1);
     private static final long INTERVAL_HOUR = TimeUnit.HOURS.toMillis(1);
-    private static final long dMQ = TimeUnit.MINUTES.toMillis(1);
-    private static final long dMR = TimeUnit.SECONDS.toMillis(1);
-    private TextView dMS;
-    private TextView dMT;
-    private TextView dMU;
-    private TextView dMV;
-    private TextView dMW;
-    private TextView dMX;
-    private TextView dMY;
-    private TextView dMZ;
+    private static final long dME = TimeUnit.MINUTES.toMillis(1);
+    private static final long dMF = TimeUnit.SECONDS.toMillis(1);
+    private TextView dMG;
+    private TextView dMH;
+    private TextView dMI;
+    private TextView dMJ;
+    private TextView dMK;
+    private TextView dML;
+    private TextView dMM;
+    private TextView dMN;
     private Context mContext;
     private View mRootView;
     private CountDownTimer mTimer;
@@ -57,42 +57,42 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     protected void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.frs_lottery_count_down, (ViewGroup) this, true);
-        this.dMS = (TextView) this.mRootView.findViewById(d.g.lottery_count_day);
-        this.dMT = (TextView) this.mRootView.findViewById(d.g.lottery_count_day_txt);
-        this.dMU = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour);
-        this.dMV = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour_txt);
-        this.dMW = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute);
-        this.dMX = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute_txt);
-        this.dMY = (TextView) this.mRootView.findViewById(d.g.lottery_count_second);
-        this.dMZ = (TextView) this.mRootView.findViewById(d.g.lottery_count_second_txt);
+        this.dMG = (TextView) this.mRootView.findViewById(d.g.lottery_count_day);
+        this.dMH = (TextView) this.mRootView.findViewById(d.g.lottery_count_day_txt);
+        this.dMI = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour);
+        this.dMJ = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour_txt);
+        this.dMK = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute);
+        this.dML = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute_txt);
+        this.dMM = (TextView) this.mRootView.findViewById(d.g.lottery_count_second);
+        this.dMN = (TextView) this.mRootView.findViewById(d.g.lottery_count_second_txt);
     }
 
     public void setData(long j) {
-        aj.r(this.dMS, d.C0140d.cp_cont_g);
-        aj.r(this.dMT, d.C0140d.cp_cont_c);
-        aj.t(this.dMS, d.C0140d.common_color_10060);
-        aj.r(this.dMU, d.C0140d.cp_cont_g);
-        aj.r(this.dMV, d.C0140d.cp_cont_c);
-        aj.t(this.dMU, d.C0140d.common_color_10060);
-        aj.r(this.dMW, d.C0140d.cp_cont_g);
-        aj.r(this.dMX, d.C0140d.cp_cont_c);
-        aj.t(this.dMW, d.C0140d.common_color_10060);
-        aj.r(this.dMY, d.C0140d.cp_cont_g);
-        aj.r(this.dMZ, d.C0140d.cp_cont_c);
-        aj.t(this.dMY, d.C0140d.common_color_10060);
-        if (j <= dMR) {
-            this.dMS.setText("0");
-            this.dMU.setText("0");
-            this.dMW.setText("0");
-            this.dMY.setText("0");
+        aj.r(this.dMG, d.C0141d.cp_cont_g);
+        aj.r(this.dMH, d.C0141d.cp_cont_c);
+        aj.t(this.dMG, d.C0141d.common_color_10060);
+        aj.r(this.dMI, d.C0141d.cp_cont_g);
+        aj.r(this.dMJ, d.C0141d.cp_cont_c);
+        aj.t(this.dMI, d.C0141d.common_color_10060);
+        aj.r(this.dMK, d.C0141d.cp_cont_g);
+        aj.r(this.dML, d.C0141d.cp_cont_c);
+        aj.t(this.dMK, d.C0141d.common_color_10060);
+        aj.r(this.dMM, d.C0141d.cp_cont_g);
+        aj.r(this.dMN, d.C0141d.cp_cont_c);
+        aj.t(this.dMM, d.C0141d.common_color_10060);
+        if (j <= dMF) {
+            this.dMG.setText("0");
+            this.dMI.setText("0");
+            this.dMK.setText("0");
+            this.dMM.setText("0");
             return;
         }
         if (j / INTERVAL_DAY <= 0) {
-            this.dMS.setVisibility(8);
-            this.dMT.setVisibility(8);
+            this.dMG.setVisibility(8);
+            this.dMH.setVisibility(8);
         } else {
-            this.dMS.setVisibility(0);
-            this.dMT.setVisibility(0);
+            this.dMG.setVisibility(0);
+            this.dMH.setVisibility(0);
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -102,21 +102,21 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     private static class b extends CountDownTimer {
-        private final WeakReference<FrsLotteryCountDownView> dNa;
+        private final WeakReference<FrsLotteryCountDownView> dMO;
 
         public b(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
             super(j, j2);
-            this.dNa = weakReference;
+            this.dMO = weakReference;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.dNa.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.dMO.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.dMS.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.INTERVAL_DAY)));
-                frsLotteryCountDownView.dMU.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.INTERVAL_DAY) / FrsLotteryCountDownView.INTERVAL_HOUR)));
-                frsLotteryCountDownView.dMW.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) / FrsLotteryCountDownView.dMQ)));
-                frsLotteryCountDownView.dMY.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) % FrsLotteryCountDownView.dMQ) / FrsLotteryCountDownView.dMR)));
+                frsLotteryCountDownView.dMG.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.INTERVAL_DAY)));
+                frsLotteryCountDownView.dMI.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.INTERVAL_DAY) / FrsLotteryCountDownView.INTERVAL_HOUR)));
+                frsLotteryCountDownView.dMK.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) / FrsLotteryCountDownView.dME)));
+                frsLotteryCountDownView.dMM.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) % FrsLotteryCountDownView.dME) / FrsLotteryCountDownView.dMF)));
                 return;
             }
             com.baidu.adp.lib.g.e.ns().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
@@ -124,24 +124,24 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.dNa.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.dMO.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.dMY.setText("0");
+                frsLotteryCountDownView.dMM.setText("0");
             }
         }
     }
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTimer> dNa;
+        private final WeakReference<CountDownTimer> dMO;
 
         private a(WeakReference<CountDownTimer> weakReference) {
-            this.dNa = weakReference;
+            this.dMO = weakReference;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTimer countDownTimer = this.dNa.get();
+            CountDownTimer countDownTimer = this.dMO.get();
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }

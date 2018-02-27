@@ -5,15 +5,15 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.pluginSettings.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0023a {
-        public static int arZ = 1;
+        public static int arQ = 1;
         public static int WIFI = 2;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public static int asa = 1;
-        public static int asb = 2;
-        public static int asc = 3;
-        public static int asd = 4;
+        public static int arR = 1;
+        public static int arS = 2;
+        public static int arT = 3;
+        public static int arU = 4;
     }
 }

@@ -5,8 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class LinearSnapHelper extends SnapHelper {
-    private OrientationHelper Qh;
-    private OrientationHelper Qi;
+    private OrientationHelper Qc;
+    private OrientationHelper Qd;
 
     @Override // android.support.v7.widget.SnapHelper
     public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view) {
@@ -184,16 +184,16 @@ public class LinearSnapHelper extends SnapHelper {
     }
 
     private OrientationHelper a(RecyclerView.LayoutManager layoutManager) {
-        if (this.Qh == null || this.Qh.mLayoutManager != layoutManager) {
-            this.Qh = OrientationHelper.createVerticalHelper(layoutManager);
+        if (this.Qc == null || this.Qc.mLayoutManager != layoutManager) {
+            this.Qc = OrientationHelper.createVerticalHelper(layoutManager);
         }
-        return this.Qh;
+        return this.Qc;
     }
 
     private OrientationHelper b(RecyclerView.LayoutManager layoutManager) {
-        if (this.Qi == null || this.Qi.mLayoutManager != layoutManager) {
-            this.Qi = OrientationHelper.createHorizontalHelper(layoutManager);
+        if (this.Qd == null || this.Qd.mLayoutManager != layoutManager) {
+            this.Qd = OrientationHelper.createHorizontalHelper(layoutManager);
         }
-        return this.Qi;
+        return this.Qd;
     }
 }

@@ -37,24 +37,24 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class AlertController {
-    final AppCompatDialog BF;
-    private final Window BG;
-    Button BH;
-    private CharSequence BI;
-    Message BJ;
-    Button BK;
-    private CharSequence BL;
-    Message BM;
-    Button BN;
-    private CharSequence BO;
-    Message BP;
-    NestedScrollView BQ;
-    private int BR;
-    private int BS;
-    int BT;
-    int BU;
-    int BV;
-    int BW;
+    final AppCompatDialog BA;
+    private final Window BB;
+    Button BC;
+    private CharSequence BD;
+    Message BE;
+    Button BF;
+    private CharSequence BG;
+    Message BH;
+    Button BI;
+    private CharSequence BJ;
+    Message BK;
+    NestedScrollView BL;
+    private int BM;
+    private int BN;
+    int BO;
+    int BP;
+    int BQ;
+    int BR;
     ListAdapter mAdapter;
     private final Context mContext;
     private View mCustomTitleView;
@@ -71,37 +71,37 @@ public class AlertController {
     private int mViewSpacingLeft;
     private int mViewSpacingRight;
     private int mViewSpacingTop;
-    private TextView pV;
+    private TextView pU;
     private boolean mViewSpacingSpecified = false;
     private int mIconId = 0;
     int mCheckedItem = -1;
-    private int BX = 0;
-    private final View.OnClickListener BY = new View.OnClickListener() { // from class: android.support.v7.app.AlertController.1
+    private int BS = 0;
+    private final View.OnClickListener BT = new View.OnClickListener() { // from class: android.support.v7.app.AlertController.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Message message;
-            if (view == AlertController.this.BH && AlertController.this.BJ != null) {
-                message = Message.obtain(AlertController.this.BJ);
-            } else if (view == AlertController.this.BK && AlertController.this.BM != null) {
-                message = Message.obtain(AlertController.this.BM);
-            } else if (view == AlertController.this.BN && AlertController.this.BP != null) {
-                message = Message.obtain(AlertController.this.BP);
+            if (view == AlertController.this.BC && AlertController.this.BE != null) {
+                message = Message.obtain(AlertController.this.BE);
+            } else if (view == AlertController.this.BF && AlertController.this.BH != null) {
+                message = Message.obtain(AlertController.this.BH);
+            } else if (view == AlertController.this.BI && AlertController.this.BK != null) {
+                message = Message.obtain(AlertController.this.BK);
             } else {
                 message = null;
             }
             if (message != null) {
                 message.sendToTarget();
             }
-            AlertController.this.mHandler.obtainMessage(1, AlertController.this.BF).sendToTarget();
+            AlertController.this.mHandler.obtainMessage(1, AlertController.this.BA).sendToTarget();
         }
     };
 
     /* loaded from: classes2.dex */
     private static final class a extends Handler {
-        private WeakReference<DialogInterface> Ch;
+        private WeakReference<DialogInterface> Cc;
 
         public a(DialogInterface dialogInterface) {
-            this.Ch = new WeakReference<>(dialogInterface);
+            this.Cc = new WeakReference<>(dialogInterface);
         }
 
         @Override // android.os.Handler
@@ -110,7 +110,7 @@ public class AlertController {
                 case -3:
                 case -2:
                 case -1:
-                    ((DialogInterface.OnClickListener) message.obj).onClick(this.Ch.get(), message.what);
+                    ((DialogInterface.OnClickListener) message.obj).onClick(this.Cc.get(), message.what);
                     return;
                 case 0:
                 default:
@@ -124,16 +124,16 @@ public class AlertController {
 
     public AlertController(Context context, AppCompatDialog appCompatDialog, Window window) {
         this.mContext = context;
-        this.BF = appCompatDialog;
-        this.BG = window;
+        this.BA = appCompatDialog;
+        this.BB = window;
         this.mHandler = new a(appCompatDialog);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.AlertDialog, R.attr.alertDialogStyle, 0);
-        this.BR = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_android_layout, 0);
-        this.BS = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_buttonPanelSideLayout, 0);
-        this.BT = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listLayout, 0);
-        this.BU = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_multiChoiceItemLayout, 0);
-        this.BV = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_singleChoiceItemLayout, 0);
-        this.BW = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listItemLayout, 0);
+        this.BM = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_android_layout, 0);
+        this.BN = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_buttonPanelSideLayout, 0);
+        this.BO = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listLayout, 0);
+        this.BP = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_multiChoiceItemLayout, 0);
+        this.BQ = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_singleChoiceItemLayout, 0);
+        this.BR = obtainStyledAttributes.getResourceId(R.styleable.AlertDialog_listItemLayout, 0);
         obtainStyledAttributes.recycle();
         appCompatDialog.supportRequestWindowFeature(1);
     }
@@ -157,18 +157,18 @@ public class AlertController {
     }
 
     public void dR() {
-        this.BF.setContentView(dS());
+        this.BA.setContentView(dS());
         dT();
     }
 
     private int dS() {
-        if (this.BS == 0) {
-            return this.BR;
+        if (this.BN == 0) {
+            return this.BM;
         }
-        if (this.BX == 1) {
-            return this.BS;
+        if (this.BS == 1) {
+            return this.BN;
         }
-        return this.BR;
+        return this.BM;
     }
 
     public void setTitle(CharSequence charSequence) {
@@ -184,8 +184,8 @@ public class AlertController {
 
     public void setMessage(CharSequence charSequence) {
         this.mMessage = charSequence;
-        if (this.pV != null) {
-            this.pV.setText(charSequence);
+        if (this.pU != null) {
+            this.pU.setText(charSequence);
         }
     }
 
@@ -217,16 +217,16 @@ public class AlertController {
         }
         switch (i) {
             case -3:
-                this.BO = charSequence;
-                this.BP = message;
+                this.BJ = charSequence;
+                this.BK = message;
                 return;
             case -2:
-                this.BL = charSequence;
-                this.BM = message;
+                this.BG = charSequence;
+                this.BH = message;
                 return;
             case -1:
-                this.BI = charSequence;
-                this.BJ = message;
+                this.BD = charSequence;
+                this.BE = message;
                 return;
             default:
                 throw new IllegalArgumentException("Button does not exist");
@@ -272,22 +272,22 @@ public class AlertController {
     public Button getButton(int i) {
         switch (i) {
             case -3:
-                return this.BN;
+                return this.BI;
             case -2:
-                return this.BK;
+                return this.BF;
             case -1:
-                return this.BH;
+                return this.BC;
             default:
                 return null;
         }
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.BQ != null && this.BQ.executeKeyEvent(keyEvent);
+        return this.BL != null && this.BL.executeKeyEvent(keyEvent);
     }
 
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.BQ != null && this.BQ.executeKeyEvent(keyEvent);
+        return this.BL != null && this.BL.executeKeyEvent(keyEvent);
     }
 
     private ViewGroup c(View view, View view2) {
@@ -305,7 +305,7 @@ public class AlertController {
 
     private void dT() {
         View findViewById;
-        View findViewById2 = this.BG.findViewById(R.id.parentPanel);
+        View findViewById2 = this.BB.findViewById(R.id.parentPanel);
         View findViewById3 = findViewById2.findViewById(R.id.topPanel);
         View findViewById4 = findViewById2.findViewById(R.id.contentPanel);
         View findViewById5 = findViewById2.findViewById(R.id.buttonPanel);
@@ -326,11 +326,11 @@ public class AlertController {
         if (!z3 && c2 != null && (findViewById = c2.findViewById(R.id.textSpacerNoButtons)) != null) {
             findViewById.setVisibility(0);
         }
-        if (z2 && this.BQ != null) {
-            this.BQ.setClipToPadding(true);
+        if (z2 && this.BL != null) {
+            this.BL.setClipToPadding(true);
         }
         if (!z) {
-            ListView listView = this.mListView != null ? this.mListView : this.BQ;
+            ListView listView = this.mListView != null ? this.mListView : this.BL;
             if (listView != null) {
                 a(c2, listView, (z3 ? 2 : 0) | (z2 ? 1 : 0), 3);
             }
@@ -348,8 +348,8 @@ public class AlertController {
 
     private void a(ViewGroup viewGroup, View view, int i, int i2) {
         final View view2 = null;
-        final View findViewById = this.BG.findViewById(R.id.scrollIndicatorUp);
-        View findViewById2 = this.BG.findViewById(R.id.scrollIndicatorDown);
+        final View findViewById = this.BB.findViewById(R.id.scrollIndicatorUp);
+        View findViewById2 = this.BB.findViewById(R.id.scrollIndicatorDown);
         if (Build.VERSION.SDK_INT >= 23) {
             ViewCompat.setScrollIndicators(view, i, i2);
             if (findViewById != null) {
@@ -372,16 +372,16 @@ public class AlertController {
         }
         if (findViewById != null || view2 != null) {
             if (this.mMessage != null) {
-                this.BQ.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() { // from class: android.support.v7.app.AlertController.2
+                this.BL.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() { // from class: android.support.v7.app.AlertController.2
                     @Override // android.support.v4.widget.NestedScrollView.OnScrollChangeListener
                     public void onScrollChange(NestedScrollView nestedScrollView, int i3, int i4, int i5, int i6) {
                         AlertController.a(nestedScrollView, findViewById, view2);
                     }
                 });
-                this.BQ.post(new Runnable() { // from class: android.support.v7.app.AlertController.3
+                this.BL.post(new Runnable() { // from class: android.support.v7.app.AlertController.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlertController.a(AlertController.this.BQ, findViewById, view2);
+                        AlertController.a(AlertController.this.BL, findViewById, view2);
                     }
                 });
             } else if (this.mListView != null) {
@@ -423,10 +423,10 @@ public class AlertController {
         }
         boolean z = view != null;
         if (!z || !S(view)) {
-            this.BG.setFlags(131072, 131072);
+            this.BB.setFlags(131072, 131072);
         }
         if (z) {
-            FrameLayout frameLayout = (FrameLayout) this.BG.findViewById(R.id.custom);
+            FrameLayout frameLayout = (FrameLayout) this.BB.findViewById(R.id.custom);
             frameLayout.addView(view, new ViewGroup.LayoutParams(-1, -1));
             if (this.mViewSpacingSpecified) {
                 frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -443,12 +443,12 @@ public class AlertController {
     private void e(ViewGroup viewGroup) {
         if (this.mCustomTitleView != null) {
             viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
-            this.BG.findViewById(R.id.title_template).setVisibility(8);
+            this.BB.findViewById(R.id.title_template).setVisibility(8);
             return;
         }
-        this.mIconView = (ImageView) this.BG.findViewById(16908294);
+        this.mIconView = (ImageView) this.BB.findViewById(16908294);
         if (!TextUtils.isEmpty(this.mTitle)) {
-            this.mTitleView = (TextView) this.BG.findViewById(R.id.alertTitle);
+            this.mTitleView = (TextView) this.BB.findViewById(R.id.alertTitle);
             this.mTitleView.setText(this.mTitle);
             if (this.mIconId != 0) {
                 this.mIconView.setImageResource(this.mIconId);
@@ -462,26 +462,26 @@ public class AlertController {
                 return;
             }
         }
-        this.BG.findViewById(R.id.title_template).setVisibility(8);
+        this.BB.findViewById(R.id.title_template).setVisibility(8);
         this.mIconView.setVisibility(8);
         viewGroup.setVisibility(8);
     }
 
     private void f(ViewGroup viewGroup) {
-        this.BQ = (NestedScrollView) this.BG.findViewById(R.id.scrollView);
-        this.BQ.setFocusable(false);
-        this.BQ.setNestedScrollingEnabled(false);
-        this.pV = (TextView) viewGroup.findViewById(16908299);
-        if (this.pV != null) {
+        this.BL = (NestedScrollView) this.BB.findViewById(R.id.scrollView);
+        this.BL.setFocusable(false);
+        this.BL.setNestedScrollingEnabled(false);
+        this.pU = (TextView) viewGroup.findViewById(16908299);
+        if (this.pU != null) {
             if (this.mMessage != null) {
-                this.pV.setText(this.mMessage);
+                this.pU.setText(this.mMessage);
                 return;
             }
-            this.pV.setVisibility(8);
-            this.BQ.removeView(this.pV);
+            this.pU.setVisibility(8);
+            this.BL.removeView(this.pU);
             if (this.mListView != null) {
-                ViewGroup viewGroup2 = (ViewGroup) this.BQ.getParent();
-                int indexOfChild = viewGroup2.indexOfChild(this.BQ);
+                ViewGroup viewGroup2 = (ViewGroup) this.BL.getParent();
+                int indexOfChild = viewGroup2.indexOfChild(this.BL);
                 viewGroup2.removeViewAt(indexOfChild);
                 viewGroup2.addView(this.mListView, indexOfChild, new ViewGroup.LayoutParams(-1, -1));
                 return;
@@ -501,32 +501,32 @@ public class AlertController {
 
     private void g(ViewGroup viewGroup) {
         boolean z;
-        this.BH = (Button) viewGroup.findViewById(16908313);
-        this.BH.setOnClickListener(this.BY);
-        if (TextUtils.isEmpty(this.BI)) {
-            this.BH.setVisibility(8);
+        this.BC = (Button) viewGroup.findViewById(16908313);
+        this.BC.setOnClickListener(this.BT);
+        if (TextUtils.isEmpty(this.BD)) {
+            this.BC.setVisibility(8);
             z = false;
         } else {
-            this.BH.setText(this.BI);
-            this.BH.setVisibility(0);
+            this.BC.setText(this.BD);
+            this.BC.setVisibility(0);
             z = true;
         }
-        this.BK = (Button) viewGroup.findViewById(16908314);
-        this.BK.setOnClickListener(this.BY);
-        if (TextUtils.isEmpty(this.BL)) {
-            this.BK.setVisibility(8);
+        this.BF = (Button) viewGroup.findViewById(16908314);
+        this.BF.setOnClickListener(this.BT);
+        if (TextUtils.isEmpty(this.BG)) {
+            this.BF.setVisibility(8);
         } else {
-            this.BK.setText(this.BL);
-            this.BK.setVisibility(0);
+            this.BF.setText(this.BG);
+            this.BF.setVisibility(0);
             z |= true;
         }
-        this.BN = (Button) viewGroup.findViewById(16908315);
-        this.BN.setOnClickListener(this.BY);
-        if (TextUtils.isEmpty(this.BO)) {
-            this.BN.setVisibility(8);
+        this.BI = (Button) viewGroup.findViewById(16908315);
+        this.BI.setOnClickListener(this.BT);
+        if (TextUtils.isEmpty(this.BJ)) {
+            this.BI.setVisibility(8);
         } else {
-            this.BN.setText(this.BO);
-            this.BN.setVisibility(0);
+            this.BI.setText(this.BJ);
+            this.BI.setVisibility(0);
             z |= true;
         }
         if (!(z)) {
@@ -633,10 +633,10 @@ public class AlertController {
         private void a(final AlertController alertController) {
             int i;
             ListAdapter bVar;
-            final ListView listView = (ListView) this.mInflater.inflate(alertController.BT, (ViewGroup) null);
+            final ListView listView = (ListView) this.mInflater.inflate(alertController.BO, (ViewGroup) null);
             if (this.mIsMultiChoice) {
                 if (this.mCursor == null) {
-                    bVar = new ArrayAdapter<CharSequence>(this.mContext, alertController.BU, 16908308, this.mItems) { // from class: android.support.v7.app.AlertController.AlertParams.1
+                    bVar = new ArrayAdapter<CharSequence>(this.mContext, alertController.BP, 16908308, this.mItems) { // from class: android.support.v7.app.AlertController.AlertParams.1
                         @Override // android.widget.ArrayAdapter, android.widget.Adapter
                         public View getView(int i2, View view, ViewGroup viewGroup) {
                             View view2 = super.getView(i2, view, viewGroup);
@@ -648,32 +648,32 @@ public class AlertController {
                     };
                 } else {
                     bVar = new CursorAdapter(this.mContext, this.mCursor, false) { // from class: android.support.v7.app.AlertController.AlertParams.2
-                        private final int Ce;
-                        private final int Cf;
+                        private final int BZ;
+                        private final int Ca;
 
                         {
                             Cursor cursor = getCursor();
-                            this.Ce = cursor.getColumnIndexOrThrow(AlertParams.this.mLabelColumn);
-                            this.Cf = cursor.getColumnIndexOrThrow(AlertParams.this.mIsCheckedColumn);
+                            this.BZ = cursor.getColumnIndexOrThrow(AlertParams.this.mLabelColumn);
+                            this.Ca = cursor.getColumnIndexOrThrow(AlertParams.this.mIsCheckedColumn);
                         }
 
                         @Override // android.widget.CursorAdapter
                         public void bindView(View view, Context context, Cursor cursor) {
-                            ((CheckedTextView) view.findViewById(16908308)).setText(cursor.getString(this.Ce));
-                            listView.setItemChecked(cursor.getPosition(), cursor.getInt(this.Cf) == 1);
+                            ((CheckedTextView) view.findViewById(16908308)).setText(cursor.getString(this.BZ));
+                            listView.setItemChecked(cursor.getPosition(), cursor.getInt(this.Ca) == 1);
                         }
 
                         @Override // android.widget.CursorAdapter
                         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-                            return AlertParams.this.mInflater.inflate(alertController.BU, viewGroup, false);
+                            return AlertParams.this.mInflater.inflate(alertController.BP, viewGroup, false);
                         }
                     };
                 }
             } else {
                 if (this.mIsSingleChoice) {
-                    i = alertController.BV;
+                    i = alertController.BQ;
                 } else {
-                    i = alertController.BW;
+                    i = alertController.BR;
                 }
                 if (this.mCursor != null) {
                     bVar = new SimpleCursorAdapter(this.mContext, i, this.mCursor, new String[]{this.mLabelColumn}, new int[]{16908308});
@@ -692,9 +692,9 @@ public class AlertController {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: android.support.v7.app.AlertController.AlertParams.3
                     @Override // android.widget.AdapterView.OnItemClickListener
                     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                        AlertParams.this.mOnClickListener.onClick(alertController.BF, i2);
+                        AlertParams.this.mOnClickListener.onClick(alertController.BA, i2);
                         if (!AlertParams.this.mIsSingleChoice) {
-                            alertController.BF.dismiss();
+                            alertController.BA.dismiss();
                         }
                     }
                 });
@@ -705,7 +705,7 @@ public class AlertController {
                         if (AlertParams.this.mCheckedItems != null) {
                             AlertParams.this.mCheckedItems[i2] = listView.isItemChecked(i2);
                         }
-                        AlertParams.this.mOnCheckboxClickListener.onClick(alertController.BF, i2, listView.isItemChecked(i2));
+                        AlertParams.this.mOnCheckboxClickListener.onClick(alertController.BA, i2, listView.isItemChecked(i2));
                     }
                 });
             }

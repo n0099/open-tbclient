@@ -13,55 +13,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gwf = null;
-    private com.baidu.tieba.play.a.a gwe;
-    private InterfaceC0216b gwg = null;
-    private int gwh = 0;
+    private static b gvU = null;
+    private com.baidu.tieba.play.a.a gvT;
+    private InterfaceC0217b gvV = null;
+    private int gvW = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0216b {
+    public interface InterfaceC0217b {
         void bO(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b blY() {
-        if (gwf == null) {
+    public static b blX() {
+        if (gvU == null) {
             synchronized (b.class) {
-                if (gwf == null) {
-                    gwf = new b();
+                if (gvU == null) {
+                    gvU = new b();
                 }
             }
         }
-        return gwf;
+        return gvU;
     }
 
-    public void a(InterfaceC0216b interfaceC0216b) {
-        this.gwg = interfaceC0216b;
+    public void a(InterfaceC0217b interfaceC0217b) {
+        this.gvV = interfaceC0217b;
     }
 
     public boolean rn(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (ro(str) && this.gwe.blX().size() > this.gwh) {
-            if (this.gwg != null) {
-                InterfaceC0216b interfaceC0216b = this.gwg;
-                List<String> blX = this.gwe.blX();
-                int i = this.gwh;
-                this.gwh = i + 1;
-                interfaceC0216b.bO(blX.get(i), str);
+        if (ro(str) && this.gvT.blW().size() > this.gvW) {
+            if (this.gvV != null) {
+                InterfaceC0217b interfaceC0217b = this.gvV;
+                List<String> blW = this.gvT.blW();
+                int i = this.gvW;
+                this.gvW = i + 1;
+                interfaceC0217b.bO(blW.get(i), str);
             }
             return true;
-        } else if (this.gwe != null && this.gwe.blX() != null && this.gwe.blX().size() <= this.gwh) {
-            this.gwh = 0;
-            this.gwe = null;
+        } else if (this.gvT != null && this.gvT.blW() != null && this.gvT.blW().size() <= this.gvW) {
+            this.gvW = 0;
+            this.gvT = null;
             return false;
         } else {
-            this.gwh = 0;
-            this.gwe = null;
+            this.gvW = 0;
+            this.gvT = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,18 +70,18 @@ public class b {
     }
 
     private boolean ro(String str) {
-        return (this.gwe == null || TextUtils.isEmpty(str) || !str.equals(this.gwe.getHost()) || v.E(this.gwe.blX()) || this.gwe.cL(System.currentTimeMillis()) || this.gwe.blX().size() <= this.gwh) ? false : true;
+        return (this.gvT == null || TextUtils.isEmpty(str) || !str.equals(this.gvT.getHost()) || v.E(this.gvT.blW()) || this.gvT.cL(System.currentTimeMillis()) || this.gvT.blW().size() <= this.gvW) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String aoi = null;
+        private String aoc = null;
 
         public a() {
         }
 
         public void setHost(String str) {
-            this.aoi = str;
+            this.aoc = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.aoi).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.aoc).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
@@ -258,15 +258,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.aoi)) {
-                b.this.gwe = aVarArr[0];
-                if (!v.E(aVarArr[0].blX()) && b.this.gwg != null) {
-                    b.this.gwg.bO(aVarArr[0].blX().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.aoc)) {
+                b.this.gvT = aVarArr[0];
+                if (!v.E(aVarArr[0].blW()) && b.this.gvV != null) {
+                    b.this.gvV.bO(aVarArr[0].blW().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gwg != null) {
-                b.this.gwg.bO(null, null);
+            if (b.this.gvV != null) {
+                b.this.gvV.bO(null, null);
             }
         }
 

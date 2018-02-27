@@ -8,12 +8,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double fKF = 0.5d;
+    private static double fKu = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
         cM(true);
-        Rh();
+        Rg();
         setLineSpacing(com.baidu.adp.lib.util.l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
         iP(0);
         iQ(com.baidu.adp.lib.util.l.t(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
@@ -29,7 +29,7 @@ public class b extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mx().gP(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
+                    com.baidu.adp.widget.a.a gP = com.baidu.tbadk.imageManager.c.Mw().gP(com.baidu.adp.lib.f.c.nm().g(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
                     if (gP != null) {
                         i2 = gP.getWidth();
                         i = gP.getHeight();
@@ -61,18 +61,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.bKI || bKs <= 1.0f) {
+        if (!this.bKv || bKf <= 1.0f) {
             i3 = i;
         } else {
-            if (i * bKs <= i3 * fKF) {
-                i3 = (int) (i * bKs);
+            if (i * bKf <= i3 * fKu) {
+                i3 = (int) (i * bKf);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.bKG = ImageView.ScaleType.MATRIX;
+                this.bKt = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.bKG = ImageView.ScaleType.CENTER_CROP;
+                this.bKt = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

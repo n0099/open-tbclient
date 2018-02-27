@@ -16,8 +16,8 @@ import com.baidu.tieba.d;
 import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class b extends View {
-    private AnimationDrawable byp;
-    private ForumArIno dJz;
+    private AnimationDrawable byc;
+    private ForumArIno dJn;
     private String forumName;
 
     public b(Context context) {
@@ -36,17 +36,17 @@ public class b extends View {
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_7), 100);
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_8), 100);
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_9), 100);
-        this.byp = animationDrawable;
+        this.byc = animationDrawable;
         setBackgroundDrawable(animationDrawable);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.dJz != null) {
+                if (b.this.dJn != null) {
                     ak akVar = new ak("c12836");
                     akVar.ab(ImageViewerConfig.FORUM_NAME, b.this.forumName == null ? "" : b.this.forumName);
-                    akVar.s("obj_id", b.this.dJz.ar_id.intValue());
+                    akVar.s("obj_id", b.this.dJn.ar_id.intValue());
                     TiebaStatic.log(akVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(b.this.getContext(), b.this.forumName, String.valueOf(b.this.dJz.ar_id), String.valueOf(b.this.dJz.ar_type), b.this.dJz.title)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(b.this.getContext(), b.this.forumName, String.valueOf(b.this.dJn.ar_id), String.valueOf(b.this.dJn.ar_type), b.this.dJn.title)));
                 }
             }
         });
@@ -62,12 +62,12 @@ public class b extends View {
         }
     }
 
-    public void awR() {
-        this.byp.start();
+    public void awQ() {
+        this.byc.start();
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.dJz = forumArIno;
+        this.dJn = forumArIno;
     }
 
     public void setForumName(String str) {

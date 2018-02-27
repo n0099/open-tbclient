@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<l> bsx;
+    LinkedList<l> bsk;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j(LinkedList<l> linkedList) {
-        this.bsx = linkedList;
+        this.bsk = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -25,13 +25,13 @@ public class n extends com.baidu.tbadk.editortools.view.a {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.bsx.get(i);
+        return (e) this.bsk.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.bsx != null) {
-            return this.bsx.size();
+        if (this.bsk != null) {
+            return this.bsk.size();
         }
         return 0;
     }
@@ -40,8 +40,8 @@ public class n extends com.baidu.tbadk.editortools.view.a {
     public void init(Context context) {
         hR(4);
         hS(2);
-        a(new a.InterfaceC0106a() { // from class: com.baidu.tbadk.editortools.n.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0106a
+        a(new a.InterfaceC0107a() { // from class: com.baidu.tbadk.editortools.n.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0107a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 e hJ = n.this.hJ(i);
                 if (hJ.getLayoutParams() == null) {
@@ -50,12 +50,12 @@ public class n extends com.baidu.tbadk.editortools.view.a {
                 return hJ;
             }
         });
-        Mg().c(this);
+        Mf().c(this);
         a(new CommonTabContentView.c() { // from class: com.baidu.tbadk.editortools.n.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
             public void a(View view, int i, long j) {
-                if ((view instanceof e) && n.this.axP != null) {
-                    n.this.axP.bh(view);
+                if ((view instanceof e) && n.this.axG != null) {
+                    n.this.axG.bh(view);
                 }
             }
         });
@@ -63,9 +63,9 @@ public class n extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.bsx != null) {
-            this.bsx.clear();
+        if (this.bsk != null) {
+            this.bsk.clear();
         }
-        this.bsx = null;
+        this.bsk = null;
     }
 }

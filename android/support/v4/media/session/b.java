@@ -9,7 +9,7 @@ import android.os.SystemClock;
 import android.util.Log;
 /* loaded from: classes2.dex */
 class b {
-    private static boolean zW = true;
+    private static boolean zR = true;
 
     /* loaded from: classes2.dex */
     interface a {
@@ -22,22 +22,22 @@ class b {
 
     public static void a(Context context, PendingIntent pendingIntent, ComponentName componentName) {
         AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-        if (zW) {
+        if (zR) {
             try {
                 audioManager.registerMediaButtonEventReceiver(pendingIntent);
             } catch (NullPointerException e) {
                 Log.w("MediaSessionCompatApi18", "Unable to register media button event receiver with PendingIntent, falling back to ComponentName.");
-                zW = false;
+                zR = false;
             }
         }
-        if (!zW) {
+        if (!zR) {
             audioManager.registerMediaButtonEventReceiver(componentName);
         }
     }
 
     public static void b(Context context, PendingIntent pendingIntent, ComponentName componentName) {
         AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-        if (zW) {
+        if (zR) {
             audioManager.unregisterMediaButtonEventReceiver(pendingIntent);
         } else {
             audioManager.unregisterMediaButtonEventReceiver(componentName);
@@ -79,15 +79,15 @@ class b {
     /* renamed from: android.support.v4.media.session.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     static class C0006b<T extends a> implements RemoteControlClient.OnPlaybackPositionUpdateListener {
-        protected final T zX;
+        protected final T zS;
 
         public C0006b(T t) {
-            this.zX = t;
+            this.zS = t;
         }
 
         @Override // android.media.RemoteControlClient.OnPlaybackPositionUpdateListener
         public void onPlaybackPositionUpdate(long j) {
-            this.zX.onSeekTo(j);
+            this.zS.onSeekTo(j);
         }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.adp.lib.b;
 import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected String[] ahO;
-    protected int ahP = 0;
-    protected int ahQ = 1;
-    protected int ahR = 10;
-    protected b.a ahS = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] ahI;
+    protected int ahJ = 0;
+    protected int ahK = 1;
+    protected int ahL = 10;
+    protected b.a ahM = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
             a.this.cQ(i);
@@ -32,8 +32,8 @@ public abstract class a {
     }
 
     protected void mw() {
-        b bVar = new b(this.mName, this.ahP, this.ahS);
-        bVar.a(this.ahR, this.ahO, this.ahQ);
+        b bVar = new b(this.mName, this.ahJ, this.ahM);
+        bVar.a(this.ahL, this.ahI, this.ahK);
         bVar.g(mv());
         d.mA().a(bVar);
     }
@@ -45,9 +45,9 @@ public abstract class a {
 
     protected void initData() {
         this.mName = getName();
-        this.ahO = mr();
-        this.ahP = ms();
-        this.ahQ = mt();
-        this.ahR = mu();
+        this.ahI = mr();
+        this.ahJ = ms();
+        this.ahK = mt();
+        this.ahL = mu();
     }
 }

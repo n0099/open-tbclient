@@ -4,10 +4,10 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private boolean afb;
-    private boolean afc;
-    private boolean afd;
-    private DupLicateMode afe;
+    private boolean aeV;
+    private boolean aeW;
+    private boolean aeX;
+    private DupLicateMode aeY;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* loaded from: classes.dex */
@@ -20,10 +20,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.afb = false;
-        this.afc = false;
-        this.afd = true;
-        this.afe = DupLicateMode.NONE;
+        this.aeV = false;
+        this.aeW = false;
+        this.aeX = true;
+        this.aeY = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -32,19 +32,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void V(boolean z) {
-        this.afb = z;
+        this.aeV = z;
     }
 
     public boolean ld() {
-        return this.afb;
+        return this.aeV;
     }
 
     public boolean le() {
-        return this.afc;
+        return this.aeW;
     }
 
     public void W(boolean z) {
-        this.afc = z;
+        this.aeW = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -56,18 +56,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean lf() {
-        return this.afd;
+        return this.aeX;
     }
 
     public void X(boolean z) {
-        this.afd = z;
+        this.aeX = z;
     }
 
     public DupLicateMode lg() {
-        return this.afe;
+        return this.aeY;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.afe = dupLicateMode;
+        this.aeY = dupLicateMode;
     }
 }

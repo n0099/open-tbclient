@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bLA;
-    private int bLB;
+    private String bLn;
+    private int bLo;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,7 +44,7 @@ public class c extends ClickableSpan {
     }
 
     public void iV(int i) {
-        this.bLB = i;
+        this.bLo = i;
     }
 
     public void setColor(int i) {
@@ -60,7 +60,7 @@ public class c extends ClickableSpan {
     }
 
     public void hA(String str) {
-        this.bLA = str;
+        this.bLn = str;
     }
 
     public String getLink() {
@@ -77,14 +77,14 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bLB == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bLo == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = aj.getColor(d.C0140d.cp_bg_line_c);
+                textPaint.bgColor = aj.getColor(d.C0141d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aj.getColor(d.C0140d.cp_bg_line_z);
+                textPaint.bgColor = aj.getColor(d.C0141d.cp_bg_line_z);
             }
-        } else if (this.bLB == 2) {
-            textPaint.bgColor = aj.getColor(d.C0140d.transparent);
+        } else if (this.bLo == 2) {
+            textPaint.bgColor = aj.getColor(d.C0141d.transparent);
         }
     }
 
@@ -92,7 +92,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bLA));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bLn));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

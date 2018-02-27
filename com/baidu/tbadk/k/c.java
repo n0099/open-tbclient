@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.a.a implements Runnable {
-    public static String bzS = "logcat ";
-    private static Map<String, b> bzU = new HashMap();
-    private Process bzP;
-    private InputStream bzQ;
-    private OutputStream bzR;
-    private a bzT;
+    public static String bzF = "logcat ";
+    private static Map<String, b> bzH = new HashMap();
+    private Process bzC;
+    private InputStream bzD;
+    private OutputStream bzE;
+    private a bzG;
 
     public static void a(String str, b bVar) {
-        bzU.put(str, bVar);
-        bzS += " -s " + str;
+        bzH.put(str, bVar);
+        bzF += " -s " + str;
     }
 
     public void hb(String str) {
@@ -27,7 +27,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, b>> it = bzU.entrySet().iterator();
+                Iterator<Map.Entry<String, b>> it = bzH.entrySet().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         Map.Entry<String, b> next = it.next();
@@ -49,11 +49,11 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.bzP = Runtime.getRuntime().exec(bzS);
-            this.bzR = this.bzP.getOutputStream();
-            this.bzQ = this.bzP.getInputStream();
-            Oc();
-            this.bzR.flush();
+            this.bzC = Runtime.getRuntime().exec(bzF);
+            this.bzE = this.bzC.getOutputStream();
+            this.bzD = this.bzC.getInputStream();
+            Ob();
+            this.bzE.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -61,26 +61,26 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void Oc() throws FileNotFoundException {
-        this.bzT = new a(this.bzQ);
-        this.bzT.start();
+    private void Ob() throws FileNotFoundException {
+        this.bzG = new a(this.bzD);
+        this.bzG.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.bzP != null) {
-                this.bzP.destroy();
+            if (this.bzC != null) {
+                this.bzC.destroy();
             }
-            if (this.bzT != null) {
-                this.bzT.finish();
+            if (this.bzG != null) {
+                this.bzG.finish();
             }
-            if (this.bzQ != null) {
-                this.bzQ.close();
+            if (this.bzD != null) {
+                this.bzD.close();
             }
-            if (this.bzR != null) {
-                this.bzR.close();
+            if (this.bzE != null) {
+                this.bzE.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean bzV = false;
+        private boolean bzI = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -101,7 +101,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.bzV && (read = this.in.read(bArr)) != -1) {
+            while (!this.bzI && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
@@ -115,7 +115,7 @@ public class c extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.bzV = true;
+            this.bzI = true;
         }
     }
 }

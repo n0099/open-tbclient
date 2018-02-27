@@ -9,7 +9,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class w {
     private int duration;
-    private String gvt;
+    private String gvi;
     private String videoMd5;
     private long videoSize;
     private String videoUrl;
@@ -47,7 +47,7 @@ public class w {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.gvt = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
+                    this.gvi = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -55,7 +55,7 @@ public class w {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.gvt = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
+            this.gvi = videoInfo.video_width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -70,7 +70,7 @@ public class w {
         }
     }
 
-    public long blN() {
+    public long blM() {
         return this.videoSize;
     }
 
@@ -78,7 +78,7 @@ public class w {
         return this.duration;
     }
 
-    public String blO() {
-        return this.gvt;
+    public String blN() {
+        return this.gvi;
     }
 }

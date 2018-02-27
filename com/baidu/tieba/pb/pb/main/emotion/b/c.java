@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes2.dex */
 public class c {
-    private SearchEmotionModel.a drL;
-    private SearchEmotionModel fXU;
-    private String fXV;
-    private Runnable fXW = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
+    private SearchEmotionModel.a drz;
+    private SearchEmotionModel fXJ;
+    private String fXK;
+    private Runnable fXL = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(c.this.fXV) && c.this.drL != null) {
-                if (c.this.fXU == null) {
-                    c.this.fXU = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(c.this.fXK) && c.this.drz != null) {
+                if (c.this.fXJ == null) {
+                    c.this.fXJ = new SearchEmotionModel();
                 }
-                c.this.fXU.a(c.this.fXV, 0, 30, c.this.drL);
+                c.this.fXJ.a(c.this.fXK, 0, 30, c.this.drz);
             }
         }
     };
@@ -23,22 +23,22 @@ public class c {
 
     public void qH(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fXV = "";
+            this.fXK = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.fXW);
-        this.mHandler.postDelayed(this.fXW, 300L);
-        this.fXV = str;
+        this.mHandler.removeCallbacks(this.fXL);
+        this.mHandler.postDelayed(this.fXL, 300L);
+        this.fXK = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.drL = aVar;
+        this.drz = aVar;
     }
 
-    public void awP() {
-        if (this.fXU != null) {
-            this.fXU.cancelLoadData();
+    public void awO() {
+        if (this.fXJ != null) {
+            this.fXJ.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.fXW);
+        this.mHandler.removeCallbacks(this.fXL);
     }
 }

@@ -7,13 +7,13 @@ import java.util.Comparator;
 /* loaded from: classes2.dex */
 public class SortedList<T> {
     public static final int INVALID_POSITION = -1;
-    private final Class<T> Fd;
-    private T[] Gp;
-    private int Gq;
-    private int Gr;
-    private int Gs;
-    private Callback Gt;
-    private BatchedCallback Gu;
+    private final Class<T> EY;
+    private T[] Gk;
+    private int Gl;
+    private int Gm;
+    private int Gn;
+    private Callback Go;
+    private BatchedCallback Gp;
     T[] mData;
     private int mSize;
 
@@ -22,9 +22,9 @@ public class SortedList<T> {
     }
 
     public SortedList(Class<T> cls, Callback<T> callback, int i) {
-        this.Fd = cls;
+        this.EY = cls;
         this.mData = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
-        this.Gt = callback;
+        this.Go = callback;
         this.mSize = 0;
     }
 
@@ -46,7 +46,7 @@ public class SortedList<T> {
                 f(tArr);
                 return;
             }
-            Object[] objArr = (Object[]) Array.newInstance((Class<?>) this.Fd, tArr.length);
+            Object[] objArr = (Object[]) Array.newInstance((Class<?>) this.EY, tArr.length);
             System.arraycopy(tArr, 0, objArr, 0, tArr.length);
             f(objArr);
         }
@@ -59,28 +59,28 @@ public class SortedList<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: android.support.v7.util.SortedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public void addAll(Collection<T> collection) {
-        addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.Fd, collection.size())), true);
+        addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.EY, collection.size())), true);
     }
 
     private void f(T[] tArr) {
-        boolean z = !(this.Gt instanceof BatchedCallback);
+        boolean z = !(this.Go instanceof BatchedCallback);
         if (z) {
             beginBatchedUpdates();
         }
-        this.Gp = this.mData;
-        this.Gq = 0;
-        this.Gr = this.mSize;
-        Arrays.sort(tArr, this.Gt);
+        this.Gk = this.mData;
+        this.Gl = 0;
+        this.Gm = this.mSize;
+        Arrays.sort(tArr, this.Go);
         int g = g(tArr);
         if (this.mSize == 0) {
             this.mData = tArr;
             this.mSize = g;
-            this.Gs = g;
-            this.Gt.onInserted(0, g);
+            this.Gn = g;
+            this.Go.onInserted(0, g);
         } else {
             b(tArr, g);
         }
-        this.Gp = null;
+        this.Gk = null;
         if (z) {
             endBatchedUpdates();
         }
@@ -94,7 +94,7 @@ public class SortedList<T> {
         int i2 = 1;
         for (int i3 = 1; i3 < tArr.length; i3++) {
             T t = tArr[i3];
-            int compare = this.Gt.compare(tArr[i], t);
+            int compare = this.Go.compare(tArr[i], t);
             if (compare > 0) {
                 throw new IllegalArgumentException("Input must be sorted in ascending order.");
             }
@@ -121,7 +121,7 @@ public class SortedList<T> {
 
     private int a(T t, T[] tArr, int i, int i2) {
         for (int i3 = i; i3 < i2; i3++) {
-            if (this.Gt.areItemsTheSame(tArr[i3], t)) {
+            if (this.Go.areItemsTheSame(tArr[i3], t)) {
                 return i3;
             }
         }
@@ -129,51 +129,51 @@ public class SortedList<T> {
     }
 
     private void b(T[] tArr, int i) {
-        this.mData = (T[]) ((Object[]) Array.newInstance((Class<?>) this.Fd, this.mSize + i + 10));
-        this.Gs = 0;
+        this.mData = (T[]) ((Object[]) Array.newInstance((Class<?>) this.EY, this.mSize + i + 10));
+        this.Gn = 0;
         int i2 = 0;
         while (true) {
-            if (this.Gq < this.Gr || i2 < i) {
-                if (this.Gq == this.Gr) {
+            if (this.Gl < this.Gm || i2 < i) {
+                if (this.Gl == this.Gm) {
                     int i3 = i - i2;
-                    System.arraycopy(tArr, i2, this.mData, this.Gs, i3);
-                    this.Gs += i3;
+                    System.arraycopy(tArr, i2, this.mData, this.Gn, i3);
+                    this.Gn += i3;
                     this.mSize += i3;
-                    this.Gt.onInserted(this.Gs - i3, i3);
+                    this.Go.onInserted(this.Gn - i3, i3);
                     return;
                 } else if (i2 == i) {
-                    int i4 = this.Gr - this.Gq;
-                    System.arraycopy(this.Gp, this.Gq, this.mData, this.Gs, i4);
-                    this.Gs = i4 + this.Gs;
+                    int i4 = this.Gm - this.Gl;
+                    System.arraycopy(this.Gk, this.Gl, this.mData, this.Gn, i4);
+                    this.Gn = i4 + this.Gn;
                     return;
                 } else {
-                    T t = this.Gp[this.Gq];
+                    T t = this.Gk[this.Gl];
                     T t2 = tArr[i2];
-                    int compare = this.Gt.compare(t, t2);
+                    int compare = this.Go.compare(t, t2);
                     if (compare > 0) {
                         T[] tArr2 = this.mData;
-                        int i5 = this.Gs;
-                        this.Gs = i5 + 1;
+                        int i5 = this.Gn;
+                        this.Gn = i5 + 1;
                         tArr2[i5] = t2;
                         this.mSize++;
                         i2++;
-                        this.Gt.onInserted(this.Gs - 1, 1);
-                    } else if (compare == 0 && this.Gt.areItemsTheSame(t, t2)) {
+                        this.Go.onInserted(this.Gn - 1, 1);
+                    } else if (compare == 0 && this.Go.areItemsTheSame(t, t2)) {
                         T[] tArr3 = this.mData;
-                        int i6 = this.Gs;
-                        this.Gs = i6 + 1;
+                        int i6 = this.Gn;
+                        this.Gn = i6 + 1;
                         tArr3[i6] = t2;
                         i2++;
-                        this.Gq++;
-                        if (!this.Gt.areContentsTheSame(t, t2)) {
-                            this.Gt.onChanged(this.Gs - 1, 1);
+                        this.Gl++;
+                        if (!this.Go.areContentsTheSame(t, t2)) {
+                            this.Go.onChanged(this.Gn - 1, 1);
                         }
                     } else {
                         T[] tArr4 = this.mData;
-                        int i7 = this.Gs;
-                        this.Gs = i7 + 1;
+                        int i7 = this.Gn;
+                        this.Gn = i7 + 1;
                         tArr4[i7] = t;
-                        this.Gq++;
+                        this.Gl++;
                     }
                 }
             } else {
@@ -183,28 +183,28 @@ public class SortedList<T> {
     }
 
     private void eE() {
-        if (this.Gp != null) {
+        if (this.Gk != null) {
             throw new IllegalStateException("Cannot call this method from within addAll");
         }
     }
 
     public void beginBatchedUpdates() {
         eE();
-        if (!(this.Gt instanceof BatchedCallback)) {
-            if (this.Gu == null) {
-                this.Gu = new BatchedCallback(this.Gt);
+        if (!(this.Go instanceof BatchedCallback)) {
+            if (this.Gp == null) {
+                this.Gp = new BatchedCallback(this.Go);
             }
-            this.Gt = this.Gu;
+            this.Go = this.Gp;
         }
     }
 
     public void endBatchedUpdates() {
         eE();
-        if (this.Gt instanceof BatchedCallback) {
-            ((BatchedCallback) this.Gt).dispatchLastEvent();
+        if (this.Go instanceof BatchedCallback) {
+            ((BatchedCallback) this.Go).dispatchLastEvent();
         }
-        if (this.Gt == this.Gu) {
-            this.Gt = this.Gu.Gv;
+        if (this.Go == this.Gp) {
+            this.Go = this.Gp.Gq;
         }
     }
 
@@ -214,13 +214,13 @@ public class SortedList<T> {
         if (a != -1) {
             if (a < this.mSize) {
                 T t2 = this.mData[a];
-                if (this.Gt.areItemsTheSame(t2, t)) {
-                    if (this.Gt.areContentsTheSame(t2, t)) {
+                if (this.Go.areItemsTheSame(t2, t)) {
+                    if (this.Go.areContentsTheSame(t2, t)) {
                         this.mData[a] = t;
                         return a;
                     }
                     this.mData[a] = t;
-                    this.Gt.onChanged(a, 1);
+                    this.Go.onChanged(a, 1);
                     return a;
                 }
             }
@@ -228,7 +228,7 @@ public class SortedList<T> {
         }
         c(i, (int) t);
         if (z) {
-            this.Gt.onInserted(i, 1);
+            this.Go.onInserted(i, 1);
         }
         return i;
     }
@@ -259,29 +259,29 @@ public class SortedList<T> {
         this.mSize--;
         this.mData[this.mSize] = null;
         if (z) {
-            this.Gt.onRemoved(i, 1);
+            this.Go.onRemoved(i, 1);
         }
     }
 
     public void updateItemAt(int i, T t) {
         eE();
         T t2 = get(i);
-        boolean z = t2 == t || !this.Gt.areContentsTheSame(t2, t);
-        if (t2 != t && this.Gt.compare(t2, t) == 0) {
+        boolean z = t2 == t || !this.Go.areContentsTheSame(t2, t);
+        if (t2 != t && this.Go.compare(t2, t) == 0) {
             this.mData[i] = t;
             if (z) {
-                this.Gt.onChanged(i, 1);
+                this.Go.onChanged(i, 1);
                 return;
             }
             return;
         }
         if (z) {
-            this.Gt.onChanged(i, 1);
+            this.Go.onChanged(i, 1);
         }
         k(i, false);
         int b = b((SortedList<T>) t, false);
         if (i != b) {
-            this.Gt.onMoved(i, b);
+            this.Go.onMoved(i, b);
         }
     }
 
@@ -291,7 +291,7 @@ public class SortedList<T> {
         k(i, false);
         int b = b((SortedList<T>) t, false);
         if (i != b) {
-            this.Gt.onMoved(i, b);
+            this.Go.onMoved(i, b);
         }
     }
 
@@ -299,16 +299,16 @@ public class SortedList<T> {
         if (i >= this.mSize || i < 0) {
             throw new IndexOutOfBoundsException("Asked to get item at " + i + " but size is " + this.mSize);
         }
-        return (this.Gp == null || i < this.Gs) ? this.mData[i] : this.Gp[(i - this.Gs) + this.Gq];
+        return (this.Gk == null || i < this.Gn) ? this.mData[i] : this.Gk[(i - this.Gn) + this.Gl];
     }
 
     public int indexOf(T t) {
-        if (this.Gp != null) {
-            int a = a(t, this.mData, 0, this.Gs, 4);
+        if (this.Gk != null) {
+            int a = a(t, this.mData, 0, this.Gn, 4);
             if (a == -1) {
-                int a2 = a(t, this.Gp, this.Gq, this.Gr, 4);
+                int a2 = a(t, this.Gk, this.Gl, this.Gm, 4);
                 if (a2 != -1) {
-                    return (a2 - this.Gq) + this.Gs;
+                    return (a2 - this.Gl) + this.Gn;
                 }
                 return -1;
             }
@@ -324,13 +324,13 @@ public class SortedList<T> {
         while (i6 < i5) {
             int i7 = (i6 + i5) / 2;
             T t2 = tArr[i7];
-            int compare = this.Gt.compare(t2, t);
+            int compare = this.Go.compare(t2, t);
             if (compare < 0) {
                 int i8 = i5;
                 i4 = i7 + 1;
                 i7 = i8;
             } else if (compare == 0) {
-                if (!this.Gt.areItemsTheSame(t2, t)) {
+                if (!this.Go.areItemsTheSame(t2, t)) {
                     int a = a((SortedList<T>) t, i7, i6, i5);
                     return (i3 == 1 && a == -1) ? i7 : a;
                 }
@@ -350,17 +350,17 @@ public class SortedList<T> {
     private int a(T t, int i, int i2, int i3) {
         for (int i4 = i - 1; i4 >= i2; i4--) {
             T t2 = this.mData[i4];
-            if (this.Gt.compare(t2, t) != 0) {
+            if (this.Go.compare(t2, t) != 0) {
                 break;
-            } else if (this.Gt.areItemsTheSame(t2, t)) {
+            } else if (this.Go.areItemsTheSame(t2, t)) {
                 return i4;
             }
         }
         for (int i5 = i + 1; i5 < i3; i5++) {
             T t3 = this.mData[i5];
-            if (this.Gt.compare(t3, t) != 0) {
+            if (this.Go.compare(t3, t) != 0) {
                 break;
-            } else if (this.Gt.areItemsTheSame(t3, t)) {
+            } else if (this.Go.areItemsTheSame(t3, t)) {
                 return i5;
             }
         }
@@ -372,7 +372,7 @@ public class SortedList<T> {
             throw new IndexOutOfBoundsException("cannot add item to " + i + " because size is " + this.mSize);
         }
         if (this.mSize == this.mData.length) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) this.Fd, this.mData.length + 10));
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) this.EY, this.mData.length + 10));
             System.arraycopy(this.mData, 0, tArr, 0, i);
             tArr[i] = t;
             System.arraycopy(this.mData, i, tArr, i + 1, this.mSize - i);
@@ -390,7 +390,7 @@ public class SortedList<T> {
             int i = this.mSize;
             Arrays.fill(this.mData, 0, i, (Object) null);
             this.mSize = 0;
-            this.Gt.onRemoved(0, i);
+            this.Go.onRemoved(0, i);
         }
     }
 
@@ -412,51 +412,51 @@ public class SortedList<T> {
 
     /* loaded from: classes2.dex */
     public static class BatchedCallback<T2> extends Callback<T2> {
-        final Callback<T2> Gv;
-        private final BatchingListUpdateCallback Gw;
+        final Callback<T2> Gq;
+        private final BatchingListUpdateCallback Gr;
 
         public BatchedCallback(Callback<T2> callback) {
-            this.Gv = callback;
-            this.Gw = new BatchingListUpdateCallback(this.Gv);
+            this.Gq = callback;
+            this.Gr = new BatchingListUpdateCallback(this.Gq);
         }
 
         @Override // android.support.v7.util.SortedList.Callback, java.util.Comparator
         public int compare(T2 t2, T2 t22) {
-            return this.Gv.compare(t2, t22);
+            return this.Gq.compare(t2, t22);
         }
 
         @Override // android.support.v7.util.ListUpdateCallback
         public void onInserted(int i, int i2) {
-            this.Gw.onInserted(i, i2);
+            this.Gr.onInserted(i, i2);
         }
 
         @Override // android.support.v7.util.ListUpdateCallback
         public void onRemoved(int i, int i2) {
-            this.Gw.onRemoved(i, i2);
+            this.Gr.onRemoved(i, i2);
         }
 
         @Override // android.support.v7.util.ListUpdateCallback
         public void onMoved(int i, int i2) {
-            this.Gw.onMoved(i, i2);
+            this.Gr.onMoved(i, i2);
         }
 
         @Override // android.support.v7.util.SortedList.Callback
         public void onChanged(int i, int i2) {
-            this.Gw.onChanged(i, i2, null);
+            this.Gr.onChanged(i, i2, null);
         }
 
         @Override // android.support.v7.util.SortedList.Callback
         public boolean areContentsTheSame(T2 t2, T2 t22) {
-            return this.Gv.areContentsTheSame(t2, t22);
+            return this.Gq.areContentsTheSame(t2, t22);
         }
 
         @Override // android.support.v7.util.SortedList.Callback
         public boolean areItemsTheSame(T2 t2, T2 t22) {
-            return this.Gv.areItemsTheSame(t2, t22);
+            return this.Gq.areItemsTheSame(t2, t22);
         }
 
         public void dispatchLastEvent() {
-            this.Gw.dispatchLastEvent();
+            this.Gr.dispatchLastEvent();
         }
     }
 }

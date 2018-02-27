@@ -9,8 +9,13 @@ public class ReplyMeCacheModel extends CacheModel<n, p> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<n> Nn() {
+    public Class<n> Nm() {
         return n.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel
+    public int Nn() {
+        return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
@@ -19,12 +24,7 @@ public class ReplyMeCacheModel extends CacheModel<n, p> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int Np() {
-        return 2001257;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String MY() {
+    public String MX() {
         return "tb_user_replyme";
     }
 }

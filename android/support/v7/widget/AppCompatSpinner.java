@@ -30,22 +30,22 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 /* loaded from: classes2.dex */
 public class AppCompatSpinner extends Spinner implements TintableBackgroundView {
-    static final boolean Np;
-    private static final boolean Nq;
-    private static final int[] Nr;
-    private ForwardingListener HB;
-    private d Mt;
-    private SpinnerAdapter Ns;
-    private boolean Nt;
-    b Nu;
-    int Nv;
+    static final boolean Nk;
+    private static final boolean Nl;
+    private static final int[] Nm;
+    private ForwardingListener Hw;
+    private d Mo;
+    private SpinnerAdapter Nn;
+    private boolean No;
+    b Np;
+    int Nq;
     private Context mPopupContext;
     final Rect mTempRect;
 
     static {
-        Np = Build.VERSION.SDK_INT >= 23;
-        Nq = Build.VERSION.SDK_INT >= 16;
-        Nr = new int[]{16843505};
+        Nk = Build.VERSION.SDK_INT >= 23;
+        Nl = Build.VERSION.SDK_INT >= 16;
+        Nm = new int[]{16843505};
     }
 
     public AppCompatSpinner(Context context) {
@@ -82,7 +82,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         TypedArray typedArray;
         this.mTempRect = new Rect();
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.Spinner, i, 0);
-        this.Mt = new d(this);
+        this.Mo = new d(this);
         if (theme != null) {
             this.mPopupContext = new ContextThemeWrapper(context, theme);
         } else {
@@ -90,14 +90,14 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             if (resourceId != 0) {
                 this.mPopupContext = new ContextThemeWrapper(context, resourceId);
             } else {
-                this.mPopupContext = !Np ? context : null;
+                this.mPopupContext = !Nk ? context : null;
             }
         }
         if (this.mPopupContext != null) {
             if (i2 == -1) {
                 if (Build.VERSION.SDK_INT >= 11) {
                     try {
-                        typedArray = context.obtainStyledAttributes(attributeSet, Nr, i, 0);
+                        typedArray = context.obtainStyledAttributes(attributeSet, Nm, i, 0);
                         try {
                             try {
                                 i2 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i2;
@@ -116,10 +116,10 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
                                 if (textArray != null) {
                                 }
                                 obtainStyledAttributes.recycle();
-                                this.Nt = true;
-                                if (this.Ns != null) {
+                                this.No = true;
+                                if (this.Nn != null) {
                                 }
-                                this.Mt.loadFromAttributes(attributeSet, i);
+                                this.Mo.loadFromAttributes(attributeSet, i);
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -145,12 +145,12 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             if (i2 == 1) {
                 final b bVar = new b(this.mPopupContext, attributeSet, i);
                 TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(this.mPopupContext, attributeSet, R.styleable.Spinner, i, 0);
-                this.Nv = obtainStyledAttributes2.getLayoutDimension(R.styleable.Spinner_android_dropDownWidth, -2);
+                this.Nq = obtainStyledAttributes2.getLayoutDimension(R.styleable.Spinner_android_dropDownWidth, -2);
                 bVar.setBackgroundDrawable(obtainStyledAttributes2.getDrawable(R.styleable.Spinner_android_popupBackground));
                 bVar.g(obtainStyledAttributes.getString(R.styleable.Spinner_android_prompt));
                 obtainStyledAttributes2.recycle();
-                this.Nu = bVar;
-                this.HB = new ForwardingListener(this) { // from class: android.support.v7.widget.AppCompatSpinner.1
+                this.Np = bVar;
+                this.Hw = new ForwardingListener(this) { // from class: android.support.v7.widget.AppCompatSpinner.1
                     @Override // android.support.v7.widget.ForwardingListener
                     public ShowableListMenu getPopup() {
                         return bVar;
@@ -158,8 +158,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
                     @Override // android.support.v7.widget.ForwardingListener
                     public boolean onForwardingStarted() {
-                        if (!AppCompatSpinner.this.Nu.isShowing()) {
-                            AppCompatSpinner.this.Nu.show();
+                        if (!AppCompatSpinner.this.Np.isShowing()) {
+                            AppCompatSpinner.this.Np.show();
                             return true;
                         }
                         return true;
@@ -174,20 +174,20 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             setAdapter((SpinnerAdapter) arrayAdapter);
         }
         obtainStyledAttributes.recycle();
-        this.Nt = true;
-        if (this.Ns != null) {
-            setAdapter(this.Ns);
-            this.Ns = null;
+        this.No = true;
+        if (this.Nn != null) {
+            setAdapter(this.Nn);
+            this.Nn = null;
         }
-        this.Mt.loadFromAttributes(attributeSet, i);
+        this.Mo.loadFromAttributes(attributeSet, i);
     }
 
     @Override // android.widget.Spinner
     public Context getPopupContext() {
-        if (this.Nu != null) {
+        if (this.Np != null) {
             return this.mPopupContext;
         }
-        if (Np) {
+        if (Nk) {
             return super.getPopupContext();
         }
         return null;
@@ -195,9 +195,9 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public void setPopupBackgroundDrawable(Drawable drawable) {
-        if (this.Nu != null) {
-            this.Nu.setBackgroundDrawable(drawable);
-        } else if (Nq) {
+        if (this.Np != null) {
+            this.Np.setBackgroundDrawable(drawable);
+        } else if (Nl) {
             super.setPopupBackgroundDrawable(drawable);
         }
     }
@@ -209,10 +209,10 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public Drawable getPopupBackground() {
-        if (this.Nu != null) {
-            return this.Nu.getBackground();
+        if (this.Np != null) {
+            return this.Np.getBackground();
         }
-        if (Nq) {
+        if (Nl) {
             return super.getPopupBackground();
         }
         return null;
@@ -220,19 +220,19 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public void setDropDownVerticalOffset(int i) {
-        if (this.Nu != null) {
-            this.Nu.setVerticalOffset(i);
-        } else if (Nq) {
+        if (this.Np != null) {
+            this.Np.setVerticalOffset(i);
+        } else if (Nl) {
             super.setDropDownVerticalOffset(i);
         }
     }
 
     @Override // android.widget.Spinner
     public int getDropDownVerticalOffset() {
-        if (this.Nu != null) {
-            return this.Nu.getVerticalOffset();
+        if (this.Np != null) {
+            return this.Np.getVerticalOffset();
         }
-        if (Nq) {
+        if (Nl) {
             return super.getDropDownVerticalOffset();
         }
         return 0;
@@ -240,19 +240,19 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public void setDropDownHorizontalOffset(int i) {
-        if (this.Nu != null) {
-            this.Nu.setHorizontalOffset(i);
-        } else if (Nq) {
+        if (this.Np != null) {
+            this.Np.setHorizontalOffset(i);
+        } else if (Nl) {
             super.setDropDownHorizontalOffset(i);
         }
     }
 
     @Override // android.widget.Spinner
     public int getDropDownHorizontalOffset() {
-        if (this.Nu != null) {
-            return this.Nu.getHorizontalOffset();
+        if (this.Np != null) {
+            return this.Np.getHorizontalOffset();
         }
-        if (Nq) {
+        if (Nl) {
             return super.getDropDownHorizontalOffset();
         }
         return 0;
@@ -260,19 +260,19 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public void setDropDownWidth(int i) {
-        if (this.Nu != null) {
-            this.Nv = i;
-        } else if (Nq) {
+        if (this.Np != null) {
+            this.Nq = i;
+        } else if (Nl) {
             super.setDropDownWidth(i);
         }
     }
 
     @Override // android.widget.Spinner
     public int getDropDownWidth() {
-        if (this.Nu != null) {
-            return this.Nv;
+        if (this.Np != null) {
+            return this.Nq;
         }
-        if (Nq) {
+        if (Nl) {
             return super.getDropDownWidth();
         }
         return 0;
@@ -281,27 +281,27 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(SpinnerAdapter spinnerAdapter) {
-        if (!this.Nt) {
-            this.Ns = spinnerAdapter;
+        if (!this.No) {
+            this.Nn = spinnerAdapter;
             return;
         }
         super.setAdapter(spinnerAdapter);
-        if (this.Nu != null) {
-            this.Nu.setAdapter(new a(spinnerAdapter, (this.mPopupContext == null ? getContext() : this.mPopupContext).getTheme()));
+        if (this.Np != null) {
+            this.Np.setAdapter(new a(spinnerAdapter, (this.mPopupContext == null ? getContext() : this.mPopupContext).getTheme()));
         }
     }
 
     @Override // android.widget.Spinner, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.Nu != null && this.Nu.isShowing()) {
-            this.Nu.dismiss();
+        if (this.Np != null && this.Np.isShowing()) {
+            this.Np.dismiss();
         }
     }
 
     @Override // android.widget.Spinner, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.HB == null || !this.HB.onTouch(this, motionEvent)) {
+        if (this.Hw == null || !this.Hw.onTouch(this, motionEvent)) {
             return super.onTouchEvent(motionEvent);
         }
         return true;
@@ -310,16 +310,16 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     @Override // android.widget.Spinner, android.widget.AbsSpinner, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.Nu != null && View.MeasureSpec.getMode(i) == Integer.MIN_VALUE) {
+        if (this.Np != null && View.MeasureSpec.getMode(i) == Integer.MIN_VALUE) {
             setMeasuredDimension(Math.min(Math.max(getMeasuredWidth(), a(getAdapter(), getBackground())), View.MeasureSpec.getSize(i)), getMeasuredHeight());
         }
     }
 
     @Override // android.widget.Spinner, android.view.View
     public boolean performClick() {
-        if (this.Nu != null) {
-            if (!this.Nu.isShowing()) {
-                this.Nu.show();
+        if (this.Np != null) {
+            if (!this.Np.isShowing()) {
+                this.Np.show();
             }
             return true;
         }
@@ -328,8 +328,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public void setPrompt(CharSequence charSequence) {
-        if (this.Nu != null) {
-            this.Nu.g(charSequence);
+        if (this.Np != null) {
+            this.Np.g(charSequence);
         } else {
             super.setPrompt(charSequence);
         }
@@ -337,38 +337,38 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     @Override // android.widget.Spinner
     public CharSequence getPrompt() {
-        return this.Nu != null ? this.Nu.fO() : super.getPrompt();
+        return this.Np != null ? this.Np.fO() : super.getPrompt();
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
         super.setBackgroundResource(i);
-        if (this.Mt != null) {
-            this.Mt.be(i);
+        if (this.Mo != null) {
+            this.Mo.be(i);
         }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
-        if (this.Mt != null) {
-            this.Mt.c(drawable);
+        if (this.Mo != null) {
+            this.Mo.c(drawable);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintList(ColorStateList colorStateList) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintList(colorStateList);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public ColorStateList getSupportBackgroundTintList() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintList();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintList();
         }
         return null;
     }
@@ -376,16 +376,16 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintMode(mode);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintMode(mode);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintMode();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintMode();
         }
         return null;
     }
@@ -393,8 +393,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     @Override // android.view.ViewGroup, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Mt != null) {
-            this.Mt.fI();
+        if (this.Mo != null) {
+            this.Mo.fI();
         }
     }
 
@@ -438,16 +438,16 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a implements ListAdapter, SpinnerAdapter {
-        private SpinnerAdapter Ny;
-        private ListAdapter Nz;
+        private SpinnerAdapter Nt;
+        private ListAdapter Nu;
 
         public a(SpinnerAdapter spinnerAdapter, Resources.Theme theme) {
-            this.Ny = spinnerAdapter;
+            this.Nt = spinnerAdapter;
             if (spinnerAdapter instanceof ListAdapter) {
-                this.Nz = (ListAdapter) spinnerAdapter;
+                this.Nu = (ListAdapter) spinnerAdapter;
             }
             if (theme != null) {
-                if (AppCompatSpinner.Np && (spinnerAdapter instanceof android.widget.ThemedSpinnerAdapter)) {
+                if (AppCompatSpinner.Nk && (spinnerAdapter instanceof android.widget.ThemedSpinnerAdapter)) {
                     android.widget.ThemedSpinnerAdapter themedSpinnerAdapter = (android.widget.ThemedSpinnerAdapter) spinnerAdapter;
                     if (themedSpinnerAdapter.getDropDownViewTheme() != theme) {
                         themedSpinnerAdapter.setDropDownViewTheme(theme);
@@ -463,26 +463,26 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.Ny == null) {
+            if (this.Nt == null) {
                 return 0;
             }
-            return this.Ny.getCount();
+            return this.Nt.getCount();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (this.Ny == null) {
+            if (this.Nt == null) {
                 return null;
             }
-            return this.Ny.getItem(i);
+            return this.Nt.getItem(i);
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
-            if (this.Ny == null) {
+            if (this.Nt == null) {
                 return -1L;
             }
-            return this.Ny.getItemId(i);
+            return this.Nt.getItemId(i);
         }
 
         @Override // android.widget.Adapter
@@ -492,34 +492,34 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
         @Override // android.widget.SpinnerAdapter
         public View getDropDownView(int i, View view, ViewGroup viewGroup) {
-            if (this.Ny == null) {
+            if (this.Nt == null) {
                 return null;
             }
-            return this.Ny.getDropDownView(i, view, viewGroup);
+            return this.Nt.getDropDownView(i, view, viewGroup);
         }
 
         @Override // android.widget.Adapter
         public boolean hasStableIds() {
-            return this.Ny != null && this.Ny.hasStableIds();
+            return this.Nt != null && this.Nt.hasStableIds();
         }
 
         @Override // android.widget.Adapter
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-            if (this.Ny != null) {
-                this.Ny.registerDataSetObserver(dataSetObserver);
+            if (this.Nt != null) {
+                this.Nt.registerDataSetObserver(dataSetObserver);
             }
         }
 
         @Override // android.widget.Adapter
         public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-            if (this.Ny != null) {
-                this.Ny.unregisterDataSetObserver(dataSetObserver);
+            if (this.Nt != null) {
+                this.Nt.unregisterDataSetObserver(dataSetObserver);
             }
         }
 
         @Override // android.widget.ListAdapter
         public boolean areAllItemsEnabled() {
-            ListAdapter listAdapter = this.Nz;
+            ListAdapter listAdapter = this.Nu;
             if (listAdapter != null) {
                 return listAdapter.areAllItemsEnabled();
             }
@@ -528,7 +528,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
         @Override // android.widget.ListAdapter
         public boolean isEnabled(int i) {
-            ListAdapter listAdapter = this.Nz;
+            ListAdapter listAdapter = this.Nu;
             if (listAdapter != null) {
                 return listAdapter.isEnabled(i);
             }
@@ -554,13 +554,13 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b extends ListPopupWindow {
-        private CharSequence NA;
-        private final Rect NB;
+        private CharSequence Nv;
+        private final Rect Nw;
         ListAdapter mAdapter;
 
         public b(Context context, AttributeSet attributeSet, int i) {
             super(context, attributeSet, i);
-            this.NB = new Rect();
+            this.Nw = new Rect();
             setAnchorView(AppCompatSpinner.this);
             setModal(true);
             setPromptPosition(0);
@@ -583,11 +583,11 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         }
 
         public CharSequence fO() {
-            return this.NA;
+            return this.Nv;
         }
 
         public void g(CharSequence charSequence) {
-            this.NA = charSequence;
+            this.Nv = charSequence;
         }
 
         void fP() {
@@ -606,17 +606,17 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             int paddingLeft = AppCompatSpinner.this.getPaddingLeft();
             int paddingRight = AppCompatSpinner.this.getPaddingRight();
             int width = AppCompatSpinner.this.getWidth();
-            if (AppCompatSpinner.this.Nv == -2) {
+            if (AppCompatSpinner.this.Nq == -2) {
                 int a = AppCompatSpinner.this.a((SpinnerAdapter) this.mAdapter, getBackground());
                 int i3 = (AppCompatSpinner.this.getContext().getResources().getDisplayMetrics().widthPixels - AppCompatSpinner.this.mTempRect.left) - AppCompatSpinner.this.mTempRect.right;
                 if (a <= i3) {
                     i3 = a;
                 }
                 setContentWidth(Math.max(i3, (width - paddingLeft) - paddingRight));
-            } else if (AppCompatSpinner.this.Nv == -1) {
+            } else if (AppCompatSpinner.this.Nq == -1) {
                 setContentWidth((width - paddingLeft) - paddingRight);
             } else {
-                setContentWidth(AppCompatSpinner.this.Nv);
+                setContentWidth(AppCompatSpinner.this.Nq);
             }
             if (ViewUtils.isLayoutRtl(AppCompatSpinner.this)) {
                 i2 = ((width - paddingRight) - getWidth()) + i;
@@ -661,7 +661,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         }
 
         boolean W(View view) {
-            return ViewCompat.isAttachedToWindow(view) && view.getGlobalVisibleRect(this.NB);
+            return ViewCompat.isAttachedToWindow(view) && view.getGlobalVisibleRect(this.Nw);
         }
     }
 }

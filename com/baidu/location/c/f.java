@@ -12,8 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g aCK;
-    private static volatile f aCJ = null;
+    private g aCz;
+    private static volatile f aCy = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
@@ -21,8 +21,8 @@ public class f {
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
     private SimpleDateFormat h = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g aCL = null;
-    private a aCM = null;
+    private g aCA = null;
+    private a aCB = null;
     private long l = 0;
 
     /* loaded from: classes.dex */
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.aCK = null;
-        if (this.aCK == null) {
-            this.aCK = new g();
+        this.aCz = null;
+        if (this.aCz == null) {
+            this.aCz = new g();
         }
     }
 
@@ -191,14 +191,14 @@ public class f {
     }
 
     public static f uH() {
-        if (aCJ == null) {
+        if (aCy == null) {
             synchronized (f.class) {
-                if (aCJ == null) {
-                    aCJ = new f();
+                if (aCy == null) {
+                    aCy = new f();
                 }
             }
         }
-        return aCJ;
+        return aCy;
     }
 
     public void a(g gVar) {
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.aCK != null) {
-            a(f, Jni.encode(this.aCK.b()));
-            this.aCK.a();
+        if (this.aCz != null) {
+            a(f, Jni.encode(this.aCz.b()));
+            this.aCz.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.aCM == null) {
-            this.aCM = new a();
+        if (this.aCB == null) {
+            this.aCB = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.aCM.b()) {
+        if (System.currentTimeMillis() - this.l >= 3600000 && !this.aCB.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,7 +269,7 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.aCM.a(jSONObject.toString());
+                    this.aCB.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
@@ -277,6 +277,6 @@ public class f {
     }
 
     public g uI() {
-        return this.aCK;
+        return this.aCz;
     }
 }

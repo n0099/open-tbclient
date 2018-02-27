@@ -3,13 +3,13 @@ package com.baidu.adp.lib.b;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
-    private int ahP;
-    private a ahS;
+    private int ahJ;
+    private a ahM;
     private String mName;
-    private int ahR = 0;
-    private String[] ahU = null;
-    private int ahQ = 0;
-    private String[] ahV = null;
+    private int ahL = 0;
+    private String[] ahO = null;
+    private int ahK = 0;
+    private String[] ahP = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.ahS = null;
-        this.ahP = 0;
+        this.ahM = null;
+        this.ahJ = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.ahS = aVar;
-        this.ahP = i;
+        this.ahM = aVar;
+        this.ahJ = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.ahR = i;
-        this.ahU = strArr;
-        this.ahQ = i2;
+        this.ahL = i;
+        this.ahO = strArr;
+        this.ahK = i2;
     }
 
     public void g(String[] strArr) {
-        this.ahV = strArr;
+        this.ahP = strArr;
     }
 
     public String[] mv() {
-        return this.ahV;
+        return this.ahP;
     }
 
     public String getName() {
@@ -47,24 +47,24 @@ public class b {
     }
 
     public int mu() {
-        return this.ahR;
+        return this.ahL;
     }
 
     public String[] mx() {
-        return this.ahU;
+        return this.ahO;
     }
 
     public int mt() {
-        return this.ahQ;
+        return this.ahK;
     }
 
     public int ms() {
-        return this.ahP;
+        return this.ahJ;
     }
 
     public void q(int i, boolean z) {
-        if (this.ahS != null) {
-            this.ahS.a(this.mName, i, z);
+        if (this.ahM != null) {
+            this.ahM.a(this.mName, i, z);
         }
     }
 }

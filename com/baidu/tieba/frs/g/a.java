@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
-    private View QW;
-    private boolean dUM;
-    private PopupWindow dUN;
+    private View QQ;
+    private boolean dUA;
+    private PopupWindow dUB;
     private TbPageContext mPageContext;
-    private int dUL = d.j.attention_post_update_tip;
+    private int dUz = d.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dUO = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
+    private Runnable dUC = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.mPageContext != null && a.this.QW != null) {
+            if (a.this.mPageContext != null && a.this.QQ != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int t = l.t(pageActivity, d.e.ds64);
-                View f = a.this.f(pageActivity, a.this.dUL);
+                View f = a.this.f(pageActivity, a.this.dUz);
                 int[] iArr = new int[2];
-                a.this.QW.getLocationInWindow(iArr);
+                a.this.QQ.getLocationInWindow(iArr);
                 int t2 = l.t(pageActivity, d.e.ds32);
                 int t3 = l.t(pageActivity, d.e.ds16) + (iArr[1] - t);
-                a.this.dUN = new PopupWindow(f, -2, t);
-                a.this.dUN.showAtLocation(a.this.QW, 53, t2, t3);
+                a.this.dUB = new PopupWindow(f, -2, t);
+                a.this.dUB.showAtLocation(a.this.QQ, 53, t2, t3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.g.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.dUN != null) {
-                            a.this.azX();
+                        if (a.this.dUB != null) {
+                            a.this.azW();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dUM = z;
+        this.dUA = z;
     }
 
     public void bS(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
-            this.QW = view;
-            if (this.dUM) {
-                this.dUL = d.j.attention_post_update_tip;
+            this.QQ = view;
+            if (this.dUA) {
+                this.dUz = d.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dUM = false;
+                    this.dUA = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dUM = false;
-                this.mHandler.postDelayed(this.dUO, 500L);
+                this.dUA = false;
+                this.mHandler.postDelayed(this.dUC, 500L);
             }
         }
     }
@@ -79,25 +79,25 @@ public class a implements View.OnClickListener {
         textView.setText(i);
         textView.setOnClickListener(this);
         aj.s(textView, d.f.bg_tip_blue_left);
-        aj.r(textView, d.C0140d.cp_cont_i);
+        aj.r(textView, d.C0141d.cp_cont_i);
         textView.setOnClickListener(this);
         return textView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        azX();
+        azW();
     }
 
-    public void azX() {
-        if (this.dUN != null) {
-            this.dUN.dismiss();
-            this.dUN = null;
+    public void azW() {
+        if (this.dUB != null) {
+            this.dUB.dismiss();
+            this.dUB = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        azX();
+        azW();
     }
 }

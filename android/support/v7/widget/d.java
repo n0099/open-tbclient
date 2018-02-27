@@ -10,12 +10,12 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 class d {
-    private a Mx;
-    private a My;
-    private a Mz;
+    private a Ms;
+    private a Mt;
+    private a Mu;
     private final View mView;
-    private int Mw = -1;
-    private final AppCompatDrawableManager Mv = AppCompatDrawableManager.get();
+    private int Mr = -1;
+    private final AppCompatDrawableManager Mq = AppCompatDrawableManager.get();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(View view) {
@@ -27,8 +27,8 @@ class d {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.ViewBackgroundHelper, i, 0);
         try {
             if (obtainStyledAttributes.hasValue(R.styleable.ViewBackgroundHelper_android_background)) {
-                this.Mw = obtainStyledAttributes.getResourceId(R.styleable.ViewBackgroundHelper_android_background, -1);
-                ColorStateList k = this.Mv.k(this.mView.getContext(), this.Mw);
+                this.Mr = obtainStyledAttributes.getResourceId(R.styleable.ViewBackgroundHelper_android_background, -1);
+                ColorStateList k = this.Mq.k(this.mView.getContext(), this.Mr);
                 if (k != null) {
                     d(k);
                 }
@@ -46,8 +46,8 @@ class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void be(int i) {
-        this.Mw = i;
-        d(this.Mv != null ? this.Mv.k(this.mView.getContext(), i) : null);
+        this.Mr = i;
+        d(this.Mq != null ? this.Mq.k(this.mView.getContext(), i) : null);
         if (fH()) {
             fI();
         }
@@ -55,7 +55,7 @@ class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(Drawable drawable) {
-        this.Mw = -1;
+        this.Mr = -1;
         d((ColorStateList) null);
         if (fH()) {
             fI();
@@ -64,12 +64,12 @@ class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setSupportBackgroundTintList(ColorStateList colorStateList) {
-        if (this.My == null) {
-            this.My = new a();
+        if (this.Mt == null) {
+            this.Mt = new a();
         }
-        this.My.MA = colorStateList;
-        this.My.Xi = null;
-        this.My.Xk = true;
+        this.Mt.Mv = colorStateList;
+        this.Mt.Xc = null;
+        this.Mt.Xe = true;
         if (fH()) {
             fI();
         }
@@ -77,12 +77,12 @@ class d {
 
     private boolean fH() {
         ColorStateList b;
-        if (this.My != null && this.My.Xk) {
-            if (this.Mw >= 0 && (b = this.Mv.b(this.mView.getContext(), this.Mw, this.My.MA)) != null) {
-                this.My.Xi = b;
+        if (this.Mt != null && this.Mt.Xe) {
+            if (this.Mr >= 0 && (b = this.Mq.b(this.mView.getContext(), this.Mr, this.Mt.Mv)) != null) {
+                this.Mt.Xc = b;
                 return true;
-            } else if (this.My.Xi != this.My.MA) {
-                this.My.Xi = this.My.MA;
+            } else if (this.Mt.Xc != this.Mt.Mv) {
+                this.Mt.Xc = this.Mt.Mv;
                 return true;
             }
         }
@@ -91,26 +91,26 @@ class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ColorStateList getSupportBackgroundTintList() {
-        if (this.My != null) {
-            return this.My.Xi;
+        if (this.Mt != null) {
+            return this.Mt.Xc;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.My == null) {
-            this.My = new a();
+        if (this.Mt == null) {
+            this.Mt = new a();
         }
-        this.My.uq = mode;
-        this.My.Xj = true;
+        this.Mt.uo = mode;
+        this.Mt.Xd = true;
         fI();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.My != null) {
-            return this.My.uq;
+        if (this.Mt != null) {
+            return this.Mt.uo;
         }
         return null;
     }
@@ -120,10 +120,10 @@ class d {
         Drawable background = this.mView.getBackground();
         if (background != null) {
             if (Build.VERSION.SDK_INT != 21 || !d(background)) {
-                if (this.My != null) {
-                    AppCompatDrawableManager.a(background, this.My, this.mView.getDrawableState());
-                } else if (this.Mx != null) {
-                    AppCompatDrawableManager.a(background, this.Mx, this.mView.getDrawableState());
+                if (this.Mt != null) {
+                    AppCompatDrawableManager.a(background, this.Mt, this.mView.getDrawableState());
+                } else if (this.Ms != null) {
+                    AppCompatDrawableManager.a(background, this.Ms, this.mView.getDrawableState());
                 }
             }
         }
@@ -131,34 +131,34 @@ class d {
 
     void d(ColorStateList colorStateList) {
         if (colorStateList != null) {
-            if (this.Mx == null) {
-                this.Mx = new a();
+            if (this.Ms == null) {
+                this.Ms = new a();
             }
-            this.Mx.Xi = colorStateList;
-            this.Mx.Xk = true;
+            this.Ms.Xc = colorStateList;
+            this.Ms.Xe = true;
         } else {
-            this.Mx = null;
+            this.Ms = null;
         }
         fI();
     }
 
     private boolean d(Drawable drawable) {
-        if (this.Mz == null) {
-            this.Mz = new a();
+        if (this.Mu == null) {
+            this.Mu = new a();
         }
-        a aVar = this.Mz;
+        a aVar = this.Mu;
         aVar.clear();
         ColorStateList backgroundTintList = ViewCompat.getBackgroundTintList(this.mView);
         if (backgroundTintList != null) {
-            aVar.Xk = true;
-            aVar.Xi = backgroundTintList;
+            aVar.Xe = true;
+            aVar.Xc = backgroundTintList;
         }
         PorterDuff.Mode backgroundTintMode = ViewCompat.getBackgroundTintMode(this.mView);
         if (backgroundTintMode != null) {
-            aVar.Xj = true;
-            aVar.uq = backgroundTintMode;
+            aVar.Xd = true;
+            aVar.uo = backgroundTintMode;
         }
-        if (aVar.Xk || aVar.Xj) {
+        if (aVar.Xe || aVar.Xd) {
             AppCompatDrawableManager.a(drawable, aVar, this.mView.getDrawableState());
             return true;
         }
@@ -168,7 +168,7 @@ class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends t {
-        public ColorStateList MA;
+        public ColorStateList Mv;
 
         a() {
         }
@@ -177,7 +177,7 @@ class d {
         @Override // android.support.v7.widget.t
         public void clear() {
             super.clear();
-            this.MA = null;
+            this.Mv = null;
         }
     }
 }

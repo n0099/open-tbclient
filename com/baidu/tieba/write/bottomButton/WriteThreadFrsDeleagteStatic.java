@@ -21,12 +21,12 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c MU() {
+    public c MT() {
         c cVar = new c();
-        cVar.bxZ = new a();
+        cVar.bxM = new a();
         cVar.type = 99;
-        cVar.bya = d.j.send;
-        cVar.byh = c.bye;
+        cVar.bxN = d.j.send;
+        cVar.bxU = c.bxR;
         return cVar;
     }
 
@@ -35,12 +35,12 @@ public class WriteThreadFrsDeleagteStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c MV;
+                c MU;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((af) customResponsedMessage.getData()).nb(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((af) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
-                    if (((af) customResponsedMessage.getData()).getContext() != null && (MV = writeThreadFrsDeleagteStatic.MV()) != null) {
-                        MV.bxZ.setArguments(new Bundle());
+                    if (((af) customResponsedMessage.getData()).getContext() != null && (MU = writeThreadFrsDeleagteStatic.MU()) != null) {
+                        MU.bxM.setArguments(new Bundle());
                     }
                 }
             }
@@ -49,8 +49,8 @@ public class WriteThreadFrsDeleagteStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public e bi(Context context) {
-        this.bxQ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bxQ.setTextSize(2.0f);
-        return this.bxQ;
+        this.bxD = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bxD.setTextSize(2.0f);
+        return this.bxD;
     }
 }

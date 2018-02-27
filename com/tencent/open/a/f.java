@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     protected a b = new a(c);
     public static f a = null;
@@ -29,7 +29,7 @@ public class f {
 
     protected void a(int i, String str, String str2, Throwable th) {
         if (d) {
-            String b = com.tencent.open.utils.d.b();
+            String b = com.tencent.open.utils.e.b();
             if (!TextUtils.isEmpty(b)) {
                 String str3 = b + " SDK_VERSION:" + Constants.SDK_VERSION;
                 if (this.b != null) {
@@ -87,11 +87,20 @@ public class f {
     protected static File c() {
         boolean z = false;
         String str = c.d;
-        d.c b = d.b.b();
-        if (b != null && b.c() > c.f) {
-            z = true;
+        try {
+            d.c b = d.b.b();
+            if (b != null) {
+                if (b.c() > c.f) {
+                    z = true;
+                }
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        return z ? new File(Environment.getExternalStorageDirectory(), str) : new File(com.tencent.open.utils.d.c(), str);
+        if (z) {
+            return new File(Environment.getExternalStorageDirectory(), str);
+        }
+        return new File(com.tencent.open.utils.e.c(), str);
     }
 
     protected void d() {

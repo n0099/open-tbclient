@@ -13,15 +13,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dIN = BdUniqueId.gen();
+    public static final BdUniqueId dIB = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public boolean autoPlay;
     public String createTime;
-    public List<String> dIO;
-    public List<String> dIP;
-    public a dIQ;
-    public b dIR;
+    public List<String> dIC;
+    public List<String> dID;
+    public a dIE;
+    public b dIF;
     public String extra;
     public String firstPostId;
     public String forumId;
@@ -48,7 +48,7 @@ public class f extends com.baidu.tieba.card.data.b {
 
     /* loaded from: classes3.dex */
     public static class b {
-        public List<c> dIS;
+        public List<c> dIG;
         public String originVideoUrl;
         public String thumbnailHeight;
         public String thumbnailPicid;
@@ -90,53 +90,53 @@ public class f extends com.baidu.tieba.card.data.b {
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
                 this.weight = jSONObject.optString("weight");
-                this.dIO = new ArrayList();
+                this.dIC = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.dIO.add(jSONArray.optString(i));
+                        this.dIC.add(jSONArray.optString(i));
                     }
                 }
-                this.dIP = new ArrayList();
+                this.dID = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.dIP.add(jSONArray2.optString(i2));
+                        this.dID.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.dIQ = new a();
+                    this.dIE = new a();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.dIQ.userId = jSONObject2.optString("user_id");
-                    this.dIQ.userName = jSONObject2.optString("user_name");
-                    this.dIQ.userNickname = jSONObject2.optString("user_nickname");
-                    this.dIQ.portrait = jSONObject2.optString(IntentConfig.PORTRAIT);
-                    this.dIQ.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.dIQ.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.dIE.userId = jSONObject2.optString("user_id");
+                    this.dIE.userName = jSONObject2.optString("user_name");
+                    this.dIE.userNickname = jSONObject2.optString("user_nickname");
+                    this.dIE.portrait = jSONObject2.optString(IntentConfig.PORTRAIT);
+                    this.dIE.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.dIE.isGod = jSONObject2.optInt("is_god") == 1;
                 }
                 String optString4 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString4)) {
-                    this.dIR = new b();
+                    this.dIF = new b();
                     JSONObject jSONObject3 = new JSONObject(optString4);
-                    this.dIR.thumbnailWidth = jSONObject3.optString("thumbnail_width");
-                    this.dIR.thumbnailHeight = jSONObject3.optString("thumbnail_height");
-                    this.dIR.videoMd5 = jSONObject3.optString("video_md5");
-                    this.dIR.videoUrl = jSONObject3.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
-                    this.dIR.videoDuration = jSONObject3.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
-                    this.dIR.videoWidth = jSONObject3.optString("video_width");
-                    this.dIR.videoHeight = jSONObject3.optString("video_height");
-                    this.dIR.videoSize = jSONObject3.optLong("video_size");
-                    this.dIR.videoType = jSONObject3.optString("video_type");
-                    this.dIR.thumbnailUrl = jSONObject3.optString("thumbnail_url");
-                    this.dIR.videoFormat = jSONObject3.optString("video_format");
-                    this.dIR.thumbnailPicid = jSONObject3.optString("thumbnail_picid");
-                    this.dIR.originVideoUrl = jSONObject3.optString("origin_video_url");
+                    this.dIF.thumbnailWidth = jSONObject3.optString("thumbnail_width");
+                    this.dIF.thumbnailHeight = jSONObject3.optString("thumbnail_height");
+                    this.dIF.videoMd5 = jSONObject3.optString("video_md5");
+                    this.dIF.videoUrl = jSONObject3.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
+                    this.dIF.videoDuration = jSONObject3.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
+                    this.dIF.videoWidth = jSONObject3.optString("video_width");
+                    this.dIF.videoHeight = jSONObject3.optString("video_height");
+                    this.dIF.videoSize = jSONObject3.optLong("video_size");
+                    this.dIF.videoType = jSONObject3.optString("video_type");
+                    this.dIF.thumbnailUrl = jSONObject3.optString("thumbnail_url");
+                    this.dIF.videoFormat = jSONObject3.optString("video_format");
+                    this.dIF.thumbnailPicid = jSONObject3.optString("thumbnail_picid");
+                    this.dIF.originVideoUrl = jSONObject3.optString("origin_video_url");
                     String optString5 = jSONObject3.optString("video_desc");
                     if (!TextUtils.isEmpty(optString5)) {
-                        this.dIR.dIS = new ArrayList();
+                        this.dIF.dIG = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString5);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             c cVar = new c();
@@ -144,7 +144,7 @@ public class f extends com.baidu.tieba.card.data.b {
                             cVar.videoUrl = jSONArray3.optJSONObject(i3).optString(WebVideoActivityConfig.KEY_VIDEO_URL);
                             cVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             cVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.dIR.dIS.add(cVar);
+                            this.dIF.dIG.add(cVar);
                         }
                     }
                 }
@@ -156,6 +156,6 @@ public class f extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return dIN;
+        return dIB;
     }
 }

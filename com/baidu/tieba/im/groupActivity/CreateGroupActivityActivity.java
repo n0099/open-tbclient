@@ -16,10 +16,10 @@ import com.baidu.tieba.im.message.ResponseCreateGroupActivityMessage;
 import com.baidu.tieba.im.util.DialogUtil;
 /* loaded from: classes3.dex */
 public class CreateGroupActivityActivity extends BaseActivity implements View.OnClickListener {
-    private a eFq;
-    private CreateGroupActivityModel eFr;
-    private boolean eFs = false;
-    private c evb = new c(103120) { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.1
+    private a eFe;
+    private CreateGroupActivityModel eFf;
+    private boolean eFg = false;
+    private c euP = new c(103120) { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -30,7 +30,7 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
                 if (socketResponsedMessage instanceof ResponseCreateGroupActivityMessage) {
                     ResponseCreateGroupActivityMessage responseCreateGroupActivityMessage = (ResponseCreateGroupActivityMessage) socketResponsedMessage;
                     if (responseCreateGroupActivityMessage.getError() == 0) {
-                        if (CreateGroupActivityActivity.this.eFs) {
+                        if (CreateGroupActivityActivity.this.eFg) {
                             CreateGroupActivityActivity.this.showToast(d.j.group_activity_edit_succ);
                         } else {
                             CreateGroupActivityActivity.this.showToast(d.j.group_activity_create_succ);
@@ -52,126 +52,126 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initListener();
-        this.eFr = new CreateGroupActivityModel(this);
-        this.eFq = new a(this);
-        if (this.eFr.aJr() != null) {
+        this.eFf = new CreateGroupActivityModel(this);
+        this.eFe = new a(this);
+        if (this.eFf.aJq() != null) {
             if (bundle != null) {
-                this.eFr.aJr().setGroupId(bundle.getInt("gid", 0));
-                this.eFs = bundle.getBoolean(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-                if (this.eFs) {
-                    this.eFr.aJr().setActivityId(bundle.getInt("aid", 0));
-                    this.eFr.aJr().setgActivityTitle(bundle.getString("name"));
-                    this.eFr.aJr().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.eFr.aJr().setgActivityContent(bundle.getString("content"));
-                    this.eFr.aJr().setgActivityTime(bundle.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
+                this.eFf.aJq().setGroupId(bundle.getInt("gid", 0));
+                this.eFg = bundle.getBoolean(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+                if (this.eFg) {
+                    this.eFf.aJq().setActivityId(bundle.getInt("aid", 0));
+                    this.eFf.aJq().setgActivityTitle(bundle.getString("name"));
+                    this.eFf.aJq().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.eFf.aJq().setgActivityContent(bundle.getString("content"));
+                    this.eFf.aJq().setgActivityTime(bundle.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
                 }
             } else if (getIntent() != null) {
-                this.eFr.aJr().setGroupId(getIntent().getIntExtra("gid", 0));
-                this.eFs = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-                if (this.eFs) {
-                    this.eFr.aJr().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.eFr.aJr().setgActivityTitle(getIntent().getStringExtra("name"));
-                    this.eFr.aJr().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.eFr.aJr().setgActivityContent(getIntent().getStringExtra("content"));
-                    this.eFr.aJr().setgActivityTime(getIntent().getLongExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
+                this.eFf.aJq().setGroupId(getIntent().getIntExtra("gid", 0));
+                this.eFg = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+                if (this.eFg) {
+                    this.eFf.aJq().setActivityId(getIntent().getIntExtra("aid", 0));
+                    this.eFf.aJq().setgActivityTitle(getIntent().getStringExtra("name"));
+                    this.eFf.aJq().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.eFf.aJq().setgActivityContent(getIntent().getStringExtra("content"));
+                    this.eFf.aJq().setgActivityTime(getIntent().getLongExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
                 }
             }
         }
-        this.eFq.a(this.eFr.aJr(), this.eFs);
+        this.eFe.a(this.eFf.aJq(), this.eFg);
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         initListener();
-        if (this.eFr == null) {
-            this.eFr = new CreateGroupActivityModel(this);
+        if (this.eFf == null) {
+            this.eFf = new CreateGroupActivityModel(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
-        if (intent != null && this.eFr.aJr() != null) {
-            this.eFr.aJr().setGroupId(intent.getIntExtra("gid", 0));
-            this.eFs = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-            if (this.eFs) {
-                this.eFr.aJr().setActivityId(intent.getIntExtra("aid", 0));
-                this.eFr.aJr().setgActivityTitle(getIntent().getStringExtra("name"));
-                this.eFr.aJr().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                this.eFr.aJr().setgActivityContent(getIntent().getStringExtra("content"));
-                this.eFr.aJr().setgActivityTime(getIntent().getLongExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
+        if (intent != null && this.eFf.aJq() != null) {
+            this.eFf.aJq().setGroupId(intent.getIntExtra("gid", 0));
+            this.eFg = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+            if (this.eFg) {
+                this.eFf.aJq().setActivityId(intent.getIntExtra("aid", 0));
+                this.eFf.aJq().setgActivityTitle(getIntent().getStringExtra("name"));
+                this.eFf.aJq().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                this.eFf.aJq().setgActivityContent(getIntent().getStringExtra("content"));
+                this.eFf.aJq().setgActivityTime(getIntent().getLongExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L));
             }
         }
-        if (this.eFq == null) {
-            this.eFq = new a(this);
+        if (this.eFe == null) {
+            this.eFe = new a(this);
         }
-        this.eFq.a(this.eFr.aJr(), this.eFs);
+        this.eFe.a(this.eFf.aJq(), this.eFg);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         int i = 0;
-        if (this.eFr.aJr() != null) {
-            i = this.eFr.aJr().getGroupId();
+        if (this.eFf.aJq() != null) {
+            i = this.eFf.aJq().getGroupId();
         }
         bundle.putInt("gid", i);
-        bundle.putString("name", this.eFq.getTitle());
-        bundle.putString("content", this.eFq.getContent());
-        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.eFq.aJw());
-        bundle.putLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.eFq.getTime());
+        bundle.putString("name", this.eFe.getTitle());
+        bundle.putString("content", this.eFe.getContent());
+        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.eFe.aJv());
+        bundle.putLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.eFe.getTime());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.eFq != null) {
-            this.eFq.onChangeSkinType(i);
+        if (this.eFe != null) {
+            this.eFe.onChangeSkinType(i);
         }
     }
 
     private void initListener() {
-        registerListener(this.evb);
+        registerListener(this.euP);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eFr.cancelMessage();
-        this.eFq.destroy();
-        MessageManager.getInstance().unRegisterListener(this.evb);
+        this.eFf.cancelMessage();
+        this.eFe.destroy();
+        MessageManager.getInstance().unRegisterListener(this.euP);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eFq.aJu()) {
-            aJq();
-        } else if (view == this.eFq.aJv() && this.eFr != null && this.eFr.aJr() != null) {
-            long time = this.eFq.getTime();
-            if ((!this.eFs || this.eFq.aJx()) && 1000 * time < System.currentTimeMillis()) {
+        if (view == this.eFe.aJt()) {
+            aJp();
+        } else if (view == this.eFe.aJu() && this.eFf != null && this.eFf.aJq() != null) {
+            long time = this.eFe.getTime();
+            if ((!this.eFg || this.eFe.aJw()) && 1000 * time < System.currentTimeMillis()) {
                 showToast(d.j.group_activity_time_val);
                 return;
             }
-            this.eFr.aJr().setgActivityArea(this.eFq.aJw());
-            this.eFr.aJr().setgActivityContent(this.eFq.getContent());
-            this.eFr.aJr().setgActivityTime(time);
-            this.eFr.aJr().setgActivityTitle(this.eFq.getTitle());
+            this.eFf.aJq().setgActivityArea(this.eFe.aJv());
+            this.eFf.aJq().setgActivityContent(this.eFe.getContent());
+            this.eFf.aJq().setgActivityTime(time);
+            this.eFf.aJq().setgActivityTitle(this.eFe.getTitle());
             showProgressBar();
-            this.eFr.hF(this.eFs);
+            this.eFf.hF(this.eFg);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            aJq();
+            aJp();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void aJq() {
-        DialogUtil.quitCreateGroupActivity(getPageContext().getPageActivity(), this.eFs, new a.b() { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.2
+    private void aJp() {
+        DialogUtil.quitCreateGroupActivity(getPageContext().getPageActivity(), this.eFg, new a.b() { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();

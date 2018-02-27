@@ -4,75 +4,75 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class i {
-    private static i aJD;
-    private int aJE = 1;
+    private static i aJs;
+    private int aJt = 1;
     private int mIsAbstractOn = 1;
-    private int aJF = 0;
-    private int aJG = 0;
+    private int aJu = 0;
+    private int aJv = 0;
     private String forumName = null;
-    private boolean aJH = true;
+    private boolean aJw = true;
     private int mViewImageQuality = 0;
 
     public static i xo() {
         i iVar;
-        if (aJD == null) {
+        if (aJs == null) {
             synchronized (i.class) {
-                if (aJD == null) {
-                    aJD = new i();
+                if (aJs == null) {
+                    aJs = new i();
                 }
-                iVar = aJD;
+                iVar = aJs;
             }
             return iVar;
         }
-        return aJD;
+        return aJs;
     }
 
     private i() {
     }
 
     public void initSetting() {
-        this.aJF = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
-        this.aJE = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_display_photo", 1);
+        this.aJu = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
+        this.aJt = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_display_photo", 1);
         this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("new_abstract_state", 0);
         this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("view_image_quality", 0);
-        this.aJH = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_images", true);
+        this.aJw = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_images", true);
     }
 
     public void ey(int i) {
-        this.aJE = i;
+        this.aJt = i;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("new_display_photo", i);
     }
 
     public int xp() {
-        return this.aJE;
+        return this.aJt;
     }
 
     public boolean xq() {
-        if (this.aJE == 0) {
+        if (this.aJt == 0) {
             if (j.oK()) {
                 return true;
             }
-        } else if (this.aJE == 1) {
+        } else if (this.aJt == 1) {
             return true;
         }
         return false;
     }
 
     public int xr() {
-        this.aJF = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
-        return this.aJF;
+        this.aJu = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("image_quality", 0);
+        return this.aJu;
     }
 
     public void ez(int i) {
-        if (this.aJG != i) {
-            this.aJG = i;
+        if (this.aJv != i) {
+            this.aJv = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
         }
     }
 
     public int xs() {
-        this.aJG = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
-        return this.aJG;
+        this.aJv = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
+        return this.aJv;
     }
 
     public void cK(String str) {
@@ -84,12 +84,12 @@ public class i {
     }
 
     public boolean xu() {
-        return this.aJH;
+        return this.aJw;
     }
 
     public void aT(boolean z) {
-        if (this.aJH != z) {
-            this.aJH = z;
+        if (this.aJw != z) {
+            this.aJw = z;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_images", z);
         }
     }
@@ -98,8 +98,8 @@ public class i {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("view_image_quality", i);
-            ao.De().Dm();
-            ao.De().Dn();
+            ao.Dd().Dl();
+            ao.Dd().Dm();
         }
     }
 

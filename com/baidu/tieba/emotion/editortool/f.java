@@ -7,46 +7,46 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static f doL = new f();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> doM;
+    private static f doz = new f();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> doA;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized f aqd() {
+    public static synchronized f aqc() {
         f fVar;
         synchronized (f.class) {
-            fVar = doL;
+            fVar = doz;
         }
         return fVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.doM;
+        return this.doA;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0105a interfaceC0105a) {
-        if (this.doM == null || this.doM.isEmpty()) {
-            this.doM = new LinkedList<>();
-            if (TbFaceManager.Mw().Lp() > 0) {
+    public void a(a.InterfaceC0106a interfaceC0106a) {
+        if (this.doA == null || this.doA.isEmpty()) {
+            this.doA = new LinkedList<>();
+            if (TbFaceManager.Mv().Lo() > 0) {
                 e eVar = new e();
-                this.doM.add(eVar);
-                if (interfaceC0105a != null) {
-                    interfaceC0105a.a(eVar);
+                this.doA.add(eVar);
+                if (interfaceC0106a != null) {
+                    interfaceC0106a.a(eVar);
                     return;
                 }
                 return;
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.doM.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.doA.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (interfaceC0105a != null) {
-                interfaceC0105a.a(next);
+            if (interfaceC0106a != null) {
+                interfaceC0106a.a(next);
             }
         }
     }
@@ -56,6 +56,6 @@ public class f extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.doM == null || this.doM.size() == 0;
+        return this.doA == null || this.doA.size() == 0;
     }
 }

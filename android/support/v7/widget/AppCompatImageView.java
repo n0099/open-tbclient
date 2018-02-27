@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes2.dex */
 public class AppCompatImageView extends ImageView implements TintableBackgroundView {
-    private d Mt;
-    private AppCompatImageHelper oB;
+    private d Mo;
+    private AppCompatImageHelper oA;
 
     public AppCompatImageView(Context context) {
         this(context, null);
@@ -23,46 +23,46 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
 
     public AppCompatImageView(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.Mt = new d(this);
-        this.Mt.loadFromAttributes(attributeSet, i);
-        this.oB = new AppCompatImageHelper(this);
-        this.oB.loadFromAttributes(attributeSet, i);
+        this.Mo = new d(this);
+        this.Mo.loadFromAttributes(attributeSet, i);
+        this.oA = new AppCompatImageHelper(this);
+        this.oA.loadFromAttributes(attributeSet, i);
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.oB.setImageResource(i);
+        this.oA.setImageResource(i);
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
         super.setBackgroundResource(i);
-        if (this.Mt != null) {
-            this.Mt.be(i);
+        if (this.Mo != null) {
+            this.Mo.be(i);
         }
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
-        if (this.Mt != null) {
-            this.Mt.c(drawable);
+        if (this.Mo != null) {
+            this.Mo.c(drawable);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintList(ColorStateList colorStateList) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintList(colorStateList);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintList(colorStateList);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public ColorStateList getSupportBackgroundTintList() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintList();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintList();
         }
         return null;
     }
@@ -70,16 +70,16 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
-        if (this.Mt != null) {
-            this.Mt.setSupportBackgroundTintMode(mode);
+        if (this.Mo != null) {
+            this.Mo.setSupportBackgroundTintMode(mode);
         }
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
     @RestrictTo
     public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.Mt != null) {
-            return this.Mt.getSupportBackgroundTintMode();
+        if (this.Mo != null) {
+            return this.Mo.getSupportBackgroundTintMode();
         }
         return null;
     }
@@ -87,13 +87,13 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.Mt != null) {
-            this.Mt.fI();
+        if (this.Mo != null) {
+            this.Mo.fI();
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public boolean hasOverlappingRendering() {
-        return this.oB.hasOverlappingRendering() && super.hasOverlappingRendering();
+        return this.oA.hasOverlappingRendering() && super.hasOverlappingRendering();
     }
 }

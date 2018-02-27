@@ -11,41 +11,41 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    private static h anG = null;
-    private String[] anJ;
-    private g.a anN;
-    private String anH = null;
-    private List<BasicNameValuePair> anI = null;
-    private String anK = null;
-    private i anL = null;
-    private ArrayList<g.a> anM = new ArrayList<>();
+    private static h anA = null;
+    private String[] anD;
+    private g.a anH;
+    private String anB = null;
+    private List<BasicNameValuePair> anC = null;
+    private String anE = null;
+    private i anF = null;
+    private ArrayList<g.a> anG = new ArrayList<>();
 
     public static h pv() {
-        if (anG == null) {
+        if (anA == null) {
             synchronized (h.class) {
-                if (anG == null) {
-                    anG = new h();
+                if (anA == null) {
+                    anA = new h();
                 }
             }
         }
-        return anG;
+        return anA;
     }
 
     public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.anH = str;
-        this.anK = str2;
-        this.anJ = strArr;
-        this.anI = list;
+        this.anB = str;
+        this.anE = str2;
+        this.anD = strArr;
+        this.anC = list;
         if (pz()) {
         }
     }
 
     private h() {
-        this.anN = null;
-        this.anN = new g.a() { // from class: com.baidu.adp.lib.webSocket.h.1
+        this.anH = null;
+        this.anH = new g.a() { // from class: com.baidu.adp.lib.webSocket.h.1
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void J(String str) {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).J(str);
                 }
@@ -53,7 +53,7 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void o(byte[] bArr) {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).o(bArr);
                 }
@@ -61,7 +61,7 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void b(k.a aVar) {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).b(aVar);
                 }
@@ -69,7 +69,7 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void e(Map<String, String> map) {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).e(map);
                 }
@@ -77,8 +77,8 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void e(int i, String str) {
-                h.this.anL = null;
-                Iterator it = h.this.anM.iterator();
+                h.this.anF = null;
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).e(i, str);
                 }
@@ -86,7 +86,7 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void a(c cVar) {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).a(cVar);
                 }
@@ -94,7 +94,7 @@ public class h {
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void pu() {
-                Iterator it = h.this.anM.iterator();
+                Iterator it = h.this.anG.iterator();
                 while (it.hasNext()) {
                     ((g.a) it.next()).pu();
                 }
@@ -127,35 +127,35 @@ public class h {
         if (pz()) {
             com.baidu.adp.lib.util.l.oY();
         }
-        if (this.anL != null) {
-            if (this.anL.isConnecting() || this.anL.isOpen()) {
+        if (this.anF != null) {
+            if (this.anF.isConnecting() || this.anF.isOpen()) {
                 if (pz()) {
                 }
                 return true;
             }
-            this.anL.close(1, null);
-            this.anL = null;
+            this.anF.close(1, null);
+            this.anF = null;
         }
-        this.anL = new i();
+        this.anF = new i();
         try {
             l lVar = new l();
-            lVar.bd(this.anK);
-            this.anL.a(this.anH, this.anJ, this.anN, lVar, this.anI);
+            lVar.bd(this.anE);
+            this.anF.a(this.anB, this.anD, this.anH, lVar, this.anC);
             return true;
         } catch (WebSocketException e) {
-            this.anL = null;
+            this.anF = null;
             return false;
         }
     }
 
     public void close(int i, String str) {
-        if (this.anL != null) {
-            i iVar = this.anL;
-            this.anL = null;
+        if (this.anF != null) {
+            i iVar = this.anF;
+            this.anF = null;
             iVar.close(i, str);
-            if (this.anL != null) {
+            if (this.anF != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.anL = null;
+                this.anF = null;
             }
         }
     }
@@ -164,21 +164,21 @@ public class h {
         if (pz()) {
             com.baidu.adp.lib.util.l.oY();
         }
-        return (this.anL == null || !this.anL.isOpen() || this.anL.pG()) ? false : true;
+        return (this.anF == null || !this.anF.isOpen() || this.anF.pG()) ? false : true;
     }
 
     public boolean py() {
         if (pz()) {
             com.baidu.adp.lib.util.l.oY();
         }
-        return this.anL != null && this.anL.isOpen();
+        return this.anF != null && this.anF.isOpen();
     }
 
     public boolean isConnecting() {
         if (pz()) {
             com.baidu.adp.lib.util.l.oY();
         }
-        return this.anL != null && this.anL.isConnecting();
+        return this.anF != null && this.anF.isConnecting();
     }
 
     public synchronized boolean sendMessage(c cVar) {
@@ -186,8 +186,8 @@ public class h {
         synchronized (this) {
             if (cVar != null) {
                 com.baidu.adp.lib.util.l.oY();
-                if (this.anL != null) {
-                    z = this.anL.sendMessage(cVar);
+                if (this.anF != null) {
+                    z = this.anF.sendMessage(cVar);
                 } else if (cVar != null) {
                     cVar.cF(1);
                 }
@@ -199,8 +199,8 @@ public class h {
     public boolean a(g.a aVar) {
         if (aVar != null) {
             synchronized (h.class) {
-                if (!this.anM.contains(aVar)) {
-                    return this.anM.add(aVar);
+                if (!this.anG.contains(aVar)) {
+                    return this.anG.add(aVar);
                 }
             }
         }
@@ -212,67 +212,67 @@ public class h {
     }
 
     public void pA() {
-        if (this.anL != null) {
-            this.anL.pA();
+        if (this.anF != null) {
+            this.anF.pA();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.anL != null) {
-            return this.anL.getUpFlowSize();
+        if (this.anF != null) {
+            return this.anF.getUpFlowSize();
         }
         return -1L;
     }
 
     public void pB() {
-        if (this.anL != null) {
-            this.anL.pB();
+        if (this.anF != null) {
+            this.anF.pB();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.anL != null) {
-            return this.anL.getDownFlowSize();
+        if (this.anF != null) {
+            return this.anF.getDownFlowSize();
         }
         return -1L;
     }
 
     public long ps() {
-        if (this.anL != null) {
-            return this.anL.pH();
+        if (this.anF != null) {
+            return this.anF.pH();
         }
         return -1L;
     }
 
     public String pr() {
-        if (this.anL != null) {
-            return this.anL.pI();
+        if (this.anF != null) {
+            return this.anF.pI();
         }
         return null;
     }
 
     public long pC() {
-        if (this.anL != null) {
-            return this.anL.pJ();
+        if (this.anF != null) {
+            return this.anF.pJ();
         }
         return -1L;
     }
 
     public String pb() {
-        if (this.anL != null) {
-            return this.anL.pb();
+        if (this.anF != null) {
+            return this.anF.pb();
         }
         return null;
     }
 
     public String pc() {
-        if (this.anL != null) {
-            return this.anL.pc();
+        if (this.anF != null) {
+            return this.anF.pc();
         }
         return null;
     }
 
     public String getUrl() {
-        return this.anH;
+        return this.anB;
     }
 }

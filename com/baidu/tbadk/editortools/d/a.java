@@ -2,13 +2,13 @@ package com.baidu.tbadk.editortools.d;
 /* loaded from: classes.dex */
 public class a {
     public String addr;
-    public boolean bua;
+    public boolean btN;
     public int state;
 
     public a(int i, boolean z, String str) {
-        this.bua = true;
+        this.btN = true;
         this.state = i;
-        this.bua = z;
+        this.btN = z;
         this.addr = str;
     }
 }

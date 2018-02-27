@@ -35,7 +35,6 @@ public final class SapiConfiguration implements ISapiConfiguration {
     public final boolean debug;
     public final boolean enableShare;
     public final Domain environment;
-    public final String faceAppName;
     public final List<FastLoginFeature> fastLoginFeatureList;
     public final boolean fastRegConfirm;
     public final String fastRegConfirmMsg;
@@ -68,6 +67,7 @@ public final class SapiConfiguration implements ISapiConfiguration {
     public final boolean syncCacheOnInit;
     public final String tpl;
     public final boolean uniteVerify;
+    public final String userAgent;
     public final String voicePid;
     public final String wxAppID;
     public final Long xiaomiAppID;
@@ -112,16 +112,16 @@ public final class SapiConfiguration implements ISapiConfiguration {
         this.syncCacheOnInit = builder.J;
         this.silentShareOnUpgrade = builder.K;
         this.quickUserEnabled = builder.L;
-        this.faceAppName = builder.M;
-        this.biometricTypeList = builder.N;
-        this.accountCenterRealAutnen = builder.O;
-        this.forbidSslErrorDialog = builder.P;
-        this.enableShare = builder.Q;
-        this.supportPhoto = builder.R;
-        this.processName = builder.S;
+        this.biometricTypeList = builder.M;
+        this.accountCenterRealAutnen = builder.N;
+        this.forbidSslErrorDialog = builder.O;
+        this.enableShare = builder.P;
+        this.supportPhoto = builder.Q;
+        this.processName = builder.R;
         this.supportFaceLogin = builder.T;
         this.lowerUpdateFreq = builder.U;
         this.isNightMode = builder.V;
+        this.userAgent = builder.S;
     }
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiConfiguration
@@ -284,11 +284,6 @@ public final class SapiConfiguration implements ISapiConfiguration {
         return this.quickUserEnabled;
     }
 
-    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiConfiguration
-    public String getFaceAppName() {
-        return this.faceAppName;
-    }
-
     public boolean getForbidSslErrorDialog() {
         return this.forbidSslErrorDialog;
     }
@@ -299,8 +294,8 @@ public final class SapiConfiguration implements ISapiConfiguration {
         private boolean B;
         private String F;
         private SmsLoginConfig H;
-        private String M;
-        private List<BiometricType> N;
+        private List<BiometricType> M;
+        private String R;
         private String S;
         private boolean T;
         private boolean U;
@@ -338,10 +333,10 @@ public final class SapiConfiguration implements ISapiConfiguration {
         private boolean J = true;
         private boolean K = true;
         private boolean L = false;
-        private boolean O = true;
-        private boolean P = false;
+        private boolean N = true;
+        private boolean O = false;
+        private boolean P = true;
         private boolean Q = true;
-        private boolean R = true;
         private boolean V = false;
 
         public Builder(Context context) {
@@ -421,9 +416,6 @@ public final class SapiConfiguration implements ISapiConfiguration {
                 Collections.addAll(this.k, fastLoginFeatureArr);
                 if (this.k.contains(FastLoginFeature.TX_WEIBO_WEBVIEW)) {
                     this.k.remove(FastLoginFeature.TX_WEIBO_WEBVIEW);
-                }
-                if (this.k.contains(FastLoginFeature.TX_QQ_SSO) && this.k.contains(FastLoginFeature.TX_QQ_WEBVIEW)) {
-                    this.k.remove(FastLoginFeature.TX_QQ_SSO);
                 }
                 if (this.k.contains(FastLoginFeature.SINA_WEIBO_SSO) && this.k.contains(FastLoginFeature.SINA_WEIBO_WEBVIEW)) {
                     this.k.remove(FastLoginFeature.SINA_WEIBO_SSO);
@@ -512,7 +504,6 @@ public final class SapiConfiguration implements ISapiConfiguration {
         }
 
         public Builder setFaceAppName(String str) {
-            this.M = str;
             return this;
         }
 
@@ -529,7 +520,7 @@ public final class SapiConfiguration implements ISapiConfiguration {
         public Builder setProcessName(String str) {
             boolean z;
             if (!TextUtils.isEmpty(str)) {
-                Iterator<String> it = SapiOptions.f().iterator();
+                Iterator<String> it = SapiOptions.g().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -540,7 +531,7 @@ public final class SapiConfiguration implements ISapiConfiguration {
                     }
                 }
                 if (z) {
-                    this.S = str;
+                    this.R = str;
                 }
             }
             return this;
@@ -552,30 +543,35 @@ public final class SapiConfiguration implements ISapiConfiguration {
         }
 
         public Builder biometricTypeSupport(BiometricType... biometricTypeArr) {
-            this.N = new ArrayList();
+            this.M = new ArrayList();
             if (biometricTypeArr != null) {
-                Collections.addAll(this.N, biometricTypeArr);
+                Collections.addAll(this.M, biometricTypeArr);
             }
             return this;
         }
 
         public Builder supportRealNameAuthen(boolean z) {
-            this.O = z;
+            this.N = z;
             return this;
         }
 
         public Builder setSupportPhoto(boolean z) {
-            this.R = z;
+            this.Q = z;
             return this;
         }
 
         public Builder forbidSslErrorDalog(boolean z) {
-            this.P = z;
+            this.O = z;
             return this;
         }
 
         public Builder enableShare(boolean z) {
-            this.Q = z;
+            this.P = z;
+            return this;
+        }
+
+        public Builder customWebviewUA(String str) {
+            this.S = str;
             return this;
         }
 
@@ -612,8 +608,8 @@ public final class SapiConfiguration implements ISapiConfiguration {
             if (this.E == null) {
                 this.E = Switch.OFF;
             }
-            if (this.N == null) {
-                this.N = new ArrayList();
+            if (this.M == null) {
+                this.M = new ArrayList();
             }
             Log.enable(this.G);
             return new SapiConfiguration(this);

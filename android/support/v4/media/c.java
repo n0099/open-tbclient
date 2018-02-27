@@ -34,12 +34,12 @@ class c {
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onChildrenLoaded(String str, List<MediaBrowser.MediaItem> list, Bundle bundle) {
-            ((a) this.xE).onChildrenLoaded(str, list, bundle);
+            ((a) this.xz).onChildrenLoaded(str, list, bundle);
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onError(String str, Bundle bundle) {
-            ((a) this.xE).onError(str, bundle);
+            ((a) this.xz).onError(str, bundle);
         }
     }
 }

@@ -22,7 +22,7 @@ public class Receiver extends BroadcastReceiver {
                         e aB = e.aB(context);
                         Message message = new Message();
                         message.what = 2;
-                        aB.aGu.aGS.sendMessage(message);
+                        aB.aGj.aGH.sendMessage(message);
                     }
                 }
             } catch (Throwable th) {

@@ -17,7 +17,7 @@ import android.view.View;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 class j extends h {
-    private InsetDrawable ph;
+    private InsetDrawable pg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ab abVar, o oVar, s.d dVar) {
@@ -28,28 +28,28 @@ class j extends h {
     @Override // android.support.design.widget.g, android.support.design.widget.i
     public void a(ColorStateList colorStateList, PorterDuff.Mode mode, int i, int i2) {
         Drawable drawable;
-        this.oT = DrawableCompat.wrap(bX());
-        DrawableCompat.setTintList(this.oT, colorStateList);
+        this.oS = DrawableCompat.wrap(bX());
+        DrawableCompat.setTintList(this.oS, colorStateList);
         if (mode != null) {
-            DrawableCompat.setTintMode(this.oT, mode);
+            DrawableCompat.setTintMode(this.oS, mode);
         }
         if (i2 > 0) {
-            this.oV = a(i2, colorStateList);
-            drawable = new LayerDrawable(new Drawable[]{this.oV, this.oT});
+            this.oU = a(i2, colorStateList);
+            drawable = new LayerDrawable(new Drawable[]{this.oU, this.oS});
         } else {
-            this.oV = null;
-            drawable = this.oT;
+            this.oU = null;
+            drawable = this.oS;
         }
-        this.oU = new RippleDrawable(ColorStateList.valueOf(i), drawable, null);
-        this.oW = this.oU;
-        this.pd.setBackgroundDrawable(this.oU);
+        this.oT = new RippleDrawable(ColorStateList.valueOf(i), drawable, null);
+        this.oV = this.oT;
+        this.pa.setBackgroundDrawable(this.oT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.design.widget.g, android.support.design.widget.i
     public void setRippleColor(int i) {
-        if (this.oU instanceof RippleDrawable) {
-            ((RippleDrawable) this.oU).setColor(ColorStateList.valueOf(i));
+        if (this.oT instanceof RippleDrawable) {
+            ((RippleDrawable) this.oT).setColor(ColorStateList.valueOf(i));
         } else {
             super.setRippleColor(i);
         }
@@ -59,32 +59,32 @@ class j extends h {
     void c(float f, float f2) {
         StateListAnimator stateListAnimator = new StateListAnimator();
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(ObjectAnimator.ofFloat(this.pa, "elevation", f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.pa, View.TRANSLATION_Z, f2).setDuration(100L));
-        animatorSet.setInterpolator(oR);
+        animatorSet.play(ObjectAnimator.ofFloat(this.oZ, "elevation", f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.oZ, View.TRANSLATION_Z, f2).setDuration(100L));
+        animatorSet.setInterpolator(oQ);
         stateListAnimator.addState(PRESSED_ENABLED_STATE_SET, animatorSet);
         AnimatorSet animatorSet2 = new AnimatorSet();
-        animatorSet2.play(ObjectAnimator.ofFloat(this.pa, "elevation", f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.pa, View.TRANSLATION_Z, f2).setDuration(100L));
-        animatorSet2.setInterpolator(oR);
-        stateListAnimator.addState(oZ, animatorSet2);
+        animatorSet2.play(ObjectAnimator.ofFloat(this.oZ, "elevation", f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.oZ, View.TRANSLATION_Z, f2).setDuration(100L));
+        animatorSet2.setInterpolator(oQ);
+        stateListAnimator.addState(oY, animatorSet2);
         AnimatorSet animatorSet3 = new AnimatorSet();
         AnimatorSet animatorSet4 = new AnimatorSet();
-        animatorSet4.play(ObjectAnimator.ofFloat(this.pa, View.TRANSLATION_Z, 0.0f).setDuration(100L)).after(100L);
-        animatorSet3.play(ObjectAnimator.ofFloat(this.pa, "elevation", f).setDuration(0L)).with(animatorSet4);
-        animatorSet3.setInterpolator(oR);
+        animatorSet4.play(ObjectAnimator.ofFloat(this.oZ, View.TRANSLATION_Z, 0.0f).setDuration(100L)).after(100L);
+        animatorSet3.play(ObjectAnimator.ofFloat(this.oZ, "elevation", f).setDuration(0L)).with(animatorSet4);
+        animatorSet3.setInterpolator(oQ);
         stateListAnimator.addState(ENABLED_STATE_SET, animatorSet3);
         AnimatorSet animatorSet5 = new AnimatorSet();
-        animatorSet5.play(ObjectAnimator.ofFloat(this.pa, "elevation", 0.0f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.pa, View.TRANSLATION_Z, 0.0f).setDuration(0L));
-        animatorSet5.setInterpolator(oR);
+        animatorSet5.play(ObjectAnimator.ofFloat(this.oZ, "elevation", 0.0f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.oZ, View.TRANSLATION_Z, 0.0f).setDuration(0L));
+        animatorSet5.setInterpolator(oQ);
         stateListAnimator.addState(EMPTY_STATE_SET, animatorSet5);
-        this.pa.setStateListAnimator(stateListAnimator);
-        if (this.pd.bN()) {
+        this.oZ.setStateListAnimator(stateListAnimator);
+        if (this.pa.bN()) {
             bV();
         }
     }
 
     @Override // android.support.design.widget.g, android.support.design.widget.i
     public float getElevation() {
-        return this.pa.getElevation();
+        return this.oZ.getElevation();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -95,12 +95,12 @@ class j extends h {
 
     @Override // android.support.design.widget.i
     void d(Rect rect) {
-        if (this.pd.bN()) {
-            this.ph = new InsetDrawable(this.oU, rect.left, rect.top, rect.right, rect.bottom);
-            this.pd.setBackgroundDrawable(this.ph);
+        if (this.pa.bN()) {
+            this.pg = new InsetDrawable(this.oT, rect.left, rect.top, rect.right, rect.bottom);
+            this.pa.setBackgroundDrawable(this.pg);
             return;
         }
-        this.pd.setBackgroundDrawable(this.oU);
+        this.pa.setBackgroundDrawable(this.oT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -125,9 +125,9 @@ class j extends h {
 
     @Override // android.support.design.widget.g, android.support.design.widget.i
     void c(Rect rect) {
-        if (this.pd.bN()) {
-            float radius = this.pd.getRadius();
-            float elevation = getElevation() + this.oY;
+        if (this.pa.bN()) {
+            float radius = this.pa.getRadius();
+            float elevation = getElevation() + this.oX;
             int ceil = (int) Math.ceil(n.b(elevation, radius, false));
             int ceil2 = (int) Math.ceil(n.a(elevation, radius, false));
             rect.set(ceil, ceil2, ceil, ceil2);

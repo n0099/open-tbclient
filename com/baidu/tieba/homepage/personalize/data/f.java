@@ -10,21 +10,21 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements q {
-    private CardGod ekD;
+    private CardGod ekr;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.ekD = cardGod;
-            this.mGroupTitle = this.ekD.card_title;
-            if (!v.E(this.ekD.gods)) {
+            this.ekr = cardGod;
+            this.mGroupTitle = this.ekr.card_title;
+            if (!v.E(this.ekr.gods)) {
                 int i = 0;
-                for (User user : this.ekD.gods) {
+                for (User user : this.ekr.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
                         if (!StringUtils.isNull(metaData.getUserName())) {
                             i iVar = new i();
-                            iVar.aOQ = metaData;
+                            iVar.aOF = metaData;
                             a(iVar);
                             i++;
                         }
@@ -36,20 +36,20 @@ public class f extends h implements q {
         }
     }
 
-    public boolean Vp() {
+    public boolean Vo() {
         return v.D(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.q
     public int getPosition() {
-        if (this.ekD == null || this.ekD.position == null) {
+        if (this.ekr == null || this.ekr.position == null) {
             return 0;
         }
-        return this.ekD.position.intValue();
+        return this.ekr.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public boolean alG() {
+    public boolean alF() {
         return true;
     }
 

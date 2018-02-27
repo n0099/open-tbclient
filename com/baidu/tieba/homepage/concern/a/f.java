@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int egu;
-    private static int egv;
+    private static int egi;
+    private static int egj;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.egC);
-        egu = l.t(context, d.e.tbds102);
-        egv = l.t(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.egq);
+        egi = l.t(context, d.e.tbds102);
+        egj = l.t(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,37 +40,37 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.egw.setText(aVar.aZJ);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.egw.getLayoutParams();
-        if (aVar.egF) {
-            layoutParams.height = egv;
-            aVar2.dLu.setVisibility(0);
-        } else if (aVar.egG) {
-            layoutParams.height = egu;
+        aVar2.egk.setText(aVar.aZx);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.egk.getLayoutParams();
+        if (aVar.egt) {
+            layoutParams.height = egj;
+            aVar2.dLi.setVisibility(0);
+        } else if (aVar.egu) {
+            layoutParams.height = egi;
         }
-        ((a) this.viewholder).egw.setLayoutParams(layoutParams);
+        ((a) this.viewholder).egk.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes2.dex */
     public class a extends r.a {
-        private int bfL;
-        public View dLu;
-        public TextView egw;
+        private int bfz;
+        public View dLi;
+        public TextView egk;
 
         public a(View view) {
             super(view);
-            this.bfL = 3;
-            this.egw = (TextView) view.findViewById(d.g.concern_tip_txt);
-            this.dLu = view.findViewById(d.g.concern_tip_top_line);
+            this.bfz = 3;
+            this.egk = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.dLi = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.bfL != i) {
-                aj.t(getView(), d.C0140d.cp_bg_line_e);
-                aj.r(this.egw, d.C0140d.cp_cont_d);
-                aj.s(this.dLu, d.C0140d.cp_bg_line_e);
+            if (this.bfz != i) {
+                aj.t(getView(), d.C0141d.cp_bg_line_e);
+                aj.r(this.egk, d.C0141d.cp_cont_d);
+                aj.s(this.dLi, d.C0141d.cp_bg_line_e);
             }
         }
     }

@@ -23,20 +23,20 @@ import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class b extends AppCompatDelegate {
-    private static boolean Cp;
-    private static final boolean Cq;
-    private static final int[] Cr;
-    final Window BG;
-    boolean CA;
-    private boolean CB;
-    final Window.Callback Cs;
-    final Window.Callback Ct;
-    final AppCompatCallback Cu;
-    ActionBar Cv;
-    boolean Cw;
-    boolean Cx;
-    boolean Cy;
-    boolean Cz;
+    private static boolean Ck;
+    private static final boolean Cl;
+    private static final int[] Cm;
+    final Window BB;
+    final Window.Callback Cn;
+    final Window.Callback Co;
+    final AppCompatCallback Cp;
+    ActionBar Cq;
+    boolean Cr;
+    boolean Cs;
+    boolean Ct;
+    boolean Cu;
+    boolean Cv;
+    private boolean Cw;
     MenuInflater lh;
     final Context mContext;
     private boolean mIsStarted;
@@ -57,8 +57,8 @@ public abstract class b extends AppCompatDelegate {
     abstract void onPanelClosed(int i, Menu menu);
 
     static {
-        Cq = Build.VERSION.SDK_INT < 21;
-        if (Cq && !Cp) {
+        Cl = Build.VERSION.SDK_INT < 21;
+        if (Cl && !Ck) {
             final Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() { // from class: android.support.v7.app.b.1
                 @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -81,26 +81,26 @@ public abstract class b extends AppCompatDelegate {
                     return message.contains("drawable") || message.contains("Drawable");
                 }
             });
-            Cp = true;
+            Ck = true;
         }
-        Cr = new int[]{16842836};
+        Cm = new int[]{16842836};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, Window window, AppCompatCallback appCompatCallback) {
         this.mContext = context;
-        this.BG = window;
-        this.Cu = appCompatCallback;
-        this.Cs = this.BG.getCallback();
-        if (this.Cs instanceof C0009b) {
+        this.BB = window;
+        this.Cp = appCompatCallback;
+        this.Cn = this.BB.getCallback();
+        if (this.Cn instanceof C0009b) {
             throw new IllegalStateException("AppCompat has already installed itself into the Window");
         }
-        this.Ct = a(this.Cs);
-        this.BG.setCallback(this.Ct);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Cr);
+        this.Co = a(this.Cn);
+        this.BB.setCallback(this.Co);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, Cm);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
         if (drawableIfKnown != null) {
-            this.BG.setBackgroundDrawable(drawableIfKnown);
+            this.BB.setBackgroundDrawable(drawableIfKnown);
         }
         obtainStyledAttributes.recycle();
     }
@@ -112,19 +112,19 @@ public abstract class b extends AppCompatDelegate {
     @Override // android.support.v7.app.AppCompatDelegate
     public ActionBar getSupportActionBar() {
         dU();
-        return this.Cv;
+        return this.Cq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final ActionBar dV() {
-        return this.Cv;
+        return this.Cq;
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
     public MenuInflater getMenuInflater() {
         if (this.lh == null) {
             dU();
-            this.lh = new SupportMenuInflater(this.Cv != null ? this.Cv.getThemedContext() : this.mContext);
+            this.lh = new SupportMenuInflater(this.Cq != null ? this.Cq.getThemedContext() : this.mContext);
         }
         return this.lh;
     }
@@ -205,7 +205,7 @@ public abstract class b extends AppCompatDelegate {
 
     @Override // android.support.v7.app.AppCompatDelegate
     public void onDestroy() {
-        this.CB = true;
+        this.Cw = true;
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
@@ -224,12 +224,12 @@ public abstract class b extends AppCompatDelegate {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean isDestroyed() {
-        return this.CB;
+        return this.Cw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Window.Callback dW() {
-        return this.BG.getCallback();
+        return this.BB.getCallback();
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
@@ -244,7 +244,7 @@ public abstract class b extends AppCompatDelegate {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final CharSequence getTitle() {
-        return this.Cs instanceof Activity ? ((Activity) this.Cs).getTitle() : this.mTitle;
+        return this.Cn instanceof Activity ? ((Activity) this.Cn).getTitle() : this.mTitle;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

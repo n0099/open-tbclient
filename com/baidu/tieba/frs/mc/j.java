@@ -3,13 +3,13 @@ package com.baidu.tieba.frs.mc;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public interface j {
-    void WO();
+    void WN();
 
-    FrsModelController auO();
+    FrsModelController auN();
 
-    c auP();
+    c auO();
 
-    com.baidu.tieba.frs.g.f auQ();
+    com.baidu.tieba.frs.g.f auP();
 
-    k auT();
+    k auS();
 }

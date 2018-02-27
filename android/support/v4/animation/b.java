@@ -15,32 +15,32 @@ class b implements android.support.v4.animation.a {
         private long mStartTime;
         View mTarget;
         List<AnimatorListenerCompat> mListeners = new ArrayList();
-        List<AnimatorUpdateListenerCompat> wd = new ArrayList();
+        List<AnimatorUpdateListenerCompat> wc = new ArrayList();
         private long mDuration = 200;
-        private float we = 0.0f;
+        private float wd = 0.0f;
         private boolean mStarted = false;
-        private boolean vz = false;
-        private Runnable wf = new Runnable() { // from class: android.support.v4.animation.b.a.1
+        private boolean vy = false;
+        private Runnable we = new Runnable() { // from class: android.support.v4.animation.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 float time = (((float) (a.this.getTime() - a.this.mStartTime)) * 1.0f) / ((float) a.this.mDuration);
                 if (time > 1.0f || a.this.mTarget.getParent() == null) {
                     time = 1.0f;
                 }
-                a.this.we = time;
+                a.this.wd = time;
                 a.this.dc();
-                if (a.this.we >= 1.0f) {
+                if (a.this.wd >= 1.0f) {
                     a.this.dd();
                 } else {
-                    a.this.mTarget.postDelayed(a.this.wf, 16L);
+                    a.this.mTarget.postDelayed(a.this.we, 16L);
                 }
             }
         };
 
         /* JADX INFO: Access modifiers changed from: private */
         public void dc() {
-            for (int size = this.wd.size() - 1; size >= 0; size--) {
-                this.wd.get(size).onAnimationUpdate(this);
+            for (int size = this.wc.size() - 1; size >= 0; size--) {
+                this.wc.get(size).onAnimationUpdate(this);
             }
         }
 
@@ -66,9 +66,9 @@ class b implements android.support.v4.animation.a {
             if (!this.mStarted) {
                 this.mStarted = true;
                 dispatchStart();
-                this.we = 0.0f;
+                this.wd = 0.0f;
                 this.mStartTime = getTime();
-                this.mTarget.postDelayed(this.wf, 16L);
+                this.mTarget.postDelayed(this.we, 16L);
             }
         }
 
@@ -98,8 +98,8 @@ class b implements android.support.v4.animation.a {
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void cancel() {
-            if (!this.vz) {
-                this.vz = true;
+            if (!this.vy) {
+                this.vy = true;
                 if (this.mStarted) {
                     de();
                 }
@@ -109,12 +109,12 @@ class b implements android.support.v4.animation.a {
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void addUpdateListener(AnimatorUpdateListenerCompat animatorUpdateListenerCompat) {
-            this.wd.add(animatorUpdateListenerCompat);
+            this.wc.add(animatorUpdateListenerCompat);
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public float getAnimatedFraction() {
-            return this.we;
+            return this.wd;
         }
     }
 

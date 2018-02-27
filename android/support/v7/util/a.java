@@ -14,35 +14,35 @@ class a<T> implements ThreadUtil<T> {
     /* renamed from: android.support.v7.util.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     class AnonymousClass1 implements ThreadUtil.MainThreadCallback<T> {
-        final C0011a FY = new C0011a();
-        private final Handler FZ = new Handler(Looper.getMainLooper());
-        private Runnable Ga = new Runnable() { // from class: android.support.v7.util.a.1.1
+        final C0011a FT = new C0011a();
+        private final Handler FU = new Handler(Looper.getMainLooper());
+        private Runnable FV = new Runnable() { // from class: android.support.v7.util.a.1.1
             @Override // java.lang.Runnable
             public void run() {
-                b eD = AnonymousClass1.this.FY.eD();
+                b eD = AnonymousClass1.this.FT.eD();
                 while (eD != null) {
                     switch (eD.what) {
                         case 1:
-                            AnonymousClass1.this.Gb.updateItemCount(eD.arg1, eD.arg2);
+                            AnonymousClass1.this.FW.updateItemCount(eD.arg1, eD.arg2);
                             break;
                         case 2:
-                            AnonymousClass1.this.Gb.addTile(eD.arg1, (TileList.Tile) eD.data);
+                            AnonymousClass1.this.FW.addTile(eD.arg1, (TileList.Tile) eD.data);
                             break;
                         case 3:
-                            AnonymousClass1.this.Gb.removeTile(eD.arg1, eD.arg2);
+                            AnonymousClass1.this.FW.removeTile(eD.arg1, eD.arg2);
                             break;
                         default:
                             Log.e("ThreadUtil", "Unsupported message, what=" + eD.what);
                             break;
                     }
-                    eD = AnonymousClass1.this.FY.eD();
+                    eD = AnonymousClass1.this.FT.eD();
                 }
             }
         };
-        final /* synthetic */ ThreadUtil.MainThreadCallback Gb;
+        final /* synthetic */ ThreadUtil.MainThreadCallback FW;
 
         AnonymousClass1(ThreadUtil.MainThreadCallback mainThreadCallback) {
-            this.Gb = mainThreadCallback;
+            this.FW = mainThreadCallback;
         }
 
         @Override // android.support.v7.util.ThreadUtil.MainThreadCallback
@@ -61,8 +61,8 @@ class a<T> implements ThreadUtil<T> {
         }
 
         private void a(b bVar) {
-            this.FY.a(bVar);
-            this.FZ.post(this.Ga);
+            this.FT.a(bVar);
+            this.FU.post(this.FV);
         }
     }
 
@@ -74,38 +74,38 @@ class a<T> implements ThreadUtil<T> {
     /* renamed from: android.support.v7.util.a$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     class AnonymousClass2 implements ThreadUtil.BackgroundCallback<T> {
-        final /* synthetic */ ThreadUtil.BackgroundCallback Gg;
-        final C0011a FY = new C0011a();
+        final /* synthetic */ ThreadUtil.BackgroundCallback Gb;
+        final C0011a FT = new C0011a();
         private final Executor mExecutor = ParallelExecutorCompat.getParallelExecutor();
-        AtomicBoolean Ge = new AtomicBoolean(false);
-        private Runnable Gf = new Runnable() { // from class: android.support.v7.util.a.2.1
+        AtomicBoolean FZ = new AtomicBoolean(false);
+        private Runnable Ga = new Runnable() { // from class: android.support.v7.util.a.2.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
-                    b eD = AnonymousClass2.this.FY.eD();
+                    b eD = AnonymousClass2.this.FT.eD();
                     if (eD != null) {
                         switch (eD.what) {
                             case 1:
-                                AnonymousClass2.this.FY.removeMessages(1);
-                                AnonymousClass2.this.Gg.refresh(eD.arg1);
+                                AnonymousClass2.this.FT.removeMessages(1);
+                                AnonymousClass2.this.Gb.refresh(eD.arg1);
                                 break;
                             case 2:
-                                AnonymousClass2.this.FY.removeMessages(2);
-                                AnonymousClass2.this.FY.removeMessages(3);
-                                AnonymousClass2.this.Gg.updateRange(eD.arg1, eD.arg2, eD.Gm, eD.Gn, eD.Go);
+                                AnonymousClass2.this.FT.removeMessages(2);
+                                AnonymousClass2.this.FT.removeMessages(3);
+                                AnonymousClass2.this.Gb.updateRange(eD.arg1, eD.arg2, eD.Gh, eD.Gi, eD.Gj);
                                 break;
                             case 3:
-                                AnonymousClass2.this.Gg.loadTile(eD.arg1, eD.arg2);
+                                AnonymousClass2.this.Gb.loadTile(eD.arg1, eD.arg2);
                                 break;
                             case 4:
-                                AnonymousClass2.this.Gg.recycleTile((TileList.Tile) eD.data);
+                                AnonymousClass2.this.Gb.recycleTile((TileList.Tile) eD.data);
                                 break;
                             default:
                                 Log.e("ThreadUtil", "Unsupported message, what=" + eD.what);
                                 break;
                         }
                     } else {
-                        AnonymousClass2.this.Ge.set(false);
+                        AnonymousClass2.this.FZ.set(false);
                         return;
                     }
                 }
@@ -113,7 +113,7 @@ class a<T> implements ThreadUtil<T> {
         };
 
         AnonymousClass2(ThreadUtil.BackgroundCallback backgroundCallback) {
-            this.Gg = backgroundCallback;
+            this.Gb = backgroundCallback;
         }
 
         @Override // android.support.v7.util.ThreadUtil.BackgroundCallback
@@ -137,18 +137,18 @@ class a<T> implements ThreadUtil<T> {
         }
 
         private void a(b bVar) {
-            this.FY.a(bVar);
+            this.FT.a(bVar);
             eC();
         }
 
         private void b(b bVar) {
-            this.FY.b(bVar);
+            this.FT.b(bVar);
             eC();
         }
 
         private void eC() {
-            if (this.Ge.compareAndSet(false, true)) {
-                this.mExecutor.execute(this.Gf);
+            if (this.FZ.compareAndSet(false, true)) {
+                this.mExecutor.execute(this.Ga);
             }
         }
     }
@@ -161,12 +161,12 @@ class a<T> implements ThreadUtil<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
-        private static b Gj;
-        private static final Object Gk = new Object();
-        private b Gl;
-        public int Gm;
-        public int Gn;
-        public int Go;
+        private static b Ge;
+        private static final Object Gf = new Object();
+        private b Gg;
+        public int Gh;
+        public int Gi;
+        public int Gj;
         public int arg1;
         public int arg2;
         public Object data;
@@ -176,38 +176,38 @@ class a<T> implements ThreadUtil<T> {
         }
 
         void recycle() {
-            this.Gl = null;
-            this.Go = 0;
-            this.Gn = 0;
-            this.Gm = 0;
+            this.Gg = null;
+            this.Gj = 0;
+            this.Gi = 0;
+            this.Gh = 0;
             this.arg2 = 0;
             this.arg1 = 0;
             this.what = 0;
             this.data = null;
-            synchronized (Gk) {
-                if (Gj != null) {
-                    this.Gl = Gj;
+            synchronized (Gf) {
+                if (Ge != null) {
+                    this.Gg = Ge;
                 }
-                Gj = this;
+                Ge = this;
             }
         }
 
         static b a(int i, int i2, int i3, int i4, int i5, int i6, Object obj) {
             b bVar;
-            synchronized (Gk) {
-                if (Gj == null) {
+            synchronized (Gf) {
+                if (Ge == null) {
                     bVar = new b();
                 } else {
-                    bVar = Gj;
-                    Gj = Gj.Gl;
-                    bVar.Gl = null;
+                    bVar = Ge;
+                    Ge = Ge.Gg;
+                    bVar.Gg = null;
                 }
                 bVar.what = i;
                 bVar.arg1 = i2;
                 bVar.arg2 = i3;
-                bVar.Gm = i4;
-                bVar.Gn = i5;
-                bVar.Go = i6;
+                bVar.Gh = i4;
+                bVar.Gi = i5;
+                bVar.Gj = i6;
                 bVar.data = obj;
             }
             return bVar;
@@ -226,52 +226,52 @@ class a<T> implements ThreadUtil<T> {
     /* renamed from: android.support.v7.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0011a {
-        private b Gi;
+        private b Gd;
 
         C0011a() {
         }
 
         synchronized b eD() {
             b bVar;
-            if (this.Gi == null) {
+            if (this.Gd == null) {
                 bVar = null;
             } else {
-                bVar = this.Gi;
-                this.Gi = this.Gi.Gl;
+                bVar = this.Gd;
+                this.Gd = this.Gd.Gg;
             }
             return bVar;
         }
 
         synchronized void b(b bVar) {
-            bVar.Gl = this.Gi;
-            this.Gi = bVar;
+            bVar.Gg = this.Gd;
+            this.Gd = bVar;
         }
 
         synchronized void a(b bVar) {
-            if (this.Gi == null) {
-                this.Gi = bVar;
+            if (this.Gd == null) {
+                this.Gd = bVar;
             } else {
-                b bVar2 = this.Gi;
-                while (bVar2.Gl != null) {
-                    bVar2 = bVar2.Gl;
+                b bVar2 = this.Gd;
+                while (bVar2.Gg != null) {
+                    bVar2 = bVar2.Gg;
                 }
-                bVar2.Gl = bVar;
+                bVar2.Gg = bVar;
             }
         }
 
         synchronized void removeMessages(int i) {
-            while (this.Gi != null && this.Gi.what == i) {
-                b bVar = this.Gi;
-                this.Gi = this.Gi.Gl;
+            while (this.Gd != null && this.Gd.what == i) {
+                b bVar = this.Gd;
+                this.Gd = this.Gd.Gg;
                 bVar.recycle();
             }
-            if (this.Gi != null) {
-                b bVar2 = this.Gi;
-                b bVar3 = bVar2.Gl;
+            if (this.Gd != null) {
+                b bVar2 = this.Gd;
+                b bVar3 = bVar2.Gg;
                 while (bVar3 != null) {
-                    b bVar4 = bVar3.Gl;
+                    b bVar4 = bVar3.Gg;
                     if (bVar3.what == i) {
-                        bVar2.Gl = bVar4;
+                        bVar2.Gg = bVar4;
                         bVar3.recycle();
                     } else {
                         bVar2 = bVar3;

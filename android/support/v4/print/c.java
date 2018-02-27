@@ -6,7 +6,7 @@ class c extends b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context) {
         super(context);
-        this.Av = true;
-        this.Au = true;
+        this.Aq = true;
+        this.Ap = true;
     }
 }

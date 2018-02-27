@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class MovieExtendsHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mehd";
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0295a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
     private long fragmentDuration;
 
     static {

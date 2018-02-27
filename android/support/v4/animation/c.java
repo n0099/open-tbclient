@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.view.View;
 /* loaded from: classes2.dex */
 class c implements android.support.v4.animation.a {
-    private TimeInterpolator wh;
+    private TimeInterpolator wg;
 
     @Override // android.support.v4.animation.a
     public ValueAnimatorCompat emptyValueAnimator() {
@@ -15,41 +15,41 @@ class c implements android.support.v4.animation.a {
 
     /* loaded from: classes2.dex */
     static class b implements ValueAnimatorCompat {
-        final Animator wk;
+        final Animator wj;
 
         public b(Animator animator) {
-            this.wk = animator;
+            this.wj = animator;
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void setTarget(View view) {
-            this.wk.setTarget(view);
+            this.wj.setTarget(view);
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void addListener(AnimatorListenerCompat animatorListenerCompat) {
-            this.wk.addListener(new a(animatorListenerCompat, this));
+            this.wj.addListener(new a(animatorListenerCompat, this));
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void setDuration(long j) {
-            this.wk.setDuration(j);
+            this.wj.setDuration(j);
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void start() {
-            this.wk.start();
+            this.wj.start();
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void cancel() {
-            this.wk.cancel();
+            this.wj.cancel();
         }
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public void addUpdateListener(final AnimatorUpdateListenerCompat animatorUpdateListenerCompat) {
-            if (this.wk instanceof ValueAnimator) {
-                ((ValueAnimator) this.wk).addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: android.support.v4.animation.c.b.1
+            if (this.wj instanceof ValueAnimator) {
+                ((ValueAnimator) this.wj).addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: android.support.v4.animation.c.b.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         animatorUpdateListenerCompat.onAnimationUpdate(b.this);
@@ -60,46 +60,46 @@ class c implements android.support.v4.animation.a {
 
         @Override // android.support.v4.animation.ValueAnimatorCompat
         public float getAnimatedFraction() {
-            return ((ValueAnimator) this.wk).getAnimatedFraction();
+            return ((ValueAnimator) this.wj).getAnimatedFraction();
         }
     }
 
     /* loaded from: classes2.dex */
     static class a implements Animator.AnimatorListener {
-        final AnimatorListenerCompat wi;
-        final ValueAnimatorCompat wj;
+        final AnimatorListenerCompat wh;
+        final ValueAnimatorCompat wi;
 
         public a(AnimatorListenerCompat animatorListenerCompat, ValueAnimatorCompat valueAnimatorCompat) {
-            this.wi = animatorListenerCompat;
-            this.wj = valueAnimatorCompat;
+            this.wh = animatorListenerCompat;
+            this.wi = valueAnimatorCompat;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            this.wi.onAnimationStart(this.wj);
+            this.wh.onAnimationStart(this.wi);
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            this.wi.onAnimationEnd(this.wj);
+            this.wh.onAnimationEnd(this.wi);
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            this.wi.onAnimationCancel(this.wj);
+            this.wh.onAnimationCancel(this.wi);
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            this.wi.onAnimationRepeat(this.wj);
+            this.wh.onAnimationRepeat(this.wi);
         }
     }
 
     @Override // android.support.v4.animation.a
     public void clearInterpolator(View view) {
-        if (this.wh == null) {
-            this.wh = new ValueAnimator().getInterpolator();
+        if (this.wg == null) {
+            this.wg = new ValueAnimator().getInterpolator();
         }
-        view.animate().setInterpolator(this.wh);
+        view.animate().setInterpolator(this.wg);
     }
 }

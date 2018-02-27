@@ -22,14 +22,14 @@ import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
 import com.tencent.open.a.f;
 import com.tencent.open.b.g;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.j;
 import com.tencent.tauth.AuthActivity;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TDialog extends b {
     static final FrameLayout.LayoutParams c = new FrameLayout.LayoutParams(-1, -1);
     static Toast d = null;
@@ -44,7 +44,7 @@ public class TDialog extends b {
     private boolean m;
     private QQToken n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     private class THandler extends Handler {
         private OnTimeListener b;
 
@@ -82,7 +82,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     private static class OnTimeListener implements IUiListener {
         String a;
         String b;
@@ -101,7 +101,7 @@ public class TDialog extends b {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str) {
             try {
-                onComplete(i.d(str));
+                onComplete(j.d(str));
             } catch (JSONException e) {
                 e.printStackTrace();
                 onError(new UiError(-4, Constants.MSG_JSON_ERROR, str));
@@ -217,7 +217,7 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class JsListener extends a.b {
         private JsListener() {
         }
@@ -267,16 +267,17 @@ public class TDialog extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class FbWebViewClient extends WebViewClient {
         private FbWebViewClient() {
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            Uri parse;
             f.a("openSDK_LOG.TDialog", "Redirect URL: " + str);
-            if (str.startsWith(com.tencent.open.utils.f.a().a((Context) TDialog.this.e.get(), "auth://tauth.qq.com/"))) {
-                TDialog.this.h.onComplete(i.c(str));
+            if (str.startsWith(com.tencent.open.utils.g.a().a((Context) TDialog.this.e.get(), "auth://tauth.qq.com/"))) {
+                TDialog.this.h.onComplete(j.c(str));
                 if (TDialog.this.isShowing()) {
                     TDialog.this.dismiss();
                 }
@@ -292,11 +293,16 @@ public class TDialog extends b {
                     TDialog.this.dismiss();
                 }
                 return true;
-            } else if (!str.startsWith(Constants.DOWNLOAD_URI)) {
+            } else if (!str.startsWith(Constants.DOWNLOAD_URI) && !str.endsWith(".apk")) {
                 return str.startsWith("auth://progress");
             } else {
                 try {
-                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(Uri.decode(str.substring(Constants.DOWNLOAD_URI.length()))));
+                    if (str.startsWith(Constants.DOWNLOAD_URI)) {
+                        parse = Uri.parse(Uri.decode(str.substring(Constants.DOWNLOAD_URI.length())));
+                    } else {
+                        parse = Uri.parse(Uri.decode(str));
+                    }
+                    Intent intent = new Intent("android.intent.action.VIEW", parse);
                     intent.addFlags(268435456);
                     if (TDialog.this.e != null && TDialog.this.e.get() != null) {
                         ((Context) TDialog.this.e.get()).startActivity(intent);
@@ -334,7 +340,7 @@ public class TDialog extends b {
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(Context context, String str) {
         try {
-            JSONObject d2 = i.d(str);
+            JSONObject d2 = j.d(str);
             int i = d2.getInt("type");
             String string = d2.getString("msg");
             if (i == 0) {
@@ -365,7 +371,7 @@ public class TDialog extends b {
     public static void d(Context context, String str) {
         if (context != null && str != null) {
             try {
-                JSONObject d2 = i.d(str);
+                JSONObject d2 = j.d(str);
                 int i = d2.getInt(AuthActivity.ACTION_KEY);
                 String string = d2.getString("msg");
                 if (i == 1) {

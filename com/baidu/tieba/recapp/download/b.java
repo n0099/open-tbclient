@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes3.dex */
 public class b {
-    private q aWc = null;
-    private com.baidu.tbadk.core.util.a.a aWb = null;
+    private q aVQ = null;
+    private com.baidu.tbadk.core.util.a.a aVP = null;
 
     public b() {
-        Cy();
+        Cx();
     }
 
     public void mV() {
-        if (this.aWc != null) {
-            this.aWc.mV();
+        if (this.aVQ != null) {
+            this.aVQ.mV();
         }
     }
 
     public void setUrl(String str) {
-        this.aWb.Dw().Dz().mUrl = str;
+        this.aVP.Dv().Dy().mUrl = str;
     }
 
-    private void Cy() {
-        this.aWb = new com.baidu.tbadk.core.util.a.a();
-        this.aWc = new c(this.aWb);
-        this.aWb.Dw().Dz().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void Cx() {
+        this.aVP = new com.baidu.tbadk.core.util.a.a();
+        this.aVQ = new c(this.aVP);
+        this.aVP.Dv().Dy().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.ar(TbadkCoreApplication.getInst().getCuid());
     }
 
@@ -34,11 +34,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        Cz().Dw().a(this.aWc);
-        return this.aWc.a(str, handler, i, i2, i3, z);
+        Cy().Dv().a(this.aVQ);
+        return this.aVQ.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a Cz() {
-        return this.aWb;
+    public com.baidu.tbadk.core.util.a.a Cy() {
+        return this.aVP;
     }
 }

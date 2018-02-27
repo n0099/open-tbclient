@@ -14,7 +14,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.i.k
-    public h aXg() {
-        return m.bmx();
+    public h aXf() {
+        return m.bmw();
     }
 }

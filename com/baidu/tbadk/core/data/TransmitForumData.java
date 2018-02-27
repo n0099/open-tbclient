@@ -5,13 +5,13 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.i {
-    public boolean aQO;
+    public boolean aQD;
     public String avatar;
     public boolean checked;
     public long forumId;
     public String forumName;
     public int type;
-    public static final BdUniqueId aQN = BdUniqueId.gen();
+    public static final BdUniqueId aQC = BdUniqueId.gen();
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new Parcelable.Creator<TransmitForumData>() { // from class: com.baidu.tbadk.core.data.TransmitForumData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -33,7 +33,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     }
 
     public TransmitForumData(long j, String str, boolean z, int i, String str2) {
-        this.aQO = false;
+        this.aQD = false;
         this.forumName = str;
         this.checked = z;
         this.forumId = j;
@@ -43,7 +43,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return aQN;
+        return aQC;
     }
 
     @Override // android.os.Parcelable
@@ -58,16 +58,16 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
         parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.type);
         parcel.writeString(this.avatar);
-        parcel.writeByte(this.aQO ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.aQD ? (byte) 1 : (byte) 0);
     }
 
     protected TransmitForumData(Parcel parcel) {
-        this.aQO = false;
+        this.aQD = false;
         this.forumName = parcel.readString();
         this.forumId = parcel.readLong();
         this.checked = parcel.readByte() != 0;
         this.type = parcel.readInt();
         this.avatar = parcel.readString();
-        this.aQO = parcel.readByte() != 0;
+        this.aQD = parcel.readByte() != 0;
     }
 }

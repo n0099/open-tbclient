@@ -11,7 +11,7 @@ public class c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void xs(int i);
+        void xt(int i);
     }
 
     public static void a(final String str, final int i, final a aVar) {
@@ -36,7 +36,7 @@ public class c {
                     /* renamed from: g */
                     public void onReturnDataInUI(Integer num) {
                         if (a.this != null) {
-                            a.this.xs(num.intValue());
+                            a.this.xt(num.intValue());
                         }
                     }
                 });

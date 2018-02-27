@@ -17,17 +17,17 @@ class h extends g {
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        this.wz.setAutoMirrored(z);
+        this.wy.setAutoMirrored(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        return this.wz.isAutoMirrored();
+        return this.wy.isAutoMirrored();
     }
 
     @Override // android.support.v4.graphics.drawable.g, android.support.v4.graphics.drawable.DrawableWrapperGingerbread
     DrawableWrapperGingerbread.DrawableWrapperState dg() {
-        return new a(this.wy, null);
+        return new a(this.wx, null);
     }
 
     /* loaded from: classes2.dex */

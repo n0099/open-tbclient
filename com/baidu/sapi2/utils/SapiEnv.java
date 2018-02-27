@@ -5,6 +5,7 @@ public interface SapiEnv {
     public static final String ACCOUNT_CENTER_EDITUSER = "/wp/v3/ucenter/edituser";
     public static final String ACCOUNT_CENTER_MODIFY_PWD_RESULT = "/wp/passwordresult";
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
+    public static final String DEFAULT_PORTRAIT = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/img/default_portrait.png";
     public static final String DEVICE_FORCE_REG_URI = "/yunid/device/forcereg";
     public static final String DEVICE_LOGIN_URI = "/yunid/device/login";
     public static final String DEVICE_REG_URI = "/yunid/device/reg";

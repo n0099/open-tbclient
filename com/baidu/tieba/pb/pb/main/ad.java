@@ -28,8 +28,8 @@ public class ad extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fNb.getLayoutMode().aQ(this.mSkinType == 1);
-        this.fNb.getLayoutMode().aM(view);
+        this.fMQ.getLayoutMode().aQ(this.mSkinType == 1);
+        this.fMQ.getLayoutMode().aM(view);
         return view;
     }
 }

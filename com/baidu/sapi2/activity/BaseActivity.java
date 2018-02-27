@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Toast;
 import com.baidu.c.a.a;
@@ -21,19 +20,11 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.bio.BiometricsManager;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceIdentifyCallback;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceRegCallback;
-import com.baidu.sapi2.biometrics.voice.callback.VoiceStatusCheckCallback;
-import com.baidu.sapi2.biometrics.voice.result.VoiceIdentifyResult;
-import com.baidu.sapi2.biometrics.voice.result.VoiceRegResult;
-import com.baidu.sapi2.biometrics.voice.result.VoiceStatusCheckResult;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.utils.SapiWebViewUtil;
-import com.baidu.sapi2.views.CustomAlertDialog;
-import com.baidu.sapi2.views.ViewUtility;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
@@ -219,12 +210,8 @@ public class BaseActivity extends Activity {
                     if (i == 1) {
                         BaseActivity.this.livenessRecognize("bduss", null, null, null, str2, null, str);
                         return;
-                    } else if (i == 2) {
-                        BaseActivity.this.voiceIdentify(str2, str);
-                        return;
-                    } else {
-                        return;
                     }
+                    return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -363,188 +350,6 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void voiceReg(String str, String str2) {
-        BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        biometricsManager.initVoiceManager(this);
-        biometricsManager.voiceReg(str, str2, new VoiceRegCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.9
-            /* JADX DEBUG: Method merged with bridge method */
-            public void onSuccess(VoiceRegResult voiceRegResult) {
-                if (BaseActivity.this.biometricsIdentifyResult != null) {
-                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(voiceRegResult.toJSONObject().toString());
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            public void onFailure(VoiceRegResult voiceRegResult) {
-                if (BaseActivity.this.biometricsIdentifyResult != null) {
-                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(voiceRegResult.toJSONObject().toString());
-                }
-            }
-        }, this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void voiceIdentify(final String str, final String str2) {
-        final BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        biometricsManager.initVoiceManager(this);
-        biometricsManager.voiceStatusCheck(str, new VoiceStatusCheckCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.10
-            /* JADX DEBUG: Method merged with bridge method */
-            public void onSuccess(VoiceStatusCheckResult voiceStatusCheckResult) {
-                if (voiceStatusCheckResult.voiceStatus == VoiceStatusCheckResult.VOICE_STATUS_AVAILABLE) {
-                    biometricsManager.voiceIdentify(str, new VoiceIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.10.1
-                        /* JADX DEBUG: Method merged with bridge method */
-                        public void onSuccess(VoiceIdentifyResult voiceIdentifyResult) {
-                            if (BaseActivity.this.biometricsIdentifyResult != null) {
-                                BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(voiceIdentifyResult.toJSONObject().toString());
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        public void onFailure(VoiceIdentifyResult voiceIdentifyResult) {
-                            if (BaseActivity.this.biometricsIdentifyResult != null) {
-                                BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(voiceIdentifyResult.toJSONObject().toString());
-                            }
-                        }
-                    }, BaseActivity.this);
-                } else if (voiceStatusCheckResult.voiceStatus == VoiceStatusCheckResult.VOICE_STATUS_CLOSE) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("errno", voiceStatusCheckResult.voiceStatus);
-                        jSONObject.put("errmsg", BaseActivity.this.getString(a.f.sapi_sdk_account_center_voice_close));
-                    } catch (JSONException e) {
-                        Log.e(e);
-                    }
-                    if (BaseActivity.this.biometricsIdentifyResult != null) {
-                        BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(jSONObject.toString());
-                    }
-                } else if (voiceStatusCheckResult.voiceStatus == VoiceStatusCheckResult.VOICE_STATUS_FREEZE) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("errno", voiceStatusCheckResult.voiceStatus);
-                        jSONObject2.put("errmsg", BaseActivity.this.getString(a.f.sapi_sdk_account_center_voice_freeze));
-                    } catch (JSONException e2) {
-                        Log.e(e2);
-                    }
-                    if (BaseActivity.this.biometricsIdentifyResult != null) {
-                        BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(jSONObject2.toString());
-                    }
-                } else if (voiceStatusCheckResult.voiceStatus == 1 && voiceStatusCheckResult.pendingSecurityLevel != 0) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    try {
-                        jSONObject3.put("errno", voiceStatusCheckResult.voiceStatus);
-                        jSONObject3.put("errmsg", BaseActivity.this.getString(a.f.sapi_sdk_account_center_voice_pending));
-                    } catch (JSONException e3) {
-                        Log.e(e3);
-                    }
-                    if (BaseActivity.this.biometricsIdentifyResult != null) {
-                        BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(jSONObject3.toString());
-                    }
-                } else {
-                    BaseActivity.this.showVoiceRegDialog(biometricsManager, str, str2);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            public void onFailure(VoiceStatusCheckResult voiceStatusCheckResult) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("errno", voiceStatusCheckResult.voiceStatus);
-                    jSONObject.put("errmsg", voiceStatusCheckResult.getResultMsg());
-                } catch (JSONException e) {
-                    Log.e(e);
-                }
-                if (BaseActivity.this.biometricsIdentifyResult != null) {
-                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(jSONObject.toString());
-                }
-            }
-
-            public void onStart() {
-            }
-
-            public void onFinish() {
-            }
-        }, this);
-    }
-
-    public void showVoiceRegDialog(final BiometricsManager biometricsManager, final String str, final String str2) {
-        final CustomAlertDialog customAlertDialog = new CustomAlertDialog(this);
-        customAlertDialog.setMessageText(getString(a.f.sapi_sdk_account_center_voice_reg_after_face_verify));
-        customAlertDialog.setPositiveBtn(getString(a.f.sapi_sdk_account_center_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.11
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                ViewUtility.dismissDialog(BaseActivity.this, customAlertDialog);
-                biometricsManager.livenessRecognize(BaseActivity.this.getApplicationContext(), "bduss", null, null, null, str, null, str2, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.11.1
-                    /* JADX WARN: Removed duplicated region for block: B:10:0x003b  */
-                    @Override // com.baidu.fsg.api.RimServiceCallback
-                    /*
-                        Code decompiled incorrectly, please refer to instructions dump.
-                    */
-                    public void onResult(int i, Map<String, Object> map) {
-                        JSONException jSONException;
-                        String str3;
-                        String str4;
-                        String str5;
-                        JSONObject jSONObject;
-                        String optString;
-                        if (i == 0) {
-                            String str6 = (String) map.get("retMsg");
-                            try {
-                                jSONObject = new JSONObject((String) map.get("result"));
-                                optString = jSONObject.optString("callbackkey");
-                            } catch (JSONException e) {
-                                jSONException = e;
-                                str3 = null;
-                            }
-                            try {
-                                str5 = jSONObject.optString("authsid");
-                                str4 = optString;
-                            } catch (JSONException e2) {
-                                str3 = optString;
-                                jSONException = e2;
-                                Log.e(jSONException);
-                                str4 = str3;
-                                str5 = null;
-                                JSONObject livenessResult2JsonObj = BaseActivity.this.livenessResult2JsonObj(i, str6, str4, str5);
-                                if (BaseActivity.this.biometricsIdentifyResult != null) {
-                                }
-                                BaseActivity.this.voiceReg(str, str4);
-                                return;
-                            }
-                            JSONObject livenessResult2JsonObj2 = BaseActivity.this.livenessResult2JsonObj(i, str6, str4, str5);
-                            if (BaseActivity.this.biometricsIdentifyResult != null) {
-                                BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj2.toString());
-                            }
-                            BaseActivity.this.voiceReg(str, str4);
-                            return;
-                        }
-                        JSONObject livenessResult2JsonObj3 = BaseActivity.this.livenessResult2JsonObj(i, (String) map.get("retMsg"), null, null);
-                        if (BaseActivity.this.biometricsIdentifyResult != null) {
-                            BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj3.toString());
-                        }
-                    }
-                });
-            }
-        });
-        customAlertDialog.setNegativeBtn(getString(a.f.sapi_sdk_account_center_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.12
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                ViewUtility.dismissDialog(BaseActivity.this, customAlertDialog);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("errno", SapiWebView.BiometricsIdentifyResult.ERROR_CODE_CANCEL_VOICE_REG);
-                    jSONObject.put("errmsg", "您已取消注册声纹");
-                } catch (JSONException e) {
-                    Log.e(e);
-                }
-                if (BaseActivity.this.biometricsIdentifyResult != null) {
-                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(jSONObject.toString());
-                }
-            }
-        });
-        customAlertDialog.show();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public JSONObject livenessResult2JsonObj(int i, String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -614,7 +419,7 @@ public class BaseActivity extends Activity {
             }
         } else if (i == 1001) {
             if (i2 == -1 && imageCropCallback != null) {
-                imageCropCallback.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE)), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.13
+                imageCropCallback.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE)), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.9
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str == null || BaseActivity.this.pickPhotoResult == null) {
@@ -632,7 +437,7 @@ public class BaseActivity extends Activity {
             }
         } else if (i == 1002) {
             if (i2 == -1 && intent.getData() != null) {
-                imageCropCallback.onImageCrop(this, intent.getData(), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.14
+                imageCropCallback.onImageCrop(this, intent.getData(), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.10
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str == null || BaseActivity.this.pickPhotoResult == null) {

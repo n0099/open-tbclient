@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams gsT;
-    private List<TextView> gsS;
+    private static ViewGroup.LayoutParams gsI;
+    private List<TextView> gsH;
     private View.OnClickListener mOnItemClickListener;
 
     public ReplyLinearLayout(Context context) {
@@ -58,24 +58,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.gsS = new ArrayList();
+        this.gsH = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (gsT == null) {
-            gsT = new LinearLayout.LayoutParams(-1, -2);
+        if (gsI == null) {
+            gsI = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.gsS.size();
+        int size2 = size - this.gsH.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.gsS.add(textView);
+            this.gsH.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.gsS.size(); i3++) {
-            TextView textView2 = this.gsS.get(i3);
+        for (int i3 = 0; i3 < this.gsH.size(); i3++) {
+            TextView textView2 = this.gsH.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -96,20 +96,20 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(gsT);
-                    aj.e(textView2, d.C0140d.cp_cont_b, 1);
+                    textView2.setLayoutParams(gsI);
+                    aj.e(textView2, d.C0141d.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    aj.s(textView2, d.C0140d.cp_bg_line_b);
+                    aj.s(textView2, d.C0141d.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(gsT);
-                    aj.e(textView2, d.C0140d.cp_cont_f, 1);
+                    textView2.setLayoutParams(gsI);
+                    aj.e(textView2, d.C0141d.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(gsT);
-                    aj.e(textView2, d.C0140d.cp_cont_d, 1);
+                    textView2.setLayoutParams(gsI);
+                    aj.e(textView2, d.C0141d.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -120,14 +120,14 @@ public class ReplyLinearLayout extends LinearLayout {
 
     private void o(TextView textView, int i) {
         if (i == 0) {
-            aj.e(textView, d.C0140d.common_color_10039, 1);
+            aj.e(textView, d.C0141d.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            aj.e(textView, d.C0140d.common_color_10081, 1);
-            textView.setBackgroundResource(d.C0140d.common_color_10022);
+            aj.e(textView, d.C0141d.common_color_10081, 1);
+            textView.setBackgroundResource(d.C0141d.common_color_10022);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            aj.e(textView, d.C0140d.common_color_10005, 1);
+            aj.e(textView, d.C0141d.common_color_10005, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         }
     }

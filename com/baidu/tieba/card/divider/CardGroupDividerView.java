@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int dbm = d.C0140d.cp_bg_line_c;
-    private static final int dbn = d.C0140d.cp_bg_line_c;
-    private View dbk;
-    private View dbl;
-    private int dbo;
+    private static final int dba = d.C0141d.cp_bg_line_c;
+    private static final int dbb = d.C0141d.cp_bg_line_c;
+    private View daY;
+    private View daZ;
+    private int dbc;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -27,69 +27,69 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.dbo = dbn;
+        this.dbc = dbb;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dbo = dbn;
+        this.dbc = dbb;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dbo = dbn;
+        this.dbc = dbb;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.card_divider_view, (ViewGroup) this, true);
-        this.dbk = findViewById(d.g.card_divider_top_margin);
+        this.daY = findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(d.g.card_divider_tv);
-        this.dbl = findViewById(d.g.bottom_line);
+        this.daZ = findViewById(d.g.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        aj.t(this, d.C0140d.cp_bg_line_d);
-        aj.t(this.dbk, d.C0140d.cp_bg_line_c);
-        aj.r(this.mTitle, d.C0140d.cp_cont_d);
-        aj.t(this.dbl, this.dbo);
+        aj.t(this, d.C0141d.cp_bg_line_d);
+        aj.t(this.daY, d.C0141d.cp_bg_line_c);
+        aj.r(this.mTitle, d.C0141d.cp_cont_d);
+        aj.t(this.daZ, this.dbc);
     }
 
     public void setTitleText(String str) {
         this.mTitle.setText(str);
     }
 
+    public void alU() {
+        if (this.daY.getVisibility() != 8) {
+            this.daY.setVisibility(8);
+        }
+    }
+
     public void alV() {
-        if (this.dbk.getVisibility() != 8) {
-            this.dbk.setVisibility(8);
+        if (this.daY.getVisibility() != 0) {
+            this.daY.setVisibility(0);
         }
     }
 
     public void alW() {
-        if (this.dbk.getVisibility() != 0) {
-            this.dbk.setVisibility(0);
-        }
-    }
-
-    public void alX() {
-        alV();
+        alU();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
-        if (this.dbl.getVisibility() != 0) {
-            this.dbl.setVisibility(0);
-            setDividerColor(dbn);
+        if (this.daZ.getVisibility() != 0) {
+            this.daZ.setVisibility(0);
+            setDividerColor(dbb);
         }
     }
 
-    public void x(String str, boolean z) {
+    public void w(String str, boolean z) {
         if (z) {
-            alW();
-        } else {
             alV();
+        } else {
+            alU();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);
@@ -97,18 +97,18 @@ public class CardGroupDividerView extends LinearLayout {
             this.mTitle.setVisibility(0);
             this.mTitle.setText(str);
         }
-        if (this.dbl.getVisibility() != 0) {
-            this.dbl.setVisibility(0);
-            setDividerColor(dbm);
+        if (this.daZ.getVisibility() != 0) {
+            this.daZ.setVisibility(0);
+            setDividerColor(dba);
         }
     }
 
     private void setDividerColor(int i) {
-        this.dbo = i;
-        aj.t(this.dbl, this.dbo);
+        this.dbc = i;
+        aj.t(this.daZ, this.dbc);
     }
 
     public View getBotttomLine() {
-        return this.dbl;
+        return this.daZ;
     }
 }

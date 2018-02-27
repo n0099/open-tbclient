@@ -3,7 +3,7 @@ package android.support.v4.graphics;
 import android.graphics.Color;
 /* loaded from: classes2.dex */
 public final class ColorUtils {
-    private static final ThreadLocal<double[]> wq = new ThreadLocal<>();
+    private static final ThreadLocal<double[]> wp = new ThreadLocal<>();
 
     private ColorUtils() {
     }
@@ -282,10 +282,10 @@ public final class ColorUtils {
     }
 
     private static double[] df() {
-        double[] dArr = wq.get();
+        double[] dArr = wp.get();
         if (dArr == null) {
             double[] dArr2 = new double[3];
-            wq.set(dArr2);
+            wp.set(dArr2);
             return dArr2;
         }
         return dArr;

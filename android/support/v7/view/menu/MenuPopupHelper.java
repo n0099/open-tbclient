@@ -16,15 +16,15 @@ import android.widget.PopupWindow;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class MenuPopupHelper {
-    private final int HP;
-    private final int HQ;
-    private final boolean HR;
-    private int HZ;
-    private boolean Ie;
-    private MenuPresenter.Callback Ig;
-    private PopupWindow.OnDismissListener Ii;
-    private e JD;
-    private final PopupWindow.OnDismissListener JE;
+    private final int HK;
+    private final int HL;
+    private final boolean HM;
+    private int HU;
+    private boolean HZ;
+    private MenuPresenter.Callback Ib;
+    private PopupWindow.OnDismissListener Id;
+    private e Jy;
+    private final PopupWindow.OnDismissListener Jz;
     private final Context mContext;
     private final MenuBuilder mMenu;
     private View oa;
@@ -42,8 +42,8 @@ public class MenuPopupHelper {
     }
 
     public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view, boolean z, int i, int i2) {
-        this.HZ = GravityCompat.START;
-        this.JE = new PopupWindow.OnDismissListener() { // from class: android.support.v7.view.menu.MenuPopupHelper.1
+        this.HU = GravityCompat.START;
+        this.Jz = new PopupWindow.OnDismissListener() { // from class: android.support.v7.view.menu.MenuPopupHelper.1
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 MenuPopupHelper.this.onDismiss();
@@ -52,13 +52,13 @@ public class MenuPopupHelper {
         this.mContext = context;
         this.mMenu = menuBuilder;
         this.oa = view;
-        this.HR = z;
-        this.HP = i;
-        this.HQ = i2;
+        this.HM = z;
+        this.HK = i;
+        this.HL = i2;
     }
 
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.Ii = onDismissListener;
+        this.Id = onDismissListener;
     }
 
     public void setAnchorView(View view) {
@@ -66,18 +66,18 @@ public class MenuPopupHelper {
     }
 
     public void setForceShowIcon(boolean z) {
-        this.Ie = z;
-        if (this.JD != null) {
-            this.JD.setForceShowIcon(z);
+        this.HZ = z;
+        if (this.Jy != null) {
+            this.Jy.setForceShowIcon(z);
         }
     }
 
     public void setGravity(int i) {
-        this.HZ = i;
+        this.HU = i;
     }
 
     public int getGravity() {
-        return this.HZ;
+        return this.HU;
     }
 
     public void show() {
@@ -93,10 +93,10 @@ public class MenuPopupHelper {
     }
 
     public e getPopup() {
-        if (this.JD == null) {
-            this.JD = fc();
+        if (this.Jy == null) {
+            this.Jy = fc();
         }
-        return this.JD;
+        return this.Jy;
     }
 
     public boolean tryShow() {
@@ -133,16 +133,16 @@ public class MenuPopupHelper {
             point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
         }
         if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_cascading_menus_min_smallest_width)) {
-            gVar = new CascadingMenuPopup(this.mContext, this.oa, this.HP, this.HQ, this.HR);
+            gVar = new CascadingMenuPopup(this.mContext, this.oa, this.HK, this.HL, this.HM);
         } else {
-            gVar = new g(this.mContext, this.mMenu, this.oa, this.HP, this.HQ, this.HR);
+            gVar = new g(this.mContext, this.mMenu, this.oa, this.HK, this.HL, this.HM);
         }
         gVar.c(this.mMenu);
-        gVar.setOnDismissListener(this.JE);
+        gVar.setOnDismissListener(this.Jz);
         gVar.setAnchorView(this.oa);
-        gVar.setCallback(this.Ig);
-        gVar.setForceShowIcon(this.Ie);
-        gVar.setGravity(this.HZ);
+        gVar.setCallback(this.Ib);
+        gVar.setForceShowIcon(this.HZ);
+        gVar.setGravity(this.HU);
         return gVar;
     }
 
@@ -150,7 +150,7 @@ public class MenuPopupHelper {
         e popup = getPopup();
         popup.setShowTitle(z2);
         if (z) {
-            if ((GravityCompat.getAbsoluteGravity(this.HZ, ViewCompat.getLayoutDirection(this.oa)) & 7) == 5) {
+            if ((GravityCompat.getAbsoluteGravity(this.HU, ViewCompat.getLayoutDirection(this.oa)) & 7) == 5) {
                 i -= this.oa.getWidth();
             }
             popup.setHorizontalOffset(i);
@@ -163,26 +163,26 @@ public class MenuPopupHelper {
 
     public void dismiss() {
         if (isShowing()) {
-            this.JD.dismiss();
+            this.Jy.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDismiss() {
-        this.JD = null;
-        if (this.Ii != null) {
-            this.Ii.onDismiss();
+        this.Jy = null;
+        if (this.Id != null) {
+            this.Id.onDismiss();
         }
     }
 
     public boolean isShowing() {
-        return this.JD != null && this.JD.isShowing();
+        return this.Jy != null && this.Jy.isShowing();
     }
 
     public void setPresenterCallback(MenuPresenter.Callback callback) {
-        this.Ig = callback;
-        if (this.JD != null) {
-            this.JD.setCallback(callback);
+        this.Ib = callback;
+        if (this.Jy != null) {
+            this.Jy.setCallback(callback);
         }
     }
 }

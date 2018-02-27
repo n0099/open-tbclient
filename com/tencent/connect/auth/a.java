@@ -2,6 +2,7 @@ package com.tencent.connect.auth;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -36,18 +37,17 @@ import com.tencent.connect.common.Constants;
 import com.tencent.open.a.f;
 import com.tencent.open.b.g;
 import com.tencent.open.utils.HttpUtils;
-import com.tencent.open.utils.i;
+import com.tencent.open.utils.j;
 import com.tencent.open.web.security.JniInterface;
 import com.tencent.open.web.security.SecureJsInterface;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends Dialog {
     private String a;
     private b b;
@@ -79,24 +79,6 @@ public class a extends Dialog {
         int i = aVar.n;
         aVar.n = i + 1;
         return i;
-    }
-
-    static {
-        try {
-            Context a = com.tencent.open.utils.d.a();
-            if (a != null) {
-                if (new File(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
-                    System.load(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
-                    f.c("openSDK_LOG.AuthDialog", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
-                } else {
-                    f.c("openSDK_LOG.AuthDialog", "-->fail, because so is not exists:" + AuthAgent.SECURE_LIB_NAME);
-                }
-            } else {
-                f.c("openSDK_LOG.AuthDialog", "-->load lib fail, because context is null:" + AuthAgent.SECURE_LIB_NAME);
-            }
-        } catch (Exception e) {
-            f.b("openSDK_LOG.AuthDialog", "-->load lib error:" + AuthAgent.SECURE_LIB_NAME, e);
-        }
     }
 
     public a(Context context, String str, String str2, IUiListener iUiListener, QQToken qQToken) {
@@ -136,7 +118,7 @@ public class a extends Dialog {
         super.onStop();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     private class c extends Handler {
         private b b;
 
@@ -163,7 +145,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     private class b implements IUiListener {
         String a;
         String b;
@@ -180,7 +162,7 @@ public class a extends Dialog {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str) {
             try {
-                onComplete(i.d(str));
+                onComplete(j.d(str));
             } catch (JSONException e) {
                 e.printStackTrace();
                 onError(new UiError(-4, Constants.MSG_JSON_ERROR, str));
@@ -228,16 +210,17 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0272a extends WebViewClient {
-        private C0272a() {
+    /* loaded from: classes2.dex */
+    public class C0273a extends WebViewClient {
+        private C0273a() {
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            Uri parse;
             f.a("openSDK_LOG.AuthDialog", "-->Redirect URL: " + str);
             if (str.startsWith("auth://browser")) {
-                JSONObject c = i.c(str);
+                JSONObject c = j.c(str);
                 a.this.m = a.this.e();
                 if (!a.this.m) {
                     if (c.optString("fail_cb", null) != null) {
@@ -255,7 +238,7 @@ public class a extends Dialog {
                 }
                 return true;
             } else if (str.startsWith("auth://tauth.qq.com/")) {
-                a.this.b.onComplete(i.c(str));
+                a.this.b.onComplete(j.c(str));
                 a.this.dismiss();
                 return true;
             } else if (str.startsWith(Constants.CANCEL_URI)) {
@@ -265,9 +248,14 @@ public class a extends Dialog {
             } else if (str.startsWith(Constants.CLOSE_URI)) {
                 a.this.dismiss();
                 return true;
-            } else if (str.startsWith(Constants.DOWNLOAD_URI)) {
+            } else if (str.startsWith(Constants.DOWNLOAD_URI) || str.endsWith(".apk")) {
                 try {
-                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(Uri.decode(str.substring(Constants.DOWNLOAD_URI.length()))));
+                    if (str.startsWith(Constants.DOWNLOAD_URI)) {
+                        parse = Uri.parse(Uri.decode(str.substring(Constants.DOWNLOAD_URI.length())));
+                    } else {
+                        parse = Uri.parse(Uri.decode(str));
+                    }
+                    Intent intent = new Intent("android.intent.action.VIEW", parse);
                     intent.addFlags(268435456);
                     a.this.k.startActivity(intent);
                 } catch (Exception e) {
@@ -313,7 +301,7 @@ public class a extends Dialog {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             f.c("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
-            if (!i.c(a.this.k)) {
+            if (!j.b(a.this.k)) {
                 a.this.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
                 a.this.dismiss();
             } else if (!a.this.o.startsWith("http://qzs.qq.com/open/mobile/login/qzsjump.html?")) {
@@ -365,14 +353,36 @@ public class a extends Dialog {
 
         @Override // android.webkit.WebViewClient
         @TargetApi(8)
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            sslErrorHandler.cancel();
-            a.this.b.onError(new UiError(sslError.getPrimaryError(), "请求不合法，请检查手机安全设置，如系统时间、代理等。", "ssl error"));
-            a.this.dismiss();
+        public void onReceivedSslError(WebView webView, final SslErrorHandler sslErrorHandler, SslError sslError) {
+            f.e("openSDK_LOG.AuthDialog", "-->onReceivedSslError " + sslError.getPrimaryError() + "请求不合法，请检查手机安全设置，如系统时间、代理等");
+            String str = "The SSL certificate is invalid,do you countinue?";
+            String str2 = "yes";
+            String str3 = "no";
+            if (Locale.getDefault().getLanguage().equals("zh")) {
+                str = "ssl证书无效，是否继续访问？";
+                str2 = "是";
+                str3 = "否";
+            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(a.this.k);
+            builder.setMessage(str);
+            builder.setPositiveButton(str2, new DialogInterface.OnClickListener() { // from class: com.tencent.connect.auth.a.a.2
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    sslErrorHandler.proceed();
+                }
+            });
+            builder.setNegativeButton(str3, new DialogInterface.OnClickListener() { // from class: com.tencent.connect.auth.a.a.3
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    sslErrorHandler.cancel();
+                    a.this.dismiss();
+                }
+            });
+            builder.create().show();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     class d implements Runnable {
         String a;
 
@@ -456,7 +466,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0272a());
+        this.j.setWebViewClient(new C0273a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
@@ -522,18 +532,18 @@ public class a extends Dialog {
         aVar.c = c2;
         String a2 = a.a(aVar);
         String substring = this.a.substring(0, this.a.indexOf("?"));
-        Bundle b2 = i.b(this.a);
+        Bundle b2 = j.b(this.a);
         b2.putString("token_key", c2);
         b2.putString("serial", a2);
         b2.putString(BeanConstants.CHANNEL_ID_BROWSER, "1");
         this.a = substring + "?" + HttpUtils.encodeUrl(b2);
-        return i.a(this.k, this.a);
+        return j.a(this.k, this.a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str) {
         try {
-            JSONObject d2 = i.d(str);
+            JSONObject d2 = j.d(str);
             int i = d2.getInt("type");
             Toast.makeText(context.getApplicationContext(), d2.getString("msg"), i).show();
         } catch (JSONException e) {

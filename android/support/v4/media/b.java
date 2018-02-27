@@ -23,22 +23,22 @@ class b {
     /* renamed from: android.support.v4.media.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     static class C0004b<T extends a> extends MediaBrowser.ItemCallback {
-        protected final T xF;
+        protected final T xA;
 
         public C0004b(T t) {
-            this.xF = t;
+            this.xA = t;
         }
 
         @Override // android.media.browse.MediaBrowser.ItemCallback
         public void onItemLoaded(MediaBrowser.MediaItem mediaItem) {
             Parcel obtain = Parcel.obtain();
             mediaItem.writeToParcel(obtain, 0);
-            this.xF.c(obtain);
+            this.xA.c(obtain);
         }
 
         @Override // android.media.browse.MediaBrowser.ItemCallback
         public void onError(String str) {
-            this.xF.onError(str);
+            this.xA.onError(str);
         }
     }
 }

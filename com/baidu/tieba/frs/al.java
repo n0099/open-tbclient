@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface al {
-    void XL();
+    void XK();
 
-    void auF();
+    void auE();
 }

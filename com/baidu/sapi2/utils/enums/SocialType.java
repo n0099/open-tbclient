@@ -1,15 +1,11 @@
 package com.baidu.sapi2.utils.enums;
-
-import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
     SINA_WEIBO(2, "新浪微博"),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
     TENCENT_WEIBO(4, "腾讯微博"),
-    QZONE(15, "QQ空间"),
-    QQ(15, Constants.SOURCE_QQ),
-    QQ_SSO(-15, Constants.SOURCE_QQ),
+    QQ_SSO(15, "QQ_SSO"),
     WEIXIN(42, "微信"),
     HUAWEI(45, "华为"),
     WANDA_FEIFAN(46, "万达飞凡"),
@@ -43,7 +39,7 @@ public enum SocialType {
             case 4:
                 return TENCENT_WEIBO;
             case 15:
-                return QQ;
+                return QQ_SSO;
             case 42:
                 return WEIXIN;
             case 45:

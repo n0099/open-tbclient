@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private b gnq;
+    private b gnf;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityGingerbread, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.person_new_fragment_view);
-        this.gnq = new b();
+        this.gnf = new b();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.gnq.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.gnq).commit();
+        this.gnf.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.g.fragment_container, this.gnf).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.gnq != null) {
-            this.gnq.onChangeSkinType(i);
+        if (this.gnf != null) {
+            this.gnf.onChangeSkinType(i);
         }
     }
 
@@ -39,15 +39,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gnq != null) {
-            this.gnq.onActivityResult(i, i2, intent);
+        if (this.gnf != null) {
+            this.gnf.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.gnq != null) {
-            return this.gnq.getVoiceManager();
+        if (this.gnf != null) {
+            return this.gnf.getVoiceManager();
         }
         return null;
     }

@@ -11,36 +11,36 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class d extends BaseFragment implements al {
     private static final String TAG = d.class.getSimpleName();
-    private BdSwipeRefreshLayout ceb;
-    private View dDV;
-    private RecyclerView dDW;
+    private BdSwipeRefreshLayout cdP;
+    private View dDJ;
+    private RecyclerView dDK;
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.dDV != null && this.dDV.getParent() != null) {
-            ((ViewGroup) this.dDV.getParent()).removeView(this.dDV);
+        if (this.dDJ != null && this.dDJ.getParent() != null) {
+            ((ViewGroup) this.dDJ.getParent()).removeView(this.dDJ);
         }
-        return this.dDV;
+        return this.dDJ;
     }
 
     public void setView(View view) {
-        this.dDV = view;
-        this.dDW = (RecyclerView) this.dDV.findViewById(d.g.frs_lv_thread);
-        this.ceb = (BdSwipeRefreshLayout) this.dDV.findViewById(d.g.frs_pull_refresh_layout);
+        this.dDJ = view;
+        this.dDK = (RecyclerView) this.dDJ.findViewById(d.g.frs_lv_thread);
+        this.cdP = (BdSwipeRefreshLayout) this.dDJ.findViewById(d.g.frs_pull_refresh_layout);
     }
 
     @Override // com.baidu.tieba.frs.al
-    public void auF() {
-        if (this.dDW != null) {
-            this.dDW.scrollToPosition(0);
+    public void auE() {
+        if (this.dDK != null) {
+            this.dDK.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.al
-    public void XL() {
-        if (this.ceb != null) {
-            auF();
-            this.ceb.setRefreshing(true);
+    public void XK() {
+        if (this.cdP != null) {
+            auE();
+            this.cdP.setRefreshing(true);
         }
     }
 }

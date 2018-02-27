@@ -31,8 +31,8 @@ public class PersonInfoActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        WM();
-        aw.Du().a(new aw.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
+        WL();
+        aw.Dt().a(new aw.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -48,7 +48,7 @@ public class PersonInfoActivityStatic {
         });
     }
 
-    private static void WM() {
+    private static void WL() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }

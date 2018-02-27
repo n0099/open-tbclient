@@ -6,6 +6,6 @@ import android.view.ViewGroup;
 class y extends x {
     @Override // android.support.b.x
     public void a(ViewGroup viewGroup, q qVar) {
-        TransitionManager.beginDelayedTransition(viewGroup, qVar == null ? null : ((t) qVar).uY);
+        TransitionManager.beginDelayedTransition(viewGroup, qVar == null ? null : ((t) qVar).uX);
     }
 }

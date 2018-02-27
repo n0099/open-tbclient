@@ -7,38 +7,38 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 /* loaded from: classes3.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.a {
-    private e gNH;
-    private MsgRemindModel gNI;
-    private MsgRemindModel.a gNJ = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
+    private e gNs;
+    private MsgRemindModel gNt;
+    private MsgRemindModel.a gNu = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void d(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gNH.bre().rI();
-                        MsgReceiveActivity.this.gNH.mk(false);
-                        MsgReceiveActivity.this.gNH.mj(false);
+                        MsgReceiveActivity.this.gNs.brd().rI();
+                        MsgReceiveActivity.this.gNs.mk(false);
+                        MsgReceiveActivity.this.gNs.mj(false);
                         return;
                     }
-                    MsgReceiveActivity.this.gNH.bre().rH();
-                    MsgReceiveActivity.this.gNH.mk(true);
-                    MsgReceiveActivity.this.gNH.mj(true);
+                    MsgReceiveActivity.this.gNs.brd().rH();
+                    MsgReceiveActivity.this.gNs.mk(true);
+                    MsgReceiveActivity.this.gNs.mj(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.gNH.brf().rI();
+                        MsgReceiveActivity.this.gNs.bre().rI();
                     } else {
-                        MsgReceiveActivity.this.gNH.brf().rH();
+                        MsgReceiveActivity.this.gNs.bre().rH();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.Hq().bR(z2);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.Hp().bR(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.gNH.brg().rI();
+                    MsgReceiveActivity.this.gNs.brf().rI();
                 } else {
-                    MsgReceiveActivity.this.gNH.brg().rH();
+                    MsgReceiveActivity.this.gNs.brf().rH();
                 }
             }
         }
@@ -48,39 +48,39 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gNH = new e(this);
-        this.gNH.init();
-        this.gNI = new MsgRemindModel(this);
+        this.gNs = new e(this);
+        this.gNs.init();
+        this.gNt = new MsgRemindModel(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gNH.aKu()) {
+        if (view == this.gNs.aKt()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.gNH.bre()) {
+        if (view == this.gNs.brd()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.gNI.a(8, true, this.gNJ);
-                this.gNH.mk(true);
-                this.gNH.mj(true);
+                this.gNt.a(8, true, this.gNu);
+                this.gNs.mk(true);
+                this.gNs.mj(true);
                 return;
             }
-            this.gNI.a(8, false, this.gNJ);
-            this.gNH.mk(false);
-            this.gNH.mj(false);
-        } else if (view == this.gNH.brf()) {
+            this.gNt.a(8, false, this.gNu);
+            this.gNs.mk(false);
+            this.gNs.mj(false);
+        } else if (view == this.gNs.bre()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.gNI.a(9, true, this.gNJ);
+                this.gNt.a(9, true, this.gNu);
             } else {
-                this.gNI.a(9, false, this.gNJ);
+                this.gNt.a(9, false, this.gNu);
             }
-        } else if (view == this.gNH.brg()) {
-            this.gNI.a(7, switchState == BdSwitchView.SwitchState.OFF, this.gNJ);
+        } else if (view == this.gNs.brf()) {
+            this.gNt.a(7, switchState == BdSwitchView.SwitchState.OFF, this.gNu);
         }
     }
 
@@ -88,6 +88,6 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gNH.onChangeSkinType(i);
+        this.gNs.onChangeSkinType(i);
     }
 }

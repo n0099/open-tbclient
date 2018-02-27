@@ -13,8 +13,8 @@ import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements BdSwitchView.a, RecommendDetailModel.a {
-    private b eMc;
-    private RecommendDetailModel eMd;
+    private b eLQ;
+    private RecommendDetailModel eLR;
     private long mUserId;
     private String mUserName;
 
@@ -22,11 +22,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eMc = new b(this);
-        this.eMd = new RecommendDetailModel(getPageContext(), this);
+        this.eLQ = new b(this);
+        this.eLR = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
-        this.eMc.nK(this.mUserName);
-        this.eMd.ce(this.mUserId);
+        this.eLQ.nK(this.mUserName);
+        this.eLR.ce(this.mUserId);
     }
 
     private void initData(Bundle bundle) {
@@ -53,8 +53,8 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eMc != null) {
-            this.eMc.onChangeSkinType(i);
+        if (this.eLQ != null) {
+            this.eLQ.onChangeSkinType(i);
         }
     }
 
@@ -63,29 +63,29 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.eMc != null && this.eMd != null && this.eMd.aLL() && !this.eMd.aLK()) {
+        if (this.eLQ != null && this.eLR != null && this.eLR.aLK() && !this.eLR.aLJ()) {
             if (l.pa()) {
-                this.eMc.lc(d.j.no_data_text);
+                this.eLQ.lc(d.j.no_data_text);
             } else {
-                this.eMc.lc(d.j.game_index_no_network_text);
+                this.eLQ.lc(d.j.game_index_no_network_text);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.a
     public void a(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (this.eMc != null && userInfoBigVip != null) {
-            this.eMc.hideNoDataView();
-            this.eMc.b(userInfoBigVip, z);
+        if (this.eLQ != null && userInfoBigVip != null) {
+            this.eLQ.hideNoDataView();
+            this.eLQ.b(userInfoBigVip, z);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.OFF) {
-            this.eMd.hT(false);
+            this.eLR.hT(false);
         } else {
-            this.eMd.hT(true);
+            this.eLR.hT(true);
         }
     }
 
@@ -99,7 +99,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailActivity.1
             @Override // java.lang.Runnable
             public void run() {
-                RecommendDetailActivity.this.eMc.setSwitch(false);
+                RecommendDetailActivity.this.eLQ.setSwitch(false);
             }
         }, 500L);
     }
@@ -114,7 +114,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailActivity.2
             @Override // java.lang.Runnable
             public void run() {
-                RecommendDetailActivity.this.eMc.setSwitch(true);
+                RecommendDetailActivity.this.eLQ.setSwitch(true);
             }
         }, 500L);
     }

@@ -30,7 +30,7 @@ public class b {
                 if ((iVar instanceof q) && (iVar2 instanceof q)) {
                     q qVar = (q) iVar;
                     q qVar2 = (q) iVar2;
-                    if (qVar.alG()) {
+                    if (qVar.alF()) {
                         qVar2.eQ(false);
                         if (qVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             qVar.eR(false);
@@ -50,7 +50,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<i> list) {
         com.baidu.tieba.card.data.c cVar;
-        bd WE;
+        bd WD;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             HashMap hashMap = new HashMap();
@@ -62,7 +62,7 @@ public class b {
             int D = v.D(list);
             for (int i = 0; i < D; i++) {
                 i iVar = (i) v.f(list, i);
-                if ((iVar instanceof com.baidu.tieba.card.data.c) && (WE = (cVar = (com.baidu.tieba.card.data.c) iVar).WE()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(WE.getTid(), 0L)))) != null) {
+                if ((iVar instanceof com.baidu.tieba.card.data.c) && (WD = (cVar = (com.baidu.tieba.card.data.c) iVar).WD()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(WD.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
                     cVar.kv(threadPersonalized.abtest_tag);
@@ -72,7 +72,7 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
-                        cVar.aNr = sparseArray;
+                        cVar.aNg = sparseArray;
                         cVar.setExtra(threadPersonalized.extra);
                     }
                 }

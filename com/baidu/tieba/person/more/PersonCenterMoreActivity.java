@@ -17,36 +17,36 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b giK;
-    private Bundle giL;
-    private e giM;
+    private Bundle giA;
+    private e giB;
+    private b giz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.giL = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.giA = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(d.h.person_center_more_layout);
-        this.giK = new b(getPageContext(), this.giL, new v<e>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.giz = new b(getPageContext(), this.giA, new v<e>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, e eVar) {
-                PersonCenterMoreActivity.this.giM = eVar;
-                if (PersonCenterMoreActivity.this.giM != null && !PersonCenterMoreActivity.this.adh()) {
-                    PersonCenterMoreActivity.this.qT(PersonCenterMoreActivity.this.giM.eco);
+                PersonCenterMoreActivity.this.giB = eVar;
+                if (PersonCenterMoreActivity.this.giB != null && !PersonCenterMoreActivity.this.adg()) {
+                    PersonCenterMoreActivity.this.qT(PersonCenterMoreActivity.this.giB.ecc);
                 }
             }
         });
-        this.giK.initView();
+        this.giz.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean adh() {
+    public boolean adg() {
         Activity pageActivity = getPageContext().getPageActivity();
         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-        aVar.DI();
+        aVar.DH();
         aVar.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
         return aVar.v(pageActivity);
     }
@@ -54,7 +54,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            qT(this.giM.eco);
+            qT(this.giB.ecc);
         }
     }
 
@@ -65,7 +65,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     l.showToast(getPageContext().getPageActivity(), d.j.cosume_record_plugin_not_install_tip);
                     return;
                 }
-                aw.Du().c(getPageContext(), new String[]{str.substring("tieba&".length())});
+                aw.Dt().c(getPageContext(), new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith("http:") || str.startsWith("https:")) {
                 com.baidu.tbadk.browser.b.b(getPageContext().getPageActivity(), true, str);
             } else {
@@ -80,9 +80,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (str.startsWith("tieba&")) {
                 qS(str);
             } else if (str.startsWith("nohead:url")) {
-                aw.Du().c(getPageContext(), new String[]{str.replaceFirst("nohead:url=", "") + (str.contains("?") ? "&" : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
+                aw.Dt().c(getPageContext(), new String[]{str.replaceFirst("nohead:url=", "") + (str.contains("?") ? "&" : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {
-                aw.Du().c(getPageContext(), new String[]{str});
+                aw.Dt().c(getPageContext(), new String[]{str});
             }
         }
     }

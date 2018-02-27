@@ -29,12 +29,12 @@ import com.baidu.tieba.im.util.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivity> implements TextWatcher, CompoundButton.OnCheckedChangeListener, b.a {
-    AddGroupModel eAe;
-    k eAd = null;
+    AddGroupModel ezS;
+    k ezR = null;
     private int sourceFrom = 1014;
-    private final GroupAddressInfoData eAf = new GroupAddressInfoData();
-    private int eAg = 0;
-    private final com.baidu.adp.framework.listener.c eAh = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
+    private final GroupAddressInfoData ezT = new GroupAddressInfoData();
+    private int ezU = 0;
+    private final com.baidu.adp.framework.listener.c ezV = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -68,8 +68,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onCreate(Bundle bundle) {
         int i = 3;
         super.onCreate(bundle);
-        this.eAe = new AddGroupModel(this);
-        this.eAe.setUniqueId(getUniqueId());
+        this.ezS = new AddGroupModel(this);
+        this.ezS.setUniqueId(getUniqueId());
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra(CreateGroupStepActivityConfig.GROUP_TYPE, 3);
         int intExtra2 = intent.getIntExtra("forumid", 0);
@@ -79,15 +79,15 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
         } else if (intExtra == 3) {
             i = 2;
         }
-        this.eAd = new k(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
-        this.eAd.ca(intExtra, intExtra2);
+        this.ezR = new k(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
+        this.ezR.ca(intExtra, intExtra2);
         adjustResizeForSoftInput();
         initListener();
         TiebaStatic.eventStat(getPageContext().getContext(), "create_g_pv", "pv", 1, new Object[0]);
     }
 
     private void initListener() {
-        registerListener(103101, this.eAh);
+        registerListener(103101, this.ezV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,7 +103,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eAd.onChangeSkinType(i);
+        this.ezR.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -111,26 +111,26 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.eAd.aGB();
-            this.eAd.aHs();
+            this.ezR.aGA();
+            this.ezR.aHr();
         } else if (i2 == -1) {
             switch (i) {
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN /* 12001 */:
                     sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), (int) IEventCenterService.EventId.EventMode.SAPIACCOUNT_DYNAMICPWD_LOGIN, (int) IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT, (Uri) null, TbadkApplication.getCurrentAccountObj(), 1, 1.0f)));
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK /* 12002 */:
-                    this.eAd.O(intent);
+                    this.ezR.O(intent);
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_DYNAMIC_PWD /* 12009 */:
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT /* 12010 */:
-                    this.eAd.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
-                    this.eAd.aHr();
-                    this.eAd.aHq();
+                    this.ezR.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
+                    this.ezR.aHq();
+                    this.ezR.aHp();
                     return;
                 case 21001:
-                    this.eAd.setBusiness(intent.getStringExtra("Selected_Business"));
-                    this.eAd.hn(intent.getBooleanExtra("Hidden_Address_Flag", false));
-                    this.eAg = this.eAf.getAddressList().indexOf(this.eAd.getBusiness());
+                    this.ezR.setBusiness(intent.getStringExtra("Selected_Business"));
+                    this.ezR.hn(intent.getBooleanExtra("Hidden_Address_Flag", false));
+                    this.ezU = this.ezT.getAddressList().indexOf(this.ezR.getBusiness());
                     return;
                 default:
                     return;
@@ -157,73 +157,73 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.eAd.aHc().setEnabled(!z);
-        this.eAd.setIsLoading(z);
+        this.ezR.aHb().setEnabled(!z);
+        this.ezR.setIsLoading(z);
     }
 
     private void back() {
-        if (this.eAd.aHb() == 1) {
+        if (this.ezR.aHa() == 1) {
             finish();
         } else {
-            this.eAd.aHw();
+            this.ezR.aHv();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eAd.aHa()) {
+        if (view == this.ezR.aGZ()) {
             back();
-        } else if (view == this.eAd.aHc()) {
+        } else if (view == this.ezR.aHb()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.eAd.aHu()) {
-                String errMsg = this.eAd.getErrMsg();
+            if (!this.ezR.aHt()) {
+                String errMsg = this.ezR.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.eAd.aHp()) {
-                if (!this.eAd.aHg()) {
+            } else if (this.ezR.aHo()) {
+                if (!this.ezR.aHf()) {
                     setIsLoading(true);
-                    this.eAe.setForumId(this.eAd.getForumId());
-                    this.eAe.setName(this.eAd.getName());
-                    this.eAe.setIntro(this.eAd.getIntro());
-                    this.eAe.setGroupType(this.eAd.getGroupType());
-                    this.eAe.setPortrait(this.eAd.getPortrait());
-                    this.eAe.setPosition(this.eAd.aHh());
-                    this.eAe.setBusiness(this.eAd.getBusiness());
-                    this.eAe.setLng(this.eAd.aGY());
-                    this.eAe.setLat(this.eAd.aGZ());
-                    this.eAe.setSourceFrom(this.sourceFrom);
-                    this.eAe.setFlag(this.eAd.aHi() ? 1 : 0);
-                    this.eAe.sendMessage();
+                    this.ezS.setForumId(this.ezR.getForumId());
+                    this.ezS.setName(this.ezR.getName());
+                    this.ezS.setIntro(this.ezR.getIntro());
+                    this.ezS.setGroupType(this.ezR.getGroupType());
+                    this.ezS.setPortrait(this.ezR.getPortrait());
+                    this.ezS.setPosition(this.ezR.aHg());
+                    this.ezS.setBusiness(this.ezR.getBusiness());
+                    this.ezS.setLng(this.ezR.aGX());
+                    this.ezS.setLat(this.ezR.aGY());
+                    this.ezS.setSourceFrom(this.sourceFrom);
+                    this.ezS.setFlag(this.ezR.aHh() ? 1 : 0);
+                    this.ezS.sendMessage();
                 }
             } else {
-                this.eAd.aHx();
+                this.ezR.aHw();
             }
-        } else if (this.eAd.aHd() == view) {
-            this.eAd.aHx();
-        } else if (view == this.eAd.aHe() || view == this.eAd.aHf()) {
-            this.eAd.aHz();
-        } else if (view == this.eAd.aHj()) {
+        } else if (this.ezR.aHc() == view) {
+            this.ezR.aHw();
+        } else if (view == this.ezR.aHd() || view == this.ezR.aHe()) {
+            this.ezR.aHy();
+        } else if (view == this.ezR.aHi()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.eAd.aGA()) {
+            switch (this.ezR.aGz()) {
                 case 0:
-                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.eAf.getAddressList(), this.eAg, this.eAd.aHi())));
+                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.ezT.getAddressList(), this.ezU, this.ezR.aHh())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.eAd.aGB();
-                    this.eAd.aHs();
+                    this.ezR.aGA();
+                    this.ezR.aHr();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.eAd.aHk()) {
-            this.eAd.clearText();
+        } else if (view == this.ezR.aHj()) {
+            this.ezR.clearText();
         }
     }
 
@@ -233,7 +233,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.eAd.aHC();
+        this.ezR.aHB();
     }
 
     @Override // android.text.TextWatcher
@@ -248,32 +248,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eAe.cancelMessage();
-        this.eAd.aHt();
+        this.ezS.cancelMessage();
+        this.ezR.aHs();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.eAd.mV(String.valueOf(d));
-        this.eAd.mU(String.valueOf(d2));
-        this.eAd.mW(str);
+        this.ezR.mV(String.valueOf(d));
+        this.ezR.mU(String.valueOf(d2));
+        this.ezR.mW(str);
         if (list != null && list.size() > 0) {
             for (String str2 : list) {
-                this.eAf.addAddress(str2);
+                this.ezT.addAddress(str2);
             }
-            this.eAd.setBusiness(list.get(0));
+            this.ezR.setBusiness(list.get(0));
             return;
         }
-        this.eAd.mX(str);
+        this.ezR.mX(str);
+    }
+
+    @Override // com.baidu.tieba.im.util.b.a
+    public void aGV() {
+        this.ezR.aGC();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
     public void aGW() {
-        this.eAd.aGD();
-    }
-
-    @Override // com.baidu.tieba.im.util.b.a
-    public void aGX() {
-        this.eAd.aGC();
+        this.ezR.aGB();
     }
 }

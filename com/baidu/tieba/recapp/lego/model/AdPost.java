@@ -76,7 +76,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.uq(i);
+            return this.adData.ur(i);
         }
         return 0;
     }

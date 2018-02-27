@@ -11,46 +11,46 @@ import java.util.ArrayList;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class MenuAdapter extends BaseAdapter {
-    static final int II = R.layout.abc_popup_menu_item_layout;
-    private final boolean HR;
-    private int IG = -1;
-    MenuBuilder IJ;
-    private boolean Ie;
+    static final int IC = R.layout.abc_popup_menu_item_layout;
+    private final boolean HM;
+    private boolean HZ;
+    private int IA = -1;
+    MenuBuilder IE;
     private final LayoutInflater mInflater;
 
     public MenuAdapter(MenuBuilder menuBuilder, LayoutInflater layoutInflater, boolean z) {
-        this.HR = z;
+        this.HM = z;
         this.mInflater = layoutInflater;
-        this.IJ = menuBuilder;
+        this.IE = menuBuilder;
         eV();
     }
 
     public boolean getForceShowIcon() {
-        return this.Ie;
+        return this.HZ;
     }
 
     public void setForceShowIcon(boolean z) {
-        this.Ie = z;
+        this.HZ = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<MenuItemImpl> nonActionItems = this.HR ? this.IJ.getNonActionItems() : this.IJ.getVisibleItems();
-        if (this.IG < 0) {
+        ArrayList<MenuItemImpl> nonActionItems = this.HM ? this.IE.getNonActionItems() : this.IE.getVisibleItems();
+        if (this.IA < 0) {
             return nonActionItems.size();
         }
         return nonActionItems.size() - 1;
     }
 
     public MenuBuilder getAdapterMenu() {
-        return this.IJ;
+        return this.IE;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public MenuItemImpl getItem(int i) {
-        ArrayList<MenuItemImpl> nonActionItems = this.HR ? this.IJ.getNonActionItems() : this.IJ.getVisibleItems();
-        if (this.IG >= 0 && i >= this.IG) {
+        ArrayList<MenuItemImpl> nonActionItems = this.HM ? this.IE.getNonActionItems() : this.IE.getVisibleItems();
+        if (this.IA >= 0 && i >= this.IA) {
             i++;
         }
         return nonActionItems.get(i);
@@ -63,9 +63,9 @@ public class MenuAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = view == null ? this.mInflater.inflate(II, viewGroup, false) : view;
+        View inflate = view == null ? this.mInflater.inflate(IC, viewGroup, false) : view;
         MenuView.ItemView itemView = (MenuView.ItemView) inflate;
-        if (this.Ie) {
+        if (this.HZ) {
             ((ListMenuItemView) inflate).setForceShowIcon(true);
         }
         itemView.initialize(getItem(i), 0);
@@ -73,18 +73,18 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     void eV() {
-        MenuItemImpl expandedItem = this.IJ.getExpandedItem();
+        MenuItemImpl expandedItem = this.IE.getExpandedItem();
         if (expandedItem != null) {
-            ArrayList<MenuItemImpl> nonActionItems = this.IJ.getNonActionItems();
+            ArrayList<MenuItemImpl> nonActionItems = this.IE.getNonActionItems();
             int size = nonActionItems.size();
             for (int i = 0; i < size; i++) {
                 if (nonActionItems.get(i) == expandedItem) {
-                    this.IG = i;
+                    this.IA = i;
                     return;
                 }
             }
         }
-        this.IG = -1;
+        this.IA = -1;
     }
 
     @Override // android.widget.BaseAdapter

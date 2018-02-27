@@ -20,17 +20,17 @@ import android.widget.TextView;
 @RestrictTo
 /* loaded from: classes2.dex */
 public class ActionBarContextView extends AbsActionBarView {
-    private View Kc;
-    private LinearLayout Kd;
-    private TextView Ke;
-    private int Kf;
-    private int Kg;
-    private boolean Kh;
-    private int Ki;
+    private View JX;
+    private LinearLayout JY;
+    private TextView JZ;
+    private int Ka;
+    private int Kb;
+    private boolean Kc;
+    private int Kd;
     private View mCustomView;
     private CharSequence mTitle;
     private TextView mTitleView;
-    private CharSequence yl;
+    private CharSequence yg;
 
     @Override // android.support.v7.widget.AbsActionBarView
     public /* bridge */ /* synthetic */ void animateToVisibility(int i) {
@@ -104,10 +104,10 @@ public class ActionBarContextView extends AbsActionBarView {
         super(context, attributeSet, i);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.ActionMode, i, 0);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.ActionMode_background));
-        this.Kf = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
-        this.Kg = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);
+        this.Ka = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
+        this.Kb = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);
         this.mContentHeight = obtainStyledAttributes.getLayoutDimension(R.styleable.ActionMode_height, 0);
-        this.Ki = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_closeItemLayout, R.layout.abc_action_mode_close_item_material);
+        this.Kd = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_closeItemLayout, R.layout.abc_action_mode_close_item_material);
         obtainStyledAttributes.recycle();
     }
 
@@ -130,9 +130,9 @@ public class ActionBarContextView extends AbsActionBarView {
             removeView(this.mCustomView);
         }
         this.mCustomView = view;
-        if (view != null && this.Kd != null) {
-            removeView(this.Kd);
-            this.Kd = null;
+        if (view != null && this.JY != null) {
+            removeView(this.JY);
+            this.JY = null;
         }
         if (view != null) {
             addView(view);
@@ -146,7 +146,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public void setSubtitle(CharSequence charSequence) {
-        this.yl = charSequence;
+        this.yg = charSequence;
         fe();
     }
 
@@ -155,46 +155,46 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public CharSequence getSubtitle() {
-        return this.yl;
+        return this.yg;
     }
 
     private void fe() {
         int i = 8;
-        if (this.Kd == null) {
+        if (this.JY == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.abc_action_bar_title_item, this);
-            this.Kd = (LinearLayout) getChildAt(getChildCount() - 1);
-            this.mTitleView = (TextView) this.Kd.findViewById(R.id.action_bar_title);
-            this.Ke = (TextView) this.Kd.findViewById(R.id.action_bar_subtitle);
-            if (this.Kf != 0) {
-                this.mTitleView.setTextAppearance(getContext(), this.Kf);
+            this.JY = (LinearLayout) getChildAt(getChildCount() - 1);
+            this.mTitleView = (TextView) this.JY.findViewById(R.id.action_bar_title);
+            this.JZ = (TextView) this.JY.findViewById(R.id.action_bar_subtitle);
+            if (this.Ka != 0) {
+                this.mTitleView.setTextAppearance(getContext(), this.Ka);
             }
-            if (this.Kg != 0) {
-                this.Ke.setTextAppearance(getContext(), this.Kg);
+            if (this.Kb != 0) {
+                this.JZ.setTextAppearance(getContext(), this.Kb);
             }
         }
         this.mTitleView.setText(this.mTitle);
-        this.Ke.setText(this.yl);
+        this.JZ.setText(this.yg);
         boolean z = !TextUtils.isEmpty(this.mTitle);
-        boolean z2 = TextUtils.isEmpty(this.yl) ? false : true;
-        this.Ke.setVisibility(z2 ? 0 : 8);
-        LinearLayout linearLayout = this.Kd;
+        boolean z2 = TextUtils.isEmpty(this.yg) ? false : true;
+        this.JZ.setVisibility(z2 ? 0 : 8);
+        LinearLayout linearLayout = this.JY;
         if (z || z2) {
             i = 0;
         }
         linearLayout.setVisibility(i);
-        if (this.Kd.getParent() == null) {
-            addView(this.Kd);
+        if (this.JY.getParent() == null) {
+            addView(this.JY);
         }
     }
 
     public void initForMode(final ActionMode actionMode) {
-        if (this.Kc == null) {
-            this.Kc = LayoutInflater.from(getContext()).inflate(this.Ki, (ViewGroup) this, false);
-            addView(this.Kc);
-        } else if (this.Kc.getParent() == null) {
-            addView(this.Kc);
+        if (this.JX == null) {
+            this.JX = LayoutInflater.from(getContext()).inflate(this.Kd, (ViewGroup) this, false);
+            addView(this.JX);
+        } else if (this.JX.getParent() == null) {
+            addView(this.JX);
         }
-        this.Kc.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
+        this.JX.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 actionMode.finish();
@@ -214,7 +214,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public void closeMode() {
-        if (this.Kc == null) {
+        if (this.JX == null) {
             killMode();
         }
     }
@@ -274,25 +274,25 @@ public class ActionBarContextView extends AbsActionBarView {
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
         int i4 = size2 - paddingTop;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
-        if (this.Kc != null) {
-            int measureChildView = measureChildView(this.Kc, paddingLeft, makeMeasureSpec, 0);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.Kc.getLayoutParams();
+        if (this.JX != null) {
+            int measureChildView = measureChildView(this.JX, paddingLeft, makeMeasureSpec, 0);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.JX.getLayoutParams();
             paddingLeft = measureChildView - (marginLayoutParams.rightMargin + marginLayoutParams.leftMargin);
         }
         if (this.mMenuView != null && this.mMenuView.getParent() == this) {
             paddingLeft = measureChildView(this.mMenuView, paddingLeft, makeMeasureSpec, 0);
         }
-        if (this.Kd != null && this.mCustomView == null) {
-            if (this.Kh) {
-                this.Kd.measure(View.MeasureSpec.makeMeasureSpec(0, 0), makeMeasureSpec);
-                int measuredWidth = this.Kd.getMeasuredWidth();
+        if (this.JY != null && this.mCustomView == null) {
+            if (this.Kc) {
+                this.JY.measure(View.MeasureSpec.makeMeasureSpec(0, 0), makeMeasureSpec);
+                int measuredWidth = this.JY.getMeasuredWidth();
                 boolean z = measuredWidth <= paddingLeft;
                 if (z) {
                     paddingLeft -= measuredWidth;
                 }
-                this.Kd.setVisibility(z ? 0 : 8);
+                this.JY.setVisibility(z ? 0 : 8);
             } else {
-                paddingLeft = measureChildView(this.Kd, paddingLeft, makeMeasureSpec, 0);
+                paddingLeft = measureChildView(this.JY, paddingLeft, makeMeasureSpec, 0);
             }
         }
         if (this.mCustomView != null) {
@@ -327,17 +327,17 @@ public class ActionBarContextView extends AbsActionBarView {
         int paddingRight = isLayoutRtl ? (i3 - i) - getPaddingRight() : getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingTop2 = ((i4 - i2) - getPaddingTop()) - getPaddingBottom();
-        if (this.Kc == null || this.Kc.getVisibility() == 8) {
+        if (this.JX == null || this.JX.getVisibility() == 8) {
             i5 = paddingRight;
         } else {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.Kc.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.JX.getLayoutParams();
             int i6 = isLayoutRtl ? marginLayoutParams.rightMargin : marginLayoutParams.leftMargin;
             int i7 = isLayoutRtl ? marginLayoutParams.leftMargin : marginLayoutParams.rightMargin;
             int next = next(paddingRight, i6, isLayoutRtl);
-            i5 = next(positionChild(this.Kc, next, paddingTop, paddingTop2, isLayoutRtl) + next, i7, isLayoutRtl);
+            i5 = next(positionChild(this.JX, next, paddingTop, paddingTop2, isLayoutRtl) + next, i7, isLayoutRtl);
         }
-        if (this.Kd != null && this.mCustomView == null && this.Kd.getVisibility() != 8) {
-            i5 += positionChild(this.Kd, i5, paddingTop, paddingTop2, isLayoutRtl);
+        if (this.JY != null && this.mCustomView == null && this.JY.getVisibility() != 8) {
+            i5 += positionChild(this.JY, i5, paddingTop, paddingTop2, isLayoutRtl);
         }
         if (this.mCustomView != null) {
             int positionChild = positionChild(this.mCustomView, i5, paddingTop, paddingTop2, isLayoutRtl) + i5;
@@ -368,13 +368,13 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     public void setTitleOptional(boolean z) {
-        if (z != this.Kh) {
+        if (z != this.Kc) {
             requestLayout();
         }
-        this.Kh = z;
+        this.Kc = z;
     }
 
     public boolean isTitleOptional() {
-        return this.Kh;
+        return this.Kc;
     }
 }

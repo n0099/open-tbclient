@@ -8,31 +8,31 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class k extends c {
     public bd threadData;
-    public static String cZY = "";
-    public static String cZZ = "";
-    public static String daa = "";
-    public static String dab = "";
-    public static String dac = "";
-    public static String dad = "";
-    public static String dae = "";
-    public static String daf = "";
-    public static String dag = "";
-    public static String dah = "";
-    public static String dai = "";
+    public static String cZM = "";
+    public static String cZN = "";
+    public static String cZO = "";
+    public static String cZP = "";
+    public static String cZQ = "";
+    public static String cZR = "";
+    public static String cZS = "";
+    public static String cZT = "";
+    public static String cZU = "";
+    public static String cZV = "";
+    public static String cZW = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId daj = BdUniqueId.gen();
-    public static final BdUniqueId aOv = BdUniqueId.gen();
-    public static final BdUniqueId aOB = BdUniqueId.gen();
-    public boolean dak = false;
+    public static final BdUniqueId cZX = BdUniqueId.gen();
+    public static final BdUniqueId aOk = BdUniqueId.gen();
+    public static final BdUniqueId aOq = BdUniqueId.gen();
+    public boolean cZY = false;
     public boolean isLinkThread = false;
-    public boolean dal = false;
-    public boolean btQ = true;
+    public boolean cZZ = false;
+    public boolean btD = true;
 
     public static boolean M(bd bdVar) {
         if (bdVar == null) {
             return false;
         }
-        return bdVar.getType() == bd.aOu || bdVar.getType() == bd.aOw || bdVar.getType() == bd.aOv || bdVar.getType() == bd.aOB;
+        return bdVar.getType() == bd.aOj || bdVar.getType() == bd.aOl || bdVar.getType() == bd.aOk || bdVar.getType() == bd.aOq;
     }
 
     @Override // com.baidu.adp.widget.ListView.i
@@ -40,61 +40,61 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.dak) {
-            return daj;
+        if (this.cZY) {
+            return cZX;
         }
         if (this.isLinkThread) {
-            return aOv;
+            return aOk;
         }
         if (this.threadData.isShareThread) {
-            return aOB;
+            return aOq;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd WE() {
+    public bd WD() {
         return this.threadData;
     }
 
-    public boolean alJ() {
+    public boolean alI() {
         return (this.threadData == null || v.D(this.threadData.zC()) == 0) ? false : true;
     }
 
-    public ak alK() {
-        bd WE;
-        if (this.dak) {
+    public ak alJ() {
+        bd WD;
+        if (this.cZY) {
             ak akVar = new ak("c11003");
-            if (WE() != null && (WE = WE()) != null) {
-                akVar.ab("tid", WE.getTid());
-                if (WE.zn() != null) {
-                    akVar.s("ab_type", WE.zn().hadConcerned() ? 1 : 0);
+            if (WD() != null && (WD = WD()) != null) {
+                akVar.ab("tid", WD.getTid());
+                if (WD.zn() != null) {
+                    akVar.s("ab_type", WD.zn().hadConcerned() ? 1 : 0);
                 }
             }
             return akVar;
-        } else if (alJ()) {
-            ak kx = kx(dad);
-            if (kx != null && WE() != null) {
-                bd WE2 = WE();
-                kx.s("obj_name", WE2.AA() != null && (WE2.AA().bwX() != null || WE2.AA().Rq() != null) ? 1 : 0);
-                if (WE2.zn() != null) {
-                    kx.s("ab_type", WE2.zn().hadConcerned() ? 1 : 0);
+        } else if (alI()) {
+            ak kx = kx(cZR);
+            if (kx != null && WD() != null) {
+                bd WD2 = WD();
+                kx.s("obj_name", WD2.AA() != null && (WD2.AA().bwW() != null || WD2.AA().Rp() != null) ? 1 : 0);
+                if (WD2.zn() != null) {
+                    kx.s("ab_type", WD2.zn().hadConcerned() ? 1 : 0);
                 }
             }
             return kx;
         } else {
-            ak kx2 = kx(cZY);
+            ak kx2 = kx(cZM);
             if (kx2 != null) {
-                kx2.ab("ab_tag", alD()).ab("ab_action", "show");
-                if (WE() != null) {
-                    bd WE3 = WE();
-                    boolean z = (WE3.AA() == null || (WE3.AA().bwX() == null && WE3.AA().Rq() == null)) ? false : true;
+                kx2.ab("ab_tag", alC()).ab("ab_action", "show");
+                if (WD() != null) {
+                    bd WD3 = WD();
+                    boolean z = (WD3.AA() == null || (WD3.AA().bwW() == null && WD3.AA().Rp() == null)) ? false : true;
                     kx2.s("obj_name", z ? 1 : 0);
-                    if (z && WE3.AA().bwX() != null && WE3.AA().bwX().Ri() != null && WE3.AA().bwX().Ri().size() > 0) {
-                        kx2.s("obj_to", WE3.AA().hbv ? 2 : 1);
+                    if (z && WD3.AA().bwW() != null && WD3.AA().bwW().Rh() != null && WD3.AA().bwW().Rh().size() > 0) {
+                        kx2.s("obj_to", WD3.AA().hbg ? 2 : 1);
                     }
-                    if (WE3.zn() != null) {
-                        kx2.s("ab_type", WE3.zn().hadConcerned() ? 1 : 0);
+                    if (WD3.zn() != null) {
+                        kx2.s("ab_type", WD3.zn().hadConcerned() ? 1 : 0);
                     }
                 }
             }
@@ -122,13 +122,13 @@ public class k extends c {
     public ak kA(String str) {
         ak kx = kx(str);
         if (kx != null) {
-            kx.ab("ab_tag", alD()).ab("ab_action", "show");
-            if (WE() != null) {
-                bd WE = WE();
-                boolean z = (WE.AA() == null || (WE.AA().bwX() == null && WE.AA().Rq() == null)) ? false : true;
+            kx.ab("ab_tag", alC()).ab("ab_action", "show");
+            if (WD() != null) {
+                bd WD = WD();
+                boolean z = (WD.AA() == null || (WD.AA().bwW() == null && WD.AA().Rp() == null)) ? false : true;
                 kx.s("obj_name", z ? 1 : 0);
-                if (z && WE.AA().bwX() != null && WE.AA().bwX().Ri() != null && WE.AA().bwX().Ri().size() > 0) {
-                    kx.s("obj_to", WE.AA().hbv ? 2 : 1);
+                if (z && WD.AA().bwW() != null && WD.AA().bwW().Rh() != null && WD.AA().bwW().Rh().size() > 0) {
+                    kx.s("obj_to", WD.AA().hbg ? 2 : 1);
                 }
             }
         }
@@ -138,61 +138,61 @@ public class k extends c {
     public ak kB(String str) {
         ak kx = kx(str);
         if (kx != null) {
-            kx.ab("ab_tag", alD()).ab("ab_action", "click");
+            kx.ab("ab_tag", alC()).ab("ab_action", "click");
         }
         return kx;
     }
 
-    public ak alL() {
-        if (alJ()) {
-            return kx(dae);
+    public ak alK() {
+        if (alI()) {
+            return kx(cZS);
         }
-        ak kx = kx(cZZ);
+        ak kx = kx(cZN);
         if (kx != null) {
-            kx.ab("ab_tag", alD()).ab("ab_action", "click");
+            kx.ab("ab_tag", alC()).ab("ab_action", "click");
             return kx;
         }
         return kx;
     }
 
-    public ak alM() {
-        if (alJ()) {
-            return kx(daf);
+    public ak alL() {
+        if (alI()) {
+            return kx(cZT);
         }
-        ak U = U(daa, 0);
+        ak U = U(cZO, 0);
         if (U != null) {
-            U.ab("ab_tag", alD()).ab("ab_action", "click");
+            U.ab("ab_tag", alC()).ab("ab_action", "click");
             return U;
         }
         return U;
     }
 
-    public ak alN() {
-        if (alJ()) {
-            return kx(dag);
+    public ak alM() {
+        if (alI()) {
+            return kx(cZU);
         }
-        ak kx = kx(dab);
+        ak kx = kx(cZP);
         if (kx != null) {
-            kx.ab("ab_tag", alD()).ab("ab_action", "click");
+            kx.ab("ab_tag", alC()).ab("ab_action", "click");
+            return kx;
+        }
+        return kx;
+    }
+
+    public ak alN() {
+        if (alI()) {
+            return kx(cZV);
+        }
+        ak kx = kx(cZQ);
+        if (kx != null) {
+            kx.ab("ab_tag", alC()).ab("ab_action", "click");
             return kx;
         }
         return kx;
     }
 
     public ak alO() {
-        if (alJ()) {
-            return kx(dah);
-        }
-        ak kx = kx(dac);
-        if (kx != null) {
-            kx.ab("ab_tag", alD()).ab("ab_action", "click");
-            return kx;
-        }
-        return kx;
-    }
-
-    public ak alP() {
-        return kx(dai);
+        return kx(cZW);
     }
 
     public ak kC(String str) {
