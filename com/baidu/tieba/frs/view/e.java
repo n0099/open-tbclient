@@ -15,22 +15,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e extends LinearLayout {
-    private LinearLayout bCr;
-    private TextView bMS;
+    private LinearLayout bCu;
+    private TextView bMV;
     private Context context;
-    private EditText dYP;
-    private HeadImageView dYQ;
-    private TextView dYR;
-    private TextView dYS;
-    private ShareFromFrsMsgData dYT;
+    private EditText dZg;
+    private HeadImageView dZh;
+    private TextView dZi;
+    private TextView dZj;
+    private ShareFromFrsMsgData dZk;
 
     public EditText getChatMsgView() {
-        return this.dYP;
+        return this.dZg;
     }
 
     public void G(String str, boolean z) {
-        if (this.dYQ != null) {
-            this.dYQ.startLoad(str, 15, false);
+        if (this.dZh != null) {
+            this.dZh.startLoad(str, 15, false);
         }
     }
 
@@ -41,34 +41,34 @@ public class e extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.dYQ.setPageId(bdUniqueId);
+        this.dZh.setPageId(bdUniqueId);
     }
 
     private void bA(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_share_card_view, this);
         setOrientation(1);
-        this.bCr = (LinearLayout) findViewById(d.g.share_content);
-        this.bMS = (TextView) findViewById(d.g.frs_card_name);
-        this.dYP = (EditText) findViewById(d.g.chat_msg);
-        this.dYQ = (HeadImageView) findViewById(d.g.frs_card_img);
-        this.dYS = (TextView) findViewById(d.g.frs_card_member_num);
-        this.dYR = (TextView) findViewById(d.g.frs_card_post_num);
-        aj.e(this.bMS, d.C0141d.cp_cont_b, 1);
-        aj.e(this.dYP, d.C0141d.cp_cont_b, 2);
-        this.dYP.setHintTextColor(aj.getColor(d.C0141d.cp_cont_e));
-        this.dYP.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        aAT();
+        this.bCu = (LinearLayout) findViewById(d.g.share_content);
+        this.bMV = (TextView) findViewById(d.g.frs_card_name);
+        this.dZg = (EditText) findViewById(d.g.chat_msg);
+        this.dZh = (HeadImageView) findViewById(d.g.frs_card_img);
+        this.dZj = (TextView) findViewById(d.g.frs_card_member_num);
+        this.dZi = (TextView) findViewById(d.g.frs_card_post_num);
+        aj.e(this.bMV, d.C0141d.cp_cont_b, 1);
+        aj.e(this.dZg, d.C0141d.cp_cont_b, 2);
+        this.dZg.setHintTextColor(aj.getColor(d.C0141d.cp_cont_e));
+        this.dZg.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        aAV();
     }
 
-    public void aAT() {
-        this.bCr.setFocusable(true);
-        this.bCr.setFocusableInTouchMode(true);
-        this.bCr.requestFocus();
+    public void aAV() {
+        this.bCu.setFocusable(true);
+        this.bCu.setFocusableInTouchMode(true);
+        this.bCu.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dYP != null) {
-            return k.a(this.dYP.getText(), null);
+        if (this.dZg != null) {
+            return k.a(this.dZg.getText(), null);
         }
         return null;
     }
@@ -81,16 +81,16 @@ public class e extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.dYT = shareFromFrsMsgData;
-        DZ();
+        this.dZk = shareFromFrsMsgData;
+        Ea();
     }
 
-    private void DZ() {
-        this.bMS.setText(ew(this.dYT.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dYT.getImageUrl());
-        this.dYQ.startLoad(this.dYT.getImageUrl(), 15, false);
-        this.dYS.setText(am.H(this.dYT.getMemberNum()));
-        this.dYR.setText(am.H(this.dYT.getPostNum()));
+    private void Ea() {
+        this.bMV.setText(ew(this.dZk.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dZk.getImageUrl());
+        this.dZh.startLoad(this.dZk.getImageUrl(), 15, false);
+        this.dZj.setText(am.H(this.dZk.getMemberNum()));
+        this.dZi.setText(am.H(this.dZk.getPostNum()));
     }
 
     private String ew(String str) {

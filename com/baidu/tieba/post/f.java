@@ -6,37 +6,37 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes3.dex */
 public class f extends FragmentPagerAdapter {
-    private int[] clc;
-    private j gwY;
-    private i gwZ;
+    private int[] clf;
+    private j gxo;
+    private i gxp;
 
     public f(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.bmj());
-        this.gwZ = new i();
-        this.gwZ.setArguments(bundle);
-        this.gwZ.a(personPostActivity);
-        this.gwY = new j();
-        this.gwY.setArguments(bundle);
-        this.gwY.a((d) personPostActivity);
-        this.gwY.a((b) personPostActivity);
-        this.clc = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.bmk());
+        this.gxp = new i();
+        this.gxp.setArguments(bundle);
+        this.gxp.a(personPostActivity);
+        this.gxo = new j();
+        this.gxo.setArguments(bundle);
+        this.gxo.a((d) personPostActivity);
+        this.gxo.a((b) personPostActivity);
+        this.clf = new int[]{0, 1};
     }
 
-    public j bmk() {
-        return this.gwY;
+    public j bml() {
+        return this.gxo;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.gwY;
+                return this.gxo;
             case 1:
-                return this.gwZ;
+                return this.gxp;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class f extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int qx(int i) {
-        return this.clc[i];
+    public int qy(int i) {
+        return this.clf[i];
     }
 }

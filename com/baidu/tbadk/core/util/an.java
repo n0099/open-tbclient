@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class an {
-    private b aXn;
+    private b aXp;
     private Resources mResources;
 
     /* loaded from: classes.dex */
     private static class a {
-        static an aXo = new an();
+        static an aXq = new an();
     }
 
     private an() {
-        this.aXn = new b();
+        this.aXp = new b();
         try {
             this.mResources = (Resources) Class.forName("android.support.v7.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
         } catch (Exception e) {
@@ -33,10 +33,10 @@ public class an {
         }
     }
 
-    public static synchronized an Dc() {
+    public static synchronized an Dd() {
         an anVar;
         synchronized (an.class) {
-            anVar = a.aXo;
+            anVar = a.aXq;
         }
         return anVar;
     }
@@ -63,21 +63,21 @@ public class an {
             }
             switch (i2) {
                 case 1:
-                    android.support.a.a.f fW = this.aXn.fW(a2);
+                    android.support.a.a.f fW = this.aXp.fW(a2);
                     if (fW == null) {
                         return aj.c(skinType, this.mResources, aj.g(this.mResources, i));
                     }
                     com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_success", 0, "", new Object[0]);
                     return fW;
                 case 2:
-                    android.support.a.a.b fX = this.aXn.fX(a2);
+                    android.support.a.a.b fX = this.aXp.fX(a2);
                     if (fX == null) {
                         return aj.c(skinType, this.mResources, aj.g(this.mResources, i));
                     }
                     com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_success", 0, "", new Object[0]);
                     return fX;
                 case 3:
-                    StateListDrawable a3 = this.aXn.a(a2, this.mResources);
+                    StateListDrawable a3 = this.aXp.a(a2, this.mResources);
                     if (a3 == null) {
                         return aj.c(skinType, this.mResources, aj.g(this.mResources, i));
                     }
@@ -95,14 +95,14 @@ public class an {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private SparseArray<WeakReference<Drawable.ConstantState>> aXp = new SparseArray<>(30);
+        private SparseArray<WeakReference<Drawable.ConstantState>> aXr = new SparseArray<>(30);
 
         b() {
         }
 
         public android.support.a.a.f fW(int i) {
             Drawable drawable;
-            WeakReference<Drawable.ConstantState> weakReference = this.aXp.get(i);
+            WeakReference<Drawable.ConstantState> weakReference = this.aXr.get(i);
             if (weakReference == null || weakReference.get() == null) {
                 try {
                     android.support.a.a.f a = android.support.a.a.f.a(TbadkCoreApplication.getInst().getResources(), i, (Resources.Theme) null);
@@ -116,13 +116,13 @@ public class an {
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                this.aXp.put(i, weakReference);
+                this.aXr.put(i, weakReference);
             }
             if (weakReference.get() != null) {
                 drawable = weakReference.get().newDrawable();
             } else {
                 com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_failed_by_gc", 0, "", new Object[0]);
-                this.aXp.delete(i);
+                this.aXr.delete(i);
                 drawable = null;
             }
             if (drawable instanceof android.support.a.a.f) {
@@ -133,7 +133,7 @@ public class an {
 
         public StateListDrawable a(int i, Resources resources) {
             Drawable drawable;
-            WeakReference<Drawable.ConstantState> weakReference = this.aXp.get(i);
+            WeakReference<Drawable.ConstantState> weakReference = this.aXr.get(i);
             if (weakReference == null || weakReference.get() == null) {
                 try {
                     StateListDrawable stateListDrawable = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
@@ -147,13 +147,13 @@ public class an {
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                this.aXp.put(i, weakReference);
+                this.aXr.put(i, weakReference);
             }
             if (weakReference.get() != null) {
                 drawable = weakReference.get().newDrawable();
             } else {
                 com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_failed_by_gc", 0, "", new Object[0]);
-                this.aXp.delete(i);
+                this.aXr.delete(i);
                 drawable = null;
             }
             if (drawable instanceof StateListDrawable) {
@@ -164,7 +164,7 @@ public class an {
 
         public android.support.a.a.b fX(int i) {
             Drawable drawable;
-            WeakReference<Drawable.ConstantState> weakReference = this.aXp.get(i);
+            WeakReference<Drawable.ConstantState> weakReference = this.aXr.get(i);
             if (weakReference == null || weakReference.get() == null) {
                 try {
                     android.support.a.a.b d = android.support.a.a.b.d(TbadkCoreApplication.getInst(), i);
@@ -178,13 +178,13 @@ public class an {
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                this.aXp.put(i, weakReference);
+                this.aXr.put(i, weakReference);
             }
             if (weakReference.get() != null) {
                 drawable = weakReference.get().newDrawable();
             } else {
                 com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_failed_by_gc", 0, "", new Object[0]);
-                this.aXp.delete(i);
+                this.aXr.delete(i);
                 drawable = null;
             }
             if (drawable instanceof android.support.a.a.b) {

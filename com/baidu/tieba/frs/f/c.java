@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.frs.k;
-import com.baidu.tieba.tbadkCore.l;
+import com.baidu.tieba.tbadkCore.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,23 +16,23 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
     public static void u(k kVar) {
-        HashMap<Integer, bd> axm;
-        if (kVar != null && kVar.avV() != null && (axm = kVar.avV().axm()) != null) {
+        HashMap<Integer, bd> axo;
+        if (kVar != null && kVar.avX() != null && (axo = kVar.avX().axo()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bd> entry : axm.entrySet()) {
+            for (Map.Entry<Integer, bd> entry : axo.entrySet()) {
                 bd value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.bok().p(arrayList);
+            com.baidu.tieba.recapp.download.d.bol().p(arrayList);
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, final k kVar, l lVar) {
+    public static void a(ResponsedMessage<?> responsedMessage, final k kVar, m mVar) {
         List<DownloadData> data;
         boolean z;
-        if (lVar != null && kVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
+        if (mVar != null && kVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
             Iterator<DownloadData> it = data.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -47,7 +47,7 @@ public class c {
                 com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.avM();
+                        k.this.avO();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

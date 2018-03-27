@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int cdA;
-    private int diK;
+    private int cdD;
+    private int diN;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private boolean gRA;
-    private int gRB;
-    private int gRu;
-    private int gRv;
-    private int gRw;
-    private boolean gRx;
-    private boolean gRy;
-    private boolean gRz;
+    private int gRK;
+    private int gRL;
+    private int gRM;
+    private boolean gRN;
+    private boolean gRO;
+    private boolean gRP;
+    private boolean gRQ;
+    private int gRR;
 
     public int getForumId() {
         return this.forumId;
@@ -33,70 +33,70 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int btn() {
-        return this.gRu;
-    }
-
     public int bto() {
-        return this.cdA;
+        return this.gRK;
     }
 
     public int btp() {
-        return this.diK;
+        return this.cdD;
     }
 
     public int btq() {
-        return this.gRv;
+        return this.diN;
     }
 
     public int btr() {
-        return this.gRw;
+        return this.gRL;
+    }
+
+    public int bts() {
+        return this.gRM;
     }
 
     public void vn(int i) {
-        this.gRu = i;
+        this.gRK = i;
     }
 
     public void vo(int i) {
-        this.cdA = i;
+        this.cdD = i;
     }
 
     public void vp(int i) {
-        this.diK = i;
+        this.diN = i;
     }
 
-    public boolean Xz() {
-        return this.gRx;
+    public boolean XA() {
+        return this.gRN;
     }
 
-    public void mu(boolean z) {
-        this.gRx = z;
-        this.gRu = 1;
-    }
-
-    public boolean bts() {
-        return this.gRz;
-    }
-
-    public void mv(boolean z) {
-        this.gRz = z;
-        this.gRu = 0;
+    public void mz(boolean z) {
+        this.gRN = z;
+        this.gRK = 1;
     }
 
     public boolean btt() {
-        return this.gRA;
+        return this.gRP;
     }
 
-    public void mw(boolean z) {
-        this.gRA = z;
+    public void mA(boolean z) {
+        this.gRP = z;
+        this.gRK = 0;
     }
 
-    public int btu() {
-        return this.gRB;
+    public boolean btu() {
+        return this.gRQ;
+    }
+
+    public void mB(boolean z) {
+        this.gRQ = z;
+    }
+
+    public int btv() {
+        return this.gRR;
     }
 
     public void vq(int i) {
-        this.gRB = i;
+        this.gRR = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class d implements ae {
         this.errorMsg = str;
     }
 
-    public boolean btv() {
-        return this.gRy;
+    public boolean btw() {
+        return this.gRO;
     }
 
-    public void mx(boolean z) {
-        this.gRy = z;
+    public void mC(boolean z) {
+        this.gRO = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -120,14 +120,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gRu = jSONObject.optInt("is_sign_in");
-            this.cdA = jSONObject.optInt("cont_sign_num");
-            this.diK = jSONObject.optInt("user_level");
-            this.gRv = jSONObject.optInt("user_exp");
-            this.gRw = jSONObject.optInt("need_exp");
-            if (this.gRu != 0) {
-                this.gRx = true;
-                this.gRz = false;
+            this.gRK = jSONObject.optInt("is_sign_in");
+            this.cdD = jSONObject.optInt("cont_sign_num");
+            this.diN = jSONObject.optInt("user_level");
+            this.gRL = jSONObject.optInt("user_exp");
+            this.gRM = jSONObject.optInt("need_exp");
+            if (this.gRK != 0) {
+                this.gRN = true;
+                this.gRP = false;
             }
         }
     }

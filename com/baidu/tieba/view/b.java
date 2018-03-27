@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class b extends RelativeLayout {
-    private a hzV;
+    private a hAt;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,17 +17,17 @@ public class b extends RelativeLayout {
     }
 
     public a getListener() {
-        return this.hzV;
+        return this.hAt;
     }
 
     public void setListener(a aVar) {
-        this.hzV = aVar;
+        this.hAt = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1 && this.hzV != null) {
-            this.hzV.a(this);
+        if (motionEvent.getAction() == 1 && this.hAt != null) {
+            this.hAt.a(this);
         }
         return super.dispatchTouchEvent(motionEvent);
     }

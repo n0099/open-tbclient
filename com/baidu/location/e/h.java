@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h {
-    private final d aDb;
+    private final d aDc;
     private final SQLiteDatabase b;
     private boolean t = true;
     private long u = 8000;
@@ -32,14 +32,14 @@ public final class h {
     private int k = 6;
     private int l = 30;
     private int m = 30;
-    private double aDw = 0.0d;
+    private double aDx = 0.0d;
     private double o = 0.0d;
     private double p = 0.0d;
-    private double aBM = 0.0d;
     private double aBN = 0.0d;
+    private double aBO = 0.0d;
     private int s = 8;
     private String[] i = new String[0];
-    private final a aDv = new a();
+    private final a aDw = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public final class h {
             }
             boolean z = false;
             try {
-                File file = new File(h.this.aDb.c(), "ofl.config");
+                File file = new File(h.this.aDc.c(), "ofl.config");
                 if (this.d == -1 && file.exists()) {
                     Scanner scanner = new Scanner(file);
                     String next = scanner.next();
@@ -96,7 +96,7 @@ public final class h {
                     if (jSONObject.has("oflp")) {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("oflp");
                         if (jSONObject2.has("0")) {
-                            h.this.aDw = jSONObject2.getDouble("0");
+                            h.this.aDx = jSONObject2.getDouble("0");
                         }
                         if (jSONObject2.has("1")) {
                             h.this.o = jSONObject2.getDouble("1");
@@ -105,10 +105,10 @@ public final class h {
                             h.this.p = jSONObject2.getDouble("2");
                         }
                         if (jSONObject2.has("3")) {
-                            h.this.aBM = jSONObject2.getDouble("3");
+                            h.this.aBN = jSONObject2.getDouble("3");
                         }
                         if (jSONObject2.has("4")) {
-                            h.this.aBN = jSONObject2.getDouble("4");
+                            h.this.aBO = jSONObject2.getDouble("4");
                         }
                     }
                     if (jSONObject.has("onlt")) {
@@ -142,7 +142,7 @@ public final class h {
                 }
             } catch (Exception e) {
             }
-            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.aDb.uM())) {
+            if ((this.d == -1 || z) && c() && com.baidu.location.h.i.a(h.this.aDc.uM())) {
                 this.e = true;
                 e();
             }
@@ -221,7 +221,7 @@ public final class h {
                         if (jSONObject3.has("oflp")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("oflp");
                             if (jSONObject4.has("0")) {
-                                h.this.aDw = jSONObject4.getDouble("0");
+                                h.this.aDx = jSONObject4.getDouble("0");
                             }
                             if (jSONObject4.has("1")) {
                                 h.this.o = jSONObject4.getDouble("1");
@@ -230,10 +230,10 @@ public final class h {
                                 h.this.p = jSONObject4.getDouble("2");
                             }
                             if (jSONObject4.has("3")) {
-                                h.this.aBM = jSONObject4.getDouble("3");
+                                h.this.aBN = jSONObject4.getDouble("3");
                             }
                             if (jSONObject4.has("4")) {
-                                h.this.aBN = jSONObject4.getDouble("4");
+                                h.this.aBO = jSONObject4.getDouble("4");
                             }
                         }
                         if (jSONObject3.has("onlt")) {
@@ -269,11 +269,11 @@ public final class h {
                     jSONObject2.put("rgcon", h.this.j);
                     jSONObject2.put("rgcgp", h.this.k);
                     JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("0", h.this.aDw);
+                    jSONObject6.put("0", h.this.aDx);
                     jSONObject6.put("1", h.this.o);
                     jSONObject6.put("2", h.this.p);
-                    jSONObject6.put("3", h.this.aBM);
-                    jSONObject6.put("4", h.this.aBN);
+                    jSONObject6.put("3", h.this.aBN);
+                    jSONObject6.put("4", h.this.aBO);
                     jSONObject2.put("oflp", jSONObject6);
                     JSONObject jSONObject7 = new JSONObject();
                     jSONObject7.put("0", h.this.y);
@@ -285,7 +285,7 @@ public final class h {
                     jSONObject2.put("addrup", h.this.m);
                     jSONObject2.put("poiup", h.this.l);
                     jSONObject2.put("minapn", h.this.s);
-                    File file = new File(h.this.aDb.c(), "ofl.config");
+                    File file = new File(h.this.aDc.c(), "ofl.config");
                     if (!file.exists()) {
                         file.createNewFile();
                     }
@@ -303,7 +303,7 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar, SQLiteDatabase sQLiteDatabase) {
-        this.aDb = dVar;
+        this.aDc = dVar;
         this.b = sQLiteDatabase;
         if (this.b != null && this.b.isOpen()) {
             try {
@@ -346,7 +346,7 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double b() {
-        return this.aDw;
+        return this.aDx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -356,7 +356,7 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.aDv.b();
+        this.aDw.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -411,12 +411,12 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double uT() {
-        return this.aBM;
+        return this.aBN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double uU() {
-        return this.aBN;
+        return this.aBO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern gyS = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point gyT;
-    private Point gyU;
-    private Point gyV;
+    private static final Pattern gzi = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point gzj;
+    private Point gzk;
+    private Point gzl;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (e(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.gyT = a.cd(this.mContext);
+        this.gzj = a.cd(this.mContext);
         Point point = new Point();
-        point.x = this.gyT.x;
-        point.y = this.gyT.y;
+        point.x = this.gzj.x;
+        point.y = this.gzj.y;
         int cc = a.cc(this.mContext);
         if (cc == 0) {
-            point.x = this.gyT.y;
-            point.y = this.gyT.x;
+            point.x = this.gzj.y;
+            point.y = this.gzj.x;
         }
-        this.gyV = b(parameters, point);
+        this.gzl = b(parameters, point);
         if (cc == 0) {
-            this.gyU = new Point(this.gyV.y, this.gyV.x);
+            this.gzk = new Point(this.gzl.y, this.gzl.x);
         } else {
-            this.gyU = this.gyV;
+            this.gzk = this.gzl;
         }
     }
 
@@ -49,14 +49,14 @@ final class b {
     }
 
     public Point getCameraResolution() {
-        return this.gyU;
+        return this.gzk;
     }
 
     public void f(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.gyV.x, this.gyV.y);
+        parameters.setPreviewSize(this.gzl.x, this.gzl.y);
         a(parameters);
-        camera.setDisplayOrientation(bnm());
+        camera.setDisplayOrientation(bnn());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int bnm() {
+    public int bnn() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int b(CharSequence charSequence, int i) {
-        String[] split = gyS.split(charSequence);
+        String[] split = gzi.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

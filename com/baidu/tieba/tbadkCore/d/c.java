@@ -9,7 +9,7 @@ import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> hbL;
+    private static HashMap<String, e> hcj;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -21,7 +21,7 @@ public class c {
                 }
             }
         });
-        hbL = new HashMap<>();
+        hcj = new HashMap<>();
     }
 
     public static void j(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!hbL.containsKey(str3)) {
-            hbL.put(str3, new e(str, str2, z));
+        if (!hcj.containsKey(str3)) {
+            hcj.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!hbL.containsKey(str3)) {
-            hbL.put(str3, new e(str, str2, z));
+        if (!hcj.containsKey(str3)) {
+            hcj.put(str3, new e(str, str2, z));
         }
-        return hbL.get(str3);
+        return hcj.get(str3);
     }
 
-    public static void bxm() {
+    public static void bxr() {
     }
 
     public static void vN(int i) {
-        for (String str : hbL.keySet()) {
-            a(hbL.get(str), i);
+        for (String str : hcj.keySet()) {
+            a(hcj.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.hbP;
-        d dVar2 = eVar.hbQ;
-        d dVar3 = eVar.hbR;
+        d dVar = eVar.hcn;
+        d dVar2 = eVar.hco;
+        d dVar3 = eVar.hcp;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append(SocialConstants.PARAM_ACT, eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.hbM));
+            aVar.append("httpTimeCost", String.valueOf(dVar.hck));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.hbN));
+            aVar.append("httpFailnum", String.valueOf(dVar.hcl));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.hbM));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.hck));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.hbN));
+            aVar.append("socketFailnum", String.valueOf(dVar2.hcl));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.hbM));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.hck));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.hbO ? "1" : "0");
+            aVar.append("isJson", eVar.hcm ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

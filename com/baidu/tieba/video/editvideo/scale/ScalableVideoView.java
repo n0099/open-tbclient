@@ -14,8 +14,8 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer bTe;
-    protected ScalableType hqA;
+    protected MediaPlayer bTh;
+    protected ScalableType hqY;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -28,11 +28,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.hqA = ScalableType.NONE;
+        this.hqY = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(d.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.hqA = ScalableType.values()[i2];
+            this.hqY = ScalableType.values()[i2];
         }
     }
 
@@ -40,8 +40,8 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.bTe != null) {
-                this.bTe.setSurface(surface);
+            if (this.bTh != null) {
+                this.bTh.setSurface(surface);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,7 +64,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.bTe != null) {
+        if (this.bTh != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -79,15 +79,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void aV(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hqA)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hqY)) != null) {
             setTransform(a);
         }
     }
 
-    private void VF() {
-        if (this.bTe == null) {
-            this.bTe = new MediaPlayer();
-            this.bTe.setOnVideoSizeChangedListener(this);
+    private void VG() {
+        if (this.bTh == null) {
+            this.bTh = new MediaPlayer();
+            this.bTh.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -108,126 +108,126 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        VF();
-        this.bTe.setDataSource(str);
+        VG();
+        this.bTh.setDataSource(str);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        VF();
-        this.bTe.setDataSource(fileDescriptor, j, j2);
+        VG();
+        this.bTh.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        VF();
-        this.bTe.setDataSource(fileDescriptor);
+        VG();
+        this.bTh.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.hqA = scalableType;
+        this.hqY = scalableType;
         aV(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.bTe != null) {
-            this.bTe.setOnPreparedListener(onPreparedListener);
-            this.bTe.prepare();
+        if (this.bTh != null) {
+            this.bTh.setOnPreparedListener(onPreparedListener);
+            this.bTh.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.bTe != null) {
-            this.bTe.setOnErrorListener(onErrorListener);
+        if (this.bTh != null) {
+            this.bTh.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.bTe != null) {
-            this.bTe.setOnCompletionListener(onCompletionListener);
+        if (this.bTh != null) {
+            this.bTh.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.bTe != null) {
-            this.bTe.setOnInfoListener(onInfoListener);
+        if (this.bTh != null) {
+            this.bTh.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.bTe == null) {
+        if (this.bTh == null) {
             return 0;
         }
-        return this.bTe.getCurrentPosition();
+        return this.bTh.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.bTe == null) {
+        if (this.bTh == null) {
             return 0;
         }
-        return this.bTe.getDuration();
+        return this.bTh.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.bTe == null) {
+        if (this.bTh == null) {
             return 0;
         }
-        return this.bTe.getVideoHeight();
+        return this.bTh.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.bTe == null) {
+        if (this.bTh == null) {
             return 0;
         }
-        return this.bTe.getVideoWidth();
+        return this.bTh.getVideoWidth();
     }
 
     public boolean isPlaying() {
-        if (this.bTe == null) {
+        if (this.bTh == null) {
             return false;
         }
-        return this.bTe.isPlaying();
+        return this.bTh.isPlaying();
     }
 
     public void pause() {
-        if (this.bTe != null) {
-            this.bTe.pause();
+        if (this.bTh != null) {
+            this.bTh.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.bTe != null) {
-            this.bTe.seekTo(i);
+        if (this.bTh != null) {
+            this.bTh.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.bTe != null) {
-            this.bTe.setLooping(z);
+        if (this.bTh != null) {
+            this.bTh.setLooping(z);
         }
     }
 
     public void start() {
-        if (this.bTe != null) {
-            this.bTe.start();
+        if (this.bTh != null) {
+            this.bTh.start();
         }
     }
 
     public void stop() {
-        if (this.bTe != null) {
-            this.bTe.stop();
+        if (this.bTh != null) {
+            this.bTh.stop();
         }
     }
 
     public void reset() {
-        if (this.bTe != null) {
-            this.bTe.reset();
+        if (this.bTh != null) {
+            this.bTh.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.bTe != null) {
-            this.bTe.release();
-            this.bTe = null;
+        if (this.bTh != null) {
+            this.bTh.release();
+            this.bTh = null;
         }
     }
 }

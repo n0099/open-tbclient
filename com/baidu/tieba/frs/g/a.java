@@ -14,29 +14,29 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
     private View QQ;
-    private boolean dUA;
-    private PopupWindow dUB;
+    private boolean dUF;
+    private PopupWindow dUG;
     private TbPageContext mPageContext;
-    private int dUz = d.j.attention_post_update_tip;
+    private int dUE = d.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable dUC = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
+    private Runnable dUH = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.QQ != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int t = l.t(pageActivity, d.e.ds64);
-                View f = a.this.f(pageActivity, a.this.dUz);
+                View f = a.this.f(pageActivity, a.this.dUE);
                 int[] iArr = new int[2];
                 a.this.QQ.getLocationInWindow(iArr);
                 int t2 = l.t(pageActivity, d.e.ds32);
                 int t3 = l.t(pageActivity, d.e.ds16) + (iArr[1] - t);
-                a.this.dUB = new PopupWindow(f, -2, t);
-                a.this.dUB.showAtLocation(a.this.QQ, 53, t2, t3);
+                a.this.dUG = new PopupWindow(f, -2, t);
+                a.this.dUG.showAtLocation(a.this.QQ, 53, t2, t3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.g.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.dUB != null) {
-                            a.this.azW();
+                        if (a.this.dUG != null) {
+                            a.this.azY();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.dUA = z;
+        this.dUF = z;
     }
 
     public void bS(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.QQ = view;
-            if (this.dUA) {
-                this.dUz = d.j.attention_post_update_tip;
+            if (this.dUF) {
+                this.dUE = d.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.dUA = false;
+                    this.dUF = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.dUA = false;
-                this.mHandler.postDelayed(this.dUC, 500L);
+                this.dUF = false;
+                this.mHandler.postDelayed(this.dUH, 500L);
             }
         }
     }
@@ -86,18 +86,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        azW();
+        azY();
     }
 
-    public void azW() {
-        if (this.dUB != null) {
-            this.dUB.dismiss();
-            this.dUB = null;
+    public void azY() {
+        if (this.dUG != null) {
+            this.dUG.dismiss();
+            this.dUG = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        azW();
+        azY();
     }
 }

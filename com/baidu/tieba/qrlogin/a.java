@@ -11,55 +11,55 @@ import com.baidu.tieba.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private final BaseActivity bSC;
-    private final b gAo;
-    private Map<String, String> gAp;
-    private QrLoginAction gAq;
+    private final BaseActivity bSF;
+    private final b gAE;
+    private Map<String, String> gAF;
+    private QrLoginAction gAG;
 
     public a(BaseActivity baseActivity, b bVar) {
-        this.bSC = baseActivity;
-        this.gAo = bVar;
+        this.bSF = baseActivity;
+        this.gAE = bVar;
     }
 
     public void start(String str) {
-        this.gAp = SapiUtils.parseQrLoginSchema(str);
+        this.gAF = SapiUtils.parseQrLoginSchema(str);
         if (j.ox()) {
-            a(this.gAp, QrLoginAction.NOTICE);
+            a(this.gAF, QrLoginAction.NOTICE);
         } else {
-            this.gAo.bnB();
-        }
-    }
-
-    public void bnD() {
-        if (!j.ox()) {
-            this.bSC.showToast(d.j.network_not_available);
-        } else {
-            a(this.gAp, QrLoginAction.LOGIN);
+            this.gAE.bnC();
         }
     }
 
     public void bnE() {
-        a(this.gAp, QrLoginAction.CANCEL);
+        if (!j.ox()) {
+            this.bSF.showToast(d.j.network_not_available);
+        } else {
+            a(this.gAF, QrLoginAction.LOGIN);
+        }
+    }
+
+    public void bnF() {
+        a(this.gAF, QrLoginAction.CANCEL);
     }
 
     private void a(Map<String, String> map, QrLoginAction qrLoginAction) {
         if (!TbadkCoreApplication.isLogin()) {
             onError("loginError");
         } else {
-            this.gAq = qrLoginAction;
+            this.gAG = qrLoginAction;
         }
     }
 
     public void onDestory() {
-        if (this.gAq != null && this.gAq == QrLoginAction.NOTICE) {
-            bnE();
+        if (this.gAG != null && this.gAG == QrLoginAction.NOTICE) {
+            bnF();
         }
     }
 
     private void onError(String str) {
         if (!StringUtils.isNull(str)) {
-            UtilHelper.showToast(this.bSC, str);
+            UtilHelper.showToast(this.bSF, str);
         }
-        this.bSC.finish();
+        this.bSF.finish();
     }
 }

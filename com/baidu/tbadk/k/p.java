@@ -7,32 +7,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class p {
-    private static String bAV = "tb_perfor_samllflow_time";
-    private static volatile p bAY;
-    private long bAX;
-    private boolean bAT = false;
-    private long bAW = 86400;
-    private long bAU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bAV, 0);
+    private static String bAY = "tb_perfor_samllflow_time";
+    private static volatile p bBb;
+    private long bBa;
+    private boolean bAW = false;
+    private long bAZ = 86400;
+    private long bAX = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bAY, 0);
 
-    public static p Ov() {
-        if (bAY == null) {
+    public static p Ow() {
+        if (bBb == null) {
             synchronized (p.class) {
-                if (bAY == null) {
-                    bAY = new p();
+                if (bBb == null) {
+                    bBb = new p();
                 }
             }
         }
-        return bAY;
+        return bBb;
     }
 
     private p() {
-        this.bAX = 0L;
-        this.bAX = this.bAW;
+        this.bBa = 0L;
+        this.bBa = this.bAZ;
     }
 
-    public boolean Ow() {
-        if (!this.bAT || (System.currentTimeMillis() - this.bAU) / 1000 <= this.bAX) {
-            return this.bAT;
+    public boolean Ox() {
+        if (!this.bAW || (System.currentTimeMillis() - this.bAX) / 1000 <= this.bBa) {
+            return this.bAW;
         }
         return false;
     }
@@ -40,21 +40,21 @@ public class p {
     public void cA(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.bAU || currentTimeMillis - this.bAU >= this.bAX) {
-                this.bAU = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAV, this.bAU);
+            if (0 == this.bAX || currentTimeMillis - this.bAX >= this.bBa) {
+                this.bAX = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAY, this.bAX);
             }
         } else {
-            this.bAU = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAV, this.bAU);
+            this.bAX = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bAY, this.bAX);
         }
-        this.bAT = z;
+        this.bAW = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            q.OA().OB();
+            q.OB().OC();
         }
     }
 
-    public String Ox() {
+    public String Oy() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -101,7 +101,7 @@ public class p {
     }
 
     public o il(int i) {
-        if (Ow()) {
+        if (Ox()) {
             switch (i) {
                 case 1000:
                     r rVar = new r();
@@ -133,7 +133,7 @@ public class p {
 
     public void ad(long j) {
         if (j > 0) {
-            this.bAX = j;
+            this.bBa = j;
         }
     }
 
@@ -146,7 +146,7 @@ public class p {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Oy() {
+    public int Oz() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

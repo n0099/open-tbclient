@@ -21,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0025a {
-        public boolean asv;
+        public boolean asw;
         public String mErrMsg;
     }
 
@@ -276,7 +276,7 @@ public class a {
 
     private static C0025a a(boolean z, Throwable th) {
         C0025a c0025a = new C0025a();
-        c0025a.asv = z;
+        c0025a.asw = z;
         c0025a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0025a;
     }

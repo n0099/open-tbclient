@@ -6,32 +6,32 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
-    private boolean bNA;
-    private int bNB;
-    private k bNy;
-    private Object bNz;
-    private int bfz;
+    private k bNB;
+    private Object bNC;
+    private boolean bND;
+    private int bNE;
+    private int bfC;
     private Map<String, String> params;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.bNA = false;
+        this.bND = false;
     }
 
-    public k Sv() {
-        return this.bNy;
+    public k Sw() {
+        return this.bNB;
     }
 
     public void a(k kVar) {
-        this.bNy = kVar;
+        this.bNB = kVar;
     }
 
-    public Object Sw() {
-        return this.bNz;
+    public Object Sx() {
+        return this.bNC;
     }
 
     public void aM(Object obj) {
-        this.bNz = obj;
+        this.bNC = obj;
     }
 
     public Map<String, String> getParams() {
@@ -43,14 +43,14 @@ public class a extends g {
     }
 
     public int getMaskColor() {
-        return this.bNB;
+        return this.bNE;
     }
 
     public int getSkinType() {
-        return this.bfz;
+        return this.bfC;
     }
 
     public void setSkinType(int i) {
-        this.bfz = i;
+        this.bfC = i;
     }
 }

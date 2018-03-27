@@ -11,8 +11,8 @@ public class a {
     /* renamed from: com.baidu.tieba.im.chat.photolive.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0171a {
-        public long eyY;
-        public String eyZ;
+        public long ezo;
+        public String ezp;
         public String portrait = null;
         public String userId = null;
         public String userName = null;
@@ -21,7 +21,7 @@ public class a {
         public String forumName = null;
         public long postId = 0;
         public int msgType = 0;
-        public int eza = 0;
+        public int ezq = 0;
     }
 
     public static C0171a mO(String str) {
@@ -36,14 +36,14 @@ public class a {
                 c0171a.portrait = optJSONObject.optString("head_url");
                 c0171a.userId = optJSONObject.optString("user_id");
                 c0171a.userName = optJSONObject.optString("nick_name");
-                c0171a.eyY = optJSONObject.optLong("caller_time");
-                c0171a.eyZ = optJSONObject.optString("caller_content");
+                c0171a.ezo = optJSONObject.optLong("caller_time");
+                c0171a.ezp = optJSONObject.optString("caller_content");
                 c0171a.threadId = optJSONObject.optLong("thread_id");
                 c0171a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
                 c0171a.forumName = optJSONObject.optString("forum_name");
                 c0171a.postId = optJSONObject.optLong("post_id");
                 c0171a.msgType = optJSONObject.optInt("msg_type");
-                c0171a.eza = optJSONObject.optInt("remind_count");
+                c0171a.ezq = optJSONObject.optInt("remind_count");
             }
             return c0171a;
         } catch (JSONException e) {

@@ -31,27 +31,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
-    private com.baidu.tbadk.core.util.b.a bQD;
-    private String euD;
-    private FrameLayout euw;
+    private com.baidu.tbadk.core.util.b.a bQG;
+    private FrameLayout euM;
+    private String euT;
     private int mCount;
-    private ArrayList<String> eGC = null;
-    private HashMap<String, ImageUrlData> eGD = null;
+    private ArrayList<String> eGS = null;
+    private HashMap<String, ImageUrlData> eGT = null;
     private int mIndex = 0;
-    private a eGE = null;
+    private a eGU = null;
     private NavigationBar mNavigationBar = null;
-    private TextView eGF = null;
-    private View bgy = null;
+    private TextView eGV = null;
+    private View bgB = null;
     private TextView mTitle = null;
-    private MultiImageView euy = null;
+    private MultiImageView euO = null;
     private View.OnClickListener mOnClickListener = null;
-    private BaseViewPager.a euz = null;
+    private BaseViewPager.a euP = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
-    private AlphaAnimation euA = null;
-    private boolean euB = true;
-    private boolean euC = false;
-    private long euG = 0;
-    private HashMap<String, Boolean> euH = null;
+    private AlphaAnimation euQ = null;
+    private boolean euR = true;
+    private boolean euS = false;
+    private long euW = 0;
+    private HashMap<String, Boolean> euX = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -62,14 +62,14 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         setSwipeBackEnabled(false);
         initData(bundle);
         initUI();
-        int size = this.eGC.size();
+        int size = this.eGS.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 break;
             }
-            String str = this.eGC.get(i);
-            if (TextUtils.isEmpty(str) || !str.equals(this.euD)) {
+            String str = this.eGS.get(i);
+            if (TextUtils.isEmpty(str) || !str.equals(this.euT)) {
                 i++;
             } else {
                 this.mIndex = i;
@@ -78,12 +78,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         }
         this.mCount = size;
         this.mTitle.setVisibility(0);
-        ayt();
-        this.euy.setIsFromCDN(true);
-        this.euy.setAllowLocalUrl(true);
-        this.euy.setAssistUrls(this.eGD);
-        this.euy.setUrlData(this.eGC);
-        this.euy.setCurrentItem(this.mIndex, false);
+        ayv();
+        this.euO.setIsFromCDN(true);
+        this.euO.setAllowLocalUrl(true);
+        this.euO.setAssistUrls(this.eGT);
+        this.euO.setUrlData(this.eGS);
+        this.euO.setCurrentItem(this.mIndex, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -92,33 +92,33 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.euy.setBackgroundColor(aj.fM(i));
+            this.euO.setBackgroundColor(aj.fM(i));
         } else {
-            this.euy.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.euO.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
         aj.t(this.mNavigationBar, d.C0141d.common_color_10222);
-        getLayoutMode().aM(this.bgy);
+        getLayoutMode().aM(this.bgB);
         getLayoutMode().aM(this.mTitle);
-        getLayoutMode().aM(this.euw);
+        getLayoutMode().aM(this.euM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.euy.onPause();
+        this.euO.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.euy.onResume();
+        this.euO.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.euy.onDestroy();
+        this.euO.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -126,10 +126,10 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
     public void onDestroy() {
         TbadkApplication.getInst().delRemoteActivity(this);
         bZ(this.mIndex, this.mIndex);
-        this.euy.onDestroy();
-        if (this.eGE != null) {
-            this.eGE.cancel();
-            this.eGE = null;
+        this.euO.onDestroy();
+        if (this.eGU != null) {
+            this.eGU.cancel();
+            this.eGU = null;
         }
         hideProgressBar();
         super.onDestroy();
@@ -151,29 +151,29 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == GroupImageActivity.this.bgy) {
+                if (view == GroupImageActivity.this.bgB) {
                     if (GroupImageActivity.this.mNavigationBar.getVisibility() != 8) {
                         Intent intent = new Intent();
                         intent.putExtra("index", GroupImageActivity.this.mIndex);
                         GroupImageActivity.this.setResult(-1, intent);
                         GroupImageActivity.this.finish();
                     }
-                } else if (view == GroupImageActivity.this.euw) {
+                } else if (view == GroupImageActivity.this.euM) {
                     if (GroupImageActivity.this.mNavigationBar.getVisibility() != 8) {
                         Activity pageActivity = GroupImageActivity.this.getPageContext().getPageActivity();
-                        if (GroupImageActivity.this.bQD == null) {
-                            GroupImageActivity.this.bQD = new com.baidu.tbadk.core.util.b.a();
+                        if (GroupImageActivity.this.bQG == null) {
+                            GroupImageActivity.this.bQG = new com.baidu.tbadk.core.util.b.a();
                         }
-                        GroupImageActivity.this.bQD.DH();
-                        GroupImageActivity.this.bQD.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (!GroupImageActivity.this.bQD.v(pageActivity)) {
+                        GroupImageActivity.this.bQG.DI();
+                        GroupImageActivity.this.bQG.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (!GroupImageActivity.this.bQG.v(pageActivity)) {
                             try {
-                                byte[] currentImageData = GroupImageActivity.this.euy.getCurrentImageData();
+                                byte[] currentImageData = GroupImageActivity.this.euO.getCurrentImageData();
                                 if (currentImageData != null) {
-                                    String currentImageUrl = GroupImageActivity.this.euy.getCurrentImageUrl();
-                                    GroupImageActivity.this.eGE = new a(currentImageUrl, currentImageData);
-                                    GroupImageActivity.this.eGE.execute(new String[0]);
-                                    GroupImageActivity.this.eGF.setVisibility(4);
+                                    String currentImageUrl = GroupImageActivity.this.euO.getCurrentImageUrl();
+                                    GroupImageActivity.this.eGU = new a(currentImageUrl, currentImageData);
+                                    GroupImageActivity.this.eGU.execute(new String[0]);
+                                    GroupImageActivity.this.eGV.setVisibility(4);
                                     GroupImageActivity.this.showProgressBar();
                                 } else {
                                     GroupImageActivity.this.showToast(GroupImageActivity.this.getPageContext().getString(d.j.no_data));
@@ -182,24 +182,24 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                             }
                         }
                     }
-                } else if (GroupImageActivity.this.euB) {
+                } else if (GroupImageActivity.this.euR) {
                     if (GroupImageActivity.this.mNavigationBar.getVisibility() != 0) {
                         GroupImageActivity.this.mNavigationBar.setVisibility(0);
-                        GroupImageActivity.this.euy.Jk();
-                        GroupImageActivity.this.euA = new AlphaAnimation(0.0f, 1.0f);
+                        GroupImageActivity.this.euO.Jl();
+                        GroupImageActivity.this.euQ = new AlphaAnimation(0.0f, 1.0f);
                     } else {
-                        GroupImageActivity.this.euA = new AlphaAnimation(1.0f, 0.0f);
-                        GroupImageActivity.this.euC = true;
-                        GroupImageActivity.this.euy.Jl();
+                        GroupImageActivity.this.euQ = new AlphaAnimation(1.0f, 0.0f);
+                        GroupImageActivity.this.euS = true;
+                        GroupImageActivity.this.euO.Jm();
                     }
-                    GroupImageActivity.this.euA.setDuration(300L);
-                    GroupImageActivity.this.euA.setFillAfter(false);
-                    GroupImageActivity.this.euA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.1.1
+                    GroupImageActivity.this.euQ.setDuration(300L);
+                    GroupImageActivity.this.euQ.setFillAfter(false);
+                    GroupImageActivity.this.euQ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.1.1
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            GroupImageActivity.this.euB = true;
-                            if (GroupImageActivity.this.euC) {
-                                GroupImageActivity.this.euC = false;
+                            GroupImageActivity.this.euR = true;
+                            if (GroupImageActivity.this.euS) {
+                                GroupImageActivity.this.euS = false;
                                 GroupImageActivity.this.mNavigationBar.setVisibility(8);
                             }
                         }
@@ -212,8 +212,8 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                         public void onAnimationStart(Animation animation) {
                         }
                     });
-                    GroupImageActivity.this.euB = false;
-                    GroupImageActivity.this.mNavigationBar.startAnimation(GroupImageActivity.this.euA);
+                    GroupImageActivity.this.euR = false;
+                    GroupImageActivity.this.mNavigationBar.startAnimation(GroupImageActivity.this.euQ);
                 }
             }
         };
@@ -222,7 +222,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
             public void onPageSelected(int i) {
                 GroupImageActivity.this.bZ(GroupImageActivity.this.mIndex, i);
                 GroupImageActivity.this.mIndex = i;
-                GroupImageActivity.this.ayt();
+                GroupImageActivity.this.ayv();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -231,12 +231,12 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (i == 1 && System.nanoTime() - GroupImageActivity.this.euG > 300000000 && GroupImageActivity.this.eGC != null && GroupImageActivity.this.mIndex < GroupImageActivity.this.eGC.size()) {
-                    GroupImageActivity.this.euH.put(GroupImageActivity.this.eGC.get(GroupImageActivity.this.mIndex), true);
+                if (i == 1 && System.nanoTime() - GroupImageActivity.this.euW > 300000000 && GroupImageActivity.this.eGS != null && GroupImageActivity.this.mIndex < GroupImageActivity.this.eGS.size()) {
+                    GroupImageActivity.this.euX.put(GroupImageActivity.this.eGS.get(GroupImageActivity.this.mIndex), true);
                 }
             }
         };
-        this.euz = new BaseViewPager.a() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.3
+        this.euP = new BaseViewPager.a() { // from class: com.baidu.tieba.im.groupInfo.GroupImageActivity.3
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
             public void fZ(int i) {
                 if (i == 0) {
@@ -250,19 +250,19 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
                     switch (i) {
                         case 0:
                             Activity pageActivity = GroupImageActivity.this.getPageContext().getPageActivity();
-                            if (GroupImageActivity.this.bQD == null) {
-                                GroupImageActivity.this.bQD = new com.baidu.tbadk.core.util.b.a();
+                            if (GroupImageActivity.this.bQG == null) {
+                                GroupImageActivity.this.bQG = new com.baidu.tbadk.core.util.b.a();
                             }
-                            GroupImageActivity.this.bQD.DH();
-                            GroupImageActivity.this.bQD.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                            if (!GroupImageActivity.this.bQD.v(pageActivity)) {
+                            GroupImageActivity.this.bQG.DI();
+                            GroupImageActivity.this.bQG.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                            if (!GroupImageActivity.this.bQG.v(pageActivity)) {
                                 try {
-                                    byte[] currentImageData = GroupImageActivity.this.euy.getCurrentImageData();
+                                    byte[] currentImageData = GroupImageActivity.this.euO.getCurrentImageData();
                                     if (currentImageData != null) {
-                                        String currentImageUrl = GroupImageActivity.this.euy.getCurrentImageUrl();
-                                        GroupImageActivity.this.eGE = new a(currentImageUrl, currentImageData);
-                                        GroupImageActivity.this.eGE.execute(new String[0]);
-                                        GroupImageActivity.this.eGF.setVisibility(4);
+                                        String currentImageUrl = GroupImageActivity.this.euO.getCurrentImageUrl();
+                                        GroupImageActivity.this.eGU = new a(currentImageUrl, currentImageData);
+                                        GroupImageActivity.this.eGU.execute(new String[0]);
+                                        GroupImageActivity.this.eGV.setVisibility(4);
                                         GroupImageActivity.this.showProgressBar();
                                     } else {
                                         GroupImageActivity.this.showToast(GroupImageActivity.this.getPageContext().getString(d.j.no_data));
@@ -288,49 +288,49 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
             }
         };
         this.mNavigationBar = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.euw = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.image_activity_save_button, this.mOnClickListener);
-        this.bgy = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.euM = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.image_activity_save_button, this.mOnClickListener);
+        this.bgB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mTitle = this.mNavigationBar.setTitleText("");
-        this.eGF = (TextView) findViewById(d.g.save);
-        this.eGF.setClickable(false);
-        this.euw.setOnClickListener(this.mOnClickListener);
-        if (this.bgy != null) {
-            this.bgy.setOnClickListener(this.mOnClickListener);
+        this.eGV = (TextView) findViewById(d.g.save);
+        this.eGV.setClickable(false);
+        this.euM.setOnClickListener(this.mOnClickListener);
+        if (this.bgB != null) {
+            this.bgB.setOnClickListener(this.mOnClickListener);
         }
-        this.euy = (MultiImageView) findViewById(d.g.viewpager);
-        this.euy.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.euy.aF(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.euy.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.euy.setItemOnclickListener(this.mOnClickListener);
-        this.euy.setItemOnLongClickListener(onLongClickListener);
-        this.euy.setCurrentItem(aFj(), false);
-        this.euy.setOnScrollOutListener(this.euz);
-        this.euy.setHasNext(false);
-        this.euy.setNextTitle("mNextTitle");
+        this.euO = (MultiImageView) findViewById(d.g.viewpager);
+        this.euO.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.euO.aF(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.euO.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.euO.setItemOnclickListener(this.mOnClickListener);
+        this.euO.setItemOnLongClickListener(onLongClickListener);
+        this.euO.setCurrentItem(aFk(), false);
+        this.euO.setOnScrollOutListener(this.euP);
+        this.euO.setHasNext(false);
+        this.euO.setNextTitle("mNextTitle");
         bZ(this.mIndex, this.mIndex);
         this.mTitle.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayt() {
-        if (this.eGC != null) {
+    public void ayv() {
+        if (this.eGS != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
                 valueOf = (valueOf + "/") + this.mCount;
             }
-            if (this.euy.getHasNext() && this.mIndex == this.euy.getItemNum() - 1) {
+            if (this.euO.getHasNext() && this.mIndex == this.euO.getItemNum() - 1) {
                 this.mTitle.setText(getPageContext().getString(d.j.image_recommend));
-                this.eGF.setVisibility(4);
+                this.eGV.setVisibility(4);
                 return;
             }
             this.mTitle.setText(valueOf);
-            this.eGF.setVisibility(0);
+            this.eGV.setVisibility(0);
         }
     }
 
-    private int aFj() {
-        if (this.eGC != null && this.eGC.size() > 0) {
-            int size = this.eGC.size();
+    private int aFk() {
+        if (this.eGS != null && this.eGS.size() > 0) {
+            int size = this.eGS.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -345,34 +345,34 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.eGC = bundle.getStringArrayList("url");
+            this.eGS = bundle.getStringArrayList("url");
             this.mIndex = bundle.getInt("index", -1);
-            this.euD = bundle.getString("curImgUrl");
-            this.eGD = (HashMap) bundle.getSerializable("assistUrls");
+            this.euT = bundle.getString("curImgUrl");
+            this.eGT = (HashMap) bundle.getSerializable("assistUrls");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.eGC = intent.getStringArrayListExtra("url");
-                this.euD = intent.getStringExtra("curImgUrl");
-                this.eGD = (HashMap) intent.getSerializableExtra("assistUrls");
+                this.eGS = intent.getStringArrayListExtra("url");
+                this.euT = intent.getStringExtra("curImgUrl");
+                this.eGT = (HashMap) intent.getSerializableExtra("assistUrls");
                 this.mIndex = 0;
             }
         }
-        this.euH = new HashMap<>();
+        this.euX = new HashMap<>();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList("url", this.eGC);
+        bundle.putStringArrayList("url", this.eGS);
         bundle.putInt("index", this.mIndex);
-        bundle.putString("curImgUrl", this.euD);
+        bundle.putString("curImgUrl", this.euT);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.euy.setCurrentItem(this.mIndex, true);
+        this.euO.setCurrentItem(this.mIndex, true);
     }
 
     /* loaded from: classes3.dex */
@@ -394,7 +394,7 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         public String doInBackground(String... strArr) {
             switch (k.a(this.mUrl, this.mData, GroupImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return k.BS();
+                    return k.BT();
                 case -1:
                 default:
                     return GroupImageActivity.this.getPageContext().getString(d.j.save_fail);
@@ -409,8 +409,8 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             GroupImageActivity.this.showToast(str);
-            GroupImageActivity.this.eGE = null;
-            GroupImageActivity.this.eGF.setVisibility(0);
+            GroupImageActivity.this.eGU = null;
+            GroupImageActivity.this.eGV.setVisibility(0);
             GroupImageActivity.this.hideProgressBar();
         }
 
@@ -422,8 +422,8 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            GroupImageActivity.this.eGE = null;
-            GroupImageActivity.this.eGF.setVisibility(0);
+            GroupImageActivity.this.eGU = null;
+            GroupImageActivity.this.eGV.setVisibility(0);
             GroupImageActivity.this.hideProgressBar();
             super.cancel(true);
         }
@@ -431,11 +431,11 @@ public class GroupImageActivity extends BaseActivity<GroupImageActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZ(int i, int i2) {
-        synchronized (this.euH) {
-            if (System.nanoTime() - this.euG > 300000000 && this.eGC != null && i < this.eGC.size()) {
-                this.euH.put(this.eGC.get(i), true);
+        synchronized (this.euX) {
+            if (System.nanoTime() - this.euW > 300000000 && this.eGS != null && i < this.eGS.size()) {
+                this.euX.put(this.eGS.get(i), true);
             }
-            this.euG = System.nanoTime();
+            this.euW = System.nanoTime();
         }
     }
 }

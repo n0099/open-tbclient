@@ -20,27 +20,27 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends PagerAdapter {
-    private Map<String, ImageUrlData> bmg;
-    private a.e bmk;
-    private List<a> bmq;
-    private a.d bmr;
-    private f.b bmu;
-    private boolean bmv;
-    private b bmw;
-    private boolean bmx;
+    private boolean bmA;
+    private Map<String, ImageUrlData> bmj;
+    private a.e bmn;
+    private List<a> bmt;
+    private a.d bmu;
+    private f.b bmx;
+    private boolean bmy;
+    private b bmz;
     private Context mContext;
-    private ArrayList<String> bmf = null;
+    private ArrayList<String> bmi = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener bmh = null;
-    private View.OnTouchListener bmi = null;
-    private a.f bmj = null;
-    private int bml = 0;
-    private boolean bmm = false;
-    private String bmn = null;
+    private View.OnLongClickListener bmk = null;
+    private View.OnTouchListener bml = null;
+    private a.f bmm = null;
     private int bmo = 0;
-    private int bmp = 0;
-    private boolean bms = false;
-    private boolean bmt = false;
+    private boolean bmp = false;
+    private String bmq = null;
+    private int bmr = 0;
+    private int bms = 0;
+    private boolean bmv = false;
+    private boolean bmw = false;
     private int mPosition = -1;
 
     /* loaded from: classes.dex */
@@ -50,64 +50,64 @@ public class c extends PagerAdapter {
 
     public c(Context context, b bVar, a.e eVar) {
         this.mContext = null;
-        this.bmk = null;
-        this.bmq = null;
+        this.bmn = null;
+        this.bmt = null;
         this.mContext = context;
-        this.bmw = bVar;
-        this.bmk = eVar;
-        this.bmq = new ArrayList();
+        this.bmz = bVar;
+        this.bmn = eVar;
+        this.bmt = new ArrayList();
     }
 
     public void setData(ArrayList<String> arrayList) {
         if (arrayList == null) {
-            this.bmf = new ArrayList<>();
+            this.bmi = new ArrayList<>();
         } else {
-            this.bmf = new ArrayList<>(arrayList);
+            this.bmi = new ArrayList<>(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void setAssistUrls(Map<String, ImageUrlData> map) {
-        this.bmg = map;
+        this.bmj = map;
         notifyDataSetChanged();
     }
 
     public void setNextTitle(String str) {
-        this.bmn = str;
+        this.bmq = str;
     }
 
     public void setHasNext(boolean z) {
-        this.bmm = z;
+        this.bmp = z;
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.bmq.add(aVar);
+        this.bmt.add(aVar);
     }
 
     public boolean getHasNext() {
-        return this.bmm;
+        return this.bmp;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.bmf != null) {
-            i = this.bmf.size();
-            if (this.bmm) {
+        if (this.bmi != null) {
+            i = this.bmi.size();
+            if (this.bmp) {
                 i++;
             }
         }
-        return i + this.bmo + this.bmp;
+        return i + this.bmr + this.bms;
     }
 
     public void setTempSize(int i) {
-        this.bmo = i;
+        this.bmr = i;
         notifyDataSetChanged();
     }
 
     public void setAddSize(int i) {
-        this.bmp = i;
+        this.bms = i;
         notifyDataSetChanged();
     }
 
@@ -116,19 +116,19 @@ public class c extends PagerAdapter {
     }
 
     public void a(View.OnTouchListener onTouchListener) {
-        this.bmi = onTouchListener;
+        this.bml = onTouchListener;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.bmh = onLongClickListener;
+        this.bmk = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.bml = i;
+        this.bmo = i;
     }
 
     public void a(a.f fVar) {
-        this.bmj = fVar;
+        this.bmm = fVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -147,8 +147,8 @@ public class c extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View e = e(viewGroup, i);
-        if (e == null && this.bmq != null && this.bmq.size() != 0) {
-            Iterator<a> it = this.bmq.iterator();
+        if (e == null && this.bmt != null && this.bmt.size() != 0) {
+            Iterator<a> it = this.bmt.iterator();
             while (it.hasNext() && (e = it.next().g(viewGroup, i)) == null) {
             }
         }
@@ -159,43 +159,43 @@ public class c extends PagerAdapter {
     }
 
     public void setIsCanDrag(boolean z) {
-        this.bmv = z;
+        this.bmy = z;
     }
 
     private f e(ViewGroup viewGroup, int i) {
-        String str = i < this.bmf.size() ? this.bmf.get(i) : null;
+        String str = i < this.bmi.size() ? this.bmi.get(i) : null;
         if (StringUtils.isNull(str)) {
             return null;
         }
         f fVar = new f(this.mContext);
-        fVar.setOriImgSelectedCallback(this.bmu);
+        fVar.setOriImgSelectedCallback(this.bmx);
         fVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         fVar.setImageOnClickListener(this.mOnClickListener);
-        fVar.setImageOnLongClickListener(this.bmh);
-        fVar.setOuterOnTouchListener(this.bmi);
-        fVar.setIsCanDrag(this.bmv);
-        fVar.setIsCdn(this.bms);
-        fVar.setOnSizeChangedListener(this.bmj);
+        fVar.setImageOnLongClickListener(this.bmk);
+        fVar.setOuterOnTouchListener(this.bml);
+        fVar.setIsCanDrag(this.bmy);
+        fVar.setIsCdn(this.bmv);
+        fVar.setOnSizeChangedListener(this.bmm);
         viewGroup.addView(fVar, 0);
         fVar.setAssistUrl(fJ(str));
-        fVar.m(str, this.bmt);
-        fVar.setGifMaxUseableMem(this.bml);
+        fVar.m(str, this.bmw);
+        fVar.setGifMaxUseableMem(this.bmo);
         fVar.setTag(String.valueOf(i));
-        fVar.setGifSetListener(this.bmk);
-        fVar.setHeadImage(this.bmx);
-        fVar.setDragToExitListener(this.bmr);
+        fVar.setGifSetListener(this.bmn);
+        fVar.setHeadImage(this.bmA);
+        fVar.setDragToExitListener(this.bmu);
         return fVar;
     }
 
     public void setDrageToExitListener(a.d dVar) {
-        this.bmr = dVar;
+        this.bmu = dVar;
     }
 
     private View f(ViewGroup viewGroup, int i) {
-        if (this.bmm && i == getCount() - 1 && i != 0) {
+        if (this.bmp && i == getCount() - 1 && i != 0) {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.h.big_image_next, (ViewGroup) null);
             ((ImageView) inflate.findViewById(d.g.image)).setImageDrawable(aj.getDrawable(d.f.big_image_next_default));
-            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.bmn);
+            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.bmq);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
@@ -211,38 +211,38 @@ public class c extends PagerAdapter {
             f fVar = (f) obj;
             com.baidu.tbadk.widget.a imageView = fVar.getImageView();
             if (imageView != null) {
-                imageView.PH();
-                this.bmw.setCurrentView(imageView);
+                imageView.PI();
+                this.bmz.setCurrentView(imageView);
                 if (imageView.getImageType() == 1) {
-                    this.bmk.a(imageView);
+                    this.bmn.a(imageView);
                 }
             }
+            fVar.JH();
             fVar.JG();
-            fVar.JF();
-            fVar.l(this.bmt, true);
+            fVar.l(this.bmw, true);
         }
     }
 
     private ImageUrlData fJ(String str) {
-        if (TextUtils.isEmpty(str) || this.bmg == null) {
+        if (TextUtils.isEmpty(str) || this.bmj == null) {
             return null;
         }
-        return this.bmg.get(str);
+        return this.bmj.get(str);
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.bmt = z;
+        this.bmw = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.bms = z;
+        this.bmv = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.bmx = z;
+        this.bmA = z;
     }
 
     public void setOriImgSelectedCallback(f.b bVar) {
-        this.bmu = bVar;
+        this.bmx = bVar;
     }
 }

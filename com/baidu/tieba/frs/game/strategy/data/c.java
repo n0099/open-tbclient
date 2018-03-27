@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public int dNM;
-    public List<i> dNN;
+    public int dNR;
+    public List<i> dNS;
     public boolean hasMore;
     public String key;
     public int labelId;
@@ -19,9 +19,9 @@ public class c {
         if (v.E(list)) {
             return 0;
         }
-        if (v.E(this.dNN)) {
-            this.dNN = new LinkedList();
-            this.dNN.addAll(list);
+        if (v.E(this.dNS)) {
+            this.dNS = new LinkedList();
+            this.dNS.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             i iVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.dNN.size()) {
+                if (i2 >= this.dNS.size()) {
                     z = false;
                     break;
                 }
-                i iVar2 = this.dNN.get(i2);
+                i iVar2 = this.dNS.get(i2);
                 if (iVar != null && (iVar instanceof b) && iVar2 != null && (iVar2 instanceof b)) {
-                    bd WD = ((b) iVar).WD();
-                    bd WD2 = ((b) iVar2).WD();
-                    if (WD != null && WD2 != null && WD.getTid() != null && WD2.getTid() != null && WD.getTid().equals(WD2.getTid())) {
+                    bd WE = ((b) iVar).WE();
+                    bd WE2 = ((b) iVar2).WE();
+                    if (WE != null && WE2 != null && WE.getTid() != null && WE2.getTid() != null && WE.getTid().equals(WE2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.a((List) this.dNN, 0, (List) linkedList);
+            v.a((List) this.dNS, 0, (List) linkedList);
         }
         return linkedList.size();
     }

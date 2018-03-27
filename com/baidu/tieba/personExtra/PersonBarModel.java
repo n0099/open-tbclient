@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PersonBarModel extends BdBaseModel {
     private static final String dataUrl = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
     private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, dataUrl);
-    private int gly;
+    private int glO;
     private c mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean aLp() {
+    public boolean aLq() {
         return this.mIsHost;
     }
 
     public void tI(int i) {
-        this.gly = i;
+        this.glO = i;
     }
 
-    public c bjv() {
+    public c bjw() {
         return this.mData;
     }
 
-    public void bjt() {
+    public void bju() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!aLp()) {
+        if (!aLq()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -82,14 +82,14 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void ra(String str) {
-        if (this.gly == 1 && this.mIsHost) {
+        if (this.glO == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> dh = com.baidu.tbadk.core.c.a.AQ().dh("tb.my_pages");
+                    l<String> dh = com.baidu.tbadk.core.c.a.AR().dh("tb.my_pages");
                     if (dh != null) {
                         dh.a(str2, str, 604800000L);
                     }

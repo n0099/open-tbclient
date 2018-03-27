@@ -14,7 +14,7 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0241a hpu;
+    private InterfaceC0241a hpS;
     private List<PendantData> mList;
     private e mPageContext;
 
@@ -59,21 +59,21 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.hpw = (TextView) view.findViewById(d.g.cover_text);
-            bVar.hpx = (TbImageView) view.findViewById(d.g.pendant_image);
-            bVar.hpy = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
-            bVar.hpx.setDefaultBgResource(d.C0141d.transparent);
-            bVar.hpx.setDefaultErrorResource(d.C0141d.cp_cont_i);
-            bVar.hpx.setDefaultResource(d.C0141d.cp_cont_i);
+            bVar.hpU = (TextView) view.findViewById(d.g.cover_text);
+            bVar.hpV = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.hpW = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.hpV.setDefaultBgResource(d.C0141d.transparent);
+            bVar.hpV.setDefaultErrorResource(d.C0141d.cp_cont_i);
+            bVar.hpV.setDefaultResource(d.C0141d.cp_cont_i);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hpu != null) {
+                    if (a.this.hpS != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.hpx.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.hpx.getTag();
+                        if (bVar2.hpV.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.hpV.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.hpu.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.hpS.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,45 +86,45 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.hpx.setTag(Integer.valueOf(i));
+            bVar.hpV.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.hpw.setVisibility(0);
-                    bVar.hpx.setVisibility(8);
-                    bVar.hpy.setVisibility(8);
-                    bVar.hpw.setTextColor(aj.getColor(d.C0141d.cp_cont_e));
-                    bVar.hpw.setText("No");
-                    bVar.hpw.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hpU.setVisibility(0);
+                    bVar.hpV.setVisibility(8);
+                    bVar.hpW.setVisibility(8);
+                    bVar.hpU.setTextColor(aj.getColor(d.C0141d.cp_cont_e));
+                    bVar.hpU.setText("No");
+                    bVar.hpU.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.hpw.setVisibility(0);
-                    bVar.hpx.setVisibility(8);
-                    bVar.hpy.setVisibility(8);
-                    bVar.hpw.setTextColor(aj.getColor(d.C0141d.cp_cont_g));
-                    bVar.hpw.setText("T");
-                    bVar.hpw.setBackgroundColor(aj.getColor(d.C0141d.cp_link_tip_a));
+                    bVar.hpU.setVisibility(0);
+                    bVar.hpV.setVisibility(8);
+                    bVar.hpW.setVisibility(8);
+                    bVar.hpU.setTextColor(aj.getColor(d.C0141d.cp_cont_g));
+                    bVar.hpU.setText("T");
+                    bVar.hpU.setBackgroundColor(aj.getColor(d.C0141d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.hpw.setVisibility(0);
-                    bVar.hpx.setVisibility(8);
-                    bVar.hpy.setVisibility(8);
-                    bVar.hpw.setTextColor(aj.getColor(d.C0141d.cp_cont_g));
-                    bVar.hpw.setText("T");
-                    bVar.hpw.setBackgroundColor(aj.getColor(d.C0141d.cp_cont_d));
+                    bVar.hpU.setVisibility(0);
+                    bVar.hpV.setVisibility(8);
+                    bVar.hpW.setVisibility(8);
+                    bVar.hpU.setTextColor(aj.getColor(d.C0141d.cp_cont_g));
+                    bVar.hpU.setText("T");
+                    bVar.hpU.setBackgroundColor(aj.getColor(d.C0141d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.hpw.setVisibility(0);
-                    bVar.hpx.setVisibility(8);
-                    bVar.hpy.setVisibility(8);
-                    bVar.hpw.setTextColor(aj.getColor(d.C0141d.cp_cont_d));
-                    bVar.hpw.setText("T");
-                    bVar.hpw.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
+                    bVar.hpU.setVisibility(0);
+                    bVar.hpV.setVisibility(8);
+                    bVar.hpW.setVisibility(8);
+                    bVar.hpU.setTextColor(aj.getColor(d.C0141d.cp_cont_d));
+                    bVar.hpU.setText("T");
+                    bVar.hpU.setBackgroundDrawable(aj.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.hpw.setVisibility(8);
-                    bVar.hpx.setVisibility(0);
-                    bVar.hpy.setVisibility(8);
-                    bVar.hpx.startLoad(pendantData.img, 10, false);
+                    bVar.hpU.setVisibility(8);
+                    bVar.hpV.setVisibility(0);
+                    bVar.hpW.setVisibility(8);
+                    bVar.hpV.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
@@ -132,14 +132,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0241a interfaceC0241a) {
-        this.hpu = interfaceC0241a;
+        this.hpS = interfaceC0241a;
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        public TextView hpw;
-        public TbImageView hpx;
-        public ProgressBar hpy;
+        public TextView hpU;
+        public TbImageView hpV;
+        public ProgressBar hpW;
 
         public b() {
         }

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> aHE = null;
-    protected static boolean aHG = false;
-    protected String aHC = "183322726";
-    protected boolean aHF = true;
-    protected transient List<String> aHD = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> aHF = null;
+    protected static boolean aHH = false;
+    protected String aHD = "183322726";
+    protected boolean aHG = true;
+    protected transient List<String> aHE = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -54,29 +54,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setContext(TbPageContext<?> tbPageContext) {
-        if (aHE == null) {
-            aHE = new WeakReference<>(tbPageContext);
+        if (aHF == null) {
+            aHF = new WeakReference<>(tbPageContext);
             return;
         }
-        aHE.clear();
-        aHE = null;
-        aHE = new WeakReference<>(tbPageContext);
+        aHF.clear();
+        aHF = null;
+        aHF = new WeakReference<>(tbPageContext);
     }
 
     public boolean wi() {
-        return aHG;
+        return aHH;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aM(boolean z) {
-        this.aHF = z;
+        this.aHG = z;
     }
 
     public void we() {
-        if (aHE != null) {
-            aHE.get();
-            aHE.clear();
-            aHE = null;
+        if (aHF != null) {
+            aHF.get();
+            aHF.clear();
+            aHF = null;
         }
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.tieba.card.divider.CardGroupDividerView;
 public class b {
     public static void a(bd bdVar, CardGroupDividerView cardGroupDividerView) {
         if (cardGroupDividerView != null && bdVar != null) {
-            if (bdVar.needTopMargin && com.baidu.tieba.tbadkCore.util.f.bxS()) {
+            if (bdVar.needTopMargin && com.baidu.tieba.tbadkCore.util.f.bxX()) {
                 String zM = bdVar.zM();
                 cardGroupDividerView.setTitleText(zM);
                 cardGroupDividerView.w(zM, !bdVar.isFirstFloor);
             } else {
-                cardGroupDividerView.alW();
+                cardGroupDividerView.alX();
             }
             cardGroupDividerView.getBotttomLine().setVisibility(8);
         }

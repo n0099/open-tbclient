@@ -21,21 +21,21 @@ import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.widget.ListView.c {
     protected View IS;
-    protected LinearLayout bcD;
-    protected ImageView bcE;
-    private b bcF;
-    private a bcG;
-    private c bcH;
-    protected AnimationDrawable bcI;
-    private com.baidu.tieba.b.d.a bcJ;
-    private a.e bcK;
-    protected com.baidu.tieba.b.b.b bcL;
-    protected LinearLayout bcM;
-    protected FrameLayout bcN;
-    private Bitmap bcO;
-    private Bitmap bcP;
+    protected LinearLayout bcF;
+    protected ImageView bcG;
+    private b bcH;
+    private a bcI;
+    private c bcJ;
+    protected AnimationDrawable bcK;
+    private com.baidu.tieba.b.d.a bcL;
+    private a.e bcM;
+    protected com.baidu.tieba.b.b.b bcN;
+    protected LinearLayout bcO;
+    protected FrameLayout bcP;
     private Bitmap bcQ;
-    private boolean bcR;
+    private Bitmap bcR;
+    private Bitmap bcS;
+    private boolean bcT;
     protected int mSkinType;
 
     /* loaded from: classes.dex */
@@ -56,34 +56,34 @@ public class j extends com.baidu.adp.widget.ListView.c {
     public j(Context context) {
         super(context);
         this.IS = null;
-        this.bcD = null;
-        this.bcE = null;
         this.bcF = null;
         this.bcG = null;
         this.bcH = null;
-        this.bcO = null;
-        this.bcP = null;
+        this.bcI = null;
+        this.bcJ = null;
         this.bcQ = null;
+        this.bcR = null;
+        this.bcS = null;
         this.mSkinType = Integer.MIN_VALUE;
-        this.bcR = false;
+        this.bcT = false;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View st() {
         this.IS = LayoutInflater.from(getContext()).inflate(d.h.tb_pull_view, (ViewGroup) null);
-        this.bcD = (LinearLayout) this.IS.findViewById(d.g.pull_root);
-        this.bcM = (LinearLayout) this.bcD.findViewById(d.g.cube_container);
-        this.bcN = (FrameLayout) this.bcD.findViewById(d.g.loading_cube);
-        this.bcE = (ImageView) this.IS.findViewById(d.g.pull_image);
+        this.bcF = (LinearLayout) this.IS.findViewById(d.g.pull_root);
+        this.bcO = (LinearLayout) this.bcF.findViewById(d.g.cube_container);
+        this.bcP = (FrameLayout) this.bcF.findViewById(d.g.loading_cube);
+        this.bcG = (ImageView) this.IS.findViewById(d.g.pull_image);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;
         }
-        if (!CU()) {
-            this.bcI = af.CM().fI(skinType);
+        if (!CV()) {
+            this.bcK = af.CN().fI(skinType);
         }
-        this.bcE.setBackgroundDrawable(this.bcI);
-        this.bcK = new a.e() { // from class: com.baidu.tbadk.core.view.j.1
+        this.bcG.setBackgroundDrawable(this.bcK);
+        this.bcM = new a.e() { // from class: com.baidu.tbadk.core.view.j.1
             @Override // com.baidu.tieba.b.d.a.e
             public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
@@ -91,25 +91,25 @@ public class j extends com.baidu.adp.widget.ListView.c {
                 return eGLConfigArr[0];
             }
         };
-        this.bcL = new com.baidu.tieba.b.b.b(getContext());
+        this.bcN = new com.baidu.tieba.b.b.b(getContext());
         gx(skinType);
-        this.bcO = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.cube_top);
-        this.bcP = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_arrow);
-        this.bcQ = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_ok);
-        if (this.bcO == null || this.bcP == null || this.bcQ == null) {
-            af.CM().bl(false);
+        this.bcQ = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.cube_top);
+        this.bcR = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_arrow);
+        this.bcS = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.f.btn_frs_post_ok);
+        if (this.bcQ == null || this.bcR == null || this.bcS == null) {
+            af.CN().bl(false);
         }
-        this.bcL.a(this.bcO, this.bcO, this.bcP, this.bcO, this.bcO, this.bcO);
-        this.bcJ = new com.baidu.tieba.b.d.a(getContext());
-        this.bcJ.setEGLConfigChooser(this.bcK);
-        this.bcJ.setRenderer(this.bcL);
+        this.bcN.a(this.bcQ, this.bcQ, this.bcR, this.bcQ, this.bcQ, this.bcQ);
+        this.bcL = new com.baidu.tieba.b.d.a(getContext());
+        this.bcL.setEGLConfigChooser(this.bcM);
+        this.bcL.setRenderer(this.bcN);
         try {
-            this.bcJ.setRenderMode(0);
+            this.bcL.setRenderMode(0);
         } catch (Exception e) {
         }
-        this.bcN.addView(this.bcJ);
-        this.bcL.akA();
-        Eo();
+        this.bcP.addView(this.bcL);
+        this.bcN.akB();
+        Ep();
         return this.IS;
     }
 
@@ -119,65 +119,65 @@ public class j extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void su() {
-        if (CU()) {
-            if (!this.bcR) {
-                Ep();
-                this.bcJ.requestRender();
-                this.bcJ.onResume();
-                this.bcL.akA();
+        if (CV()) {
+            if (!this.bcT) {
+                Eq();
+                this.bcL.requestRender();
+                this.bcL.onResume();
+                this.bcN.akB();
             }
-            this.bcJ.setVisibility(0);
-            this.bcJ.setRenderMode(1);
-        } else if (this.bcI != null && this.bcE != null) {
-            this.bcI.stop();
-            this.bcE.setBackgroundDrawable(this.bcI.getFrame(0));
+            this.bcL.setVisibility(0);
+            this.bcL.setRenderMode(1);
+        } else if (this.bcK != null && this.bcG != null) {
+            this.bcK.stop();
+            this.bcG.setBackgroundDrawable(this.bcK.getFrame(0));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void aD(boolean z) {
-        if (this.bcH != null) {
-            this.bcH.bx(z);
+        if (this.bcJ != null) {
+            this.bcJ.bx(z);
         }
-        Eo();
-        this.bcR = true;
-        if (CU()) {
-            Ep();
-            this.bcJ.requestRender();
-            this.bcJ.onResume();
-            this.bcJ.setRenderMode(1);
+        Ep();
+        this.bcT = true;
+        if (CV()) {
+            Eq();
+            this.bcL.requestRender();
+            this.bcL.onResume();
+            this.bcL.setRenderMode(1);
             if (z) {
-                this.bcL.akC();
+                this.bcN.akD();
             }
-            this.bcL.akA();
-            this.bcJ.setVisibility(0);
-        } else if (this.bcI != null && this.bcE != null) {
-            this.bcI.stop();
-            this.bcE.setBackgroundDrawable(this.bcI.getFrame(0));
+            this.bcN.akB();
+            this.bcL.setVisibility(0);
+        } else if (this.bcK != null && this.bcG != null) {
+            this.bcK.stop();
+            this.bcG.setBackgroundDrawable(this.bcK.getFrame(0));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void sv() {
-        Eo();
-        if (CU()) {
-            if (!this.bcR) {
-                Ep();
+        Ep();
+        if (CV()) {
+            if (!this.bcT) {
+                Eq();
             }
-            this.bcJ.requestRender();
-            this.bcJ.onResume();
-            this.bcJ.setVisibility(0);
-            this.bcJ.setRenderMode(1);
-            this.bcL.akB();
-            this.bcL.a(this.bcO, this.bcO, this.bcO, this.bcO, this.bcO, this.bcO);
-        } else if (this.bcI != null && this.bcE != null) {
-            this.bcI.stop();
-            this.bcE.setBackgroundDrawable(this.bcI);
-            this.bcE.post(new Runnable() { // from class: com.baidu.tbadk.core.view.j.2
+            this.bcL.requestRender();
+            this.bcL.onResume();
+            this.bcL.setVisibility(0);
+            this.bcL.setRenderMode(1);
+            this.bcN.akC();
+            this.bcN.a(this.bcQ, this.bcQ, this.bcQ, this.bcQ, this.bcQ, this.bcQ);
+        } else if (this.bcK != null && this.bcG != null) {
+            this.bcK.stop();
+            this.bcG.setBackgroundDrawable(this.bcK);
+            this.bcG.post(new Runnable() { // from class: com.baidu.tbadk.core.view.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (j.this.bcI != null) {
-                        j.this.bcI.start();
+                    if (j.this.bcK != null) {
+                        j.this.bcK.start();
                     }
                 }
             });
@@ -186,120 +186,120 @@ public class j extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void aE(boolean z) {
-        this.bcR = false;
-        if (CU()) {
-            this.bcL.a(this.bcO, this.bcO, this.bcP, this.bcO, this.bcO, this.bcO);
-            if (this.bcJ != null) {
-                this.bcJ.setRenderMode(0);
-                this.bcJ.onPause();
+        this.bcT = false;
+        if (CV()) {
+            this.bcN.a(this.bcQ, this.bcQ, this.bcR, this.bcQ, this.bcQ, this.bcQ);
+            if (this.bcL != null) {
+                this.bcL.setRenderMode(0);
+                this.bcL.onPause();
             }
-        } else if (this.bcI != null) {
-            this.bcI.stop();
+        } else if (this.bcK != null) {
+            this.bcK.stop();
         }
         release();
-        if (this.bcG != null) {
-            this.bcG.i(this.IS, z);
+        if (this.bcI != null) {
+            this.bcI.i(this.IS, z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void aF(boolean z) {
-        if (this.bcF != null) {
-            this.bcF.bw(z);
+        if (this.bcH != null) {
+            this.bcH.bw(z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void sw() {
-        if (CU()) {
-            this.bcL.a(this.bcO, this.bcO, this.bcQ, this.bcO, this.bcO, this.bcO);
-            this.bcL.akC();
-            this.bcJ.setRenderMode(1);
+        if (CV()) {
+            this.bcN.a(this.bcQ, this.bcQ, this.bcS, this.bcQ, this.bcQ, this.bcQ);
+            this.bcN.akD();
+            this.bcL.setRenderMode(1);
         }
     }
 
     public void a(b bVar) {
-        this.bcF = bVar;
+        this.bcH = bVar;
     }
 
     public void a(a aVar) {
-        this.bcG = aVar;
+        this.bcI = aVar;
     }
 
     public void a(c cVar) {
-        this.bcH = cVar;
+        this.bcJ = cVar;
     }
 
     public void gx(int i) {
-        if (CU() && this.bcL != null) {
-            if (this.bcL.bfz != i) {
-                this.bcL.lv(aj.getColor(i, d.C0141d.cp_bg_line_c));
-                this.bcL.bfz = i;
-                if (this.bcJ != null) {
-                    this.bcJ.onResume();
+        if (CV() && this.bcN != null) {
+            if (this.bcN.bfC != i) {
+                this.bcN.lv(aj.getColor(i, d.C0141d.cp_bg_line_c));
+                this.bcN.bfC = i;
+                if (this.bcL != null) {
+                    this.bcL.onResume();
                 }
             }
             aj.g(this.IS, d.C0141d.cp_bg_line_c, i);
-            aj.g(this.bcM, d.C0141d.cp_bg_line_c, i);
-            aj.g(this.bcN, d.C0141d.cp_bg_line_c, i);
+            aj.g(this.bcO, d.C0141d.cp_bg_line_c, i);
+            aj.g(this.bcP, d.C0141d.cp_bg_line_c, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean CU() {
-        return af.CM().CU();
+    public boolean CV() {
+        return af.CN().CV();
     }
 
-    private void Eo() {
-        if (CU()) {
-            if (this.bcE != null && this.bcM != null) {
-                if (this.bcE.getVisibility() != 8) {
-                    this.bcE.setVisibility(8);
+    private void Ep() {
+        if (CV()) {
+            if (this.bcG != null && this.bcO != null) {
+                if (this.bcG.getVisibility() != 8) {
+                    this.bcG.setVisibility(8);
                 }
-                if (this.bcM.getVisibility() != 0) {
-                    this.bcM.setVisibility(0);
+                if (this.bcO.getVisibility() != 0) {
+                    this.bcO.setVisibility(0);
                 }
             }
-        } else if (this.bcE != null && this.bcM != null) {
-            if (this.bcE.getVisibility() != 0) {
-                this.bcE.setVisibility(0);
+        } else if (this.bcG != null && this.bcO != null) {
+            if (this.bcG.getVisibility() != 0) {
+                this.bcG.setVisibility(0);
             }
-            if (this.bcM.getVisibility() != 8) {
-                this.bcM.setVisibility(8);
+            if (this.bcO.getVisibility() != 8) {
+                this.bcO.setVisibility(8);
             }
         }
     }
 
-    private void Ep() {
-        this.bcJ = new com.baidu.tieba.b.d.a(getContext());
-        this.bcJ.setVisibility(4);
-        this.bcJ.setEGLConfigChooser(this.bcK);
-        this.bcL.a(this.bcO, this.bcO, this.bcP, this.bcO, this.bcO, this.bcO);
-        this.bcJ.setRenderer(this.bcL);
-        this.bcN.removeAllViews();
-        this.bcN.addView(this.bcJ);
+    private void Eq() {
+        this.bcL = new com.baidu.tieba.b.d.a(getContext());
+        this.bcL.setVisibility(4);
+        this.bcL.setEGLConfigChooser(this.bcM);
+        this.bcN.a(this.bcQ, this.bcQ, this.bcR, this.bcQ, this.bcQ, this.bcQ);
+        this.bcL.setRenderer(this.bcN);
+        this.bcP.removeAllViews();
+        this.bcP.addView(this.bcL);
     }
 
     private void release() {
-        if (CU()) {
-            if (this.bcI != null) {
-                this.bcI.stop();
-                this.bcI = null;
+        if (CV()) {
+            if (this.bcK != null) {
+                this.bcK.stop();
+                this.bcK = null;
                 return;
             }
             return;
         }
-        if (this.bcO != null) {
-            this.bcO.recycle();
-            this.bcO = null;
-        }
-        if (this.bcP != null) {
-            this.bcP.recycle();
-            this.bcP = null;
-        }
         if (this.bcQ != null) {
             this.bcQ.recycle();
             this.bcQ = null;
+        }
+        if (this.bcR != null) {
+            this.bcR.recycle();
+            this.bcR = null;
+        }
+        if (this.bcS != null) {
+            this.bcS.recycle();
+            this.bcS = null;
         }
     }
 

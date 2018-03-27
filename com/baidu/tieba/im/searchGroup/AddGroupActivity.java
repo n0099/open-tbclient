@@ -19,17 +19,17 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private a eMe = null;
-    private SearchGroupModel eMf = null;
-    private c eMg = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
+    private a eMu = null;
+    private SearchGroupModel eMv = null;
+    private c eMw = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            AddGroupActivity.this.eMe.hB(false);
+            AddGroupActivity.this.eMu.hG(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.aLL();
+                AddGroupActivity.this.aLM();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.aLL();
+                AddGroupActivity.this.aLM();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
@@ -38,7 +38,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.aLL();
+                    AddGroupActivity.this.aLM();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -50,31 +50,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eMe = new a(this);
-        this.eMf = new SearchGroupModel(this);
-        registerListener(this.eMg);
+        this.eMu = new a(this);
+        this.eMv = new SearchGroupModel(this);
+        registerListener(this.eMw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eMe.changeSkinType(i);
+        this.eMu.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eMe.aLN()) {
+        if (view == this.eMu.aLO()) {
             finish();
-        } else if (view == this.eMe.aLM()) {
+        } else if (view == this.eMu.aLN()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 nL((String) view.getTag());
             }
-        } else if (view == this.eMe.aHj()) {
-            this.eMe.aLP();
-        } else if (view == this.eMe.aLO()) {
+        } else if (view == this.eMu.aHk()) {
+            this.eMu.aLQ();
+        } else if (view == this.eMu.aLP()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -92,20 +92,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.eMf != null) {
-            this.eMf.cancelLoadData();
+        if (this.eMv != null) {
+            this.eMv.cancelLoadData();
         }
     }
 
     public void nL(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.eMe.hB(true);
-                this.eMf.sendMessage(Integer.parseInt(str));
+                this.eMu.hG(true);
+                this.eMv.sendMessage(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.eMe.hB(false);
+                this.eMu.hG(false);
                 showToast(d.j.groupid_error);
                 return;
             }
@@ -114,7 +114,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLL() {
+    public void aLM() {
         showToast(d.j.add_group_toast_noresult);
     }
 

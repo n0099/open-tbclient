@@ -3,16 +3,16 @@ package com.baidu.adp.b.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable aph;
-    public com.baidu.adp.widget.a.a api;
+    public BitmapDrawable api;
+    public com.baidu.adp.widget.a.a apj;
     public volatile boolean isDefault = true;
 
     public boolean qa() {
-        return (this.aph == null || this.aph.getBitmap() == null || this.aph.getBitmap().isRecycled()) ? false : true;
+        return (this.api == null || this.api.getBitmap() == null || this.api.getBitmap().isRecycled()) ? false : true;
     }
 
     public boolean qb() {
-        return this.api != null && this.api.si();
+        return this.apj != null && this.apj.si();
     }
 
     public boolean isAvailable() {
@@ -21,26 +21,26 @@ public class d {
 
     public int getWidth() {
         if (qa()) {
-            return this.aph.getIntrinsicWidth();
+            return this.api.getIntrinsicWidth();
         }
         if (qb()) {
-            return this.api.getWidth();
+            return this.apj.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
         if (qa()) {
-            return this.aph.getIntrinsicHeight();
+            return this.api.getIntrinsicHeight();
         }
         if (qb()) {
-            return this.api.getHeight();
+            return this.apj.getHeight();
         }
         return 0;
     }
 
     public void reset() {
+        this.apj = null;
         this.api = null;
-        this.aph = null;
     }
 }

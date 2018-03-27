@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class a extends c {
     String content;
-    long hOj;
-    long hOk;
-    int hOl;
-    String hOn;
+    long hOH;
+    long hOI;
+    int hOJ;
+    String hOL;
     String title;
-    String hOm = "08:00-22:00";
-    int hOo = 0;
-    int hOp = 0;
+    String hOK = "08:00-22:00";
+    int hOM = 0;
+    int hON = 0;
 
     public void cW(long j) {
-        this.hOj = j;
+        this.hOH = j;
     }
 
     public void cX(long j) {
-        this.hOk = j;
+        this.hOI = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,19 +37,19 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hOv);
-        sb.append(",taskID:" + this.hOw);
+        sb.append("messageID:" + this.hOT);
+        sb.append(",taskID:" + this.hOU);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hOn);
+        sb.append(",rule:" + this.hOL);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hOl);
-        sb.append(",startTime:" + this.hOj);
-        sb.append(",endTime:" + this.hOk);
-        sb.append(",balanceTime:" + this.hOl);
-        sb.append(",timeRanges:" + this.hOm);
-        sb.append(",forcedDelivery:" + this.hOo);
-        sb.append(",distinctBycontent:" + this.hOp);
+        sb.append(",balanceTime:" + this.hOJ);
+        sb.append(",startTime:" + this.hOH);
+        sb.append(",endTime:" + this.hOI);
+        sb.append(",balanceTime:" + this.hOJ);
+        sb.append(",timeRanges:" + this.hOK);
+        sb.append(",forcedDelivery:" + this.hOM);
+        sb.append(",distinctBycontent:" + this.hON);
         return sb.toString();
     }
 
@@ -57,22 +57,22 @@ public class a extends c {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hOm = str;
+        this.hOK = str;
     }
 
     public void uV(String str) {
-        this.hOn = str;
+        this.hOL = str;
     }
 
     public void xS(int i) {
-        this.hOl = i;
+        this.hOJ = i;
     }
 
     public void xT(int i) {
-        this.hOo = i;
+        this.hOM = i;
     }
 
     public void xU(int i) {
-        this.hOp = i;
+        this.hON = i;
     }
 }

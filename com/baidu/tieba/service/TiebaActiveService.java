@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x gKH;
+        x gKX;
 
         private a() {
-            this.gKH = null;
+            this.gKX = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String Ca;
+            String Cb;
             try {
-                this.gKH = new x("http://114.113.149.3:8086/partnersService");
-                this.gKH.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.gKH.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.gKH.n("model", Build.MODEL);
-                this.gKH.n("edition", TbConfig.getVersion());
-                this.gKH.n("system", Build.VERSION.SDK);
-                this.gKH.Cy().Dv().Dy().mIsBaiduServer = false;
-                Ca = this.gKH.Ca();
+                this.gKX = new x("http://114.113.149.3:8086/partnersService");
+                this.gKX.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.gKX.n("imei", TbadkCoreApplication.getInst().getImei());
+                this.gKX.n("model", Build.MODEL);
+                this.gKX.n("edition", TbConfig.getVersion());
+                this.gKX.n("system", Build.VERSION.SDK);
+                this.gKX.Cz().Dw().Dz().mIsBaiduServer = false;
+                Cb = this.gKX.Cb();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.gKH.CB()) {
-                return Ca;
+            if (this.gKX.CC()) {
+                return Cb;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.gKH != null) {
-                this.gKH.mS();
+            if (this.gKX != null) {
+                this.gKX.mS();
             }
             super.cancel(true);
         }

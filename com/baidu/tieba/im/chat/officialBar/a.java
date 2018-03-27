@@ -12,10 +12,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class a extends LinearLayout {
-    LinearLayout bcr;
-    TbRichTextView exf;
-    TextView exg;
-    ChatImageWithTailView exh;
+    LinearLayout bct;
+    TbRichTextView exw;
+    TextView exx;
+    ChatImageWithTailView exy;
     Context mContext;
 
     public a(Context context) {
@@ -29,31 +29,31 @@ public class a extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.bcr = (LinearLayout) findViewById(d.g.history_container);
-        this.exg = (TextView) findViewById(d.g.history_send_time);
-        this.exf = (TbRichTextView) findViewById(d.g.history_txt);
-        this.exh = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        aj.s(this.bcr, d.f.selector_history_multi_single_bg);
-        aj.e(this.exg, d.C0141d.common_color_10067, 1);
-        this.exf.setTextColor(aj.getColor(d.C0141d.cp_cont_c));
-        this.exh.setIsSupportNight(true);
+        this.bct = (LinearLayout) findViewById(d.g.history_container);
+        this.exx = (TextView) findViewById(d.g.history_send_time);
+        this.exw = (TbRichTextView) findViewById(d.g.history_txt);
+        this.exy = (ChatImageWithTailView) findViewById(d.g.history_pic);
+        aj.s(this.bct, d.f.selector_history_multi_single_bg);
+        aj.e(this.exx, d.C0141d.common_color_10067, 1);
+        this.exw.setTextColor(aj.getColor(d.C0141d.cp_cont_c));
+        this.exy.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.exg.setText(str);
+        this.exx.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.exf;
+        return this.exw;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.exh;
+        return this.exy;
     }
 
     public void bZ(View view) {
-        this.bcr.setBackgroundDrawable(null);
-        this.bcr.removeAllViews();
-        this.bcr.addView(view);
+        this.bct.setBackgroundDrawable(null);
+        this.bct.removeAllViews();
+        this.bct.addView(view);
     }
 }

@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class c implements com.baidu.tieba.d.a {
-    private a.InterfaceC0139a dpK;
-    private EnterForumModel dpt;
-    private final EnterForumModel.b dpE = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.c.1
+    private a.InterfaceC0139a dpN;
+    private EnterForumModel dpw;
+    private final EnterForumModel.b dpH = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.c.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (c.this.dpK != null) {
-                if (aVar == null || !aVar.dqb || aVar.dqc == null || aVar.dqc.aqj() == null) {
-                    c.this.dpK.a(null, false, 1, 0);
+            if (c.this.dpN != null) {
+                if (aVar == null || !aVar.dqe || aVar.dqf == null || aVar.dqf.aqk() == null) {
+                    c.this.dpN.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> aqo = aVar.dqc.aqj().aqo();
-                if (v.D(aqo) > 0) {
-                    Iterator<f> it = aqo.iterator();
+                ArrayList<f> aqp = aVar.dqf.aqk().aqp();
+                if (v.D(aqp) > 0) {
+                    Iterator<f> it = aqp.iterator();
                     while (it.hasNext()) {
                         f next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
@@ -34,40 +34,40 @@ public class c implements com.baidu.tieba.d.a {
                         }
                     }
                 }
-                c.this.dpK.a(arrayList, true, 1, 0);
+                c.this.dpN.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a dpL = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.c.2
+    private com.baidu.adp.framework.listener.a dpO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.c.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && c.this.dpt.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && c.this.dpw.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    c.this.dpt.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    c.this.dpw.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    c.this.dpt.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    c.this.dpw.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public c() {
-        this.dpt = null;
-        this.dpt = new EnterForumModel(null);
-        this.dpt.a(this.dpE);
-        MessageManager.getInstance().registerListener(this.dpL);
+        this.dpw = null;
+        this.dpw = new EnterForumModel(null);
+        this.dpw.a(this.dpH);
+        MessageManager.getInstance().registerListener(this.dpO);
     }
 
     @Override // com.baidu.tieba.d.a
-    public void and() {
-        if (this.dpK != null && this.dpt != null) {
-            this.dpt.fw(true);
+    public void ane() {
+        if (this.dpN != null && this.dpw != null) {
+            this.dpw.fw(true);
         }
     }
 
     @Override // com.baidu.tieba.d.a
     public void a(a.InterfaceC0139a interfaceC0139a) {
-        this.dpK = interfaceC0139a;
+        this.dpN = interfaceC0139a;
     }
 }

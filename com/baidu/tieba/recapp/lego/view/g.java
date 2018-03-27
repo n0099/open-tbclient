@@ -13,7 +13,7 @@ import com.baidu.tieba.recapp.view.DistributeVrVideoView;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class g extends a implements com.baidu.tieba.recapp.k {
-    public DistributeVrVideoView gEw;
+    public DistributeVrVideoView gEM;
     private TbPageContext mTbPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -28,21 +28,21 @@ public class g extends a implements com.baidu.tieba.recapp.k {
 
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void cL(View view) {
-        this.gEw = (DistributeVrVideoView) view.findViewById(d.g.advert_video);
-        this.gEw.setHolderView(view);
+        this.gEM = (DistributeVrVideoView) view.findViewById(d.g.advert_video);
+        this.gEM.setHolderView(view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.getAdvertAppInfo() != null && adCard.vrVideoInfo != null) {
-            this.gEw.setData(this.mTbPageContext, adCard, this.mMaxWidth);
+            this.gEM.setData(this.mTbPageContext, adCard, this.mMaxWidth);
             final VideoInfo videoInfo = adCard.vrVideoInfo.videoInfo;
             final AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (advertAppInfo != null && advertAppInfo.advertAppContext != null && videoInfo != null && !am.isEmpty(videoInfo.video_url)) {
-                this.gEw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.g.1
+                this.gEM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.g.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        com.baidu.tieba.recapp.report.b.boW().a(com.baidu.tieba.recapp.report.e.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
+                        com.baidu.tieba.recapp.report.b.boX().a(com.baidu.tieba.recapp.report.e.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VrPlayerActivityConfig(g.this.getContext(), 1, false, videoInfo.video_url)));
                     }
                 });
@@ -57,6 +57,6 @@ public class g extends a implements com.baidu.tieba.recapp.k {
 
     @Override // com.baidu.tieba.recapp.k
     public com.baidu.tieba.recapp.i getVideoOrVrView() {
-        return this.gEw;
+        return this.gEM;
     }
 }

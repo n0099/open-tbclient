@@ -6,10 +6,10 @@ import com.baidu.tieba.frs.entelechy.a.s;
 import com.baidu.tieba.frs.i;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a dJt;
+    private a dJy;
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b awU() {
+    public com.baidu.tieba.frs.entelechy.b.b awW() {
         return new d();
     }
 
@@ -18,9 +18,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (iVar == null) {
             return null;
         }
-        this.dJt = new c(iVar, null, null, i);
-        this.dJt.a(iVar.auK());
-        return this.dJt;
+        this.dJy = new c(iVar, null, null, i);
+        this.dJy.a(iVar.auL());
+        return this.dJy;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -32,7 +32,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.g.d c(i iVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (iVar.avm()) {
+        if (iVar.avn()) {
             return null;
         }
         return new com.baidu.tieba.frs.g.d(iVar, noPressedRelativeLayout);

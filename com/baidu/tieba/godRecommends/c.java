@@ -7,22 +7,22 @@ import tbclient.GetRecommendGod.DataRes;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class c {
-    private List<MetaData> edz;
+    private List<MetaData> edP;
 
     public void a(DataRes dataRes) {
         List<User> list;
         if (dataRes != null && (list = dataRes.user_list) != null && list.size() > 0) {
-            this.edz = new ArrayList();
+            this.edP = new ArrayList();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.edz.add(metaData);
+                this.edP.add(metaData);
             }
         }
     }
 
-    public List<MetaData> aBE() {
-        return this.edz;
+    public List<MetaData> aBF() {
+        return this.edP;
     }
 }

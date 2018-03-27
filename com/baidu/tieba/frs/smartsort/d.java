@@ -12,55 +12,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d dTN;
-    private boolean dTG = false;
-    private final HashMap<String, ArrayList<f>> dTM = new HashMap<>();
+    private static volatile d dTS;
+    private boolean dTL = false;
+    private final HashMap<String, ArrayList<f>> dTR = new HashMap<>();
 
     private d() {
     }
 
-    public static d azL() {
-        if (dTN == null) {
+    public static d azN() {
+        if (dTS == null) {
             synchronized (d.class) {
-                if (dTN == null) {
-                    dTN = new d();
+                if (dTS == null) {
+                    dTS = new d();
                 }
             }
         }
-        return dTN;
+        return dTS;
     }
 
-    public String azG() {
+    public String azI() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     public synchronized void h(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String azG = azG();
-            ArrayList<f> arrayList = this.dTM.get(azG);
+            String azI = azI();
+            ArrayList<f> arrayList = this.dTR.get(azI);
             ArrayList<f> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
             f mo = mo(str);
             boolean z = false;
             if (mo != null) {
-                if (mo.dTR != i) {
-                    mo.dTR = i;
+                if (mo.dTW != i) {
+                    mo.dTW = i;
                     z = true;
                 }
             } else {
                 f fVar = new f();
                 fVar.forumName = str;
-                fVar.dTR = i;
+                fVar.dTW = i;
                 arrayList2.add(fVar);
                 z = true;
             }
             if (z) {
-                f(azG, arrayList2);
+                f(azI, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<f> arrayList) {
-        JSONObject azP;
+        JSONObject azR;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -68,15 +68,15 @@ public class d {
             ArrayList<f> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 f fVar = arrayList.get(i);
-                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (azP = fVar.azP()) != null) {
-                    jSONArray.put(azP);
+                if (fVar != null && !TextUtils.isEmpty(fVar.forumName) && (azR = fVar.azR()) != null) {
+                    jSONArray.put(azR);
                     arrayList2.add(fVar);
                 }
             }
             if (!v.E(arrayList2)) {
-                this.dTM.put(str, arrayList2);
-                if (!this.dTG) {
-                    azM();
+                this.dTR.put(str, arrayList2);
+                if (!this.dTL) {
+                    azO();
                 } else {
                     mp(jSONArray.toString());
                 }
@@ -87,7 +87,7 @@ public class d {
     public synchronized f mo(String str) {
         f fVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<f> arrayList = this.dTM.get(azG());
+            ArrayList<f> arrayList = this.dTR.get(azI());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -112,19 +112,19 @@ public class d {
     }
 
     private void mp(String str) {
-        l<String> azI = azI();
-        if (azI != null) {
-            azI.f("frs_sortType", str);
+        l<String> azK = azK();
+        if (azK != null) {
+            azK.f("frs_sortType", str);
         }
     }
 
-    public void azM() {
+    public void azO() {
         com.baidu.tbadk.util.v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
-            /* renamed from: azO */
+            /* renamed from: azQ */
             public l<String> doInBackground() {
-                return d.this.azI();
+                return d.this.azK();
             }
         }, new h<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.d.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -138,9 +138,9 @@ public class d {
                         /* renamed from: aX */
                         public void g(String str, String str2) {
                             if (str2 != null) {
-                                d.this.dTM.put(d.this.azG(), d.this.mn(str2));
+                                d.this.dTR.put(d.this.azI(), d.this.mn(str2));
                             }
-                            d.this.dTG = true;
+                            d.this.dTL = true;
                         }
                     });
                 }
@@ -149,8 +149,8 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> azI() {
-        return com.baidu.tbadk.core.c.a.AQ().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    public l<String> azK() {
+        return com.baidu.tbadk.core.c.a.AR().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -169,8 +169,8 @@ public class d {
         return arrayList;
     }
 
-    public void azN() {
+    public void azP() {
         mp("");
-        this.dTM.remove(azG());
+        this.dTR.remove(azI());
     }
 }

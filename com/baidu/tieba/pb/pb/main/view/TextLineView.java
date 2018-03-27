@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class TextLineView extends TextView {
-    private int fYX;
-    private int fYY;
-    private int fYZ;
-    private int fZa;
-    private int fZb;
-    private int fZc;
+    private int fZn;
+    private int fZo;
+    private int fZp;
+    private int fZq;
+    private int fZr;
+    private int fZs;
     private Paint mPaint;
 
     public TextLineView(Context context) {
@@ -27,37 +27,37 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.TextLineView);
-        this.fYX = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_height, 0);
-        this.fYY = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_top_margin, 0);
-        this.fYZ = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_bottom_margin, 0);
-        this.fZb = obtainStyledAttributes.getColor(d.l.TextLineView_text_selected_color, aj.getColor(d.C0141d.cp_cont_b));
-        this.fZa = obtainStyledAttributes.getColor(d.l.TextLineView_text_unselected_color, aj.getColor(d.C0141d.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.fYY + this.fYX + this.fYZ);
-        setTextColor(this.fZb);
-        this.fZc = l.t(context, d.e.ds56);
+        this.fZn = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_height, 0);
+        this.fZo = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_top_margin, 0);
+        this.fZp = obtainStyledAttributes.getDimensionPixelSize(d.l.TextLineView_bottom_line_bottom_margin, 0);
+        this.fZr = obtainStyledAttributes.getColor(d.l.TextLineView_text_selected_color, aj.getColor(d.C0141d.cp_cont_b));
+        this.fZq = obtainStyledAttributes.getColor(d.l.TextLineView_text_unselected_color, aj.getColor(d.C0141d.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.fZo + this.fZn + this.fZp);
+        setTextColor(this.fZr);
+        this.fZs = l.t(context, d.e.ds56);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        bgp();
-        int measuredWidth = (getMeasuredWidth() - this.fZc) / 2;
-        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fYZ) - this.fYX, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fYZ), l.t(getContext(), d.e.ds4), l.t(getContext(), d.e.ds4), this.mPaint);
+        bgq();
+        int measuredWidth = (getMeasuredWidth() - this.fZs) / 2;
+        canvas.drawRoundRect(new RectF(measuredWidth + 0, (getMeasuredHeight() - this.fZp) - this.fZn, getMeasuredWidth() - measuredWidth, getMeasuredHeight() - this.fZp), l.t(getContext(), d.e.ds4), l.t(getContext(), d.e.ds4), this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.fZb);
+            setTextColor(this.fZr);
         } else {
-            setTextColor(this.fZa);
+            setTextColor(this.fZq);
         }
         invalidate();
     }
 
-    private void bgp() {
+    private void bgq() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -71,14 +71,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.fZb = aj.getColor(d.C0141d.cp_cont_b);
-        this.fZa = aj.getColor(d.C0141d.cp_cont_j);
+        this.fZr = aj.getColor(d.C0141d.cp_cont_b);
+        this.fZq = aj.getColor(d.C0141d.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.fZb);
+            setTextColor(this.fZr);
         } else {
-            setTextColor(this.fZa);
+            setTextColor(this.fZq);
         }
-        bgp();
+        bgq();
         invalidate();
     }
 }

@@ -12,15 +12,15 @@ public class a {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0185a {
-        public String blm;
-        public String dQa;
-        public String eQZ;
-        public String eRA;
-        public String eRB;
-        public int eRw;
-        public String eRx;
-        public String eRy;
-        public int eRz;
+        public String blp;
+        public String dQf;
+        public int eRL;
+        public String eRM;
+        public String eRN;
+        public int eRO;
+        public String eRP;
+        public String eRQ;
+        public String eRo;
         public String postId;
         public String threadId;
         public int threadType;
@@ -37,10 +37,10 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0185a.eRx = optJSONObject.optString("title");
-                c0185a.eQZ = optJSONObject.optString("content");
-                c0185a.eRA = optJSONObject.optString("quote_content");
-                c0185a.blm = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                c0185a.eRM = optJSONObject.optString("title");
+                c0185a.eRo = optJSONObject.optString("content");
+                c0185a.eRP = optJSONObject.optString("quote_content");
+                c0185a.blp = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 c0185a.threadId = optJSONObject.optString("thread_id");
                 c0185a.postId = optJSONObject.optString("post_id");
                 c0185a.type = optJSONObject.optInt("type");
@@ -48,14 +48,14 @@ public class a {
                 c0185a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0185a.eRy = optJSONObject2.optString("id");
-                    c0185a.eRB = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0185a.eRz = optJSONObject2.optInt("gender");
+                    c0185a.eRN = optJSONObject2.optString("id");
+                    c0185a.eRQ = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0185a.eRO = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0185a.dQa = optJSONObject3.optString("id");
-                    c0185a.eRw = optJSONObject3.optInt("gender");
+                    c0185a.dQf = optJSONObject3.optString("id");
+                    c0185a.eRL = optJSONObject3.optInt("gender");
                 }
             }
             return c0185a;

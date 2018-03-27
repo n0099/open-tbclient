@@ -15,11 +15,11 @@ import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class ShareStatic {
     static {
-        bsf();
         bsg();
+        bsh();
     }
 
-    private static void bsf() {
+    private static void bsg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001445, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -31,7 +31,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bsg() {
+    private static void bsh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001276, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -60,7 +60,7 @@ public class ShareStatic {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
                                 TextView cC = aVar.cC(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                                 if (data.isInsertBack) {
-                                    aVar.a(cC, aVar.bsq(), (View.OnClickListener) ((Pair) next.second).second);
+                                    aVar.a(cC, aVar.bsr(), (View.OnClickListener) ((Pair) next.second).second);
                                 } else {
                                     aVar.b(cC, (View.OnClickListener) ((Pair) next.second).second);
                                 }
@@ -79,7 +79,7 @@ public class ShareStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(ShareDialogConfig shareDialogConfig) {
         d dVar = new d(shareDialogConfig.getContext());
-        dVar.nh(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
+        dVar.nm(TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive);
         dVar.a(shareDialogConfig.mForumList, shareDialogConfig.shareItem, shareDialogConfig.mPrivateThread);
         dVar.setOnDismissListener(shareDialogConfig.onDismissListener);
         dVar.show();

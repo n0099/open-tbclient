@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class e {
-    public static boolean aHJ = true;
+    public static boolean aHK = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.e.1
@@ -47,7 +47,7 @@ public class e {
                 }
             }
         });
-        aw.Dt().a(new aw.c() { // from class: com.baidu.tbadk.browser.e.2
+        aw.Du().a(new aw.c() { // from class: com.baidu.tbadk.browser.e.2
             @Override // com.baidu.tbadk.core.util.aw.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, aw.d dVar, boolean z2) {
                 if (z2) {
@@ -64,7 +64,7 @@ public class e {
     }
 
     private static void wx() {
-        aw.Dt().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.3
+        aw.Du().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.3
             @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle hv;
@@ -223,7 +223,7 @@ public class e {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String cv = cv(str);
-        if (!cy(cv) && wy() && cA("com.baidu.searchbox") && cz(cv) && aHJ) {
+        if (!cy(cv) && wy() && cA("com.baidu.searchbox") && cz(cv) && aHK) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -294,7 +294,7 @@ public class e {
     }
 
     private static void wz() {
-        aw.Dt().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.6
+        aw.Du().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.6
             @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -353,7 +353,7 @@ public class e {
     }
 
     private static void wA() {
-        aw.Dt().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.7
+        aw.Du().a(new aw.a() { // from class: com.baidu.tbadk.browser.e.7
             @Override // com.baidu.tbadk.core.util.aw.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

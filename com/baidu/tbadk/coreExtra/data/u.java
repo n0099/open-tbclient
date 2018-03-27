@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private String bhV;
-    private long bhW;
-    private long bhX;
-    private long bhY;
-    private String bhZ;
-    private String bia;
+    private String bhY;
+    private long bhZ;
+    private long bia;
+    private long bib;
+    private String bic;
+    private String bie;
 
     public void parseJson(String str) {
         if (!am.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.bhV = jSONObject.optString("splash_video_url");
-                this.bhW = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.bhX = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.bhY = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.bhZ = jSONObject.optString("splash_video_h5_url");
-                this.bia = jSONObject.optString("splash_video_h5_text");
+                this.bhY = jSONObject.optString("splash_video_url");
+                this.bhZ = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.bia = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.bib = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.bic = jSONObject.optString("splash_video_h5_url");
+                this.bie = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String FZ() {
-        return this.bhV;
-    }
-
-    public long Ga() {
-        return this.bhW;
-    }
-
-    public long Gb() {
-        return this.bhX;
-    }
-
-    public long Gc() {
+    public String Ga() {
         return this.bhY;
     }
 
-    public String Gd() {
+    public long Gb() {
         return this.bhZ;
     }
 
-    public String Ge() {
+    public long Gc() {
         return this.bia;
+    }
+
+    public long Gd() {
+        return this.bib;
+    }
+
+    public String Ge() {
+        return this.bic;
+    }
+
+    public String Gf() {
+        return this.bie;
     }
 }

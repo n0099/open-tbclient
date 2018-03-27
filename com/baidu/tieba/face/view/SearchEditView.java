@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SearchEditView extends RelativeLayout {
-    private EditText drQ;
-    private ImageView drR;
-    private ImageView drS;
-    private LinearLayout drT;
-    private a drU;
+    private EditText drT;
+    private ImageView drU;
+    private ImageView drV;
+    private LinearLayout drW;
+    private a drX;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -49,14 +49,14 @@ public class SearchEditView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.emotion_search_edit, (ViewGroup) this, true);
-        this.drQ = (EditText) findViewById(d.g.edit_search);
-        this.drR = (ImageView) findViewById(d.g.iv_search);
-        this.drS = (ImageView) findViewById(d.g.iv_del_all);
-        this.drT = (LinearLayout) findViewById(d.g.iv_del_all_layout);
-        aj.c(this.drR, d.f.icon_emotion_search);
-        aj.c(this.drS, d.f.del_search_btn);
-        aj.r(this.drQ, d.C0141d.cp_cont_b);
-        this.drQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
+        this.drT = (EditText) findViewById(d.g.edit_search);
+        this.drU = (ImageView) findViewById(d.g.iv_search);
+        this.drV = (ImageView) findViewById(d.g.iv_del_all);
+        this.drW = (LinearLayout) findViewById(d.g.iv_del_all_layout);
+        aj.c(this.drU, d.f.icon_emotion_search);
+        aj.c(this.drV, d.f.del_search_btn);
+        aj.r(this.drT, d.C0141d.cp_cont_b);
+        this.drT.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -67,33 +67,33 @@ public class SearchEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (SearchEditView.this.drU != null) {
-                    SearchEditView.this.drU.kV(editable.toString().trim());
+                if (SearchEditView.this.drX != null) {
+                    SearchEditView.this.drX.kV(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    SearchEditView.this.drT.setVisibility(4);
+                    SearchEditView.this.drW.setVisibility(4);
                 } else {
-                    SearchEditView.this.drT.setVisibility(0);
+                    SearchEditView.this.drW.setVisibility(0);
                 }
             }
         });
-        this.drQ.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
+        this.drT.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    String trim = SearchEditView.this.drQ.getText().toString().trim();
-                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.drU != null) {
-                        SearchEditView.this.drU.kU(trim);
+                    String trim = SearchEditView.this.drT.getText().toString().trim();
+                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.drX != null) {
+                        SearchEditView.this.drX.kU(trim);
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.drT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
+        this.drW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchEditView.this.drQ.setText("");
+                SearchEditView.this.drT.setText("");
             }
         });
         gB(TbadkCoreApplication.getInst().getSkinType());
@@ -101,30 +101,30 @@ public class SearchEditView extends RelativeLayout {
 
     public void gB(int i) {
         if (i == 0) {
-            this.drQ.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d));
+            this.drT.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d));
         } else {
-            this.drQ.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d_1));
+            this.drT.setHintTextColor(getResources().getColor(d.C0141d.cp_cont_d_1));
         }
     }
 
     public void setCallback(a aVar) {
-        this.drU = aVar;
+        this.drX = aVar;
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.drQ.setText(str);
-            this.drQ.setSelection(str.length());
+            this.drT.setText(str);
+            this.drT.setSelection(str.length());
         }
     }
 
     public void setSelection(int i) {
-        if (i <= this.drQ.getText().length()) {
-            this.drQ.setSelection(i);
+        if (i <= this.drT.getText().length()) {
+            this.drT.setSelection(i);
         }
     }
 
-    public boolean arq() {
-        return this.drQ.requestFocus();
+    public boolean arr() {
+        return this.drT.requestFocus();
     }
 }

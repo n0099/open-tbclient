@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView bMo;
-    private HeadImageView dYQ;
-    private ShareFromPBMsgData eOq;
+    private TextView bMr;
+    private HeadImageView dZh;
+    private ShareFromPBMsgData eOG;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(d.h.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(d.g.chat_title);
-        this.dYQ = (HeadImageView) findViewById(d.g.chat_group_img);
-        this.bMo = (TextView) findViewById(d.g.chat_group_desc);
+        this.dZh = (HeadImageView) findViewById(d.g.chat_group_img);
+        this.bMr = (TextView) findViewById(d.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_b));
-            this.bMo.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_f));
+            this.bMr.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_g));
-        this.bMo.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_g));
+        this.bMr.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.eOq = shareFromPBMsgData;
-        DZ();
+        this.eOG = shareFromPBMsgData;
+        Ea();
     }
 
-    private void DZ() {
-        this.title.setText(this.eOq.getTitle());
-        this.dYQ.setDefaultResource(d.f.icon_default_ba_120);
-        this.dYQ.setAutoChangeStyle(false);
-        this.dYQ.startLoad(this.eOq.getImageUrl(), 10, false);
-        this.bMo.setText(this.eOq.getContent());
+    private void Ea() {
+        this.title.setText(this.eOG.getTitle());
+        this.dZh.setDefaultResource(d.f.icon_default_ba_120);
+        this.dZh.setAutoChangeStyle(false);
+        this.dZh.startLoad(this.eOG.getImageUrl(), 10, false);
+        this.bMr.setText(this.eOG.getContent());
     }
 }

@@ -12,10 +12,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class StickerLayout extends FrameLayout {
-    private List<com.baidu.tieba.write.write.sticker.view.a> hNh;
-    private FrameLayout.LayoutParams hNi;
-    private int hNj;
-    a hNk;
+    private List<com.baidu.tieba.write.write.sticker.view.a> hNF;
+    private FrameLayout.LayoutParams hNG;
+    private int hNH;
+    a hNI;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -40,22 +40,22 @@ public class StickerLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.hNh = new ArrayList();
-        this.hNi = new FrameLayout.LayoutParams(-1, -1);
+        this.hNF = new ArrayList();
+        this.hNG = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public com.baidu.tieba.write.write.sticker.view.a a(Bitmap bitmap, final c cVar) {
         final com.baidu.tieba.write.write.sticker.view.a aVar = new com.baidu.tieba.write.write.sticker.view.a(this.mContext);
         aVar.setImageBitmap(bitmap);
-        aVar.setLayoutParams(this.hNi);
+        aVar.setLayoutParams(this.hNG);
         aVar.setmOnStickerActionListener(new com.baidu.tieba.write.write.sticker.a.a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
-            public void bJD() {
+            public void bJI() {
                 StickerLayout.this.removeView(aVar);
-                StickerLayout.this.hNh.remove(aVar);
-                StickerLayout.this.aYZ();
+                StickerLayout.this.hNF.remove(aVar);
+                StickerLayout.this.aZa();
                 if (cVar != null) {
-                    cVar.bIc();
+                    cVar.bIh();
                 }
             }
 
@@ -69,70 +69,70 @@ public class StickerLayout extends FrameLayout {
 
             @Override // com.baidu.tieba.write.write.sticker.a.a
             public void b(com.baidu.tieba.write.write.sticker.view.a aVar2) {
-                if (StickerLayout.this.hNk != null) {
-                    StickerLayout.this.hNk.b(aVar2);
+                if (StickerLayout.this.hNI != null) {
+                    StickerLayout.this.hNI.b(aVar2);
                 }
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.a
             public void a(com.baidu.tieba.write.write.sticker.view.a aVar2) {
-                if (StickerLayout.this.hNk != null) {
-                    StickerLayout.this.hNk.a(aVar2);
+                if (StickerLayout.this.hNI != null) {
+                    StickerLayout.this.hNI.a(aVar2);
                 }
             }
         });
         addView(aVar);
-        this.hNh.add(aVar);
-        aYZ();
+        this.hNF.add(aVar);
+        aZa();
         if (cVar != null) {
-            cVar.bIb();
+            cVar.bIg();
         }
         return aVar;
     }
 
     public void a(c cVar) {
-        Iterator<com.baidu.tieba.write.write.sticker.view.a> it = this.hNh.iterator();
+        Iterator<com.baidu.tieba.write.write.sticker.view.a> it = this.hNF.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.write.write.sticker.view.a next = it.next();
             if (next != null) {
                 removeView(next);
                 it.remove();
-                aYZ();
+                aZa();
                 if (cVar != null) {
-                    cVar.bIc();
+                    cVar.bIh();
                 }
             }
         }
     }
 
-    public void aYZ() {
-        if (this.hNh.size() > 0) {
-            for (com.baidu.tieba.write.write.sticker.view.a aVar : this.hNh) {
+    public void aZa() {
+        if (this.hNF.size() > 0) {
+            for (com.baidu.tieba.write.write.sticker.view.a aVar : this.hNF) {
                 if (aVar != null) {
-                    aVar.setRemoveRes(this.hNj);
+                    aVar.setRemoveRes(this.hNH);
                     aVar.setEdit(false);
                 }
             }
         }
     }
 
-    public Bitmap bJE() {
-        if (v.E(this.hNh)) {
+    public Bitmap bJJ() {
+        if (v.E(this.hNF)) {
             return null;
         }
-        aYZ();
+        aZa();
         return d.bm(this);
     }
 
     public void setRemoveRes(int i) {
-        this.hNj = i;
+        this.hNH = i;
     }
 
     public void setStickerClickListener(a aVar) {
-        this.hNk = aVar;
+        this.hNI = aVar;
     }
 
     public List<com.baidu.tieba.write.write.sticker.view.a> getStickerViews() {
-        return this.hNh;
+        return this.hNF;
     }
 }

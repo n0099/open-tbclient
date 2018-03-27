@@ -23,11 +23,11 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends RelativeLayout {
     private int HA;
-    private int eNQ;
-    private C0179a eNR;
-    private int eNS;
-    private int eNT;
-    private b eNU;
+    private int eOg;
+    private C0179a eOh;
+    private int eOi;
+    private int eOj;
+    private b eOk;
     private Context mContext;
     private int mMaxWidth;
     private int mWidth;
@@ -38,7 +38,7 @@ public class a extends RelativeLayout {
     }
 
     public void setOnItemClickListener(b bVar) {
-        this.eNU = bVar;
+        this.eOk = bVar;
     }
 
     public a(Context context) {
@@ -50,7 +50,7 @@ public class a extends RelativeLayout {
         layoutParams.bottomMargin = e.C(this.mContext, d.e.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(d.f.bg_bottombar_meun_float);
-        this.eNQ = e.C(this.mContext, d.e.ds36);
+        this.eOg = e.C(this.mContext, d.e.ds36);
         this.HA = e.C(this.mContext, d.e.ds200);
         this.mMaxWidth = e.C(this.mContext, d.e.ds504);
     }
@@ -61,16 +61,16 @@ public class a extends RelativeLayout {
         listView.setCacheColorHint(this.mContext.getResources().getColor(17170445));
         listView.setDivider(null);
         listView.setDividerHeight(0);
-        this.eNR = new C0179a(this.mContext, list);
-        listView.setAdapter((ListAdapter) this.eNR);
+        this.eOh = new C0179a(this.mContext, list);
+        listView.setAdapter((ListAdapter) this.eOh);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                Object item = a.this.eNR.getItem(i2);
+                Object item = a.this.eOh.getItem(i2);
                 if (item instanceof com.baidu.tieba.im.data.b) {
                     com.baidu.tieba.im.data.b bVar = (com.baidu.tieba.im.data.b) item;
-                    if (a.this.eNU != null) {
-                        a.this.eNU.a(a.this.eNS, bVar);
+                    if (a.this.eOk != null) {
+                        a.this.eOk.a(a.this.eOi, bVar);
                     }
                 }
             }
@@ -80,8 +80,8 @@ public class a extends RelativeLayout {
 
     public void a(int i, int i2, List<com.baidu.tieba.im.data.b> list) {
         if (list != null) {
-            this.eNT = i;
-            this.eNS = i2;
+            this.eOj = i;
+            this.eOi = i2;
             this.mWidth = cq(list);
             removeAllViews();
             addView(m(list, this.mWidth));
@@ -103,7 +103,7 @@ public class a extends RelativeLayout {
                 }
                 i = i2 + 1;
             } else {
-                return (int) Math.min(Math.max((this.eNQ * 2) + f, this.HA), this.mMaxWidth);
+                return (int) Math.min(Math.max((this.eOg * 2) + f, this.HA), this.mMaxWidth);
             }
         }
     }
@@ -114,7 +114,7 @@ public class a extends RelativeLayout {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.mWidth / 2);
-            if (this.eNS == this.eNT - 1) {
+            if (this.eOi == this.eOj - 1) {
                 width = ((iArr[0] + view.getWidth()) - e.C(this.mContext, d.e.ds20)) - this.mWidth;
             }
             if (width <= 0) {
@@ -123,20 +123,20 @@ public class a extends RelativeLayout {
             layoutParams.leftMargin = width;
             setLayoutParams(layoutParams);
             setVisibility(0);
-            hU(true);
+            hZ(true);
         }
     }
 
-    public void asJ() {
+    public void asK() {
         setVisibility(8);
-        hU(false);
+        hZ(false);
     }
 
-    public void aMn() {
+    public void aMo() {
         setVisibility(8);
     }
 
-    public void hU(boolean z) {
+    public void hZ(boolean z) {
         if (z) {
             startAnimation(AnimationUtils.loadAnimation(this.mContext, d.a.sub_menu_up));
         } else {
@@ -148,27 +148,27 @@ public class a extends RelativeLayout {
     /* renamed from: com.baidu.tieba.im.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0179a extends BaseAdapter {
-        private List<com.baidu.tieba.im.data.b> eNW;
+        private List<com.baidu.tieba.im.data.b> eOm;
         private Context mContext;
 
         public C0179a(Context context, List<com.baidu.tieba.im.data.b> list) {
             this.mContext = context;
-            this.eNW = list;
+            this.eOm = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.eNW == null) {
+            if (this.eOm == null) {
                 return 0;
             }
-            return (this.eNW.size() * 2) - 1;
+            return (this.eOm.size() * 2) - 1;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
             int itemId = (int) getItemId(i);
-            if (this.eNW != null && itemId >= 0 && itemId < this.eNW.size()) {
-                return this.eNW.get(itemId);
+            if (this.eOm != null && itemId >= 0 && itemId < this.eOm.size()) {
+                return this.eOm.get(itemId);
             }
             return null;
         }
@@ -207,7 +207,7 @@ public class a extends RelativeLayout {
                     textView.setBackgroundResource(d.f.official_bar_menu_text_bg);
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
-                    c0180a.eNX = textView;
+                    c0180a.eOn = textView;
                     linearLayout = textView;
                 } else {
                     linearLayout = view;
@@ -228,7 +228,7 @@ public class a extends RelativeLayout {
             }
             C0180a c0180a2 = (C0180a) view2.getTag();
             if (itemViewType == 0) {
-                c0180a2.eNX.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
+                c0180a2.eOn.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
             }
             return view2;
         }
@@ -236,7 +236,7 @@ public class a extends RelativeLayout {
         /* renamed from: com.baidu.tieba.im.view.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
         class C0180a {
-            TextView eNX;
+            TextView eOn;
 
             C0180a() {
             }

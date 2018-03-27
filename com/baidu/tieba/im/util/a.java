@@ -4,16 +4,16 @@ import android.text.InputFilter;
 import android.text.Spanned;
 /* loaded from: classes3.dex */
 public class a implements InputFilter {
-    private int eNu;
+    private int eNK;
 
     public a(int i) {
-        this.eNu = i;
+        this.eNK = i;
     }
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
         int i5 = i4 - i3;
-        int length = this.eNu - (spanned.length() - i5);
+        int length = this.eNK - (spanned.length() - i5);
         String obj = spanned.toString();
         int hs = f.hs(obj);
         if (i5 > 0) {
@@ -26,7 +26,7 @@ public class a implements InputFilter {
         } else {
             hs += f.hs(charSequence.toString());
         }
-        if (hs > this.eNu || length <= 0) {
+        if (hs > this.eNK || length <= 0) {
             return "";
         }
         if (length >= i2 - i) {

@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac {
-    private List<HotTopicBussinessData> aMR;
+    private List<HotTopicBussinessData> aMS;
 
     public void A(List<HotTopicBussinessData> list) {
-        this.aMR = list;
+        this.aMS = list;
     }
 }

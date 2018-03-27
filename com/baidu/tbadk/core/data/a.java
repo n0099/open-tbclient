@@ -9,17 +9,17 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int aJM;
     private int aJN;
     private int aJO;
     private int aJP;
     private int aJQ;
-    private boolean aJR;
-    private String aJS;
-    private int aJT = 1;
+    private int aJR;
+    private boolean aJS;
+    private String aJT;
     private int aJU = 1;
-    private int aJV;
-    private ax aJW;
+    private int aJV = 1;
+    private int aJW;
+    private ax aJX;
     private int activity_type;
     private int status;
     private int total_num;
@@ -34,11 +34,11 @@ public class a {
     }
 
     public int xF() {
-        return this.aJM;
+        return this.aJN;
     }
 
     public int xG() {
-        return this.aJN;
+        return this.aJO;
     }
 
     public String getUrl() {
@@ -50,41 +50,41 @@ public class a {
     }
 
     public boolean xI() {
-        return this.aJR;
+        return this.aJS;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
             this.activity_type = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.aJM = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.aJN = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.aJN = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.aJO = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.aJO = actInfo.activity_id.intValue();
-            this.aJP = actInfo.award_act_id.intValue();
-            this.aJQ = actInfo.component_id.intValue();
-            this.aJR = actInfo.is_senior.booleanValue();
-            this.aJS = actInfo.banner_img;
-            this.aJV = actInfo.show_total_num.intValue();
+            this.aJP = actInfo.activity_id.intValue();
+            this.aJQ = actInfo.award_act_id.intValue();
+            this.aJR = actInfo.component_id.intValue();
+            this.aJS = actInfo.is_senior.booleanValue();
+            this.aJT = actInfo.banner_img;
+            this.aJW = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
             if (!com.baidu.tbadk.core.util.am.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.aJT = com.baidu.adp.lib.g.b.h(split[0], 1);
-                    this.aJU = com.baidu.adp.lib.g.b.h(split[1], 1);
+                    this.aJU = com.baidu.adp.lib.g.b.h(split[0], 1);
+                    this.aJV = com.baidu.adp.lib.g.b.h(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.aJT <= 0) {
-                this.aJT = 1;
-            }
             if (this.aJU <= 0) {
                 this.aJU = 1;
             }
-            this.aJW = new ax();
-            this.aJW.a(actInfo.lottery_senior);
+            if (this.aJV <= 0) {
+                this.aJV = 1;
+            }
+            this.aJX = new ax();
+            this.aJX.a(actInfo.lottery_senior);
         }
     }
 
@@ -93,27 +93,27 @@ public class a {
             try {
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
-                this.aJM = jSONObject.optInt("begin_time");
-                this.aJN = jSONObject.optInt("end_time");
+                this.aJN = jSONObject.optInt("begin_time");
+                this.aJO = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.aJO = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.aJP = jSONObject.optInt("award_act_id");
-                this.aJQ = jSONObject.optInt("component_id");
-                this.aJR = jSONObject.optBoolean("is_senior");
-                this.aJS = jSONObject.optString("banner_img");
-                this.aJV = jSONObject.optInt("show_total_num");
+                this.aJP = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.aJQ = jSONObject.optInt("award_act_id");
+                this.aJR = jSONObject.optInt("component_id");
+                this.aJS = jSONObject.optBoolean("is_senior");
+                this.aJT = jSONObject.optString("banner_img");
+                this.aJW = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
                 if (!com.baidu.tbadk.core.util.am.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.aJT = com.baidu.adp.lib.g.b.h(split[0], 1);
-                    this.aJU = com.baidu.adp.lib.g.b.h(split[1], 1);
-                }
-                if (this.aJT <= 0) {
-                    this.aJT = 1;
+                    this.aJU = com.baidu.adp.lib.g.b.h(split[0], 1);
+                    this.aJV = com.baidu.adp.lib.g.b.h(split[1], 1);
                 }
                 if (this.aJU <= 0) {
                     this.aJU = 1;
+                }
+                if (this.aJV <= 0) {
+                    this.aJV = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

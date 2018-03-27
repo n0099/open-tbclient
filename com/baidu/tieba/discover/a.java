@@ -19,30 +19,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseFragment implements aj {
-    private b dme;
-    private boolean dmf;
+    private b dmh;
+    private boolean dmi;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean cld = true;
+    private boolean clg = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(2921023) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.dme != null && a.this.dme.YS() != null && a.this.dme.YS().getUrl() != null) {
-                if (a.this.dme.YS().getUrl().contains((String) customResponsedMessage.getData())) {
-                    a.this.dme.VU();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String) && a.this.dmh != null && a.this.dmh.YT() != null && a.this.dmh.YT().getUrl() != null) {
+                if (a.this.dmh.YT().getUrl().contains((String) customResponsedMessage.getData())) {
+                    a.this.dmh.VV();
                 }
             }
         }
     };
-    private CustomMessageListener dmg = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener dmj = new CustomMessageListener(2921041) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.Xp();
-                } else {
                     a.this.Xq();
+                } else {
+                    a.this.Xr();
                 }
             }
         }
@@ -50,29 +50,29 @@ public class a extends BaseFragment implements aj {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dme = new b();
-        return this.dme.a(layoutInflater, viewGroup);
+        this.dmh = new b();
+        return this.dmh.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.dme.i(getPageContext());
+        this.dmh.i(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.dmg);
-        z.a(this.dme.YS(), getUniqueId());
+        registerListener(this.dmj);
+        z.a(this.dmh.YT(), getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.cld || StringUtils.isNull(this.dme.YS().getUrl())) {
+        if (this.clg || StringUtils.isNull(this.dmh.YT().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.dme.loadUrl(iU(this.mUrl));
+                this.dmh.loadUrl(iU(this.mUrl));
             } else {
-                this.dme.loadUrl(this.mUrl);
+                this.dmh.loadUrl(this.mUrl);
             }
-            this.cld = false;
+            this.clg = false;
         }
     }
 
@@ -96,8 +96,8 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dme != null) {
-            this.dme.onDestroy();
+        if (this.dmh != null) {
+            this.dmh.onDestroy();
         }
     }
 
@@ -123,32 +123,32 @@ public class a extends BaseFragment implements aj {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.cld) {
+        if (!this.clg) {
             if (i == 1) {
-                this.dme.loadUrl(iU(this.mUrl));
+                this.dmh.loadUrl(iU(this.mUrl));
             } else {
-                this.dme.loadUrl(this.mUrl);
+                this.dmh.loadUrl(this.mUrl);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Xo() {
-    }
-
-    @Override // com.baidu.tieba.frs.aj
     public void Xp() {
-        if (this.dme != null && !this.dmf) {
-            this.dmf = true;
-            this.dme.aps();
-        }
     }
 
     @Override // com.baidu.tieba.frs.aj
     public void Xq() {
-        if (this.dme != null && this.dmf) {
-            this.dmf = false;
-            this.dme.apt();
+        if (this.dmh != null && !this.dmi) {
+            this.dmi = true;
+            this.dmh.apt();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.aj
+    public void Xr() {
+        if (this.dmh != null && this.dmi) {
+            this.dmi = false;
+            this.dmh.apu();
         }
     }
 
@@ -165,7 +165,7 @@ public class a extends BaseFragment implements aj {
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void Em() {
+    public void En() {
     }
 
     @Override // com.baidu.tieba.frs.aj

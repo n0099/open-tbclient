@@ -29,13 +29,13 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class k {
     public static final File alY = Environment.getExternalStorageDirectory();
-    private static final File aUP = TbadkCoreApplication.getInst().getApp().getCacheDir();
+    private static final File aUR = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
     public static boolean lk() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String BS() {
+    public static String BT() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
             return TbadkCoreApplication.getInst().getApp().getString(d.j.error_no_sdcard);
@@ -65,7 +65,7 @@ public class k {
         return false;
     }
 
-    public static boolean BT() {
+    public static boolean BU() {
         return dz(alY + "/" + TbConfig.getTempDirName() + "/");
     }
 
@@ -106,14 +106,14 @@ public class k {
     }
 
     public static File dC(String str) {
-        if (!BT()) {
+        if (!BU()) {
             return null;
         }
         return dE(alY + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File dD(String str) {
-        return dE(aUP + "/" + str);
+        return dE(aUR + "/" + str);
     }
 
     public static File dE(String str) {
@@ -159,14 +159,14 @@ public class k {
     }
 
     public static File dH(String str) {
-        if (!BT()) {
+        if (!BU()) {
             return null;
         }
         return new File(alY + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File dI(String str) {
-        if (BT()) {
+        if (BU()) {
             File file = new File(alY + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -186,14 +186,14 @@ public class k {
     }
 
     public static File dJ(String str) {
-        if (!BT()) {
+        if (!BU()) {
             return null;
         }
         return dL(new File(alY + "/" + TbConfig.getTempDirName() + "/" + str).getAbsolutePath());
     }
 
     public static File dK(String str) {
-        return dL(new File(aUP + "/" + str).getAbsolutePath());
+        return dL(new File(aUR + "/" + str).getAbsolutePath());
     }
 
     public static File dL(String str) {
@@ -1353,7 +1353,7 @@ public class k {
     }
 
     public static boolean dU(String str) {
-        if (BT()) {
+        if (BU()) {
             File file = new File(alY + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -1391,11 +1391,11 @@ public class k {
         }
     }
 
-    public static String BU() {
+    public static String BV() {
         return alY + "/" + TbConfig.getTempDirName() + "/";
     }
 
-    public static String BV() {
+    public static String BW() {
         return alY + "/tieba/download";
     }
 
@@ -1486,7 +1486,7 @@ public class k {
         return z;
     }
 
-    public static long BW() {
+    public static long BX() {
         String absolutePath;
         if (lk()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -1505,10 +1505,10 @@ public class k {
     }
 
     private static String a(int i, String str, boolean z) {
-        if (aUP == null) {
+        if (aUR == null) {
             return null;
         }
-        File[] listFiles = aUP.listFiles();
+        File[] listFiles = aUR.listFiles();
         String fA = fA(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(fA)) {
@@ -1555,7 +1555,7 @@ public class k {
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
-            sb.append(BU());
+            sb.append(BV());
         }
         sb.append(fA(i));
         sb.append(File.separator);
@@ -1672,11 +1672,11 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String aUQ = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String aUS = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
         public static boolean dY(String str) {
             try {
-                return new File(new StringBuilder().append(aUQ).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(aUS).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1686,7 +1686,7 @@ public class k {
 
         public static boolean dZ(String str) {
             try {
-                File file = new File(aUQ + "/" + str);
+                File file = new File(aUS + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1722,7 +1722,7 @@ public class k {
 
         public static boolean dQ(String str) {
             try {
-                File file = new File(aUQ + "/" + str);
+                File file = new File(aUS + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1740,7 +1740,7 @@ public class k {
         public static String ea(String str) {
             String str2 = null;
             try {
-                File file = new File(aUQ + "/" + str);
+                File file = new File(aUS + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
@@ -1813,7 +1813,7 @@ public class k {
                 for (int i = 0; dA(str4) && i < 10000; i++) {
                     str4 = eu + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str3;
                 }
-                String str5 = BU() + str4;
+                String str5 = BV() + str4;
                 com.baidu.adp.lib.util.f.b(new File(str), new File(str5));
                 new w(context).ef(str5);
                 return 0;

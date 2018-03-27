@@ -5,30 +5,30 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String hap;
-    private String haq;
-    private String har;
-    private String has;
+    private String haM;
+    private String haN;
+    private String haO;
+    private String haP;
     private int height;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.hap = null;
+        this.haM = null;
         this.urlFlag = 0;
-        this.haq = null;
-        this.har = null;
-        this.has = null;
+        this.haN = null;
+        this.haO = null;
+        this.haP = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.hap = timgs.img_url;
+            this.haM = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.haq = timgs.url;
-            this.har = timgs.big_cdn_url;
-            this.has = timgs.des_main;
+            this.haN = timgs.url;
+            this.haO = timgs.big_cdn_url;
+            this.haP = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,19 +51,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.hap;
+        return this.haM;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String xV() {
-        return this.haq;
+        return this.haN;
     }
 
-    public String bwC() {
-        return this.hap;
+    public String bwH() {
+        return this.haM;
     }
 
-    public String bwD() {
-        return this.har;
+    public String bwI() {
+        return this.haO;
     }
 }

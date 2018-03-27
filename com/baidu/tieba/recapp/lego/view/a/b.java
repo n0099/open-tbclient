@@ -11,9 +11,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 /* loaded from: classes3.dex */
 public class b extends a {
-    private ConstrainImageGroup cWT;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> gGA;
-    private com.baidu.adp.lib.e.b<TbImageView> gGz;
+    private ConstrainImageGroup cWW;
+    private com.baidu.adp.lib.e.b<TbImageView> gGP;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> gGQ;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,24 +29,24 @@ public class b extends a {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds20);
         f fVar = new f(3);
         fVar.h(1.0d);
-        this.cWT = (ConstrainImageGroup) this.rootView.findViewById(d.g.card_home_page_normal_thread_img_layout);
-        this.cWT.setChildClickListener(this.cVx);
-        this.cWT.setImageMargin(dimensionPixelSize);
-        this.cWT.setImageProcessor(fVar);
-        this.cWT.setImageViewPool(this.gGz);
-        this.cWT.setConstrainLayoutPool(this.gGA);
+        this.cWW = (ConstrainImageGroup) this.rootView.findViewById(d.g.card_home_page_normal_thread_img_layout);
+        this.cWW.setChildClickListener(this.cVA);
+        this.cWW.setImageMargin(dimensionPixelSize);
+        this.cWW.setImageProcessor(fVar);
+        this.cWW.setImageViewPool(this.gGP);
+        this.cWW.setConstrainLayoutPool(this.gGQ);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.a.a
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
             boolean xu = i.xo().xu();
-            if (adPost.feedData.bov().size() == 0 || !xu) {
-                this.cWT.setVisibility(8);
+            if (adPost.feedData.bow().size() == 0 || !xu) {
+                this.cWW.setVisibility(8);
                 return;
             }
-            this.cWT.setVisibility(0);
-            this.cWT.setImageUrls(adPost.feedData.bov());
+            this.cWW.setVisibility(0);
+            this.cWW.setImageUrls(adPost.feedData.bow());
         }
     }
 
@@ -56,14 +56,14 @@ public class b extends a {
     @Override // com.baidu.tieba.recapp.lego.view.a.a, com.baidu.tieba.recapp.lego.view.a.d
     public void a(AdPost adPost, int i) {
         super.a(adPost, i);
-        this.cWT.onChangeSkinType();
+        this.cWW.onChangeSkinType();
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> bVar) {
-        this.gGA = bVar;
+        this.gGQ = bVar;
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        this.gGz = bVar;
+        this.gGP = bVar;
     }
 }

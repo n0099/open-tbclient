@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> eIs = new ArrayList();
-    ValidateActivity eNG;
+    List<ValidateItemData> eII = new ArrayList();
+    ValidateActivity eNW;
 
     public a(ValidateActivity validateActivity) {
-        this.eNG = validateActivity;
+        this.eNW = validateActivity;
     }
 
     public void destroy() {
-        this.eNG = null;
+        this.eNW = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.eIs.addAll(list);
+            this.eII.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eIs == null) {
+        if (this.eII == null) {
             return 0;
         }
-        return this.eIs.size();
+        return this.eII.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.eNG) : bVar;
-        bVar2.f(this.eIs.get(i));
+        b bVar2 = bVar == null ? new b(this.eNW) : bVar;
+        bVar2.f(this.eII.get(i));
         return bVar2.jK();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eIs.get(i);
+        return this.eII.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.eIs;
+        return this.eII;
     }
 }

@@ -12,15 +12,15 @@ import com.baidu.tieba.d;
 import tbclient.Personalized.FloatInfo;
 /* loaded from: classes2.dex */
 public class b extends FrameLayout {
-    private TbImageView ekV;
-    private TbImageView ekW;
-    private a ekX;
+    private TbImageView ell;
+    private TbImageView elm;
+    private a eln;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void aCK();
-
         void aCL();
+
+        void aCM();
     }
 
     public b(Context context) {
@@ -34,30 +34,30 @@ public class b extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.ekV = new TbImageView(context);
+        this.ell = new TbImageView(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.t(context, d.e.tbds156), l.t(context, d.e.tbds156));
         layoutParams.gravity = 83;
         layoutParams.rightMargin = l.t(context, d.e.tbds26);
-        this.ekV.setDefaultErrorResource(d.f.icon_quiz_entrance_float_default);
-        addView(this.ekV, layoutParams);
-        this.ekW = new TbImageView(context);
+        this.ell.setDefaultErrorResource(d.f.icon_quiz_entrance_float_default);
+        addView(this.ell, layoutParams);
+        this.elm = new TbImageView(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.t(context, d.e.tbds52), l.t(context, d.e.tbds52));
         layoutParams2.gravity = 5;
-        this.ekW.setAutoChangeStyle(false);
-        addView(this.ekW, layoutParams2);
-        this.ekV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.b.1
+        this.elm.setAutoChangeStyle(false);
+        addView(this.elm, layoutParams2);
+        this.ell.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.ekX != null) {
-                    b.this.ekX.aCK();
+                if (b.this.eln != null) {
+                    b.this.eln.aCL();
                 }
             }
         });
-        this.ekW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.b.2
+        this.elm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.ekX != null) {
-                    b.this.ekX.aCL();
+                if (b.this.eln != null) {
+                    b.this.eln.aCM();
                 }
             }
         });
@@ -66,15 +66,15 @@ public class b extends FrameLayout {
 
     public void setData(FloatInfo floatInfo) {
         if (floatInfo != null && !StringUtils.isNull(floatInfo.float_url)) {
-            this.ekV.startLoad(floatInfo.float_url, 10, false);
+            this.ell.startLoad(floatInfo.float_url, 10, false);
         }
     }
 
     public void setCallback(a aVar) {
-        this.ekX = aVar;
+        this.eln = aVar;
     }
 
     public void onChangeSkinType() {
-        aj.c(this.ekW, d.f.icon_live_close_n);
+        aj.c(this.elm, d.f.icon_live_close_n);
     }
 }

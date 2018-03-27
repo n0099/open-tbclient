@@ -11,18 +11,18 @@ import com.baidu.tieba.qrcode.lib.a.d;
 /* loaded from: classes3.dex */
 public abstract class e extends RelativeLayout implements Camera.PreviewCallback, d.a {
     private int An;
-    protected c gzc;
-    protected f gzd;
-    protected a gze;
-    protected boolean gzf;
-    protected d gzg;
-    private Runnable gzh;
+    protected c gzs;
+    protected f gzt;
+    protected a gzu;
+    protected boolean gzv;
+    protected d gzw;
+    private Runnable gzx;
     protected Camera mCamera;
     protected Handler mHandler;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bnl();
+        void bnm();
 
         void rA(String str);
     }
@@ -33,11 +33,11 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gzf = false;
-        this.gzh = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.a.e.2
+        this.gzv = false;
+        this.gzx = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.a.e.2
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.mCamera != null && e.this.gzf) {
+                if (e.this.mCamera != null && e.this.gzv) {
                     try {
                         e.this.mCamera.setOneShotPreviewCallback(e.this);
                     } catch (Exception e) {
@@ -51,39 +51,39 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
     }
 
     private void f(Context context, AttributeSet attributeSet) {
-        this.gzc = new c(getContext());
-        this.gzd = new f(getContext());
-        this.gzd.g(context, attributeSet);
-        this.gzc.setId(d.g.bgaqrcode_camera_preview);
-        addView(this.gzc);
+        this.gzs = new c(getContext());
+        this.gzt = new f(getContext());
+        this.gzt.g(context, attributeSet);
+        this.gzs.setId(d.g.bgaqrcode_camera_preview);
+        addView(this.gzs);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
-        layoutParams.addRule(6, this.gzc.getId());
-        layoutParams.addRule(8, this.gzc.getId());
-        addView(this.gzd, layoutParams);
+        layoutParams.addRule(6, this.gzs.getId());
+        layoutParams.addRule(8, this.gzs.getId());
+        addView(this.gzt, layoutParams);
         this.An = com.baidu.tieba.qrcode.lib.a.a.cc(context);
     }
 
     public void setDelegate(a aVar) {
-        this.gze = aVar;
+        this.gzu = aVar;
     }
 
     public f getScanBoxView() {
-        return this.gzd;
-    }
-
-    public void bnp() {
-        if (this.gzd != null) {
-            this.gzd.setVisibility(0);
-        }
+        return this.gzt;
     }
 
     public void bnq() {
-        if (this.gzd != null) {
-            this.gzd.setVisibility(8);
+        if (this.gzt != null) {
+            this.gzt.setVisibility(0);
         }
     }
 
     public void bnr() {
+        if (this.gzt != null) {
+            this.gzt.setVisibility(8);
+        }
+    }
+
+    public void bns() {
         uj(0);
     }
 
@@ -103,20 +103,20 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
     private void uk(int i) {
         try {
             this.mCamera = Camera.open(i);
-            this.gzc.setCamera(this.mCamera);
+            this.gzs.setCamera(this.mCamera);
         } catch (Exception e) {
-            if (this.gze != null) {
-                this.gze.bnl();
+            if (this.gzu != null) {
+                this.gzu.bnm();
             }
         }
     }
 
     public void stopCamera() {
         try {
-            bnu();
+            bnv();
             if (this.mCamera != null) {
-                this.gzc.bnn();
-                this.gzc.setCamera(null);
+                this.gzs.bno();
+                this.gzs.setCamera(null);
                 this.mCamera.release();
                 this.mCamera = null;
             }
@@ -124,19 +124,19 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
         }
     }
 
-    public void bns() {
+    public void bnt() {
         ul(1000);
     }
 
     public void ul(int i) {
-        this.gzf = true;
-        this.mHandler.removeCallbacks(this.gzh);
-        this.mHandler.postDelayed(this.gzh, i);
+        this.gzv = true;
+        this.mHandler.removeCallbacks(this.gzx);
+        this.mHandler.postDelayed(this.gzx, i);
     }
 
-    public void bnt() {
-        bnv();
-        this.gzf = false;
+    public void bnu() {
+        bnw();
+        this.gzv = false;
         if (this.mCamera != null) {
             try {
                 this.mCamera.setOneShotPreviewCallback(null);
@@ -144,46 +144,46 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
             }
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.gzh);
+            this.mHandler.removeCallbacks(this.gzx);
         }
     }
 
-    public void bnu() {
-        bnt();
-        bnq();
+    public void bnv() {
+        bnu();
+        bnr();
     }
 
     public void onDestroy() {
         stopCamera();
         this.mHandler = null;
-        this.gze = null;
-        this.gzh = null;
+        this.gzu = null;
+        this.gzx = null;
     }
 
-    protected void bnv() {
-        if (this.gzg != null) {
-            this.gzg.lM();
-            this.gzg = null;
+    protected void bnw() {
+        if (this.gzw != null) {
+            this.gzw.lM();
+            this.gzw = null;
         }
     }
 
     public boolean getIsScanBarcodeStyle() {
-        return this.gzd.getIsBarcode();
+        return this.gzt.getIsBarcode();
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, final Camera camera) {
-        if (this.gzf) {
-            bnv();
-            this.gzg = new d(camera, bArr, this, this.An) { // from class: com.baidu.tieba.qrcode.lib.a.e.1
+        if (this.gzv) {
+            bnw();
+            this.gzw = new d(camera, bArr, this, this.An) { // from class: com.baidu.tieba.qrcode.lib.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // android.os.AsyncTask
                 public void onPostExecute(String str) {
-                    if (e.this.gzf) {
-                        if (e.this.gze != null && !TextUtils.isEmpty(str)) {
+                    if (e.this.gzv) {
+                        if (e.this.gzu != null && !TextUtils.isEmpty(str)) {
                             try {
-                                e.this.gze.rA(str);
+                                e.this.gzu.rA(str);
                                 return;
                             } catch (Exception e) {
                                 return;
@@ -195,7 +195,7 @@ public abstract class e extends RelativeLayout implements Camera.PreviewCallback
                         }
                     }
                 }
-            }.bno();
+            }.bnp();
         }
     }
 }

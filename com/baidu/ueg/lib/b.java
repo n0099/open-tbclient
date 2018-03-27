@@ -4,10 +4,10 @@ import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class b {
     protected final int alP;
-    protected final byte hNV = 61;
-    private final int hNW;
-    private final int hNX;
-    private final int hNY;
+    protected final byte hOt = 61;
+    private final int hOu;
+    private final int hOv;
+    private final int hOw;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -20,10 +20,10 @@ public abstract class b {
     public static class a {
         byte[] buffer;
         boolean eof;
-        int hNZ;
-        long hOa;
-        int hOb;
-        int hOc;
+        int hOA;
+        int hOx;
+        long hOy;
+        int hOz;
         int modulus;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.hOc), Boolean.valueOf(this.eof), Integer.valueOf(this.hNZ), Long.valueOf(this.hOa), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.hOb));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.hOA), Boolean.valueOf(this.eof), Integer.valueOf(this.hOx), Long.valueOf(this.hOy), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.hOz));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.hNW = i;
-        this.hNX = i2;
+        this.hOu = i;
+        this.hOv = i2;
         this.alP = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.hNY = i4;
+        this.hOw = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.hOb;
+            return aVar.pos - aVar.hOz;
         }
         return 0;
     }
 
-    protected int bJK() {
+    protected int bJP() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bJK()];
+            aVar.buffer = new byte[bJP()];
             aVar.pos = 0;
-            aVar.hOb = 0;
+            aVar.hOz = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.hOb, bArr, i, min);
-        aVar.hOb += min;
-        if (aVar.hOb >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.hOz, bArr, i, min);
+        aVar.hOz += min;
+        if (aVar.hOz >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.hOb];
+            byte[] bArr2 = new byte[aVar.pos - aVar.hOz];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long G(byte[] bArr) {
-        long length = (((bArr.length + this.hNW) - 1) / this.hNW) * this.hNX;
+        long length = (((bArr.length + this.hOu) - 1) / this.hOu) * this.hOv;
         if (this.alP > 0) {
-            return length + ((((this.alP + length) - 1) / this.alP) * this.hNY);
+            return length + ((((this.alP + length) - 1) / this.alP) * this.hOw);
         }
         return length;
     }

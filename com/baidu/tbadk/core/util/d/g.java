@@ -54,17 +54,17 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean DI() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.d.a
     public boolean DJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int DK() {
+    public boolean DK() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int DL() {
         return this.procType;
     }
 }

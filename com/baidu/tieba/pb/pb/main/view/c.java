@@ -33,227 +33,227 @@ import com.baidu.tieba.pb.view.f;
 /* loaded from: classes2.dex */
 public class c {
     private int DS4;
-    private ImageView aHW;
     private ImageView aHX;
-    public final View bCp;
-    private Runnable bxt;
-    private PbActivity fMQ;
-    public View fYA;
-    private final ImageView fYB;
-    private final LinearLayout fYC;
-    public FrameLayout fYD;
-    public PbNavbarUserConcernView fYE;
-    public HeadPendantView fYF;
-    public View fYG;
-    private ImageView fYJ;
-    private PopupWindow fYL;
-    private boolean fYM;
-    private int fYN;
-    private int fYO;
-    private int fYP;
-    public TextView fYy;
-    public View fYz;
+    private ImageView aHY;
+    public final View bCs;
+    private Runnable bxw;
+    private PbActivity fNg;
+    public TextView fYO;
+    public View fYP;
+    public View fYQ;
+    private final ImageView fYR;
+    private final LinearLayout fYS;
+    public FrameLayout fYT;
+    public PbNavbarUserConcernView fYU;
+    public HeadPendantView fYV;
+    public View fYW;
+    private ImageView fYZ;
+    private PopupWindow fZb;
+    private boolean fZc;
+    private int fZd;
+    private int fZe;
+    private int fZf;
     public final NavigationBar mNavigationBar;
-    private boolean fVD = false;
-    private f fYH = null;
-    private z fYI = null;
-    private boolean fYK = false;
-    private boolean fYQ = false;
-    private Runnable fYR = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.5
+    private boolean fVT = false;
+    private f fYX = null;
+    private z fYY = null;
+    private boolean fZa = false;
+    private boolean fZg = false;
+    private Runnable fZh = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.5
         @Override // java.lang.Runnable
         public void run() {
             View view;
-            if (!c.this.fVD) {
-                view = c.this.fYM ? c.this.fYz : c.this.fYA;
+            if (!c.this.fVT) {
+                view = c.this.fZc ? c.this.fYP : c.this.fYQ;
             } else {
-                view = c.this.fYA;
+                view = c.this.fYQ;
             }
             if (view != null) {
-                if (TbadkCoreApplication.isLogin() || !c.this.fYM) {
-                    g.showPopupWindowAsDropDown(c.this.fYL, view);
-                    if (!c.this.fYM) {
+                if (TbadkCoreApplication.isLogin() || !c.this.fZc) {
+                    g.showPopupWindowAsDropDown(c.this.fZb, view);
+                    if (!c.this.fZc) {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_share", true);
                     } else {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("call_fan_guide", true);
                     }
-                    e.ns().removeCallbacks(c.this.fYS);
-                    e.ns().postDelayed(c.this.fYS, TbConfig.NOTIFY_SOUND_INTERVAL);
+                    e.ns().removeCallbacks(c.this.fZi);
+                    e.ns().postDelayed(c.this.fZi, TbConfig.NOTIFY_SOUND_INTERVAL);
                 }
             }
         }
     };
-    private Runnable fYS = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.6
+    private Runnable fZi = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.6
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bgo();
+            c.this.bgp();
         }
     };
-    private View.OnClickListener fYT = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.7
+    private View.OnClickListener fZj = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bgn();
+            c.this.bgo();
         }
     };
 
     public c(PbActivity pbActivity) {
-        this.fYN = 0;
-        this.fYO = 0;
-        this.fYP = 0;
+        this.fZd = 0;
+        this.fZe = 0;
+        this.fZf = 0;
         this.DS4 = 0;
-        this.fMQ = pbActivity;
-        this.fYN = l.t(pbActivity, d.e.ds88);
-        this.fYO = l.t(this.fMQ.getPageContext().getPageActivity(), d.e.ds22);
-        this.fYP = l.t(this.fMQ.getPageContext().getPageActivity(), d.e.ds14);
-        this.DS4 = l.t(this.fMQ.getPageContext().getPageActivity(), d.e.ds4);
-        this.mNavigationBar = (NavigationBar) this.fMQ.findViewById(d.g.view_navigation_bar);
+        this.fNg = pbActivity;
+        this.fZd = l.t(pbActivity, d.e.ds88);
+        this.fZe = l.t(this.fNg.getPageContext().getPageActivity(), d.e.ds22);
+        this.fZf = l.t(this.fNg.getPageContext().getPageActivity(), d.e.ds14);
+        this.DS4 = l.t(this.fNg.getPageContext().getPageActivity(), d.e.ds4);
+        this.mNavigationBar = (NavigationBar) this.fNg.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.fMQ.avi();
+                c.this.fNg.avj();
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.bCp = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.dFR);
-        this.fYy = this.mNavigationBar.setCenterTextTitle("");
-        this.fYB = (ImageView) this.mNavigationBar.getCenterImgBox();
-        this.fYC = (LinearLayout) this.mNavigationBar.getCenterImgBoxLayout();
-        int t = l.t(this.fMQ.getPageContext().getPageActivity(), d.e.ds20);
-        this.fYC.setPadding(t, 0, t, 0);
-        aj.a(this.fYB, d.f.icon_pb_play_small, d.f.icon_pb_play_small);
-        this.fYB.setVisibility(8);
-        this.fYy.setOnClickListener(pbActivity.dFR);
-        this.fYB.setOnClickListener(pbActivity.dFR);
-        this.fYJ = (ImageView) this.bCp.findViewById(d.g.widget_navi_back_button);
+        this.bCs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.dFV);
+        this.fYO = this.mNavigationBar.setCenterTextTitle("");
+        this.fYR = (ImageView) this.mNavigationBar.getCenterImgBox();
+        this.fYS = (LinearLayout) this.mNavigationBar.getCenterImgBoxLayout();
+        int t = l.t(this.fNg.getPageContext().getPageActivity(), d.e.ds20);
+        this.fYS.setPadding(t, 0, t, 0);
+        aj.a(this.fYR, d.f.icon_pb_play_small, d.f.icon_pb_play_small);
+        this.fYR.setVisibility(8);
+        this.fYO.setOnClickListener(pbActivity.dFV);
+        this.fYR.setOnClickListener(pbActivity.dFV);
+        this.fYZ = (ImageView) this.bCs.findViewById(d.g.widget_navi_back_button);
     }
 
-    public void kV(boolean z) {
+    public void la(boolean z) {
         NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
-        this.fVD = z;
-        if (this.fYA == null && this.aHX == null) {
-            this.fYA = this.mNavigationBar.addCustomView(controlAlign, d.h.nb_item_floor_share, this.fMQ.dFR);
-            this.aHX = (ImageView) this.fYA.findViewById(d.g.navigationBarBtnShare);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fYN, this.fYN);
+        this.fVT = z;
+        if (this.fYQ == null && this.aHY == null) {
+            this.fYQ = this.mNavigationBar.addCustomView(controlAlign, d.h.nb_item_floor_share, this.fNg.dFV);
+            this.aHY = (ImageView) this.fYQ.findViewById(d.g.navigationBarBtnShare);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fZd, this.fZd);
             layoutParams.rightMargin = this.DS4;
-            this.fYA.setLayoutParams(layoutParams);
-            bgf();
+            this.fYQ.setLayoutParams(layoutParams);
+            bgg();
         }
-        if (this.fYz == null && this.aHW == null) {
-            this.fYz = this.mNavigationBar.addCustomView(controlAlign, d.h.nb_item_floor_more, this.fMQ.dFR);
-            this.aHW = (ImageView) this.fYz.findViewById(d.g.navigationBarBtnMore);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.fYN, this.fYN);
-            layoutParams2.rightMargin = this.fYP;
-            this.fYz.setLayoutParams(layoutParams2);
-            aj.a(this.aHW, d.f.icon_nav_more_selector, d.f.icon_nav_more_selector);
-            this.fYz.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+        if (this.fYP == null && this.aHX == null) {
+            this.fYP = this.mNavigationBar.addCustomView(controlAlign, d.h.nb_item_floor_more, this.fNg.dFV);
+            this.aHX = (ImageView) this.fYP.findViewById(d.g.navigationBarBtnMore);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.fZd, this.fZd);
+            layoutParams2.rightMargin = this.fZf;
+            this.fYP.setLayoutParams(layoutParams2);
+            aj.a(this.aHX, d.f.icon_nav_more_selector, d.f.icon_nav_more_selector);
+            this.fYP.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
         }
         if (z) {
-            if (this.fYD == null) {
-                this.fYD = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.nav_user_concern_layout, (View.OnClickListener) null);
-                this.fYE = (PbNavbarUserConcernView) this.fYD.findViewById(d.g.view_add_concern);
-                this.fYG = this.fYD.findViewById(d.g.bg_user_photo);
-                this.fYF = (HeadPendantView) this.fYD.findViewById(d.g.view_host_pendant_photo);
-                this.fYF.DS();
-                if (this.fYF.getHeadView() != null) {
-                    this.fYF.getHeadView().setIsRound(true);
-                    this.fYF.getHeadView().setDefaultBgResource(d.C0141d.transparent);
-                    this.fYF.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            if (this.fYT == null) {
+                this.fYT = (FrameLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.nav_user_concern_layout, (View.OnClickListener) null);
+                this.fYU = (PbNavbarUserConcernView) this.fYT.findViewById(d.g.view_add_concern);
+                this.fYW = this.fYT.findViewById(d.g.bg_user_photo);
+                this.fYV = (HeadPendantView) this.fYT.findViewById(d.g.view_host_pendant_photo);
+                this.fYV.DT();
+                if (this.fYV.getHeadView() != null) {
+                    this.fYV.getHeadView().setIsRound(true);
+                    this.fYV.getHeadView().setDefaultBgResource(d.C0141d.transparent);
+                    this.fYV.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams3.setMargins(this.fYO, 0, 0, 0);
-                this.fYD.setLayoutParams(layoutParams3);
-                this.fYE.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                aj.s(this.fYG, d.f.shape_photo_nav_bar_bg);
+                layoutParams3.setMargins(this.fZe, 0, 0, 0);
+                this.fYT.setLayoutParams(layoutParams3);
+                this.fYU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                aj.s(this.fYW, d.f.shape_photo_nav_bar_bg);
             }
-        } else if (this.fYD != null) {
-            this.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeView(this.fYD);
+        } else if (this.fYT != null) {
+            this.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeView(this.fYT);
         }
     }
 
-    public void kD(boolean z) {
-        if (this.fYz != null) {
-            this.fYz.setVisibility(z ? 0 : 8);
+    public void kI(boolean z) {
+        if (this.fYP != null) {
+            this.fYP.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void kW(boolean z) {
-        this.fYQ = z;
-        bgf();
+    public void lb(boolean z) {
+        this.fZg = z;
+        bgg();
     }
 
-    private void bgf() {
-        if (this.aHX != null && this.fYA != null) {
-            if (this.fYQ) {
-                if (this.fYK) {
-                    aj.a(this.aHX, d.f.icon_topbar_share_white_d, d.f.icon_topbar_share_white_d);
+    private void bgg() {
+        if (this.aHY != null && this.fYQ != null) {
+            if (this.fZg) {
+                if (this.fZa) {
+                    aj.a(this.aHY, d.f.icon_topbar_share_white_d, d.f.icon_topbar_share_white_d);
                 } else {
-                    an.Dc().c(this.aHX, d.f.icon_topbar_share_n_svg, d.C0141d.cp_cont_e);
+                    an.Dd().c(this.aHY, d.f.icon_topbar_share_n_svg, d.C0141d.cp_cont_e);
                 }
-                this.fYA.setClickable(false);
+                this.fYQ.setClickable(false);
                 return;
             }
-            if (this.fYK) {
-                aj.a(this.aHX, d.f.pb_ala_share, d.f.pb_ala_share);
+            if (this.fZa) {
+                aj.a(this.aHY, d.f.pb_ala_share, d.f.pb_ala_share);
             } else {
-                an.Dc().c(this.aHX, d.f.icon_topbar_share_n_svg, d.f.select_topbar_icon_color_tint);
+                an.Dd().c(this.aHY, d.f.icon_topbar_share_n_svg, d.f.select_topbar_icon_color_tint);
             }
-            this.fYA.setClickable(true);
+            this.fYQ.setClickable(true);
         }
     }
 
-    public void kX(boolean z) {
-        if (this.fYA != null && !z) {
-            this.fYA.setVisibility(8);
+    public void lc(boolean z) {
+        if (this.fYQ != null && !z) {
+            this.fYQ.setVisibility(8);
         }
     }
 
-    public NavigationBar bgg() {
+    public NavigationBar bgh() {
         return this.mNavigationBar;
     }
 
-    public void kY(boolean z) {
+    public void ld(boolean z) {
         if (z) {
-            this.bCp.setVisibility(0);
+            this.bCs.setVisibility(0);
         } else {
-            this.bCp.setVisibility(8);
+            this.bCs.setVisibility(8);
         }
-        la(z);
+        lf(z);
     }
 
     public void ol(String str) {
-        if (!TextUtils.isEmpty(str) && !this.fVD) {
-            this.fYy.setText(this.fMQ.getResources().getString(d.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
-            la(true);
+        if (!TextUtils.isEmpty(str) && !this.fVT) {
+            this.fYO.setText(this.fNg.getResources().getString(d.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
+            lf(true);
             i.xo().cK(str);
             return;
         }
-        la(false);
+        lf(false);
     }
 
     public void a(MetaData metaData, View.OnClickListener onClickListener) {
         if (metaData != null) {
-            UtilHelper.showHeadImageViewBigV(this.fYF.getHeadView(), metaData);
-            this.fYF.getHeadView().setImageDrawable(null);
-            this.fYF.getPendantView().setImageDrawable(null);
-            this.fYF.getHeadView().startLoad(metaData.getPortrait(), 28, false);
-            this.fYF.getHeadView().setUserId(metaData.getUserId());
-            this.fYF.getHeadView().setUserName(metaData.getUserName());
-            this.fYF.getHeadView().setOnClickListener(onClickListener);
+            UtilHelper.showHeadImageViewBigV(this.fYV.getHeadView(), metaData);
+            this.fYV.getHeadView().setImageDrawable(null);
+            this.fYV.getPendantView().setImageDrawable(null);
+            this.fYV.getHeadView().startLoad(metaData.getPortrait(), 28, false);
+            this.fYV.getHeadView().setUserId(metaData.getUserId());
+            this.fYV.getHeadView().setUserName(metaData.getUserName());
+            this.fYV.getHeadView().setOnClickListener(onClickListener);
             if (metaData.getPendantData() != null && !StringUtils.isNull(metaData.getPendantData().ya())) {
-                this.fYF.eS(metaData.getPendantData().ya());
+                this.fYV.eS(metaData.getPendantData().ya());
             } else {
-                this.fYF.eS(null);
+                this.fYV.eS(null);
             }
         }
     }
 
     public void a(aa aaVar) {
-        if (!this.fMQ.isProgressBarShown()) {
-            if (this.fYH == null) {
-                this.fYI = new z((PbActivity) this.fMQ.getPageContext().getOrignalPage(), this.fMQ.dFR);
-                this.fYH = new f(this.fMQ.getPageContext().getPageActivity(), this.fYI.getView(), aj.getDrawable(d.f.bg_pull_down_right_n), new f.a() { // from class: com.baidu.tieba.pb.pb.main.view.c.2
+        if (!this.fNg.isProgressBarShown()) {
+            if (this.fYX == null) {
+                this.fYY = new z((PbActivity) this.fNg.getPageContext().getOrignalPage(), this.fNg.dFV);
+                this.fYX = new f(this.fNg.getPageContext().getPageActivity(), this.fYY.getView(), aj.getDrawable(d.f.bg_pull_down_right_n), new f.a() { // from class: com.baidu.tieba.pb.pb.main.view.c.2
                     @Override // com.baidu.tbadk.core.view.f.a
                     public void wK() {
-                        c.this.fMQ.bbY();
+                        c.this.fNg.bbZ();
                     }
 
                     @Override // com.baidu.tbadk.core.view.f.a
@@ -261,283 +261,283 @@ public class c {
                     }
                 });
             }
-            this.fYI.ber();
-            if (this.fYK) {
+            this.fYY.bes();
+            if (this.fZa) {
                 final Rect rect = new Rect();
-                if (this.fMQ.fLi) {
+                if (this.fNg.fLy) {
                     e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.fMQ.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                            int height = c.this.fMQ.getWindow().getDecorView().getHeight();
-                            c.this.fYH.setClippingEnabled(false);
-                            c.this.fYH.showAtLocation(c.this.fMQ.findViewById(d.g.pb_layout), 81, 0, height - rect.bottom);
+                            c.this.fNg.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                            int height = c.this.fNg.getWindow().getDecorView().getHeight();
+                            c.this.fYX.setClippingEnabled(false);
+                            c.this.fYX.showAtLocation(c.this.fNg.findViewById(d.g.pb_layout), 81, 0, height - rect.bottom);
                         }
                     }, 500L);
                 } else {
-                    this.fMQ.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                    int height = this.fMQ.getWindow().getDecorView().getHeight();
-                    this.fYH.setClippingEnabled(false);
-                    this.fYH.showAtLocation(this.fMQ.findViewById(d.g.pb_layout), 81, 0, height - rect.bottom);
+                    this.fNg.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                    int height = this.fNg.getWindow().getDecorView().getHeight();
+                    this.fYX.setClippingEnabled(false);
+                    this.fYX.showAtLocation(this.fNg.findViewById(d.g.pb_layout), 81, 0, height - rect.bottom);
                 }
             } else {
-                this.fYH.showAtLocation(this.fMQ.findViewById(d.g.pb_layout), 17, 0, 0);
+                this.fYX.showAtLocation(this.fNg.findViewById(d.g.pb_layout), 17, 0, 0);
             }
-            this.fYI.ks(aaVar == null ? false : aaVar.fRC);
-            this.fYI.ku(aaVar == null ? false : aaVar.fRI);
-            this.fYI.kv(aaVar == null ? false : aaVar.fRJ);
-            this.fYI.kw(aaVar == null ? false : aaVar.fRK);
-            this.fYI.kx(aaVar == null ? true : aaVar.fRR);
+            this.fYY.kx(aaVar == null ? false : aaVar.fRS);
+            this.fYY.kz(aaVar == null ? false : aaVar.fRY);
+            this.fYY.kA(aaVar == null ? false : aaVar.fRZ);
+            this.fYY.kB(aaVar == null ? false : aaVar.fSa);
+            this.fYY.kC(aaVar == null ? true : aaVar.fSh);
             if (aaVar == null) {
-                this.fYI.L(false, false);
-                this.fYI.M(false, false);
-                this.fYI.k(false, "");
+                this.fYY.L(false, false);
+                this.fYY.M(false, false);
+                this.fYY.k(false, "");
             } else {
-                this.fYI.L(aaVar.fRG, aaVar.fRO);
-                this.fYI.M(aaVar.fRH, aaVar.fRN);
-                this.fYI.k(StringUtils.isNull(aaVar.fRQ) ? false : true, aaVar.fRQ);
+                this.fYY.L(aaVar.fRW, aaVar.fSe);
+                this.fYY.M(aaVar.fRX, aaVar.fSd);
+                this.fYY.k(StringUtils.isNull(aaVar.fSg) ? false : true, aaVar.fSg);
             }
-            boolean z = aaVar == null ? false : aaVar.fRE;
-            boolean z2 = aaVar == null ? false : aaVar.fIc;
+            boolean z = aaVar == null ? false : aaVar.fRU;
+            boolean z2 = aaVar == null ? false : aaVar.fIs;
             boolean z3 = aaVar == null ? false : aaVar.isHostOnly;
-            boolean z4 = aaVar == null ? false : aaVar.fRP;
-            boolean z5 = aaVar == null ? false : aaVar.fRF;
-            boolean z6 = aaVar == null ? false : aaVar.fRL;
-            boolean z7 = aaVar == null ? false : aaVar.fRM;
-            this.fYI.kt(aaVar == null ? false : aaVar.fRD);
-            this.fYI.K(z4, z3);
-            this.fYI.N(z5, z);
-            this.fYI.O(z7, z6);
+            boolean z4 = aaVar == null ? false : aaVar.fSf;
+            boolean z5 = aaVar == null ? false : aaVar.fRV;
+            boolean z6 = aaVar == null ? false : aaVar.fSb;
+            boolean z7 = aaVar == null ? false : aaVar.fSc;
+            this.fYY.ky(aaVar == null ? false : aaVar.fRT);
+            this.fYY.K(z4, z3);
+            this.fYY.N(z5, z);
+            this.fYY.O(z7, z6);
             if (aaVar != null) {
-                this.fYI.fRy = aaVar.fRS;
-                if (aaVar.fRS) {
-                    this.fYI.bek().setText(d.j.report_text);
-                    this.fYI.kw(false);
+                this.fYY.fRO = aaVar.fSi;
+                if (aaVar.fSi) {
+                    this.fYY.bel().setText(d.j.report_text);
+                    this.fYY.kB(false);
                 }
             }
             j(z, z2, z3);
         }
     }
 
-    public void bgh() {
-        this.fYI.beq().setText(this.fMQ.getResources().getString(d.j.haved_fans_call));
+    public void bgi() {
+        this.fYY.ber().setText(this.fNg.getResources().getString(d.j.haved_fans_call));
     }
 
     private void j(boolean z, boolean z2, boolean z3) {
-        if (this.fYI != null) {
-            this.fYI.amH();
+        if (this.fYY != null) {
+            this.fYY.amI();
             if (z) {
-                this.fYI.bdX().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_reversed_down_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bdY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_reversed_down_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.fYI.bdX().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_reversed_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bdY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_reversed_selector), (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.fYI.bdX().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bdY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.fYI.bdX().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bdY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
             }
             if (z3) {
-                this.fYI.bei().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_host_only_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bej().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_host_only_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.fYI.bei().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_not_host_only_selector), (Drawable) null, (Drawable) null);
+                this.fYY.bej().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aj.getDrawable(d.f.icon_not_host_only_selector), (Drawable) null, (Drawable) null);
             }
         }
     }
 
     public void wH() {
-        if (this.fYI != null) {
-            this.fYI.bes();
+        if (this.fYY != null) {
+            this.fYY.bet();
         }
-        if (this.bxt == null) {
-            this.bxt = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.4
+        if (this.bxw == null) {
+            this.bxw = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.view.c.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.fYH != null) {
-                        g.a(c.this.fYH, c.this.fMQ.getPageContext().getPageActivity());
+                    if (c.this.fYX != null) {
+                        g.a(c.this.fYX, c.this.fNg.getPageContext().getPageActivity());
                     }
                 }
             };
         }
-        e.ns().postDelayed(this.bxt, 100L);
+        e.ns().postDelayed(this.bxw, 100L);
     }
 
-    public void bgi() {
-        if (this.fYI != null) {
-            this.fYI.bes();
+    public void bgj() {
+        if (this.fYY != null) {
+            this.fYY.bet();
         }
-        if (this.fYH != null) {
-            g.a(this.fYH, this.fMQ.getPageContext().getPageActivity());
+        if (this.fYX != null) {
+            g.a(this.fYX, this.fNg.getPageContext().getPageActivity());
         }
     }
 
-    public z bgj() {
-        return this.fYI;
+    public z bgk() {
+        return this.fYY;
     }
 
-    public View bgk() {
-        return this.fYB;
+    public View bgl() {
+        return this.fYR;
     }
 
-    public boolean ame() {
-        return this.fYH != null && this.fYH.isShowing();
+    public boolean amf() {
+        return this.fYX != null && this.fYX.isShowing();
     }
 
-    public void aPb() {
-        if (this.fYI != null) {
-            this.fYI.release();
+    public void aPc() {
+        if (this.fYY != null) {
+            this.fYY.release();
         }
-        this.fYH = null;
-        this.fYI = null;
-        e.ns().removeCallbacks(this.bxt);
+        this.fYX = null;
+        this.fYY = null;
+        e.ns().removeCallbacks(this.bxw);
     }
 
-    public void bgl() {
-        if (this.fYz != null) {
-            this.fYz.setVisibility(8);
+    public void bgm() {
+        if (this.fYP != null) {
+            this.fYP.setVisibility(8);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.fMQ.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.fNg.getPageContext(), i);
             aj.s(this.mNavigationBar.getBarBgView(), d.C0141d.cp_bg_line_d);
         }
-        an.Dc().c(this.fYJ, d.f.icon_topbar_return_n_svg, d.f.select_topbar_icon_color_tint);
-        an.Dc().c(this.aHW, d.f.icon_topbar_more_n_svg, d.f.select_topbar_icon_color_tint);
-        bgf();
-        if (this.fYE != null) {
-            this.fYE.onChangeSkinType(i);
+        an.Dd().c(this.fYZ, d.f.icon_topbar_return_n_svg, d.f.select_topbar_icon_color_tint);
+        an.Dd().c(this.aHX, d.f.icon_topbar_more_n_svg, d.f.select_topbar_icon_color_tint);
+        bgg();
+        if (this.fYU != null) {
+            this.fYU.onChangeSkinType(i);
         }
-        if (this.fYG != null) {
-            aj.s(this.fYG, d.f.shape_photo_nav_bar_bg);
+        if (this.fYW != null) {
+            aj.s(this.fYW, d.f.shape_photo_nav_bar_bg);
         }
-        aj.d(this.fYy, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
+        aj.d(this.fYO, d.C0141d.cp_cont_b, d.C0141d.s_navbar_title_color);
     }
 
     public void tk(int i) {
-        this.mNavigationBar.onChangeSkinType(this.fMQ.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.fNg.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getTopCoverBgView().setBackgroundResource(d.f.bg_pb_header_gradient_top);
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
-        this.mNavigationBar.getBarBgView().setBackgroundColor(this.fMQ.getResources().getColor(d.C0141d.black_alpha85));
+        this.mNavigationBar.getBarBgView().setBackgroundColor(this.fNg.getResources().getColor(d.C0141d.black_alpha85));
+        if (this.aHY != null) {
+            this.aHY.setImageResource(d.f.pb_ala_share);
+        }
         if (this.aHX != null) {
-            this.aHX.setImageResource(d.f.pb_ala_share);
+            this.aHX.setImageResource(d.f.icon_vnav_more_bg);
         }
-        if (this.aHW != null) {
-            this.aHW.setImageResource(d.f.icon_vnav_more_bg);
-        }
-        this.fYy.setTextColor(this.fMQ.getResources().getColor(d.C0141d.cp_cont_g));
-        this.fYJ.setImageResource(d.f.icon_return_bg);
+        this.fYO.setTextColor(this.fNg.getResources().getColor(d.C0141d.cp_cont_g));
+        this.fYZ.setImageResource(d.f.icon_return_bg);
     }
 
-    public void bgm() {
-        this.fYJ.setVisibility(0);
-        la(false);
-        if (this.fYz != null) {
-            this.fYz.setVisibility(8);
+    public void bgn() {
+        this.fYZ.setVisibility(0);
+        lf(false);
+        if (this.fYP != null) {
+            this.fYP.setVisibility(8);
         }
-        if (this.fYA != null) {
-            this.fYA.setVisibility(8);
+        if (this.fYQ != null) {
+            this.fYQ.setVisibility(8);
         }
     }
 
-    public void kZ(boolean z) {
-        this.fYJ.setVisibility(0);
-        la(z);
+    public void le(boolean z) {
+        this.fYZ.setVisibility(0);
+        lf(z);
         if (TbadkCoreApplication.isLogin()) {
-            if (this.fYA != null) {
-                this.fYA.setVisibility(0);
+            if (this.fYQ != null) {
+                this.fYQ.setVisibility(0);
             }
-            if (this.fYz != null) {
-                this.fYz.setVisibility(0);
+            if (this.fYP != null) {
+                this.fYP.setVisibility(0);
                 return;
             }
             return;
         }
-        if (this.fYA != null) {
-            this.fYA.setVisibility(8);
+        if (this.fYQ != null) {
+            this.fYQ.setVisibility(8);
         }
-        if (this.fYz != null) {
-            this.fYz.setVisibility(8);
+        if (this.fYP != null) {
+            this.fYP.setVisibility(8);
         }
     }
 
-    public void la(boolean z) {
-        if (!this.fVD && z && !"".equals(this.fYy.getText().toString())) {
-            this.fYy.setVisibility(0);
+    public void lf(boolean z) {
+        if (!this.fVT && z && !"".equals(this.fYO.getText().toString())) {
+            this.fYO.setVisibility(0);
         } else {
-            this.fYy.setVisibility(8);
+            this.fYO.setVisibility(8);
         }
     }
 
-    public void lb(boolean z) {
-        this.fYK = z;
+    public void lg(boolean z) {
+        this.fZa = z;
     }
 
-    public void lc(boolean z) {
-        if (!this.fYK || TbadkCoreApplication.isLogin() || z) {
+    public void lh(boolean z) {
+        if (!this.fZa || TbadkCoreApplication.isLogin() || z) {
             if (z) {
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("call_fan_guide", false)) {
-                    lc(false);
+                    lh(false);
                     return;
                 }
             } else if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_share", false)) {
                 return;
             }
-            this.fYM = z;
-            View inflate = LayoutInflater.from(this.fMQ.getPageContext().getContext()).inflate(d.h.tips_blue_right_up, (ViewGroup) null);
+            this.fZc = z;
+            View inflate = LayoutInflater.from(this.fNg.getPageContext().getContext()).inflate(d.h.tips_blue_right_up, (ViewGroup) null);
             View findViewById = inflate.findViewById(d.g.arrow_up);
             TextView textView = (TextView) inflate.findViewById(d.g.tips);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
             if (!z) {
                 layoutParams.gravity = 5;
                 if (!TbadkCoreApplication.isLogin()) {
-                    layoutParams.rightMargin = l.t(this.fMQ, d.e.ds28);
+                    layoutParams.rightMargin = l.t(this.fNg, d.e.ds28);
                 } else {
-                    layoutParams.rightMargin = l.t(this.fMQ, d.e.ds128);
+                    layoutParams.rightMargin = l.t(this.fNg, d.e.ds128);
                 }
                 textView.setText(d.j.share_tip);
-                textView.setOnClickListener(this.fYT);
-                this.fYL = new PopupWindow(inflate, -2, -2);
-                e.ns().removeCallbacks(this.fYR);
-                e.ns().postDelayed(this.fYR, 500L);
+                textView.setOnClickListener(this.fZj);
+                this.fZb = new PopupWindow(inflate, -2, -2);
+                e.ns().removeCallbacks(this.fZh);
+                e.ns().postDelayed(this.fZh, 500L);
             }
         }
     }
 
-    public void bgn() {
-        if (this.fYR != null) {
-            e.ns().removeCallbacks(this.fYR);
+    public void bgo() {
+        if (this.fZh != null) {
+            e.ns().removeCallbacks(this.fZh);
         }
-        if (this.fYS != null) {
-            e.ns().removeCallbacks(this.fYS);
+        if (this.fZi != null) {
+            e.ns().removeCallbacks(this.fZi);
         }
-        bgo();
+        bgp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgo() {
-        g.b(this.fYL);
+    public void bgp() {
+        g.b(this.fZb);
     }
 
     public void j(int i, int i2, boolean z) {
-        if (i2 != 0 && bgg() != null && this.fYD != null) {
+        if (i2 != 0 && bgh() != null && this.fYT != null) {
             if (!z) {
-                if (this.fYD.getAlpha() != 1.0f) {
-                    this.fYD.setAlpha(1.0f);
+                if (this.fYT.getAlpha() != 1.0f) {
+                    this.fYT.setAlpha(1.0f);
                     return;
                 }
                 return;
             }
-            int measuredHeight = (bgg().getMeasuredHeight() + i2) - 1;
+            int measuredHeight = (bgh().getMeasuredHeight() + i2) - 1;
             if (i >= measuredHeight) {
-                if (this.fYD.getAlpha() != 0.0f) {
-                    this.fYD.setAlpha(0.0f);
+                if (this.fYT.getAlpha() != 0.0f) {
+                    this.fYT.setAlpha(0.0f);
                 }
-            } else if (i > bgg().getMeasuredHeight() && i < measuredHeight) {
-                this.fYD.setAlpha(1.0f - (((i - bgg().getMeasuredHeight()) * 1.0f) / (measuredHeight - bgg().getMeasuredHeight())));
-            } else if (i <= bgg().getMeasuredHeight() && this.fYD.getAlpha() != 1.0f) {
-                this.fYD.setAlpha(1.0f);
+            } else if (i > bgh().getMeasuredHeight() && i < measuredHeight) {
+                this.fYT.setAlpha(1.0f - (((i - bgh().getMeasuredHeight()) * 1.0f) / (measuredHeight - bgh().getMeasuredHeight())));
+            } else if (i <= bgh().getMeasuredHeight() && this.fYT.getAlpha() != 1.0f) {
+                this.fYT.setAlpha(1.0f);
             }
         }
     }

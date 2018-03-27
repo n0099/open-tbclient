@@ -14,26 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
-    private HTypeListView bTD;
-    private com.baidu.tieba.personPolymeric.a.o gqH;
-    private View.OnClickListener gqP;
+    private HTypeListView bTG;
+    private com.baidu.tieba.personPolymeric.a.o gqX;
+    private View.OnClickListener grf;
     private View mRootView;
     private TextView mTitleView;
     private long uid;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gqP = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
+        this.grf = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.bkB();
+                j.this.bkC();
             }
         };
         this.currentPageType = 4;
         this.mRootView = getView();
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.card_person_vedio_list_title);
-        this.bTD = (HTypeListView) this.mRootView.findViewById(d.g.card_person_vedio_view_pager);
-        this.gqH = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bTD);
+        this.bTG = (HTypeListView) this.mRootView.findViewById(d.g.card_person_vedio_view_pager);
+        this.gqX = new com.baidu.tieba.personPolymeric.a.o(this.mTbPageContext, this.bTG);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -53,18 +53,18 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || v.E(mVar.gpL)) {
+        if (mVar == null || v.E(mVar.gqb)) {
             this.mRootView.setVisibility(8);
             return;
         }
         this.uid = mVar.uid;
         this.mTitleView.setText(d.j.video_title_str);
-        this.bTD.setData(df(mVar.gpL));
-        this.gqH.O(this.gqP);
+        this.bTG.setData(df(mVar.gqb));
+        this.gqX.O(this.grf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkB() {
+    public void bkC() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
     }
 

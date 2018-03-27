@@ -1,13 +1,13 @@
 package com.baidu.adp.b.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f aps = new f();
+    public static f apt = new f();
 
     private f() {
     }
 
     public static f qc() {
-        return aps;
+        return apt;
     }
 
     public a dx(int i) {

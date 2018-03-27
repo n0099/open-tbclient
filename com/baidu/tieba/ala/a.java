@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject bWG;
-    private HttpMessageListener bWH;
-    private BdUniqueId bWI = BdUniqueId.gen();
-    private BdUniqueId bWJ = BdUniqueId.gen();
-    private CustomMessageListener bOw = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject bWJ;
+    private HttpMessageListener bWK;
+    private BdUniqueId bWL = BdUniqueId.gen();
+    private BdUniqueId bWM = BdUniqueId.gen();
+    private CustomMessageListener bOz = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.ox() && a.this.bWG != null) {
-                a.this.a(a.this.bWG, a.this.bWJ);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.ox() && a.this.bWJ != null) {
+                a.this.a(a.this.bWJ, a.this.bWM);
             }
         }
     };
-    private CustomMessageListener bWK = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener bWN = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,38 +39,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.bWH == null) {
-            this.bWH = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.bWK == null) {
+            this.bWK = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.bWG = null;
+                        a.this.bWJ = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.bWH);
-        MessageManager.getInstance().registerListener(this.bOw);
-        this.bWK.setTag(tbPageContext.getUniqueId());
-        this.bWK.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.bWK);
+        MessageManager.getInstance().registerListener(this.bOz);
+        this.bWN.setTag(tbPageContext.getUniqueId());
+        this.bWN.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bWN);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bWH);
-        MessageManager.getInstance().unRegisterListener(this.bOw);
         MessageManager.getInstance().unRegisterListener(this.bWK);
-        this.bWG = null;
+        MessageManager.getInstance().unRegisterListener(this.bOz);
+        MessageManager.getInstance().unRegisterListener(this.bWN);
+        this.bWJ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.ox()) {
-                a(jSONObject, this.bWI);
+                a(jSONObject, this.bWL);
             } else {
-                this.bWG = jSONObject;
+                this.bWJ = jSONObject;
             }
         }
     }

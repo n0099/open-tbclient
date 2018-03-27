@@ -6,7 +6,7 @@ import com.baidu.sofire.b.d;
 import com.baidu.sofire.b.e;
 /* loaded from: classes.dex */
 public class Report {
-    private static Report aGD;
+    private static Report aGE;
     private Context b;
 
     private Report(Context context) {
@@ -16,10 +16,10 @@ public class Report {
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (aGD == null) {
-                aGD = new Report(context);
+            if (aGE == null) {
+                aGE = new Report(context);
             }
-            report = aGD;
+            report = aGE;
         }
         return report;
     }
@@ -46,7 +46,7 @@ public class Report {
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            aB.aGj.aGH.sendMessage(message);
+            aB.aGk.aGI.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -73,7 +73,7 @@ public class Report {
             e aB = e.aB(this.b);
             Message message = new Message();
             message.what = 6;
-            aB.aGj.aGH.sendMessage(message);
+            aB.aGk.aGI.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }
@@ -84,7 +84,7 @@ public class Report {
             e aB = e.aB(this.b);
             Message message = new Message();
             message.what = 9;
-            aB.aGj.aGH.sendMessage(message);
+            aB.aGk.aGI.sendMessage(message);
         } catch (Throwable th) {
             d.a(th);
         }

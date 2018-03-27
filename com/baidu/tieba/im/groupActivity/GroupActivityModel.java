@@ -8,37 +8,37 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int aJO;
-    private RequestGetGroupActivityMessage eFG;
-    private RequestGetGroupActivityLocalMessage eFH;
-    private RequestDelGroupActivityMessage eFI;
-    private GroupActivityActivity eFJ;
-    private GroupActivityData eFK;
+    private int aJP;
+    private RequestGetGroupActivityMessage eFW;
+    private RequestGetGroupActivityLocalMessage eFX;
+    private RequestDelGroupActivityMessage eFY;
+    private GroupActivityActivity eFZ;
+    private GroupActivityData eGa;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.eFJ = groupActivityActivity;
-    }
-
-    public int aJx() {
-        return this.mFrom;
-    }
-
-    public void qe(int i) {
-        this.mFrom = i;
+        this.eFZ = groupActivityActivity;
     }
 
     public int aJy() {
-        return this.aJO;
+        return this.mFrom;
     }
 
     public void qf(int i) {
-        this.aJO = i;
+        this.mFrom = i;
     }
 
-    public long aJz() {
+    public int aJz() {
+        return this.aJP;
+    }
+
+    public void qg(int i) {
+        this.aJP = i;
+    }
+
+    public long aJA() {
         return this.mGroupId;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage qg(int i) {
+    private RequestGetGroupActivityMessage qh(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage qh(int i) {
+    private RequestGetGroupActivityLocalMessage qi(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.eFG = qg(i);
-        this.eFJ.sendMessage(this.eFG);
+        this.eFW = qh(i);
+        this.eFZ.sendMessage(this.eFW);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void qi(int i) {
-        this.eFH = qh(i);
-        this.eFJ.sendMessage(this.eFH);
+    public void qj(int i) {
+        this.eFX = qi(i);
+        this.eFZ.sendMessage(this.eFX);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.eFH;
+        return this.eFX;
     }
 
     public Message<?> getSendMsg() {
-        return this.eFG;
+        return this.eFW;
     }
 
-    public Message<?> aJA() {
-        return this.eFI;
+    public Message<?> aJB() {
+        return this.eFY;
     }
 
     public void j(long j, int i) {
-        this.eFI = new RequestDelGroupActivityMessage();
-        this.eFI.setActivityId(i);
-        this.eFI.setGroupId((int) j);
-        this.eFJ.sendMessage(this.eFI);
+        this.eFY = new RequestDelGroupActivityMessage();
+        this.eFY.setActivityId(i);
+        this.eFY.setGroupId((int) j);
+        this.eFZ.sendMessage(this.eFY);
     }
 
-    public GroupActivityData aJB() {
-        return this.eFK;
+    public GroupActivityData aJC() {
+        return this.eGa;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.eFK = groupActivityData;
+            this.eGa = groupActivityData;
         }
     }
 }

@@ -19,7 +19,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements co
     protected Object encode() {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.groupId = Integer.valueOf(com.baidu.tieba.im.sendmessage.a.eMr);
+            builder.groupId = Integer.valueOf(com.baidu.tieba.im.sendmessage.a.eMH);
             builder.msgType = 22;
             builder.msgId = Long.valueOf(this.hasSentMsgId);
             builder.toUid = Long.valueOf(this.toUid);

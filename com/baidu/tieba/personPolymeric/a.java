@@ -17,8 +17,8 @@ import com.baidu.tieba.view.h;
 import com.baidu.tieba.view.i;
 /* loaded from: classes3.dex */
 public class a implements h {
-    private ImageView gnb;
-    private ImageView gnc;
+    private ImageView gnr;
+    private ImageView gns;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
 
@@ -26,54 +26,54 @@ public class a implements h {
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-        this.gnc = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gnc.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gnc.getLayoutParams();
+        this.gns = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gns.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gns.getLayoutParams();
             layoutParams.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds4);
-            this.gnc.setLayoutParams(layoutParams);
+            this.gns.setLayoutParams(layoutParams);
         }
-        this.gnb = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gnb.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gnb.getLayoutParams();
+        this.gnr = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gnr.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gnr.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
-            this.gnb.setLayoutParams(layoutParams2);
+            this.gnr.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.gnb.setVisibility(0);
+            this.gnr.setVisibility(0);
             return;
         }
-        this.gnb.setVisibility(8);
-        if (this.gnc.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gnc.getLayoutParams();
+        this.gnr.setVisibility(8);
+        if (this.gns.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gns.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(d.e.ds14);
-            this.gnc.setLayoutParams(layoutParams3);
+            this.gns.setLayoutParams(layoutParams3);
         }
     }
 
     @Override // com.baidu.tieba.view.h
     public void setOnViewResponseListener(final i iVar) {
-        if (this.gnb != null) {
-            this.gnb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+        if (this.gnr != null) {
+            this.gnr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.oJ()) {
                         TiebaStatic.log(new ak("c12503").ab("obj_locate", "2"));
                         com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                        bVar.drl = 9;
+                        bVar.dro = 9;
                         iVar.a(view, bVar);
                     }
                 }
             });
         }
-        if (this.gnc != null) {
-            this.gnc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.gns != null) {
+            this.gns.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new ak("c12503").ab("obj_locate", "1"));
                     com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                    bVar.drl = 42;
-                    bVar.drm = new Bundle();
-                    bVar.drm.putSerializable(UserData.TYPE_USER, a.this.mUserData);
+                    bVar.dro = 42;
+                    bVar.drp = new Bundle();
+                    bVar.drp.putSerializable(UserData.TYPE_USER, a.this.mUserData);
                     iVar.a(view, bVar);
                 }
             });
@@ -81,7 +81,7 @@ public class a implements h {
     }
 
     @Override // com.baidu.tieba.view.h
-    public void bjM() {
+    public void bjN() {
     }
 
     @Override // com.baidu.tieba.view.h
@@ -91,13 +91,13 @@ public class a implements h {
     @Override // com.baidu.tieba.view.h
     public void c(float f, boolean z) {
         float f2;
-        if (this.gnb != null) {
+        if (this.gnr != null) {
             if (z) {
-                aj.c(this.gnb, d.f.selector_topbar_more_black);
-                aj.c(this.gnc, d.f.selector_topbar_chat_black);
+                aj.c(this.gnr, d.f.selector_topbar_more_black);
+                aj.c(this.gns, d.f.selector_topbar_chat_black);
             } else {
-                aj.c(this.gnb, d.f.selector_topbar_more_white);
-                aj.c(this.gnc, d.f.selector_topbar_chat_white);
+                aj.c(this.gnr, d.f.selector_topbar_more_white);
+                aj.c(this.gns, d.f.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -105,22 +105,22 @@ public class a implements h {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gnb.setAlpha(f2);
-                this.gnc.setAlpha(f2);
+                this.gnr.setAlpha(f2);
+                this.gns.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.h
     public void onChangeSkinType(int i) {
-        if (this.gnb != null) {
+        if (this.gnr != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aj.c(this.gnb, d.f.selector_topbar_more_white);
-                aj.c(this.gnc, d.f.selector_topbar_chat_white);
+                aj.c(this.gnr, d.f.selector_topbar_more_white);
+                aj.c(this.gns, d.f.selector_topbar_chat_white);
                 return;
             }
-            aj.c(this.gnb, d.f.selector_topbar_more_black);
-            aj.c(this.gnc, d.f.selector_topbar_chat_black);
+            aj.c(this.gnr, d.f.selector_topbar_more_black);
+            aj.c(this.gns, d.f.selector_topbar_chat_black);
         }
     }
 

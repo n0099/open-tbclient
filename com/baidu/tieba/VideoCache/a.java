@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> bQF = new ArrayList();
-    private long bQG = 0;
+    private List<d> bQI = new ArrayList();
+    private long bQJ = 0;
 
-    public List<d> Tv() {
-        return this.bQF;
+    public List<d> Tw() {
+        return this.bQI;
     }
 
-    public long Tw() {
-        return this.bQG;
+    public long Tx() {
+        return this.bQJ;
     }
 
     public void a(d dVar) {
-        if (this.bQF != null) {
-            this.bQF.add(dVar);
+        if (this.bQI != null) {
+            this.bQI.add(dVar);
             if (dVar != null) {
-                this.bQG += dVar.TF();
+                this.bQJ += dVar.TG();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.bQF != null) {
-            this.bQF.remove(dVar);
+        if (this.bQI != null) {
+            this.bQI.remove(dVar);
             if (dVar != null) {
-                this.bQG -= dVar.TF();
+                this.bQJ -= dVar.TG();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.bQF != null) {
-            d dVar = this.bQF.get(i);
+        if (this.bQI != null) {
+            d dVar = this.bQI.get(i);
             if (dVar != null) {
-                this.bQG -= dVar.TF();
+                this.bQJ -= dVar.TG();
             }
-            this.bQF.remove(i);
+            this.bQI.remove(i);
         }
     }
 
-    public int Tx() {
-        if (this.bQF != null) {
-            return this.bQF.size();
+    public int Ty() {
+        if (this.bQI != null) {
+            return this.bQI.size();
         }
         return 0;
     }
 
     public d jj(int i) {
-        if (this.bQF != null) {
-            return this.bQF.get(i);
+        if (this.bQI != null) {
+            return this.bQI.get(i);
         }
         return null;
     }

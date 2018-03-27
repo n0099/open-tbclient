@@ -26,26 +26,26 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class a {
-    private String aQV;
-    private String aQW;
-    private DialogInterface.OnCancelListener aRb;
-    private AlertDialog aRc;
-    private String gPK;
-    private b gPL;
-    private b gPM;
-    private b gPN;
-    private DialogInterface.OnKeyListener gPO;
+    private String aQX;
+    private String aQY;
+    private DialogInterface.OnCancelListener aRd;
+    private AlertDialog aRe;
+    private String gQa;
+    private b gQb;
+    private b gQc;
+    private b gQd;
+    private DialogInterface.OnKeyListener gQe;
     protected final Activity mActivity;
     private View mContentView;
     private String mMessage;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int aQR = -1;
+    private int aQT = -1;
     private int Ht = -1;
-    private int gPI = d.f.btn_blue_bg;
-    private int gPJ = d.C0141d.cp_cont_g;
-    private boolean aRe = false;
-    private boolean aRf = true;
+    private int gPY = d.f.btn_blue_bg;
+    private int gPZ = d.C0141d.cp_cont_g;
+    private boolean aRg = false;
+    private boolean aRh = true;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -58,17 +58,17 @@ public class a {
     }
 
     public a vh(int i) {
-        this.gPI = i;
+        this.gPY = i;
         return this;
     }
 
     public a vi(int i) {
-        this.gPJ = i;
+        this.gPZ = i;
         return this;
     }
 
     public a a(DialogInterface.OnKeyListener onKeyListener) {
-        this.gPO = onKeyListener;
+        this.gQe = onKeyListener;
         return this;
     }
 
@@ -81,22 +81,22 @@ public class a {
 
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
-            this.aQV = this.mActivity.getResources().getString(i);
-            this.gPL = bVar;
+            this.aQX = this.mActivity.getResources().getString(i);
+            this.gQb = bVar;
         }
         return this;
     }
 
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
-            this.aQW = this.mActivity.getResources().getString(i);
-            this.gPM = bVar;
+            this.aQY = this.mActivity.getResources().getString(i);
+            this.gQc = bVar;
         }
         return this;
     }
 
-    public a mr(boolean z) {
-        this.aRf = z;
+    public a mw(boolean z) {
+        this.aRh = z;
         return this;
     }
 
@@ -109,16 +109,16 @@ public class a {
         boolean z;
         boolean z2;
         boolean z3;
-        if (!this.aRe) {
-            this.aRe = true;
+        if (!this.aRg) {
+            this.aRg = true;
             c(eVar);
             TextView textView = (TextView) this.mRootView.findViewById(d.g.title);
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(d.g.content);
             ImageView imageView = (ImageView) this.mRootView.findViewById(d.g.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(d.g.message);
             Button button = (Button) this.mRootView.findViewById(d.g.yes);
-            aj.s(button, this.gPI);
-            aj.e(button, this.gPJ, 3);
+            aj.s(button, this.gPY);
+            aj.e(button, this.gPZ, 3);
             Button button2 = (Button) this.mRootView.findViewById(d.g.no);
             Button button3 = (Button) this.mRootView.findViewById(d.g.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -139,30 +139,30 @@ public class a {
             if (!TextUtils.isEmpty(this.mMessage)) {
                 textView2.setText(this.mMessage);
             }
-            if (TextUtils.isEmpty(this.aQV)) {
+            if (TextUtils.isEmpty(this.aQX)) {
                 z = false;
             } else {
-                button.setText(this.aQV);
-                if (this.gPL != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0233a(this, this.gPL));
+                button.setText(this.aQX);
+                if (this.gQb != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0233a(this, this.gQb));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.aQW)) {
+            if (TextUtils.isEmpty(this.aQY)) {
                 z2 = false;
             } else {
-                button2.setText(this.aQW);
-                if (this.gPM != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0233a(this, this.gPM));
+                button2.setText(this.aQY);
+                if (this.gQc != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0233a(this, this.gQc));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.gPK)) {
+            if (TextUtils.isEmpty(this.gQa)) {
                 z3 = false;
             } else {
-                button3.setText(this.gPK);
-                if (this.gPN != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0233a(this, this.gPN));
+                button3.setText(this.gQa);
+                if (this.gQd != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0233a(this, this.gQd));
                 }
                 z3 = true;
             }
@@ -226,35 +226,35 @@ public class a {
         button.setLayoutParams(layoutParams);
     }
 
-    private a ms(boolean z) {
-        if (!this.aRe) {
+    private a mx(boolean z) {
+        if (!this.aRg) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.aRc != null) {
+        if (this.aRe != null) {
             if (z) {
-                g.a(this.aRc, this.mActivity);
+                g.a(this.aRe, this.mActivity);
             } else {
-                this.aRc.show();
+                this.aRe.show();
             }
         } else {
-            this.aRc = new AlertDialog.Builder(this.mActivity).create();
-            this.aRc.setCanceledOnTouchOutside(this.aRf);
-            if (this.aRb != null) {
-                this.aRc.setOnCancelListener(this.aRb);
+            this.aRe = new AlertDialog.Builder(this.mActivity).create();
+            this.aRe.setCanceledOnTouchOutside(this.aRh);
+            if (this.aRd != null) {
+                this.aRe.setOnCancelListener(this.aRd);
             }
-            if (this.gPO != null) {
-                this.aRc.setOnKeyListener(this.gPO);
+            if (this.gQe != null) {
+                this.aRe.setOnKeyListener(this.gQe);
             }
             if (z) {
-                g.a(this.aRc, this.mActivity);
+                g.a(this.aRe, this.mActivity);
             } else {
-                this.aRc.show();
+                this.aRe.show();
             }
-            Window window = this.aRc.getWindow();
-            if (this.aQR == -1) {
-                this.aQR = 17;
+            Window window = this.aRe.getWindow();
+            if (this.aQT == -1) {
+                this.aQT = 17;
             }
-            window.setGravity(this.aQR);
+            window.setGravity(this.aQT);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
@@ -279,31 +279,31 @@ public class a {
         return this;
     }
 
-    public a bst() {
-        return ms(true);
+    public a bsu() {
+        return mx(true);
     }
 
     public void dismiss() {
-        if (this.aRc != null) {
-            g.b(this.aRc, this.mActivity);
+        if (this.aRe != null) {
+            g.b(this.aRe, this.mActivity);
         }
     }
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class View$OnClickListenerC0233a implements View.OnClickListener {
-        private final a gPQ;
-        private final b gPR;
+        private final a gQg;
+        private final b gQh;
 
         public View$OnClickListenerC0233a(a aVar, b bVar) {
-            this.gPQ = aVar;
-            this.gPR = bVar;
+            this.gQg = aVar;
+            this.gQh = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.gPR != null) {
-                this.gPR.a(this.gPQ);
+            if (this.gQh != null) {
+                this.gQh.a(this.gQg);
             }
         }
     }

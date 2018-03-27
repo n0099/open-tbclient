@@ -14,32 +14,32 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView beT;
-    private HeadImageView dGC;
-    private TextView duR;
-    private ImageView eRR;
-    private TextView eRS;
+    private TextView beW;
+    private HeadImageView dGH;
+    private TextView duU;
+    private ImageView eSg;
+    private TextView eSh;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.dGC = (HeadImageView) view.findViewById(d.g.photo);
-        this.dGC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.beT = (TextView) view.findViewById(d.g.user_name);
-        this.eRR = (ImageView) view.findViewById(d.g.fans_reply);
-        this.duR = (TextView) view.findViewById(d.g.time);
-        this.eRS = (TextView) view.findViewById(d.g.content);
+        this.dGH = (HeadImageView) view.findViewById(d.g.photo);
+        this.dGH.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.beW = (TextView) view.findViewById(d.g.user_name);
+        this.eSg = (ImageView) view.findViewById(d.g.fans_reply);
+        this.duU = (TextView) view.findViewById(d.g.time);
+        this.eSh = (TextView) view.findViewById(d.g.content);
         this.mLine = view.findViewById(d.g.line);
-        this.dGC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.dGH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.NK().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
+                a.this.NL().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
             }
         });
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.NK().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, a.this.getData(), null, null));
+                a.this.NL().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, a.this.getData(), null, null));
             }
         });
     }
@@ -50,40 +50,40 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void aI(FeedData feedData) {
         super.aI(feedData);
         if (feedData.getReplyer() != null) {
-            this.beT.setText(feedData.getReplyer().getName_show());
+            this.beW.setText(feedData.getReplyer().getName_show());
             if (feedData.getReplyer().isBigV()) {
-                aj.r(this.beT, d.C0141d.cp_cont_r);
+                aj.r(this.beW, d.C0141d.cp_cont_r);
             } else {
-                aj.r(this.beT, d.C0141d.cp_cont_c);
+                aj.r(this.beW, d.C0141d.cp_cont_c);
             }
-            this.dGC.setShowV(feedData.getReplyer().isBigV());
-            this.dGC.setIsRound(true);
-            this.dGC.setVisibility(0);
+            this.dGH.setShowV(feedData.getReplyer().isBigV());
+            this.dGH.setIsRound(true);
+            this.dGH.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.dGC.setTag(null);
+            this.dGH.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.dGC.startLoad(portrait, 12, false);
+                this.dGH.startLoad(portrait, 12, false);
             } else {
-                this.dGC.setImageResource(d.f.photo);
+                this.dGH.setImageResource(d.f.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.eRR.setVisibility(0);
+                this.eSg.setVisibility(0);
             } else {
-                this.eRR.setVisibility(8);
+                this.eSg.setVisibility(8);
             }
         }
-        this.duR.setText(am.z(feedData.getTime()));
-        this.eRS.setText(feedData.getContent());
+        this.duU.setText(am.z(feedData.getTime()));
+        this.eSh.setText(feedData.getContent());
     }
 
-    @Override // com.baidu.tieba.tbadkCore.o
+    @Override // com.baidu.tieba.tbadkCore.p
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         aj.s(getRootView(), d.f.list_selector);
         aj.t(this.mLine, d.C0141d.cp_bg_line_b);
-        aj.r(this.duR, d.C0141d.cp_cont_d);
-        aj.s(this.eRR, d.f.icon_pb_fans);
-        aj.r(this.eRS, d.C0141d.cp_cont_b);
-        this.duR.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        aj.r(this.duU, d.C0141d.cp_cont_d);
+        aj.s(this.eSg, d.f.icon_pb_fans);
+        aj.r(this.eSh, d.C0141d.cp_cont_b);
+        this.duU.setCompoundDrawablesWithIntrinsicBounds(aj.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

@@ -68,8 +68,8 @@ public class p implements com.baidu.b.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.azj > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.azj * view.getResources().getDisplayMetrics().density));
+            if (aVar.azk > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.azk * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -79,11 +79,11 @@ public class p implements com.baidu.b.a.b.b {
         if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.azk);
+                textView.setTextColor(aVar.azl);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.azl * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.azm * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);

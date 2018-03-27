@@ -11,10 +11,10 @@ import java.text.DecimalFormat;
 import tbclient.VideoInfo;
 /* loaded from: classes2.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView gct;
-    private TextView gcu;
-    private TextView gcv;
-    private TextView gcw;
+    private TextView gcJ;
+    private TextView gcK;
+    private TextView gcL;
+    private TextView gcM;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -33,30 +33,30 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     private void initView() {
         inflate(getContext(), d.h.layout_video_wifi_tip, this);
-        this.gct = (TextView) findViewById(d.g.tv_video_duration);
-        this.gcu = (TextView) findViewById(d.g.tv_video_data);
-        this.gcv = (TextView) findViewById(d.g.tv_play);
-        this.gcw = (TextView) findViewById(d.g.tv_divider);
+        this.gcJ = (TextView) findViewById(d.g.tv_video_duration);
+        this.gcK = (TextView) findViewById(d.g.tv_video_data);
+        this.gcL = (TextView) findViewById(d.g.tv_play);
+        this.gcM = (TextView) findViewById(d.g.tv_divider);
     }
 
     public void setData(VideoInfo videoInfo) {
         if (videoInfo != null) {
             if (videoInfo.video_duration.intValue() > 0) {
-                this.gct.setText(String.format(getResources().getString(d.j.pb_video_duration), am.fV(videoInfo.video_duration.intValue() * 1000)));
+                this.gcJ.setText(String.format(getResources().getString(d.j.pb_video_duration), am.fV(videoInfo.video_duration.intValue() * 1000)));
             } else {
-                this.gct.setVisibility(8);
-                this.gcw.setVisibility(8);
+                this.gcJ.setVisibility(8);
+                this.gcM.setVisibility(8);
             }
             if (videoInfo.video_length.intValue() > 0) {
-                this.gcu.setText(String.format(getResources().getString(d.j.pb_video_data), new DecimalFormat("0.0").format(videoInfo.video_length.intValue() / 1048576.0f)));
+                this.gcK.setText(String.format(getResources().getString(d.j.pb_video_data), new DecimalFormat("0.0").format(videoInfo.video_length.intValue() / 1048576.0f)));
                 return;
             }
-            this.gcu.setVisibility(8);
-            this.gcw.setVisibility(8);
+            this.gcK.setVisibility(8);
+            this.gcM.setVisibility(8);
         }
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.gcv.setOnClickListener(onClickListener);
+        this.gcL.setOnClickListener(onClickListener);
     }
 }

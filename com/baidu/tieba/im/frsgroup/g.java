@@ -13,21 +13,21 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.frs.g<h, i> {
-    private View.OnClickListener bbM;
+    private View.OnClickListener bbO;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bbM = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.bbO = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int aIN = hVar.aIN();
-                        if (aIN == 0 && (hVar.Sx() instanceof GroupPermData)) {
-                            g.this.a((GroupPermData) hVar.Sx());
-                        } else if (aIN == 1) {
+                        int aIO = hVar.aIO();
+                        if (aIO == 0 && (hVar.Sy() instanceof GroupPermData)) {
+                            g.this.a((GroupPermData) hVar.Sy());
+                        } else if (aIO == 1) {
                             ay.ba(g.this.mPageContext.getPageActivity());
                         }
                     }
@@ -40,7 +40,7 @@ public class g extends com.baidu.tieba.frs.g<h, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bf */
     public i onCreateViewHolder(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(d.h.net_refresh_view_layout, (ViewGroup) null), this.bbM);
+        return new i(LayoutInflater.from(this.mContext).inflate(d.h.net_refresh_view_layout, (ViewGroup) null), this.bbO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public class g extends com.baidu.tieba.frs.g<h, i> {
         this.mPageContext.getLayoutMode().aQ(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().aM(view);
         if (hVar != null) {
-            iVar.a(hVar.aIO(), hVar.aIK(), hVar.aIL(), hVar.aIM());
+            iVar.a(hVar.aIP(), hVar.aIL(), hVar.aIM(), hVar.aIN());
             iVar.mButton.setTag(Integer.valueOf(i));
         }
         return view;

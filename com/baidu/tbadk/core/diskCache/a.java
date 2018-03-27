@@ -11,7 +11,7 @@ import com.baidu.adp.lib.g.f;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean aSh = false;
+    private static boolean aSj = false;
     private static Handler pL = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -31,7 +31,7 @@ public class a {
     }
 
     public static void bh(boolean z) {
-        aSh = z;
+        aSj = z;
     }
 
     public static void init() {
@@ -41,7 +41,7 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.aSh) {
+                        if (!a.aSj) {
                             a.pL.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }

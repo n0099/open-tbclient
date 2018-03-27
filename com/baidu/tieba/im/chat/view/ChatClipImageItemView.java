@@ -19,10 +19,10 @@ import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
-    private final Path apy;
-    public k ezd;
-    private boolean eze;
-    private a ezf;
+    private final Path apz;
+    public k ezt;
+    private boolean ezu;
+    private a ezv;
     private boolean isLeft;
     public int position;
 
@@ -43,9 +43,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         super(context, attributeSet, i);
         this.isLeft = true;
         this.position = 0;
-        this.apy = new Path();
-        this.eze = true;
-        this.ezf = null;
+        this.apz = new Path();
+        this.ezu = true;
+        this.ezv = null;
         b(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
         }
         if (z) {
-            this.ezd = new h();
+            this.ezt = new h();
         } else {
-            this.ezd = new n();
+            this.ezt = new n();
         }
-        this.mArgs.apr = true;
-        this.ezd.a(this);
-        this.mDrawer = this.ezd;
+        this.mArgs.aps = true;
+        this.ezt.a(this);
+        this.mDrawer = this.ezt;
         this.mDrawer.a(this.mArgs);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.ezd.qe();
+        this.ezt.qe();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.ezd.qe();
-        } else if (!this.eze) {
-            this.ezd.qd();
+            this.ezt.qe();
+        } else if (!this.ezu) {
+            this.ezt.qd();
             invalidate();
         } else {
-            this.eze = false;
+            this.ezu = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = z;
     }
 
-    public void aGv() {
-        this.ezd.qd();
-        this.ezd.av(true);
+    public void aGw() {
+        this.ezt.qd();
+        this.ezt.av(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         com.baidu.adp.widget.a.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.si();
-        k kVar = this.ezd;
+        k kVar = this.ezt;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b
     public com.baidu.adp.widget.a.a getDefaultBdImage() {
-        this.ezd.av(false);
+        this.ezt.av(false);
         return super.getDefaultBdImage();
     }
 
@@ -149,9 +149,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.apy.reset();
-        this.apy.set(i(width, height, 1.0f));
-        return this.apy;
+        this.apz.reset();
+        this.apz.set(i(width, height, 1.0f));
+        return this.apz;
     }
 
     private Path i(float f, float f2, float f3) {
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.b.a.b, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.ezf == null) {
+        if (this.ezv == null) {
             aj.g(this, d.C0141d.cp_bg_line_c, 0);
         } else {
-            this.ezf.z(canvas);
+            this.ezv.z(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.ezf = aVar;
+        this.ezv = aVar;
     }
 }

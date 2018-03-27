@@ -13,35 +13,35 @@ import com.baidu.tieba.videoplay.verticalviewpager.VerticalViewPager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private VerticalViewPager hzi;
-    private b hzj;
-    public int hzk = 0;
-    public int hzl;
-    private a hzm;
-    private VideoPlayActivity hzn;
+    private VerticalViewPager hzG;
+    private b hzH;
+    public int hzI = 0;
+    public int hzJ;
+    private a hzK;
+    private VideoPlayActivity hzL;
     private List<VideoItemData> mDatas;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bEq();
+        void bEv();
     }
 
     public c(final VideoPlayActivity videoPlayActivity) {
-        this.hzn = videoPlayActivity;
-        this.hzi = (VerticalViewPager) videoPlayActivity.findViewById(d.g.video_play_viewpager);
-        this.hzj = new b(videoPlayActivity.getSupportFragmentManager());
-        this.hzi.setAdapter(this.hzj);
-        this.hzi.setOffscreenPageLimit(1);
-        this.hzi.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.videoplay.c.1
+        this.hzL = videoPlayActivity;
+        this.hzG = (VerticalViewPager) videoPlayActivity.findViewById(d.g.video_play_viewpager);
+        this.hzH = new b(videoPlayActivity.getSupportFragmentManager());
+        this.hzG.setAdapter(this.hzH);
+        this.hzG.setOffscreenPageLimit(1);
+        this.hzG.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.videoplay.c.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                c.this.hzk = i;
-                if (!v.E(c.this.mDatas) && c.this.mDatas.size() - 1 > 0 && c.this.mDatas.size() - i <= 2 && c.this.hzm != null) {
-                    c.this.hzm.bEq();
+                c.this.hzI = i;
+                if (!v.E(c.this.mDatas) && c.this.mDatas.size() - 1 > 0 && c.this.mDatas.size() - i <= 2 && c.this.hzK != null) {
+                    c.this.hzK.bEv();
                 }
             }
 
@@ -49,10 +49,10 @@ public class c {
             public void onPageScrollStateChanged(int i) {
             }
         });
-        this.hzi.setOnTouchDirectionListener(new VerticalViewPager.a() { // from class: com.baidu.tieba.videoplay.c.2
+        this.hzG.setOnTouchDirectionListener(new VerticalViewPager.a() { // from class: com.baidu.tieba.videoplay.c.2
             @Override // com.baidu.tieba.videoplay.verticalviewpager.VerticalViewPager.a
-            public void bEz() {
-                VideoItemData xa = c.this.hzj.xa(c.this.hzi.getCurrentItem());
+            public void bEE() {
+                VideoItemData xa = c.this.hzH.xa(c.this.hzG.getCurrentItem());
                 if (xa != null && xa.author_info != null) {
                     long c = com.baidu.adp.lib.g.b.c(xa.author_info.user_id, 0L);
                     long c2 = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
@@ -68,31 +68,31 @@ public class c {
 
     public void a(List<VideoItemData> list, int i, Rect rect) {
         this.mDatas = list;
-        this.hzl = i;
-        this.hzj.a(this.mDatas, rect);
-        this.hzj.notifyDataSetChanged();
-        this.hzi.setCurrentItem(i);
+        this.hzJ = i;
+        this.hzH.a(this.mDatas, rect);
+        this.hzH.notifyDataSetChanged();
+        this.hzG.setCurrentItem(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.hzj != null) {
-            this.hzj.notifyDataSetChanged();
+        if (this.hzH != null) {
+            this.hzH.notifyDataSetChanged();
         }
     }
 
     public void a(a aVar) {
-        this.hzm = aVar;
+        this.hzK = aVar;
     }
 
     public void ug(String str) {
-        if (this.hzj != null) {
-            this.hzj.mFrom = str;
+        if (this.hzH != null) {
+            this.hzH.mFrom = str;
         }
     }
 
     public void onDestroy() {
-        if (this.hzj != null) {
-            this.hzj.bEy();
+        if (this.hzH != null) {
+            this.hzH.bED();
         }
     }
 }

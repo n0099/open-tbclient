@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.v;
 import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.tencent.connect.common.Constants;
 import java.util.Date;
@@ -53,7 +53,7 @@ public class g {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || u.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || v.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {

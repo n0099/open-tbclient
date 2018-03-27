@@ -21,9 +21,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.officialBar.g;
 /* loaded from: classes3.dex */
 public class e extends RelativeLayout {
-    private TextView duR;
-    private com.baidu.adp.lib.c.b evE;
-    private TbImageView exq;
+    private TextView duU;
+    private com.baidu.adp.lib.c.b evU;
+    private TbImageView exH;
     private Context mContext;
     private int mPosition;
     private TextView mTitle;
@@ -38,22 +38,22 @@ public class e extends RelativeLayout {
 
     public e(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.evE = null;
+        this.evU = null;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(d.h.msg_multi_pic_text_top_view, (ViewGroup) this, true);
-        this.exq = (TbImageView) findViewById(d.g.top_content_pic);
-        this.exq.setAutoChangeStyle(false);
+        this.exH = (TbImageView) findViewById(d.g.top_content_pic);
+        this.exH.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(d.g.top_title);
-        this.duR = (TextView) findViewById(d.g.show_time);
+        this.duU = (TextView) findViewById(d.g.show_time);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.e.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (e.this.evE != null) {
-                    e.this.evE.b(view, 9, e.this.mPosition, 0L);
+                if (e.this.evU != null) {
+                    e.this.evU.b(view, 9, e.this.mPosition, 0L);
                     return false;
                 }
                 return false;
@@ -74,20 +74,20 @@ public class e extends RelativeLayout {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (aVar != null && !StringUtils.isNull(aVar.url)) {
-                            aw.Dt().c(tbPageContext, new String[]{aVar.url});
+                            aw.Du().c(tbPageContext, new String[]{aVar.url});
                             if (i == 1) {
                                 TiebaStatic.eventStat(e.this.mContext, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, aVar.fid);
-                                com.baidu.tieba.im.data.d nT = com.baidu.tieba.im.util.e.nT(aVar.exs);
+                                com.baidu.tieba.im.data.d nT = com.baidu.tieba.im.util.e.nT(aVar.exJ);
                                 if (nT != null) {
-                                    TiebaStatic.eventStat(e.this.mContext, "message_open_detail", "click", 1, "task_type", nT.eBh, "task_id", nT.taskId, "loc", "0");
+                                    TiebaStatic.eventStat(e.this.mContext, "message_open_detail", "click", 1, "task_type", nT.eBx, "task_id", nT.taskId, "loc", "0");
                                     if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(nT.taskId)) {
-                                        com.baidu.tieba.im.b.a.aLY().nN(nT.taskId);
+                                        com.baidu.tieba.im.b.a.aLZ().nN(nT.taskId);
                                     }
                                 }
                                 ak akVar = new ak("official_message_open_detail");
-                                akVar.f("msg_id", aVar.exA / 100);
-                                akVar.ab("official_id", aVar.exB);
-                                akVar.s("official_type", aVar.exC);
+                                akVar.f("msg_id", aVar.exQ / 100);
+                                akVar.ab("official_id", aVar.exR);
+                                akVar.s("official_type", aVar.exS);
                                 akVar.f("operate_time", System.currentTimeMillis() / 1000);
                                 akVar.f("task_id", aVar.taskId);
                                 akVar.ab("obj_params1", aVar.url);
@@ -98,45 +98,45 @@ public class e extends RelativeLayout {
                 });
             }
             if (!TextUtils.isEmpty(aVar.src)) {
-                this.exq.setTag(aVar.src);
-                this.exq.startLoad(aVar.src, 10, false);
+                this.exH.setTag(aVar.src);
+                this.exH.startLoad(aVar.src, 10, false);
             }
         }
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.duR.setVisibility(8);
-            this.duR.setText("");
+            this.duU.setVisibility(8);
+            this.duU.setText("");
             return;
         }
-        this.duR.setVisibility(0);
-        this.duR.setText(str);
+        this.duU.setVisibility(0);
+        this.duU.setText(str);
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.exq.setBackgroundDrawable(null);
-        this.exq.setImageDrawable(null);
-        this.duR.setVisibility(8);
-        this.duR.setText("");
+        this.exH.setBackgroundDrawable(null);
+        this.exH.setImageDrawable(null);
+        this.duU.setVisibility(8);
+        this.duU.setText("");
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.evE = bVar;
+        this.evU = bVar;
     }
 
     public void setPosition(int i) {
         this.mPosition = i;
     }
 
-    public void hg(boolean z) {
+    public void hl(boolean z) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.exq.setAutoChangeStyle(z);
+        this.exH.setAutoChangeStyle(z);
         aj.b(this.mTitle, d.C0141d.cp_cont_g, 1, skinType);
-        aj.b(this.duR, d.C0141d.common_color_10067, 1, skinType);
+        aj.b(this.duU, d.C0141d.common_color_10067, 1, skinType);
     }
 }

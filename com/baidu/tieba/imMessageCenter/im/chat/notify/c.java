@@ -9,13 +9,13 @@ public class c {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hp().Hx() || com.baidu.tbadk.coreExtra.messageCenter.c.Hp().HE()) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hy() || com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HF()) {
             msgChat = newsNotifyMessage.getMsgChat();
             msgStrangerChat = newsNotifyMessage.getMsgStrangerChat();
         } else {
             msgStrangerChat = 0;
             msgChat = 0;
         }
-        return ((com.baidu.tbadk.coreExtra.messageCenter.c.Hp().HF() ? newsNotifyMessage.getMsgAgree() : 0) + ((msgChat + (com.baidu.tbadk.coreExtra.messageCenter.c.Hp().Hw() ? newsNotifyMessage.getMsgReplyme() : 0)) + (com.baidu.tbadk.coreExtra.messageCenter.c.Hp().Hu() ? newsNotifyMessage.getMsgAtme() : 0))) - msgStrangerChat;
+        return ((com.baidu.tbadk.coreExtra.messageCenter.c.Hq().HG() ? newsNotifyMessage.getMsgAgree() : 0) + ((msgChat + (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hx() ? newsNotifyMessage.getMsgReplyme() : 0)) + (com.baidu.tbadk.coreExtra.messageCenter.c.Hq().Hv() ? newsNotifyMessage.getMsgAtme() : 0))) - msgStrangerChat;
     }
 }

@@ -2,16 +2,16 @@ package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class j {
     private boolean afC;
-    private i bhn;
+    private i bhq;
     private int mErrorCode;
     private String mErrorString;
 
-    public i FK() {
-        return this.bhn;
+    public i FL() {
+        return this.bhq;
     }
 
     public void b(i iVar) {
-        this.bhn = iVar;
+        this.bhq = iVar;
     }
 
     public boolean isSuccess() {

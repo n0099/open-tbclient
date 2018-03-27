@@ -8,20 +8,20 @@ public class o extends r {
     public o(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(d.j.more_function);
-        this.bsW = d.f.selector_more_tool_btn;
-        this.bsj = new m(context);
-        this.bta = true;
-        this.bsZ = 6;
-        this.btb = new int[]{1};
+        this.bsZ = d.f.selector_more_tool_btn;
+        this.bsm = new m(context);
+        this.btd = true;
+        this.btc = 6;
+        this.bte = new int[]{1};
     }
 
     public o(Context context, boolean z) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.getInst().getString(d.j.more_function);
-        this.bsW = d.f.new_pbeditor_more_button;
-        this.bsj = new m(context, !z);
-        this.bta = true;
-        this.bsZ = 6;
-        this.btb = new int[]{1};
+        this.bsZ = d.f.new_pbeditor_more_button;
+        this.bsm = new m(context, !z);
+        this.btd = true;
+        this.btc = 6;
+        this.bte = new int[]{1};
     }
 }

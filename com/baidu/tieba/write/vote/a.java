@@ -8,14 +8,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes3.dex */
 public class a implements TextWatcher {
-    private boolean hIA = false;
-    private int hIz;
+    private int hIX;
+    private boolean hIY = false;
     private EditText rD;
 
     public a(int i, EditText editText) {
-        this.hIz = 0;
+        this.hIX = 0;
         this.rD = null;
-        this.hIz = i;
+        this.hIX = i;
         this.rD = editText;
     }
 
@@ -24,13 +24,13 @@ public class a implements TextWatcher {
         Editable text;
         if (this.rD != null && (text = this.rD.getText()) != null) {
             int length = this.rD.getText().toString().trim().length();
-            if (length > 0 && !this.hIA) {
+            if (length > 0 && !this.hIY) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001357));
-                this.hIA = true;
+                this.hIY = true;
             }
-            if (length > this.hIz) {
+            if (length > this.hIX) {
                 int selectionEnd = Selection.getSelectionEnd(text);
-                this.rD.setText(text.toString().substring(0, this.hIz));
+                this.rD.setText(text.toString().substring(0, this.hIX));
                 Editable text2 = this.rD.getText();
                 if (selectionEnd > text2.length()) {
                     selectionEnd = text2.length();

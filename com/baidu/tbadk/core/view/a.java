@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView aZt;
-    private RadioButton aZu;
+    private TextView aZv;
+    private RadioButton aZw;
     private Context mContext;
 
     public a(Context context) {
@@ -24,51 +24,51 @@ public class a extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(d.h.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.aZt = (TextView) findViewById(d.g.custom_check_radio_button_tv);
-        this.aZu = (RadioButton) findViewById(d.g.custom_check_radio_button_rb);
-        DP();
+        this.aZv = (TextView) findViewById(d.g.custom_check_radio_button_tv);
+        this.aZw = (RadioButton) findViewById(d.g.custom_check_radio_button_rb);
+        DQ();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aZu != null) {
-                    a.this.aZu.setButtonDrawable(d.f.chx_tips_list_ok_selector);
-                    a.this.aZu.toggle();
+                if (a.this.aZw != null) {
+                    a.this.aZw.setButtonDrawable(d.f.chx_tips_list_ok_selector);
+                    a.this.aZw.toggle();
                 }
             }
         });
     }
 
-    public void DP() {
-        if (this.aZt != null) {
-            aj.a(this.aZt, "cp_link_tip_a");
+    public void DQ() {
+        if (this.aZv != null) {
+            aj.a(this.aZv, "cp_link_tip_a");
         }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.aZu != null) {
-            this.aZu.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.aZw != null) {
+            this.aZw.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public void setText(String str) {
-        if (this.aZt != null) {
-            this.aZt.setText(str);
+        if (this.aZv != null) {
+            this.aZv.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.aZu != null) {
-            this.aZu.setTag(obj);
+        if (this.aZw != null) {
+            this.aZw.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.aZu.getTag();
+        return this.aZw.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.aZu.setChecked(z);
+        this.aZw.setChecked(z);
     }
 }

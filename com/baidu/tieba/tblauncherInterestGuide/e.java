@@ -22,23 +22,23 @@ import com.baidu.tieba.tblauncherInterestGuide.view.GoOnAnimView;
 import com.baidu.tieba.tblauncherInterestGuide.view.RightSlideViewPager;
 /* loaded from: classes3.dex */
 public class e extends BaseFragment {
-    private NewUserGuideActivity hgc;
-    private ImageView hgd;
-    private ImageView hge;
-    private ImageView hgf;
-    private GoOnAnimView hgg;
+    private NewUserGuideActivity hgA;
+    private ImageView hgB;
+    private ImageView hgC;
+    private ImageView hgD;
+    private GoOnAnimView hgE;
     private ViewGroup mRootView;
     private boolean isInit = false;
-    private Bitmap hgb = null;
+    private Bitmap hgz = null;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.tblauncherInterestGuide.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    e.this.bze();
+                    e.this.bzj();
                     return;
                 case 1:
-                    e.this.bzd();
+                    e.this.bzi();
                     return;
                 default:
                     return;
@@ -49,7 +49,7 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hgc = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.hgA = (NewUserGuideActivity) getBaseFragmentActivity();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -58,29 +58,29 @@ public class e extends BaseFragment {
             ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(d.h.guide_introduce, (ViewGroup) null);
             this.isInit = true;
             this.mRootView = (ViewGroup) viewGroup2.findViewById(d.g.root_view);
-            this.hgd = (ImageView) viewGroup2.findViewById(d.g.image_tip_1);
-            this.hge = (ImageView) viewGroup2.findViewById(d.g.image_tip_2);
-            this.hgf = (ImageView) viewGroup2.findViewById(d.g.image_tip_3);
-            this.hgb = BitmapHelper.getResBitmap(this.hgc.getPageContext().getPageActivity(), d.f.pic_bg_startpage);
-            if (this.hgb != null) {
-                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.hgc.getResources(), this.hgb));
+            this.hgB = (ImageView) viewGroup2.findViewById(d.g.image_tip_1);
+            this.hgC = (ImageView) viewGroup2.findViewById(d.g.image_tip_2);
+            this.hgD = (ImageView) viewGroup2.findViewById(d.g.image_tip_3);
+            this.hgz = BitmapHelper.getResBitmap(this.hgA.getPageContext().getPageActivity(), d.f.pic_bg_startpage);
+            if (this.hgz != null) {
+                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.hgA.getResources(), this.hgz));
             }
-            this.hgg = (GoOnAnimView) viewGroup2.findViewById(d.g.tip_go_on);
+            this.hgE = (GoOnAnimView) viewGroup2.findViewById(d.g.tip_go_on);
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(0, 750L);
             this.mHandler.sendEmptyMessageDelayed(1, 70L);
-            this.hgg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.e.2
+            this.hgE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.hgc != null) {
-                        if (e.this.hgc.bza().bzh()) {
-                            e.this.hgc.bzc();
+                    if (e.this.hgA != null) {
+                        if (e.this.hgA.bzf().bzm()) {
+                            e.this.hgA.bzh();
                             return;
                         }
-                        RightSlideViewPager byZ = e.this.hgc.byZ();
-                        if (byZ != null) {
-                            byZ.setCurrentItem(1, true);
+                        RightSlideViewPager bze = e.this.hgA.bze();
+                        if (bze != null) {
+                            bze.setCurrentItem(1, true);
                         }
                     }
                 }
@@ -92,20 +92,20 @@ public class e extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.hgc.bzc();
+            this.hgA.bzh();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzd() {
-        this.hgd.setImageResource(d.f.pic_startpage1_one);
-        this.hge.setImageResource(d.f.pic_startpage1_two);
-        this.hgf.setImageResource(d.f.pic_startpage1_three);
-        a(this.hgd, true, 0L);
-        a(this.hge, false, 100L);
-        a(this.hgf, true, 250L);
+    public void bzi() {
+        this.hgB.setImageResource(d.f.pic_startpage1_one);
+        this.hgC.setImageResource(d.f.pic_startpage1_two);
+        this.hgD.setImageResource(d.f.pic_startpage1_three);
+        a(this.hgB, true, 0L);
+        a(this.hgC, false, 100L);
+        a(this.hgD, true, 250L);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -114,35 +114,35 @@ public class e extends BaseFragment {
         stop();
     }
 
-    public void bze() {
-        if (this.hgg != null) {
-            this.hgg.onStart();
+    public void bzj() {
+        if (this.hgE != null) {
+            this.hgE.onStart();
         }
     }
 
-    public void bzf() {
-        if (this.hgg != null) {
-            this.hgg.onStop();
+    public void bzk() {
+        if (this.hgE != null) {
+            this.hgE.onStop();
         }
     }
 
     private void stop() {
         if (this.isInit) {
             this.mRootView.setBackgroundDrawable(null);
-            if (this.hgb != null) {
-                if (!this.hgb.isRecycled()) {
-                    this.hgb.recycle();
+            if (this.hgz != null) {
+                if (!this.hgz.isRecycled()) {
+                    this.hgz.recycle();
                 }
-                this.hgb = null;
+                this.hgz = null;
             }
-            this.hgd.clearAnimation();
-            this.hgd.setImageDrawable(null);
-            this.hge.clearAnimation();
-            this.hge.setImageDrawable(null);
-            this.hgf.clearAnimation();
-            this.hgf.setImageDrawable(null);
-            if (this.hgg != null) {
-                this.hgg.onDestroy();
+            this.hgB.clearAnimation();
+            this.hgB.setImageDrawable(null);
+            this.hgC.clearAnimation();
+            this.hgC.setImageDrawable(null);
+            this.hgD.clearAnimation();
+            this.hgD.setImageDrawable(null);
+            if (this.hgE != null) {
+                this.hgE.onDestroy();
             }
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);

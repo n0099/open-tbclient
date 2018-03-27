@@ -40,7 +40,7 @@ public class b {
                 }
             });
             bVar2.d(baseActivity.getPageContext());
-            bVar2.AX();
+            bVar2.AY();
         }
     }
 
@@ -85,6 +85,6 @@ public class b {
             });
         }
         aVar.b(baseActivity.getPageContext());
-        aVar.AU();
+        aVar.AV();
     }
 }

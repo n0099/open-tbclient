@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> emI = new ArrayList<>();
-    boolean auV;
+    static final ArrayList<HListView.b> emY = new ArrayList<>();
+    boolean auW;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
     ArrayList<HListView.b> mHeaderViewInfos;
@@ -23,16 +23,16 @@ public class e implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = emI;
+            this.mHeaderViewInfos = emY;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = emI;
+            this.mFooterViewInfos = emY;
         } else {
             this.mFooterViewInfos = arrayList2;
         }
-        this.auV = f(this.mHeaderViewInfos) && f(this.mFooterViewInfos);
+        this.auW = f(this.mHeaderViewInfos) && f(this.mFooterViewInfos);
     }
 
     public int getHeadersCount() {
@@ -68,7 +68,7 @@ public class e implements Filterable, WrapperListAdapter {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.auV = z;
+                this.auW = z;
                 return true;
             }
         }
@@ -83,7 +83,7 @@ public class e implements Filterable, WrapperListAdapter {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.auV = z;
+                this.auW = z;
                 return true;
             }
         }
@@ -98,7 +98,7 @@ public class e implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.auV && this.mAdapter.areAllItemsEnabled();
+            return this.auW && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }

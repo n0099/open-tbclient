@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class w {
-    public int fQV;
+    public int fRl;
 
     public w(PbModel pbModel, BaseActivity baseActivity) {
     }
@@ -25,7 +25,7 @@ public class w {
         }
         Map<String, String> ex = com.baidu.tbadk.core.util.aw.ex(str);
         if (ex != null) {
-            this.fQV = 5;
+            this.fRl = 5;
             com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak("c10320");
             akVar.ab("obj_locate", ex.get("obj_locate"));
             akVar.s("obj_type", 1);

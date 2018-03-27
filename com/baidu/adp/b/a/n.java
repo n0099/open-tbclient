@@ -14,19 +14,19 @@ public class n extends k {
             canvas.concat(this.aoZ);
         }
         canvas.save();
-        if (this.apB) {
+        if (this.apC) {
             try {
-                canvas.clipPath(this.apy);
+                canvas.clipPath(this.apz);
             } catch (Error e) {
             }
         }
         if (dVar.qa()) {
-            Bitmap bitmap = dVar.aph.getBitmap();
+            Bitmap bitmap = dVar.api.getBitmap();
             this.lQ.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
             canvas.drawBitmap(bitmap, this.lQ, this.apa, this.mPaint);
         } else {
             this.lQ.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.api.a(canvas, this.lQ, this.apa, this.mPaint);
+            dVar.apj.a(canvas, this.lQ, this.apa, this.mPaint);
         }
         canvas.restore();
     }

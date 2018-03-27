@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bVA;
+    private a bVD;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bVA = a.UL();
+        this.bVD = a.UM();
     }
 
     public void a(a.InterfaceC0128a interfaceC0128a) {
-        this.bVA.a(interfaceC0128a);
+        this.bVD.a(interfaceC0128a);
     }
 
     public void b(a.InterfaceC0128a interfaceC0128a) {
-        this.bVA.b(interfaceC0128a);
+        this.bVD.b(interfaceC0128a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Vd() {
-        return this.bVA.UM();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Ve() {
+        return this.bVD.UN();
     }
 
-    public void Ve() {
+    public void Vf() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void UZ() {
+    public void Va() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void af(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bVA.ac(list);
+        this.bVD.ac(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bVA.a(aVar);
+        this.bVD.a(aVar);
     }
 
     public void aI(long j) {
-        this.bVA.aI(j);
+        this.bVD.aI(j);
     }
 
     public int iv(String str) {
         int i;
         if (c.fF(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> UM = this.bVA.UM();
-            if (UM != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : UM) {
-                    if (str.equals(aVar.IT())) {
-                        i = UM.indexOf(aVar);
+            List<com.baidu.tbadk.coreExtra.relationship.a> UN = this.bVD.UN();
+            if (UN != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : UN) {
+                    if (str.equals(aVar.IU())) {
+                        i = UN.indexOf(aVar);
                         break;
                     }
                 }

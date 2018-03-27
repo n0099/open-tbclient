@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class z {
-    private static z gvI = null;
-    private HashMap<String, a> gvJ = new HashMap<>();
+    private static z gvY = null;
+    private HashMap<String, a> gvZ = new HashMap<>();
 
     private z() {
     }
 
-    public static z blU() {
-        if (gvI == null) {
+    public static z blV() {
+        if (gvY == null) {
             synchronized (z.class) {
-                if (gvI == null) {
-                    gvI = new z();
+                if (gvY == null) {
+                    gvY = new z();
                 }
             }
         }
-        return gvI;
+        return gvY;
     }
 
     public void aB(String str, int i) {
-        a aVar = this.gvJ.get(str);
+        a aVar = this.gvZ.get(str);
         if (aVar == null) {
-            this.gvJ.put(str, new a(i, System.currentTimeMillis()));
+            this.gvZ.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.gvJ.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.gvJ.entrySet());
+        if (this.gvZ.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.gvZ.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.z.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class z {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.gvJ.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.gvZ.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class z {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gvJ.remove(str);
+            this.gvZ.remove(str);
         }
     }
 
     public int rl(String str) {
-        a aVar = this.gvJ.get(str);
+        a aVar = this.gvZ.get(str);
         if (aVar != null) {
             return aVar.position;
         }

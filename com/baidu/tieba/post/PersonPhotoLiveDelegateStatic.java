@@ -20,17 +20,17 @@ public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MT() {
+    public com.baidu.tbadk.mainTab.c MU() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.bxM = new j();
+        cVar.bxP = new j();
         cVar.type = 2;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.e bi(Context context) {
-        this.bxD = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        return this.bxD;
+        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        return this.bxG;
     }
 
     static {
@@ -39,17 +39,17 @@ public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 com.baidu.tbadk.g.a aVar;
-                com.baidu.tbadk.mainTab.c MU;
+                com.baidu.tbadk.mainTab.c MV;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016220 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.g.a) && TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     if (!am.isEmpty(currentAccount) && (aVar = (com.baidu.tbadk.g.a) customResponsedMessage.getData()) != null) {
                         PersonPhotoLiveDelegateStatic personPhotoLiveDelegateStatic = new PersonPhotoLiveDelegateStatic();
                         aVar.a(personPhotoLiveDelegateStatic);
-                        if (aVar.getContext() != null && (MU = personPhotoLiveDelegateStatic.MU()) != null) {
+                        if (aVar.getContext() != null && (MV = personPhotoLiveDelegateStatic.MV()) != null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("key_uid", currentAccount);
                             bundle.putString("thread_type_key", "photolive");
-                            MU.bxM.setArguments(bundle);
+                            MV.bxP.setArguments(bundle);
                         }
                     }
                 }

@@ -14,33 +14,33 @@ import com.baidu.tieba.card.r;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> {
-    public BdUniqueId bIv;
+    public BdUniqueId bIy;
     public int cardShowType;
-    private v efW;
-    private com.baidu.tieba.homepage.concern.view.a ega;
+    private v egm;
+    private com.baidu.tieba.homepage.concern.view.a egq;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.cardShowType = 0;
-        this.efW = new v<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
+        this.egm = new v<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.v
             public void a(View view, j jVar) {
-                if (view != null && c.this.ega != null && c.this.ega.getView() != null && jVar != null && jVar.WD() != null && !StringUtils.isNull(jVar.WD().getTid())) {
-                    boolean z = view == c.this.ega.getHeaderImg();
+                if (view != null && c.this.egq != null && c.this.egq.getView() != null && jVar != null && jVar.WE() != null && !StringUtils.isNull(jVar.WE().getTid())) {
+                    boolean z = view == c.this.egq.getHeaderImg();
                     ak akVar = new ak("c12352");
                     akVar.s("obj_locate", z ? 1 : 2);
-                    akVar.ab("obj_type", jVar.alD());
+                    akVar.ab("obj_type", jVar.alE());
                     akVar.ab("tid", jVar.threadData.getTid());
                     akVar.f(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
                     akVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(akVar);
-                    if (view == c.this.ega.clX.getCommentContainer() || view == c.this.ega.cmL.bem.getCommentContainer()) {
+                    if (view == c.this.egq.cma.getCommentContainer() || view == c.this.egq.cmO.bep.getCommentContainer()) {
                         ak akVar2 = new ak("c12942");
                         akVar2.s("obj_locate", 7);
                         akVar2.s("obj_type", 5);
-                        akVar2.ab("tid", jVar.WD().getTid());
+                        akVar2.ab("tid", jVar.WE().getTid());
                         TiebaStatic.log(akVar2);
                     }
                 }
@@ -54,11 +54,11 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ad */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.ega = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
-        if (this.bIv != null) {
-            this.ega.j(this.bIv);
+        this.egq = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
+        if (this.bIy != null) {
+            this.egq.j(this.bIy);
         }
-        return new com.baidu.tieba.card.a.a<>(this.ega);
+        return new com.baidu.tieba.card.a.a<>(this.egq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,16 +66,16 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (jVar == null || aVar == null || aVar.alX() == null) {
+        if (jVar == null || aVar == null || aVar.alY() == null) {
             return null;
         }
         jVar.lD(i + 1);
-        r.als().a(jVar.ky("c12351"));
+        r.alt().a(jVar.ky("c12351"));
         if (jVar.threadData != null) {
-            jVar.threadData.aQo = this.cardShowType;
+            jVar.threadData.aQp = this.cardShowType;
         }
-        aVar.alX().a(jVar);
-        aVar.alX().b(this.efW);
+        aVar.alY().a(jVar);
+        aVar.alY().b(this.egm);
         return aVar.getView();
     }
 }

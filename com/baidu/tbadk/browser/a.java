@@ -91,7 +91,7 @@ public class a extends BaseFragment {
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.blo = Uri.parse(findSubString2);
+                dVar.blr = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -108,7 +108,7 @@ public class a extends BaseFragment {
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.blo = Uri.parse(str4);
+            dVar.blr = Uri.parse(str4);
         }
         return dVar;
     }

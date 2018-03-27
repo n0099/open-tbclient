@@ -9,13 +9,8 @@ public class AtMeCacheModel extends CacheModel<c, g> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<c> Nm() {
+    public Class<c> Nn() {
         return c.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int Nn() {
-        return 2001258;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
@@ -24,7 +19,12 @@ public class AtMeCacheModel extends CacheModel<c, g> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String MX() {
+    public int Np() {
+        return 2001258;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel
+    public String MY() {
         return "tb_user_atme";
     }
 }

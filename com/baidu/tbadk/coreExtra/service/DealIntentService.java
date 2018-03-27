@@ -131,7 +131,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.jF().jG() != null) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (com.baidu.adp.base.a.jF().jG().getClass().getName().equalsIgnoreCase(b.BI())) {
+                    if (com.baidu.adp.base.a.jF().jG().getClass().getName().equalsIgnoreCase(b.BJ())) {
                         this.intent.putExtra("class", 5);
                     } else {
                         this.intent.putExtra("class", 21);

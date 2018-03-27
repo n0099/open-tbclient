@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fIl;
-    private View fIm;
+    private a fIB;
+    private View fIC;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fIl = aVar;
+        this.fIB = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.fIm = view;
+        this.fIC = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fIl != null) {
-            return this.fIl.c(this.fIm, motionEvent);
+        if (this.fIB != null) {
+            return this.fIB.c(this.fIC, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fIl != null) {
-            return this.fIl.d(this.fIm, motionEvent);
+        if (this.fIB != null) {
+            return this.fIB.d(this.fIC, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fIl != null) {
-            return this.fIl.e(this.fIm, motionEvent);
+        if (this.fIB != null) {
+            return this.fIB.e(this.fIC, motionEvent);
         }
         return false;
     }
 
     public void cn(View view) {
-        this.fIm = view;
+        this.fIC = view;
     }
 }

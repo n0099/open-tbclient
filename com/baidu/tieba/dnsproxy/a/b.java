@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float dmP;
+    float dmS;
     private List<Integer> data = new ArrayList();
-    boolean dmQ = false;
-    boolean dmR = false;
+    boolean dmT = false;
+    boolean dmU = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.dmP = 0.0f;
+            this.dmS = 0.0f;
         } else if (size == 1) {
-            this.dmP = this.data.get(0).intValue();
+            this.dmS = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.dmP = ((i * f3) / size) + f;
-            if (this.dmP < 0.05d) {
-                if (!this.dmQ) {
-                    com.baidu.tieba.dnsproxy.d.apx().A("ip_weight_lower", this.address, String.valueOf(this.dmP));
-                    this.dmQ = true;
+            this.dmS = ((i * f3) / size) + f;
+            if (this.dmS < 0.05d) {
+                if (!this.dmT) {
+                    com.baidu.tieba.dnsproxy.d.apy().A("ip_weight_lower", this.address, String.valueOf(this.dmS));
+                    this.dmT = true;
                 }
-            } else if (this.dmQ && this.dmP > 0.5d && !this.dmR) {
-                com.baidu.tieba.dnsproxy.d.apx().A("ip_weight_lower_recover", this.address, String.valueOf(this.dmP));
-                this.dmR = true;
+            } else if (this.dmT && this.dmS > 0.5d && !this.dmU) {
+                com.baidu.tieba.dnsproxy.d.apy().A("ip_weight_lower_recover", this.address, String.valueOf(this.dmS));
+                this.dmU = true;
             }
         }
     }

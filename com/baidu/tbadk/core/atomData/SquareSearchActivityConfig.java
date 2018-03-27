@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class SquareSearchActivityConfig extends IntentConfig {
     public static final String BACK_SPECIAL = "back_special";
     public static final String FROM = "start_from";
+    public static final String IS_FROM_ENTER_FROUM = "is_from_enter_forum";
     public static boolean IS_SHOW_RECOMMEND_FORUM = true;
     public static boolean IS_SHOW_LIKE_FORUM = false;
 

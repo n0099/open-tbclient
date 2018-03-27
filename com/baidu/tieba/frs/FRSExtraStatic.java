@@ -16,18 +16,18 @@ public class FRSExtraStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(VideoAggregationActivityConfig.class, VideoAggregationActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VideoMiddlePageActivityConfig.class, VideoMiddlePageActivity.class);
-        bd.aOs.set(true);
-        a.dDA.set(new as());
+        bd.aOt.set(true);
+        a.dDD.set(new as());
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new t(null, com.baidu.tbadk.core.data.au.aNL, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, bd.aOi));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.o.dao, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.d(null, com.baidu.tieba.tbadkCore.v.gZJ, null));
+                    absDelegateAdapterList.add(new t(null, com.baidu.tbadk.core.data.au.aNM, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, bd.aOj));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.o.dar, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.d(null, com.baidu.tieba.tbadkCore.w.hag, null));
                 }
             }
         });

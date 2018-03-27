@@ -9,51 +9,51 @@ import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int aRP = 360;
-    private static int aRQ = 100;
-    private int aRR;
-    private Paint aRT;
-    private RectF aRV;
-    private int aRW;
+    private static int aRR = 360;
+    private static int aRS = 100;
+    private int aRT;
+    private Paint aRV;
+    private RectF aRX;
+    private int aRY;
     private int mWidth;
 
     public CircleView1080(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aRW = 0;
+        this.aRY = 0;
         init();
     }
 
     public CircleView1080(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aRW = 0;
+        this.aRY = 0;
         init();
     }
 
     public CircleView1080(Context context) {
         super(context);
-        this.aRW = 0;
+        this.aRY = 0;
         init();
     }
 
     public void setProgress(int i) {
-        this.aRW = i;
+        this.aRY = i;
         invalidate();
     }
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(d.e.tbds122);
-        this.aRR = getResources().getDimensionPixelSize(d.e.tbds6);
-        this.aRT = new Paint();
-        this.aRT.setStrokeWidth(this.aRR);
-        this.aRT.setColor(getResources().getColor(d.C0141d.cp_cont_g));
-        this.aRT.setStyle(Paint.Style.STROKE);
-        this.aRT.setAntiAlias(true);
-        this.aRT.setStrokeCap(Paint.Cap.ROUND);
-        this.aRV = new RectF(this.aRR / 2, this.aRR / 2, this.mWidth + (this.aRR / 2), this.mWidth + (this.aRR / 2));
+        this.aRT = getResources().getDimensionPixelSize(d.e.tbds6);
+        this.aRV = new Paint();
+        this.aRV.setStrokeWidth(this.aRT);
+        this.aRV.setColor(getResources().getColor(d.C0141d.cp_cont_g));
+        this.aRV.setStyle(Paint.Style.STROKE);
+        this.aRV.setAntiAlias(true);
+        this.aRV.setStrokeCap(Paint.Cap.ROUND);
+        this.aRX = new RectF(this.aRT / 2, this.aRT / 2, this.mWidth + (this.aRT / 2), this.mWidth + (this.aRT / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.aRV, 270.0f, (aRP * this.aRW) / aRQ, false, this.aRT);
+        canvas.drawArc(this.aRX, 270.0f, (aRR * this.aRY) / aRS, false, this.aRV);
     }
 }

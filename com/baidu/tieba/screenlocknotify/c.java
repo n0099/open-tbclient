@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<e> gKe = new ArrayList();
+    private List<e> gKu = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gKe != null) {
-            return this.gKe.size();
+        if (this.gKu != null) {
+            return this.gKu.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: uG */
     public e getItem(int i) {
-        if (this.gKe == null || i >= this.gKe.size()) {
+        if (this.gKu == null || i >= this.gKu.size()) {
             return null;
         }
-        return this.gKe.get(i);
+        return this.gKu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.gKe.get(i), view, viewGroup);
+        return a(this.gKu.get(i), view, viewGroup);
     }
 
     public View a(e eVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (eVar == null) {
             return inflate;
         }
-        cM.gKf.setText(eVar.title);
-        cM.gKg.setText(eVar.content);
-        cM.gKh.setDefaultErrorResource(d.f.screen_notify_default_bg);
-        cM.gKh.setDefaultResource(d.f.screen_notify_default_bg);
-        cM.gKh.startLoad(eVar.pic, 10, 0, 0, false);
+        cM.gKv.setText(eVar.title);
+        cM.gKw.setText(eVar.content);
+        cM.gKx.setDefaultErrorResource(d.f.screen_notify_default_bg);
+        cM.gKx.setDefaultResource(d.f.screen_notify_default_bg);
+        cM.gKx.startLoad(eVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void dm(List<e> list) {
         if (list != null && list.size() != 0) {
-            this.gKe.addAll(list);
+            this.gKu.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        TextView gKf;
-        TextView gKg;
-        TbImageView gKh;
+        TextView gKv;
+        TextView gKw;
+        TbImageView gKx;
         View mLine;
 
         private a() {
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a cM(View view) {
         a aVar = new a();
-        aVar.gKf = (TextView) view.findViewById(d.g.push_msg_title);
-        aVar.gKg = (TextView) view.findViewById(d.g.push_msg_content);
-        aVar.gKh = (TbImageView) view.findViewById(d.g.push_msg_pic);
-        aVar.gKh.setAutoChangeStyle(false);
+        aVar.gKv = (TextView) view.findViewById(d.g.push_msg_title);
+        aVar.gKw = (TextView) view.findViewById(d.g.push_msg_content);
+        aVar.gKx = (TbImageView) view.findViewById(d.g.push_msg_pic);
+        aVar.gKx.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(d.g.line);
         return aVar;
     }

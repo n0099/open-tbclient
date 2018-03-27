@@ -13,7 +13,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
     private v<e> abo;
-    private a giH;
+    private a giX;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
@@ -24,12 +24,12 @@ public class c {
 
     public void bu(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
-        awM();
+        awO();
         this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
-        this.giH = new a(this.mPageContext, this.mListView, this.abo);
+        this.giX = new a(this.mPageContext, this.mListView, this.abo);
     }
 
-    private void awM() {
+    private void awO() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1

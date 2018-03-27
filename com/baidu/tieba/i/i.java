@@ -7,8 +7,6 @@ public interface i {
 
     void a(b bVar);
 
-    void aWQ();
-
     void aWR();
 
     void aWS();
@@ -21,13 +19,15 @@ public interface i {
 
     void aWW();
 
-    String aWX();
+    void aWX();
 
     String aWY();
 
+    String aWZ();
+
     void i(int i, int i2, String str);
 
-    void ji(boolean z);
+    void jn(boolean z);
 
     void pC(String str);
 

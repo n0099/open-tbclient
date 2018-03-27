@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.r;
+import com.baidu.tieba.tbadkCore.s;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -14,7 +14,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     private ManagerApplyInfo mManagerApplyInfo;
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
-    private r mUserInfo;
+    private s mUserInfo;
 
     public ForumMemberHttpResponseMessage(int i) {
         super(i);
@@ -33,7 +33,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() == 0) {
                 if (getMemberInfoResIdl.data != null) {
                     if (getMemberInfoResIdl.data.forum_member_info != null) {
-                        this.mUserInfo = new r();
+                        this.mUserInfo = new s();
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
@@ -65,7 +65,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public r getUserInfo() {
+    public s getUserInfo() {
         return this.mUserInfo;
     }
 

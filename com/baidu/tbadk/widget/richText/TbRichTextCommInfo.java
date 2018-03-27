@@ -13,97 +13,97 @@ public class TbRichTextCommInfo extends OrmObject {
     public static final int URL_VALIDITY_INVALID = 1;
     public static final int URL_VALIDITY_NORMAL = 0;
     public static final int URL_VALIDITY_VALID = 2;
-    private String aUL;
-    private int bKL;
-    private String bKM;
-    private String bKN;
+    private String aUN;
     private int bKO;
+    private String bKP;
+    private String bKQ;
+    private int bKR;
     private String mLink;
     private int mType;
 
     public TbRichTextCommInfo() {
-        this.aUL = null;
+        this.aUN = null;
         this.mLink = null;
         this.mType = 0;
-        this.bKO = 0;
+        this.bKR = 0;
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
-        this.aUL = null;
+        this.aUN = null;
         this.mLink = null;
         this.mType = 0;
-        this.bKO = 0;
+        this.bKR = 0;
         if (jSONObject != null) {
-            this.aUL = jSONObject.optString("text");
+            this.aUN = jSONObject.optString("text");
             this.mLink = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.bKO = jSONObject.optInt("url_type", 0);
-            this.bKL = jSONObject.optInt("is_native_app", 0);
-            if (this.bKL == 1) {
+            this.bKR = jSONObject.optInt("url_type", 0);
+            this.bKO = jSONObject.optInt("is_native_app", 0);
+            if (this.bKO == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.bKL = 0;
+                    this.bKO = 0;
                     return;
                 }
-                this.bKM = jSONObject.optString("jump_and");
-                this.bKN = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.bKM) || TextUtils.isEmpty(this.bKN)) {
-                    this.bKL = 0;
+                this.bKP = jSONObject.optString("jump_and");
+                this.bKQ = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.bKP) || TextUtils.isEmpty(this.bKQ)) {
+                    this.bKO = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.bKM += ";download_url:" + this.bKN + ";web_play_url:" + this.mLink;
+                    this.bKP += ";download_url:" + this.bKQ + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.bKM += ";download_url:" + this.bKN + ";web_play_url:" + this.aUL;
+                    this.bKP += ";download_url:" + this.bKQ + ";web_play_url:" + this.aUN;
                 }
-                this.bKM += ";is_native_app=1";
+                this.bKP += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(PbContent pbContent) {
-        this.aUL = null;
+        this.aUN = null;
         this.mLink = null;
         this.mType = 0;
-        this.bKO = 0;
+        this.bKR = 0;
         if (pbContent != null) {
-            this.aUL = pbContent.text;
+            this.aUN = pbContent.text;
             this.mLink = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.bKO = pbContent.url_type.intValue();
-            this.bKL = pbContent.is_native_app.intValue();
-            if (this.bKL == 1) {
+            this.bKR = pbContent.url_type.intValue();
+            this.bKO = pbContent.is_native_app.intValue();
+            if (this.bKO == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.bKL = 0;
+                    this.bKO = 0;
                     return;
                 }
-                this.bKM = nativeApp.jump_and;
-                this.bKN = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.bKM) || TextUtils.isEmpty(this.bKN)) {
-                    this.bKL = 0;
+                this.bKP = nativeApp.jump_and;
+                this.bKQ = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.bKP) || TextUtils.isEmpty(this.bKQ)) {
+                    this.bKO = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.bKM += ";download_url:" + this.bKN + ";web_play_url:" + this.mLink;
+                    this.bKP += ";download_url:" + this.bKQ + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.bKM += ";download_url:" + this.bKN + ";web_play_url:" + this.aUL;
+                    this.bKP += ";download_url:" + this.bKQ + ";web_play_url:" + this.aUN;
                 }
-                this.bKM += ";is_native_app=1";
+                this.bKP += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(String str, String str2) {
-        this.aUL = null;
+        this.aUN = null;
         this.mLink = null;
         this.mType = 0;
-        this.bKO = 0;
-        this.aUL = str;
+        this.bKR = 0;
+        this.aUN = str;
         this.mLink = str2;
     }
 
     public void setText(String str) {
-        this.aUL = str;
+        this.aUN = str;
     }
 
     public void setLink(String str) {
@@ -111,28 +111,28 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     public String getText() {
-        return this.aUL;
+        return this.aUN;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public int Ri() {
-        return this.bKL;
-    }
-
-    public String Rj() {
-        return this.bKM;
-    }
-
-    public int Rk() {
+    public int Rj() {
         return this.bKO;
     }
 
-    public void Rl() {
-        if (this.aUL != null) {
-            this.aUL = this.aUL.replaceAll("\n", "");
+    public String Rk() {
+        return this.bKP;
+    }
+
+    public int Rl() {
+        return this.bKR;
+    }
+
+    public void Rm() {
+        if (this.aUN != null) {
+            this.aUN = this.aUN.replaceAll("\n", "");
         }
         if (this.mLink != null) {
             this.mLink = this.mLink.replaceAll("\n", "");

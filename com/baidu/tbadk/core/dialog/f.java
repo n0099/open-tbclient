@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends e {
-    private ViewGroup aRH;
-    private TextView aRI;
-    private TextView aRJ;
-    private View.OnClickListener aRK;
+    private ViewGroup aRJ;
+    private TextView aRK;
+    private TextView aRL;
+    private View.OnClickListener aRM;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.aRH = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
-        this.aRI = (TextView) this.aRH.findViewById(d.g.yes);
-        this.aRJ = (TextView) this.aRH.findViewById(d.g.no);
+        this.aRJ = (ViewGroup) ((ViewStub) getRootView().findViewById(d.g.yes_no_viewStub)).inflate();
+        this.aRK = (TextView) this.aRJ.findViewById(d.g.yes);
+        this.aRL = (TextView) this.aRJ.findViewById(d.g.no);
     }
 
     public f a(int i, View.OnClickListener onClickListener) {
-        this.aRI.setText(i);
-        this.aRI.setOnClickListener(onClickListener);
-        this.aRK = onClickListener;
+        this.aRK.setText(i);
+        this.aRK.setOnClickListener(onClickListener);
+        this.aRM = onClickListener;
         return this;
     }
 
     public void setPositiveButtonEnable(boolean z) {
         if (z) {
-            aj.r(this.aRI, d.C0141d.cp_link_tip_a);
-            this.aRI.setOnClickListener(this.aRK);
+            aj.r(this.aRK, d.C0141d.cp_link_tip_a);
+            this.aRK.setOnClickListener(this.aRM);
             return;
         }
-        aj.r(this.aRI, d.C0141d.cp_cont_e);
-        this.aRI.setOnClickListener(null);
+        aj.r(this.aRK, d.C0141d.cp_cont_e);
+        this.aRK.setOnClickListener(null);
     }
 
     public f b(int i, View.OnClickListener onClickListener) {
-        this.aRJ.setText(i);
-        this.aRJ.setOnClickListener(onClickListener);
+        this.aRL.setText(i);
+        this.aRL.setOnClickListener(onClickListener);
         return this;
     }
 }

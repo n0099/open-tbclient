@@ -13,24 +13,24 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a {
-    private static final int fwi = B(new byte[]{102, 114, 101, 101});
-    private static final int fwj = B(new byte[]{106, 117, 110, 107});
-    private static final int fwk = B(new byte[]{109, 100, 97, 116});
-    private static final int fwl = B(new byte[]{109, 111, 111, 118});
-    private static final int fwm = B(new byte[]{112, 110, 111, 116});
-    private static final int fwn = B(new byte[]{115, 107, 105, 112});
-    private static final int fwo = B(new byte[]{119, 105, 100, 101});
-    private static final int fwp = B(new byte[]{80, 73, 67, 84});
-    private static final int fwq = B(new byte[]{102, 116, 121, 112});
-    private static final int fwr = B(new byte[]{117, 117, 105, 100});
-    private static final int fws = B(new byte[]{99, 109, 111, 118});
-    private static final int fwt = B(new byte[]{115, 116, 99, 111});
-    private static final int fwu = B(new byte[]{99, 111, 54, 52});
+    private static final int fwy = B(new byte[]{102, 114, 101, 101});
+    private static final int fwz = B(new byte[]{106, 117, 110, 107});
+    private static final int fwA = B(new byte[]{109, 100, 97, 116});
+    private static final int fwB = B(new byte[]{109, 111, 111, 118});
+    private static final int fwC = B(new byte[]{112, 110, 111, 116});
+    private static final int fwD = B(new byte[]{115, 107, 105, 112});
+    private static final int fwE = B(new byte[]{119, 105, 100, 101});
+    private static final int fwF = B(new byte[]{80, 73, 67, 84});
+    private static final int fwG = B(new byte[]{102, 116, 121, 112});
+    private static final int fwH = B(new byte[]{117, 117, 105, 100});
+    private static final int fwI = B(new byte[]{99, 109, 111, 118});
+    private static final int fwJ = B(new byte[]{115, 116, 99, 111});
+    private static final int fwK = B(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0188a {
-        void jj(boolean z);
+        void jo(boolean z);
     }
 
     /* loaded from: classes2.dex */
@@ -140,14 +140,14 @@ public class a {
             }
             long sk = sk(order.getInt());
             i = order.getInt();
-            if (i == fwq) {
+            if (i == fwG) {
                 int cy = cy(sk);
                 ByteBuffer order2 = ByteBuffer.allocate(cy).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= cy - 8) {
                     order2.flip();
-                    if ((i == fwi && i != fwj && i != fwk && i != fwl && i != fwm && i != fwn && i != fwo && i != fwp && i != fwr && i != fwq) || sk < 8) {
+                    if ((i == fwy && i != fwz && i != fwA && i != fwB && i != fwC && i != fwD && i != fwE && i != fwF && i != fwH && i != fwG) || sk < 8) {
                         break;
                     }
                     i2 = i;
@@ -165,18 +165,18 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + sk) - 8);
                 }
-                if (i == fwi) {
+                if (i == fwy) {
                 }
                 i2 = i;
             }
         }
-        return i != fwl ? 0 : 1;
+        return i != fwB ? 0 : 1;
     }
 
     public static void a(String str, String str2, final InterfaceC0188a interfaceC0188a) {
         if (interfaceC0188a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0188a.jj(false);
+                interfaceC0188a.jo(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.j.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class a {
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
                         if (InterfaceC0188a.this != null) {
-                            InterfaceC0188a.this.jj(bool.booleanValue());
+                            InterfaceC0188a.this.jo(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);
@@ -267,7 +267,7 @@ public class a {
             }
             j2 = sk(order.getInt());
             i2 = order.getInt();
-            if (i2 == fwq) {
+            if (i2 == fwG) {
                 int cy = cy(j2);
                 byteBuffer2 = ByteBuffer.allocate(cy).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -281,7 +281,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == fwi && i2 != fwj && i2 != fwk && i2 != fwl && i2 != fwm && i2 != fwn && i2 != fwo && i2 != fwp && i2 != fwr && i2 != fwq) {
+                if (i2 == fwy && i2 != fwz && i2 != fwA && i2 != fwB && i2 != fwC && i2 != fwD && i2 != fwE && i2 != fwF && i2 != fwH && i2 != fwG) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -309,13 +309,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == fwi) {
+                if (i2 == fwy) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != fwl) {
+        if (i != fwB) {
             return false;
         }
         int cy2 = cy(j2);
@@ -324,13 +324,13 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == fws) {
+        if (order2.getInt(12) == fwI) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != fwt && i3 != fwu) {
+            if (i3 != fwJ && i3 != fwK) {
                 order2.position(order2.position() + 1);
             } else if (sk(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -340,7 +340,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int cy3 = cy(order2.getInt());
-                if (i3 == fwt) {
+                if (i3 == fwJ) {
                     if (order2.remaining() < cy3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -353,7 +353,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != fwu) {
+                } else if (i3 != fwK) {
                     continue;
                 } else if (order2.remaining() < cy3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

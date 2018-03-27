@@ -24,17 +24,17 @@ import com.baidu.tieba.d;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class j extends FrameLayout {
-    private TextView dum;
+    private TextView dup;
     private int duration;
-    private boolean gQW;
-    private int gSJ;
-    private TextView gSK;
-    private TextView gSL;
-    private TbImageView gSM;
-    private RelativeLayout gSN;
-    private Runnable gSO;
-    private Runnable gSP;
-    private Runnable gSQ;
+    private boolean gRm;
+    private int gSZ;
+    private TextView gTa;
+    private TextView gTb;
+    private TbImageView gTc;
+    private RelativeLayout gTd;
+    private Runnable gTe;
+    private Runnable gTf;
+    private Runnable gTg;
     private ImageView jt;
     private Context mContext;
     private ProgressBar mProgress;
@@ -42,20 +42,20 @@ public class j extends FrameLayout {
 
     public j(Context context) {
         super(context);
-        this.gSJ = 0;
+        this.gSZ = 0;
         this.duration = 2000;
-        this.gSO = new Runnable() { // from class: com.baidu.tieba.signall.j.1
+        this.gTe = new Runnable() { // from class: com.baidu.tieba.signall.j.1
             @Override // java.lang.Runnable
             public void run() {
                 if (j.this.mScroller.computeScrollOffset()) {
                     int currX = j.this.mScroller.getCurrX();
-                    if (currX < (j.this.mProgress.getMax() * 9) / 10 || j.this.gSJ == 2) {
+                    if (currX < (j.this.mProgress.getMax() * 9) / 10 || j.this.gSZ == 2) {
                         j.this.mProgress.setProgress(currX);
-                        j.this.postDelayed(j.this.gSO, 16L);
+                        j.this.postDelayed(j.this.gTe, 16L);
                         return;
                     }
                     j.this.mScroller.forceFinished(true);
-                    j.this.postDelayed(j.this.gSP, 2000L);
+                    j.this.postDelayed(j.this.gTf, 2000L);
                     return;
                 }
                 int progress = j.this.mProgress.getProgress();
@@ -66,13 +66,13 @@ public class j extends FrameLayout {
                 }
             }
         };
-        this.gSP = new Runnable() { // from class: com.baidu.tieba.signall.j.2
+        this.gTf = new Runnable() { // from class: com.baidu.tieba.signall.j.2
             @Override // java.lang.Runnable
             public void run() {
                 j.this.postDelayed(this, 2000L);
             }
         };
-        this.gSQ = new Runnable() { // from class: com.baidu.tieba.signall.j.3
+        this.gTg = new Runnable() { // from class: com.baidu.tieba.signall.j.3
             @Override // java.lang.Runnable
             public void run() {
                 int dip2px = com.baidu.adp.lib.util.l.dip2px(j.this.mContext, 6.0f);
@@ -90,12 +90,12 @@ public class j extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.signallforum_progress_view, this);
         this.mProgress = (ProgressBar) findViewById(d.g.signallforum_progress);
         this.jt = (ImageView) findViewById(d.g.signallforum_icon);
-        this.dum = (TextView) findViewById(d.g.signallforun_status);
-        this.gSK = (TextView) findViewById(d.g.signallforun_message1);
-        this.gSL = (TextView) findViewById(d.g.signallforun_message2);
-        this.gSM = (TbImageView) findViewById(d.g.signallforum_banner_image);
-        this.gSN = (RelativeLayout) findViewById(d.g.signallforum_banner_layout);
-        DZ();
+        this.dup = (TextView) findViewById(d.g.signallforun_status);
+        this.gTa = (TextView) findViewById(d.g.signallforun_message1);
+        this.gTb = (TextView) findViewById(d.g.signallforun_message2);
+        this.gTc = (TbImageView) findViewById(d.g.signallforum_banner_image);
+        this.gTd = (RelativeLayout) findViewById(d.g.signallforum_banner_layout);
+        Ea();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), d.f.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -106,49 +106,49 @@ public class j extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void DZ() {
-        removeCallbacks(this.gSO);
-        removeCallbacks(this.gSP);
-        if (this.gQW) {
+    public void Ea() {
+        removeCallbacks(this.gTe);
+        removeCallbacks(this.gTf);
+        if (this.gRm) {
             this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.vip_singnallforum_progress));
         } else {
             this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.singnallforum_progress));
         }
-        switch (this.gSJ) {
+        switch (this.gSZ) {
             case 0:
                 this.mProgress.setClickable(true);
                 this.mProgress.setProgress(0);
                 this.mProgress.setSecondaryProgress(0);
-                if (this.gQW) {
+                if (this.gRm) {
                     aj.s(this.mProgress, d.f.btn_vip_all_sign);
                     aj.c(this.jt, d.f.icon_vip_sign);
                 } else {
                     aj.s(this.mProgress, d.f.btn_all_sign);
                     aj.c(this.jt, d.f.icon_all_sign);
                 }
-                this.dum.setText(d.j.signallforum_begin);
+                this.dup.setText(d.j.signallforum_begin);
                 return;
             case 1:
-                post(this.gSQ);
+                post(this.gTg);
                 this.mProgress.setClickable(false);
                 aj.s(this.mProgress, d.f.bg_all_sign_conduct);
-                if (this.gQW) {
+                if (this.gRm) {
                     aj.c(this.jt, d.f.icon_vip_sign);
                 } else {
                     aj.c(this.jt, d.f.icon_all_sign);
                 }
-                this.dum.setText(d.j.signallforum_ing);
+                this.dup.setText(d.j.signallforum_ing);
                 int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
                 if (nextInt - this.mProgress.getProgress() < 0) {
                     this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
                 } else {
                     this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
                 }
-                post(this.gSO);
+                post(this.gTe);
                 return;
             case 2:
                 this.mProgress.setClickable(true);
-                if (this.gQW) {
+                if (this.gRm) {
                     aj.s(this.mProgress, d.f.bg_vip_sign_ok_d);
                     aj.c(this.jt, d.f.icon_vip_sign_ok);
                 } else {
@@ -156,17 +156,17 @@ public class j extends FrameLayout {
                     aj.c(this.jt, d.f.icon_all_sign_ok);
                 }
                 this.mProgress.setProgress(0);
-                this.dum.setText(d.j.signallforum_success);
+                this.dup.setText(d.j.signallforum_success);
                 return;
             case 3:
                 this.mProgress.setClickable(false);
-                if (this.gQW) {
+                if (this.gRm) {
                     aj.c(this.jt, d.f.icon_vip_sign);
                 } else {
                     aj.c(this.jt, d.f.icon_all_sign);
                 }
                 aj.s(this.mProgress, d.f.bg_all_sign_conduct);
-                this.dum.setText(d.j.can_not_sign);
+                this.dup.setText(d.j.can_not_sign);
                 return;
             default:
                 return;
@@ -174,21 +174,21 @@ public class j extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.gSJ;
+        return this.gSZ;
     }
 
     public void setSigning(int i) {
-        if (this.gSJ != 1 && this.gSJ == 0) {
+        if (this.gSZ != 1 && this.gSZ == 0) {
             this.mProgress.setProgress(i);
-            this.gSJ = 1;
-            DZ();
+            this.gSZ = 1;
+            Ea();
         }
     }
 
-    public void btM() {
-        if (this.gSJ != 2) {
-            this.gSJ = 2;
-            DZ();
+    public void btN() {
+        if (this.gSZ != 2) {
+            this.gSZ = 2;
+            Ea();
         }
     }
 
@@ -196,16 +196,16 @@ public class j extends FrameLayout {
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.signall.j.4
             @Override // java.lang.Runnable
             public void run() {
-                if (j.this.gSN.getVisibility() != 0) {
+                if (j.this.gTd.getVisibility() != 0) {
                     TiebaStatic.log("c11822");
                 }
-                j.this.gSN.setVisibility(0);
-                j.this.gSM.startLoad(str, 10, true);
+                j.this.gTd.setVisibility(0);
+                j.this.gTc.startLoad(str, 10, true);
                 if (!StringUtils.isNull(str2)) {
-                    j.this.gSN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.j.4.1
+                    j.this.gTd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.j.4.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (!aw.Dt().a(baseActivity.getPageContext(), "", new String[]{str2}, false, null, true) && !aw.Dt().eC(str2)) {
+                            if (!aw.Du().a(baseActivity.getPageContext(), "", new String[]{str2}, false, null, true) && !aw.Du().eC(str2)) {
                                 baseActivity.showToast(d.j.pluginstatus_tip_unknown);
                             } else {
                                 TiebaStatic.log("c11758");
@@ -217,8 +217,8 @@ public class j extends FrameLayout {
         }, 3000L);
     }
 
-    public void btN() {
-        this.gSN.setVisibility(8);
+    public void btO() {
+        this.gTd.setVisibility(8);
     }
 
     public ProgressBar getProgressBar() {
@@ -226,11 +226,11 @@ public class j extends FrameLayout {
     }
 
     public TextView getMessage1() {
-        return this.gSK;
+        return this.gTa;
     }
 
     public TextView getMessage2() {
-        return this.gSL;
+        return this.gTb;
     }
 
     public void setDuration(int i) {
@@ -238,12 +238,12 @@ public class j extends FrameLayout {
     }
 
     public void setmCurrentStatus(int i) {
-        this.gSJ = i;
-        DZ();
+        this.gSZ = i;
+        Ea();
     }
 
     public void setHasPrivilege(boolean z) {
-        this.gQW = z;
-        DZ();
+        this.gRm = z;
+        Ea();
     }
 }

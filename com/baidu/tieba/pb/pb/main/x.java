@@ -8,70 +8,70 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class x extends com.baidu.tbadk.core.dialog.b {
-    private TbPageContext<?> aRG;
-    private View.OnClickListener dCr;
-    private TextView fQW;
-    private TextView fQX;
-    private TextView fQY;
-    private TextView fQZ;
-    private TextView fRa;
-    private TextView fRb;
-    private boolean fRc;
-    private boolean fRd;
+    private TbPageContext<?> aRI;
+    private View.OnClickListener dCu;
+    private TextView fRm;
+    private TextView fRn;
+    private TextView fRo;
+    private TextView fRp;
+    private TextView fRq;
+    private TextView fRr;
+    private boolean fRs;
+    private boolean fRt;
 
     public x(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fRd = false;
-        this.aRG = tbPageContext;
-        this.dCr = onClickListener;
-        bed();
-    }
-
-    public TextView bdX() {
-        return this.fQW;
+        this.fRt = false;
+        this.aRI = tbPageContext;
+        this.dCu = onClickListener;
+        bee();
     }
 
     public TextView bdY() {
-        return this.fQX;
+        return this.fRm;
     }
 
     public TextView bdZ() {
-        return this.fQY;
+        return this.fRn;
     }
 
     public TextView bea() {
-        return this.fQZ;
+        return this.fRo;
     }
 
     public TextView beb() {
-        return this.fRb;
+        return this.fRp;
     }
 
     public TextView bec() {
-        return this.fRa;
+        return this.fRr;
     }
 
-    private void bed() {
-        a(new CharSequence[]{this.aRG.getString(d.j.reply_current_floor), this.aRG.getString(d.j.no_interesting), this.aRG.getString(d.j.mark), this.aRG.getString(d.j.mute), this.aRG.getString(d.j.report_text), this.aRG.getString(d.j.delete)}, new b.InterfaceC0097b() { // from class: com.baidu.tieba.pb.pb.main.x.1
+    public TextView bed() {
+        return this.fRq;
+    }
+
+    private void bee() {
+        a(new CharSequence[]{this.aRI.getString(d.j.reply_current_floor), this.aRI.getString(d.j.no_interesting), this.aRI.getString(d.j.mark), this.aRI.getString(d.j.mute), this.aRI.getString(d.j.report_text), this.aRI.getString(d.j.delete)}, new b.InterfaceC0097b() { // from class: com.baidu.tieba.pb.pb.main.x.1
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0097b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    x.this.dCr.onClick(view);
+                    x.this.dCu.onClick(view);
                 }
             }
         });
-        d(this.aRG);
-        this.fRa = cw(fj(0));
-        this.fRb = cw(fj(1));
-        this.fQW = cw(fj(2));
-        this.fQX = cw(fj(3));
-        this.fQY = cw(fj(4));
-        this.fQZ = cw(fj(5));
+        d(this.aRI);
+        this.fRq = cw(fj(0));
+        this.fRr = cw(fj(1));
+        this.fRm = cw(fj(2));
+        this.fRn = cw(fj(3));
+        this.fRo = cw(fj(4));
+        this.fRp = cw(fj(5));
     }
 
     public void showDialog() {
-        AX();
+        AY();
     }
 
     private TextView cw(View view) {
@@ -85,24 +85,24 @@ public class x extends com.baidu.tbadk.core.dialog.b {
         return view.findViewById(d.g.line);
     }
 
-    public void kp(boolean z) {
-        this.fQY.setVisibility(z ? 0 : 8);
+    public void ku(boolean z) {
+        this.fRo.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
         return getRootView();
     }
 
-    public void kq(boolean z) {
-        this.fRc = z;
+    public void kv(boolean z) {
+        this.fRs = z;
     }
 
-    public boolean bee() {
-        return this.fRd;
+    public boolean bef() {
+        return this.fRt;
     }
 
-    public void kr(boolean z) {
-        this.fRd = z;
+    public void kw(boolean z) {
+        this.fRt = z;
     }
 
     public void refreshUI() {

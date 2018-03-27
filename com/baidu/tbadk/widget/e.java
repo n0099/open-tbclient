@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    protected final Paint bES = new Paint();
-    protected final Paint bET = new Paint();
-    private int bEU;
-    private int bEV;
-    private int bEW;
+    protected final Paint bEV = new Paint();
+    protected final Paint bEW = new Paint();
     private int bEX;
     private int bEY;
     private int bEZ;
     private int bFa;
+    private int bFb;
+    private int bFc;
+    private int bFd;
     protected final View view;
 
     private Context getContext() {
@@ -27,26 +27,26 @@ public class e {
     }
 
     public e(View view) {
-        this.bEU = 16;
-        this.bEV = 16;
-        this.bEW = -1;
-        this.bEX = 1711276032;
-        this.bEY = 20;
-        this.bEZ = 16;
-        this.bFa = 32;
+        this.bEX = 16;
+        this.bEY = 16;
+        this.bEZ = -1;
+        this.bFa = 1711276032;
+        this.bFb = 20;
+        this.bFc = 16;
+        this.bFd = 32;
         this.view = view;
-        this.bEX = getContext().getResources().getColor(d.C0141d.black_alpha40);
-        this.bET.setColor(this.bEX);
-        this.bET.setAntiAlias(true);
-        this.bEY = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.bEW = getContext().getResources().getColor(d.C0141d.cp_cont_i);
-        this.bES.setColor(this.bEW);
-        this.bES.setTextSize(this.bEY);
-        this.bES.setAntiAlias(true);
-        this.bEU = l.t(getContext(), d.e.tbds20);
-        this.bEV = l.t(getContext(), d.e.tbds20);
-        this.bEZ = l.t(getContext(), d.e.ds16);
-        this.bFa = l.t(getContext(), d.e.tbds40);
+        this.bFa = getContext().getResources().getColor(d.C0141d.black_alpha40);
+        this.bEW.setColor(this.bFa);
+        this.bEW.setAntiAlias(true);
+        this.bFb = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
+        this.bEZ = getContext().getResources().getColor(d.C0141d.cp_cont_i);
+        this.bEV.setColor(this.bEZ);
+        this.bEV.setTextSize(this.bFb);
+        this.bEV.setAntiAlias(true);
+        this.bEX = l.t(getContext(), d.e.tbds20);
+        this.bEY = l.t(getContext(), d.e.tbds20);
+        this.bFc = l.t(getContext(), d.e.ds16);
+        this.bFd = l.t(getContext(), d.e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -60,14 +60,14 @@ public class e {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.bES.measureText(str);
-            float f = this.bFa + measureText;
-            float f2 = this.bEY + this.bEZ;
-            canvas.translate((((right - left) - paddingRight) - f) - this.bEV, (((bottom - top) - paddingBottom) - f2) - this.bEU);
+            float measureText = this.bEV.measureText(str);
+            float f = this.bFd + measureText;
+            float f2 = this.bFb + this.bFc;
+            canvas.translate((((right - left) - paddingRight) - f) - this.bEY, (((bottom - top) - paddingBottom) - f2) - this.bEX);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.bET);
-            Paint.FontMetrics fontMetrics = this.bES.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.bES);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.bEW);
+            Paint.FontMetrics fontMetrics = this.bEV.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.bEV);
             canvas.restoreToCount(save);
         }
     }
@@ -79,33 +79,33 @@ public class e {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.bEV = i;
-        this.bEU = i2;
+        this.bEY = i;
+        this.bEX = i2;
         invalidate();
     }
 
     public void ir(int i) {
-        this.bEW = i;
-        this.bES.setColor(i);
+        this.bEZ = i;
+        this.bEV.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.bEY = i;
-        this.bES.setTextSize(i);
+        this.bFb = i;
+        this.bEV.setTextSize(i);
         invalidate();
     }
 
     public float hy(String str) {
-        return l.b(this.bES, str).height() + this.bEZ;
+        return l.b(this.bEV, str).height() + this.bFc;
     }
 
     public float hz(String str) {
-        return l.a(this.bES, str) + this.bFa;
+        return l.a(this.bEV, str) + this.bFd;
     }
 
     public void aN(int i, int i2) {
-        this.bFa = i;
-        this.bEZ = i2;
+        this.bFd = i;
+        this.bFc = i2;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0102a bjI;
+    private C0102a bjL;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -32,18 +32,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.bjI == null) {
-            this.bjI = new C0102a();
-            this.bjI.setPriority(2);
-            this.bjI.bS(z);
-            this.bjI.setPortrait(str);
-            this.bjI.setToUid(str2);
-            this.bjI.setIsGod(z2);
-            this.bjI.setFrom(str3);
-            this.bjI.setPageId(bdUniqueId);
-            this.bjI.setForumId(str4);
-            this.bjI.setInLive(str5);
-            this.bjI.execute(new Integer[0]);
+        if (this.bjL == null) {
+            this.bjL = new C0102a();
+            this.bjL.setPriority(2);
+            this.bjL.bS(z);
+            this.bjL.setPortrait(str);
+            this.bjL.setToUid(str2);
+            this.bjL.setIsGod(z2);
+            this.bjL.setFrom(str3);
+            this.bjL.setPageId(bdUniqueId);
+            this.bjL.setForumId(str4);
+            this.bjL.setInLive(str5);
+            this.bjL.execute(new Integer[0]);
         }
     }
 
@@ -126,8 +126,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.Cy().Dv().mIsNeedTbs = true;
-                    return this.mNetwork.Ca();
+                    this.mNetwork.Cz().Dw().mIsNeedTbs = true;
+                    return this.mNetwork.Cb();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -140,19 +140,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0102a) str);
-            a.this.bjI = null;
+            a.this.bjL = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.apG = this.mNetwork.Cy().Dw().isRequestSuccess();
+                aVar.apH = this.mNetwork.Cz().Dx().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.j(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.Cy().Dw().isRequestSuccess()) {
-                    aVar.biH = null;
+                if (this.mNetwork.Cz().Dx().isRequestSuccess()) {
+                    aVar.biK = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.CC(), aVar.biG)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.CD(), aVar.biJ)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.mS();
                 this.mNetwork = null;
             }
-            if (a.this.bjI != null) {
-                a.this.bjI.cancel();
-                a.this.bjI = null;
+            if (a.this.bjL != null) {
+                a.this.bjL.cancel();
+                a.this.bjL = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.ak(false);
@@ -185,8 +185,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.bjI != null) {
-            this.bjI.cancel();
+        if (this.bjL != null) {
+            this.bjL.cancel();
         }
     }
 }

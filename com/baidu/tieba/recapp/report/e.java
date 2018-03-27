@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.report;
 
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.tbadkCore.data.AppData;
-import com.baidu.tieba.tbadkCore.data.l;
+import com.baidu.tieba.tbadkCore.data.m;
 /* loaded from: classes.dex */
 public class e {
     public static a c(AdvertAppInfo advertAppInfo, int i, int i2) {
@@ -15,10 +15,10 @@ public class e {
         aVar.rY(advertAppInfo.price);
         aVar.rW(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sa(advertAppInfo.aKI);
-        aVar.sb(advertAppInfo.aKJ);
-        aVar.sc(advertAppInfo.aKK);
-        aVar.sd(advertAppInfo.aJX);
+        aVar.sa(advertAppInfo.aKJ);
+        aVar.sb(advertAppInfo.aKK);
+        aVar.sc(advertAppInfo.aKL);
+        aVar.sd(advertAppInfo.aJY);
         return aVar;
     }
 
@@ -27,15 +27,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.ut(advertAppInfo.aKA);
+        aVar.ut(advertAppInfo.aKB);
         aVar.us(i);
         aVar.rY(advertAppInfo.price);
         aVar.rW(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.sa(advertAppInfo.aKI);
-        aVar.sb(advertAppInfo.aKJ);
-        aVar.sc(advertAppInfo.aKK);
-        aVar.sd(advertAppInfo.aJX);
+        aVar.sa(advertAppInfo.aKJ);
+        aVar.sb(advertAppInfo.aKK);
+        aVar.sc(advertAppInfo.aKL);
+        aVar.sd(advertAppInfo.aJY);
         return aVar;
     }
 
@@ -58,20 +58,20 @@ public class e {
         return aVar;
     }
 
-    public static a c(l lVar, int i) {
-        if (lVar == null || lVar.bwI() == null) {
+    public static a c(m mVar, int i) {
+        if (mVar == null || mVar.bwN() == null) {
             return null;
         }
-        AppData bwI = lVar.bwI();
+        AppData bwN = mVar.bwN();
         a aVar = new a();
-        aVar.ut(com.baidu.adp.lib.g.b.h(bwI.pos_name, 0));
-        aVar.rW(bwI.ext_info);
-        aVar.setPageNumber(lVar.pageNumber);
+        aVar.ut(com.baidu.adp.lib.g.b.h(bwN.pos_name, 0));
+        aVar.rW(bwN.ext_info);
+        aVar.setPageNumber(mVar.pageNumber);
         aVar.us(i);
-        aVar.rY(bwI.price);
-        aVar.sa(lVar.aKI);
-        aVar.sb(lVar.aKJ);
-        aVar.sc(lVar.forumId);
+        aVar.rY(bwN.price);
+        aVar.sa(mVar.aKJ);
+        aVar.sb(mVar.aKK);
+        aVar.sc(mVar.forumId);
         aVar.sd("PB");
         return aVar;
     }
@@ -84,7 +84,7 @@ public class e {
         if (i6 != -1 && i == 32) {
             c.ux(i6);
         }
-        c.sd(advertAppInfo.aJX);
+        c.sd(advertAppInfo.aJY);
         if (i == 2) {
             c.rZ("video");
         }

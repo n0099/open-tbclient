@@ -9,7 +9,7 @@ public class c extends k implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String MZ() {
+    public String Na() {
         return null;
     }
 

@@ -25,22 +25,22 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class PbInterviewStatusView extends FrameLayout {
-    private String aMq;
-    private TextView gdc;
-    private ImageView gdd;
-    private FrameLayout gde;
-    private TextView gdf;
-    private ImageView gdg;
-    private ImageView gdh;
-    private View gdi;
-    private Animation gdj;
-    private com.baidu.tbadk.core.dialog.a gdk;
-    private CountDownTimer gdl;
-    private CountDownTimer gdm;
-    private CountDownTimer gdn;
-    private boolean gdo;
-    private boolean gdp;
-    private a gdq;
+    private String aMr;
+    private com.baidu.tbadk.core.dialog.a gdA;
+    private CountDownTimer gdB;
+    private CountDownTimer gdC;
+    private CountDownTimer gdD;
+    private boolean gdE;
+    private boolean gdF;
+    private a gdG;
+    private TextView gds;
+    private ImageView gdt;
+    private FrameLayout gdu;
+    private TextView gdv;
+    private ImageView gdw;
+    private ImageView gdx;
+    private View gdy;
+    private Animation gdz;
     private View mRootView;
 
     /* loaded from: classes2.dex */
@@ -49,76 +49,76 @@ public class PbInterviewStatusView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.gdq = aVar;
+        this.gdG = aVar;
     }
 
     public PbInterviewStatusView(Context context) {
         super(context);
         this.mRootView = null;
-        this.gdk = null;
-        this.gdl = null;
-        this.gdm = null;
-        this.gdn = null;
-        this.gdo = true;
-        this.gdp = false;
-        this.aMq = null;
-        this.gdq = null;
+        this.gdA = null;
+        this.gdB = null;
+        this.gdC = null;
+        this.gdD = null;
+        this.gdE = true;
+        this.gdF = false;
+        this.aMr = null;
+        this.gdG = null;
         init(context);
     }
 
     public PbInterviewStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mRootView = null;
-        this.gdk = null;
-        this.gdl = null;
-        this.gdm = null;
-        this.gdn = null;
-        this.gdo = true;
-        this.gdp = false;
-        this.aMq = null;
-        this.gdq = null;
+        this.gdA = null;
+        this.gdB = null;
+        this.gdC = null;
+        this.gdD = null;
+        this.gdE = true;
+        this.gdF = false;
+        this.aMr = null;
+        this.gdG = null;
         init(context);
     }
 
     public PbInterviewStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRootView = null;
-        this.gdk = null;
-        this.gdl = null;
-        this.gdm = null;
-        this.gdn = null;
-        this.gdo = true;
-        this.gdp = false;
-        this.aMq = null;
-        this.gdq = null;
+        this.gdA = null;
+        this.gdB = null;
+        this.gdC = null;
+        this.gdD = null;
+        this.gdE = true;
+        this.gdF = false;
+        this.aMr = null;
+        this.gdG = null;
         init(context);
     }
 
     private void init(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(d.h.pb_interview_status, (ViewGroup) this, true);
-        this.gdc = (TextView) this.mRootView.findViewById(d.g.interview_live_status_btn);
-        this.gde = (FrameLayout) this.mRootView.findViewById(d.g.count_container);
-        this.gdd = (ImageView) this.mRootView.findViewById(d.g.interview_mic);
-        this.gdh = (ImageView) this.mRootView.findViewById(d.g.interview_arrow);
-        this.gdf = (TextView) this.mRootView.findViewById(d.g.count_text);
-        this.gdg = (ImageView) this.mRootView.findViewById(d.g.count_bg);
-        this.gdi = this.mRootView.findViewById(d.g.interview_live_status_divider);
+        this.gds = (TextView) this.mRootView.findViewById(d.g.interview_live_status_btn);
+        this.gdu = (FrameLayout) this.mRootView.findViewById(d.g.count_container);
+        this.gdt = (ImageView) this.mRootView.findViewById(d.g.interview_mic);
+        this.gdx = (ImageView) this.mRootView.findViewById(d.g.interview_arrow);
+        this.gdv = (TextView) this.mRootView.findViewById(d.g.count_text);
+        this.gdw = (ImageView) this.mRootView.findViewById(d.g.count_bg);
+        this.gdy = this.mRootView.findViewById(d.g.interview_live_status_divider);
         this.mRootView.setAlpha(0.8f);
         aj.t(this.mRootView, d.C0141d.cp_link_tip_a);
-        aj.r(this.gdc, d.C0141d.cp_cont_g);
-        aj.s(this.gdg, d.f.icon_interview_loding);
-        aj.r(this.gdf, d.C0141d.cp_cont_g);
-        aj.s(this.gdd, d.f.icon_interview_mic);
-        aj.s(this.gdh, d.f.icon_arrow_tip_white);
-        aj.t(this.gdi, d.C0141d.cp_bg_line_c);
+        aj.r(this.gds, d.C0141d.cp_cont_g);
+        aj.s(this.gdw, d.f.icon_interview_loding);
+        aj.r(this.gdv, d.C0141d.cp_cont_g);
+        aj.s(this.gdt, d.f.icon_interview_mic);
+        aj.s(this.gdx, d.f.icon_arrow_tip_white);
+        aj.t(this.gdy, d.C0141d.cp_bg_line_c);
     }
 
     public void c(PbActivity pbActivity, com.baidu.tieba.pb.data.d dVar) {
-        this.aMq = dVar.bat().yV().xP();
-        if (StringUtils.isNull(this.aMq)) {
-            this.aMq = dVar.bat().yV().getTaskId();
+        this.aMr = dVar.bau().yV().xP();
+        if (StringUtils.isNull(this.aMr)) {
+            this.aMr = dVar.bau().yV().getTaskId();
         }
-        this.gdo = !"from_interview_live".equals(pbActivity.bct());
+        this.gdE = !"from_interview_live".equals(pbActivity.bcu());
         d(pbActivity, dVar);
     }
 
@@ -126,13 +126,13 @@ public class PbInterviewStatusView extends FrameLayout {
     /* JADX WARN: Type inference failed for: r0v21, types: [com.baidu.tieba.pb.view.PbInterviewStatusView$2] */
     /* JADX WARN: Type inference failed for: r0v27, types: [com.baidu.tieba.pb.view.PbInterviewStatusView$1] */
     public void d(final PbActivity pbActivity, final com.baidu.tieba.pb.data.d dVar) {
-        int zP = dVar.bat().zP();
+        int zP = dVar.bau().zP();
         switch (zP) {
             case 1:
-                long millis = TimeUnit.SECONDS.toMillis(dVar.bat().yV().yQ()) - System.currentTimeMillis();
+                long millis = TimeUnit.SECONDS.toMillis(dVar.bau().yV().yQ()) - System.currentTimeMillis();
                 if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                     long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
-                    this.gdl = new CountDownTimer(millis2, millis2) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.1
+                    this.gdB = new CountDownTimer(millis2, millis2) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.1
                         @Override // android.os.CountDownTimer
                         public void onTick(long j) {
                         }
@@ -143,42 +143,42 @@ public class PbInterviewStatusView extends FrameLayout {
                         }
                     }.start();
                     this.mRootView.setVisibility(8);
-                    if (this.gdq != null) {
-                        this.gdq.Y(false);
+                    if (this.gdG != null) {
+                        this.gdG.Y(false);
                     }
                 } else {
-                    TiebaStatic.log(new ak("c11105").ab("obj_id", this.aMq));
+                    TiebaStatic.log(new ak("c11105").ab("obj_id", this.aMr));
                     this.mRootView.setVisibility(0);
-                    if (this.gdq != null) {
-                        this.gdq.Y(true);
+                    if (this.gdG != null) {
+                        this.gdG.Y(true);
                     }
-                    this.gdc.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_before_start));
-                    this.gdc.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize24));
-                    this.gdd.setVisibility(8);
-                    this.gdh.setVisibility(8);
-                    this.gdi.setVisibility(8);
-                    com.baidu.tieba.tbadkCore.a.a(pbActivity, this.gdg, aq(pbActivity), null);
-                    if (this.gdm != null) {
-                        this.gdm.cancel();
+                    this.gds.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_before_start));
+                    this.gds.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize24));
+                    this.gdt.setVisibility(8);
+                    this.gdx.setVisibility(8);
+                    this.gdy.setVisibility(8);
+                    com.baidu.tieba.tbadkCore.a.a(pbActivity, this.gdw, aq(pbActivity), null);
+                    if (this.gdC != null) {
+                        this.gdC.cancel();
                     }
-                    this.gdm = new CountDownTimer(millis, TimeUnit.SECONDS.toMillis(1L)) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.2
+                    this.gdC = new CountDownTimer(millis, TimeUnit.SECONDS.toMillis(1L)) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.2
                         @Override // android.os.CountDownTimer
                         public void onTick(long j) {
-                            PbInterviewStatusView.this.gdf.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
+                            PbInterviewStatusView.this.gdv.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
                         }
 
                         @Override // android.os.CountDownTimer
                         public void onFinish() {
-                            TiebaStatic.log(new ak("c11106").ab("obj_id", PbInterviewStatusView.this.aMq));
-                            PbInterviewStatusView.this.gdo = false;
-                            PbInterviewStatusView.this.gdc.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_start));
-                            PbInterviewStatusView.this.gdc.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize24));
-                            PbInterviewStatusView.this.gdd.setVisibility(0);
-                            PbInterviewStatusView.this.gdi.setVisibility(8);
-                            PbInterviewStatusView.this.gdh.setVisibility(0);
-                            PbInterviewStatusView.this.gde.setVisibility(8);
+                            TiebaStatic.log(new ak("c11106").ab("obj_id", PbInterviewStatusView.this.aMr));
+                            PbInterviewStatusView.this.gdE = false;
+                            PbInterviewStatusView.this.gds.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_start));
+                            PbInterviewStatusView.this.gds.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize24));
+                            PbInterviewStatusView.this.gdt.setVisibility(0);
+                            PbInterviewStatusView.this.gdy.setVisibility(8);
+                            PbInterviewStatusView.this.gdx.setVisibility(0);
+                            PbInterviewStatusView.this.gdu.setVisibility(8);
                             PbInterviewStatusView.this.setClickable(true);
-                            PbInterviewStatusView.this.gdp = true;
+                            PbInterviewStatusView.this.gdF = true;
                         }
                     }.start();
                 }
@@ -187,28 +187,28 @@ public class PbInterviewStatusView extends FrameLayout {
             case 2:
             case 3:
                 this.mRootView.setVisibility(0);
-                if (this.gdq != null) {
-                    this.gdq.Y(true);
+                if (this.gdG != null) {
+                    this.gdG.Y(true);
                 }
-                this.gdd.setVisibility(8);
-                this.gdh.setVisibility(8);
-                this.gde.setVisibility(8);
-                this.gdi.setVisibility(0);
-                this.gdc.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize28));
+                this.gdt.setVisibility(8);
+                this.gdx.setVisibility(8);
+                this.gdu.setVisibility(8);
+                this.gdy.setVisibility(0);
+                this.gds.setTextSize(0, l.t(pbActivity.getPageContext().getPageActivity(), d.e.fontsize28));
                 aj.t(this.mRootView, d.C0141d.cp_bg_line_e);
-                aj.r(this.gdc, d.C0141d.cp_cont_f);
-                aj.t(this.gdi, d.C0141d.cp_bg_line_c);
+                aj.r(this.gds, d.C0141d.cp_cont_f);
+                aj.t(this.gdy, d.C0141d.cp_bg_line_c);
                 this.mRootView.setAlpha(0.95f);
                 setClickable(true);
                 if (zP == 2) {
-                    this.gdc.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_in_process));
-                    if (this.gdo) {
+                    this.gds.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_in_process));
+                    if (this.gdE) {
                         ap(pbActivity);
                         return;
                     }
                     return;
                 }
-                this.gdc.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_finished));
+                this.gds.setText(pbActivity.getPageContext().getPageActivity().getString(d.j.interview_live_finished));
                 return;
             default:
                 this.mRootView.setVisibility(8);
@@ -229,31 +229,31 @@ public class PbInterviewStatusView extends FrameLayout {
             aj.t(findViewById, d.C0141d.cp_bg_line_a);
             aj.t(findViewById2, d.C0141d.cp_bg_line_a);
             aj.r(textView, d.C0141d.cp_cont_f);
-            this.gdk = new com.baidu.tbadk.core.dialog.a(pbActivity.getPageContext().getPageActivity());
-            this.gdk.aO(inflate);
-            this.gdk.a((String) null, (a.b) null);
-            this.gdk.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.3
+            this.gdA = new com.baidu.tbadk.core.dialog.a(pbActivity.getPageContext().getPageActivity());
+            this.gdA.aO(inflate);
+            this.gdA.a((String) null, (a.b) null);
+            this.gdA.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (PbInterviewStatusView.this.gdn != null) {
-                        PbInterviewStatusView.this.gdn.cancel();
+                    if (PbInterviewStatusView.this.gdD != null) {
+                        PbInterviewStatusView.this.gdD.cancel();
                     }
-                    if (PbInterviewStatusView.this.gdk != null) {
-                        PbInterviewStatusView.this.gdk.dismiss();
+                    if (PbInterviewStatusView.this.gdA != null) {
+                        PbInterviewStatusView.this.gdA.dismiss();
                     }
                 }
             });
-            this.gdk.aZ(false);
-            this.gdk.b(pbActivity.getPageContext());
+            this.gdA.aZ(false);
+            this.gdA.b(pbActivity.getPageContext());
             com.baidu.adp.lib.g.e.ns().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (PbInterviewStatusView.this.gdk != null) {
-                        PbInterviewStatusView.this.gdk.AU();
+                    if (PbInterviewStatusView.this.gdA != null) {
+                        PbInterviewStatusView.this.gdA.AV();
                     }
                 }
             }, TimeUnit.MICROSECONDS.toMillis(200L));
-            this.gdn = new CountDownTimer(TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L)) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.5
+            this.gdD = new CountDownTimer(TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L)) { // from class: com.baidu.tieba.pb.view.PbInterviewStatusView.5
                 @Override // android.os.CountDownTimer
                 public void onTick(long j) {
                     textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
@@ -261,11 +261,11 @@ public class PbInterviewStatusView extends FrameLayout {
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (PbInterviewStatusView.this.gdk != null) {
-                        PbInterviewStatusView.this.gdk.dismiss();
+                    if (PbInterviewStatusView.this.gdA != null) {
+                        PbInterviewStatusView.this.gdA.dismiss();
                     }
                     if (pbActivity != null) {
-                        pbActivity.bcs();
+                        pbActivity.bct();
                     }
                 }
             }.start();
@@ -273,35 +273,35 @@ public class PbInterviewStatusView extends FrameLayout {
     }
 
     private Animation aq(PbActivity pbActivity) {
-        if (this.gdj == null) {
-            this.gdj = AnimationUtils.loadAnimation(pbActivity.getPageContext().getPageActivity(), d.a.rotate_anim);
-            this.gdj.setDuration(TimeUnit.SECONDS.toMillis(3L));
-            this.gdj.setInterpolator(new LinearInterpolator());
-            this.gdj.setFillAfter(true);
+        if (this.gdz == null) {
+            this.gdz = AnimationUtils.loadAnimation(pbActivity.getPageContext().getPageActivity(), d.a.rotate_anim);
+            this.gdz.setDuration(TimeUnit.SECONDS.toMillis(3L));
+            this.gdz.setInterpolator(new LinearInterpolator());
+            this.gdz.setFillAfter(true);
         }
-        return this.gdj;
+        return this.gdz;
     }
 
     public boolean getIndicateStatus() {
-        return this.gdp;
+        return this.gdF;
     }
 
     public void clearStatus() {
-        if (this.gdl != null) {
-            this.gdl.cancel();
-            this.gdl = null;
+        if (this.gdB != null) {
+            this.gdB.cancel();
+            this.gdB = null;
         }
-        if (this.gdm != null) {
-            this.gdm.cancel();
-            this.gdm = null;
+        if (this.gdC != null) {
+            this.gdC.cancel();
+            this.gdC = null;
         }
-        if (this.gdn != null) {
-            this.gdn.cancel();
-            this.gdn = null;
+        if (this.gdD != null) {
+            this.gdD.cancel();
+            this.gdD = null;
         }
-        if (this.gdk != null) {
-            this.gdk.dismiss();
-            this.gdk = null;
+        if (this.gdA != null) {
+            this.gdA.dismiss();
+            this.gdA = null;
         }
     }
 }

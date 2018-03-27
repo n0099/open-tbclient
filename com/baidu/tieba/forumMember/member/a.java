@@ -15,7 +15,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.dBe, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.dBh, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            aj.s(cVar.dpk, d.f.frs_member_manito_bg);
-            aj.t(cVar.aRq, d.C0141d.cp_bg_line_b);
+            aj.s(cVar.dpn, d.f.frs_member_manito_bg);
+            aj.t(cVar.aRs, d.C0141d.cp_bg_line_b);
             aj.e(cVar.mTitleView, d.C0141d.cp_cont_b, 1);
-            aj.c(cVar.cLJ, d.f.icon_arrow_tab);
+            aj.c(cVar.cLM, d.f.icon_arrow_tab);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.dBf);
-        cVar.dpk.setTag(bVar.mUrl);
-        cVar.dpk.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.dBi);
+        cVar.dpn.setTag(bVar.mUrl);
+        cVar.dpn.setOnClickListener(this.mClickListener);
     }
 }

@@ -15,13 +15,13 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends ImageView implements View.OnClickListener {
-    private com.baidu.adp.gif.b atW;
-    private com.baidu.adp.widget.a.a bEK;
-    private Drawable bEL;
-    private Drawable bEM;
-    private Drawable bEN;
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bEO;
-    private final Rect bvR;
+    private com.baidu.adp.gif.b atX;
+    private com.baidu.adp.widget.a.a bEN;
+    private Drawable bEO;
+    private Drawable bEP;
+    private Drawable bEQ;
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> bER;
+    private final Rect bvU;
     private Bitmap mBitmap;
     private int mCurrentFrame;
     private TbRichTextView.f mDispatchTouchListener;
@@ -33,10 +33,10 @@ public class d extends ImageView implements View.OnClickListener {
     public d(Context context) {
         super(context);
         this.mSupportNoImage = true;
-        this.bEL = aj.getDrawable(d.C0141d.common_color_10220);
-        this.bEM = aj.getDrawable(d.f.icon_click);
-        this.bEN = aj.getDrawable(d.f.img_default_100);
-        this.bvR = new Rect();
+        this.bEO = aj.getDrawable(d.C0141d.common_color_10220);
+        this.bEP = aj.getDrawable(d.f.icon_click);
+        this.bEQ = aj.getDrawable(d.f.img_default_100);
+        this.bvU = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.d.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -54,7 +54,7 @@ public class d extends ImageView implements View.OnClickListener {
                 }
             }
         };
-        this.bEO = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.widget.d.2
+        this.bER = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.widget.d.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -74,7 +74,7 @@ public class d extends ImageView implements View.OnClickListener {
     }
 
     private void init() {
-        setBackgroundDrawable(this.bEL);
+        setBackgroundDrawable(this.bEO);
         setOnClickListener(null);
     }
 
@@ -83,10 +83,10 @@ public class d extends ImageView implements View.OnClickListener {
     }
 
     public com.baidu.adp.gif.b getGif() {
-        if (this.atW == null) {
+        if (this.atX == null) {
             return null;
         }
-        return this.atW;
+        return this.atX;
     }
 
     public void setSupportNoImage(boolean z) {
@@ -94,9 +94,9 @@ public class d extends ImageView implements View.OnClickListener {
     }
 
     public void setHasNoImage(boolean z) {
-        if (z && (this.bEL != null || this.bEM != null)) {
-            int intrinsicWidth = this.bEL.getIntrinsicWidth();
-            int intrinsicHeight = this.bEL.getIntrinsicHeight();
+        if (z && (this.bEO != null || this.bEP != null)) {
+            int intrinsicWidth = this.bEO.getIntrinsicWidth();
+            int intrinsicHeight = this.bEO.getIntrinsicHeight();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             if (intrinsicWidth > measuredWidth) {
@@ -107,27 +107,27 @@ public class d extends ImageView implements View.OnClickListener {
             }
             int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
             int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
-            this.bEL.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+            this.bEO.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
         }
         invalidate();
     }
 
     public com.baidu.adp.widget.a.a getBdImage() {
-        return this.bEK;
+        return this.bEN;
     }
 
     public void e(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            this.bEK = aVar;
+            this.bEN = aVar;
             if (aVar.isGif() && aVar.sm() != null && aVar.sm().length > 0) {
                 NSGif h = NSGif.h(aVar.sm(), 0, aVar.sm().length);
                 if (h != null) {
-                    this.atW = h;
-                    this.atW.cM(0);
-                    if (this.mBitmap == null || (this.mBitmap.getWidth() != this.atW.getWidth() && this.mBitmap.getHeight() != this.atW.getHeight())) {
-                        this.mBitmap = Bitmap.createBitmap(this.atW.getWidth(), this.atW.getHeight(), Bitmap.Config.ARGB_4444);
+                    this.atX = h;
+                    this.atX.cM(0);
+                    if (this.mBitmap == null || (this.mBitmap.getWidth() != this.atX.getWidth() && this.mBitmap.getHeight() != this.atX.getHeight())) {
+                        this.mBitmap = Bitmap.createBitmap(this.atX.getWidth(), this.atX.getHeight(), Bitmap.Config.ARGB_4444);
                     }
-                    this.atW.a(this.mBitmap, null);
+                    this.atX.a(this.mBitmap, null);
                     setImageBitmap(this.mBitmap);
                     play();
                 }
@@ -165,8 +165,8 @@ public class d extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bEK == null && this.mSupportNoImage) {
-            com.baidu.adp.lib.f.c.nm().a(this.mUrl, 33, this.bEO, 0, 0, false, null, new Object[0]);
+        if (this.bEN == null && this.mSupportNoImage) {
+            com.baidu.adp.lib.f.c.nm().a(this.mUrl, 33, this.bER, 0, 0, false, null, new Object[0]);
         } else if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this);
         }
@@ -185,12 +185,12 @@ public class d extends ImageView implements View.OnClickListener {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mHandler.removeMessages(1);
-        if (this.atW != null) {
-            this.atW.close();
-            this.atW = null;
+        if (this.atX != null) {
+            this.atX.close();
+            this.atX = null;
         }
-        if (this.bEK != null) {
-            this.bEK = null;
+        if (this.bEN != null) {
+            this.bEN = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();
@@ -203,12 +203,12 @@ public class d extends ImageView implements View.OnClickListener {
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.mHandler.removeMessages(1);
-        if (this.atW != null) {
-            this.atW.close();
-            this.atW = null;
+        if (this.atX != null) {
+            this.atX.close();
+            this.atX = null;
         }
-        if (this.bEK != null) {
-            this.bEK = null;
+        if (this.bEN != null) {
+            this.bEN = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();
@@ -220,7 +220,7 @@ public class d extends ImageView implements View.OnClickListener {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.atW != null) {
+        if (this.atX != null) {
             if (i == 4 || i == 8) {
                 stop();
             } else if (i == 0) {

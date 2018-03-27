@@ -9,10 +9,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.af;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
-    private b dRg = new b();
+    private b dRl = new b();
 
     public c() {
-        MU().bxM = this.dRg;
+        MV().bxP = this.dRl;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,11 +21,11 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c MT() {
+    public com.baidu.tbadk.mainTab.c MU() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
-        cVar.bxN = d.j.ala_live;
-        cVar.bxU = com.baidu.tbadk.mainTab.c.bxS;
+        cVar.bxQ = d.j.ala_live;
+        cVar.bxX = com.baidu.tbadk.mainTab.c.bxV;
         return cVar;
     }
 
@@ -37,26 +37,26 @@ public class c extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public e bi(Context context) {
-        this.bxD = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.bxD.setTextSize(2.0f);
-        return this.bxD;
+        this.bxG = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.bxG.setTextSize(2.0f);
+        return this.bxG;
     }
 
     public void setForumId(String str) {
-        if (this.dRg != null) {
-            this.dRg.setForumId(str);
+        if (this.dRl != null) {
+            this.dRl.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.dRg != null) {
-            this.dRg.setForumName(str);
+        if (this.dRl != null) {
+            this.dRl.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.dRg != null) {
-            this.dRg.setForumGameLabel(str);
+        if (this.dRl != null) {
+            this.dRl.setForumGameLabel(str);
         }
     }
 }

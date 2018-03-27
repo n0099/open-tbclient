@@ -15,8 +15,8 @@ import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes3.dex */
 public class a {
-    private l<byte[]> ccx;
-    private InterfaceC0154a dNO;
+    private l<byte[]> ccA;
+    private InterfaceC0154a dNT;
 
     /* renamed from: com.baidu.tieba.frs.game.strategy.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -25,19 +25,19 @@ public class a {
     }
 
     public a() {
-        this.ccx = null;
-        this.ccx = BdCacheService.mj().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.ccA = null;
+        this.ccA = BdCacheService.mj().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
     public void lR(final String str) {
-        if (this.ccx != null && str != null) {
+        if (this.ccA != null && str != null) {
             v.a(new u<GameForumGuideTabResIdl>() { // from class: com.baidu.tieba.frs.game.strategy.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.u
-                /* renamed from: axR */
+                /* renamed from: axT */
                 public GameForumGuideTabResIdl doInBackground() {
                     Wire wire = new Wire(new Class[0]);
-                    byte[] bArr = (byte[]) a.this.ccx.get(TbadkCoreApplication.getCurrentAccount() + str);
+                    byte[] bArr = (byte[]) a.this.ccA.get(TbadkCoreApplication.getCurrentAccount() + str);
                     if (bArr == null || bArr.length == 0) {
                         return null;
                     }
@@ -57,8 +57,8 @@ public class a {
                         List<f> bp = com.baidu.tieba.frs.game.strategy.message.a.bp(gameForumGuideTabResIdl.data.sub_tab_list);
                         List<i> bq = com.baidu.tieba.frs.game.strategy.message.a.bq(gameForumGuideTabResIdl.data.thread_list);
                         boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-                        if (a.this.dNO != null) {
-                            a.this.dNO.e(bp, bq, z);
+                        if (a.this.dNT != null) {
+                            a.this.dNT.e(bp, bq, z);
                         }
                     }
                 }
@@ -69,14 +69,14 @@ public class a {
     public void b(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.ccx.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, 604800000L);
+                this.ccA.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, 604800000L);
                 return;
             }
-            this.ccx.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, 604800000L);
+            this.ccA.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, 604800000L);
         }
     }
 
     public void a(InterfaceC0154a interfaceC0154a) {
-        this.dNO = interfaceC0154a;
+        this.dNT = interfaceC0154a;
     }
 }

@@ -24,7 +24,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.j((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.i(parcel.readBundle());
-            shareEntity.mq(parcel.readInt() != 0);
+            shareEntity.mv(parcel.readInt() != 0);
             return shareEntity;
         }
 
@@ -35,22 +35,22 @@ public class ShareEntity implements Parcelable {
             return new ShareEntity[i];
         }
     };
-    private Uri blo;
-    private Location blp;
-    private boolean blw;
-    private Bundle bly;
+    private Bundle blB;
+    private Uri blr;
+    private Location bls;
+    private boolean blz;
     private String content;
-    private int gPf;
+    private int gPv;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
     public void i(Bundle bundle) {
-        this.bly = bundle;
+        this.blB = bundle;
     }
 
-    public Bundle IW() {
-        return this.bly;
+    public Bundle IX() {
+        return this.blB;
     }
 
     public String getVideoUrl() {
@@ -86,31 +86,31 @@ public class ShareEntity implements Parcelable {
     }
 
     public String ya() {
-        return this.blo == null ? "" : this.blo.toString();
+        return this.blr == null ? "" : this.blr.toString();
     }
 
     public void j(Uri uri) {
-        this.blo = uri;
+        this.blr = uri;
     }
 
     public void setLocation(Location location) {
-        this.blp = location;
+        this.bls = location;
     }
 
-    public int bsh() {
-        return this.gPf;
+    public int bsi() {
+        return this.gPv;
     }
 
     public void uW(int i) {
-        this.gPf = i;
+        this.gPv = i;
     }
 
-    public boolean bsi() {
-        return this.blw;
+    public boolean bsj() {
+        return this.blz;
     }
 
-    public void mq(boolean z) {
-        this.blw = z;
+    public void mv(boolean z) {
+        this.blz = z;
     }
 
     @Override // android.os.Parcelable
@@ -123,11 +123,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gPf);
+        parcel.writeInt(this.gPv);
         parcel.writeString(this.videoUrl);
-        parcel.writeParcelable(this.blo, i);
-        parcel.writeParcelable(this.blp, i);
-        parcel.writeBundle(this.bly);
-        parcel.writeInt(this.blw ? 1 : 0);
+        parcel.writeParcelable(this.blr, i);
+        parcel.writeParcelable(this.bls, i);
+        parcel.writeBundle(this.blB);
+        parcel.writeInt(this.blz ? 1 : 0);
     }
 }

@@ -15,67 +15,67 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class b {
-    private TextView cqi;
-    private View eqL;
-    private c.a fFP;
-    private HeadImageView fGg;
-    private TbRichTextView fGh;
-    private ViewStub fGi;
-    private ImageView fGj;
+    private TextView cql;
+    private View erb;
+    private c.a fGf;
+    private HeadImageView fGw;
+    private TbRichTextView fGx;
+    private ViewStub fGy;
+    private ImageView fGz;
     private View rootView;
 
     public b(ViewStub viewStub, c.a aVar) {
-        this.fGi = viewStub;
-        this.fFP = aVar;
+        this.fGy = viewStub;
+        this.fGf = aVar;
     }
 
     private void initView() {
         if (this.rootView == null) {
-            this.rootView = this.fGi.inflate();
-            this.fGg = (HeadImageView) this.rootView.findViewById(d.g.chosen_pb_comment_head);
-            this.cqi = (TextView) this.rootView.findViewById(d.g.chosen_pb_comment_name);
-            this.fGh = (TbRichTextView) this.rootView.findViewById(d.g.chosen_pb_comment_content);
-            this.fGj = (ImageView) this.rootView.findViewById(d.g.chosen_pb_comment_reply);
-            this.eqL = this.rootView.findViewById(d.g.chosen_pb_comment_line);
-            this.fGh.setTextSize(TbConfig.getContentSize());
+            this.rootView = this.fGy.inflate();
+            this.fGw = (HeadImageView) this.rootView.findViewById(d.g.chosen_pb_comment_head);
+            this.cql = (TextView) this.rootView.findViewById(d.g.chosen_pb_comment_name);
+            this.fGx = (TbRichTextView) this.rootView.findViewById(d.g.chosen_pb_comment_content);
+            this.fGz = (ImageView) this.rootView.findViewById(d.g.chosen_pb_comment_reply);
+            this.erb = this.rootView.findViewById(d.g.chosen_pb_comment_line);
+            this.fGx.setTextSize(TbConfig.getContentSize());
             onChangeSkinType();
         }
     }
 
-    public void jJ(boolean z) {
+    public void jO(boolean z) {
         if (this.rootView != null) {
             this.rootView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType() {
-        aj.e(this.cqi, d.C0141d.cp_cont_f, 1);
-        aj.c(this.fGj, d.f.btn_comment_list);
-        aj.t(this.eqL, d.C0141d.cp_bg_line_b);
-        if (this.fGh != null) {
-            this.fGh.setTextColor(aj.getColor(d.C0141d.cp_cont_b));
+        aj.e(this.cql, d.C0141d.cp_cont_f, 1);
+        aj.c(this.fGz, d.f.btn_comment_list);
+        aj.t(this.erb, d.C0141d.cp_bg_line_b);
+        if (this.fGx != null) {
+            this.fGx.setTextColor(aj.getColor(d.C0141d.cp_cont_b));
         }
     }
 
     public boolean a(Context context, final Post post, User user) {
         if (post == null || user == null || post.content == null || post.content.isEmpty()) {
-            jJ(false);
+            jO(false);
             return false;
         }
         initView();
-        jJ(true);
-        this.cqi.setText(user.name_show);
-        this.fGj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.b.1
+        jO(true);
+        this.cql.setText(user.name_show);
+        this.fGz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (post != null && post.id != null && b.this.fFP != null) {
-                    b.this.fFP.qg(String.valueOf(post.id));
+                if (post != null && post.id != null && b.this.fGf != null) {
+                    b.this.fGf.qg(String.valueOf(post.id));
                 }
             }
         });
-        this.fGg.startLoad(user.portrait, 12, false);
-        this.fGh.setVisibility(0);
-        this.fGh.setText(TbRichTextView.a(context, post.content, false));
+        this.fGw.startLoad(user.portrait, 12, false);
+        this.fGx.setVisibility(0);
+        this.fGx.setText(TbRichTextView.a(context, post.content, false));
         return true;
     }
 }

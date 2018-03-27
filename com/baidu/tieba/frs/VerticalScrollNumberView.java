@@ -8,8 +8,8 @@ import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VerticalScrollNumberView extends LinearLayout {
-    private int dHO;
-    private int dHP;
+    private int dHT;
+    private int dHU;
     private Context mContext;
     private int mTextHeight;
     private int mTextWidth;
@@ -36,8 +36,8 @@ public class VerticalScrollNumberView extends LinearLayout {
         this.mContext = context;
         this.mTextWidth = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds30);
         this.mTextHeight = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds40);
-        this.dHO = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds2);
-        this.dHP = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds8);
+        this.dHT = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds2);
+        this.dHU = com.baidu.adp.lib.util.l.t(this.mContext, d.e.ds8);
     }
 
     public void setData(int i) {
@@ -54,10 +54,10 @@ public class VerticalScrollNumberView extends LinearLayout {
             if (getChildAt(childCount) instanceof ScrollTextView) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 if (i4 == 2) {
-                    layoutParams.setMargins(this.dHP, 0, 0, 0);
+                    layoutParams.setMargins(this.dHU, 0, 0, 0);
                     i4 = 0;
                 } else {
-                    layoutParams.setMargins(this.dHO, 0, 0, 0);
+                    layoutParams.setMargins(this.dHT, 0, 0, 0);
                     i4++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);

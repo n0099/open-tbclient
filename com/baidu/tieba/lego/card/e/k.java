@@ -6,13 +6,13 @@ import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface k<T extends ICardInfo> {
-    void aPZ();
-
     void aQa();
 
     void aQb();
 
     void aQc();
+
+    void aQd();
 
     void aT(Object obj);
 

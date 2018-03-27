@@ -11,52 +11,52 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c bpQ = new c();
-    private boolean bpL;
-    private int bpM;
-    private long bpN;
-    private final SparseArray<a> bpO;
-    private final HashSet<Integer> bpP;
-    private int bpR;
+    private static c bpT = new c();
+    private boolean bpO;
+    private int bpP;
+    private long bpQ;
+    private final SparseArray<a> bpR;
+    private final HashSet<Integer> bpS;
+    private int bpU;
 
-    public static c Kb() {
-        return bpQ;
+    public static c Kc() {
+        return bpT;
     }
 
     private c() {
         super(1001);
-        this.bpM = 3;
-        this.bpN = ReportUserInfoModel.TIME_INTERVAL;
-        this.bpO = new SparseArray<>();
-        this.bpP = new HashSet<>();
-        this.bpR = 0;
+        this.bpP = 3;
+        this.bpQ = ReportUserInfoModel.TIME_INTERVAL;
+        this.bpR = new SparseArray<>();
+        this.bpS = new HashSet<>();
+        this.bpU = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public boolean ht(int i) {
-        this.bpR = 0;
-        if (this.bpL) {
-            this.bpR = 3;
+        this.bpU = 0;
+        if (this.bpO) {
+            this.bpU = 3;
             return false;
-        } else if (this.bpP.contains(Integer.valueOf(i))) {
-            this.bpR = 6;
+        } else if (this.bpS.contains(Integer.valueOf(i))) {
+            this.bpU = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.bpR = 1;
+            this.bpU = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ky() > PingManager.Kf().Kh() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ky() > PingManager.Kg().Ki() + 20000) {
             i.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.bpR = 2;
+            this.bpU = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.bpO.get(i);
-            if (aVar != null && aVar.bpT) {
-                if (Math.abs(System.currentTimeMillis() - aVar.bpU) > this.bpN) {
+            a aVar = this.bpR.get(i);
+            if (aVar != null && aVar.bpW) {
+                if (Math.abs(System.currentTimeMillis() - aVar.bpX) > this.bpQ) {
                     aVar.reset();
                 } else {
-                    this.bpR = 4;
+                    this.bpU = 4;
                     return false;
                 }
             }
@@ -68,8 +68,8 @@ public class c extends com.baidu.adp.framework.listener.c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bpO.size()) {
-                this.bpO.valueAt(i2).reset();
+            if (i2 < this.bpR.size()) {
+                this.bpR.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -78,40 +78,40 @@ public class c extends com.baidu.adp.framework.listener.c {
     }
 
     public void hu(int i) {
-        a aVar = this.bpO.get(i);
+        a aVar = this.bpR.get(i);
         if (aVar == null) {
             aVar = new a();
-            this.bpO.append(i, aVar);
+            this.bpR.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.bpM);
+            aVar.onError(this.bpP);
         }
-        this.bpR = 5;
+        this.bpU = 5;
     }
 
     public void hv(int i) {
-        this.bpO.remove(i);
+        this.bpR.remove(i);
     }
 
     public void bW(boolean z) {
-        this.bpL = z;
+        this.bpO = z;
     }
 
     public void m(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.bpP.clear();
+            this.bpS.clear();
             for (int i : iArr) {
-                this.bpP.add(Integer.valueOf(i));
+                this.bpS.add(Integer.valueOf(i));
             }
         }
     }
 
     public void hw(int i) {
-        this.bpM = i;
+        this.bpP = i;
     }
 
     public void aa(long j) {
-        this.bpN = j;
+        this.bpQ = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -125,31 +125,31 @@ public class c extends com.baidu.adp.framework.listener.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int bpS;
-        public boolean bpT;
-        public long bpU;
+        public int bpV;
+        public boolean bpW;
+        public long bpX;
 
         private a() {
         }
 
         public void reset() {
-            this.bpS = 0;
-            if (this.bpT) {
-                this.bpT = false;
-                this.bpU = 0L;
+            this.bpV = 0;
+            if (this.bpW) {
+                this.bpW = false;
+                this.bpX = 0L;
             }
         }
 
         public void onError(int i) {
-            this.bpS++;
-            if (!this.bpT && this.bpS >= i) {
-                this.bpT = true;
-                this.bpU = System.currentTimeMillis();
+            this.bpV++;
+            if (!this.bpW && this.bpV >= i) {
+                this.bpW = true;
+                this.bpX = System.currentTimeMillis();
             }
         }
     }
 
-    public int Kc() {
-        return this.bpR;
+    public int Kd() {
+        return this.bpU;
     }
 }

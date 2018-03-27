@@ -22,7 +22,7 @@ public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> 
         this.text.setText(str);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.o
+    @Override // com.baidu.tieba.tbadkCore.p
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
         return true;

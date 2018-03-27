@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
-    private NavigationBar bVp;
+    private NavigationBar bVs;
     private SocialType socialType;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,9 +37,9 @@ public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
 
     protected void setupViews() {
         final SapiWebView sapiWebView = (SapiWebView) findViewById(d.g.sapi_webview);
-        this.bVp = (NavigationBar) findViewById(d.g.sapi_navi);
-        this.bVp.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bVp.setTitleText(getPageContext().getString(d.j.login));
+        this.bVs = (NavigationBar) findViewById(d.g.sapi_navi);
+        this.bVs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bVs.setTitleText(getPageContext().getString(d.j.login));
         com.baidu.tbadk.core.a.d.addCustomView(getPageContext().getPageActivity(), sapiWebView);
         sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.tieba.thirdparty.SocialLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
@@ -80,8 +80,8 @@ public class SocialLoginActivity extends BaseActivity<SocialLoginActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bVp != null) {
-            this.bVp.onChangeSkinType(getPageContext(), i);
+        if (this.bVs != null) {
+            this.bVs.onChangeSkinType(getPageContext(), i);
         }
     }
 }

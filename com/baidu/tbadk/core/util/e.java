@@ -16,9 +16,9 @@ public class e {
             }
         }
     };
-    private boolean aUK;
+    private boolean aUM;
 
-    public static e BQ() {
+    public static e BR() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void h(String str, int i, int i2) {
-        if (!this.aUK && str != null) {
+        if (!this.aUM && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.aUK = true;
+        this.aUM = true;
         cancel();
     }
 
     public void onResume() {
-        this.aUK = false;
+        this.aUM = false;
     }
 
     public static void cancel() {

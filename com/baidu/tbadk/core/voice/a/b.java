@@ -10,7 +10,7 @@ public class b {
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.gL(aVar.error_code);
-        } else if (!k.dz(k.BU() + "voice")) {
+        } else if (!k.dz(k.BV() + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.gL(aVar.error_code);
         } else {
@@ -36,9 +36,9 @@ public class b {
         return k.aa(str, k.b(str2, 1, true));
     }
 
-    public static synchronized void EN() {
+    public static synchronized void EO() {
         synchronized (b.class) {
-            File file = new File(k.BU() + "voice");
+            File file = new File(k.BV() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

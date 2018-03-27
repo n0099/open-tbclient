@@ -10,7 +10,7 @@ import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.i {
-    public static final BdUniqueId bqG = BdUniqueId.gen();
+    public static final BdUniqueId bqJ = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.i> mList;
 
     public List<com.baidu.adp.widget.ListView.i> getList() {
@@ -33,21 +33,21 @@ public class b implements com.baidu.adp.widget.ListView.i {
                         this.mList.add(aVar);
                     }
                 }
-                Ks();
+                Kt();
             }
         }
     }
 
-    private void Ks() {
+    private void Kt() {
         a aVar = new a();
-        aVar.bqD = -100;
-        aVar.bqE = TbadkCoreApplication.getInst().getResources().getString(d.j.ala_follow_live_enter_live_square_txt);
-        aVar.bqF = d.f.icon_follow_live_recommend;
+        aVar.bqG = -100;
+        aVar.bqH = TbadkCoreApplication.getInst().getResources().getString(d.j.ala_follow_live_enter_live_square_txt);
+        aVar.bqI = d.f.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return bqG;
+        return bqJ;
     }
 }

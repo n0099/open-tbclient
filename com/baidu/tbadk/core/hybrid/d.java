@@ -11,23 +11,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements i {
-    private final m aSN;
-    private final HashMap<String, Method> aSO = new HashMap<>();
+    private final m aSP;
+    private final HashMap<String, Method> aSQ = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(m mVar) {
-        this.aSN = mVar;
+        this.aSP = mVar;
         i(getClass());
-        if (this.aSO.isEmpty()) {
+        if (this.aSQ.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.aSN.getContext();
+        return this.aSP.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,19 +46,19 @@ public abstract class d implements i {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.aSN.a(n.c(str, hashMap));
+        this.aSP.a(n.c(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.aSO.get(str);
+        Method method = this.aSQ.get(str);
         if (method != null) {
             p pVar = (p) method.getAnnotation(p.class);
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!pVar.BC()) {
+                if (!pVar.BD()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
@@ -125,7 +125,7 @@ public abstract class d implements i {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.aSN.a(n.c(optString, hashMap));
+        this.aSP.a(n.c(optString, hashMap));
     }
 
     private void i(Class<? extends d> cls) {
@@ -137,14 +137,14 @@ public abstract class d implements i {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (pVar.BC() && !Void.TYPE.equals(method.getReturnType())) {
+                if (pVar.BD() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.aSO.put(value, method);
+                this.aSQ.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

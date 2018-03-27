@@ -20,41 +20,41 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class ApkDownloadView extends FrameLayout {
     private CustomMessageListener downloadListener;
-    private CustomMessageListener gDR;
-    private FeedAdProgressButton gIY;
-    private DownloadData gIl;
+    private CustomMessageListener gEh;
+    private DownloadData gIB;
+    private FeedAdProgressButton gJo;
 
     public ApkDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.gDR = null;
+        this.gEh = null;
         init(context);
     }
 
     public ApkDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.gDR = null;
+        this.gEh = null;
         init(context);
     }
 
     public ApkDownloadView(Context context) {
         super(context);
         this.downloadListener = null;
-        this.gDR = null;
+        this.gEh = null;
         init(context);
     }
 
     private void init(Context context) {
-        this.gIY = (FeedAdProgressButton) LayoutInflater.from(context).inflate(d.h.apk_download_view_layout, (ViewGroup) this, true).findViewById(d.g.feed_ad_operate_progress_button);
+        this.gJo = (FeedAdProgressButton) LayoutInflater.from(context).inflate(d.h.apk_download_view_layout, (ViewGroup) this, true).findViewById(d.g.feed_ad_operate_progress_button);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(DownloadData downloadData) {
         if (downloadData != null) {
-            this.gIl = (DownloadData) downloadData.clone();
-            if (this.gIl != null) {
-                setTag(this.gIl);
+            this.gIB = (DownloadData) downloadData.clone();
+            if (this.gIB != null) {
+                setTag(this.gIB);
                 s(downloadData);
             }
         }
@@ -68,10 +68,10 @@ public class ApkDownloadView extends FrameLayout {
                     return;
                 case 2:
                 case 7:
-                    this.gIY.aE(getResources().getString(d.j.go_on), v(downloadData));
+                    this.gJo.aE(getResources().getString(d.j.go_on), v(downloadData));
                     return;
                 case 3:
-                    this.gIY.setText(getResources().getString(d.j.install));
+                    this.gJo.setText(getResources().getString(d.j.install));
                     return;
                 case 4:
                 default:
@@ -80,14 +80,14 @@ public class ApkDownloadView extends FrameLayout {
                     uz(v(downloadData));
                     return;
                 case 6:
-                    this.gIY.setText(getResources().getString(d.j.install_app));
+                    this.gJo.setText(getResources().getString(d.j.install_app));
                     return;
             }
         }
     }
 
     public void t(DownloadData downloadData) {
-        this.gIY.aE(getResources().getString(d.j.go_on), v(downloadData));
+        this.gJo.aE(getResources().getString(d.j.go_on), v(downloadData));
     }
 
     public void h(DownloadData downloadData) {
@@ -95,12 +95,12 @@ public class ApkDownloadView extends FrameLayout {
     }
 
     public void u(DownloadData downloadData) {
-        this.gIY.setText(getResources().getString(d.j.install_app));
+        this.gJo.setText(getResources().getString(d.j.install_app));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uz(int i) {
-        this.gIY.setProgress(Math.max(0, i));
+        this.gJo.setProgress(Math.max(0, i));
     }
 
     public static int v(DownloadData downloadData) {
@@ -109,57 +109,57 @@ public class ApkDownloadView extends FrameLayout {
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = h.boq().al(downloadData.getId(), downloadData.getName());
+            process = h.bor().al(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
 
     public static int getStatus(DownloadData downloadData) {
         c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return (adAdSense == null || adAdSense.FA()) ? h.getStatus(downloadData) : com.baidu.tieba.recapp.download.d.getStatus(downloadData);
+        return (adAdSense == null || adAdSense.FB()) ? h.getStatus(downloadData) : com.baidu.tieba.recapp.download.d.getStatus(downloadData);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bpg();
+        bph();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bpf();
+        bpg();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bpf();
-        } else {
             bpg();
+        } else {
+            bph();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.gIY.onChangeSkinType();
-    }
-
-    private void bpf() {
-        if (this.downloadListener != null) {
-            MessageManager.getInstance().registerListener(this.downloadListener);
-        }
-        if (this.gDR != null) {
-            MessageManager.getInstance().registerListener(this.gDR);
-        }
+        this.gJo.onChangeSkinType();
     }
 
     private void bpg() {
         if (this.downloadListener != null) {
+            MessageManager.getInstance().registerListener(this.downloadListener);
+        }
+        if (this.gEh != null) {
+            MessageManager.getInstance().registerListener(this.gEh);
+        }
+    }
+
+    private void bph() {
+        if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
-        if (this.gDR != null) {
-            MessageManager.getInstance().unRegisterListener(this.gDR);
+        if (this.gEh != null) {
+            MessageManager.getInstance().unRegisterListener(this.gEh);
         }
     }
 
@@ -168,7 +168,7 @@ public class ApkDownloadView extends FrameLayout {
             this.downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Code restructure failed: missing block: B:13:0x0046, code lost:
-                    if (r5.gIZ.gIl.getId().equals(r1.getId()) != false) goto L16;
+                    if (r5.gJp.gIB.getId().equals(r1.getId()) != false) goto L16;
                  */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 /*
@@ -176,7 +176,7 @@ public class ApkDownloadView extends FrameLayout {
                 */
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     DownloadData downloadData;
-                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.gIl != null) {
+                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.gIB != null) {
                         List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                         int i = 0;
                         while (true) {
@@ -185,7 +185,7 @@ public class ApkDownloadView extends FrameLayout {
                                 break;
                             }
                             downloadData = data.get(i2);
-                            if (TextUtils.isEmpty(ApkDownloadView.this.gIl.getId())) {
+                            if (TextUtils.isEmpty(ApkDownloadView.this.gIB.getId())) {
                                 i = i2 + 1;
                             }
                         }
@@ -195,7 +195,7 @@ public class ApkDownloadView extends FrameLayout {
                             if (h.getStatus(downloadData) == 1) {
                                 ApkDownloadView.this.uz(w);
                             } else if (h.getStatus(downloadData) == 3) {
-                                ApkDownloadView.this.gIY.setText(ApkDownloadView.this.getResources().getString(d.j.install));
+                                ApkDownloadView.this.gJo.setText(ApkDownloadView.this.getResources().getString(d.j.install));
                             } else {
                                 ApkDownloadView.this.t(downloadData);
                             }
@@ -206,20 +206,20 @@ public class ApkDownloadView extends FrameLayout {
             };
             this.downloadListener.setTag(bdUniqueId);
         }
-        if (this.gDR == null) {
-            this.gDR = new CustomMessageListener(2016484) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
+        if (this.gEh == null) {
+            this.gEh = new CustomMessageListener(2016484) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && ApkDownloadView.this.gIl != null) {
+                    if (customResponsedMessage != null && ApkDownloadView.this.gIB != null) {
                         DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                        if (ApkDownloadView.this.gIl.getId() != null && downloadData != null && ApkDownloadView.this.gIl.getId().equals(downloadData.getId())) {
+                        if (ApkDownloadView.this.gIB.getId() != null && downloadData != null && ApkDownloadView.this.gIB.getId().equals(downloadData.getId())) {
                             ApkDownloadView.this.s(downloadData);
                         }
                     }
                 }
             };
-            this.gDR.setTag(bdUniqueId);
+            this.gEh.setTag(bdUniqueId);
         }
     }
 

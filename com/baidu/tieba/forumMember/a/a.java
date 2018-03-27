@@ -30,11 +30,11 @@ public class a extends g<b, c> {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
         if (cVar.mSkinType != this.mSkinType) {
             aj.t(cVar.getView(), d.C0141d.cp_bg_line_d);
-            aj.t(cVar.bQf, d.C0141d.cp_bg_line_b);
+            aj.t(cVar.bQi, d.C0141d.cp_bg_line_b);
             aj.e(cVar.title, d.C0141d.cp_cont_c, 1);
-            aj.t(cVar.dqj, d.C0141d.cp_bg_line_c);
+            aj.t(cVar.dqm, d.C0141d.cp_bg_line_c);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(d.j.forum_manito_num), Integer.valueOf(bVar.atP())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(d.j.forum_manito_num), Integer.valueOf(bVar.atQ())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

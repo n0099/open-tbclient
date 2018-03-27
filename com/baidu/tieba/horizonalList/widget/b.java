@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> elX = new ArrayList<>(5);
-    public int emb;
-    public int emc;
-    int emd;
+    private static ArrayList<b> emn = new ArrayList<>(5);
+    public int emr;
+    public int ems;
+    int emt;
     public int type;
 
-    private void Tb() {
-        this.emb = 0;
-        this.emc = 0;
-        this.emd = 0;
+    private void Tc() {
+        this.emr = 0;
+        this.ems = 0;
+        this.emt = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aDs() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.emb, this.emc) : ExpandableListView.getPackedPositionForGroup(this.emb);
+    public long aDt() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.emr, this.ems) : ExpandableListView.getPackedPositionForGroup(this.emr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b pa(int i) {
+    public static b pb(int i) {
         return z(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b z(int i, int i2, int i3, int i4) {
-        b aDt = aDt();
-        aDt.type = i;
-        aDt.emb = i2;
-        aDt.emc = i3;
-        aDt.emd = i4;
-        return aDt;
+        b aDu = aDu();
+        aDu.type = i;
+        aDu.emr = i2;
+        aDu.ems = i3;
+        aDu.emt = i4;
+        return aDu;
     }
 
-    private static b aDt() {
+    private static b aDu() {
         b bVar;
-        synchronized (elX) {
-            if (elX.size() > 0) {
-                bVar = elX.remove(0);
-                bVar.Tb();
+        synchronized (emn) {
+            if (emn.size() > 0) {
+                bVar = emn.remove(0);
+                bVar.Tc();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (elX) {
-            if (elX.size() < 5) {
-                elX.add(this);
+        synchronized (emn) {
+            if (emn.size() < 5) {
+                emn.add(this);
             }
         }
     }

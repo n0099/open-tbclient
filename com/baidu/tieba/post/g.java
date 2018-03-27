@@ -13,14 +13,14 @@ public class g {
             gVar.ib(context.getResources().getDimensionPixelSize(d.e.ds280));
             gVar.gW(str);
             gVar.j(view, z);
-            gVar.MQ();
+            gVar.MR();
             gVar.onChangeSkinType();
         }
     }
 
     private static boolean a(com.baidu.tbadk.j.g gVar) {
         if (gVar != null) {
-            return gVar.MI();
+            return gVar.MJ();
         }
         return false;
     }

@@ -15,53 +15,53 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
 public class f {
-    private IVideoConvertService hnV;
-    private String hnW;
-    private String hnX;
-    private File hnY;
-    private File hnZ;
-    private c hoa;
+    private IVideoConvertService hot;
+    private String hou;
+    private String hov;
+    private File how;
+    private File hox;
+    private c hoy;
     private Context mContext;
-    public static final String hnI = b.hnD;
+    public static final String hog = b.hob;
     private static final String TAG = f.class.getSimpleName();
-    private int hoc = -3;
-    private boolean hod = false;
-    private boolean hoe = false;
-    private int hof = 1;
-    private ServiceConnection hog = new ServiceConnection() { // from class: com.baidu.tieba.video.f.1
+    private int hoA = -3;
+    private boolean hoB = false;
+    private boolean hoC = false;
+    private int hoD = 1;
+    private ServiceConnection hoE = new ServiceConnection() { // from class: com.baidu.tieba.video.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            f.this.hnV = IVideoConvertService.Stub.asInterface(iBinder);
-            if (f.this.hoe) {
-                f.this.bAO();
+            f.this.hot = IVideoConvertService.Stub.asInterface(iBinder);
+            if (f.this.hoC) {
+                f.this.bAT();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (f.this.hoe) {
-                if (!f.this.hod && f.this.hoc == -3 && f.this.hoa != null) {
-                    f.this.hoa.onConvertFailed();
+            if (f.this.hoC) {
+                if (!f.this.hoB && f.this.hoA == -3 && f.this.hoy != null) {
+                    f.this.hoy.onConvertFailed();
                 }
-                f.this.hoe = false;
+                f.this.hoC = false;
             }
-            f.this.hnV = null;
+            f.this.hot = null;
         }
     };
-    private a hob = new a();
+    private a hoz = new a();
 
     public f(Context context) {
         this.mContext = context;
     }
 
     public void setConvertType(int i) {
-        this.hof = i;
+        this.hoD = i;
     }
 
     public void destroy() {
-        this.hod = true;
+        this.hoB = true;
         abortConvert();
-        bAN();
+        bAS();
     }
 
     private void startService() {
@@ -72,59 +72,59 @@ public class f {
         }
     }
 
-    private void Te() {
+    private void Tf() {
         if (this.mContext != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.mContext.bindService(intent, this.hog, 1);
+            this.mContext.bindService(intent, this.hoE, 1);
         }
     }
 
-    private void bAN() {
-        if (this.hnV != null && this.mContext != null) {
-            this.mContext.unbindService(this.hog);
+    private void bAS() {
+        if (this.hot != null && this.mContext != null) {
+            this.mContext.unbindService(this.hoE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bAO() {
+    public void bAT() {
         int i = -1;
         try {
-            this.hnV.setIVideoConvertListener(this.hob);
-            this.hnV.setConvertType(this.hof);
-            i = this.hnV.doConvert(this.hnW, this.hnX);
+            this.hot.setIVideoConvertListener(this.hoz);
+            this.hot.setConvertType(this.hoD);
+            i = this.hot.doConvert(this.hou, this.hov);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (this.hoa != null) {
+        if (this.hoy != null) {
             if (i == 0) {
-                this.hoa.bAL();
+                this.hoy.bAQ();
             } else {
-                this.hoa.wD(i);
+                this.hoy.wD(i);
             }
         }
     }
 
     public void ci(String str, String str2) {
-        this.hoe = true;
-        this.hod = false;
-        this.hoc = -3;
-        this.hnW = str;
-        this.hnX = str2;
-        this.hnY = new File(this.hnW);
-        this.hnZ = new File(this.hnX);
-        if (this.hnV == null) {
+        this.hoC = true;
+        this.hoB = false;
+        this.hoA = -3;
+        this.hou = str;
+        this.hov = str2;
+        this.how = new File(this.hou);
+        this.hox = new File(this.hov);
+        if (this.hot == null) {
             startService();
-            Te();
+            Tf();
             return;
         }
-        bAO();
+        bAT();
     }
 
     public boolean isConvertRunning() {
         try {
-            if (this.hnV != null) {
-                if (this.hnV.isConvertRunning()) {
+            if (this.hot != null) {
+                if (this.hot.isConvertRunning()) {
                     return true;
                 }
             }
@@ -135,9 +135,9 @@ public class f {
     }
 
     public void abortConvert() {
-        if (this.hnV != null) {
+        if (this.hot != null) {
             try {
-                this.hnV.abortConvert();
+                this.hot.abortConvert();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -152,39 +152,39 @@ public class f {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            f.this.hoc = 1;
-            if (f.this.hoa != null) {
-                f.this.hoa.onConvertSuccess();
+            f.this.hoA = 1;
+            if (f.this.hoy != null) {
+                f.this.hoy.onConvertSuccess();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (f.this.hoa != null) {
-                f.this.hoa.onConvertFailed();
+            if (f.this.hoy != null) {
+                f.this.hoy.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i) throws RemoteException {
-            if (f.this.hoa != null) {
-                f.this.hoa.onConvertProgress(i);
+            if (f.this.hoy != null) {
+                f.this.hoy.onConvertProgress(i);
             }
-            if ((f.this.hnY != null && !f.this.hnY.exists()) || (f.this.hnZ != null && !f.this.hnZ.exists())) {
+            if ((f.this.how != null && !f.this.how.exists()) || (f.this.hox != null && !f.this.hox.exists())) {
                 f.this.abortConvert();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (f.this.hoa != null) {
-                f.this.hoa.onConvertAborted();
+            if (f.this.hoy != null) {
+                f.this.hoy.onConvertAborted();
             }
         }
     }
 
     public void a(c cVar) {
-        this.hoa = cVar;
+        this.hoy = cVar;
     }
 
     public static String tC(String str) {
@@ -236,8 +236,8 @@ public class f {
         }
     }
 
-    public static boolean bAP() {
-        File file = new File(hnI);
+    public static boolean bAU() {
+        File file = new File(hog);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {
                 file.delete();

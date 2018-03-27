@@ -234,7 +234,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_Performance";
                     }
 
-                    @p(BC = false, value = "trackFPS")
+                    @p(BD = false, value = "trackFPS")
                     private void trackFPS() {
                         TbWebViewActivity.this.trackFPS();
                     }
@@ -249,7 +249,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_Share";
                     }
 
-                    @p(BC = false, value = "share")
+                    @p(BD = false, value = "share")
                     private void share(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optString("title");
@@ -278,7 +278,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_UISwitch";
                     }
 
-                    @p(BC = false, value = "viewHideSwitch")
+                    @p(BD = false, value = "viewHideSwitch")
                     private void viewHideSwitch(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optJSONObject("share").optString("value");
@@ -433,7 +433,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bxu();
+            this.jsBridge.bxz();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -510,7 +510,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = aw.Dt().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int b = aw.Du().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -617,7 +617,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            h.Bs().a(16, new k() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.8
+            h.Bt().a(16, new k() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.8
                 @Override // com.baidu.tbadk.core.hybrid.k
                 public void z(List<Long> list) {
                     if (list != null && list.size() != 0) {

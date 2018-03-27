@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class d {
-    public TbPageContext aRG;
-    protected AdvertAppInfo gHA;
-    protected final String gHy;
-    protected com.baidu.tieba.recapp.report.a gHz;
+    public TbPageContext aRI;
+    protected final String gHO;
+    protected com.baidu.tieba.recapp.report.a gHP;
+    protected AdvertAppInfo gHQ;
     protected final View mRootView;
 
     public d(View view, String str) {
         this.mRootView = view;
-        this.gHy = str;
+        this.gHO = str;
     }
 
     public void a(AdCard.e eVar) {
@@ -28,28 +28,28 @@ public class d {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void bpb() {
+    public void bpc() {
         this.mRootView.setVisibility(0);
-        if (this.gHz != null) {
-            this.gHz.us(303);
-            com.baidu.tieba.recapp.report.b.boW().a(this.gHz);
+        if (this.gHP != null) {
+            this.gHP.us(303);
+            com.baidu.tieba.recapp.report.b.boX().a(this.gHP);
         }
     }
 
-    public void bpc() {
+    public void bpd() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.a aVar) {
-        this.gHz = aVar;
+        this.gHP = aVar;
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.gHA = advertAppInfo;
+        this.gHQ = advertAppInfo;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.aRG = tbPageContext;
+        this.aRI = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {

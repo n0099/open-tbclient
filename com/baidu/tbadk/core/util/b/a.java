@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> aYR = new ArrayList<>();
-    private InterfaceC0099a aYS;
+    private ArrayList<String> aYT = new ArrayList<>();
+    private InterfaceC0099a aYU;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -25,24 +25,24 @@ public class a {
     }
 
     public void a(InterfaceC0099a interfaceC0099a) {
-        this.aYS = interfaceC0099a;
+        this.aYU = interfaceC0099a;
     }
 
-    public void DH() {
-        if (this.aYR != null) {
-            this.aYR.clear();
+    public void DI() {
+        if (this.aYT != null) {
+            this.aYT.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.aYR.add(str);
+            this.aYT.add(str);
         }
     }
 
     public boolean v(Activity activity) {
-        if (com.baidu.d.a.vB() && !v.E(this.aYR)) {
-            Iterator<String> it = this.aYR.iterator();
+        if (com.baidu.d.a.vB() && !v.E(this.aYT)) {
+            Iterator<String> it = this.aYT.iterator();
             while (it.hasNext()) {
                 if (!e(activity, it.next())) {
                     return true;
@@ -78,27 +78,27 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.aYS != null) {
-                    a.this.aYS.eJ(str);
+                if (a.this.aYU != null) {
+                    a.this.aYU.eJ(str);
                 }
             }
         }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.aYS != null) {
-                    a.this.aYS.eI(str);
+                if (a.this.aYU != null) {
+                    a.this.aYU.eI(str);
                 }
             }
         }).b(i.ak(activity));
-        aVar.AU();
+        aVar.AV();
         return false;
     }
 
     private void w(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.aYR.toArray(new String[this.aYR.size()]), 25040);
+                com.baidu.d.a.a.requestPermissions(activity, (String[]) this.aYT.toArray(new String[this.aYT.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

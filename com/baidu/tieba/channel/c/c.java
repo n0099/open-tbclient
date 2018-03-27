@@ -7,11 +7,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class c {
-    private static int ddl = -1;
+    private static int ddo = -1;
 
     public static final String bl(long j) {
         long j2 = 1000 * j;
-        return bm(j2) == amu() ? am.A(j2) : am.z(j2);
+        return bm(j2) == amv() ? am.A(j2) : am.z(j2);
     }
 
     private static final int bm(long j) {
@@ -20,11 +20,11 @@ public class c {
         return calendar.get(1);
     }
 
-    private static final int amu() {
-        if (ddl == -1) {
-            ddl = bm(System.currentTimeMillis());
+    private static final int amv() {
+        if (ddo == -1) {
+            ddo = bm(System.currentTimeMillis());
         }
-        return ddl;
+        return ddo;
     }
 
     public static void a(int i, String str, Class cls) {

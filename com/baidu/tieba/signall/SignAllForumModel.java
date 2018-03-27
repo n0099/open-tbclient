@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
-    private b gSC;
-    private h gSD;
-    private a gSE;
-    private c gSF;
+    private b gSS;
+    private h gST;
+    private a gSU;
+    private c gSV;
     public boolean isRunning;
 
     /* loaded from: classes3.dex */
@@ -22,47 +22,47 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     public SignAllForumModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.gSC = null;
-        this.gSD = null;
-        this.gSE = null;
-        this.gSD = new h();
+        this.gSS = null;
+        this.gST = null;
+        this.gSU = null;
+        this.gST = new h();
     }
 
     public void a(a aVar) {
-        this.gSE = aVar;
+        this.gSU = aVar;
     }
 
     public void d(c cVar) {
-        this.gSF = cVar;
+        this.gSV = cVar;
     }
 
-    public c btI() {
-        return this.gSF;
+    public c btJ() {
+        return this.gSV;
     }
 
-    private String btJ() {
-        ArrayList<d> btf = this.gSF.btf();
-        if (btf == null) {
+    private String btK() {
+        ArrayList<d> btg = this.gSV.btg();
+        if (btg == null) {
             return "";
         }
-        if (!this.gSF.btg()) {
+        if (!this.gSV.bth()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = btf.iterator();
+            Iterator<d> it = btg.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.btp() < this.gSF.getLevel()) {
+                if (next.btq() < this.gSV.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            btf.removeAll(arrayList);
+            btg.removeAll(arrayList);
         }
-        int size = btf.size();
+        int size = btg.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = btf.get(i);
-            if (dVar.bts()) {
-                if (!dVar.btt()) {
-                    dVar.mw(true);
+            d dVar = btg.get(i);
+            if (dVar.btt()) {
+                if (!dVar.btu()) {
+                    dVar.mB(true);
                 }
             }
             if (i > 0) {
@@ -76,24 +76,24 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.gSC != null) {
+        if (this.gSS != null) {
             return false;
         }
         String str = null;
-        this.gSC = new b();
-        boolean bsV = this.gSF.bsV();
-        if (!bsV) {
-            str = btJ();
+        this.gSS = new b();
+        boolean bsW = this.gSV.bsW();
+        if (!bsW) {
+            str = btK();
         }
-        this.gSC.my(bsV);
-        this.gSC.execute(str);
+        this.gSS.mD(bsW);
+        this.gSS.execute(str);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gSC != null) {
-            this.gSC.cancel();
+        if (this.gSS != null) {
+            this.gSS.cancel();
             return true;
         }
         return false;
@@ -101,19 +101,19 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Integer, h> {
-        private e gSG = null;
-        private boolean gSH = false;
+        private e gSW = null;
+        private boolean gSX = false;
 
         public b() {
             setPriority(3);
         }
 
-        public void my(boolean z) {
-            this.gSH = z;
+        public void mD(boolean z) {
+            this.gSX = z;
         }
 
-        public boolean btK() {
-            return this.gSH;
+        public boolean btL() {
+            return this.gSX;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -128,13 +128,13 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: A */
         public h doInBackground(String... strArr) {
-            if (!btK() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
+            if (!btL() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
                 return null;
             }
-            if (btK()) {
-                this.gSG = new e();
+            if (btL()) {
+                this.gSW = new e();
                 if (com.baidu.adp.lib.util.j.oJ()) {
-                    btL();
+                    btM();
                 }
             } else {
                 String[] split = strArr[0].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -149,41 +149,41 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                             sb.append(split[i2 + i3] + Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                     }
-                    this.gSG = new e();
+                    this.gSW = new e();
                     if (com.baidu.adp.lib.util.j.oJ()) {
                         su(sb.toString());
                     }
                 }
             }
-            return SignAllForumModel.this.gSD;
+            return SignAllForumModel.this.gST;
         }
 
-        private h btL() {
-            String btx = this.gSG.btx();
-            if (this.gSG.isRequestSuccess()) {
-                SignAllForumModel.this.gSD.parserJson(btx);
-                return SignAllForumModel.this.gSD;
+        private h btM() {
+            String bty = this.gSW.bty();
+            if (this.gSW.isRequestSuccess()) {
+                SignAllForumModel.this.gST.parserJson(bty);
+                return SignAllForumModel.this.gST;
             }
-            SignAllForumModel.this.gSD = null;
+            SignAllForumModel.this.gST = null;
             return null;
         }
 
         private h su(String str) {
-            String sq = this.gSG.sq(str);
-            if (this.gSG.isRequestSuccess()) {
-                SignAllForumModel.this.gSD.parserJson(sq);
-                return SignAllForumModel.this.gSD;
+            String sq = this.gSW.sq(str);
+            if (this.gSW.isRequestSuccess()) {
+                SignAllForumModel.this.gST.parserJson(sq);
+                return SignAllForumModel.this.gST;
             }
-            SignAllForumModel.this.gSD = null;
+            SignAllForumModel.this.gST = null;
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.gSG.cancel();
-            this.gSG = null;
-            SignAllForumModel.this.gSC = null;
+            this.gSW.cancel();
+            this.gSW = null;
+            SignAllForumModel.this.gSS = null;
             SignAllForumModel.this.isRunning = false;
         }
 
@@ -193,12 +193,12 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* renamed from: c */
         public void onPostExecute(h hVar) {
             SignAllForumModel.this.isRunning = false;
-            SignAllForumModel.this.gSC = null;
-            if (SignAllForumModel.this.gSE != null) {
-                if (SignAllForumModel.this.gSD != null) {
-                    SignAllForumModel.this.gSE.b(SignAllForumModel.this.gSD);
+            SignAllForumModel.this.gSS = null;
+            if (SignAllForumModel.this.gSU != null) {
+                if (SignAllForumModel.this.gST != null) {
+                    SignAllForumModel.this.gSU.b(SignAllForumModel.this.gST);
                 } else {
-                    SignAllForumModel.this.gSE.nr(this.gSG != null ? this.gSG.xm() : null);
+                    SignAllForumModel.this.gSU.nr(this.gSW != null ? this.gSW.xm() : null);
                 }
             }
         }

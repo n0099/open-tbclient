@@ -9,7 +9,7 @@ public final class c {
     private final byte[] a;
     private final int b;
     private int c;
-    private final OutputStream hYu;
+    private final OutputStream hYS;
 
     /* loaded from: classes2.dex */
     public static class a extends IOException {
@@ -19,14 +19,14 @@ public final class c {
     }
 
     private c(OutputStream outputStream, byte[] bArr) {
-        this.hYu = outputStream;
+        this.hYS = outputStream;
         this.a = bArr;
         this.c = 0;
         this.b = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
-        this.hYu = null;
+        this.hYS = null;
         this.a = bArr;
         this.c = i;
         this.b = i + i2;
@@ -37,7 +37,7 @@ public final class c {
     }
 
     public static int ac(int i, boolean z) {
-        return yK(i) + om(z);
+        return yK(i) + or(z);
     }
 
     public static int b(int i, com.google.protobuf.micro.a aVar) {
@@ -90,10 +90,10 @@ public final class c {
     }
 
     private void d() {
-        if (this.hYu == null) {
+        if (this.hYS == null) {
             throw new a();
         }
-        this.hYu.write(this.a, 0, this.c);
+        this.hYS.write(this.a, 0, this.c);
         this.c = 0;
     }
 
@@ -149,7 +149,7 @@ public final class c {
         return new c(bArr, i, i2);
     }
 
-    public static int om(boolean z) {
+    public static int or(boolean z) {
         return 1;
     }
 
@@ -171,7 +171,7 @@ public final class c {
     }
 
     public void a() {
-        if (this.hYu != null) {
+        if (this.hYS != null) {
             d();
         }
     }
@@ -248,7 +248,7 @@ public final class c {
     }
 
     public int b() {
-        if (this.hYu == null) {
+        if (this.hYS == null) {
             return this.b - this.c;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
@@ -286,7 +286,7 @@ public final class c {
         this.c = this.b;
         d();
         if (i5 > this.b) {
-            this.hYu.write(bArr, i4, i5);
+            this.hYS.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.a, 0, i5);

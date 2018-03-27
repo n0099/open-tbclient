@@ -14,53 +14,53 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    private VideoView huo;
-    private ProgressBar hup;
-    private TextView huq;
-    private a hur;
-    private Handler hus = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.video.player.a.b.1
+    private VideoView huM;
+    private ProgressBar huN;
+    private TextView huO;
+    private a huP;
+    private Handler huQ = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.video.player.a.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 201:
-                    b.this.bCO();
+                    b.this.bCT();
                     return;
                 case 202:
-                    b.this.akZ();
+                    b.this.ala();
                     return;
                 default:
                     return;
             }
         }
     };
-    private MediaPlayer.OnPreparedListener hut = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.player.a.b.2
+    private MediaPlayer.OnPreparedListener huR = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.player.a.b.2
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            b.this.huo.start();
-            b.this.hus.removeMessages(202);
-            b.this.hus.sendEmptyMessageDelayed(202, 100L);
+            b.this.huM.start();
+            b.this.huQ.removeMessages(202);
+            b.this.huQ.sendEmptyMessageDelayed(202, 100L);
         }
     };
-    private MediaPlayer.OnCompletionListener bTl = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.video.player.a.b.3
+    private MediaPlayer.OnCompletionListener bTo = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.video.player.a.b.3
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             if (mediaPlayer != null) {
                 mediaPlayer.setDisplay(null);
                 mediaPlayer.reset();
-                mediaPlayer.setDisplay(b.this.huo.getHolder());
+                mediaPlayer.setDisplay(b.this.huM.getHolder());
             }
-            b.this.hus.removeMessages(201);
-            b.this.bCQ();
-            if (b.this.hur != null) {
-                b.this.hur.bCL();
+            b.this.huQ.removeMessages(201);
+            b.this.bCV();
+            if (b.this.huP != null) {
+                b.this.huP.bCQ();
             }
         }
     };
-    private MediaPlayer.OnErrorListener bTm = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.player.a.b.4
+    private MediaPlayer.OnErrorListener bTp = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.player.a.b.4
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            if (b.this.hur != null) {
-                b.this.hur.bCK();
+            if (b.this.huP != null) {
+                b.this.huP.bCP();
                 return true;
             }
             return true;
@@ -69,87 +69,87 @@ public class b {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bCJ();
+        void bCO();
 
-        void bCK();
+        void bCP();
 
-        void bCL();
+        void bCQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCO() {
+    public void bCT() {
         boolean z;
         try {
-            z = this.huo.isPlaying();
+            z = this.huM.isPlaying();
         } catch (IllegalStateException e) {
             BdLog.e(e);
             z = false;
         }
         if (z) {
-            bCP();
+            bCU();
         }
-        this.hus.removeMessages(201);
-        this.hus.sendEmptyMessageDelayed(201, 100L);
+        this.huQ.removeMessages(201);
+        this.huQ.sendEmptyMessageDelayed(201, 100L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akZ() {
-        if (this.huo.getCurrentPosition() > 0) {
-            if (this.hur != null) {
-                this.hur.bCJ();
+    public void ala() {
+        if (this.huM.getCurrentPosition() > 0) {
+            if (this.huP != null) {
+                this.huP.bCO();
             }
-            bCP();
-            this.hus.removeMessages(202);
-            this.hus.removeMessages(201);
-            this.hus.sendEmptyMessageDelayed(201, 100L);
+            bCU();
+            this.huQ.removeMessages(202);
+            this.huQ.removeMessages(201);
+            this.huQ.sendEmptyMessageDelayed(201, 100L);
             return;
         }
-        this.hus.removeMessages(202);
-        this.hus.sendEmptyMessageDelayed(202, 100L);
+        this.huQ.removeMessages(202);
+        this.huQ.sendEmptyMessageDelayed(202, 100L);
     }
 
-    private void bCP() {
-        int currentPosition = this.huo.getCurrentPosition();
+    private void bCU() {
+        int currentPosition = this.huM.getCurrentPosition();
         if (currentPosition > 0) {
-            int duration = this.huo.getDuration();
-            this.huq.setText(TbadkCoreApplication.getInst().getString(d.j.video_play_times, new Object[]{Integer.valueOf(((duration - currentPosition) / 1000) + 1)}));
-            this.hup.setProgress((int) ((currentPosition * 100.0f) / duration));
+            int duration = this.huM.getDuration();
+            this.huO.setText(TbadkCoreApplication.getInst().getString(d.j.video_play_times, new Object[]{Integer.valueOf(((duration - currentPosition) / 1000) + 1)}));
+            this.huN.setProgress((int) ((currentPosition * 100.0f) / duration));
             return;
         }
-        bCQ();
+        bCV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCQ() {
-        this.huq.setText("");
-        this.hup.setProgress(0);
+    public void bCV() {
+        this.huO.setText("");
+        this.huN.setProgress(0);
     }
 
     public b(View view) {
         if (view != null) {
-            this.huo = (VideoView) view.findViewById(d.g.video_player_video_view);
-            this.hup = (ProgressBar) view.findViewById(d.g.video_player_progress);
-            this.huq = (TextView) view.findViewById(d.g.video_player_time);
-            this.huo.setOnPreparedListener(this.hut);
-            this.huo.setOnCompletionListener(this.bTl);
-            this.huo.setOnErrorListener(this.bTm);
-            this.huo.setClickable(false);
+            this.huM = (VideoView) view.findViewById(d.g.video_player_video_view);
+            this.huN = (ProgressBar) view.findViewById(d.g.video_player_progress);
+            this.huO = (TextView) view.findViewById(d.g.video_player_time);
+            this.huM.setOnPreparedListener(this.huR);
+            this.huM.setOnCompletionListener(this.bTo);
+            this.huM.setOnErrorListener(this.bTp);
+            this.huM.setClickable(false);
         }
     }
 
     public void a(a aVar) {
-        this.hur = aVar;
+        this.huP = aVar;
     }
 
     public void startPlay(String str) {
-        if (this.huo != null) {
-            this.huo.setVideoURI(Uri.parse(str));
+        if (this.huM != null) {
+            this.huM.setVideoURI(Uri.parse(str));
         }
     }
 
     public void release() {
-        this.huo.stopPlayback();
-        this.hus.removeMessages(201);
-        this.hus.removeMessages(202);
+        this.huM.stopPlayback();
+        this.huQ.removeMessages(201);
+        this.huQ.removeMessages(202);
     }
 }

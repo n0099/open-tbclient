@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0139a interfaceC0139a);
 
-    void and();
+    void ane();
 }

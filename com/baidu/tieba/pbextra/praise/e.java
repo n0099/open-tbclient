@@ -20,182 +20,182 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<PraiseListActivity> {
-    private ProgressBar ghA;
-    private c ghn;
-    private PraiseListActivity gho;
-    private View ghp;
-    private NavigationBar ghq;
-    private View ghr;
-    private h ghs;
-    private View ght;
-    private TextView ghu;
-    private BdListView ghv;
-    private View ghw;
-    private TextView ghx;
-    private TextView ghy;
-    private ProgressBar ghz;
+    private c ghD;
+    private PraiseListActivity ghE;
+    private View ghF;
+    private NavigationBar ghG;
+    private View ghH;
+    private h ghI;
+    private View ghJ;
+    private TextView ghK;
+    private BdListView ghL;
+    private View ghM;
+    private TextView ghN;
+    private TextView ghO;
+    private ProgressBar ghP;
+    private ProgressBar ghQ;
 
     public e(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.ghn = null;
-        this.gho = null;
-        this.ghp = null;
-        this.ghq = null;
-        this.ghr = null;
-        this.ghs = null;
-        this.ght = null;
-        this.ghu = null;
-        this.ghv = null;
-        this.ghw = null;
-        this.ghx = null;
-        this.ghy = null;
-        this.ghz = null;
-        this.ghA = null;
-        this.gho = praiseListActivity;
+        this.ghD = null;
+        this.ghE = null;
+        this.ghF = null;
+        this.ghG = null;
+        this.ghH = null;
+        this.ghI = null;
+        this.ghJ = null;
+        this.ghK = null;
+        this.ghL = null;
+        this.ghM = null;
+        this.ghN = null;
+        this.ghO = null;
+        this.ghP = null;
+        this.ghQ = null;
+        this.ghE = praiseListActivity;
         praiseListActivity.setContentView(d.h.zan_list_activity);
-        this.ghp = praiseListActivity.findViewById(d.g.zan_list_page_parent);
-        this.ghq = (NavigationBar) praiseListActivity.findViewById(d.g.zan_list_page_navigationbar);
-        this.ghr = praiseListActivity.findViewById(d.g.zan_list_page_frame);
-        this.ghs = NoDataViewFactory.a(this.gho.getPageContext().getContext(), this.ghp, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(this.gho.getActivity(), d.e.ds320)), NoDataViewFactory.d.gp(d.j.praise_list_no_data), null);
-        this.ghv = (BdListView) praiseListActivity.findViewById(d.g.zan_list_page_list);
-        TextView textView = new TextView(this.gho.getActivity());
+        this.ghF = praiseListActivity.findViewById(d.g.zan_list_page_parent);
+        this.ghG = (NavigationBar) praiseListActivity.findViewById(d.g.zan_list_page_navigationbar);
+        this.ghH = praiseListActivity.findViewById(d.g.zan_list_page_frame);
+        this.ghI = NoDataViewFactory.a(this.ghE.getPageContext().getContext(), this.ghF, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.t(this.ghE.getActivity(), d.e.ds320)), NoDataViewFactory.d.gp(d.j.praise_list_no_data), null);
+        this.ghL = (BdListView) praiseListActivity.findViewById(d.g.zan_list_page_list);
+        TextView textView = new TextView(this.ghE.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.ghv.addHeaderView(textView, 0);
-        this.ghz = (ProgressBar) praiseListActivity.findViewById(d.g.zan_list_page_progress);
-        this.ghn = new c(praiseListActivity);
-        this.ghv.setAdapter((ListAdapter) this.ghn);
-        this.ghv.setOnScrollListener(this.ghn);
-        this.ghq.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ghq.setTitleText("");
-        this.ght = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(d.h.zan_list_head, (ViewGroup) null);
-        this.ght.setOnClickListener(praiseListActivity);
-        this.ghu = (TextView) this.ght.findViewById(d.g.zan_list_head_text);
-        this.ghu.setText(str);
-        this.ght.setVisibility(8);
-        this.ghv.addHeaderView(this.ght);
-        this.ghw = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(d.h.zan_list_foot, (ViewGroup) null);
-        this.ghx = (TextView) this.ghw.findViewById(d.g.zan_list_foot_text_continue);
-        this.ghy = (TextView) this.ghw.findViewById(d.g.zan_list_foot_text_more);
-        this.ghA = (ProgressBar) this.ghw.findViewById(d.g.zan_list_foot_progress);
-        this.ghw.setVisibility(8);
-        this.ghx.setOnClickListener(praiseListActivity);
-        this.ghv.addFooterView(this.ghw);
-        this.ghv.setOnItemClickListener(praiseListActivity);
+        this.ghL.addHeaderView(textView, 0);
+        this.ghP = (ProgressBar) praiseListActivity.findViewById(d.g.zan_list_page_progress);
+        this.ghD = new c(praiseListActivity);
+        this.ghL.setAdapter((ListAdapter) this.ghD);
+        this.ghL.setOnScrollListener(this.ghD);
+        this.ghG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ghG.setTitleText("");
+        this.ghJ = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(d.h.zan_list_head, (ViewGroup) null);
+        this.ghJ.setOnClickListener(praiseListActivity);
+        this.ghK = (TextView) this.ghJ.findViewById(d.g.zan_list_head_text);
+        this.ghK.setText(str);
+        this.ghJ.setVisibility(8);
+        this.ghL.addHeaderView(this.ghJ);
+        this.ghM = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(d.h.zan_list_foot, (ViewGroup) null);
+        this.ghN = (TextView) this.ghM.findViewById(d.g.zan_list_foot_text_continue);
+        this.ghO = (TextView) this.ghM.findViewById(d.g.zan_list_foot_text_more);
+        this.ghQ = (ProgressBar) this.ghM.findViewById(d.g.zan_list_foot_progress);
+        this.ghM.setVisibility(8);
+        this.ghN.setOnClickListener(praiseListActivity);
+        this.ghL.addFooterView(this.ghM);
+        this.ghL.setOnItemClickListener(praiseListActivity);
     }
 
-    public void aJh() {
-        if (this.ghn != null) {
-            this.ghn.notifyDataSetChanged();
+    public void aJi() {
+        if (this.ghD != null) {
+            this.ghD.notifyDataSetChanged();
         }
     }
 
-    public void lo(boolean z) {
+    public void lt(boolean z) {
         if (z) {
-            this.ghA.setVisibility(0);
+            this.ghQ.setVisibility(0);
         } else {
-            this.ghz.setVisibility(0);
+            this.ghP.setVisibility(0);
         }
     }
 
-    public void bit() {
-        this.ghz.setVisibility(8);
-        this.ghA.setVisibility(8);
+    public void biu() {
+        this.ghP.setVisibility(8);
+        this.ghQ.setVisibility(8);
     }
 
-    public boolean Ek() {
-        return this.ghz.getVisibility() == 0 || this.ghA.getVisibility() == 0;
+    public boolean El() {
+        return this.ghP.getVisibility() == 0 || this.ghQ.getVisibility() == 0;
     }
 
     public void b(int i, List<a> list, int i2, int i3) {
         String format;
         String format2;
-        this.ghz.setVisibility(8);
-        this.ghA.setVisibility(8);
-        this.ght.setVisibility(0);
+        this.ghP.setVisibility(8);
+        this.ghQ.setVisibility(8);
+        this.ghJ.setVisibility(0);
         if (i > 0) {
-            switch (this.gho.pageType) {
+            switch (this.ghE.pageType) {
                 case 1:
-                    format2 = String.format(this.gho.getResources().getString(d.j.graffiti_list_title_count), am.J(i));
+                    format2 = String.format(this.ghE.getResources().getString(d.j.graffiti_list_title_count), am.J(i));
                     break;
                 default:
-                    format2 = String.format(this.gho.getResources().getString(d.j.praise_list_title_count), am.J(i));
+                    format2 = String.format(this.ghE.getResources().getString(d.j.praise_list_title_count), am.J(i));
                     break;
             }
-            this.ghq.setTitleText(format2);
+            this.ghG.setTitleText(format2);
         } else {
-            this.ghq.setTitleText("");
+            this.ghG.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            aA(null, this.gho.pageType);
+            aA(null, this.ghE.pageType);
             return;
         }
-        this.ghr.setVisibility(0);
-        this.ghs.setVisibility(8);
-        this.ghn.cZ(list);
-        this.ghn.notifyDataSetChanged();
+        this.ghH.setVisibility(0);
+        this.ghI.setVisibility(8);
+        this.ghD.cZ(list);
+        this.ghD.notifyDataSetChanged();
         switch (i2) {
             case 1001:
-                this.ghw.setVisibility(0);
-                this.ghx.setVisibility(0);
-                this.ghy.setVisibility(8);
+                this.ghM.setVisibility(0);
+                this.ghN.setVisibility(0);
+                this.ghO.setVisibility(8);
                 return;
             case 1002:
-                this.ghw.setVisibility(8);
+                this.ghM.setVisibility(8);
                 return;
             case 1003:
-                this.ghw.setVisibility(0);
-                aj.s(this.ghw, d.f.bg_pack);
-                this.ghx.setVisibility(8);
-                this.ghy.setVisibility(0);
-                switch (this.gho.pageType) {
+                this.ghM.setVisibility(0);
+                aj.s(this.ghM, d.f.bg_pack);
+                this.ghN.setVisibility(8);
+                this.ghO.setVisibility(0);
+                switch (this.ghE.pageType) {
                     case 1:
-                        format = String.format(this.gho.getResources().getString(d.j.graffiti_list_title_count), am.J(i));
+                        format = String.format(this.ghE.getResources().getString(d.j.graffiti_list_title_count), am.J(i));
                         break;
                     default:
-                        format = String.format(this.gho.getResources().getString(d.j.praise_item_more), am.J(i));
+                        format = String.format(this.ghE.getResources().getString(d.j.praise_item_more), am.J(i));
                         break;
                 }
-                this.ghy.setText(format);
+                this.ghO.setText(format);
                 return;
             default:
-                this.ghw.setVisibility(8);
+                this.ghM.setVisibility(8);
                 return;
         }
     }
 
     public void aA(String str, int i) {
-        this.ghz.setVisibility(8);
-        this.ghA.setVisibility(8);
-        this.ghr.setVisibility(8);
-        this.ghs.setVisibility(0);
+        this.ghP.setVisibility(8);
+        this.ghQ.setVisibility(8);
+        this.ghH.setVisibility(8);
+        this.ghI.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.ghs.setTextOption(NoDataViewFactory.d.eT(str));
+            this.ghI.setTextOption(NoDataViewFactory.d.eT(str));
         } else if (1 == i) {
-            this.ghs.setTextOption(NoDataViewFactory.d.gp(d.j.graffiti_list_no_data));
+            this.ghI.setTextOption(NoDataViewFactory.d.gp(d.j.graffiti_list_no_data));
         } else {
-            this.ghs.setTextOption(NoDataViewFactory.d.gp(d.j.praise_list_no_data));
+            this.ghI.setTextOption(NoDataViewFactory.d.gp(d.j.praise_list_no_data));
         }
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.aQ(i == 1);
-            cVar.aM(this.ghp);
-            cVar.aM(this.ght);
-            cVar.aM(this.ghw);
-            this.ghq.onChangeSkinType(this.gho.getPageContext(), i);
-            aj.s(this.ghw, d.f.bg_pack);
-            if (this.ghs != null) {
-                this.ghs.onChangeSkinType(this.gho.getPageContext(), i);
+            cVar.aM(this.ghF);
+            cVar.aM(this.ghJ);
+            cVar.aM(this.ghM);
+            this.ghG.onChangeSkinType(this.ghE.getPageContext(), i);
+            aj.s(this.ghM, d.f.bg_pack);
+            if (this.ghI != null) {
+                this.ghI.onChangeSkinType(this.ghE.getPageContext(), i);
             }
         }
     }
 
-    public View biu() {
-        return this.ght;
+    public View biv() {
+        return this.ghJ;
     }
 
-    public View biv() {
-        return this.ghx;
+    public View biw() {
+        return this.ghN;
     }
 }

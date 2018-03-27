@@ -13,32 +13,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int dDM;
-    protected static final int dDN;
-    protected static final int dDO;
-    protected com.baidu.tieba.tbadkCore.l dDP;
-    protected b dDQ;
-    protected com.baidu.adp.widget.ListView.k dDR;
-    protected int dDS;
-    protected e dDT;
-    private boolean dDU;
-    private boolean dDV;
+    protected static final int dDP;
+    protected static final int dDQ;
+    protected static final int dDR;
+    protected com.baidu.tieba.tbadkCore.m dDS;
+    protected b dDT;
+    protected com.baidu.adp.widget.ListView.k dDU;
+    protected int dDV;
+    protected e dDW;
+    private boolean dDX;
+    private boolean dDY;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        dDM = resources.getDimensionPixelSize(d.e.ds8);
-        dDN = resources.getDimensionPixelSize(d.e.ds16);
-        dDO = resources.getDimensionPixelSize(d.e.ds1);
+        dDP = resources.getDimensionPixelSize(d.e.ds8);
+        dDQ = resources.getDimensionPixelSize(d.e.ds16);
+        dDR = resources.getDimensionPixelSize(d.e.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.dDV = false;
+        this.dDY = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -46,7 +46,7 @@ public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.dDV = false;
+        this.dDY = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -61,12 +61,12 @@ public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.dDQ = null;
+        this.dDT = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.dDT != null) {
-            this.dDT.destory();
-            this.dDT = null;
+        if (this.dDW != null) {
+            this.dDW.destory();
+            this.dDW = null;
         }
     }
 
@@ -74,7 +74,7 @@ public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dDR = (com.baidu.adp.widget.ListView.k) viewGroup;
+        this.dDU = (com.baidu.adp.widget.ListView.k) viewGroup;
         return null;
     }
 
@@ -82,24 +82,24 @@ public abstract class g<T, V extends r.a> extends com.baidu.adp.widget.ListView.
         this.mIsFromCDN = z;
     }
 
-    public void b(com.baidu.tieba.tbadkCore.l lVar) {
-        this.dDP = lVar;
+    public void b(com.baidu.tieba.tbadkCore.m mVar) {
+        this.dDS = mVar;
     }
 
     public void a(b bVar) {
-        this.dDQ = bVar;
+        this.dDT = bVar;
     }
 
     public void mM(int i) {
-        this.dDS = i;
+        this.dDV = i;
     }
 
     public void a(e eVar) {
-        this.dDT = eVar;
+        this.dDW = eVar;
     }
 
-    public boolean auH() {
-        return this.dDU;
+    public boolean auI() {
+        return this.dDX;
     }
 
     public View i(ViewGroup viewGroup, int i) {

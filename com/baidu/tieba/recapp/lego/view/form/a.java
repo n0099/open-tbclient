@@ -15,34 +15,34 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes3.dex */
 public class a extends FormItemBaseView {
     private CheckBox Io;
-    private Button gFq;
-    private int gFr;
-    private String gFs;
+    private Button gFG;
+    private int gFH;
+    private String gFI;
 
     public a(Context context) {
         super(context);
         this.Io = null;
-        this.gFq = null;
-        this.gFr = 1;
-        this.gFs = "";
+        this.gFG = null;
+        this.gFH = 1;
+        this.gFI = "";
         init();
     }
 
     private void init() {
-        boC();
         boD();
+        boE();
         setBackgroundColor(0);
     }
 
     public String getPostUrl() {
-        return this.gFs;
+        return this.gFI;
     }
 
-    private void boC() {
+    private void boD() {
         this.Io = new CheckBox(this.mContext, null, d.k.form_check_box_style);
-        this.Io.setId(this.gFr);
+        this.Io.setId(this.gFH);
         this.Io.setTextSize(0, (int) this.mResources.getDimension(d.e.fontsize20));
-        this.Io.setTextColor(this.gFW);
+        this.Io.setTextColor(this.gGm);
         this.Io.setGravity(19);
         this.Io.setChecked(true);
         this.Io.setButtonDrawable((Drawable) null);
@@ -50,57 +50,57 @@ public class a extends FormItemBaseView {
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
-                    a.this.gFq.setClickable(true);
-                    a.this.gFq.setBackgroundResource(d.C0141d.form_button_bg_color_enable);
+                    a.this.gFG.setClickable(true);
+                    a.this.gFG.setBackgroundResource(d.C0141d.form_button_bg_color_enable);
                     return;
                 }
-                a.this.gFq.setClickable(false);
-                a.this.gFq.setBackgroundResource(d.C0141d.form_button_bg_color_unenable);
+                a.this.gFG.setClickable(false);
+                a.this.gFG.setBackgroundResource(d.C0141d.form_button_bg_color_unenable);
             }
         });
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.bottomMargin = this.gFR;
+        layoutParams.bottomMargin = this.gGh;
         addView(this.Io, layoutParams);
     }
 
-    private void boD() {
-        this.gFq = new Button(this.mContext);
-        this.gFq.setGravity(17);
-        this.gFq.setTextColor(this.gGa);
-        this.gFq.setTextSize(0, this.gFX);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gFS);
+    private void boE() {
+        this.gFG = new Button(this.mContext);
+        this.gFG.setGravity(17);
+        this.gFG.setTextColor(this.gGq);
+        this.gFG.setTextSize(0, this.gGn);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gGi);
         layoutParams.addRule(3, this.Io.getId());
-        this.gFq.setBackgroundDrawable(this.mResources.getDrawable(d.f.form_commit_button_selector));
-        addView(this.gFq, layoutParams);
+        this.gFG.setBackgroundDrawable(this.mResources.getDrawable(d.f.form_commit_button_selector));
+        addView(this.gFG, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
             FormCard.c cVar = (FormCard.c) bVar;
-            if (TextUtils.isEmpty(cVar.gDe)) {
+            if (TextUtils.isEmpty(cVar.gDu)) {
                 this.Io.setVisibility(8);
             } else {
                 this.Io.setVisibility(0);
-                this.Io.setTextSize(0, this.gFY);
+                this.Io.setTextSize(0, this.gGo);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.Io.getLayoutParams();
-                marginLayoutParams.bottomMargin = this.gFR;
-                marginLayoutParams.height = c(this.Io.getPaint(), cVar.gDe);
+                marginLayoutParams.bottomMargin = this.gGh;
+                marginLayoutParams.height = c(this.Io.getPaint(), cVar.gDu);
                 Drawable drawable = this.mResources.getDrawable(d.f.form_checkbox_selector);
-                drawable.setBounds(0, 0, this.gFP, this.gFP);
+                drawable.setBounds(0, 0, this.gGf, this.gGf);
                 this.Io.setCompoundDrawables(drawable, null, null, null);
-                this.Io.setCompoundDrawablePadding(this.gFP);
-                this.Io.setText(cVar.gDe);
+                this.Io.setCompoundDrawablePadding(this.gGf);
+                this.Io.setText(cVar.gDu);
             }
             String str = cVar.content;
             if (TextUtils.isEmpty(str)) {
                 str = this.mResources.getString(d.j.push_commit);
             }
-            this.gFq.getLayoutParams().height = this.gFS;
-            this.gFq.setPadding(0, 0, 0, 0);
-            this.gFq.setTextSize(0, this.gFX);
-            this.gFq.setText(str);
-            this.gFs = cVar.postUrl;
+            this.gFG.getLayoutParams().height = this.gGi;
+            this.gFG.setPadding(0, 0, 0, 0);
+            this.gFG.setTextSize(0, this.gGn);
+            this.gFG.setText(str);
+            this.gFI = cVar.postUrl;
             return true;
         }
         return false;
@@ -113,7 +113,7 @@ public class a extends FormItemBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.c.a
-    public boolean boE() {
+    public boolean boF() {
         return true;
     }
 
@@ -123,12 +123,12 @@ public class a extends FormItemBaseView {
     }
 
     public Button getCommitButton() {
-        return this.gFq;
+        return this.gFG;
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
-        this.gFq.setClickable(z);
+        this.gFG.setClickable(z);
         this.Io.setClickable(z);
     }
 }

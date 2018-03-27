@@ -7,46 +7,46 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private b gMn = null;
+    private b gMD = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gMn = new b(this);
+        this.gMD = new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gMn.onChangeSkinType(i);
+        this.gMD.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gMn.bqj()) {
-            this.gMn.bqo();
+        if (view == this.gMD.bqk()) {
+            this.gMD.bqp();
             TiebaStatic.log("c10649");
         }
-        if (view == this.gMn.bqk()) {
-            this.gMn.bqp();
+        if (view == this.gMD.bql()) {
+            this.gMD.bqq();
             TiebaStatic.log("c10653");
-        } else if (view == this.gMn.bql()) {
-            this.gMn.bqq();
-        } else if (view == this.gMn.bqm()) {
-            this.gMn.bqr();
-        } else if (view == this.gMn.bqn()) {
-            this.gMn.bqs();
+        } else if (view == this.gMD.bqm()) {
+            this.gMD.bqr();
+        } else if (view == this.gMD.bqn()) {
+            this.gMD.bqs();
+        } else if (view == this.gMD.bqo()) {
+            this.gMD.bqt();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.gMn.uS(1);
+            this.gMD.uS(1);
         } else {
-            this.gMn.uS(0);
+            this.gMD.uS(0);
         }
     }
 }

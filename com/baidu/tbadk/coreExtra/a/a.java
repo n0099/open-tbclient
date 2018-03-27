@@ -9,44 +9,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    public static Domain bgB = Domain.DOMAIN_ONLINE;
-    private static boolean bgC = true;
-    public static c bgD = null;
+    public static Domain bgE = Domain.DOMAIN_ONLINE;
+    private static boolean bgF = true;
+    public static c bgG = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (bgD == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
-            bgD = (c) runTask.getData();
+        if (bgG == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
+            bgG = (c) runTask.getData();
         }
     }
 
-    public static c EZ() {
-        return bgD;
+    public static c Fa() {
+        return bgG;
     }
 
-    public static boolean Fa() {
-        return bgC;
+    public static boolean Fb() {
+        return bgF;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            bgC = true;
+            bgF = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                bgC = false;
+                bgF = false;
             } else {
-                bgC = true;
+                bgF = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            bgC = false;
+            bgF = false;
         } else {
-            bgC = true;
+            bgF = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !bgC && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !bgF && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            bgC = true;
+            bgF = true;
         }
     }
 }

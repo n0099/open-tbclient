@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class y {
-    public long aMC;
     public long aMD;
-    public int aME;
-    public String aMF;
-    public long aMG;
+    public long aME;
+    public int aMF;
+    public String aMG;
     public long aMH;
-    public int aMI;
+    public long aMI;
     public int aMJ;
     public int aMK;
     public int aML;
+    public int aMM;
     public int accountType;
     public long beginTime;
     public String desc;

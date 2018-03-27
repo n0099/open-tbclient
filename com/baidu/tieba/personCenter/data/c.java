@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.i;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.data.b implements i {
-    public static BdUniqueId gji = BdUniqueId.gen();
+    public static BdUniqueId gjy = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.i
     public BdUniqueId getType() {
-        return gji;
+        return gjy;
     }
 }

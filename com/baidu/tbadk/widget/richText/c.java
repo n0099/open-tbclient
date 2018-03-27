@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bLn;
-    private int bLo;
+    private String bLq;
+    private int bLr;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,7 +44,7 @@ public class c extends ClickableSpan {
     }
 
     public void iV(int i) {
-        this.bLo = i;
+        this.bLr = i;
     }
 
     public void setColor(int i) {
@@ -60,7 +60,7 @@ public class c extends ClickableSpan {
     }
 
     public void hA(String str) {
-        this.bLn = str;
+        this.bLq = str;
     }
 
     public String getLink() {
@@ -77,13 +77,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bLo == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bLr == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = aj.getColor(d.C0141d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = aj.getColor(d.C0141d.cp_bg_line_z);
             }
-        } else if (this.bLo == 2) {
+        } else if (this.bLr == 2) {
             textPaint.bgColor = aj.getColor(d.C0141d.transparent);
         }
     }
@@ -92,7 +92,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bLn));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bLq));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

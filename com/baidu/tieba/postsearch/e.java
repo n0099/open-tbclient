@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    public String dCP;
-    private PostSearchActivity gxO;
-    private String gyh;
-    public ArrayList<String> gyq;
-    public int gyi = 0;
-    public int gyj = 0;
-    public int gyk = 1;
-    public int gyl = 1;
-    public int gym = 1;
-    public boolean gyn = false;
-    public boolean gyo = false;
-    public boolean gyp = false;
-    private int gyr = 0;
-    private final HttpMessageListener gys = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.e.1
+    public String dCS;
+    public ArrayList<String> gyG;
+    private PostSearchActivity gye;
+    private String gyx;
+    public int gyy = 0;
+    public int gyz = 0;
+    public int gyA = 1;
+    public int gyB = 1;
+    public int gyC = 1;
+    public boolean gyD = false;
+    public boolean gyE = false;
+    public boolean gyF = false;
+    private int gyH = 0;
+    private final HttpMessageListener gyI = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,45 +41,45 @@ public class e {
                 boolean z = e.this.uc(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    e.this.gxO.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    e.this.gye.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     e.this.ub(intValue);
-                    e.this.bna();
-                    e.this.bnd();
+                    e.this.bnb();
+                    e.this.bne();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = e.this.gxO.getResources().getString(d.j.neterror);
+                    errorString = e.this.gye.getResources().getString(d.j.neterror);
                 }
-                e.this.gxO.showToast(errorString);
-                e.this.gxO.a(intValue, null, z);
+                e.this.gye.showToast(errorString);
+                e.this.gye.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener gyt = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.e.2
+    private CustomMessageListener gyJ = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                e.this.gyq = (ArrayList) data;
-                e.this.gxO.bmM();
+                e.this.gyG = (ArrayList) data;
+                e.this.gye.bmN();
             }
         }
     };
 
     public e(PostSearchActivity postSearchActivity) {
-        this.gxO = postSearchActivity;
-        this.gxO.registerListener(this.gyt);
-        this.gxO.registerListener(this.gys);
+        this.gye = postSearchActivity;
+        this.gye.registerListener(this.gyJ);
+        this.gye.registerListener(this.gyI);
     }
 
     public boolean aC(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.dCP)) {
-            bnc();
+        if (!str.equals(this.dCS)) {
+            bnd();
         }
         switch (i) {
             case 1:
@@ -94,70 +94,70 @@ public class e {
     }
 
     public boolean rx(String str) {
-        if (this.gyn) {
+        if (this.gyD) {
             return false;
         }
-        this.dCP = str;
-        this.gyr = 1;
-        this.gxO.sendMessage(ua(this.gyr));
-        this.gyn = true;
+        this.dCS = str;
+        this.gyH = 1;
+        this.gye.sendMessage(ua(this.gyH));
+        this.gyD = true;
         return true;
     }
 
     public boolean ry(String str) {
-        if (this.gyo) {
+        if (this.gyE) {
             return false;
         }
-        this.dCP = str;
-        this.gyr = 2;
-        this.gxO.sendMessage(ua(this.gyr));
-        this.gyo = true;
+        this.dCS = str;
+        this.gyH = 2;
+        this.gye.sendMessage(ua(this.gyH));
+        this.gyE = true;
         return true;
     }
 
     public boolean rz(String str) {
-        if (this.gyp) {
+        if (this.gyF) {
             return false;
         }
-        this.dCP = str;
-        this.gyr = 3;
-        this.gxO.sendMessage(ua(this.gyr));
-        this.gyp = true;
+        this.dCS = str;
+        this.gyH = 3;
+        this.gye.sendMessage(ua(this.gyH));
+        this.gyF = true;
         return true;
     }
 
-    public void bmZ() {
-        this.gxO.sendMessage(new CustomMessage(2009001));
-    }
-
     public void bna() {
-        if (!StringUtils.isNull(this.dCP) && !this.dCP.equals(this.gyh)) {
-            this.gxO.sendMessage(new CustomMessage(2009003, this.dCP));
-            this.gyh = this.dCP;
-        }
+        this.gye.sendMessage(new CustomMessage(2009001));
     }
 
     public void bnb() {
-        if (this.gyq != null) {
-            this.gyq.clear();
+        if (!StringUtils.isNull(this.dCS) && !this.dCS.equals(this.gyx)) {
+            this.gye.sendMessage(new CustomMessage(2009003, this.dCS));
+            this.gyx = this.dCS;
         }
-        this.gxO.sendMessage(new CustomMessage(2009004));
     }
 
     public void bnc() {
-        this.gyk = 1;
-        this.gyl = 1;
-        this.gym = 1;
+        if (this.gyG != null) {
+            this.gyG.clear();
+        }
+        this.gye.sendMessage(new CustomMessage(2009004));
+    }
+
+    public void bnd() {
+        this.gyA = 1;
+        this.gyB = 1;
+        this.gyC = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnd() {
-        if (this.gyq == null) {
-            this.gyq = new ArrayList<>();
+    public void bne() {
+        if (this.gyG == null) {
+            this.gyG = new ArrayList<>();
         }
-        this.gyq.remove(this.dCP);
-        this.gyq.add(0, this.dCP);
-        di(this.gyq);
+        this.gyG.remove(this.dCS);
+        this.gyG.add(0, this.dCS);
+        di(this.gyG);
     }
 
     private void di(List<String> list) {
@@ -172,25 +172,25 @@ public class e {
 
     private HttpMessage ua(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.dCP);
+        httpMessage.addParam("word", this.dCS);
         httpMessage.addParam(LegoListActivityConfig.RN, 30);
-        httpMessage.addParam("kw", this.gxO.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.gyr));
+        httpMessage.addParam("kw", this.gye.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.gyH));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.gyk);
+                httpMessage.addParam("pn", this.gyA);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.gyl);
+                httpMessage.addParam("pn", this.gyB);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam("pn", this.gym);
+                httpMessage.addParam("pn", this.gyC);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class e {
     public void ub(int i) {
         switch (i) {
             case 1:
-                this.gyk++;
+                this.gyA++;
                 return;
             case 2:
-                this.gyl++;
+                this.gyB++;
                 return;
             case 3:
-                this.gym++;
+                this.gyC++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class e {
     public int uc(int i) {
         switch (i) {
             case 1:
-                return this.gyk;
+                return this.gyA;
             case 2:
-                return this.gyl;
+                return this.gyB;
             case 3:
-                return this.gym;
+                return this.gyC;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class e {
     public void ud(int i) {
         switch (i) {
             case 1:
-                this.gyn = false;
+                this.gyD = false;
                 return;
             case 2:
-                this.gyo = false;
+                this.gyE = false;
                 return;
             case 3:
-                this.gyp = false;
+                this.gyF = false;
                 return;
             default:
                 return;

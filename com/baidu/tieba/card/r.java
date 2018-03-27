@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private static r cYI;
-    private List<ak> bXf;
+    private static r cYL;
+    private List<ak> bXi;
 
-    public static r als() {
-        if (cYI == null) {
+    public static r alt() {
+        if (cYL == null) {
             synchronized (r.class) {
-                if (cYI == null) {
-                    cYI = new r();
+                if (cYL == null) {
+                    cYL = new r();
                 }
             }
         }
-        return cYI;
+        return cYL;
     }
 
     public void a(ak akVar) {
         if (akVar != null) {
-            if (this.bXf == null) {
-                this.bXf = new ArrayList();
+            if (this.bXi == null) {
+                this.bXi = new ArrayList();
             }
-            if (this.bXf != null) {
-                this.bXf.add(akVar);
+            if (this.bXi != null) {
+                this.bXi.add(akVar);
             }
         }
     }
 
     public void dk(boolean z) {
-        if (com.baidu.tbadk.core.util.v.D(this.bXf) != 0) {
-            for (ak akVar : this.bXf) {
+        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
+            for (ak akVar : this.bXi) {
                 if (akVar != null) {
                     int i = 0;
                     if (z) {
@@ -43,13 +43,13 @@ public class r {
                     TiebaStatic.log(akVar);
                 }
             }
-            this.bXf.clear();
+            this.bXi.clear();
         }
     }
 
     public void eO(boolean z) {
-        if (com.baidu.tbadk.core.util.v.D(this.bXf) != 0) {
-            for (ak akVar : this.bXf) {
+        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
+            for (ak akVar : this.bXi) {
                 if (akVar != null) {
                     int i = 0;
                     if (z) {
@@ -59,18 +59,18 @@ public class r {
                     TiebaStatic.log(akVar);
                 }
             }
-            this.bXf.clear();
+            this.bXi.clear();
         }
     }
 
-    public void VW() {
-        if (com.baidu.tbadk.core.util.v.D(this.bXf) != 0) {
-            for (ak akVar : this.bXf) {
+    public void VX() {
+        if (com.baidu.tbadk.core.util.v.D(this.bXi) != 0) {
+            for (ak akVar : this.bXi) {
                 if (akVar != null) {
                     TiebaStatic.log(akVar);
                 }
             }
-            this.bXf.clear();
+            this.bXi.clear();
         }
     }
 }

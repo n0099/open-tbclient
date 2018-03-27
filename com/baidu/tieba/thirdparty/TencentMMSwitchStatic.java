@@ -5,11 +5,11 @@ import com.baidu.adp.lib.b.d;
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 /* loaded from: classes2.dex */
 public class TencentMMSwitchStatic extends a {
-    public static final String[] hmL;
+    public static final String[] hnj;
 
     static {
         d.mA().f(TencentMMSwitchStatic.class);
-        hmL = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
+        hnj = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -23,7 +23,7 @@ public class TencentMMSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] mr() {
-        return hmL;
+        return hnj;
     }
 
     @Override // com.baidu.adp.lib.b.a

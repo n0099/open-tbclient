@@ -11,19 +11,19 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public final class g extends LinearLayout {
-    private LinearLayout bCr;
-    private TextView bMo;
-    private EditText dYP;
-    private TbImageView esR;
+    private LinearLayout bCu;
+    private TextView bMr;
+    private EditText dZg;
+    private TbImageView eti;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.dYP;
+        return this.dZg;
     }
 
     public void G(String str, boolean z) {
-        if (this.esR != null) {
-            this.esR.startLoad(str, z ? 17 : 18, false);
+        if (this.eti != null) {
+            this.eti.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -35,28 +35,28 @@ public final class g extends LinearLayout {
     private void bA(Context context) {
         LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.bCr = (LinearLayout) findViewById(d.g.share_content);
+        this.bCu = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
         aj.e(this.title, d.C0141d.cp_cont_b, 1);
-        this.dYP = (EditText) findViewById(d.g.chat_msg);
-        this.esR = (TbImageView) findViewById(d.g.chat_group_img);
-        this.bMo = (TextView) findViewById(d.g.chat_group_desc);
-        aj.e(this.dYP, d.C0141d.cp_cont_b, 2);
-        aj.e(this.bMo, d.C0141d.cp_cont_f, 1);
-        this.dYP.setHintTextColor(aj.getColor(d.C0141d.cp_cont_e));
-        this.dYP.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        aAT();
+        this.dZg = (EditText) findViewById(d.g.chat_msg);
+        this.eti = (TbImageView) findViewById(d.g.chat_group_img);
+        this.bMr = (TextView) findViewById(d.g.chat_group_desc);
+        aj.e(this.dZg, d.C0141d.cp_cont_b, 2);
+        aj.e(this.bMr, d.C0141d.cp_cont_f, 1);
+        this.dZg.setHintTextColor(aj.getColor(d.C0141d.cp_cont_e));
+        this.dZg.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        aAV();
     }
 
-    public void aAT() {
-        this.bCr.setFocusable(true);
-        this.bCr.setFocusableInTouchMode(true);
-        this.bCr.requestFocus();
+    public void aAV() {
+        this.bCu.setFocusable(true);
+        this.bCu.setFocusableInTouchMode(true);
+        this.bCu.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.bMo != null) {
-            this.bMo.setText(str);
+        if (this.bMr != null) {
+            this.bMr.setText(str);
         }
     }
 
@@ -67,8 +67,8 @@ public final class g extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.dYP != null) {
-            return k.a(this.dYP.getText(), null);
+        if (this.dZg != null) {
+            return k.a(this.dZg.getText(), null);
         }
         return null;
     }
